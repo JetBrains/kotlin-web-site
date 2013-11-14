@@ -28,7 +28,7 @@ Important: If running on OSX/Linux, please make sure you run *chmod* to give exe
     fun main(args: Array<String>) {
        println("Hello, World!")
     }
-    {% endhighlighting %}
+    {% endhighlight %}
 
 2. Compile the application using the JVM compiler
 
