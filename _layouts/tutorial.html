@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    {% include browser.html %}
+<html>
+    <head>
+        {% include head.html %}
+    </head>
+    <body>
+        {{ page.description }}
+
+
+        {{ content }}
+
+        <div class="footer">
+            <h4>Related</h4>
+                {% for post in site.posts %}
+
+                {% if page.related contains post.title %}
+
+                <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+                {% endif %}
+
+                {% endfor %}
+        </div>
+        {% include footer.html %}
+        {% include scripts.html %}
+    </body>
+</html>

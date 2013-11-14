@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+        {% include browser.html %}
+<html>
+    <head>
+        {% include head.html %}
+
+    </head>
+    <body>
+
+
+            {% for post in site.posts %}
+                {% if post.category == 'resources' %}
+            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+            {% endif %}
+            {% endfor %}
+
+
+    {% include footer.html %}
+    {% include scripts.html %}
+    </body>
+</html>

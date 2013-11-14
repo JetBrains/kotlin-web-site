@@ -1,0 +1,20 @@
+# Jekyll Settings
+name: Your New Jekyll Site
+markdown: RDiscount
+pygments: true
+baseurl: /kotlin-web-site
+
+
+permalink: /:categories/:title.html
+
+# Custom Settings
+latest_release_version: M6.1
+latest_release_github_url: https://github.com/JetBrains/kotlin/releases?after=build-0.6.860
+
+
+img_tutorial_root: assets/images/tutorials
+
+
+# Analytics and webmaster tools stuff goes here
+google_analytics:
+google_verify:
