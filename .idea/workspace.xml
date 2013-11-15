@@ -22,20 +22,40 @@
     <favorites_list name="site" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="2013-11-07-command-line.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-11-07-command-line.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="19" selection-start="1414" selection-end="1414" vertical-scroll-proportion="0.5889146" vertical-offset="0" max-vertical-offset="1343">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="2013-11-15-comparisons.md" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/_posts/faq/2013-11-15-comparisons.md">
+              <provider editor-type-id="MarkdownPreviewEditor">
+                <state />
+              </provider>
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="5" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="2013-11-07-command-line.md" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-11-07-command-line.md">
+              <provider editor-type-id="MarkdownPreviewEditor">
+                <state />
+              </provider>
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -45,22 +65,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_layouts/post.html" />
-        <option value="$PROJECT_DIR$/_layouts/docs.html" />
-        <option value="$PROJECT_DIR$/_layouts/tutorial-index.html" />
-        <option value="$PROJECT_DIR$/_layouts/tutorial.html" />
-        <option value="$PROJECT_DIR$/_layouts/doc-index.html" />
-        <option value="$PROJECT_DIR$/_layouts/resources-index.html" />
-        <option value="$PROJECT_DIR$/_layouts/faq-index.html" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-control-flow.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/packages.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-extension-functions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-operator-overloading.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-exceptions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-generics.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-annotations.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-idioms.md" />
+        <option value="$PROJECT_DIR$/_posts/faq/2013-11-15-faq-common.md" />
+        <option value="$PROJECT_DIR$/_posts/faq/2013-11-15-comparisons.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-grammar.md" />
         <option value="$PROJECT_DIR$/notes.txt" />
-        <option value="$PROJECT_DIR$/_layouts/default.html" />
-        <option value="$PROJECT_DIR$/index.md" />
-        <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/elements.txt" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md" />
-        <option value="$PROJECT_DIR$/_config.yml" />
-        <option value="$PROJECT_DIR$/_posts/tutorials/2013-11-07-command-line.md" />
       </list>
     </option>
   </component>
@@ -95,6 +115,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -159,23 +180,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="faq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotlin-web-site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_posts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="docs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotlin-web-site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="options.lastSelected" value="editing.templates" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -191,14 +243,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -209,15 +253,23 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -263,7 +315,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23898612" sideWeight="0.0" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23898612" sideWeight="0.0" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -291,97 +343,139 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_layouts/faq-index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="415" selection-end="415" vertical-scroll-proportion="0.40706956" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/resources-index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="49" selection-start="217" selection-end="217" vertical-scroll-proportion="0.21322691" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/tutorial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="234" selection-end="234" vertical-scroll-proportion="0.2713797" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/tutorial-index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="7" selection-start="296" selection-end="296" vertical-scroll-proportion="0.25199544" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/syntax.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="2" selection-start="131" selection-end="131" vertical-scroll-proportion="0.17445838" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="64" selection-end="64" vertical-scroll-proportion="0.096921325" vertical-offset="0" max-vertical-offset="877" />
+        <state line="5" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-packages.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="23" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.8870432" vertical-offset="1970" max-vertical-offset="2890" />
+        <state line="4" column="3" selection-start="53" selection-end="53" vertical-scroll-proportion="0.06841505" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-extension-functions.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="11" selection-start="462" selection-end="462" vertical-scroll-proportion="0.40706956" vertical-offset="0" max-vertical-offset="877" />
+        <state line="4" column="3" selection-start="64" selection-end="64" vertical-scroll-proportion="0.06841505" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="14" selection-start="73" selection-end="73" vertical-scroll-proportion="0.051311288" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-operator-overloading.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="3" selection-start="65" selection-end="65" vertical-scroll-proportion="0.06841505" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-exceptions.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="56" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-generics.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="14" selection-start="49" selection-end="49" vertical-scroll-proportion="0.051311288" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-annotations.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="36" selection-end="36" vertical-scroll-proportion="0.034207527" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="28" selection-start="45" selection-end="45" vertical-scroll-proportion="0.034207527" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-idioms.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="14" selection-start="47" selection-end="47" vertical-scroll-proportion="0.051311288" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/faq/2013-11-15-faq-common.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-grammar.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="14" selection-start="48" selection-end="48" vertical-scroll-proportion="0.051311288" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="14" selection-start="608" selection-end="608" vertical-scroll-proportion="0.33887044" vertical-offset="0" max-vertical-offset="903" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="59" selection-start="99" selection-end="99" vertical-scroll-proportion="0.056478404" vertical-offset="0" max-vertical-offset="903" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="18" selection-start="63" selection-end="63" vertical-scroll-proportion="0.03756906" vertical-offset="0" max-vertical-offset="905">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="10" selection-start="66" selection-end="66" vertical-scroll-proportion="0.11604095" vertical-offset="0" max-vertical-offset="879">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-11-07-getting-started.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="22" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.23441109" vertical-offset="307" max-vertical-offset="1173">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="13" selection-start="1522" selection-end="1522" vertical-scroll-proportion="0.5092379" vertical-offset="613" max-vertical-offset="1479">
+        <state line="13" column="29" selection-start="530" selection-end="530" vertical-scroll-proportion="0.21594684" vertical-offset="0" max-vertical-offset="903">
           <folding />
         </state>
       </provider>
@@ -391,7 +485,17 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="19" selection-start="1414" selection-end="1414" vertical-scroll-proportion="0.5889146" vertical-offset="0" max-vertical-offset="1343">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/faq/2013-11-15-comparisons.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
           <folding />
         </state>
       </provider>

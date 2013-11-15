@@ -14,9 +14,24 @@
 
             {{ content }}
 
-          <div class="footer">
+          <div id="related">
+              <h4>Related</h4>
+
+
+                {% for related in page.related %}
+
+              {% for post in site.posts %}
+
+              {% if related.title == post.title %}
+
+              <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+              {% endif %}
+            {% endfor %}
+              {% endfor %}
+
+          </div>
+
         </div>
-</div>
     {% include footer.html %}
     {% include scripts.html %}
     </body>

@@ -8,10 +8,10 @@ Tutorials
   A [something] application targeting JVM (something beyond HelloWorld)
   A [something] application targeting JavaScript
   Using Kotlin as a Scripting Language (?)
-  Interop with Java
   Working with KAnnotator
   Building Kotlin from Source
   Deep Dive into Collections
+  Creating Type-Safe Builders
   Interactive language tutorial (s)
 
 Language Walkthrough
@@ -19,19 +19,21 @@ Language Walkthrough
   Control Flow
   Packages, Scope and File Structure
   Classes
+  Inheritance
+  Traits
   Properties
   Functions
   Extension Functions
   Lambdas and High Order Functions
   Operator Overloading
-  Inheritance
-  Traits
   Null Safety
   Exceptions
   Generics
   Annotations
   Language Conventions
+  Java Interop
   Idioms and Patterns
+  Grammar
 
 FAQ
   Common Questions
