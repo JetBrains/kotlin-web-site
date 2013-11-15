@@ -25,13 +25,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="2013-11-15-comparisons.md" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/_posts/faq/2013-11-15-comparisons.md">
-              <provider editor-type-id="MarkdownPreviewEditor">
-                <state />
-              </provider>
+          <file leaf-file-name="events.yml" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/_data/events.yml">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="5" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
+                <state line="6" column="14" selection-start="180" selection-end="180" vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
                   <folding />
                 </state>
               </provider>
@@ -41,13 +38,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="2013-11-07-command-line.md" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-11-07-command-line.md">
+          <file leaf-file-name="events.md" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/events.md">
               <provider editor-type-id="MarkdownPreviewEditor">
                 <state />
               </provider>
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
+                <state line="8" column="104" selection-start="192" selection-end="192" vertical-scroll-proportion="0.1388889" vertical-offset="0" max-vertical-offset="864">
                   <folding />
                 </state>
               </provider>
@@ -65,8 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-control-flow.md" />
         <option value="$PROJECT_DIR$/_posts/docs/packages.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-extension-functions.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md" />
@@ -81,6 +76,8 @@
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-grammar.md" />
         <option value="$PROJECT_DIR$/notes.txt" />
+        <option value="$PROJECT_DIR$/_data/events.yml" />
+        <option value="$PROJECT_DIR$/events.md" />
       </list>
     </option>
   </component>
@@ -194,11 +191,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="_posts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
+              <option name="myItemId" value="_layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -212,7 +205,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="_layouts" />
+              <option name="myItemId" value="_data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -343,26 +336,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-packages.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="3" selection-start="53" selection-end="53" vertical-scroll-proportion="0.06841505" vertical-offset="0" max-vertical-offset="877">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-extension-functions.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -463,19 +436,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-grammar.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/notes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="14" selection-start="48" selection-end="48" vertical-scroll-proportion="0.051311288" vertical-offset="0" max-vertical-offset="877">
+        <state line="13" column="29" selection-start="530" selection-end="530" vertical-scroll-proportion="0.21594684" vertical-offset="0" max-vertical-offset="903">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notes.txt">
+    <entry file="file://$PROJECT_DIR$/_posts/faq/2013-11-15-comparisons.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="530" selection-end="530" vertical-scroll-proportion="0.21594684" vertical-offset="0" max-vertical-offset="903">
+        <state line="5" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
           <folding />
         </state>
       </provider>
@@ -490,12 +463,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/faq/2013-11-15-comparisons.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-grammar.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
+        <state line="5" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.085518815" vertical-offset="0" max-vertical-offset="877">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_data/events.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="14" selection-start="180" selection-end="180" vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/events.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="104" selection-start="192" selection-end="192" vertical-scroll-proportion="0.1388889" vertical-offset="0" max-vertical-offset="864">
           <folding />
         </state>
       </provider>
