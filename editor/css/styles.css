@@ -1,0 +1,17 @@
+.gutterHighlighting {
+    vertical-align: top;
+    width: .9em;
+}
+
+.red_wavy_line {
+    background: url(/static/icons/wavyline-red.gif) repeat-x 100% 100% !important;
+    padding-bottom: 2px;
+}
+
+.green_wavy_line {
+    background: url(/static/icons/wavyline-green.gif) repeat-x 100% 100% !important;
+    padding-bottom: 2px;
+}
+
+
+

@@ -1,0 +1,1293 @@
+/*
+ * Copyright 2000-2012 JetBrains s.r.o.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+    line-height: 1.5;
+    padding: 0 1em;
+}
+
+img {
+    border: 0;
+}
+
+h1 {
+    letter-spacing: -3px;
+    font-size: 3.23em;
+    font-weight: bold;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.23em;
+    font-weight: bold;
+    margin: .5em 0;
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: .4em 0;
+}
+
+pre {
+    background-color: #eee;
+    /*-moz-border-radius: 6px;*/
+    /*-webkit-border-radius: 6px;*/
+    /*border-radius: 6px;*/
+    /*padding: 1em;*/
+    margin: 0px;
+}
+
+pre.code {
+    margin: 0 1em;
+}
+
+.grey {
+    font-size: 2.2em;
+    padding: .5em 1em;
+    line-height: 1.2em;
+    margin-top: .5em;
+    position: relative;
+}
+
+img.logo {
+    position: absolute;
+    right: -25px;
+    bottom: 4px;
+}
+
+a:link, a:visited, .quasilink {
+    /*color: #df0019;*/
+    cursor: pointer;
+    /*text-decoration: none;*/
+}
+
+a:hover, .quasilink:hover {
+    color: blue;
+    /*color: #800004;*/
+}
+
+h1 a:link, h1 a:visited, h1 a:hover {
+    color: black;
+}
+
+ul {
+    margin: 0;
+    padding-left: 1.2em;
+}
+
+a.download {
+    color: white;
+    background-color: #df0019;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.23em;
+    font-weight: bold;
+    text-decoration: none;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    padding: .5em 0;
+    margin-bottom: 1em;
+}
+
+a.download:hover {
+    background-color: #bb0010;
+}
+
+.rel {
+    margin-bottom: 0;
+}
+
+.rel-note {
+    color: #777;
+    font-size: .9em;
+    margin-top: .1em;
+}
+
+.logo-braces {
+    color: #df0019;
+    position: relative;
+    top: -4px;
+}
+
+.blk {
+    float: left;
+}
+
+.left {
+    width: 37em;
+    padding-right: 6.53em;
+    padding-bottom: 1em;
+}
+
+.left1 {
+    width: 15.24em;
+    padding-right: 6.45em;
+}
+
+.left2 {
+    width: 15.24em;
+}
+
+.right {
+    width: 20.68em;
+}
+
+.leftbig {
+    width: 42.44em;
+    padding-right: 6.53em;
+}
+
+.rightsmall {
+    width: 15.24em;
+}
+
+.clear:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clear {
+    display: inline-block;
+    /**display:inline;*/
+}
+
+/* start commented backslash hack \*/
+* html .clear {
+    height: 1%;
+}
+
+.clear {
+    display: block;
+}
+
+body {
+    font-family: Arial, Helvetica, FreeSans, sans-serif;
+    font-size: 12px;
+    /*font-size: 12px;*/
+    color: #000000;
+    background-color: #FFFFFF;
+    /*line-height: 12px;*/
+}
+
+
+.ERROR {
+    color: #ff0000 !important;
+}
+
+.problemsViewError {
+    color: #ff0000 !important;
+    margin: 0;
+    vertical-align: top;
+}
+
+.newLineWarning {
+    color: #C0C0C0 !important;
+    margin: 0;
+    vertical-align: top;
+}
+
+.newLineWarning span {
+    vertical-align: top;
+}
+
+.problemsViewStacktrace {
+    margin: 0;
+    vertical-align: top;
+}
+
+.problemsViewWarning img, .problemsViewWarningNeverUsed img, .problemsViewError img {
+    margin-top: 0;
+    margin-bottom: -3px;
+    padding-right: 5px;
+}
+
+.problemsViewWarning {
+    margin: 0;
+    vertical-align: top;
+}
+
+.problemsViewWarningNeverUsed {
+    margin: 0;
+    vertical-align: top;
+    color: #808080 !important;
+}
+
+.WARNING {
+    background-color: #f6ebbc !important;
+}
+
+.lookupElementName {
+    float: left !important;
+}
+
+.lookupElementTail {
+    float: right !important;
+    padding-left: 20px;
+    margin-right: 5px;
+}
+
+.lookupElementIcon {
+    float: left !important;
+    padding-right: 10px;
+}
+
+.lookupElement {
+    padding: 0;
+    margin: 0;
+    height: 18px;
+    width: 500px;
+}
+
+.ERRORgutter {
+    background: url(/static/icons/errorGutter.png) no-repeat 95% 95% !important;
+    background-size: 13px;
+    float: left;
+}
+
+.WARNINGgutter {
+    background: url(/static/icons/warningGutter.png) no-repeat 95% 95% !important;
+    float: left;
+}
+
+#compilationResult {
+    white-space: pre;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.message_error {
+    color: #ff0000 !important;
+    margin: 0;
+    vertical-align: top;
+}
+
+.message_info {
+    color: #0000ff !important;
+    margin: 0;
+    vertical-align: top;
+}
+
+.ui-accordion-content a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.STACKTRACE {
+
+}
+
+body {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#maindiv {
+    /*position: absolute;*/
+    overflow: auto;
+    /*margin: 0;*/
+    width: 100%;
+    /*width: 1246px;*/
+    height: 100%;
+    /*height: 790px;*/
+    margin: auto;
+}
+
+#left, #center, #right {
+    display: inline-block;
+    overflow-x: auto;
+    float: left;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    min-height: 800px;
+    height: 100%;
+}
+
+#left {
+    /*width: 20%;*/
+    /**width: 230px;*/
+    width: 290px;
+    margin-left: 5px;
+    /*width: 220px;*/
+    /*margin-left: 1px;*/
+    border: 1px solid #EEEEEE;
+    /*border-top: 1px solid #EEEEEE;*/
+    /*border-bottom: 1px solid #EEEEEE;*/
+    font-family: Arial, Helvetica, FreeSans, sans-serif;
+    font-size: 12px;
+    /*width: 220px;*/
+    /*display: block;*/
+    /*float: left;*/
+}
+
+#center {
+    /*width: 60%;*/
+    /*width: 800px;*/
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+
+    /*float: left;*/
+    /*display: block;*/
+}
+
+#right {
+    /*width: 19%;*/
+    width: 290px;
+    /*width: 220px;*/
+    margin-right: 5px;
+
+    border: 1px solid #EEEEEE;
+    /*border-top: 1px solid #EEEEEE;*/
+    /*border-right: 1px solid #EEEEEE;*/
+    font-family: Arial, Helvetica, FreeSans, sans-serif;
+    font-size: 12px;
+    /*display: block;*/
+    /*margin-left: 60%;*/
+
+}
+
+/*#left, #center, #right {
+    *//*display: inline;*//*
+    *//*float: left;*//*
+    margin-top: 1px;
+    margin-bottom: 1px;
+    min-height: 790px;
+}
+
+#twolast {
+    display: block;
+}
+
+#left {
+    *//*width: 19%;*//*
+    margin-left: 1px;
+    border-left: 1px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    margin-top: 2px;
+    width: 220px;
+    display: block;
+    float: left;
+}
+
+#center {
+    width: 60%;
+    border: 1px solid #EEEEEE;
+
+    float: left;
+    display: block;
+}
+
+#right {
+    *//*width: 19%;*//*
+    margin-right: 1px;
+    border-bottom: 1px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
+    margin-top: 2px;
+    display: block;
+    margin-left: 60%;
+
+}*/
+
+#editordiv {
+    margin: 5px;
+    /*height: 460px;*/
+    /**height: 470px;*/
+}
+
+#editortitle, #argstitle {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+#editortitle {
+    /*float: left;*/
+    height: 40px;
+}
+
+#editorinput {
+    margin: 1px;
+}
+
+#editortitle span {
+    float: left;
+}
+
+#editortitle img {
+    margin-top: 3px;
+}
+
+#argsdiv {
+    margin-top: 5px;
+    height: 30px;
+    width: 100%;
+}
+
+#arguments {
+    /*height: 20px;*/
+    /**heigth: 18px;*/
+    border: 1px solid #eee;
+    width: 90%;
+    margin-left: 5px;
+    resize: none;
+}
+
+#argstitle {
+    margin-top: 2px;
+    width: 75px;
+    float: left;
+    height: 20px;
+}
+
+#argsbutton {
+    float: left;
+    margin-left: 5px;
+    width: 71px;
+    /*margin-top: 5px;*/
+    cursor: pointer;
+}
+
+#rundiv {
+    background-color: #f7f7f7;
+    padding-left: 15px;
+    font-weight: bold;
+    line-height: 12px;
+    height: 37px;
+}
+
+#rundiv table td {
+    padding-right: 10px;
+}
+
+#runTitle {
+    /*float: left;*/
+    /*width: 30px;*/
+    margin-top: 10px;
+}
+
+#run {
+    cursor: pointer;
+}
+
+#runConfigurationMode-button {
+    background-color: white;
+}
+
+#refreshTitle {
+    float: left;
+    width: 90px;
+    margin-top: 2px;
+}
+
+#refreshImg {
+    float: left;
+    margin-left: 5px;
+    width: 51px;
+    /*margin-top: 5px;*/
+    cursor: pointer;
+}
+
+#argsinput {
+    resize: none;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#statusbar {
+    font-size: 12px;
+    color: #C0C0C0;
+    height: 20px;
+    margin-left: 5px;
+}
+
+#consoleandproblems {
+    color: #000000;
+    background-color: #FFFFFF;
+    line-height: 12px;
+    /*height: 100px;*/
+    margin: 5px;
+}
+
+#console a {
+    color: blue;
+}
+
+#console {
+    font-family: monospace;
+}
+
+#console, #problems {
+    height: 160px;
+    overflow-y: auto;
+    white-space: pre;
+    padding: 5px !important;
+}
+
+.problemsViewError span {
+    word-wrap: break-word;
+}
+
+#leftcontent {
+    display: block;
+    float: left;
+    width: 100%;
+    /*width: 98%;*/
+}
+
+#examplesbutton {
+    float: left;
+
+}
+
+#examplesaccordion {
+    /*margin-left: 20px;*/
+    margin: 5px;
+    *width: 280px;
+    /*width: 96%;*/
+}
+
+#rightcontent {
+    display: block;
+    float: right;
+    /*width: 98%;*/
+}
+
+#helpbutton {
+    float: right;
+}
+
+#helpcontent a:hover {
+    padding: 0;
+}
+
+#helpcontent {
+    /*float: left;*/
+    width: 100%;
+}
+
+.ui-widget-content p {
+    margin: 5px;
+}
+
+.ui-accordion-content {
+    padding: 0 5px 5px 5px !important;
+}
+
+.help {
+    border: 1px solid #EEEEEE;
+    /*height: 189px;*/
+    margin: 5px;
+    padding: 3px;
+    word-wrap: break-word;
+    text-align: justify;
+    text-align-last: justify;
+    /*color: #AAAAAA;*/
+}
+
+.help pre {
+    word-wrap: break-word;
+}
+
+#lefttitle, #centraltitle {
+    /*border: 1px solid #EEEEEE;*/
+    /*border-radius: 4px;*/
+    background-color: #f7f7f7;
+    padding-left: 15px;
+    font-weight: bold;
+    line-height: 12px;
+    height: 21px;
+}
+
+.titleHeader {
+    background-color: #f7f7f7;
+    padding-left: 15px;
+    font-weight: bold;
+    line-height: 12px;
+    height: 21px;
+    padding-top: 5px;
+}
+
+#centraltitle {
+    padding-left: 0;
+    height: 26px;
+}
+
+#centraltitle img {
+    cursor: pointer;
+    padding-top: 3px;
+}
+
+#help1, #help2 {
+    text-align: left !important;
+    margin: 5px 5px 10px 5px;
+}
+
+.services li.selected {
+    background-color: grey;
+}
+
+#help3 {
+    margin: 5px 5px 10px 5px;
+    text-align: left;
+}
+
+.helpTitle {
+    padding: 5px 10px 0 10px;
+    margin: 0;
+}
+
+#lefttitle, #righttitle {
+    padding-top: 5px;
+}
+
+.selectedExample {
+    background-color: #F7F7F7;
+    border: 1px solid #EEEEEE;
+    border-radius: 4px;
+    padding: 0 3px;
+    margin-left: 1px;
+    /*font-weight: bold;*/
+}
+
+#footer {
+    text-align: center;
+    color: grey;
+}
+
+#kotlinlogo {
+    width: 63px;
+    /*height: 146px;*/
+}
+
+#header {
+    /*background-color: #5D71B8;*/
+    line-height: 0px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+#headertitle {
+    width: 50%;
+    color: #5D71B8;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, FreeSans, sans-serif;
+}
+
+#kotlinVersionTop {
+    color: #5D71B8;
+    font-size: 11px;
+    vertical-align: super;
+    font-family: Arial, Helvetica, FreeSans, sans-serif;
+}
+
+#headerlinks {
+    width: 40%;
+    text-align: right;
+    /*float: right;*/
+    padding-right: 30px;
+}
+
+#headerlinks a {
+    /*color: white;*/
+    padding-right: 10px;
+}
+
+#jetbrainslogo {
+    width: 130px;
+}
+
+#myapplet {
+    width: 0;
+    height: 0;
+}
+
+#loader {
+    width: 100%;
+    height: 100%;
+    /*vertical-align: middle;*/
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    z-index: 1000;
+    /*background: url(/images/ajax-loader.gif) top center no-repeat;*/
+}
+
+#loader img {
+    padding-top: 15%;
+}
+
+.editortitletext {
+    padding-top: 10px;
+}
+
+#editortitleswitchtext {
+    float: right;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+#editortitletext {
+    float: left;
+    /*padding-top: 10px;*/
+}
+
+#switchtable {
+    /*float: right;*/
+    /*width: 60%;*/
+    margin: auto;
+}
+
+#whatisitRunConf span {
+    margin-left: 50px;
+    margin-right: 3px;
+    padding-top: 5px;
+}
+
+#whatisitRunConf img {
+    margin-top: 0;
+    float: left;
+}
+
+#whatisitRunConf {
+    font-size: 10px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+#whatisit span {
+    margin-left: 50px;
+    margin-right: 3px;
+    padding-top: 5px;
+}
+
+#whatisit img {
+    margin-top: 0;
+    float: left;
+}
+
+#whatisit {
+    font-size: 10px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+#dialog, #saveDialog {
+    display: none;
+}
+
+p.dialogPbordered {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px !important;
+}
+
+#appletonoff {
+    /*float: right;*/
+    width: 170px;
+}
+
+/*On/of button*/
+.applet-enable, .applet-disable, .applet-nohighlighting,
+.applet-enable span, .applet-disable span, .applet-nohighlighting span {
+    background: url(/static/images/switch2.gif) repeat-x;
+    display: block;
+    float: left;
+}
+
+.applet-enable span, .applet-disable span, .applet-nohighlighting span {
+    line-height: 20px;
+    display: block;
+    background-repeat: no-repeat;
+    font-weight: bold;
+}
+
+.applet-nohighlighting span {
+    background-position: left -60px;
+    padding: 0 10px;
+}
+
+.applet-nohighlighting.selected {
+    background-position: 0 -40px;
+}
+
+.applet-nohighlighting.selected span {
+    background-position: left -100px;
+    color: #fff;
+}
+
+.applet-disable.rightServer span {
+    background-position: right -180px;
+    padding: 0 10px;
+}
+
+.applet-disable.leftServer span {
+    background-position: left -200px;
+    padding: 0 10px;
+}
+
+.applet-disable.selected {
+    background-position: 0 -20px;
+}
+
+.applet-disable.selected span {
+    background-position: right -20px;
+    color: #fff;
+}
+
+.applet-enable span {
+    background-position: right -120px;
+    padding: 0 10px;
+}
+
+.applet-enable.selected {
+    background-position: 0 -20px;
+}
+
+.applet-enable.selected span {
+    background-position: right -140px;
+    color: #fff;
+}
+
+.switch label {
+    cursor: pointer;
+}
+
+.switch input {
+    display: none;
+}
+
+#jsonoff {
+    float: right;
+    padding-left: 10px;
+}
+
+.tooltip {
+    background-color: #F7F7F7;
+    color: red;
+}
+
+#removeallgutters {
+    width: 20px;
+    cursor: pointer;
+    height: 16px;
+}
+
+td#removeallguttersTd {
+    width: 20px !important;
+    padding-top: 5px;
+    vertical-align: top;
+}
+
+.scrollSize {
+    height: 500px;
+}
+
+#tabs {
+    position: relative;
+    height: 210px;
+    /*padding-bottom: 3em;*/
+}
+
+#tabs .ui-tabs-nav {
+    position: absolute;
+    left: 0.25em;
+    right: 0.25em;
+    bottom: 0.25em;
+    padding: 0 0.2em 0.2em;
+}
+
+#tabs .ui-tabs-nav li {
+    border-top: none;
+    border-bottom-width: 1px !important;
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+}
+
+#tabs .ui-tabs-nav li.ui-tabs-selected {
+    top: -1px;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 5px;
+}
+
+#shortcuts {
+    padding-top: 8px;
+    padding-left: 5px;
+    cursor: pointer;
+    /*float: left;*/
+
+}
+
+/*
+#login {
+    padding: 5px;
+    height: 20px;
+}
+*/
+
+#login b {
+    /*padding-right: 10px;*/
+}
+
+#loginInPopup b {
+    display: block;
+
+}
+
+#loginInPopup a img {
+    padding-top: 5px;
+}
+
+#loginInPopup {
+    margin: 5px;
+}
+
+#loginInPopup a {
+    padding: 0 10px 0 0;
+    display: inline-block;
+    /**display:inline;*/
+}
+
+#login a {
+    padding: 0 0 0 10px;
+    float: right;
+}
+
+#logout {
+    float: right;
+}
+
+#userName a {
+    padding-right: 0;
+}
+
+#userName {
+    margin-bottom: 10px;
+}
+
+#userName {
+    height: 22px;
+    /*cursor: pointer;*/
+    padding-right: 10px;
+    padding-bottom: 10px;
+
+    color: #212121;
+    font-weight: normal;
+    display: none;
+}
+
+#login {
+    height: 22px;
+    /*cursor: pointer;*/
+    padding-right: 10px;
+    padding-bottom: 10px;
+    line-height: 1.4;
+    color: #212121;
+    font-weight: normal;
+}
+
+#My_Programs {
+    /*float: left;*/
+    display: inline-block;
+    /**display:inline;*/
+    /*height: 28px;*/
+}
+
+#showInfoAboutLogin {
+    display: inline-block;
+    /**display:inline;*/
+    float: right;
+    padding-right: 9px;
+    padding-top: 6px;
+}
+
+#saveProgram, #saveAsProgram {
+    display: inline-block;
+    /**display:inline;*/
+    float: right;
+    padding-right: 6px;
+    padding-top: 3px;
+}
+
+#tools {
+    /*position: absolute;*/
+    right: 1px;
+    top: 8px;
+    min-width: 150px;
+}
+
+#tools img {
+    width: auto;
+    display: inline;
+}
+
+#saveDialogError {
+    color: red;
+}
+
+#programName {
+    width: 75%;
+}
+
+#myprogramscontent table img {
+    float: right;
+    padding-left: 9px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.ui-widget-content table {
+   width: 100%;
+}
+.ui-widget-content table img {
+    float: right;
+    padding-left: 9px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+#problems p img {
+    float: none !important;
+    padding-top: 5px;
+    /*padding-left: 9px;*/
+    width: 16px;
+    height: 16px;
+    /*cursor: pointer;*/
+}
+
+div#toolbox, div.toolbox {
+    background: #eee bottom left repeat-x;
+    /*height: 30px;*/
+    /*position: fixed;*/
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /*border-top: 10px solid #e5e5e5;*/
+}
+
+div.fixedpage img#closePopup, div.fixedpage img.closePopup {
+    /*float: right;*/
+    padding-right: 5px;
+    padding-top: 3px;
+
+}
+
+div.fixedpage div {
+    text-align: center;
+}
+
+div.fixedpage {
+    /*width: 925px;*/
+    /*text-align: center;*/
+    /*padding-top: 5px;*/
+    /*height: 22px;*/
+    /*padding-top: 5px;*/
+    text-align: right;
+    display: inline-block;
+    /**display:inline;*/
+    width: 100%;
+}
+
+#publicLinkHref, .publicLinkHref {
+    /*float: left;*/
+    /*margin-right: 50px;*/
+
+    float: left;
+    padding-left: 3px;
+    padding-top: 5px;
+    word-wrap: break-word;
+    width: 87%;
+}
+
+#myprogramscontent .publicLinkHref {
+    width: 80%;
+}
+
+#logoutSelect option, #logoutSelect {
+    width: 75px;
+}
+
+#logout {
+    /*border-radius: 4px;*/
+    cursor: pointer;
+    background-color: #F7F7F7;
+    border: 1px solid #EEEEEE;
+    color: #212121;
+    font-weight: normal;
+    width: 50px;
+    height: 20px;
+    padding-left: 10px;
+}
+
+#logout:hover {
+    /*border-radius: 4px;*/
+    cursor: pointer;
+    background-color: #DADADA;
+    border: 1px solid #999999;
+    color: #212121;
+    font-weight: normal;
+    width: 50px;
+    height: 20px;
+    padding-left: 10px;
+    text-decoration: underline;
+}
+
+#userNameTitle:hover {
+    /*background-color: #F7F7F7;*/
+    text-decoration: underline;
+}
+
+#userNameTitle {
+    /*border-radius: 4px;*/
+    cursor: pointer;
+    /*border: 1px solid #EEEEEE;*/
+    color: #212121;
+    font-weight: normal;
+    padding-left: 10px;
+    width: 240px;
+    height: 18px;
+    float: right;
+    padding-top: 7px;
+    padding-right: 10px;
+}
+
+#userNameTitle span {
+    padding-right: 5px;
+}
+
+#userNameTitle {
+}
+
+#saveDialog {
+    margin: 10px;
+    height: 30px !important;
+}
+
+.accordionForExamplesAndPrograms div table a, .accordionForExamplesAndPrograms div table a:hover {
+    display: inline-block;
+    /**display:inline;*/
+    /*width: 75% !important;*/
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+}
+
+div#myprogramscontent p a, div#myprogramscontent p a:hover {
+    width: 55% !important;
+}
+
+div.bullet {
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    /*zoom: 1;*/
+    /**display: inline;*/
+    margin-right: 3px;
+}
+
+.tweetImg:hover {
+    padding-right: 3px !important;
+    /*padding-left: 9px !important;*/
+}
+
+.tweetImg {
+    padding-right: 3px;
+    padding-top: 3px;
+    /*padding-left: 9px;*/
+
+    /*width: 100%;*/
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: right;
+}
+
+.closePopup {
+    /*width: 100%;*/
+    padding-left: 7px;
+
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: right;
+}
+
+#mycanvas {
+    /*height: 100%;*/
+    width: 100%;
+    /*height: 120px;*/
+    /*width: 600px;*/
+}
+
+#dialogAboutRunConfiguration img {
+    width: 248px;
+    height: 124px;
+}
+
+#runConfigurationMode-button {
+    min-width: 160px;
+}
+
+#out {
+    vertical-align: top;
+    padding-left: 10px;
+}
+
+.ui-selectmenu {
+    height: 26px !important;
+}
+
+div#convertToKotlin {
+    left: 75%;
+    position: absolute;
+    top: 15%;
+}
+
+#javaToKotlinDiv {
+    cursor: pointer;
+    color: blue;
+    margin-left: 15px;
+    margin-top: 5px;
+    text-decoration: underline;
+}
+
+#whatimgjavatokotlin {
+    margin-left: 10px;
+}
+
+/*div.toggledDivForJsCode {
+    margin-top: 5px;
+    display: none;
+}*/
+
+
+

@@ -1,0 +1,90 @@
+<!doctype html>
+
+<head><title>Kotlin REPL</title>
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="css/codemirror/codemirror.css">
+    <link rel="stylesheet" href="css/codemirror/show-hint.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .CodeMirror {
+            border: 2px inset #dee;
+            font-family: "Consolas", monospace;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <textarea id="kotlin-code">
+    </textarea>
+    <br/>
+<input type="button" id="execute" value="Execute" class="btn btn-primary">
+<input type="button" id="clear" value="Clear" class="btn btn-info">
+</div>
+<br/>
+
+
+    <div id="results">
+
+    </div>
+
+<!--
+CodeMirror
+-->
+<script src="scripts/codemirror/codemirror.js"></script>
+<script src="scripts/codemirror/matchbrackets.js"></script>
+<script src="scripts/codemirror/closebrackets.js"></script>
+<script src="scripts/codemirror/show-hint.js"></script>
+<script src="scripts/codemirror/clike.js"></script>
+<script src="scripts/codemirror/kotlin.js"></script>
+
+
+<!--
+Custom
+-->
+<script src="scripts/lib/jquery-1.7.1.min.js"></script>
+<script src="scripts/lib/bootstrap.min.js"></script>
+<script src="scripts/button.js"></script>
+<script src="scripts/resultsContainer.js"></script>
+<script src="scripts/compiler.js"></script>
+<script src="scripts/analyzer.js"></script>
+<script src="scripts/common.js"></script>
+<script src="scripts/kotlinEditor.js"></script>
+
+
+<script type="text/javascript">
+
+
+    /***
+     * @editorId: The TextArea where we want the editor
+     * @serverUrl: The URL pointing to the Kotlin Server
+     * @compilerType: If we want to use Java compilerType (java) or JavaScript (javascript)
+     * @type {{editorId: string, serverUrl: string, compilerType: string}}
+     */
+    var settings = {
+        editorId: "kotlin-code",
+        executeButtonId: "execute",
+        clearButtonId: "clear",
+        resultsContainerId: "results",
+        serverUrl: "http://kotlinsrv.labs.intellij.net/",
+        compilerType: "java",
+        iconUrl: "/static/icons",
+        analysisEnabled: true,
+        completionEnabled: true,
+        autoWrapWithMain: false,
+        packageInfoEnabled: true
+
+    };
+
+    var repl = new KotlinEditor(settings);
+
+
+
+
+
+</script>
+</body>
