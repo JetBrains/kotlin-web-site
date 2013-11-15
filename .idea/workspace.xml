@@ -22,13 +22,13 @@
     <favorites_list name="site" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.36082473">
       <split-first>
         <leaf>
-          <file leaf-file-name="events.yml" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="events.yml" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_data/events.yml">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="6" column="14" selection-start="180" selection-end="180" vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
+                <state line="10" column="0" selection-start="236" selection-end="236" vertical-scroll-proportion="0.16611296" vertical-offset="0" max-vertical-offset="903">
                   <folding />
                 </state>
               </provider>
@@ -38,13 +38,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="events.md" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="events.md" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/events.md">
               <provider editor-type-id="MarkdownPreviewEditor">
                 <state />
               </provider>
               <provider selected="true" editor-type-id="text-editor">
-                <state line="8" column="104" selection-start="192" selection-end="192" vertical-scroll-proportion="0.1388889" vertical-offset="0" max-vertical-offset="864">
+                <state line="12" column="0" selection-start="242" selection-end="242" vertical-scroll-proportion="0.20833333" vertical-offset="0" max-vertical-offset="864">
                   <folding />
                 </state>
               </provider>
@@ -473,19 +473,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_data/events.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="14" selection-start="180" selection-end="180" vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/events.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="104" selection-start="192" selection-end="192" vertical-scroll-proportion="0.1388889" vertical-offset="0" max-vertical-offset="864">
+        <state line="12" column="0" selection-start="242" selection-end="242" vertical-scroll-proportion="0.20833333" vertical-offset="0" max-vertical-offset="864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_data/events.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="236" selection-end="236" vertical-scroll-proportion="0.16611296" vertical-offset="0" max-vertical-offset="903">
           <folding />
         </state>
       </provider>
