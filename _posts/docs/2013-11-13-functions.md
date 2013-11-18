@@ -194,7 +194,7 @@ fun dfs(graph : Graph){
 }
 {% endhighlight %}
 
-Local functions can even return from outer functions using [qualified return expressions]({% post_url 2013-11-15-returns-jumps %})
+Local functions can even return from outer functions using [qualified return expressions]({% post_url docs/2013-11-18-returns %})
 
 {% highlight kotlin %}
 fun reachable(from : Vertex, to : Vertex) : Boolean {
@@ -229,7 +229,7 @@ Member functions are called with dot notation
 Sample().foo() // creates instance of class Sample and calls foo
 {% endhighlight %}
 
-For more information on classes and overriding members see [Classes]({% post_url 2013-11-15-classes %}) and [Inheritance]({% post_url 2013-11-15-inheritance %})
+For more information on classes and overriding members see [Classes]({% post_url docs/2013-11-14-classes %}) and [Inheritance]({% post_url docs/2013-11-15-inheritance %})
 
 ### Generic Functions
 
@@ -241,19 +241,19 @@ fun singletonArray<T>(item : T) : Array<T> {
 }
 {% endhighlight %}
 
-For more information on generic functions see [Generics](% post_url 2013-11-15-generics %})
+For more information on generic functions see [Generics](% post_url docs/2013-11-15-generics %})
 
 ### Inline Functions
 
-Inline functions are explained in [High Order Functions]({% post_url 2013-11-15-lambdas %})
+Inline functions are explained in [High Order Functions]({% post_url docs/2013-11-15-lambdas %})
 
 ### Extension Functions
 
-Extension functions are explained in [their own section]({% post_url 2013-11-15-extension-functions %})
+Extension functions are explained in [their own section]({% post_url docs/2013-11-15-extension-functions %})
 
 ### High Order Functions and Lambdas
 
-High Order functions and Lambdas are explained in [their own section]({% post_url 2013-11-15-lambdas %})
+High Order functions and Lambdas are explained in [their own section]({% post_url docs/2013-11-15-lambdas %})
 
 ## Function Usage
 
@@ -274,7 +274,7 @@ Sample().foo() // create instance of class Sample and calls foo
 
 Functions can also be called using infix notations when
 
-* They are member functions or [extension functions]({% post_url 2013-11-15-extension-functions %})
+* They are member functions or [extension functions]({% post_url docs/2013-11-15-extension-functions %})
 * They have a single parameter
 
 {% highlight kotlin %}

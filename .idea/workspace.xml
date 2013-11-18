@@ -26,7 +26,7 @@
       <file leaf-file-name="2013-11-13-functions.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="271" column="0" selection-start="7561" selection-end="7561" vertical-scroll-proportion="0.63625866" vertical-offset="3514" max-vertical-offset="4500">
+            <state line="231" column="96" selection-start="6445" selection-end="6445" vertical-scroll-proportion="0.48498845" vertical-offset="3045" max-vertical-offset="4500">
               <folding />
             </state>
           </provider>
@@ -337,30 +337,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-exceptions.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="56" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-generics.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="14" selection-start="49" selection-end="49" vertical-scroll-proportion="0.051311288" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-annotations.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="19" selection-start="36" selection-end="36" vertical-scroll-proportion="0.034207527" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="28" selection-start="45" selection-end="45" vertical-scroll-proportion="0.034207527" vertical-offset="0" max-vertical-offset="877" />
@@ -447,7 +423,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-18-returns-jumps.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-18-returns.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="0" selection-start="64" selection-end="64" vertical-scroll-proportion="0.102389075" vertical-offset="0" max-vertical-offset="879">
           <folding />
@@ -457,9 +433,36 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-traits.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="47" selection-start="897" selection-end="897" vertical-scroll-proportion="0.75085324" vertical-offset="0" max-vertical-offset="1410">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="271" column="0" selection-start="7561" selection-end="7561" vertical-scroll-proportion="0.63625866" vertical-offset="3514" max-vertical-offset="4500">
+        <state line="231" column="96" selection-start="6445" selection-end="6445" vertical-scroll-proportion="0.48498845" vertical-offset="3045" max-vertical-offset="4500">
           <folding />
         </state>
       </provider>
