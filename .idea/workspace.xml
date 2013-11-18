@@ -23,15 +23,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2013-11-13-functions.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md">
+      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="231" column="96" selection-start="6445" selection-end="6445" vertical-scroll-proportion="0.48498845" vertical-offset="3045" max-vertical-offset="4500">
+            <state line="165" column="22" selection-start="2675" selection-end="2675" vertical-scroll-proportion="0.9171271" vertical-offset="1645" max-vertical-offset="2610">
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
           </provider>
         </entry>
       </file>
@@ -45,8 +42,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-operator-overloading.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-exceptions.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-generics.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-annotations.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md" />
@@ -61,6 +56,8 @@
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-null-safety.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-18-returns-jumps.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md" />
+        <option value="$PROJECT_DIR$/css/main.css" />
       </list>
     </option>
   </component>
@@ -110,6 +107,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kotlin-web-site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotlin-web-site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -337,22 +348,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="28" selection-start="45" selection-end="45" vertical-scroll-proportion="0.034207527" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-idioms.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="14" selection-start="47" selection-end="47" vertical-scroll-proportion="0.051311288" vertical-offset="0" max-vertical-offset="877" />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/faq/2013-11-15-faq-common.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="877" />
@@ -462,12 +457,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="231" column="96" selection-start="6445" selection-end="6445" vertical-scroll-proportion="0.48498845" vertical-offset="3045" max-vertical-offset="4500">
+        <state line="247" column="0" selection-start="6919" selection-end="6919" vertical-scroll-proportion="0.13856813" vertical-offset="3585" max-vertical-offset="4500">
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="79" selection-end="79" vertical-scroll-proportion="0.102389075" vertical-offset="0" max-vertical-offset="879">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="22" selection-start="2675" selection-end="2675" vertical-scroll-proportion="0.9171271" vertical-offset="1645" max-vertical-offset="2610">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
