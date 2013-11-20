@@ -8,7 +8,9 @@ Completed:
 - docs/properties
 - docs/object-declarations
 - docs/nested-classes
-
+- docs/coding-conventions
+- docs/operator-overloading
+- docs/basic-syntax
 
 Left-off at:
 

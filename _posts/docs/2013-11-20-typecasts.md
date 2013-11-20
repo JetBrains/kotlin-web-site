@@ -1,6 +1,5 @@
 ---
 layout: docs
-title: "Delegation"
+title: "Type Casts"
 category: docs
 ---
-

@@ -4,9 +4,6 @@ title: "Language Conventions"
 category: docs
 ---
 
-## Naming style
-
-
 
 ## This Expression
 
@@ -21,7 +18,7 @@ If *this*{: .keyword } has no qualifiers, it refers to the _innermost enclosing 
 
 ### Qualified *this*{: .keyword }
 
-To access *this*{: .keyword } from an outer scope (a [class]({% post_url docs/2013-15-11-classes %}), or [extension function]({% post_url docs/2013-11-15-extension-functions %}), or labeled [extension function literal]({% post_url docs/2013-11-15-extension-functions %}#function-literals) one writes *this{*}{{@label}} where {{@label}} is a [label]({% post_url docs/2013-11-18-returns %})
+To access *this*{: .keyword } from an outer scope (a [class]({% post_url docs/2013-11-14-classes %}), or [extension function]({% post_url docs/2013-11-15-extension-functions %}), or labeled [extension function literal]({% post_url docs/2013-11-15-extension-functions %}#function-literals) one writes *this{*}{{@label}} where {{@label}} is a [label]({% post_url docs/2013-11-18-returns %})
 on the scope *this*{: .keyword } is meant to be from:
 
 {% highlight kotlin %}
