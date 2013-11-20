@@ -10,7 +10,7 @@ category: docs
 To denote the current _receiver_, we use *this*{: .keyword } expressions:
 * In a member of a [class|({% post_url docs/2013-11-15-inheritance %}), *this*{: .keyword } refers to the current object of that class
 ** *this*{: .keyword } is used to qualified calls to supertype's implementations of members, see [Classes and Inheritance]({% post_url docs/2013-11-15-inheritance %}#overriding-rules)
-* In an [extension function]({% post_url docs/2013-11-15-extension-functions %}) or an [extension function literal]({% post_url docs/2013-11-15-extension-functions %}#function-literals), *this*{: .keyword } denotes the _receiver_ parameter that is passed on the left-hand side of a dot.
+* In an [extension function]({% post_url docs/2013-11-15-extension-functions %}) or an [extension function literals]({% post_url docs/2013-11-15-lambdas %}#function-literals), *this*{: .keyword } denotes the _receiver_ parameter that is passed on the left-hand side of a dot.
 
 If *this*{: .keyword } has no qualifiers, it refers to the _innermost enclosing scope_. To refer to *this*{: .keyword } in other scopes, _label qualifiers_ are used:
 
@@ -18,7 +18,7 @@ If *this*{: .keyword } has no qualifiers, it refers to the _innermost enclosing 
 
 ### Qualified *this*{: .keyword }
 
-To access *this*{: .keyword } from an outer scope (a [class]({% post_url docs/2013-11-14-classes %}), or [extension function]({% post_url docs/2013-11-15-extension-functions %}), or labeled [extension function literal]({% post_url docs/2013-11-15-extension-functions %}#function-literals) one writes *this{*}{{@label}} where {{@label}} is a [label]({% post_url docs/2013-11-18-returns %})
+To access *this*{: .keyword } from an outer scope (a [class]({% post_url docs/2013-11-14-classes %}), or [extension function]({% post_url docs/2013-11-15-extension-functions %}), or labeled [extension function literal]({% post_url docs/2013-11-15-lambdas %}#function-literals) one writes *this{*}{{@label}} where {{@label}} is a [label]({% post_url docs/2013-11-18-returns %})
 on the scope *this*{: .keyword } is meant to be from:
 
 {% highlight kotlin %}

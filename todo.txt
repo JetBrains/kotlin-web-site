@@ -11,8 +11,10 @@ Completed:
 - docs/coding-conventions
 - docs/operator-overloading
 - docs/basic-syntax
+- docs/extension-functions
 
-Left-off at:
+
+Left-off at: lambdas
 
 
 General
