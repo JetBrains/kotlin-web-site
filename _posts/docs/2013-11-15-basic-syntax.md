@@ -205,7 +205,7 @@ fun main(args : Array<String>) {
 
 See [while-loop]({% post_url docs/2013-11-15-control-flow %}#while-loops).
 
-## Using when-expressions
+## Using when-expression
 
 {% highlight kotlin %}
 fun cases(obj : Any) {

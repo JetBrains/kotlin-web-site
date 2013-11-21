@@ -5,34 +5,49 @@
         {% include head.html %}
     </head>
     <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ page.title }}</a></h1>
-          </div>
-          <div> {{ page.description }}</div>
-
-            {{ content }}
-
-          <div id="related">
-              <h4>Related</h4>
-
-
-                {% for related in page.related %}
-
-              {% for post in site.posts %}
-
-              {% if related.title == post.title %}
-
-              <p><a href="{{ post.url }}">{{ post.title }}</a></p>
-              {% endif %}
-            {% endfor %}
-              {% endfor %}
-
-          </div>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <h3>{{ page.title }}</h3>
+                            {{ content }}
+                    </div>
+                </div>
+            </div>
 
         </div>
-    {% include footer.html %}
-    {% include scripts.html %}
+        <div id="related">
+            <h4>Related</h4>
+
+
+            {% for related in page.related %}
+
+            {% for post in site.posts %}
+
+            {% if related.title == post.title %}
+
+            <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+
+        </div>
+
+        {% include footer.html %}
+        {% include scripts.html %}
+    </section>
     </body>
 </html>
