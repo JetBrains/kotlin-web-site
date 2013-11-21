@@ -172,7 +172,7 @@ fun getStringLength(obj : Any) : Int? {
 }
 {% endhighlight %}
 
-See [Classes]({% post_url docs/2013-11-14-classes %}) and [Inheritance]({% post_url docs/2013-11-15-classes %}#inheritance).
+See [Classes]({% post_url docs/2013-11-14-classes %}) and [Inheritance]({% post_url docs/2013-11-14-classes %}#inheritance).
 See [Type casts]({% post_url docs/2013-11-20-typecasts %}).
 
 ## Using a for-loop

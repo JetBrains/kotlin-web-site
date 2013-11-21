@@ -229,7 +229,7 @@ Member functions are called with dot notation
 Sample().foo() // creates instance of class Sample and calls foo
 {% endhighlight %}
 
-For more information on classes and overriding members see [Classes]({% post_url docs/2013-11-14-classes %}) and [Inheritance]({% post_url docs/2013-11-15-classes %}#inheritance)
+For more information on classes and overriding members see [Classes]({% post_url docs/2013-11-14-classes %}) and [Inheritance]({% post_url docs/2013-11-14-classes %}#inheritance)
 
 ### Generic Functions
 

@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2013-11-14-classes.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md">
+      <file leaf-file-name="2013-11-15-properties.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="18" selection-start="9091" selection-end="9091" vertical-scroll-proportion="0.6830986" vertical-offset="3332" max-vertical-offset="3900">
+            <state line="116" column="55" selection-start="4209" selection-end="4209" vertical-scroll-proportion="0.44542253" vertical-offset="1487" max-vertical-offset="2055">
               <folding />
             </state>
           </provider>
@@ -45,22 +45,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/notes.txt" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-control-flow.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-20-typecasts.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-object-declarations.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-21-enum-classes.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-19-basic-ops.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-inheritance.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-delegation.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-traits.md" />
         <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md" />
       </list>
     </option>
   </component>
@@ -353,59 +353,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-21-enum-classes.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="881" selection-end="881" vertical-scroll-proportion="0.87030715" vertical-offset="0" max-vertical-offset="879">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-20-expressions.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="100" selection-start="3469" selection-end="3491" vertical-scroll-proportion="0.02640845" vertical-offset="2595" max-vertical-offset="4035">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="158" selection-start="455" selection-end="455" vertical-scroll-proportion="0.02640845" vertical-offset="150" max-vertical-offset="780">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="63" selection-start="4217" selection-end="4217" vertical-scroll-proportion="0.44542253" vertical-offset="1487" max-vertical-offset="2055">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="143" selection-start="4504" selection-end="4504" vertical-scroll-proportion="0.29049295" vertical-offset="1260" max-vertical-offset="3975">
           <folding />
         </state>
       </provider>
@@ -489,7 +439,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="231" column="177" selection-start="6526" selection-end="6526" vertical-scroll-proportion="-0.78141135" vertical-offset="3919" max-vertical-offset="4500">
+        <state line="243" column="81" selection-start="6888" selection-end="6888" vertical-scroll-proportion="0.36144578" vertical-offset="3435" max-vertical-offset="4500">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="193" column="41" selection-start="3823" selection-end="3823" vertical-scroll-proportion="0.36267605" vertical-offset="2689" max-vertical-offset="4035">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="189" selection-start="4725" selection-end="4725" vertical-scroll-proportion="0.36267605" vertical-offset="1249" max-vertical-offset="3975">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178" column="240" selection-start="6978" selection-end="6978" vertical-scroll-proportion="0.36267605" vertical-offset="2464" max-vertical-offset="3420">
           <folding />
         </state>
       </provider>
@@ -499,7 +479,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="18" selection-start="9091" selection-end="9091" vertical-scroll-proportion="0.6830986" vertical-offset="3332" max-vertical-offset="3900">
+        <state line="250" column="121" selection-start="9214" selection-end="9214" vertical-scroll-proportion="4.7799296" vertical-offset="1035" max-vertical-offset="3900">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="150" selection-start="455" selection-end="455" vertical-scroll-proportion="0.29049295" vertical-offset="0" max-vertical-offset="780">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="55" selection-start="4209" selection-end="4209" vertical-scroll-proportion="0.44542253" vertical-offset="1487" max-vertical-offset="2055">
           <folding />
         </state>
       </provider>

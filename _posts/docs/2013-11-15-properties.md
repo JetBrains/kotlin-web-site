@@ -114,7 +114,7 @@ In all respects, this is just the same as in Java since access to private proper
 
 ## Overriding Properties
 
-See [Overriding Properties]({% post_url docs/2013-11-15-classes %}#overriding-properties)
+See [Overriding Properties]({% post_url docs/2013-11-14-classes %}#overriding-properties)
 
 ## Using Properties
 
