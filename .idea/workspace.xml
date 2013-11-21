@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="keywords.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/keywords.css">
+      <file leaf-file-name="docs.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="1" selection-start="162" selection-end="162" vertical-scroll-proportion="0.2970297" vertical-offset="0" max-vertical-offset="606">
+            <state line="19" column="22" selection-start="744" selection-end="744" vertical-scroll-proportion="-0.030927835" vertical-offset="303" max-vertical-offset="885">
               <folding />
             </state>
           </provider>
@@ -55,9 +55,9 @@
         <option value="$PROJECT_DIR$/css/fonts.css" />
         <option value="$PROJECT_DIR$/_layouts/docs.html" />
         <option value="$PROJECT_DIR$/css/keywords" />
-        <option value="$PROJECT_DIR$/_includes/head.html" />
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/css/keywords.css" />
+        <option value="$PROJECT_DIR$/_includes/head.html" />
       </list>
     </option>
   </component>
@@ -436,23 +436,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="22" selection-start="744" selection-end="744" vertical-scroll-proportion="0.20103092" vertical-offset="168" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/syntax.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="47" selection-start="1401" selection-end="1401" vertical-scroll-proportion="-0.13861386" vertical-offset="384" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="745" selection-end="745" vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="582">
           <folding />
         </state>
       </provider>
@@ -466,7 +452,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/keywords.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="1" selection-start="162" selection-end="162" vertical-scroll-proportion="0.2970297" vertical-offset="0" max-vertical-offset="606">
+        <state line="5" column="0" selection-start="75" selection-end="75" vertical-scroll-proportion="0.12376238" vertical-offset="0" max-vertical-offset="606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="47" selection-start="854" selection-end="854" vertical-scroll-proportion="0.36082473" vertical-offset="0" max-vertical-offset="582">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="22" selection-start="744" selection-end="744" vertical-scroll-proportion="-0.030927835" vertical-offset="303" max-vertical-offset="885">
           <folding />
         </state>
       </provider>
