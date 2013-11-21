@@ -48,6 +48,15 @@
 
         {% include footer.html %}
         {% include scripts.html %}
+
+        {% if  page.toc == true %}
+      <!--  <script type="text/javascript">
+            jQuery(document).ready(function() {
+                // Put a TOC right before the entry content.
+                generateTOC('.container', 'Table of Contents');
+            });
+        </script>-->
+        {% endif %}
     </section>
     </body>
 </html>

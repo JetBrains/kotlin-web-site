@@ -26,7 +26,7 @@
       <file leaf-file-name="docs.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="22" selection-start="744" selection-end="744" vertical-scroll-proportion="-0.030927835" vertical-offset="303" max-vertical-offset="885">
+            <state line="44" column="24" selection-start="1467" selection-end="1467" vertical-scroll-proportion="1.1340206" vertical-offset="0" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
@@ -42,10 +42,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md" />
         <option value="$PROJECT_DIR$/_data/_usingKotlin.yml" />
@@ -53,11 +49,15 @@
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-control-flow.md" />
         <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/css/fonts.css" />
-        <option value="$PROJECT_DIR$/_layouts/docs.html" />
         <option value="$PROJECT_DIR$/css/keywords" />
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/css/keywords.css" />
+        <option value="$PROJECT_DIR$/_layouts/docs.md" />
+        <option value="$PROJECT_DIR$/scripts/custom.js" />
         <option value="$PROJECT_DIR$/_includes/head.html" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-annotations.md" />
+        <option value="$PROJECT_DIR$/scripts/generate-toc.js" />
+        <option value="$PROJECT_DIR$/_layouts/docs.html" />
       </list>
     </option>
   </component>
@@ -108,6 +108,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kotlin-web-site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotlin-web-site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -172,6 +186,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="faq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kotlin-web-site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_posts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -346,68 +378,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="243" column="81" selection-start="6888" selection-end="6888" vertical-scroll-proportion="0.0" vertical-offset="3645" max-vertical-offset="4500">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="121" selection-start="9214" selection-end="9214" vertical-scroll-proportion="0.7359155" vertical-offset="3332" max-vertical-offset="3900">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-annotations.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="24" selection-start="4113" selection-end="4113" vertical-scroll-proportion="0.02640845" vertical-offset="3090" max-vertical-offset="4035">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-control-flow.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="22" selection-start="4633" selection-end="4633" vertical-scroll-proportion="0.5510563" vertical-offset="2282" max-vertical-offset="2940">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="607" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="15" selection-start="548" selection-end="548" vertical-scroll-proportion="0.49833888" vertical-offset="0" max-vertical-offset="903">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/doc-index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
@@ -457,16 +427,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="14" selection-start="410" selection-end="410" vertical-scroll-proportion="0.47029704" vertical-offset="0" max-vertical-offset="606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/scripts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/browser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_includes/head.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="47" selection-start="854" selection-end="854" vertical-scroll-proportion="0.36082473" vertical-offset="0" max-vertical-offset="582">
+        <state line="18" column="83" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.46391752" vertical-offset="0" max-vertical-offset="582">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-annotations.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="15" selection-start="419" selection-end="419" vertical-scroll-proportion="0.49137932" vertical-offset="0" max-vertical-offset="1170">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/generate-toc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="388" selection-end="388" vertical-scroll-proportion="0.25817555" vertical-offset="0" max-vertical-offset="581">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="22" selection-start="744" selection-end="744" vertical-scroll-proportion="-0.030927835" vertical-offset="303" max-vertical-offset="885">
+        <state line="44" column="24" selection-start="1467" selection-end="1467" vertical-scroll-proportion="1.1340206" vertical-offset="0" max-vertical-offset="1020">
           <folding />
         </state>
       </provider>

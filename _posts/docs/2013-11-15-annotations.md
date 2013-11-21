@@ -2,6 +2,7 @@
 layout: docs
 title: "Annotations"
 category: docs
+toc: true
 ---
 
 ## Annotation Declaration
@@ -67,3 +68,5 @@ class Tests {
   }
 }
 {% endhighlight %}
+
+
