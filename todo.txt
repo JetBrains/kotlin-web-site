@@ -16,18 +16,18 @@ Completed:
 - docs/pattern-matching
 - docs/typecasts
 - docs/enum-classes
+- docs/classes
+- docs/traits
 
 
-Left-off at:
 
-General
+- Pending to complete
 
-* Guidance for writing tutorials and docs
-* Related Articles Auto…
-* Google Analytics set?
+    - add property delegation to delegation
+    - related of all sections
+    - best practices of all sections
 
+- General to do
 
-Docs
+    - Provide guidance on writing docs
 
-* Add What Next Items
-* Add Best Practices Section

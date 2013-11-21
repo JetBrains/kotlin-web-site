@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2013-11-15-traits.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-traits.md">
+      <file leaf-file-name="2013-11-14-classes.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="88" selection-end="88" vertical-scroll-proportion="0.34129694" vertical-offset="0" max-vertical-offset="879">
+            <state line="248" column="18" selection-start="9091" selection-end="9091" vertical-scroll-proportion="0.6830986" vertical-offset="3332" max-vertical-offset="3900">
               <folding />
             </state>
           </provider>
@@ -45,22 +45,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-20-ranges.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-generics.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-extension-functions.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md" />
-        <option value="$PROJECT_DIR$/css/docs.css" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-lambdas.md" />
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-20-pattern-matching.md" />
         <option value="$PROJECT_DIR$/notes.txt" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-control-flow.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-20-typecasts.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-object-declarations.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-21-enum-classes.md" />
-        <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-19-basic-ops.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-inheritance.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-delegation.md" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-traits.md" />
+        <option value="$PROJECT_DIR$/todo.txt" />
+        <option value="$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md" />
       </list>
     </option>
   </component>
@@ -324,8 +324,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2033796" sideWeight="0.670354" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2033796" sideWeight="0.67108166" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -334,7 +335,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -353,9 +353,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-control-flow.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-21-enum-classes.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="19" selection-start="93" selection-end="93" vertical-scroll-proportion="0.15358362" vertical-offset="0" max-vertical-offset="879">
+        <state line="51" column="0" selection-start="881" selection-end="881" vertical-scroll-proportion="0.87030715" vertical-offset="0" max-vertical-offset="879">
           <folding />
         </state>
       </provider>
@@ -363,27 +363,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-20-typecasts.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="22" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.65357965" vertical-offset="49" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-delegation.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-exceptions.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-20-expressions.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
           <folding />
@@ -395,7 +375,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+        <state line="174" column="100" selection-start="3469" selection-end="3491" vertical-scroll-proportion="0.02640845" vertical-offset="2595" max-vertical-offset="4035">
           <folding />
         </state>
       </provider>
@@ -403,7 +383,47 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-nested-classes.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="158" selection-start="455" selection-end="455" vertical-scroll-proportion="0.02640845" vertical-offset="150" max-vertical-offset="780">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="63" selection-start="4217" selection-end="4217" vertical-scroll-proportion="0.44542253" vertical-offset="1487" max-vertical-offset="2055">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-java-interop.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="143" selection-start="4504" selection-end="4504" vertical-scroll-proportion="0.29049295" vertical-offset="1260" max-vertical-offset="3975">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-delegation.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="36" selection-start="431" selection-end="431" vertical-scroll-proportion="0.39612675" vertical-offset="0" max-vertical-offset="570">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-generics.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
           <folding />
@@ -413,9 +433,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-null-safety.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-traits.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+        <state line="85" column="26" selection-start="2068" selection-end="2068" vertical-scroll-proportion="0.27710843" vertical-offset="1114" max-vertical-offset="1830">
           <folding />
         </state>
       </provider>
@@ -423,46 +443,33 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-object-declarations.md">
+    <entry file="file://$PROJECT_DIR$/notes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="31" selection-start="48" selection-end="48" vertical-scroll-proportion="0.034642033" vertical-offset="0" max-vertical-offset="1365">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="607">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="5" selection-start="1695" selection-end="1695" vertical-scroll-proportion="0.60750854" vertical-offset="531" max-vertical-offset="1410">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-21-enum-classes.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="881" selection-end="881" vertical-scroll-proportion="0.87030715" vertical-offset="0" max-vertical-offset="879">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/todo.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="361" selection-end="361" vertical-scroll-proportion="0.3314917" vertical-offset="0" max-vertical-offset="905">
+        <state line="20" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.49423394" vertical-offset="0" max-vertical-offset="607">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-20-expressions.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-18-returns.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-19-basic-ops.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.15490533" vertical-offset="0" max-vertical-offset="581">
           <folding />
         </state>
       </provider>
@@ -480,9 +487,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-19-basic-ops.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-13-functions.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.102389075" vertical-offset="0" max-vertical-offset="879">
+        <state line="231" column="177" selection-start="6526" selection-end="6526" vertical-scroll-proportion="-0.78141135" vertical-offset="3919" max-vertical-offset="4500">
           <folding />
         </state>
       </provider>
@@ -490,19 +497,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-18-returns.md">
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-14-classes.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-traits.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="88" selection-end="88" vertical-scroll-proportion="0.34129694" vertical-offset="0" max-vertical-offset="879">
+        <state line="248" column="18" selection-start="9091" selection-end="9091" vertical-scroll-proportion="0.6830986" vertical-offset="3332" max-vertical-offset="3900">
           <folding />
         </state>
       </provider>

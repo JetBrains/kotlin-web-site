@@ -9,7 +9,7 @@ category: docs
 
 To denote the current _receiver_, we use *this*{: .keyword } expressions:
 * In a member of a [class|({% post_url docs/2013-11-15-inheritance %}), *this*{: .keyword } refers to the current object of that class
-** *this*{: .keyword } is used to qualified calls to supertype's implementations of members, see [Classes and Inheritance]({% post_url docs/2013-11-15-inheritance %}#overriding-rules)
+** *this*{: .keyword } is used to qualified calls to supertype's implementations of members, see [Classes and Inheritance]({% post_url docs/2013-11-15-classes %}#overriding-rules)
 * In an [extension function]({% post_url docs/2013-11-15-extension-functions %}) or an [extension function literals]({% post_url docs/2013-11-15-lambdas %}#function-literals), *this*{: .keyword } denotes the _receiver_ parameter that is passed on the left-hand side of a dot.
 
 If *this*{: .keyword } has no qualifiers, it refers to the _innermost enclosing scope_. To refer to *this*{: .keyword } in other scopes, _label qualifiers_ are used:
