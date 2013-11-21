@@ -1,0 +1,10 @@
+- company: "Industrial Geodetic Systems"
+  link: "http://hive.geosystems.aero/?locale=en"
+  description: "Using Kotlin for the Front-End Web"
+- company: "Prezi.com"
+  link: "prezi.com"
+  description: "10 Developer team using Kotlin on products"
+- company: "JetBrains"
+  link: "http://www.jetbrains.com"
+  description: "Using Kotlin for internal projects and part of their award-winning IDE's, including WebStorm LiveEdit"
+
