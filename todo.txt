@@ -12,10 +12,13 @@ Completed:
 - docs/operator-overloading
 - docs/basic-syntax
 - docs/extension-functions
+- docs/lambdas
+- docs/pattern-matching
+- docs/typecasts
+- docs/enum-classes
 
 
-Left-off at: lambdas
-
+Left-off at:
 
 General
 

@@ -245,7 +245,7 @@ For more information on generic functions see [Generics](% post_url docs/2013-11
 
 ### Inline Functions
 
-Inline functions are explained in [High Order Functions]({% post_url docs/2013-11-15-lambdas %})
+Inline functions are explained in [High Order Functions]({% post_url docs/2013-11-15-lambdas %}#inline-functions)
 
 ### Extension Functions
 

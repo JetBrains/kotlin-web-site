@@ -11,29 +11,9 @@ Tutorials
   Working with KAnnotator
   Building Kotlin from Source
   Deep Dive into Collections
-  Creating Type-Safe Builders
+  Creating Type-Safe Builders - Intro to Extension Function Literals
   Interactive language tutorial (s)
 
-Language Walkthrough
-  Basic Syntax
-  Control Flow
-  Packages, Scope and File Structure
-  Classes
-  Inheritance
-  Traits
-  Properties
-  Functions
-  Extension Functions
-  Lambdas and High Order Functions
-  Operator Overloading
-  Null Safety
-  Exceptions
-  Generics
-  Annotations
-  Language Conventions
-  Java Interop
-  Idioms and Patterns
-  Grammar
 
 FAQ
   Common Questions

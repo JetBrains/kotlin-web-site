@@ -1,13 +1,13 @@
 ---
 layout: docs
-title: "Object Declarations"
+title: "Object Expressions and Declarations"
 category: docs
 ---
 
 Sometimes we need to create an object of a slight modification of some class, without explicitly declaring a new subclass for it. *Java* handles this case with *anonymous inner classes*.
 Kotlin slightly generalizes this concept with *object* expressions and *object* declarations.
 
-### Object expressions
+## Object expressions
 
 To create an object of an anonymous class that inherits from some type (or types), one writes:
 {% highlight kotlin %}
@@ -47,7 +47,7 @@ val adHoc = object {
 print(adHoc.x + adHoc.y)
 {% endhighlight %}
 
-### Object declarations
+## Object declarations
 
 [Singleton|(http://en.wikipedia.org/wiki/Singleton_pattern) is a very useful pattern, and Kotlin (after *Scala*) makes it easy to declare singletons:
 {% highlight kotlin %}

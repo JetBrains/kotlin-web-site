@@ -7,4 +7,6 @@ category: docs
 
 ## For Loops
 
+## When Expressions
+
 ## While Loops
