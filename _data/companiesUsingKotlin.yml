@@ -13,3 +13,6 @@
 - company: "Igor Fomin"
   url: "https://play.google.com/store/apps/details?id=ru.evilbloodydemon.pills"
   description: "Medication Control - Android Application"
+- company: "Telegram"
+  url: "https://github.com/ex3ndr/telegram-tl"
+  description: "Data schema compiler for TL language implemented in Kotlin"
