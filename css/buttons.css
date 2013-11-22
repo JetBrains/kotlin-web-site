@@ -264,7 +264,7 @@ a:hover .btn-round._mute {
         margin-left: -5px;
         width: 9px;
         height: 6px;
-        background: url(../img/btn-download-sprite.png) no-repeat -190px -240px;
+        background: url("../assets/images/btn-download-sprite.png") no-repeat -190px -240px;
         content: '';
     }
     .btn._select:before {
@@ -274,7 +274,7 @@ a:hover .btn-round._mute {
         margin-left: -9px;
         width: 18px;
         height: 18px;
-        background: url(../img/btn-download-sprite.png) no-repeat 50px 50px;
+        background: url("../assets/images/btn-download-sprite.png") no-repeat 50px 50px;
         content: '';
     }
     .btn._select._win:before   { background-position: -150px -240px }
@@ -338,7 +338,7 @@ a:hover .btn-round._mute {
         position: relative;
         z-index: 2;
         padding: 0.2em 3em 0.2em 1em;
-        background: url(../img/icoSelectOS.png) no-repeat 97% 0.5em;
+        background: url("../assets/images/icoSelectOS.png") no-repeat 97% 0.5em;
         white-space: nowrap;
         line-height: 1.8;
         text-align: right;

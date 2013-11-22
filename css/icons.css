@@ -5,7 +5,7 @@
     color: transparent;
     font-size: 0;
     letter-spacing: 0;
-    background: url(../img/sprite.png) no-repeat 50px 50px;
+    background: url("../assests/images/sprite.png") no-repeat 50px 50px;
     }
 
 .icon._jetbrains   { width: 20px; height: 15px; background-position: -125px 0 }
