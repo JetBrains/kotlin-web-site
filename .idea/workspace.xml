@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="styles.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/styles.css">
+      <file leaf-file-name="docs.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="20" selection-start="2794" selection-end="2794" vertical-scroll-proportion="0.71428573" vertical-offset="1365" max-vertical-offset="3045">
+            <state line="12" column="27" selection-start="298" selection-end="298" vertical-scroll-proportion="0.044368602" vertical-offset="141" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
@@ -56,8 +56,8 @@
         <option value="$PROJECT_DIR$/_includes/head.html" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-annotations.md" />
         <option value="$PROJECT_DIR$/scripts/generate-toc.js" />
-        <option value="$PROJECT_DIR$/_layouts/docs.html" />
         <option value="$PROJECT_DIR$/css/styles.css" />
+        <option value="$PROJECT_DIR$/_layouts/docs.html" />
       </list>
     </option>
   </component>
@@ -451,16 +451,16 @@
         <state line="10" column="0" selection-start="388" selection-end="388" vertical-scroll-proportion="0.25817555" vertical-offset="0" max-vertical-offset="581" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
+    <entry file="file://$PROJECT_DIR$/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="16" selection-end="16" vertical-scroll-proportion="0.017026106" vertical-offset="0" max-vertical-offset="1020">
+        <state line="129" column="13" selection-start="2657" selection-end="2657" vertical-scroll-proportion="0.551495" vertical-offset="1437" max-vertical-offset="3045">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/styles.css">
+    <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="20" selection-start="2794" selection-end="2794" vertical-scroll-proportion="0.71428573" vertical-offset="1365" max-vertical-offset="3045">
+        <state line="12" column="27" selection-start="298" selection-end="298" vertical-scroll-proportion="0.044368602" vertical-offset="141" max-vertical-offset="1020">
           <folding />
         </state>
       </provider>

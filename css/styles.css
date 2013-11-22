@@ -126,7 +126,8 @@ ul.list li:before {
     border-radius: 12px;
 }
 
-.kotlin {
+
+.kotlin,.java {
     margin-bottom: 20px;
     padding: 10px 28px 10px;
     display: block;
@@ -139,8 +140,7 @@ ul.list li:before {
     border: 1px solid #cae0e9;
     border-radius: 12px;
 }
-.c-keyword { color: #242597 }
-.c-comment  { color: #578000 }
+
 
 ul.navigation li a {
     padding: 10px;
