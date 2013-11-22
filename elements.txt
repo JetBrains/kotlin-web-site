@@ -1,4 +1,0 @@
-Elements needed for styling
-
-- keywords
-- Need a TOC for individual docs (see classes for instance)
