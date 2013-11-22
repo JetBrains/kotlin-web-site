@@ -24,6 +24,7 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    text-align: justify;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -132,6 +133,7 @@ ul.list li:before {
     max-width: 75%;
     white-space: pre-wrap;
     font-size: 13px;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
     line-height: 22px;
     background: #f1f6f8;
     border: 1px solid #cae0e9;
@@ -187,7 +189,7 @@ only screen and (min-resolution: 192dpi) {
     .tbl-people__row._selected .tbl-people-user:before,
     .user-result__link,
     .user-result__link:before {
-        background-image: url(../img/sprite@2x.png);
+        background-image: url({{site.baseurl}}/assests/images/sprite@2x.png);
         background-size: 400px 100px;
     }
 
