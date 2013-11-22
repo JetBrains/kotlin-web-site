@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="docs.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
+      <file leaf-file-name="companiesUsingKotlin.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_data/companiesUsingKotlin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="27" selection-start="298" selection-end="298" vertical-scroll-proportion="0.044368602" vertical-offset="141" max-vertical-offset="1020">
+            <state line="14" column="57" selection-start="773" selection-end="773" vertical-scroll-proportion="0.23255815" vertical-offset="0" max-vertical-offset="903">
               <folding />
             </state>
           </provider>
@@ -42,7 +42,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-language-conventions.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md" />
         <option value="$PROJECT_DIR$/_data/_usingKotlin.yml" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-basic-syntax.md" />
@@ -58,6 +57,7 @@
         <option value="$PROJECT_DIR$/scripts/generate-toc.js" />
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/_layouts/docs.html" />
+        <option value="$PROJECT_DIR$/_data/companiesUsingKotlin.yml" />
       </list>
     </option>
   </component>
@@ -378,11 +378,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_layouts/doc-index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285" />
@@ -460,7 +455,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="27" selection-start="298" selection-end="298" vertical-scroll-proportion="0.044368602" vertical-offset="141" max-vertical-offset="1020">
+        <state line="40" column="0" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.5221843" vertical-offset="141" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_data/companiesUsingKotlin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="57" selection-start="773" selection-end="773" vertical-scroll-proportion="0.23255815" vertical-offset="0" max-vertical-offset="903">
           <folding />
         </state>
       </provider>
