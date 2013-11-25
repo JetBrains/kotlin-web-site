@@ -52,10 +52,10 @@
 
         {% if  page.toc == true %}
         <script type="text/javascript">
-            var windw = this;
+            var window = this;
             $.fn.followTo = function ( pos ) {
                 var $this = this,
-                        $window = $(windw);
+                        $window = $(window);
                 $window.scroll(function(e){
                     if ($window.scrollTop() > pos) {
                         $this.addClass("_scroll")
