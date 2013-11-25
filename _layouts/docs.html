@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-2">
                         <h1>{{ page.title }}</h1>
-                        <ul class="navigation">
+                        <!--<ul class="navigation">
                             <li><a href="">Docs Home</a></li>
                             <li><a href="">Examples</a></li>
                             <li><a href="">Comparison to Java</a></li>
@@ -20,7 +20,8 @@
                             <li><a href="">Packages</a></li>
                             <li><a href="">Functions</a></li>
                             <li><a href="">Properties And Fields</a></li>
-                        </ul>
+                        </ul>-->
+                        <div id="toc"></div>
                     </div>
                     <div class="col-4">
                             {{ content }}
@@ -50,12 +51,26 @@
         {% include scripts.html %}
 
         {% if  page.toc == true %}
-      <!--  <script type="text/javascript">
+        <script type="text/javascript">
+            var window = this;
+            $.fn.followTo = function ( pos ) {
+                var $this = this,
+                        $window = $(window);
+                $window.scroll(function(e){
+                    if ($window.scrollTop() > pos) {
+                        $this.addClass("_scroll")
+                    } else {
+                        $this.removeClass("_scroll")
+                    }
+                });
+            };
+            $('#toc').followTo(60);
             jQuery(document).ready(function() {
+                $('#toc').toc({'selectors': 'h2,h3'});
                 // Put a TOC right before the entry content.
-                generateTOC('.container', 'Table of Contents');
+                // generateTOC('.container', 'Table of Contents');
             });
-        </script>-->
+        </script>
         {% endif %}
     </section>
     </body>
