@@ -1,6 +1,4 @@
 Tutorials
-  Getting Started with Kotlin (using IntelliJ IDEA) EVAN-1043 (D)
-  Compiling and running using the Command Line Compiler EVAN-343 (D)
   Using Ant with Kotlin
   Using Maven with Kotlin
   Using Gradle with Kotlin
@@ -27,6 +25,9 @@ FAQ
 
  Completed:
 
+ - tutorials/getting-started
+ - tutorials/command-line
+ -
  - docs/functions
  - docs/annotations
  - docs/exceptions
@@ -50,6 +51,7 @@ FAQ
  - docs/returns
  - docs/basic-ops
  - docs/ranges
+ - docs/idioms
 
 
  - Pending to complete
@@ -57,7 +59,7 @@ FAQ
      - add property delegation to delegation
      - related of all sections
      - best practices of all sections
-
+     - docs/generics
 
  - General to do
 
