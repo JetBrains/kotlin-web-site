@@ -1,5 +1,4 @@
 Tutorials
-  Using Ant with Kotlin
   Using Maven with Kotlin
   Using Gradle with Kotlin
   Working with nightly builds
@@ -27,7 +26,7 @@ FAQ
 
  - tutorials/getting-started
  - tutorials/command-line
- -
+ - tutorials/using-ant
  - docs/functions
  - docs/annotations
  - docs/exceptions

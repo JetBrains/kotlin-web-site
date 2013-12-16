@@ -23,13 +23,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2013-11-07-getting-started.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-11-07-getting-started.md">
+      <file leaf-file-name="2013-12-16-using-ant.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-12-16-using-ant.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="2277" selection-end="2277" vertical-scroll-proportion="0.74480367" vertical-offset="0" max-vertical-offset="1035">
+            <state line="115" column="27" selection-start="3766" selection-end="3766" vertical-scroll-proportion="0.47098976" vertical-offset="1311" max-vertical-offset="2205">
               <folding />
             </state>
           </provider>
@@ -45,7 +45,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/css/buttons.css" />
         <option value="$PROJECT_DIR$/css/icons.css" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-null-safety.md" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-18-returns.md" />
@@ -61,6 +60,7 @@
         <option value="$PROJECT_DIR$/_layouts/docs.html" />
         <option value="$PROJECT_DIR$/_posts/docs/2013-11-15-idioms.md" />
         <option value="$PROJECT_DIR$/notes.txt" />
+        <option value="$PROJECT_DIR$/_posts/tutorials/2013-12-16-using-ant.md" />
       </list>
     </option>
   </component>
@@ -333,7 +333,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1680" height="1024" extended-state="0" />
+    <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -368,30 +368,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/companies.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="879" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/videos.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="879" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/external.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="879" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_data/videos.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="5" selection-start="168" selection-end="168" vertical-scroll-proportion="0.14802632" vertical-offset="0" max-vertical-offset="608" />
@@ -419,9 +395,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/docs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="23" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.5107832" vertical-offset="195" max-vertical-offset="1245">
-          <folding />
-        </state>
+        <state line="43" column="23" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.5107832" vertical-offset="195" max-vertical-offset="1245" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-generics.md">
@@ -429,9 +403,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-properties.md">
@@ -439,9 +411,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-18-returns.md">
@@ -449,9 +419,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-traits.md">
@@ -459,9 +427,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-idioms.md">
@@ -469,16 +435,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="0" selection-start="2566" selection-end="2566" vertical-scroll-proportion="2.5767918" vertical-offset="0" max-vertical-offset="2985">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="3" selection-start="682" selection-end="682" vertical-scroll-proportion="0.48066297" vertical-offset="0" max-vertical-offset="1095">
-          <folding />
-        </state>
+        <state line="151" column="0" selection-start="2566" selection-end="2566" vertical-scroll-proportion="2.5767918" vertical-offset="0" max-vertical-offset="2985" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-11-07-getting-started.md">
@@ -486,7 +443,38 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="2277" selection-end="2277" vertical-scroll-proportion="0.74480367" vertical-offset="0" max-vertical-offset="1035">
+        <state line="0" column="0" selection-start="0" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-11-07-command-line.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="7" selection-start="1667" selection-end="1667" vertical-scroll-proportion="0.6581986" vertical-offset="45" max-vertical-offset="1185" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/docs/2013-11-15-operator-overloading.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2145" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="585" selection-end="585" vertical-scroll-proportion="0.3646409" vertical-offset="0" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/tutorials/2013-12-16-using-ant.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="27" selection-start="3766" selection-end="3766" vertical-scroll-proportion="0.47098976" vertical-offset="1311" max-vertical-offset="2205">
           <folding />
         </state>
       </provider>
