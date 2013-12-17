@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Classes and Inheritance</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Classes and Inheritance</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <h2 id="classes">Classes</h2>
+
+<p>Classes are first-class citizens in Kotlin and are declared using the keyword <em class="keyword">class</em></p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nc">Invoice</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Class bodies are optional. In Kotlin if a class has no body, it can omit the curly braces</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nc">Invoice</span>
+</code></pre></div>
+
+<h3 id="constructors">Constructors</h3>
+
+<p>Classes in Kotlin can only have a single constructor, which is declared in the header and any initialization code should be enclosed in an anonymous initializer</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nf">Customer</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="p">{</span>
+        <span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Customer initialized with value ${name}&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>```</p>
+
+<p>If the initialization is merely assigning values to class properties, this can be done without having to use an anonymous initializer</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nf">Customer</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">val</span> <span class="n">customerName</span> <span class="p">=</span> <span class="n">name</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In fact, for declaring properties and initializing them from the constructor, Kotlin has a more concise syntax</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nf">Customer</span><span class="p">(</span><span class="k">val</span> <span class="n">customerName</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p>which is equivalent to the previous code. Much the same way as when declaring properties, those explicitly
+declared in the constructor can be mutable (<em>var</em>) or immutable (<em>val</em>).</p>
+
+<h3 id="creating-instances-of-classes">Creating instances of classes</h3>
+
+<p>To create an instance of a class, we call the constructor as if it were a regular function</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="p">=</span> <span class="n">Invoice</span><span class="p">()</span>
+
+<span class="k">val</span> <span class="p">=</span> <span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Joe Smith&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Note that Kotlin does not have a <em class="keyword">new</em></p>
+
+<h3 id="class-members">Class Members</h3>
+
+<p>Classes can contain</p>
+
+<ul>
+  <li><a href="/docs/functions.html">Functions</a></li>
+  <li><a href="/docs/properties.html">Properties</a></li>
+  <li><a href="/docs/nested-classes.html">Nested and Inner Classes</a></li>
+  <li><a href="/docs/object-declarations.html">Object Declarations</a></li>
+</ul>
+
+<h2 id="inheritance">Inheritance</h2>
+
+<p>All classes in Kotlin have a common superclass <em class="keyword">Any</em>, that is a default super for a class with no supertypes declared:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nc">Example</span> <span class="c1">// Implicitly inherits from Any</span>
+</code></pre></div>
+
+<p>Any is not java.lang.Object; in particular, it does not have any members, not even equals(), hashCode or toString(). This does not mean that you can not call, say, toString() on any object: you can, but it will be an extension function.
+See <a href="/docs/java-interop.html#object-methods">Java interoperability</a> for more details.</p>
+
+<p>To declare an explicit supertype, one puts it after a colon in the class header:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">open</span> <span class="k">class</span> <span class="nf">Base</span><span class="p">(</span><span class="n">p</span> <span class="p">:</span> <span class="n">Int</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nf">Derived</span><span class="p">(</span><span class="n">p</span> <span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">:</span> <span class="n">Base</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</code></pre></div>
+
+<p>As you can see, the base type can (and must) be initialized right there, using the parameters of the primary constructor.</p>
+
+<p>The open annotation on a class is the opposite of Java’s final: it allows others to inherit from this class. By default, all classes in Kotlin are final,
+which corresponds to <a href="http://java.sun.com/docs/books/effective">Item 17 of Effective Java: Design and document for inheritance or else prohibit it</a>.</p>
+
+<h3 id="overriding-members">Overriding Members</h3>
+
+<p>As we mentioned before, we stick to making things explicit in Kotlin. And unlike Java, Kotlin requires explicit annotations for overridable members that we call open and for overrides:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">open</span> <span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
+  <span class="n">open</span> <span class="k">fun</span> <span class="nf">v</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="k">fun</span> <span class="nf">nv</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nf">Derived</span><span class="p">()</span> <span class="p">:</span> <span class="n">Base</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">override</span> <span class="k">fun</span> <span class="nf">v</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The override annotation is required for <em>Derived.v()</em>. If it were missing, the compiler would complain. If there is no open annotation on a function, like <em>Base.nv()</em>, declaring a method with the same signature in a subclass is illegal, either with override or without it. In a final class (e.g. a class with no open annotation), open members are prohibited.</p>
+
+<p>A member marked override is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use final:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">open</span> <span class="k">class</span> <span class="nf">AnotherDerived</span><span class="p">()</span> <span class="p">:</span> <span class="n">Base</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">final</span> <span class="k">override</span> <span class="k">fun</span> <span class="nf">v</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="wait-how-will-i-hack-my-libraries-now">Wait! How will I hack my libraries now?!</h4>
+
+<p>One issue with our approach to overriding (classes and members final by default) is that it would be difficult to subclass something inside the libraries you use to override some method that was not intended for overriding by the library designer, and introduce some nasty hack there.</p>
+
+<p>We think that this is not a disadvantage, for the following reasons:</p>
+
+<ul>
+  <li>Best practices say that you should not allow these hacks anyway</li>
+  <li>People successfully use other languages (C++, C#) that have similar approach</li>
+  <li>If people really want to hack, there still are ways: in some cases it will be possible to write your hack in Java, and Aspect frameworks always work for these purposes…</li>
+</ul>
+
+<h3 id="overriding-rules">Overriding Rules</h3>
+
+<p>In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses, it must override <em class="keyword">this</em> member and provide its own implementation (perhaps, using one of the inherited ones). To denote the supertype from which the inherited implementation is taken, we use <em class="keyword">this</em> qualified by the supertype name in angle brackets, e.g. this<base />:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">open</span> <span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+  <span class="n">open</span> <span class="k">fun</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">fun</span> <span class="nf">a</span><span class="p">()</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">trait</span> <span class="n">B</span> <span class="p">{</span>
+  <span class="k">fun</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)</span> <span class="p">}</span> <span class="c1">// trait members are &#39;open&#39; by default</span>
+  <span class="k">fun</span> <span class="nf">b</span><span class="p">()</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nf">C</span><span class="p">()</span> <span class="p">:</span> <span class="n">A</span><span class="p">(),</span> <span class="n">B</span> <span class="p">{</span>
+  <span class="c1">// The compiler requires f() to be overridden:</span>
+  <span class="k">override</span> <span class="k">fun</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">super</span><span class="p">&lt;</span><span class="n">A</span><span class="p">&gt;.</span><span class="n">f</span><span class="p">()</span> <span class="c1">// call to A.f()</span>
+    <span class="n">super</span><span class="p">&lt;</span><span class="n">B</span><span class="p">&gt;.</span><span class="n">f</span><span class="p">()</span> <span class="c1">// call to B.f()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>It’s fine to inherit from both <em>A</em> and <em>B</em>, and we have no problems with <em>a()</em> and <em>b()</em> since <em>C</em> inherits only one implementation of each of these functions.
+But for <em>f()</em> we have two implementations
+inherited by <em>C</em>, and this we have to override <em>f()</em> in <em>C</em> and provide our own implementation that eliminates the ambiguity.</p>
+
+<h2 id="abstract-classes">Abstract Classes</h2>
+
+<p>A class and some of its members may be declared abstract. An abstract member does not have an implementation in its class. Thus, when some descendant inherits an abstract member, it does not count as an implementation:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">abstract</span> <span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+  <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">f</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">trait</span> <span class="n">B</span> <span class="p">{</span>
+  <span class="n">open</span> <span class="k">fun</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nf">C</span><span class="p">()</span> <span class="p">:</span> <span class="n">A</span><span class="p">(),</span> <span class="n">B</span> <span class="p">{</span>
+  <span class="c1">// We are not required to override f()</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Note that we do not need to annotate an abstract class open – it goes without saying. Neither need we annotate an abstract function open.</p>
+
+<p>We can override a non-abstract open member with an abstract one</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">open</span> <span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
+  <span class="n">open</span> <span class="k">fun</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="k">abstract</span> <span class="k">class</span> <span class="nc">Derived</span> <span class="p">:</span> <span class="n">Base</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">override</span> <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">f</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="class-objects">Class Objects</h2>
+
+<p>In Kotlin, unlike Java or C#, classes do not have static methods. In most cases, namespace-level functions form a good substitute for them, but there are a few cases when they don’t. These cases involve access to class’ internals (private members).</p>
+
+<p>For example, to replace a constructor with a Factory method, one makes the constructor private and provides a function that calls the constructor. But if this function in located outside the class in question, it would not have any access to the constructor.</p>
+
+<p>To address this issue (and to provide some other interesting features), Kotlin introduces a concept of a class object (the closest analog in other languages would be Companion objects in Scala). Roughly speaking, a class object for class C is an object (in the sense of Object declaration) that is associated to C. There may be not more than one class object for each class. A class object is declared inside its associated class, and thus it can access its private members. A class object for C itself is (usually) not and instance of C. For example:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nf">C</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">object</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">create</span><span class="p">()</span> <span class="p">=</span> <span class="n">C</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">val</span> <span class="n">c</span> <span class="p">=</span> <span class="n">C</span><span class="p">.</span><span class="n">create</span><span class="p">()</span> <span class="c1">// C denotes the class object here</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>At first you may think that this is just a way of grouping static members of a class together instead of mixing them with instance members: in Java we access static members of C by calling C.foo(), and the same happens with class object’s members in Kotlin. But in fact there is an important difference: a class object can have supertypes, and C, as an expression denotes this object as a value, so one can pass it around, say, as an argument for a function. Let’s modify our example to demonstrate this</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Factory</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">T</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">create</span><span class="p">()</span> <span class="p">:</span> <span class="n">T</span>
+<span class="p">}</span>
+
+<span class="n">open</span> <span class="k">class</span> <span class="nf">C</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">object</span> <span class="p">:</span> <span class="n">Factory</span><span class="p">&lt;</span><span class="n">C</span><span class="p">&gt;()</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">create</span><span class="p">()</span> <span class="p">:</span> <span class="n">C</span> <span class="p">=</span> <span class="n">C</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">val</span> <span class="n">factory</span> <span class="p">=</span> <span class="n">C</span> <span class="c1">// C denotes the class object</span>
+  <span class="k">val</span> <span class="n">c</span> <span class="p">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">create</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Note that class objects are never inherited:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nc">D</span> <span class="p">:</span> <span class="n">C</span><span class="p">()</span>
+
+<span class="k">val</span> <span class="n">d</span> <span class="p">=</span> <span class="n">D</span><span class="p">.</span><span class="n">create</span><span class="p">()</span> <span class="c1">// Error: no class object for D</span>
+</code></pre></div>
+
+<p>A description of some more interesting features related to class objects can be found in the Generic constraints section.
+r
+Note: if you think that class objects are a great way of implementing singletons in Kotlin, please see Object expressions and Declarations.</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+
+            <p><a href="/docs/functions.html">Functions</a></p>
+            
+            
+
+            
+            
+
+            
+            
+            
+
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+
+            <p><a href="/docs/nested-classes.html">Nested Classes</a></p>
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+            
+
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+
+            <p><a href="/docs/traits.html">Traits</a></p>
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>

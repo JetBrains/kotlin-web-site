@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Pattern Matching</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Pattern Matching</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <h2 id="is-and-is-operators">is and !is Operators</h2>
+
+<p>Pattern matching is performed by is operator that returns true if the pattern matched successfully and false otherwise. It has a negated form !is. The simplest form of pattern matching simply checks if an object conforms to a given type (similar to Java’s instanceof check):</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="c1">//is</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="k">is</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// !is</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="p">!</span><span class="k">is</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">&quot;Not a String&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>See <a href="/docs/typecasts.html#smart-casts">smart casts</a>.</p>
+
+<p>Is and !is may be used as branch conditions in when expressions:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">is</span> <span class="n">Int</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">is</span> <span class="n">List</span><span class="p">&lt;*&gt;</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+  <span class="p">!</span><span class="k">is</span> <span class="n">Number</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;Not even a number&quot;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;can&#39;t do anything&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="patterns">Patterns</h3>
+<p>Patterns on the right-hand side of is and !is allow to match against types, constants, structure of tuples and other objects, and to bind objects matched by sub-patterns, to variables.</p>
+
+<p>See the <a href="/docs/grammar.htmlpatterns">grammar for patterns</a>.</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>

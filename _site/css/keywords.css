@@ -1,0 +1,13 @@
+.keyword {
+    color: #0000C0;
+    padding: 5px;
+    font-style: normal;
+}
+
+.error {
+    background-color: #ff0000;
+}
+
+.warning {
+    background-color: #ffff00;
+}

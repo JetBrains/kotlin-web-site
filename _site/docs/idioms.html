@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Idioms</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Idioms</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <p>A collection of random and frequently used idioms in Kotlin.</p>
+
+<h4 id="have-a-favorite-idiom">Have a favorite idiom?</h4>
+
+<p>If you have a favorite idiom, contribute it. Do a pull request.</p>
+
+<h3 id="creating-dtos-pojospocos">Creating DTO’s (POJO’s/POCO’s)</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">data</span> <span class="k">class</span> <span class="nf">Customer</span><span class="p">(</span><span class="k">val</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="k">val</span> <span class="n">email</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
+</code></pre></div>
+
+<p>provides a Customer class with the following functionality</p>
+
+<ul>
+  <li>getters (and setters in case of <code>var</code>s) for all properties</li>
+  <li>equals()</li>
+  <li>hashCode()</li>
+  <li>toString()</li>
+  <li>copy()</li>
+  <li>component1(), component2(), …, for all properties</li>
+</ul>
+
+<h3 id="declaring-a-final-local-variable">Declaring a final local variable</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">a</span> <span class="p">=</span> <span class="n">foo</span><span class="p">()</span>
+</code></pre></div>
+
+<h3 id="default-values-for-function-paramters">Default values for function paramters</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">String</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="filtering-a-list">Filtering a list</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">positivies</span> <span class="p">=</span> <span class="n">list</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">}</span>
+</code></pre></div>
+
+<p>Or alternatively, even shorter:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">positivies</span> <span class="p">=</span> <span class="n">list</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="n">it</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="string-interpolation">String Interpolation</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">println</span><span class="p">(</span><span class="s">&quot;Name $name&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="instance-checks">Instance Checks</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">is</span> <span class="n">Foo</span> <span class="p">-&gt;</span> <span class="p">...</span>
+    <span class="k">is</span> <span class="n">Bar</span> <span class="p">-&gt;</span> <span class="p">...</span>
+    <span class="k">else</span>   <span class="p">-&gt;</span> <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="traversing-a-maplist-of-pairs">Traversing a map/list of pairs</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">for</span> <span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">in</span> <span class="n">map</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;$k -&gt; $v&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>k,v can be called anything.</p>
+
+<h3 id="using-ranges">Using ranges</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">100</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">2.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="read-only-list">Read-only list</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">list</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="read-only-map">Read-only map</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">map</span> <span class="p">=</span> <span class="n">mapOf</span><span class="p">(</span><span class="s">&quot;a&quot;</span> <span class="n">to</span> <span class="m">1</span><span class="p">,</span> <span class="s">&quot;b&quot;</span> <span class="n">to</span> <span class="m">2</span><span class="p">,</span> <span class="s">&quot;c&quot;</span> <span class="n">to</span> <span class="m">3</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="accessing-a-map">Accessing a map</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">println</span><span class="p">(</span><span class="n">map</span><span class="p">[</span><span class="s">&quot;key&quot;</span><span class="p">])</span>
+<span class="n">map</span><span class="p">[</span><span class="s">&quot;key&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="n">value</span>
+</code></pre></div>
+
+<h3 id="lazy-property">Lazy property</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">p</span><span class="p">:</span> <span class="n">String</span> <span class="n">by</span> <span class="n">Delegates</span><span class="p">.</span><span class="n">lazy</span> <span class="p">{</span>
+    <span class="c1">// compute the string</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="extension-functions">Extension Functions</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="n">String</span><span class="p">.</span><span class="n">spaceToCamelCase</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+
+<span class="s">&quot;Convert this to camelcase&quot;</span><span class="p">.</span><span class="n">spaceToCamelCase</span><span class="p">()</span>
+</code></pre></div>
+
+<h3 id="creating-a-singleton">Creating a singleton</h3>
+
+<p>object Resource {
+    val name = “Name”
+}</p>
+
+<h3 id="if-not-null-shorthand">If not null shorthand</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">files</span> <span class="p">=</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">).</span><span class="n">listFiles</span><span class="p">()</span>
+
+<span class="n">println</span><span class="p">(</span><span class="n">files</span><span class="p">?.</span><span class="n">size</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="if-not-null-and-else-shorthand">If not null and else shorthand</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">files</span> <span class="p">=</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">).</span><span class="n">listFiles</span><span class="p">()</span>
+
+<span class="n">println</span><span class="p">(</span><span class="n">files</span><span class="p">?.</span><span class="n">size</span> <span class="p">?:</span> <span class="s">&quot;empty&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="executing-a-statement-if-null">Executing a statement if null</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">data</span> <span class="p">=</span> <span class="p">...</span>
+<span class="k">val</span> <span class="n">email</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;email&quot;</span><span class="p">]</span> <span class="p">?:</span> <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;Email is missing!&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="execute-if-not-null">Execute if not null</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">data</span> <span class="p">=</span> <span class="p">...</span>
+
+<span class="n">data</span><span class="p">?.</span><span class="n">let</span> <span class="p">{</span>
+    <span class="p">...</span> <span class="c1">// execute this block if not null</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="return-on-when-statement">Return on when statement</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">transform</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nf">when</span> <span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+        <span class="s">&quot;Red&quot;</span> <span class="p">-&gt;</span> <span class="m">0</span>
+        <span class="s">&quot;Green&quot;</span> <span class="p">-&gt;</span> <span class="m">1</span>
+        <span class="s">&quot;Blue&quot;</span> <span class="p">-&gt;</span> <span class="m">2</span>
+        <span class="k">else</span> <span class="p">-&gt;</span> <span class="k">throw</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Invalid color param value&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="return-on-try-catch-block">Return on try catch block</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">val</span> <span class="n">result</span> <span class="p">=</span> <span class="k">try</span> <span class="p">{</span>
+        <span class="n">count</span><span class="p">()</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ArithmeticException</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nf">IllegalStateException</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Working with result</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="return-on-if-statement">Return on if statement</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">foo</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">val</span> <span class="n">result</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="n">param</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="s">&quot;one&quot;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">param</span> <span class="p">==</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="s">&quot;two&quot;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="s">&quot;three&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="single-expression-functions">Single-expression functions</h3>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">theAnswer</span><span class="p">()</span> <span class="p">=</span> <span class="m">42</span>
+</code></pre></div>
+
+<p>This is equivalent to</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">theAnswer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="m">42</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This can be effectively combined with other idioms, leading to shorter code. E.g. with the when expression:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">transform</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">Int</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">&quot;Red&quot;</span> <span class="p">-&gt;</span> <span class="m">0</span>
+    <span class="s">&quot;Green&quot;</span> <span class="p">-&gt;</span> <span class="m">1</span>
+    <span class="s">&quot;Blue&quot;</span> <span class="p">-&gt;</span> <span class="m">2</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="k">throw</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Invalid color param value&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>

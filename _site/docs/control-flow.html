@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Control Flow</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Control Flow</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <h2 id="if-expression">If Expression</h2>
+
+<p>In Kotlin, if is an expression, i.e. it returns a value. Therefore there is no ternary operator (condition ? then : else), because ordinary if works fine in this role. </p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="c1">// Traditional usage </span>
+<span class="k">var</span> <span class="n">max</span> <span class="p">=</span> <span class="n">a</span> 
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">)</span> 
+  <span class="n">max</span> <span class="p">=</span> <span class="n">b</span> 
+ 
+<span class="c1">// With else </span>
+<span class="k">var</span> <span class="n">max</span> <span class="p">:</span> <span class="n">Int</span> 
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&gt;</span> <span class="n">b</span><span class="p">)</span> 
+  <span class="n">max</span> <span class="p">=</span> <span class="n">a</span> 
+<span class="k">else</span> 
+  <span class="n">max</span> <span class="p">=</span> <span class="n">b</span> 
+ 
+<span class="c1">// As expression </span>
+<span class="k">val</span> <span class="n">max</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="n">a</span> <span class="k">else</span> <span class="n">b</span>
+</code></pre></div>
+
+<p>If branches can be blocks, and the last expression is the value of a block:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">max</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">print</span><span class="p">(</span><span class="s">&quot;Choose a&quot;</span><span class="p">)</span> 
+    <span class="n">a</span> 
+  <span class="p">}</span> 
+  <span class="k">else</span> <span class="p">{</span> 
+    <span class="n">print</span><span class="p">(</span><span class="s">&quot;Choose b&quot;</span><span class="p">)</span> 
+    <span class="n">b</span> 
+  <span class="p">}</span>
+</code></pre></div>
+
+<p>When if has only one branch, or one of its branches results in Unit, it’s type is Unit.</p>
+
+<p>See the <a href="/docs/grammar.html#if">grammar for if</a>.</p>
+
+<h2 id="when-expression">When Expression</h2>
+
+<p>When replaces the switch operator of C-like languages. In the simplest form it looks like this</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="m">1</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;x == 1&quot;</span><span class="p">)</span>
+  <span class="m">2</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;x == 2&quot;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="c1">// Note the block</span>
+    <span class="n">print</span><span class="p">(</span><span class="s">&quot;x is neither 1 nor 2&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>When matches its argument against all branches consequently until some branch condition is satisfied. When is an expression and results in satisfied branch’s right hand side. If some of its branches return result in a value of type Unit, the whole expression has type Unit.
+Note that the else branch is mandatory, unless the compiler can prove that all possible cases are covered with branch conditions.</p>
+
+<p>If many cases should be handled in the same way, the branch conditions may be combined with a comma</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="m">0</span><span class="p">,</span> <span class="m">1</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;x == 0 or x == 1&quot;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;otherwise&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>We can use arbitrary expressions (not only constants) as branch conditions</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">parseInt</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;s encodes x&quot;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;s does not encode x&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>We can also check a value for being in or !in a <a href="/docs/ranges.html">range</a></p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;x is in the range&quot;</span><span class="p">)</span>
+  <span class="p">!</span><span class="k">in</span> <span class="m">10.</span><span class="p">.</span><span class="m">20</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;x is outside the range&quot;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;none of the above&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>When can also be used as a replacement for an if-else-if chain. If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span> <span class="p">{</span>
+  <span class="n">x</span><span class="p">.</span><span class="n">isOdd</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;x is odd&quot;</span><span class="p">)</span>
+  <span class="n">x</span><span class="p">.</span><span class="n">isEven</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;x is even&quot;</span><span class="p">)</span>
+  <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;x is funny&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="continue-inside-when">Continue inside when</h3>
+
+<p>Inside when expressions, continue jumps to the next branch condition, if any:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">100</span> <span class="p">-&gt;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">isOdd</span><span class="p">())</span>
+      <span class="k">continue</span> <span class="c1">// Jump to the next branch, i.e. &#39;3, 101 -&gt; ...&#39;</span>
+    <span class="k">else</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">&quot;Even between 1 and 100&quot;</span><span class="p">)</span>
+  <span class="m">3</span><span class="p">,</span> <span class="m">101</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;3 or 101&quot;</span><span class="p">)</span>
+  <span class="m">1000</span> <span class="p">-&gt;</span> <span class="k">continue</span> <span class="c1">// Error: continue is not allowed in the last branch</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This mechanism replaces the concept of guards available in other languages. I.e. in Scala one has guard if expressions in match (that corresponds to when):</p>
+
+<div class="highlight"><pre><code class="scala"><span class="c1">// Scala</span>
+<span class="n">term</span> <span class="k">match</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="nc">Fun</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="n">print</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
+  <span class="k">case</span> <span class="k">_</span> <span class="o">-&gt;</span> <span class="n">print</span><span class="o">(</span><span class="s">&quot;Nope!&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>This can be rewritten in Kotlin with as follows:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">when</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">is</span> <span class="n">Fun</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="n">tem</span><span class="p">.</span><span class="n">v</span> <span class="p">!=</span> <span class="n">term</span><span class="p">.</span><span class="n">body</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span> <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;Nope!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>See <a href="/docs/returns.html">Returns and jumps</a> for more information about continue.
+See the <a href="/docs/grammar.html#when">grammar for when</a>.</p>
+
+<h2 id="for-loops">For Loops</h2>
+
+<p>For loop iterates through anything that provides an iterator. The syntax is as follows:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">for</span> <span class="p">(</span><span class="n">item</span> <span class="k">in</span> <span class="n">collection</span><span class="p">)</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="n">The</span> <span class="n">body</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">block</span><span class="p">.</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">item</span> <span class="p">:</span> <span class="n">Int</span> <span class="k">in</span> <span class="n">ints</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>As mentioned before, for iterates through anything that provides and iterator, i.e.</p>
+
+<ul>
+  <li>has an instance- or extension-function iterator(), whose return type
+*has an instance- or extension-function next(), and
+*has an instance- or extension-function hasNext() that returns Boolean.</li>
+</ul>
+
+<p>If you want to iterate through an array or list with an index, you can do it this way:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">array</span><span class="p">.</span><span class="n">indices</span><span class="p">)</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div>
+
+<p>Note that this “iteration through a range” is compiled down to optimal implementation with no extra objects created.</p>
+
+<p>See the <a href="/docs/grammar.html#for">grammar for for</a>.</p>
+
+<h2 id="while-loops">While Loops</h2>
+
+<p>While and do..while work as usual</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">while</span><span class="p">(</span><span class="n">x</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">x</span><span class="p">--</span>
+<span class="p">}</span>
+
+<span class="k">do</span> <span class="p">{</span>
+  <span class="k">val</span> <span class="n">y</span> <span class="p">=</span> <span class="n">retrieveData</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="n">y</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="c1">// y is visible here!</span>
+</code></pre></div>
+
+<p>See the <a href="/docs/grammar.html#while">grammar for while</a>.</p>
+
+<h2 id="break-and-continue-in-loops">Break and continue in loops</h2>
+
+<p>Kotlin supports traditional break and continue operators in loops. See more here <a href="/docs/returns.html">Returns and jumps</a>.</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>

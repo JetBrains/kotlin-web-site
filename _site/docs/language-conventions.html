@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Language Conventions</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Language Conventions</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <h2 id="this-expression">This Expression</h2>
+
+<p>To denote the current <em>receiver</em>, we use <em class="keyword">this</em> expressions:
+* In a member of a [class|(/docs/classes.html#inheritance), <em class="keyword">this</em> refers to the current object of that class
+** <em class="keyword">this</em> is used to qualified calls to supertype’s implementations of members, see <a href="/docs/classes.html#overriding-rules">Classes and Inheritance</a>
+* In an <a href="/docs/extension-functions.html">extension function</a> or an <a href="/docs/lambdas.html#function-literals">extension function literals</a>, <em class="keyword">this</em> denotes the <em>receiver</em> parameter that is passed on the left-hand side of a dot.</p>
+
+<p>If <em class="keyword">this</em> has no qualifiers, it refers to the <em>innermost enclosing scope</em>. To refer to <em class="keyword">this</em> in other scopes, <em>label qualifiers</em> are used:</p>
+
+<p>{anchor:qualified}</p>
+
+<h3 id="qualified-this-keyword-">Qualified <em class="keyword">this</em></h3>
+
+<p>To access <em class="keyword">this</em> from an outer scope (a <a href="/docs/classes.html">class</a>, or <a href="/docs/extension-functions.html">extension function</a>, or labeled <a href="/docs/lambdas.html#function-literals">extension function literal</a> one writes <em>this{</em>} where  is a <a href="/docs/returns.html">label</a>
+on the scope <em class="keyword">this</em> is meant to be from:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span> <span class="c1">// implicit label @A</span>
+  <span class="k">class</span> <span class="nc">B</span> <span class="p">{</span> <span class="c1">// implicit label @B</span>
+    <span class="k">fun</span> <span class="n">Int</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// implicit label @foo</span>
+      <span class="k">val</span> <span class="n">a</span> <span class="p">=</span> <span class="k">this</span><span class="n">@A</span> <span class="c1">// A&#39;s this</span>
+      <span class="k">val</span> <span class="n">b</span> <span class="p">=</span> <span class="k">this</span><span class="n">@B</span> <span class="c1">// B&#39;s this</span>
+
+      <span class="k">val</span> <span class="n">c</span> <span class="p">=</span> <span class="k">this</span> <span class="c1">// foo()&#39;s receiver, an Int</span>
+      <span class="k">val</span> <span class="n">c1</span> <span class="p">=</span> <span class="k">this</span><span class="n">@foo</span> <span class="c1">// foo()&#39;s receiver, an Int</span>
+
+      <span class="k">val</span> <span class="n">funLit</span> <span class="p">=</span> <span class="p">{</span><span class="n">String</span><span class="p">.()</span> <span class="p">-&gt;</span> <span class="c1">// implicit label @</span>
+        <span class="k">val</span> <span class="n">d</span> <span class="p">=</span> <span class="k">this</span> <span class="c1">// funLit&#39;s receiver</span>
+        <span class="k">val</span> <span class="n">d1</span> <span class="p">=</span> <span class="k">this</span><span class="err">@</span> <span class="c1">// funLit&#39;s receiver</span>
+      <span class="p">}</span>
+
+
+      <span class="k">val</span> <span class="n">funLit2</span> <span class="p">=</span> <span class="p">{</span> <span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">-&gt;</span>
+        <span class="k">val</span> <span class="n">d1</span> <span class="p">=</span> <span class="k">this</span> <span class="c1">// foo()&#39;s receiver, since enclosing function literal doesn&#39;t have any receiver</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>

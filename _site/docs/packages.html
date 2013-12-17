@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Packages</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Packages</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <h2 id="root-package">Root package</h2>
+<p>Every module declares a unique root package, that contains all the packages declared in the module.</p>
+
+<h2 id="header-package-declaration">Header package declaration</h2>
+<p>A source file may start with a header package declaration (see the grammar):</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">package</span> <span class="nn">foo.bar</span>
+
+<span class="c1">// ...</span>
+</code></pre></div>
+
+<p>All the contents of the source file are (directly or indirectly) contained by its header package. If the header is not specified, the module’s root package is used.</p>
+
+<h2 id="imports">Imports</h2>
+
+<p>Apart from the [default imports][#default-imports] declared by the module, each file may contain its own import directives. Syntax for imports is described in the <a href="/docs/grammar.html#imports">grammar</a>.</p>
+
+<p>We can import either a single name, e.g.</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">import</span> <span class="n">foo</span><span class="p">.</span><span class="n">Bar</span> <span class="c1">// Bar is now accessible without qualification</span>
+</code></pre></div>
+
+<p>or all the accessible contents of a scope (package, class, object etc):</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">import</span> <span class="n">foo</span><span class="p">.*</span> <span class="c1">// everything in &#39;foo&#39; becomes accessible</span>
+</code></pre></div>
+
+<p>If there is a name clash, we can disambiguate by using as keyword to locally rename the clashing entity:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">import</span> <span class="n">foo</span><span class="p">.</span><span class="n">Bar</span> <span class="c1">// Bar is accessible</span>
+<span class="n">import</span> <span class="n">bar</span><span class="p">.</span><span class="n">Bar</span> <span class="k">as</span> <span class="n">bBar</span> <span class="c1">// bBar stands for &#39;bar.Bar&#39;</span>
+</code></pre></div>
+
+<h2 id="absolute-and-relative-names">Absolute and relative names</h2>
+
+<p>Consider the following example (syntax is fictional):</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">package</span> <span class="nn">a</span> <span class="p">{</span>
+  <span class="k">package</span> <span class="nn">b</span> <span class="p">{</span>
+    <span class="k">val</span> <span class="n">x</span> <span class="p">=</span> <span class="m">1</span>
+    <span class="k">package</span> <span class="nn">a</span> <span class="p">{</span>
+      <span class="k">val</span> <span class="n">y</span> <span class="p">=</span> <span class="n">a</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="c1">// Problem</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>At the line marked “Problem” we have the following potential ambiguity: what does a stand for: the outer package a or the inner one? The rule here is that names are always relative: a is resolved in its scope of occurrence that makes it mean the inner package a, so this code does not compile.</p>
+
+<p>To fix it, we need an absolute name. These start with the package keyword:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">package</span> <span class="nn">a</span> <span class="p">{</span>
+  <span class="k">package</span> <span class="nn">b</span> <span class="p">{</span>
+    <span class="k">val</span> <span class="n">x</span> <span class="p">=</span> <span class="m">1</span>
+    <span class="k">package</span> <span class="nn">a</span> <span class="p">{</span>
+      <span class="k">val</span> <span class="n">y</span> <span class="p">=</span> <span class="n">package</span><span class="p">.</span><span class="n">root</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="c1">// Fixed</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In this example, we assumed that the root package of our module is named root.</p>
+
+<p>Absolute names may be used in imports as well:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">import</span> <span class="n">package</span><span class="p">.</span><span class="n">root</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">.*</span>
+</code></pre></div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+/* Icons */
+.icon {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    font-size: 0;
+    letter-spacing: 0;
+    background: url("../assests/images/sprite.png") no-repeat 50px 50px;
+    }
+
+.icon._jetbrains   { width: 20px; height: 15px; background-position: -125px 0 }
+.icon._kotlin      { width: 14px; height: 15px; background-position: -150px 0 }
+.icon._twitter     { width: 19px; height: 16px; background-position: -175px 0 }
+.icon._mail        { width: 18px; height: 10px; background-position: -200px 0 }
+.icon._user        { width:  6px; height: 15px; background-position: -350px 0 }
+.icon._search      { width: 17px; height: 17px; background-position: -375px 0 }
+.icon._more        { width: 10px; height: 16px; background-position: -100px 0 }
+._sm .icon._more   { width:  8px; height: 12px; background-position: -225px 0 }
+.icon._more._sm    { width:  5px; height:  8px; background-position: -275px -25px }
+.icon._success     { width: 15px; height: 12px; background-position: -100px -25px }
+.icon._success._sm { width: 10px; height:  8px; background-position: -125px -25px }
+.icon._fail        { width:  8px; height:  8px; background-position: -150px -25px }
+.icon._error       { width: 11px; height: 11px; background-position: -175px -25px }
+.icon._dot         { width:  7px; height:  7px; background: #c5c5c5; border-radius: 50% }
+.icon._download    { width: 20px; height: 19px; background-position: -300px -25px }
+.icon._vkontakte   { width: 18px; height: 18px; background-position: -325px -25px }
+
+.btn-round .icon._download { bottom: 3px }
+
+._color .icon._jetbrains,
+.icon._jetbrains._color { background-position: -250px 0 }
+._color .icon._kotlin,
+.icon._kotlin._color    { background-position: -275px 0 }
+._color .icon._twitter,
+.icon._twitter._color   { background-position: -300px 0 }
+._color .icon._mail,
+.icon._mail._color      { background-position: -325px 0 }
+._color .icon._vkontakte,
+.icon._vkontakte._color  { background-position: -350px -25px }
+

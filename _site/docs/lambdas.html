@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>High-Order Functions and Lambdas</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>High-Order Functions and Lambdas</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <h2 id="high-order-functions">High-Order Functions</h2>
+
+<p>A higher-order function is a function that takes functions as parameters, or returns a function. A good example of such a function is lock() that takes a lock object and a function, acquires the lock, runs the functions and releases the lock:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="k">lock</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="k">lock</span> <span class="p">:</span> <span class="n">Lock</span><span class="p">,</span> <span class="n">body</span> <span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="n">T</span><span class="p">)</span> <span class="p">:</span> <span class="n">T</span> <span class="p">{</span>
+  <span class="k">lock</span><span class="p">.</span><span class="k">lock</span><span class="p">()</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nf">body</span><span class="p">()</span>
+  <span class="p">}</span>
+  <span class="k">finally</span> <span class="p">{</span>
+    <span class="k">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Let’s examine the code above: body has a <a href="#function-types">function type</a>: () -&gt; T, so it’s supposed to be a function that takes no parameters and returns a value of type T. It is invoked inside the try block, while protected by the lock, and its result is returned by the lock() function.</p>
+
+<p>If we want to call lock(), we can pass a <a href="#function-literals">function literal</a> to it as an argument:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">result</span> <span class="p">=</span> <span class="k">lock</span><span class="p">(</span><span class="k">lock</span><span class="p">,</span> <span class="p">{</span> <span class="n">sharedResource</span><span class="p">.</span><span class="n">operation</span><span class="p">()</span> <span class="p">})</span>
+</code></pre></div>
+
+<p>Function literals are described in more <a href="#function-literals">detail below</a>, but for purposes of continuing this section, let’s see a brief overview</p>
+
+<ul>
+  <li>A function literal is always surrounded by curly braces,</li>
+  <li>Its parameters (if any) are declared before -&gt; (parameter types may be omitted),</li>
+  <li>The body goes after -&gt; (when present).</li>
+</ul>
+
+<p>In Kotlin, there is a convention that if the last parameter to a function is a function, then we can omit the parenthesis</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">lock</span> <span class="p">(</span><span class="k">lock</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">sharedResource</span><span class="p">.</span><span class="n">operation</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Another example of a higher order function would be map() (of Map/Reduce):</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="p">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;.</span><span class="n">map</span><span class="p">(</span><span class="n">transform</span> <span class="p">:</span> <span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">R</span><span class="p">)</span> <span class="p">:</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="k">val</span> <span class="n">result</span> <span class="p">=</span> <span class="n">ArrayList</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;()</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">item</span> <span class="k">in</span> <span class="k">this</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">transform</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+  <span class="k">return</span> <span class="n">result</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This function can be called as follows</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">doubled</span> <span class="p">=</span> <span class="n">ints</span><span class="p">.</span><span class="n">map</span> <span class="p">{</span><span class="n">it</span> <span class="p">-&gt;</span> <span class="n">it</span> <span class="p">*</span> <span class="m">2</span><span class="p">}</span>
+</code></pre></div>
+
+<p>One other convention helps is that if a function literal has only one parameter, its declaration may be omitted (along with the -&gt;) and its name will be it</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">ints</span> <span class="n">map</span> <span class="p">{</span><span class="n">it</span> <span class="p">*</span> <span class="m">2</span><span class="p">}</span> <span class="c1">// Infix call + Implicit &#39;it&#39;</span>
+</code></pre></div>
+
+<p>These conventions allow to write <a href="http://msdn.microsoft.com/en-us/library/bb308959.aspx">LINQ-style</a> code</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">strings</span> <span class="n">filter</span> <span class="p">{</span><span class="n">it</span><span class="p">.</span><span class="n">length</span> <span class="p">==</span> <span class="m">5</span><span class="p">}</span> <span class="n">sortBy</span> <span class="p">{</span><span class="n">it</span><span class="p">}</span> <span class="n">map</span> <span class="p">{</span><span class="n">it</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">()}</span>
+</code></pre></div>
+
+<h2 id="inline-functions">Inline Functions</h2>
+
+<p>Using higher-order functions imposes certain runtime penalties: each function is an object, and it captures a closure, i.e. those variables that are accessed in the body of the function. Memory allocations (both for function objects and classes) and virtual calls introduce runtime overhead.</p>
+
+<p>But it appears that in many cases this kind of overhead can be eliminated by inlining the function literals. The functions shown above are good examples of this situation. I.e., the lock() function could be easily inlined at call-sites. Consider the following case:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">lock</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="p">{</span><span class="n">foo</span><span class="p">()}</span>
+</code></pre></div>
+
+<p>Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">lock</span><span class="p">.</span><span class="k">lock</span><span class="p">()</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="n">foo</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="k">finally</span> <span class="p">{</span>
+  <span class="k">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Isn’t it what we wanted from the very beginning?</p>
+
+<p>To make the compiler do this, one needs to annotate the lock() function with the inline annotation:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">inline</span> <span class="k">fun</span> <span class="k">lock</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="k">lock</span> <span class="p">:</span> <span class="n">Lock</span><span class="p">,</span> <span class="n">body</span> <span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="n">T</span><span class="p">)</span> <span class="p">:</span> <span class="n">T</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Inlining may cause the generated code to grow, but if we do it in a reasonable way (do not inline big functions) it will pay off in performance, especially at “megamorphic” call-sites inside loops.</p>
+
+<p><em class="warning">Inline functions are not implemented yet. See the corresponding <a href="http://youtrack.jetbrains.com/issue/KT-1434">issue</a></em></p>
+
+<h2 id="function-literals">Function Literals</h2>
+
+<p>A function literal as an “anonymous function”, i.e. a function that is not declared, but passed immediately as an expression. Consider the following example:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">max</span><span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">-&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span><span class="p">})</span>
+</code></pre></div>
+
+<p>Function max is a higher-order function, i.e. is takes a function value as the second argument. This second argument is an expression that is itself a function, i.e. a function literal. As a function, it is equivalent to</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">compare</span><span class="p">(</span><span class="n">a</span> <span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span>
+</code></pre></div>
+
+<h3 id="function-types">Function Types</h3>
+
+<p>For a function to accept another function as a parameter, we have to specify a function type for that parameter. For example the abovementioned function max is defined as follows:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="n">max</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">collection</span> <span class="p">:</span> <span class="n">Collection</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">T</span><span class="p">&gt;,</span> <span class="n">less</span> <span class="p">:</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Boolean</span><span class="p">)</span> <span class="p">:</span> <span class="n">T</span><span class="p">?</span> <span class="p">{</span>
+  <span class="k">var</span> <span class="n">max</span> <span class="p">:</span> <span class="n">T</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">it</span> <span class="k">in</span> <span class="n">collection</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">max</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">less</span><span class="p">(</span><span class="n">max</span><span class="p">!!,</span> <span class="n">it</span><span class="p">))</span>
+      <span class="n">max</span> <span class="p">=</span> <span class="n">it</span>
+  <span class="k">return</span> <span class="n">max</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The parameter less is of type (T, T) -&gt; Boolean, i.e. a function that takes two parameters of type T and returns a Boolean: true if the first one is smaller than the second one.</p>
+
+<p>In the body, line 4, less is used as a function: it is called by passing two arguments of type T.</p>
+
+<p>A function type is written as above, or may have named parameters, for documentation purposes and to enable calls with <a href="/docs/functions.html#named-arguments">named arguments</a>.</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">compare</span> <span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span> <span class="p">=</span> <span class="p">...</span>
+</code></pre></div>
+
+<h3 id="syntactic-form-of-function-literals">Syntactic form of function literals</h3>
+
+<p>The full syntactic form of function literals, i.e. literals of function types, is as follows:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">sum</span> <span class="p">=</span> <span class="p">{(</span><span class="n">x</span> <span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">:</span> <span class="n">Int</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">}</span>
+</code></pre></div>
+
+<p>A function literal is always surrounded by curly braces,
+parameter declarations in the full syntactic form go inside parentheses and have optional type annotations,
+the optional return type annotation goes after the parameter list,
+the body goes after an ‘-&gt;’ sign.
+If we leave all the optional annotations out, what’s left looks like this:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">sum</span> <span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">,</span> <span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span> <span class="p">=</span> <span class="p">{(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">}</span>
+</code></pre></div>
+
+<p>As this is the most common case, Kotlin allows us to leave the parentheses out as well, if no type annotations are present, and so we get the short syntactic form for functional literals:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">sum</span> <span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">,</span> <span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span> <span class="p">=</span> <span class="p">{</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">}</span>
+</code></pre></div>
+
+<p>It very common that a function literal has only one parameter. If Kotlin can figure the signature out itself, it allows us not to declare the only parameter, and will implicitly declare it for us under the name it:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">ints</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span><span class="n">it</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">}</span> <span class="c1">// this literal is of type &#39;(it : Int) -&gt; Boolean&#39;</span>
+</code></pre></div>
+
+<p>Note that if a function takes another function as the last parameter, the function literal argument can be passed outside the parenthesized argument list. See Higher-order functions and the grammar for <a href="/docs/grammar.html#call-sufix">callSuffix</a>.</p>
+
+<h3 id="closures">Closures</h3>
+
+<p>A function literal (as well as a <a href="/docs/functions.html#local-functions">local function</a> and <a href="/docs/object-declarations.html#object-expressions">object expressions</a>) can access its closure, i.e. the variables declared in the outer scope. Unlike Java the closure variables can be modified:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">var</span> <span class="n">sum</span> <span class="p">=</span> <span class="m">0</span>
+<span class="n">ints</span> <span class="n">filter</span> <span class="p">{</span><span class="n">it</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">}</span> <span class="n">forEach</span> <span class="p">{</span>
+  <span class="n">sum</span> <span class="p">+=</span> <span class="n">it</span>
+<span class="p">}</span>
+<span class="n">print</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="extension-function-literals">Extension Function Literals</h3>
+
+<p>In addition to ordinary functions, Kotlin supports extension functions. This kind of functions in so useful, that extension function literals are also supported. One of the most important examples of their usage is Type-safe Groovy-style builders.</p>
+
+<p>An extension function differs from an ordinary one in that it has a receiver type specification.</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">sum</span> <span class="p">=</span> <span class="p">{</span><span class="n">Int</span><span class="p">.(</span><span class="n">other</span> <span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">:</span> <span class="n">Int</span> <span class="p">-&gt;</span> <span class="k">this</span> <span class="p">+</span> <span class="n">other</span><span class="p">}</span>
+</code></pre></div>
+
+<p>Receiver type may be specified only in the full syntactic form of a function literal (remember that parameter types and return type annotations are optional in this form).</p>
+
+<p>Such a literal has a function type with receiver</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="n">sum</span> <span class="p">:</span> <span class="n">Int</span><span class="p">.(</span><span class="n">other</span> <span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span>
+</code></pre></div>
+
+<p>it can be called with a dot or in infix form (since it has only one parameter)</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="m">1.</span><span class="n">sum</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="m">1</span> <span class="n">sum</span> <span class="m">2</span>
+</code></pre></div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>

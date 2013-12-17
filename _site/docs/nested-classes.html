@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Nested Classes</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Nested Classes</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <p>Classes can be nested in other classes</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nf">Outer</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">bar</span> <span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">1</span>
+  <span class="k">class</span> <span class="nf">Nested</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">=</span> <span class="m">2</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">val</span> <span class="n">demo</span> <span class="p">=</span> <span class="n">Outer</span><span class="p">.</span><span class="n">Inner</span><span class="p">().</span><span class="n">foo</span><span class="p">()</span> <span class="c1">// == 2</span>
+</code></pre></div>
+
+<h3 id="inner-classes">Inner classes</h3>
+
+<p>A class may be marked as <em>inner</em> to be able to access members of outer class. Inner classes carry a reference to an object of an outer class:</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">class</span> <span class="nf">Outer</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">bar</span> <span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">1</span>
+  <span class="n">inner</span> <span class="k">class</span> <span class="nf">Inner</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">=</span> <span class="n">bar</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">val</span> <span class="n">demo</span> <span class="p">=</span> <span class="n">Outer</span><span class="p">().</span><span class="n">Inner</span><span class="p">().</span><span class="n">foo</span><span class="p">()</span> <span class="c1">// == 1</span>
+</code></pre></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>See [Qualified <em class="keyword">this</em> expressions</td>
+      <td>(/docs/language-conventions.html#this-expression) to learn about disambiguation of <em class="keyword">this</em> in inner classes.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>
