@@ -1,0 +1,10 @@
+@import 'config/all';
+
+a {
+    color: $base-link-color;
+    text-decoration: underline
+}
+
+a:hover {
+    text-decoration: none
+}
