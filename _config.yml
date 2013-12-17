@@ -8,8 +8,8 @@ baseurl: /kotlin-web-site
 permalink: /:categories/:title.html
 
 # Custom Settings
-latest_release_version: M6.1
-latest_release_github_url: https://github.com/JetBrains/kotlin/releases?after=build-0.6.860
+latest_release_version: M6.2
+latest_release_github_url: https://github.com/JetBrains/kotlin/releases?after=build-0.6.173
 
 
 img_tutorial_root: assets/images/tutorials
