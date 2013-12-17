@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Operator overloading</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Operator overloading</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <p>Kotlin allows us to provide implementations for a predefined set of operators on our types. These operators have fixed symbolic representation 
+(like ‘+’ or ‘*’) and fixed [precedence|Grammar#Precedence]. To implement an operator, one provides a [member function|Functions#Member functions] 
+or an [extension function|Extension functions] with a fixed name, for the corresponding type, i.e. left-hand side type for binary operations and argument type for unary ones.</p>
+
+<h2 id="conventions">Conventions</h2>
+
+<p>Here we describe the conventions that regulate operator overloading for different operators.</p>
+
+<h3 id="unary-operations">Unary operations</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Expression</td>
+      <td>Translated to</td>
+    </tr>
+    <tr>
+      <td>+a</td>
+      <td>a.plus()</td>
+    </tr>
+    <tr>
+      <td>-a</td>
+      <td>a.minus()</td>
+    </tr>
+    <tr>
+      <td>!a</td>
+      <td>a.not()</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This table says that when the compiler processes, for example, an expression +a, it performs the following steps:</p>
+
+<ul>
+  <li>Determines the type of a, let it be T.</li>
+  <li>Looks up a function plus() with no parameters for the receiver T, i.e. a member function or an extension function.</li>
+  <li>If the function is absent or ambiguous, it is a compilation error.</li>
+  <li>If the function is present and its return type is R, the expression +a has type R.</li>
+</ul>
+
+<p><em>Note</em> that these operations, as well as all the others, are optimized for [Basic types] and do not introduce overhead of function calls for them.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Expression</td>
+      <td> </td>
+      <td>Translated to</td>
+    </tr>
+    <tr>
+      <td>a++</td>
+      <td>a.inc() + see below</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a–</td>
+      <td>a.dec() + see below</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These operations are supposed to change their receiver and (optionally) return a value.
+{note:title=inc()/dec() shouldn’t mutate the receiver object}
+By “changing the receiver” we mean the receiver-variable, not the receiver object.
+{note}</p>
+
+<p>The compiler performs the following steps for resolution of an operator in the <em>postfix</em> form, e.g. a++:
+* Determines the type of a, let it be T.
+* Looks up a function inc() with no parameters, applicable to the receiver of type T.
+* If the function returns a type R, then it must be a subtype of T.</p>
+
+<p>The effect of computing the expression is:
+* Store the initial value of a to a temporary storage a0,
+* Assign the result of a.inc() to a,
+* Return a0 as a result of the expression.</p>
+
+<p>For a– the steps are completely analogous.</p>
+
+<p>For the <em>prefix</em> forms ++a and –a resolution works the same way, and the effect is:
+* Assign the result of a.inc() to a,
+* Return the new value of a as a result of the expression.</p>
+
+<h3 id="binary-operations">Binary operations</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Expression</td>
+      <td> </td>
+      <td>Translated to</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a + b</td>
+      <td>a.plus(b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a - b</td>
+      <td>a.minus(b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a * b</td>
+      <td>a.times(b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a / b</td>
+      <td>a.div(b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a % b</td>
+      <td>a.mod(b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a..b</td>
+      <td>a.rangeTo(b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For the operations in this table, the compiler just resolves the expression in the <em>Translated to</em> column.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Expression</td>
+      <td> </td>
+      <td>Translated to</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a in b</td>
+      <td>b.contains(a)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a !in b</td>
+      <td>!b.contains(a)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>{anchor:in}
+For <em>in</em> and <em>!in</em> the procedure is the same, but the order of arguments is reversed.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Symbol</td>
+      <td> </td>
+      <td>Translated to</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a[i]</td>
+      <td>a.get(i)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a[i, j]</td>
+      <td>a.get(i, j)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a[i_1, …,  i_n]</td>
+      <td>a.get(i_1, …,  i_n)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a[i] = b</td>
+      <td>a.set(i, b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a[i, j] = b</td>
+      <td>a.set(i, j, b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a[i_1, …,  i_n] = b</td>
+      <td>a.set(i_1, …, i_n, b)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Square brackets are translated to calls to get and set with appropriate numbers of arguments.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Symbol</td>
+      <td> </td>
+      <td>Translated to</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a(i)</td>
+      <td>a.invoke(i)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a(i, j)</td>
+      <td>a.invoke(i, j)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a(i_1, …,  i_n)</td>
+      <td>a.invoke(i_1, …,  i_n)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Parentheses are translated to calls to invoke with appropriate number of arguments.</p>
+
+<p>{anchor:assignments}
+||Expression||Translated to||
+| a += b | a.plusAssign(b) |
+| a -= b | a.minusAssign(b) |
+| a *= b | a.timesAssign(b) |
+| a /= b | a.divAssign(b) |
+| a %= b | a.modAssign(b) |</p>
+
+<p>For the assignment operations, e.g. a += b, the compiler performs the following steps:
+* If the function from the right column is available
+  * If the corresponding binary function (i.e. plus() for plusAssign()) is available too, report error (ambiguity).
+  * Make sure its return type is Unit, and report an error otherwise.
+  * Generate code for a.plusAssign(b)
+* Otherwise, try to generate code for a = a + b (this includes a type check: the type of a + b must be a subtype of a).</p>
+
+<p><em>Note</em>: assignments are <em>NOT</em> expressions in Kotlin.</p>
+
+<p>{anchor:Equals}</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Expression</td>
+      <td> </td>
+      <td>Translated to</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a == b</td>
+      <td>a?.equals(b) ?: b.identityEquals(null)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a != b</td>
+      <td>!(a?.equals(b) ?: b.identityEquals(null))</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Note</em>: identityEquals checks if two references point to the same object.</p>
+
+<p>The == operation is special in two ways:
+* It is translated to a complex expression that screens for <em>null</em>’s, and null == null is <em>true</em>.
+* It looks up a function with a specific <em>signature</em>, not just a specific <em>name</em>. The function must be declared as</p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="nf">equals</span><span class="p">(</span><span class="n">other</span> <span class="p">:</span> <span class="n">Any</span><span class="p">?)</span> <span class="p">:</span> <span class="n">Boolean</span>
+</code></pre></div>
+
+<p>Or an extension function with the same parameter list and return type.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Symbol</td>
+      <td> </td>
+      <td>Translated to</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a &gt; b</td>
+      <td>a.compareTo(b) &gt; 0</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a &lt; b</td>
+      <td>a.compareTo(b) &lt; 0</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a &gt;= b</td>
+      <td>a.compareTo(b) &gt;= 0</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>a &lt;= b</td>
+      <td>a.compareTo(b) &lt;= 0</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All comparisons are translated into calls to compareTo, that is required to return Int.</p>
+
+<h2 id="infix-calls-for-named-functions">Infix calls for named functions</h2>
+
+<p>We can simulate custom infix operations by using <a href="/docs/functions.html#infix-notation">infix function calls</a>.</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>

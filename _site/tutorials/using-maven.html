@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Using Maven</title>
+
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="grid">
+            <div class="row">
+                <div class="col-2">
+                    <h1>Using Maven</h1>
+                    <!--<ul class="navigation">
+                        <li><a href="">Docs Home</a></li>
+                        <li><a href="">Examples</a></li>
+                        <li><a href="">Comparison to Java</a></li>
+                        <li><a href="">Comparison to Scala</a></li>
+                        <li><a href="">Modules and Compilation</a></li>
+                        <li><a href="">Packages</a></li>
+                        <li><a href="">Functions</a></li>
+                        <li><a href="">Properties And Fields</a></li>
+                    </ul>-->
+                    <div id="toc"></div>
+                </div>
+                <div class="col-4">
+                    <h3 id="plugin-and-versions">Plugin and Versions</h3>
+
+<p>The <em>kotlin-maven-plugin</em> compiles Kotlin sources and modules. Currently only Maven v3 is supported.</p>
+
+<p>Define the version of Kotlin you want to use via <em>kotlin.version</em>. The possible values are:</p>
+
+<ul>
+  <li>
+    <p>X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
+only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, you need to <a href="#configuring-snapshot-repositories">configure a snapshot repository
+in the pom file</a>.</p>
+  </li>
+  <li>
+    <p>X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
+is needed in your pom file.</p>
+  </li>
+</ul>
+
+<p>The correspondence between milestones and versions is displayed below:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Milestone</td>
+      <td>Version</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>M5.3</td>
+      <td>0.5.998</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>M6</td>
+      <td>0.6.69</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>M6.1</td>
+      <td>0.6.602</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>M6.2</td>
+      <td>0.6.1673</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="configuring-snapshot-repositories">Configuring Snapshot Repositories</h3>
+
+<p>To use a snapshot version of Kotlin, include the following repository definitions to the pom</p>
+
+<div class="highlight"><pre><code class="xml"><span class="nt">&lt;repositories&gt;</span>
+  <span class="nt">&lt;repository&gt;</span>
+    <span class="nt">&lt;id&gt;</span>sonatype.oss.snapshots<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Sonatype OSS Snapshot Repository<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;url&gt;</span>http://oss.sonatype.org/content/repositories/snapshots<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;releases&gt;</span>
+      <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+    <span class="nt">&lt;/releases&gt;</span>
+    <span class="nt">&lt;snapshots&gt;</span>
+      <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+    <span class="nt">&lt;/snapshots&gt;</span>
+  <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+
+<span class="nt">&lt;pluginRepositories&gt;</span>
+  <span class="nt">&lt;pluginRepository&gt;</span>
+    <span class="nt">&lt;id&gt;</span>sonatype.oss.snapshots<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Sonatype OSS Snapshot Repository<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;url&gt;</span>http://oss.sonatype.org/content/repositories/snapshots<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;releases&gt;</span>
+      <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+    <span class="nt">&lt;/releases&gt;</span>
+    <span class="nt">&lt;snapshots&gt;</span>
+      <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+    <span class="nt">&lt;/snapshots&gt;</span>
+  <span class="nt">&lt;/pluginRepository&gt;</span>
+<span class="nt">&lt;/pluginRepositories&gt;</span>
+</code></pre></div>
+
+<h3 id="dependencies">Dependencies</h3>
+
+<p>Kotlin has an extensive standard library that can be used in your applications. Configure the following dependency in the pom file</p>
+
+<div class="highlight"><pre><code class="xml"><span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.jetbrains.kotlin<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>kotlin-stdlib<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${kotlin.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</code></pre></div>
+
+<h3 id="compiling-kotlin-only-source-code">Compiling Kotlin only source code</h3>
+
+<p>To compile source code, specify the source directories in the <build> tag:</build></p>
+
+<div class="highlight"><pre><code class="xml"><span class="nt">&lt;sourceDirectory&gt;</span>${project.basedir}/src/main/kotlin<span class="nt">&lt;/sourceDirectory&gt;</span>
+<span class="nt">&lt;testSourceDirectory&gt;</span>${project.basedir}/src/test/kotlin<span class="nt">&lt;/testSourceDirectory&gt;</span>
+</code></pre></div>
+
+<p>The Kotlin Maven Plugin needs to be referenced to compile the sources:</p>
+
+<div class="highlight"><pre><code class="xml"><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>kotlin-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.jetbrains.kotlin<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>${kotlin.version}<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>compile<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>compile<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span> <span class="nt">&lt;goal&gt;</span>compile<span class="nt">&lt;/goal&gt;</span> <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>test-compile<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>test-compile<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span> <span class="nt">&lt;goal&gt;</span>test-compile<span class="nt">&lt;/goal&gt;</span> <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+
+<h3 id="compiling-kotlin-and-java-sources">Compiling Kotlin and Java sources</h3>
+
+<p>To compile mixed code applications Kotlin compiler should be invoked before Java compiler.
+In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin.</p>
+
+<p>It could be done by moving Kotlin compilation to previous phase, process-sources (feel free to suggest a better solution if you have one):</p>
+
+<div class="highlight"><pre><code class="xml"><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>kotlin-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.jetbrains.kotlin<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>compile<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>process-sources<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span> <span class="nt">&lt;goal&gt;</span>compile<span class="nt">&lt;/goal&gt;</span> <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>test-compile<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>process-test-sources<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span> <span class="nt">&lt;goal&gt;</span>test-compile<span class="nt">&lt;/goal&gt;</span> <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+
+<h3 id="using-external-annotations">Using External Annotations</h3>
+
+<p>Kotlin uses external annotation to have precise information about types in Java libraries. To specify these annotations, use annotationPaths in <configuration>:</configuration></p>
+
+<div class="highlight"><pre><code class="xml"><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>kotlin-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.jetbrains.kotlin<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;annotationPaths&gt;</span>
+            <span class="nt">&lt;annotationPath&gt;</span>path to annotations root<span class="nt">&lt;/annotationPath&gt;</span>
+        <span class="nt">&lt;/annotationPaths&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+
+...
+</code></pre></div>
+
+<h3 id="example">Example</h3>
+
+<p>An example Maven project can be <a href="https://github.com/JetBrains/kotlin-examples/archive/master/maven.zip">downloaded directly from the GitHub repository</a></p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="related">
+        <h4>Related</h4>
+
+
+        
+
+    </div>
+
+    <!--
+Footer details such as copyright notice, etc.
+-->
+
+    <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+    
+</section>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Working with the Command Line Compiler</title>
+
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="grid">
+            <div class="row">
+                <div class="col-2">
+                    <h1>Working with the Command Line Compiler</h1>
+                    <!--<ul class="navigation">
+                        <li><a href="">Docs Home</a></li>
+                        <li><a href="">Examples</a></li>
+                        <li><a href="">Comparison to Java</a></li>
+                        <li><a href="">Comparison to Scala</a></li>
+                        <li><a href="">Modules and Compilation</a></li>
+                        <li><a href="">Packages</a></li>
+                        <li><a href="">Functions</a></li>
+                        <li><a href="">Properties And Fields</a></li>
+                    </ul>-->
+                    <div id="toc"></div>
+                </div>
+                <div class="col-4">
+                    <h3 id="downloading-the-compiler">Downloading the compiler</h3>
+
+<p>Every release ships with a standalone version of the compiler. We can download it from <a href="https://github.com/JetBrains/kotlin/releases?after=build-0.6.173">GitHub Releases</a>. Latest release is M6.2</p>
+
+<ol>
+  <li>Unzip the standalone compiler into a directory and optionally add the bin folder to the system path. The bin folder contains four script files.</li>
+</ol>
+
+<p>*kotlinc-jvm: The Kotlin compiler and shell for targeting the JVM. For OSX and Linux users.
+*kotlinc-js: The Kotlin compiler and shell for targeting JavaScript. For OSX and Linux users.
+*kotlinc-jvm.bat: The Kotlin compiler and shell for targeting the JVM. For Windows users.
+*kotlinc-jvm.bat: The Kotlin compiler and shell for targeting JavaScript. For Windows users.</p>
+
+<p>Important: If running on OSX/Linux, please make sure you run <em>chmod</em> to give execute permissions to the scripts.</p>
+
+<h3 id="creating-and-running-a-first-application">Creating and running a first application</h3>
+
+<ol>
+  <li>Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called <em>app.kt</em> with the following</li>
+</ol>
+
+<div class="highlight"><pre><code class="kotlin">    <span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+       <span class="n">println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+</code></pre></div>
+
+<ol>
+  <li>
+    <p>Compile the application using the JVM compiler</p>
+
+    <p><code>
+ kotlinc-jvm app.kt -jar app.jar
+</code></p>
+
+    <p>The <em>-jar</em> option indicates what we want the output of the compiler to be called.
+ If you want to see all available options run:</p>
+
+    <p><code>
+ kotlinc-jvm -help
+</code></p>
+  </li>
+  <li>
+    <p>Run the application.</p>
+
+    <p><code>
+ java -classpath app.jar:%path_to_runtime%/kotlin-runtime.jar _DefaultPackage
+</code></p>
+
+    <p>The classpath should contain the output from step 2 as well as the path to the <em>kotlin_runtime.jar</em> file. The _DefaultPackage is the name of the main class that
+ the Kotlin compiler generates by default.</p>
+
+    <p><img src="/assets/images/tutorials/command-line/output.png" alt="Command Line Output" /></p>
+  </li>
+</ol>
+
+<h3 id="running-the-shell">Running the shell</h3>
+
+<p>We can run any of the compilers without parameters to have an interactive shell. We can type any valid Kotlin code and see the results</p>
+
+<p><img src="/assets/images/tutorials/command-line/kotlin_shell.png" alt="Shell" /></p>
+
+<h3 id="using-the-command-line-to-run-scripts">Using the command line to run scripts</h3>
+
+<p>Kotlin can also be used as a scripting language. To run a script, we just pass the <em>-script</em> option to the compiler with the corresponding script file (.ktscript)</p>
+
+<pre><code>```
+kotlinc-jvm -script list_folders.ktscript
+```
+</code></pre>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="related">
+        <h4>Related</h4>
+
+
+        
+
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        
+
+    </div>
+
+    <!--
+Footer details such as copyright notice, etc.
+-->
+
+    <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+    
+</section>
+</body>
+</html>

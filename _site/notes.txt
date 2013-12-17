@@ -1,4 +1,6 @@
 Tutorials
+  Using Maven with Kotlin
+  Using Gradle with Kotlin
   Working with nightly builds
   A [something] application targeting JVM (something beyond HelloWorld)
   A [something] application targeting JavaScript
@@ -26,9 +28,6 @@ FAQ
  - tutorials/getting-started
  - tutorials/command-line
  - tutorials/using-ant
- - tutorials/using-maven
- - tutorials/using-gradle
- - tutorials/using-griffon
  - docs/functions
  - docs/annotations
  - docs/exceptions

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+
+
+<title>Extension Functions</title>
+
+    </head>
+    <body>
+    <section>
+        <div class="container">
+            <div class="grid">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Extension Functions</h1>
+                        <!--<ul class="navigation">
+                            <li><a href="">Docs Home</a></li>
+                            <li><a href="">Examples</a></li>
+                            <li><a href="">Comparison to Java</a></li>
+                            <li><a href="">Comparison to Scala</a></li>
+                            <li><a href="">Modules and Compilation</a></li>
+                            <li><a href="">Packages</a></li>
+                            <li><a href="">Functions</a></li>
+                            <li><a href="">Properties And Fields</a></li>
+                        </ul>-->
+                        <div id="toc"></div>
+                    </div>
+                    <div class="col-4">
+                            <h2 id="extending-classes-with-functionality">Extending Classes with Functionality</h2>
+
+<p>Kotlin, similar to C# and Gosu provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator.
+This is done via Extension Functions</p>
+
+<p>The following adds a <em>swap</em> function to <em>MutableList</em></p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="n">MutableList</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;.</span><span class="n">swap</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">val</span> <span class="n">tmp</span> <span class="p">=</span> <span class="k">this</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="c1">// &#39;this&#39; corresponds to the list</span>
+  <span class="k">this</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="p">=</span> <span class="k">this</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
+  <span class="k">this</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="n">tmp</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The <em class="keyword">this</em> keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot). Now, we can call such a function on any List<int></int></p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">val</span> <span class="n">l</span> <span class="p">=</span> <span class="n">mutableListOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">l</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="c1">// &#39;this&#39; inside &#39;swap()&#39; will hold the value of &#39;l&#39;</span>
+</code></pre></div>
+
+<p>Of course, this function makes sense for any List<t>, and we can make it generic</t></p>
+
+<div class="highlight"><pre><code class="kotlin"><span class="k">fun</span> <span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">MutableList</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;.</span><span class="n">swap</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">val</span> <span class="n">tmp</span> <span class="p">=</span> <span class="k">this</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="c1">// &#39;this&#39; corresponds to the list</span>
+  <span class="k">this</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="p">=</span> <span class="k">this</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
+  <span class="k">this</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="n">tmp</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>We declare the generic type parameter before the function name for it to be available in the receiver type expression. See <a href="/docs/generics.htmlgeneric-functions">Generic functions</a></p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>In Java, we are used to classes named <em>Utils: FileUtils, StringUtils</em> and so on. The famous java.util.Collections belongs to the same breed.
+And the unpleasant part about these Utils-classes is that the code that uses them looks like this:</p>
+
+<div class="highlight"><pre><code class="java"> <span class="c1">// Java</span>
+ <span class="n">Collections</span><span class="o">.</span><span class="na">swap</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">otherList</span><span class="o">)),</span> <span class="n">Collections</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">list</span><span class="o">))</span>
+ 
+</code></pre></div>
+
+<p>Those class names are always getting in the way. We can use static imports and get this:</p>
+
+<div class="highlight"><pre><code class="java"> <span class="c1">// Java</span>
+ <span class="n">swap</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">binarySearch</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">max</span><span class="o">(</span><span class="n">otherList</span><span class="o">)),</span> <span class="n">max</span><span class="o">(</span><span class="n">list</span><span class="o">))</span>
+ 
+</code></pre></div>
+
+<p>This is a little better, but we have no or little help from the powerful code completion of the IDE. It would be so much better if we could say</p>
+
+<div class="highlight"><pre><code class="java"> <span class="c1">// Java</span>
+ <span class="n">list</span><span class="o">.</span><span class="na">swap</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">otherList</span><span class="o">.</span><span class="na">max</span><span class="o">()),</span> <span class="n">list</span><span class="o">.</span><span class="na">max</span><span class="o">())</span>
+ 
+</code></pre></div>
+
+<p>But we don’t want to implement all the possible methods inside the class List, right? Extension functions help with this.</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="related">
+            <h4>Related</h4>
+
+
+            
+
+        </div>
+
+        <!--
+Footer details such as copyright notice, etc.
+-->
+
+        <!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+
+        
+    </section>
+    </body>
+</html>
