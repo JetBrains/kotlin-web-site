@@ -261,7 +261,15 @@
   .global-content .highlight + h3 {
     margin-top: 30px; }
   .global-content p {
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    line-height: 20px; }
+  .global-content img {
+    max-width: 100%; }
+  .global-content code {
+    font-family: Consolas, Menlo, Monaco, "Courier New", monospace, serif;
+    background-color: #eee;
+    padding-left: 2px;
+    padding-right: 2px; }
   .global-content .highlight {
     margin-bottom: 20px; }
     .global-content .highlight code {

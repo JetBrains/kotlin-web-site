@@ -57,12 +57,26 @@
     // paragraph
     p {
         margin-bottom: 15px;
+        line-height: $base-line-height;
     }
     .highlight + p {
     }
 
 
-    // code hightlighting
+    // images
+    img {
+        max-width: 100%;
+    }
+
+
+    // code
+    code {
+        font-family: $font-family-mono;
+        background-color: #eee;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
     .highlight {
         margin-bottom: 20px;
 
