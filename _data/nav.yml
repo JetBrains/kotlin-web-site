@@ -32,13 +32,14 @@ learn:
       id: docs
       title: Documentation
 
-    - path: /learn/api/
-      url: /learn/api/index.html
-      title: API
-
     - path: /learn/faq/
       url: /learn/faq/index.html
       title: FAQ
+
+    - path: /tutorials/
+      url: /tutorials/index.html
+      id: tutorials
+      title: Tutorials
 
     - path: /learn/videos/
       url: /learn/videos/index.html
