@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+        <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<link rel="Shortcut Icon" href="/kotlin-web-site/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/kotlin-web-site/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/kotlin-web-site/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/kotlin-web-site/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/kotlin-web-site/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/kotlin-web-site/css/styles.css">
+<link rel="stylesheet" href="/kotlin-web-site/css/syntax.css">
+<link rel="stylesheet" href="/kotlin-web-site/css/keywords.css">
+
+
+<title>FAQ</title>
+
+    <title></title>
+</head>
+<body>
+
+<h1 id="common-questions">Common Questions</h1>
+
+<h2 id="what-is-kotlin">What is Kotlin?</h2>
+
+<p>Kotlin is a statically typed language that targets the JVM and JavaScript. It is a general-purpose language intended for industry use.</p>
+
+<p>It is developed by a team at JetBrains although it is an OSS language and has external contributors.</p>
+
+<h2 id="why-a-new-language">Why a new language?</h2>
+
+<p>At JetBrains, we’ve been developing for the Java platform for a long time, and we know how good it is.
+On the other hand, we know that the Java programming language has certain limitations and problems that are either impossible
+or very hard to fix due to backward-compatibility issues. We know that Java is going to stand long,
+but we believe that the community can benefit from a new statically typed JVM-targeted language free of the
+legacy trouble and having the features so desperately wanted by the developers.</p>
+
+<p>The main design goals behind this project are</p>
+
+<ul>
+  <li>To create a Java-compatible language,</li>
+  <li>That compiles at least as fast as Java,</li>
+  <li>Make it safer than Java, i.e. statically check for common pitfalls such as null pointer dereference,</li>
+  <li>Make it more concise than Java by supporting variable type inference, higher-order functions (closures), extension functions, mixins and first-class delegation, etc;</li>
+  <li>And, keeping the useful level of expressiveness (see above), make it way simpler than the most mature competitor – Scala.</li>
+</ul>
+
+<h2 id="how-is-it-licensed">How is it licensed?</h2>
+
+<p>Kotlin is an OSS language and is licensed under the Apache 2 OSS License. The IntelliJ Plug-in is also OSS.</p>
+
+<p>It is hosted on GitHub and we happily accept contributors</p>
+
+<h2 id="is-it-java-compatible">Is it Java Compatible?</h2>
+
+<p>Yes. The compiler emits Java byte-code. Kotlin can call Java, and Java can call Kotlin. See <a href="/docs/java-interop.html">Java interoperability</a>.</p>
+
+<h2 id="is-there-tooling-support">Is there tooling support?</h2>
+
+<p>Yes. There is an IntelliJ IDEA plugin that is available as an OSS project under the Apache 2 License. You can use Kotlin both
+ in the <a href="http://www.jetbrains.com/idea/features/editions_comparison_matrix.html">free OSS Community Edition and Ultimate Edition</a> of IntelliJ IDEA.</p>
+
+<h2 id="is-there-eclipse-support">Is there Eclipse support?</h2>
+
+<p>Not currently although we plan to provide it after the IntelliJ IDEA plugin. We’re also eager and willing to help any member of the community that wants to
+step up to the task!</p>
+
+<h2 id="is-there-a-standalone-compiler">Is there a standalone compiler?</h2>
+
+<p>Yes. You can download the standalone compiler and other builds tools from the <a href="https://github.com/JetBrains/kotlin/releases?after=build-0.6.173">release page on GitHub</a></p>
+
+<h2 id="is-kotlin-a-functional-language">Is Kotlin a Functional Language?</h2>
+
+<p>Kotlin is an Object-Orientated language. However it has support for high-order functions as well as function literals and top-level functions. In addition, there are
+a good number of common functional language constructs in the standard Kotlin library (such as map, flatMap, reduce, etc.).</p>
+
+<h2 id="does-kotlin-support-generics">Does Kotlin support generics?</h2>
+
+<p>Kotlin supports generics with runtime retention. It also supports declaration-site variance and usage-site variance. Kotlin also does not have wildcard types.</p>
+
+<h2 id="are-semicolons-required">Are semicolons required?</h2>
+
+<p>No. They are optional.</p>
+
+<h2 id="are-curly-braces-required">Are curly braces required?</h2>
+
+<p>Yes.</p>
+
+<h2 id="why-have-type-declarations-on-the-right">Why have type declarations on the right?</h2>
+
+<p>We believe it makes the code more readable. Besides, it enables some nice syntactic features, for instance, it is easy to leave type annotations out. Scala has also
+proven pretty well this is not a problem.</p>
+
+<h2 id="will-right-handed-type-declarations-effect-tooling">Will right-handed type declarations effect tooling?</h2>
+
+<p>No. It won’t. We can still implement suggestions for variable names, etc.</p>
+
+<h2 id="is-kotlin-extensible">Is Kotlin extensible?</h2>
+
+<p>We are planning on making it extensible in a few ways: from inline functions to annotations, type loaders and language quotations.</p>
+
+<h2 id="can-i-embed-my-dsl-into-the-language">Can I embed my DSL into the language?</h2>
+
+<p>Yes. Kotlin provides a few features that help: Operator overloading, Custom Control Structures via inline functions, Infix function calls, Extension Functions, Annotations and
+language quotations.</p>
+
+<h2 id="what-ecmascript-level-does-the-javascript-support">What ECMAScript level does the JavaScript support?</h2>
+
+<p>Currently at 5.</p>
+
+<h2 id="does-the-javascript-back-end-support-module-systems">Does the JavaScript back-end support module systems?</h2>
+
+<p>Yes. There are plans to provide CommonJS and AMD support.</p>
+
+<h1 id="comparison-to-other-languages">Comparison to other languages</h1>
+
+<h2 id="java">Java</h2>
+
+<h3 id="some-java-issues-addressed-in-kotlin">Some Java issues addressed in Kotlin</h3>
+
+<p>Kotlin fixes a series of issues that Java suffers from</p>
+
+<ul>
+  <li>Null references are controlled by the type system.</li>
+  <li>Full type information is retained at runtime</li>
+  <li>No raw types</li>
+  <li>Arrays in Kotlin are invariant</li>
+  <li>Kotlin has high-order functions, a.k.a. closures</li>
+  <li>Use-site variance without wildcards</li>
+  <li>Kotlin does not have checked exceptions</li>
+</ul>
+
+<h3 id="what-java-has-that-kotlin-does-not">What Java has that Kotlin does not</h3>
+
+<ul>
+  <li>Checked exceptions</li>
+  <li>Primitive types that are not objects</li>
+  <li>Static members</li>
+  <li>Non-private fields</li>
+  <li>Type erasure</li>
+  <li>Wildcard-types</li>
+</ul>
+
+<h3 id="what-kotlin-has-that-java-does-not">What Kotlin has that Java does not</h3>
+
+<ul>
+  <li>Function literals + Inline functions = performant custom control structures</li>
+  <li>Null-safety</li>
+  <li>Smart casts</li>
+  <li>String templates</li>
+  <li>Properties</li>
+  <li>Primary constructors</li>
+  <li>Mixins and First-class delegation</li>
+  <li>Extension functions</li>
+  <li>Type inference for variable and property types</li>
+  <li>Singletons</li>
+  <li>Declaration-site variance &amp; Type projections</li>
+  <li>Modules</li>
+  <li>Range expressions</li>
+  <li>Pattern matching</li>
+  <li>Generic types retained at runtime</li>
+  <li>Operator overloading</li>
+  <li>Class objects</li>
+</ul>
+
+<h2 id="scala">Scala</h2>
+
+<p>The two main design goals for Kotlin are:</p>
+
+<ul>
+  <li>Make compilation at least as fast as Java</li>
+  <li>Keep useful level of expressiveness while maintaining the language simple as possible</li>
+</ul>
+
+<p>Taking this into account, if you are happy with Scala, you probably do not need Kotlin</p>
+
+<h3 id="what-scala-has-that-kotlin-does-not">What Scala has that Kotlin does not</h3>
+
+<ul>
+  <li>Implicit conversions, parameters, etc
+** In Scala, sometimes it’s very hard to tell what’s happening in your code without using a debugger, because too many implicits get into the picture
+** To enrich your types with functions in Kotlin use Extension functions.</li>
+  <li>Overridable type members</li>
+  <li>Path-dependent types</li>
+  <li>Existential types
+** Type projections are a very special case</li>
+  <li>Complicated logic for initialization of traits
+** See Classes and Inheritance</li>
+  <li>Custom symbolic operations
+** See Operator overloading</li>
+  <li>Built-in XML
+** See Type-safe Groovy-style builders</li>
+</ul>
+
+<p>Things that may be added to Kotlin later:</p>
+
+<ul>
+  <li>Higher kinds</li>
+  <li>Structural types</li>
+  <li>Yield operator</li>
+  <li>Actors</li>
+  <li>Parallel collections</li>
+  <li>.NET target</li>
+</ul>
+
+<h3 id="what-kotlin-has-that-scala-does-not">What Kotlin has that Scala does not</h3>
+
+<ul>
+  <li>Zero-overhead null-safety
+** Scala has Option, which is a syntactic and run-time wrapper</li>
+  <li>Smart casts</li>
+  <li>Static extension functions
+** Instead of wrapping at runtime (with Scala 2.10, implicit value classes will fix the runtime overhead problem)</li>
+  <li>Kotlin’s Inline functions facilitate Nonlocal jumps</li>
+  <li>String templates.
+** This feature will be supported in Scala 2.10</li>
+  <li>First-class delegation. Also implemented via 3rd party plugin: Autoproxy</li>
+  <li>Modules</li>
+</ul>
+
+<!--
+Footer details such as copyright notice, etc.
+-->
+
+<!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/kotlin-web-site/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/kotlin-web-site/scripts/jquery.toc.min.js"></script>
+
+</body>
+</html>
