@@ -1,0 +1,35 @@
+%list {
+    margin-bottom: 15px;
+
+    &%ul {
+        li {
+            margin-bottom: 10px;
+            margin-left: 20px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:before {
+                position: absolute;
+                margin-top: 8px;
+                margin-left: -13px;
+                width: 4px;
+                height: 4px;
+                background: #b4c9d1;
+                border-radius: 50%;
+                content: '';
+            }
+        }
+    }
+
+    &%ol {
+        li {
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-@import "../../utils/all";
+@import "../../_utils";
 
 /* Buttons */
 %button {
@@ -8,7 +8,6 @@
     position: relative;
     display: inline-block;
     padding: 8px 19px;
-    background: #f1f1f1;
     border: 0;
     border-radius: 3px;
     font-size: 13px;
@@ -17,7 +16,10 @@
     text-decoration: none;
     cursor: pointer;
 }
-%button::-moz-focus-inner { border: none; padding: 0 1px }
+%button::-moz-focus-inner {
+    border: none;
+    padding: 0 1px;
+}
 
 
 /* default */

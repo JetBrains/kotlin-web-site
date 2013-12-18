@@ -1,0 +1,94 @@
+@import '../../utils';
+@import '../grid/grid';
+
+@import '../heading/heading';
+@import '../list/list';
+@import '../code/code';
+
+
+.global-content {
+    @extend .g-layout;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    h1 {
+        @extend %h1;
+    }
+    p + h1,
+    ul + h1,
+    ol + h1,
+    .highlight + h1 {
+        margin-top: 50px;
+    }
+
+    h2 {
+        @extend %h2;
+    }
+    p + h2,
+    ul + h2,
+    ol + h2,
+    .highlight + h2 {
+        margin-top: 40px;
+    }
+
+    h3 {
+        @extend %h3;
+    }
+    p + h3,
+    ul + h3,
+    ol + h3,
+    .highlight + h3 {
+        margin-top: 30px;
+    }
+
+
+    // lists
+    ul {
+        @extend %list;
+        @extend %list%ul;
+    }
+
+    ol {
+        @extend %list;
+        @extend %list%ol;
+    }
+
+
+    // paragraph
+    p {
+        margin-bottom: 15px;
+    }
+    .highlight + p {
+    }
+
+
+    // code hightlighting
+    .highlight {
+        margin-bottom: 20px;
+
+        code {
+            @extend %code-block;
+            display: inline-block;
+        }
+    }
+
+
+    // misc
+    .keyword {
+        color: #0000C0;
+        padding: 5px;
+        font-style: normal;
+    }
+
+    .error {
+        background-color: #ff0000;
+    }
+
+    .warning {
+        background-color: #ffff00;
+    }
+
+    .key {
+        background-color: #dfeef4;
+    }
+}

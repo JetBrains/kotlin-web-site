@@ -4,6 +4,25 @@
 
 @import 'base.css';
 
-@import 'components/all.css';
+/* Grid */
+@import 'components/grid/grid.css';
 
-@import 'blocks/all.css';
+/* Button */
+@import 'components/button/button.css';
+
+/* Layout */
+@import 'components/layout/header.css';
+@import 'components/layout/footer.css';
+@import 'components/layout/layout.css';
+
+/* Content */
+@import 'components/content/content.css';
+
+/* Code */
+@import 'components/code/code-syntax.css';
+
+/* Docs styles */
+@import 'components/docs/docs.css';
+
+/* Table of contents */
+@import 'components/table-of-contents/table-of-contents.css';

@@ -1,0 +1,31 @@
+#toc {
+  margin-top: 60px;
+  margin-left: -540px;
+  top: 0;
+  left: 50%;
+  position: fixed;
+  width: 300px; }
+
+#toc._scroll {
+  margin-top: 10px; }
+
+#toc a {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  border-top: solid 1px #dceaee; }
+
+#toc .toc-h3 a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: none; }
+
+#toc .toc-h3 a:before {
+  margin-right: 3px;
+  padding-left: 15px;
+  content: "\2014";
+  color: #d0cfcf; }
+
+#toc .toc-active {
+  background: #f2fcff;
+  color: #222; }

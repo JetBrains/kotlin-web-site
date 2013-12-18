@@ -1,0 +1,24 @@
+@import '../../config';
+
+%h1 {
+    margin-bottom: 30px;
+    font-family: $font-family-serif;
+    font-size: 40px;
+    line-height: 45px;
+}
+
+%h2 {
+    margin-bottom: 20px;
+    font-family: $font-family-serif;
+    font-size: 30px;
+    line-height: 33px;
+    color: #404041;
+}
+
+%h3 {
+    margin-bottom: 15px;
+    font-family: $font-family-serif;
+    color: #666;
+    font-size: 24px;
+    line-height: 27px;
+}

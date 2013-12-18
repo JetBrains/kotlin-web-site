@@ -1,15 +1,19 @@
 @import "config/typo";
 
 // Sans Serif
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700');
+
+@font-face {
+    font-family: 'GraublauSans Bold';
+    src: url('../assets/fonts/GraublauSans-Bold-webfont.woff');
+}
 
 // Serif
 @font-face {
-    font-family: $font-family-serif;
-    src: url("../assets/fonts/GraublauSlab-Regular-webfont.woff");
+    font-family: 'GraublauSlab Regular';
+    src: url('../assets/fonts/GraublauSlab-Regular-webfont.woff');
 }
 @font-face {
-    font-family: $font-family-serif-bold;
-    src: url("../assets/fonts/GraublauSlab-Semibold-webfont.woff");
+    font-family: 'GraublauSlab Semibold';
+    src: url('../assets/fonts/GraublauSlab-Semibold-webfont.woff');
 }
-
