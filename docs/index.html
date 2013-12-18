@@ -1,0 +1,14 @@
+---
+layout: docs
+title: Documentation
+---
+
+<ul class="docs-pages-list">
+{% for post in site.posts %}
+    {% if post.category == 'docs' %}
+    <li class="list-item">
+        <a href="{{ site.baseurl }}{{ post.url }}" class="list-item-title">{{ post.title }}</a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
