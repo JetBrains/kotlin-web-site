@@ -1,0 +1,28 @@
+<header class="global-header">
+    <div class="g-layout">
+        <a class="global-header-logo" href="{{ site.baseurl }}">Project Kotlin</a>
+
+        <form class="global-header-search">
+            <div class="search-input-wrap">
+                <input type="text" class="search-input">
+            </div>
+            <input type="submit" class="search-submit-button">
+        </form>
+
+        <nav class="global-header-nav">
+            {% for item in site.data.nav.main.items %}
+                {% if include.current_section == item.id %}
+                    <span class="nav-item is_active">
+                        {{ item.title }}
+                    </span>
+                {% else %}
+                    <a href="{{ site.baseurl }}{{ item.path }}"
+                       class="nav-item">
+                        {{ item.title }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </nav>
+
+    </div>
+</header>
