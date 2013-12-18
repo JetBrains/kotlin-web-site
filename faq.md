@@ -32,7 +32,7 @@ The main design goals behind this project are
 
 Kotlin is an OSS language and is licensed under the Apache 2 OSS License. The IntelliJ Plug-in is also OSS.
 
-It is hosted on GitHub and we happily accept [contributors]({% post_url contributing %})
+It is hosted on GitHub and we happily accept contributors
 
 
 ## Is it Java Compatible?
