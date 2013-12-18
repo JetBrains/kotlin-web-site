@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-        {% include browser.html %}
+    {% include browser.html %}
 <html>
 <head>
     {% include head.html %}
-    <title></title>
 </head>
 <body>
 
-{{ content }}
+<div class="global-layout">
+    {% include header.html current_section='learn' %}
+
+    <div class="global-content">
+        {{ content }}
+    </div>
+
+</div>
+
 {% include footer.html %}
 {% include scripts.html %}
 </body>
