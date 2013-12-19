@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
@@ -7,42 +7,144 @@
 <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-
-<link rel="Shortcut Icon" href="/kotlin-web-site/assets/images/favicon.ico" type="image/x-icon"/>
-<link rel="apple-touch-icon" href="/kotlin-web-site/assets/images/apple-touch-icon.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="/kotlin-web-site/assets/images/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="/kotlin-web-site/assets/images/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon" sizes="144x144" href="/kotlin-web-site/assets/images/apple-touch-icon-144x144.png" />
-<link rel="stylesheet" href="/kotlin-web-site/css/styles.css">
-<link rel="stylesheet" href="/kotlin-web-site/css/syntax.css">
-<link rel="stylesheet" href="/kotlin-web-site/css/keywords.css">
-
-
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<!--
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+-->
 <title>Getting Started</title>
 
 </head>
 <body>
-<section>
-    <div class="container">
-        <div class="grid">
-            <div class="row">
-                <div class="col-2">
-                    <h1>Getting Started</h1>
-                    <!--<ul class="navigation">
-                        <li><a href="">Docs Home</a></li>
-                        <li><a href="">Examples</a></li>
-                        <li><a href="">Comparison to Java</a></li>
-                        <li><a href="">Comparison to Scala</a></li>
-                        <li><a href="">Modules and Compilation</a></li>
-                        <li><a href="">Packages</a></li>
-                        <li><a href="">Functions</a></li>
-                        <li><a href="">Properties And Fields</a></li>
-                    </ul>-->
-                    <div id="toc"></div>
-                </div>
-                <div class="col-4">
-                    <h3 id="setting-up-the-environment">Setting up the environment</h3>
+
+<div class="global-layout">
+    <header class="global-header">
+    <div class="g-layout">
+        <a class="global-header-logo" href="">Project Kotlin</a>
+
+        <form class="global-header-search">
+            <div class="search-input-wrap">
+                <input type="text" class="search-input">
+            </div>
+            <input type="submit" class="search-submit-button">
+        </form>
+
+        <nav class="global-header-nav">
+            
+                
+                    <a href="/"
+                       class="nav-item">
+                        Home
+                    </a>
+                
+            
+                
+                    <a href="/try/"
+                       class="nav-item">
+                        Try
+                    </a>
+                
+            
+                
+                    <a href="/download/"
+                       class="nav-item">
+                        Download
+                    </a>
+                
+            
+                
+                    <span class="nav-item is_active">
+                        Learn
+                    </span>
+                
+            
+                
+                    <a href="/contribute/"
+                       class="nav-item">
+                        Contribute
+                    </a>
+                
+            
+        </nav>
+
+    </div>
+</header>
+    
+    
+
+    <div class="global-current-section">
+        <div class="g-layout">
+            <div class="current-section-title">Learn Kotlin</div>
+
+            
+                <ul class="current-section-nav">
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/" class="nav-item-text">Getting Started</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/docs/" class="nav-item-text">Documentation</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/faq/" class="nav-item-text">FAQ</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item is_active">
+                                <a href="/tutorials/" class="nav-item-text">Tutorials</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/videos/" class="nav-item-text">Videos</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/events/" class="nav-item-text">Events</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/external/" class="nav-item-text">External Resources</a>
+                            </li>
+
+                        
+                    
+                </ul>
+            
+
+        </div>
+    </div>
+
+
+
+    <div class="global-content">
+        <h1 class="page-title">Getting Started</h1>
+
+        <h3 id="setting-up-the-environment">Setting up the environment</h3>
 
 <p>In this tutorial we’re going to use IntelliJ IDEA. You can download the free <a href="http://www.jetbrains.com/idea/download/index.html">Open Source Community Edition</a> from <a href="http://www.jetbrains.com">JetBrains</a>.
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][command_line]</p>
@@ -53,19 +155,19 @@ For instructions on how to compile and execute Kotlin applications using the com
       <li>Under Preferences (OSX) or Settings (Windows/Linux), type Plugins to get the list of currently installed Plugins.</li>
     </ol>
 
-    <p><img src="/kotlin-web-site/assets/images/tutorials//getting-started/install_kotlin_plugin.png" alt="Kotlin Plugin" /></p>
+    <p><img src="/assets/images/tutorials//getting-started/install_kotlin_plugin.png" alt="Kotlin Plugin" /></p>
 
     <p>Follow the instructions to restart the IDE.</p>
   </li>
   <li>
     <p>Once Kotlin is correctly installed, we can create a New Project. We select Java Module, give it a name and select the SDK. Kotlin works with JDK 1.6+</p>
 
-    <p><img src="/kotlin-web-site/assets/images/tutorials//getting-started/new_project_step1.png" alt="Kotlin New Project" /></p>
+    <p><img src="/assets/images/tutorials//getting-started/new_project_step1.png" alt="Kotlin New Project" /></p>
   </li>
   <li>
     <p>Since we are going to target the JVM in the Next step of the Wizard we select Kotlin (Java)</p>
 
-    <p><img src="/kotlin-web-site/assets/images/tutorials//getting-started/kotlin_java.png" alt="Kotlin Select Technologies" /></p>
+    <p><img src="/assets/images/tutorials//getting-started/kotlin_java.png" alt="Kotlin Select Technologies" /></p>
 
     <p>We click the <em>Create</em> button to specify the Kotlin runtime. We can either Copy it to our project folder or use the bundle from the plugin. It is recommended to copy
  to project folder.</p>
@@ -73,7 +175,7 @@ For instructions on how to compile and execute Kotlin applications using the com
   <li>
     <p>We should now have the new projected created and the following folder structure</p>
 
-    <p><img src="/kotlin-web-site/assets/images/tutorials//getting-started/folders.png" alt="Kotlin Folder Structure" /></p>
+    <p><img src="/assets/images/tutorials//getting-started/folders.png" alt="Kotlin Folder Structure" /></p>
   </li>
   <li>
     <p>Let’s create a new Kotlin file under the source folder. It can be named anything. In our case we will call it <em>app</em></p>
@@ -81,54 +183,101 @@ For instructions on how to compile and execute Kotlin applications using the com
   <li>
     <p>Once we have the file created, we need to type the main routine, which is the entry point to a Kotlin application. IntelliJ IDEA offers us a template to do this quickly. Just type <em>main</em> and hit tab.</p>
 
-    <p><img src="/kotlin-web-site/assets/images/tutorials//getting-started/main.png" alt="Kotlin Folder Structure" /></p>
+    <p><img src="/assets/images/tutorials//getting-started/main.png" alt="Kotlin Folder Structure" /></p>
   </li>
   <li>
     <p>Let’s now add the line of code to print out ‘Hello, World!’</p>
 
-    <p><img src="/kotlin-web-site/assets/images/tutorials//getting-started/hello_world.png" alt="Kotlin Folder Structure" /></p>
+    <p><img src="/assets/images/tutorials//getting-started/hello_world.png" alt="Kotlin Folder Structure" /></p>
   </li>
   <li>
     <p>Now we can run the application. Easiest way is to right-click and select <em>Run _DefaultPackage</em></p>
 
-    <p><img src="/kotlin-web-site/assets/images/tutorials//getting-started/run_default.png" alt="Kotlin Folder Structure" /></p>
+    <p><img src="/assets/images/tutorials//getting-started/run_default.png" alt="Kotlin Folder Structure" /></p>
   </li>
   <li>
     <p>If everything went well, we should now see the result in the Run window</p>
 
-    <p><img src="/kotlin-web-site/assets/images/tutorials//getting-started/run_window.png" alt="Kotlin Folder Structure" /></p>
+    <p><img src="/assets/images/tutorials//getting-started/run_window.png" alt="Kotlin Folder Structure" /></p>
 
     <p>Congratulations. We now have our first application running.</p>
   </li>
 </ol>
 
 
-                </div>
+    </div>
+
+</div>
+
+<footer class="global-footer">
+
+    <div class="global-footer-externals">
+        <div class="g-layout">
+            <div class="g-8">
+                <div class="header">Stay Tuned!</div>
+                <ul class="externals-links-list">
+                    <li class="list-item">
+                        <a href="http://twitter.com/project_kotlin" class="link link_twitter">
+                            <span class="icon icon_twitter"></span>
+                            <span class="text">@project_kotlin</span>
+                        </a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="https://plus.google.com/communities/104597899765146112928" class="link link_gplus">
+                            <span class="icon gray-icon icon_gplus"></span>
+                            <span class="text">Google+</span>
+                        </a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="http://blog.jetbrains.com/kotlin/" class="link link_blog">
+                            <span class="icon gray-icon icon_blog"></span>
+                            <span class="text">Blog</span>
+                        </a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="http://youtrack.jetbrains.com/issues/KT" class="link link_issue-tracker">
+                            <span class="icon gray-icon icon_youtrack"></span>
+                            <span class="text">Issue Tracker</span>
+                        </a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="http://devnet.jetbrains.net/community/kotlin" class="link link_forum">
+                            <span class="icon gray-icon icon_forum"></span>
+                            <span class="text">Forum</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="global-footer-terms">
+        <div class="g-layout">
+
+            <div class="terms-copyright">
+                &copy; 2000-2013 JetBrains. All rights reserved
+                <br>
+                <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>
+            </div>
+
+            <div class="terms-sponsor">
+                Sponsored and developed by <a href="http://jetbrains.com" class="sponsor sponsor_jetbrains">JetBrains</a>
             </div>
         </div>
-
-    </div>
-    <div id="related">
-        <h4>Related</h4>
-
-
-        
-
     </div>
 
-    <!--
-Footer details such as copyright notice, etc.
--->
-
-    <!--
+</footer>
+<!--
 Include all scripts required here
 -->
 
-<script type="text/javascript" src="/kotlin-web-site/scripts/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="/kotlin-web-site/scripts/jquery.toc.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
 
-
-    
-</section>
 </body>
 </html>
