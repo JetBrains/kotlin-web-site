@@ -1,77 +1,24 @@
 <!DOCTYPE html>
     {% include browser.html %}
 <html>
-    <head>
-        {% include head.html %}
-    </head>
-    <body>
-    <section>
-        <div class="container">
-            <div class="grid">
-                <div class="row">
-                    <div class="col-2">
-                        <h1>{{ page.title }}</h1>
-                        <!--<ul class="navigation">
-                            <li><a href="">Docs Home</a></li>
-                            <li><a href="">Examples</a></li>
-                            <li><a href="">Comparison to Java</a></li>
-                            <li><a href="">Comparison to Scala</a></li>
-                            <li><a href="">Modules and Compilation</a></li>
-                            <li><a href="">Packages</a></li>
-                            <li><a href="">Functions</a></li>
-                            <li><a href="">Properties And Fields</a></li>
-                        </ul>-->
-                        <div id="toc"></div>
-                    </div>
-                    <div class="col-4">
-                            {{ content }}
-                    </div>
-                </div>
-            </div>
+<head>
+    {% include head.html %}
+</head>
+<body>
 
-        </div>
-        <div id="related">
-            <h4>Related</h4>
+<div class="global-layout">
+    {% include header.html current_section='learn' %}
+    {% include section-nav.html nav='learn' current_section='docs' %}
 
+    <div class="global-content">
+        <h1 class="page-title">{{ page.title }}</h1>
 
-            {% for related in page.related %}
+        {{ content }}
+    </div>
 
-            {% for post in site.posts %}
+</div>
 
-            {% if related.title == post.title %}
-
-            <p><a href="{{ post.url }}">{{ post.title }}</a></p>
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
-
-        </div>
-
-        {% include footer.html %}
-        {% include scripts.html %}
-
-        {% if  page.toc == true %}
-        <script type="text/javascript">
-            var window = this;
-            $.fn.followTo = function ( pos ) {
-                var $this = this,
-                        $window = $(window);
-                $window.scroll(function(e){
-                    if ($window.scrollTop() > pos) {
-                        $this.addClass("_scroll")
-                    } else {
-                        $this.removeClass("_scroll")
-                    }
-                });
-            };
-            $('#toc').followTo(60);
-            $(document).ready(function() {
-                $('#toc').toc({'selectors': 'h2,h3'});
-                // Put a TOC right before the entry content.
-                // generateTOC('.container', 'Table of Contents');
-            });
-        </script>
-        {% endif %}
-    </section>
-    </body>
+{% include footer.html %}
+{% include scripts.html %}
+</body>
 </html>
