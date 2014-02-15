@@ -2,13 +2,6 @@
     <div class="g-layout">
         <a class="global-header-logo" href="{{ site.baseurl }}">Project Kotlin</a>
 
-        <form class="global-header-search">
-            <div class="search-input-wrap">
-                <input type="text" class="search-input">
-            </div>
-            <input type="submit" class="search-submit-button">
-        </form>
-
         <nav class="global-header-nav">
             {% for item in site.data.nav.main.items %}
                 {% if include.current_section == item.id %}
@@ -22,7 +15,26 @@
                     </a>
                 {% endif %}
             {% endfor %}
+
+            <a href="{{ site.baseurl }}/download/" class="download-kotlin-button">
+                Download
+            </a>
         </nav>
+
+        {% if page.layout == 'front' %}
+        <div class="project-info">
+            <div class="project-info-description">
+                Statically typed programming language<br>
+                that targets the JVM and JavaScript
+            </div>
+            <div class="project-info-description-extra">
+                100% interoperable with Java™
+            </div>
+            <a href="{{ site.baseurl }}/download/" class="get-kotlin-button">
+                Get Kotlin Now
+            </a>
+        </div>
+        {% endif %}
 
     </div>
 </header>
