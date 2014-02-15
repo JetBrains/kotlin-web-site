@@ -1,20 +1,12 @@
 main:
   items:
-    - path: /
-      id: home
-      title: Home
-
     - path: /try/
       id: try
       title: Try
 
-    - path: /download/
-      id: download
-      title: Download
-
-    - path: /learn/
-      id: learn
-      title: Learn
+    - path: /docs/
+      id: docs
+      title: Documentation
 
     - path: /contribute/
       id: contribute
