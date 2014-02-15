@@ -194,41 +194,9 @@
 
 .global-layout {
   min-height: 100%;
-  margin-bottom: -280px; }
+  margin-bottom: -90px; }
   .global-layout:after {
     display: block;
     width: 100%;
-    height: 280px;
+    height: 90px;
     content: ''; }
-
-.global-current-section {
-  padding: 10px 0;
-  background-color: #8c8782; }
-  .global-current-section .current-section-title {
-    margin: 10px 0 15px;
-    font-family: 'GraublauSans Bold', Georgia, sans-serif;
-    font-size: 55px;
-    line-height: 60px;
-    color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); }
-  .global-current-section .current-section-nav {
-    margin-left: -12px; }
-    .global-current-section .current-section-nav:after {
-      display: block;
-      clear: both;
-      height: 0;
-      content: ''; }
-    .global-current-section .current-section-nav .nav-item {
-      float: left;
-      margin-right: 5px; }
-    .global-current-section .current-section-nav .nav-item-text {
-      display: block;
-      padding: 6px 12px;
-      border-radius: 12px;
-      font-size: 16px;
-      color: #fff;
-      text-decoration: none; }
-    .global-current-section .current-section-nav a.nav-item-text:hover {
-      color: #D7D7D5; }
-    .global-current-section .current-section-nav .nav-item.is_active .nav-item-text {
-      background-color: rgba(255, 255, 255, 0.2); }

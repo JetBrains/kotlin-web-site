@@ -5,6 +5,8 @@
 
 .global-footer {
     height: $footer-height;
+    background-color: #1a1a1a;
+    color: #b2b2b2;
 
     .header {
         font-family: $font-family-serif;
@@ -14,71 +16,15 @@
     }
 }
 
-.global-footer-externals {
-    @include box-sizing;
-    height: 200px;
-    padding: $unit*3 0;
-    background-color: #dfdcd7;
-
-    .externals-links-list {
-        @include clearfix;
-        margin-bottom: -$unit*2;
-
-        .list-item {
-            float: left;
-            width: 215px;
-            margin-bottom: $unit*2;
-        }
-
-        .link {
-            position: relative;
-        }
-
-        .icon {
-            @extend %gray-icon;
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            &.icon_twitter {
-                @extend %gray-icon%icon_twitter;
-                left: -3px;
-            }
-            &.icon_gplus {
-                @extend %gray-icon%icon_gplus;
-                left: 1px;
-            }
-            &.icon_blog {
-                @extend %gray-icon%icon_blog;
-                top: 1px;
-            }
-            &.icon_youtrack {
-                @extend %gray-icon%icon_youtrack;
-                top: -1px;
-            }
-            &.icon_forum {
-                @extend %gray-icon%icon_forum;
-                top: 2px;
-            }
-        }
-
-        .text {
-            display: inline-block;
-            margin-left: 33px;
-        }
-    }
-}
-
 .global-footer-terms {
     @include box-sizing;
     @include clearfix;
-    height: 80px;
-    background-color: #c0bdb9;
     padding: $unit*3 0;
 
     .terms-copyright {
         float: left;
-        font-size: $base-font-size;
+        line-height: 40px;
+        height: 40px;
 
         a {
             color: #fff;
@@ -94,7 +40,6 @@
         position: relative;
         float: right;
         right: 0;
-        font-size: 16px;
         line-height: 40px;
         height: 40px;
 
@@ -102,10 +47,10 @@
             opacity: 0.8;
             display: inline-block;
             vertical-align: middle;
-            margin-left: 5px;
-            width: 108px;
-            height: 40px;
-            background: url('jetbrains-logo.png');
+            margin-left: 3px;
+            width: 75px;
+            height: 27px;
+            background: url('images/footer-jetbrains-logo.png');
             font-size: 0;
 
             &:hover {

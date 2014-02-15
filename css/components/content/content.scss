@@ -1,5 +1,4 @@
-@import '../../utils';
-@import '../grid/grid';
+@import '../../config';
 
 @import '../heading/heading';
 @import '../list/list';
@@ -7,9 +6,11 @@
 
 
 .global-content {
-    @extend .g-layout;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 40px;
     padding-bottom: 40px;
+    width: $grid-width;
 
     h1 {
         @extend %h1;

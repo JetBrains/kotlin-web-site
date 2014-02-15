@@ -21,40 +21,140 @@
  * Grid column
  * @param {px} $font-size (optional)
 */
-.global-header-search .search-submit-button {
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+/* Buttons */
+.global-header .download-kotlin-button, .global-header .get-kotlin-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
   display: inline-block;
-  font-size: 0;
-  letter-spacing: 0;
-  background-repeat: no-repeat;
-  background-position: 2000px 2000px; }
+  padding: 0 16px;
+  border: 0;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 32px;
+  height: 34px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer; }
+  .global-header .get-kotlin-button {
+    font-size: 18px;
+    line-height: 52px;
+    height: 54px;
+    padding: 0 32px; }
 
-.global-header-search .search-submit-button {
-  background-image: url("/kotlin-web-site/css/components/icon/gray-icon.png"); }
-  .global-header-search .search-submit-button {
-    width: 22px;
-    height: 22px;
-    background-position: 0 0; }
+.global-header .download-kotlin-button::-moz-focus-inner, .global-header .get-kotlin-button::-moz-focus-inner {
+  border: none;
+  padding: 0 1px; }
+
+/* default */
+.global-header .download-kotlin-button, .global-header .get-kotlin-button {
+  background-image: -moz-linear-gradient(#688ec8, #436d9c);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#688ec8), to(#436d9c));
+  background-image: -webkit-linear-gradient(#688ec8, #436d9c);
+  background-image: -o-linear-gradient(#688ec8, #436d9c);
+  border: 1px solid #42628D;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  font-weight: bold; }
+  .global-header .download-kotlin-button:hover, .global-header .get-kotlin-button:hover {
+    color: #fff;
+    background-image: -moz-linear-gradient(#7ea5e0, #4875a8);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7ea5e0), to(#4875a8));
+    background-image: -webkit-linear-gradient(#7ea5e0, #4875a8);
+    background-image: -o-linear-gradient(#7ea5e0, #4875a8); }
+  .global-header .download-kotlin-button:active, .global-header .get-kotlin-button:active {
+    background-image: -moz-linear-gradient(#436d9c, #688ec8);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#436d9c), to(#688ec8));
+    background-image: -webkit-linear-gradient(#436d9c, #688ec8);
+    background-image: -o-linear-gradient(#436d9c, #688ec8);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); }
+
 .global-header {
-  padding: 8px 0;
-  background-color: #dedcd7;
-  border-bottom: 2px solid #bdbbbc; }
+  position: relative;
+  padding: 32px 0;
+  background: url("images/index-page-header-bg.jpg") center top no-repeat;
+  background-size: cover; }
   .global-header:after {
     display: block;
     clear: both;
     height: 0;
     content: ''; }
+  .global-header .download-kotlin-button {
+    top: -1px;
+    text-transform: uppercase; }
+  .global-header .get-kotlin-button {
+    text-transform: uppercase; }
+  .global-header .project-info {
+    padding-top: 150px;
+    text-align: center; }
+  .global-header .project-info-description {
+    margin-bottom: 24px;
+    color: #fff;
+    font-size: 48px;
+    line-height: 56px;
+    font-family: "GraublauSlab Regular", Georgia, serif;
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4); }
+  .global-header .project-info-description-extra {
+    position: relative;
+    left: 7px;
+    margin-bottom: 32px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+    opacity: 0.9;
+    text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.4); }
+
+.page-index .global-header {
+  padding: 64px 0;
+  height: 432px; }
 
 .global-header-logo {
-  display: block;
+  -webkit-transition: 0.3s all;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  transition: 0.3s all;
+  position: relative;
+  top: 0;
   float: left;
-  opacity: 0.8;
-  width: 102px;
-  height: 35px;
-  background: url("logo.png") no-repeat;
-  font-size: 0; }
-  .global-header-logo:hover {
-    opacity: 1; }
+  width: 129px;
+  height: 43px;
+  background: url("images/logo.png") no-repeat;
+  font-size: 0;
+  text-decoration: none; }
+
+.page-index .global-header-logo {
+  top: -19px; }
 
 .global-header-nav {
   float: right; }
@@ -65,55 +165,13 @@
     content: ''; }
   .global-header-nav .nav-item {
     float: left;
-    margin-right: 12px;
-    padding: 8px 16px;
-    border-radius: 12px;
-    color: #767575;
+    margin-right: 24px;
+    color: #fff;
     text-decoration: none;
-    font-size: 16px; }
+    font-size: 13px;
+    line-height: 32px; }
     .global-header-nav .nav-item:hover {
-      background-color: #CAC9C6; }
+      text-decoration: underline; }
     .global-header-nav .nav-item.is_active {
-      -webkit-box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, 0.2);
-      box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, 0.2);
-      background-color: #b5b2ad;
-      color: #fff;
+      color: #bbb;
       cursor: default; }
-
-.global-header-search {
-  position: relative;
-  float: right;
-  top: 3px;
-  margin-left: 10px; }
-  .global-header-search .search-input-wrap {
-    margin-right: 29px; }
-  .global-header-search .search-input {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 1px 3px 0px rgba(0, 0, 0, 0.2);
-    padding: 4px 8px;
-    width: 100%;
-    border: 1px solid #d4d0ce;
-    border-radius: 12px; }
-    .global-header-search .search-input:hover {
-      border-color: #ADA6A2; }
-    .global-header-search .search-input:focus {
-      outline: none;
-      border-color: #ADA6A2; }
-  .global-header-search .search-submit-button {
-    position: absolute;
-    opacity: 0.7;
-    right: 0;
-    top: 3px;
-    border: none;
-    padding: 0;
-    margin: 0;
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
-    font-size: 0;
-    cursor: pointer; }
-    .global-header-search .search-submit-button:hover {
-      opacity: 1; }

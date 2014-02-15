@@ -20,11 +20,14 @@ body {
   height: 100%;
   color: #333333;
   font-size: 14px;
-  line-height: 20px; }
+  line-height: 20px;
+  background-color: #fff;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC");
+  background-repeat: repeat; }
 
 a {
-  color: #007c90;
+  color: #0083c6;
   text-decoration: underline; }
 
 a:hover {
-  color: #dc601c; }
+  color: #e2531c; }
