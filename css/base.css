@@ -21,9 +21,7 @@ body {
   color: #333333;
   font-size: 14px;
   line-height: 20px;
-  background-color: #fff;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC");
-  background-repeat: repeat; }
+  background-color: #fff; }
 
 a {
   color: #0083c6;

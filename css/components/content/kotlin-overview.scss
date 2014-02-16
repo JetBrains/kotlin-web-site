@@ -1,0 +1,156 @@
+@import '../../config';
+@import '../../utils';
+@import '../heading/heading';
+
+.kotlin-overview-section {
+    padding: $unit*6 0 $unit*3;
+
+    .section-header {
+        @extend %h1;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    .section-description {
+        font-size: 18px;
+        margin-bottom: 22px;
+        margin-bottom: $unit*2;
+        text-align: center;
+    }
+}
+
+.kotlin-overview-section._why-kotlin {
+
+    .section-description {
+        margin-bottom: $unit*5;
+    }
+
+    .kotlin-qualities-list-wrap {
+        /*
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        */
+        margin: 0 -500%;
+    }
+
+    .kotlin-qualities-list {
+        @include clearfix;
+        position: relative;
+        font-size: 0;
+        margin: 0 auto;
+        white-space: nowrap;
+        text-align: center;
+
+        .list-item {
+            display: inline-block;
+            margin-left: 20px;
+            padding: 0 0 $unit*6;
+            width: 240px;
+            font-size: $base-font-size;
+            white-space: normal;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &._simple {}
+            &._concise {}
+            &._expressive {}
+            &._safe {}
+            &._fast {}
+            &._interoperable {}
+        }
+
+        .quality-image {
+            @include linear-gradient($from: #e9f2ed, $to: #78849b);
+            height: 150px;
+            margin: 0 0 $unit*3;
+        }
+
+        .quality-title-pre-text {
+            font-size: 14px;
+            color: #8c8c8c;
+            text-transform: uppercase;
+        }
+
+        .quality-title {
+            @extend %h3;
+            margin-bottom: $unit;
+        }
+
+        .quality-description {
+            max-width: 210px;
+            margin: 0 auto $unit;
+            color: #000;
+        }
+
+        .quality-example-link {
+
+        }
+    }
+}
+
+.kotlin-overview-section._code-examples {
+    color: #fff;
+    background-color: #393939;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhBJREFUeNqElluSAjEMA5ngS3H/e8EGPIiu9lRtPqYCecmy5OR4PB7Hcdxut9en7c7xbf1P95/PZ0Y5c63F5d1nK226+71XpvYE9jO0d8+ffcBem9HuVA+sT+OAWmLizwAiAX1wIBaRdr+HCZynMmLCz5x8zwMCXGxkx0T9+jZmomE1pqztmDo9ldk5g3B6fZ9B6gic35yU5UtckxxNZQIUqHTBDFWEmC2iPKpFIlbyGaKEUNJvp6RJ/IX5OTJQsp5GYcSR7DuCqW5RNFtvSurZiTlOPmb2IowsIGO0lUapi5+TZw6zhtJUDmdhyD6bmVD63m2CmmuyF4MgDmZVE34+iFQaQg/H23SWTCsF03TvAzJ1Vj1VViJNBZOgZ9WqhE9/E6x8xPWy3mWZKlHfx8gTkmBslThUMFyuVWG47yzdvTX9qBzIfaW6psR2J8YmAtXHy1tk/19SWBiI0YSuNSZyOFlCWrxvZy2TMKJjpiqkXWq3JnFBqjPCg6qeiFJhLp0pgXJ986DbiVfCpSGWVNThs3iwyLAOcijUCd+Z5NQJKZX2JoJ/rwSSVmJ5VjH6M7mJVGZpoenOHIg1XmQid3/v93vWzyfhtQ+UmUTNhwLfZ5Nohu7X34HWeGep4dspJpCxVYJijkVVyA3JqqQcpQWHUPJb88nGefLE5Zts/snJFeUJ+EzjvNwVR4oY8f0JMADafXyiN4WApQAAAABJRU5ErkJggg==');
+    background-repeat: repeat;
+}
+
+.kotlin-overview-section._how-to-use {
+    background-color: #fff;
+
+    .video-player {
+        width: 594px;
+        height: 405px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .video-thumb {
+        width: 594px;
+        height: 405px;
+        margin: 0 auto;
+        background: url('images/how-to-use-kotlin-video-thumb.png') no-repeat;
+    }
+
+    .video-player {
+
+    }
+
+    .video-player-play-button {
+        @include user-select(none);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 69px;
+        height: 69px;
+        margin-top: -35px;
+        margin-left: -35px;
+        background: url('images/video-player-play-button.png') no-repeat;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.kotlin-overview-section._get-kotlin {
+    background-color: #003356;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi5LKO/f///+8/fxmwAVYWZhag9PefvxhwgD9//zLh0g0HTAyEwLBSAQw1/CoAAgwAba4SlNFFbukAAAAASUVORK5CYII=);
+    background-repeat: repeat;
+    color: #fff;
+}
+
+
+.kotlin-overview-section {
+    &._why-kotlin,
+    &._more-info {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC');
+        background-repeat: repeat;
+    }
+}

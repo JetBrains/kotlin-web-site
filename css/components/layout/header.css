@@ -114,6 +114,7 @@
     top: -1px;
     text-transform: uppercase; }
   .global-header .get-kotlin-button {
+    border: 1px solid rgba(0, 0, 0, 0.2);
     text-transform: uppercase; }
   .global-header .project-info {
     padding-top: 150px;
