@@ -19,7 +19,9 @@
     }
 }
 
+
 .kotlin-overview-section._why-kotlin {
+    overflow: hidden;
 
     .section-description {
         margin-bottom: $unit*5;
@@ -93,12 +95,73 @@
     }
 }
 
+.kotlin-overview-code-example {
+    $legend-width: 180px;
+    $legend-line-spacing: 12px;
+
+    position: relative;
+    width: 840px;
+    margin: 50px auto 20px;
+
+    .code-line {
+        @include clearfix;
+        position: relative;
+        overflow: hidden;
+        margin-right: $legend-width;
+        //margin-bottom: $unit*3;
+    }
+
+    .code {
+        position: relative;
+        float: left;
+        font-family: $font-family-mono;
+        font-size: 31px;
+        line-height: 35px;
+        color: #9ebdd9;
+        white-space: pre;
+
+        .keyword {color: #ff8b17;}
+        .func-name {color: #ffcf7f;}
+        .buildin-func-name {color: #b1c4d8; font-weight: bold; font-style: italic;}
+        .string-literal {color: #78a35f;}
+    }
+
+    .code-legend-text {
+        position: absolute;
+        top: 10px;
+        right: -$legend-line-spacing;
+        width: $legend-width;
+    }
+
+    .code-legend-line {
+        position: absolute;
+        left: 100%;
+        width: 600%;
+        top: 19px;
+        margin-left: $legend-line-spacing;
+        height: 1px;
+        background-color: #fff;
+        opacity: 0.1;
+        white-space: normal;
+    }
+
+    .code-legend-line-marker {
+        position: absolute;
+        right: 100%;
+        width: 33px;
+        height: 33px;
+        border: 1px solid #fff;
+        border-radius: 20px;
+    }
+}
+
 .kotlin-overview-section._code-examples {
     color: #fff;
     background-color: #393939;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhBJREFUeNqElluSAjEMA5ngS3H/e8EGPIiu9lRtPqYCecmy5OR4PB7Hcdxut9en7c7xbf1P95/PZ0Y5c63F5d1nK226+71XpvYE9jO0d8+ffcBem9HuVA+sT+OAWmLizwAiAX1wIBaRdr+HCZynMmLCz5x8zwMCXGxkx0T9+jZmomE1pqztmDo9ldk5g3B6fZ9B6gic35yU5UtckxxNZQIUqHTBDFWEmC2iPKpFIlbyGaKEUNJvp6RJ/IX5OTJQsp5GYcSR7DuCqW5RNFtvSurZiTlOPmb2IowsIGO0lUapi5+TZw6zhtJUDmdhyD6bmVD63m2CmmuyF4MgDmZVE34+iFQaQg/H23SWTCsF03TvAzJ1Vj1VViJNBZOgZ9WqhE9/E6x8xPWy3mWZKlHfx8gTkmBslThUMFyuVWG47yzdvTX9qBzIfaW6psR2J8YmAtXHy1tk/19SWBiI0YSuNSZyOFlCWrxvZy2TMKJjpiqkXWq3JnFBqjPCg6qeiFJhLp0pgXJ986DbiVfCpSGWVNThs3iwyLAOcijUCd+Z5NQJKZX2JoJ/rwSSVmJ5VjH6M7mJVGZpoenOHIg1XmQid3/v93vWzyfhtQ+UmUTNhwLfZ5Nohu7X34HWeGep4dspJpCxVYJijkVVyA3JqqQcpQWHUPJb88nGefLE5Zts/snJFeUJ+EzjvNwVR4oY8f0JMADafXyiN4WApQAAAABJRU5ErkJggg==');
     background-repeat: repeat;
 }
+
 
 .kotlin-overview-section._how-to-use {
     background-color: #fff;
@@ -111,6 +174,7 @@
     }
 
     .video-thumb {
+        display: block;
         width: 594px;
         height: 405px;
         margin: 0 auto;
@@ -132,10 +196,9 @@
         margin-left: -35px;
         background: url('images/video-player-play-button.png') no-repeat;
         cursor: pointer;
-
-        &:hover {
-            opacity: 0.8;
-        }
+    }
+    a:hover .video-player-play-button {
+        opacity: 0.7;
     }
 }
 
