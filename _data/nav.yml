@@ -1,9 +1,5 @@
 main:
   items:
-    - path: /try/
-      id: try
-      title: Try
-
     - path: /docs/
       id: docs
       title: Documentation
