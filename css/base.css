@@ -10,7 +10,7 @@ code,
 var,
 kbd,
 samp {
-  font-family: Consolas, Menlo, Monaco, "Courier New", monospace, serif; }
+  font-family: "Droid Sans Mono", sans-serif; }
 
 html {
   height: 100%;
@@ -28,4 +28,4 @@ a {
   text-decoration: underline; }
 
 a:hover {
-  color: #e2531c; }
+  color: #ff8b17; }

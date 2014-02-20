@@ -45,7 +45,7 @@
  * @param {px} $font-size (optional)
 */
 /* Buttons */
-.global-header .download-kotlin-button, .global-header .get-kotlin-button {
+.global-header .get-kotlin-button, .global-header .try-kotlin-button {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -58,7 +58,6 @@
   display: inline-block;
   padding: 0 16px;
   border: 0;
-  border-radius: 2px;
   font-size: 14px;
   line-height: 32px;
   height: 34px;
@@ -71,34 +70,58 @@
     height: 54px;
     padding: 0 32px; }
 
-.global-header .download-kotlin-button::-moz-focus-inner, .global-header .get-kotlin-button::-moz-focus-inner {
+.global-header .get-kotlin-button::-moz-focus-inner, .global-header .try-kotlin-button::-moz-focus-inner {
   border: none;
   padding: 0 1px; }
 
-/* default */
-.global-header .download-kotlin-button, .global-header .get-kotlin-button {
+.global-header .get-kotlin-button {
   background-image: -moz-linear-gradient(#688ec8, #436d9c);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#688ec8), to(#436d9c));
   background-image: -webkit-linear-gradient(#688ec8, #436d9c);
   background-image: -o-linear-gradient(#688ec8, #436d9c);
   border: 1px solid #42628D;
+  border-radius: 3px;
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
   font-weight: bold; }
-  .global-header .download-kotlin-button:hover, .global-header .get-kotlin-button:hover {
+  .global-header .get-kotlin-button:hover {
     color: #fff;
     background-image: -moz-linear-gradient(#7ea5e0, #4875a8);
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7ea5e0), to(#4875a8));
     background-image: -webkit-linear-gradient(#7ea5e0, #4875a8);
     background-image: -o-linear-gradient(#7ea5e0, #4875a8); }
-  .global-header .download-kotlin-button:active, .global-header .get-kotlin-button:active {
+  .global-header .get-kotlin-button:active {
     background-image: -moz-linear-gradient(#436d9c, #688ec8);
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#436d9c), to(#688ec8));
     background-image: -webkit-linear-gradient(#436d9c, #688ec8);
     background-image: -o-linear-gradient(#436d9c, #688ec8);
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); }
+
+.global-header .try-kotlin-button {
+  background-image: -moz-linear-gradient(#feb92f, #d18511);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#feb92f), to(#d18511));
+  background-image: -webkit-linear-gradient(#feb92f, #d18511);
+  background-image: -o-linear-gradient(#feb92f, #d18511);
+  border: 1px solid #a06230;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  color: #fff;
+  text-shadow: 0 -1px 0 #a2711a;
+  font-weight: bold; }
+  .global-header .try-kotlin-button:hover {
+    color: #fff;
+    background-image: -moz-linear-gradient(#fdcc64, #e39013);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fdcc64), to(#e39013));
+    background-image: -webkit-linear-gradient(#fdcc64, #e39013);
+    background-image: -o-linear-gradient(#fdcc64, #e39013); }
+  .global-header .try-kotlin-button:active {
+    background-image: -moz-linear-gradient(#e39013, #fdcc64);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e39013), to(#fdcc64));
+    background-image: -webkit-linear-gradient(#e39013, #fdcc64);
+    background-image: -o-linear-gradient(#e39013, #fdcc64);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); }
 
 .global-header {
   position: relative;
@@ -110,11 +133,10 @@
     clear: both;
     height: 0;
     content: ''; }
-  .global-header .download-kotlin-button {
+  .global-header .try-kotlin-button {
     top: -1px;
     text-transform: uppercase; }
   .global-header .get-kotlin-button {
-    border: 1px solid rgba(0, 0, 0, 0.2);
     text-transform: uppercase; }
   .global-header .project-info {
     padding-top: 150px;

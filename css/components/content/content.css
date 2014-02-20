@@ -9,7 +9,7 @@
   line-height: 33px;
   color: #404041; }
 
-.kotlin-overview-section._why-kotlin .kotlin-qualities-list .quality-title, .global-content h3 {
+.kotlin-overview-section._why-kotlin .kotlin-features-list .feature-title, .global-content h3 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 24px;
   line-height: 27px; }
@@ -38,7 +38,7 @@
 .global-content .highlight code {
   padding: 10px 26px 10px;
   font-size: 14px;
-  font-family: Consolas, Menlo, Monaco, "Courier New", monospace, serif;
+  font-family: "Droid Sans Mono", sans-serif;
   line-height: 18px;
   background: #f1f6f8;
   border: 1px solid #cae0e9;
@@ -78,7 +78,7 @@
   line-height: 33px;
   color: #404041; }
 
-.kotlin-overview-section._why-kotlin .kotlin-qualities-list .quality-title, .global-content h3 {
+.kotlin-overview-section._why-kotlin .kotlin-features-list .feature-title, .global-content h3 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 24px;
   line-height: 27px; }
@@ -98,56 +98,119 @@
   overflow: hidden; }
   .kotlin-overview-section._why-kotlin .section-description {
     margin-bottom: 40px; }
-  .kotlin-overview-section._why-kotlin .kotlin-qualities-list-wrap {
+  .kotlin-overview-section._why-kotlin .kotlin-features-list-wrap {
     /*
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     */
     margin: 0 -500%; }
-  .kotlin-overview-section._why-kotlin .kotlin-qualities-list {
+  .kotlin-overview-section._why-kotlin .kotlin-features-list {
     position: relative;
     font-size: 0;
     margin: 0 auto;
-    white-space: nowrap;
     text-align: center; }
-    .kotlin-overview-section._why-kotlin .kotlin-qualities-list:after {
+    .kotlin-overview-section._why-kotlin .kotlin-features-list:after {
       display: block;
       clear: both;
       height: 0;
       content: ''; }
-    .kotlin-overview-section._why-kotlin .kotlin-qualities-list .list-item {
+    .kotlin-overview-section._why-kotlin .kotlin-features-list .list-item {
       display: inline-block;
+      overflow: hidden;
+      position: relative;
       margin-left: 20px;
-      padding: 0 0 48px;
+      margin-bottom: 10px;
+      padding: 0 0 24px;
       width: 240px;
       font-size: 14px;
       white-space: normal;
       background-color: #fff;
       border-radius: 4px;
       box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2); }
-      .kotlin-overview-section._why-kotlin .kotlin-qualities-list .list-item:first-child {
-        margin-left: 0; }
-    .kotlin-overview-section._why-kotlin .kotlin-qualities-list .quality-image {
-      background-image: -moz-linear-gradient(#e9f2ed, #78849b);
-      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e9f2ed), to(#78849b));
-      background-image: -webkit-linear-gradient(#e9f2ed, #78849b);
-      background-image: -o-linear-gradient(#e9f2ed, #78849b);
+      .kotlin-overview-section._why-kotlin .kotlin-features-list .list-item:after {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: 5px;
+        content: ''; }
+    .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-image {
+      position: relative;
+      background-color: #557799;
+      background-repeat: repeat;
       height: 150px;
       margin: 0 0 24px; }
-    .kotlin-overview-section._why-kotlin .kotlin-qualities-list .quality-title-pre-text {
+    .kotlin-overview-section._why-kotlin .kotlin-features-list .list-item:after,
+    .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-image {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpiTGxc8P///1+//zJgA2yszCxA6a/ffzHgAL///GXCpRsOmBgIgWGlAhhq+FUABBgAqVoTbokugwMAAAAASUVORK5CYII=); }
+    .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background: url("images/kotlin-features-icons.png") no-repeat 200% 200%; }
+      .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-icon._simple {
+        width: 46px;
+        height: 46px;
+        background-position: 0 0; }
+      .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-icon._concise {
+        width: 30px;
+        height: 55px;
+        background-position: 0 -100px; }
+      .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-icon._expressive {
+        width: 67px;
+        height: 48px;
+        background-position: 0 -200px; }
+      .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-icon._safe {
+        width: 38px;
+        height: 58px;
+        background-position: 0 -300px; }
+      .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-icon._fast {
+        width: 51px;
+        height: 45px;
+        background-position: 0 -400px; }
+      .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-icon._interoperable {
+        width: 51px;
+        height: 45px;
+        background-position: 0 -500px; }
+    .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-title-pre-text {
       font-size: 14px;
       color: #8c8c8c;
       text-transform: uppercase; }
-    .kotlin-overview-section._why-kotlin .kotlin-qualities-list .quality-title {
+    .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-title {
       margin-bottom: 8px; }
-    .kotlin-overview-section._why-kotlin .kotlin-qualities-list .quality-description {
+    .kotlin-overview-section._why-kotlin .kotlin-features-list .feature-description {
       max-width: 210px;
       margin: 0 auto 8px;
       color: #000; }
 
+.kotlin-overview-section._code-examples {
+  position: relative;
+  padding-top: 0;
+  color: #fff;
+  background-color: #393939;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhBJREFUeNqElluSAjEMA5ngS3H/e8EGPIiu9lRtPqYCecmy5OR4PB7Hcdxut9en7c7xbf1P95/PZ0Y5c63F5d1nK226+71XpvYE9jO0d8+ffcBem9HuVA+sT+OAWmLizwAiAX1wIBaRdr+HCZynMmLCz5x8zwMCXGxkx0T9+jZmomE1pqztmDo9ldk5g3B6fZ9B6gic35yU5UtckxxNZQIUqHTBDFWEmC2iPKpFIlbyGaKEUNJvp6RJ/IX5OTJQsp5GYcSR7DuCqW5RNFtvSurZiTlOPmb2IowsIGO0lUapi5+TZw6zhtJUDmdhyD6bmVD63m2CmmuyF4MgDmZVE34+iFQaQg/H23SWTCsF03TvAzJ1Vj1VViJNBZOgZ9WqhE9/E6x8xPWy3mWZKlHfx8gTkmBslThUMFyuVWG47yzdvTX9qBzIfaW6psR2J8YmAtXHy1tk/19SWBiI0YSuNSZyOFlCWrxvZy2TMKJjpiqkXWq3JnFBqjPCg6qeiFJhLp0pgXJ986DbiVfCpSGWVNThs3iwyLAOcijUCd+Z5NQJKZX2JoJ/rwSSVmJ5VjH6M7mJVGZpoenOHIg1XmQid3/v93vWzyfhtQ+UmUTNhwLfZ5Nohu7X34HWeGep4dspJpCxVYJijkVVyA3JqqQcpQWHUPJb88nGefLE5Zts/snJFeUJ+EzjvNwVR4oY8f0JMADafXyiN4WApQAAAABJRU5ErkJggg==");
+  background-repeat: repeat; }
+  .kotlin-overview-section._code-examples:after {
+    display: block;
+    clear: both;
+    height: 0;
+    content: ''; }
+  .kotlin-overview-section._code-examples .section-content {
+    width: 840px;
+    margin-left: auto;
+    margin-right: auto; }
+  .kotlin-overview-section._code-examples .more-link {
+    float: right;
+    opacity: 0.4;
+    color: #51b2da; }
+    .kotlin-overview-section._code-examples .more-link:hover {
+      opacity: 1; }
+
 .kotlin-overview-code-example {
   position: relative;
-  width: 840px;
   margin: 50px auto 20px; }
   .kotlin-overview-code-example .code-line {
     position: relative;
@@ -158,12 +221,14 @@
       clear: both;
       height: 0;
       content: ''; }
+    .kotlin-overview-code-example .code-line._blank {
+      height: 32px; }
   .kotlin-overview-code-example .code {
     position: relative;
     float: left;
-    font-family: Consolas, Menlo, Monaco, "Courier New", monospace, serif;
-    font-size: 31px;
-    line-height: 35px;
+    font-family: "Droid Sans Mono", sans-serif;
+    font-size: 30px;
+    line-height: 37px;
     color: #9ebdd9;
     white-space: pre; }
     .kotlin-overview-code-example .code .keyword {
@@ -199,11 +264,60 @@
     border: 1px solid #fff;
     border-radius: 20px; }
 
-.kotlin-overview-section._code-examples {
-  color: #fff;
-  background-color: #393939;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhBJREFUeNqElluSAjEMA5ngS3H/e8EGPIiu9lRtPqYCecmy5OR4PB7Hcdxut9en7c7xbf1P95/PZ0Y5c63F5d1nK226+71XpvYE9jO0d8+ffcBem9HuVA+sT+OAWmLizwAiAX1wIBaRdr+HCZynMmLCz5x8zwMCXGxkx0T9+jZmomE1pqztmDo9ldk5g3B6fZ9B6gic35yU5UtckxxNZQIUqHTBDFWEmC2iPKpFIlbyGaKEUNJvp6RJ/IX5OTJQsp5GYcSR7DuCqW5RNFtvSurZiTlOPmb2IowsIGO0lUapi5+TZw6zhtJUDmdhyD6bmVD63m2CmmuyF4MgDmZVE34+iFQaQg/H23SWTCsF03TvAzJ1Vj1VViJNBZOgZ9WqhE9/E6x8xPWy3mWZKlHfx8gTkmBslThUMFyuVWG47yzdvTX9qBzIfaW6psR2J8YmAtXHy1tk/19SWBiI0YSuNSZyOFlCWrxvZy2TMKJjpiqkXWq3JnFBqjPCg6qeiFJhLp0pgXJ986DbiVfCpSGWVNThs3iwyLAOcijUCd+Z5NQJKZX2JoJ/rwSSVmJ5VjH6M7mJVGZpoenOHIg1XmQid3/v93vWzyfhtQ+UmUTNhwLfZ5Nohu7X34HWeGep4dspJpCxVYJijkVVyA3JqqQcpQWHUPJb88nGefLE5Zts/snJFeUJ+EzjvNwVR4oY8f0JMADafXyiN4WApQAAAABJRU5ErkJggg==");
-  background-repeat: repeat; }
+.kotlin-overview-code-example-tabs {
+  position: relative;
+  margin-bottom: 24px;
+  background-color: #3c3d3e;
+  border-top: 1px solid #343537;
+  border-bottom: 3px solid #4f4f4e;
+  padding-bottom: 2px;
+  box-shadow: inset 0 1px 0 0 #5e5f60, 0 1px 0 0 #444548;
+  font-size: 0; }
+  .kotlin-overview-code-example-tabs:before {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    border-top: 1px solid #585858;
+    border-bottom: 1px solid #525251;
+    background-color: #5d5d5d;
+    content: ''; }
+  .kotlin-overview-code-example-tabs .tab {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 15px;
+    line-height: 36px;
+    height: 34px;
+    border: 1px solid #343537;
+    margin: -1px 0 0 -1px;
+    background-color: #4c5052;
+    box-shadow: inset 1px 1px 0 #494d4f, inset -1px -1px 0 #494d4f;
+    font-size: 14px;
+    color: #d3d3d3;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7); }
+    .kotlin-overview-code-example-tabs .tab:hover {
+      background-color: #575D5F; }
+    .kotlin-overview-code-example-tabs .tab.is_active {
+      background-image: -moz-linear-gradient(#646464, #4f4f4e);
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#646464), to(#4f4f4e));
+      background-image: -webkit-linear-gradient(#646464, #4f4f4e);
+      background-image: -o-linear-gradient(#646464, #4f4f4e);
+      box-shadow: inset 1px 2px 1px rgba(255, 255, 255, 0.2), inset -2px 0 1px rgba(255, 255, 255, 0.2);
+      background-color: #5b5b5a;
+      border-width: 0;
+      margin: 0;
+      padding-right: 16px;
+      padding-bottom: 1px; }
+  .kotlin-overview-code-example-tabs .tab-text {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
 
 .kotlin-overview-section._how-to-use {
   background-color: #fff; }
@@ -273,7 +387,7 @@
   .global-content img {
     max-width: 100%; }
   .global-content code {
-    font-family: Consolas, Menlo, Monaco, "Courier New", monospace, serif;
+    font-family: "Droid Sans Mono", sans-serif;
     background-color: #eee;
     padding-left: 2px;
     padding-right: 2px; }

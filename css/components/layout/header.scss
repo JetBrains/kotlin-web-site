@@ -11,8 +11,8 @@
     background: url('images/index-page-header-bg.jpg') center top no-repeat;
     background-size: cover;
 
-    .download-kotlin-button {
-        @extend %button_default;
+    .try-kotlin-button {
+        @extend %button_call-to-action;
         top: -1px;
         text-transform: uppercase;
     }
