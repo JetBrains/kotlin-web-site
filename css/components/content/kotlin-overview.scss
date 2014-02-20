@@ -35,7 +35,7 @@
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
         */
-        margin: 0 -500%;
+        //margin: 0 -500%;
     }
 
     .kotlin-features-list {
@@ -238,13 +238,13 @@
         width: 100%;
         height: 0;
         border-top: 1px solid #585858;
-        //border-top: 1px solid red;
         border-bottom: 1px solid #525251;
         background-color: #5d5d5d;
         content: '';
     }
 
     .tab {
+        @include user-select(none);
         position: relative;
         z-index: 2;
         display: inline-block;
@@ -264,23 +264,42 @@
 
         &:hover {
             background-color: #575D5F;
+            color: #fff;
         }
 
         &.is_active {
             @include linear-gradient($from: #646464, $to: #4f4f4e);
+            cursor: default;
             box-shadow:
-                inset 1px 2px 1px rgba(255,255,255, 0.2),
-                inset -2px 0 1px rgba(255,255,255, 0.2);
-            background-color: #5b5b5a;
+                inset 1px 1px 1px 0 rgba(255,255,255, 0.2),
+                inset -4px 0 1px -2px rgba(255,255,255, 0.2);
+            background-color: #4F4F4E;
             border-width: 0;
             margin: 0;
             padding-right: 16px;
             padding-bottom: 1px;
+            color: #fff;
+
+            &:after {
+                position: absolute;
+                top: 100%;
+                left: 1px;
+                right: 2px;
+                height: 2px;
+                background-color: #4f4f4e;
+                content: '';
+            }
+
+            &:last-child {
+                border-right-width: 1px;
+                box-shadow:
+                    inset 1px 1px 1px 0 rgba(255,255,255, 0.2),
+                    inset -3px 0 1px -2px rgba(255,255,255, 0.2);
+            }
         }
     }
 
     .tab-text {
-        @include user-select(none);
     }
 }
 

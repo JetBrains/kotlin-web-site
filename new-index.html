@@ -112,15 +112,15 @@
 
     <div class="kotlin-overview-section _code-examples">
         <div class="kotlin-overview-code-example-tabs">
-            <div class="tab is_active"><div class="text">Simplest Version</div></div>
-            <div class="tab"><div class="tab-text">Name Reading</div></div>
-            <div class="tab"><div class="tab-text">An “object-oriented” Hello</div></div>
+            <div class="tab is_active js-tab" data-tab-id="kotlin-code-example-simplest"><div class="text">Simplest Version</div></div>
+            <div class="tab js-tab" data-tab-id="kotlin-code-example-name-reading"><div class="tab-text">Name Reading</div></div>
+            <div class="tab js-tab" data-tab-id="kotlin-code-example-object-oriented"><div class="tab-text">An “object-oriented” Hello</div></div>
         </div>
 
         <h2 class="section-header">What does it look like?</h2>
         <p class="section-description">Simple, pretty much like Java, but easier to use (and learn).</p>
         <div class="section-content">
-            <div class="kotlin-overview-code-example">
+            <div class="kotlin-overview-code-example" id="kotlin-code-example-simplest">
 
                 <div class="code-line">
                     <div class="code"><span class="keyword">package</span> hello<div class="code-legend-line"></div></div>
@@ -154,6 +154,14 @@
                 <div class="code-legend-text" style="top: 207px;">
                     Have you noticed?<br> Semicolons are optional
                 </div>
+
+            </div>
+
+            <div class="kotlin-overview-code-example" id="kotlin-code-example-name-reading" style="display: none">
+
+            </div>
+
+            <div class="kotlin-overview-code-example" id="kotlin-code-example-object-oriented" style="display: none">
 
             </div>
 
@@ -214,8 +222,36 @@
 Include all scripts required here
 -->
 
-<script type="text/javascript" src="/kotlin-web-site/scripts/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="/kotlin-web-site/scripts/jquery.toc.min.js"></script>
+<script type="text/javascript" src="scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.toc.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var $tabs = $('.js-tab');
+
+    $tabs.on('click', function() {
+        var $tab = $(this),
+            tabId = $tab.attr('data-tab-id');
+
+        if ($tab.hasClass('is_active')) {
+            return;
+        }
+
+        $tabs.each(function() {
+            var $currentTab = $(this),
+                currentTabId = $currentTab.attr('data-tab-id'),
+                $tabContentNode = $('#' + currentTabId);
+
+            if (tabId === currentTabId) {
+                $currentTab.addClass('is_active');
+                $tabContentNode.show();
+            } else {
+                $currentTab.removeClass('is_active');
+                $tabContentNode.hide();
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>

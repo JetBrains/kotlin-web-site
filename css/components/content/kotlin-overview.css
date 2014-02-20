@@ -50,8 +50,7 @@
     /*
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
-    */
-    margin: 0 -500%; }
+    */ }
   .kotlin-overview-section._why-kotlin .kotlin-features-list {
     position: relative;
     font-size: 0;
@@ -174,7 +173,7 @@
   .kotlin-overview-code-example .code {
     position: relative;
     float: left;
-    font-family: "Droid Sans Mono", sans-serif;
+    font-family: "Droid Sans Mono", monospace;
     font-size: 30px;
     line-height: 37px;
     color: #9ebdd9;
@@ -233,6 +232,11 @@
     background-color: #5d5d5d;
     content: ''; }
   .kotlin-overview-code-example-tabs .tab {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     position: relative;
     z-index: 2;
     display: inline-block;
@@ -248,24 +252,32 @@
     color: #d3d3d3;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7); }
     .kotlin-overview-code-example-tabs .tab:hover {
-      background-color: #575D5F; }
+      background-color: #575D5F;
+      color: #fff; }
     .kotlin-overview-code-example-tabs .tab.is_active {
       background-image: -moz-linear-gradient(#646464, #4f4f4e);
       background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#646464), to(#4f4f4e));
       background-image: -webkit-linear-gradient(#646464, #4f4f4e);
       background-image: -o-linear-gradient(#646464, #4f4f4e);
-      box-shadow: inset 1px 2px 1px rgba(255, 255, 255, 0.2), inset -2px 0 1px rgba(255, 255, 255, 0.2);
-      background-color: #5b5b5a;
+      cursor: default;
+      box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2), inset -4px 0 1px -2px rgba(255, 255, 255, 0.2);
+      background-color: #4F4F4E;
       border-width: 0;
       margin: 0;
       padding-right: 16px;
-      padding-bottom: 1px; }
-  .kotlin-overview-code-example-tabs .tab-text {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; }
+      padding-bottom: 1px;
+      color: #fff; }
+      .kotlin-overview-code-example-tabs .tab.is_active:after {
+        position: absolute;
+        top: 100%;
+        left: 1px;
+        right: 2px;
+        height: 2px;
+        background-color: #4f4f4e;
+        content: ''; }
+      .kotlin-overview-code-example-tabs .tab.is_active:last-child {
+        border-right-width: 1px;
+        box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2), inset -3px 0 1px -2px rgba(255, 255, 255, 0.2); }
 
 .kotlin-overview-section._how-to-use {
   background-color: #fff; }
