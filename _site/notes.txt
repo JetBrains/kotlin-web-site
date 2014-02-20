@@ -1,22 +1,12 @@
 Tutorials
-  Using Maven with Kotlin
-  Using Gradle with Kotlin
   Working with nightly builds
   A [something] application targeting JVM (something beyond HelloWorld)
   A [something] application targeting JavaScript
-  Using Kotlin as a Scripting Language (?)
-  Working with KAnnotator - Delegating to new site/project
   Building Kotlin from Source
   Deep Dive into Collections
   Creating Type-Safe Builders - Intro to Extension Function Literals
   Interactive language tutorial (s)
 
-
-FAQ
-  Why Kotlin
-  Common Questions
-  Kotlin vs Java
-  Kotlin vs Scala
 
 
 
@@ -28,6 +18,9 @@ FAQ
  - tutorials/getting-started
  - tutorials/command-line
  - tutorials/using-ant
+ - tutorials/using-maven
+ - tutorials/using-gradle
+ - tutorials/using-griffon
  - docs/functions
  - docs/annotations
  - docs/exceptions
@@ -60,10 +53,13 @@ FAQ
      - related of all sections
      - best practices of all sections
      - docs/generics
+     - All Links in FAQ
 
  - General to do
 
      - Provide guidance on contributing docs
 
  - Left off at:
+
+    FAQ
 

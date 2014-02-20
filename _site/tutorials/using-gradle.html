@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="stylesheet" href="/css/styles.css">
+<!--
+<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/keywords.css">
+-->
+<title>Using Gradle</title>
+
+</head>
+<body>
+
+<div class="global-layout">
+    <header class="global-header">
+    <div class="g-layout">
+        <a class="global-header-logo" href="">Project Kotlin</a>
+
+        <form class="global-header-search">
+            <div class="search-input-wrap">
+                <input type="text" class="search-input">
+            </div>
+            <input type="submit" class="search-submit-button">
+        </form>
+
+        <nav class="global-header-nav">
+            
+                
+                    <a href="/"
+                       class="nav-item">
+                        Home
+                    </a>
+                
+            
+                
+                    <a href="/try/"
+                       class="nav-item">
+                        Try
+                    </a>
+                
+            
+                
+                    <a href="/download/"
+                       class="nav-item">
+                        Download
+                    </a>
+                
+            
+                
+                    <span class="nav-item is_active">
+                        Learn
+                    </span>
+                
+            
+                
+                    <a href="/contribute/"
+                       class="nav-item">
+                        Contribute
+                    </a>
+                
+            
+        </nav>
+
+    </div>
+</header>
+    
+    
+
+    <div class="global-current-section">
+        <div class="g-layout">
+            <div class="current-section-title">Learn Kotlin</div>
+
+            
+                <ul class="current-section-nav">
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/" class="nav-item-text">Getting Started</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/docs/" class="nav-item-text">Documentation</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/faq/" class="nav-item-text">FAQ</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item is_active">
+                                <a href="/tutorials/" class="nav-item-text">Tutorials</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/videos/" class="nav-item-text">Videos</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/events/" class="nav-item-text">Events</a>
+                            </li>
+
+                        
+                    
+                        
+                            <li class="nav-item">
+                                <a href="/learn/external/" class="nav-item-text">External Resources</a>
+                            </li>
+
+                        
+                    
+                </ul>
+            
+
+        </div>
+    </div>
+
+
+
+    <div class="global-content">
+        <h1 class="page-title">Using Gradle</h1>
+
+        <h3 id="plugin-and-versions">Plugin and Versions</h3>
+
+<p>The <em>kotlin-gradle-plugin</em> compiles Kotlin sources and modules.</p>
+
+<p>Define the version of Kotlin you want to use via <em>kotlin.version</em>. The possible values are:</p>
+
+<ul>
+  <li>
+    <p>X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
+only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, you need to <a href="#configuring-snapshot-repositories">configure a snapshot repository
+in the pom file</a>.</p>
+  </li>
+  <li>
+    <p>X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
+is needed in your pom file.</p>
+  </li>
+</ul>
+
+<p>The correspondence between milestones and versions is displayed below:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Milestone</td>
+      <td>Version</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>M5.3</td>
+      <td>0.5.998</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>M6</td>
+      <td>0.6.69</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>M6.1</td>
+      <td>0.6.602</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>M6.2</td>
+      <td>0.6.1673</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-layout">Project Layout</h3>
+
+<p>In the project, Kotlin sources should be located under a common root folder named <em>kotlin</em> which is also the root to the <em>java</em> folder for Java sources</p>
+
+<p>project
+  - main (root)
+    - kotlin
+    - java</p>
+
+<h3 id="configuring-dependencies">Configuring Dependencies</h3>
+
+<p>You need to add dependencies on kotlin-gradle-plugin and Kotlin standard library:</p>
+
+<div class="highlight"><pre><code class="groovy"><span class="n">buildscript</span> <span class="o">{</span>
+  <span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+  <span class="o">}</span>
+  <span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">classpath</span> <span class="s1">&#39;org.jetbrains.kotlin:kotlin-gradle-plugin:&lt;version&gt;&#39;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s2">&quot;kotlin&quot;</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+  <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+  <span class="n">compile</span> <span class="s1">&#39;org.jetbrains.kotlin:kotlin-stdlib:&lt;version&gt;&#39;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h3 id="using-snapshot-versions">Using Snapshot versions</h3>
+
+<p>If you want to use a snapshot version (nightly build), first add out snapshot repository and change the version to 0.1-SNAPSHOT:</p>
+
+<div class="highlight"><pre><code class="groovy"><span class="n">buildscript</span> <span class="o">{</span>
+  <span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="n">maven</span> <span class="o">{</span>
+      <span class="n">url</span> <span class="s1">&#39;http://oss.sonatype.org/content/repositories/snapshots&#39;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">classpath</span> <span class="s1">&#39;org.jetbrains.kotlin:kotlin-gradle-plugin:0.1-SNAPSHOT&#39;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s2">&quot;kotlin&quot;</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+  <span class="n">mavenCentral</span><span class="o">()</span>
+  <span class="n">maven</span> <span class="o">{</span>
+    <span class="n">url</span> <span class="s1">&#39;http://oss.sonatype.org/content/repositories/snapshots&#39;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+  <span class="n">compile</span> <span class="s1">&#39;org.jetbrains.kotlin:kotlin-stdlib:0.1-SNAPSHOT&#39;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h3 id="android-projects">Android Projects</h3>
+
+<p>Android’s Gradle model is a little different from ordinary Gradle, so if you want to build an Android project written in Kotlin, you need
+<em>kotlin-android</em> plugin instead of <em>kotlin</em>:</p>
+
+<div class="highlight"><pre><code class="groovy"><span class="n">buildscript</span> <span class="o">{</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;android&#39;</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;kotlin-android&#39;</span>
+</code></pre></div>
+
+<h4 id="android-studio">Android Studio</h4>
+
+<p>If you are using Android Studio, add the following under android:</p>
+
+<div class="highlight"><pre><code class="groovy"><span class="n">android</span> <span class="o">{</span>
+  <span class="o">...</span>
+
+  <span class="n">sourceSets</span> <span class="o">{</span>
+    <span class="n">main</span><span class="o">.</span><span class="na">java</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">+=</span> <span class="s1">&#39;src/main/kotlin&#39;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>This lets Android Studio know that your kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized.</p>
+
+<h3 id="using-external-annotations">Using External Annotations</h3>
+
+<p>External annotations for JDK and Android SDK will be configured automatically. If you want to add more annotations for some of your libraries, add the following line to your Gradle script:</p>
+
+<div class="highlight"><pre><code class="groovy"><span class="n">kotlinOptions</span><span class="o">.</span><span class="na">annotations</span> <span class="o">=</span> <span class="n">file</span><span class="o">(</span><span class="s1">&#39;&lt;path to annotations&gt;&#39;</span><span class="o">)</span>
+</code></pre></div>
+
+<h3 id="examples">Examples</h3>
+
+<p>For more examples, including Android, Mixed Java/Kotlin, <a href="https://github.com/JetBrains/kotlin-examples/tree/master/gradle">check out the Samples</a> folder on GitHub</p>
+
+    </div>
+
+</div>
+
+<footer class="global-footer">
+
+    <div class="global-footer-externals">
+        <div class="g-layout">
+            <div class="g-8">
+                <div class="header">Stay Tuned!</div>
+                <ul class="externals-links-list">
+                    <li class="list-item">
+                        <a href="http://twitter.com/project_kotlin" class="link link_twitter">
+                            <span class="icon icon_twitter"></span>
+                            <span class="text">@project_kotlin</span>
+                        </a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="https://plus.google.com/communities/104597899765146112928" class="link link_gplus">
+                            <span class="icon gray-icon icon_gplus"></span>
+                            <span class="text">Google+</span>
+                        </a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="http://blog.jetbrains.com/kotlin/" class="link link_blog">
+                            <span class="icon gray-icon icon_blog"></span>
+                            <span class="text">Blog</span>
+                        </a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="http://youtrack.jetbrains.com/issues/KT" class="link link_issue-tracker">
+                            <span class="icon gray-icon icon_youtrack"></span>
+                            <span class="text">Issue Tracker</span>
+                        </a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="http://devnet.jetbrains.net/community/kotlin" class="link link_forum">
+                            <span class="icon gray-icon icon_forum"></span>
+                            <span class="text">Forum</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="global-footer-terms">
+        <div class="g-layout">
+
+            <div class="terms-copyright">
+                &copy; 2000-2013 JetBrains. All rights reserved
+                <br>
+                <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>
+            </div>
+
+            <div class="terms-sponsor">
+                Sponsored and developed by <a href="http://jetbrains.com" class="sponsor sponsor_jetbrains">JetBrains</a>
+            </div>
+        </div>
+    </div>
+
+</footer>
+<!--
+Include all scripts required here
+-->
+
+<script type="text/javascript" src="/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.toc.min.js"></script>
+
+</body>
+</html>
