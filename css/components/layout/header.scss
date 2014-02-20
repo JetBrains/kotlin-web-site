@@ -23,21 +23,21 @@
         text-transform: uppercase;
     }
 
-    .project-info {
+    .kotlin-info {
         padding-top: 150px;
         text-align: center;
     }
 
-    .project-info-description {
+    .kotlin-info-description {
         margin-bottom: $unit*3;
         color: #fff;
         font-size: $unit*6;
         line-height: $unit*7;
         font-family: $font-family-serif;
-        text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
+        text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.4);
     }
 
-    .project-info-description-extra {
+    .kotlin-info-description-extra {
         position: relative;
         left: 7px;
         margin-bottom: $unit*4;
@@ -71,13 +71,14 @@
 .global-header-nav {
     @include clearfix;
     float: right;
+    margin-top: 13px;
 
     .nav-item {
         float: left;
-        margin-right: $unit*3;
+        margin-right: $unit*4;
         color: #fff;
         text-decoration: none;
-        font-size: 13px;
+        font-size: 14px;
         line-height: $unit*4;
 
         &:hover {
