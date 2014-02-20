@@ -4,7 +4,7 @@
 <head>
     {% include head.html %}
 </head>
-<body class="page-index">
+<body class="page_index">
 
 <div class="global-layout">
 {% include header.html %}
@@ -14,5 +14,12 @@
 
 {% include footer.html %}
 {% include scripts.html %}
+<script type="text/javascript" src="{{ site.baseurl }}/scripts/pages/index.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    ui.pages.index.tabs.init();
+    ui.pages.index.videoPlayer.init();
+});
+</script>
 </body>
 </html>

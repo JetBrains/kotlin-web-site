@@ -2,8 +2,9 @@
 @import '../../utils';
 @import '../heading/heading';
 
+
 .kotlin-overview-section {
-    padding: $unit*6 0 $unit*3;
+    padding: $unit*4 0;
 
     .section-header {
         @extend %h1;
@@ -152,6 +153,7 @@
 
         &:hover {
             opacity: 1;
+            color: $base-link-hover-color;
         }
     }
 }
@@ -305,41 +307,80 @@
 }
 
 .kotlin-overview-section._how-to-use {
+    $video-height: 540px;
+
+    position: relative;
+    padding: 0;
     background-color: #fff;
 
+    .video-player-wrap {
+        @include transition(all 0.5s);
+        height: $video-height;
+        background-color: #fff;
+
+        &.is_showing-video {
+            background-color: #000;
+        }
+
+        .video-thumb {
+            @include enable-hardware-acceleration;
+            @include transition(all 0.3);
+            display: block;
+            position: relative;
+            opacity: 1;
+            width: 799px;
+            height: $video-height;
+            margin: 0 auto;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+        &.is_showing-video .video-thumb {
+            @include animation(overview-video-scale 0.5s);
+        }
+
+        .video-description {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 1px 1px rgba(0,0,0, 0.5);
+
+            .title {
+                display: block;
+                font-size: 45px;
+                font-family: $font-family-serif;
+                line-height: 50px;
+                margin-bottom: $unit;
+            }
+
+            .description {
+
+            }
+        }
+
+        .video-player-play-button {
+            @include user-select(none);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 69px;
+            height: 69px;
+            margin-top: -35px;
+            margin-left: -35px;
+            background: url('images/video-player-play-button.png') no-repeat;
+            cursor: pointer;
+        }
+        a:hover .video-player-play-button {
+            opacity: 0.7;
+        }
+    }
+
     .video-player {
-        width: 594px;
-        height: 405px;
-        margin: 0 auto;
-        position: relative;
-    }
+        display: none;
+        height: $video-height;
 
-    .video-thumb {
-        display: block;
-        width: 594px;
-        height: 405px;
-        margin: 0 auto;
-        background: url('images/how-to-use-kotlin-video-thumb.png') no-repeat;
-    }
-
-    .video-player {
-
-    }
-
-    .video-player-play-button {
-        @include user-select(none);
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 69px;
-        height: 69px;
-        margin-top: -35px;
-        margin-left: -35px;
-        background: url('images/video-player-play-button.png') no-repeat;
-        cursor: pointer;
-    }
-    a:hover .video-player-play-button {
-        opacity: 0.7;
     }
 }
 
@@ -350,10 +391,94 @@
     color: #fff;
 }
 
+.kotlin-overview-section._more-info {
+    padding: $unit*6 0;
+
+    .section-header {
+        font-size: 18px;
+        line-height: 22px;
+        font-family: $font-family-sans-serif;
+        margin-bottom: $unit*4;
+    }
+
+    .links-list {
+        font-size: 0;
+        text-align: center;
+    }
+
+    .links-list-item {
+        display: inline-block;
+        margin-left: 80px;
+        font-size: $base-font-size;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        .link {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .link-icon {
+            position: relative;
+            display: block;
+            margin-bottom: 5px;
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 50px;
+
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: block;
+                margin: auto;
+                background-image: url('images/kotlin-resources-icons.png');
+                background-repeat: no-repeat;
+                background-position: 200% 200%;
+                content: '';
+            }
+            &._blog:after {width: 48px; height: 35px; background-position: 0 0;}
+            &._forum:after {width: 59px; height: 42px; background-position: 0 -50px;}
+            &._twitter:after {width: 48px; height: 40px; background-position: 0 -100px;}
+            &._issue-tracker:after {width: 48px; height: 48px; background-position: 0 -150px;}
+        }
+        .link:hover .link-icon {
+        }
+
+        .link-text {
+            color: #8c8c8c;
+            font-size: 12px;
+            line-height: 15px;
+            text-transform: uppercase;
+        }
+        .link:hover .link-text {
+            color: $base-link-hover-color;
+        }
+    }
+}
+
 .kotlin-overview-section {
     &._why-kotlin,
     &._more-info {
         background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC');
         background-repeat: repeat;
+    }
+}
+
+@include animation-keyframes(overview-video-scale) {
+    0% {
+        @include transform(scale(1));
+        opacity: 1;
+    }
+
+    100% {
+        @include transform(scale(2));
+        opacity: 0;
     }
 }

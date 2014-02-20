@@ -65,15 +65,18 @@ title: Project Kotlin
 
 <div class="kotlin-overview-section _code-examples">
     <div class="kotlin-overview-code-example-tabs">
-        <div class="tab is_active"><div class="text">Simplest Version</div></div>
-        <div class="tab"><div class="tab-text">Name Reading</div></div>
-        <div class="tab"><div class="tab-text">An “object-oriented” Hello</div></div>
+        <div class="g-layout">
+            <div class="tab is_active js-tab" data-tab-id="kotlin-code-example-simplest"><div class="text">Simplest Version</div></div>
+            <div class="tab js-tab" data-tab-id="kotlin-code-example-name-reading"><div class="tab-text">Name Reading</div></div>
+            <div class="tab js-tab" data-tab-id="kotlin-code-example-object-oriented"><div class="tab-text">An “object-oriented” Hello</div></div>
+        </div>
+
     </div>
 
     <h2 class="section-header">What does it look like?</h2>
     <p class="section-description">Simple, pretty much like Java, but easier to use (and learn).</p>
     <div class="section-content">
-        <div class="kotlin-overview-code-example">
+        <div class="kotlin-overview-code-example" id="kotlin-code-example-simplest">
 
             <div class="code-line">
                 <div class="code"><span class="keyword">package</span> hello<div class="code-legend-line"></div></div>
@@ -110,20 +113,40 @@ title: Project Kotlin
 
         </div>
 
+        <div class="kotlin-overview-code-example" id="kotlin-code-example-name-reading" style="display: none">
+
+        </div>
+
+        <div class="kotlin-overview-code-example" id="kotlin-code-example-object-oriented" style="display: none">
+
+        </div>
+
         <a href="#" class="more-link">More examples, grammar and everything in documentation</a>
     </div>
 </div>
 
 
 <div class="kotlin-overview-section _how-to-use">
-    <h2 class="section-header">How to use Kotlin?</h2>
-    <p class="section-description">Well, not so hard.</p>
     <div class="section-content">
-        <div class="video-player" id="how-to-use-video">
-            <a href="#">
-                <span class="video-player-play-button js-play-video"></span>
-                <span class="video-thumb"></span>
+        <div class="video-player-wrap js-video-player-wrap" id="how-to-use-video">
+
+            <a href="http://www.youtube.com/watch?v=UaIHuXj0gLc" class="video-thumb js-video-thumb">
+                <span class="video-description">
+                    <span class="title">How to use Kotlin?</span>
+                    <span class="description">Well, not so hard.</span>
+                </span>
+
+                <span class="video-player-play-button js-play-video-button"></span>
+
+                <img src="css/components/content/images/how-to-use-kotlin-video-thumb.png"
+                     alt="How to use Kotlin"
+                     height="540"
+                >
             </a>
+
+            <div class="video-player js-video-player">
+
+            </div>
         </div>
     </div>
 </div>
@@ -139,9 +162,36 @@ title: Project Kotlin
 
 
 <div class="kotlin-overview-section _more-info">
-    <h2 class="section-header">Get Kotlin</h2>
-    <p class="section-description">Well, to get Kotlin, you have to study it at least for couple of hours. But for starters, download it first.</p>
+    <h2 class="section-header">Get more about Kotlin</h2>
     <div class="section-content">
+        <ul class="links-list">
+            <li class="links-list-item">
+                <a href="http://blog.jetbrains.com/kotlin" class="link" target="_blank">
+                    <span class="link-icon _blog"></span>
+                    <span class="link-text">Blog</span>
+                </a>
+            </li>
 
+            <li class="links-list-item">
+                <a href="http://devnet.jetbrains.net/community/kotlin" class="link" target="_blank">
+                    <span class="link-icon _forum"></span>
+                    <span class="link-text">Forum</span>
+                </a>
+            </li>
+
+            <li class="links-list-item">
+                <a href="http://www.twitter.com/project_kotlin" class="link" target="_blank">
+                    <span class="link-icon _twitter"></span>
+                    <span class="link-text">Twitter</span>
+                </a>
+            </li>
+
+            <li class="links-list-item">
+                <a href="http://youtrack.jetbrains.com/issues/KT" class="link" target="_blank">
+                    <span class="link-icon _issue-tracker"></span>
+                    <span class="link-text">Issue Tracker</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

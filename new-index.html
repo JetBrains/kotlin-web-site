@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <title>Documentation</title>
 </head>
-<body class="page-index">
+<body class="page_index">
 
 <div class="global-layout">
 
@@ -34,12 +34,12 @@
                 </a>
             </nav>
 
-            <div class="project-info">
-                <div class="project-info-description">
+            <div class="kotlin-info">
+                <div class="kotlin-info-description">
                     Statically typed programming language<br>
                     that targets the JVM and JavaScript
                 </div>
-                <div class="project-info-description-extra">
+                <div class="kotlin-info-description-extra">
                     100% interoperable with Java™
                 </div>
                 <a href="/download/" class="get-kotlin-button">
@@ -174,14 +174,26 @@
 
 
     <div class="kotlin-overview-section _how-to-use">
-        <h2 class="section-header">How to use Kotlin?</h2>
-        <p class="section-description">Well, not so hard.</p>
         <div class="section-content">
-            <div class="video-player" id="how-to-use-video">
-                <a href="#">
-                    <span class="video-player-play-button js-play-video"></span>
-                    <span class="video-thumb"></span>
+            <div class="video-player-wrap js-video-player-wrap" id="how-to-use-video">
+
+                <a href="http://www.youtube.com/watch?v=UaIHuXj0gLc" class="video-thumb js-video-thumb">
+                    <span class="video-description">
+                        <span class="title">How to use Kotlin?</span>
+                        <span class="description">Well, not so hard.</span>
+                    </span>
+
+                    <span class="video-player-play-button js-play-video-button"></span>
+
+                    <img src="css/components/content/images/how-to-use-kotlin-video-thumb.png"
+                         alt="How to use Kotlin"
+                         height="540"
+                    >
                 </a>
+
+                <div class="video-player js-video-player">
+
+                </div>
             </div>
         </div>
     </div>
@@ -197,10 +209,37 @@
 
 
     <div class="kotlin-overview-section _more-info">
-        <h2 class="section-header">Get Kotlin</h2>
-        <p class="section-description">Well, to get Kotlin, you have to study it at least for couple of hours. But for starters, download it first.</p>
+        <h2 class="section-header">Get more about Kotlin</h2>
         <div class="section-content">
+            <ul class="links-list">
+                <li class="links-list-item">
+                    <a href="http://blog.jetbrains.com/kotlin" class="link" target="_blank">
+                        <span class="link-icon _blog"></span>
+                        <span class="link-text">Blog</span>
+                    </a>
+                </li>
 
+                <li class="links-list-item">
+                    <a href="http://devnet.jetbrains.net/community/kotlin" class="link" target="_blank">
+                        <span class="link-icon _forum"></span>
+                        <span class="link-text">Forum</span>
+                    </a>
+                </li>
+
+                <li class="links-list-item">
+                    <a href="http://www.twitter.com/project_kotlin" class="link" target="_blank">
+                        <span class="link-icon _twitter"></span>
+                        <span class="link-text">Twitter</span>
+                    </a>
+                </li>
+
+                <li class="links-list-item">
+                    <a href="http://youtrack.jetbrains.com/issues/KT" class="link" target="_blank">
+                        <span class="link-icon _issue-tracker"></span>
+                        <span class="link-text">Issue Tracker</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
@@ -227,32 +266,11 @@ Include all scripts required here
 
 <script type="text/javascript" src="scripts/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="scripts/jquery.toc.min.js"></script>
+<script type="text/javascript" src="scripts/pages/index.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    var $tabs = $('.js-tab');
-
-    $tabs.on('click', function() {
-        var $tab = $(this),
-            tabId = $tab.attr('data-tab-id');
-
-        if ($tab.hasClass('is_active')) {
-            return;
-        }
-
-        $tabs.each(function() {
-            var $currentTab = $(this),
-                currentTabId = $currentTab.attr('data-tab-id'),
-                $tabContentNode = $('#' + currentTabId);
-
-            if (tabId === currentTabId) {
-                $currentTab.addClass('is_active');
-                $tabContentNode.show();
-            } else {
-                $currentTab.removeClass('is_active');
-                $tabContentNode.hide();
-            }
-        });
-    });
+    ui.pages.index.tabs.init();
+    ui.pages.index.videoPlayer.init();
 });
 </script>
 
