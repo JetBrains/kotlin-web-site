@@ -38,12 +38,16 @@ ui.pages.index.tabs = {
 };
 
 ui.pages.index.videoPlayer = {
+    VIDEO_EMBED_URL: '//www.youtube.com/embed/{video_id}?autoplay=1',
+
     init: function() {
-        var $videoPlayerWrap = $('.js-video-player-wrap');
+        var that = this,
+            $videoPlayerWrap = $('.js-video-player-wrap');
 
         $videoPlayerWrap.find('.js-video-thumb').on('click', function(e) {
             var $thumb = $(this),
-                videoId = this.href.match(/\?v=([^&]*)/);
+                videoId = this.href.match(/\?v=([^&]*)/),
+                videoUrl;
 
             e.preventDefault();
 
@@ -52,8 +56,7 @@ ui.pages.index.videoPlayer = {
             }
 
             videoId = videoId[1];
-            console.log(videoId);
-
+            videoUrl = that.VIDEO_EMBED_URL.replace('{video_id}', videoId);
             $videoPlayerWrap.addClass('is_showing-video');
 
             setTimeout(function() {
@@ -64,5 +67,62 @@ ui.pages.index.videoPlayer = {
                     .show();
             }, 400);
         });
+    }
+};
+
+ui.pages.index.popups = {
+    init: function() {
+        var that = this,
+            $popups = $('.js-popup'),
+            $popupShowButtons = $('.js-popup-open-button'),
+            $popupHideButtons = $('.js-popup-close-button');
+
+        $popupShowButtons.on('click', function(e) {
+            var popupId = this.getAttribute('data-popup-id');
+
+            e.stopPropagation();
+            that.showPopup(popupId);
+        });
+
+        $popupHideButtons.on('click', function(e) {
+            var popupId = this.getAttribute('data-popup-id');
+
+            e.stopPropagation();
+            that.hidePopup(popupId);
+        });
+
+        $(document.body).on('click', function() {
+            $popups.each(function() {
+                var $popup = $(this),
+                    popupId = this.id;
+
+                if (!$popup.hasClass('_hidden')) {
+                    that.hidePopup(popupId);
+                }
+            });
+        });
+    },
+
+    togglePopup: function(id) {
+        var that = this,
+            $popupNode = $('#' + id);
+
+        if ($popupNode.hasClass('_hidden')) {
+            that.showPopup(id);
+        } else {
+            that.hidePopup(id);
+        }
+    },
+
+    showPopup: function(id) {
+        var $popupNode = $('#' + id);
+
+        $popupNode.removeClass('_hidden');
+    },
+
+    hidePopup: function(id) {
+        var $popupNode = $('#' + id);
+
+        $popupNode.addClass('_hidden');
     }
 };
