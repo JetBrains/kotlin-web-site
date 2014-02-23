@@ -15,6 +15,7 @@
 
     h1 {
         @extend %h1;
+        margin-bottom: $unit*5;
     }
     p + h1,
     ul + h1,
@@ -25,6 +26,7 @@
 
     h2 {
         @extend %h2;
+        margin-bottom: $unit*4;
     }
     p + h2,
     ul + h2,
@@ -35,6 +37,7 @@
 
     h3 {
         @extend %h3;
+        margin-bottom: $unit*3;
     }
     p + h3,
     ul + h3,

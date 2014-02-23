@@ -8,7 +8,10 @@
     @include clearfix;
     position: relative;
     padding: $unit*4 0;
-    background: url('images/index-page-header-bg.jpg') center top no-repeat;
+    background-color: #496880;
+    background-image: url('images/index-page-header-bg.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
     background-size: cover;
 
     .try-kotlin-button {
@@ -34,7 +37,10 @@
         font-size: $unit*6;
         line-height: $unit*7;
         font-family: $font-family-serif;
-        text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.4);
+        text-shadow:
+            2px 2px 0px rgba(0, 0, 0, 0.2),
+            -1px 2px 1px rgba(0, 0, 0, 0.2)
+        ;
     }
 
     .kotlin-info-description-extra {
@@ -44,13 +50,13 @@
         font-size: 14px;
         line-height: 16px;
         color: #fff;
-        opacity: 0.9;
         text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.4);
     }
 }
-.page-index .global-header {
+.page_index .global-header {
     padding: $unit*8 0;
     height: 560px - $unit*8*2;
+    background-position: center center;
 }
 
 .global-header-logo {
@@ -64,7 +70,7 @@
     font-size: 0;
     text-decoration: none;
 }
-.page-index .global-header-logo {
+.page_index .global-header-logo {
     top: -19px;
 }
 
