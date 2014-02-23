@@ -16,9 +16,18 @@
                 {% endif %}
             {% endfor %}
 
-            <a href="http://kotlin-demo.jetbrains.com/" class="try-kotlin-button">
-                Try Kotlin
-            </a>
+            {% if page.layout == 'index' %}
+                <a href="http://kotlin-demo.jetbrains.com/" class="try-kotlin-button">
+                    Try Kotlin
+                </a>
+            {% else %}
+                <a href="http://kotlin-demo.jetbrains.com/" class="nav-item">
+                    Try Kotlin
+                </a>
+                <a href="{{ site.baseurl }}/download/" class="try-kotlin-button">
+                    Download
+                </a>
+            {% endif %}
         </nav>
 
         {% if page.layout == 'index' %}

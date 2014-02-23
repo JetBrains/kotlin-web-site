@@ -8,6 +8,20 @@ if (typeof ui.pages === 'undefined') {
 
 ui.pages.index = {};
 
+ui.pages.index.featuresRotator = {
+    init: function() {
+        var $listWrap = $('.kotlin-features-list-wrap'),
+            $list = $listWrap.find('.js-features-list'),
+            $features = $listWrap.find('.js-feature');
+
+        if ($(window).width() > $list.width()) {
+            return;
+        }
+
+
+    }
+};
+
 ui.pages.index.tabs = {
     init: function() {
         var $tabs = $('.js-tab');
@@ -47,7 +61,7 @@ ui.pages.index.videoPlayer = {
         $videoPlayerWrap.find('.js-video-thumb').on('click', function(e) {
             var $thumb = $(this),
                 videoId = this.href.match(/\?v=([^&]*)/),
-                videoUrl;
+                videoEmbedUrl;
 
             e.preventDefault();
 
@@ -56,14 +70,14 @@ ui.pages.index.videoPlayer = {
             }
 
             videoId = videoId[1];
-            videoUrl = that.VIDEO_EMBED_URL.replace('{video_id}', videoId);
+            videoEmbedUrl = that.VIDEO_EMBED_URL.replace('{video_id}', videoId);
             $videoPlayerWrap.addClass('is_showing-video');
 
             setTimeout(function() {
                 $thumb.remove();
                 $videoPlayerWrap
                     .find('.js-video-player')
-                    .html('<iframe width="100%" height="540" src="//www.youtube.com/embed/'+ videoId +'?autoplay=1" frameborder="0" allowfullscreen></iframe>')
+                    .html('<iframe width="100%" height="540" src="'+ videoEmbedUrl +'" frameborder="0" allowfullscreen></iframe>')
                     .show();
             }, 400);
         });
@@ -101,6 +115,10 @@ ui.pages.index.popups = {
                 }
             });
         });
+
+        $popups.on('click', function(e) {
+            e.stopPropagation();
+        })
     },
 
     togglePopup: function(id) {
