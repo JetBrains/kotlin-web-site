@@ -304,10 +304,14 @@
     clear: both;
     height: 0;
     content: ''; }
-  .kotlin-overview-section._code-examples .section-content {
-    width: 840px;
-    margin-left: auto;
-    margin-right: auto; }
+  .kotlin-overview-section._code-examples .more-link-wrap {
+    max-width: 840px;
+    margin: 0 auto; }
+    .kotlin-overview-section._code-examples .more-link-wrap:after {
+      display: block;
+      clear: both;
+      height: 0;
+      content: ''; }
   .kotlin-overview-section._code-examples .more-link {
     float: right;
     opacity: 0.4;
@@ -318,28 +322,31 @@
 
 .kotlin-overview-code-example {
   position: relative;
+  width: 840px;
   margin: 50px auto 40px; }
   .kotlin-overview-code-example .code-line {
-    position: relative;
-    overflow: hidden;
-    margin-right: 180px; }
+    position: relative; }
     .kotlin-overview-code-example .code-line:after {
       display: block;
       clear: both;
       height: 0;
       content: ''; }
-    .kotlin-overview-code-example .code-line._blank {
-      height: 32px; }
+  .kotlin-overview-code-example.is_legend-at-left .code-line {
+    margin-left: 180px; }
   .kotlin-overview-code-example .code {
-    position: relative;
     float: left;
+    margin-right: 8px;
     font-family: "Droid Sans Mono", monospace;
     font-size: 30px;
     line-height: 37px;
     color: #9ebdd9;
     white-space: pre; }
+    .kotlin-overview-code-example .code .generic-code {
+      color: #9ebdd9; }
     .kotlin-overview-code-example .code .keyword {
       color: #ff8b17; }
+    .kotlin-overview-code-example .code .class-name {
+      color: #9ebdd9; }
     .kotlin-overview-code-example .code .func-name {
       color: #ffcf7f; }
     .kotlin-overview-code-example .code .buildin-func-name {
@@ -348,28 +355,69 @@
       font-style: italic; }
     .kotlin-overview-code-example .code .string-literal {
       color: #78a35f; }
-  .kotlin-overview-code-example .code-legend-text {
-    position: absolute;
-    top: 10px;
-    right: -12px;
-    width: 180px; }
+    .kotlin-overview-code-example .code .var-name {
+      color: #a165cb; }
+    .kotlin-overview-code-example .code .number {
+      color: #3489ca; }
+    .kotlin-overview-code-example .code .string-literal-var-substitution {
+      color: #ff8b17; }
+  .kotlin-overview-code-example .code-legend {
+    position: relative;
+    white-space: normal; }
+    .kotlin-overview-code-example .code-legend.align_left {
+      position: absolute;
+      display: block;
+      right: 100%; }
+    .kotlin-overview-code-example .code-legend.align_right {
+      display: table;
+      margin-right: 180px; }
+      .kotlin-overview-code-example .code-legend.align_right:after {
+        content: '. .';
+        display: block;
+        word-spacing: 99in;
+        height: 0;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0; }
+  .ie .kotlin-overview-code-example .code-legend.align_right:after {
+    font-size: 1px; }
   .kotlin-overview-code-example .code-legend-line {
     position: absolute;
-    left: 100%;
-    width: 600%;
-    top: 19px;
-    margin-left: 12px;
+    top: 21px;
     height: 1px;
     background-color: #fff;
-    opacity: 0.1;
-    white-space: normal; }
+    opacity: 0.2; }
+  .kotlin-overview-code-example .code-legend.align_left .code-legend-line {
+    right: 0;
+    width: 30px;
+    margin-right: 10px; }
+  .kotlin-overview-code-example .code-legend.align_right .code-legend-line {
+    left: 0;
+    right: 0; }
+  .kotlin-overview-code-example .code-legend-text {
+    position: absolute;
+    z-index: 1;
+    top: 11px;
+    width: 180px; }
+    .kotlin-overview-code-example .code-legend-text a {
+      color: #fff; }
+      .kotlin-overview-code-example .code-legend-text a:hover {
+        color: #ed7615; }
+  .kotlin-overview-code-example .code-legend.align_left .code-legend-text {
+    right: 100%;
+    margin-right: 50px;
+    text-align: right; }
+  .kotlin-overview-code-example .code-legend.align_right .code-legend-text {
+    left: 100%;
+    margin-left: 10px; }
   .kotlin-overview-code-example .code-legend-line-marker {
     position: absolute;
-    right: 100%;
+    top: 5px;
     width: 33px;
     height: 33px;
     border: 1px solid #fff;
-    border-radius: 20px; }
+    border-radius: 100%;
+    opacity: 0.2; }
 
 .kotlin-overview-code-example-tabs {
   position: relative;
@@ -378,7 +426,7 @@
   border-top: 1px solid #343537;
   border-bottom: 3px solid #4f4f4e;
   padding-bottom: 2px;
-  box-shadow: inset 0 1px 0 0 #5e5f60, 0 1px 0 0 #444548;
+  box-shadow: inset 0 1px 0 0 #5e5f60, inset 0 -3px 10px 0px rgba(0, 0, 0, 0.4), 0 1px 0 0 #444548;
   font-size: 0; }
   .kotlin-overview-code-example-tabs:before {
     position: absolute;
@@ -452,31 +500,25 @@
     background-color: #fff;
     background-image: url("images/video-ajax-loader.gif");
     background-repeat: no-repeat;
-    background-position: 200% 200%; }
+    background-position: 200% 200%;
+    text-align: center; }
     .kotlin-overview-section._video-overview .video-player-wrap.is_showing-video {
       background-color: #000;
       background-position: center center; }
     .kotlin-overview-section._video-overview .video-player-wrap .video-thumb {
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      backface-visibility: hidden;
-      -webkit-perspective: 1000;
-      -moz-perspective: 1000;
-      -ms-perspective: 1000;
-      perspective: 1000;
       -webkit-transition: all 0.3;
       -moz-transition: all 0.3;
       -o-transition: all 0.3;
       transition: all 0.3;
-      display: block;
+      display: inline-block;
       position: relative;
-      opacity: 1;
-      width: 799px;
-      height: 540px;
+      opacity: 0.85;
       margin: 0 auto;
+      text-align: center;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards; }
+      .kotlin-overview-section._video-overview .video-player-wrap .video-thumb:hover {
+        opacity: 1; }
     .kotlin-overview-section._video-overview .video-player-wrap.is_showing-video .video-thumb {
       -webkit-animation: overview-video-scale 0.5s;
       -moz-animation: overview-video-scale 0.5s;
@@ -511,8 +553,6 @@
       margin-left: -35px;
       background: url("images/video-player-play-button.png") no-repeat;
       cursor: pointer; }
-    .kotlin-overview-section._video-overview .video-player-wrap a:hover .video-player-play-button {
-      opacity: 0.7; }
   .kotlin-overview-section._video-overview .video-player {
     display: none;
     height: 540px; }

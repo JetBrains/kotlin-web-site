@@ -161,9 +161,13 @@
     background-repeat: repeat;
 
     .section-content {
-        width: 840px;
-        margin-left: auto;
-        margin-right: auto;
+        //overflow: hidden;
+    }
+
+    .more-link-wrap {
+        @include clearfix;
+        max-width: $overview-section-width;
+        margin: 0 auto;
     }
 
     .more-link {
@@ -180,64 +184,119 @@
 
 .kotlin-overview-code-example {
     $legend-width: 180px;
-    $legend-line-spacing: 12px;
+    $legend-spacing: 10px;
 
     position: relative;
+    width: $overview-section-width;
     margin: 50px auto $unit*5;
 
     .code-line {
         @include clearfix;
         position: relative;
-        overflow: hidden;
-        margin-right: $legend-width;
-        //margin-bottom: $unit*4;
-
-        &._blank {
-            height: $unit*4;
-        }
+    }
+    &.is_legend-at-left .code-line {
+        margin-left: $legend-width;
     }
 
     .code {
-        position: relative;
         float: left;
+        margin-right: $legend-spacing - 2px;
         font-family: $font-family-mono;
         font-size: 30px;
         line-height: 37px;
         color: #9ebdd9;
         white-space: pre;
 
+        .generic-code {color: #9ebdd9;}
         .keyword {color: #ff8b17;}
+        .class-name {color: #9ebdd9;}
         .func-name {color: #ffcf7f;}
         .buildin-func-name {color: #b1c4d8; font-weight: bold; font-style: italic;}
         .string-literal {color: #78a35f;}
+        .var-name {color: #a165cb;}
+        .number {color: #3489ca;}
+        .string-literal-var-substitution {color: #ff8b17;}
     }
 
-    .code-legend-text {
-        position: absolute;
-        top: 10px;
-        right: -$legend-line-spacing;
-        width: $legend-width;
+    .code-legend {
+        position: relative;
+        white-space: normal;
+
+        &.align_left {
+            position: absolute;
+            display: block;
+            right: 100%;
+        }
+
+        &.align_right {
+            display: table;
+            margin-right: $legend-width;
+
+            &:after {
+                content: '. .';
+                display: block;
+                word-spacing: 99in;
+                height: 0;
+                overflow: hidden;
+                font-size: 0;
+                line-height: 0;
+            }
+        }
+    }
+    .ie & .code-legend.align_right:after {
+        font-size: 1px;
     }
 
     .code-legend-line {
         position: absolute;
-        left: 100%;
-        width: 600%;
-        top: 19px;
-        margin-left: $legend-line-spacing;
+        top: 21px;
         height: 1px;
         background-color: #fff;
-        opacity: 0.1;
-        white-space: normal;
+        opacity: 0.2;
+    }
+    .code-legend.align_left .code-legend-line {
+        right: 0;
+        width: 30px;
+        margin-right: $legend-spacing;
+    }
+    .code-legend.align_right .code-legend-line {
+        left: 0;
+        right: 0;
+    }
+
+    .code-legend-text {
+        position: absolute;
+        z-index: 1;
+        top: 11px;
+        width: $legend-width;
+
+        a {
+            color: #fff;
+
+            &:hover {
+                color: $base-link-hover-color;
+            }
+        }
+    }
+    .code-legend.align_left .code-legend-text {
+        right: 100%;
+        margin-right: 30px + $legend-spacing*2;
+        text-align: right;
+    }
+    .code-legend.align_right .code-legend-text {
+        left: 100%;
+        margin-left: $legend-spacing;
     }
 
     .code-legend-line-marker {
         position: absolute;
-        right: 100%;
+        //right: 100%;
+        top: 5px;
         width: 33px;
         height: 33px;
         border: 1px solid #fff;
-        border-radius: 20px;
+        border-radius: 100%;
+        opacity: 0.2;
     }
 }
 
@@ -250,6 +309,7 @@
     padding-bottom: 2px;
     box-shadow:
         inset 0 1px 0 0 #5e5f60,
+        inset 0 -3px 10px 0px rgba(0,0,0, 0.4),
         0 1px 0 0 #444548;
     font-size: 0;
 
@@ -340,6 +400,7 @@
         background-image: url('images/video-ajax-loader.gif');
         background-repeat: no-repeat;
         background-position: 200% 200%;
+        text-align: center;
 
         &.is_showing-video {
             background-color: #000;
@@ -347,16 +408,18 @@
         }
 
         .video-thumb {
-            @include enable-hardware-acceleration;
             @include transition(all 0.3);
-            display: block;
+            display: inline-block;
             position: relative;
-            opacity: 1;
-            width: 799px;
-            height: $video-height;
+            opacity: 0.85;
             margin: 0 auto;
+            text-align: center;
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
+
+            &:hover {
+                opacity: 1;
+            }
         }
         &.is_showing-video .video-thumb {
             @include animation(overview-video-scale 0.5s);
@@ -397,7 +460,7 @@
             cursor: pointer;
         }
         a:hover .video-player-play-button {
-            opacity: 0.7;
+            //opacity: 0.7;
         }
     }
 
