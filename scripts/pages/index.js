@@ -9,16 +9,69 @@ if (typeof ui.pages === 'undefined') {
 ui.pages.index = {};
 
 ui.pages.index.featuresRotator = {
-    init: function() {
-        var $listWrap = $('.kotlin-features-list-wrap'),
-            $list = $listWrap.find('.js-features-list'),
-            $features = $listWrap.find('.js-feature');
+    _interval: null,
 
-        if ($(window).width() > $list.width()) {
+    _currentHalf: null,
+
+    init: function() {
+        var that = this,
+            $listWrap = $('.kotlin-features-list-wrap'),
+            $list = $listWrap.find('.js-features-list'),
+            extraSpace,
+            windowWidth = $(window).width(),
+            listWrapHalfWidth = Math.round(windowWidth / 2);
+
+        if (windowWidth > $list.width()) {
             return;
         }
 
+        extraSpace = Math.round(($list.width() - windowWidth) / 2);
+        console.log(extraSpace);
 
+        $listWrap.on('mousemove', function(e) {
+            var half,
+                m;
+
+            half = (e.pageX > listWrapHalfWidth) ? 'right' : 'left';
+            that._currentHalf = half;
+        });
+
+        $listWrap.on('mouseenter', function(e) {
+            that._createAnimation($list, {
+                maxValue: extraSpace
+            });
+        });
+
+        $listWrap.on('mouseleave', function(e) {
+            that._destroyAnimation();
+        });
+    },
+
+    _createAnimation: function($obj, opts) {
+        var that = this,
+            half = that._currentHalf,
+            maxValue = opts.maxValue,
+            value;
+
+        that._interval = setInterval(function() {
+            var value = parseInt($obj.css('left')),
+                half = that._currentHalf,
+                futureValue = (half === 'right') ? value-2 : value+2;
+
+            if (futureValue > -maxValue && futureValue < maxValue) {
+                //value += (half === 'right') ? -1 : 1;
+                $obj.css('left', futureValue);
+            }
+        }, 1);
+    },
+
+    _destroyAnimation: function() {
+        var that = this;
+        clearInterval(that._interval);
+    },
+
+    _doAnimation: function() {
+        var that = this;
     }
 };
 
@@ -41,10 +94,10 @@ ui.pages.index.tabs = {
 
                 if (tabId === currentTabId) {
                     $currentTab.addClass('is_active');
-                    $tabContentNode.show();
+                    $tabContentNode.removeClass('is_hidden');
                 } else {
                     $currentTab.removeClass('is_active');
-                    $tabContentNode.hide();
+                    $tabContentNode.addClass('is_hidden');
                 }
             });
         });

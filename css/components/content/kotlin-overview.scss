@@ -32,15 +32,23 @@
 
 .kotlin-overview-section._features {
     position: relative;
-    overflow: hidden;
 
     .section-description {
         margin-bottom: $unit*5;
     }
 
     .kotlin-features-list-wrap {
-        margin: 0 -500%;
+        position: relative;
+        overflow: hidden;
         text-align: center;
+
+        &:before {
+
+        }
+    }
+
+    .kotlin-features-list-stretcher {
+        margin: 0 -500%;
 
         @media (max-width: 1050px) {
             margin: 0;
@@ -50,15 +58,27 @@
     .kotlin-features-list {
         @include clearfix;
         display: inline-block;
+        position: relative;
+        left: 0;
         font-size: 0;
         margin: 0 auto;
         text-align: center;
+
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+        }
 
         .kotlin-feature {
             display: inline-block;
             overflow: hidden;
             position: relative;
-            margin-left: $unit*3;
+            margin-right: $unit*3;
             margin-bottom: 10px;
             padding: 0 0 $unit*3;
             width: 240px;
@@ -67,6 +87,10 @@
             background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+            &:first-child {
+                margin-left: $unit*3;
+            }
 
             &._simple {}
             &._concise {}
@@ -161,7 +185,7 @@
     background-repeat: repeat;
 
     .section-content {
-        //overflow: hidden;
+        text-align: center;
     }
 
     .more-link-wrap {
@@ -186,16 +210,19 @@
     $legend-width: 180px;
     $legend-spacing: 10px;
 
+    display: inline-block;
     position: relative;
-    width: $overview-section-width;
-    margin: 50px auto $unit*5;
+    max-width: $overview-section-width;
+    margin: $unit*4 auto $unit*5;
+
+    &.is_hidden {
+        display: none;
+    }
 
     .code-line {
         @include clearfix;
         position: relative;
-    }
-    &.is_legend-at-left .code-line {
-        margin-left: $legend-width;
+        text-align: left;
     }
 
     .code {

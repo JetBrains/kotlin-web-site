@@ -196,18 +196,22 @@
     text-align: center; }
 
 .kotlin-overview-section._features {
-  position: relative;
-  overflow: hidden; }
+  position: relative; }
   .kotlin-overview-section._features .section-description {
     margin-bottom: 40px; }
   .kotlin-overview-section._features .kotlin-features-list-wrap {
-    margin: 0 -500%;
+    position: relative;
+    overflow: hidden;
     text-align: center; }
+  .kotlin-overview-section._features .kotlin-features-list-stretcher {
+    margin: 0 -500%; }
     @media (max-width: 1050px) {
-      .kotlin-overview-section._features .kotlin-features-list-wrap {
+      .kotlin-overview-section._features .kotlin-features-list-stretcher {
         margin: 0; } }
   .kotlin-overview-section._features .kotlin-features-list {
     display: inline-block;
+    position: relative;
+    left: 0;
     font-size: 0;
     margin: 0 auto;
     text-align: center; }
@@ -216,11 +220,19 @@
       clear: both;
       height: 0;
       content: ''; }
+    .kotlin-overview-section._features .kotlin-features-list:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 10px;
+      height: 10px;
+      background-color: red; }
     .kotlin-overview-section._features .kotlin-features-list .kotlin-feature {
       display: inline-block;
       overflow: hidden;
       position: relative;
-      margin-left: 24px;
+      margin-right: 24px;
       margin-bottom: 10px;
       padding: 0 0 24px;
       width: 240px;
@@ -229,6 +241,8 @@
       background-color: #fff;
       border-radius: 4px;
       box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12); }
+      .kotlin-overview-section._features .kotlin-features-list .kotlin-feature:first-child {
+        margin-left: 24px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-image {
       position: relative;
       background-color: #557799;
@@ -304,6 +318,8 @@
     clear: both;
     height: 0;
     content: ''; }
+  .kotlin-overview-section._code-examples .section-content {
+    text-align: center; }
   .kotlin-overview-section._code-examples .more-link-wrap {
     max-width: 840px;
     margin: 0 auto; }
@@ -321,18 +337,20 @@
       color: #ed7615; }
 
 .kotlin-overview-code-example {
+  display: inline-block;
   position: relative;
-  width: 840px;
-  margin: 50px auto 40px; }
+  max-width: 840px;
+  margin: 32px auto 40px; }
+  .kotlin-overview-code-example.is_hidden {
+    display: none; }
   .kotlin-overview-code-example .code-line {
-    position: relative; }
+    position: relative;
+    text-align: left; }
     .kotlin-overview-code-example .code-line:after {
       display: block;
       clear: both;
       height: 0;
       content: ''; }
-  .kotlin-overview-code-example.is_legend-at-left .code-line {
-    margin-left: 180px; }
   .kotlin-overview-code-example .code {
     float: left;
     margin-right: 8px;
