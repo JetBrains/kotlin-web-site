@@ -284,15 +284,18 @@
       display: inline-block;
       overflow: hidden;
       position: relative;
+      box-sizing: border-box;
       margin-right: 24px;
       margin-bottom: 10px;
       padding: 0 0 24px;
       width: 240px;
-      font-size: 14px;
-      white-space: normal;
+      min-height: 320px;
       background-color: #fff;
       border-radius: 4px;
-      box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12); }
+      box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
+      font-size: 14px;
+      white-space: normal;
+      vertical-align: top; }
       .kotlin-overview-section._features .kotlin-features-list .kotlin-feature:first-child {
         margin-left: 24px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-image {

@@ -21,6 +21,8 @@ ui.pages.index.featuresRotator = {
             windowWidth = $(window).width(),
             listWrapHalfWidth = Math.round(windowWidth / 2);
 
+        return;
+
         if (windowWidth > $list.width()) {
             return;
         }
@@ -123,7 +125,7 @@ ui.pages.index.videoPlayer = {
             }
 
             videoId = videoId[1];
-            videoEmbedUrl = that.VIDEO_EMBED_URL.replace('{video_id}', videoId);
+            videoEmbedUrl = that.VIDEO_EMBED_URL.replace('{video_id}', videoId) + '&vq=hd720';
             $videoPlayerWrap.addClass('is_showing-video');
 
             setTimeout(function() {
