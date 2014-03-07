@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    {% include browser.html %}
+<html>
+<head>
+    {% include head.html %}
+</head>
+<body class="page_docs">
+
+<div class="global-layout">
+    {% include header.html %}
+
+    <div class="global-content">
+
+        {% include docs-nav.html nav='learn' current_section='docs' %}
+
+        <h1 class="page-title">{{ page.title }}</h1>
+
+        <div class="page-content">
+            <ul>
+            {% for post in site.posts %}
+                {% if post.category == 'docs' %}
+                    <li>
+                        <h4>
+                            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                        </h4>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+{% include footer.html %}
+{% include scripts.html %}
+</body>
+</html>
