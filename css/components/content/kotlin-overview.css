@@ -293,7 +293,7 @@
       margin: 0 auto 8px;
       color: #000; }
     .kotlin-overview-section._features .kotlin-features-list .feature-example-link {
-      color: #0083c6;
+      color: #497bb7;
       text-decoration: underline;
       cursor: pointer; }
       .kotlin-overview-section._features .kotlin-features-list .feature-example-link:hover {
@@ -623,7 +623,7 @@
       margin-bottom: 10px; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-link {
       cursor: pointer;
-      color: #0083c6;
+      color: #497bb7;
       text-decoration: underline; }
       .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-link:hover {
         color: #ed7615; }

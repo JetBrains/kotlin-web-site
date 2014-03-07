@@ -17,13 +17,10 @@
     .try-kotlin-button {
         @extend %button_call-to-action;
         top: -1px;
-        text-transform: uppercase;
     }
 
     .get-kotlin-button {
         @extend %button_default;
-        @extend %button_default%size_big;
-        text-transform: uppercase;
     }
 
     .kotlin-info {
@@ -57,6 +54,11 @@
     padding: $unit*8 0;
     height: 560px - $unit*8*2;
     background-position: center center;
+
+    .get-kotlin-button {
+        @extend %button_default%size_big;
+        text-transform: uppercase;
+    }
 }
 
 .global-header-logo {
@@ -96,4 +98,7 @@
             cursor: default;
         }
     }
+}
+.page_index .global-header-nav {
+    margin-top: 0;
 }

@@ -64,7 +64,7 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer; }
-  .global-header .get-kotlin-button {
+  .page_index .global-header .get-kotlin-button {
     font-size: 18px;
     line-height: 52px;
     height: 54px;
@@ -141,10 +141,7 @@
     height: 0;
     content: ''; }
   .global-header .try-kotlin-button {
-    top: -1px;
-    text-transform: uppercase; }
-  .global-header .get-kotlin-button {
-    text-transform: uppercase; }
+    top: -1px; }
   .global-header .kotlin-info {
     padding-top: 150px;
     text-align: center; }
@@ -168,6 +165,8 @@
   padding: 64px 0;
   height: 432px;
   background-position: center center; }
+  .page_index .global-header .get-kotlin-button {
+    text-transform: uppercase; }
 
 .global-header-logo {
   -webkit-transition: 0.3s all;
@@ -206,3 +205,6 @@
     .global-header-nav .nav-item.is_active {
       color: #bbb;
       cursor: default; }
+
+.page_index .global-header-nav {
+  margin-top: 0; }

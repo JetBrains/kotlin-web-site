@@ -5,14 +5,12 @@
 @import '../code/code';
 @import 'kotlin-overview';
 
+.page-title {
+     @extend %h1;
+     margin-bottom: $unit*5;
+}
 
-.global-content {
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    width: $grid-width;
-
+.page-content {
     h1 {
         @extend %h1;
         margin-bottom: $unit*5;

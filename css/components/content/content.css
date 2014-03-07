@@ -1,27 +1,27 @@
-.kotlin-overview-section .section-header, .global-content h1 {
+.kotlin-overview-section .section-header, .page-title, .page-content h1 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 48px;
   line-height: 54px; }
 
-.global-content h2 {
+.page-content h2 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 30px;
   line-height: 33px;
   color: #404041; }
 
-.kotlin-overview-section._features .kotlin-features-list .feature-title, .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title, .global-content h3 {
+.kotlin-overview-section._features .kotlin-features-list .feature-title, .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title, .page-content h3 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 24px;
   line-height: 27px; }
 
-.global-content ul, .global-content ol {
+.page-content ul, .page-content ol {
   margin-bottom: 15px; }
-  .global-content ul li {
+  .page-content ul li {
     margin-bottom: 10px;
     margin-left: 20px; }
-    .global-content ul li:last-child {
+    .page-content ul li:last-child {
       margin-bottom: 0; }
-    .global-content ul li:before {
+    .page-content ul li:before {
       position: absolute;
       margin-top: 8px;
       margin-left: -13px;
@@ -30,12 +30,12 @@
       background: #b4c9d1;
       border-radius: 50%;
       content: ''; }
-  .global-content ol li {
+  .page-content ol li {
     margin-bottom: 10px; }
-    .global-content ol li:last-child {
+    .page-content ol li:last-child {
       margin-bottom: 0; }
 
-.global-content .highlight code {
+.page-content .highlight code {
   padding: 10px 26px 10px;
   font-size: 14px;
   font-family: "Droid Sans Mono", monospace;
@@ -67,18 +67,18 @@
  * Grid column
  * @param {px} $font-size (optional)
 */
-.kotlin-overview-section .section-header, .global-content h1 {
+.kotlin-overview-section .section-header, .page-title, .page-content h1 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 48px;
   line-height: 54px; }
 
-.global-content h2 {
+.page-content h2 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 30px;
   line-height: 33px;
   color: #404041; }
 
-.kotlin-overview-section._features .kotlin-features-list .feature-title, .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title, .global-content h3 {
+.kotlin-overview-section._features .kotlin-features-list .feature-title, .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title, .page-content h3 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 24px;
   line-height: 27px; }
@@ -345,7 +345,7 @@
       margin: 0 auto 8px;
       color: #000; }
     .kotlin-overview-section._features .kotlin-features-list .feature-example-link {
-      color: #0083c6;
+      color: #497bb7;
       text-decoration: underline;
       cursor: pointer; }
       .kotlin-overview-section._features .kotlin-features-list .feature-example-link:hover {
@@ -675,7 +675,7 @@
       margin-bottom: 10px; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-link {
       cursor: pointer;
-      color: #0083c6;
+      color: #497bb7;
       text-decoration: underline; }
       .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-link:hover {
         color: #ed7615; }
@@ -800,54 +800,51 @@
     transform: scale(2);
     opacity: 0; } }
 
-.global-content {
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  width: 960px; }
-  .global-content h1 {
-    margin-bottom: 40px; }
-  .global-content p + h1,
-  .global-content ul + h1,
-  .global-content ol + h1,
-  .global-content .highlight + h1 {
-    margin-top: 50px; }
-  .global-content h2 {
-    margin-bottom: 32px; }
-  .global-content p + h2,
-  .global-content ul + h2,
-  .global-content ol + h2,
-  .global-content .highlight + h2 {
-    margin-top: 40px; }
-  .global-content h3 {
-    margin-bottom: 24px; }
-  .global-content p + h3,
-  .global-content ul + h3,
-  .global-content ol + h3,
-  .global-content .highlight + h3 {
-    margin-top: 30px; }
-  .global-content p {
-    margin-bottom: 15px;
-    line-height: 20px; }
-  .global-content img {
-    max-width: 100%; }
-  .global-content code {
-    font-family: "Droid Sans Mono", monospace;
-    background-color: #eee;
-    padding-left: 2px;
-    padding-right: 2px; }
-  .global-content .highlight {
-    margin-bottom: 20px; }
-    .global-content .highlight code {
-      display: inline-block; }
-  .global-content .keyword {
-    color: #0000C0;
-    padding: 5px;
-    font-style: normal; }
-  .global-content .error {
-    background-color: #ff0000; }
-  .global-content .warning {
-    background-color: #ffff00; }
-  .global-content .key {
-    background-color: #dfeef4; }
+.page-title {
+  margin-bottom: 40px; }
+
+.page-content h1 {
+  margin-bottom: 40px; }
+.page-content p + h1,
+.page-content ul + h1,
+.page-content ol + h1,
+.page-content .highlight + h1 {
+  margin-top: 50px; }
+.page-content h2 {
+  margin-bottom: 32px; }
+.page-content p + h2,
+.page-content ul + h2,
+.page-content ol + h2,
+.page-content .highlight + h2 {
+  margin-top: 40px; }
+.page-content h3 {
+  margin-bottom: 24px; }
+.page-content p + h3,
+.page-content ul + h3,
+.page-content ol + h3,
+.page-content .highlight + h3 {
+  margin-top: 30px; }
+.page-content p {
+  margin-bottom: 15px;
+  line-height: 20px; }
+.page-content img {
+  max-width: 100%; }
+.page-content code {
+  font-family: "Droid Sans Mono", monospace;
+  background-color: #eee;
+  padding-left: 2px;
+  padding-right: 2px; }
+.page-content .highlight {
+  margin-bottom: 20px; }
+  .page-content .highlight code {
+    display: inline-block; }
+.page-content .keyword {
+  color: #0000C0;
+  padding: 5px;
+  font-style: normal; }
+.page-content .error {
+  background-color: #ff0000; }
+.page-content .warning {
+  background-color: #ffff00; }
+.page-content .key {
+  background-color: #dfeef4; }

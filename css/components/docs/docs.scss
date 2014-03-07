@@ -1,11 +1,55 @@
 @import '../../config';
+@import '../../utils';
+
 
 .docs-pages-list {
     .list-item {
         margin-bottom: $unit*2;
+
+        &.is_active {
+            font-weight: bold;
+        }
+    }
+
+    .list-item-text {
     }
 
     .list-item-title {
 
+    }
+}
+
+.page_docs {
+    .page-sidebar {}
+    .page-content {}
+}
+
+.docs-page-nav {
+    @include grid('.nav-item', 5);
+    margin-bottom: $unit*8;
+    list-style-type: none;
+
+    .nav-item {
+        display: inline-block;
+        padding: $unit*2 0;
+        margin-left: 0;
+        background-color: #e1e1e1;
+        border-radius: 3px;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+
+        &:hover {
+            background-color: #D0D0D0;
+        }
+
+        &.is_active {
+            background-color: #464646;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+    .nav-item-text {
+        text-decoration: none;
     }
 }
