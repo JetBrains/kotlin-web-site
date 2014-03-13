@@ -94,8 +94,7 @@
         }
 
         &.is_active {
-            color: #bbb;
-            cursor: default;
+            font-weight: bold;
         }
     }
 }

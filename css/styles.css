@@ -23,5 +23,7 @@
 /* Docs styles */
 @import 'components/docs/docs.css';
 
+@import 'components/nav/nav.css';
+
 /* Table of contents */
 @import 'components/table-of-contents/table-of-contents.css';

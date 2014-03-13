@@ -2,29 +2,7 @@
     <div class="g-layout">
         <a class="global-header-logo" href="{{ site.baseurl }}">Project Kotlin</a>
 
-        <nav class="global-header-nav">
-            {% for item in site.data.nav.main.items %}
-                {% assign is_external = false %}
-                {% if item.path contains 'http://' %}
-                    {% assign is_external = true %}
-                {% endif %}
-
-                <a href="{% if is_external %}{{ item.path }}{% else %}{{ site.baseurl }}{{ item.path }}{% endif %}"
-                   class="nav-item"
-                   {% if is_external %}target="_blank"{% endif %}
-                >
-                    {{ item.title }}
-                </a>
-            {% endfor %}
-
-            {% if page.layout == 'index' %}
-
-            {% else %}
-                <a href="{{ site.baseurl }}/download/" class="get-kotlin-button">
-                    Get Kotlin
-                </a>
-            {% endif %}
-        </nav>
+        {% include nav/main.html current_section=include.current_section %}
 
         {% if page.layout == 'index' %}
         <div class="kotlin-info">

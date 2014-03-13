@@ -1,0 +1,75 @@
+@import '../../config';
+@import '../../utils';
+
+.section-nav {
+
+    .nav-item {
+        display: block;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #dceaee transparent transparent transparent;
+        border-radius: 0;
+
+        &.is_active {
+            border-color: #bae8ef;
+            border-radius: 6px;
+        }
+
+        .subnav-items-list {
+            display: none;
+        }
+        &.is_active .subnav-items-list {
+            display: block;
+        }
+    }
+    .nav-item.is_active + .nav-item {
+        border-top-color: transparent;
+    }
+
+    .nav-item-text {
+        color: $base-link-color;
+        display: block;
+        cursor: pointer;
+        padding: $unit $unit*2;
+
+        &:hover {
+            background-color: #F9F9F9;
+        }
+    }
+    .nav-item.is_active .nav-item-text {
+        cursor: default;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        background-color: #f2fcff;
+        color: $base-color;
+    }
+
+    .subnav-items-list {
+        margin-top: $unit;
+        margin-right: $unit*2;
+        margin-left: $unit*5;
+        margin-bottom: $unit;
+    }
+
+    .subnav-items-list-item {
+        position: relative;
+        margin-bottom: $unit/2;
+
+        &:before {
+            position: absolute;
+            top: -1px;
+            right: 100%;
+            margin-right: 5px;
+            font-size: 14px;
+            color: #BBB;
+            content:'\2014';
+        }
+        
+        .text {
+
+        }
+        &.is_active .text {
+
+        }
+    }
+}

@@ -1,45 +1,34 @@
 main:
-  items:
-    - path: /docs/
-      id: docs
-      title: Documentation
+  docs:
+    path: /docs/reference/
+    title: Docs
 
-    - path: /tutorials/
-      id: learn
-      title: Learn
+  contribute:
+    path: /contribute/
+    title: Contribute
 
-    - path: /contribute/
-      id: contribute
-      title: Contribute
+  try:
+    path: http://kotlin-demo.jetbrains.com
+    title: Try Online
 
-    - path: http://kotlin-demo.jetbrains.com
-      id: try
-      title: Try Kotlin
+# Documentation pages navigation
+docs:
+  reference:
+    path: /docs/reference/
+    title: Reference
 
-learn:
-  title: Learn Kotlin
-  items:
-    - path: /docs/
-      url: /docs
-      id: docs
-      title: Documentation
+  tutorials:
+    path: /docs/tutorials/
+    title: Tutorials
 
-    - path: /tutorials/
-      url: /tutorials/index.html
-      id: tutorials
-      title: Tutorials
+  videos:
+    path: /docs/videos/
+    title: Videos
 
-    - path: /videos/
-      url: /videos/index.html
-      id: videos
-      title: Videos
+  event:
+    path: /docs/events/
+    title: Events
 
-    - path: /events/
-      url: /events/index.html
-      id: events
-      title: Events
-
-    - path: /resources/
-      url: /resources/index.html
-      id: resources
-      title: More resources
+  resources:
+    path: /docs/resources/
+    title: More resources

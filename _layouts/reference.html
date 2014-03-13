@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    {% include browser.html %}
+<html>
+<head>
+    {% include head.html %}
+</head>
+<body class="page_docs">
+
+<div class="global-layout">
+    {% include header.html current_section='docs' %}
+
+    <div class="global-content">
+
+        <div class="g-grid">
+
+            <div class="g-12">
+                {% include nav/docs.html current_section='reference' %}
+            </div>
+
+            <div class="g-3">
+                {% include nav/docs-reference.html %}
+            </div>
+
+            <div class="page-content g-9">
+                <h1 class="page-title">{{ page.title }}</h1>
+                {{ content }}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% include footer.html %}
+{% include scripts.html %}
+<script type="text/javascript">
+$(document).ready(function() {
+    var $navItems = $('.section-nav .nav-item');
+
+    $navItems.on('click', function() {
+        var activeItemId = $(this).attr('data-id');
+
+        $navItems.each(function() {
+            var $item = $(this),
+                currentId = $(this).attr('data-id');
+
+            if (currentId === activeItemId) {
+                $item.addClass('is_active');
+            } else {
+                $item.removeClass('is_active');
+            }
+        })
+    });
+});
+</script>
+
+</body>
+</html>

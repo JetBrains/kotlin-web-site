@@ -37,7 +37,7 @@ It is hosted on GitHub and we happily accept contributors
 
 ### Is it Java Compatible?
 
-Yes. The compiler emits Java byte-code. Kotlin can call Java, and Java can call Kotlin. See [Java interoperability]({% post_url docs/2013-11-15-java-interop %}).
+Yes. The compiler emits Java byte-code. Kotlin can call Java, and Java can call Kotlin. See [Java interoperability]({{ site.baseurl }}/docs/reference/java-interop.html %}).
 
 
 ### Is there tooling support?

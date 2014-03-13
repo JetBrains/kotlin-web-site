@@ -203,8 +203,7 @@
     .global-header-nav .nav-item:hover {
       text-decoration: underline; }
     .global-header-nav .nav-item.is_active {
-      color: #bbb;
-      cursor: default; }
+      font-weight: bold; }
 
 .page_index .global-header-nav {
   margin-top: 0; }

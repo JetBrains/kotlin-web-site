@@ -7,26 +7,14 @@
 <body class="page_docs">
 
 <div class="global-layout">
-    {% include header.html %}
+    {% include header.html current_section='docs' %}
 
     <div class="global-content">
 
-        {% include docs-nav.html nav='learn' current_section='docs' %}
-
-        <h1 class="page-title">{{ page.title }}</h1>
+        {% include nav/docs.html current_section='docs' %}
 
         <div class="page-content">
-            <ul>
-            {% for post in site.posts %}
-                {% if post.category == 'docs' %}
-                    <li>
-                        <h4>
-                            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                        </h4>
-                    </li>
-                {% endif %}
-            {% endfor %}
-            </ul>
+            {{ content }}
         </div>
 
     </div>
