@@ -8,72 +8,35 @@ if (typeof ui.pages === 'undefined') {
 
 ui.pages.index = {};
 
-ui.pages.index.featuresRotator = {
-    _interval: null,
-
-    _currentHalf: null,
-
+ui.pages.index.featuresCarousel = {
     init: function() {
         var that = this,
-            $listWrap = $('.kotlin-features-list-wrap'),
-            $list = $listWrap.find('.js-features-list'),
-            extraSpace,
-            windowWidth = $(window).width(),
-            listWrapHalfWidth = Math.round(windowWidth / 2);
+            $wrapElem = $('#features-list-wrap'),
+            $elem = $wrapElem.find('.js-carousel');
 
-        return;
+        $elem.jcarousel();
 
-        if (windowWidth > $list.width()) {
-            return;
-        }
-
-        extraSpace = Math.round(($list.width() - windowWidth) / 2);
-        console.log(extraSpace);
-
-        $listWrap.on('mousemove', function(e) {
-            var half,
-                m;
-
-            half = (e.pageX > listWrapHalfWidth) ? 'right' : 'left';
-            that._currentHalf = half;
-        });
-
-        $listWrap.on('mouseenter', function(e) {
-            that._createAnimation($list, {
-                maxValue: extraSpace
+        $wrapElem.find('.js-nav-prev')
+            .jcarouselControl({
+                target: '-=1'
+            })
+            .on('jcarouselcontrol:active', function () {
+                $(this).removeClass('is_disabled');
+            })
+            .on('jcarouselcontrol:inactive', function () {
+                $(this).addClass('is_disabled');
             });
-        });
 
-        $listWrap.on('mouseleave', function(e) {
-            that._destroyAnimation();
-        });
-    },
-
-    _createAnimation: function($obj, opts) {
-        var that = this,
-            half = that._currentHalf,
-            maxValue = opts.maxValue,
-            value;
-
-        that._interval = setInterval(function() {
-            var value = parseInt($obj.css('left')),
-                half = that._currentHalf,
-                futureValue = (half === 'right') ? value-2 : value+2;
-
-            if (futureValue > -maxValue && futureValue < maxValue) {
-                //value += (half === 'right') ? -1 : 1;
-                $obj.css('left', futureValue);
-            }
-        }, 1);
-    },
-
-    _destroyAnimation: function() {
-        var that = this;
-        clearInterval(that._interval);
-    },
-
-    _doAnimation: function() {
-        var that = this;
+        $wrapElem.find('.js-nav-next')
+            .jcarouselControl({
+                target: '+=1'
+            })
+            .on('jcarouselcontrol:active', function () {
+                $(this).removeClass('is_disabled');
+            })
+            .on('jcarouselcontrol:inactive', function () {
+                $(this).addClass('is_disabled');
+            });
     }
 };
 

@@ -14,10 +14,12 @@
 
 {% include footer.html %}
 {% include scripts.html %}
+<script type="text/javascript" src="{{ site.baseurl }}/scripts/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/scripts/pages/index.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     ui.pages.index.tabs.init();
+    ui.pages.index.featuresCarousel.init();
     ui.pages.index.videoPlayer.init();
     ui.pages.index.popups.init();
 });

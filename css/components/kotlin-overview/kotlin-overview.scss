@@ -1,7 +1,7 @@
 @import '../../_config';
 @import '../../_utils';
 @import '../heading/_heading';
-@import 'kotlin-overview-base';
+@import 'utils';
 
 
 .kotlin-overview-section {
@@ -31,28 +31,44 @@
 }
 
 .kotlin-overview-section._features {
+    $item-width: 240px;
+    $item-margin: 24px;
+    $item-count: 4;
     position: relative;
+    text-align: center;
 
     .section-description {
         margin-bottom: $unit*5;
     }
 
-    .kotlin-features-list-wrap {
-        position: relative;
-        overflow: hidden;
-        text-align: center;
+    .nav {
+        @include user-select(none);
+        cursor: pointer;
 
-        &:before {
-
+        &.is_disabled {
+            opacity: 0.4;
+            cursor: default;
         }
     }
 
-    .kotlin-features-list-stretcher {
-        margin: 0 -500%;
+    .nav-prev {
+        @extend %kotlin-overview-slider-nav-prev;
+    }
+    .nav-next {
+        @extend %kotlin-overview-slider-nav-next;
+    }
 
-        @media (max-width: 1050px) {
-            margin: 0;
-        }
+    .kotlin-features-list-wrap {
+        position: relative;
+        display: inline-block;
+        padding: 0 50px;
+        margin: auto;
+        white-space: nowrap;
+    }
+
+    .kotlin-features-list-stretcher {
+        width: ($item-width + $item-margin) * $item-count;
+        overflow: hidden;
     }
 
     .kotlin-features-list {
@@ -64,36 +80,25 @@
         margin: 0 auto;
         text-align: center;
 
-        &:before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-        }
-
-        .kotlin-feature {
+        .kotlin-features-list-item {
             display: inline-block;
             overflow: hidden;
             position: relative;
             box-sizing: border-box;
-            margin-right: $unit*3;
+            padding: 0 $item-margin / 2;
+            vertical-align: top;
+        }
+
+        .kotlin-feature {
             margin-bottom: 10px;
             padding: 0 0 $unit*3;
-            width: 240px;
+            width: $item-width;
             min-height: 320px;
             background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
             font-size: $base-font-size;
             white-space: normal;
-            vertical-align: top;
-
-            &:first-child {
-                margin-left: $unit*3;
-            }
 
             &._simple {}
             &._concise {}
@@ -127,7 +132,7 @@
 
             &._simple {width: 46px; height: 46px; background-position: 0 0;}
             &._concise {width: 30px; height: 55px; background-position: 0 -100px;}
-            &._expressive {width: 67px; height: 48px; background-position: 0 -200px; right: -32px;}
+            &._expressive {width: 79px; height: 55px; background-position: 0 -200px;}
             &._safe {width: 38px; height: 58px; background-position: 0 -300px;}
             &._fast {width: 51px; height: 45px; background-position: 0 -400px;}
             &._interoperable {width: 51px; height: 45px; background-position: 0 -500px; right: -11px;}
@@ -146,6 +151,7 @@
             max-width: 210px;
             margin: 0 auto $unit;
             color: #000;
+            text-align: left;
         }
 
         .feature-example-link {
