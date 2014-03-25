@@ -16,6 +16,7 @@
 
 /* Content */
 @import 'components/content/content.css';
+@import 'components/kotlin-overview/kotlin-overview.css';
 
 /* Code */
 @import 'components/code/code-syntax.css';
