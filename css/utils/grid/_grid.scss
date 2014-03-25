@@ -15,7 +15,7 @@
         $is-fluid: false) {
     $span: ($cols-count / $cols-span);
 
-    @include grid-row;
+    @include grid-row($spacing);
 
     #{unquote($selector)} {
         @include grid-col;
