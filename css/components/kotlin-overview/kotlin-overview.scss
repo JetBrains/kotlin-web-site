@@ -41,24 +41,7 @@
         margin-bottom: $unit*5;
     }
 
-    .nav {
-        @include user-select(none);
-        cursor: pointer;
-
-        &.is_disabled {
-            opacity: 0.4;
-            cursor: default;
-        }
-    }
-
-    .nav-prev {
-        @extend %kotlin-overview-slider-nav-prev;
-    }
-    .nav-next {
-        @extend %kotlin-overview-slider-nav-next;
-    }
-
-    .kotlin-features-list-wrap {
+    .kotlin-features-carousel-wrap {
         position: relative;
         display: inline-block;
         padding: 0 50px;
@@ -66,9 +49,36 @@
         white-space: nowrap;
     }
 
-    .kotlin-features-list-stretcher {
+    .kotlin-features-carousel {
         width: ($item-width + $item-margin) * $item-count;
         overflow: hidden;
+
+        .carousel-item {
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+            padding: 0 $item-margin / 2;
+            vertical-align: top;
+        }
+    }
+
+    .kotlin-features-carousel-nav {
+        @include user-select(none);
+        cursor: pointer;
+
+        &.is_disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+
+        &._prev {
+            @extend %kotlin-overview-carousel%nav-prev;
+        }
+
+        &._next {
+            @extend %kotlin-overview-carousel%nav-next;
+        }
     }
 
     .kotlin-features-list {
@@ -79,15 +89,6 @@
         font-size: 0;
         margin: 0 auto;
         text-align: center;
-
-        .kotlin-features-list-item {
-            display: inline-block;
-            overflow: hidden;
-            position: relative;
-            box-sizing: border-box;
-            padding: 0 $item-margin / 2;
-            vertical-align: top;
-        }
 
         .kotlin-feature {
             margin-bottom: 10px;

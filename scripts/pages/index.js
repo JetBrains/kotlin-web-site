@@ -11,12 +11,12 @@ ui.pages.index = {};
 ui.pages.index.featuresCarousel = {
     init: function() {
         var that = this,
-            $wrapElem = $('#features-list-wrap'),
+            $wrapElem = $('#features-carousel'),
             $elem = $wrapElem.find('.js-carousel');
 
         $elem.jcarousel();
 
-        $wrapElem.find('.js-nav-prev')
+        $wrapElem.find('.js-carousel-nav-prev')
             .jcarouselControl({
                 target: '-=1'
             })
@@ -27,7 +27,7 @@ ui.pages.index.featuresCarousel = {
                 $(this).addClass('is_disabled');
             });
 
-        $wrapElem.find('.js-nav-next')
+        $wrapElem.find('.js-carousel-nav-next')
             .jcarouselControl({
                 target: '+=1'
             })
