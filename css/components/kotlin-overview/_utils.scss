@@ -9,9 +9,16 @@ $overview-section-width: 840px;
     text-transform: uppercase;
 }
 
-%kotlin-overview-cell-background-image {
-    background-color: #557799;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpiTGxc8P///1+//zJgA2yszCxA6a/ffzHgAL///GXCpRsOmBgIgWGlAhhq+FUABBgAqVoTbokugwMAAAAASUVORK5CYII=');
+%kotlin-overview-section-background-image {
+    &%default {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC');
+        background-repeat: repeat;
+    }
+
+    &%blue-paper {
+        background-color: #557799;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpiTGxc8P///1+//zJgA2yszCxA6a/ffzHgAL///GXCpRsOmBgIgWGlAhhq+FUABBgAqVoTbokugwMAAAAASUVORK5CYII=');
+    }
 }
 
 %kotlin-overview-carousel {
@@ -35,8 +42,7 @@ $overview-section-width: 840px;
 
 %kotlin-overview-popup {
     $popup-text-color: #bbc9d6;
-
-    @extend %kotlin-overview-cell-background-image;
+    @extend %kotlin-overview-section-background-image%blue-paper;
     @include transition(all 0.5s);
     position: absolute;
     z-index: 2;

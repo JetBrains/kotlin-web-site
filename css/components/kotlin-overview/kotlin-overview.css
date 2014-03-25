@@ -59,6 +59,9 @@
   color: #8c8c8c;
   text-transform: uppercase; }
 
+.kotlin-overview-section._features {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC");
+  background-repeat: repeat; }
 .kotlin-overview-section .overview-popup, .kotlin-overview-section._features .overview-popup, .kotlin-overview-section._features .kotlin-features-list .list-item:after,
 .kotlin-overview-section._features .kotlin-features-list .feature-image {
   background-color: #557799;
@@ -647,7 +650,9 @@
         color: #ed7615; }
 
 .kotlin-overview-section._more-info {
-  padding: 48px 0; }
+  padding: 48px 0;
+  background-color: #2e2e2e;
+  color: #fff; }
   .kotlin-overview-section._more-info .section-header {
     font-size: 18px;
     line-height: 22px;
@@ -709,10 +714,6 @@
       text-transform: uppercase; }
     .kotlin-overview-section._more-info .links-list-item .link:hover .link-text {
       color: #ed7615; }
-
-.kotlin-overview-section._features, .kotlin-overview-section._more-info {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC");
-  background-repeat: repeat; }
 
 @-webkit-keyframes overview-video-scale {
   0% {

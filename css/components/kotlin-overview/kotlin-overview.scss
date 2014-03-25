@@ -34,6 +34,7 @@
     $item-width: 240px;
     $item-margin: 24px;
     $item-count: 4;
+    @extend %kotlin-overview-section-background-image%default;
     position: relative;
     text-align: center;
 
@@ -119,7 +120,7 @@
 
         .list-item:after,
         .feature-image {
-            @extend %kotlin-overview-cell-background-image;
+            @extend %kotlin-overview-section-background-image%blue-paper;
         }
 
         .feature-icon {
@@ -583,6 +584,8 @@
 
 .kotlin-overview-section._more-info {
     padding: $unit*6 0;
+    background-color: #2e2e2e;
+    color: #fff;
 
     .section-header {
         font-size: 18px;
@@ -653,12 +656,8 @@
     }
 }
 
-.kotlin-overview-section {
-    &._features,
-    &._more-info {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC');
-        background-repeat: repeat;
-    }
+.kotlin-overview-section._testimonial {
+
 }
 
 @include animation-keyframes(overview-video-scale) {
