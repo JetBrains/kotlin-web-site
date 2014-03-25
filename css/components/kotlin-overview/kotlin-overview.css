@@ -782,7 +782,9 @@
     .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote:after {
       border-top-color: #fff; }
   .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-company {
-    text-align: center; }
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px; }
 
 @-webkit-keyframes overview-video-scale {
   0% {

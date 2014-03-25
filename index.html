@@ -437,17 +437,23 @@ title: Project Kotlin
                             <div class="text">{{ testimonial.description }}</div>
                         </blockquote>
 
-                        {% if testimonial.logo %}
                         <div class="testimonial-company">
+                            {% if testimonial.logo or testimonial.url %}
                             <a href="{{ testimonial.url }}"
                                target="_blank"
                                rel="nofollow">
-                                <img src="{{ site.baseurl }}/{{ testimonial.logo }}"
-                                     alt="{{ testimonial.company }}"
-                                     title="{{ testimonial.company }}">
+                                {% if testimonial.logo %}
+                                    <img src="{{ site.baseurl }}{{ testimonial.logo }}"
+                                         alt="{{ testimonial.company }}"
+                                         title="{{ testimonial.company }}">
+                                {% else %}
+                                    {{ testimonial.company }}
+                                {% endif %}
                             </a>
+                            {% else %}
+                                {{ testimonial.company }}
+                            {% endif %}
                         </div>
-                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>
