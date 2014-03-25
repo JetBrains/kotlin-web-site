@@ -40,6 +40,40 @@ ui.pages.index.featuresCarousel = {
     }
 };
 
+ui.pages.index.testimonialsCarousel = {
+    init: function() {
+        var that = this,
+            $wrapElem = $('#testimonials-carousel-wrap'),
+            $elem = $wrapElem.find('.js-carousel');
+
+        $elem.jcarousel({
+            list: '.testimonials-list'
+        });
+
+        $wrapElem.find('.js-carousel-nav-prev')
+            .jcarouselControl({
+                target: '-=1'
+            })
+            .on('jcarouselcontrol:active', function () {
+                $(this).removeClass('is_disabled');
+            })
+            .on('jcarouselcontrol:inactive', function () {
+                $(this).addClass('is_disabled');
+            });
+
+        $wrapElem.find('.js-carousel-nav-next')
+            .jcarouselControl({
+                target: '+=1'
+            })
+            .on('jcarouselcontrol:active', function () {
+                $(this).removeClass('is_disabled');
+            })
+            .on('jcarouselcontrol:inactive', function () {
+                $(this).addClass('is_disabled');
+            });
+    }
+};
+
 ui.pages.index.tabs = {
     init: function() {
         var $tabs = $('.js-tab');

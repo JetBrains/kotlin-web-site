@@ -65,14 +65,6 @@
     }
 
     .kotlin-features-carousel-nav {
-        @include user-select(none);
-        cursor: pointer;
-
-        &.is_disabled {
-            opacity: 0.4;
-            cursor: default;
-        }
-
         &._prev {
             @extend %kotlin-overview-carousel%nav-prev;
         }
@@ -656,8 +648,87 @@
     }
 }
 
-.kotlin-overview-section._testimonial {
+.kotlin-overview-section._testimonials {
+    @extend %kotlin-overview-section-background-image%default;
 
+    .section-header {
+        @extend %h2;
+        margin-bottom: $unit*5;
+    }
+
+    .testimonials-carousel-wrap {
+        position: relative;
+        padding: 0 50px;
+    }
+
+    .testimonials-carousel {
+        overflow: hidden;
+    }
+
+    .testimonials-carousel-nav {
+        top: 100px !important;
+
+        &._prev {
+            @extend %kotlin-overview-carousel%nav-prev;
+        }
+
+        &._next {
+            @extend %kotlin-overview-carousel%nav-next;
+        }
+    }
+
+    .testimonials-list {
+        @include grid('.testimonials-list-item', 2, 40px);
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .testimonials-list-item {
+        $corner-height: 24px;
+        white-space: normal;
+
+        .testimonial-quote {
+            position: relative;
+            display: block;
+            margin: 5px 3px (5px + $corner-height);
+            padding: 25px 35px;
+            box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
+            border-radius: 4px;
+            background-color: #fff;
+            color: #666;
+            font-style: italic;
+            font-size: 30px;
+            line-height: 40px;
+
+            &:before,
+            &:after {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -$corner-height;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 20px $corner-height 0 $corner-height;
+                border-color: transparent;
+                content: '';
+            }
+
+            &:before {
+                margin-top: 2px;
+                border-top-color: #000;
+                opacity: 0.08;
+            }
+
+            &:after {
+                border-top-color: #fff;
+            }
+        }
+
+        .testimonial-company {
+            text-align: center;
+        }
+    }
 }
 
 @include animation-keyframes(overview-video-scale) {

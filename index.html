@@ -424,6 +424,44 @@ title: Project Kotlin
 </div>
 
 
+<div class="kotlin-overview-section _testimonials">
+    <div class="section-header">Who and how uses Kotlin</div>
+    <div class="section-content">
+
+        <div class="g-layout testimonials-carousel-wrap" id="testimonials-carousel-wrap">
+            <div class="testimonials-carousel js-carousel">
+                <ul class="testimonials-list">
+                    {% for testimonial in site.data.testimonials %}
+                    <li class="testimonials-list-item">
+                        <blockquote class="testimonial-quote">
+                            {{ testimonial.description }}
+                        </blockquote>
+
+                        {% if testimonial.logo %}
+                        <div class="testimonial-company">
+                            <a href="{{ testimonial.url }}"
+                               target="_blank"
+                               rel="nofollow">
+                                <img src="{{ site.baseurl }}/{{ testimonial.logo }}"
+                                     alt="{{ testimonial.company }}"
+                                     title="{{ testimonial.company }}">
+                            </a>
+                        </div>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="testimonials-carousel-nav _prev js-carousel-nav-prev is_disabled"></div>
+            <div class="testimonials-carousel-nav _next js-carousel-nav-next"></div>
+        </div>
+
+    </div>
+</div>
+
+
+
 <div class="kotlin-overview-section _more-info">
     <h2 class="section-header">Get more about Kotlin</h2>
     <div class="section-content">

@@ -26,6 +26,12 @@
   font-size: 48px;
   line-height: 54px; }
 
+.kotlin-overview-section._testimonials .section-header {
+  font-family: "GraublauSlab Regular", Georgia, serif;
+  font-size: 30px;
+  line-height: 33px;
+  color: #404041; }
+
 .kotlin-overview-section._features .kotlin-features-list .feature-title, .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 24px;
@@ -59,7 +65,7 @@
   color: #8c8c8c;
   text-transform: uppercase; }
 
-.kotlin-overview-section._features {
+.kotlin-overview-section._features, .kotlin-overview-section._testimonials {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACZJREFUeNpi/PTpEwMY8PLyMsFZnz9/ZoKzgAzG////Q1hAABBgAFeiDto+NxIZAAAAAElFTkSuQmCC");
   background-repeat: repeat; }
 .kotlin-overview-section .overview-popup, .kotlin-overview-section._features .overview-popup, .kotlin-overview-section._features .kotlin-features-list .list-item:after,
@@ -67,15 +73,24 @@
   background-color: #557799;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpiTGxc8P///1+//zJgA2yszCxA6a/ffzHgAL///GXCpRsOmBgIgWGlAhhq+FUABBgAqVoTbokugwMAAAAASUVORK5CYII="); }
 
-.kotlin-overview-section._features .kotlin-features-carousel-nav._prev, .kotlin-overview-section._features .kotlin-features-carousel-nav._next {
+.kotlin-overview-section._features .kotlin-features-carousel-nav._prev, .kotlin-overview-section._testimonials .testimonials-carousel-nav._prev, .kotlin-overview-section._features .kotlin-features-carousel-nav._next, .kotlin-overview-section._testimonials .testimonials-carousel-nav._next {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   position: absolute;
   top: 50%;
   right: 0;
   margin-top: -26px;
   width: 27px;
   height: 52px;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAA0CAYAAAB7LkO2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAd9JREFUeNq8mFFEQ1EYx2+3+9JrRET0FBExYowYMWJPY4wYMZamq7SXplZKU0o9RcSeeuopoteInqLXnkZPEREREf0//uOItdvd+c6fn3F3rp9zt3O/75y+er2+53neAXjzlOODBtgHQy5k72AVyAyHtWUehSHYASPaMskHqIAtMKotk3xSuA7GtGWmcM220O9w/Yu/oQjHtWWmcAlMaMtMYQlMacsk31yH8yChLTOFeZDUlrVTBXNxhX6Me2oUplzI2sJZkHYhk2zycWZcyCS7YBJkXcg8Fl55reVcyCQnYLCb0JZMcsZqX3Ahk5yCAVB0IZOc83PBhUzSZF0su5BJLsArWHYhk1yCVluoLZNcUZh3IZM8g5nAgSjBSl/Rlk1zzS1KAdaUJVnZK6z0npYsxfdkaF7UkKVZcsLfX9iWZSgLtd+NGT6+aqcBtmaWZRNb+2uQDVmOlXq728BeZQXu5RpRBvciK7IVaES9we9BJBX56D83xZlZyWgBPE1ZmRW4qd3rr/BUoRn3R44qk+3uC0t97AQRRS2WeNWd5wZ4siHqNjM5fLkHN9qnBXJwdmtT1GlmIrqmTPWE55Ctl3WRKesHx/wj3Gk1JYEhksX6oNlqBVxHsvN41G4gfwQYAJQGUvhq6jSNAAAAAElFTkSuQmCC); }
-.kotlin-overview-section._features .kotlin-features-carousel-nav._prev {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAA0CAYAAAB7LkO2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAd9JREFUeNq8mFFEQ1EYx2+3+9JrRET0FBExYowYMWJPY4wYMZamq7SXplZKU0o9RcSeeuopoteInqLXnkZPEREREf0//uOItdvd+c6fn3F3rp9zt3O/75y+er2+53neAXjzlOODBtgHQy5k72AVyAyHtWUehSHYASPaMskHqIAtMKotk3xSuA7GtGWmcM220O9w/Yu/oQjHtWWmcAlMaMtMYQlMacsk31yH8yChLTOFeZDUlrVTBXNxhX6Me2oUplzI2sJZkHYhk2zycWZcyCS7YBJkXcg8Fl55reVcyCQnYLCb0JZMcsZqX3Ahk5yCAVB0IZOc83PBhUzSZF0su5BJLsArWHYhk1yCVluoLZNcUZh3IZM8g5nAgSjBSl/Rlk1zzS1KAdaUJVnZK6z0npYsxfdkaF7UkKVZcsLfX9iWZSgLtd+NGT6+aqcBtmaWZRNb+2uQDVmOlXq728BeZQXu5RpRBvciK7IVaES9we9BJBX56D83xZlZyWgBPE1ZmRW4qd3rr/BUoRn3R44qk+3uC0t97AQRRS2WeNWd5wZ4siHqNjM5fLkHN9qnBXJwdmtT1GlmIrqmTPWE55Ctl3WRKesHx/wj3Gk1JYEhksX6oNlqBVxHsvN41G4gfwQYAJQGUvhq6jSNAAAAAElFTkSuQmCC);
+  cursor: pointer; }
+  .kotlin-overview-section._features .is_disabled.kotlin-features-carousel-nav._prev, .kotlin-overview-section._testimonials .is_disabled.testimonials-carousel-nav._prev, .kotlin-overview-section._features .is_disabled.kotlin-features-carousel-nav._next, .kotlin-overview-section._testimonials .is_disabled.testimonials-carousel-nav._next {
+    opacity: 0.4;
+    cursor: default; }
+.kotlin-overview-section._features .kotlin-features-carousel-nav._prev, .kotlin-overview-section._testimonials .testimonials-carousel-nav._prev {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
@@ -235,16 +250,6 @@
       box-sizing: border-box;
       padding: 0 12px;
       vertical-align: top; }
-  .kotlin-overview-section._features .kotlin-features-carousel-nav {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: pointer; }
-    .kotlin-overview-section._features .kotlin-features-carousel-nav.is_disabled {
-      opacity: 0.4;
-      cursor: default; }
   .kotlin-overview-section._features .kotlin-features-list {
     display: inline-block;
     position: relative;
@@ -714,6 +719,63 @@
       text-transform: uppercase; }
     .kotlin-overview-section._more-info .links-list-item .link:hover .link-text {
       color: #ed7615; }
+
+.kotlin-overview-section._testimonials .section-header {
+  margin-bottom: 40px; }
+.kotlin-overview-section._testimonials .testimonials-carousel-wrap {
+  position: relative;
+  padding: 0 50px; }
+.kotlin-overview-section._testimonials .testimonials-carousel {
+  overflow: hidden; }
+.kotlin-overview-section._testimonials .testimonials-carousel-nav {
+  top: 100px !important; }
+.kotlin-overview-section._testimonials .testimonials-list {
+  font-size: 0;
+  margin-right: -40px;
+  position: relative;
+  white-space: nowrap; }
+  .kotlin-overview-section._testimonials .testimonials-list .testimonials-list-item {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 14px;
+    margin-right: 40px;
+    width: 460px; }
+.kotlin-overview-section._testimonials .testimonials-list-item {
+  white-space: normal; }
+  .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote {
+    position: relative;
+    display: block;
+    margin: 5px 3px 29px;
+    padding: 25px 35px;
+    box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    background-color: #fff;
+    color: #666;
+    font-style: italic;
+    font-size: 30px;
+    line-height: 40px; }
+    .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote:before, .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote:after {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -24px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 20px 24px 0 24px;
+      border-color: transparent;
+      content: ''; }
+    .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote:before {
+      margin-top: 2px;
+      border-top-color: #000;
+      opacity: 0.08; }
+    .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote:after {
+      border-top-color: #fff; }
+  .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-company {
+    text-align: center; }
 
 @-webkit-keyframes overview-video-scale {
   0% {
