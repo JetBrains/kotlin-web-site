@@ -685,20 +685,30 @@
 
     .testimonials-list-item {
         $corner-height: 24px;
+        $quote-height: 170px;
         white-space: normal;
 
         .testimonial-quote {
             position: relative;
+            box-sizing: border-box;
             display: block;
             margin: 5px 3px (5px + $corner-height);
-            padding: 25px 35px;
+            padding: 0 35px;
+            min-height: $quote-height;
             box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
             border-radius: 4px;
             background-color: #fff;
-            color: #666;
-            font-style: italic;
-            font-size: 30px;
-            line-height: 40px;
+            line-height: $quote-height;
+
+            .text {
+                display: inline-block;
+                color: #666;
+                font-style: italic;
+                font-weight: 300;
+                font-size: 30px;
+                line-height: 40px;
+                vertical-align: middle;
+            }
 
             &:before,
             &:after {
