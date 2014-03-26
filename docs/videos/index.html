@@ -1,0 +1,26 @@
+---
+layout: videos
+title: Videos
+---
+
+{% assign videos = site.data.videos %}
+
+<div class="videos-list">
+    {% for video in videos %}
+        <div class="videos-list-item">
+            <a href="{{ video.url }}" class="video-thumbnail-link js-video">
+                <img src="{{ site.baseurl }}{{ video.thumbnail }}" class="video-thumbnail-image" alt="{{ video.title }}">
+
+                <span class="video-info-wrap">
+                    <span class="video-info">
+                        <span class="video-title">{{ video.title }}</span>
+                        <span class="video-description">
+                            {{ video.description }}
+                        </span>
+                        <span class="video-play-button"></span>
+                    </span>
+                </span>
+            </a>
+        </div>
+    {% endfor %}
+</div>
