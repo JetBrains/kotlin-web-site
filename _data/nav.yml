@@ -1,34 +1,34 @@
 main:
   docs:
-    path: /docs/reference/
+    url: /docs/reference/
     title: Docs
 
   contribute:
-    path: /contribute/
+    url: /contribute/
     title: Contribute
 
   try:
-    path: http://kotlin-demo.jetbrains.com
+    url: http://kotlin-demo.jetbrains.com
     title: Try Online
 
 # Documentation pages navigation
 docs:
   reference:
-    path: /docs/reference/
+    url: /docs/reference/
     title: Reference
 
   tutorials:
-    path: /docs/tutorials/
+    url: /docs/tutorials/
     title: Tutorials
 
   videos:
-    path: /docs/videos/
+    url: /docs/videos/
     title: Videos
 
   event:
-    path: /docs/events/
+    url: /docs/events/
     title: Events
 
   resources:
-    path: /docs/resources/
+    url: /docs/resources/
     title: More resources

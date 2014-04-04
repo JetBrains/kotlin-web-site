@@ -1,5 +1,7 @@
 <nav class="global-header-nav">
-    {% for i in site.data.nav.main %}
+    {% assign nav = site.data.nav.main %}
+
+    {% for i in nav %}
         {% assign item_id = i[0] %}
         {% assign item = i[1] %}
         {% assign is_active = false %}
@@ -9,11 +11,11 @@
             {% assign is_active = true %}
         {% endif %}
 
-        {% if item.path contains 'http://' %}
+        {% if item.url contains 'http://' %}
             {% assign is_external = true %}
         {% endif %}
 
-        <a href="{% if is_external %}{{ item.path }}{% else %}{{ site.baseurl }}{{ item.path }}{% endif %}"
+        <a href="{% if is_external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"
            class="nav-item {% if is_active %}is_active{% endif %}"
            {% if is_external %}target="_blank"{% endif %}
         >
@@ -22,7 +24,6 @@
     {% endfor %}
 
     {% if page.layout == 'index' %}
-
     {% else %}
         <a href="{{ site.baseurl }}/download/" class="get-kotlin-button">
             Download Kotlin

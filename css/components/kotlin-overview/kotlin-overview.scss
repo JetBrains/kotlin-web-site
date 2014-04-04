@@ -103,20 +103,30 @@
         }
 
         .feature-image {
+            @extend %kotlin-overview-section-background-image%blue-paper;
             position: relative;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
             background-color: #557799;
             background-repeat: repeat;
-            height: 150px;
+            height: 165px;
             margin: 0 0 $unit*3;
-        }
 
-        .list-item:after,
-        .feature-image {
-            @extend %kotlin-overview-section-background-image%blue-paper;
+            &:after {
+                @include linear-gradient($from: rgba(255,255,255,1), $to: rgba(255,255,255,0));
+                position: absolute;
+                opacity: 0.3;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                content: '';
+            }
         }
 
         .feature-icon {
             position: absolute;
+            z-index: 1;
             top: 0;
             left: 0;
             right: 0;
@@ -129,7 +139,7 @@
             &._expressive {width: 79px; height: 55px; background-position: 0 -200px;}
             &._safe {width: 38px; height: 58px; background-position: 0 -300px;}
             &._fast {width: 51px; height: 45px; background-position: 0 -400px;}
-            &._interoperable {width: 51px; height: 45px; background-position: 0 -500px; right: -11px;}
+            &._interoperable {width: 56px; height: 56px; background-position: 0 -500px;}
         }
 
         .feature-title-pre-text {
@@ -145,7 +155,7 @@
             max-width: 210px;
             margin: 0 auto $unit;
             color: #000;
-            text-align: left;
+            text-align: center;
         }
 
         .feature-example-link {
@@ -441,15 +451,10 @@
             @include transition(all 0.3);
             display: inline-block;
             position: relative;
-            opacity: 0.85;
             margin: 0 auto;
             text-align: center;
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
-
-            &:hover {
-                opacity: 1;
-            }
         }
         &.is_showing-video .video-thumb {
             @include animation(overview-video-scale 0.5s);
@@ -480,6 +485,7 @@
         .video-player-play-button {
             @include user-select(none);
             position: absolute;
+            opacity: 0.6;
             left: 50%;
             top: 50%;
             width: 69px;
@@ -490,7 +496,7 @@
             cursor: pointer;
         }
         a:hover .video-player-play-button {
-            //opacity: 0.7;
+            opacity: 1;
         }
     }
 
