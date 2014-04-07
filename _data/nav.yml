@@ -4,7 +4,7 @@ main:
     title: Docs
 
   contribute:
-    url: /contribute/
+    url: /contribute.html
     title: Contribute
 
   try:
@@ -25,10 +25,10 @@ docs:
     url: /docs/videos/
     title: Videos
 
-  event:
-    url: /docs/events/
+  events:
+    url: /docs/events.html
     title: Events
 
   resources:
-    url: /docs/resources/
+    url: /docs/resources.html
     title: More resources
