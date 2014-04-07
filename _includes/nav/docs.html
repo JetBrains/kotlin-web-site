@@ -7,14 +7,14 @@
             {% assign item = i[1] %}
 
             {% if page.url == item.path or (include.current_section and include.current_section == item_id) %}
-                    <a href="{{ site.baseurl }}{{ item.path }}" class="nav-item is_active">
+                    <a href="{{ site.baseurl }}{{ item.url }}" class="nav-item is_active">
                         <span class="nav-item-text">
                             {{ item.title }}
                         </span>
                     </a>
 
             {% else %}
-                <a href="{{ site.baseurl }}{{ item.path }}" class="nav-item">
+                <a href="{{ site.baseurl }}{{ item.url }}" class="nav-item">
                     <span class="nav-item-text">
                         {{ item.title }}
                     </span>
