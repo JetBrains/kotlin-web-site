@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    {% include browser.html %}
+<html>
+<head>
+    {% include head.html %}
+</head>
+<body class="page_docs">
+
+<div class="global-layout">
+    {% include header.html current_section='docs' %}
+
+    <div class="global-content">
+
+        {% include nav/docs.html current_section=page.nav_section %}
+
+        <div class="page-content">
+            {{ content }}
+        </div>
+
+    </div>
+
+</div>
+
+{% include footer.html %}
+{% include scripts.html %}
+</body>
+</html>
