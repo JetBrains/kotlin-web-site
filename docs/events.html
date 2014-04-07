@@ -1,0 +1,9 @@
+---
+layout: docs
+title: Events
+nav_id: events
+---
+
+{% for event in site.data.events %}
+    <p><a href="{{event.url}}">{{event.title}} by {{event.author}}, {{event.location}}, {{event.date | date: "%-d %B %Y" }}</a></p>
+{% endfor %}
