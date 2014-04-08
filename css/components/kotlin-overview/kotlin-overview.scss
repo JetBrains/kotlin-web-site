@@ -34,6 +34,7 @@
     $item-width: 240px;
     $item-margin: 24px;
     $item-count: 4;
+    $carousel-width: (($item-width + $item-margin) * $item-count) - $item-margin;
     @extend %kotlin-overview-section-background-image%default;
     position: relative;
     text-align: center;
@@ -51,17 +52,9 @@
     }
 
     .kotlin-features-carousel {
-        width: ($item-width + $item-margin) * $item-count;
         overflow: hidden;
-
-        .carousel-item {
-            display: inline-block;
-            overflow: hidden;
-            position: relative;
-            box-sizing: border-box;
-            padding: 0 $item-margin / 2;
-            vertical-align: top;
-        }
+        width: $carousel-width + 2px;
+        padding: 0 1px;
     }
 
     .kotlin-features-carousel-nav {
@@ -84,15 +77,26 @@
         text-align: center;
 
         .kotlin-feature {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            box-sizing: border-box;
+            width: $item-width;
+            margin-right: $item-margin;
             margin-bottom: 10px;
             padding: 0 0 $unit*3;
-            width: $item-width;
             min-height: 320px;
             background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
             font-size: $base-font-size;
             white-space: normal;
+            vertical-align: top;
+
+            &:hover {
+                box-shadow: 0 1px 2px 0px rgba(132, 181, 230, 1);
+                cursor: pointer;
+            }
 
             &._simple {}
             &._concise {}

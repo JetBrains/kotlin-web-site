@@ -21,6 +21,10 @@
 
     .get-kotlin-button {
         @extend %button_default;
+
+        .version {
+            font-size: 12px;
+        }
     }
 
     .kotlin-info {

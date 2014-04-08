@@ -142,6 +142,8 @@
     content: ''; }
   .global-header .try-kotlin-button {
     top: -1px; }
+  .global-header .get-kotlin-button .version {
+    font-size: 12px; }
   .global-header .kotlin-info {
     padding-top: 160px;
     text-align: center; }

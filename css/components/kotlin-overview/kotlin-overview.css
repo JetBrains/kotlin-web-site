@@ -240,15 +240,9 @@
     margin: auto;
     white-space: nowrap; }
   .kotlin-overview-section._features .kotlin-features-carousel {
-    width: 1056px;
-    overflow: hidden; }
-    .kotlin-overview-section._features .kotlin-features-carousel .carousel-item {
-      display: inline-block;
-      overflow: hidden;
-      position: relative;
-      box-sizing: border-box;
-      padding: 0 12px;
-      vertical-align: top; }
+    overflow: hidden;
+    width: 1034px;
+    padding: 0 1px; }
   .kotlin-overview-section._features .kotlin-features-list {
     display: inline-block;
     position: relative;
@@ -262,15 +256,24 @@
       height: 0;
       content: ''; }
     .kotlin-overview-section._features .kotlin-features-list .kotlin-feature {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      box-sizing: border-box;
+      width: 240px;
+      margin-right: 24px;
       margin-bottom: 10px;
       padding: 0 0 24px;
-      width: 240px;
       min-height: 320px;
       background-color: #fff;
       border-radius: 4px;
       box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
       font-size: 14px;
-      white-space: normal; }
+      white-space: normal;
+      vertical-align: top; }
+      .kotlin-overview-section._features .kotlin-features-list .kotlin-feature:hover {
+        box-shadow: 0 1px 2px 0px #84b5e6;
+        cursor: pointer; }
     .kotlin-overview-section._features .kotlin-features-list .feature-image {
       position: relative;
       border-top-left-radius: 4px;

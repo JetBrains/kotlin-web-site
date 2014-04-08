@@ -1,8 +1,12 @@
+{% assign versions = site.data.versions %}
+{% assign versions_count = versions|size|minus:1 %}
+{% assign last_version = versions[versions_count] %}
+
 <header class="global-header">
     <div class="g-layout">
         <a class="global-header-logo" href="{{ site.baseurl }}/">Project Kotlin</a>
 
-        {% include nav/main.html current_section=include.current_section %}
+        {% include nav/main.html current_section=include.current_section last_version=last_version %}
 
         {% if page.layout == 'index' %}
         <div class="kotlin-info">
@@ -15,6 +19,7 @@
             </div>
             <a href="{{ site.baseurl }}{{ site.data.nav.main.download.url }}" class="get-kotlin-button">
                 Get Kotlin Now
+                <span class="version">({{ last_version.version }})</span>
             </a>
         </div>
         {% endif %}
