@@ -690,12 +690,16 @@
       text-align: center;
       text-decoration: none; }
     .kotlin-overview-section._community .links-list-item .link-icon {
+      background-image: -moz-linear-gradient(#d4d4d4, #bbbbbb);
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d4d4d4), to(#bbbbbb));
+      background-image: -webkit-linear-gradient(#d4d4d4, #bbbbbb);
+      background-image: -o-linear-gradient(#d4d4d4, #bbbbbb);
       position: relative;
       display: block;
-      margin-bottom: 5px;
-      width: 100px;
-      height: 100px;
-      background-color: #fff;
+      margin-bottom: 9px;
+      width: 104px;
+      height: 104px;
+      background-color: #cbcbcb;
       border-radius: 50px; }
       .kotlin-overview-section._community .links-list-item .link-icon:after {
         position: absolute;

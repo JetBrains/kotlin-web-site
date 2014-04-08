@@ -613,12 +613,13 @@
         }
 
         .link-icon {
+            @include linear-gradient($from: #d4d4d4, $to: #bbb);
             position: relative;
             display: block;
-            margin-bottom: 5px;
-            width: 100px;
-            height: 100px;
-            background-color: #fff;
+            margin-bottom: 9px;
+            width: 104px;
+            height: 104px;
+            background-color: #cbcbcb;
             border-radius: 50px;
 
             &:after {
