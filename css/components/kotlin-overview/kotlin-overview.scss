@@ -689,14 +689,14 @@
     }
 
     .testimonials-list {
-        @include grid('.testimonials-list-item', 2, 40px);
+        @include grid('.testimonials-list-item', 3, 40px);
         position: relative;
         white-space: nowrap;
     }
 
     .testimonials-list-item {
         $corner-height: 24px;
-        $quote-height: 170px;
+        $quote-height: 150px;
         white-space: normal;
 
         .testimonial-quote {
@@ -716,8 +716,8 @@
                 color: #666;
                 font-style: italic;
                 font-weight: 300;
-                font-size: 30px;
-                line-height: 40px;
+                font-size: 20px;
+                line-height: 30px;
                 vertical-align: middle;
             }
 
@@ -752,6 +752,10 @@
             line-height: 50px;
             font-style: italic;
             font-weight: 300;
+        }
+
+        .testimonial-company-link {
+            text-decoration: none;
         }
     }
 }

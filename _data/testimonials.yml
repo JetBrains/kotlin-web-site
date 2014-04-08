@@ -5,7 +5,6 @@
 - company: Prezi.com
   url: http://prezi.com
   description: Kotlin in backend, data processing and service development
-  logo: /assets/images/testimonials/prezi.png
 
 - company: Bremeld Corp SA
   url: http://linkedin.com/company/bremeld
@@ -18,7 +17,6 @@
 - company: Telegram
   url: https://github.com/ex3ndr/telegram-tl
   description: Data schema compiler for TL language implemented in Kotlin
-  logo: /assets/images/testimonials/telegram.png
 
 - company: Wrestler.Unstoppable
   url: https://www.facebook.com/wrestler.unstoppable

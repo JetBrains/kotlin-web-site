@@ -762,7 +762,7 @@
     vertical-align: top;
     font-size: 14px;
     margin-right: 40px;
-    width: 460px; }
+    width: 293.33333px; }
 .kotlin-overview-section._testimonials .testimonials-list-item {
   white-space: normal; }
   .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote {
@@ -771,18 +771,18 @@
     display: block;
     margin: 5px 3px 29px;
     padding: 0 30px;
-    min-height: 170px;
+    min-height: 150px;
     box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
     background-color: #fff;
-    line-height: 170px; }
+    line-height: 150px; }
     .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote .text {
       display: inline-block;
       color: #666;
       font-style: italic;
       font-weight: 300;
-      font-size: 30px;
-      line-height: 40px;
+      font-size: 20px;
+      line-height: 30px;
       vertical-align: middle; }
     .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote:before, .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-quote:after {
       position: absolute;
@@ -807,6 +807,8 @@
     line-height: 50px;
     font-style: italic;
     font-weight: 300; }
+  .kotlin-overview-section._testimonials .testimonials-list-item .testimonial-company-link {
+    text-decoration: none; }
 
 @-webkit-keyframes overview-video-scale {
   0% {
