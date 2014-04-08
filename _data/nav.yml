@@ -11,6 +11,11 @@ main:
     url: http://kotlin-demo.jetbrains.com
     title: Try Online
 
+  download:
+    url: /#get-kotlin
+    title: Download
+    show: false
+
 # Documentation pages navigation
 docs:
   reference:

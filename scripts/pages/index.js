@@ -14,7 +14,9 @@ ui.pages.index.featuresCarousel = {
             $wrapElem = $('#features-carousel'),
             $elem = $wrapElem.find('.js-carousel');
 
-        $elem.jcarousel();
+        $elem.jcarousel({
+            list: '.kotlin-features-list'
+        });
 
         $wrapElem.find('.js-carousel-nav-prev')
             .jcarouselControl({
