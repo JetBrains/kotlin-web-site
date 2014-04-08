@@ -50,19 +50,18 @@
         color: #fff;
         opacity: 1;
     }
-    .video-thumbnail-link:hover .video-info {
-        color: $base-link-hover-color
-    }
 
     .video-title {
         display: block;
         margin-bottom: $unit;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
         font-family: $font-family-serif;
         font-size: 45px;
         line-height: 50px;
     }
 
     .video-description {
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
         font-size: 18px;
         line-height: 21px;
         font-weight: 300;
@@ -70,12 +69,16 @@
 
     .video-play-button {
         position: absolute;
+        opacity: 0.6;
         top: -10px;
         right: 100%;
         width: 69px;
         height: 69px;
         margin-right: 20px;
         background: url('../kotlin-overview/images/video-player-play-button.png') no-repeat;
+    }
+    .video-thumbnail-link:hover .video-play-button {
+        opacity: 1;
     }
 
     .video-player {
