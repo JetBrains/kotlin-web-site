@@ -16,9 +16,10 @@ list:
     description: Discover Kotlin possibilities to code fast, efficient and really good.
     author: Hadi Hariri
     url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
-    thumbnail: /assets/images/videos/journey-to-kotin.jpg
+    thumbnail: /assets/images/videos/journey-to-kotlin.jpg
 
   - title: How to Make Your Project Fly
     description: A few stunts that make your work a pleasure.
     author: Hadi Hariri
     url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+    thumbnail: /assets/images/videos/how-to-make-your-project-fly.jpg
