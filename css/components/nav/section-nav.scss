@@ -27,6 +27,7 @@
     }
 
     .nav-item-text {
+        @include user-select(none);
         color: $base-link-color;
         display: block;
         cursor: pointer;
@@ -37,7 +38,6 @@
         }
     }
     .nav-item.is_active .nav-item-text {
-        cursor: default;
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
         background-color: #f2fcff;

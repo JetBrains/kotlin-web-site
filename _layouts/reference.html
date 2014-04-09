@@ -40,16 +40,7 @@ $(document).ready(function() {
     $navItems.on('click', function() {
         var activeItemId = $(this).attr('data-id');
 
-        $navItems.each(function() {
-            var $item = $(this),
-                currentId = $(this).attr('data-id');
-
-            if (currentId === activeItemId) {
-                $item.addClass('is_active');
-            } else {
-                $item.removeClass('is_active');
-            }
-        })
+        $(this).toggleClass('is_active');
     });
 });
 </script>
