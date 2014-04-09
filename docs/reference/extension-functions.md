@@ -2,7 +2,7 @@
 layout: reference
 title: "Extension Functions"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## Extending Classes with Functionality

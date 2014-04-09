@@ -2,7 +2,7 @@
 layout: reference
 title: "Traits"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## Traits

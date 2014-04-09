@@ -2,7 +2,7 @@
 layout: reference
 title: "Ranges"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## Ranges

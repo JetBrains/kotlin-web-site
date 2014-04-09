@@ -2,7 +2,7 @@
 layout: reference
 title: "Nested Classes"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 Classes can be nested in other classes

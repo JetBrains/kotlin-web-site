@@ -2,7 +2,7 @@
 layout: reference
 title: "Basic Types"
 category: reference
-subcategory: basics
+subcategory: syntax
 ---
 
 In Kotlin, everything is an object in the sense that one can call member functions and properties on any variable. Some types are built-in, because their implementation is optimized, but for the used they look like ordinary classes. In this section we describe most of these types: numbers, characters, booleans and arrays.

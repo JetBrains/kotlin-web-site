@@ -2,7 +2,7 @@
 layout: reference
 title: "Null Safety"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 Kotlin's type system is aimed at eliminating null references from code, also known as the [The Billion Dollar Mistake](http://qconlondon.com/london-2009/presentation/Null+References:+The+Billion+Dollar+Mistake)

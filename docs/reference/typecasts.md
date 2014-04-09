@@ -2,7 +2,7 @@
 layout: reference
 title: "Type Casts"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 

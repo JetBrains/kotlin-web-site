@@ -2,7 +2,7 @@
 layout: reference
 title: "Idioms"
 category: reference
-subcategory: subcategory-2
+subcategory: basics
 ---
 
 A collection of random and frequently used idioms in Kotlin.

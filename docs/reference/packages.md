@@ -2,7 +2,7 @@
 layout: reference
 title: "Packages"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## Root package

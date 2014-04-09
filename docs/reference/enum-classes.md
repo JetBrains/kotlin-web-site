@@ -2,7 +2,7 @@
 layout: reference
 title: "Enum Classes"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 

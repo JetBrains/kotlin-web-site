@@ -2,7 +2,7 @@
 layout: reference
 title: "Functions"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## Function Declarations

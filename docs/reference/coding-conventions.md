@@ -2,7 +2,7 @@
 layout: reference
 title: "Coding Conventions"
 category: reference
-subcategory: subcategory-2
+subcategory: basics
 ---
 
 This page contains the current coding style for the Kotlin language.

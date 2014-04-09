@@ -2,7 +2,7 @@
 layout: reference
 title: "Delegation"
 category: reference
-subcategory: subcategory-3
+subcategory: syntax
 ---
 
 ## Class Delegation

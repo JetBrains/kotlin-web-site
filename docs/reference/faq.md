@@ -1,6 +1,8 @@
 ---
 layout: reference
-title: "Grammar"
+title: "FAQ"
 category: reference
-subcategory: grammar
+subcategory: faq
 ---
+
+## FAQ

@@ -2,7 +2,7 @@
 layout: reference
 title: "High-Order Functions and Lambdas"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## High-Order Functions

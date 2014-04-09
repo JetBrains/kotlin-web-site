@@ -2,7 +2,7 @@
 layout: reference
 title: "Operator overloading"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 Kotlin allows us to provide implementations for a predefined set of operators on our types. These operators have fixed symbolic representation 

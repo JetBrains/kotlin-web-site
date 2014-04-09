@@ -2,7 +2,7 @@
 layout: reference
 title: "Returns and Jumps"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 Kotlin has three structural jump operators

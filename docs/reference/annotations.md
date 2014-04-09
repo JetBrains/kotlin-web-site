@@ -2,7 +2,7 @@
 layout: reference
 title: "Annotations"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 toc: true
 ---
 

@@ -2,7 +2,7 @@
 layout: reference
 title: "Exceptions"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## Exception Classes

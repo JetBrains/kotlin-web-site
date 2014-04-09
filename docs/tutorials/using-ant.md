@@ -3,6 +3,7 @@ layout: tutorial
 title:  "Using Ant"
 description: "This tutorials walks you through different scenarios when using Ant for building applications that contain Kotlin code"
 category: tutorials
+subcategory: tooling
 ---
 
 ### Getting the Ant Tasks

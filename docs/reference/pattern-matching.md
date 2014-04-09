@@ -2,7 +2,7 @@
 layout: reference
 title: "Pattern Matching"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## is and !is Operators

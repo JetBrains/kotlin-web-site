@@ -2,7 +2,7 @@
 layout: reference
 title: "Classes and Inheritance"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 related:
     - title: "Functions"
     - title: "Nested Classes"

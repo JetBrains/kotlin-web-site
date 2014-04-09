@@ -2,7 +2,7 @@
 layout: reference
 title: "Object Expressions and Declarations"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 Sometimes we need to create an object of a slight modification of some class, without explicitly declaring a new subclass for it. *Java* handles this case with *anonymous inner classes*.

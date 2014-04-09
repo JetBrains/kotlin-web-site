@@ -2,7 +2,7 @@
 layout: reference
 title: "Properties and Fields"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## Declaring Properties

@@ -2,7 +2,7 @@
 layout: reference
 title: "Java Interop"
 category: reference
-subcategory: subcategory-3
+subcategory: interop
 ---
 
 Kotlin is designed with Java Interoperability in mind. Existing Java code can be called from Kotlin in a natural way, and Kotlin code can be used from

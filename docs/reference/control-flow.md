@@ -2,7 +2,7 @@
 layout: reference
 title: "Control Flow"
 category: reference
-subcategory: subcategory-2
+subcategory: syntax
 ---
 
 ## If Expression

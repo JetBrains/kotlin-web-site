@@ -1,9 +1,8 @@
 ---
 layout: reference
-title: "Generics"
+title: "Comparison to Scala"
 category: reference
 subcategory: syntax
 ---
 
-
-## Generic Functions
+## Comparison to Scala
