@@ -1,17 +1,24 @@
-- title: Kotlin is Amazing
-  description: In this video a few amazing features shown. Not many, but enough to fall in love with Kotlin.
-  author: Hadi Hariri
-  url: http://www.youtube.com/watch?v=viiDaLpPfN4
-  thumbnail: /assets/images/videos/kotlin-in-action.jpg
+subcategories:
+  getting_started: Getting Started
+  jvm: JVM
+  javascript: JavaScript
+  android: Android
+  web: Web
 
-- title: A Journey to Kotlin
-  description: Discover Kotlin possibilities to code fast, efficient and really good.
-  author: Hadi Hariri
-  url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
-  thumbnail: /assets/images/videos/journey-to-kotlin.jpg
+list:
+  - title: Kotlin is Amazing
+    description: In this video a few amazing features shown. Not many, but enough to fall in love with Kotlin.
+    author: Hadi Hariri
+    url: http://www.youtube.com/watch?v=viiDaLpPfN4
+    thumbnail: /assets/images/videos/kotlin-in-action.jpg
 
-- title: How to Make Your Project Fly
-  description: A few stunts that make your work a pleasure.
-  author: Hadi Hariri
-  url: http://www.youtube.com/watch?v=SdvFwRmyVRM
-  thumbnail: /assets/images/videos/how-to-make-your-project-fly.jpg
+  - title: A Journey to Kotlin
+    description: Discover Kotlin possibilities to code fast, efficient and really good.
+    author: Hadi Hariri
+    url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+    thumbnail: /assets/images/videos/journey-to-kotin.jpg
+
+  - title: How to Make Your Project Fly
+    description: A few stunts that make your work a pleasure.
+    author: Hadi Hariri
+    url: http://www.youtube.com/watch?v=SdvFwRmyVRM
