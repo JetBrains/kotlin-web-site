@@ -2,7 +2,7 @@
 layout: tutorial
 title:  "Getting Started"
 description: "This tutorials walks you through creating a simple Hello World application using IntelliJ IDEA"
-category: tutorials
+category: tutorial
 subcategory: getting_started
 ---
 

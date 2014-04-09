@@ -2,7 +2,7 @@
 layout: tutorial
 title:  "Using Griffon"
 description: "This tutorials walks you through different scenarios when using Gradle for building applications that contain Kotlin code"
-category: tutorials
+category: tutorial
 subcategory: tooling
 ---
 

@@ -1,0 +1,43 @@
+{% assign activeSubcategoryId = '' %}
+{% for post in site.pages %}
+    {% if post.url == page.url %}
+        {% assign activeSubcategoryId = post.subcategory %}
+    {% endif %}
+{% endfor %}
+
+{% if include.current_section %}
+    {% assign activeSubcategoryId = include.current_section %}
+{% endif %}
+
+<div class="section-nav">
+{% for item in site.data.tutorials-subcategories %}
+    {% assign subcategoryId = item[0] %}
+    {% assign subcategoryName = item[1] %}
+
+    <div class="nav-item {% if activeSubcategoryId == subcategoryId %}is_active{% endif %}"
+         data-id="{{ subcategoryId }}"
+    >
+        <div class="nav-item-text">{{ subcategoryName }}</div>
+        <div class="subnav-items-list">
+            {% for post in site.pages %}
+                {% assign is_active = false %}
+                {% if post.url == page.url %}
+                    {% assign is_active = true %}
+                {% endif %}
+
+                {% if post.category == 'tutorial' and post.subcategory == subcategoryId %}
+                <div class="subnav-items-list-item {% if is_active %}is_active{% endif %}"
+                     data-url="{{ post.url }}"
+                >
+                    {% if is_active %}
+                        <span class="text">{{ post.title }}</span>
+                    {% else %}
+                        <a href="{{ site.baseurl }}{{ post.url }}" class="text">{{ post.title }}</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+</div>
