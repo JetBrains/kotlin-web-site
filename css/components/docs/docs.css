@@ -76,7 +76,7 @@
     border-radius: 4px;
     color: #3164a0;
     font-size: 16px;
-    text-decoration: underline; }
+    text-decoration: none; }
   .docs-page-nav .nav-item.is_active .nav-item-text {
     border-color: #6995d6;
     box-shadow: inset 0px 3px 6px -1px rgba(0, 0, 0, 0.2);
