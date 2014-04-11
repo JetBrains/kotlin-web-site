@@ -16,6 +16,7 @@
 #            url: http://www.slideshare.net/abreslav/whos-more-functional-kotlin-groovy-scala-or-java
 
 # 2011 =========================================================================
+
 - title: JVM Language Summit 2011
   url: http://www.wiki.jvmlangsummit.com/Kotlin
   date: 2011-06
@@ -90,6 +91,7 @@
 
 
 # 2012 =========================================================================
+
 - title: JavaDay SPb
   url: http://oracle.timepad.ru/event/17633
   date: 2012-02-10
@@ -409,6 +411,7 @@
 
 
 # 2013 =========================================================================
+
 - title: Beyond Dogmastism
   url: http://2013.33degree.org/talk/show/4
   speaker: Hadi Hariri
@@ -651,6 +654,7 @@
 
 
 # 2014 =========================================================================
+
 - title: Mobius
   url: http://mobius.codefreeze.ru/talks/13/
   subject: Kotlin for Android
