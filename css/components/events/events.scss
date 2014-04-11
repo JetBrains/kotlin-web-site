@@ -1,0 +1,25 @@
+@import '../../config';
+@import '../../utils';
+@import '../heading/heading';
+
+.events-list {
+}
+
+.events-list-title {
+    @extend %h2;
+    margin-top: $unit*4;
+    margin-bottom: $unit*2;
+}
+
+.events-list-item {
+    margin-bottom: $unit*2;
+
+    .event-title {}
+    .event-url {}
+    .event-subject {
+        font-weight: bold;
+    }
+    .event-speaker {}
+    .event-location {}
+    .event-date {}
+}

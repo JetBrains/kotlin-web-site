@@ -1,0 +1,37 @@
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+.events-list-title {
+  font-family: "GraublauSlab Regular", Georgia, serif;
+  font-size: 30px;
+  line-height: 33px;
+  color: #404041; }
+
+.events-list-title {
+  margin-top: 32px;
+  margin-bottom: 16px; }
+
+.events-list-item {
+  margin-bottom: 16px; }
+  .events-list-item .event-subject {
+    font-weight: bold; }

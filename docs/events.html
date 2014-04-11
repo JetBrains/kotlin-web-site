@@ -4,6 +4,70 @@ title: Events
 nav_id: events
 ---
 
-{% for event in site.data.events %}
-    <p><a href="{{event.url}}">{{event.title}} by {{event.author}}, {{event.location}}, {{event.date | date: "%-d %B %Y" }}</a></p>
-{% endfor %}
+<script type="text/javascript" src="{{ site.baseurl }}/scripts/events.js"></script>
+<script type="text/javascript">
+$(function() {
+    ui.events.init();
+});
+</script>
+
+{% assign events = site.data.events %}
+
+<p>If you'd like us to come and speak at your event or are giving a talk on Kotlin and would like it published here, <a href="mailto:hadi@jetbrains.com">please contact us</a>.</p>
+
+<ul class="events-list js-events-list">
+    {% for event in events %}
+        {% assign event_date = event.date %}
+        {% if event.date.size %}
+            {% assign event_date = event.date|join:',' %}
+        {% endif %}
+
+        <li class="events-list-item js-event" data-date="{{ event_date }}">
+
+            <span class="event-title">
+                {% if event.url %}
+                    <a href="{{ event.url }}" target="_blank" class="event-url">{{ event.title }}</a>
+                {% else %}
+                    {{ event.title }}
+                {% endif %}
+            </span>
+
+            {% if event.subject %}
+                <span class="event-subject">{{ event.subject }}</span>
+            {% endif %}
+
+            {% if event.speaker %}
+                {% if event.speaker.size %}
+                    by <span class="event-speaker">{{ event.speaker|join:'</span> and <span class="event-speaker">' }}</span>
+                {% else %}
+                    by <span class="event-speaker">{{ event.speaker }}</span>
+                {% endif %}
+            {% endif %}
+
+            <span class="event-location">{{ event.location }}</span>
+
+            {% if event.date.size %}
+                <span class="event-date">{{ event.date[0]|date:'%B' }} {{ event.date[0]|date:'%-d' }}-{{ event.date[1]|date:'%-d' }}, {{ event.date[0]|date:'%Y' }}</span>
+            {% else %}
+                <span class="event-date">{{ event.date|date:'%B %-d, %Y' }}</span>
+            {% endif %}
+
+        </li>
+
+    {% endfor %}
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var $eventsList = $('.js-events'),
+        events = {
+            upcoming: [],
+            past: []
+        };
+
+    $eventsList.each(function(i, elem) {
+        console.log(elem.getAttribute('data-date'));
+        //var eventDate = new Date(ele);
+    });
+});
+</script>

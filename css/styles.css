@@ -12,5 +12,6 @@
 @import 'components/video/video.css';
 @import 'components/code/code-syntax.css';
 @import 'components/docs/docs.css';
+@import 'components/events/events.css';
 @import 'components/kotlin-overview/kotlin-overview.css';
 @import 'components/table-of-contents/table-of-contents.css';
