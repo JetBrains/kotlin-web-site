@@ -4,6 +4,8 @@
 #    url: http://www.oracle.com/javaone/index.html
 #    subject: Kotlin for Android
 #    speaker: Andrey Breslav
+#    speaker: [Andrey Breslav, Svetlana Isakova]
+#    date: 2012-09-30
 #    date: [2012-09-30, 2012-10-4]
 #    location: San Francisco, CA, USA
 #    content:
@@ -21,7 +23,7 @@
   content:
     - title: Video + Slides from the Presentation session
       url: http://drdobbs.com/231500204
-    - title: Workshop slides: Classes, Inheritance, Generics, Class objects
+    - title: 'Workshop slides: Classes, Inheritance, Generics, Class objects'
       url: http://confluence.jetbrains.com/download/attachments/40702623/JVMLS_workshop_2011.pdf?version=1&modificationDate=1311201781000
 
 
@@ -175,7 +177,7 @@
         - title: Examples
           url: https://github.com/abreslav/kotlin-demo-graphics
 
-    - title: Conference talk "Kotlin: An introduction to being Kool"
+    - title: 'Conference talk "Kotlin: An introduction to being Kool"'
       url: http://2012.geecon.org/speakers/andrey-breslav
       content:
         - title: Video
@@ -312,7 +314,7 @@
   date: [2012-09-30, 2012-10-4]
   location: San Francisco, CA, USA
   content:
-    - title: Who's More Functional: Kotlin, Groovy, Scala, or Java?
+    - title: "Who's More Functional: Kotlin, Groovy, Scala, or Java?"
       url: https://oracleus.activeevents.com/connect/sessionDetail.ww?SESSION_ID=5774
       content:
         - title: Slides
@@ -320,7 +322,7 @@
         - title: Video
           url: http://blueskybd.vo.llnwd.net/o16/oracle/CON5774_mp4_5774_001.html
 
-    - title: Kotlin: Practical Aspects of JVM Language Implementation
+    - title: 'Kotlin: Practical Aspects of JVM Language Implementation'
       url: https://oracleus.activeevents.com/connect/sessionDetail.ww?SESSION_ID=5759
       content:
         - title: Slides
@@ -558,7 +560,7 @@
 
 - title: PPPJ'13
   url: http://pppj2013.dhbw.de/conference-pppj2013/program/keynotes.html
-  subject: Kotlin: Challenges in JVM language design
+  subject: 'Kotlin: Challenges in JVM language design'
   speaker: Andrey Breslav
   date: [2013-09-11, 2013-09-13]
   location: Stuttgart, Germany
@@ -639,7 +641,7 @@
 
 - title: Devoxx'13
   url: http://www.devoxx.be
-  subject: The Unpuzzling Kotlin: Bringing Clarity to Your Code
+  subject: 'The Unpuzzling Kotlin: Bringing Clarity to Your Code'
   speaker: [Svetlana Isakova, Aleksei Sedunov]
   date: [2013-11-11, 2013-11-15]
   location: Antwerp, Belgium
