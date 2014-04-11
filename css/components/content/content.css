@@ -81,7 +81,7 @@
 .page-content .highlight {
   margin-bottom: 20px; }
   .page-content .highlight code {
-    display: inline-block; }
+    display: block; }
 .page-content .keyword {
   color: #0000C0;
   padding: 5px;
