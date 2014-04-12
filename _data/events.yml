@@ -19,7 +19,7 @@
 
 - title: JVM Language Summit 2011
   url: http://www.wiki.jvmlangsummit.com/Kotlin
-  date: 2011-06
+  date: 2011-06-15
   location: Santa Clara, CA, USA
   content:
     - title: Video + Slides from the Presentation session
@@ -30,7 +30,7 @@
 
 - title: SOCON 2011, Emerging Languages
   url: http://www.oscon.com/oscon2011/public/schedule/detail/20924
-  date: 2011-07
+  date: 2011-09-17
   location: Portland, OR, USA
   content:
     - title: The Kotlin Programming Language
@@ -50,7 +50,7 @@
 
 - title: Yandex and CSClub
   url: http://logic.pdmi.ras.ru/csclub/en/node/1480
-  date: 2011
+  date: 2011-10-02
   location: Saint Petersburg, Russia
   content:
     - title: Slides
@@ -287,7 +287,7 @@
 
 - title: JVM Language Summit 2012
   url: http://openjdk.java.net/projects/mlvm/jvmlangsummit
-  date: [2012-07-2012, 01-08-2012]
+  date: [2012-07-30, 2012-08-01]
   location: Santa Clara, CA, USA
   content:
     - title: Slides

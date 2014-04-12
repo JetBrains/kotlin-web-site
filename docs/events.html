@@ -26,9 +26,9 @@ $(function() {
 
             <span class="event-title">
                 {% if event.url %}
-                    <a href="{{ event.url }}" target="_blank" class="event-url">{{ event.title }}</a>
+                    <a href="{{ event.url }}" target="_blank" class="event-url">{{ event.title }}</a>,
                 {% else %}
-                    {{ event.title }}
+                    {{ event.title }},
                 {% endif %}
             </span>
 
@@ -44,30 +44,47 @@ $(function() {
                 {% endif %}
             {% endif %}
 
+            {% if event.date.size %}
+                <span class="event-date">{{ event.date[0]|date:'%B' }} {{ event.date[0]|date:'%-d' }}-{{ event.date[1]|date:'%-d' }}, {{ event.date[0]|date:'%Y' }}</span>,
+            {% else %}
+                <span class="event-date">{{ event.date|date:'%B %-d, %Y' }}</span>,
+            {% endif %}
+
             <span class="event-location">{{ event.location }}</span>
 
-            {% if event.date.size %}
-                <span class="event-date">{{ event.date[0]|date:'%B' }} {{ event.date[0]|date:'%-d' }}-{{ event.date[1]|date:'%-d' }}, {{ event.date[0]|date:'%Y' }}</span>
-            {% else %}
-                <span class="event-date">{{ event.date|date:'%B %-d, %Y' }}</span>
+            {% if event.content %}
+                <ul class="event-content-list">
+                {% for item in event.content %}
+                    <li class="event-content-item">
+                        <div class="event-content-item-title">
+                            {% if item.url %}
+                                <a href="{{ item.url }}" class="event-content-item-url">{{ item.title }}</a>
+                            {% else %}
+                                {{ item.title }}
+                            {% endif %}
+                        </div>
+
+                        {% if item.content %}
+                            <ul class="event-content-sublist">
+                            {% for subitem in item.content %}
+                                <li class="event-content-subitem">
+                                    <div class="event-content-subitem-title">
+                                        {% if subitem.url %}
+                                            <a href="{{ subitem.url }}" class="event-content-subitem-url">{{ subitem.title }}</a>
+                                        {% else %}
+                                            {{ subitem.title }}
+                                        {% endif %}
+                                    </div>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                    </li>
+                {% endfor %}
+                </ul>
             {% endif %}
 
         </li>
-
     {% endfor %}
 </ul>
-
-<script type="text/javascript">
-$(document).ready(function() {
-    var $eventsList = $('.js-events'),
-        events = {
-            upcoming: [],
-            past: []
-        };
-
-    $eventsList.each(function(i, elem) {
-        console.log(elem.getAttribute('data-date'));
-        //var eventDate = new Date(ele);
-    });
-});
-</script>

@@ -13,7 +13,8 @@ ui.events = {
             };
 
         $events.each(function (i, elem) {
-            var eventDateString = elem.getAttribute('data-date'),
+            var $elem,
+                eventDateString = elem.getAttribute('data-date'),
                 isMultidate = eventDateString.indexOf(',') !== -1,
                 eventDate,
                 isEventInPast = false;
@@ -27,9 +28,18 @@ ui.events = {
                     new Date(eventDateString.split(',')[0]),
                     new Date(eventDateString.split(',')[1])
                 ];
+                if (isNaN(eventDate[0].getDate()) || isNaN(eventDate[1].getDate())) {
+                    return;
+                }
             } else {
                 eventDate = new Date(eventDateString);
+                if (isNaN(eventDate.getDate())) {
+                    return;
+                }
             }
+
+            elem._isMultidate = isMultidate;
+            elem._date = eventDate;
 
             if ((!isMultidate && eventDate < now) || (isMultidate && eventDate[1] < now)) {
                 isEventInPast = true;
@@ -39,20 +49,33 @@ ui.events = {
             }
         });
 
-        $eventsList.html('');
+        if (events.upcoming.length > 0 || events.past.length > 0) {
+            $eventsList.html('');
 
-        if (events.upcoming.length > 0) {
-            $eventsList.append('<h2 class="events-list-title">Upcoming</h2>');
-            $(events.upcoming).each(function (i, elem) {
-                $eventsList.append(elem);
-            });
-        }
+            for (var eventType in events) {
+                events[eventType].sort(function(leftElem, rightElem) {
+                    var isLeftDateMulti = leftElem._isMultidate,
+                        leftDate = isLeftDateMulti ? leftElem._date[1] : leftElem._date,
+                        isRightDateMulti = rightElem._isMultidate,
+                        rightDate = isRightDateMulti ? rightElem._date[1] : rightElem._date;
 
-        if (events.past.length > 0) {
-            $eventsList.append('<h2 class="events-list-title">Past</h2>');
-            $(events.past).each(function (i, elem) {
-                $eventsList.append(elem);
-            });
+                    return rightDate - leftDate;
+                });
+
+                switch (eventType) {
+                    case 'upcoming':
+                        $eventsList.append('<h2 class="events-list-title">Upcoming</h2>');
+                        break;
+
+                    case 'past':
+                        $eventsList.append('<h2 class="events-list-title">Past</h2>');
+                        break;
+                }
+
+                $(events[eventType]).each(function (i, elem) {
+                    $eventsList.append(elem);
+                });
+            }
         }
     }
 };

@@ -12,14 +12,60 @@
 }
 
 .events-list-item {
-    margin-bottom: $unit*2;
+    margin-bottom: $unit*3 !important;
 
-    .event-title {}
-    .event-url {}
+    .event-title {
+
+    }
+
+    .event-url {
+
+    }
+
     .event-subject {
         font-weight: bold;
     }
-    .event-speaker {}
-    .event-location {}
-    .event-date {}
+
+    .event-speaker {
+
+    }
+
+    .event-location {
+
+    }
+    .event-date {
+
+    }
+
+    .event-content {
+
+    }
+
+    .event-content-list {
+        margin: $unit 0;
+    }
+
+    .event-content-item-title {
+
+    }
+
+    .event-content-item-url {
+
+    }
+
+    .event-content-sublist {
+        margin: $unit 0;
+    }
+
+    .event-content-subitem {
+
+    }
+
+    .event-content-subitem-title {
+
+    }
+
+    .event-content-subitem-url {
+
+    }
 }

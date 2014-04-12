@@ -32,6 +32,10 @@
   margin-bottom: 16px; }
 
 .events-list-item {
-  margin-bottom: 16px; }
+  margin-bottom: 24px !important; }
   .events-list-item .event-subject {
     font-weight: bold; }
+  .events-list-item .event-content-list {
+    margin: 8px 0; }
+  .events-list-item .event-content-sublist {
+    margin: 8px 0; }
