@@ -641,7 +641,7 @@
       vertical-align: top;
       font-size: 14px;
       width: 240px;
-      padding: 10px 15px 25px;
+      padding: 10px 15px 30px;
       min-height: 330px;
       margin-left: 30px;
       background-color: #fff;
@@ -658,6 +658,8 @@
         background-position: 0 0; }
       .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._intellij-idea {
         background-position: 0 -150px; }
+      .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._source-code {
+        background-position: 0 -300px; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
       margin-bottom: 8px;
       white-space: nowrap; }
@@ -748,7 +750,7 @@
 .kotlin-overview-section._testimonials .testimonials-carousel {
   overflow: hidden; }
 .kotlin-overview-section._testimonials .testimonials-carousel-nav {
-  top: 100px !important; }
+  top: 85px !important; }
 .kotlin-overview-section._testimonials .testimonials-list {
   font-size: 0;
   margin-right: -40px;
