@@ -34,7 +34,7 @@
         display: inline-block;
         padding: 0;
         margin-left: 0;
-        box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.3);
         box-sizing: border-box;
         background-color: #e1e1e1;
         border-radius: 3px;
@@ -43,22 +43,15 @@
         color: #000;
         line-height: 50px;
 
-        &:hover {
-            @include linear-gradient($from: #F0F0F0, $to: #DADADA);
-            box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.5);
-            background-color: #D0D0D0;
-        }
-
+        &:hover,
         &.is_active {
-            box-shadow: none;
-            margin-top: 2px;
-            margin-bottom: -2px;
             background-image: none;
             background-color: #f9f9f9;
         }
     }
 
     .nav-item-text {
+        $corner-width: 30px;
         position: relative;
         display: block;
         border: 2px solid transparent;
@@ -66,18 +59,11 @@
         color: #3164a0;
         font-size: 16px;
         text-decoration: none;
-    }
-    .nav-item.is_active .nav-item-text {
-        $corner-width: 30px;
-        $border-color: #6995d6;
-        border-color: $border-color;
-        box-shadow: inset 0px 3px 6px -1px rgba(0,0,0, 0.2);
-        color: $base-color;
-        text-decoration: none;
 
         &:before,
         &:after {
             position: absolute;
+            display: none;
             top: 100%;
             left: 50%;
             width: 0;
@@ -90,12 +76,26 @@
         }
 
         &:before {
-            border-top-color: $border-color;
+            border-top-color: #6995d6;
         }
 
         &:after {
             margin-top: -3px;
             border-top-color: #f9f9f9;
+        }
+    }
+    .nav-item:hover .nav-item-text,
+    .nav-item.is_active .nav-item-text {
+        border-color: #6995d6;
+        text-decoration: none;
+    }
+    .nav-item.is_active .nav-item-text {
+        box-shadow: inset 0px 3px 6px -1px rgba(0,0,0, 0.2);
+        color: $base-color;
+
+        &:before,
+        &:after {
+            display: block;
         }
     }
 }

@@ -23,13 +23,11 @@
 */
 .section-nav .nav-item {
   display: block;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #dceaee transparent transparent transparent;
-  border-radius: 0; }
+  border-bottom: 1px solid #efefef; }
+  .section-nav .nav-item:first-child {
+    border-top: 1px solid #efefef; }
   .section-nav .nav-item.is_active {
-    border-color: #bae8ef;
-    border-radius: 6px; }
+    background-color: #f9f9f9; }
   .section-nav .nav-item .subnav-items-list {
     display: none; }
   .section-nav .nav-item.is_active .subnav-items-list {
@@ -42,30 +40,41 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  position: relative;
   color: #497bb7;
   display: block;
   cursor: pointer;
   padding: 8px 16px; }
   .section-nav .nav-item-text:hover {
-    background-color: #F9F9F9; }
+    background-color: #f2f5f8;
+    text-decoration: underline; }
+  .section-nav .nav-item-text:before {
+    position: absolute;
+    top: 15px;
+    left: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 5px;
+    border-color: transparent transparent transparent #497bb7;
+    content: ''; }
 .section-nav .nav-item.is_active .nav-item-text {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  background-color: #f2fcff;
   color: #333333; }
+  .section-nav .nav-item.is_active .nav-item-text:hover {
+    background-color: #F5F5F5;
+    text-decoration: none;
+    border-left-color: #333333; }
+  .section-nav .nav-item.is_active .nav-item-text:before {
+    left: 5px;
+    border-width: 0 0 6px 6px;
+    border-color: transparent transparent #333333 transparent; }
 .section-nav .subnav-items-list {
   margin-top: 8px;
   margin-right: 16px;
-  margin-left: 40px;
+  margin-left: 23px;
   margin-bottom: 8px; }
 .section-nav .subnav-items-list-item {
   position: relative;
-  margin-bottom: 4px; }
-  .section-nav .subnav-items-list-item:before {
-    position: absolute;
-    top: -1px;
-    right: 100%;
-    margin-right: 5px;
-    font-size: 14px;
-    color: #BBB;
-    content: '\2014'; }
+  margin-bottom: 8px; }
+  .section-nav .subnav-items-list-item.is_active .text {
+    font-weight: bold; }

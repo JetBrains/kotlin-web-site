@@ -5,14 +5,14 @@
 
     .nav-item {
         display: block;
-        border-width: 1px;
-        border-style: solid;
-        border-color: #dceaee transparent transparent transparent;
-        border-radius: 0;
+        border-bottom: 1px solid #efefef;
+
+        &:first-child {
+            border-top: 1px solid #efefef;
+        }
 
         &.is_active {
-            border-color: #bae8ef;
-            border-radius: 6px;
+            background-color: #f9f9f9;
         }
 
         .subnav-items-list {
@@ -28,48 +28,62 @@
 
     .nav-item-text {
         @include user-select(none);
+        position: relative;
         color: $base-link-color;
         display: block;
         cursor: pointer;
-        padding: $unit $unit*2;
+        padding: $unit 16px;
 
         &:hover {
-            background-color: #F9F9F9;
+            background-color: #f2f5f8;
+            text-decoration: underline;
+        }
+
+        &:before {
+            position: absolute;
+            top: 15px;
+            left: 7px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 5px;
+            border-color: transparent transparent transparent $base-link-color;
+            content: '';
         }
     }
     .nav-item.is_active .nav-item-text {
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-        background-color: #f2fcff;
         color: $base-color;
+
+        &:hover {
+            background-color: #F5F5F5;
+            text-decoration: none;
+            border-left-color: $base-color;
+        }
+
+        &:before {
+            //@include transform(rotate(45deg));
+            left: 5px;
+            border-width: 0 0 6px 6px;
+            border-color: transparent transparent  $base-color transparent;
+        }
     }
 
     .subnav-items-list {
         margin-top: $unit;
         margin-right: $unit*2;
-        margin-left: $unit*5;
+        margin-left: 23px;
         margin-bottom: $unit;
     }
 
     .subnav-items-list-item {
         position: relative;
-        margin-bottom: $unit/2;
+        margin-bottom: $unit;
 
-        &:before {
-            position: absolute;
-            top: -1px;
-            right: 100%;
-            margin-right: 5px;
-            font-size: 14px;
-            color: #BBB;
-            content:'\2014';
-        }
-        
         .text {
 
         }
         &.is_active .text {
-
+            font-weight: bold;
         }
     }
 }
