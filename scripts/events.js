@@ -10,7 +10,8 @@ ui.events = {
             events = {
                 upcoming: [],
                 past: []
-            };
+            },
+            $fragment;
 
         $events.each(function (i, elem) {
             var $elem,
@@ -50,6 +51,7 @@ ui.events = {
         });
 
         if (events.upcoming.length > 0 || events.past.length > 0) {
+            $fragment = $(document.createDocumentFragment());
             $eventsList.html('');
 
             for (var eventType in events) {
@@ -64,18 +66,20 @@ ui.events = {
 
                 switch (eventType) {
                     case 'upcoming':
-                        $eventsList.append('<h2 class="events-list-title">Upcoming</h2>');
+                        $fragment.append('<h2 class="events-list-title">Upcoming</h2>');
                         break;
 
                     case 'past':
-                        $eventsList.append('<h2 class="events-list-title">Past</h2>');
+                        $fragment.append('<h2 class="events-list-title">Past</h2>');
                         break;
                 }
 
                 $(events[eventType]).each(function (i, elem) {
-                    $eventsList.append(elem);
+                    $fragment.append(elem);
                 });
             }
+
+            $eventsList.append($fragment);
         }
     }
 };

@@ -16,7 +16,7 @@ $(function() {
 <p>If you'd like us to come and speak at your event or are giving a talk on Kotlin and would like it published here, <a href="mailto:hadi@jetbrains.com">please contact us</a>.</p>
 
 <ul class="events-list js-events-list">
-    {% for event in events %}
+    {% for event in events reversed %}
         {% assign event_date = event.date %}
         {% if event.date.size %}
             {% assign event_date = event.date|join:',' %}
@@ -26,7 +26,7 @@ $(function() {
 
             <span class="event-title">
                 {% if event.url %}
-                    <a href="{{ event.url }}" target="_blank" class="event-url">{{ event.title }}</a>,
+                    <a href="{{ event.url }}" target="_blank" rel="nofollow" class="event-url">{{ event.title }}</a>,
                 {% else %}
                     {{ event.title }},
                 {% endif %}
@@ -58,7 +58,7 @@ $(function() {
                     <li class="event-content-item">
                         <div class="event-content-item-title">
                             {% if item.url %}
-                                <a href="{{ item.url }}" class="event-content-item-url">{{ item.title }}</a>
+                                <a href="{{ item.url }}" class="event-content-item-url" rel="nofollow">{{ item.title }}</a>
                             {% else %}
                                 {{ item.title }}
                             {% endif %}
@@ -70,7 +70,7 @@ $(function() {
                                 <li class="event-content-subitem">
                                     <div class="event-content-subitem-title">
                                         {% if subitem.url %}
-                                            <a href="{{ subitem.url }}" class="event-content-subitem-url">{{ subitem.title }}</a>
+                                            <a href="{{ subitem.url }}" class="event-content-subitem-url" rel="nofollow">{{ subitem.title }}</a>
                                         {% else %}
                                             {{ subitem.title }}
                                         {% endif %}
