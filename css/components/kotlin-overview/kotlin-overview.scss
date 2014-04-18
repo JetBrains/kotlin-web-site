@@ -98,11 +98,11 @@
                 cursor: pointer;
             }
 
-            &._simple {}
+            &._tooling {}
             &._concise {}
             &._expressive {}
             &._safe {}
-            &._fast {}
+            &._versatile {}
             &._interoperable {}
         }
 
@@ -138,11 +138,11 @@
             margin: auto;
             background: url('images/features-icons.png') no-repeat 200% 200%;
 
-            &._simple {width: 46px; height: 46px; background-position: 0 0;}
+            &._tooling {width: 46px; height: 46px; background-position: 0 0;}
             &._concise {width: 30px; height: 55px; background-position: 0 -100px;}
             &._expressive {width: 79px; height: 55px; background-position: 0 -200px;}
             &._safe {width: 38px; height: 58px; background-position: 0 -300px;}
-            &._fast {width: 51px; height: 45px; background-position: 0 -400px;}
+            &._versatile {width: 51px; height: 45px; background-position: 0 -400px;}
             &._interoperable {width: 56px; height: 56px; background-position: 0 -500px;}
         }
 

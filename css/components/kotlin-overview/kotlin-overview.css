@@ -303,7 +303,7 @@
       bottom: 0;
       margin: auto;
       background: url("images/features-icons.png") no-repeat 200% 200%; }
-      .kotlin-overview-section._features .kotlin-features-list .feature-icon._simple {
+      .kotlin-overview-section._features .kotlin-features-list .feature-icon._tooling {
         width: 46px;
         height: 46px;
         background-position: 0 0; }
@@ -319,7 +319,7 @@
         width: 38px;
         height: 58px;
         background-position: 0 -300px; }
-      .kotlin-overview-section._features .kotlin-features-list .feature-icon._fast {
+      .kotlin-overview-section._features .kotlin-features-list .feature-icon._versatile {
         width: 51px;
         height: 45px;
         background-position: 0 -400px; }
