@@ -4,7 +4,6 @@ Get rid of those pesky NullPointerExceptions, you know, The Billion Dollar Mista
 
 {% highlight kotlin %}
 var output : String
-
 output = null
 {% endhighlight %}
 
