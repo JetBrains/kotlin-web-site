@@ -9,12 +9,12 @@
     {% assign activeSubcategoryId = include.current_section %}
 {% endif %}
 
-<div class="section-nav">
+<div class="page-tree-nav">
 {% for item in site.data.reference-subcategories %}
     {% assign subcategoryId = item[0] %}
     {% assign subcategoryName = item[1] %}
 
-    <div class="nav-item {% if activeSubcategoryId == subcategoryId %}is_active{% endif %}"
+    <div class="nav-item _expandable {% if activeSubcategoryId == subcategoryId %}is_active{% endif %}"
          data-id="{{ subcategoryId }}"
     >
         <div class="nav-item-text">{{ subcategoryName }}</div>

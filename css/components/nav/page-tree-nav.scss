@@ -2,7 +2,7 @@
 @import '../../utils';
 
 
-.section-nav {
+.page-tree-nav {
 
     .nav-item {
         display: block;
@@ -23,9 +23,6 @@
             display: block;
         }
     }
-    .nav-item.is_active + .nav-item {
-        border-top-color: transparent;
-    }
 
     .nav-item-text {
         @include user-select(none);
@@ -39,6 +36,19 @@
             background-color: #f2f5f8;
             text-decoration: underline;
         }
+    }
+    .nav-item.is_active .nav-item-text {
+        cursor: default;
+        color: $base-color;
+
+        &:hover {
+            background-color: #F5F5F5;
+            text-decoration: none;
+            border-left-color: $base-color;
+        }
+    }
+    .nav-item._expandable .nav-item-text {
+        cursor: pointer;
 
         &:before {
             position: absolute;
@@ -52,21 +62,10 @@
             content: '';
         }
     }
-    .nav-item.is_active .nav-item-text {
-        color: $base-color;
-
-        &:hover {
-            background-color: #F5F5F5;
-            text-decoration: none;
-            border-left-color: $base-color;
-        }
-
-        &:before {
-            //@include transform(rotate(45deg));
-            left: 5px;
-            border-width: 0 0 6px 6px;
-            border-color: transparent transparent  $base-color transparent;
-        }
+    .nav-item._expandable.is_active .nav-item-text:before {
+        left: 5px;
+        border-width: 0 0 6px 6px;
+        border-color: transparent transparent  $base-color transparent;
     }
 
     .subnav-items-list {

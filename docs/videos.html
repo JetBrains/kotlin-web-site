@@ -1,26 +1,129 @@
 ---
 layout: videos
 title: Videos
+nav_id: videos
 ---
 
 {% assign videos = site.data.videos.list %}
+{% assign categories = site.data.videos.categories %}
 
-<div class="videos-list">
-    {% for video in videos %}
-        <div class="videos-list-item">
-            <a href="{{ video.url }}" class="video-thumbnail-link js-video">
-                <img src="{{ site.baseurl }}{{ video.thumbnail }}" class="video-thumbnail-image" alt="{{ video.title }}">
+<div class="g-grid">
 
-                <span class="video-info-wrap">
-                    <span class="video-info">
-                        <span class="video-title">{{ video.title }}</span>
-                        <span class="video-description">
-                            {{ video.description }}
-                        </span>
-                        <span class="video-play-button"></span>
-                    </span>
-                </span>
-            </a>
+    <div class="g-3" id="categories-filter">
+        <div class="page-tree-nav">
+            {% for category_item in categories %}
+                {% assign category_id = category_item[0] %}
+                {% assign category_title = category_item[1] %}
+
+                <div class="nav-item {% if forloop.first %}is_active{% endif %}"
+                     data-id="{{ category_id }}">
+                    <div class="nav-item-text">{{ category_title }}</div>
+                </div>
+            {% endfor %}
+
         </div>
-    {% endfor %}
+    </div>
+
+    <div class="g-9">
+        <div class="videos-list">
+            {% for category_item in categories %}
+                {% assign category_id = category_item[0] %}
+                {% assign category_title = category_item[1] %}
+
+                <div class="videos-list-category"
+                     id="category_{{ category_id }}"
+                    {% if forloop.first == false %}style="display: none"{% endif %}
+                >
+                {% for video in videos %}
+                    {% if video.category == category_id %}
+                        <div class="videos-list-item">
+                            <a href="{{ video.url }}" class="video-thumbnail-link js-video">
+                                <img src="{{ site.baseurl }}{{ video.thumbnail }}" class="video-thumbnail-image" alt="{{ video.title }}">
+
+                                <span class="video-info-wrap">
+                                    <span class="video-info">
+                                        <span class="video-title">{{ video.title }}</span>
+                                        <span class="video-description">
+                                            {{ video.description }}
+                                        </span>
+                                        <span class="video-play-button"></span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var videoIdRegexp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/,
+        videoEmbedUrl,
+        videos,
+        categories;
+
+    videos = {{ videos | json }};
+    categories = {{ categories | json }};
+
+    initVideos();
+    initCategoriesFilter();
+
+    for (var categoryId in categories) {
+        if ($('#category_' + categoryId + ' .videos-list-item').length === 0) {
+            $('.nav-item[data-id="' + categoryId + '"]').remove();
+        }
+    }
+
+
+    function initVideos() {
+        $('.js-video').on('click', function(e) {
+            var $elem = $(this),
+                videoUrl = this.href,
+                match,
+                videoEmbedUrl;
+
+            e.preventDefault();
+
+            match = videoUrl.match(videoIdRegexp);
+            if (match !== null && typeof match[7] !== 'undefined') {
+                videoEmbedUrl = 'http://www.youtube.com/embed/' + match[7] + '?autoplay=1&showinfo=0&vq=hd720';
+                $elem.append('<iframe src="'+ videoEmbedUrl +'" class="video-player">');
+            }
+        });
+    }
+
+    function initCategoriesFilter(categories) {
+        var $filter = $('#categories-filter'),
+            $items = $filter.find('.nav-item');
+
+        $items.on('click', function(e) {
+            var activeId = this.getAttribute('data-id'),
+                isActive = $(this).hasClass('is_active');
+
+            if (isActive) {
+                return false;
+            }
+
+            $items.each(function() {
+                var id = this.getAttribute('data-id'),
+                    $videosElem = $('#category_' + id),
+                    $elem = $(this);
+
+                if (id === activeId) {
+                    $elem.addClass('is_active');
+                    $videosElem.show();
+                } else {
+                    $elem.removeClass('is_active');
+                    $videosElem.hide();
+                }
+            })
+
+        });
+    }
+});
+</script>

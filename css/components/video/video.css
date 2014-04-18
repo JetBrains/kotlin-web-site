@@ -31,6 +31,7 @@
     display: block; }
   .videos-list-item .video-info-wrap {
     position: absolute;
+    overflow: hidden;
     top: 0;
     right: 0;
     bottom: 0;
@@ -49,12 +50,23 @@
     transition: opacity 0.3s;
     position: relative;
     display: inline-block;
+    padding: 25px 0 30px;
     max-width: 400px;
     vertical-align: middle;
     text-align: left;
     color: #fff;
     opacity: 1; }
+    .videos-list-item .video-info:before {
+      position: absolute;
+      opacity: 0.6;
+      top: 0;
+      left: -200%;
+      right: -200%;
+      bottom: 0;
+      background-color: #000;
+      content: ''; }
   .videos-list-item .video-title {
+    position: relative;
     display: block;
     margin-bottom: 8px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -62,6 +74,7 @@
     font-size: 45px;
     line-height: 50px; }
   .videos-list-item .video-description {
+    position: relative;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     font-size: 18px;
     line-height: 21px;
@@ -69,7 +82,7 @@
   .videos-list-item .video-play-button {
     position: absolute;
     opacity: 0.6;
-    top: -10px;
+    top: 15px;
     right: 100%;
     width: 69px;
     height: 69px;
