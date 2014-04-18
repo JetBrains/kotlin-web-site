@@ -2,7 +2,7 @@
 name: Your New Jekyll Site
 markdown: kramdown
 pygments: true
-baseurl: /kotlin-web-site
+baseurl:
 
 
 permalink: /:categories/:title.html
