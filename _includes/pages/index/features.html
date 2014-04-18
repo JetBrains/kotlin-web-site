@@ -1,3 +1,5 @@
+{% assign features = site.data.kotlin-features %}
+
 <div class="kotlin-overview-section _features">
     <h2 class="section-header">Why Kotlin?</h2>
     <p class="section-description">Simple. Pleasurable. Powerful. Why not? Seriously though, let&#700;s see why...</p>
@@ -7,53 +9,18 @@
 
             <div class="kotlin-features-carousel js-carousel">
                 <ul class="kotlin-features-list">
-                    <li class="kotlin-feature _simple js-popup-open-button"
-                        data-popup-id="kotlin-feature_tooling">
-                        <div class="feature-image"><div class="feature-icon _simple"></div></div>
-                        <h3 class="feature-title">Tooling</h3>
-                        <p class="feature-description">Command Line Compiler or First Class IDE Support. Freedom to choose.</p>
-                        <span class="feature-example-link">See example</span>
-                    </li>
+                    {% for item in features %}
+                        {% assign feature_id = item[0] %}
+                        {% assign feature = item[1] %}
 
-                    <li class="kotlin-feature _concise js-popup-open-button"
-                        data-popup-id="kotlin-feature_concise">
-                        <div class="feature-image"><div class="feature-icon _concise"></div></div>
-                        <h3 class="feature-title">Concise</h3>
-                        <p class="feature-description">Drastically reduce the amount of boilerplate code you need to write.</p>
-                        <span class="feature-example-link">See example</span>
-                    </li>
-
-                    <li class="kotlin-feature _expressive js-popup-open-button"
-                        data-popup-id="kotlin-feature_expressive">
-                        <div class="feature-image"><div class="feature-icon _expressive"></div></div>
-                        <h3 class="feature-title">Expressive</h3>
-                        <p class="feature-description">Write code to express intent as opposed to surfacing implementation details.</p>
-                        <span class="feature-example-link">See example</span>
-                    </li>
-
-                    <li class="kotlin-feature _safe js-popup-open-button"
-                        data-popup-id="kotlin-feature_safe">
-                        <div class="feature-image"><div class="feature-icon _safe"></div></div>
-                        <h3 class="feature-title">Safe</h3>
-                        <p class="feature-description">Avoid having to work with pesky null reference exception checks.</p>
-                        <span class="feature-example-link">See example</span>
-                    </li>
-
-                    <li class="kotlin-feature _fast js-popup-open-button"
-                        data-popup-id="kotlin-feature_versatile">
-                        <div class="feature-image"><div class="feature-icon _fast"></div></div>
-                        <h3 class="feature-title">Versatile</h3>
-                        <p class="feature-description">Suitable for any type of application. Even for sharing code between JVM/JS.</p>
-                        <span class="feature-example-link">See example</span>
-                    </li>
-
-                    <li class="kotlin-feature _interoperable js-popup-open-button"
-                        data-popup-id="kotlin-feature_interoperable">
-                        <div class="feature-image"><div class="feature-icon _interoperable"></div></div>
-                        <h3 class="feature-title">Interoperable</h3>
-                        <p class="feature-description">Leverage existing frameworks and libraries of the JVM with 100% Java Interoperability.</p>
-                        <span class="feature-example-link">See example</span>
-                    </li>
+                        <li class="kotlin-feature _{{ feature_id }} js-popup-open-button"
+                            data-popup-id="kotlin-feature_{{ feature_id }}">
+                            <div class="feature-image"><div class="feature-icon _{{ feature_id }}"></div></div>
+                            <h3 class="feature-title">{{ feature.title }}</h3>
+                            <p class="feature-description">{{ feature.description }}</p>
+                            <span class="feature-example-link">See example</span>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
 
@@ -62,93 +29,20 @@
         </div>
     </div>
 
-    <!-- Tooling popup -->
-    <div class="overview-popup _hidden js-popup"
-         id="kotlin-feature_tooling">
-        <div class="popup-content">
-            <h3>Tooling.</h3>
+    {% for item in features %}
+        {% assign feature_id = item[0] %}
+        {% assign feature = item[1] %}
+
+        <div class="overview-popup _hidden js-popup"
+             id="kotlin-feature_{{ feature_id }}">
+            <div class="popup-content">
+                {% markdown %}{% include {{feature.content_file}} %}{% endmarkdown %}
+            </div>
+
+            <div class="popup-close-button js-popup-close-button"
+                 data-popup-id="kotlin-feature_{{ feature_id }}"></div>
         </div>
-
-        <div class="popup-close-button js-popup-close-button"
-             data-popup-id="kotlin-feature_tooling"></div>
-    </div>
-    <div class="overview-popup-overlay"></div>
-
-
-    <!-- Expressive popup -->
-    <div class="overview-popup _hidden js-popup"
-         id="kotlin-feature_expressive">
-        <div class="popup-content">
-            <h3>Expressive.</h3>
-        </div>
-
-        <div class="popup-close-button js-popup-close-button"
-             data-popup-id="kotlin-feature_expressive"></div>
-    </div>
-    <div class="overview-popup-overlay"></div>
-
-
-    <!-- Safe popup -->
-    <div class="overview-popup _hidden js-popup"
-         id="kotlin-feature_safe">
-        <div class="popup-content">
-            <h3>Safe.</h3>
-        </div>
-
-        <div class="popup-close-button js-popup-close-button"
-             data-popup-id="kotlin-feature_safe"></div>
-    </div>
-    <div class="overview-popup-overlay"></div>
-
-
-    <!-- Fast popup -->
-    <div class="overview-popup _hidden js-popup"
-         id="kotlin-feature_versatile">
-        <div class="popup-content">
-            <h3>Versatile.</h3>
-        </div>
-
-        <div class="popup-close-button js-popup-close-button"
-             data-popup-id="kotlin-feature_versatile"></div>
-    </div>
-    <div class="overview-popup-overlay"></div>
-
-
-    <!-- Interoperable popup -->
-    <div class="overview-popup _hidden js-popup"
-         id="kotlin-feature_interoperable">
-        <div class="popup-content">
-            <h3>Interoperable.</h3>
-        </div>
-
-        <div class="popup-close-button js-popup-close-button"
-             data-popup-id="kotlin-feature_interoperable"></div>
-    </div>
-    <div class="overview-popup-overlay"></div>
-
-
-    <!-- Concise popup -->
-    <div class="overview-popup _hidden js-popup"
-         id="kotlin-feature_concise">
-        <div class="popup-content">
-            <h3>Why Kotlin? Because Kotlin is concise.</h3>
-
-            <p>Create a POJO with getters, setters, equals(), hashCode(), toString() and copy() in a single line:</p>
-            <pre><code>data <span class="keyword">class</span> Customer(<span class="keyword">val</span> <span class="var-name">name</span>: String, <span class="keyword">val</span> <span class="var-name">email</span>: String, <span class="keyword">val</span> <span class="var-name">company</span>: String)</code></pre>
-
-            <p>Or filter a list using a lambda expression:</p>
-            <pre><code><span class="keyword">val</span> <span class="var-name">positiveNumbers</span> = list.filter {it > 0}</code></pre>
-
-            <p>Want a singleton? Create an object:</p>
-            <pre><code><span class="keyword">object</span> ThisIsASingleton {
-<span class="keyword">val</span> <span class="var-name">companyName</span>: String = "JetBrains"
-}</code></pre>
-
-        </div>
-
-        <div class="popup-close-button js-popup-close-button"
-             data-popup-id="kotlin-feature_concise"></div>
-    </div>
-    <div class="overview-popup-overlay"></div>
+        <div class="overview-popup-overlay"></div>
+    {% endfor %}
 
 </div>
