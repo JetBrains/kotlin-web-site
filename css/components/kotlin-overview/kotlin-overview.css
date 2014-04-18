@@ -260,10 +260,10 @@
     .kotlin-overview-section .overview-popup .popup-content .highlight .g {
       color: white; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .k {
-      color: #fb660a;
+      color: #ff8b17;
       font-weight: bold; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .l {
-      color: white; }
+      color: #78a35f; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .n {
       color: white; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .o {
@@ -332,10 +332,10 @@
     .kotlin-overview-section .overview-popup .popup-content .highlight .ld {
       color: white; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .m {
-      color: #0086f7;
+      color: #3489ca;
       font-weight: bold; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .s {
-      color: #0086d2; }
+      color: #78a35f; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .na {
       color: #ff0086;
       font-weight: bold; }
@@ -352,7 +352,7 @@
     .kotlin-overview-section .overview-popup .popup-content .highlight .ne {
       color: white; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .nf {
-      color: #ff0086;
+      color: #ffcf7f;
       font-weight: bold; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .nl {
       color: white; }
@@ -366,7 +366,7 @@
       color: #fb660a;
       font-weight: bold; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .nv {
-      color: #fb660a; }
+      color: #a165cb; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .ow {
       color: white; }
     .kotlin-overview-section .overview-popup .popup-content .highlight .w {
