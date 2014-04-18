@@ -53,8 +53,8 @@
 
     .kotlin-features-carousel {
         overflow: hidden;
-        width: $carousel-width + 2px;
-        padding: 0 1px;
+        width: $carousel-width;
+        padding: 0 8px;
     }
 
     .kotlin-features-carousel-nav {
@@ -94,7 +94,8 @@
             vertical-align: top;
 
             &:hover {
-                box-shadow: 0 1px 2px 0px rgba(132, 181, 230, 1);
+                //box-shadow: 0 1px 2px 0px rgba(132, 181, 230, 1);
+                box-shadow: 0 1px 9px 1px #84b5e6;
                 cursor: pointer;
             }
 

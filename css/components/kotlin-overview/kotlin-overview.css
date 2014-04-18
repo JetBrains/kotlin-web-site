@@ -499,8 +499,8 @@
     white-space: nowrap; }
   .kotlin-overview-section._features .kotlin-features-carousel {
     overflow: hidden;
-    width: 1034px;
-    padding: 0 1px; }
+    width: 1032px;
+    padding: 0 8px; }
   .kotlin-overview-section._features .kotlin-features-list {
     display: inline-block;
     position: relative;
@@ -530,7 +530,7 @@
       white-space: normal;
       vertical-align: top; }
       .kotlin-overview-section._features .kotlin-features-list .kotlin-feature:hover {
-        box-shadow: 0 1px 2px 0px #84b5e6;
+        box-shadow: 0 1px 9px 1px #84b5e6;
         cursor: pointer; }
     .kotlin-overview-section._features .kotlin-features-list .feature-image {
       position: relative;
