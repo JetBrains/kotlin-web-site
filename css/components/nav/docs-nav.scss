@@ -2,29 +2,7 @@
 @import '../../utils';
 
 
-.docs-pages-list {
-    .list-item {
-        margin-bottom: $unit*2;
-
-        &.is_active {
-            font-weight: bold;
-        }
-    }
-
-    .list-item-text {
-    }
-
-    .list-item-title {
-
-    }
-}
-
-.page_docs {
-    .page-sidebar {}
-    .page-content {}
-}
-
-.docs-page-nav {
+.docs-nav {
     @include grid('.nav-item', 5, 20px);
     margin-bottom: $unit*6;
     list-style-type: none;

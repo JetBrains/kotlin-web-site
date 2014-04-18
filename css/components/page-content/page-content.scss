@@ -1,8 +1,8 @@
 @import '../../config';
 
-@import '../heading/heading';
-@import '../list/list';
-@import '../code/code';
+@import '../_header/_header';
+@import '../_list/_list';
+@import '../_code/_code';
 
 .page-title {
      @extend %h1;
@@ -73,11 +73,10 @@
 
     // code
     code {
-        font-family: $font-family-mono;
-        background-color: #eee;
-        padding-left: 2px;
-        padding-right: 2px;
+        @extend %code-span;
     }
+
+    @import '../syntax-highlight/syntax-highlight';
 
     .highlight {
         margin-bottom: 20px;
@@ -92,16 +91,14 @@
     // misc
     .keyword {
         color: #0000C0;
-        padding: 5px;
-        font-style: normal;
     }
 
     .error {
-        background-color: #ff0000;
+        color: #ff0000;
     }
 
     .warning {
-        background-color: #ffff00;
+        background-color: #ffffcc;
     }
 
     .key {

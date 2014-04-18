@@ -140,6 +140,12 @@ $overview-section-width: 840px;
             }
         }
 
+        @import '../syntax-highlight/_dark';
+
+        .highlight {
+            margin-bottom: $unit*2;
+        }
+
         code {
             color: #fff;
 

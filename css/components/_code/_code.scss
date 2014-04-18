@@ -9,3 +9,10 @@
     border: 1px solid #cae0e9;
     border-radius: 12px;
 }
+
+%code-span {
+    font-family: $font-family-mono;
+    background-color: #eee;
+    padding-left: 2px;
+    padding-right: 2px;
+}

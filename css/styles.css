@@ -8,10 +8,7 @@
 @import 'components/layout/layout.css';
 
 @import 'components/nav/nav.css';
-@import 'components/content/content.css';
+@import 'components/page-content/page-content.css';
 @import 'components/video/video.css';
-@import 'components/code/code-syntax.css';
-@import 'components/docs/docs.css';
 @import 'components/events/events.css';
 @import 'components/kotlin-overview/kotlin-overview.css';
-@import 'components/table-of-contents/table-of-contents.css';
