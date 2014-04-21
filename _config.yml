@@ -1,6 +1,10 @@
 # Jekyll Settings
 name: Your New Jekyll Site
 markdown: kramdown
+markdown_ext: foo
+kramdown:
+  input: GFM
+  hard_wrap: false
 pygments: true
 baseurl:
 
