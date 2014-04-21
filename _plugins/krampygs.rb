@@ -54,6 +54,7 @@ module Jekyll
       html = Kramdown::Document.new(content, {
           :auto_ids             => @config['kramdown']['auto_ids'],
           :footnote_nr          => @config['kramdown']['footnote_nr'],
+          :hard_wrap          =>   @config['kramdown']['hard_wrap'],
           :entity_output        => @config['kramdown']['entity_output'],
           :toc_levels           => @config['kramdown']['toc_levels'],
           :smart_quotes         => @config['kramdown']['smart_quotes'],
