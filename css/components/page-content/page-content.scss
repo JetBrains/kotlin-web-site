@@ -12,7 +12,7 @@
 .page-content {
     h1 {
         @extend %h1;
-        margin-bottom: $unit*5;
+        margin-bottom: $unit*3;
     }
     p + h1,
     ul + h1,
@@ -43,6 +43,16 @@
         margin-top: 30px;
     }
 
+    h4 {
+        @extend %h4;
+        margin-bottom: $unit*2;
+    }
+    p + h4,
+    ul + h4,
+    ol + h4,
+    .highlight + h4 {
+        margin-top: 15px;
+    }
 
     // lists
     ul {

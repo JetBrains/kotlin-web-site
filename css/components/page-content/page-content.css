@@ -4,15 +4,20 @@
   line-height: 54px; }
 
 .page-content h2 {
-  font-family: "GraublauSlab Regular", Georgia, serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 30px;
   line-height: 33px;
   color: #404041; }
 
 .page-content h3 {
-  font-family: "GraublauSlab Regular", Georgia, serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 24px;
   line-height: 27px; }
+
+.page-content h4 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px; }
 
 .page-content ul, .page-content ol {
   margin-bottom: 15px; }
@@ -140,7 +145,7 @@
   /* Name.Variable.Instance */
   /* Literal.Number.Integer.Long */ }
   .page-content h1 {
-    margin-bottom: 40px; }
+    margin-bottom: 24px; }
   .page-content p + h1,
   .page-content ul + h1,
   .page-content ol + h1,
@@ -160,6 +165,13 @@
   .page-content ol + h3,
   .page-content .highlight + h3 {
     margin-top: 30px; }
+  .page-content h4 {
+    margin-bottom: 16px; }
+  .page-content p + h4,
+  .page-content ul + h4,
+  .page-content ol + h4,
+  .page-content .highlight + h4 {
+    margin-top: 15px; }
   .page-content p {
     margin-bottom: 15px;
     line-height: 20px; }
