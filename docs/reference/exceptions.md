@@ -11,13 +11,13 @@ All exception classes in Kotlin are descendants of the class *Exception*. Every 
 
 To throw an exception object, use the *throw*{: .keyword } expression
 
-{% highlight kotlin %}
+``` kotlin
 throw MyException("Hi There!")
-{% endhighlight %}
+```
 
 To catch an exception, use the *try*{: .keyword } expression
 
-{% highlight kotlin %}
+``` kotlin
 try {
   // some code
 }
@@ -27,7 +27,7 @@ catch (e : SomeException) {
 finally {
   // optional finally block
 }
-{% endhighlight %}
+```
 
 There may be zero or more *catch*{: .keyword } blocks. *finally*{: .keyword } blocks may be omitted. However at least one *catch*{: .keyword } or *finally*{: .keyword } block
 should be present.
@@ -36,9 +36,9 @@ should be present.
 
 *try*{: .keyword } is an expression, i.e. it may have a return value.
 
-{% highlight kotlin %}
+``` kotlin
 val a : Int? = try { parseInt(input) } catch (e : NumberFormatException) { null }
-{% endhighlight %}
+```
 
 The returned value of a *try*{: .keyword } expression with no *finally*{: .keyword } is either the last expression in the *try*{: .keyword } block or the
 last expression in the *catch*{: .keyword } block (or blocks).
@@ -51,20 +51,20 @@ Kotlin does not have checked exceptions. There are many reasons for this, but we
 
 The following is an example interface of the JDK implemented by *StringBuilder* class
 
-{% highlight kotlin %}
+``` kotlin
 Appendable append(CharSequence csq) throws IOException;
-{% endhighlight %}
+```
 
 What does this signature say? It says that every time I append a string to something (a StringBuilder, some kind of a log, a console, etc) I have to catch those IOExceptions. Why? Because it might be performing IO (Writer also implements Appendable)... So it results into this kind of code all over the place:
 
-{% highlight kotlin %}
+``` kotlin
 try {
   log.append(message);
 }
 catch (IOException e) {
   // Must be safe
 }
-{% endhighlight %}
+```
 
 And this is no good, see [Effective Java Item 65](http://java.sun.com/docs/books/effective): Don't ignore exceptions.
 

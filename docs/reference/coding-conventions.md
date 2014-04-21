@@ -9,6 +9,7 @@ This page contains the current coding style for the Kotlin language.
 
 ## Naming Style
 if in doubt default to the Java Coding Conventions such as:
+
 * use of camelCase for names (and avoid underscore in names)
 * types start with upper case
 * methods and properties start with lower case
@@ -21,17 +22,17 @@ Kotlin does not have fields as a primary concept in the language - it only has p
 
 There is a space before colon where colon separates type and supertype and there's no space where colon separates instance and type:
 
-{% highlight kotlin %}
+``` kotlin
 trait Foo : Bar {
     fun foo(a: Int): String
 }
-{% endhighlight %}
+```
 
 ## Unit
 If a function returns Unit, the return type should be omitted:
 
-{% highlight kotlin %}
+``` kotlin
 fun foo() { // ": Unit" is omitted here
 
 }
-{% endhighlight %}
+```

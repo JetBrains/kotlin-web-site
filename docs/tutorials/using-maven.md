@@ -22,17 +22,18 @@ is needed in your pom file.
 
 The correspondence between milestones and versions is displayed below:
 
+|---------------------|
 | Milestone | Version |
-
+|---------------------|
 {% for entry in site.data.versions %}
-| {{entry.milestone}} | {{entry.version}} |
+{% markdown %}| {{entry.milestone}} | {{entry.version}} |{% endmarkdown %}
 {% endfor %}
 
 ### Configuring Snapshot Repositories
 
 To use a snapshot version of Kotlin, include the following repository definitions to the pom
 
-{% highlight xml %}
+``` xml
 <repositories>
   <repository>
     <id>sonatype.oss.snapshots</id>
@@ -60,13 +61,13 @@ To use a snapshot version of Kotlin, include the following repository definition
     </snapshots>
   </pluginRepository>
 </pluginRepositories>
-{% endhighlight %}
+```
 
 ### Dependencies
 
 Kotlin has an extensive standard library that can be used in your applications. Configure the following dependency in the pom file
 
-{% highlight xml %}
+``` xml
 <dependencies>
     <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
@@ -74,21 +75,20 @@ Kotlin has an extensive standard library that can be used in your applications. 
         <version>${kotlin.version}</version>
     </dependency>
 </dependencies>
-{% endhighlight %}
+```
 
 ### Compiling Kotlin only source code
 
 To compile source code, specify the source directories in the <build> tag:
 
-{% highlight xml %}
-
+``` xml
 <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
 <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
-{% endhighlight %}
+```
 
 The Kotlin Maven Plugin needs to be referenced to compile the sources:
 
-{% highlight xml %}
+``` xml
 
 <plugin>
     <artifactId>kotlin-maven-plugin</artifactId>
@@ -109,7 +109,7 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
         </execution>
     </executions>
 </plugin>
-{% endhighlight %}
+```
 
 ### Compiling Kotlin and Java sources
 
@@ -118,7 +118,7 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
 
 It could be done by moving Kotlin compilation to previous phase, process-sources (feel free to suggest a better solution if you have one):
 
-{% highlight xml %}
+``` xml
 <plugin>
     <artifactId>kotlin-maven-plugin</artifactId>
     <groupId>org.jetbrains.kotlin</groupId>
@@ -138,13 +138,13 @@ It could be done by moving Kotlin compilation to previous phase, process-sources
         </execution>
     </executions>
 </plugin>
-{% endhighlight %}
+```
 
 ### Using External Annotations
 
 Kotlin uses external annotation to have precise information about types in Java libraries. To specify these annotations, use annotationPaths in <configuration>:
 
-{% highlight xml %}
+``` xml
 <plugin>
     <artifactId>kotlin-maven-plugin</artifactId>
     <groupId>org.jetbrains.kotlin</groupId>
@@ -157,7 +157,7 @@ Kotlin uses external annotation to have precise information about types in Java 
     </configuration>
 
 ...
-{% endhighlight %}
+```
 
 ### Examples
 

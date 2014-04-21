@@ -5,6 +5,8 @@ category: reference
 subcategory: basics
 ---
 
+## Idioms
+
 A collection of random and frequently used idioms in Kotlin.
 
 #### Have a favorite idiom?
@@ -13,9 +15,9 @@ If you have a favorite idiom, contribute it. Do a pull request.
 
 ### Creating DTO's (POJO's/POCO's)
 
-{% highlight kotlin %}
+``` kotlin
 data class Customer(val name: String, val email: String)
-{% endhighlight %}
+```
 
 provides a Customer class with the following functionality
 
@@ -28,138 +30,140 @@ provides a Customer class with the following functionality
 
 ### Declaring a final local variable
 
-{% highlight kotlin %}
+``` kotlin
 val a = foo()
-{% endhighlight %}
+```
 
 ### Default values for function paramters
 
-{% highlight kotlin %}
+``` kotlin
 fun foo(a: Int = 0, b: String = "") { ... }
-{% endhighlight %}
+```
 
 ### Filtering a list
 
-{% highlight kotlin %}
+``` kotlin
 val positivies = list.filter { x -> x > 0 }
-{% endhighlight %}
+```
 
 Or alternatively, even shorter:
 
-{% highlight kotlin %}
+``` kotlin
 val positivies = list.filter { it > 0 }
-{% endhighlight %}
+```
 
 ### String Interpolation
 
-{% highlight kotlin %}
+``` kotlin
 println("Name $name")
-{% endhighlight %}
+```
 
 ### Instance Checks
 
-{% highlight kotlin %}
+``` kotlin
 when (x) {
     is Foo -> ...
     is Bar -> ...
     else   -> ...
 }
-{% endhighlight %}
+```
 
 ### Traversing a map/list of pairs
 
-{% highlight kotlin %}
+``` kotlin
 for ((k, v) in map) {
     println("$k -> $v")
 }
-{% endhighlight %}
+```
 
 k,v can be called anything.
 
 ### Using ranges
 
-{% highlight kotlin %}
+``` kotlin
 for (i in 1..100) { ... }
 for (x in 2..10) { ... }
-{% endhighlight %}
+```
 
 ### Read-only list
 
-{% highlight kotlin %}
+``` kotlin
 val list = listOf("a", "b", "c")
-{% endhighlight %}
+```
 
 ### Read-only map
 
-{% highlight kotlin %}
+``` kotlin
 val map = mapOf("a" to 1, "b" to 2, "c" to 3)
-{% endhighlight %}
+```
 
 ### Accessing a map
 
-{% highlight kotlin %}
+``` kotlin
 println(map["key"])
 map["key"] = value
-{% endhighlight %}
+```
 
 ### Lazy property
 
-{% highlight kotlin %}
+``` kotlin
 val p: String by Delegates.lazy {
     // compute the string
 }
-{% endhighlight %}
+```
 
 ### Extension Functions
 
-{% highlight kotlin %}
+``` kotlin
 fun String.spaceToCamelCase() { ... }
 
 "Convert this to camelcase".spaceToCamelCase()
-{% endhighlight %}
+```
 
 ### Creating a singleton
 
+``` kotlin
 object Resource {
     val name = "Name"
 }
+```
 
 ### If not null shorthand
 
-{% highlight kotlin %}
+``` kotlin
 val files = File("Test").listFiles()
 
 println(files?.size)
-{% endhighlight %}
+```
 
 ### If not null and else shorthand
 
-{% highlight kotlin %}
+``` kotlin
 val files = File("Test").listFiles()
 
 println(files?.size ?: "empty")
-{% endhighlight %}
+```
 
 ### Executing a statement if null
 
-{% highlight kotlin %}
+``` kotlin
 val data = ...
 val email = data["email"] ?: throw IllegalStateException("Email is missing!")
-{% endhighlight %}
+```
 
 ### Execute if not null
 
-{% highlight kotlin %}
+``` kotlin
 val data = ...
 
 data?.let {
     ... // execute this block if not null
 }
-{% endhighlight %}
+```
 
 ### Return on when statement
 
-{% highlight kotlin %}
+``` kotlin
 fun transform(color: String): Int {
     return when (color) {
         "Red" -> 0
@@ -168,11 +172,11 @@ fun transform(color: String): Int {
         else -> throw IllegalArgumentException("Invalid color param value")
     }
 }
-{% endhighlight %}
+```
 
 ### Return on try catch block
 
-{% highlight kotlin %}
+``` kotlin
 fun test() {
     val result = try {
         count()
@@ -182,11 +186,11 @@ fun test() {
 
     // Working with result
 }
-{% endhighlight %}
+```
 
 ### Return on if statement
 
-{% highlight kotlin %}
+``` kotlin
 fun foo(param: Int) {
     val result = if (param == 1) {
         "one"
@@ -196,29 +200,29 @@ fun foo(param: Int) {
         "three"
     }
 }
-{% endhighlight %}
+```
 
 ### Single-expression functions
 
-{% highlight kotlin %}
+``` kotlin
 fun theAnswer() = 42
-{% endhighlight %}
+```
 
 This is equivalent to
 
-{% highlight kotlin %}
+``` kotlin
 fun theAnswer() {
     return 42
 }
-{% endhighlight %}
+```
 
 This can be effectively combined with other idioms, leading to shorter code. E.g. with the when expression:
 
-{% highlight kotlin %}
+``` kotlin
 fun transform(color: String): Int = when (color) {
     "Red" -> 0
     "Green" -> 1
     "Blue" -> 2
     else -> throw IllegalArgumentException("Invalid color param value")
 }
-{% endhighlight %}
+```

@@ -9,32 +9,32 @@ subcategory: syntax
 
 Functions in Kotlin are declared using the *fun*{: .keyword } keyword
 
-{% highlight kotlin %}
+``` kotlin
 fun double(x: Int): Int {
 }
-{% endhighlight %}
+```
 
 
 ### Parameters
 
 Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed.
 
-{% highlight kotlin %}
+``` kotlin
 fun powerOf(number: Int, exponent: Int) {
 ...
 }
-{% endhighlight %}
+```
 
 ### Default Arguments
 
 Function parameters can have default values, which are used when a corresponding argument is omitted. This allows to reduce the number of overloads compared to
 other languages.
 
-{% highlight kotlin %}
+``` kotlin
 fun read(b: Array<Byte>, off: Int = 0, len: Int = -1) {
 ...
 }
-{% endhighlight %}
+```
 
 Default values are defined using the **=** after type along with the value. Default arguments must be the last in the list, that is, it is not possible to have
 a parameter without a default argument following one with a default argument.
@@ -45,40 +45,40 @@ Function parameters can be named when calling functions. This is very convenient
 
 Given the following function
 
-{% highlight kotlin %}
+``` kotlin
 fun reformat(str: String, normalizeCase: Boolean = true, upperCaseFirstLetter: Boolean = true, divideByCamelHumps: Boolean = false, wordSeparator: Character = ' ') {
 ...
 }
-{% endhighlight %}
+```
 
 we could call this using default arguments
 
-{% highlight kotlin %}
+``` kotlin
 reformat(str)
-{% endhighlight %}
+```
 
 However, when calling it with non-default, the call would look something like
 
-{% highlight kotlin %}
+``` kotlin
 reformat(str, true, true, false, '_')
-{% endhighlight %}
+```
 
 With named arguments we can make the code much more readable
 
-{% highlight kotlin %}
+``` kotlin
 reformat(str,
     normalizeCase = true,
     uppercaseFirstLetter = true,
     divideByCamelHumps = false,
     wordSeparator = '_'
   )
-{% endhighlight %}
+```
 
 and if we do not need all arguments
 
-{% highlight kotlin %}
+``` kotlin
 reformat(str, wordSeparator = '_')
-{% endhighlight %}
+```
 
 
 ### Unit returning functions
@@ -86,7 +86,7 @@ reformat(str, wordSeparator = '_')
 If a function does not return any useful value, its return type is *Unit*{: .keyword }. *Unit*{: .keyword } is a type with only one value - *Unit.VALUE*{: .keyword }. This
 value does not have to be returned explicitly
 
-{% highlight kotlin %}
+``` kotlin
 fun printHello(name: String?): Unit {
     if (name != null)
         println("Hello ${name}")
@@ -94,54 +94,54 @@ fun printHello(name: String?): Unit {
         println("Hi there!")
     // return Unit.VALUE or return is optional
 }
-{% endhighlight %}
+```
 
 The *Unit*{: .keyword } return type declaration is also optional. The above code is equivalent to
 
-{% highlight kotlin %}
+``` kotlin
 fun printHello(name: String?) {
     ...
 }
-{% endhighlight %}
+```
 
 ### Single-Expression functions
 
 When a function returns a single expression, the curly braces can be omitted and the body is specified after a **=** symbol
 
-{% highlight kotlin %}
+``` kotlin
 fun double(x: Int) : Int = x * 2
-{% endhighlight %}
+```
 
 Explicitly declaring the return type is optional as this will be inferred by the compiler
 
-{% highlight kotlin %}
+``` kotlin
 fun double(x: Int) = x * 2
-{% endhighlight %}
+```
 
 ### Varargs - Variable number of arguments
 
 The last parameter of a function may be marked with *vararg*{: .keyword } annotation
 
-{% highlight kotlin %}
+``` kotlin
 fun asList<T>(vararg ts : T) : List<T> {
   val result = ArrayList<T>()
   for (t in ts) // ts is an Array
     result.add(t)
   return result
 }
-{% endhighlight %}
+```
 
 allowing a variable number of arguments to be passed in to the function.
 
 By default, *vararg*{: .keyword } creates an array, but this behavior can be customized by providing arguments to the annotation
 
-{% highlight kotlin %}
+``` kotlin
 fun asList<T>(vararg<ArrayList<T>> ts : T) : List<T> = ts // ts is a List now!
-{% endhighlight %}
+```
 
 The type argument to the *vararg*{: .keyword } annotation denotes a *builder* type. A call to this function is compiled like so
 
-{% highlight kotlin %}
+``` kotlin
 asList(0, 1, 2)
 // Compiles to
 val list = ArrayList<Int>(3) // 3 is the size of the structure
@@ -149,7 +149,7 @@ list.add(0)
 list.add(1)
 list.add(2)
 asList(list.build()) // For ArrayList, build() just returns the list itself
-{% endhighlight %}
+```
 
 As such, a *vararg*{: .keyword } builder must be a type that has
 
@@ -168,7 +168,7 @@ to top level functions, Kotlin functions can also be declared local, as member f
 
 Kotlin supports local functions, i.e. a function inside another function
 
-{% highlight kotlin %}
+``` kotlin
 fun dfs(graph : Graph){
   fun dfs(current : Vertex, visited : Set<Vertex>) {
     if (!visited.add(current)) return
@@ -178,11 +178,11 @@ fun dfs(graph : Graph){
 
   dfs(graph.vertices[0], HashSet())
 }
-{% endhighlight %}
+```
 
 Local function can access local variables of outer functions (i.e. the closure), so in the case above, the *visited* can be a local variable
 
-{% highlight kotlin %}
+``` kotlin
 fun dfs(graph : Graph){
   val visited = HashSet<Vertex>()
   fun dfs(current : Vertex) {
@@ -193,11 +193,11 @@ fun dfs(graph : Graph){
 
   dfs(graph.vertices[0])
 }
-{% endhighlight %}
+```
 
 Local functions can even return from outer functions using [qualified return expressions]({{ site.baseurl }}/docs/reference/returns.html)
 
-{% highlight kotlin %}
+``` kotlin
 fun reachable(from : Vertex, to : Vertex) : Boolean {
   val visited = HashSet<Vertex>()
   fun dfs(current : Vertex) {
@@ -212,23 +212,23 @@ fun reachable(from : Vertex, to : Vertex) : Boolean {
   dfs(from)
   return false // if dfs() did not return true already
 }
-{% endhighlight %}
+```
 
 ### Member Functions
 
 A member function is a function that is defined inside a class or object
 
-{% highlight kotlin %}
+``` kotlin
 class Simple() {
     fun foo() { print("Foo") }
 }
-{% endhighlight %}
+```
 
 Member functions are called with dot notation
 
-{% highlight kotlin %}
+``` kotlin
 Sample().foo() // creates instance of class Sample and calls foo
-{% endhighlight %}
+```
 
 For more information on classes and overriding members see [Classes]({{ site.baseurl }}/docs/reference/classes.html) and [Inheritance]({{ site.baseurl }}/docs/reference/classes.html#inheritance)
 
@@ -236,11 +236,11 @@ For more information on classes and overriding members see [Classes]({{ site.bas
 
 Functions can have generic parameters which are specified using angle brackets after the function name and before the value parameters
 
-{% highlight kotlin %}
+``` kotlin
 fun singletonArray<T>(item : T) : Array<T> {
   return Array<T>(1, {item})
 }
-{% endhighlight %}
+```
 
 For more information on generic functions see [Generics]({{ site.baseurl }}/docs/reference/generics.html)
 
@@ -260,16 +260,16 @@ High Order functions and Lambdas are explained in [their own section]({{ site.ba
 
 Calling functions uses the traditional approach
 
-{% highlight kotlin %}
+``` kotlin
 val result = double(2)
-{% endhighlight %}
+```
 
 
 Calling member functions uses the dot notation
 
-{% highlight kotlin %}
+``` kotlin
 Sample().foo() // create instance of class Sample and calls foo
-{% endhighlight %}
+```
 
 ### Infix notation
 
@@ -278,7 +278,7 @@ Functions can also be called using infix notations when
 * They are member functions or [extension functions]({{ site.baseurl }}/docs/reference/extension-functions.html)
 * They have a single parameter
 
-{% highlight kotlin %}
+``` kotlin
 // Define extension to Int
 fun Int.shl(x: Int) {
 ..
@@ -291,5 +291,5 @@ fun Int.shl(x: Int) {
 // is the same as
 
 1.shl(2)
-{% endhighlight %}
+```
 

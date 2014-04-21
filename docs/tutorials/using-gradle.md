@@ -42,7 +42,7 @@ project
 
 You need to add dependencies on kotlin-gradle-plugin and Kotlin standard library:
 
-{% highlight groovy %}
+``` groovy
 
 buildscript {
   repositories {
@@ -62,13 +62,13 @@ repositories {
 dependencies {
   compile 'org.jetbrains.kotlin:kotlin-stdlib:<version>'
 }
-{% endhighlight %}
+```
 
 ### Using Snapshot versions
 
 If you want to use a snapshot version (nightly build), first add out snapshot repository and change the version to 0.1-SNAPSHOT:
 
-{% highlight groovy %}
+``` groovy
 buildscript {
   repositories {
     mavenCentral()
@@ -93,7 +93,7 @@ repositories {
 dependencies {
   compile 'org.jetbrains.kotlin:kotlin-stdlib:0.1-SNAPSHOT'
 }
-{% endhighlight %}
+```
 
 
 ### Android Projects
@@ -101,20 +101,20 @@ dependencies {
 Android's Gradle model is a little different from ordinary Gradle, so if you want to build an Android project written in Kotlin, you need
 *kotlin-android* plugin instead of *kotlin*:
 
-{% highlight groovy %}
+``` groovy
 
 buildscript {
     ...
 }
 apply plugin: 'android'
 apply plugin: 'kotlin-android'
-{% endhighlight %}
+```
 
 #### Android Studio
 
 If you are using Android Studio, add the following under android:
 
-{% highlight groovy %}
+``` groovy
 android {
   ...
 
@@ -122,7 +122,7 @@ android {
     main.java.srcDirs += 'src/main/kotlin'
   }
 }
-{% endhighlight %}
+```
 
 This lets Android Studio know that your kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized.
 
@@ -130,10 +130,10 @@ This lets Android Studio know that your kotlin directory is a source root, so wh
 
 External annotations for JDK and Android SDK will be configured automatically. If you want to add more annotations for some of your libraries, add the following line to your Gradle script:
 
-{% highlight groovy %}
+``` groovy
 
 kotlinOptions.annotations = file('<path to annotations>')
-{% endhighlight %}
+```
 
 ### Examples
 

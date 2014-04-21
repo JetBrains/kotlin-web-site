@@ -17,11 +17,11 @@ In Kotlin there are two types of equality:
 There is no built-in operator to check for referential equality, for we believe that it is rarely needed. Instead,
 there's an inline function *identityEquals()* that can be called in the following way
 
-{% highlight kotlin %}
+``` kotlin
 a.identityEquals(b)
 // or
 a identityEquals b // infix call
-{% endhighlight %}
+```
 
 And returns true if and only if a and b point to the same object.
 
@@ -29,9 +29,9 @@ And returns true if and only if a and b point to the same object.
 
 Structural equality is checked by the == operation (and its negated counterpart !=). By convention, an expression like a == b is translated to
 
-{% highlight kotlin %}
+``` kotlin
 a?.equals(b) ?: b.identityEquals(null)
-{% endhighlight %}
+```
 
 I.e. if a is not null, it calls the equals(Any?) function, otherwise (i.e. a is null) it checks that b is referentially equal to null.
 

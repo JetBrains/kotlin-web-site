@@ -12,7 +12,7 @@ Java rather smoothly as well. In this section we describe some details about cal
 
 Pretty much all Java code can be used without any issues
 
-{% highlight kotlin %}
+``` kotlin
 import java.util.*
 
 fun demo(source : List<Int>) {
@@ -24,7 +24,7 @@ fun demo(source : List<Int>) {
   for (i in 0..source.size() - 1)
     list[i] = source[i] // get and set are called
 }
-{% endhighlight %}
+```
 
 ### Methods returning void
 
@@ -35,9 +35,9 @@ If a Java method returns void, it will return Unit when called from Kotlin. If, 
 Some of the Kotlin keywords are valid identifiers in Java: in, object, is, etc. If a Java library uses a Kotlin keyword for a method, you can still call the method
 escaping it with the backtick (`) character
 
-{% highlight kotlin %}
+``` kotlin
 foo.`is`(bar)
-{% endhighlight %}
+```
 
 
 ### Null-Safety
@@ -48,41 +48,41 @@ inside Java code called from Kotlin.
 
 Consider the following examples:
 
-{% highlight kotlin %}
+``` kotlin
 val list = ArrayList<Int>() // non-null (constructor result)
 val size = list.size() // non-null (primitive int)
 val iterator = list.iterator() // nullable (ordinary method)
-{% endhighlight %}
+```
 
 ### Checked Exceptions
 
 In Kotlin, all exceptions are unchecked, meaning that the compiler does not force you to catch any of them. So, when you call a Java method that declares a checked exception, Kotlin does not force you to do anything:
 
-{% highlight kotlin %}
+``` kotlin
 fun render(list : List<out Any?>, to : Appendable) {
   for (item in list)
     to.append(item.toString()) // Java would require us to catch IOException here
 }
-{% endhighlight %}
+```
 
 ### Java generics in Kotlin
 
 Kotlin's generics are a little different from Java's (see Generics). When importing Java types to Kotlin we perform some conversions:
 
-*Java's wildcards are converted into type projections
-    Foo<? extends Bar> becomes Foo<out Bar>
-    Foo<? super Bar> becomes Foo<in Bar>
+* Java's wildcards are converted into type projections
+  * Foo<? extends Bar> becomes Foo<out Bar>
+  * Foo<? super Bar> becomes Foo<in Bar>
 
-*Java's raw types are converted into star projections
-    List becomes List<*>, i.e. List<out Any?>
+* Java's raw types are converted into star projections
+  * List becomes List<*>, i.e. List<out Any?>
 
 Like Java's, Kotlin's generics are not retained at runtime, i.e. objects do not carry information about actual type arguments passed to their constructors, i.e. ArrayList<Integer>() is indistinguishable from ArrayList<Character>(). This makes it impossible to perform is-checks that take generics into account. Kotlin only allows is-checks for star-projected generic types:
 
-{% highlight kotlin %}
+``` kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
 // but
 if (a is List<*>) // OK: no guarantees about the contents of the list
-{% endhighlight %}
+```
 
 
 ### Invariant Arrays
@@ -102,16 +102,16 @@ The problem this causes is that methods such as *toString* for instance are no l
 #### toString()
 
 Declared as an extension function that looks for an instance function named *toString* and calls it. If there is no *toString* it returns the default
-{% highlight kotlin %}
+``` kotlin
 this.javaClass.getName( + "@" + System.identityHashCode(this)
-{% endhighlight %}
+```
 
 From a developer perspective nothing changes and all *toString* calls should work. When needing a custom implementation, merely define it in the class
 
-{% highlight kotlin %}
+``` kotlin
 class A() {
    fun toString() = "Custom A"
-{% endhighlight %}
+```
 
 #### equals()
 
@@ -131,16 +131,16 @@ In the upcoming Kotlin standard library there are plans to have a Hashable inter
 
 To retrieve the type information from an object, one uses the javaClass extension property.
 
-{% highlight kotlin %}
+``` kotlin
 val fooClass = foo.javaClass
-{% endhighlight %}
+```
 
 Instead of Java's Foo.class use javaClass<Foo>().
 
 
-{% highlight kotlin %}
+``` kotlin
 val fooClass = javaClass<Foo>()
-{% endhighlight %}
+```
 
 #### finalize()
 
@@ -157,11 +157,11 @@ At most one Java-class (and as many Java interfaces as you like) can be a supert
 
 Static members of Java classes form "class objects" for these classes. One cannot pass such a "class object" around as a value, but can access the members explicitly, for example
 
-{% highlight kotlin %}
+``` kotlin
 if (Character.isLetter(a)) {
   // ...
 }
-{% endhighlight %}
+```
 
 ## Calling Kotlin code from Java
 
@@ -169,9 +169,9 @@ Kotlin code can be called from Java easily.
 
 ### Package-level functions
 
-All the functions and properties declared inside a package org.foo.bar are put into a Java class named org.foo.bar.BarPackage.
+All the functions and properties declared inside a package `org.foo.bar` are put into a Java class named `org.foo.bar.BarPackage`.
 
-{% highlight kotlin %}
+``` kotlin
 package demo
   class Foo() {
   }
@@ -179,12 +179,12 @@ package demo
   fun bar() {
   }
 
-{% endhighlight %}
+```
 
-{% highlight kotlin %}
+``` kotlin
 new Foo();
 demo.DemoPackage.bar();
-{% endhighlight %}// Java
+```// Java
 
 For the root package (the one that's called a "default package" in Java), a class named _DefaultPackage is created.
 
@@ -192,17 +192,17 @@ For the root package (the one that's called a "default package" in Java), a clas
 
 As we mentioned above, Kotlin does not have checked exceptions. So, normally, the Java signatures of Kotlin functions do not declare exceptions thrown. Thus if we have a function in Kotlin like this:
 
-{% highlight kotlin %}
+``` kotlin
 package demo
 
 fun foo() {
   throw IOException();
 }
-{% endhighlight %}
+```
 
 And we want to call it from Java and catch the exception:
 
-{% highlight kotlin %}
+``` kotlin
 // Java
 try {
   demo.DemoPackage.foo();
@@ -210,48 +210,53 @@ try {
 catch (IOException e) { // error: foo() does not declare IOException in the throws list
   // ...
 }
-{% endhighlight %}
+```
 
 we get an error message from the Java compiler, because foo() does not declare IOException. Now, what should we do? There are a few options:
 
 * Option one (suggested in the comments below) is to create a pseudo-throwing function in Java:
-{% highlight kotlin %}
-// Java
-<E extends Throwable> void mayThrow(Class<E> eClass) throws E {
-  // Do nothing
-}
-{% endhighlight %}
 
-And then write:
-{% highlight kotlin %}
-// Java
-try {
-  mayThrow(IOException.class);
-  demo.DemoPackage.foo();
-}
-catch (IOException e) { // No problem
-  // ...
-}
-{% endhighlight %}
+  ``` kotlin
+  // Java
+  <E extends Throwable> void mayThrow(Class<E> eClass) throws E {
+    // Do nothing
+  }
+  ```
+
+  And then write:
+
+  ``` kotlin
+  // Java
+  try {
+    mayThrow(IOException.class);
+    demo.DemoPackage.foo();
+  }
+  catch (IOException e) { // No problem
+    // ...
+  }
+  ```
 
 * Option two is to catch Throwable and do an *instanceof* check. This is not very elegant, but will work.
 * Option three is to write a wrapper function in Java:
-{% highlight kotlin %}
-void foo() throws IOException { // Java does not require us to throw an exception if we declare one
-  demo.DemoPackage.foo();
-}
-{% endhighlight %}
 
-Now, you can call foo() instead of demo.DemoPackage.foo(), and catch the exception.
+  ``` kotlin
+  void foo() throws IOException { // Java does not require us to throw an exception if we declare one
+    demo.DemoPackage.foo();
+  }
+  ```
+
+  Now, you can call foo() instead of demo.DemoPackage.foo(), and catch the exception.
 
 * Option four is to make Kotlin put a throws list to the foo()'s signature with the throws annotation:
-{% highlight kotlin %}
-throws<IOException> fun foo() {
-  throw IOException();
-}
-{% endhighlight %}
+
+  ``` kotlin
+  throws<IOException> fun foo() {
+    throw IOException();
+  }
+  ```
 
 ### Null-safety
+
 When calling Kotlin functions from Java, nobody prevents us from passing a null as a non-null parameter. That's why Kotlin generates runtime checks for all public functions that expect non-nulls. This way we get a NullPointerException in the Java code immediately.
 
 ### Properties

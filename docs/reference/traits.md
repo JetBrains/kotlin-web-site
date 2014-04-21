@@ -12,33 +12,33 @@ cannot store state. They can have properties but these need to be abstract.
 
 A trait is defined using the keyword *Trait*{: .keyword }
 
-{% highlight kotlin %}
+``` kotlin
 trait MyTrait {
     fun bar()
     fun foo() {
       // optional body
     }
 }
-{% endhighlight %}
+```
 
 ### Implementing Traits
 
 A class or object can implement one or more traits
 
-{% highlight kotlin %}
+``` kotlin
 class Child: MyTrait {
 
    fun bar() {
       // body
    }
 }
-{% endhighlight %}
+```
 
 ### Properties in Traits
 
 Traits allow properties as long as these are stateless, that is because traits do not allow state.
 
-{% highlight kotlin %}
+``` kotlin
 trait MyTrait {
     val property: Int // abstract
 
@@ -50,13 +50,13 @@ trait MyTrait {
 class Child: MyTrait {
     override val property: Int = 29
 }
-{% endhighlight %}
+```
 
 ### Accessing state in trait
 
 While traits cannot have state, you can access state
 
-{% highlight kotlin %}
+``` kotlin
 open class A(x : Int) {
   val y = x * 2
 }
@@ -68,7 +68,7 @@ trait B : A {
 }
 
 class C() : A(239), B {}
-{% endhighlight %}
+```
 
 In this example, we have a base class *A*, that defines a concrete property *y* and initializes it.
 The trait *B* extends this class, but does not pass a constructor parameter in, because traits have no initialization code at all.
@@ -82,7 +82,7 @@ It prints 478 (239 * 2), because the value of *y* is obtained from this instance
 
 When we declare many types in out supertype list, it may appear that we inherit more than one implementation of the same method. For example
 
-{% highlight kotlin %}
+``` kotlin
 trait A {
   fun foo() { print("A") }
   fun bar()
@@ -103,15 +103,9 @@ class D() : A, B {
     super<B>.foo()
   }
 }
-{% endhighlight %}
+```
 
 Traits *A* and *B* both declare functions *foo()* and *bar()*. Both of them implement *foo()*, but only *B* implements *bar()* (*bar()* is not marked abstract in *A*,
 because this is the default for traits, if the function has no body). Now, if we derive a concrete class *C* from *A*, we, obviously, have to override *bar()* and provide
 an implementation. And if we derive *D* from *A* and *B*, we don’t have to override *bar()*, because we have inherited only one implementation of it.
 But we have inherited two implementations of *foo()*, so the compiler does not know, which one to choose, and forces us to override *foo()* and say what we want explicitly.
-
-
-
-
-
-### The Text

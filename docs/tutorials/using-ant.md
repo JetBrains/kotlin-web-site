@@ -21,7 +21,7 @@ These tasks are defined in the *kotlin-ant.jar* library which is located in the 
 
 When the project consists of exclusively Kotlin source code, the easiest way to compile the project is to use the *kotlinc* task
 
-{% highlight xml %}
+``` xml
 <project name="Ant Task Test" default="build">
     <typedef resource="org.jetbrains.jet.buildtools.ant.antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -29,7 +29,7 @@ When the project consists of exclusively Kotlin source code, the easiest way to 
         <kotlinc src="hello.kt" output="hello.jar"/>
     </target>
 </project>
-{% endhighlight %}
+```
 
 where ${kotlin.lib} points to the folder where the Kotlin standalone compiler was unzipped.
 
@@ -37,7 +37,7 @@ where ${kotlin.lib} points to the folder where the Kotlin standalone compiler wa
 
 If a project consists of multiple source roots, use *src* as elements to define paths
 
-{% highlight xml %}
+``` xml
 <project name="Ant Task Test" default="build">
     <typedef resource="org.jetbrains.jet.buildtools.ant.antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -48,14 +48,14 @@ If a project consists of multiple source roots, use *src* as elements to define 
         </kotlinc>
     </target>
 </project>
-{% endhighlight %}
+```
 
 ### Targeting JVM with Kotlin and Java source
 
 If a project consists of both Kotlin and Java source code, while it is possible to use *kotlinc*, to avoid repetition of task parameters, it is
 recommended to use *withKotlin* task
 
-{% highlight xml %}
+``` xml
 <project name="Ant Task Test" default="build">
 
   <path id="classpath">
@@ -79,12 +79,12 @@ recommended to use *withKotlin* task
       </jar>
   </target>
 </project>
-{% endhighlight %}
+```
 
 
 ### Targeting JavaScript with single source folder
 
-{% highlight xml %}
+``` xml
 <project name="Ant Task Test" default="build">
   <typdef resource="org.jetbrains.jet.buildtools.ant.antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -92,11 +92,11 @@ recommended to use *withKotlin* task
     <kotlin2js src="root1" output="out.js"/>
   </target>
 </project>
-{% endhighlight %}
+```
 
 ### Targeting JavaScript with Prefix, PostFix and sourcemap options
 
-{% highlight xml %}
+``` xml
 <project name="Ant Task Test" default="build">
   <taskdef resource="org.jetbrains.jet.buildtools.ant.antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -104,7 +104,7 @@ recommended to use *withKotlin* task
     <kotlin2js src="root1" output="out.js" outputPrefix="prefix" outputPostfix="postfix" sourcemap="true"/>
   </target>
 </project>
-{% endhighlight %}
+```
 
 ### References
 
@@ -112,31 +112,37 @@ Complete list of elements and attributes are listed below
 
 #### kotlinc Attributes
 
+|-----------------------------------------------|
 | Name | Description | Required | Default Value |
-| src  | Kotlin source file or directory to compile | Either src or module needs to be defined |  |
-| module  | Kotlin module to compile | Either src or module needs to be defined |  |
-| output  | Destination directory | Either output or jar is required |  |
-| classpath  | Compilation class path | No |  |
-| classpathref  | Compilation class path reference | No |  |
-| stdlib  | Path to "kotlin-runtime.jar" | No | ""  |
-| includeRuntime  | If "jar" is used, whether Kotlin runtime library is included | No | true  |
+|-----------------------------------------------|
+| `src`  | Kotlin source file or directory to compile | Either src or module needs to be defined |  |
+| `module`  | Kotlin module to compile | Either src or module needs to be defined |  |
+| `output`  | Destination directory | Either output or jar is required |  |
+| `classpath`  | Compilation class path | No |  |
+| `classpathref`  | Compilation class path reference | No |  |
+| `stdlib`  | Path to "kotlin-runtime.jar" | No | ""  |
+| `includeRuntime`  | If "jar" is used, whether Kotlin runtime library is included | No | true  |
 
 
 #### withKotlin attributes
 
+|-----------------------------------------------|
 | Name | Description | Required | Default Value |
-| externalannotations  | Path to external annotations | No |  |
+|-----------------------------------------------|
+| `externalannotations ` | Path to external annotations | No |  |
 
 
 #### kotlin2js Attributes
 
+|-------------------------------|
 | Name | Description | Required |
-| src  | Kotlin source file or directory to compile | Yes |
-| output  | Destination file | Yes |
-| library  | Library files (kt, dir, jar) | No |
-| outputPrefix  | Prefix to use for generated JavaScript files | No |
-| outputSuffix | Suffix to use for generated JavaScript files | No |
-| sourcemap  | Whether sourcemap file should be generated | No |
-| main  | Should compiler generated code call the main function | No |
+|-------------------------------|
+| `src`  | Kotlin source file or directory to compile | Yes |
+| `output`  | Destination file | Yes |
+| `library`  | Library files (kt, dir, jar) | No |
+| `outputPrefix`  | Prefix to use for generated JavaScript files | No |
+| `outputSuffix` | Suffix to use for generated JavaScript files | No |
+| `sourcemap`  | Whether sourcemap file should be generated | No |
+| `main`  | Should compiler generated code call the main function | No |
 
 

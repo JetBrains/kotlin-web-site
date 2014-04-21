@@ -9,7 +9,7 @@ subcategory: syntax
 
 A higher-order function is a function that takes functions as parameters, or returns a function. A good example of such a function is lock() that takes a lock object and a function, acquires the lock, runs the functions and releases the lock:
 
-{% highlight kotlin %}
+``` kotlin
 fun lock<T>(lock : Lock, body : () -> T) : T {
   lock.lock()
   try {
@@ -19,15 +19,15 @@ fun lock<T>(lock : Lock, body : () -> T) : T {
     lock.unlock();
   }
 }
-{% endhighlight %}
+```
 
 Let's examine the code above: body has a [function type](#function-types): () -> T, so it's supposed to be a function that takes no parameters and returns a value of type T. It is invoked inside the try block, while protected by the lock, and its result is returned by the lock() function.
 
 If we want to call lock(), we can pass a [function literal](#function-literals) to it as an argument:
 
-{% highlight kotlin %}
+``` kotlin
 val result = lock(lock, { sharedResource.operation() })
-{% endhighlight %}
+```
 
 Function literals are described in more [detail below](#function-literals), but for purposes of continuing this section, let's see a brief overview
 
@@ -37,40 +37,40 @@ Function literals are described in more [detail below](#function-literals), but 
 
 In Kotlin, there is a convention that if the last parameter to a function is a function, then we can omit the parenthesis
 
-{% highlight kotlin %}
+``` kotlin
 lock (lock) {
   sharedResource.operation()
 }
-{% endhighlight %}
+```
 
 Another example of a higher order function would be map() (of Map/Reduce):
 
-{% highlight kotlin %}
+``` kotlin
 fun <T, R> List<T>.map(transform : (T) -> R) : List<R> {
   val result = ArrayList<R>()
   for (item in this)
     result.add(transform(item))
   return result
 }
-{% endhighlight %}
+```
 
 This function can be called as follows
 
-{% highlight kotlin %}
+``` kotlin
 val doubled = ints.map {it -> it * 2}
-{% endhighlight %}
+```
 
 One other convention helps is that if a function literal has only one parameter, its declaration may be omitted (along with the ->) and its name will be it
 
-{% highlight kotlin %}
+``` kotlin
 ints map {it * 2} // Infix call + Implicit 'it'
-{% endhighlight %}
+```
 
 These conventions allow to write [LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code
 
-{% highlight kotlin %}
+``` kotlin
 strings filter {it.length == 5} sortBy {it} map {it.toUpperCase()}
-{% endhighlight %}
+```
 
 ## Inline Functions
 
@@ -78,13 +78,13 @@ Using higher-order functions imposes certain runtime penalties: each function is
 
 But it appears that in many cases this kind of overhead can be eliminated by inlining the function literals. The functions shown above are good examples of this situation. I.e., the lock() function could be easily inlined at call-sites. Consider the following case:
 
-{% highlight kotlin %}
+``` kotlin
 lock(l) {foo()}
-{% endhighlight %}
+```
 
 Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code
 
-{% highlight kotlin %}
+``` kotlin
 lock.lock()
 try {
   foo()
@@ -92,17 +92,17 @@ try {
 finally {
   lock.unlock()
 }
-{% endhighlight %}
+```
 
 Isn't it what we wanted from the very beginning?
 
 To make the compiler do this, one needs to annotate the lock() function with the inline annotation:
 
-{% highlight kotlin %}
+``` kotlin
 inline fun lock<T>(lock : Lock, body : () -> T) : T {
   // ...
 }
-{% endhighlight %}
+```
 
 Inlining may cause the generated code to grow, but if we do it in a reasonable way (do not inline big functions) it will pay off in performance, especially at "megamorphic" call-sites inside loops.
 
@@ -113,21 +113,21 @@ Inlining may cause the generated code to grow, but if we do it in a reasonable w
 
 A function literal as an "anonymous function", i.e. a function that is not declared, but passed immediately as an expression. Consider the following example:
 
-{% highlight kotlin %}
+``` kotlin
 max(strings, {a, b -> a.length < b.length})
-{% endhighlight %}
+```
 
 Function max is a higher-order function, i.e. is takes a function value as the second argument. This second argument is an expression that is itself a function, i.e. a function literal. As a function, it is equivalent to
 
-{% highlight kotlin %}
+``` kotlin
 fun compare(a : String, b : String) : Boolean = a.length < b.length
-{% endhighlight %}
+```
 
 ### Function Types
 
 For a function to accept another function as a parameter, we have to specify a function type for that parameter. For example the abovementioned function max is defined as follows:
 
-{% highlight kotlin %}
+``` kotlin
 fun max<T>(collection : Collection<out T>, less : (T, T) -> Boolean) : T? {
   var max : T? = null
   for (it in collection)
@@ -135,7 +135,7 @@ fun max<T>(collection : Collection<out T>, less : (T, T) -> Boolean) : T? {
       max = it
   return max
 }
-{% endhighlight %}
+```
 
 The parameter less is of type (T, T) -> Boolean, i.e. a function that takes two parameters of type T and returns a Boolean: true if the first one is smaller than the second one.
 
@@ -143,17 +143,17 @@ In the body, line 4, less is used as a function: it is called by passing two arg
 
 A function type is written as above, or may have named parameters, for documentation purposes and to enable calls with [named arguments]({{ site.baseurl }}/docs/reference/functions.html#named-arguments).
 
-{% highlight kotlin %}
+``` kotlin
 val compare : (x : T, y : T) -> Int = ...
-{% endhighlight %}
+```
 
 ### Syntactic form of function literals
 
 The full syntactic form of function literals, i.e. literals of function types, is as follows:
 
-{% highlight kotlin %}
+``` kotlin
 val sum = {(x : Int, y : Int) : Int -> x + y}
-{% endhighlight %}
+```
 
 A function literal is always surrounded by curly braces,
 parameter declarations in the full syntactic form go inside parentheses and have optional type annotations,
@@ -161,21 +161,21 @@ the optional return type annotation goes after the parameter list,
 the body goes after an '->' sign.
 If we leave all the optional annotations out, what's left looks like this:
 
-{% highlight kotlin %}
+``` kotlin
 val sum : (Int, Int) -> Int = {(x, y) -> x + y}
-{% endhighlight %}
+```
 
 As this is the most common case, Kotlin allows us to leave the parentheses out as well, if no type annotations are present, and so we get the short syntactic form for functional literals:
 
-{% highlight kotlin %}
+``` kotlin
 val sum : (Int, Int) -> Int = {x, y -> x + y}
-{% endhighlight %}
+```
 
 It very common that a function literal has only one parameter. If Kotlin can figure the signature out itself, it allows us not to declare the only parameter, and will implicitly declare it for us under the name it:
 
-{% highlight kotlin %}
+``` kotlin
 ints.filter {it > 0} // this literal is of type '(it : Int) -> Boolean'
-{% endhighlight %}
+```
 
 Note that if a function takes another function as the last parameter, the function literal argument can be passed outside the parenthesized argument list. See Higher-order functions and the grammar for [callSuffix]({{ site.baseurl }}/docs/reference/grammar.html#call-sufix).
 
@@ -183,13 +183,13 @@ Note that if a function takes another function as the last parameter, the functi
 
 A function literal (as well as a [local function]({{ site.baseurl }}/docs/reference/functions.html#local-functions) and [object expressions]({{ site.baseurl }}/docs/reference/object-declarations.html#object-expressions)) can access its closure, i.e. the variables declared in the outer scope. Unlike Java the closure variables can be modified:
 
-{% highlight kotlin %}
+``` kotlin
 var sum = 0
 ints filter {it > 0} forEach {
   sum += it
 }
 print(sum)
-{% endhighlight %}
+```
 
 ### Extension Function Literals
 
@@ -197,24 +197,24 @@ In addition to ordinary functions, Kotlin supports extension functions. This kin
 
 An extension function differs from an ordinary one in that it has a receiver type specification.
 
-{% highlight kotlin %}
+``` kotlin
 val sum = {Int.(other : Int) : Int -> this + other}
-{% endhighlight %}
+```
 
 Receiver type may be specified only in the full syntactic form of a function literal (remember that parameter types and return type annotations are optional in this form).
 
 Such a literal has a function type with receiver
 
-{% highlight kotlin %}
+``` kotlin
 sum : Int.(other : Int) -> Int
-{% endhighlight %}
+```
 
 it can be called with a dot or in infix form (since it has only one parameter)
 
-{% highlight kotlin %}
+``` kotlin
 1.sum(2)
 1 sum 2
-{% endhighlight %}
+```
 
 
 

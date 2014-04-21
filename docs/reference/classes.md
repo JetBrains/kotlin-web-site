@@ -13,49 +13,48 @@ related:
 
 Classes are first-class citizens in Kotlin and are declared using the keyword *class*{: .keyword }
 
-{% highlight kotlin %}
+``` kotlin
 class Invoice {
 
 }
-{% endhighlight %}
+```
 
 Class bodies are optional. In Kotlin if a class has no body, it can omit the curly braces
 
 
-{% highlight kotlin %}
+``` kotlin
 class Invoice
-{% endhighlight %}
+```
 
 
 ### Constructors
 
 Classes in Kotlin can only have a single constructor, which is declared in the header and any initialization code should be enclosed in an anonymous initializer
 
-{% highlight kotlin %}
+``` kotlin
 class Customer(name: String) {
 
     {
         logger.info("Customer initialized with value ${name}")
     }
 }
-{% endhighlight %}
 ```
 
 If the initialization is merely assigning values to class properties, this can be done without having to use an anonymous initializer
 
-{% highlight kotlin %}
+``` kotlin
 class Customer(name: String) {
     val customerName = name
 }
-{% endhighlight %}
+```
 
 In fact, for declaring properties and initializing them from the constructor, Kotlin has a more concise syntax
 
-{% highlight kotlin %}
+``` kotlin
 class Customer(val customerName: String) {
 
 }
-{% endhighlight %}
+```
 
 which is equivalent to the previous code. Much the same way as when declaring properties, those explicitly
 declared in the constructor can be mutable (*var*{: keyword }) or immutable (*val*{: keyword }).
@@ -64,11 +63,11 @@ declared in the constructor can be mutable (*var*{: keyword }) or immutable (*va
 
 To create an instance of a class, we call the constructor as if it were a regular function
 
-{% highlight kotlin %}
+``` kotlin
 val = Invoice()
 
 val = Customer("Joe Smith")
-{% endhighlight %}
+```
 
 Note that Kotlin does not have a *new*{: .keyword }
 
@@ -87,31 +86,33 @@ Classes can contain
 
 All classes in Kotlin have a common superclass *Any*{: .keyword }, that is a default super for a class with no supertypes declared:
 
-{% highlight kotlin %}
+``` kotlin
 class Example // Implicitly inherits from Any
-{% endhighlight %}
+```
 
 Any is not java.lang.Object; in particular, it does not have any members, not even equals(), hashCode or toString(). This does not mean that you can not call, say, toString() on any object: you can, but it will be an extension function.
 See [Java interoperability]({{ site.baseurl }}/docs/reference/java-interop.html#object-methods) for more details.
 
 To declare an explicit supertype, one puts it after a colon in the class header:
 
-{% highlight kotlin %}
+``` kotlin
 open class Base(p : Int)
 
 class Derived(p : Int) : Base(p)
-{% endhighlight %}
+```
 
-As you can see, the base type can (and must) be initialized right there, using the parameters of the primary constructor.
+As you can see, the base type can (and must) be initialized right there,
+using the parameters of the primary constructor.
 
-The open annotation on a class is the opposite of Java's final: it allows others to inherit from this class. By default, all classes in Kotlin are final,
-which corresponds to [Item 17 of Effective Java: Design and document for inheritance or else prohibit it](http://java.sun.com/docs/books/effective).
+The open annotation on a class is the opposite of Java's final: it allows others
+to inherit from this class. By default, all classes in Kotlin are final, which
+corresponds to [Item 17 of Effective Java: Design and document for inheritance or else prohibit it](http://java.sun.com/docs/books/effective).
 
 ### Overriding Members
 
 As we mentioned before, we stick to making things explicit in Kotlin. And unlike Java, Kotlin requires explicit annotations for overridable members that we call open and for overrides:
 
-{% highlight kotlin %}
+``` kotlin
 open class Base {
   open fun v() {}
   fun nv() {}
@@ -119,17 +120,17 @@ open class Base {
 class Derived() : Base() {
   override fun v() {}
 }
-{% endhighlight %}
+```
 
 The override annotation is required for *Derived.v()*. If it were missing, the compiler would complain. If there is no open annotation on a function, like *Base.nv()*, declaring a method with the same signature in a subclass is illegal, either with override or without it. In a final class (e.g. a class with no open annotation), open members are prohibited.
 
 A member marked override is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use final:
 
-{% highlight kotlin %}
+``` kotlin
 open class AnotherDerived() : Base() {
   final override fun v() {}
 }
-{% endhighlight %}
+```
 
 #### Wait! How will I hack my libraries now?!
 
@@ -146,7 +147,7 @@ We think that this is not a disadvantage, for the following reasons:
 
 In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses, it must override *this*{: .keyword } member and provide its own implementation (perhaps, using one of the inherited ones). To denote the supertype from which the inherited implementation is taken, we use *this*{: .keyword } qualified by the supertype name in angle brackets, e.g. this<Base>:
 
-{% highlight kotlin %}
+``` kotlin
 open class A {
   open fun f() { print("A") }
   fun a() { print("a") }
@@ -164,7 +165,7 @@ class C() : A(), B {
     super<B>.f() // call to B.f()
   }
 }
-{% endhighlight %}
+```
 
 It's fine to inherit from both *A* and *B*, and we have no problems with *a()* and *b()* since *C* inherits only one implementation of each of these functions.
 But for *f()* we have two implementations
@@ -174,7 +175,7 @@ inherited by *C*, and this we have to override *f()* in *C* and provide our own 
 
 A class and some of its members may be declared abstract. An abstract member does not have an implementation in its class. Thus, when some descendant inherits an abstract member, it does not count as an implementation:
 
-{% highlight kotlin %}
+``` kotlin
 abstract class A {
   abstract fun f()
 }
@@ -186,13 +187,13 @@ trait B {
 class C() : A(), B {
   // We are not required to override f()
 }
-{% endhighlight %}
+```
 
 Note that we do not need to annotate an abstract class open – it goes without saying. Neither need we annotate an abstract function open.
 
 We can override a non-abstract open member with an abstract one
 
-{% highlight kotlin %}
+``` kotlin
 open class Base {
   open fun f() {}
 }
@@ -200,7 +201,7 @@ open class Base {
 abstract class Derived : Base() {
   override abstract fun f()
 }
-{% endhighlight %}
+```
 
 ## Class Objects
 
@@ -210,7 +211,7 @@ For example, to replace a constructor with a Factory method, one makes the const
 
 To address this issue (and to provide some other interesting features), Kotlin introduces a concept of a class object (the closest analog in other languages would be Companion objects in Scala). Roughly speaking, a class object for class C is an object (in the sense of Object declaration) that is associated to C. There may be not more than one class object for each class. A class object is declared inside its associated class, and thus it can access its private members. A class object for C itself is (usually) not and instance of C. For example:
 
-{% highlight kotlin %}
+``` kotlin
 class C() {
   class object {
     fun create() = C()
@@ -220,11 +221,11 @@ class C() {
 fun main() {
   val c = C.create() // C denotes the class object here
 }
-{% endhighlight %}
+```
 
 At first you may think that this is just a way of grouping static members of a class together instead of mixing them with instance members: in Java we access static members of C by calling C.foo(), and the same happens with class object's members in Kotlin. But in fact there is an important difference: a class object can have supertypes, and C, as an expression denotes this object as a value, so one can pass it around, say, as an argument for a function. Let's modify our example to demonstrate this
 
-{% highlight kotlin %}
+``` kotlin
 abstract class Factory<out T> {
   abstract fun create() : T
 }
@@ -239,15 +240,15 @@ fun main() {
   val factory = C // C denotes the class object
   val c = factory.create()
 }
-{% endhighlight %}
+```
 
 Note that class objects are never inherited:
 
-{% highlight kotlin %}
+``` kotlin
 class D : C()
 
 val d = D.create() // Error: no class object for D
-{% endhighlight %}
+```
 
 A description of some more interesting features related to class objects can be found in the Generic constraints section.
 r

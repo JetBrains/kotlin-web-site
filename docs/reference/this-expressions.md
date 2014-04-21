@@ -9,20 +9,20 @@ subcategory: syntax
 ## This Expression
 
 To denote the current _receiver_, we use *this*{: .keyword } expressions:
-* In a member of a [class|({{ site.baseurl }}/docs/reference/classes.html#inheritance), *this*{: .keyword } refers to the current object of that class
-** *this*{: .keyword } is used to qualified calls to supertype's implementations of members, see [Classes and Inheritance]({{ site.baseurl }}/docs/reference/classes.html#overriding-rules)
+
+* In a member of a [class]({{ site.baseurl }}/docs/reference/classes.html#inheritance), *this*{: .keyword } refers to the current object of that class
+  ** *this*{: .keyword } is used to qualified calls to supertype's implementations of members, see [Classes and Inheritance]({{ site.baseurl }}/docs/reference/classes.html#overriding-rules)
 * In an [extension function]({{ site.baseurl }}/docs/reference/extension-functions.html) or an [extension function literals]({{ site.baseurl }}/docs/reference/lambdas.html#function-literals), *this*{: .keyword } denotes the _receiver_ parameter that is passed on the left-hand side of a dot.
 
 If *this*{: .keyword } has no qualifiers, it refers to the _innermost enclosing scope_. To refer to *this*{: .keyword } in other scopes, _label qualifiers_ are used:
 
-{anchor:qualified}
-
 ### Qualified *this*{: .keyword }
+{:#qualified}
 
 To access *this*{: .keyword } from an outer scope (a [class]({{ site.baseurl }}/docs/reference/classes.html), or [extension function]({{ site.baseurl }}/docs/reference/extension-functions.html), or labeled [extension function literal]({{ site.baseurl }}/docs/reference/lambdas.html#function-literals) one writes *this{*}{{@label}} where {{@label}} is a [label]({{ site.baseurl }}/docs/reference/returns.html)
 on the scope *this*{: .keyword } is meant to be from:
 
-{% highlight kotlin %}
+``` kotlin
 class A { // implicit label @A
   class B { // implicit label @B
     fun Int.foo() { // implicit label @foo
@@ -44,4 +44,4 @@ class A { // implicit label @A
     }
   }
 }
-{% endhighlight %}
+```
