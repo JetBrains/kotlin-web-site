@@ -330,7 +330,8 @@
       padding: 6px 10px;
       border: 1px solid #ddd; }
     .page-content table th {
-      background-color: #eee; }
+      background-color: #eee;
+      text-align: left; }
   .page-content .keyword {
     font-family: "Droid Sans Mono", monospace;
     font-style: normal;
