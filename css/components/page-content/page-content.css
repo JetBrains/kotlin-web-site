@@ -46,9 +46,8 @@
 
 .page-content code {
   font-family: "Droid Sans Mono", monospace;
-  background-color: #eee;
-  padding-left: 2px;
-  padding-right: 2px; }
+  padding-left: 0;
+  padding-right: 0; }
 
 .page-title {
   margin-bottom: 40px; }
@@ -312,7 +311,17 @@
     margin-bottom: 20px; }
     .page-content .highlight code {
       display: block; }
+  .page-content table {
+    margin-bottom: 16px; }
+    .page-content table th,
+    .page-content table td {
+      padding: 6px 10px;
+      border: 1px solid #ddd; }
+    .page-content table th {
+      background-color: #eee; }
   .page-content .keyword {
+    font-family: "Droid Sans Mono", monospace;
+    font-style: normal;
     color: #0000C0; }
   .page-content .error {
     color: #ff0000; }

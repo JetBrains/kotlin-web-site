@@ -88,8 +88,27 @@
     }
 
 
+    // table
+    table {
+        margin-bottom: $unit*2;
+
+        th,
+        td {
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+    }
+
+
     // misc
     .keyword {
+        font-family: $font-family-mono;
+        font-style: normal;
         color: #0000C0;
     }
 
