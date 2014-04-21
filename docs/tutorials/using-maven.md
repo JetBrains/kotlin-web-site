@@ -22,12 +22,23 @@ is needed in your pom file.
 
 The correspondence between milestones and versions is displayed below:
 
-|---------------------|
-| Milestone | Version |
-|---------------------|
+<table>
+<thead>
+<tr>
+  <th>Milestone</th>
+  <th>Milestone</th>
+</tr>
+</thead>
+<tbody>
 {% for entry in site.data.versions %}
-{% markdown %}| {{entry.milestone}} | {{entry.version}} |{% endmarkdown %}
+<tr>
+  <td>{{entry.milestone}}</td>
+  <td>{{entry.version}}</td>
+</tr>
 {% endfor %}
+</tbody>
+</table>
+
 
 ### Configuring Snapshot Repositories
 
