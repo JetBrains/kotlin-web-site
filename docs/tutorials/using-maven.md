@@ -26,7 +26,7 @@ The correspondence between milestones and versions is displayed below:
 <thead>
 <tr>
   <th>Milestone</th>
-  <th>Milestone</th>
+  <th>Version</th>
 </tr>
 </thead>
 <tbody>
