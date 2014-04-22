@@ -41,16 +41,14 @@
       margin-bottom: 0; }
 
 .page-content .highlight code {
-  padding: 10px 26px 10px;
+  padding: 10px;
   font-size: 14px;
-  font-family: "Droid Sans Mono", monospace;
+  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
   line-height: 18px;
-  background: #f1f6f8;
-  border: 1px solid #cae0e9;
-  border-radius: 12px; }
+  background: #F8F8F8; }
 
 .page-content code {
-  font-family: "Droid Sans Mono", monospace;
+  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
   padding-left: 0;
   padding-right: 0; }
 
@@ -333,7 +331,7 @@
       background-color: #eee;
       text-align: left; }
   .page-content .keyword {
-    font-family: "Droid Sans Mono", monospace;
+    font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
     font-style: normal;
     color: #0000C0; }
   .page-content .error {

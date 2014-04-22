@@ -153,6 +153,7 @@
 
         .feature-title {
             @extend %h3;
+            font-family: $font-family-serif;
             margin-bottom: $unit;
         }
 
@@ -246,7 +247,7 @@
     .code {
         float: left;
         margin-right: $legend-spacing - 2px;
-        font-family: $font-family-mono;
+        font-family: 'Droid Sans Mono', $font-family-mono;
         font-size: 30px;
         line-height: 37px;
         color: #9ebdd9;

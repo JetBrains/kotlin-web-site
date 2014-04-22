@@ -123,7 +123,7 @@
   .kotlin-overview-section .overview-popup .popup-content {
     margin: 48px 40px 16px 32px;
     color: #bbc9d6;
-    font-family: "Droid Sans Mono", monospace;
+    font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
     font-size: 15px;
     line-height: 22px;
     /* Solarized Light
@@ -586,6 +586,7 @@
         height: 56px;
         background-position: 0 -500px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-title {
+      font-family: "GraublauSlab Regular", Georgia, serif;
       margin-bottom: 8px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-description {
       max-width: 210px;
@@ -657,7 +658,7 @@
   .kotlin-overview-code-example .code {
     float: left;
     margin-right: 8px;
-    font-family: "Droid Sans Mono", monospace;
+    font-family: "Droid Sans Mono", Consolas, Monaco, "Liberation Mono", Courier, monospace;
     font-size: 30px;
     line-height: 37px;
     color: #9ebdd9;
