@@ -22,11 +22,22 @@ is needed in your pom file.
 
 The correspondence between milestones and versions is displayed below:
 
-| Milestone | Version |
-
+<table>
+<thead>
+<tr>
+  <th>Milestone</th>
+  <th>Version</th>
+</tr>
+</thead>
+<tbody>
 {% for entry in site.data.versions %}
-| {{entry.milestone}} | {{entry.version}} |
+<tr>
+  <td>{{entry.milestone}}</td>
+  <td>{{entry.version}}</td>
+</tr>
 {% endfor %}
+</tbody>
+</table>
 
 ### Project Layout
 
