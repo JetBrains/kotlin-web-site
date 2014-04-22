@@ -6,8 +6,8 @@ subcategory: syntax
 ---
 
 Kotlin allows us to provide implementations for a predefined set of operators on our types. These operators have fixed symbolic representation
-(like '+' or '*') and fixed [precedence]({{ site.baseurl }}/docs/reference/grammar.html#precedence). To implement an operator, one provides a [member function]({{ site.baseurl }}/docs/reference/functions.html#member-functions)
-or an [extension function]({{ site.baseurl }}/docs/reference/extension-functions.html) with a fixed name, for the corresponding type, i.e. left-hand side type for binary operations and argument type for unary ones.
+(like '+' or '*') and fixed [precedence](grammar.html#precedence). To implement an operator, one provides a [member function](functions.html#member-functions)
+or an [extension function](extension-functions.html) with a fixed name, for the corresponding type, i.e. left-hand side type for binary operations and argument type for unary ones.
 
 ## Conventions
 
@@ -149,4 +149,4 @@ All comparisons are translated into calls to compareTo, that is required to retu
 
 ## Infix calls for named functions
 
-We can simulate custom infix operations by using [infix function calls]({{ site.baseurl }}/docs/reference/functions.html#infix-notation).
+We can simulate custom infix operations by using [infix function calls](functions.html#infix-notation).

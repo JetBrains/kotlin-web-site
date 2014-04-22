@@ -16,7 +16,7 @@ import std.io.*
 
 ```
 
-See [Packages]({{ site.baseurl }}/docs/reference/packages.html).
+See [Packages](packages.html).
 
 ## Defining functions
 
@@ -48,7 +48,7 @@ fun printSum(a : Int, b : Int) {
 }
 ```
 
-See [Functions]({{ site.baseurl }}/docs/reference/functions.html).
+See [Functions](functions.html).
 
 
 ## Defining local variables
@@ -71,7 +71,7 @@ var x = 5 // Type inferred
 x += 1
 ```
 
-See also [Properties And Fields]({{ site.baseurl }}/docs/reference/properties.html).
+See also [Properties And Fields](properties.html).
 
 Use a string template
 
@@ -83,8 +83,8 @@ fun main(args : Array<String>) {
 }
 ```
 
-See [String templates]({{ site.baseurl }}/docs/reference/basic-types.html#string-templates).
-See [Arrays]({{ site.baseurl }}/docs/reference/basic-types.html#arrays).
+See [String templates](basic-types.html#string-templates).
+See [Arrays](basic-types.html#arrays).
 
 
 ## Using conditional expressions
@@ -105,7 +105,7 @@ or
 fun max(a : Int, b : Int) = if (a > b) a else b
 ```
 
-See if [expressions]({{ site.baseurl }}/docs/reference/expressions.html).
+See if [expressions](expressions.html).
 
 ## Null-checks
 
@@ -149,7 +149,7 @@ or
   print(x * y) // Now we know that x and y are not nulls
 ```
 
-See [Null-safety]({{ site.baseurl }}/docs/reference/null-safety.html).
+See [Null-safety](null-safety.html).
 
 ## is-checks and automatic casts
 
@@ -173,8 +173,8 @@ fun getStringLength(obj : Any) : Int? {
 }
 ```
 
-See [Classes]({{ site.baseurl }}/docs/reference/classes.html) and [Inheritance]({{ site.baseurl }}/docs/reference/classes.html#inheritance).
-See [Type casts]({{ site.baseurl }}/docs/reference/typecasts.html).
+See [Classes](classes.html) and [Inheritance](classes.html#inheritance).
+See [Type casts](typecasts.html).
 
 ## Using a for-loop
 
@@ -192,7 +192,7 @@ for (i in args.indices)
 }
 ```
 
-See [for-loops]({{ site.baseurl }}/docs/reference/control-flow.html#for-loops).
+See [for-loops](control-flow.html#for-loops).
 
 ## Using a while-loop
 
@@ -204,7 +204,7 @@ fun main(args : Array<String>) {
 }
 ```
 
-See [while-loop]({{ site.baseurl }}/docs/reference/control-flow.html#while-loops).
+See [while-loop](control-flow.html#while-loops).
 
 ## Using when-expression
 
@@ -220,7 +220,7 @@ fun cases(obj : Any) {
 }
 ```
 
-See [Pattern Matching]({{ site.baseurl }}/docs/reference/pattern-matching.html).
+See [Pattern Matching](pattern-matching.html).
 
 ## Using ranges and in
 
@@ -252,7 +252,7 @@ for (x in 1..5)
   print(x)
 ```
 
-See [Ranges]({{ site.baseurl }}/docs/reference/ranges.html).
+See [Ranges](ranges.html).
 
 Using function literals to filter and map collections
 
@@ -260,5 +260,5 @@ Using function literals to filter and map collections
 names filter {it.startsWith("A")} sortBy {it} map {it.toUpperCase()} forEach {print(it)}
 ```
 
-See [Higher-order functions and Function literals]({{ site.baseurl }}/docs/reference/lambdas.html).
+See [Higher-order functions and Function literals](lambdas.html).
 

@@ -94,9 +94,9 @@ On the Java platform, having a generic class Array to represent arrays leads to 
 ### Object Methods
 
 When Java types are imported into Kotlin, all the references of the type *java.lang.Object* are turned into *Any?*{: .keyword }. The big difference between
-the two is that *Any*{: .keyword } does not declare any members at all. This is due to the [inheritance]({{ site.baseurl }}/docs/reference/classes.html#inheritance) rules in Kotlin.
+the two is that *Any*{: .keyword } does not declare any members at all. This is due to the [inheritance](classes.html#inheritance) rules in Kotlin.
 
-The problem this causes is that methods such as *toString* for instance are no longer available on the type. Kotlin solves this problem using [extension functions]({{ site.baseurl }}/docs/reference/extension-functions.html)
+The problem this causes is that methods such as *toString* for instance are no longer available on the type. Kotlin solves this problem using [extension functions](extension-functions.html)
 
 
 #### toString()
@@ -115,7 +115,7 @@ class A() {
 
 #### equals()
 
-In Kotlin, == stands for a [guarded call to equals()]({{ site.baseurl }}/docs/reference/basic-ops.html). The expression on the left-hand side must have a method named equals that takes one parameter of type Any? and returns Boolean. Thus, all the Java objects have it out of the box. On the other hand, there's an extension function to Any? that performs the same kind of lookup as toString().
+In Kotlin, == stands for a [guarded call to equals()](basic-ops.html). The expression on the left-hand side must have a method named equals that takes one parameter of type Any? and returns Boolean. Thus, all the Java objects have it out of the box. On the other hand, there's an extension function to Any? that performs the same kind of lookup as toString().
 
 #### hashCode()
 

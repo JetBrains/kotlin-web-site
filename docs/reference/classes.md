@@ -76,10 +76,10 @@ Note that Kotlin does not have a *new*{: .keyword }
 
 Classes can contain
 
-* [Functions]({{ site.baseurl }}/docs/reference/functions.html)
-* [Properties]({{ site.baseurl }}/docs/reference/properties.html)
-* [Nested and Inner Classes]({{ site.baseurl }}/docs/reference/nested-classes.html)
-* [Object Declarations]({{ site.baseurl }}/docs/reference/object-declarations.html)
+* [Functions](functions.html)
+* [Properties](properties.html)
+* [Nested and Inner Classes](nested-classes.html)
+* [Object Declarations](object-declarations.html)
 
 
 ## Inheritance
@@ -91,7 +91,7 @@ class Example // Implicitly inherits from Any
 ```
 
 Any is not java.lang.Object; in particular, it does not have any members, not even equals(), hashCode or toString(). This does not mean that you can not call, say, toString() on any object: you can, but it will be an extension function.
-See [Java interoperability]({{ site.baseurl }}/docs/reference/java-interop.html#object-methods) for more details.
+See [Java interoperability](java-interop.html#object-methods) for more details.
 
 To declare an explicit supertype, one puts it after a colon in the class header:
 

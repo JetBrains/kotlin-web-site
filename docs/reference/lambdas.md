@@ -141,7 +141,7 @@ The parameter less is of type (T, T) -> Boolean, i.e. a function that takes two 
 
 In the body, line 4, less is used as a function: it is called by passing two arguments of type T.
 
-A function type is written as above, or may have named parameters, for documentation purposes and to enable calls with [named arguments]({{ site.baseurl }}/docs/reference/functions.html#named-arguments).
+A function type is written as above, or may have named parameters, for documentation purposes and to enable calls with [named arguments](functions.html#named-arguments).
 
 ``` kotlin
 val compare : (x : T, y : T) -> Int = ...
@@ -177,11 +177,11 @@ It very common that a function literal has only one parameter. If Kotlin can fig
 ints.filter {it > 0} // this literal is of type '(it : Int) -> Boolean'
 ```
 
-Note that if a function takes another function as the last parameter, the function literal argument can be passed outside the parenthesized argument list. See Higher-order functions and the grammar for [callSuffix]({{ site.baseurl }}/docs/reference/grammar.html#call-sufix).
+Note that if a function takes another function as the last parameter, the function literal argument can be passed outside the parenthesized argument list. See Higher-order functions and the grammar for [callSuffix](grammar.html#call-sufix).
 
 ### Closures
 
-A function literal (as well as a [local function]({{ site.baseurl }}/docs/reference/functions.html#local-functions) and [object expressions]({{ site.baseurl }}/docs/reference/object-declarations.html#object-expressions)) can access its closure, i.e. the variables declared in the outer scope. Unlike Java the closure variables can be modified:
+A function literal (as well as a [local function](functions.html#local-functions) and [object expressions](object-declarations.html#object-expressions)) can access its closure, i.e. the variables declared in the outer scope. Unlike Java the closure variables can be modified:
 
 ``` kotlin
 var sum = 0

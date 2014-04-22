@@ -9,12 +9,12 @@ Kotlin has three structural jump operators
 
 * `return`. By default returns from the nearest enclosing function.
 * `break`. Terminates the nearest enclosing loop.
-* `continue`. Proceeds to the next step of the nearest enclosing loop or to the next branch in the nearest enclosing [when expression]({{ site.baseurl }}/docs/reference/control-flow.html#when-expression)
+* `continue`. Proceeds to the next step of the nearest enclosing loop or to the next branch in the nearest enclosing [when expression](control-flow.html#when-expression)
 
 ## Break and Continue Labels
 
 Any expression in Kotlin may be marked with a *label*{: .keyword }.
-Labels have the from of the @ sign followed by an optional identifier, for examples @, @abc, @fooBar are valid labels (see the [grammar]({{ site.baseurl }}/docs/reference/grammar.html#label)).
+Labels have the from of the @ sign followed by an optional identifier, for examples @, @abc, @fooBar are valid labels (see the [grammar](grammar.html#label)).
 To label an expression, we just put a label in front of it
 
 ``` kotlin

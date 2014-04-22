@@ -8,7 +8,7 @@ subcategory: syntax
 
 ## Smart Casts
 
-In many cases, one does not need to use explicit cast operators in Kotlin, because the compiler tracks the [is-checks for immutable values]({{ site.baseurl }}/docs/reference/pattern-matching.html) and inserts (safe) casts automatically when needed:
+In many cases, one does not need to use explicit cast operators in Kotlin, because the compiler tracks the [is-checks for immutable values](pattern-matching.html) and inserts (safe) casts automatically when needed:
 
 ``` kotlin
 fun demo(x : Any) {
@@ -18,7 +18,7 @@ fun demo(x : Any) {
 }
 ```
 
-Automatic casts work for [when]({{ site.baseurl }}/docs/reference/control-flow.html#when-expressions) expressions and [while loops]({{ site.baseurl }}/docs/reference/control-flow.html#while-loops) as well:
+Automatic casts work for [when](control-flow.html#when-expressions) expressions and [while loops](control-flow.html#while-loops) as well:
 
 ``` kotlin
 when (x) {
@@ -31,14 +31,14 @@ when (x) {
 
 ## "Unsafe" cast operator
 
-Usually, cast operator throws an exception if the cast is not possible. Thus, we call it unsafe. The unsafe cast in Kotlin is done by an infix operator as (see [operator precedence]({{ site.baseurl }}/docs/reference/grammar.html#operator-precedence)):
+Usually, cast operator throws an exception if the cast is not possible. Thus, we call it unsafe. The unsafe cast in Kotlin is done by an infix operator as (see [operator precedence](grammar.html#operator-precedence)):
 
 ``` kotlin
 val x : String = y as String
 ```
 
-Note that null cannot be cast to String as this type is not [nullable]({{ site.baseurl }}/docs/reference/null-safety.html), i.e. if y is null, the code above throws an exception.
-In order to match Java cast semantics we have to have [nullable]({{ site.baseurl }}/docs/reference/null-safety.html) type at cast right hand side, like
+Note that null cannot be cast to String as this type is not [nullable](null-safety.html), i.e. if y is null, the code above throws an exception.
+In order to match Java cast semantics we have to have [nullable](null-safety.html) type at cast right hand side, like
 
 ``` kotlin
 val x : String? = y as String?

@@ -21,7 +21,7 @@ All the contents of the source file are (directly or indirectly) contained by it
 
 ## Imports
 
-Apart from the [default imports][#default-imports] declared by the module, each file may contain its own import directives. Syntax for imports is described in the [grammar]({{ site.baseurl }}/docs/reference/grammar.html#imports).
+Apart from the [default imports][#default-imports] declared by the module, each file may contain its own import directives. Syntax for imports is described in the [grammar](grammar.html#imports).
 
 We can import either a single name, e.g.
 

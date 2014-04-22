@@ -115,7 +115,7 @@ In all respects, this is just the same as in Java since access to private proper
 
 ## Overriding Properties
 
-See [Overriding Properties]({{ site.baseurl }}/docs/reference/classes.html#overriding-properties)
+See [Overriding Properties](classes.html#overriding-properties)
 
 ## Using Properties
 

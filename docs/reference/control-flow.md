@@ -41,7 +41,7 @@ val max = if (a > b) {
 
 When if has only one branch, or one of its branches results in Unit, it's type is Unit.
 
-See the [grammar for if]({{ site.baseurl }}/docs/reference/grammar.html#if).
+See the [grammar for if](grammar.html#if).
 
 ## When Expression
 
@@ -78,7 +78,7 @@ when (x) {
 }
 ```
 
-We can also check a value for being in or !in a [range]({{ site.baseurl }}/docs/reference/ranges.html)
+We can also check a value for being in or !in a [range](ranges.html)
 
 ``` kotlin
 when (x) {
@@ -134,8 +134,8 @@ when(term) {
 }
 ```
 
-See [Returns and jumps]({{ site.baseurl }}/docs/reference/returns.html) for more information about continue.
-See the [grammar for when]({{ site.baseurl }}/docs/reference/grammar.html#when).
+See [Returns and jumps](returns.html) for more information about continue.
+See the [grammar for when](grammar.html#when).
 
 ## For Loops
 
@@ -166,7 +166,7 @@ for (i in array.indices)
 
 Note that this "iteration through a range" is compiled down to optimal implementation with no extra objects created.
 
-See the [grammar for for]({{ site.baseurl }}/docs/reference/grammar.html#for).
+See the [grammar for for](grammar.html#for).
 
 ## While Loops
 
@@ -182,10 +182,10 @@ do {
 } while(y != null) // y is visible here!
 ```
 
-See the [grammar for while]({{ site.baseurl }}/docs/reference/grammar.html#while).
+See the [grammar for while](grammar.html#while).
 
 ## Break and continue in loops
 
-Kotlin supports traditional break and continue operators in loops. See more here [Returns and jumps]({{ site.baseurl }}/docs/reference/returns.html).
+Kotlin supports traditional break and continue operators in loops. See more here [Returns and jumps](returns.html).
 
 

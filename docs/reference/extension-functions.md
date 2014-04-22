@@ -37,7 +37,7 @@ fun <T> MutableList<T>.swap(x : Int, y : Int) {
 }
 ```
 
-We declare the generic type parameter before the function name for it to be available in the receiver type expression. See [Generic functions]({{ site.baseurl }}/docs/reference/generics.html)
+We declare the generic type parameter before the function name for it to be available in the receiver type expression. See [Generic functions](generics.html)
 
 ## Motivation
 

@@ -79,5 +79,5 @@ Other citations of this sort:
 
 ## Java Interoperability
 
-Please see the section on exceptions in the [Java Interoperability section]({{ site.baseurl }}/docs/reference/java-interop.html) for information about Java interoperability.
+Please see the section on exceptions in the [Java Interoperability section](java-interop.html) for information about Java interoperability.
 

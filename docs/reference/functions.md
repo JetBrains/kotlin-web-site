@@ -195,7 +195,7 @@ fun dfs(graph : Graph){
 }
 ```
 
-Local functions can even return from outer functions using [qualified return expressions]({{ site.baseurl }}/docs/reference/returns.html)
+Local functions can even return from outer functions using [qualified return expressions](returns.html)
 
 ``` kotlin
 fun reachable(from : Vertex, to : Vertex) : Boolean {
@@ -230,7 +230,7 @@ Member functions are called with dot notation
 Sample().foo() // creates instance of class Sample and calls foo
 ```
 
-For more information on classes and overriding members see [Classes]({{ site.baseurl }}/docs/reference/classes.html) and [Inheritance]({{ site.baseurl }}/docs/reference/classes.html#inheritance)
+For more information on classes and overriding members see [Classes](classes.html) and [Inheritance](classes.html#inheritance)
 
 ### Generic Functions
 
@@ -242,19 +242,19 @@ fun singletonArray<T>(item : T) : Array<T> {
 }
 ```
 
-For more information on generic functions see [Generics]({{ site.baseurl }}/docs/reference/generics.html)
+For more information on generic functions see [Generics](generics.html)
 
 ### Inline Functions
 
-Inline functions are explained in [High Order Functions]({{ site.baseurl }}/docs/reference/lambdas.html#inline-functions)
+Inline functions are explained in [High Order Functions](lambdas.html#inline-functions)
 
 ### Extension Functions
 
-Extension functions are explained in [their own section]({{ site.baseurl }}/docs/reference/extension-functions.html)
+Extension functions are explained in [their own section](extension-functions.html)
 
 ### High Order Functions and Lambdas
 
-High Order functions and Lambdas are explained in [their own section]({{ site.baseurl }}/docs/reference/lambdas.html)
+High Order functions and Lambdas are explained in [their own section](lambdas.html)
 
 ## Function Usage
 
@@ -275,7 +275,7 @@ Sample().foo() // create instance of class Sample and calls foo
 
 Functions can also be called using infix notations when
 
-* They are member functions or [extension functions]({{ site.baseurl }}/docs/reference/extension-functions.html)
+* They are member functions or [extension functions](extension-functions.html)
 * They have a single parameter
 
 ``` kotlin

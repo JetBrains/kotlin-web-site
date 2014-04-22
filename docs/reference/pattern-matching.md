@@ -23,7 +23,7 @@ else {
 }
 ```
 
-See [smart casts]({{ site.baseurl }}/docs/reference/typecasts.html#smart-casts).
+See [smart casts](typecasts.html#smart-casts).
 
 Is and !is may be used as branch conditions in when expressions:
 
@@ -40,4 +40,4 @@ when (x) {
 ### Patterns
 Patterns on the right-hand side of is and !is allow to match against types, constants, structure of tuples and other objects, and to bind objects matched by sub-patterns, to variables.
 
-See the [grammar for patterns]({{ site.baseurl }}/docs/reference/grammar.html#patterns).
+See the [grammar for patterns](grammar.html#patterns).
