@@ -12,66 +12,60 @@
 .page-content {
     h1 {
         @extend %h1;
-        margin-bottom: $unit*3;
-    }
-    p + h1,
-    ul + h1,
-    ol + h1,
-    .highlight + h1 {
-        margin-top: 50px;
+        margin-top: 40px;
+        margin-bottom: $vertical-rhythm-unit*3;
+
+        &:first-of-type:first-child {
+            margin-top: 0;
+        }
     }
 
     h2 {
         @extend %h2;
-        margin-bottom: $unit*4;
-    }
-    p + h2,
-    ul + h2,
-    ol + h2,
-    .highlight + h2 {
-        margin-top: 40px;
+        margin-top: $vertical-rhythm-unit*3;
+        margin-bottom: $vertical-rhythm-unit;
+
+        &:first-of-type:first-child {
+            margin-top: 0;
+        }
     }
 
     h3 {
         @extend %h3;
-        margin-bottom: $unit*3;
-    }
-    p + h3,
-    ul + h3,
-    ol + h3,
-    .highlight + h3 {
-        margin-top: 30px;
+        color: #666666;
+        margin-top: $vertical-rhythm-unit*2;
+        margin-bottom: $vertical-rhythm-unit;
+
+        &:first-of-type:first-child {
+            margin-top: 0;
+        }
     }
 
     h4 {
         @extend %h4;
-        margin-bottom: $unit*2;
+        margin-top: $vertical-rhythm-unit*2;
+        margin-bottom: $vertical-rhythm-unit;
+
+        &:first-of-type:first-child {
+            margin-top: 0;
+        }
     }
-    p + h4,
-    ul + h4,
-    ol + h4,
-    .highlight + h4 {
-        margin-top: 15px;
-    }
+
 
     // lists
     ul {
-        @extend %list;
         @extend %list%ul;
     }
 
     ol {
-        @extend %list;
         @extend %list%ol;
     }
 
 
     // paragraph
     p {
-        margin-bottom: 15px;
+        margin-bottom: $vertical-rhythm-unit;
         line-height: $base-line-height;
-    }
-    .highlight + p {
     }
 
 
@@ -81,26 +75,26 @@
     }
 
 
+    // pre
+    pre {
+        @extend %pre;
+        margin-bottom: $vertical-rhythm-unit*2;
+    }
+
+
     // code
     code {
         @extend %code-span;
     }
 
+
+    // highlight
     @import '../syntax-highlight/syntax-highlight';
-
-    .highlight {
-        margin-bottom: 20px;
-
-        code {
-            @extend %code-block;
-            display: block;
-        }
-    }
 
 
     // table
     table {
-        margin-bottom: $unit*2;
+        margin-bottom: $vertical-rhythm-unit*2;
 
         th,
         td {
@@ -112,7 +106,6 @@
             background-color: #eee;
             text-align: left;
         }
-
     }
 
 

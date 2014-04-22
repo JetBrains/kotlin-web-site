@@ -4,48 +4,57 @@
   line-height: 54px; }
 
 .page-content h2 {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 30px;
-  line-height: 33px;
-  color: #404041; }
+  line-height: 33px; }
 
 .page-content h3 {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 24px;
   line-height: 27px; }
 
 .page-content h4 {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  line-height: 22px; }
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold; }
 
-.page-content ul, .page-content ol {
-  margin-bottom: 15px; }
-  .page-content ul li {
-    margin-bottom: 8px;
-    margin-left: 20px; }
-    .page-content ul li:last-child {
+.page-content ul {
+  margin-bottom: 12px;
+  margin-left: 24px; }
+  .page-content ul > li {
+    margin-bottom: 6px;
+    list-style: disc; }
+    .page-content ul > li:last-child {
       margin-bottom: 0; }
-    .page-content ul li:before {
-      position: absolute;
-      margin-top: 8px;
-      margin-left: -13px;
-      width: 4px;
-      height: 4px;
-      background: #b4c9d1;
-      border-radius: 50%;
-      content: ''; }
-  .page-content ol li {
-    margin-bottom: 10px; }
-    .page-content ol li:last-child {
+  .page-content ul ul,
+  .page-content ul ol {
+    margin-top: 6px; }
+.page-content ol {
+  margin-bottom: 12px;
+  margin-left: 24px; }
+  .page-content ol > li {
+    list-style: decimal;
+    margin-bottom: 6px; }
+    .page-content ol > li:last-child {
       margin-bottom: 0; }
+  .page-content ol ul,
+  .page-content ol ol {
+    margin-top: 6px; }
 
-.page-content .highlight code {
-  padding: 10px;
-  font-size: 14px;
+.page-content pre {
+  padding: 12px;
   font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
-  line-height: 18px;
-  background: #F8F8F8; }
+  line-height: 20px;
+  background: #F8F8F8;
+  border: 1px solid #ddd;
+  border-radius: 3px; }
+  .page-content pre.note {
+    background-color: #FFFFDD;
+    border-color: #F7DF92;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+    .page-content pre.note code {
+      font-family: "Open Sans", Helvetica, Arial, sans-serif; }
 
 .page-content code {
   font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
@@ -143,38 +152,33 @@
   /* Name.Variable.Instance */
   /* Literal.Number.Integer.Long */ }
   .page-content h1 {
-    margin-bottom: 24px; }
-  .page-content p + h1,
-  .page-content ul + h1,
-  .page-content ol + h1,
-  .page-content .highlight + h1 {
-    margin-top: 50px; }
+    margin-top: 40px;
+    margin-bottom: 36px; }
+    .page-content h1:first-of-type:first-child {
+      margin-top: 0; }
   .page-content h2 {
-    margin-bottom: 32px; }
-  .page-content p + h2,
-  .page-content ul + h2,
-  .page-content ol + h2,
-  .page-content .highlight + h2 {
-    margin-top: 40px; }
+    margin-top: 36px;
+    margin-bottom: 12px; }
+    .page-content h2:first-of-type:first-child {
+      margin-top: 0; }
   .page-content h3 {
-    margin-bottom: 24px; }
-  .page-content p + h3,
-  .page-content ul + h3,
-  .page-content ol + h3,
-  .page-content .highlight + h3 {
-    margin-top: 30px; }
+    color: #666666;
+    margin-top: 24px;
+    margin-bottom: 12px; }
+    .page-content h3:first-of-type:first-child {
+      margin-top: 0; }
   .page-content h4 {
-    margin-bottom: 16px; }
-  .page-content p + h4,
-  .page-content ul + h4,
-  .page-content ol + h4,
-  .page-content .highlight + h4 {
-    margin-top: 15px; }
+    margin-top: 24px;
+    margin-bottom: 12px; }
+    .page-content h4:first-of-type:first-child {
+      margin-top: 0; }
   .page-content p {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     line-height: 20px; }
   .page-content img {
     max-width: 100%; }
+  .page-content pre {
+    margin-bottom: 24px; }
   .page-content .highlight {
     color: #93a1a1; }
   .page-content .highlight .lineno {
@@ -317,12 +321,8 @@
     color: #268bd2; }
   .page-content .highlight .il {
     color: #2aa198; }
-  .page-content .highlight {
-    margin-bottom: 20px; }
-    .page-content .highlight code {
-      display: block; }
   .page-content table {
-    margin-bottom: 16px; }
+    margin-bottom: 24px; }
     .page-content table th,
     .page-content table td {
       padding: 6px 10px;

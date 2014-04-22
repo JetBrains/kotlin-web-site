@@ -1,35 +1,52 @@
-%list {
-    margin-bottom: 15px;
+@import '../../config';
 
+%list {
     &%ul {
-        li {
-            margin-bottom: 8px;
-            margin-left: 20px;
+        margin-bottom: $vertical-rhythm-unit;
+        margin-left: $vertical-rhythm-unit*2;
+
+        & > li {
+            margin-bottom: $vertical-rhythm-unit/2;
+            list-style: disc;
 
             &:last-child {
                 margin-bottom: 0;
             }
 
-            &:before {
-                position: absolute;
-                margin-top: 8px;
-                margin-left: -13px;
-                width: 4px;
-                height: 4px;
-                background: #b4c9d1;
-                border-radius: 50%;
-                content: '';
-            }
+            //&:before {
+            //    position: absolute;
+            //    margin-top: 8px;
+            //    margin-left: -13px;
+            //    width: 4px;
+            //    height: 4px;
+            //    background: #b4c9d1;
+            //    border-radius: 50%;
+            //    content: '';
+            //}
+        }
+
+        ul,
+        ol {
+            margin-top: $vertical-rhythm-unit/2;
         }
     }
 
     &%ol {
-        li {
-            margin-bottom: 10px;
+        margin-bottom: $vertical-rhythm-unit;
+        margin-left: $vertical-rhythm-unit*2;
+
+        & > li {
+            list-style: decimal;
+            margin-bottom: $vertical-rhythm-unit/2;
 
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+
+        ul,
+        ol {
+            margin-top: $vertical-rhythm-unit/2;
         }
     }
 }

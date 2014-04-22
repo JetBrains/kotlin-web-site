@@ -1,13 +1,22 @@
 @import '../../config';
 
-%code-block {
-    padding: 10px;
-    font-size: 14px;
+%pre {
+    padding: $vertical-rhythm-unit;
     font-family: $font-family-mono;
-    line-height: 18px;
+    line-height: 20px;
     background: #F8F8F8;
-    //border: 1px solid #cae0e9;
-    //border-radius: 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+
+    &.note {
+        background-color: #FFFFDD;
+        border-color: #F7DF92;
+        font-family: $font-family-sans-serif;
+
+        code {
+            font-family: $font-family-sans-serif;
+        }
+    }
 }
 
 %code-span {

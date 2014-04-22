@@ -27,13 +27,12 @@
   line-height: 54px; }
 
 .kotlin-overview-section._testimonials .section-header {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 30px;
-  line-height: 33px;
-  color: #404041; }
+  line-height: 33px; }
 
 .kotlin-overview-section._features .kotlin-features-list .feature-title, .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 24px;
   line-height: 27px; }
 

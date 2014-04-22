@@ -22,10 +22,9 @@
  * @param {px} $font-size (optional)
 */
 .events-list-title {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 30px;
-  line-height: 33px;
-  color: #404041; }
+  line-height: 33px; }
 
 .events-list-title {
   margin-top: 32px;
