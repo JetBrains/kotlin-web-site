@@ -15,9 +15,8 @@ Here we describe the conventions that regulate operator overloading for differen
 
 ### Unary operations
 
-|----------------------------|
 | Expression | Translated to |
-|----------------------------|
+|------------|---------------|
 | `+a` | `a.plus()` |
 | `-a` | `a.minus()` |
 | `!a` | `a.not()` |
@@ -31,9 +30,8 @@ This table says that when the compiler processes, for example, an expression +a,
 
 *Note* that these operations, as well as all the others, are optimized for [Basic types] and do not introduce overhead of function calls for them.
 
-|----------------------------|
 | Expression | Translated to |
-|----------------------------|
+|------------|---------------|
 | `a++` | `a.inc()` + see below |
 | `a--` | `a.dec()` + see below |
 
@@ -64,9 +62,8 @@ For the *prefix* forms ++a and --a resolution works the same way, and the effect
 
 ### Binary operations
 
-|----------------------------|
 | Expression | Translated to |
-| -------------------------- |
+| -----------|-------------- |
 | `a + b` | `a.plus(b)` |
 | `a - b` | `a.minus(b)` |
 | `a * b` | `a.times(b)` |
@@ -76,18 +73,16 @@ For the *prefix* forms ++a and --a resolution works the same way, and the effect
 
 For the operations in this table, the compiler just resolves the expression in the *Translated to* column.
 
-| -------------------------- |
 | Expression | Translated to |
-| -------------------------- |
+| -----------|-------------- |
 | `a in b` | `b.contains(a)` |
 | `a !in b` | `!b.contains(a)` |
 
 For *in* and *!in* the procedure is the same, but the order of arguments is reversed.
 {:#in}
 
-|------------------------|
 | Symbol | Translated to |
-| ---------------------- |
+| -------|-------------- |
 | `a[i]`  | `a.get(i)` |
 | `a[i, j]`  | `a.get(i, j)` |
 | `a[i_1, ...,  i_n]`  | `a.get(i_1, ...,  i_n)` |
@@ -97,18 +92,16 @@ For *in* and *!in* the procedure is the same, but the order of arguments is reve
 
 Square brackets are translated to calls to get and set with appropriate numbers of arguments.
 
-|------------------------|
 | Symbol | Translated to |
-|------------------------|
+|--------|---------------|
 | `a(i)`  | `a.invoke(i)` |
 | `a(i, j)`  | `a.invoke(i, j)` |
 | `a(i_1, ...,  i_n)`  | `a.invoke(i_1, ...,  i_n)` |
 
 Parentheses are translated to calls to invoke with appropriate number of arguments.
 
-|----------------------------|
 | Expression | Translated to |
-|----------------------------|
+|------------|---------------|
 | `a += b` | `a.plusAssign(b)` |
 | `a -= b` | `a.minusAssign(b)` |
 | `a *= b` | `a.timesAssign(b)` |
@@ -127,9 +120,8 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 *Note*: assignments are *NOT* expressions in Kotlin.
 {:#Equals}
 
-|----------------------------|
 | Expression | Translated to |
-|----------------------------|
+|------------|---------------|
 | `a == b` | `a?.equals(b) ?: b.identityEquals(null)` |
 | `a != b` | `!(a?.equals(b) ?: b.identityEquals(null))` |
 
@@ -146,9 +138,8 @@ The `==` operation is special in two ways:
 
 Or an extension function with the same parameter list and return type.
 
-|------------------------|
 | Symbol | Translated to |
-|------------------------|
+|--------|---------------|
 | `a > b`  | `a.compareTo(b) > 0` |
 | `a < b`  | `a.compareTo(b) < 0` |
 | `a >= b` | `a.compareTo(b) >= 0` |

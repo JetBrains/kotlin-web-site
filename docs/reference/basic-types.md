@@ -13,15 +13,14 @@ Kotlin handles numbers in a way close to Java, but not exactly the same. For exa
 
 Kotlin provides the following built-in types representing numbers (this is close to Java):
 
-|-------------------|
 | Type	 | Bitwidth |
-|-------------------|
-| Double | 64 |
-| Float	 | 32 |
-| Long	 | 64 |
-| Int	 | 32 |
-| Short	 | 16 |
-| Byte	 | 8 |
+|--------|----------|
+| Double | 64       |
+| Float	 | 32       |
+| Long	 | 64       |
+| Int	 | 32       |
+| Short	 | 16       |
+| Byte	 | 8        |
 
 Note that characters are not numbers in Kotlin.
 

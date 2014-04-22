@@ -112,9 +112,8 @@ Complete list of elements and attributes are listed below
 
 #### kotlinc Attributes
 
-|-----------------------------------------------|
 | Name | Description | Required | Default Value |
-|-----------------------------------------------|
+|------|-------------|----------|---------------|
 | `src`  | Kotlin source file or directory to compile | Either src or module needs to be defined |  |
 | `module`  | Kotlin module to compile | Either src or module needs to be defined |  |
 | `output`  | Destination directory | Either output or jar is required |  |
@@ -126,17 +125,15 @@ Complete list of elements and attributes are listed below
 
 #### withKotlin attributes
 
-|-----------------------------------------------|
 | Name | Description | Required | Default Value |
-|-----------------------------------------------|
+|------|-------------|----------|---------------|
 | `externalannotations ` | Path to external annotations | No |  |
 
 
 #### kotlin2js Attributes
 
-|-------------------------------|
 | Name | Description | Required |
-|-------------------------------|
+|------|-------------|----------|
 | `src`  | Kotlin source file or directory to compile | Yes |
 | `output`  | Destination file | Yes |
 | `library`  | Library files (kt, dir, jar) | No |
