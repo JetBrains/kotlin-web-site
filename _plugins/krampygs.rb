@@ -9,8 +9,8 @@ module Kramdown
         lang = extract_code_language!(attr) || @options[:coderay_default_lang]
         code = pygmentize(el.value, lang)
         code_attr = {}
-        code_attr['class'] = "#{lang}" if lang
-        "#{' '*indent}<div class='highlight'><pre#{html_attributes(attr)}><code#{html_attributes(code_attr)}>#{code}</code></pre></div>\n"
+        code_attr['class'] = "highlight language-#{lang}" if lang
+        "#{' '*indent}<pre#{html_attributes(attr)}><code#{html_attributes(code_attr)}>#{code}</code></pre>\n"
       end
 
       def convert_codespan(el, indent)
@@ -19,9 +19,9 @@ module Kramdown
         code = pygmentize(el.value, lang)
         if lang
           if attr.has_key?('class')
-            attr['class'] += " #{lang}"
+            attr['class'] += " language-#{lang}"
           else
-            attr['class'] = "#{lang}"
+            attr['class'] = "highlight language-#{lang}"
           end
         end
         "<code#{html_attributes(attr)}>#{code}</code>"
