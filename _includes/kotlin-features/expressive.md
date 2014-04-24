@@ -2,10 +2,10 @@
 
 Add semantics to the code you write
 
-{% highlight kotlin %}
+``` kotlin
 val people = hashMapOf<String, Int>()
 
 for ((person, age) in  people) {
   println("${person} in ${age} years old")
 }
-{% endhighlight %}
+```
