@@ -117,9 +117,6 @@ $overview-section-width: 840px;
         p {
             margin-bottom: $unit*2;
         }
-        h4 + p {
-            margin-top: -$unit*2;
-        }
 
         ul {
             margin-bottom: $unit*2;
@@ -157,11 +154,6 @@ $overview-section-width: 840px;
                 background-color: #7792AD;
                 background-color: rgba(255,255,255, 0.2);
             }
-        }
-
-        p + pre {
-            margin-top: -$unit*2;
-            margin-bottom: $unit*2;
         }
     }
     &%_fixed .popup-content {
