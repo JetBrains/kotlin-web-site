@@ -11,8 +11,10 @@ module Jekyll
     #
     def render(context)
       site = context.registers[:site]
-      converter = site.getConverterImpl(::Jekyll::Converters::Markdown)
-      converter.convert(render_block(context))
+      # converter = site.getConverterImpl(::Jekyll::Converters::Markdown)
+      # converter.convert(render_block(context))
+      converter = Jekyll::KramdownPygments.new(site.config)
+      content = converter.convert(render_block(context))
     end
   end
 end
