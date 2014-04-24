@@ -1,16 +1,13 @@
 @import '../../config';
 
 %pre {
-    padding: $vertical-rhythm-unit;
+    padding: 20px;
     font-family: $font-family-mono;
-    line-height: 20px;
-    background: #F8F8F8;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+    line-height: 22px;
+    background: #f7f7f7;
 
     &.note {
         background-color: #FFFFDD;
-        border-color: #F7DF92;
         font-family: $font-family-sans-serif;
 
         code {
@@ -21,6 +18,4 @@
 
 %code-span {
     font-family: $font-family-mono;
-    padding-left: 0;
-    padding-right: 0;
 }

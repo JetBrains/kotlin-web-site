@@ -22,7 +22,8 @@
 
     h2 {
         @extend %h2;
-        margin-top: $vertical-rhythm-unit*3;
+        font-family: $font-family-sans-serif;
+        margin-top: $vertical-rhythm-unit*2;
         margin-bottom: $vertical-rhythm-unit;
 
         &:first-of-type:first-child {
@@ -32,7 +33,7 @@
 
     h3 {
         @extend %h3;
-        color: #666666;
+        font-family: $font-family-sans-serif;
         margin-top: $vertical-rhythm-unit*2;
         margin-bottom: $vertical-rhythm-unit;
 
@@ -65,7 +66,7 @@
     // paragraph
     p {
         margin-bottom: $vertical-rhythm-unit;
-        line-height: $base-line-height;
+        line-height: 24px;
     }
 
 
@@ -86,6 +87,15 @@
     code {
         @extend %code-span;
     }
+    p > code,
+    li > code,
+    td code {
+        display: inline-block;
+        padding: 0 5px;
+        border-bottom: 1px solid #d4d4d4;
+        border-radius: 4px;
+        background-color: #efefef;
+    }
 
 
     // highlight
@@ -94,20 +104,35 @@
 
     // table
     table {
+        border-top: 1px solid #dcdcdc;
         margin-bottom: $vertical-rhythm-unit*2;
+
+        tr {
+            //border-top: 1px solid #dcdcdc;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #f5f5f5;
+        }
 
         th,
         td {
-            padding: 6px 10px;
-            border: 1px solid #ddd;
+            padding: 8px 15px;
         }
 
         th {
-            background-color: #eee;
+            padding-top: 10px;
+            padding-bottom: 10px;
             text-align: left;
+            font-weight: bold;
         }
     }
 
+    hr {
+        border: 1px solid #dcdcdc;
+        height: 2px;
+        border-width: 1px 0;
+        margin: $vertical-rhythm-unit*2 0 $vertical-rhythm-unit*3;
+    }
 
     // misc
     .keyword {

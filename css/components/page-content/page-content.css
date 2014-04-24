@@ -20,46 +20,47 @@
   font-weight: bold; }
 
 .page-content ul {
-  margin-bottom: 12px;
-  margin-left: 24px; }
+  margin-bottom: 15px;
+  margin-left: 30px; }
   .page-content ul > li {
-    margin-bottom: 6px;
-    list-style: disc; }
+    margin-bottom: 7.5px;
+    list-style: none; }
     .page-content ul > li:last-child {
       margin-bottom: 0; }
+    .page-content ul > li:before {
+      position: absolute;
+      margin-top: -1px;
+      margin-left: -20px;
+      color: #666;
+      content: '\2014'; }
   .page-content ul ul,
   .page-content ul ol {
-    margin-top: 6px; }
+    margin-top: 7.5px; }
 .page-content ol {
-  margin-bottom: 12px;
-  margin-left: 24px; }
+  margin-bottom: 15px;
+  margin-left: 30px; }
   .page-content ol > li {
     list-style: decimal;
-    margin-bottom: 6px; }
+    margin-bottom: 7.5px; }
     .page-content ol > li:last-child {
       margin-bottom: 0; }
   .page-content ol ul,
   .page-content ol ol {
-    margin-top: 6px; }
+    margin-top: 7.5px; }
 
 .page-content pre {
-  padding: 12px;
+  padding: 20px;
   font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
-  line-height: 20px;
-  background: #F8F8F8;
-  border: 1px solid #ddd;
-  border-radius: 3px; }
+  line-height: 22px;
+  background: #f7f7f7; }
   .page-content pre.note {
     background-color: #FFFFDD;
-    border-color: #F7DF92;
     font-family: "Open Sans", Helvetica, Arial, sans-serif; }
     .page-content pre.note code {
       font-family: "Open Sans", Helvetica, Arial, sans-serif; }
 
 .page-content code {
-  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
-  padding-left: 0;
-  padding-right: 0; }
+  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace; }
 
 .page-title {
   margin-bottom: 40px; }
@@ -153,32 +154,41 @@
   /* Literal.Number.Integer.Long */ }
   .page-content h1 {
     margin-top: 40px;
-    margin-bottom: 36px; }
+    margin-bottom: 45px; }
     .page-content h1:first-of-type:first-child {
       margin-top: 0; }
   .page-content h2 {
-    margin-top: 36px;
-    margin-bottom: 12px; }
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    margin-top: 30px;
+    margin-bottom: 15px; }
     .page-content h2:first-of-type:first-child {
       margin-top: 0; }
   .page-content h3 {
-    color: #666666;
-    margin-top: 24px;
-    margin-bottom: 12px; }
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    margin-top: 30px;
+    margin-bottom: 15px; }
     .page-content h3:first-of-type:first-child {
       margin-top: 0; }
   .page-content h4 {
-    margin-top: 24px;
-    margin-bottom: 12px; }
+    margin-top: 30px;
+    margin-bottom: 15px; }
     .page-content h4:first-of-type:first-child {
       margin-top: 0; }
   .page-content p {
-    margin-bottom: 12px;
-    line-height: 20px; }
+    margin-bottom: 15px;
+    line-height: 24px; }
   .page-content img {
     max-width: 100%; }
   .page-content pre {
-    margin-bottom: 12px; }
+    margin-bottom: 15px; }
+  .page-content p > code,
+  .page-content li > code,
+  .page-content td code {
+    display: inline-block;
+    padding: 0 5px;
+    border-bottom: 1px solid #d4d4d4;
+    border-radius: 4px;
+    background-color: #efefef; }
   .page-content .highlight {
     color: #93a1a1; }
   .page-content .highlight .lineno {
@@ -322,14 +332,23 @@
   .page-content .highlight .il {
     color: #2aa198; }
   .page-content table {
-    margin-bottom: 24px; }
+    border-top: 1px solid #dcdcdc;
+    margin-bottom: 30px; }
+    .page-content table tbody tr:nth-child(odd) {
+      background-color: #f5f5f5; }
     .page-content table th,
     .page-content table td {
-      padding: 6px 10px;
-      border: 1px solid #ddd; }
+      padding: 8px 15px; }
     .page-content table th {
-      background-color: #eee;
-      text-align: left; }
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-align: left;
+      font-weight: bold; }
+  .page-content hr {
+    border: 1px solid #dcdcdc;
+    height: 2px;
+    border-width: 1px 0;
+    margin: 30px 0 45px; }
   .page-content .keyword {
     font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
     font-style: normal;

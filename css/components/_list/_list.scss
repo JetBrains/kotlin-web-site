@@ -7,22 +7,19 @@
 
         & > li {
             margin-bottom: $vertical-rhythm-unit/2;
-            list-style: disc;
+            list-style: none;
 
             &:last-child {
                 margin-bottom: 0;
             }
 
-            //&:before {
-            //    position: absolute;
-            //    margin-top: 8px;
-            //    margin-left: -13px;
-            //    width: 4px;
-            //    height: 4px;
-            //    background: #b4c9d1;
-            //    border-radius: 50%;
-            //    content: '';
-            //}
+            &:before {
+                position: absolute;
+                margin-top: -1px;
+                margin-left: -20px;
+                color: #666;
+                content: '\2014';
+            }
         }
 
         ul,
