@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-    {% include browser.html %}
-<html>
-<head>
-    {% include head.html %}
-</head>
-<body>
+---
+layout: base
+---
 
-<div class="global-layout">
-    {% include header.html %}
-
-    <div class="global-content">
-        <div class="page-content">
-            {{ content }}
-        </div>
-    </div>
-
+<div class="page-content">
+    {{ content }}
 </div>
-
-{% include footer.html %}
-</body>
-</html>

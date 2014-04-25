@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contributing to Kotlin
+main_nav_id: contribute
 ---
 
 # Contributing to Kotlin

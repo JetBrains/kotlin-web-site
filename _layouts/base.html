@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% include browser.html %}
+<html>
+<head>
+{% include head.html %}
+</head>
+<body>
+
+<div class="global-layout">
+
+    {% include header.html current_page=page.main_nav_id %}
+
+    <div class="global-content">
+        {{ content }}
+    </div>
+
+</div>
+
+{% include footer.html %}
+</body>
+</html>

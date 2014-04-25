@@ -1,43 +1,32 @@
-<!DOCTYPE html>
-    {% include browser.html %}
-<html>
-<head>
-    {% include head.html %}
-</head>
-<body>
+---
+layout: base
+main_nav_id: docs
+---
 
-<div class="global-layout">
-    {% include header.html current_section='docs' %}
+<div class="g-grid">
 
-    <div class="global-content">
-
-        <div class="g-grid">
-            <div class="g-12">
-                {% include nav/docs.html current_section='tutorials' %}
-            </div>
-
-            <div class="g-3">
-                {% include nav/tutorials.html %}
-            </div>
-
-            <div class="page-content g-9">
-                <h1 class="page-title">{{ page.title }}</h1>
-                {{ content }}
-            </div>
-        </div>
+    <div class="g-12">
+        {% include nav/docs.html current_section='tutorials' %}
     </div>
 
+    <div class="g-3">
+        {% include nav/tutorials.html %}
+    </div>
+
+    <div class="page-content g-9">
+        <a href="https://github.com/JetBrains/kotlin-web-site/tree/dev/{{ page.path }}"
+           class="page-link-to-github"
+           target="_blank">
+                <i class="github-icon"></i>
+                <span class="text">Edit Page</span>
+        </a>
+        {{ content }}
+    </div>
 </div>
 
-{% include footer.html %}
+<script type="text/javascript" src="{{ site.baseurl }}/scripts/nav.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    var $navItems = $('.page-tree-nav .nav-item-text');
-
-    $navItems.on('click', function() {
-        $(this).parent().toggleClass('is_active');
-    });
+    ui.nav.init('tree', '.page-tree-nav');
 });
 </script>
-</body>
-</html>
