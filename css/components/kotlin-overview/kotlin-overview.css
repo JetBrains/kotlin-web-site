@@ -515,8 +515,8 @@
       width: 240px;
       margin-right: 24px;
       margin-bottom: 10px;
-      padding: 0 0 24px;
-      min-height: 320px;
+      padding: 0;
+      min-height: 340px;
       background-color: #fff;
       border-radius: 4px;
       box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -588,6 +588,10 @@
       color: #000;
       text-align: center; }
     .kotlin-overview-section._features .kotlin-features-list .feature-example-link {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
       color: #497bb7;
       text-decoration: none;
       cursor: pointer; }
