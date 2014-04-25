@@ -632,7 +632,6 @@
       content: ''; }
   .kotlin-overview-section._code-examples .more-link {
     float: right;
-    opacity: 0.4;
     color: #51b2da; }
     .kotlin-overview-section._code-examples .more-link:hover {
       opacity: 1;
