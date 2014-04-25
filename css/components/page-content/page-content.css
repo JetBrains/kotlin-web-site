@@ -66,6 +66,8 @@
   margin-bottom: 40px; }
 
 .page-content {
+  position: relative;
+  margin-top: 20px;
   /* Solarized Dark 
    
   For use with Jekyll and Pygments
@@ -152,6 +154,28 @@
   /* Name.Variable.Global */
   /* Name.Variable.Instance */
   /* Literal.Number.Integer.Long */ }
+  .page-content .page-link-to-github {
+    position: absolute;
+    display: inline-block;
+    top: -40px;
+    right: 30px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    color: #ababab;
+    font-size: 12px;
+    padding: 4px 10px;
+    text-decoration: none; }
+    .page-content .page-link-to-github:hover {
+      color: #ed7615; }
+    .page-content .page-link-to-github .github-icon {
+      position: absolute;
+      display: inline-block;
+      margin-top: 1px;
+      width: 17px;
+      height: 17px;
+      background: url("images/github-icon.png") no-repeat; }
+    .page-content .page-link-to-github .text {
+      padding-left: 23px; }
   .page-content h1 {
     margin-top: 40px;
     margin-bottom: 45px; }
@@ -182,8 +206,7 @@
   .page-content pre {
     margin-bottom: 15px; }
   .page-content p > code,
-  .page-content li > code,
-  .page-content td code {
+  .page-content li > code {
     display: inline-block;
     padding: 0 5px;
     border-bottom: 1px solid #d4d4d4;

@@ -10,6 +10,39 @@
 }
 
 .page-content {
+    position: relative;
+    margin-top: 20px;
+
+    .page-link-to-github {
+        position: absolute;
+        display: inline-block;
+        top: -40px;
+        right: 30px;
+        border: 1px solid #dadada;
+        border-radius: 5px;
+        color: #ababab;
+        font-size: 12px;
+        padding: 4px 10px;
+        text-decoration: none;
+
+        &:hover {
+            color: $base-link-hover-color;
+        }
+
+        .github-icon {
+            position: absolute;
+            display: inline-block;
+            margin-top: 1px;
+            width: 17px;
+            height: 17px;
+            background: url('images/github-icon.png') no-repeat;
+        }
+
+        .text {
+            padding-left: 23px;
+        }
+    }
+
     h1 {
         @extend %h1;
         margin-top: 40px;
@@ -88,8 +121,7 @@
         @extend %code-span;
     }
     p > code,
-    li > code,
-    td code {
+    li > code {
         display: inline-block;
         padding: 0 5px;
         border-bottom: 1px solid #d4d4d4;
