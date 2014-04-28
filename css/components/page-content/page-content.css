@@ -333,8 +333,12 @@
   .page-content table {
     border-top: 1px solid #dcdcdc;
     margin-bottom: 30px; }
-    .page-content table tbody tr:nth-child(odd) {
+    .page-content table.zebra tbody tr:nth-child(odd) {
       background-color: #f5f5f5; }
+    .page-content table.wide {
+      min-width: 100%; }
+    .page-content table tr {
+      border-bottom: 1px solid #dcdcdc; }
     .page-content table th,
     .page-content table td {
       padding: 8px 15px; }
