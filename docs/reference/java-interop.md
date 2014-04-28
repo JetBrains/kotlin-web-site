@@ -181,10 +181,11 @@ package demo
 
 ```
 
-``` kotlin
+``` java
+// Java
 new Foo();
 demo.DemoPackage.bar();
-```// Java
+```
 
 For the root package (the one that's called a "default package" in Java), a class named _DefaultPackage is created.
 
