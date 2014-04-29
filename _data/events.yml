@@ -126,7 +126,7 @@
   location: Saint Petersburg, Russia
   content:
     slides: http://prezi.com/-xdrdpul_lsg/kotlin-jfokus/
-    video: [http://vimeo.com/41319179, http://vimeo.com/41319180]
+    video: ['http://vimeo.com/41319179', 'http://vimeo.com/41319180']
 
 
 - title: ADD-3
@@ -275,7 +275,7 @@
 - title: JavaOne'12
   url: http://www.oracle.com/javaone/index.html
   subject: 'Kotlin: Practical Aspects of JVM Language Implementation'
-  date: 2012-10-4
+  date: 2012-10-04
   location: San Francisco, CA, USA
   content:
     slides: http://www.slideshare.net/abreslav/javaone2012-kotlin-practical-aspects-of-jvm-language-implementation
@@ -285,7 +285,7 @@
 - title: JavaOne'12
   url: http://www.oracle.com/javaone/index.html
   subject: Incompetence * Motivation = Innovation? (How Kotlin and Other New Things Emerge)
-  date: 2012-10-4
+  date: 2012-10-04
   location: San Francisco, CA, USA
   content:
     slides: http://www.slideshare.net/abreslav/kotlin-incompetence-motivation-innovation
@@ -293,9 +293,10 @@
 
 
 - title: Advanced Kotlin (Google Tech talk video)
-  url: http://www.youtube.com/watch?v=rwsvbSve_BI
   date: 2012-10-04
   location: Mountain View, CA, USA
+  content:
+    video: http://www.youtube.com/watch?v=rwsvbSve_BI
 
 
 - title: CEE/SECR
