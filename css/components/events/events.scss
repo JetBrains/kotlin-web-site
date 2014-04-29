@@ -16,6 +16,10 @@
     border-top: none;
     margin: 0;
 
+    tr:hover {
+        background-color: #F4F4F4;
+    }
+
     .events-table-cell {
         &._title {}
         &._date {}
@@ -25,6 +29,10 @@
 
     .events-table-header-row {
         border-top: none;
+
+        &:hover {
+            background-color: transparent;
+        }
     }
 
     .event-title {

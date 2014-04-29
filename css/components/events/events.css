@@ -51,8 +51,12 @@
 .events-table {
   border-top: none;
   margin: 0; }
+  .events-table tr:hover {
+    background-color: #F4F4F4; }
   .events-table .events-table-header-row {
     border-top: none; }
+    .events-table .events-table-header-row:hover {
+      background-color: transparent; }
   .events-table .event-title {
     padding-right: 3px; }
   .events-table .event-subject {
