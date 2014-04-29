@@ -5,7 +5,7 @@ if (typeof ui === 'undefined') {
 ui.events = {
     init: function() {
         var now = new Date(),
-            $eventsList = $('.js-events-list'),
+            $eventsList = $('.js-events-table'),
             $events = $eventsList.find('.js-event'),
             events = {
                 upcoming: [],
@@ -14,8 +14,7 @@ ui.events = {
             $fragment;
 
         $events.each(function (i, elem) {
-            var $elem,
-                eventDateString = elem.getAttribute('data-date'),
+            var eventDateString = elem.getAttribute('data-date'),
                 isMultidate = eventDateString.indexOf(',') !== -1,
                 eventDate,
                 isEventInPast = false;
@@ -43,7 +42,6 @@ ui.events = {
             elem._date = eventDate;
 
             if ((!isMultidate && eventDate < now) || (isMultidate && eventDate[1] < now)) {
-                isEventInPast = true;
                 events.past.push(elem);
             } else {
                 events.upcoming.push(elem);
@@ -55,6 +53,10 @@ ui.events = {
             $eventsList.html('');
 
             for (var eventType in events) {
+                if (events[eventType].length == 0) {
+                    continue;
+                }
+
                 events[eventType].sort(function(leftElem, rightElem) {
                     var isLeftDateMulti = leftElem._isMultidate,
                         leftDate = isLeftDateMulti ? leftElem._date[1] : leftElem._date,
@@ -66,11 +68,11 @@ ui.events = {
 
                 switch (eventType) {
                     case 'upcoming':
-                        $fragment.append('<h2 class="events-list-title">Upcoming</h2>');
+                        $fragment.append('<tr class="events-table-header-row"><td colspan="3"><h2 class="events-list-title">Upcoming</h2></td></tr>');
                         break;
 
                     case 'past':
-                        $fragment.append('<h2 class="events-list-title">Past</h2>');
+                        $fragment.append('<tr class="events-table-header-row"><td colspan="3"><h2 class="events-list-title">Past</h2></td></tr>');
                         break;
                 }
 

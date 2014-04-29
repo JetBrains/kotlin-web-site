@@ -26,15 +26,56 @@
   font-size: 30px;
   line-height: 33px; }
 
-.events-list-title {
-  margin-top: 32px;
-  margin-bottom: 16px; }
-
-.events-list-item {
-  margin-bottom: 24px !important; }
-  .events-list-item .event-subject {
+.events-table {
+  border-top: 1px solid #dcdcdc;
+  margin-bottom: 30px; }
+  .zebra.events-table tbody tr:nth-child(odd) {
+    background-color: #f5f5f5; }
+  .wide.events-table {
+    min-width: 100%; }
+  .events-table tr {
+    border-bottom: 1px solid #dcdcdc; }
+  .events-table th,
+  .events-table td {
+    padding: 8px 15px;
+    vertical-align: top; }
+  .events-table th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
     font-weight: bold; }
-  .events-list-item .event-content-list {
-    margin: 8px 0; }
-  .events-list-item .event-content-sublist {
-    margin: 8px 0; }
+
+.events-list-title {
+  margin: 30px 0 15px; }
+
+.events-table {
+  border-top: none;
+  margin: 0; }
+  .events-table .events-table-header-row {
+    border-top: none; }
+  .events-table .event-title {
+    padding-right: 3px; }
+  .events-table .event-subject {
+    font-weight: bold; }
+  .events-table .event-location {
+    font-size: 12px;
+    white-space: nowrap; }
+  .events-table .event-date {
+    font-size: 11px;
+    color: #999;
+    white-space: nowrap; }
+  .events-table .event-content-link {
+    display: inline-block;
+    padding: 2px 2px;
+    font-size: 0; }
+    .events-table .event-content-link:hover {
+      opacity: 0.7; }
+  .events-table .event-content-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat; }
+    .events-table .event-content-icon._slides {
+      background-image: url("images/slides.png"); }
+    .events-table .event-content-icon._video {
+      background-image: url("images/video.png"); }
