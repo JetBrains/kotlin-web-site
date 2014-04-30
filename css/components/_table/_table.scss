@@ -1,7 +1,7 @@
 @import '../../config';
 
 %table {
-    border-top: 1px solid #dcdcdc;
+    //border-top: 1px solid #dcdcdc;
     margin-bottom: $vertical-rhythm-unit*2;
 
     &.zebra {
@@ -19,15 +19,28 @@
         border-bottom: 1px solid #dcdcdc;
     }
 
+    thead tr {
+        background-color: #F7F7F7;
+        border-bottom-width: 2px;
+    }
+
     th,
     td {
-        padding: 8px 15px;
+        padding: 6px 10px;
         vertical-align: top;
+    }
+    tr th:first-child,
+    tr td:first-child {
+        padding-left: 12px;
+    }
+    tr th:last-child,
+    tr td:last-child {
+        padding-right: 12px;
     }
 
     th {
         padding-top: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 6px;
         text-align: left;
         font-weight: bold;
     }
