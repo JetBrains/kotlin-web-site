@@ -48,20 +48,20 @@
   .page-content ol ol {
     margin-top: 7.5px; }
 
+.page-content code {
+  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace; }
+  .page-content p > code,
+  .page-content li > code {
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 4px;
+    background-color: #efefef; }
+
 .page-content pre {
   padding: 20px;
   font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
   line-height: 22px;
   background: #f7f7f7; }
-  .page-content pre.note {
-    padding: 20px 40px;
-    background-color: #FFFFE3;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif; }
-    .page-content pre.note code {
-      font-family: "Open Sans", Helvetica, Arial, sans-serif; }
-
-.page-content code {
-  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace; }
 
 .page-content table {
   margin-bottom: 30px; }
@@ -69,26 +69,30 @@
     background-color: #f5f5f5; }
   .page-content table.wide {
     min-width: 100%; }
-  .page-content table tr {
-    border-bottom: 1px solid #dcdcdc; }
-  .page-content table thead tr {
+  .page-content table thead {
     background-color: #F7F7F7;
     border-bottom-width: 2px; }
-  .page-content table th,
-  .page-content table td {
-    padding: 6px 10px;
-    vertical-align: top; }
-  .page-content table tr th:first-child,
-  .page-content table tr td:first-child {
-    padding-left: 12px; }
-  .page-content table tr th:last-child,
-  .page-content table tr td:last-child {
-    padding-right: 12px; }
+  .page-content table tfoot {
+    color: #ccc; }
+    .page-content table tfoot tr {
+      border-bottom: none; }
+  .page-content table tr {
+    border-bottom: 1px solid #dcdcdc; }
   .page-content table th {
     padding-top: 10px;
     padding-bottom: 6px;
     text-align: left;
     font-weight: bold; }
+  .page-content table th,
+  .page-content table td {
+    padding: 6px 10px;
+    vertical-align: top; }
+    .page-content table th:first-child,
+    .page-content table td:first-child {
+      padding-left: 12px; }
+    .page-content table th:last-child,
+    .page-content table td:last-child {
+      padding-right: 12px; }
 
 .page-title {
   margin-bottom: 40px; }
@@ -239,12 +243,15 @@
     max-width: 100%; }
   .page-content pre {
     margin-bottom: 15px; }
-  .page-content p > code,
-  .page-content li > code {
-    display: inline-block;
-    padding: 0 5px;
-    border-radius: 4px;
-    background-color: #efefef; }
+  .page-content blockquote.note {
+    padding: 20px 40px;
+    background-color: #FFFFE3;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+    .page-content blockquote.note p:last-child {
+      margin-bottom: 0; }
+    .page-content blockquote.note code {
+      padding: 0;
+      background-color: transparent; }
   .page-content .highlight {
     color: black; }
   .page-content .highlight .lineno {

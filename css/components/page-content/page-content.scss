@@ -1,9 +1,10 @@
 @import '../../config';
 
-@import '../_header/_header';
-@import '../_list/_list';
-@import '../_code/_code';
-@import '../_table/_table';
+@import '../_bits/_header';
+@import '../_bits/_list';
+@import '../_bits/_code';
+@import '../_bits/_pre';
+@import '../_bits/_table';
 
 .page-title {
      @extend %h1;
@@ -123,10 +124,26 @@
     }
     p > code,
     li > code {
-        display: inline-block;
-        padding: 0 5px;
-        border-radius: 4px;
-        background-color: #efefef;
+        @extend %code-span%_decorated;
+    }
+
+
+    // blockquote
+    blockquote {
+        &.note {
+            padding: 20px 40px;
+            background-color: #FFFFE3;
+            font-family: $font-family-sans-serif;
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+
+            code {
+                padding: 0;
+                background-color: transparent;
+            }
+        }
     }
 
 

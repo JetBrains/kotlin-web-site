@@ -32,26 +32,30 @@
     background-color: #f5f5f5; }
   .wide.events-table {
     min-width: 100%; }
-  .events-table tr {
-    border-bottom: 1px solid #dcdcdc; }
-  .events-table thead tr {
+  .events-table thead {
     background-color: #F7F7F7;
     border-bottom-width: 2px; }
-  .events-table th,
-  .events-table td {
-    padding: 6px 10px;
-    vertical-align: top; }
-  .events-table tr th:first-child,
-  .events-table tr td:first-child {
-    padding-left: 12px; }
-  .events-table tr th:last-child,
-  .events-table tr td:last-child {
-    padding-right: 12px; }
+  .events-table tfoot {
+    color: #ccc; }
+    .events-table tfoot tr {
+      border-bottom: none; }
+  .events-table tr {
+    border-bottom: 1px solid #dcdcdc; }
   .events-table th {
     padding-top: 10px;
     padding-bottom: 6px;
     text-align: left;
     font-weight: bold; }
+  .events-table th,
+  .events-table td {
+    padding: 6px 10px;
+    vertical-align: top; }
+    .events-table th:first-child,
+    .events-table td:first-child {
+      padding-left: 12px; }
+    .events-table th:last-child,
+    .events-table td:last-child {
+      padding-right: 12px; }
 
 .events-list-title {
   margin: 30px 0 15px; }

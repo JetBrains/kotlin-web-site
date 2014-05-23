@@ -1,0 +1,12 @@
+@import '../../_config';
+
+%code-span {
+    font-family: $font-family-mono;
+
+    &%_decorated {
+        display: inline-block;
+        padding: 0 5px;
+        border-radius: 4px;
+        background-color: #efefef;
+    }
+}
