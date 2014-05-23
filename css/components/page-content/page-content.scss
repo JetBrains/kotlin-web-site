@@ -5,6 +5,8 @@
 @import '../_bits/_code';
 @import '../_bits/_pre';
 @import '../_bits/_table';
+@import '../_syntax-highlight/_syntax-highlight_light';
+@import '../_syntax-highlight/_syntax-highlight_dark';
 
 .page-title {
      @extend %h1;
@@ -122,9 +124,19 @@
     code {
         @extend %code-span;
     }
+
     p > code,
     li > code {
         @extend %code-span%_decorated;
+    }
+
+    pre code {
+        @extend %code-block;
+        padding: 20px;
+
+        &._highlighted {
+            @extend %syntax-highlight_dark;
+        }
     }
 
 
@@ -145,10 +157,6 @@
             }
         }
     }
-
-
-    // highlight
-    @import '../syntax-highlight/syntax-highlight';
 
 
     // table

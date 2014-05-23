@@ -1,5 +1,7 @@
 @import '../../_config';
 @import '../../_utils';
+@import '../_bits/_code';
+@import '../_syntax-highlight/_syntax-highlight_dark';
 
 $overview-section-width: 840px;
 
@@ -137,22 +139,15 @@ $overview-section-width: 840px;
             }
         }
 
-        @import '../syntax-highlight/_dark';
-
-        .highlight {
+        pre {
             margin-bottom: $unit*2;
         }
 
-        code {
-            color: #fff;
+        pre code {
+            @extend %code-block;
 
-            .keyword {
-                font-weight: bold;
-            }
-
-            .var-name {
-                background-color: #7792AD;
-                background-color: rgba(255,255,255, 0.2);
+            &._highlighted {
+                @extend %syntax-highlight_dark;
             }
         }
     }

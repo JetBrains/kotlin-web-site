@@ -9,7 +9,7 @@ module Kramdown
         lang = extract_code_language!(attr) || @options[:coderay_default_lang]
         code = pygmentize(el.value, lang)
         code_attr = {}
-        code_attr['class'] = "highlight language-#{lang}" if lang
+        code_attr['class'] = "code-block _highlighted lang_#{lang}" if lang
         "#{' '*indent}<pre#{html_attributes(attr)}><code#{html_attributes(code_attr)}>#{code}</code></pre>\n"
       end
 
