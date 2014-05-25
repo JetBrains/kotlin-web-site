@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Functions
+
 ## Function Declarations
 
 Functions in Kotlin are declared using the *fun*{: .keyword } keyword

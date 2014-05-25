@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# High-Order Functions and Lambdas
+
 ## High-Order Functions
 
 A higher-order function is a function that takes functions as parameters, or returns a function. A good example of such a function is lock() that takes a lock object and a function, acquires the lock, runs the functions and releases the lock:

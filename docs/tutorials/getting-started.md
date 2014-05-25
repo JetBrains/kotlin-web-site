@@ -6,8 +6,9 @@ category: tutorial
 subcategory: getting_started
 ---
 
+# Getting Started
 
-### Setting up the environment
+## Setting up the environment
 
 In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][command_line]

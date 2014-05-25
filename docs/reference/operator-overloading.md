@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Operator overloading
+
 Kotlin allows us to provide implementations for a predefined set of operators on our types. These operators have fixed symbolic representation
 (like '+' or '*') and fixed [precedence](grammar.html#precedence). To implement an operator, one provides a [member function](functions.html#member-functions)
 or an [extension function](extension-functions.html) with a fixed name, for the corresponding type, i.e. left-hand side type for binary operations and argument type for unary ones.
@@ -35,10 +37,11 @@ This table says that when the compiler processes, for example, an expression +a,
 | `a++` | `a.inc()` + see below |
 | `a--` | `a.dec()` + see below |
 
+
 These operations are supposed to change their receiver and (optionally) return a value.
 
-    inc()/dec() shouldn't mutate the receiver object
-    By "changing the receiver" we mean the receiver-variable, not the receiver object.
+> **`inc()/dec()` shouldn't mutate the receiver object**.<br>
+> By "changing the receiver" we mean `the receiver-variable`, not the receiver object.
 {:.note}
 
 The compiler performs the following steps for resolution of an operator in the *postfix* form, e.g. a++:

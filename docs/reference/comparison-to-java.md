@@ -5,4 +5,4 @@ category: reference
 subcategory: faq
 ---
 
-## Comparison to Java
+# Comparison to Java

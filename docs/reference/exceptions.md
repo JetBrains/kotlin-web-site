@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Exceptions
+
 ## Exception Classes
 
 All exception classes in Kotlin are descendants of the class *Exception*. Every exception has a message, stack trance and an optional cause.

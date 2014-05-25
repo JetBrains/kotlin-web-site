@@ -6,6 +6,6 @@ category: tutorial
 subcategory: tooling
 ---
 
-### Griffon Support
+# Using Griffon
 
 Griffon support is [provided externally](https://github.com/griffon/griffon-kotlin-plugin)

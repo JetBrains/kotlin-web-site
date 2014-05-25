@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Pattern Matching
+
 ## `is` and `!is` Operators
 
 Pattern matching is performed by is operator that returns true if the pattern matched successfully and false otherwise. It has a negated form !is. The simplest form of pattern matching simply checks if an object conforms to a given type (similar to Java's instanceof check):

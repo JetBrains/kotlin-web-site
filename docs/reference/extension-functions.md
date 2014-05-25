@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Extension Functions
+
 ## Extending Classes with Functionality
 
 Kotlin, similar to C# and Gosu provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator.

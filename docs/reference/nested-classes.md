@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Nested Classes
+
 Classes can be nested in other classes
 
 ``` kotlin
@@ -18,7 +20,7 @@ class Outer() {
 val demo = Outer.Inner().foo() // == 2
 ```
 
-### Inner classes
+## Inner classes
 
 A class may be marked as *inner* to be able to access members of outer class. Inner classes carry a reference to an object of an outer class:
 

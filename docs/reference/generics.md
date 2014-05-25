@@ -5,5 +5,6 @@ category: reference
 subcategory: syntax
 ---
 
+# Generics
 
 ## Generic Functions

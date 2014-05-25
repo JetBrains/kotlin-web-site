@@ -6,8 +6,9 @@ category: tutorial
 subcategory: tooling
 ---
 
+# Using Gradle
 
-### Plugin and Versions
+## Plugin and Versions
 
 The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
 
@@ -39,7 +40,7 @@ The correspondence between milestones and versions is displayed below:
 </tbody>
 </table>
 
-### Project Layout
+## Project Layout
 
 In the project, Kotlin sources should be located under a common root folder named *kotlin* which is also the root to the *java* folder for Java sources
 
@@ -49,7 +50,7 @@ project
     - java
 
 
-### Configuring Dependencies
+## Configuring Dependencies
 
 You need to add dependencies on kotlin-gradle-plugin and Kotlin standard library:
 
@@ -75,7 +76,7 @@ dependencies {
 }
 ```
 
-### Using Snapshot versions
+## Using Snapshot versions
 
 If you want to use a snapshot version (nightly build), first add out snapshot repository and change the version to 0.1-SNAPSHOT:
 
@@ -107,7 +108,7 @@ dependencies {
 ```
 
 
-### Android Projects
+## Android Projects
 
 Android's Gradle model is a little different from ordinary Gradle, so if you want to build an Android project written in Kotlin, you need
 *kotlin-android* plugin instead of *kotlin*:
@@ -121,7 +122,7 @@ apply plugin: 'android'
 apply plugin: 'kotlin-android'
 ```
 
-#### Android Studio
+### Android Studio
 
 If you are using Android Studio, add the following under android:
 
@@ -137,7 +138,7 @@ android {
 
 This lets Android Studio know that your kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized.
 
-### Using External Annotations
+## Using External Annotations
 
 External annotations for JDK and Android SDK will be configured automatically. If you want to add more annotations for some of your libraries, add the following line to your Gradle script:
 
@@ -146,6 +147,6 @@ External annotations for JDK and Android SDK will be configured automatically. I
 kotlinOptions.annotations = file('<path to annotations>')
 ```
 
-### Examples
+## Examples
 
 For more examples, including Android, Mixed Java/Kotlin, [check out the Samples](https://github.com/JetBrains/kotlin-examples/tree/master/gradle) folder on GitHub

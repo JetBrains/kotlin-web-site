@@ -6,8 +6,9 @@ category: tutorial
 subcategory: tooling
 ---
 
+# Using Maven
 
-### Plugin and Versions
+## Plugin and Versions
 
 The *kotlin-maven-plugin* compiles Kotlin sources and modules. Currently only Maven v3 is supported.
 
@@ -40,7 +41,7 @@ The correspondence between milestones and versions is displayed below:
 </table>
 
 
-### Configuring Snapshot Repositories
+## Configuring Snapshot Repositories
 
 To use a snapshot version of Kotlin, include the following repository definitions to the pom
 
@@ -74,7 +75,7 @@ To use a snapshot version of Kotlin, include the following repository definition
 </pluginRepositories>
 ```
 
-### Dependencies
+## Dependencies
 
 Kotlin has an extensive standard library that can be used in your applications. Configure the following dependency in the pom file
 
@@ -88,7 +89,7 @@ Kotlin has an extensive standard library that can be used in your applications. 
 </dependencies>
 ```
 
-### Compiling Kotlin only source code
+## Compiling Kotlin only source code
 
 To compile source code, specify the source directories in the <build> tag:
 
@@ -122,7 +123,7 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 </plugin>
 ```
 
-### Compiling Kotlin and Java sources
+## Compiling Kotlin and Java sources
 
 To compile mixed code applications Kotlin compiler should be invoked before Java compiler.
 In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin.
@@ -151,7 +152,7 @@ It could be done by moving Kotlin compilation to previous phase, process-sources
 </plugin>
 ```
 
-### Using External Annotations
+## Using External Annotations
 
 Kotlin uses external annotation to have precise information about types in Java libraries. To specify these annotations, use annotationPaths in <configuration>:
 
@@ -170,6 +171,6 @@ Kotlin uses external annotation to have precise information about types in Java 
 ...
 ```
 
-### Examples
+## Examples
 
 An example Maven project can be [downloaded directly from the GitHub repository](https://github.com/JetBrains/kotlin-examples/archive/master/maven.zip)

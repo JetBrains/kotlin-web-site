@@ -6,6 +6,8 @@ subcategory: syntax
 toc: true
 ---
 
+# Annotations
+
 ## Annotation Declaration
 Annotations are means of attaching metadata to code. To declare an annotation, put the *annotation*{: .keyword } keyword in front of a class
 

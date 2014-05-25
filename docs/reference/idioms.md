@@ -5,13 +5,9 @@ category: reference
 subcategory: basics
 ---
 
-## Idioms
+# Idioms
 
-A collection of random and frequently used idioms in Kotlin.
-
-#### Have a favorite idiom?
-
-If you have a favorite idiom, contribute it. Do a pull request.
+A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it. Do a pull request.
 
 ### Creating DTO's (POJO's/POCO's)
 

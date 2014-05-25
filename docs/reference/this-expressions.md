@@ -5,8 +5,7 @@ category: reference
 subcategory: syntax
 ---
 
-
-## This Expression
+# This Expression
 
 To denote the current _receiver_, we use *this*{: .keyword } expressions:
 
@@ -16,7 +15,7 @@ To denote the current _receiver_, we use *this*{: .keyword } expressions:
 
 If *this*{: .keyword } has no qualifiers, it refers to the _innermost enclosing scope_. To refer to *this*{: .keyword } in other scopes, _label qualifiers_ are used:
 
-### Qualified *this*{: .keyword }
+## Qualified *this*{: .keyword }
 {:#qualified}
 
 To access *this*{: .keyword } from an outer scope (a [class](classes.html), or [extension function](extension-functions.html), or labeled [extension function literal](lambdas.html#function-literals) one writes *this{*}{{@label}} where {{@label}} is a [label](returns.html)

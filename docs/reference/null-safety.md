@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Null Safety
+
 ## Nullable types and Non-Null Types
 
 Kotlin's type system is aimed at eliminating null references from code, also known as the [The Billion Dollar Mistake](http://qconlondon.com/london-2009/presentation/Null+References:+The+Billion+Dollar+Mistake)

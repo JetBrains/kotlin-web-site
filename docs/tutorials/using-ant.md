@@ -6,7 +6,9 @@ category: tutorial
 subcategory: tooling
 ---
 
-### Getting the Ant Tasks
+# Using Ant
+
+## Getting the Ant Tasks
 
 Kotlin provides three tasks for Ant:
 
@@ -17,7 +19,7 @@ Kotlin provides three tasks for Ant:
 These tasks are defined in the *kotlin-ant.jar* library which is located in the *lib* folder for the [Kotlin Compiler]({{site.latest_release_github_url}})
 
 
-### Targeting JVM with Kotlin-only source
+## Targeting JVM with Kotlin-only source
 
 When the project consists of exclusively Kotlin source code, the easiest way to compile the project is to use the *kotlinc* task
 
@@ -33,7 +35,7 @@ When the project consists of exclusively Kotlin source code, the easiest way to 
 
 where ${kotlin.lib} points to the folder where the Kotlin standalone compiler was unzipped.
 
-### Targeting JVM with Kotlin-only source and multiple roots
+## Targeting JVM with Kotlin-only source and multiple roots
 
 If a project consists of multiple source roots, use *src* as elements to define paths
 
@@ -50,7 +52,7 @@ If a project consists of multiple source roots, use *src* as elements to define 
 </project>
 ```
 
-### Targeting JVM with Kotlin and Java source
+## Targeting JVM with Kotlin and Java source
 
 If a project consists of both Kotlin and Java source code, while it is possible to use *kotlinc*, to avoid repetition of task parameters, it is
 recommended to use *withKotlin* task
@@ -82,7 +84,7 @@ recommended to use *withKotlin* task
 ```
 
 
-### Targeting JavaScript with single source folder
+## Targeting JavaScript with single source folder
 
 ``` xml
 <project name="Ant Task Test" default="build">
@@ -94,7 +96,7 @@ recommended to use *withKotlin* task
 </project>
 ```
 
-### Targeting JavaScript with Prefix, PostFix and sourcemap options
+## Targeting JavaScript with Prefix, PostFix and sourcemap options
 
 ``` xml
 <project name="Ant Task Test" default="build">
@@ -106,11 +108,11 @@ recommended to use *withKotlin* task
 </project>
 ```
 
-### References
+## References
 
 Complete list of elements and attributes are listed below
 
-#### kotlinc Attributes
+### kotlinc Attributes
 
 | Name | Description | Required | Default Value |
 |------|-------------|----------|---------------|
@@ -123,14 +125,14 @@ Complete list of elements and attributes are listed below
 | `includeRuntime`  | If "jar" is used, whether Kotlin runtime library is included | No | true  |
 
 
-#### withKotlin attributes
+### withKotlin attributes
 
 | Name | Description | Required | Default Value |
 |------|-------------|----------|---------------|
 | `externalannotations ` | Path to external annotations | No |  |
 
 
-#### kotlin2js Attributes
+### kotlin2js Attributes
 
 | Name | Description | Required |
 |------|-------------|----------|

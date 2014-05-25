@@ -5,6 +5,8 @@ category: reference
 subcategory: basics
 ---
 
+# Basic Operations
+
 ## Equality
 
 In Kotlin there are two types of equality:

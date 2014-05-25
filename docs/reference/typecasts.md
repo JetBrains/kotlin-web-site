@@ -5,6 +5,7 @@ category: reference
 subcategory: syntax
 ---
 
+# Type Casts
 
 ## Smart Casts
 

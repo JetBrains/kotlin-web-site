@@ -9,6 +9,8 @@ related:
     - title: "Traits"
 ---
 
+# Classes and Inheritance
+
 ## Classes
 
 Classes are first-class citizens in Kotlin and are declared using the keyword *class*{: .keyword }

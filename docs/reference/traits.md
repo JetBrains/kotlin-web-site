@@ -5,7 +5,7 @@ category: reference
 subcategory: syntax
 ---
 
-## Traits
+# Traits
 
 Traits are essentially interfaces with optional method implementations. What makes them different from abstract classes is that traits
 cannot store state. They can have properties but these need to be abstract.
@@ -21,7 +21,7 @@ trait MyTrait {
 }
 ```
 
-### Implementing Traits
+## Implementing Traits
 
 A class or object can implement one or more traits
 
@@ -34,7 +34,7 @@ class Child: MyTrait {
 }
 ```
 
-### Properties in Traits
+## Properties in Traits
 
 Traits allow properties as long as these are stateless, that is because traits do not allow state.
 
@@ -52,7 +52,7 @@ class Child: MyTrait {
 }
 ```
 
-### Accessing state in trait
+## Accessing state in trait
 
 While traits cannot have state, you can access state
 
@@ -78,7 +78,7 @@ Extending *B* is OK because *B* requires *A*, and we extend *A*.
 What happens when we call *foo()* on an instance of *C*?
 It prints 478 (239 * 2), because the value of *y* is obtained from this instance, and the constructor of *C* has written 239 there.
 
-### Resolving overriding conflicts
+## Resolving overriding conflicts
 
 When we declare many types in out supertype list, it may appear that we inherit more than one implementation of the same method. For example
 

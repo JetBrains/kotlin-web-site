@@ -5,4 +5,4 @@ category: reference
 subcategory: syntax
 ---
 
-## Comparison to Scala
+# Comparison to Scala

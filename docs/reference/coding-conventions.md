@@ -5,6 +5,8 @@ category: reference
 subcategory: basics
 ---
 
+# Coding Conventions
+
 This page contains the current coding style for the Kotlin language.
 
 ## Naming Style

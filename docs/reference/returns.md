@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Returns and Jumps
+
 Kotlin has three structural jump operators
 
 * `return`. By default returns from the nearest enclosing function.

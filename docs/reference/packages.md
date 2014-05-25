@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Packages
+
 ## Root package
 Every module declares a unique root package, that contains all the packages declared in the module.
 

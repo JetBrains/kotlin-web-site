@@ -5,6 +5,8 @@ category: reference
 subcategory: basics
 ---
 
+# Basic Syntax
+
 ## Defining Packages
 
 ``` kotlin

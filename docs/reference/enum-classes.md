@@ -5,6 +5,7 @@ category: reference
 subcategory: syntax
 ---
 
+# Enum Classes
 
 The most basic usage of enum classes is implementing type-safe enums
 

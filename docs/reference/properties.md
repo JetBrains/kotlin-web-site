@@ -5,6 +5,8 @@ category: reference
 subcategory: syntax
 ---
 
+# Properties and Fields
+
 ## Declaring Properties
 
 Classes in Kotlin can have properties. These can be declared as mutable, using the *var*{: .keyword } keyword or immutable using the *val*{: .keyword } keyword.

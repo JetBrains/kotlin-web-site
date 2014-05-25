@@ -5,7 +5,7 @@ category: reference
 subcategory: syntax
 ---
 
-## Ranges
+# Ranges
 
 Range expressions are formed with rangeTo functions that have the operator form of .. which are complemented by in and !in. Range is
 defined for any comparable type, but for number primitives it is optimized. Here are examples of using ranges
@@ -47,7 +47,7 @@ for (i in 1.0..2.0 step 0.3) print("$i ") // prints "1.0 1.3 1.6 1.9 "
 ```
 
 
-### How it works
+## How it works
 
 There are two traits in the library: Range<T> and Progression<N>.
 
