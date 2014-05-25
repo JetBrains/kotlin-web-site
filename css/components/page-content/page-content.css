@@ -1,18 +1,42 @@
-.page-title, .page-content h1 {
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+.page-title {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 48px;
   line-height: 54px; }
 
-.page-content h2 {
+.page-content h1 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 30px;
   line-height: 33px; }
 
-.page-content h3 {
+.page-content h2 {
   font-family: "GraublauSlab Regular", Georgia, serif;
   font-size: 24px;
   line-height: 27px; }
 
+.page-content h3,
 .page-content h4 {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -96,9 +120,23 @@
     .page-content table td:last-child {
       padding-right: 12px; }
 
+.page-content blockquote.note {
+  padding: 20px 40px;
+  background-color: #FFFFE3;
+  background-image: url(data:image/gif;base64,R0lGODlhEAAQAOYAAAIGEe7kANGuIOvNhLaTDfDgUN2/enJ0QPbSOPjw38+qR7yeN/DiwzU2P9rGAvTfqvPpF+PUuvHibOG+XuLQqcmtffDjlPHPRbaOKN3NoCYnOP//AI6IGt3cRsulQ0A3Hvf3KtrOIPbkWPXoQfDeiefUdxASIfLlK+zadsCZKLSMGP/7HdOuV/fu2PPnpfn1AO3cWs6mNN3DadSsO/3jMu/fh+/euNi2Svz1CLyWEsOdP//oR+jTgvbuBvrlZ/z25fbuIb+YIOjTpLuUG8KbNffmpfbpsffqyfbmnf7yJuXJI9OwMfHjVvbrQLidEuzce9itQvrxGfHhlMehQM+tJ+vZhzg8RRAUK+vmMuzbYePHb/LouN61SP//Cffrpv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUUAF8ALAAAAAAQABAAAAeWgF+Cg4SFhl8tCh42h4VcW0YejYMPWi5SJQaTXzNIS1Q+MQmNAzwXAFdKTCyHPzMWCCYaISMCDIYTVU87Hw0rJ0ALhUc3NRIiHAdJEDgOGYRQUihZBVgdED0vG0ODQjIkKDAjBE442hsBFYJTLk9ZMDQfVl0b9RsE617GTE1RIPb1VAiioINIihRBhuRYuBBDhE0QIwYCADs=);
+  background-repeat: no-repeat;
+  background-position: 15px 24px;
+  border: 1px solid #F7DF92;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+  .page-content blockquote.note p:last-child {
+    margin-bottom: 0; }
+  .page-content blockquote.note code {
+    padding: 0;
+    background-color: transparent; }
+
 .page-content pre code._highlighted {
-  color: #A9B7C6;
-  background-color: #2B2B2B;
+  color: #000;
+  background: #f7f7f7;
   /* Common */
   /* Line Numbers */
   /* Operator */
@@ -157,9 +195,9 @@
   .page-content pre code._highlighted .lineno {
     color: #586e75; }
   .page-content pre code._highlighted .o {
-    color: #A9B7C6; }
+    color: #000; }
   .page-content pre code._highlighted .p {
-    color: #A9B7C6; }
+    color: #000; }
   .page-content pre code._highlighted .ow {
     color: #859900; }
   .page-content pre code._highlighted .w {
@@ -194,7 +232,7 @@
   .page-content pre code._highlighted .kd,
   .page-content pre code._highlighted .kn,
   .page-content pre code._highlighted .kr {
-    color: #CC7832;
+    color: #0037B3;
     font-weight: bold; }
   .page-content pre code._highlighted .l {
     color: #93a1a1; }
@@ -205,13 +243,13 @@
   .page-content pre code._highlighted .mh,
   .page-content pre code._highlighted .mi,
   .page-content pre code._highlighted .il {
-    color: #6897BB; }
+    color: #0000FF; }
   .page-content pre code._highlighted .s,
   .page-content pre code._highlighted .sc,
   .page-content pre code._highlighted .sd,
   .page-content pre code._highlighted .s1,
   .page-content pre code._highlighted .ss {
-    color: #6A8759; }
+    color: #009C00; }
   .page-content pre code._highlighted .mo {
     color: #2aa198; }
   .page-content pre code._highlighted .sb {
@@ -229,13 +267,13 @@
   .page-content pre code._highlighted .sr {
     color: #dc322f; }
   .page-content pre code._highlighted .n {
-    color: #A9B7C6; }
+    color: #000; }
   .page-content pre code._highlighted .na {
-    color: #BABABA; }
+    color: #0000FF; }
   .page-content pre code._highlighted .nb {
     color: #0037B3; }
   .page-content pre code._highlighted .nc {
-    color: #A9B7C6; }
+    color: #000; }
   .page-content pre code._highlighted .no {
     color: #660E7A; }
   .page-content pre code._highlighted .nd {
@@ -245,7 +283,7 @@
   .page-content pre code._highlighted .ne {
     color: #cb4b16; }
   .page-content pre code._highlighted .nf {
-    color: #A9B7C6; }
+    color: #000; }
   .page-content pre code._highlighted .nl {
     color: #93a1a1; }
   .page-content pre code._highlighted .nn {
@@ -255,7 +293,7 @@
   .page-content pre code._highlighted .py {
     color: #93a1a1; }
   .page-content pre code._highlighted .nt {
-    color: #E8BF6A; }
+    color: #000080; }
   .page-content pre code._highlighted .nv {
     color: #000; }
   .page-content pre code._highlighted .bp {
@@ -282,15 +320,20 @@
 
 .page-content {
   position: relative;
-  margin-top: 20px; }
+  margin-top: 0; }
   .page-content .page-link-to-github {
+    background-image: -moz-linear-gradient(#c0d4e5, #b2cadf);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c0d4e5), to(#b2cadf));
+    background-image: -webkit-linear-gradient(#c0d4e5, #b2cadf);
+    background-image: -o-linear-gradient(#c0d4e5, #b2cadf);
     position: absolute;
     display: inline-block;
-    top: -40px;
+    top: 4px;
     right: 30px;
-    border: 1px solid #dadada;
+    border: 1px solid #afc8dd;
+    background-color: #b9cfe2;
     border-radius: 5px;
-    color: #ababab;
+    color: #333333;
     font-size: 12px;
     padding: 4px 10px;
     text-decoration: none; }
@@ -299,33 +342,30 @@
     .page-content .page-link-to-github .github-icon {
       position: absolute;
       display: inline-block;
-      margin-top: 1px;
-      width: 17px;
-      height: 17px;
-      background: url("images/github-icon.png") no-repeat; }
+      width: 20px;
+      height: 20px;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZhJREFUeNqclE9Eg3EYx9dbRsToGjFi7DSa5T0kInbYJca6dimlQ5fYoWOMiK51bDp0qes0RsSYxcjGGDFGjBGdYvR9+L55PH6b9j58eH/Pn+/7+z2/P3O+70ccNg92QQHEQYr+FvgAD+AJjG3hgkNsB1yDpCO2TvKgA05BVSd4pqAInieIWUsytzhJ8AyUIrNbSYsGgltKrAb2QH2KSJ05NY4vwLbu4RU3QuyFTRcybHyLsRTzGhwnKCS+S5AWwSwbHVhMfTfMzN7MOGY2LOvxaGirzNC/qhkXPC4rsHdH0jSrsCawjAiuKkcnxC7rmrgILilHNISgrlkUwaFyJEII6pqhZ6Ysp9+fQSxjblXHc+zqHVj7h5jk3NtNEsEyD+8AHINl0AY3fASipl95xtrmx6JR9ih0C1Y4/RyDB+AI/Kgi+T5hzG6gaAyCu3wOehSQa5QGh2DfsdSGw9ejxt/jMOLMhuxLgtds7Ci2vk/Wjuzz1QUboA8eQZPLm2avrOlOemBFbJN/lCv15RD55uuTY25fB38FGABbkFWKdAMGPQAAAABJRU5ErkJggg==); }
     .page-content .page-link-to-github .text {
-      padding-left: 23px; }
+      padding-left: 27px; }
   .page-content h1 {
-    margin-top: 40px;
-    margin-bottom: 45px; }
-    .page-content h1:first-of-type:first-child {
-      margin-top: 0; }
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    margin-top: 30px;
+    margin-bottom: 15px; }
+    .page-content h1:first-of-type {
+      margin-top: 0;
+      margin-bottom: 30px; }
   .page-content h2 {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     margin-top: 30px;
     margin-bottom: 15px; }
-    .page-content h2:first-of-type:first-child {
+    .page-content h2:first-of-type {
       margin-top: 0; }
-  .page-content h3 {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    margin-top: 30px;
-    margin-bottom: 15px; }
-    .page-content h3:first-of-type:first-child {
-      margin-top: 0; }
+  .page-content h3,
   .page-content h4 {
     margin-top: 30px;
     margin-bottom: 15px; }
-    .page-content h4:first-of-type:first-child {
+    .page-content h3:first-of-type,
+    .page-content h4:first-of-type {
       margin-top: 0; }
   .page-content p {
     margin-bottom: 15px;
@@ -336,15 +376,8 @@
     margin-bottom: 15px; }
   .page-content pre code {
     padding: 20px; }
-  .page-content blockquote.note {
-    padding: 20px 40px;
-    background-color: #FFFFE3;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif; }
-    .page-content blockquote.note p:last-child {
-      margin-bottom: 0; }
-    .page-content blockquote.note code {
-      padding: 0;
-      background-color: transparent; }
+  .page-content blockquote {
+    margin-bottom: 15px; }
   .page-content hr {
     border: 1px solid #dcdcdc;
     height: 2px;

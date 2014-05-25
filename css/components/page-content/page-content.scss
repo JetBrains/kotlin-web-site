@@ -1,12 +1,13 @@
 @import '../../config';
+@import '../../utils';
 
 @import '../_bits/_header';
 @import '../_bits/_list';
 @import '../_bits/_code';
 @import '../_bits/_pre';
 @import '../_bits/_table';
+@import '../_bits/_blockquote';
 @import '../_syntax-highlight/_syntax-highlight_light';
-@import '../_syntax-highlight/_syntax-highlight_dark';
 
 .page-title {
      @extend %h1;
@@ -15,16 +16,18 @@
 
 .page-content {
     position: relative;
-    margin-top: 20px;
+    margin-top: 0;
 
     .page-link-to-github {
+        @include linear-gradient($from: #c0d4e5, $to: #b2cadf);
         position: absolute;
         display: inline-block;
-        top: -40px;
+        top: 4px;
         right: 30px;
-        border: 1px solid #dadada;
+        border: 1px solid #afc8dd;
+        background-color: #b9cfe2;
         border-radius: 5px;
-        color: #ababab;
+        color: $base-color;
         font-size: 12px;
         padding: 4px 10px;
         text-decoration: none;
@@ -36,55 +39,46 @@
         .github-icon {
             position: absolute;
             display: inline-block;
-            margin-top: 1px;
-            width: 17px;
-            height: 17px;
-            background: url('images/github-icon.png') no-repeat;
+            width: 20px;
+            height: 20px;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZhJREFUeNqclE9Eg3EYx9dbRsToGjFi7DSa5T0kInbYJca6dimlQ5fYoWOMiK51bDp0qes0RsSYxcjGGDFGjBGdYvR9+L55PH6b9j58eH/Pn+/7+z2/P3O+70ccNg92QQHEQYr+FvgAD+AJjG3hgkNsB1yDpCO2TvKgA05BVSd4pqAInieIWUsytzhJ8AyUIrNbSYsGgltKrAb2QH2KSJ05NY4vwLbu4RU3QuyFTRcybHyLsRTzGhwnKCS+S5AWwSwbHVhMfTfMzN7MOGY2LOvxaGirzNC/qhkXPC4rsHdH0jSrsCawjAiuKkcnxC7rmrgILilHNISgrlkUwaFyJEII6pqhZ6Ysp9+fQSxjblXHc+zqHVj7h5jk3NtNEsEyD+8AHINl0AY3fASipl95xtrmx6JR9ih0C1Y4/RyDB+AI/Kgi+T5hzG6gaAyCu3wOehSQa5QGh2DfsdSGw9ejxt/jMOLMhuxLgtds7Ci2vk/Wjuzz1QUboA8eQZPLm2avrOlOemBFbJN/lCv15RD55uuTY25fB38FGABbkFWKdAMGPQAAAABJRU5ErkJggg==);
         }
 
         .text {
-            padding-left: 23px;
+            padding-left: 27px;
         }
     }
 
     h1 {
-        @extend %h1;
-        margin-top: 40px;
-        margin-bottom: $vertical-rhythm-unit*3;
-
-        &:first-of-type:first-child {
-            margin-top: 0;
-        }
-    }
-
-    h2 {
         @extend %h2;
         font-family: $font-family-sans-serif;
         margin-top: $vertical-rhythm-unit*2;
         margin-bottom: $vertical-rhythm-unit;
 
-        &:first-of-type:first-child {
+        &:first-of-type {
             margin-top: 0;
+            margin-bottom: $vertical-rhythm-unit*2;
         }
     }
 
-    h3 {
+    h2 {
         @extend %h3;
         font-family: $font-family-sans-serif;
         margin-top: $vertical-rhythm-unit*2;
         margin-bottom: $vertical-rhythm-unit;
 
-        &:first-of-type:first-child {
+        &:first-of-type {
             margin-top: 0;
         }
     }
 
+    h3,
     h4 {
         @extend %h4;
         margin-top: $vertical-rhythm-unit*2;
         margin-bottom: $vertical-rhythm-unit;
 
-        &:first-of-type:first-child {
+        &:first-of-type {
             margin-top: 0;
         }
     }
@@ -135,27 +129,15 @@
         padding: 20px;
 
         &._highlighted {
-            @extend %syntax-highlight_dark;
+            @extend %syntax-highlight_light;
         }
     }
 
 
     // blockquote
     blockquote {
-        &.note {
-            padding: 20px 40px;
-            background-color: #FFFFE3;
-            font-family: $font-family-sans-serif;
-
-            p:last-child {
-                margin-bottom: 0;
-            }
-
-            code {
-                padding: 0;
-                background-color: transparent;
-            }
-        }
+        @extend %blockquote;
+        margin-bottom: $vertical-rhythm-unit;
     }
 
 

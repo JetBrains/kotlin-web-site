@@ -178,7 +178,7 @@
   .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .sd,
   .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .s1,
   .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .ss {
-    color: #6A8759; }
+    color: #A5C261; }
   .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .mo {
     color: #2aa198; }
   .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .sb {
@@ -554,9 +554,9 @@
       content: ''; }
   .kotlin-overview-section._code-examples .more-link {
     float: right;
-    color: #51b2da; }
+    font-size: 18px;
+    color: #ed7615; }
     .kotlin-overview-section._code-examples .more-link:hover {
-      opacity: 1;
       color: #ed7615; }
 
 .kotlin-overview-code-example {

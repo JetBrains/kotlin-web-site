@@ -219,10 +219,10 @@
 
     .more-link {
         float: right;
-        color: #51b2da;
+        font-size: 18px;
+        color: $base-link-hover-color;
 
         &:hover {
-            opacity: 1;
             color: $base-link-hover-color;
         }
     }
