@@ -14,12 +14,8 @@ main_nav_id: docs
     </div>
 
     <div class="page-content g-9">
-        <a href="https://github.com/JetBrains/kotlin-web-site/edit/dev/{{ page.path }}"
-           class="page-link-to-github"
-           target="_blank">
-                <i class="github-icon"></i>
-                <span class="text">Edit Page</span>
-        </a>
+        {% include edit-on-github-link.html path=page.path %}
+
         {{ content }}
     </div>
 </div>
