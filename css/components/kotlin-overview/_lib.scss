@@ -50,7 +50,7 @@ $overview-section-width: 840px;
 }
 
 %kotlin-overview-popup {
-    $popup-text-color: #bbc9d6;
+    $popup-text-color: #fff;
     @extend %kotlin-overview-section-background-image%blue-paper;
     @include transition(all 0.5s);
     position: absolute;
@@ -89,7 +89,7 @@ $overview-section-width: 840px;
         line-height: 22px;
 
         h3 {
-            border-bottom: 1px solid #bbc9d6;
+            border-bottom: 1px solid #fff;
             margin-bottom: $unit*3;
             padding-bottom: 6px;
             font-size: 24px;
@@ -145,6 +145,7 @@ $overview-section-width: 840px;
 
         pre code {
             @extend %code-block;
+            padding: 20px;
 
             &._highlighted {
                 @extend %syntax-highlight_dark;
