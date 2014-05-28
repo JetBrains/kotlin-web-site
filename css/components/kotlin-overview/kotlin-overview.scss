@@ -434,16 +434,16 @@
 }
 
 .kotlin-overview-section._video-overview {
-    $video-height: 540px;
+    $video-height: auto;
 
     position: relative;
     padding: 0;
-    background-color: #fff;
+    background-color: #000;
+
 
     .video-player-wrap {
         @include transition(background-color 0.5s);
         height: $video-height;
-        background-color: #fff;
         background-image: url('images/video-ajax-loader.gif');
         background-repeat: no-repeat;
         background-position: 200% 200%;
@@ -454,7 +454,7 @@
             background-position: center center;
         }
 
-        .video-thumb {
+        .video-thumb-link {
             @include transition(all 0.3);
             display: inline-block;
             position: relative;
@@ -463,8 +463,17 @@
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
         }
-        &.is_showing-video .video-thumb {
+        &.is_showing-video .video-thumb-link {
             @include animation(overview-video-scale 0.5s);
+        }
+
+        .video-thumb {
+            opacity: 0.3;
+            margin: 30px 0;
+            vertical-align: top;
+        }
+        .video-thumb-link .video-thumb {
+            opacity: 1;
         }
 
         .video-description {

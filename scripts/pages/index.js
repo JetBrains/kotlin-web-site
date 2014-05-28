@@ -110,9 +110,12 @@ ui.pages.index.videoPlayer = {
 
     init: function() {
         var that = this,
-            $videoPlayerWrap = $('.js-video-player-wrap');
+            $videoPlayerWrap = $('.js-video-player-wrap'),
+            videoHeight = $videoPlayerWrap.height();
 
-        $videoPlayerWrap.find('.js-video-thumb').on('click', function(e) {
+        $videoPlayerWrap.css('height', videoHeight);
+
+        $videoPlayerWrap.find('.js-video-thumb-link').on('click', function(e) {
             var $thumb = $(this),
                 videoId = this.href.match(/\?v=([^&]*)/),
                 videoEmbedUrl;
@@ -131,7 +134,7 @@ ui.pages.index.videoPlayer = {
                 $thumb.remove();
                 $videoPlayerWrap
                     .find('.js-video-player')
-                    .html('<iframe width="100%" height="540" src="'+ videoEmbedUrl +'" frameborder="0" allowfullscreen></iframe>')
+                    .html('<iframe width="100%" height="'+ videoHeight +'" src="'+ videoEmbedUrl +'" frameborder="0" allowfullscreen></iframe>')
                     .show();
             }, 400);
         });

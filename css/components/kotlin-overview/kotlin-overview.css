@@ -307,7 +307,7 @@
   .kotlin-overview-section .overview-popup .popup-content {
     margin: 48px 40px 16px 32px;
     color: white;
-    font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 15px;
     line-height: 22px; }
     .kotlin-overview-section .overview-popup .popup-content h3 {
@@ -733,14 +733,13 @@
 .kotlin-overview-section._video-overview {
   position: relative;
   padding: 0;
-  background-color: #fff; }
+  background-color: #000; }
   .kotlin-overview-section._video-overview .video-player-wrap {
     -webkit-transition: background-color 0.5s;
     -moz-transition: background-color 0.5s;
     -o-transition: background-color 0.5s;
     transition: background-color 0.5s;
-    height: 540px;
-    background-color: #fff;
+    height: auto;
     background-image: url("images/video-ajax-loader.gif");
     background-repeat: no-repeat;
     background-position: 200% 200%;
@@ -748,7 +747,7 @@
     .kotlin-overview-section._video-overview .video-player-wrap.is_showing-video {
       background-color: #000;
       background-position: center center; }
-    .kotlin-overview-section._video-overview .video-player-wrap .video-thumb {
+    .kotlin-overview-section._video-overview .video-player-wrap .video-thumb-link {
       -webkit-transition: all 0.3;
       -moz-transition: all 0.3;
       -o-transition: all 0.3;
@@ -759,11 +758,17 @@
       text-align: center;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards; }
-    .kotlin-overview-section._video-overview .video-player-wrap.is_showing-video .video-thumb {
+    .kotlin-overview-section._video-overview .video-player-wrap.is_showing-video .video-thumb-link {
       -webkit-animation: overview-video-scale 0.5s;
       -moz-animation: overview-video-scale 0.5s;
       -o-animation: overview-video-scale 0.5s;
       animation: overview-video-scale 0.5s; }
+    .kotlin-overview-section._video-overview .video-player-wrap .video-thumb {
+      opacity: 0.3;
+      margin: 30px 0;
+      vertical-align: top; }
+    .kotlin-overview-section._video-overview .video-player-wrap .video-thumb-link .video-thumb {
+      opacity: 1; }
     .kotlin-overview-section._video-overview .video-player-wrap .video-description {
       position: absolute;
       top: 120px;
@@ -798,7 +803,7 @@
       opacity: 1; }
   .kotlin-overview-section._video-overview .video-player {
     display: none;
-    height: 540px; }
+    height: auto; }
 
 .kotlin-overview-section._get-kotlin {
   padding: 40px 0;
