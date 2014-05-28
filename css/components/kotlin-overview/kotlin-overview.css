@@ -346,6 +346,8 @@
       margin-bottom: 16px; }
     .kotlin-overview-section .overview-popup .popup-content pre code {
       padding: 20px; }
+    .kotlin-overview-section .overview-popup .popup-content .image-block {
+      background-color: #2B2B2B; }
   .kotlin-overview-section .overview-popup .popup-content {
     position: absolute;
     overflow-y: auto;

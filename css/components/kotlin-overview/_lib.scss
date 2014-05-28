@@ -151,6 +151,10 @@ $overview-section-width: 840px;
                 @extend %syntax-highlight_dark;
             }
         }
+
+        .image-block {
+            background-color: #2B2B2B;
+        }
     }
     &%_fixed .popup-content {
         position: absolute;
