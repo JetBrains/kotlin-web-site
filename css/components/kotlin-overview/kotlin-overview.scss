@@ -437,9 +437,9 @@
     $video-height: auto;
 
     position: relative;
+    overflow: hidden;
     padding: 0;
     background-color: #000;
-
 
     .video-player-wrap {
         @include transition(background-color 0.5s);
