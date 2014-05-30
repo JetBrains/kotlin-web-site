@@ -174,4 +174,7 @@
     left: -14px;
     content: '\2013'; }
   .page-tree-nav .subnav-items-list-item.is_active .text {
-    font-weight: bold; }
+    cursor: default;
+    color: #333333;
+    font-weight: bold;
+    text-decoration: none; }

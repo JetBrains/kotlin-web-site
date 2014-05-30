@@ -1,27 +1,51 @@
-{% if site.data.nav['docs'] %}
-    {% assign nav = site.data.nav['docs'] %}
+{% assign nav = site.data.nav[include.nav] %}
 
-    <nav class="docs-nav">
-        {% for i in nav %}
-            {% assign item_id = i[0] %}
-            {% assign item = i[1] %}
+{% assign activeCategoryTitle = '' %}
+{% for category in nav %}
+    {% for item in category.content %}
 
-            {% if page.url == item.path or (include.current_section and include.current_section == item_id) %}
-                    <a href="{{ site.baseurl }}{{ item.url }}" class="nav-item is_active">
-                        <span class="nav-item-text">
-                            {{ item.title }}
-                        </span>
-                    </a>
-
-            {% else %}
-                <a href="{{ site.baseurl }}{{ item.url }}" class="nav-item">
-                    <span class="nav-item-text">
-                        {{ item.title }}
-                    </span>
-                </a>
-
-            {% endif %}
+        {% for i in item %}
+            {% assign itemUrl = i[0] %}
         {% endfor %}
-    </nav>
 
-{% endif %}
+        {% if itemUrl == page.url %}
+            {% assign activeCategoryTitle = category.title %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+
+<div class="page-tree-nav">
+{% for category in nav %}
+    {% if category.content.size and category.content.size > 0 %}
+
+    <div class="nav-item _expandable {% if activeCategoryTitle == category.title %}is_active{% endif %}"
+         data-id="{{ category.title }}">
+
+        <div class="nav-item-text">{{ category.title }}</div>
+        <div class="subnav-items-list">
+
+            {% for item in category.content %}
+                {% comment %}Dirty hack to get item url and title{% endcomment %}
+                {% for i in item %}
+                    {% assign item_url = i[0] %}
+                    {% assign item_title = i[1] %}
+                {% endfor %}
+
+                {% assign is_active = false %}
+                {% if item_url == page.url %}{% assign is_active = true %}{% endif %}
+
+                <div class="subnav-items-list-item {% if is_active %}is_active{% endif %}">
+                    {% if is_active %}
+                        <span class="text">{{ item_title }}</span>
+                    {% else %}
+                        <a href="{{ site.baseurl }}{{ item_url }}" class="text">{{ item_title }}</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endif %}
+{% endfor %}
+</div>

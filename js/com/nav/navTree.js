@@ -71,14 +71,15 @@ define([
 
         $groupItems.each(function() {
             var $this = $(this),
-                itemId = $this.attr('data-id'),
+                $parent = $this.parent(),
+                itemId = $parent.attr('data-id'),
                 activeItems = that.getActiveItems();
 
             if (activeItems) {
                 for (var id in activeItems) {
                     var isActive = activeItems[id];
                     if (itemId === id && isActive) {
-                        $this.parent().addClass('is_active');
+                        $parent.addClass('is_active');
                     }
                 }
             }
@@ -86,18 +87,20 @@ define([
 
         $groupItems.on('click', function () {
             var $this = $(this),
-                itemId = $this.attr('data-id'),
-                isActive = $this.parent().hasClass('is_active');
+                $parent = $this.parent(),
+                itemId = $parent.attr('data-id'),
+                isActive = $parent.hasClass('is_active');
 
             if (isActive) {
-                $this.parent().removeClass('is_active');
+                $parent.removeClass('is_active');
                 that.setItemActive(itemId, false);
             } else {
-                $this.parent().addClass('is_active');
+                $parent.addClass('is_active');
                 that.setItemActive(itemId, true);
             }
         });
 
+        return;
         $elem.find('a').each(function () {
             var $link = $(this);
             if (this.href === currentUrl) {

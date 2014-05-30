@@ -61,17 +61,6 @@ define(['jquery'], function ($)
 
     Player.VIDEO_EMBED_URL = '//www.youtube.com/embed/{video_id}?autoplay=1';
 
-    Player.getVideoIdFromUrl = function(videoUrl) {
-        var videoId = null;
-        var match = videoUrl.match(Player.VIDEO_ID_REGEXP);
-
-        if (match !== null && typeof match[7] !== 'undefined') {
-            videoId = match[7];
-        }
-
-        return videoId;
-    };
-
     Player.prototype._defaults = {
         width: 450,
         height: 390,
@@ -93,6 +82,22 @@ define(['jquery'], function ($)
     Player.prototype._events = {};
 
     Player.prototype.isReady = false;
+
+    /**
+     * @static
+     * @param videoUrl
+     * @returns {string}
+     */
+    Player.getVideoIdFromUrl = function(videoUrl) {
+        var videoId = null;
+        var match = videoUrl.match(Player.VIDEO_ID_REGEXP);
+
+        if (match !== null && typeof match[7] !== 'undefined') {
+            videoId = match[7];
+        }
+
+        return videoId;
+    };
 
     Player.prototype._createPlayer = function () {
         var that = this,

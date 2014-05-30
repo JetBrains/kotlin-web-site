@@ -1,4 +1,8 @@
-define(['jquery', 'jcarousel'], function($) {
+define([
+    'jquery',
+    'jcarousel'
+], function($)
+{
     function Carousel(config) {
         var that = this,
             $wrapElem,

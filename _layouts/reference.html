@@ -6,24 +6,32 @@ main_nav_id: docs
 <div class="g-grid">
 
     <div class="g-12">
-        {% include nav/docs.html current_section='reference' %}
+        {% include nav/docs-main.html current_section='reference' %}
     </div>
 
     <div class="g-3">
-        {% include nav/reference.html %}
+        <div id="reference-nav">
+            {% include nav/docs.html nav='reference' %}
+        </div>
     </div>
 
     <div class="page-content g-9">
-        {% include edit-on-github-link.html path=page.path %}
+        {% include edit-on-github-link.html %}
 
         {{ content }}
     </div>
 </div>
 
 
-<script type="text/javascript" src="{{ site.baseurl }}/scripts/nav.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    ui.nav.init('tree', '.page-tree-nav');
-});
+<script>
+(function(){
+    var navItems = {{ site.data.nav.reference | json }};
+
+    require(['jquery', 'com/nav/navTree'], function ($, NavTree) {
+        $(document).ready(function() {
+            new NavTree(document.getElementById('reference-nav'), navItems);
+        });
+    });
+
+})();
 </script>

@@ -477,8 +477,9 @@
         }
 
         .video-description {
+            opacity: 0.6;
             position: absolute;
-            top: 120px;
+            top: 180px;
             left: 0;
             width: 100%;
             color: #fff;
@@ -496,6 +497,9 @@
             .description {
 
             }
+        }
+        .video-thumb-link:hover .video-description {
+            opacity: 1;
         }
 
         .video-player-play-button {

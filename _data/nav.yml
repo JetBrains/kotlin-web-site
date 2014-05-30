@@ -86,17 +86,17 @@ reference:
 
   - title: Tools
     content:
-      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
-      - /docs/reference/kotlin-doc.html: Kotlin Doc
+#      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
+#      - /docs/reference/kotlin-doc.html: Kotlin Doc
 
   - title: FAQ
     content:
-      - /docs/reference/comparison-to-java.html: Comparison to Java
+#      - /docs/reference/comparison-to-java.html: Comparison to Java
       - /docs/reference/faq.html: FAQ
 
   - title: Grammar
     content:
-      - /docs/reference/grammar.html: Grammar
+#      - /docs/reference/grammar.html: Grammar
 
 
 # Tutorials navigation

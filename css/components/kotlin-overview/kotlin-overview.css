@@ -771,8 +771,9 @@
     .kotlin-overview-section._video-overview .video-player-wrap .video-thumb-link .video-thumb {
       opacity: 1; }
     .kotlin-overview-section._video-overview .video-player-wrap .video-description {
+      opacity: 0.6;
       position: absolute;
-      top: 120px;
+      top: 180px;
       left: 0;
       width: 100%;
       color: #fff;
@@ -784,6 +785,8 @@
         font-family: "GraublauSlab Regular", Georgia, serif;
         line-height: 50px;
         margin-bottom: 8px; }
+    .kotlin-overview-section._video-overview .video-player-wrap .video-thumb-link:hover .video-description {
+      opacity: 1; }
     .kotlin-overview-section._video-overview .video-player-wrap .video-player-play-button {
       -webkit-touch-callout: none;
       -webkit-user-select: none;

@@ -89,7 +89,10 @@
 
         }
         &.is_active .text {
+            cursor: default;
+            color: $base-color;
             font-weight: bold;
+            text-decoration: none;
         }
     }
 }
