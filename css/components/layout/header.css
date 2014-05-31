@@ -128,10 +128,12 @@
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); }
 
 .global-header {
-  position: relative;
-  padding: 32px 0;
-  background-color: #496880;
-  background-image: url("images/index-page-header-bg.jpg");
+  background-image: -moz-linear-gradient(#6481a1, #4e7196);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6481a1), to(#4e7196));
+  background-image: -webkit-linear-gradient(#6481a1, #4e7196);
+  background-image: -o-linear-gradient(#6481a1, #4e7196);
+  padding: 24px 0;
+  background-color: #6481A1;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover; }
@@ -140,10 +142,15 @@
     clear: both;
     height: 0;
     content: ''; }
+  .global-header .g-layout {
+    position: relative; }
   .global-header .try-kotlin-button {
     top: -1px; }
-  .global-header .get-kotlin-button .version {
-    font-size: 12px; }
+  .global-header .get-kotlin-button {
+    margin-left: 24px;
+    top: -2px; }
+    .global-header .get-kotlin-button .version {
+      font-size: 12px; }
   .global-header .kotlin-info {
     padding-top: 160px;
     text-align: center; }
@@ -166,6 +173,7 @@
 .page_index .global-header {
   padding: 64px 0;
   height: 432px;
+  background-image: url("images/index-page-header-bg.jpg");
   background-position: center center; }
   .page_index .global-header .get-kotlin-button {
     text-transform: uppercase; }
@@ -188,6 +196,7 @@
   top: -19px; }
 
 .global-header-nav {
+  position: relative;
   float: right;
   margin-top: 13px; }
   .global-header-nav:after {
@@ -197,15 +206,40 @@
     content: ''; }
   .global-header-nav .nav-item {
     float: left;
-    margin-right: 32px;
+    margin-left: 24px;
     color: #fff;
     text-decoration: none;
     font-size: 14px;
     line-height: 32px; }
+    .global-header-nav .nav-item:first-child {
+      margin-left: 0; }
     .global-header-nav .nav-item:hover {
       text-decoration: underline; }
     .global-header-nav .nav-item.is_active {
       font-weight: bold; }
+  .global-header-nav .github-link,
+  .global-header-nav .twitter-link {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0.8;
+    font-size: 0;
+    background: url("../../../assets/images/main-sprite.png") no-repeat 0 0; }
+    .global-header-nav .github-link:hover,
+    .global-header-nav .twitter-link:hover {
+      opacity: 1; }
+  .global-header-nav .github-link {
+    margin-left: 20px;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    background-position: -100px 0; }
+  .global-header-nav .twitter-link {
+    margin-left: 57px;
+    top: 6px;
+    width: 20px;
+    height: 17px;
+    background-position: -100px -50px; }
 
 .page_index .global-header-nav {
   margin-top: 0; }

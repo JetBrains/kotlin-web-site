@@ -6,13 +6,16 @@
 
 .global-header {
     @include clearfix;
-    position: relative;
-    padding: $unit*4 0;
-    background-color: #496880;
-    background-image: url('images/index-page-header-bg.jpg');
+    @include linear-gradient($from: #6481A1, $to: #4E7196);
+    padding: $unit*3 0;
+    background-color: #6481A1;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+
+    .g-layout {
+        position: relative;
+    }
 
     .try-kotlin-button {
         @extend %button_call-to-action;
@@ -21,6 +24,8 @@
 
     .get-kotlin-button {
         @extend %button_default;
+        margin-left: $unit*3;
+        top: -2px;
 
         .version {
             font-size: 12px;
@@ -56,6 +61,7 @@
 .page_index .global-header {
     padding: $unit*8 0;
     height: 560px - $unit*8*2;
+    background-image: url('images/index-page-header-bg.jpg');
     background-position: center center;
 
     .get-kotlin-button {
@@ -81,16 +87,21 @@
 
 .global-header-nav {
     @include clearfix;
+    position: relative;
     float: right;
     margin-top: 13px;
 
     .nav-item {
         float: left;
-        margin-right: $unit*4;
+        margin-left: $unit*3;
         color: #fff;
         text-decoration: none;
         font-size: 14px;
         line-height: $unit*4;
+
+        &:first-child {
+            margin-left: 0;
+        }
 
         &:hover {
             text-decoration: underline;
@@ -99,6 +110,36 @@
         &.is_active {
             font-weight: bold;
         }
+    }
+
+    .github-link,
+    .twitter-link {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        opacity: 0.8;
+        font-size: 0;
+        background: url('../../../assets/images/main-sprite.png') no-repeat 0 0;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .github-link {
+        margin-left: 20px;
+        top: 4px;
+        width: 20px;
+        height: 20px;
+        background-position: -100px 0;
+    }
+
+    .twitter-link {
+        margin-left: 57px;
+        top: 6px;
+        width: 20px;
+        height: 17px;
+        background-position: -100px -50px;
     }
 }
 .page_index .global-header-nav {
