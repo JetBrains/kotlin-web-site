@@ -23,15 +23,5 @@ main_nav_id: docs
 </div>
 
 
-<script>
-(function(){
-    var navItems = {{ site.data.nav.tutorials | json }};
 
-    require(['jquery', 'com/nav/navTree'], function ($, NavTree) {
-        $(document).ready(function() {
-            new NavTree(document.getElementById('tutorials-nav'), navItems);
-        });
-    });
-
-})();
-</script>
+<script>require(['pages/tutorials']);</script>

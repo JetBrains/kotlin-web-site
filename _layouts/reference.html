@@ -22,16 +22,4 @@ main_nav_id: docs
     </div>
 </div>
 
-
-<script>
-(function(){
-    var navItems = {{ site.data.nav.reference | json }};
-
-    require(['jquery', 'com/nav/navTree'], function ($, NavTree) {
-        $(document).ready(function() {
-            new NavTree(document.getElementById('reference-nav'), navItems);
-        });
-    });
-
-})();
-</script>
+<script>require(['pages/reference']);</script>

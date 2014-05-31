@@ -4,13 +4,6 @@ title: Events
 docs_nav_id: events
 ---
 
-<script type="text/javascript" src="{{ site.baseurl }}/scripts/events.js"></script>
-<script type="text/javascript">
-$(function() {
-    ui.events.init();
-});
-</script>
-
 {% assign events = site.data.events %}
 
 <p>If you'd like us to come and speak at your event or are giving a talk on Kotlin and would like it published here, <a href="mailto:hadi@jetbrains.com">please contact us</a>.</p>
@@ -109,3 +102,9 @@ $(function() {
     {% endfor %}
     </tbody>
 </table>
+
+<script>
+require(['pages/events'], function(page) {
+    page();
+});
+</script>
