@@ -16,6 +16,9 @@ require._config({
     deps: ['require'],
 
     callback: function (require) {
-        require(['jquery'])
+        require(['jquery']);
+
+        // hack to activate :active support by Mobile Safari
+        //document.addEventListener("touchstart", function () {}, false);
     }
 });
