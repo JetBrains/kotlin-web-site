@@ -794,6 +794,10 @@
     .kotlin-overview-section._video-overview .video-player-wrap .video-thumb-link:hover .video-description {
       opacity: 1; }
     .kotlin-overview-section._video-overview .video-player-wrap .video-thumb-cover {
+      -webkit-transition: background-color 0.3s;
+      -moz-transition: background-color 0.3s;
+      -o-transition: background-color 0.3s;
+      transition: background-color 0.3s;
       position: absolute;
       top: 0;
       right: 0;
