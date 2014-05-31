@@ -8,46 +8,51 @@
 @import '../_bits/_table';
 @import '../_bits/_blockquote';
 @import '../_syntax-highlight/_syntax-highlight_light';
+@import '../_syntax-highlight/_syntax-highlight_dark';
 
 .page-title {
      @extend %h1;
      margin-bottom: $unit*5;
 }
 
+.page-link-to-github {
+    position: absolute;
+    display: inline-block;
+    top: 4px;
+    right: 30px;
+    border: 1px solid #b5b5b5;
+    border-radius: 5px;
+    color: #828282;
+    font-size: 12px;
+    padding: 4px 10px;
+    text-decoration: none;
+
+    &:hover {
+        color: $base-color;
+        border-color: $base-color;
+    }
+
+    .github-icon {
+        position: absolute;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('../../../assets/images/main-sprite.png');
+        background-repeat: no-repeat;
+        background-position: -50px 0;
+    }
+    &:hover .github-icon {
+        background-position: 0 0;
+    }
+
+    .text {
+        padding-left: 27px;
+    }
+}
+
 .page-content {
     position: relative;
     margin-top: 0;
-
-    .page-link-to-github {
-        @include linear-gradient($from: #c0d4e5, $to: #b2cadf);
-        position: absolute;
-        display: inline-block;
-        top: 4px;
-        right: 30px;
-        border: 1px solid #afc8dd;
-        background-color: #b9cfe2;
-        border-radius: 5px;
-        color: $base-color;
-        font-size: 12px;
-        padding: 4px 10px;
-        text-decoration: none;
-
-        &:hover {
-            color: $base-link-hover-color;
-        }
-
-        .github-icon {
-            position: absolute;
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZhJREFUeNqclE9Eg3EYx9dbRsToGjFi7DSa5T0kInbYJca6dimlQ5fYoWOMiK51bDp0qes0RsSYxcjGGDFGjBGdYvR9+L55PH6b9j58eH/Pn+/7+z2/P3O+70ccNg92QQHEQYr+FvgAD+AJjG3hgkNsB1yDpCO2TvKgA05BVSd4pqAInieIWUsytzhJ8AyUIrNbSYsGgltKrAb2QH2KSJ05NY4vwLbu4RU3QuyFTRcybHyLsRTzGhwnKCS+S5AWwSwbHVhMfTfMzN7MOGY2LOvxaGirzNC/qhkXPC4rsHdH0jSrsCawjAiuKkcnxC7rmrgILilHNISgrlkUwaFyJEII6pqhZ6Ysp9+fQSxjblXHc+zqHVj7h5jk3NtNEsEyD+8AHINl0AY3fASipl95xtrmx6JR9ih0C1Y4/RyDB+AI/Kgi+T5hzG6gaAyCu3wOehSQa5QGh2DfsdSGw9ejxt/jMOLMhuxLgtds7Ci2vk/Wjuzz1QUboA8eQZPLm2avrOlOemBFbJN/lCv15RD55uuTY25fB38FGABbkFWKdAMGPQAAAABJRU5ErkJggg==);
-        }
-
-        .text {
-            padding-left: 27px;
-        }
-    }
 
     h1 {
         @extend %h2;
@@ -77,10 +82,6 @@
         @extend %h4;
         margin-top: $vertical-rhythm-unit*2;
         margin-bottom: $vertical-rhythm-unit;
-
-        &:first-of-type {
-            margin-top: 0;
-        }
     }
 
 
@@ -126,7 +127,6 @@
 
     pre code {
         @extend %code-block;
-        padding: 20px;
 
         &._highlighted {
             @extend %syntax-highlight_light;

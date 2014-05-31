@@ -1,5 +1,6 @@
 @import '../../_config';
 @import '../../_utils';
+@import '../_bits/_pre';
 @import '../_bits/_code';
 @import '../_syntax-highlight/_syntax-highlight_dark';
 
@@ -140,12 +141,12 @@ $overview-section-width: 840px;
         }
 
         pre {
+            @extend %pre;
             margin-bottom: $unit*2;
         }
 
         pre code {
             @extend %code-block;
-            padding: 20px;
 
             &._highlighted {
                 @extend %syntax-highlight_dark;

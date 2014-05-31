@@ -439,7 +439,7 @@
     position: relative;
     overflow: hidden;
     padding: 0;
-    background-color: #000;
+    background-color: #111;
 
     .video-player-wrap {
         @include transition(background-color 0.5s);
@@ -477,7 +477,7 @@
         }
 
         .video-description {
-            opacity: 0.6;
+            //opacity: 0.6;
             position: absolute;
             top: 180px;
             left: 0;
@@ -502,17 +502,30 @@
             opacity: 1;
         }
 
+        .video-thumb-cover {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0, 0.15);
+        }
+        .video-thumb-link:hover .video-thumb-cover {
+            background-color: rgba(0,0,0, 0.001);
+        }
+
         .video-player-play-button {
             @include user-select(none);
             position: absolute;
-            opacity: 0.6;
+            //opacity: 0.6;
             left: 50%;
             top: 50%;
             width: 69px;
             height: 69px;
             margin-top: -35px;
             margin-left: -35px;
-            background: url('images/video-player-play-button.png') no-repeat;
+            background: url('../../../assets/images/main-sprite.png') no-repeat;
+            background-position: 0 -250px;
             cursor: pointer;
         }
         a:hover .video-player-play-button {

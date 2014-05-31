@@ -72,8 +72,13 @@
   .page-content ol ol {
     margin-top: 7.5px; }
 
+.page-content pre {
+  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
+  line-height: 22px; }
+
 .page-content pre code {
   display: block;
+  padding: 15px 20px;
   font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace; }
 
 .page-content code {
@@ -317,35 +322,36 @@
 .page-title {
   margin-bottom: 40px; }
 
+.page-link-to-github {
+  position: absolute;
+  display: inline-block;
+  top: 4px;
+  right: 30px;
+  border: 1px solid #b5b5b5;
+  border-radius: 5px;
+  color: #828282;
+  font-size: 12px;
+  padding: 4px 10px;
+  text-decoration: none; }
+  .page-link-to-github:hover {
+    color: #333333;
+    border-color: #333333; }
+  .page-link-to-github .github-icon {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../../../assets/images/main-sprite.png");
+    background-repeat: no-repeat;
+    background-position: -50px 0; }
+  .page-link-to-github:hover .github-icon {
+    background-position: 0 0; }
+  .page-link-to-github .text {
+    padding-left: 27px; }
+
 .page-content {
   position: relative;
   margin-top: 0; }
-  .page-content .page-link-to-github {
-    background-image: -moz-linear-gradient(#c0d4e5, #b2cadf);
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c0d4e5), to(#b2cadf));
-    background-image: -webkit-linear-gradient(#c0d4e5, #b2cadf);
-    background-image: -o-linear-gradient(#c0d4e5, #b2cadf);
-    position: absolute;
-    display: inline-block;
-    top: 4px;
-    right: 30px;
-    border: 1px solid #afc8dd;
-    background-color: #b9cfe2;
-    border-radius: 5px;
-    color: #333333;
-    font-size: 12px;
-    padding: 4px 10px;
-    text-decoration: none; }
-    .page-content .page-link-to-github:hover {
-      color: #ed7615; }
-    .page-content .page-link-to-github .github-icon {
-      position: absolute;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZhJREFUeNqclE9Eg3EYx9dbRsToGjFi7DSa5T0kInbYJca6dimlQ5fYoWOMiK51bDp0qes0RsSYxcjGGDFGjBGdYvR9+L55PH6b9j58eH/Pn+/7+z2/P3O+70ccNg92QQHEQYr+FvgAD+AJjG3hgkNsB1yDpCO2TvKgA05BVSd4pqAInieIWUsytzhJ8AyUIrNbSYsGgltKrAb2QH2KSJ05NY4vwLbu4RU3QuyFTRcybHyLsRTzGhwnKCS+S5AWwSwbHVhMfTfMzN7MOGY2LOvxaGirzNC/qhkXPC4rsHdH0jSrsCawjAiuKkcnxC7rmrgILilHNISgrlkUwaFyJEII6pqhZ6Ysp9+fQSxjblXHc+zqHVj7h5jk3NtNEsEyD+8AHINl0AY3fASipl95xtrmx6JR9ih0C1Y4/RyDB+AI/Kgi+T5hzG6gaAyCu3wOehSQa5QGh2DfsdSGw9ejxt/jMOLMhuxLgtds7Ci2vk/Wjuzz1QUboA8eQZPLm2avrOlOemBFbJN/lCv15RD55uuTY25fB38FGABbkFWKdAMGPQAAAABJRU5ErkJggg==); }
-    .page-content .page-link-to-github .text {
-      padding-left: 27px; }
   .page-content h1 {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     margin-top: 30px;
@@ -363,9 +369,6 @@
   .page-content h4 {
     margin-top: 30px;
     margin-bottom: 15px; }
-    .page-content h3:first-of-type,
-    .page-content h4:first-of-type {
-      margin-top: 0; }
   .page-content p {
     margin-bottom: 15px;
     line-height: 24px; }
@@ -373,8 +376,6 @@
     max-width: 100%; }
   .page-content pre {
     margin-bottom: 15px; }
-  .page-content pre code {
-    padding: 20px; }
   .page-content blockquote {
     margin-bottom: 15px; }
   .page-content hr {
