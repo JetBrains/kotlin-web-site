@@ -2,54 +2,12 @@ define([
     'jquery',
     'util/render',
     'util/common'
-], function($, render, util) {
+], function ($, render, util) {
 
-    function EventsTable(elem, events) {
-        var that = this;
+    var helpers = {},
+        templates = {};
 
-        that.elem = elem;
-
-        // Convert event date from string to Date object
-        for (var i = 0, len = events.length; i < len; i++) {
-            var event = events[i];
-            var isDateRange = util.isArray(event.date);
-
-            if (isDateRange && (typeof event.date[0] === 'string')) {
-                event.date = [
-                    new Date(event.date[0]),
-                    new Date(event.date[1])
-                ];
-            }
-            else if (!isDateRange && typeof event.date === 'string') {
-                event.date = new Date(event.date);
-            }
-        }
-
-        // Sorting
-
-        document.body.appendChild(this.render(events));
-    }
-
-    EventsTable.MONTHS = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-    ];
-
-    EventsTable.NOW_DATE = new Date();
-
-    EventsTable.helpers = {};
-
-    EventsTable.helpers.formatDate = function(date) {
+    helpers.formatDate = function (date) {
         var formatted = '',
             isRange = util.isArray(date),
             months = EventsTable.MONTHS,
@@ -88,31 +46,63 @@ define([
         return formatted;
     };
 
-    EventsTable.templates = {};
+    templates.main = function (events) {
+        var now = EventsTable.NOW_DATE,
+            pastEvents = [],
+            futureEvents = [],
+            hasPastEvents, hasFutureEvents;
 
-    EventsTable.templates.main = function(events) {
-        return this.eventsList(events);
+        // Split events list to past and future events
+        for (var i = 0, len = events.length; i < len; i++) {
+            var event = events[i];
+            var isRangeOfDates = util.isArray(event.date);
+
+            if (isRangeOfDates)
+                ((event.date[0] < now || event.date[1] < now)
+                    ? pastEvents
+                    : futureEvents
+                    ).push(event);
+            else
+                (event.date < now ? pastEvents : futureEvents).push(event);
+        }
+
+        hasPastEvents = pastEvents.length > 0;
+        hasFutureEvents = futureEvents.length > 0;
+
+        return [
+            ['.events-table',
+                hasFutureEvents
+                    ? ['.events-table-row',
+                    ['.events-table-row-title', 'Upcoming Events'],
+                    templates.eventsList(futureEvents)
+                ]
+                    : null,
+                hasPastEvents
+                    ? ['.events-table-row',
+                    ['.events-table-row-title', 'Past Events'],
+                    templates.eventsList(pastEvents)
+                ]
+                    : null
+            ]
+        ];
     };
 
-    EventsTable.templates.eventsList = function(events) {
-        var template = [];
+    templates.eventsList = function (events) {
+        var template = ['.events-list'];
 
         for (var i = 0, len = events.length; i < len; i++) {
             template.push(this.event(events[i]));
         }
 
-        return template;
+        return [template];
     };
 
-    EventsTable.templates.event = function(event) {
-        var helpers = EventsTable.helpers,
-            templates = EventsTable.templates,
-            hasUrl = 'url' in event,
+    templates.event = function (event) {
+        var hasUrl = 'url' in event,
             hasSubject = 'subject' in event,
             hasContent = 'content' in event,
             hasSpeaker = 'speaker' in event,
             isMultipleSpeakers = hasSpeaker && util.isArray(event.speaker),
-            isDateRange = util.isArray(event.date),
             hasLocation = 'location' in event;
 
         var t =
@@ -125,50 +115,99 @@ define([
                         hasUrl
                             ? ['a.event-url', {href: event.url, target: '_blank'}, event.title]
                             : event.title
-                    ]
+                    ],
+                    hasLocation
+                        ? ['.event-location', event.location]
+                        : null
                 ],
                 ['.event-info-block',
                     ['.event-subject', event.subject],
-                    hasContent
-                        ? templates.eventContent(event)
-                        : null,
+                    templates.eventContent(event),
                     hasSpeaker
                         ? ['.event-speaker',
-                            isMultipleSpeakers
-                                ? event.speaker.join(', ')
-                                : event.speaker
-                          ]
+                        isMultipleSpeakers
+                            ? event.speaker.join(', ')
+                            : event.speaker
+                    ]
                         : null
                 ]
-        ];
+            ];
 
         return t;
     };
 
-    EventsTable.templates.eventContent = function(event) {
-        var template = [
-            '.event-info-indicators'
-        ];
+    templates.eventContent = function (event) {
+        var hasContent = 'content' in event,
+            template = [
+                '.event-info-indicators'
+            ];
 
         if ('lang' in event) {
             template.push(['.event-lang', event.lang]);
         }
 
-        for (var itemType in event.content) {
-            var itemUrl = event.content[itemType];
-            template.push(['a.event-content-item._' + itemType, {
-                href: itemUrl,
-                target: '_blank'
-            }]);
+        if (hasContent) {
+            for (var itemType in event.content) {
+                var itemUrl = event.content[itemType];
+                template.push(['a.event-content-item._' + itemType, {
+                    href: itemUrl,
+                    target: '_blank'
+                }]);
+            }
         }
 
         return template;
     };
 
+
+    function EventsTable(elem, events) {
+        var that = this;
+
+        that.elem = elem;
+
+        // Convert event date from string to Date object
+        for (var i = 0, len = events.length; i < len; i++) {
+            var event = events[i];
+            var isDateRange = util.isArray(event.date);
+
+            if (isDateRange && (typeof event.date[0] === 'string')) {
+                event.date = [
+                    new Date(event.date[0]),
+                    new Date(event.date[1])
+                ];
+            }
+            else if (!isDateRange && typeof event.date === 'string') {
+                event.date = new Date(event.date);
+            }
+        }
+
+        // Sorting
+
+
+        elem.appendChild = that.render(events);
+    }
+
+    EventsTable.MONTHS = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ];
+
+    EventsTable.NOW_DATE = new Date();
+
     EventsTable.prototype.elem = null;
 
-    EventsTable.prototype.render = function(events) {
-        return render(EventsTable.templates.main(events));
+    EventsTable.prototype.render = function (events) {
+        return render(templates.main(events));
     };
 
     return EventsTable;
