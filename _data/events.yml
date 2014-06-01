@@ -9,13 +9,14 @@
 #    date: [2012-09-30, 2012-10-4]
 #    location: San Francisco, CA, USA
 #    content:
-#      - title: Who's More Functional: Kotlin, Groovy, Scala, or Java?
-#        url: https://oracleus.activeevents.com/connect/sessionDetail.ww?SESSION_ID=5774
-#        content:
-#          - title: Slides
-#            url: http://www.slideshare.net/abreslav/whos-more-functional-kotlin-groovy-scala-or-java
+#      slides: https://prezi.com/hndtabwcfy5h/kara-talk-jpoint
+#      pdf: http://confluence.jetbrains.com/download/attachments/40706137/typesafeweb.pdf?version=1&modificationDate=1365597837000
+#      examples: https://github.com/abreslav/kara-files
+#      video: http://www.youtube.com/watch?v=6y-4xJWFLl4
+#      article: http://jaxenter.com/type-safe-web-with-kotlin-47395.html
 
-# 2011 =========================================================================
+# 2011
+# ==============================================================================
 
 - title: JVM Language Summit 2011
   url: http://www.wiki.jvmlangsummit.com/Kotlin
@@ -78,7 +79,8 @@
     video: http://vimeo.com/34176209
 
 
-# 2012 =========================================================================
+# 2012
+# ==============================================================================
 
 - title: JavaDay SPb
   url: http://oracle.timepad.ru/event/17633
@@ -352,7 +354,8 @@
     examples: https://github.com/abreslav/functions-and-data
 
 
-# 2013 =========================================================================
+# 2013
+# ==============================================================================
 
 - title: Beyond Dogmastism
   url: http://2013.33degree.org/talk/show/4
@@ -566,7 +569,8 @@
     slides: http://prezi.com/2nrkbg6nfc8h/kotlin-vs-java-puzzlers-devoxx/
 
 
-# 2014 =========================================================================
+# 2014
+# ==============================================================================
 
 - title: Mobius
   url: http://mobius.codefreeze.ru/talks/13/
@@ -582,6 +586,6 @@
   url: http://javapoint.ru/talks/
   subject: Language Design Trade-offs
   speaker: Andrey Breslav
-  date: 2015-04-18
+  date: 2014-04-18
   location: Moscow, Russia
   lang: ru
