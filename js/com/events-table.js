@@ -73,13 +73,13 @@ define([
             ['.events-table',
                 hasFutureEvents
                     ? ['.events-table-row',
-                    ['.events-table-row-title', 'Upcoming Events'],
+                    ['.events-table-row-title', 'Upcoming'],
                     templates.eventsList(futureEvents)
                 ]
                     : null,
                 hasPastEvents
                     ? ['.events-table-row',
-                    ['.events-table-row-title', 'Past Events'],
+                    ['.events-table-row-title', 'Past'],
                     templates.eventsList(pastEvents)
                 ]
                     : null
@@ -121,8 +121,10 @@ define([
                         : null
                 ],
                 ['.event-info-col',
-                    ['.event-subject', event.subject],
-                    templates.eventContent(event),
+                    ['.event-subject',
+                        hasSubject ? ['span.text', event.subject] : null,
+                        templates.eventContent(event)
+                    ],
                     hasSpeaker
                         ? ['.event-speaker',
                         isMultipleSpeakers
@@ -149,9 +151,12 @@ define([
         if (hasContent) {
             for (var itemType in event.content) {
                 var itemUrl = event.content[itemType];
+                var itemTitle = itemType.charAt(0).toUpperCase() + itemType.slice(1);
+
                 template.push(['a.event-content-item._' + itemType, {
                     href: itemUrl,
-                    target: '_blank'
+                    target: '_blank',
+                    title: itemTitle
                 }]);
             }
         }
