@@ -1,5 +1,5 @@
 @import "../../_config";
-@import "../../utils/grid/grid";
+@import "../../util/grid";
 
 body {
     @media (max-width: #{$grid-width + ($grid-spacing * 2)}) {
