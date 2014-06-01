@@ -11,7 +11,7 @@
             {% break %}
         {% endif %}
 
-        {% if include.current_section and include.current_section == item_id %}
+        {% if include.active and include.active == item_id %}
             {% assign is_active = true %}
         {% endif %}
 

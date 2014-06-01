@@ -6,13 +6,13 @@
     <div class="g-layout">
         <a class="global-header-logo" href="{{ site.baseurl }}/">Project Kotlin</a>
 
-        {% if include.current_section %}
-            {% assign current_section = include.current_section %}
+        {% if include.active %}
+            {% assign active = include.active %}
         {% else %}
-            {% assign current_section = page.main_nav_id %}
+            {% assign active = page.main_nav_id %}
         {% endif %}
 
-        {% include nav/main.html current_section=current_section last_version=last_version %}
+        {% include nav/main.html active=active last_version=last_version %}
 
         {% if page.layout == 'index' %}
         <div class="kotlin-info">
