@@ -23,9 +23,9 @@ define([
             day = [date[0].getDate(), date[1].getDate()];
 
             if (month[0] !== month[1]) {
-                formatted = month[0] + ' ' + day[0] + ' - ' + month[1] + ' ' + day[1];
+                formatted = month[0] + ' ' + day[0] + '-' + month[1] + ' ' + day[1];
             } else {
-                formatted = month[0] + ' ' + day[0] + ' - ' + day[1];
+                formatted = month[0] + ' ' + day[0] + '-' + day[1];
             }
 
             if (year[0] !== nowYear || year[1] !== nowYear) {
@@ -107,10 +107,10 @@ define([
 
         var t =
             ['.event',
-                ['.event-date-block',
+                ['.event-date-col',
                     ['.event-date', helpers.formatDate(event.date)]
                 ],
-                ['.event-title-block',
+                ['.event-title-col',
                     ['.event-title',
                         hasUrl
                             ? ['a.event-url', {href: event.url, target: '_blank'}, event.title]
@@ -120,7 +120,7 @@ define([
                         ? ['.event-location', event.location]
                         : null
                 ],
-                ['.event-info-block',
+                ['.event-info-col',
                     ['.event-subject', event.subject],
                     templates.eventContent(event),
                     hasSpeaker
@@ -182,9 +182,24 @@ define([
         }
 
         // Sorting
+        events.sort(function(a, b) {
+            var dateA = a.date,
+                dateB = b.date,
+                isADateIsRange = util.isArray(dateA),
+                isBDateIsRange = util.isArray(dateB),
+                compareA = isADateIsRange ? dateA[1] : dateA,
+                compareB = isBDateIsRange ? dateB[1] : dateB;
 
+            if (compareA === compareB) {
+                return 0;
+            }
 
-        elem.appendChild(that.render(events));
+            return (compareA < compareB) ? 1 : -1;
+        });
+
+        this.events = events;
+
+        elem.appendChild(that.render());
     }
 
     EventsTable.MONTHS = [
@@ -206,8 +221,10 @@ define([
 
     EventsTable.prototype.elem = null;
 
-    EventsTable.prototype.render = function (events) {
-        return render(templates.main(events));
+    EventsTable.prototype.events = null;
+
+    EventsTable.prototype.render = function () {
+        return render(templates.main(this.events));
     };
 
     return EventsTable;
