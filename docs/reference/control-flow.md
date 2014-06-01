@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Control Flow"
-category: reference
-subcategory: syntax
 ---
 
 # Control Flow

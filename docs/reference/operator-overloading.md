@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
 title: "Operator overloading"
-category: reference
-subcategory: syntax
+category: "Syntax"
 ---
 
 # Operator overloading

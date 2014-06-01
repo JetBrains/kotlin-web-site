@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Null Safety"
-category: reference
-subcategory: syntax
 ---
 
 # Null Safety

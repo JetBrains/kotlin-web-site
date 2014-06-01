@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Exceptions"
-category: reference
-subcategory: syntax
 ---
 
 # Exceptions

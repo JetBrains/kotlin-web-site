@@ -1,9 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Annotations"
-category: reference
-subcategory: syntax
-toc: true
 ---
 
 # Annotations

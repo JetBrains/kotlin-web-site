@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "This expressions"
-category: reference
-subcategory: syntax
 ---
 
 # This Expression

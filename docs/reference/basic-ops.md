@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Basics"
 title: "Basic Operations"
-category: reference
-subcategory: basics
 ---
 
 # Basic Operations

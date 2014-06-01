@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Nested Classes"
-category: reference
-subcategory: syntax
 ---
 
 # Nested Classes

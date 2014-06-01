@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Interop"
 title: "Java Interop"
-category: reference
-subcategory: interop
 ---
 
 # Java Interop

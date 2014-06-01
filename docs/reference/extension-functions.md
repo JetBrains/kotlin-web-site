@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Extension Functions"
-category: reference
-subcategory: syntax
 ---
 
 # Extension Functions

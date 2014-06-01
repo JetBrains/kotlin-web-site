@@ -1,6 +1,6 @@
 ---
 layout: reference
-title: Reference
+title: "Reference"
 ---
 
 # Reference

@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Pattern Matching"
-category: reference
-subcategory: syntax
 ---
 
 # Pattern Matching

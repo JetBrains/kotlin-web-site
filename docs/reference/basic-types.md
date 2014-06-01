@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Basic Types"
-category: reference
-subcategory: syntax
 ---
 
 # Basic Types

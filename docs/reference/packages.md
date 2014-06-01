@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Packages"
-category: reference
-subcategory: syntax
 ---
 
 # Packages

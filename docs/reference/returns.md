@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Returns and Jumps"
-category: reference
-subcategory: syntax
 ---
 
 # Returns and Jumps

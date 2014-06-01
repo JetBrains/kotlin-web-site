@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Tutorials
+title: "Tutorials"
 ---
 
 # Tutorials

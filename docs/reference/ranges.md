@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Ranges"
-category: reference
-subcategory: syntax
 ---
 
 # Ranges

@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Object Expressions and Declarations"
-category: reference
-subcategory: syntax
 ---
 
 # Object Expressions and Declarations

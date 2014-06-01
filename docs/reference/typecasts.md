@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Type Casts"
-category: reference
-subcategory: syntax
 ---
 
 # Type Casts

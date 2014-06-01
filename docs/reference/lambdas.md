@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "High-Order Functions and Lambdas"
-category: reference
-subcategory: syntax
 ---
 
 # High-Order Functions and Lambdas

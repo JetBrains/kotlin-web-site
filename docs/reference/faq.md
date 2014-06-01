@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "FAQ"
 title: "FAQ"
-category: reference
-subcategory: faq
 ---
 
 # FAQ

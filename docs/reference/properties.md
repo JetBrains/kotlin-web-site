@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Properties and Fields"
-category: reference
-subcategory: syntax
 ---
 
 # Properties and Fields

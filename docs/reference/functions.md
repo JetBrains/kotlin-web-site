@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Functions"
-category: reference
-subcategory: syntax
 ---
 
 # Functions

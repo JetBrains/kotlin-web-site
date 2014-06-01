@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Traits"
-category: reference
-subcategory: syntax
 ---
 
 # Traits
