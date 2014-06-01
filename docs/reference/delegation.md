@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Delegation"
-category: reference
-subcategory: syntax
 ---
 
 # Delegation

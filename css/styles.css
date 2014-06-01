@@ -1,14 +1,14 @@
 @import 'reset.css';
 @import 'fonts.css';
 @import 'base.css';
-@import 'components/grid/grid.css';
+@import 'com/grid/grid.css';
 
-@import 'components/layout/header.css';
-@import 'components/layout/footer.css';
-@import 'components/layout/layout.css';
+@import 'com/layout/header.css';
+@import 'com/layout/footer.css';
+@import 'com/layout/layout.css';
 
-@import 'components/nav/nav.css';
-@import 'components/page-content/page-content.css';
-@import 'components/video/video.css';
-@import 'components/events/events.css';
-@import 'components/kotlin-overview/kotlin-overview.css';
+@import 'com/nav/nav.css';
+@import 'com/page-content/page-content.css';
+@import 'com/video/video.css';
+@import 'com/events-table/events-table.css';
+@import 'com/kotlin-overview/kotlin-overview.css';

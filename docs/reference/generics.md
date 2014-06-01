@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Generics"
-category: reference
-subcategory: syntax
 ---
 
 # Generics

@@ -1,9 +1,8 @@
 ---
+type: tutorial
 layout: tutorial
-title:  "Using Maven"
+title: "Using Maven"
 description: "This tutorials walks you through different scenarios when using Maven for building applications that contain Kotlin code"
-category: tutorial
-subcategory: tooling
 ---
 
 # Using Maven

@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Enum Classes"
-category: reference
-subcategory: syntax
 ---
 
 # Enum Classes

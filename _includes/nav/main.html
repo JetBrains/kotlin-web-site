@@ -1,5 +1,5 @@
 <nav class="global-header-nav">
-    {% assign nav = site.data.nav.main %}
+    {% assign nav = site.data._nav.main %}
 
     {% for i in nav %}
         {% assign item_id = i[0] %}
@@ -11,7 +11,7 @@
             {% break %}
         {% endif %}
 
-        {% if include.current_section and include.current_section == item_id %}
+        {% if include.active and include.active == item_id %}
             {% assign is_active = true %}
         {% endif %}
 
@@ -28,6 +28,8 @@
     {% endfor %}
 
     {% if page.layout == 'index' %}
+        <a href="{{ site.github_url }}" class="github-link" title="Source Code on GitHub">Source Code on GitHub</a>
+        <a href="{{ site.github_url }}" class="twitter-link" title="Kotlin on Twitter">Kotlin on Twitter</a>
     {% else %}
         <a href="{{ site.baseurl }}{{ nav.download.url }}" class="get-kotlin-button">
             Download Kotlin

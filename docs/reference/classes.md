@@ -1,12 +1,12 @@
 ---
+type: doc
 layout: reference
+category: "Syntax"
 title: "Classes and Inheritance"
-category: reference
-subcategory: syntax
 related:
-    - title: "Functions"
-    - title: "Nested Classes"
-    - title: "Traits"
+    - functions.md
+    - nested-classes.md
+    - traits.md
 ---
 
 # Classes and Inheritance

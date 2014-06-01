@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Tools"
 title: "Kotlin Doc"
-category: reference
-subcategory: tools
 ---
 
 # Kotlin Doc

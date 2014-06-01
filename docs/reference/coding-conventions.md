@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
-title: "Coding Conventions"
-category: reference
-subcategory: basics
+category: Basics
+title: Coding Conventions
 ---
 
 # Coding Conventions

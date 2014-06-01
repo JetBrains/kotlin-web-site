@@ -1,10 +1,10 @@
 ---
+type: tutorial
 layout: tutorial
-title:  "Working with the Command Line Compiler"
+title: "Working with the Command Line Compiler"
 description: "This tutorial walks you through creating a Hello World application using the command line compiler"
-category: tutorial
-related: "Getting Started"
-subcategory: getting_started
+related:
+    - getting-started.md
 ---
 
 # Working with the Command Line Compiler

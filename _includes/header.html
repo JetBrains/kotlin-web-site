@@ -6,13 +6,13 @@
     <div class="g-layout">
         <a class="global-header-logo" href="{{ site.baseurl }}/">Project Kotlin</a>
 
-        {% if include.current_section %}
-            {% assign current_section = include.current_section %}
+        {% if include.active %}
+            {% assign active = include.active %}
         {% else %}
-            {% assign current_section = page.main_nav_id %}
+            {% assign active = page.main_nav_id %}
         {% endif %}
 
-        {% include nav/main.html current_section=current_section last_version=last_version %}
+        {% include nav/main.html active=active last_version=last_version %}
 
         {% if page.layout == 'index' %}
         <div class="kotlin-info">
@@ -23,7 +23,7 @@
             <div class="kotlin-info-description-extra">
                 100% interoperable with Java™
             </div>
-            <a href="{{ site.baseurl }}{{ site.data.nav.main.download.url }}" class="get-kotlin-button">
+            <a href="{{ site.baseurl }}{{ site.data._nav.main.download.url }}" class="get-kotlin-button">
                 Get Kotlin Now
                 <span class="version">({{ last_version.version }})</span>
             </a>

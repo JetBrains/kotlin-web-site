@@ -1,8 +1,8 @@
 ---
+type: doc
 layout: reference
+category: "Basics"
 title: "Idioms"
-category: reference
-subcategory: basics
 ---
 
 # Idioms
