@@ -1,11 +1,10 @@
 define([
     'jquery',
     'com/carousel',
-    'com/videoPlayer'
-], function($, Carousel, Player) {
+    'com/video-player'
+], function ($, Carousel, Player) {
 
-    var initTabs = function()
-    {
+    var initTabs = function () {
         var $tabs = $('.js-tab');
 
         $tabs.on('click', function () {
@@ -32,32 +31,31 @@ define([
         });
     };
 
-    var initPopups = function()
-    {
+    var initPopups = function () {
         var popups =
         {
-            init: function() {
+            init: function () {
                 var that = this,
                     $popups = $('.js-popup'),
                     $popupShowButtons = $('.js-popup-open-button'),
                     $popupHideButtons = $('.js-popup-close-button');
 
-                $popupShowButtons.on('click', function(e) {
+                $popupShowButtons.on('click', function (e) {
                     var popupId = this.getAttribute('data-popup-id');
 
                     e.stopPropagation();
                     that.showPopup(popupId);
                 });
 
-                $popupHideButtons.on('click', function(e) {
+                $popupHideButtons.on('click', function (e) {
                     var popupId = this.getAttribute('data-popup-id');
 
                     e.stopPropagation();
                     that.hidePopup(popupId);
                 });
 
-                $(document.body).on('click', function() {
-                    $popups.each(function() {
+                $(document.body).on('click', function () {
+                    $popups.each(function () {
                         var $popup = $(this),
                             popupId = this.id;
 
@@ -67,12 +65,12 @@ define([
                     });
                 });
 
-                $popups.on('click', function(e) {
+                $popups.on('click', function (e) {
                     e.stopPropagation();
                 })
             },
 
-            togglePopup: function(id) {
+            togglePopup: function (id) {
                 var that = this,
                     $popupNode = $('#' + id);
 
@@ -83,13 +81,13 @@ define([
                 }
             },
 
-            showPopup: function(id) {
+            showPopup: function (id) {
                 var $popupNode = $('#' + id);
 
                 $popupNode.removeClass('_hidden');
             },
 
-            hidePopup: function(id) {
+            hidePopup: function (id) {
                 var $popupNode = $('#' + id);
 
                 $popupNode.addClass('_hidden');
@@ -99,8 +97,7 @@ define([
         popups.init();
     };
 
-    var initPlayer = function()
-    {
+    var initPlayer = function () {
         var $playerBlock = $('.js-video-player-wrap'),
             $playerPlaceholder = $playerBlock.find('.js-video-player'),
             $thumbLink = $playerBlock.find('.js-video-thumb-link'),
@@ -133,9 +130,8 @@ define([
         });
     };
 
-    var init = function(data)
-    {
-        $(document).ready(function() {
+    return (function () {
+        $(document).ready(function () {
             // Features carousel
             new Carousel({
                 elem: document.getElementById('features-carousel-wrap')
@@ -150,7 +146,6 @@ define([
             initPopups();
             initTabs();
         });
-    };
+    })();
 
-    return init();
 });

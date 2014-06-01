@@ -4,107 +4,12 @@ title: Events
 docs_nav_id: events
 ---
 
-{% assign events = site.data.events %}
-
 <p>If you'd like us to come and speak at your event or are giving a talk on Kotlin and would like it published here, <a href="mailto:hadi@jetbrains.com">please contact us</a>.</p>
 
-<table class="events-table js-events-table">
-    <tbody>
-    {% for event in events reversed %}
-        {% assign event_date = event.date %}
-        {% assign has_slides = event.content.slides %}
-        {% assign has_video = event.content.video %}
-
-        {% if event.date.size %}
-            {% assign event_date = event.date|join:',' %}
-        {% endif %}
-
-        <tr class="js-event" data-date="{{ event_date }}">
-            <!-- title -->
-            <td class="events-table-cell _title">
-
-                <span class="event-title">
-                    {% if event.url %}
-                        <a href="{{ event.url }}" target="_blank" rel="nofollow" class="event-url">{{ event.title }}</a>
-                    {% else %}
-                        {{ event.title }}
-                    {% endif %}
-                </span>
-
-                {% if event.date.size %}
-                    <time class="event-date">{{ event.date[0]|date:'%-d' }}-{{ event.date[1]|date:'%-d' }} {{ event.date[0]|date:'%b' }}, {{ event.date[0]|date:'%Y' }}</time>
-                {% else %}
-                    <time class="event-date">{{ event.date|date:'%-d %b, %Y' }}</time>
-                {% endif %}
-
-
-                {% if event.location %}
-                    <br>
-                    <span class="event-location">{{ event.location }}</span>
-                {% endif %}
-            </td>
-
-            <!-- subject & speaker -->
-            <td class="events-table-cell _subject">
-                {% if event.subject %}
-                    <span class="event-subject">{{ event.subject }}</span>
-                {% endif %}
-
-                {% if event.speaker %}
-                    {% if event.speaker.size %}
-                        by <span class="event-speaker">{{ event.speaker|join:'</span> and <span class="event-speaker">' }}</span>
-                    {% else %}
-                        by <span class="event-speaker">{{ event.speaker }}</span>
-                    {% endif %}
-                {% else %}
-                    &nbsp;
-                {% endif %}
-            </td>
-
-            <!-- content -->
-            <td class="events-table-cell _content">
-                <div class="event-content-list">
-                {% if has_slides %}
-                    {% if event.content.slides.size %}
-                        {% for slide_url in event.content.slides %}
-                            <a href="{{ slide_url }}" class="event-content-link" target="_blank" rel="nofollow" title="Slides">
-                                <i class="event-content-icon _slides"></i>
-                                Slides
-                            </a>
-                        {% endfor %}
-                    {% else %}
-                        <a href="{{ event.content.slides }}" class="event-content-link" target="_blank" rel="nofollow" title="Slides">
-                            <i class="event-content-icon _slides"></i>
-                            Slides
-                        </a>
-                    {% endif %}
-                {% endif %}
-
-                {% if has_video %}
-                    {% if event.content.video.size %}
-                        {% for video_url in event.content.video %}
-                            <a href="{{ video_url }}" class="event-content-link" target="_blank" rel="nofollow" title="Video">
-                                <i class="event-content-icon _video"></i>
-                                Video
-                            </a>
-                        {% endfor %}
-                    {% else %}
-                        <a href="{{ event.content.video }}" class="event-content-link" target="_blank" rel="nofollow" title="Video">
-                            Video
-                            <i class="event-content-icon _video"></i>
-                        </a>
-                    {% endif %}
-                {% endif %}
-                </div>
-            </td>
-
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div id="events"></div>
 
 <script>
-require(['pages/events'], function(page) {
-    page();
+require(['page/events'], function(page) {
+    page(document.getElementById('events'), {{ site.data.events | json }});
 });
 </script>

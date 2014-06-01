@@ -184,7 +184,7 @@ define([
         // Sorting
 
 
-        elem.appendChild = that.render(events);
+        elem.appendChild(that.render(events));
     }
 
     EventsTable.MONTHS = [

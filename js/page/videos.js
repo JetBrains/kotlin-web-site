@@ -1,6 +1,6 @@
 define(['jquery'], function($) {
-    var init = function(data)
-    {
+
+    return function(data) {
         $(document).ready(function() {
             var videoIdRegexp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/,
                 videoEmbedUrl,
@@ -70,5 +70,4 @@ define(['jquery'], function($) {
         });
     };
 
-    return init;
 });
