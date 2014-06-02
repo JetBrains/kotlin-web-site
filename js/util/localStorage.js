@@ -1,4 +1,9 @@
 define({
+    /**
+     * @param {string} key
+     * @param {*} value
+     * @returns {*}
+     */
     setItem: function (key, value) {
         var type = typeof value;
 
@@ -11,6 +16,10 @@ define({
         return arguments[1];
     },
 
+    /**
+     * @param {string} key
+     * @returns {*}
+     */
     getItem: function (key) {
         var value = localStorage.getItem(key),
             valueLength,
@@ -30,10 +39,16 @@ define({
         return value;
     },
 
+    /**
+     * @param {string} key
+     */
     removeItem: function (key) {
         localStorage.removeItem(key);
     },
 
+    /**
+     * @returns {object|null}
+     */
     getAllItems: function () {
         var key,
             items = {},
@@ -45,5 +60,12 @@ define({
         }
 
         return i > 0 ? items : null;
+    },
+
+    /**
+     * @returns void
+     */
+    clear: function () {
+        localStorage.clear();
     }
 });
