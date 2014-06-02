@@ -48,7 +48,7 @@ define([
         saveState: true
     };
 
-    NavTree.prototype._initEvents = function(n) {
+    NavTree.prototype._initEvents = function() {
         var that = this,
             nodes = that.nodes;
 
@@ -57,22 +57,16 @@ define([
                 $parent = $elem.parent(),
                 itemId = $parent.attr('data-id'),
                 isActive = $elem.hasClass('is_active'),
-                isFinal = $parent.hasClass('_final-node');
+                isLeaf = $parent.hasClass('js-leaf');
 
-            if (isFinal) {
+            if (isLeaf) {
                 return
             }
 
-            if (isActive) {
-                $elem.removeClass('is_active');
-                $parent.removeClass('_expanded');
-                $parent.addClass('_collapsed');
-            }
-            else {
-                $elem.addClass('is_active');
-                $parent.addClass('_expanded');
-                $parent.removeClass('_collapsed');
-            }
+            if (isActive)
+                that._closeBranch(this);
+            else
+                that._openBranch(this);
 
             if (itemId) {
                 var states = that.getItemsStateInfo();
@@ -104,24 +98,42 @@ define([
                     $parent = $elem.parent(),
                     itemId = $parent.attr('data-id');
 
-                if (itemId in states && states[itemId] === true) {
-                    $elem.addClass('is_active');
-                    $parent.addClass('_expanded');
-                    $parent.removeClass('_collapsed');
+                if (itemId in states) {
+                    if (states[itemId] === true)
+                        that._openBranch(this);
+                    else
+                        that._closeBranch(this);
                 }
             });
         }
     };
 
+    NavTree.prototype._openBranch = function(branchTitleNode) {
+        var $elem = $(branchTitleNode),
+            $parent = $elem.parent();
+
+        $parent.addClass('_opened');
+        $parent.removeClass('_closed');
+        $elem.addClass('is_active');
+    };
+
+    NavTree.prototype._closeBranch = function(branchTitleElem) {
+        var $elem = $(branchTitleElem),
+            $parent = $elem.parent();
+
+        $parent.addClass('_closed');
+        $parent.removeClass('_opened');
+        $elem.removeClass('is_active');
+    };
+
     templates.main = function(items) {
         return [
-            ['.nav-tree', templates.itemsList(items)],
-            ['br'], ['br'], ['br']
+            ['.nav-tree', templates.itemsList(items)]
         ];
     };
 
     templates.itemsList = function(items, parentId) {
-        var t = ['.nav-tree-items-list'],
+        var t = [],
             item, itemTemplate,
             hasContent,
             parentId = parentId || null;
@@ -134,24 +146,26 @@ define([
 
             if (hasContent) {
                 itemTemplate.push(
-                    templates.itemsList(item.content, item.title)
+                    templates.itemsList(item.content, parentId === null ? item.title : parentId)
                 );
             }
 
             t.push(itemTemplate);
         }
 
-        return [t];
+        return t;
     };
 
     templates.item = function(item, parentId) {
         var hasUrl = 'url' in item,
             hasTitle = 'title' in item,
             hasContent = 'content' in item && item.content !== null && item.content.length > 0,
+            isBranch = hasContent,
+            isLeaf = !isBranch,
+            type = isBranch ? 'branch' : 'leaf',
             itemId,
             itemUrl = hasUrl ? item.url : null,
-            itemTitle = hasTitle ? item.title : null,
-            extraClass = (hasContent ? '._container-node._collapsed' : '._final-node');
+            itemTitle = hasTitle ? item.title : null;
 
         if (!hasTitle) {
             for (itemUrl in item) {
@@ -163,11 +177,18 @@ define([
         itemId = (parentId !== null) ? parentId + '.' + itemTitle : itemTitle;
 
         var t =
-            ['.nav-tree-item.js-item' + extraClass, {'data-id': itemId},
-                hasUrl
-                    ? ['a.nav-tree-item-title.js-item-title', {href: itemUrl}, itemTitle]
-                    : ['.nav-tree-item-title.js-item-title', itemTitle]
-            ];
+            isBranch
+                ? ['.tree-item.tree-branch.js-item.js-branch._closed', {'data-id': itemId}]
+                : ['.tree-item.tree-leaf.js-item.js-leaf']
+            ;
+
+        t.push(
+            [(hasUrl ? 'a' : 'div') + '.tree-item-title.tree-' + type + '-title.js-item-title.js-' + type + '-title',
+                hasUrl ? {href: itemUrl} : null,
+                ['span.marker'],
+                ['span.text', itemTitle]
+            ]
+        );
 
         return t;
     };

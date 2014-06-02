@@ -1,11 +1,7 @@
-define(['com/nav-tree', 'com/nav-tree-new'], function (NavTree, NavTree2) {
+define(['com/nav-tree'], function (NavTree) {
 
-    return (function (data) {
+    return (function () {
         $(document).ready(function () {
-
-            new NavTree2(document.getElementById('reference-nav'), data);
-
-            return;
             new NavTree(document.getElementById('reference-nav'));
         });
     });

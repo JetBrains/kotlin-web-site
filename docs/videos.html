@@ -4,19 +4,22 @@ title: Videos
 docs_nav_id: videos
 ---
 
-{% assign videos = site.data.videos.list %}
-{% assign categories = site.data.videos.categories %}
 
 <div class="g-grid">
-    <div id="video-gallery"></div>
+    <div class="g-3">
+        <div class="video-gallery" id="video-gallery"></div>
+    </div>
+
+    <div class="g-9">
+        <div id="video-player"></div>
+    </div>
 </div>
 
 <script>
 require(['page/videos'], function(page) {
     page({
         elem: document.getElementById('video-gallery'),
-        videos: {{ videos | json }},
-        categories: {{ site.data._nav.reference | json }}
+        videos: {{ site.data.videos | json }}
     });
 });
 </script>

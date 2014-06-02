@@ -1,0 +1,36 @@
+@import '../../config';
+@import '../../utils';
+
+
+.video-gallery {
+    .nav-tree-items-list {
+        .nav-tree-items-list {
+            background-color: #f9f9f9;
+
+            .nav-tree-items-list {
+                background-color: transparent;
+    //            margin-top: 1px;
+    //            border-style: solid;
+    //            border-color: #DADADA;
+    //            border-width: 1px 0;
+    //            background-color: #F2F2F2;
+            }
+        }
+    }
+
+    .nav-tree-item._container-node .nav-tree-item._container-node {
+        border: none;
+
+        &._expanded {
+            background-color: #f2f2f2;
+        }
+
+        .nav-tree-item-title {
+            background-color: transparent;
+        }
+    }
+
+    .nav-tree-item._container-node > .nav-tree-item-title {
+        background-color: #F9F9F9;
+    }
+}
