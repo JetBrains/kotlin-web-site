@@ -7,8 +7,6 @@ define([
     var templates = {},
         helpers = {};
 
-    S = localStorage;
-
     function NavTree(elem, config) {
         var that = this,
             fromExistingNodes;
