@@ -22,4 +22,8 @@ main_nav_id: docs
     </div>
 </div>
 
-<script>require(['page/reference']);</script>
+<script>
+require(['page/reference'], function(page) {
+    page({{ site.data.videos | json }});
+});
+</script>

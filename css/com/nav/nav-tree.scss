@@ -1,0 +1,44 @@
+@import '../../config';
+@import '../../utils';
+
+.nav-tree-items-list {
+
+}
+
+.nav-tree-item {
+    display: block;
+    border-bottom: 1px solid #efefef;
+
+    &:first-child {
+        border-top: 1px solid #efefef;
+    }
+
+    &.is_active {
+        background-color: #f9f9f9;
+    }
+}
+
+.nav-tree-item-title {
+    @include user-select(none);
+    position: relative;
+    color: $base-link-color;
+    display: block;
+    cursor: pointer;
+    padding: $unit 16px;
+
+    &:hover {
+        background-color: #f2f5f8;
+        text-decoration: underline;
+    }
+}
+.nav-tree-item .nav-tree-item-title::before {
+    position: absolute;
+    top: 15px;
+    left: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 5px;
+    border-color: transparent transparent transparent $base-link-color;
+    content: '';
+}

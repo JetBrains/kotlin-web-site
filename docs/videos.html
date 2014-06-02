@@ -8,63 +8,15 @@ docs_nav_id: videos
 {% assign categories = site.data.videos.categories %}
 
 <div class="g-grid">
-
-    <div class="g-3" id="categories-filter">
-        <div class="page-tree-nav">
-            {% for category_item in categories %}
-                {% assign category_id = category_item[0] %}
-                {% assign category_title = category_item[1] %}
-
-                <div class="nav-item {% if forloop.first %}is_active{% endif %}"
-                     data-id="{{ category_id }}">
-                    <div class="nav-item-text">{{ category_title }}</div>
-                </div>
-            {% endfor %}
-
-        </div>
-    </div>
-
-    <div class="g-9">
-        <div class="videos-list">
-            {% for category_item in categories %}
-                {% assign category_id = category_item[0] %}
-                {% assign category_title = category_item[1] %}
-
-                <div class="videos-list-category"
-                     id="category_{{ category_id }}"
-                    {% if forloop.first == false %}style="display: none"{% endif %}
-                >
-                {% for video in videos %}
-                    {% if video.category == category_id %}
-                        <div class="videos-list-item">
-                            <a href="{{ video.url }}" class="video-thumbnail-link js-video">
-                                <img src="{{ site.baseurl }}{{ video.thumbnail }}" class="video-thumbnail-image" alt="{{ video.title }}">
-
-                                <span class="video-info-wrap">
-                                    <span class="video-info">
-                                        <span class="video-title">{{ video.title }}</span>
-                                        <span class="video-description">
-                                            {{ video.description }}
-                                        </span>
-                                        <span class="video-play-button"></span>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-                </div>
-
-            {% endfor %}
-        </div>
-    </div>
+    <div id="video-gallery"></div>
 </div>
 
 <script>
 require(['page/videos'], function(page) {
     page({
+        elem: document.getElementById('video-gallery'),
         videos: {{ videos | json }},
-        categories: {{ categories | json }}
+        categories: {{ site.data._nav.reference | json }}
     });
 });
 </script>
