@@ -2,38 +2,66 @@
   content:
     - title: Basic Syntax
       content:
-        - title: Kotlin is Amazing
-          description: In this video a few amazing features shown. Not many, but enough to fall in love with Kotlin.
+        - title: Basic Syntax 1
           url: http://www.youtube.com/watch?v=viiDaLpPfN4
 
-        - title: A Journey to Kotlin
-          description: Discover Kotlin possibilities to code fast, efficient and really good.
+        - title: Basic Syntax 2
           url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
 
-        - title: How to Make Your Project Fly
-          description: A few stunts that make your work a pleasure.
+        - title: Basic Syntax 3
           url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
     - title: Advanced Syntax
       content:
+        - title: Advanced Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+        - title: Advanced Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+        - title: Advanced Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
     - title: Simple Syntax
       content:
+        - title: Simple Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+        - title: Simple Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+        - title: Simple Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
     - title: Creative Syntax
       content:
+        - title: Creative Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+        - title: Creative Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+        - title: Creative Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
     - title: Using Advanced Syntax
       content:
+        - title: Using Advanced Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+        - title: Using Advanced Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+        - title: Using Advanced Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
 - title: JVM
   content:
+    - title: JVM Test 1
+      content:
 
 - title: JavaScript
-  content:
 
 - title: Android
-  content:
 
 - title: Web
-  content:
