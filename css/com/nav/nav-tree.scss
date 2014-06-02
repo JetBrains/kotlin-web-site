@@ -3,9 +3,11 @@
 
 .nav-tree-items-list {
     .nav-tree-items-list {
-        //padding: 8px 16px 8px 23px;
-        //background-color: #f9f9f9;
+        background-color: #f9f9f9;
     }
+}
+.nav-tree-item._collapsed > .nav-tree-items-list {
+    display: none;
 }
 
 .nav-tree-item {
@@ -17,21 +19,16 @@
     border-width: 1px 0;
     margin-bottom: -1px;
 }
-.nav-tree-item._collapsed > .nav-tree-item {
-    display: none;
-}
-
 
 .nav-tree-item._container-node > .nav-tree-item-title {
     @include user-select(none);
     display: block;
+    position: relative;
+    margin-bottom: -1px;
+    padding: 8px 16px;
+    border-bottom: 0 solid #efefef;
     cursor: pointer;
     color: $base-link-color;
-
-    border-bottom: 1px solid #efefef;
-    position: relative;
-    margin-top: -1px;
-    padding: 8px 16px;
 
     &:hover {
         background-color: #f2f5f8;
@@ -51,7 +48,6 @@
     }
 
     &.is_active {
-        cursor: default;
         color: $base-color;
         background-color: #F5F5F5;
         text-decoration: none;
@@ -61,6 +57,10 @@
             left: 5px;
             border-width: 0 0 6px 6px;
             border-color: transparent transparent $base-color transparent;
+        }
+
+        &:hover {
+            background-color: #eee;
         }
     }
 }
@@ -75,6 +75,10 @@
         top: -1px;
         left: -14px;
         content: '\2013';
+    }
+
+    &.is_active {
+        font-weight: bold;
     }
 
 }
