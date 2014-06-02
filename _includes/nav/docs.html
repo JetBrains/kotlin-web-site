@@ -15,15 +15,16 @@
 {% endfor %}
 
 
-<div class="page-tree-nav">
+<div class="nav-tree-items-list">
 {% for category in nav %}
     {% if category.content.size and category.content.size > 0 %}
 
-    <div class="nav-item _expandable {% if activeCategoryTitle == category.title %}is_active{% endif %}"
+    <div class="nav-tree-item js-item _container-node {% if activeCategoryTitle != category.title %}_collapsed{% endif %}"
          data-id="{{ category.title }}">
 
-        <div class="nav-item-text">{{ category.title }}</div>
-        <div class="subnav-items-list">
+        <div class="nav-tree-item-title js-item-title">{{ category.title }}</div>
+
+        <div class="nav-tree-items-list">
 
             {% for item in category.content %}
                 {% comment %}Dirty hack to get item url and title{% endcomment %}
@@ -35,11 +36,11 @@
                 {% assign is_active = false %}
                 {% if item_url == page.url %}{% assign is_active = true %}{% endif %}
 
-                <div class="subnav-items-list-item {% if is_active %}is_active{% endif %}">
+                <div class="nav-tree-item js-item _final-node">
                     {% if is_active %}
-                        <span class="text">{{ item_title }}</span>
+                        <span class="nav-tree-item-title js-item-title {% if is_active %}is_active{% endif %}">{{ item_title }}</span>
                     {% else %}
-                        <a href="{{ site.baseurl }}{{ item_url }}" class="text">{{ item_title }}</a>
+                        <a href="{{ site.baseurl }}{{ item_url }}" class="nav-tree-item-title js-item-title {% if is_active %}is_active{% endif %}">{{ item_title }}</a>
                     {% endif %}
                 </div>
             {% endfor %}
