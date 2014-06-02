@@ -56,14 +56,21 @@ define([
             var $elem = $(this),
                 $parent = $elem.parent(),
                 itemId = $parent.attr('data-id'),
-                isActive = $elem.hasClass('is_active');
+                isActive = $elem.hasClass('is_active'),
+                isFinal = $parent.hasClass('_final-node');
+
+            if (isFinal) {
+                return
+            }
 
             if (isActive) {
                 $elem.removeClass('is_active');
+                $parent.removeClass('_expanded');
                 $parent.addClass('_collapsed');
             }
             else {
                 $elem.addClass('is_active');
+                $parent.addClass('_expanded');
                 $parent.removeClass('_collapsed');
             }
 
@@ -99,6 +106,7 @@ define([
 
                 if (itemId in states && states[itemId] === true) {
                     $elem.addClass('is_active');
+                    $parent.addClass('_expanded');
                     $parent.removeClass('_collapsed');
                 }
             });
