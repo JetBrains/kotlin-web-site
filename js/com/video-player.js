@@ -64,7 +64,7 @@ define(['jquery'], function ($)
 
     Player.VIDEO_ID_REGEXP = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
 
-    Player.VIDEO_EMBED_URL = '//www.youtube.com/embed/{video_id}?autoplay=1';
+    Player.VIDEO_EMBED_URL = '//www.youtube.com/embed/{video_id}';
 
     Player.prototype._defaults = {
         width: 450,
@@ -190,12 +190,8 @@ define(['jquery'], function ($)
     };
 
     /**
-     * @param {string} quality Available values:
-     *                         - default
-     *                         - small (max 640х360)
-     *                         - medium (min 640x360)
-     *                         - large (min 854x80)
-     *                         - hd720 (min 1280x720)
+     * @param {string} quality Video quality
+     * @see Player.QUALITY
      */
     Player.prototype.setQuality = function (quality) {
         this._player.setPlaybackQuality(quality);
