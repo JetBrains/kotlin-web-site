@@ -49,6 +49,11 @@ define(['jquery'], function ($)
         CUED: 'cued'
     };
 
+    Player.THEME = {
+        DARK: 'dark',
+        LIGHT: 'light'
+    };
+
     Player.QUALITY = {
         DEFAULT: 'default',
         SMALL: 'small',      // max 640х360
@@ -67,10 +72,14 @@ define(['jquery'], function ($)
         videoId: null,
         autoPlay: false,
         autoHide: true,
-        controls: true,
+        showControls: true,
         showInfo: true,
+        showRelativeVideos: false,
         quality: Player.QUALITY.DEFAULT,
-        showRelativeVideos: false
+        startTime: 0,
+        disableBranding: true,
+        inlinePlayback: true,
+        theme: Player.THEME.DARK
     };
 
     Player.prototype._elem = null;
@@ -111,11 +120,15 @@ define(['jquery'], function ($)
             videoId: config.videoId,
             playerVars: {
                 vq: config.quality,
-                rel: config.showRelativeVideos === true ? 1 : 0,
-                autoplay: config.autoPlay === true ? 1 : 0,
-                controls: config.controls === true ? 1 : 0,
-                showinfo: config.showInfo === true ? 1 : 0,
-                autohide: config.autoHide === true ? 1 : 0
+                rel: config.showRelativeVideos ? 1 : 0,
+                autoplay: config.autoPlay ? 1 : 0,
+                controls: config.showControls ? 1 : 0,
+                showinfo: config.showInfo ? 1 : 0,
+                autohide: config.autoHide ? 1 : 0,
+                start: config.startTime,
+                modestbranding: config.disableBranding ? 1 : 0,
+                playsinline: config.inlinePlayback ? 1 : 0,
+                theme: config.theme
             }
         });
 
