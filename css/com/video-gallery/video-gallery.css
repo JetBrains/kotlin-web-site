@@ -1,0 +1,35 @@
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+.video-gallery .nav-tree-items-list .nav-tree-items-list {
+  background-color: #f9f9f9; }
+  .video-gallery .nav-tree-items-list .nav-tree-items-list .nav-tree-items-list {
+    background-color: transparent; }
+.video-gallery .nav-tree-item._container-node .nav-tree-item._container-node {
+  border: none; }
+  .video-gallery .nav-tree-item._container-node .nav-tree-item._container-node._expanded {
+    background-color: #f2f2f2; }
+  .video-gallery .nav-tree-item._container-node .nav-tree-item._container-node .nav-tree-item-title {
+    background-color: transparent; }
+.video-gallery .nav-tree-item._container-node > .nav-tree-item-title {
+  background-color: #F9F9F9; }

@@ -15,35 +15,42 @@
 {% endfor %}
 
 
-<div class="page-tree-nav">
+<div class="nav-tree">
 {% for category in nav %}
     {% if category.content.size and category.content.size > 0 %}
 
-    <div class="nav-item _expandable {% if activeCategoryTitle == category.title %}is_active{% endif %}"
+    <div class="tree-item tree-branch js-item js-branch {% if activeCategoryTitle == category.title %}_opened{% else %}_closed{% endif %}"
          data-id="{{ category.title }}">
 
-        <div class="nav-item-text">{{ category.title }}</div>
-        <div class="subnav-items-list">
-
-            {% for item in category.content %}
-                {% comment %}Dirty hack to get item url and title{% endcomment %}
-                {% for i in item %}
-                    {% assign item_url = i[0] %}
-                    {% assign item_title = i[1] %}
-                {% endfor %}
-
-                {% assign is_active = false %}
-                {% if item_url == page.url %}{% assign is_active = true %}{% endif %}
-
-                <div class="subnav-items-list-item {% if is_active %}is_active{% endif %}">
-                    {% if is_active %}
-                        <span class="text">{{ item_title }}</span>
-                    {% else %}
-                        <a href="{{ site.baseurl }}{{ item_url }}" class="text">{{ item_title }}</a>
-                    {% endif %}
-                </div>
-            {% endfor %}
+        <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+            <div class="marker"></div>
+            <div class="text">{{ category.title }}</div>
         </div>
+
+        {% for item in category.content %}
+            {% comment %}Dirty hack to get item url and title{% endcomment %}
+            {% for i in item %}
+                {% assign item_url = i[0] %}
+                {% assign item_title = i[1] %}
+            {% endfor %}
+
+            {% assign is_active = false %}
+            {% if item_url == page.url %}{% assign is_active = true %}{% endif %}
+
+            <div class="tree-item tree-leaf js-item js-leaf">
+            {% if is_active %}
+                <div class="tree-item-title tree-leaf-title js-item-title js-leaf-title {% if is_active %}is_active{% endif %}">
+                    <div class="marker"></div>
+                    <div class="text">{{ item_title }}</div>
+                </div>
+            {% else %}
+                <a href="{{ site.baseurl }}{{ item_url }}"
+                   class="tree-item-title tree-leaf-title js-item-title js-leaf-title {% if is_active %}is_active{% endif %}"
+                   ><span class="marker"></span><span class="text">{{ item_title }}</span></a>
+            {% endif %}
+            </div>
+        {% endfor %}
+
     </div>
 
     {% endif %}
