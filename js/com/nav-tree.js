@@ -2,145 +2,168 @@ define([
     'jquery',
     'util/render',
     'util/localStorage'
-], function ($, render, storage) {
+], function ($, render, localStorage) {
 
-    function NavTree(elem, items) {
+    var templates = {},
+        helpers = {};
+
+    S = localStorage;
+
+    function NavTree(elem, config) {
         var that = this,
-            rendered;
+            fromExistingNodes;
+
+        that.config = config = $.extend(that.defaults, config);
 
         that.elem = elem;
 
-        that.navId = (elem.id) ? elem.id : null;
+        that.id = elem.getAttribute('id');
 
-        //rendered = render(that.templates.main(items));
-        //elem.appendChild(rendered);
+        fromExistingNodes = 'data' in config === false;
+
+        that.nodes = fromExistingNodes
+            ? elem
+            : render(templates.main(config.data));
 
         that._initEvents();
+
+        if (config.saveState) {
+            that.restoreItemsState();
+        }
+
+        if (!fromExistingNodes) {
+            elem.appendChild(that.nodes);
+        }
     }
 
-    NavTree.STORAGE_RECORD_NAME = 'active_nav_items';
+    NavTree.STORAGE_KEY = 'nav_items';
 
     NavTree.prototype.elem = null;
 
-    NavTree.prototype.navId = null;
+    NavTree.prototype.nodes = null;
 
-    NavTree.prototype.templates = {
-        main: function (data) {
-            var that = this;
-            var t =
-                ['.page-tree-nav',
-                    data.map(function (group) {
-                        return that.group(group)
-                    })
-                ];
-            return [t];
-        },
+    NavTree.prototype.id = null;
 
-        group: function (group) {
-            var that = this;
-            var hasContent = group.hasOwnProperty('content') && group.content.length > 0;
-            var t =
-                ['.nav-item._expandable',
-                    ['.nav-item-text', {'data-id': group.title}, group.title],
-                    hasContent ? that.groupItemsList(group.content) : null
-                ];
-            return t;
-        },
+    NavTree.prototype.config = {};
 
-        groupItemsList: function(items) {
-            var t =
-                ['.subnav-items-list',
-                    items.map(function (item) {
-                        for (var link in item) {
-                            var linkTitle = item[link];
-                            break;
-                        }
-                        return ['.subnav-items-list-item',
-                            ['a.text', {href: link}, linkTitle]
-                        ];
-                })];
-            return t;
-        }
+    NavTree.prototype.defaults = {
+        saveState: true
     };
 
-    NavTree.prototype._initEvents = function() {
+    NavTree.prototype._initEvents = function(n) {
         var that = this,
-            currentUrl = window.location.href,
-            $elem = $(that.elem),
-            $groupItems = $elem.find('.nav-item-text');
+            nodes = that.nodes;
 
-        $groupItems.each(function() {
-            var $this = $(this),
-                $parent = $this.parent(),
+        $(nodes.querySelectorAll('.js-item-title')).on('click', function() {
+            var $elem = $(this),
+                $parent = $elem.parent(),
                 itemId = $parent.attr('data-id'),
-                activeItems = that.getActiveItems();
-
-            if (activeItems) {
-                for (var id in activeItems) {
-                    var isActive = activeItems[id];
-                    if (itemId === id && isActive) {
-                        $parent.addClass('is_active');
-                    }
-                }
-            }
-        });
-
-        $groupItems.on('click', function () {
-            var $this = $(this),
-                $parent = $this.parent(),
-                itemId = $parent.attr('data-id'),
-                isActive = $parent.hasClass('is_active');
+                isActive = $elem.hasClass('is_active');
 
             if (isActive) {
-                $parent.removeClass('is_active');
-                that.setItemActive(itemId, false);
-            } else {
-                $parent.addClass('is_active');
-                that.setItemActive(itemId, true);
+                $elem.removeClass('is_active');
+                $parent.addClass('_collapsed');
             }
-        });
+            else {
+                $elem.addClass('is_active');
+                $parent.removeClass('_collapsed');
+            }
 
-        return;
-        $elem.find('a').each(function () {
-            var $link = $(this);
-            if (this.href === currentUrl) {
-                $link.parent().addClass('is_active');
-                $link.parent().parent().parent().addClass('is_active');
-                $link.on('click', function (e) {
-                    e.preventDefault()
-                });
+            if (itemId) {
+                var states = that.getItemsStateInfo();
+                states = states === null ? {} : states;
+                states[itemId] = !isActive;
+                that.setItemsStateInfo(states);
             }
         });
     };
 
-    NavTree.prototype.getActiveItems = function() {
-        var items = null;
-        var navId = this.navId;
-        var allItems = storage.getItem(NavTree.STORAGE_RECORD_NAME);
-
-        if (allItems !== null && navId in allItems) {
-            items = allItems[navId];
-        }
-
-        return items;
+    NavTree.prototype.getItemsStateInfo = function() {
+        var storageKey = NavTree.STORAGE_KEY + '_' + this.id;
+        var stateInfo = localStorage.getItem(storageKey);
+        return stateInfo;
     };
 
-    NavTree.prototype.setItemActive = function(item, isActive) {
-        var items = storage.getItem(NavTree.STORAGE_RECORD_NAME);
-        var navId = this.navId;
+    NavTree.prototype.setItemsStateInfo = function(info) {
+        var storageKey = NavTree.STORAGE_KEY + '_' + this.id;
+        localStorage.setItem(storageKey, info);
+    };
 
-        if (items === null) {
-            items = storage.setItem(NavTree.STORAGE_RECORD_NAME, {});
+    NavTree.prototype.restoreItemsState = function() {
+        var that = this,
+            states = that.getItemsStateInfo();
+
+        if (states) {
+            $(that.nodes.querySelectorAll('.js-item-title')).each(function() {
+                var $elem = $(this),
+                    $parent = $elem.parent(),
+                    itemId = $parent.attr('data-id');
+
+                if (itemId in states && states[itemId] === true) {
+                    $elem.addClass('is_active');
+                    $parent.removeClass('_collapsed');
+                }
+            });
+        }
+    };
+
+    templates.main = function(items) {
+        return [
+            ['.nav-tree', templates.itemsList(items)],
+            ['br'], ['br'], ['br']
+        ];
+    };
+
+    templates.itemsList = function(items, parentId) {
+        var t = ['.nav-tree-items-list'],
+            item, itemTemplate,
+            hasContent,
+            parentId = parentId || null;
+
+        for (var i = 0, len = items.length; i < len; i++) {
+            item = items[i];
+            hasContent = 'content' in item && item.content && item.content.length > 0;
+
+            itemTemplate = templates.item(item, parentId);
+
+            if (hasContent) {
+                itemTemplate.push(
+                    templates.itemsList(item.content, item.title)
+                );
+            }
+
+            t.push(itemTemplate);
         }
 
-        if (!(navId in items)) {
-            items[navId] = {};
-            storage.setItem(NavTree.STORAGE_RECORD_NAME, items);
+        return [t];
+    };
+
+    templates.item = function(item, parentId) {
+        var hasUrl = 'url' in item,
+            hasTitle = 'title' in item,
+            hasContent = 'content' in item && item.content !== null && item.content.length > 0,
+            itemId,
+            itemUrl = hasUrl ? item.url : null,
+            itemTitle = hasTitle ? item.title : null,
+            extraClass = (hasContent ? '._container-node._collapsed' : '._final-node');
+
+        if (!hasTitle) {
+            for (itemUrl in item) {
+                itemTitle = item[itemUrl];
+            }
+            hasUrl = !!itemUrl;
         }
 
-        items[navId][item] = isActive;
+        itemId = (parentId !== null) ? parentId + '.' + itemTitle : itemTitle;
 
-        storage.setItem(NavTree.STORAGE_RECORD_NAME, items);
+        var t =
+            ['.nav-tree-item.js-item' + extraClass, {'data-id': itemId},
+                hasUrl
+                    ? ['a.nav-tree-item-title.js-item-title', {href: itemUrl}, itemTitle]
+                    : ['.nav-tree-item-title.js-item-title', itemTitle]
+            ];
+
+        return t;
     };
 
     return NavTree;
