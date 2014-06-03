@@ -21,7 +21,7 @@ define([
 
         that.nodes = fromExistingNodes
             ? elem
-            : render(templates.main(config.data));
+            : that.render(config.data);
 
         that._initEvents();
 
@@ -31,6 +31,7 @@ define([
 
         if (!fromExistingNodes) {
             elem.appendChild(that.nodes);
+            that.nodes = elem;
         }
     }
 
@@ -48,25 +49,51 @@ define([
         saveState: true
     };
 
+    NavTree.prototype._events = {};
+
+    NavTree.prototype.render = function(data) {
+        var templates = this.templates;
+        return render(templates.main(data));
+    };
+
+    NavTree.prototype.on = function(eventName, callback) {
+        this._events[eventName] = callback;
+    };
+
+    NavTree.prototype.fireEvent = function (eventName) {
+        var args;
+
+        if (eventName in this._events) {
+            args = Array.prototype.slice.call(arguments, 1);
+
+            return this._events[eventName].apply(this, args);
+        }
+    };
+
     NavTree.prototype._initEvents = function() {
         var that = this,
             nodes = that.nodes;
 
-        $(nodes.querySelectorAll('.js-item-title')).on('click', function() {
+        $(nodes.querySelectorAll('.js-item-title')).on('click', function(e) {
             var $elem = $(this),
-                $parent = $elem.parent(),
-                itemId = $parent.attr('data-id'),
+                branchElem = this.parentNode,
+                $branch = $(branchElem),
+                itemId = $branch.attr('data-id'),
                 isActive = $elem.hasClass('is_active'),
-                isLeaf = $parent.hasClass('js-leaf');
+                isLeaf = $branch.hasClass('js-leaf'),
+                isLeafWereSelected;
 
             if (isLeaf) {
-                return
+                that._selectLeaf(this, e);
+                return;
             }
 
-            if (isActive)
-                that._closeBranch(this);
-            else
-                that._openBranch(this);
+            if (isActive) {
+                that._closeBranch(this, e);
+            }
+            else {
+                that._openBranch(this, e);
+            }
 
             if (itemId) {
                 var states = that.getItemsStateInfo();
@@ -108,32 +135,63 @@ define([
         }
     };
 
-    NavTree.prototype._openBranch = function(branchTitleNode) {
-        var $elem = $(branchTitleNode),
+    NavTree.prototype._openBranch = function(branchTitleElem, e) {
+        var that = this,
+            $elem = $(branchTitleElem),
             $parent = $elem.parent();
 
+        $elem.addClass('is_active');
         $parent.addClass('_opened');
         $parent.removeClass('_closed');
-        $elem.addClass('is_active');
+
+        that.fireEvent('openBranch', e, branchTitleElem.parentNode, branchTitleElem);
     };
 
-    NavTree.prototype._closeBranch = function(branchTitleElem) {
-        var $elem = $(branchTitleElem),
+    NavTree.prototype._closeBranch = function(branchTitleElem, e) {
+        var that = this,
+            $elem = $(branchTitleElem),
             $parent = $elem.parent();
 
+        $elem.removeClass('is_active');
         $parent.addClass('_closed');
         $parent.removeClass('_opened');
-        $elem.removeClass('is_active');
+
+        that.fireEvent('closeBranch', e, branchTitleElem.parentNode, branchTitleElem);
     };
 
-    templates.main = function(items) {
+    NavTree.prototype._selectLeaf = function(leafElem, e, branchElem) {
+        var that = this,
+            nodes = that.nodes;
+
+        $(nodes).find('.js-leaf-title').each(function(i, elem) {
+            var $elem = $(elem),
+                isActive = $elem.hasClass('is_active');
+
+            if (elem === leafElem) {
+                if (!isActive) {
+                    that.fireEvent('selectLeaf', e, branchElem, elem);
+                    $elem.addClass('is_active');
+                }
+            } else {
+                $elem.removeClass('is_active');
+            }
+        });
+
+        return true;
+    };
+
+    NavTree.prototype.templates = {};
+
+    NavTree.prototype.templates.main = function(items) {
+        var templates = this;
         return [
             ['.nav-tree', templates.itemsList(items)]
         ];
     };
 
-    templates.itemsList = function(items, parentId) {
+    NavTree.prototype.templates.itemsList = function(items, parentId) {
         var t = [],
+            templates = this,
             item, itemTemplate,
             hasContent,
             parentId = parentId || null;
@@ -156,8 +214,9 @@ define([
         return t;
     };
 
-    templates.item = function(item, parentId) {
-        var hasUrl = 'url' in item,
+    NavTree.prototype.templates.item = function(item, parentId) {
+        var templates = this,
+            hasUrl = 'url' in item,
             hasTitle = 'title' in item,
             hasContent = 'content' in item && item.content !== null && item.content.length > 0,
             isBranch = hasContent,
@@ -176,19 +235,37 @@ define([
 
         itemId = (parentId !== null) ? parentId + '.' + itemTitle : itemTitle;
 
-        var t =
-            isBranch
-                ? ['.tree-item.tree-branch.js-item.js-branch._closed', {'data-id': itemId}]
-                : ['.tree-item.tree-leaf.js-item.js-leaf']
-            ;
+        item.id = itemId;
+        item.title = itemTitle;
+        item.url = itemUrl;
 
-        t.push(
-            [(hasUrl ? 'a' : 'div') + '.tree-item-title.tree-' + type + '-title.js-item-title.js-' + type + '-title',
-                hasUrl ? {href: itemUrl} : null,
-                ['span.marker'],
-                ['span.text', itemTitle]
-            ]
-        );
+        var t = isBranch
+                ? templates.branchItem(item)
+                : templates.leafItem(item)
+        return t;
+    };
+
+    NavTree.prototype.templates.branchItem = function(item) {
+        var t =
+            ['.tree-item.tree-branch.js-item.js-branch._closed', {'data-id': item.id},
+                ['.tree-item-title.tree-branch-title.js-item-title.js-branch-title',
+                    ['span.marker'],
+                    ['span.text', item.title]
+                ]
+            ];
+
+        return t;
+    };
+
+    NavTree.prototype.templates.leafItem = function(item) {
+        var hasUrl = 'url' in item;
+        var t =
+            ['.tree-item.tree-leaf.js-item.js-leaf',
+                [(hasUrl ? 'a' : 'div') + '.tree-item-title.tree-leaf-title.js-item-title.js-leaf-title', hasUrl ? {href: item.url} : null,
+                    ['span.marker'],
+                    ['span.text', item.title]
+                ]
+            ];
 
         return t;
     };
