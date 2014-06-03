@@ -12,8 +12,10 @@ body {
     margin-right: auto;
     width: $grid-width;
 
-    @media (max-width: #{$grid-width - 1px}) {
+    @media (max-width: 1000px) {
         width: auto;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 }
 

@@ -52,9 +52,11 @@
   margin-left: auto;
   margin-right: auto;
   width: 960px; }
-  @media (max-width: 959px) {
+  @media (max-width: 1000px) {
     .g-layout {
-      width: auto; } }
+      width: auto;
+      margin-left: 15px;
+      margin-right: 15px; } }
 
 .g-grid {
   font-size: 0;
@@ -197,7 +199,7 @@
   margin-right: auto;
   padding-top: 40px;
   padding-bottom: 40px;
-  width: 960px; }
+  max-width: 960px; }
 
 .global-layout {
   min-height: 100%;

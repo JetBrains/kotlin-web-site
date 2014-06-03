@@ -88,7 +88,7 @@
   position: relative;
   display: inline-block;
   margin-right: 8px;
-  background-image: url("../../../assets/images/main-sprite.png");
+  background-image: url("../layout/images/main-sprite.png");
   background-repeat: no-repeat; }
   .event-content-item._slides {
     top: 1px;
