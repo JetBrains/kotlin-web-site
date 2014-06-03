@@ -143,6 +143,9 @@
   background-color: #F2F2F2;
   border-color: #DADADA; }
 
+.tree-item-title {
+  display: inline-block; }
+
 .tree-item-title .text {
   display: inline-block; }
 
@@ -221,4 +224,5 @@
     content: '\2013'; }
 
 .tree-leaf-title.is_active {
-  font-weight: bold; }
+  font-weight: bold;
+  color: #333333; }

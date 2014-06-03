@@ -16,7 +16,7 @@ define(['jquery'], function ($)
 
         that._elem = playerElem;
 
-        that._config = $.extend({}, that._defaults, config);
+        that._config = Player.getConfig(config);
 
         if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
             require(['https://www.youtube.com/iframe_api'], function () {
@@ -66,31 +66,21 @@ define(['jquery'], function ($)
 
     Player.VIDEO_EMBED_URL = '//www.youtube.com/embed/{video_id}';
 
-    Player.prototype._defaults = {
+    Player._defaults = {
         width: 450,
         height: 390,
         videoId: null,
         autoPlay: false,
-        autoHide: true,
+        autoHide: false,
         showControls: true,
         showInfo: true,
         showRelativeVideos: false,
         quality: Player.QUALITY.DEFAULT,
         startTime: 0,
         disableBranding: true,
-        inlinePlayback: true,
+        inlinePlayback: false,
         theme: Player.THEME.DARK
     };
-
-    Player.prototype._elem = null;
-
-    Player.prototype._config = null;
-
-    Player.prototype._player = null;
-
-    Player.prototype._events = {};
-
-    Player.prototype.isReady = false;
 
     /**
      * @static
@@ -108,13 +98,28 @@ define(['jquery'], function ($)
         return videoId;
     };
 
-    Player.prototype._createPlayer = function () {
-        var that = this,
-            elem = that._elem,
-            config = that._config,
-            player;
+    /**
+     *  Creates Player config using defaults and merges them with another config (if specified).
+     *
+     * @param {object} config [optional]
+     * @returns {object}
+     */
+    Player.getConfig = function(config) {
+        var config = config || {};
+        return $.extend({}, Player._defaults, config);
+    };
 
-        player = new YT.Player(elem, {
+    /**
+     * Create YouTube player config using Player config format.
+     *
+     * @param config
+     * @returns {object} Config object for native YouTube player
+     */
+    Player.createConfigForYTPlayer = function(config) {
+        var config = config || Player.getConfig(config),
+            ytPlayerConfig;
+
+        ytPlayerConfig = {
             width: config.width,
             height: config.height,
             videoId: config.videoId,
@@ -130,7 +135,27 @@ define(['jquery'], function ($)
                 playsinline: config.inlinePlayback ? 1 : 0,
                 theme: config.theme
             }
-        });
+        };
+
+        return ytPlayerConfig;
+    };
+
+    Player.prototype._elem = null;
+
+    Player.prototype._config = null;
+
+    Player.prototype._player = null;
+
+    Player.prototype._events = {};
+
+    Player.prototype.isReady = false;
+
+    Player.prototype._createPlayer = function () {
+        var that = this,
+            elem = that._elem,
+            player;
+
+        player = new YT.Player(elem, Player.createConfigForYTPlayer(that._config));
 
         player.addEventListener('onReady', function() {
             that.isReady = true;
@@ -195,6 +220,31 @@ define(['jquery'], function ($)
      */
     Player.prototype.setQuality = function (quality) {
         this._player.setPlaybackQuality(quality);
+    };
+
+    /**
+     * Loads video and starts playback.
+     *
+     * @param {string} videoId
+     */
+    Player.prototype.loadVideo = function (videoId) {
+        this._player.cueVideoById(videoId);
+    };
+
+    /**
+     * Loads video thumbnail and prepares the video for playback.
+     *
+     * @param {string} videoId
+     */
+    Player.prototype.playVideo = function(videoId) {
+        var isIOS = navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false;
+
+        if (isIOS) {
+            this.loadVideo(videoId);
+        } else {
+            this._player.loadVideoById(videoId);
+        }
+
     };
 
     return Player;

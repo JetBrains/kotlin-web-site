@@ -51,6 +51,10 @@ $branch-padding: 12px;
 }
 
 
+.tree-item-title {
+    display: inline-block;
+}
+
 .tree-item-title .text {
     display: inline-block;
 }
@@ -149,4 +153,5 @@ $branch-padding: 12px;
 
 .tree-leaf-title.is_active {
     font-weight: bold;
+    color: $base-color;
 }

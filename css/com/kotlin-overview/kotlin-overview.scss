@@ -439,7 +439,7 @@
     position: relative;
     overflow: hidden;
     padding: 0;
-    background-color: #111;
+    background-color: #fff;
 
     .video-player-wrap {
         @include transition(background-color 0.5s);
