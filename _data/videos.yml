@@ -11,6 +11,9 @@
         - title: Basic Syntax 3
           url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
+    - title: Simple Syntax 1
+      url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
     - title: Advanced Syntax
       content:
         - title: Advanced Syntax 1
@@ -37,6 +40,7 @@
       content:
         - title: Creative Syntax 1
           url: http://www.youtube.com/watch?v=viiDaLpPfN4
+          duration: '5:08'
 
         - title: Creative Syntax 2
           url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
@@ -56,12 +60,13 @@
           url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
 - title: JVM
-  content:
-    - title: JVM Test 1
-      content:
+  url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
 - title: JavaScript
+  url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
 
 - title: Android
+  url: http://www.youtube.com/watch?v=viiDaLpPfN4
 
 - title: Web
+  url: http://www.youtube.com/watch?v=SdvFwRmyVRM
