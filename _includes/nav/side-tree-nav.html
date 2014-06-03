@@ -15,7 +15,7 @@
 {% endfor %}
 
 
-<div class="nav-tree">
+<nav role="navigation" class="side-tree-nav">
 {% for category in nav %}
     {% if category.content.size and category.content.size > 0 %}
 
@@ -55,4 +55,4 @@
 
     {% endif %}
 {% endfor %}
-</div>
+</nav>
