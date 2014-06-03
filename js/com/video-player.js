@@ -232,7 +232,7 @@ define(['jquery'], function ($)
     };
 
     /**
-     * Loads video thumbnail and prepares player for playback.
+     * Loads video thumbnail and prepare player for playback.
      *
      * @param {string} videoId
      */
