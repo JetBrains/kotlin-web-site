@@ -33,7 +33,6 @@
     }
 
     .extra-nav {
-        position: absolute;
         overflow: hidden;
         left: 100%;
         margin-left: 15px;
@@ -42,7 +41,16 @@
         @media (max-width: 1165px) {
             left: auto;
             right: 0;
-            bottom: 38px;
+            top: 38px;
+        }
+
+        &.social-links {
+            position: absolute;
+
+            @media (max-width: 1165px) {
+                top: auto;
+                bottom: 38px;
+            }
         }
 
         .link {

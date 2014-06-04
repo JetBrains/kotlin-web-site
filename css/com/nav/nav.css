@@ -47,7 +47,6 @@
       opacity: 1;
       font-weight: bold; }
   .global-nav .extra-nav {
-    position: absolute;
     overflow: hidden;
     left: 100%;
     margin-left: 15px;
@@ -56,7 +55,13 @@
       .global-nav .extra-nav {
         left: auto;
         right: 0;
-        bottom: 38px; } }
+        top: 38px; } }
+    .global-nav .extra-nav.social-links {
+      position: absolute; }
+      @media (max-width: 1165px) {
+        .global-nav .extra-nav.social-links {
+          top: auto;
+          bottom: 38px; } }
     .global-nav .extra-nav .link {
       position: relative;
       display: inline-block;
