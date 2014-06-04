@@ -56,7 +56,7 @@ step up to the task!
 
 ### Is there a standalone compiler?
 
-Yes. You can download the standalone compiler and other builds tools from the [release page on GitHub]({{site.latest_release_github_url}})
+Yes. You can download the standalone compiler and other builds tools from the [release page on GitHub]({{site.data.releases.latest.url}})
 
 ### Is Kotlin a Functional Language?
 

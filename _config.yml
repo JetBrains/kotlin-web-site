@@ -5,15 +5,12 @@ markdown_ext: foo
 kramdown:
   input: GFM
   hard_wrap: false
-pygments: true
+highlighter: pygments
 
 # Site Settings
 baseurl:
-permalink: /:categories/:title.html
 
 # Custom Settings
-latest_release_version: M6.2
-latest_release_github_url: https://github.com/JetBrains/kotlin/releases?after=build-0.6.173
 github_url: https://github.com/JetBrains/kotlin
 twitter_url: https://twitter.com/project_kotlin
 edit_on_github_url: https://github.com/JetBrains/kotlin-web-site/edit/dev/%path%

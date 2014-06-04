@@ -28,7 +28,7 @@
     {% endfor %}
 
     {% if page.layout == 'index' %}
-        <div class="extra-nav">
+        <div class="extra-nav social-links">
             <a href="{{ site.github_url }}" class="link link-github" title="Source Code on GitHub" target="_blank">
                 <i class="link-icon icon-github"></i>
             </a>
@@ -38,9 +38,11 @@
             </a>
         </div>
     {% else %}
-        <a href="{{ site.baseurl }}{{ nav.download.url }}" class="get-kotlin-button">
-            Download Kotlin
-            <span class="version">({{ include.last_version.version }})</span>
-        </a>
+        <div class="extra-nav download-button">
+            <a href="{{ site.baseurl }}{{ nav.download.url }}" class="get-kotlin-button">
+                Download Kotlin
+                <span class="version">({{ site.data.releases.latest.version }})</span>
+            </a>
+        </div>
     {% endif %}
 </nav>
