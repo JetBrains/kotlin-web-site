@@ -67,8 +67,13 @@
         border-color: #6995d6;
         text-decoration: none;
     }
+    .nav-item:active .nav-item-text {
+        border-color: #6995d6;
+        text-decoration: none;
+        box-shadow: inset 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
+    }
     .nav-item.is_active .nav-item-text {
-        box-shadow: inset 0px 3px 6px -1px rgba(0,0,0, 0.2);
+        box-shadow: inset 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
         color: $base-color;
 
         &:before,

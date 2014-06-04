@@ -62,6 +62,8 @@
         .global-nav .extra-nav.social-links {
           top: auto;
           bottom: 38px; } }
+    .global-nav .extra-nav.download-button {
+      line-height: 36px; }
     .global-nav .extra-nav .link {
       position: relative;
       display: inline-block;
@@ -180,8 +182,12 @@
   .docs-nav .nav-item.is_active .nav-item-text {
     border-color: #6995d6;
     text-decoration: none; }
+  .docs-nav .nav-item:active .nav-item-text {
+    border-color: #6995d6;
+    text-decoration: none;
+    box-shadow: inset 0px 2px 6px 1px rgba(0, 0, 0, 0.2); }
   .docs-nav .nav-item.is_active .nav-item-text {
-    box-shadow: inset 0px 3px 6px -1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
     color: #333333; }
     .docs-nav .nav-item.is_active .nav-item-text:before, .docs-nav .nav-item.is_active .nav-item-text:after {
       display: block; }

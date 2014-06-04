@@ -485,6 +485,7 @@
     text-align: center; }
   .kotlin-overview-section .section-description {
     font-size: 18px;
+    line-height: 21px;
     margin-bottom: 16px;
     text-align: center; }
 
@@ -507,6 +508,9 @@
     @media (max-width: 1165px) {
       .kotlin-overview-section._features .kotlin-features-carousel {
         width: 768px; } }
+    @media (max-width: 930px) {
+      .kotlin-overview-section._features .kotlin-features-carousel {
+        width: 504px; } }
   .kotlin-overview-section._features .kotlin-features-list {
     display: inline-block;
     position: relative;
@@ -698,7 +702,7 @@
   .kotlin-overview-code-example .code-legend {
     position: relative;
     white-space: normal; }
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .kotlin-overview-code-example .code-legend {
         display: none !important; } }
     .kotlin-overview-code-example .code-legend.align_left {
@@ -957,22 +961,42 @@
       margin-bottom: 30px;
       background-color: #fff;
       border-radius: 4px; }
+      .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-item:hover {
+        box-shadow: 0px 0px 9px 3px #84b5e6; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image {
+      position: relative;
       display: block;
+      margin: 15px auto 20px;
       width: 104px;
       height: 104px;
-      margin: 15px auto 20px;
-      background: url("images/get-kotlin-sprite.png") no-repeat 200% 200%; }
+      background-color: #F2F2F2;
+      border-radius: 50px; }
+    .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      margin: auto;
+      background: url("images/get-kotlin-sprite.png") no-repeat 200% 200%;
+      content: ''; }
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-        .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image {
+        .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image:after {
           background-image: url("images/get-kotlin-sprite@2x.png");
-          background-size: 150px 450px; } }
-      .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._standalone-compiler {
-        background-position: 0 0; }
-      .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._intellij-idea {
-        background-position: 0 -150px; }
-      .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._source-code {
-        background-position: 0 -300px; }
+          background-size: 50px 200px; } }
+    .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._standalone-compiler:after {
+      width: 50px;
+      height: 58px;
+      background-position: 0 0; }
+    .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._intellij-idea:after {
+      width: 50px;
+      height: 50px;
+      background-position: 0 -100px; }
+    .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._source-code:after {
+      width: 40px;
+      height: 50px;
+      background-position: 0 -150px; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
       margin-bottom: 8px;
       white-space: nowrap; }
