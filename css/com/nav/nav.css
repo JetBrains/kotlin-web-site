@@ -84,7 +84,7 @@
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .global-nav .extra-nav .link-icon {
           background-image: url("../layout/images/main-sprite@2x.png");
-          background-size: 150px 350px; } }
+          background-size: 150px 400px; } }
     .global-nav .extra-nav .icon-github {
       width: 20px;
       height: 20px;
