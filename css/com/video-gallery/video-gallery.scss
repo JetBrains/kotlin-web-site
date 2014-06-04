@@ -40,7 +40,12 @@ $item-padding: 5px;
             left: 2px;
             width: 27px;
             height: 15px;
-            background: url('../layout/images/main-sprite.png') no-repeat 0 -100px;
+            background: url('../layout/images/main-sprite.png') no-repeat 0 -200px;
+
+            @include adapt_retina {
+                background-image: url('../layout/images/main-sprite@2x.png');
+                background-size: 150px 400px;
+            }
         }
 
         .duration {
@@ -54,7 +59,7 @@ $item-padding: 5px;
         background-color: transparent;
 
         .marker {
-            background-position: -100px -100px;
+            background-position: -50px -200px;
         }
     }
 
@@ -62,7 +67,7 @@ $item-padding: 5px;
         cursor: default;
 
         .marker {
-            background-position: -50px -100px;
+            background-position: -100px -200px;
         }
     }
 
