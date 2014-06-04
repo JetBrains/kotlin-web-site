@@ -233,7 +233,7 @@
         color: $base-link-hover-color;
 
         &:hover {
-            color: $base-link-hover-color;
+            color: #fff;
         }
     }
 }
@@ -545,12 +545,12 @@
             margin-top: -35px;
             margin-left: -35px;
             background: url('../layout/images/main-sprite.png') no-repeat;
-            background-position: 0 -250px;
+            background-position: 0 -100px;
             cursor: pointer;
 
             @include adapt_retina {
                 background-image: url('../layout/images/main-sprite@2x.png');
-                background-size: 150px 350px;
+                background-size: 150px 400px;
             }
         }
         a:hover .video-player-play-button {
@@ -726,6 +726,7 @@
             }
         }
 
+        /*
         .link:hover .link-icon._blog {
             background-color: #FEF3E1;
         }
@@ -741,6 +742,7 @@
         .link:hover .link-icon._issue-tracker {
             background-color: #DEEEFF;
         }
+        */
 
         .link-text {
             color: #8c8c8c;
@@ -753,6 +755,7 @@
             color: $base-link-hover-color;
         }
 
+        /*
         .link:hover .link-icon._forum + .link-text {
             color: #6CB800;
         }
@@ -764,6 +767,7 @@
         .link:hover .link-icon._issue-tracker + .link-text {
             color: #0068F1;
         }
+        */
 
     }
 }

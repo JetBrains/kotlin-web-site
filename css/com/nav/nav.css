@@ -33,28 +33,31 @@
   .global-nav .nav-item {
     float: left;
     margin-left: 24px;
-    color: #fff;
-    text-decoration: none;
+    opacity: 0.87;
     font-size: 14px;
-    line-height: 32px; }
+    line-height: 32px;
+    color: #fff;
+    text-decoration: none; }
     .global-nav .nav-item:first-child {
       margin-left: 0; }
     .global-nav .nav-item:hover {
+      opacity: 1;
       text-decoration: underline; }
     .global-nav .nav-item.is_active {
+      opacity: 1;
       font-weight: bold; }
-  .global-nav .social-links {
+  .global-nav .extra-nav {
     position: absolute;
     overflow: hidden;
     left: 100%;
     margin-left: 15px;
     white-space: nowrap; }
     @media (max-width: 1165px) {
-      .global-nav .social-links {
+      .global-nav .extra-nav {
         left: auto;
         right: 0;
         bottom: 38px; } }
-    .global-nav .social-links .link {
+    .global-nav .extra-nav .link {
       position: relative;
       display: inline-block;
       margin-right: 0;
@@ -63,23 +66,23 @@
       line-height: 0;
       text-decoration: none;
       vertical-align: top; }
-    .global-nav .social-links .link:hover .link-icon {
+    .global-nav .extra-nav .link:hover .link-icon {
       opacity: 1; }
-    .global-nav .social-links .link-twitter {
+    .global-nav .extra-nav .link-twitter {
       top: 2px; }
-    .global-nav .social-links .link-icon {
+    .global-nav .extra-nav .link-icon {
       display: inline-block;
       opacity: 0.8;
       background: url("../layout/images/main-sprite.png") no-repeat 0 0; }
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-        .global-nav .social-links .link-icon {
+        .global-nav .extra-nav .link-icon {
           background-image: url("../layout/images/main-sprite@2x.png");
           background-size: 150px 350px; } }
-    .global-nav .social-links .icon-github {
+    .global-nav .extra-nav .icon-github {
       width: 20px;
       height: 20px;
       background-position: -100px 0; }
-    .global-nav .social-links .icon-twitter {
+    .global-nav .extra-nav .icon-twitter {
       width: 20px;
       height: 17px;
       background-position: -100px -50px; }

@@ -73,13 +73,13 @@ define([
             ['.events-table',
                 hasFutureEvents
                     ? ['.events-table-row',
-                    ['.events-table-row-title', 'Upcoming'],
+                    ['.events-table-row-title', 'Upcoming Events'],
                     templates.eventsList(futureEvents)
                 ]
                     : null,
                 hasPastEvents
                     ? ['.events-table-row',
-                    ['.events-table-row-title', 'Past'],
+                    ['.events-table-row-title', 'Past Events'],
                     templates.eventsList(pastEvents)
                 ]
                     : null
