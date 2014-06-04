@@ -12,6 +12,7 @@ docs_nav_id: videos
 
     <div class="g-9">
         <div id="video-player"></div>
+        <div id="video-description" class="video-gallery-description"></div>
     </div>
 </div>
 
@@ -19,6 +20,8 @@ docs_nav_id: videos
 require(['page/videos'], function(page) {
     page({
         elem: document.getElementById('video-gallery'),
+        playerElem: document.getElementById('video-player'),
+        descriptionElem: document.getElementById('video-description'),
         videos: {{ site.data.videos | json }}
     });
 });
