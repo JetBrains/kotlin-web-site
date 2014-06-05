@@ -1,14 +1,7 @@
-require 'rake'
-require 'pathname'
 require 'pdfkit'
-require './lib/converter'
-
-task :default do
-  system('rake -T')
-end
 
 desc 'Builds PDF'
-task :pdf do
+task :pdf_gen do
   tmpdir = __dir__ + '/tmp'
 
   if File.directory?(tmpdir)
@@ -30,9 +23,11 @@ task :pdf do
   files = Converter::scan_dir(tmpdir + '/docs/reference', '*.md')
   files.each do |filename|
     file_content = File.read(filename)
-    file_content = file_content.gsub(/layout\:\s([^\n]*)/, 'layout: pdf')
+    file_content = file_content.gsub(/layout\:\s([^\n]*)/, 'layout: printable')
     File.open(filename, 'w') { |file| file.write(file_content) }
   end
+
+  next
 
   cd tmpdir
   sh 'jekyll build'
@@ -61,4 +56,3 @@ task :pdf do
   #pdf.stylesheets << tmpdir + '/css/components/page-content/page-content.css'
   pdf.to_file('test.pdf')
 end
-
