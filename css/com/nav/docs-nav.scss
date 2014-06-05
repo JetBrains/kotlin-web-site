@@ -3,23 +3,38 @@
 
 
 .docs-nav {
-    @include grid('.nav-item', 5, 20px);
     margin-bottom: $unit*6;
     list-style-type: none;
+    font-size: 0;
+
+    .nav-item-wrap {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 20%;
+        padding: 0 20px 0 0;
+        vertical-align: top;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
 
     .nav-item {
         @include linear-gradient($from: #fafafa, $to: #e4e4e4);
-        display: inline-block;
-        padding: 0;
+        display: block;
+        box-sizing: border-box;
         margin-left: 0;
         box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.3);
-        box-sizing: border-box;
         background-color: #e1e1e1;
         border-radius: 3px;
         text-align: center;
         text-decoration: none;
         color: #000;
         line-height: 50px;
+
+        @media (max-width: 750px) {
+            line-height: 35px;
+        }
 
         &:hover,
         &.is_active {
@@ -37,6 +52,10 @@
         color: #3164a0;
         font-size: 16px;
         text-decoration: none;
+
+        @media (max-width: 750px) {
+            font-size: 14px;
+        }
 
         &:before,
         &:after {
@@ -67,8 +86,13 @@
         border-color: #6995d6;
         text-decoration: none;
     }
+    .nav-item:active .nav-item-text {
+        border-color: #6995d6;
+        text-decoration: none;
+        box-shadow: inset 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
+    }
     .nav-item.is_active .nav-item-text {
-        box-shadow: inset 0px 3px 6px -1px rgba(0,0,0, 0.2);
+        box-shadow: inset 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
         color: $base-color;
 
         &:before,

@@ -1,25 +1,74 @@
-categories:
-  getting_started: Getting Started
-  jvm: JVM
-  javascript: JavaScript
-  android: Android
-  web: Web
+- title: Getting Started
+  content:
+    - title: Basic Syntax
+      content:
+        - title: Basic Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
 
-list:
-  - title: Kotlin is Amazing
-    description: In this video a few amazing features shown. Not many, but enough to fall in love with Kotlin.
-    url: http://www.youtube.com/watch?v=viiDaLpPfN4
-    category: getting_started
-    thumbnail: /assets/images/videos/kotlin-in-action.jpg
+        - title: Basic Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
 
-  - title: A Journey to Kotlin
-    description: Discover Kotlin possibilities to code fast, efficient and really good.
-    url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
-    category: jvm
-    thumbnail: /assets/images/videos/journey-to-kotlin.jpg
+        - title: Basic Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
-  - title: How to Make Your Project Fly
-    description: A few stunts that make your work a pleasure.
-    url: http://www.youtube.com/watch?v=SdvFwRmyVRM
-    category: getting_started
-    thumbnail: /assets/images/videos/how-to-make-your-project-fly.jpg
+    - title: Simple Syntax 1
+      url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+    - title: Advanced Syntax
+      content:
+        - title: Advanced Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+        - title: Advanced Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+        - title: Advanced Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+
+    - title: Simple Syntax
+      content:
+        - title: Simple Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+        - title: Simple Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+        - title: Simple Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+
+    - title: Creative Syntax
+      content:
+        - title: Creative Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+          duration: '5:08'
+
+        - title: Creative Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+        - title: Creative Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+
+    - title: Using Advanced Syntax
+      content:
+        - title: Using Advanced Syntax 1
+          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+        - title: Using Advanced Syntax 2
+          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+        - title: Using Advanced Syntax 3
+          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+
+- title: JVM
+  url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa dolorem doloribus mollitia, nihil odio praesentium quae voluptates voluptatum.
+
+- title: JavaScript
+  url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+  description: Ad corporis dolores eligendi error eum in provident reiciendis saepe. Eos.
+
+- title: Android
+  url: http://www.youtube.com/watch?v=viiDaLpPfN4
+
+- title: Web
+  url: http://www.youtube.com/watch?v=SdvFwRmyVRM

@@ -1,9 +1,10 @@
 @import "../../_config";
 @import "../../util/grid";
 
-body {
-    @media (max-width: #{$grid-width + ($grid-spacing * 2)}) {
+html {
+    @media (max-width: 1030px) {
         overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
@@ -12,8 +13,10 @@ body {
     margin-right: auto;
     width: $grid-width;
 
-    @media (max-width: #{$grid-width - 1px}) {
+    @media (max-width: 1000px) {
         width: auto;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 }
 
@@ -27,3 +30,4 @@ body {
         @include grid-span($i, $is-fluid: true);
     }
 }
+

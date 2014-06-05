@@ -1,4 +1,4 @@
-### Why Kotlin? Because Kotlin is concise.
+### Concise
 
 Create a POJO with getters, setters, `equals()`, `hashCode()`, `toString()` and `copy()` in a single line:
 

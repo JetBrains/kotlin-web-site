@@ -15,7 +15,7 @@ Kotlin provides three tasks for Ant:
 * kotlin2js: Kotlin compiler targeting JavaScript
 * withKotin: Task to compile Kotlin files when using the standard *javac* Ant task
 
-These tasks are defined in the *kotlin-ant.jar* library which is located in the *lib* folder for the [Kotlin Compiler]({{site.latest_release_github_url}})
+These tasks are defined in the *kotlin-ant.jar* library which is located in the *lib* folder for the [Kotlin Compiler]({{site.data.releases.latest.url}})
 
 
 ## Targeting JVM with Kotlin-only source

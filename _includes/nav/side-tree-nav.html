@@ -1,0 +1,58 @@
+{% assign nav = site.data._nav[include.nav] %}
+
+{% assign activeCategoryTitle = '' %}
+{% for category in nav %}
+    {% for item in category.content %}
+
+        {% for i in item %}
+            {% assign itemUrl = i[0] %}
+        {% endfor %}
+
+        {% if itemUrl == page.url %}
+            {% assign activeCategoryTitle = category.title %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+
+<nav role="navigation" class="side-tree-nav">
+{% for category in nav %}
+    {% if category.content.size and category.content.size > 0 %}
+
+    <div class="tree-item tree-branch js-item js-branch {% if activeCategoryTitle == category.title %}_opened{% else %}_closed{% endif %}"
+         data-id="{{ category.title }}">
+
+        <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+            <div class="marker"></div>
+            <div class="text">{{ category.title }}</div>
+        </div>
+
+        {% for item in category.content %}
+            {% comment %}Dirty hack to get item url and title{% endcomment %}
+            {% for i in item %}
+                {% assign item_url = i[0] %}
+                {% assign item_title = i[1] %}
+            {% endfor %}
+
+            {% assign is_active = false %}
+            {% if item_url == page.url %}{% assign is_active = true %}{% endif %}
+
+            <div class="tree-item tree-leaf js-item js-leaf">
+            {% if is_active %}
+                <div class="tree-item-title tree-leaf-title js-item-title js-leaf-title {% if is_active %}is_active{% endif %}">
+                    <div class="marker"></div>
+                    <div class="text">{{ item_title }}</div>
+                </div>
+            {% else %}
+                <a href="{{ site.baseurl }}{{ item_url }}"
+                   class="tree-item-title tree-leaf-title js-item-title js-leaf-title {% if is_active %}is_active{% endif %}"
+                   ><span class="marker"></span><span class="text">{{ item_title }}</span></a>
+            {% endif %}
+            </div>
+        {% endfor %}
+
+    </div>
+
+    {% endif %}
+{% endfor %}
+</nav>

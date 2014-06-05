@@ -11,7 +11,7 @@ related:
 
 ## Downloading the compiler
 
-Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{site.latest_release_github_url}}). Latest release is {{ site.latest_release_version }}
+Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{site.data.releases.latest.url}}). Latest release is {{ site.data.last_version }}
 
 1. Unzip the standalone compiler into a directory and optionally add the bin folder to the system path. The bin folder contains four script files.
 

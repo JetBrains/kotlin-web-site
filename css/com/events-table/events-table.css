@@ -48,7 +48,7 @@
   border-bottom: none; }
 
 .event {
-  padding: 10px 0;
+  padding: 8px 0 8px 10px;
   border-bottom: 1px solid #eceff3; }
   .event:after {
     display: block;
@@ -88,33 +88,57 @@
   position: relative;
   display: inline-block;
   margin-right: 8px;
-  background-image: url("../../../assets/images/main-sprite.png");
+  background-image: url("../layout/images/main-sprite.png");
   background-repeat: no-repeat; }
-  .event-content-item._slides {
-    top: 1px;
-    width: 24px;
-    height: 16px;
-    background-position: 0 -200px; }
-  .event-content-item._video {
-    top: 1px;
-    width: 27px;
-    height: 15px;
-    background-position: 0 -100px; }
-  .event-content-item._article {
-    top: 2px;
-    width: 16px;
-    height: 19px;
-    background-position: 0 -150px; }
-  .event-content-item._pdf {
-    top: 2px;
-    width: 17px;
-    height: 19px;
-    background-position: -50px -150px; }
-  .event-content-item._examples {
-    top: 2px;
-    width: 16px;
-    height: 19px;
-    background-position: 0 -150px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .event-content-item {
+      background-image: url("../layout/images/main-sprite@2x.png");
+      background-size: 150px 400px; } }
+
+.event-content-item._slides {
+  top: 1px;
+  width: 24px;
+  height: 16px;
+  background-position: 0 -250px; }
+
+.event-content-item:hover._slides {
+  background-position: -50px -250px; }
+
+.event-content-item._video {
+  top: 1px;
+  width: 27px;
+  height: 15px;
+  background-position: 0 -200px; }
+
+.event-content-item._video:hover {
+  background-position: -100px -200px; }
+
+.event-content-item._article {
+  top: 2px;
+  width: 16px;
+  height: 19px;
+  background-position: 0 -350px; }
+
+.event-content-item._article:hover {
+  background-position: -50px -350px; }
+
+.event-content-item._pdf {
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  background-position: 0 -300px; }
+
+.event-content-item._pdf:hover {
+  background-position: -50px -300px; }
+
+.event-content-item._examples {
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  background-position: -50px 0; }
+
+.event-content-item._examples:hover {
+  background-position: 0 0; }
 
 .event-lang {
   position: relative;

@@ -6,20 +6,24 @@ main_nav_id: docs
 <div class="g-grid">
 
     <div class="g-12">
-        {% include nav/docs-main.html active='reference' %}
+        {% include nav/docs-nav.html active='reference' %}
     </div>
 
-    <div class="g-3">
+    <aside class="g-3">
         <div id="reference-nav">
-            {% include nav/docs.html nav='reference' %}
+            {% include nav/side-tree-nav.html nav='reference' %}
         </div>
-    </div>
+    </aside>
 
-    <div class="page-content g-9">
+    <article role="main" class="page-content g-9">
         {% include edit-on-github-link.html %}
 
         {{ content }}
-    </div>
+    </article>
 </div>
 
-<script>require(['page/reference']);</script>
+<script>
+require(['page/reference'], function(page) {
+    page();
+});
+</script>

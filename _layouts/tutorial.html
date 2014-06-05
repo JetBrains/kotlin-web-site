@@ -6,20 +6,20 @@ main_nav_id: docs
 <div class="g-grid">
 
     <div class="g-12">
-        {% include nav/docs-main.html active='tutorials' %}
+        {% include nav/docs-nav.html active='tutorials' %}
     </div>
 
-    <div class="g-3">
+    <aside class="g-3">
         <div id="tutorials-nav">
-            {% include nav/docs.html nav='tutorials' %}
+            {% include nav/side-tree-nav.html nav='tutorials' %}
         </div>
-    </div>
+    </aside>
 
-    <div class="page-content g-9">
+    <article role="main" class="page-content g-9">
         {% include edit-on-github-link.html %}
 
         {{ content }}
-    </div>
+    </article>
 </div>
 
 

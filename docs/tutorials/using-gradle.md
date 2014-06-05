@@ -30,10 +30,10 @@ The correspondence between milestones and versions is displayed below:
 </tr>
 </thead>
 <tbody>
-{% for entry in site.data.versions %}
+{% for entry in site.data.releases.list %}
 <tr>
-  <td>{{entry.milestone}}</td>
-  <td>{{entry.version}}</td>
+  <td>{{ entry.milestone }}</td>
+  <td>{{ entry.version }}</td>
 </tr>
 {% endfor %}
 </tbody>

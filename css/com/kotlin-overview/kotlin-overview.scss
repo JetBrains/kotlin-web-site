@@ -1,11 +1,13 @@
 @import '../../_config';
 @import '../../_utils';
 @import '../_bits/_header';
+@import '../_bits/_button';
 @import '_lib';
 
 
 .kotlin-overview-section {
-    padding: $unit*4 0;
+    padding-top: $unit*4;
+    padding-bottom: $unit*4;
 
     .section-header {
         @extend %h1;
@@ -15,7 +17,7 @@
 
     .section-description {
         font-size: 18px;
-        margin-bottom: 22px;
+        line-height: 21px;
         margin-bottom: $unit*2;
         text-align: center;
     }
@@ -38,6 +40,7 @@
     @extend %kotlin-overview-section-background-image%default;
     position: relative;
     text-align: center;
+    overflow: hidden;
 
     .section-description {
         margin-bottom: $unit*5;
@@ -55,6 +58,14 @@
         overflow: hidden;
         width: $carousel-width;
         padding: 0 8px;
+
+        @media (max-width: 1165px) {
+            width: $carousel-width - ($item-width + $item-margin);
+        }
+
+        @media (max-width: 930px) {
+            width: $carousel-width - (($item-width + $item-margin) * 2);
+        }
     }
 
     .kotlin-features-carousel-nav {
@@ -137,13 +148,18 @@
             right: 0;
             bottom: 0;
             margin: auto;
-            background: url('images/features-icons.png') no-repeat 200% 200%;
+            background: url('images/kotlin-features-sprite.png') no-repeat 200% 200%;
 
-            &._tooling {width: 46px; height: 46px; background-position: 0 0;}
-            &._concise {width: 30px; height: 55px; background-position: 0 -100px;}
+            @include adapt_retina {
+                background-image: url('images/kotlin-features-sprite@2x.png');
+                background-size: 100px 600px;
+            }
+
+            &._tooling {width: 47px; height: 47px; background-position: 0 0;}
+            &._concise {width: 31px; height: 56px; background-position: 0 -100px;}
             &._expressive {width: 79px; height: 55px; background-position: 0 -200px;}
-            &._safe {width: 38px; height: 58px; background-position: 0 -300px;}
-            &._versatile {width: 51px; height: 45px; background-position: 0 -400px;}
+            &._safe {width: 39px; height: 59px; background-position: 0 -300px;}
+            &._versatile {width: 52px; height: 46px; background-position: 0 -400px;}
             &._interoperable {width: 56px; height: 56px; background-position: 0 -500px;}
         }
 
@@ -212,6 +228,7 @@
     .more-link-wrap {
         @include clearfix;
         max-width: $overview-section-width;
+        padding-right: $grid-spacing / 2;
         margin: 0 auto;
     }
 
@@ -221,7 +238,7 @@
         color: $base-link-hover-color;
 
         &:hover {
-            color: $base-link-hover-color;
+            color: #fff;
         }
     }
 }
@@ -268,6 +285,10 @@
     .code-legend {
         position: relative;
         white-space: normal;
+
+        @media (max-width: 900px) {
+            display: none !important;
+        }
 
         &.align_left {
             position: absolute;
@@ -439,7 +460,7 @@
     position: relative;
     overflow: hidden;
     padding: 0;
-    background-color: #111;
+    background-color: #fff;
 
     .video-player-wrap {
         @include transition(background-color 0.5s);
@@ -458,7 +479,7 @@
             @include transition(all 0.3);
             display: inline-block;
             position: relative;
-            margin: 0 auto;
+            margin: 30px auto;
             text-align: center;
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
@@ -469,7 +490,9 @@
 
         .video-thumb {
             opacity: 0.3;
-            margin: 30px 0;
+            max-width: 100%;
+            height: auto;
+            margin: 0;
             vertical-align: top;
         }
         .video-thumb-link .video-thumb {
@@ -479,9 +502,10 @@
         .video-description {
             //opacity: 0.6;
             position: absolute;
-            top: 180px;
             left: 0;
+            bottom: 50%;
             width: 100%;
+            margin-bottom: 40px;
             color: #fff;
             text-align: center;
             text-shadow: 0 1px 1px rgba(0,0,0, 0.5);
@@ -525,9 +549,14 @@
             height: 69px;
             margin-top: -35px;
             margin-left: -35px;
-            background: url('../../../assets/images/main-sprite.png') no-repeat;
-            background-position: 0 -250px;
+            background: url('../layout/images/main-sprite.png') no-repeat;
+            background-position: 0 -100px;
             cursor: pointer;
+
+            @include adapt_retina {
+                background-image: url('../layout/images/main-sprite@2x.png');
+                background-size: 150px 400px;
+            }
         }
         a:hover .video-player-play-button {
             opacity: 1;
@@ -542,7 +571,8 @@
 }
 
 .kotlin-overview-section._get-kotlin {
-    padding: $unit*5 0;
+    padding-top: 30px;
+    padding-bottom: 20px;
     position: relative;
     background-color: #003356;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi5LKO/f///+8/fxmwAVYWZhag9PefvxhwgD9//zLh0g0HTAyEwLBSAQw1/CoAAgwAba4SlNFFbukAAAAASUVORK5CYII=);
@@ -550,6 +580,14 @@
 
     .section-header {
         color: #fff;
+    }
+
+    .kotlin-version {
+        margin-top: -7px;
+        margin-bottom: $unit*2;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
     }
 
     .section-description {
@@ -565,12 +603,14 @@
             width: 240px;
             padding: 10px 15px 30px;
             min-height: 330px;
-            margin-left: $grid-spacing;
+            margin-left: $grid-spacing / 2;
+            margin-right: $grid-spacing / 2;
+            margin-bottom: $grid-spacing;
             background-color: #fff;
             border-radius: 4px;
 
-            &:first-child {
-                margin-left: 0;
+            &:hover {
+                box-shadow: 0px 0px 9px 3px #84b5e6;
             }
 
             &._standalone-compiler {}
@@ -578,15 +618,45 @@
         }
 
         .option-image {
+            position: relative;
             display: block;
+            margin: 15px auto 20px;
             width: 104px;
             height: 104px;
-            margin: 15px auto 20px;
-            background: url('images/get-kotlin-icons.png') no-repeat 200% 200%;
+            background-color: #F2F2F2;
+            border-radius: 50px;
+        }
 
-            &._standalone-compiler {background-position: 0 0;}
-            &._intellij-idea {background-position: 0 -150px;}
-            &._source-code {background-position: 0 -300px;}
+        .option-image:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: block;
+            margin: auto;
+            background: url('images/get-kotlin-sprite.png') no-repeat 200% 200%;
+            content: '';
+
+            @include adapt_retina {
+                background-image: url('images/get-kotlin-sprite@2x.png');
+                background-size: 50px 200px;
+            }
+        }
+        .option-image._standalone-compiler:after {
+            width: 50px;
+            height: 58px;
+            background-position: 0 0;
+        }
+        .option-image._intellij-idea:after {
+            width: 50px;
+            height: 50px;
+            background-position: 0 -100px;
+        }
+        .option-image._source-code:after {
+            width: 40px;
+            height: 50px;
+            background-position: 0 -150px;
         }
 
         .option-title-pre-text {
@@ -604,19 +674,15 @@
         }
 
         .option-link {
-            cursor: pointer;
-            color: $base-link-color;
-            text-decoration: underline;
+            @extend %button_default;
 
-            &:hover {
-                color: $base-link-hover-color;
-            }
         }
     }
 }
 
 .kotlin-overview-section._community {
-    padding: $unit*6 0;
+    padding-top: $unit*6;
+    padding-bottom: $unit*6;
     background-color: #2e2e2e;
     color: #fff;
 
@@ -630,16 +696,13 @@
     .links-list {
         font-size: 0;
         text-align: center;
+        margin-bottom: -40px;
     }
 
     .links-list-item {
         display: inline-block;
-        margin-left: 80px;
+        margin: 0 40px 40px;
         font-size: $base-font-size;
-
-        &:first-child {
-            margin-left: 0;
-        }
 
         .link {
             display: block;
@@ -648,13 +711,12 @@
         }
 
         .link-icon {
-            @include linear-gradient($from: #d4d4d4, $to: #bbb);
             position: relative;
             display: block;
             margin-bottom: 9px;
             width: 104px;
             height: 104px;
-            background-color: #cbcbcb;
+            background-color: #F2F2F2;
             border-radius: 50px;
 
             &:after {
@@ -665,18 +727,60 @@
                 bottom: 0;
                 display: block;
                 margin: auto;
-                background-image: url('images/kotlin-resources-icons.png');
+                background-image: url('images/kotlin-community-sprite.png');
                 background-repeat: no-repeat;
                 background-position: 200% 200%;
                 content: '';
+
+                @include adapt_retina {
+                    background-image: url('images/kotlin-community-sprite@2x.png');
+                    background-size: 100px 200px;
+                };
             }
-            &._blog:after {width: 48px; height: 35px; background-position: 0 0;}
-            &._forum:after {width: 59px; height: 42px; background-position: 0 -50px;}
-            &._twitter:after {width: 48px; height: 40px; background-position: 0 -100px;}
-            &._issue-tracker:after {width: 48px; height: 48px; background-position: 0 -150px;}
+            &._blog:after {
+                width: 48px;
+                height: 35px;
+                background-position: 0 0;
+                top: -2px;
+                left: -3px;
+            }
+
+            &._forum:after {
+                width: 59px;
+                height: 42px;
+                background-position: 0 -50px;
+            }
+
+            &._twitter:after {
+                width: 48px;
+                height: 40px;
+                background-position: 0 -100px;
+            }
+
+            &._issue-tracker:after {
+                width: 48px;
+                height: 48px;
+                background-position: 0 -150px;
+            }
         }
-        .link:hover .link-icon {
+
+        /*
+        .link:hover .link-icon._blog {
+            background-color: #FEF3E1;
         }
+
+        .link:hover .link-icon._forum {
+            background-color: #F4FFE2;
+        }
+
+        .link:hover .link-icon._twitter {
+            background-color: #EAF9FD;
+        }
+
+        .link:hover .link-icon._issue-tracker {
+            background-color: #DEEEFF;
+        }
+        */
 
         .link-text {
             color: #8c8c8c;
@@ -684,13 +788,33 @@
             line-height: 15px;
             text-transform: uppercase;
         }
+
         .link:hover .link-text {
             color: $base-link-hover-color;
         }
+
+        /*
+        .link:hover .link-icon._forum + .link-text {
+            color: #6CB800;
+        }
+
+        .link:hover .link-icon._twitter + .link-text {
+            color: #2AA9E0;
+        }
+
+        .link:hover .link-icon._issue-tracker + .link-text {
+            color: #0068F1;
+        }
+        */
+
     }
 }
 
 .kotlin-overview-section._testimonials {
+    $item-width: 280px;
+    $item-margin: 24px;
+    $item-count: 3;
+    $carousel-width: (($item-width + $item-margin) * $item-count) - $item-margin;
     @extend %kotlin-overview-section-background-image%default;
 
     .section-header {
@@ -700,7 +824,17 @@
 
     .testimonials-carousel-wrap {
         position: relative;
+        margin: 0 auto;
         padding: 0 50px;
+        width: $carousel-width;
+
+        @media (max-width: 1023px) {
+            width: $carousel-width - ($item-width + $item-margin);
+        }
+
+        @media (max-width: 600px) {
+            width: $carousel-width - ($item-width + $item-margin) * 2;
+        }
     }
 
     .testimonials-carousel {
@@ -720,14 +854,19 @@
     }
 
     .testimonials-list {
-        @include grid('.testimonials-list-item', 3, 40px);
+        //@include grid('.testimonials-list-item', 3, 40px);
         position: relative;
         white-space: nowrap;
+        font-size: 0;
     }
 
     .testimonials-list-item {
         $corner-height: 24px;
         $quote-height: 150px;
+        width: $item-width;
+        margin-right: $item-margin;
+        display: inline-block;
+        font-size: $base-font-size;
         white-space: normal;
 
         .testimonial-quote {

@@ -4,6 +4,6 @@ define(['com/nav-tree'], function (NavTree) {
         $(document).ready(function () {
             new NavTree(document.getElementById('reference-nav'));
         });
-    })();
+    });
 
 });

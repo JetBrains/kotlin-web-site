@@ -15,6 +15,7 @@
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 
     &%size_big {
         font-size: 18px;

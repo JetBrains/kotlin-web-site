@@ -58,6 +58,7 @@
         text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.4);
     }
 }
+
 .page_index .global-header {
     padding: $unit*8 0;
     height: 560px - $unit*8*2;
@@ -77,71 +78,20 @@
     float: left;
     width: 129px;
     height: 43px;
-    background: url('images/logo.png') no-repeat;
+    background: url('images/logos-sprite.png') no-repeat;
     font-size: 0;
     text-decoration: none;
+
+    @include adapt_retina {
+        background-image: url('images/logos-sprite@2x.png');
+        background-size: 150px 100px;
+    }
+
+    &:hover {
+
+    }
 }
+
 .page_index .global-header-logo {
     top: -19px;
-}
-
-.global-header-nav {
-    @include clearfix;
-    position: relative;
-    float: right;
-    margin-top: 13px;
-
-    .nav-item {
-        float: left;
-        margin-left: $unit*3;
-        color: #fff;
-        text-decoration: none;
-        font-size: 14px;
-        line-height: $unit*4;
-
-        &:first-child {
-            margin-left: 0;
-        }
-
-        &:hover {
-            text-decoration: underline;
-        }
-
-        &.is_active {
-            font-weight: bold;
-        }
-    }
-
-    .github-link,
-    .twitter-link {
-        position: absolute;
-        top: 0;
-        left: 100%;
-        opacity: 0.8;
-        font-size: 0;
-        background: url('../../../assets/images/main-sprite.png') no-repeat 0 0;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-
-    .github-link {
-        margin-left: 20px;
-        top: 4px;
-        width: 20px;
-        height: 20px;
-        background-position: -100px 0;
-    }
-
-    .twitter-link {
-        margin-left: 57px;
-        top: 6px;
-        width: 20px;
-        height: 17px;
-        background-position: -100px -50px;
-    }
-}
-.page_index .global-header-nav {
-    margin-top: 0;
 }

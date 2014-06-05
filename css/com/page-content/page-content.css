@@ -323,10 +323,8 @@
   margin-bottom: 40px; }
 
 .page-link-to-github {
-  position: absolute;
+  position: relative;
   display: inline-block;
-  top: 4px;
-  right: 30px;
   border: 1px solid #b5b5b5;
   border-radius: 5px;
   color: #828282;
@@ -341,9 +339,13 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    background-image: url("../../../assets/images/main-sprite.png");
+    background-image: url("../layout/images/main-sprite.png");
     background-repeat: no-repeat;
     background-position: -50px 0; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .page-link-to-github .github-icon {
+        background-image: url("../layout/images/main-sprite@2x.png");
+        background-size: 150px 400px; } }
   .page-link-to-github:hover .github-icon {
     background-position: 0 0; }
   .page-link-to-github .text {
@@ -352,6 +354,9 @@
 .page-content {
   position: relative;
   margin-top: 0; }
+  .page-content .page-link-to-github {
+    float: right;
+    top: 4px; }
   .page-content h1 {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     margin-top: 30px;
