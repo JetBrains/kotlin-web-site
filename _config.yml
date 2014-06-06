@@ -6,6 +6,11 @@ kramdown:
   input: GFM
   hard_wrap: false
 highlighter: pygments
+exclude:
+  - bin,
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
 
 # Site Settings
 baseurl:
