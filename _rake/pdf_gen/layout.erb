@@ -20,7 +20,9 @@
       </h1>
 
       <% section['content'].each do |page| %>
+          <article id="<%= page['id'] %>" class="page-content">
             <%= page['content'] %>
+          </article>
       <% end %>
 
     </section>

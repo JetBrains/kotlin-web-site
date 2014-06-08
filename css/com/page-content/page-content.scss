@@ -12,6 +12,10 @@
     position: relative;
     margin-top: 0;
 
+    @media print {
+        page-break-after: always
+    }
+
     // Page link to GitHub
     @import '../page-link-to-github/page-link-to-github';
 

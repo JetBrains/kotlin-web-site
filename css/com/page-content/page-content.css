@@ -132,6 +132,9 @@
    * Grid column
    * @param {px} $font-size (optional)
   */ }
+  @media print {
+    .page-content {
+      page-break-after: always; } }
   .page-content .page-link-to-github {
     position: relative;
     display: inline-block;

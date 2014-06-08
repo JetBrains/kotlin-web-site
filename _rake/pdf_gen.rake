@@ -23,7 +23,7 @@ task :pdf_gen do
 
   pdf_options_str = pdf_config.map{|key, value| "--#{key} #{value}"}.join(' ')
 
-  #build_html(tmp_dir)
+  build_html(tmp_dir)
 
   css_content = [
       File.read("#{source_dir}/css/reset.css"),
@@ -112,7 +112,7 @@ def get_doc_contents
               'title' => title,
           }
 
-          xml_doc = Nokogiri::HTML::DocumentFragment.parse(file_content)
+          xml_doc = Nokogiri::HTML::Document.parse(file_content)
 
           # Add pageid prefixes to all nodes
           xml_doc.search("*[@id]").each do |node|
@@ -149,7 +149,7 @@ def get_doc_contents
             end
           end
 
-          page['content'] = xml_doc.to_html
+          page['content'] = xml_doc.at('body').children.to_html
           section['content'].push(page)
         end
       end
