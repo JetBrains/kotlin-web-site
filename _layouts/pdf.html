@@ -1,13 +1,6 @@
-<!doctype html>
-<html>
-<head>
-
-</head>
-<body>
-<div class="page-content">
+<article id="{{ page.name | replace:'.md','.html' }}"
+         class="page-content">
     {{ content }}
-</div>
+</article>
 
 <div style="page-break-after: always"></div>
-</body>
-</html>
