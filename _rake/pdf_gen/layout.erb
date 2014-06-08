@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<style type='text/css'>
+  <%= css_content %>
+
+  .section-title {
+      font-size: 50px;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #ccc;
+      font-family: Times, serif;
+  }
+
+  pre, code {
+      font-family: Courier, monospace !important;
+  }
+</style>
+</head>
+<body>
+
+<% content.each do |section| %>
+  <% if section['content'].length > 0 %>
+    <section>
+      <h1 id="<%= section['id'] %>"
+          class="section-title">
+          <%= section['title'] %>
+      </h1>
+
+      <% section['content'].each do |page| %>
+            <%= page['content'] %>
+      <% end %>
+
+    </section>
+  <% end %>
+<% end %>
+
+</body>
+</html>

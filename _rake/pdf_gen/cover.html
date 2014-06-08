@@ -1,0 +1,52 @@
+<style>
+.centered-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+.centered-wrap:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+.centered {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.cover-block {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.cover-title {
+    color: rgb(60, 85, 134);
+    margin: 0;
+}
+
+.cover-image {
+    width: 250px;
+    margin: 0 0 15px 0;
+    display: inline-block;
+}
+</style>
+
+
+<div class="centered-wrap">
+    <div class="centered">
+        <div class="cover-block">
+            <img src="kotlin-logo.png" alt="" class="cover-image">
+
+            <h1 class="cover-title">
+                Kotlin Language Specification
+            </h1>
+        </div>
+    </div>
+</div>
