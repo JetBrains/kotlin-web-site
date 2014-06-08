@@ -1,0 +1,51 @@
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+.page-link-to-github {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #b5b5b5;
+  border-radius: 5px;
+  color: #828282;
+  font-size: 12px;
+  padding: 4px 10px;
+  text-decoration: none; }
+  .page-link-to-github:hover {
+    color: #333333;
+    border-color: #333333; }
+  .page-link-to-github .github-icon {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../layout/images/main-sprite.png");
+    background-repeat: no-repeat;
+    background-position: -50px 0; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .page-link-to-github .github-icon {
+        background-image: url("../layout/images/main-sprite@2x.png");
+        background-size: 150px 400px; } }
+  .page-link-to-github:hover .github-icon {
+    background-position: 0 0; }
+  .page-link-to-github .text {
+    padding-left: 27px; }

@@ -1,184 +1,26 @@
 @import '../../config';
 @import '../../utils';
-
 @import '../_bits/_header';
-@import '../_bits/_list';
-@import '../_bits/_code';
-@import '../_bits/_pre';
-@import '../_bits/_table';
-@import '../_bits/_blockquote';
-@import '../_syntax-highlight/_syntax-highlight_light';
-@import '../_syntax-highlight/_syntax-highlight_dark';
 
-.page-title {
-     @extend %h1;
-     margin-bottom: $unit*5;
-}
 
-.page-link-to-github {
-    position: relative;
-    display: inline-block;
-    border: 1px solid #b5b5b5;
-    border-radius: 5px;
-    color: #828282;
-    font-size: 12px;
-    padding: 4px 10px;
-    text-decoration: none;
-
-    &:hover {
-        color: $base-color;
-        border-color: $base-color;
-    }
-
-    .github-icon {
-        position: absolute;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background-image: url('../layout/images/main-sprite.png');
-        background-repeat: no-repeat;
-        background-position: -50px 0;
-
-        @include adapt_retina {
-            background-image: url('../layout/images/main-sprite@2x.png');
-            background-size: 150px 400px;
-        }
-    }
-    &:hover .github-icon {
-        background-position: 0 0;
-    }
-
-    .text {
-        padding-left: 27px;
-    }
+.section-title {
+    @extend %h1;
+    @extend %h1%_section-title;
 }
 
 .page-content {
     position: relative;
     margin-top: 0;
 
+    // Page link to GitHub
+    @import '../page-link-to-github/page-link-to-github';
+
     .page-link-to-github {
         float: right;
         top: 4px;
     }
 
-    h1 {
-        @extend %h2;
-        font-family: $font-family-sans-serif;
-        margin-top: $vertical-rhythm-unit*2;
-        margin-bottom: $vertical-rhythm-unit;
 
-        &:first-of-type {
-            margin-top: 0;
-            margin-bottom: $vertical-rhythm-unit*2;
-        }
-    }
-
-    h2 {
-        @extend %h3;
-        font-family: $font-family-sans-serif;
-        margin-top: $vertical-rhythm-unit*2;
-        margin-bottom: $vertical-rhythm-unit;
-
-        &:first-of-type {
-            margin-top: 0;
-        }
-    }
-
-    h3,
-    h4 {
-        @extend %h4;
-        margin-top: $vertical-rhythm-unit*2;
-        margin-bottom: $vertical-rhythm-unit;
-    }
-
-
-    // lists
-    ul {
-        @extend %list%ul;
-    }
-
-    ol {
-        @extend %list%ol;
-    }
-
-
-    // paragraph
-    p {
-        margin-bottom: $vertical-rhythm-unit;
-        line-height: 24px;
-    }
-
-
-    // images
-    img {
-        max-width: 100%;
-    }
-
-
-    // pre
-    pre {
-        @extend %pre;
-        margin-bottom: $vertical-rhythm-unit;
-        page-break-inside: avoid;
-    }
-
-
-    // code
-    code {
-        @extend %code-span;
-    }
-
-    p > code,
-    li > code {
-        @extend %code-span%_decorated;
-    }
-
-    pre code {
-        @extend %code-block;
-
-        &._highlighted {
-            @extend %syntax-highlight_light;
-        }
-    }
-
-
-    // blockquote
-    blockquote {
-        @extend %blockquote;
-        margin-bottom: $vertical-rhythm-unit;
-        page-break-inside: avoid;
-    }
-
-
-    // table
-    table {
-        @extend %table;
-    }
-
-    hr {
-        border: 1px solid #dcdcdc;
-        height: 2px;
-        border-width: 1px 0;
-        margin: $vertical-rhythm-unit*2 0 $vertical-rhythm-unit*3;
-    }
-
-    // misc
-    .keyword {
-        font-family: $font-family-mono;
-        font-style: normal;
-        color: #0000C0;
-    }
-
-    .error {
-        color: #ff0000;
-    }
-
-    .warning {
-        background-color: #ffffcc;
-    }
-
-    .key {
-        background-color: #dfeef4;
-    }
+    // Page elements
+    @import '../_page-content/_page-content';
 }

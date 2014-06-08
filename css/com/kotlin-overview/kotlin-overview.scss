@@ -10,8 +10,10 @@
     padding-bottom: $unit*4;
 
     .section-header {
-        @extend %h1;
         margin-bottom: 5px;
+        font-family: $font-family-serif;
+        font-size: 48px;
+        line-height: 54px;
         text-align: center;
     }
 
@@ -168,7 +170,8 @@
         }
 
         .feature-title {
-            @extend %h3;
+            font-size: 24px;
+            line-height: 27px;
             font-family: $font-family-serif;
             margin-bottom: $unit;
         }
@@ -664,13 +667,15 @@
         }
 
         .option-title {
-            @extend %h3;
+            font-size: 24px;
+            line-height: 27px;
             margin-bottom: 8px;
             white-space: nowrap;
         }
 
         .option-description {
             margin-bottom: 10px;
+
         }
 
         .option-link {
@@ -818,7 +823,9 @@
     @extend %kotlin-overview-section-background-image%default;
 
     .section-header {
-        @extend %h2;
+        font-family: $font-family-sans-serif;
+        font-size: 24px;
+        line-height: 27px;
         margin-bottom: $unit*4;
     }
 

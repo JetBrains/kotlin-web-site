@@ -1,26 +1,79 @@
 @import '../../_config';
 
 %h1 {
-    font-family: $font-family-serif;
-    font-size: 48px;
-    line-height: 54px;
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 30px;
+    line-height: 33px;
+
+    &:first-of-type {
+        margin-top: 0;
+        margin-bottom: $vertical-rhythm-unit * 2;
+    }
+
+    @media print {
+        page-break-before: always;
+        page-break-after: avoid;
+    }
+
+    &%_section-title {
+        padding-bottom: 15px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #ccc;
+    }
 }
 
 %h2 {
-    font-family: $font-family-serif;
-    font-size: 30px;
-    line-height: 33px;
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 24px;
+    line-height: 27px;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+
+    @media print {
+        page-break-after: avoid;
+    }
 }
 
 %h3 {
-    font-family: $font-family-serif;
-    font-size: 24px;
-    line-height: 27px;
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 19px;
+    line-height: 22px;
+
+    @media print {
+        page-break-after: avoid;
+    }
 }
 
 %h4 {
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
     font-family: $font-family-sans-serif;
     font-size: 16px;
     line-height: 20px;
     font-weight: bold;
+
+    @media print {
+        page-break-after: avoid;
+    }
+}
+
+%h5 {
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: normal;
+
+    @media print {
+        page-break-after: avoid;
+    }
 }

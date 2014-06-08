@@ -21,21 +21,6 @@
  * Grid column
  * @param {px} $font-size (optional)
 */
-.kotlin-overview-section .section-header {
-  font-family: "GraublauSlab Regular", Georgia, serif;
-  font-size: 48px;
-  line-height: 54px; }
-
-.kotlin-overview-section._testimonials .section-header {
-  font-family: "GraublauSlab Regular", Georgia, serif;
-  font-size: 30px;
-  line-height: 33px; }
-
-.kotlin-overview-section._features .kotlin-features-list .feature-title, .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
-  font-family: "GraublauSlab Regular", Georgia, serif;
-  font-size: 24px;
-  line-height: 27px; }
-
 /**
  * @param {string} $selector
  * @param {integer} $cols-span
@@ -482,6 +467,9 @@
   padding-bottom: 32px; }
   .kotlin-overview-section .section-header {
     margin-bottom: 5px;
+    font-family: "GraublauSlab Regular", Georgia, serif;
+    font-size: 48px;
+    line-height: 54px;
     text-align: center; }
   .kotlin-overview-section .section-description {
     font-size: 18px;
@@ -600,6 +588,8 @@
         height: 56px;
         background-position: 0 -500px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-title {
+      font-size: 24px;
+      line-height: 27px;
       font-family: "GraublauSlab Regular", Georgia, serif;
       margin-bottom: 8px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-description {
@@ -998,6 +988,8 @@
       height: 50px;
       background-position: 0 -150px; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
+      font-size: 24px;
+      line-height: 27px;
       margin-bottom: 8px;
       white-space: nowrap; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-description {
@@ -1106,6 +1098,9 @@
       color: #f47810; }
 
 .kotlin-overview-section._testimonials .section-header {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  line-height: 27px;
   margin-bottom: 32px; }
 .kotlin-overview-section._testimonials .testimonials-carousel-wrap {
   position: relative;

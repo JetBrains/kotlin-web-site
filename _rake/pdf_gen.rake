@@ -17,12 +17,13 @@ task :pdf_gen do
       'margin-right' => '0.5in',
       'margin-bottom' => '0.5in',
       'margin-left' => '0.5in',
-      'encoding' => 'UTF-8'
+      'encoding' => 'UTF-8',
+      'print-media-type' => ''
   }
 
   pdf_options_str = pdf_config.map{|key, value| "--#{key} #{value}"}.join(' ')
 
-  build_html(tmp_dir)
+  #build_html(tmp_dir)
 
   css_content = [
       File.read("#{source_dir}/css/reset.css"),
