@@ -10,7 +10,7 @@ code,
 var,
 kbd,
 samp {
-  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace; }
+  font-family: Consolas, Menlo, Courier, monospace; }
 
 html {
   height: 100%;

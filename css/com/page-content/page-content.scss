@@ -120,6 +120,7 @@
     pre {
         @extend %pre;
         margin-bottom: $vertical-rhythm-unit;
+        page-break-inside: avoid;
     }
 
 
@@ -146,6 +147,7 @@
     blockquote {
         @extend %blockquote;
         margin-bottom: $vertical-rhythm-unit;
+        page-break-inside: avoid;
     }
 
 

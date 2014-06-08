@@ -73,25 +73,24 @@
     margin-top: 7.5px; }
 
 .page-content pre {
-  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
+  font-family: Consolas, Menlo, Courier, monospace;
   line-height: 22px; }
 
 .page-content pre code {
   display: block;
   padding: 15px 20px;
-  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace; }
+  font-family: Consolas, Menlo, Courier, monospace; }
 
 .page-content code {
-  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace; }
+  font-family: Consolas, Menlo, Courier, monospace; }
   .page-content p > code,
   .page-content li > code {
-    display: inline-block;
     padding: 0 5px;
     border-radius: 4px;
     background-color: #efefef; }
 
 .page-content pre {
-  font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
+  font-family: Consolas, Menlo, Courier, monospace;
   line-height: 22px; }
 
 .page-content table {
@@ -380,16 +379,18 @@
   .page-content img {
     max-width: 100%; }
   .page-content pre {
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    page-break-inside: avoid; }
   .page-content blockquote {
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    page-break-inside: avoid; }
   .page-content hr {
     border: 1px solid #dcdcdc;
     height: 2px;
     border-width: 1px 0;
     margin: 30px 0 45px; }
   .page-content .keyword {
-    font-family: Consolas, Monaco, "Liberation Mono", Courier, monospace;
+    font-family: Consolas, Menlo, Courier, monospace;
     font-style: normal;
     color: #0000C0; }
   .page-content .error {
