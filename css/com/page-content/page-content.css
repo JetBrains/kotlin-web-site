@@ -35,9 +35,11 @@
       page-break-before: always;
       page-break-after: avoid; } }
   .section-title {
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid #ccc; }
+    padding-top: 240px;
+    margin-bottom: 45px;
+    font-size: 80px;
+    line-height: 90px;
+    font-weight: bold; }
 
 .page-content h2 {
   margin-top: 30px;
@@ -180,9 +182,11 @@
         page-break-before: always;
         page-break-after: avoid; } }
     .page-content .section-title {
-      padding-bottom: 15px;
-      margin-bottom: 25px;
-      border-bottom: 1px solid #ccc; }
+      padding-top: 240px;
+      margin-bottom: 45px;
+      font-size: 80px;
+      line-height: 90px;
+      font-weight: bold; }
   .page-content h2 {
     margin-top: 30px;
     margin-bottom: 15px;
@@ -497,6 +501,9 @@
   .page-content p {
     margin-bottom: 15px;
     line-height: 24px; }
+    @media print {
+      .page-content p {
+        page-break-inside: avoid; } }
   .page-content img {
     max-width: 100%; }
   .page-content pre {

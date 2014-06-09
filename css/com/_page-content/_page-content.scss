@@ -49,6 +49,10 @@ ol {
 p {
     margin-bottom: $vertical-rhythm-unit;
     line-height: 24px;
+
+    @media print {
+        page-break-inside: avoid;
+    }
 }
 
 
