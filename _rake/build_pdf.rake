@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'pathname'
 
 desc 'Builds PDF'
-task :pdf_gen do
+task :build_pdf do
   source_dir = CONFIG[:source_dir]
   tmp_dir = CONFIG[:tmp_dir]
   pdf_filename = CONFIG[:pdf_filename]
@@ -13,15 +13,25 @@ task :pdf_gen do
   pdf_config = {
       'enable-smart-shrinking' => '',
       'page-size' => 'A4',
-      'margin-top' => '0.5in',
-      'margin-right' => '0.5in',
-      'margin-bottom' => '0.5in',
-      'margin-left' => '0.5in',
+      'margin-top' => '1in',
+      'margin-right' => '0.7in',
+      'margin-bottom' => '0.8in',
+      'margin-left' => '0.7in',
       'encoding' => 'UTF-8',
-      'print-media-type' => ''
+      'print-media-type' => '',
+      'header-html' => "#{source_dir}/_rake/build_pdf/book-page-header.html",
+      'header-spacing' => '10',
+      'footer-html' => "#{source_dir}/_rake/build_pdf/book-page-footer.html",
+      'footer-spacing' => '7'
+  }
+
+  pdf_toc_config = {
+      'xsl-style-sheet' => "#{source_dir}/_rake/build_pdf/toc.xsl",
+      'header-html' => "''"
   }
 
   pdf_options_str = pdf_config.map{|key, value| "--#{key} #{value}"}.join(' ')
+  pdf_toc_options_str = pdf_toc_config.map{|key, value| "--#{key} #{value}"}.join(' ')
 
   build_html(tmp_dir)
 
@@ -32,15 +42,15 @@ task :pdf_gen do
 
   doc_content = get_doc_contents
 
-  doc_content = render_erb("#{source_dir}/_rake/pdf_gen/layout.erb", {
+  doc_content = render_erb("#{source_dir}/_rake/build_pdf/book-layout.erb", {
       :css_content => css_content,
       :content => doc_content
   })
 
   File.write("#{tmp_dir}/tmp.html", doc_content)
 
-  system "wkhtmltopdf #{pdf_options_str} cover #{source_dir}/_rake/pdf_gen/cover.html #{tmp_dir}/tmp.html #{pdf_filename}"
-  #rm_r "#{tmp_dir}"
+  system "wkhtmltopdf #{pdf_options_str} cover #{source_dir}/_rake/build_pdf/book-cover.html toc #{pdf_toc_options_str} #{tmp_dir}/tmp.html #{pdf_filename}"
+  rm_r "#{tmp_dir}"
   puts ""
   puts "Saved to #{pdf_filename}"
 end
