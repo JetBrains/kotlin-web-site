@@ -18,6 +18,7 @@ baseurl:
 # Custom Settings
 github_url: https://github.com/JetBrains/kotlin
 twitter_url: https://twitter.com/project_kotlin
+site_github_url: http://github.com/JetBrains/kotlin-web-site/tree/dev/
 edit_on_github_url: https://github.com/JetBrains/kotlin-web-site/edit/dev/%path%
 img_tutorial_root: assets/images/tutorials
 
