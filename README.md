@@ -1,7 +1,7 @@
 Installation
 ============
 
-Site is based on [Jekyll](http://jekyllrb.com/docs/usage/), so you will need ruby (>= 1.9.3) and rubygems to get it working.
+Site is based on [Jekyll](http://jekyllrb.com), so you will need ruby (>= 1.9.3) and rubygems to get it working.
 
 1. Clone repository `git clone https://github.com/JetBrains/kotlin-web-site.git -b dev`
 2. Install bundler: `[sudo] gem install bundler`
@@ -20,7 +20,7 @@ Working with site
 Site uses [rake](https://github.com/jimweirich/rake) for build management.
 To list available commands, run `rake` from project folder with no arguments.
 
-- `rake build` generates site in the `_site` fodler. Use `dest` parameter to specify another location: `rake build dest=/path/`.
+- `rake build` generates site in the `_site` fodler. Use `dest` parameter to specify another location: `rake build dest=/path`.
 - `rake preview` runs built-in development server that will allow you to preview what the generated site will look like in your browser locally.
   Changed files are rebuilt automatically. Host address and port can be changed by passing the following parameters: `rake preview host=172.20.209.23 port=3000`
 - `rake build_pdf` builds a PDF from documentation pages and stores it in the default folder. To change location, specify `file`: `rake build_pdf file=book.pdf`.
