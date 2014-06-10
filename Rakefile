@@ -8,7 +8,7 @@ CONFIG = {
   :build_destination => "_site",
   :preview_host => "localhost",
   :preview_port => 4000,
-  :pdf_filename => "#{__dir__}/spec.pdf"
+  :pdf_filename => "spec.pdf"
 }
 
 

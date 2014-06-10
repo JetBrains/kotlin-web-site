@@ -7,7 +7,8 @@ desc 'Builds PDF'
 task :build_pdf do
   source_dir = CONFIG[:source_dir]
   tmp_dir = CONFIG[:tmp_dir]
-  pdf_filename = CONFIG[:pdf_filename]
+  pdf_filename = ENV['file'] || CONFIG[:pdf_filename]
+  pdf_filename = File.expand_path(pdf_filename)
 
   # http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html
   pdf_config = {
