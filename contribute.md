@@ -6,4 +6,37 @@ main_nav_id: contribute
 
 # Contributing to Kotlin
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras faucibus luctus elit et porta. Nulla sed velit vitae ante egestas fringilla. Nulla eget scelerisque arcu. Nam nec viverra nibh. Proin tincidunt tortor non sapien hendrerit euismod. Etiam tincidunt est et varius feugiat. Aliquam volutpat molestie erat, non congue risus pulvinar ut. Sed non cursus neque. Nunc in dignissim quam, in volutpat leo. In porttitor molestie tortor eget euismod. Pellentesque bibendum sit amet magna vitae mattis. In diam massa, ultricies ut sollicitudin a, tempor a tortor. Nulla sollicitudin, magna ut euismod congue, nisi enim scelerisque ligula, sit amet vulputate quam mi at purus. Mauris id augue orci. Fusce eget rhoncus purus.
+Kotlin is an Apache 2 OSS Project. The source code, tooling, documentation and even this web is maintained on [GitHub](http://github.com/jetbrains/kotlin). While the majority 
+of the team works at JetBrains, there have been nearly a hundred external contributors to the Kotlin Project and we are always looking for more people. 
+
+## How you can contribute
+
+### Contributing to the code
+
+If you want to contribute to the code, go to GitHub and check out the latest version and follow the instructions on how to build Kotlin from source. After that, you can start picking
+some [pending tasks](http://youtrack.jetbrains.com/issues/KT?q=%23Unresolved+) on the issue tracker. Make sure you look for issues tags with [Up For Grabs](http://youtrack.jetbrains.com/issues/KT?q=%23Unresolved+tag%3A+%7BUp+For+Grabs%7D+%23Newbie+) as
+these are some of the easier ones to get started with.
+
+### Contributing to documentation or web site
+
+We need a lot more documentation. If you're interested in collaborating, please feel free to check out the source code [to this site on GitHub](http://github.com/jetbrains/kotlin-web-site) and send a Pull Request. The site
+is built using Markdown and Jekyll. 
+
+### Contributing with tutorials or videos
+
+Have you created a tutorial or video on Kotlin? Please let us know. We'd be more than happy to have it featured under [Community Content](http://kotlinlang.org/docs/resources.html).
+
+### Presentations
+
+If you've given or are giving presentations on Kotlin, let us know. We'll [feature it on the list](http://kotlinlang.org/docs/events.html)
+
+### Kotlin-x Projects and Community Projects
+
+Kotlin ships with a very small runtime and it's the aim to keep it that way. We believe other functionality that is missing from the standard runtime library can be developed
+as Kotlin Contributions under the [Kotlin-X](https://github.com/kotlinx/kotlinx) umbrella or as individual projects by community members. If you have a library that think
+others might find useful, let us know. If you want to contribute to any of the existing ones, check them out. 
+
+### Spread the word
+
+Kotlin is a new language but we have high hopes for it and we need people that believe in it to spread the word! 
+
