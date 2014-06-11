@@ -1,7 +1,28 @@
+require 'pathname'
+require 'rexml/document'
 require 'uri'
 require 'erb'
-require 'nokogiri'
-require 'pathname'
+
+# http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html
+PDF_CONFIG = {
+    'encoding' => 'UTF-8',
+    'page-size' => 'A4',
+    'margin-top' => '1in',
+    'margin-right' => '0.7in',
+    'margin-bottom' => '0.8in',
+    'margin-left' => '0.7in',
+    'print-media-type' => '',
+    'header-html' => "#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-header.html",
+    'header-spacing' => '10',
+    'footer-html' => "#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-footer.html",
+    'footer-spacing' => '7',
+    'enable-smart-shrinking' => ''
+}
+
+PDF_TOC_CONFIG = {
+    'xsl-style-sheet' => "#{CONFIG[:source_dir]}/_rake/build_pdf/toc.xsl",
+    'header-html' => "''"
+}
 
 desc 'Builds PDF'
 task :build_pdf do
@@ -9,96 +30,49 @@ task :build_pdf do
   tmp_dir = CONFIG[:tmp_dir]
   pdf_filename = ENV['file'] || CONFIG[:pdf_filename]
   pdf_filename = File.expand_path(pdf_filename)
+  pdf_options_str = PDF_CONFIG.map{|key, value| "--#{key} #{value}"}.join(' ')
+  pdf_toc_options_str = PDF_TOC_CONFIG.map{|key, value| "--#{key} #{value}"}.join(' ')
 
-  # http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html
-  pdf_config = {
-      'enable-smart-shrinking' => '',
-      'page-size' => 'A4',
-      'margin-top' => '1in',
-      'margin-right' => '0.7in',
-      'margin-bottom' => '0.8in',
-      'margin-left' => '0.7in',
-      'encoding' => 'UTF-8',
-      'print-media-type' => '',
-      'header-html' => "#{source_dir}/_rake/build_pdf/book-page-header.html",
-      'header-spacing' => '10',
-      'footer-html' => "#{source_dir}/_rake/build_pdf/book-page-footer.html",
-      'footer-spacing' => '7'
-  }
-
-  pdf_toc_config = {
-      'xsl-style-sheet' => "#{source_dir}/_rake/build_pdf/toc.xsl",
-      'header-html' => "''"
-  }
-
-  pdf_options_str = pdf_config.map{|key, value| "--#{key} #{value}"}.join(' ')
-  pdf_toc_options_str = pdf_toc_config.map{|key, value| "--#{key} #{value}"}.join(' ')
-
+  puts "Isolate current Jekyll installation"
   build_html(tmp_dir)
 
-  css_content = [
-      File.read("#{source_dir}/css/reset.css"),
-      File.read("#{source_dir}/css/com/page-content/page-content.css")
-  ].join('')
-
+  puts "Extract data from docs"
   doc_content = get_doc_contents
 
   doc_content = render_erb("#{source_dir}/_rake/build_pdf/book-layout.erb", {
-      :css_content => css_content,
+      :source_dir => source_dir,
       :content => doc_content
   })
 
   File.write("#{tmp_dir}/tmp.html", doc_content)
 
   system "wkhtmltopdf #{pdf_options_str} cover #{source_dir}/_rake/build_pdf/book-cover.html toc #{pdf_toc_options_str} #{tmp_dir}/tmp.html #{pdf_filename}"
-  rm_r "#{tmp_dir}"
+  #rm_r "#{tmp_dir}"
   puts ""
   puts "Saved to #{pdf_filename}"
 end
 
 
-def scan_dir path, pattern = '*'
-  files = []
-  Dir.glob(path + '/' + pattern) do |filename|
-    next if filename == '.' or filename == '..'
-    files.push(filename)
-  end
-  files
-end
-
-
 def build_html dir
   if File.directory?(dir)
-    rm_r dir
+    FileUtils.rm_r dir
   end
 
-  mkdir dir
-  cp_r '_data', dir
-  cp_r '_includes', dir
-  cp_r '_layouts', dir
-  cp_r '_plugins', dir
-  cp_r 'assets', dir
-  cp_r 'docs', dir
-  cp_r '_config.yml', dir
-  cd dir
+  FileUtils.mkdir dir
+  FileUtils.cp_r %w(_data _includes _layouts _plugins assets docs _config.yml), dir
+  FileUtils.mv "#{dir}/_layouts/pdf.html", "#{dir}/_layouts/reference.html" # substitute the original page layout
+  FileUtils.cd dir
 
-  files = scan_dir("#{dir}/docs/reference", '*.md')
-  files.each do |filename|
-    file_content = File.read(filename)
-    file_content = file_content.gsub(/layout\:\s([^\n]*)/, 'layout: pdf')
-    File.open(filename, 'w') { |file| file.write(file_content) }
-  end
-
-  system "#{CONFIG[:source_dir]}/bin/jekyll build --source=#{dir} --destination=#{dir}/_site"
+  system "jekyll build --source=#{dir} --destination=#{dir}/_site"
 end
 
 
 def get_doc_contents
   source_dir = CONFIG[:source_dir]
   tmp_dir = CONFIG[:tmp_dir]
-  doc_content = []
-
+  formatter = REXML::Formatters::Default.new
   toc = YAML::load_file("#{source_dir}/_data/_nav.yml")
+  doc_content = []
 
   toc["reference"].each do |toc_data|
     section = {
@@ -117,50 +91,55 @@ def get_doc_contents
             next
           end
 
-          file_content = File.read(file_path)
+          page_content = File.read(file_path)
           page = {
               'id' => file_basename,
               'title' => title,
           }
 
-          xml_doc = Nokogiri::HTML::Document.parse(file_content)
+          doc = REXML::Document.new page_content
 
           # Add pageid prefixes to all nodes
-          xml_doc.search("*[@id]").each do |node|
-            node['data-old-id'] = node['id']
-            node['id'] = "#{page['id']}_#{node['id']}"
+          doc.elements.each("//*[@id]") do |node|
+            node_id = node.attributes['id']
+            node.attributes['id'] = "#{page['id']}_#{node_id}"
           end
 
-          # Rename all headings to lower level
-          5.downto(1) {|i|
-            xml_doc.search("h#{i}").each do |node|
-              node.name = "h#{i + 1}"
-            end
-          }
-
           # Resolving links and anchors
-          xml_doc.search("a").each do |link|
-            uri = URI.parse(link['href'])
-            new_anchor_id = link['href']
+          doc.elements.each("//a[@href]") do |link|
+            link_href = link.attributes['href']
+            uri = URI.parse(link_href)
 
             # Local link
             if uri.scheme == nil
-              #link['data-old-href'] = link['href']
+              new_anchor_id = link_href
 
               # Anchor
-              if link['href'].match(/^#/)
+              if link_href.match(/^#/)
                 new_anchor_id = "#{page['id']}_#{uri.fragment}"
-              # Link to another page
+                # Link to another page
               else
                 new_anchor_id = "#{uri.path}" + ((uri.fragment != nil) ? "_#{uri.fragment}" : "")
               end
 
-              link['href'] = "#" + new_anchor_id
-
+              link.attributes['href'] = "#" + new_anchor_id
             end
           end
 
-          page['content'] = xml_doc.at('body').children.to_html
+          # Rename all headings to lower level
+          5.downto(1) do |i|
+            doc.elements.each("//h#{i}") do |node|
+              node_name = node.name
+              node.name = "h#{i + 1}"
+            end
+          end
+
+          out = String.new
+          doc.elements.each("//body/*") do |node|
+            formatter.write(node, out)
+          end
+
+          page['content'] = out
           section['content'].push(page)
         end
       end

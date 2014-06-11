@@ -1,8 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'yaml'
-require 'uri'
-require 'rake'
 
 CONFIG = {
   :source_dir => __dir__,
@@ -12,6 +10,9 @@ CONFIG = {
   :preview_port => 4000,
   :pdf_filename => "spec.pdf"
 }
+
+Dir['_rake/*.rake'].each { |r| load r }
+Dir['_rake/lib/*.rb'].each { |r| load r }
 
 
 task :default do
@@ -44,7 +45,3 @@ def render_erb(template, data = {})
 
   erb.result(vars_binding)
 end
-
-
-Dir['_rake/*.rake'].each { |r| load r }
-Dir['_rake/lib/*.rb'].each { |r| load r }
