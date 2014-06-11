@@ -6,7 +6,7 @@ main_nav_id: contribute
 
 # Contributing to Kotlin
 
-Kotlin is an Apache 2 OSS Project. The source code, tooling, documentation and even this web is maintained on [GitHub](http://github.com/jetbrains/kotlin). While the majority 
+Kotlin is an Apache 2 OSS Project. The source code, tooling, documentation and even this web is maintained on [GitHub](https://github.com/jetbrains/kotlin). While the majority 
 of the team works at JetBrains, there have been nearly a hundred external contributors to the Kotlin Project and we are always looking for more people. 
 
 ## How you can contribute
@@ -14,12 +14,12 @@ of the team works at JetBrains, there have been nearly a hundred external contri
 ### Contributing to the code
 
 If you want to contribute to the code, go to GitHub and check out the latest version and follow the instructions on how to build Kotlin from source. After that, you can start picking
-some [pending tasks](http://youtrack.jetbrains.com/issues/KT?q=%23Unresolved+) on the issue tracker. Make sure you look for issues tags with [Up For Grabs](http://youtrack.jetbrains.com/issues/KT?q=%23Unresolved+tag%3A+%7BUp+For+Grabs%7D+%23Newbie+) as
+some [pending tasks](https://youtrack.jetbrains.com/issues/KT?q=%23Unresolved+) on the issue tracker. Make sure you look for issues tags with [Up For Grabs](https://youtrack.jetbrains.com/issues/KT?q=%23Unresolved+tag%3A+%7BUp+For+Grabs%7D+%23Newbie+) as
 these are some of the easier ones to get started with.
 
 ### Contributing to documentation or web site
 
-We need a lot more documentation. If you're interested in collaborating, please feel free to check out the source code [to this site on GitHub](http://github.com/jetbrains/kotlin-web-site) and send a Pull Request. The site
+We need a lot more documentation. If you're interested in collaborating, please feel free to check out the source code [to this site on GitHub](https://github.com/jetbrains/kotlin-web-site) and send a Pull Request. The site
 is built using Markdown and Jekyll. 
 
 ### Contributing with tutorials or videos
