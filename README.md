@@ -1,7 +1,9 @@
 Installation
 ============
 
-Site is based on [Jekyll](http://jekyllrb.com), so you will need ruby (>= 1.9.3) and rubygems to get it working.
+*IMPORTANT*: Make sure you have Ruby > 2.1 and Jekyl > 2.0.3. Otherwise you'll waste several years of your life trying to figure out why things don't work.
+And when you have that (or try and upgrade), and it fails with some error about nokogiri not being able to compile because of libiconv not being found, go here:
+http://jasdeep.ca/2013/10/installing-nokogiri-fails-os-x-mavericks/
 
 1. Clone repository `git clone https://github.com/JetBrains/kotlin-web-site.git -b dev`
 2. Install bundler: `[sudo] gem install bundler`
