@@ -1,6 +1,8 @@
-require 'rake'
+require 'rubygems'
+require 'bundler/setup'
 require 'yaml'
 require 'uri'
+require 'rake'
 
 CONFIG = {
   :source_dir => __dir__,
