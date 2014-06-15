@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 require 'rbconfig'
 
-gem 'rake', '~> 10.3.2'
+gem 'rake'
 gem 'jekyll', '~> 2.0.3'
 gem 'pygments.rb', '=0.5.0'
 
