@@ -580,8 +580,8 @@
         height: 59px;
         background-position: 0 -300px; }
       .kotlin-overview-section._features .kotlin-features-list .feature-icon._versatile {
-        width: 52px;
-        height: 46px;
+        width: 58px;
+        height: 57px;
         background-position: 0 -400px; }
       .kotlin-overview-section._features .kotlin-features-list .feature-icon._interoperable {
         width: 56px;
@@ -988,7 +988,7 @@
       height: 50px;
       background-position: 0 -150px; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
-      font-size: 24px;
+      font-size: 21px;
       line-height: 27px;
       margin-bottom: 8px;
       white-space: nowrap; }

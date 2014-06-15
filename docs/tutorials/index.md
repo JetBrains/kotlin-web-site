@@ -5,5 +5,6 @@ title: "Tutorials"
 
 # Tutorials
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras faucibus luctus elit et porta. Nulla sed velit vitae ante egestas fringilla. Nulla eget scelerisque arcu. Nam nec viverra nibh. Proin tincidunt tortor non sapien hendrerit euismod. Etiam tincidunt est et varius feugiat. Aliquam volutpat molestie erat, non congue risus pulvinar ut. Sed non cursus neque. Nunc in dignissim quam, in volutpat leo. In porttitor molestie tortor eget euismod. Pellentesque bibendum sit amet magna vitae mattis. In diam massa, ultricies ut sollicitudin a, tempor a tortor. Nulla sollicitudin, magna ut euismod congue, nisi enim scelerisque ligula, sit amet vulputate quam mi at purus. Mauris id augue orci. Fusce eget rhoncus purus.
+A series of complete step-by-step tutorials to walk you through how to accomplish different tasks in Kotlin, from Getting Started to writing Android applications and more. 
+If you have a tutorial you'd like featured here, please let us know. We'll be happy to host it and give credit!
 
