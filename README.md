@@ -1,17 +1,33 @@
+- [Installation](#installation)
+- [Working with site](#working-with-site)
+    - [Rake tasks](#rake-tasks)
+    - [Data](#data)
+    - [Templates](#templates)
+    - [Page metadata](#page-metadata)
+    - [Writing an content](#writing-an-content)
+
 Installation
 ============
 
-*IMPORTANT*: Make sure you have Ruby > 2.1 and Jekyl > 2.0.3. Otherwise you'll waste several years of your life trying to figure out why things don't work.
-And when you have that (or try and upgrade), and it fails with some error about nokogiri not being able to compile because of libiconv not being found, go here:
-http://jasdeep.ca/2013/10/installing-nokogiri-fails-os-x-mavericks/
+Site is based on [Jekyll](http://jekyllrb.com), so you will need ruby (>= 1.9.3) and rubygems to get it working.
 
-1. Clone repository `git clone https://github.com/JetBrains/kotlin-web-site.git -b dev`
-2. Install bundler: `[sudo] gem install bundler`
-3. Install dependencies: `bundle install --binstubs`
-4. To build PDF you will also need [wkhtmltopdf](http://wkhtmltopdf.org/downloads.html):
-    - For Mac OS: 0.12.1 testing build *10.6+ (Carbon)*.
-    - For Windows: 0.12.1 testing build *Windows (MSVC 2013)*.
-    - For Linux: stable 0.12.0.
+- *Mac OS X*. Make sure that you have Command Line Developer Tools, otherwise install it: `which gcc || xcode-select --install`.
+- *Windows*. Step-by-step Jekyll installation can be found [here](https://github.com/juthilo/run-jekyll-on-windows).
+  We recommend to use [Cygwin](https://www.cygwin.com) or [Git Bash](http://git-scm.com) as command line interface.
+
+Run `sh ./INSTALL.sh` to install.
+
+## PDF building
+
+To build PDF you will also need [wkhtmltopdf](http://wkhtmltopdf.org/downloads.html):
+
+- *Mac OS*. 0.12.1 testing build *10.6+ (Carbon)*.
+- *Windows*. 0.12.1 testing build *Windows (MSVC 2013)*.
+- *Linux*. Stable 0.12.0.
+
+## Troubleshooting
+
+- [Jekyll troubleshooting](http://jekyllrb.com/docs/troubleshooting)
 
 
 Working with site
@@ -57,19 +73,18 @@ Every page can have an unlimited number of metadata fields. More information [he
 The most important of them are the page template (e.g. `layout: reference`) and its type (e.g. `type: tutorial`). `category` and `title` fields are added for future development.
 
 
-Writing an content
-==================
+## Writing an content
 
-## Markup
+### Markup
 
 Kramdown with some additions (like GitHub fenced code blocks) is used as markdown parser.
 See the complete syntax reference at [Kramdown site](http://kramdown.gettalong.org/syntax.html).
 
-### Markdown cheatsheet
+#### Markdown cheatsheet
 
 In progress, see [this reference](http://kramdown.gettalong.org/syntax.html) instead.
 
-## Specifying page element attributes
+### Specifying page element attributes
 
 With Kramdown you can assign HTML attributes to page elements via `{:%param%}`. E.g.:
 
@@ -87,15 +102,15 @@ This is a paragraph
 
 More information about attributes can be found [here](http://kramdown.gettalong.org/syntax.html#inline-attribute-lists).
 
-## Custom element styles
+### Custom element styles
 
-### Inline elements
+#### Inline elements
 
 - `{:.keyword}` highlights a keyword.
 - `{:.error}` highlights an error.
 - `{:.warning}` highlights a warning.
 
-### Tables
+#### Tables
 
 - `{:.wide}` stretches a table to occupy the entire width of a page.
 - `{:.zebra}` interleaves table rows.
@@ -110,7 +125,7 @@ E.g.:
 {:.wide.zebra}
 ```
 
-### Quotation blocks
+#### Quotation blocks
 
 They're used in a slightly other manner that they were originally designed for: as universal block container elements.
 
