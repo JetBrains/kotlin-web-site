@@ -12,8 +12,6 @@ if which ruby >/dev/null && which gem >/dev/null; then
     echo export PATH=\$PATH:\~/bin >> ~/.bashrc
     #exec $SHELL
     ~/bin/bundle install --path vendor/bundle
-    ~/bin/bundle binstubs rake
-    ~/bin/bundle binstubs jekyll
 else
     echo "You need Ruby (>= 1.9.3) and rubygems to get it working"
 fi
