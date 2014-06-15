@@ -12,9 +12,9 @@ PDF_CONFIG = {
     'margin-bottom' => '0.8in',
     'margin-left' => '0.7in',
     'print-media-type' => '',
-    'header-html' => "#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-header.html",
+    'header-html' => "file:///#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-header.html",
     'header-spacing' => '10',
-    'footer-html' => "#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-footer.html",
+    'footer-html' => "file:///#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-footer.html",
     'footer-spacing' => '7',
     'enable-smart-shrinking' => ''
 }
@@ -47,7 +47,7 @@ task :build_pdf do
   File.write("#{tmp_dir}/tmp.html", doc_content)
 
   system "wkhtmltopdf #{pdf_options_str} cover #{source_dir}/_rake/build_pdf/book-cover.html toc #{pdf_toc_options_str} #{tmp_dir}/tmp.html #{pdf_filename}"
-  #rm_r "#{tmp_dir}"
+  rm_r "#{tmp_dir}"
   puts ""
   puts "Saved to #{pdf_filename}"
 end
