@@ -1,3 +1,4 @@
+#!/bin/sh
 if which ruby >/dev/null && which gem >/dev/null; then
     if [[ $OSTYPE == "darwin"* ]]; then
         if [[ `which gcc` == "" ]]; then
