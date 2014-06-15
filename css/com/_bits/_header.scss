@@ -1,0 +1,81 @@
+@import '../../_config';
+
+%h1 {
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 30px;
+    line-height: 33px;
+
+    &:first-of-type {
+        margin-top: 0;
+        margin-bottom: $vertical-rhythm-unit * 2;
+    }
+
+    @media print {
+        page-break-before: always;
+        page-break-after: avoid;
+    }
+
+    &%_section-title {
+        padding-top: 240px;
+        margin-bottom: 45px;
+        font-size: 80px;
+        line-height: 90px;
+        font-weight: bold;
+    }
+}
+
+%h2 {
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 24px;
+    line-height: 27px;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+
+    @media print {
+        page-break-after: avoid;
+    }
+}
+
+%h3 {
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 19px;
+    line-height: 22px;
+
+    @media print {
+        page-break-after: avoid;
+    }
+}
+
+%h4 {
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+
+    @media print {
+        page-break-after: avoid;
+    }
+}
+
+%h5 {
+    margin-top: $vertical-rhythm-unit * 2;
+    margin-bottom: $vertical-rhythm-unit;
+    font-family: $font-family-sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: normal;
+
+    @media print {
+        page-break-after: avoid;
+    }
+}

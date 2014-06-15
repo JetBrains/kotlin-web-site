@@ -1,0 +1,42 @@
+<section class="kotlin-overview-section _testimonials">
+    <div class="section-header">Who's using Kotlin</div>
+    <div class="section-content">
+
+        <div class="g-layout2 testimonials-carousel-wrap" id="testimonials-carousel-wrap">
+            <div class="testimonials-carousel js-carousel">
+                <ul class="testimonials-list js-carousel-list">
+                    {% for testimonial in site.data.companies-using-kotlin %}
+                    <li class="testimonials-list-item">
+                        <blockquote class="testimonial-quote">
+                            <div class="text">{{ testimonial.description }}</div>
+                        </blockquote>
+
+                        <div class="testimonial-company">
+                            {% if testimonial.logo or testimonial.url %}
+                            <a href="{{ testimonial.url }}"
+                               class="testimonial-company-link"
+                               target="_blank"
+                               rel="nofollow">
+                                {% if testimonial.logo %}
+                                    <img src="{{ site.baseurl }}{{ testimonial.logo }}"
+                                         alt="{{ testimonial.company }}"
+                                         title="{{ testimonial.company }}">
+                                {% else %}
+                                    {{ testimonial.company }}
+                                {% endif %}
+                            </a>
+                            {% else %}
+                                {{ testimonial.company }}
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="testimonials-carousel-nav _prev js-carousel-nav-prev is_disabled"></div>
+            <div class="testimonials-carousel-nav _next js-carousel-nav-next"></div>
+        </div>
+
+    </div>
+</section>

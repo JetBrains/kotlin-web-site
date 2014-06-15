@@ -1,0 +1,96 @@
+<section class="kotlin-overview-section _get-kotlin" id="get-kotlin">
+    <h2 class="section-header">Get Kotlin</h2>
+
+    <p class="kotlin-version">{{ site.data.releases.latest.version }}</p>
+
+    <p class="section-description">You can use the Standalone Compiler, IntelliJ IDEA or compile from source:</p>
+
+    <div class="section-content">
+        <div class="get-kotlin-options-list">
+            <div class="option-item _standalone-compiler">
+                <div class="option-image _standalone-compiler"></div>
+                <div class="option-title-pre-text">Standalone</div>
+                <h3 class="option-title">Compiler</h3>
+
+                <p class="option-description">
+                    A Standalone Compiler and tools for build systems such as Ant, Gradle and Maven.
+                </p>
+
+                <a href="{{ site.data.releases.latest.url }}"
+                   class="option-link"
+                   target="_blank">Download compiler</a>
+            </div>
+
+            <div class="option-item _intellij-idea">
+                <div class="option-image _intellij-idea"></div>
+                <div class="option-title-pre-text">Using</div>
+                <h3 class="option-title">IntelliJ IDEA</h3>
+
+                <p class="option-description">
+                    You can use either the OSS Community Edition or IntelliJ IDEA Ultimate.
+                </p>
+
+                <a href="http://www.jetbrains.com/idea/download/"
+                   class="option-link"
+                   target="_blank">
+                    Get IntelliJ IDEA
+                </a>
+            </div>
+
+            <div class="option-item _source-code">
+                <div class="option-image _source-code"></div>
+                <div class="option-title-pre-text">Downloading</div>
+                <h3 class="option-title">Source Code</h3>
+
+                <p class="option-description">
+                    Get the latest version of the compiler and tooling from
+                    GitHub and contribute to Kotlin.
+                </p>
+
+                <a href="https://github.com/JetBrains/kotlin"
+                   class="option-link"
+                   target="_blank">
+                    Download source code
+                </a>
+            </div>
+        </div>
+
+
+        <div class="overview-popup _hidden js-popup"
+             id="setting-up-idea-option-popup">
+            <div class="popup-content">
+                <h3>Setting Up IntelliJ IDEA</h3>
+
+                <h4>Milestone Versions</h4>
+                <p>
+                    A stable milestone version of Kotlin can be obtained from JetBrains <a href="#">Plugin Repository</a>.
+                    <br>
+                    In IDEA navigate to: Settings -> Plugins -> Browse Repositories
+                    <br>
+                    Select the Kotlin plugin and then Download and Install.
+                </p>
+
+                <h4>Using the Kotlin Nightly Builds</h4>
+                <p>In IDEA navigate to: Preferences -> Plugins -> Browse Repositories. Enter:</p>
+                <ul>
+                    <li>
+                        for IntelliJ IDEA 13 EAP:<br>
+                        <small>http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml</small>
+                    </li>
+                    <li>
+                        for IntelliJ IDEA 12.1.5: <br>
+                        <small>http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml?branch=idea12</small>
+                    </li>
+                    <li>
+                        for IntelliJ IDEA 12.1.4 and below: download manually, see instructions below.
+                    </li>
+                </ul>
+
+                <p>Then you should be able to select the Kotlin plugin and Download and Install. The repository above contains nightly builds published automatically.</p>
+            </div>
+
+            <div class="popup-close-button js-popup-close-button"
+                 data-popup-id="setting-up-idea-option-popup"></div>
+        </div>
+    </div>
+</section>

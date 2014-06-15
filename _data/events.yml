@@ -1,0 +1,591 @@
+# Example:
+#
+#  - title: JavaOne'12
+#    url: http://www.oracle.com/javaone/index.html
+#    subject: Kotlin for Android
+#    speaker: Andrey Breslav
+#    speaker: [Andrey Breslav, Svetlana Isakova]
+#    date: 2012-09-30
+#    date: [2012-09-30, 2012-10-4]
+#    location: San Francisco, CA, USA
+#    content:
+#      slides: https://prezi.com/hndtabwcfy5h/kara-talk-jpoint
+#      pdf: http://confluence.jetbrains.com/download/attachments/40706137/typesafeweb.pdf?version=1&modificationDate=1365597837000
+#      examples: https://github.com/abreslav/kara-files
+#      video: http://www.youtube.com/watch?v=6y-4xJWFLl4
+#      article: http://jaxenter.com/type-safe-web-with-kotlin-47395.html
+
+# 2011
+# ==============================================================================
+
+- title: JVM Language Summit 2011
+  url: http://www.wiki.jvmlangsummit.com/Kotlin
+  date: 2011-06-15
+  location: Santa Clara, CA, USA
+  content:
+    slides: http://confluence.jetbrains.com/download/attachments/40702623/JVMLS_workshop_2011.pdf?version=1&modificationDate=1311201781000
+    article: http://drdobbs.com/231500204
+
+
+- title: SOCON 2011, Emerging Languages
+  url: http://www.oscon.com/oscon2011/public/schedule/detail/20924
+  date: 2011-09-17
+  location: Portland, OR, USA
+  content:
+    slides: http://confluence.jetbrains.com/download/attachments/40702623/OSCON_Kotlin.pdf?version=8&modificationDate=1311959200000
+
+
+- title: Strange Loop 2011
+  url: https://thestrangeloop.com/sessions/the-kotlin-programming-language
+  date: 2011-09-19
+  location: St Louis, MO, USA
+  content:
+    slides: http://www.slideshare.net/abreslav/kotlin-strangeloop-2011
+    article: http://www.infoq.com/presentations/The-Kotlin-Programming-Language
+
+
+- title: Yandex and CSClub
+  url: http://logic.pdmi.ras.ru/csclub/en/node/1480
+  date: 2011-10-02
+  location: Saint Petersburg, Russia
+  content:
+    slides: http://www.slideshare.net/abreslav/kotlin-csclub-yandex
+    video: http://www.lektorium.tv/lecture/?id=13381
+
+
+- title: RivieraDEV 2011
+  url: http://www.rivieradev.fr/application/talk?id=140
+  date: [2011-10-20, 2011-10-20]
+  location: France
+  content:
+    slides: http://www.slideshare.net/intelliyole/kotlin-riviera-dev/
+    article: http://www.rivieradev.fr/application/talk?id=140
+
+
+- title: Devoxx 2011
+  url: http://devoxx.com/display/DV11/The+Kotlin+Programming+Language
+  date: 2011-11-16
+  location: Antwerp, Belgium
+  content:
+    slides: http://www.slideshare.net/abreslav/kotlin-devoxx-2011
+    article: http://www.parleys.com/#st=5&id=2908&sl=52
+
+
+- title: Devclub.eu
+  url: http://www.devclub.eu/2011/12/09/announce-dec-2011/
+  date: 2011-12-21
+  location: Tallinn, Estonia
+  content:
+    video: http://vimeo.com/34176209
+
+
+# 2012
+# ==============================================================================
+
+- title: JavaDay SPb
+  url: http://oracle.timepad.ru/event/17633
+  date: 2012-02-10
+  location: Saint Petersburg, Russia
+  content:
+    slides: http://prezi.com/4dr1n3uy3dgh/kotlin-javaday-spb/
+
+
+- title: Jfokus
+  url: http://www.jfokus.se/jfokus/page.jsp?lang=en&id=schema_day1
+  date: 2012-02-14
+  location: Stockholm, Sweden
+  content:
+    slides: http://prezi.com/-xdrdpul_lsg/kotlin-jfokus/
+
+
+- title: 33rd Degree
+  url: http://2012.33degree.org/talk/show/7
+  date: [2012-03-19, 2012-03-21]
+  location: Krakow, Poland
+  content:
+    slides: http://prezi.com/-xdrdpul_lsg/kotlin-jfokus/
+
+
+- title: Codemotion Roma
+  url: http://www.codemotion.it/en/talk/bringing-kotlins-power-java-libraries
+  date: [2012-03-23, 2012-03-24]
+  location: Rome, Italy
+  content:
+    slides: http://prezi.com/-xdrdpul_lsg/kotlin-jfokus/
+
+
+- title: JavaOne and Oracle Develop Russia
+  url: http://www.oracle.com/javaone/ru-en/savethedate/index.html
+  date: 2012-04-18
+  location: Moscow, Russia
+  content:
+    slides: http://prezi.com/-xdrdpul_lsg/kotlin-jfokus/
+
+
+- title: JUG.ru meeting
+  url: http://jugru.timepad.ru/event/23921
+  date: 2012-04-26
+  location: Saint Petersburg, Russia
+  content:
+    slides: http://prezi.com/-xdrdpul_lsg/kotlin-jfokus/
+    video: ['http://vimeo.com/41319179', 'http://vimeo.com/41319180']
+
+
+- title: ADD-3
+  url: http://www.addconf.ru/event.sdf/ru/add_3/authors/594/595
+  date: 2012-05-12
+  location: Moscow, Russia
+  content:
+    video: http://vimeo.com/42612265
+
+
+- title: A friendly visit to EPFL
+  url: http://ic.epfl.ch/cms/lang/en/pid/77752
+  date: [2012-05-14, 2012-05-15]
+  location: Lausanne, Switzerland
+  content:
+    examples: https://github.com/abreslav/kotlin-scala-examples
+
+
+- title: GeeCON
+  url: http://2012.geecon.org
+  date: [2012-05-16, 2012-05-17]
+  location: Poznań, Poland
+  content:
+    examples: https://github.com/abreslav/kotlin-demo-graphics
+    video: http://vimeo.com/46564869
+
+
+- title: scaladev'12
+  url: http://scaladev.ru
+  date: 2012-05-19
+  location: Saint Petersburg, Russia
+  content:
+    slides: http://www.slideshare.net/remeniuk/the-kotlin-programming-language-svetlana-isakove
+    video: http://www.youtube.com/watch?v=mTr8TWj9MUU&feature=player_embedded
+
+
+- title: JEEConf
+  url: http://jeeconf.com/program/#kotlin
+  date: 2012-05-19
+  location: Kiev, Ukraine
+  content:
+    article: http://jeeconf.com/archive/jeeconf-2012/materials/kotlin/
+    examples: https://github.com/abreslav/introduction-to-kotlin
+
+
+- title: DUMP-2012
+  url: http://dump-it.ru/sections/zapovednik-goblinov
+  date: [2012-05-25, 2012-05-26]
+  location: Ekaterinburg, Russia
+  content:
+    video: http://www.youtube.com/watch?v=RuDyWNhPhYI
+
+
+- title: TNG BTD5
+  url: http://www.tngtech.com/events-bigtechday05-abstracts.html#DmitryJemerov
+  date: 2012-06-15
+  location: Munich, Germany
+
+
+- title: TCJUG
+  url: http://www.intertech.com/UserGroups/JUGPresentation.aspx?TopicID=171
+  date: 2012-06-19
+  location: Twin Cities, MN, USA
+
+
+- title: ÜberConf'12
+  url: http://uberconf.com
+  date: 2012-06-21
+  location: Denver, CO, USA
+  content:
+    slides: https://prezi.com/himfy6vlxxlx/kotlin-uberconf
+    examples: https://github.com/abreslav/introduction-to-kotlin
+
+
+- title: JAZOON'12
+  url: http://jazoon.com/2012
+  date: 2012-06-27
+  location: Zurich, Switzerland
+  content:
+    slides: https://prezi.com/himfy6vlxxlx/kotlin-uberconf
+    examples: https://github.com/abreslav/introduction-to-kotlin
+
+
+- title: Google Tech Talk
+  date: 2012-06-26
+  location: Zurich, Switzerland
+  content:
+    slides: https://prezi.com/himfy6vlxxlx/kotlin-uberconf
+    examples: https://github.com/abreslav/introduction-to-kotlin
+    video: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+
+
+- title: JUG CH
+  url: http://www.jug.ch/html/events/2012/kotlin.html
+  date: 2012-06-28
+  location: Zurich, Switzerland
+  content:
+    slides: https://prezi.com/himfy6vlxxlx/kotlin-uberconf
+    examples: https://github.com/abreslav/introduction-to-kotlin
+
+
+- title: Lambda Pod Kotiln Episode
+  url: http://narkisr.github.com/lambda-pod/episode/2012/07/05/lambda-pod-kotlin-episode
+  date: 2012-07-05
+
+
+- title: OSCON'12
+  url: http://www.oscon.com/oscon2012/public/schedule/detail/23963
+  date: 2012-07-20
+  location: Portland, OR, USA
+
+
+- title: JVM Language Summit 2012
+  url: http://openjdk.java.net/projects/mlvm/jvmlangsummit
+  date: [2012-07-30, 2012-08-01]
+  location: Santa Clara, CA, USA
+  content:
+    slides: http://www.slideshare.net/abreslav/jvmls-12-kotlin-java-interop
+    video: http://medianetwork.oracle.com/video/player/1785452087001
+
+
+- title: JavaZone'12
+  url: http://javazone.no/incogito10/events/JavaZone%202012/sessions#29473593-ec86-4df1-bc52-f739db564242
+  date: 2012-09-13
+  location: Oslo, Norway
+  content:
+    video: http://vimeo.com/49480096
+
+
+- title: GOTO Aarhus'12
+  url: http://gotocon.com/aarhus-2012/presentation/Kotlin:%20A%20new%20language%20-%20Because%20we've%20lived%20through%20a%20lot
+  date: 2012-10-03
+  location: Aarhus, Danmark
+
+
+- title: JavaOne'12
+  url: http://www.oracle.com/javaone/index.html
+  subject: "Who's More Functional: Kotlin, Groovy, Scala, or Java?"
+  date: 2012-09-30
+  location: San Francisco, CA, USA
+  content:
+    slides: http://www.slideshare.net/abreslav/whos-more-functional-kotlin-groovy-scala-or-java
+    video: http://blueskybd.vo.llnwd.net/o16/oracle/CON5774_mp4_5774_001.html
+
+
+- title: JavaOne'12
+  url: http://www.oracle.com/javaone/index.html
+  subject: 'Kotlin: Practical Aspects of JVM Language Implementation'
+  date: 2012-10-04
+  location: San Francisco, CA, USA
+  content:
+    slides: http://www.slideshare.net/abreslav/javaone2012-kotlin-practical-aspects-of-jvm-language-implementation
+    video: YouTube Video
+
+
+- title: JavaOne'12
+  url: http://www.oracle.com/javaone/index.html
+  subject: Incompetence * Motivation = Innovation? (How Kotlin and Other New Things Emerge)
+  date: 2012-10-04
+  location: San Francisco, CA, USA
+  content:
+    slides: http://www.slideshare.net/abreslav/kotlin-incompetence-motivation-innovation
+    video: http://blueskybd.vo.llnwd.net/o16/oracle/CON5934_mp4_5934_001.html
+
+
+- title: Advanced Kotlin (Google Tech talk video)
+  date: 2012-10-04
+  location: Mountain View, CA, USA
+  content:
+    video: http://www.youtube.com/watch?v=rwsvbSve_BI
+
+
+- title: CEE/SECR
+  url: http://www.secr.ru/lang/en-en/key-speakers/andrey-breslav
+  date: [2012-11-01, 2012-11-02]
+  location: Moscow, Russia
+  content:
+    slides: https://prezi.com/qp1gp-bru05a/kotlin-secr-moscow
+
+
+- title: Devoxx'12
+  url: http://www.devoxx.com/display/DV12/Putting+Kotlin+to+the+test
+  date: [2012-11-12, 2012-11-16]
+  location: Antwerp, Belgium
+  content:
+    video: http://www.parleys.com/play/5148922b0364bc17fc56c94d/chapter0/about
+
+
+- title: Øredev'12
+  url: http://oredev.org/2012/sessions/kotlin-making-the-java-platform-a-better-place
+  date: [2012-11-05, 2012-11-09]
+  location: Malmö, Sweden
+  content:
+    video: http://vimeo.com/53061506
+
+
+- title: ICAS-2012
+  url: http://www.osp.ru/events/agenda/events_2812.html
+  date: 2012-11-21
+  location: Moscow, Russia
+  content:
+    slides: http://prezi.com/tmitwr9wnjir/kotlin-icas-moscow
+
+
+- title: Java Day Riga'12
+  url: http://javaday.lv/talks.html#IntroductionToKotlin
+  date: 2012-11-29
+  location: Riga, Latvia
+  content:
+    slides:
+      - http://prezi.com/tuzmlzhpfklj/kotlin-java-day-riga
+      - http://prezi.com/zecatthlaikf/kotlin-java-day-riga-eng
+
+
+- title: FProg.ru
+  url: http://lanyrd.com/2012/fprog-12/scbgcz/
+  date: 2012-12-12
+  location: Saint Petersburg, Russia
+  lang: ru
+  content:
+    video: http://lanyrd.com/2012/fprog-12/scbgcz/
+    slides: http://www.slideshare.net/abreslav/functions-and-data
+    examples: https://github.com/abreslav/functions-and-data
+
+
+# 2013
+# ==============================================================================
+
+- title: Beyond Dogmastism
+  url: http://2013.33degree.org/talk/show/4
+  speaker: Hadi Hariri
+  date: 2013-03-14
+  location: Warsaw, Poland
+
+
+- title: In the Brain Of Andrey Breslav
+  url: http://skillsmatter.com/event-details/home/introduction-to-kotlin
+  date: 2013-04-03
+  location: London, UK
+  content:
+    slides: https://prezi.com/k_ga5eqxa3ie/kotlin-skills-matter/
+    examples: https://github.com/kotlin-projects/introduction-to-kotlin
+    video: http://skillsmatter.com/podcast/home/introduction-to-kotlin
+
+
+- title: JPoint
+  url: http://javapoint.ru
+  subject: Type-safe Web with Kotlin
+  speaker: Andrey Breslav
+  date: 2013-04-05
+  location: Saint Petersburg, Russia
+  content:
+    slides: https://prezi.com/hndtabwcfy5h/kara-talk-jpoint
+    pdf: http://confluence.jetbrains.com/download/attachments/40706137/typesafeweb.pdf?version=1&modificationDate=1365597837000
+    examples: https://github.com/abreslav/kara-files
+    video: http://www.youtube.com/watch?v=6y-4xJWFLl4
+    article: http://jaxenter.com/type-safe-web-with-kotlin-47395.html
+
+
+- title: Full Day Kotlin Workshop
+  url: http://skillsmatter.com/event/java-jee/hadi-hariris-kotlin-workshop
+  speaker: Hadi Hariri
+  date: 2013-05-02
+  location: London, UK
+
+
+- title: Java One Russia
+  url: http://www.oracle.com/javaone/ru-en/index.html
+  subject: Java 8 vs Kotlin
+  speaker: Andrey Breslav
+  date: [2013-04-23, 2013-04-24]
+  location: Moscow, Russia
+  content:
+    slides: https://prezi.com/lnw_oiv1gs-j/java-8-vs-kotlin/
+    video: http://www.youtube.com/watch?v=CJiz8oyjmjE#t=5m50s
+
+- title: Mix-IT
+  url: http://www.mix-it.fr
+  subject: Why Kotlin
+  speaker: Svetlana Isakova
+  date: [2013-04-25, 2013-04-26]
+  location: Lyon, France
+  content:
+    slides: http://prezi.com/3g-okurrycrl/
+
+
+- title: Codemotion Berlin
+  url: http://berlin.codemotionworld.com/talk-page/?talk_name=why-kotlin
+  subject: Why Kotlin
+  speaker: Svetlana Isakova
+  date: 2013-05-10
+  location: Berlin, Germany
+
+
+- title: Java Day Minsk
+  url: http://it.tut.by/349692
+  subject: Kotlin, programming language for JVM
+  speaker: Evgeny Gerashchenko
+  date: 2013-05-23
+  location: Minsk, Belorus
+  lang: ru
+  content:
+    video: http://it.tut.by/349692
+    slides: http://prezi.com/r6pt1pxxoowa/jetbrains-technology-day-kazan/
+
+
+- title: JEEConf
+  url: http://jeeconf.com/materials/kotlin/
+  subject: Why Kotlin if we have Java 8
+  speaker: [Evgeny Gerashchenko, Natalia Ukhorskaya]
+  date: [2013-05-24, 2013-05-25]
+  location: Kiev, Ukraine
+  lang: ru
+  content:
+    article: http://jeeconf.com/materials/kotlin/
+
+
+- title: GeekOUT
+  url: http://geekout.ee/schedule/andrey-breslav-jetbrains-building-jvm-languages/
+  subject: Language Design Tradeoffs
+  speaker: Andrey Brelsav
+  date: 2013-06-14
+  location: Tallinn, Estonia
+  content:
+    slides: http://www.slideshare.net/abreslav/trade-offs-22989326
+
+
+- title: JVM Lamguage Summit
+  url: http://openjdk.java.net/projects/mlvm/jvmlangsummit/
+  subject: Reflection in Kotlin
+  speaker: Andrey Breslav
+  date: [2013-07-29, 2013-07-31]
+  location: Santa Clara, CA, USA
+  content:
+    slides: https://www.slideshare.net/abreslav/kotlin-gets-reflection-breslav
+    video: http://medianetwork.oracle.com/video/player/2623518144001
+
+
+- title: JetBrains Day
+  url: http://www.jetbrains.com/jetbrainsday
+  subject: Using Kotlin to simplify Android Development
+  speaker: Svetlana Isakova
+  date: 2013-09-08
+  location: Malmö, Sweden
+  content: 
+    slides: http://prezi.com/gqyjstvrntkj/kotlin-jetbrains-day
+    video: http://tv.jetbrains.net/videocontent/using-kotlin-to-simplify-android-development-a-jetbrains-day-preso?page=2
+
+
+- title: JavaZone'13
+  url: http://www.javazone.no
+  subject: Moving the Web to the Client
+  speaker: Hadi Hariri
+  date: [2013-09-10, 2013-09-12]
+  location: Oslo, Norway
+  content: 
+    video: http://jz13.java.no/presentation.html?id=9f99231c
+
+
+- title: PPPJ'13
+  url: http://pppj2013.dhbw.de/conference-pppj2013/program/keynotes.html
+  subject: 'Kotlin: Challenges in JVM language design'
+  speaker: Andrey Breslav
+  date: [2013-09-11, 2013-09-13]
+  location: Stuttgart, Germany
+  content: 
+    slides: http://www.slideshare.net/abreslav/challenges-in-jvm-language-designpptx
+
+
+- title: DevDays'13
+  url: http://www.devday.pl
+  subject: Moving the Web to the Client
+  speaker: Hadi Hariri
+  date: 2013-09-19
+  location: Krakow, Poland
+
+
+- title: JavaOne'13
+  url: http://javaone.com
+  subject: Type-Safe Web with Kotlin
+  speaker: Andrey Breslav
+  date: 2013-09-25
+  location: San Francisco, CA, USA
+  content:
+    slides: https://prezi.com/hndtabwcfy5h/kara-talk-jpoint/
+    pdf: http://confluence.jetbrains.com/download/attachments/40706137/typesafeweb.pdf?version=1&modificationDate=1365597837000
+    examples: https://github.com/abreslav/kara-files
+    video: http://www.youtube.com/watch?v=6y-4xJWFLl4
+    article: http://jaxenter.com/type-safe-web-with-kotlin-47395.html
+
+
+- title: JavaOne'13
+  url: http://javaone.com
+  subject: Putting Kotlin to the Test
+  speaker: Hadi Hariri
+  date: [2013-09-22, 2013-09-26]
+  location: San Francisco, CA, USA
+
+
+- title: JOKER
+  url: http://jokerconf.com
+  subject: Language Design Tradeoffs
+  speaker: Andrey Brelsav
+  date: 2013-10-15
+  location: Saint Petersburg, Russia
+  content:
+    slides: http://www.slideshare.net/abreslav/trade-offs-22989326
+    video: https://www.youtube.com/watch?v=CX_K1r0Vklg
+
+
+- title: CEE-SECR
+  url: http://2013.secr.ru
+  subject: Kotlin vs Java puzzlers
+  speaker: Svetlana Isakova
+  date: [2013-10-24, 2013-10-25]
+  location: Moscow, Russia
+  content:
+    slides: http://prezi.com/v8utyt_dnbwb/
+
+
+- title: Øredev
+  url: http://oredev.org/2013
+  subject: Why Kotlin?
+  speaker: Svetlana Isakova
+  date: [2013-11-04, 2013-11-08]
+  location: Malmö, Sweden
+  content:
+    slides: http://prezi.com/xpp4shumjxry/why-kotlin-oredev/
+
+
+- title: Devoxx'13
+  url: http://www.devoxx.be
+  subject: 'The Unpuzzling Kotlin: Bringing Clarity to Your Code'
+  speaker: [Svetlana Isakova, Aleksei Sedunov]
+  date: [2013-11-11, 2013-11-15]
+  location: Antwerp, Belgium
+  content:
+    slides: http://prezi.com/2nrkbg6nfc8h/kotlin-vs-java-puzzlers-devoxx/
+
+
+# 2014
+# ==============================================================================
+
+- title: Mobius
+  url: http://mobius.codefreeze.ru/talks/13/
+  subject: Kotlin for Android
+  speaker: Andrey Breslav
+  date: 2014-03-14
+  location: Saint Petersburg, Russia
+  content:
+    slides: http://www.slideshare.net/abreslav/kotlin-for-android-brief-and-clear
+
+
+- title: JPoint
+  url: http://javapoint.ru/talks/
+  subject: Language Design Trade-offs
+  speaker: Andrey Breslav
+  date: 2014-04-18
+  location: Moscow, Russia
+  lang: ru

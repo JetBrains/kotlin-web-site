@@ -1,0 +1,97 @@
+@import '../../config';
+@import '../../utils';
+@import '../_icon/_icon';
+@import '../_bits/_button';
+
+
+.global-header {
+    @include clearfix;
+    @include linear-gradient($from: #6481A1, $to: #4E7196);
+    padding: $unit*3 0;
+    background-color: #6481A1;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .g-layout {
+        position: relative;
+    }
+
+    .try-kotlin-button {
+        @extend %button_call-to-action;
+        top: -1px;
+    }
+
+    .get-kotlin-button {
+        @extend %button_default;
+        margin-left: $unit*3;
+        top: -2px;
+
+        .version {
+            font-size: 12px;
+        }
+    }
+
+    .kotlin-info {
+        padding-top: 160px;
+        text-align: center;
+    }
+
+    .kotlin-info-description {
+        margin-bottom: $unit*3;
+        color: #fff;
+        font-size: $unit*6;
+        line-height: $unit*7;
+        font-family: $font-family-serif;
+        text-shadow:
+            2px 2px 0px rgba(0, 0, 0, 0.2),
+            -1px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .kotlin-info-description-extra {
+        position: relative;
+        left: 7px;
+        margin-bottom: $unit*4;
+        font-size: 26px;
+        line-height: 26px;
+        color: #fff;
+        text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.4);
+    }
+}
+
+.page_index .global-header {
+    padding: $unit*8 0;
+    height: 560px - $unit*8*2;
+    background-image: url('images/index-page-header-bg.jpg');
+    background-position: center center;
+
+    .get-kotlin-button {
+        @extend %button_default%size_big;
+        text-transform: uppercase;
+    }
+}
+
+.global-header-logo {
+    @include transition(0.3s all);
+    position: relative;
+    top: 0;
+    float: left;
+    width: 129px;
+    height: 43px;
+    background: url('images/logos-sprite.png') no-repeat;
+    font-size: 0;
+    text-decoration: none;
+
+    @include adapt_retina {
+        background-image: url('images/logos-sprite@2x.png');
+        background-size: 150px 100px;
+    }
+
+    &:hover {
+
+    }
+}
+
+.page_index .global-header-logo {
+    top: -19px;
+}

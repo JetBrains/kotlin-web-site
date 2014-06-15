@@ -1,0 +1,72 @@
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+.global-footer {
+  height: 90px;
+  background-color: #1a1a1a;
+  color: #b2b2b2; }
+  .global-footer .header {
+    font-family: "GraublauSlab Regular", Georgia, serif;
+    font-size: 24px;
+    color: #7c7979;
+    margin-bottom: 24px; }
+
+.global-footer-terms {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 24px 0; }
+  .global-footer-terms:after {
+    display: block;
+    clear: both;
+    height: 0;
+    content: ''; }
+  .global-footer-terms .terms-copyright {
+    float: left;
+    line-height: 40px;
+    height: 40px; }
+    .global-footer-terms .terms-copyright a {
+      color: #fff; }
+      .global-footer-terms .terms-copyright a:hover {
+        color: #f47810; }
+  .global-footer-terms .terms-sponsor {
+    position: relative;
+    float: right;
+    right: 0;
+    line-height: 40px;
+    height: 40px; }
+    .global-footer-terms .terms-sponsor .sponsor_jetbrains {
+      opacity: 0.7;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 3px;
+      width: 75px;
+      height: 27px;
+      background: url("images/logos-sprite.png") no-repeat 0 -50px;
+      font-size: 0; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .global-footer-terms .terms-sponsor .sponsor_jetbrains {
+          background-image: url("images/logos-sprite@2x.png");
+          background-size: 150px 100px; } }
+      .global-footer-terms .terms-sponsor .sponsor_jetbrains:hover {
+        opacity: 0.9; }

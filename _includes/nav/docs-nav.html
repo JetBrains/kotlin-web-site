@@ -1,0 +1,28 @@
+{% if site.data._nav['docs'] %}
+    {% assign nav = site.data._nav['docs'] %}
+
+    <nav role="navigation" class="docs-nav">
+        {% for i in nav %}
+            {% assign item_id = i[0] %}
+            {% assign item = i[1] %}
+
+            <div class="nav-item-wrap">
+            {% if page.url == item.path or (include.active and include.active == item_id) %}
+                    <a href="{{ site.baseurl }}{{ item.url }}" class="nav-item is_active">
+                        <span class="nav-item-text">
+                            {{ item.title }}
+                        </span>
+                    </a>
+            {% else %}
+                <a href="{{ site.baseurl }}{{ item.url }}" class="nav-item">
+                    <span class="nav-item-text">
+                        {{ item.title }}
+                    </span>
+                </a>
+
+            {% endif %}
+            </div>
+        {% endfor %}
+    </nav>
+
+{% endif %}

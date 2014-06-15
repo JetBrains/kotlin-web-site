@@ -1,0 +1,31 @@
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+
+pre,
+code,
+var,
+kbd,
+samp {
+  font-family: Consolas, Menlo, Courier, monospace; }
+
+html {
+  height: 100%;
+  margin: 0 auto; }
+
+body {
+  height: 100%;
+  color: #333333;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #fff; }
+
+a {
+  color: #497bb7;
+  text-decoration: underline; }
+
+a:hover {
+  color: #f47810; }

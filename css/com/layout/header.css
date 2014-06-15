@@ -1,0 +1,201 @@
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+/* Buttons */
+.global-header .get-kotlin-button, .global-header .try-kotlin-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  padding: 0 16px;
+  border: 0;
+  font-size: 14px;
+  line-height: 32px;
+  height: 34px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
+  .page_index .global-header .get-kotlin-button {
+    font-size: 18px;
+    line-height: 52px;
+    height: 54px;
+    padding: 0 32px; }
+
+.global-header .get-kotlin-button::-moz-focus-inner, .global-header .try-kotlin-button::-moz-focus-inner {
+  border: none;
+  padding: 0 1px; }
+
+.global-header .get-kotlin-button {
+  background-image: -moz-linear-gradient(#688ec8, #436d9c);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#688ec8), to(#436d9c));
+  background-image: -webkit-linear-gradient(#688ec8, #436d9c);
+  background-image: -o-linear-gradient(#688ec8, #436d9c);
+  border: 1px solid #42628D;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  background-color: #5880B5;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  font-weight: bold; }
+  .global-header .get-kotlin-button:hover {
+    color: #fff;
+    background-image: -moz-linear-gradient(#7ea5e0, #4875a8);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7ea5e0), to(#4875a8));
+    background-image: -webkit-linear-gradient(#7ea5e0, #4875a8);
+    background-image: -o-linear-gradient(#7ea5e0, #4875a8);
+    background-color: #6C97D2; }
+  .global-header .get-kotlin-button:active {
+    background-image: -moz-linear-gradient(#436d9c, #688ec8);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#436d9c), to(#688ec8));
+    background-image: -webkit-linear-gradient(#436d9c, #688ec8);
+    background-image: -o-linear-gradient(#436d9c, #688ec8);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); }
+
+.global-header .try-kotlin-button {
+  background-image: -moz-linear-gradient(#feb92f, #d18511);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#feb92f), to(#d18511));
+  background-image: -webkit-linear-gradient(#feb92f, #d18511);
+  background-image: -o-linear-gradient(#feb92f, #d18511);
+  border: 1px solid #a06230;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  background-color: #ECA423;
+  color: #fff;
+  text-shadow: 0 -1px 0 #a2711a;
+  font-weight: bold; }
+  .global-header .try-kotlin-button:hover {
+    background-image: -moz-linear-gradient(#fdcc64, #e39013);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fdcc64), to(#e39013));
+    background-image: -webkit-linear-gradient(#fdcc64, #e39013);
+    background-image: -o-linear-gradient(#fdcc64, #e39013);
+    color: #fff;
+    background-color: #FFB62D; }
+  .global-header .try-kotlin-button:active {
+    background-image: -moz-linear-gradient(#e39013, #fdcc64);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e39013), to(#fdcc64));
+    background-image: -webkit-linear-gradient(#e39013, #fdcc64);
+    background-image: -o-linear-gradient(#e39013, #fdcc64);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+.global-header {
+  background-image: -moz-linear-gradient(#6481a1, #4e7196);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6481a1), to(#4e7196));
+  background-image: -webkit-linear-gradient(#6481a1, #4e7196);
+  background-image: -o-linear-gradient(#6481a1, #4e7196);
+  padding: 24px 0;
+  background-color: #6481A1;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .global-header:after {
+    display: block;
+    clear: both;
+    height: 0;
+    content: ''; }
+  .global-header .g-layout {
+    position: relative; }
+  .global-header .try-kotlin-button {
+    top: -1px; }
+  .global-header .get-kotlin-button {
+    margin-left: 24px;
+    top: -2px; }
+    .global-header .get-kotlin-button .version {
+      font-size: 12px; }
+  .global-header .kotlin-info {
+    padding-top: 160px;
+    text-align: center; }
+  .global-header .kotlin-info-description {
+    margin-bottom: 24px;
+    color: #fff;
+    font-size: 48px;
+    line-height: 56px;
+    font-family: "GraublauSlab Regular", Georgia, serif;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2), -1px 2px 1px rgba(0, 0, 0, 0.2); }
+  .global-header .kotlin-info-description-extra {
+    position: relative;
+    left: 7px;
+    margin-bottom: 32px;
+    font-size: 26px;
+    line-height: 26px;
+    color: #fff;
+    text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.4); }
+
+.page_index .global-header {
+  padding: 64px 0;
+  height: 432px;
+  background-image: url("images/index-page-header-bg.jpg");
+  background-position: center center; }
+  .page_index .global-header .get-kotlin-button {
+    text-transform: uppercase; }
+
+.global-header-logo {
+  -webkit-transition: 0.3s all;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  transition: 0.3s all;
+  position: relative;
+  top: 0;
+  float: left;
+  width: 129px;
+  height: 43px;
+  background: url("images/logos-sprite.png") no-repeat;
+  font-size: 0;
+  text-decoration: none; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .global-header-logo {
+      background-image: url("images/logos-sprite@2x.png");
+      background-size: 150px 100px; } }
+
+.page_index .global-header-logo {
+  top: -19px; }

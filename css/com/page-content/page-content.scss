@@ -1,0 +1,30 @@
+@import '../../config';
+@import '../../utils';
+@import '../_bits/_header';
+
+
+.section-title {
+    @extend %h1;
+    @extend %h1%_section-title;
+}
+
+.page-content {
+    position: relative;
+    margin-top: 0;
+
+    @media print {
+        page-break-after: always
+    }
+
+    // Page link to GitHub
+    @import '../page-link-to-github/page-link-to-github';
+
+    .page-link-to-github {
+        float: right;
+        top: 4px;
+    }
+
+
+    // Page elements
+    @import '../_page-content/_page-content';
+}

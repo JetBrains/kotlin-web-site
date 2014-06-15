@@ -1,0 +1,29 @@
+concise:
+  title: Concise
+  description: Drastically reduce the amount of boilerplate code you need to write.
+  content_file: kotlin-features/concise.md
+
+expressive:
+  title: Expressive
+  description: Write code to express intent as opposed to surfacing implementation details.
+  content_file: kotlin-features/expressive.md
+
+safe:
+  title: Safe
+  description: Avoid having to work with pesky null reference exception checks.
+  content_file: kotlin-features/safe.md
+
+versatile:
+  title: Versatile
+  description: Suitable for any type of application. Even for sharing code between JVM/JS.
+  content_file: kotlin-features/versatile.md
+
+interoperable:
+  title: Interoperable
+  description: Leverage existing frameworks and libraries of the JVM with 100% Java Interoperability.
+  content_file: kotlin-features/interoperable.md
+
+tooling:
+  title: Tooling
+  description: Command Line Compiler or First Class IDE Support. Freedom to choose.
+  content_file: kotlin-features/tooling.md

@@ -1,0 +1,29 @@
+---
+layout: base
+main_nav_id: docs
+---
+
+<div class="g-grid">
+
+    <div class="g-12">
+        {% include nav/docs-nav.html active='reference' %}
+    </div>
+
+    <aside class="g-3">
+        <div id="reference-nav">
+            {% include nav/side-tree-nav.html nav='reference' %}
+        </div>
+    </aside>
+
+    <article role="main" class="page-content g-9">
+        {% include edit-on-github-link.html %}
+
+        {{ content }}
+    </article>
+</div>
+
+<script>
+require(['page/reference'], function(page) {
+    page();
+});
+</script>

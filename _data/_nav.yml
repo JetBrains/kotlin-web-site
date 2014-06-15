@@ -1,0 +1,115 @@
+# Header navigation
+# ====================
+main:
+  docs:
+    url: /docs/reference/
+    title: Docs
+
+  contribute:
+    url: /contribute.html
+    title: Contribute
+
+  try:
+    url: http://kotlin-demo.jetbrains.com
+    title: Try Online
+
+  download:
+    url: /#get-kotlin
+    title: Download
+    show: false
+
+
+# Docs section navigation
+# =======================
+docs:
+  reference:
+    url: /docs/reference/
+    title: Reference
+
+  tutorials:
+    url: /docs/tutorials/
+    title: Tutorials
+
+  videos:
+    url: /docs/videos.html
+    title: Videos
+
+  events:
+    url: /docs/events.html
+    title: Events
+
+  resources:
+    url: /docs/resources.html
+    title: More resources
+
+
+# Reference navigation
+# ====================
+reference:
+  - title: Basics
+    content:
+      - /docs/reference/basic-ops.html: Basic Operations
+      - /docs/reference/basic-syntax.html: Basic Syntax
+      - /docs/reference/coding-conventions.html: Coding Conventions
+      - /docs/reference/idioms.html: Idioms
+
+  - title: Syntax
+    content:
+      - /docs/reference/annotations.html: Annotations
+      - /docs/reference/basic-types.html: Basic Types
+      - /docs/reference/classes.html: Classes and Inheritance
+      - /docs/reference/comparison-to-scala.html: Comparison to Scala
+      - /docs/reference/control-flow.html: Control Flow
+      - /docs/reference/delegation.html: Delegation
+      - /docs/reference/enum-classes.html: Enum Classes
+      - /docs/reference/exceptions.html: Exceptions
+      - /docs/reference/extension-functions.html: Extension Functions
+      - /docs/reference/functions.html: Functions
+      - /docs/reference/generics.html: Generics
+      - /docs/reference/lambdas.html: High-Order Functions and Lambdas
+      - /docs/reference/nested-classes.html: Nested Classes
+      - /docs/reference/null-safety.html: Null Safety
+      - /docs/reference/object-declarations.html: Object Expressions and Declarations
+      - /docs/reference/operator-overloading.html: Operator overloading
+      - /docs/reference/packages.html: Packages
+      - /docs/reference/pattern-matching.html: Pattern Matching
+      - /docs/reference/properties.html: Properties and Fields
+      - /docs/reference/ranges.html: Ranges
+      - /docs/reference/returns.html: Returns and Jumps
+      - /docs/reference/this-expressions.html: This expressions
+      - /docs/reference/traits.html: Traits
+      - /docs/reference/typecasts.html: Type Casts
+
+  - title: Interop
+    content:
+      - /docs/reference/java-interop.html: Java Interop
+
+  - title: Tools
+    content:
+#      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
+#      - /docs/reference/kotlin-doc.html: Kotlin Doc
+
+  - title: FAQ
+    content:
+#      - /docs/reference/comparison-to-java.html: Comparison to Java
+      - /docs/reference/faq.html: FAQ
+
+  - title: Grammar
+    content:
+#      - /docs/reference/grammar.html: Grammar
+
+
+# Tutorials navigation
+# ====================
+tutorials:
+  - title: Getting Started
+    content:
+      - /docs/tutorials/getting-started.html: Getting Started
+      - /docs/tutorials/command-line.html: Working with the Command Line Compiler
+
+  - title: Tooling
+    content:
+      - /docs/tutorials/using-maven.html: Using Maven
+      - /docs/tutorials/using-ant.html: Using Ant
+      - /docs/tutorials/using-griffon.html: Using Griffon
+      - /docs/tutorials/using-gradle.html: Using Gradle

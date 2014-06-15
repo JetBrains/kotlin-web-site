@@ -1,0 +1,32 @@
+<header class="global-header">
+    <div class="g-layout">
+        <a class="global-header-logo" href="{{ site.baseurl }}/">Project Kotlin</a>
+
+        {% if include.active %}
+            {% assign active = include.active %}
+        {% else %}
+            {% assign active = page.main_nav_id %}
+        {% endif %}
+
+        {% include nav/global-nav.html active=active %}
+
+        {% if page.layout == 'index' %}
+        <div class="kotlin-info">
+            <div class="kotlin-info-description">
+                Statically typed programming language<br>
+                targeting the JVM and JavaScript
+            </div>
+            <div class="kotlin-info-description-extra">
+                100% interoperable with Java™
+            </div>
+            <a href="{{ site.baseurl }}{{ site.data._nav.main.download.url }}" class="get-kotlin-button">
+                Get Kotlin Now
+                <span class="version">({{ site.data.releases.latest.version }})</span>
+            </a>
+        </div>
+        {% endif %}
+
+
+
+    </div>
+</header>

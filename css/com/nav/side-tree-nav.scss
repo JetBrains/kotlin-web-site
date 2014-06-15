@@ -1,0 +1,157 @@
+@import '../../config';
+@import '../../utils';
+
+$branch-padding: 12px;
+
+.side-tree-nav {
+}
+
+.tree-item {
+    display: block;
+}
+
+.tree-branch._opened .tree-item {
+    display: block;
+}
+
+.tree-branch._closed .tree-item {
+    display: none;
+}
+
+
+.tree-branch {
+    margin-bottom: -1px;
+    padding-left: $branch-padding;
+    padding-right: $branch-padding;
+    border-style: solid;
+    border-color: #EFEFEF;
+    border-width: 1px 0;
+}
+
+.tree-branch._opened {
+    background-color: #F9F9F9;
+}
+
+.tree-branch._closed {
+
+}
+
+.tree-branch .tree-branch {
+    margin-left: -$branch-padding;
+    margin-right: -$branch-padding;
+    padding-right: $branch-padding * 2;
+    padding-left: $branch-padding * 2;
+    border-color: transparent;
+}
+
+
+.tree-branch .tree-branch._opened {
+    background-color: #F2F2F2;
+    border-color: #DADADA;
+}
+
+
+.tree-item-title {
+    display: inline-block;
+}
+
+.tree-item-title .text {
+    display: inline-block;
+}
+
+.tree-item-title .marker {
+    display: inline;
+}
+
+
+.tree-branch-title {
+    @include user-select(none);
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin-left: -$branch-padding;
+    margin-right: -$branch-padding;
+    padding-right: $branch-padding;
+    padding-left: $branch-padding;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: $base-link-color;
+
+    &:hover {
+        background-color: #F2F2F2;
+        text-decoration: underline;
+    }
+
+    .marker {
+        position: absolute;
+        //float: left;
+        display: inline-block;
+        margin-left: -10px;
+        margin-top: 5px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 4px 0 4px 5px;
+        border-color: transparent transparent transparent $base-link-color;
+    }
+}
+
+.tree-branch-title.is_active {
+    background-color: #F2F2F2;
+    color: $base-color;
+    text-decoration: none;
+
+    &:hover {
+        background-color: #ebebeb;
+    }
+
+    .marker {
+        margin-left: -12px;
+        border-width: 0 0 6px 6px;
+        border-color: transparent transparent $base-color transparent;
+    }
+}
+
+.tree-branch .tree-branch .tree-branch-title {
+    margin-left: -$branch-padding * 2;
+    margin-right: -$branch-padding * 2;
+    padding-right: $branch-padding * 2;
+    padding-left: $branch-padding * 2;
+}
+
+
+.tree-leaf {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tree-branch .tree-leaf {
+    margin-left: -$branch-padding;
+    margin-right: -$branch-padding;
+    padding-right: $branch-padding * 2;
+    padding-left: $branch-padding * 2;
+}
+
+.tree-leaf-title {
+    margin-left: -$branch-padding;
+    margin-right: -$branch-padding;
+    padding-right: $branch-padding;
+    padding-left: $branch-padding;
+
+    .text {
+        position: relative;
+    }
+
+    .text::before {
+        position: absolute;
+        color: #999;
+        top: -1px;
+        left: -14px;
+        content: '\2013';
+    }
+}
+
+.tree-leaf-title.is_active {
+    font-weight: bold;
+    color: $base-color;
+}

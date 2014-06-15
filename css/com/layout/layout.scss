@@ -1,0 +1,21 @@
+@import '../../config';
+@import '../../utils';
+@import '../_icon/_icon';
+@import '../grid/grid';
+
+
+.global-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.global-layout {
+    min-height: 100%;
+    margin-bottom: -$footer-height;
+
+    &:after {
+        display: block;
+        height: $footer-height;
+        content: '';
+    }
+}

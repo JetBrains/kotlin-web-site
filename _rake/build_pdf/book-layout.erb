@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="file:///<%= source_dir %>/css/reset.css" />
+<link rel="stylesheet" href="file:///<%= source_dir %>/css/com/page-content/page-content.css" />
+<style type='text/css'>
+pre, code {
+  font-family: 'Menlo', 'Courier New', monospace !important;
+}
+</style>
+</head>
+<body>
+
+<% content.each do |section| %>
+    <% if section['content'].length > 0 %>
+        <section>
+          <h1 id="<%= section['id'] %>"
+              class="section-title">
+            <%= section['title'] %>
+          </h1>
+
+          <% section['content'].each do |page| %>
+              <article id="<%= page['id'] %>" class="page-content">
+                <%= page['content'] %>
+              </article>
+          <% end %>
+
+        </section>
+    <% end %>
+<% end %>
+
+</body>
+</html>
