@@ -16,7 +16,7 @@ exclude:
   - INSTALL.sh
   - README.md
   - notes.txt
-  - LICENCE
+  - LICENSE
 
 include:
   - js/vendor
