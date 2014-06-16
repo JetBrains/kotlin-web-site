@@ -7,7 +7,7 @@ kramdown:
   hard_wrap: false
 highlighter: pygments
 exclude:
-  - vendor
+  - vendor/bundle
   - bin
   - Rakefile
   - Gemfile
