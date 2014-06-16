@@ -8,7 +8,7 @@ title: "Java Interop"
 # Java Interop
 
 Kotlin is designed with Java Interoperability in mind. Existing Java code can be called from Kotlin in a natural way, and Kotlin code can be used from
-Java rather smoothly as well. In this section we describe some details about calling Java code from Kotlin.
+Java rather smoothly as welwl. In this section we describe some details about calling Java code from Kotlin.
 
 ## Calling Java code from Kotlin
 
@@ -215,45 +215,9 @@ catch (IOException e) { // error: foo() does not declare IOException in the thro
 }
 ```
 
-we get an error message from the Java compiler, because foo() does not declare IOException. Now, what should we do? There are a few options:
-
-* Option one (suggested in the comments below) is to create a pseudo-throwing function in Java:
-
+we get an error message from the Java compiler, because foo() does not declare IOException. To work around this problem, use the [throws] annotation in Kotlin
   ``` kotlin
-  // Java
-  <E extends Throwable> void mayThrow(Class<E> eClass) throws E {
-    // Do nothing
-  }
-  ```
-
-  And then write:
-
-  ``` kotlin
-  // Java
-  try {
-    mayThrow(IOException.class);
-    demo.DemoPackage.foo();
-  }
-  catch (IOException e) { // No problem
-    // ...
-  }
-  ```
-
-* Option two is to catch Throwable and do an *instanceof* check. This is not very elegant, but will work.
-* Option three is to write a wrapper function in Java:
-
-  ``` kotlin
-  void foo() throws IOException { // Java does not require us to throw an exception if we declare one
-    demo.DemoPackage.foo();
-  }
-  ```
-
-  Now, you can call foo() instead of demo.DemoPackage.foo(), and catch the exception.
-
-* Option four is to make Kotlin put a throws list to the foo()'s signature with the throws annotation:
-
-  ``` kotlin
-  throws<IOException> fun foo() {
+  [throws(javaClass<IOException>())] fun foo() {
     throw IOException();
   }
   ```
