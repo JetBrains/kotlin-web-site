@@ -12,6 +12,14 @@ exclude:
   - Rakefile
   - Gemfile
   - Gemfile.lock
+  - rake
+  - INSTALL.sh
+  - README.md
+  - notes.txt
+  - LICENSE
+
+include:
+  - js/vendor
 
 # Site Settings
 baseurl:
