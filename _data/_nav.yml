@@ -47,6 +47,7 @@ docs:
 # ====================
 reference:
   - title: Basics
+    description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
     content:
       - /docs/reference/basic-ops.html: Basic Operations
       - /docs/reference/basic-syntax.html: Basic Syntax
@@ -54,6 +55,7 @@ reference:
       - /docs/reference/idioms.html: Idioms
 
   - title: Syntax
+    description: Full coverage of the Kotlin syntax.
     content:
       - /docs/reference/annotations.html: Annotations
       - /docs/reference/basic-types.html: Basic Types
@@ -81,15 +83,18 @@ reference:
       - /docs/reference/typecasts.html: Type Casts
 
   - title: Interop
+    description: What you need to know about interoperability with Java and JavaScript.
     content:
       - /docs/reference/java-interop.html: Java Interop
 
   - title: Tools
+    description:
     content:
 #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
 #      - /docs/reference/kotlin-doc.html: Kotlin Doc
 
   - title: FAQ
+    description: Every question you could possibly think of, might be answered.
     content:
 #      - /docs/reference/comparison-to-java.html: Comparison to Java
       - /docs/reference/faq.html: FAQ
