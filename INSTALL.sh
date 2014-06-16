@@ -16,7 +16,7 @@ if which ruby >/dev/null && which gem >/dev/null; then
         ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future gem install bundler --version $BUNDLER_VERSION_ --user-install --no-document
     fi
 
-    $BUNDLER_PATH install
+    $BUNDLER_PATH install --path vendor/bundle
 else
     echo "You need Ruby (>= 1.9.3) and rubygems to get it working"
 fi
