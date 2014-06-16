@@ -7,11 +7,19 @@ kramdown:
   hard_wrap: false
 highlighter: pygments
 exclude:
-  - vendor/bundle
+  - vendor
   - bin
   - Rakefile
   - Gemfile
   - Gemfile.lock
+  - rake
+  - INSTALL.sh
+  - README.md
+  - notes.txt
+  - LICENCE
+
+include:
+  - js/vendor
 
 # Site Settings
 baseurl:
