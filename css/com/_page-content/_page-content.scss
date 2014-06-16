@@ -106,8 +106,10 @@ table {
 // misc
 hr {
     height: 2px;
-    border-width: 1px 0;
-    margin: $vertical-rhythm-unit*2 0 $vertical-rhythm-unit*3;
+    border-width: 1px 0 0;
+    border-style: solid;
+    border-color: #dcdcdc;
+    margin: $vertical-rhythm-unit*2 0 $vertical-rhythm-unit*2;
 }
 
 kbd {

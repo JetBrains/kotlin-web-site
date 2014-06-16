@@ -514,8 +514,10 @@
     page-break-inside: avoid; }
   .page-content hr {
     height: 2px;
-    border-width: 1px 0;
-    margin: 30px 0 45px; }
+    border-width: 1px 0 0;
+    border-style: solid;
+    border-color: #dcdcdc;
+    margin: 30px 0 30px; }
   .page-content kbd {
     display: inline;
     padding: 0 4px;
