@@ -1,0 +1,21 @@
+---
+layout: base
+main_nav_id: docs
+---
+
+<div class="g-grid">
+
+    <div class="g-12">
+        {% include nav/docs-nav.html active='resources' %}
+    </div>
+
+    <article role="main" class="page-content g-9">
+        {% include edit-on-github-link.html %}
+
+        {{ content }}
+    </article>
+</div>
+
+
+
+<script>require(['page/resources']);</script>
