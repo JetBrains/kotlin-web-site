@@ -54,6 +54,8 @@ Tutorials
      - best practices of all sections
      - docs/generics
      - All Links in FAQ
+     - Kotlin Build Tools
+     - Kotlin Doc
 
  - General to do
 
