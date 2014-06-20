@@ -59,9 +59,11 @@ Tutorials
 
  - General to do
 
-     - Provide guidance on contributing docs
 
  - Left off at:
 
     FAQ
 
+
+Version:
+                <span class="version">({{ site.data.releases.latest.version }})</span>

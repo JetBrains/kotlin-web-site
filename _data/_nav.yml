@@ -82,6 +82,10 @@ reference:
       - /docs/reference/annotations.html: Annotations
 
 
+  - title: API
+    description: API Documentation
+    content:
+      - http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/index.html: API Reference
   - title: Interop
     description: What you need to know about interoperability with Java and JavaScript.
     content:
@@ -110,8 +114,9 @@ reference:
 tutorials:
   - title: Getting Started
     content:
-      - /docs/tutorials/getting-started.html: Getting Started
+      - /docs/tutorials/getting-started.html: Getting Started with IntelliJ IDEA
       - /docs/tutorials/command-line.html: Working with the Command Line Compiler
+      - /docs/tutorials/koans.html: Koans
 
   - title: Tooling
     content:
