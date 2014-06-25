@@ -643,7 +643,7 @@
 
             @include adapt_retina {
                 background-image: url('images/get-kotlin-sprite@2x.png');
-                background-size: 50px 200px;
+                background-size: 50px 250px;
             }
         }
         .option-image._standalone-compiler:after {
@@ -662,9 +662,16 @@
             background-position: 0 -150px;
         }
 
-        .option-title-pre-text {
+        .option-image._try-online:after {
+            width: 50px;
+            height: 45px;
+            background-position: 0 -205px;
+        }
+
+      .option-title-pre-text {
             @extend %kotlin-overview-pre-text;
         }
+
 
         .option-title {
             font-size: 21px;
