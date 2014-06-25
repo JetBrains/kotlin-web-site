@@ -80,12 +80,16 @@ reference:
       - /docs/reference/null-safety.html: Null Safety
       - /docs/reference/exceptions.html: Exceptions
       - /docs/reference/annotations.html: Annotations
+      - /docs/reference/type-safe-groovy-builders.html: Type-Safe Groovy-Style Builders
 
 
-  - title: API
-    description: API Documentation
+  - title: Reference
+    description: API and Grammar
     content:
       - http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/index.html: API Reference
+#      - /docs/reference/grammar.html: Grammar
+
+
   - title: Interop
     description: What you need to know about interoperability with Java and JavaScript.
     content:
@@ -94,8 +98,8 @@ reference:
   - title: Tools
     description:
     content:
-      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
-      - /docs/reference/kotlin-doc.html: Kotlin Doc
+#      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
+#      - /docs/reference/kotlin-doc.html: Kotlin Doc
 
   - title: FAQ
     description: Every question you could possibly think of, might be answered.
@@ -104,9 +108,6 @@ reference:
       - /docs/reference/comparison-to-java.html: Comparison to Java
       - /docs/reference/comparison-to-scala.html: Comparison to Scala
 
-  - title: Grammar
-    content:
-#      - /docs/reference/grammar.html: Grammar
 
 
 # Tutorials navigation

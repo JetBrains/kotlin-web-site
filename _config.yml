@@ -32,5 +32,5 @@ edit_on_github_url: https://github.com/JetBrains/kotlin-web-site/edit/master/%pa
 img_tutorial_root: assets/images/tutorials
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:
+google_analytics: UA-940435-32
 google_verify:
