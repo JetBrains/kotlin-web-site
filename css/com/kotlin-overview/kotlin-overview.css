@@ -584,8 +584,9 @@
         height: 57px;
         background-position: 0 -400px; }
       .kotlin-overview-section._features .kotlin-features-list .feature-icon._interoperable {
-        width: 56px;
-        height: 56px;
+        width: 54px;
+        height: 74px;
+        top: -3px;
         background-position: 0 -500px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-title {
       font-size: 24px;
@@ -974,7 +975,7 @@
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image:after {
           background-image: url("images/get-kotlin-sprite@2x.png");
-          background-size: 50px 200px; } }
+          background-size: 50px 250px; } }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._standalone-compiler:after {
       width: 50px;
       height: 58px;
@@ -987,6 +988,10 @@
       width: 40px;
       height: 50px;
       background-position: 0 -150px; }
+    .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._try-online:after {
+      width: 50px;
+      height: 45px;
+      background-position: 0 -205px; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
       font-size: 21px;
       line-height: 27px;

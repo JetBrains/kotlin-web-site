@@ -57,30 +57,38 @@ reference:
   - title: Syntax
     description: Full coverage of the Kotlin syntax.
     content:
-      - /docs/reference/annotations.html: Annotations
-      - /docs/reference/basic-types.html: Basic Types
-      - /docs/reference/classes.html: Classes and Inheritance
-      - /docs/reference/comparison-to-scala.html: Comparison to Scala
-      - /docs/reference/control-flow.html: Control Flow
-      - /docs/reference/delegation.html: Delegation
-      - /docs/reference/enum-classes.html: Enum Classes
-      - /docs/reference/exceptions.html: Exceptions
-      - /docs/reference/extension-functions.html: Extension Functions
-      - /docs/reference/functions.html: Functions
-      - /docs/reference/generics.html: Generics
-      - /docs/reference/lambdas.html: High-Order Functions and Lambdas
-      - /docs/reference/nested-classes.html: Nested Classes
-      - /docs/reference/null-safety.html: Null Safety
-      - /docs/reference/object-declarations.html: Object Expressions and Declarations
-      - /docs/reference/operator-overloading.html: Operator overloading
       - /docs/reference/packages.html: Packages
-      - /docs/reference/pattern-matching.html: Pattern Matching
+      - /docs/reference/functions.html: Functions
+      - /docs/reference/extension-functions.html: Extension Functions
+      - /docs/reference/lambdas.html: High-Order Functions and Lambdas
       - /docs/reference/properties.html: Properties and Fields
+      - /docs/reference/basic-types.html: Basic Types
+      - /docs/reference/pattern-matching.html: Pattern Matching
+      - /docs/reference/control-flow.html: Control Flow
       - /docs/reference/ranges.html: Ranges
       - /docs/reference/returns.html: Returns and Jumps
-      - /docs/reference/this-expressions.html: This expressions
-      - /docs/reference/traits.html: Traits
       - /docs/reference/typecasts.html: Type Casts
+      - /docs/reference/this-expressions.html: This expressions
+      - /docs/reference/generics.html: Generics
+      - /docs/reference/traits.html: Traits
+      - /docs/reference/classes.html: Classes and Inheritance
+      - /docs/reference/nested-classes.html: Nested Classes
+      - /docs/reference/enum-classes.html: Enum Classes
+      - /docs/reference/object-declarations.html: Object Expressions and Declarations
+      - /docs/reference/delegation.html: Delegation
+      - /docs/reference/operator-overloading.html: Operator overloading
+      - /docs/reference/null-safety.html: Null Safety
+      - /docs/reference/exceptions.html: Exceptions
+      - /docs/reference/annotations.html: Annotations
+      - /docs/reference/type-safe-groovy-builders.html: Type-Safe Groovy-Style Builders
+
+
+  - title: Reference
+    description: API and Grammar
+    content:
+      - http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/index.html: API Reference
+#      - /docs/reference/grammar.html: Grammar
+
 
   - title: Interop
     description: What you need to know about interoperability with Java and JavaScript.
@@ -96,12 +104,10 @@ reference:
   - title: FAQ
     description: Every question you could possibly think of, might be answered.
     content:
-#      - /docs/reference/comparison-to-java.html: Comparison to Java
       - /docs/reference/faq.html: FAQ
+      - /docs/reference/comparison-to-java.html: Comparison to Java
+      - /docs/reference/comparison-to-scala.html: Comparison to Scala
 
-  - title: Grammar
-    content:
-#      - /docs/reference/grammar.html: Grammar
 
 
 # Tutorials navigation
@@ -109,8 +115,9 @@ reference:
 tutorials:
   - title: Getting Started
     content:
-      - /docs/tutorials/getting-started.html: Getting Started
+      - /docs/tutorials/getting-started.html: Getting Started with IntelliJ IDEA
       - /docs/tutorials/command-line.html: Working with the Command Line Compiler
+      - /docs/tutorials/koans.html: Koans
 
   - title: Tooling
     content:

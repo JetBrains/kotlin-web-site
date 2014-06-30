@@ -108,9 +108,6 @@ inline fun lock<T>(lock : Lock, body : () -> T) : T {
 
 Inlining may cause the generated code to grow, but if we do it in a reasonable way (do not inline big functions) it will pay off in performance, especially at "megamorphic" call-sites inside loops.
 
-*Inline functions are not implemented yet. See the corresponding [issue](http://youtrack.jetbrains.com/issue/KT-1434)*{: .warning }
-
-
 ## Function Literals
 
 A function literal as an "anonymous function", i.e. a function that is not declared, but passed immediately as an expression. Consider the following example:
