@@ -64,6 +64,7 @@ reference:
       - /docs/reference/properties.html: Properties and Fields
       - /docs/reference/basic-types.html: Basic Types
       - /docs/reference/pattern-matching.html: Pattern Matching
+      - /docs/reference/expressions.html: Expressions
       - /docs/reference/control-flow.html: Control Flow
       - /docs/reference/ranges.html: Ranges
       - /docs/reference/returns.html: Returns and Jumps
