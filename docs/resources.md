@@ -10,7 +10,7 @@ title: More Resources
 <tr>
   <th>Name</th>
   <th>Description</th>
-  <th>Link</th>
+  <th>Type</th>
 </tr>
 </thead>
 <tbody>
