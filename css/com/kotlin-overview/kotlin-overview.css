@@ -584,8 +584,9 @@
         height: 57px;
         background-position: 0 -400px; }
       .kotlin-overview-section._features .kotlin-features-list .feature-icon._interoperable {
-        width: 56px;
-        height: 56px;
+        width: 54px;
+        height: 74px;
+        top: -3px;
         background-position: 0 -500px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-title {
       font-size: 24px;
