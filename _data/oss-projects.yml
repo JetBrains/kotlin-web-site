@@ -1,0 +1,56 @@
+- name: Spek
+  description: A Specification Framework
+  Type: Library
+  link: https://github.com/JetBrains/spek
+
+- name: Wasabi
+  description: An HTTP Framework
+  Type: Framework
+  link: https://github.com/hhariri/wasabi
+
+- name: Kara
+  description: An MVC Framework
+  Type: Framework
+  link: http://www.karaframework.com
+
+- name: Humanizer for JVM
+  description: Humanizer Library
+  Type: Library
+  link: https://github.com/MehdiK/Humanizer.jvm
+
+- name: Kotlin-NoSQL
+  description: NoSQL MongoDB access for Kotlin
+  Type: Library
+  link: https://github.com/cheptsov/kotlin-nosql
+
+- name: FunKtionale
+  description: Functional Helpers for Kotlin
+  Type: Library
+  link: https://github.com/MarioAriasC/funKTionale
+
+- name: KotlinPrimavera
+  description: Kotlin Wrapper for Spring Framework
+  Type: Library
+  link: https://github.com/MarioAriasC/KotlinPrimavera
+
+- name: Sublime Package
+  description: A Sublime Package for Kotlin
+  Type: Tools
+  link: https://github.com/vkostyukov/kotlin-sublime-package
+
+- name: Kotlin Vim
+  description: Kotlin Syntax Highlighter for Vim
+  Type: Tools
+  link: https://github.com/ignatov/kotlin-vim
+
+- name: Griffon Plugin
+  description: Griffon Support
+  Type: Tools
+  link: https://github.com/griffon/griffon-kotlin-plugin
+
+
+
+
+
+
+

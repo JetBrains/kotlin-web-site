@@ -17,3 +17,6 @@ list:
 
 - milestone: M6.2
   version: 0.6.1673
+
+- milestone: M7
+  version: 0.7.270
