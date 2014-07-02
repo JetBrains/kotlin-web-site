@@ -20,3 +20,6 @@ list:
 
 - milestone: M7
   version: 0.7.270
+  
+- milestone: M8
+  version: 0.8.11
