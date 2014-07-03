@@ -356,7 +356,7 @@
   transition: all 0.5s;
   position: absolute;
   z-index: 2;
-  top: 40px;
+  top: 20px;
   bottom: auto;
   left: 0;
   right: 0;
@@ -366,7 +366,7 @@
   box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
   text-align: left; }
   .kotlin-overview-section .overview-popup, .kotlin-overview-section._features .overview-popup {
-    bottom: 40px; }
+    bottom: 20px; }
   .kotlin-overview-section ._hidden.overview-popup {
     visibility: hidden;
     opacity: 0; }
@@ -623,7 +623,7 @@
     display: inline-block;
     font-size: 14px;
     width: 50%;
-    margin-bottom: 30px;
+    margin-bottom: 27px;
     vertical-align: top; }
     .kotlin-overview-section._features .overview-popup_versatile .logos-list-item:last-child {
       margin-bottom: 0; }
@@ -631,10 +631,11 @@
       position: relative;
       float: left;
       margin-right: 20px;
-      background: url("images/logos-sprite.png") no-repeat;
-      background-image: none;
-      background-color: pink;
-      height: 66px !important; }
+      background: url("images/logos-sprite.png") no-repeat; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo {
+          background-image: url("images/logos-sprite@2x.png");
+          background-size: 100px 500px; } }
       .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._android {
         top: -5px;
         width: 65px;

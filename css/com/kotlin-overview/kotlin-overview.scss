@@ -224,7 +224,7 @@
             display: inline-block;
             font-size: $base-font-size;
             width: 50%;
-            margin-bottom: 30px;
+            margin-bottom: 27px;
             vertical-align: top;
 
             &:last-child {
@@ -237,9 +237,10 @@
                 margin-right: 20px;
                 background: url('images/logos-sprite.png') no-repeat;
 
-                background-image: none;
-                background-color: pink;
-                height: 66px !important;
+                @include adapt_retina {
+                    background-image: url('images/logos-sprite@2x.png');
+                    background-size: 100px 500px;
+                }
 
                 &._android {
                     top: -5px;
