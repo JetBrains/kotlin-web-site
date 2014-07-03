@@ -1,9 +1,9 @@
 url: https://github.com/JetBrains/kotlin/releases
 
 latest:
-  version: 0.7.270
-  milestone: M6.2
-  url: https://github.com/JetBrains/kotlin/releases/tag/build-0.7.270
+  version: 0.8.11
+  milestone: M8
+  url: https://github.com/JetBrains/kotlin/releases/tag/build-0.8.11
 
 list:
 - milestone: M5.3
@@ -20,3 +20,6 @@ list:
 
 - milestone: M7
   version: 0.7.270
+  
+- milestone: M8
+  version: 0.8.11
