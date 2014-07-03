@@ -481,6 +481,8 @@
   position: relative;
   text-align: center;
   overflow: hidden; }
+  .kotlin-overview-section._features .section-header {
+    margin-bottom: 30px; }
   .kotlin-overview-section._features .section-description {
     margin-bottom: 40px; }
   .kotlin-overview-section._features .kotlin-features-carousel-wrap {
@@ -584,9 +586,8 @@
         height: 57px;
         background-position: 0 -400px; }
       .kotlin-overview-section._features .kotlin-features-list .feature-icon._interoperable {
-        width: 54px;
-        height: 74px;
-        top: -3px;
+        width: 56px;
+        height: 56px;
         background-position: 0 -500px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-title {
       font-size: 24px;
@@ -615,6 +616,53 @@
       .kotlin-overview-section._features .overview-popup {
         bottom: auto;
         min-height: 500px; } }
+  .kotlin-overview-section._features .overview-popup_versatile .logos-list {
+    font-size: 0; }
+  .kotlin-overview-section._features .overview-popup_versatile .logos-list-item {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    width: 50%;
+    margin-bottom: 30px;
+    vertical-align: top; }
+    .kotlin-overview-section._features .overview-popup_versatile .logos-list-item:last-child {
+      margin-bottom: 0; }
+    .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo {
+      position: relative;
+      float: left;
+      margin-right: 20px;
+      background: url("images/logos-sprite.png") no-repeat;
+      background-image: none;
+      background-color: pink;
+      height: 66px !important; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._android {
+        top: -5px;
+        width: 65px;
+        height: 77px;
+        background-position: 0 0; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._tomcat {
+        width: 91px;
+        height: 64px;
+        background-position: 0 -100px; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._js {
+        width: 66px;
+        height: 66px;
+        background-position: 0 -200px; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._javaee {
+        top: -19px;
+        width: 51px;
+        height: 90px;
+        margin-left: 20px;
+        margin-right: 39px;
+        background-position: 0 -300px; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._html5 {
+        top: -10px;
+        width: 58px;
+        height: 82px;
+        background-position: 0 -400px; }
+    .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .description {
+      display: block;
+      margin-right: 40px; }
 
 .kotlin-overview-section._code-examples {
   position: relative;

@@ -32,10 +32,14 @@
         {% assign feature_id = item[0] %}
         {% assign feature = item[1] %}
 
-        <div class="overview-popup _hidden js-popup"
+        <div class="overview-popup overview-popup_{{ feature_id }} _hidden js-popup"
              id="kotlin-feature_{{ feature_id }}">
             <div class="popup-content">
-                {% markdown %}{% include {{feature.content_file}} %}{% endmarkdown %}
+                {% if feature.content_file contains '.md' %}
+                    {% markdown %}{% include {{feature.content_file}} %}{% endmarkdown %}
+                {% else %}
+                    {% include {{feature.content_file}} %}
+                {% endif %}
             </div>
 
             <div class="popup-close-button js-popup-close-button"
