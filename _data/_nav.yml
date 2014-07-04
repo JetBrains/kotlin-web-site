@@ -49,17 +49,15 @@ reference:
   - title: Getting Started
     description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
     content:
-      - /docs/reference/basic-ops.html: Basic Operations
       - /docs/reference/basic-syntax.html: Basic Syntax
-      - /docs/reference/coding-conventions.html: Coding Conventions
       - /docs/reference/idioms.html: Idioms
-
-
+      - /docs/reference/coding-conventions.html: Coding Conventions
 
   - title: Basics
     description: The Basics
     content:
       - /docs/reference/basic-types.html: Basic Types
+      - /docs/reference/basic-ops.html: Basic Operations
       - /docs/reference/packages.html: Packages
       - /docs/reference/control-flow.html: Control Flow
       - /docs/reference/returns.html: Returns and Jumps
