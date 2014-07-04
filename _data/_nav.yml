@@ -87,10 +87,9 @@ reference:
   - title: Other
     description: Various bits and bobs
     content:
-      - /docs/reference/pattern-matching.html: Pattern Matching
       - /docs/reference/multi-declarations.html: Multi-Declarations
       - /docs/reference/ranges.html: Ranges
-      - /docs/reference/typecasts.html: Type Casts
+      - /docs/reference/typecasts.html: Type Checks and Casts
       - /docs/reference/this-expressions.html: This expressions
       - /docs/reference/operator-overloading.html: Operator overloading
       - /docs/reference/null-safety.html: Null Safety

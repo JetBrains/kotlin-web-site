@@ -222,7 +222,7 @@ fun cases(obj : Any) {
 }
 ```
 
-See [Pattern Matching](pattern-matching.html).
+See [`when`-expressions](control-flow.html#when-expression).
 
 ## Using ranges and in
 

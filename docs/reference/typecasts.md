@@ -2,14 +2,32 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Type Casts"
+title: "Type Checks and Casts"
 ---
 
-# Type Casts
+# Type Checks and Casts
+
+## `is` and `!is` Operators
+
+One can check whether an object conforms to a given type at runtime using `is` operator or its negated form `!is`:
+
+``` kotlin
+if (obj is String) {
+  print(obj.length)
+}
+
+if (obj !is String) { // same as !(obj is String)
+  print("Not a String")
+}
+else {
+  print(obj.length)
+}
+```
 
 ## Smart Casts
 
-In many cases, one does not need to use explicit cast operators in Kotlin, because the compiler tracks the [is-checks for immutable values](pattern-matching.html) and inserts (safe) casts automatically when needed:
+In many cases, one does not need to use explicit cast operators in Kotlin, because the compiler tracks the
+`is`-checks for immutable values and inserts (safe) casts automatically when needed:
 
 ``` kotlin
 fun demo(x : Any) {
@@ -19,7 +37,7 @@ fun demo(x : Any) {
 }
 ```
 
-Automatic casts work for [when](control-flow.html#when-expressions) expressions and [while loops](control-flow.html#while-loops) as well:
+Such _smart casts_ work for [when](control-flow.html#when-expressions) expressions and [while loops](control-flow.html#while-loops) as well:
 
 ``` kotlin
 when (x) {
