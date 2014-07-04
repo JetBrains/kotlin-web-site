@@ -44,6 +44,10 @@
     text-align: center;
     overflow: hidden;
 
+    .section-header {
+        margin-bottom: 30px;
+    }
+
     .section-description {
         margin-bottom: $unit*5;
     }
@@ -209,6 +213,74 @@
             min-height: 500px;
         }
     }
+
+    .overview-popup_versatile {
+        .logos-list {
+            font-size: 0;
+        }
+
+        .logos-list-item {
+            position: relative;
+            display: inline-block;
+            font-size: $base-font-size;
+            width: 50%;
+            margin-bottom: 27px;
+            vertical-align: top;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .logo {
+                position: relative;
+                float: left;
+                margin-right: 20px;
+                background: url('images/logos-sprite.png') no-repeat;
+
+                @include adapt_retina {
+                    background-image: url('images/logos-sprite@2x.png');
+                    background-size: 100px 500px;
+                }
+
+                &._android {
+                    top: -5px;
+                    width: 65px;
+                    height: 77px;
+                    background-position: 0 0;
+                }
+                &._tomcat {
+                    width: 91px;
+                    height: 64px;
+                    background-position: 0 -100px;
+                }
+                &._js {
+                    width: 66px;
+                    height: 66px;
+                    background-position: 0 -200px;
+                }
+                &._javaee {
+                    top: -19px;
+                    width: 51px;
+                    height: 90px;
+                    margin-left: 20px;
+                    margin-right: 39px;
+                    background-position: 0 -300px;
+                }
+                &._html5 {
+                    top: -10px;
+                    width: 58px;
+                    height: 82px;
+                    background-position: 0 -400px;
+                }
+            }
+
+            .description {
+                display: block;
+                margin-right: 40px;
+            }
+        }
+    }
+
     .overview-popup-overlay {
         @extend %kotlin-overview-popup-overlay;
     }
