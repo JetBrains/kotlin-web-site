@@ -22,7 +22,7 @@ provides a Customer class with the following functionality:
 * `hashCode()`
 * `toString()`
 * `copy()`
-* `component1()`, `component2()`, ..., for all properties
+* `component1()`, `component2()`, ..., for all properties (see [Data classes](data-classes.html))
 
 ### Declaring a final local variable
 
