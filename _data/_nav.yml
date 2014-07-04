@@ -49,17 +49,15 @@ reference:
   - title: Getting Started
     description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
     content:
-      - /docs/reference/basic-ops.html: Basic Operations
       - /docs/reference/basic-syntax.html: Basic Syntax
-      - /docs/reference/coding-conventions.html: Coding Conventions
       - /docs/reference/idioms.html: Idioms
-
-
+      - /docs/reference/coding-conventions.html: Coding Conventions
 
   - title: Basics
     description: The Basics
     content:
       - /docs/reference/basic-types.html: Basic Types
+      - /docs/reference/basic-ops.html: Basic Operations
       - /docs/reference/packages.html: Packages
       - /docs/reference/control-flow.html: Control Flow
       - /docs/reference/returns.html: Returns and Jumps
@@ -71,6 +69,7 @@ reference:
       - /docs/reference/properties.html: Properties and Fields
       - /docs/reference/traits.html: Traits
       - /docs/reference/visibility-modifiers.html: Visibility Modifiers
+      - /docs/reference/data-classes.html: Data Classes
       - /docs/reference/nested-classes.html: Nested Classes
       - /docs/reference/enum-classes.html: Enum Classes
       - /docs/reference/object-declarations.html: Object Expressions and Declarations
@@ -89,6 +88,7 @@ reference:
     description: Various bits and bobs
     content:
       - /docs/reference/pattern-matching.html: Pattern Matching
+      - /docs/reference/multi-declarations.html: Multi-Declarations
       - /docs/reference/ranges.html: Ranges
       - /docs/reference/typecasts.html: Type Casts
       - /docs/reference/this-expressions.html: This expressions

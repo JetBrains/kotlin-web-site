@@ -186,7 +186,7 @@ fun main(args : Array<String>) {
     print(arg)
 ```
 
-// or
+or
 
 ``` kotlin
 for (i in args.indices)
