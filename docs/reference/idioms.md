@@ -15,14 +15,14 @@ A collection of random and frequently used idioms in Kotlin. If you have a favor
 data class Customer(val name: String, val email: String)
 ```
 
-provides a Customer class with the following functionality
+provides a Customer class with the following functionality:
 
-* getters (and setters in case of `var`s) for all properties
-* equals()
-* hashCode()
-* toString()
-* copy()
-* component1(), component2(), ..., for all properties
+* getters (and setters in case of `var`'s) for all properties
+* `equals()`
+* `hashCode()`
+* `toString()`
+* `copy()`
+* `component1()`, `component2()`, ..., for all properties
 
 ### Declaring a final local variable
 
