@@ -14,7 +14,7 @@ Kotlin fixes a series of issues that Java suffers from
 * Null references are [controlled by the type system](null-safety.html).
 * [No raw types](java-interop.html)
 * Arrays in Kotlin are [invariant](basic-types.html#Arrays)
-* Kotlin has [high-order functions](lambdas.html#high-order-functions), a.k.a. closures
+* Kotlin has [higher-order functions](lambdas.html#higher-order-functions), a.k.a. closures
 * [Use-site variance](generics.html#use-site-variance) without wildcards
 * Kotlin does not have checked [exceptions](exceptions.html)
 
