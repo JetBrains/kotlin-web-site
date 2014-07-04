@@ -70,6 +70,7 @@ reference:
       - /docs/reference/classes.html: Classes and Inheritance
       - /docs/reference/properties.html: Properties and Fields
       - /docs/reference/traits.html: Traits
+      - /docs/reference/visibility-modifiers.html: Visibility Modifiers
       - /docs/reference/nested-classes.html: Nested Classes
       - /docs/reference/enum-classes.html: Enum Classes
       - /docs/reference/object-declarations.html: Object Expressions and Declarations
