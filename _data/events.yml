@@ -589,3 +589,10 @@
   date: 2014-04-18
   location: Moscow, Russia
   lang: ru
+
+- title: JavaZone'14
+  url: http://2014.javazone.no/
+  subject: Kotlin vs Java Puzzlers
+  date: 2014-09-11
+  location: Oslo, Norway
+  language: en
