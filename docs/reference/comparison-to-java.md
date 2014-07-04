@@ -40,6 +40,5 @@ Kotlin fixes a series of issues that Java suffers from
 * [Singletons](object-declarations.html)
 * [Declaration-site variance & Type projections](generics.html)
 * [Range expressions](ranges.html)
-* [Pattern matching](pattern-matching.html)
 * [Operator overloading](operator-overloading.html)
 * [Class objects](classes.html#class-objects)
