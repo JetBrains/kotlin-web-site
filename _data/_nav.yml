@@ -72,7 +72,7 @@ reference:
       - /docs/reference/data-classes.html: Data Classes
       - /docs/reference/nested-classes.html: Nested Classes
       - /docs/reference/enum-classes.html: Enum Classes
-      - /docs/reference/object-declarations.html: Object Expressions and Declarations
+      - /docs/reference/object-declarations.html: Objects
       - /docs/reference/delegation.html: Delegation
 
   - title: Functions and Lambdas
@@ -80,7 +80,7 @@ reference:
     content:
       - /docs/reference/functions.html: Functions
       - /docs/reference/extension-functions.html: Extension Functions
-      - /docs/reference/lambdas.html: High-Order Functions and Lambdas
+      - /docs/reference/lambdas.html: Lambdas
       - /docs/reference/generics.html: Generics
       - /docs/reference/expressions.html: Expressions
 
@@ -95,7 +95,7 @@ reference:
       - /docs/reference/null-safety.html: Null Safety
       - /docs/reference/exceptions.html: Exceptions
       - /docs/reference/annotations.html: Annotations
-      - /docs/reference/type-safe-groovy-builders.html: Type-Safe Groovy-Style Builders
+      - /docs/reference/type-safe-groovy-builders.html: Type-Safe Builders
 
 
 
