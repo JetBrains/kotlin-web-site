@@ -70,6 +70,7 @@ reference:
       - /docs/reference/classes.html: Classes and Inheritance
       - /docs/reference/properties.html: Properties and Fields
       - /docs/reference/traits.html: Traits
+      - /docs/reference/data-classes.html: Data Classes
       - /docs/reference/nested-classes.html: Nested Classes
       - /docs/reference/enum-classes.html: Enum Classes
       - /docs/reference/object-declarations.html: Object Expressions and Declarations
@@ -88,6 +89,7 @@ reference:
     description: Various bits and bobs
     content:
       - /docs/reference/pattern-matching.html: Pattern Matching
+      - /docs/reference/multi-declarations.html: Multi-Declarations
       - /docs/reference/ranges.html: Ranges
       - /docs/reference/typecasts.html: Type Casts
       - /docs/reference/this-expressions.html: This expressions
