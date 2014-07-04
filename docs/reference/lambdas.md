@@ -2,12 +2,12 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "High-Order Functions and Lambdas"
+title: "Higher-Order Functions and Lambdas"
 ---
 
-# High-Order Functions and Lambdas
+# Higher-Order Functions and Lambdas
 
-## High-Order Functions
+## Higher-Order Functions
 
 A higher-order function is a function that takes functions as parameters, or returns a function. A good example of such a function is lock() that takes a lock object and a function, acquires the lock, runs the functions and releases the lock:
 
