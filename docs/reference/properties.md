@@ -9,7 +9,7 @@ title: "Properties and Fields"
 
 ## Declaring Properties
 
-Classes in Kotlin can have properties. These can be declared as mutable, using the *var*{: .keyword } keyword or immutable using the *val*{: .keyword } keyword.
+Classes in Kotlin can have properties. These can be declared as mutable, using the *var*{: .keyword } keyword or read-only using the *val*{: .keyword } keyword.
 
 ``` kotlin
 public class Address { // parentheses denote a _primary constructor_
@@ -48,7 +48,7 @@ Note that types are not inferred for properties exposed as parts of the public A
 public val *example*{: .error } = 1 // A public property must have a type specified explicitly
 ```
 
-The full syntax of an immutable property declaration differs from a mutable one in two ways: it starts with val instead of var and does not allow a setter:
+The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with val instead of var and does not allow a setter:
 
 ``` kotlin
 val simple : Int? // has type Int, default getter, must be initialized in constructor
@@ -97,7 +97,6 @@ For example, in the following case there will be no backing field:
 val isEmpty : Boolean
   get() = this.size > 0
 ```
-
 
 ### Backing Properties
 
