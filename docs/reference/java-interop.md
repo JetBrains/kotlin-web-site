@@ -98,7 +98,7 @@ On the Java platform, having a generic class Array to represent arrays leads to 
 When Java types are imported into Kotlin, all the references of the type *java.lang.Object* are turned into *Any?*{: .keyword }. The big difference between
 the two is that *Any*{: .keyword } does not declare any members at all. This is due to the [inheritance](classes.html#inheritance) rules in Kotlin.
 
-The problem this causes is that methods such as *toString* for instance are no longer available on the type. Kotlin solves this problem using [extension functions](extension-functions.html)
+The problem this causes is that methods such as *toString* for instance are no longer available on the type. Kotlin solves this problem using [extension functions](extensions.html)
 
 
 #### toString()

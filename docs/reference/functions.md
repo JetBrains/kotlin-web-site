@@ -252,7 +252,7 @@ Inline functions are explained in [High Order Functions](lambdas.html#inline-fun
 
 ### Extension Functions
 
-Extension functions are explained in [their own section](extension-functions.html)
+Extension functions are explained in [their own section](extensions.html)
 
 ### High Order Functions and Lambdas
 
@@ -277,7 +277,7 @@ Sample().foo() // create instance of class Sample and calls foo
 
 Functions can also be called using infix notations when
 
-* They are member functions or [extension functions](extension-functions.html)
+* They are member functions or [extension functions](extensions.html)
 * They have a single parameter
 
 ``` kotlin

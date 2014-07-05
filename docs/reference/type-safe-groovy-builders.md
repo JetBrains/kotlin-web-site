@@ -80,7 +80,7 @@ fun html(init : HTML.() -> Unit) : HTML {
 }
 ```
 
-This function takes one parameter named *init*{: .keyword }, which is itself a function. Actually, it is an [extension function](extension-functions.html) that has a receiver of type {{HTML}} 
+This function takes one parameter named *init*{: .keyword }, which is itself a function. Actually, it is an [extension function](extensions.html) that has a receiver of type {{HTML}} 
 (and returns nothing interesting, i.e. [Unit|Functions#Unit]). So, when we pass a function literal to as an argument to *html*{: .keyword }, it is typed as an extension function literal, and 
 there's *this* reference available:
 
@@ -172,7 +172,7 @@ All this is defined in a package *html*{: .keyword } that is imported at the top
 
 ## Full definition of the *html*{: .keyword } namespace
 
-This is how the namespace {{html}} is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extension-functions.html) and 
+This is how the namespace {{html}} is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and 
 [Extension function literals](lambdas.html#extension-function-literals).
 
 ``` kotlin
@@ -292,4 +292,4 @@ This problem is easily fixable in [Kotlin]:
 ``` kotlin
   fun <K, V> Map<K, V>.set(key : K, value : V) = this.put(key, value)
 ```
-So, we simply define an [extension function](extension-functions.html) *set(K, V)*{: .keyword } that delegates to vanilla *put*{: .keyword } and make a Kotlin operator available for a *Java* class.
+So, we simply define an [extension function](extensions.html) *set(K, V)*{: .keyword } that delegates to vanilla *put*{: .keyword } and make a Kotlin operator available for a *Java* class.

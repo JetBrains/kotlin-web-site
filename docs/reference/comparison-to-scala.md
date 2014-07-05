@@ -18,7 +18,7 @@ Taking this into account, if you are happy with Scala, you probably do not need 
 
 * Implicit conversions, parameters, etc
     * In Scala, sometimes it's very hard to tell what's happening in your code without using a debugger, because too many implicits get into the picture
-    * To enrich your types with functions in Kotlin use [Extension functions](extension-functions.html).
+    * To enrich your types with functions in Kotlin use [Extension functions](extensions.html).
 * Overridable type members
 * Path-dependent types
 * Existential types
@@ -45,7 +45,7 @@ Things that may be added to Kotlin later:
 * [Zero-overhead null-safety](null-safety.html)
     * Scala has Option, which is a syntactic and run-time wrapper
 * [Smart casts](typecasts.html)
-* Static [extension functions](extension-functions.html)
+* Static [extension functions](extensions.html)
     * Instead of wrapping at runtime (with Scala 2.10, implicit value classes will fix the runtime overhead problem)
 * [Kotlin's Inline functions facilitate Nonlocal jumps](lambdas.html#inline-functions)
 * [String templates](basic-types.html#strings)

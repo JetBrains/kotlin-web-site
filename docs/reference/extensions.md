@@ -2,10 +2,10 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Extension Functions"
+title: "Extensions"
 ---
 
-# Extension Functions
+# Extensions
 
 ## Extending Classes with Functionality
 
