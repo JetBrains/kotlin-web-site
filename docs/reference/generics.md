@@ -243,7 +243,7 @@ fun singletonList<T>(item : T) : List<T> {
 }
 ```
 
-But for [Extension functions](extension-functions.html) it may be necessary to declare type parameters before specifying the receiver type, so 
+But for [Extension functions](extensions.html) it may be necessary to declare type parameters before specifying the receiver type, so 
 Kotlin allows the alternative syntax:
 
 ``` kotlin
