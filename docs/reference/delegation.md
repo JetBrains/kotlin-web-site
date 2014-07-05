@@ -30,6 +30,3 @@ fun main() {
 
 The by-clause in the supertype list for Derived indicates that b will be stored internally in objects of Derived and the compiler will generate all the methods of Base that forward to b.
 
-## Property Delegation
-
-
