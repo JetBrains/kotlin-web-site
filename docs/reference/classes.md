@@ -59,7 +59,7 @@ class Customer(val customerName: String) {
 ```
 
 which is equivalent to the previous code. Much the same way as when declaring properties, those explicitly
-declared in the constructor can be mutable (*var*{: keyword }) or immutable (*val*{: keyword }).
+declared in the constructor can be mutable (*var*{: keyword }) or read-only (*val*{: keyword }).
 
 ### Creating instances of classes
 
