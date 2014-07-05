@@ -116,6 +116,10 @@ reference:
     content:
 #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
 #      - /docs/reference/kotlin-doc.html: Kotlin Doc
+      - /docs/tutorials/using-maven.html: Using Maven
+      - /docs/tutorials/using-ant.html: Using Ant
+      - /docs/tutorials/using-griffon.html: Using Griffon
+      - /docs/tutorials/using-gradle.html: Using Gradle
 
   - title: FAQ
     description: Every question you could possibly think of, might be answered.
