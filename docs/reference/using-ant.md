@@ -1,6 +1,6 @@
 ---
-type: tutorial
-layout: tutorial
+type: doc
+layout: reference
 title: "Using Ant"
 description: "This tutorials walks you through different scenarios when using Ant for building applications that contain Kotlin code"
 ---
