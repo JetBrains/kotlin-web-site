@@ -16,7 +16,7 @@ Kotlin has three structural jump operators
 ## Break and Continue Labels
 
 Any expression in Kotlin may be marked with a *label*{: .keyword }.
-Labels have the from of the @ sign followed by an optional identifier, for examples @, @abc, @fooBar are valid labels (see the [grammar](grammar.html#label)).
+Labels have the from of the `@` sign followed by an identifier, for example: `@abc`, `@fooBar` are valid labels (see the [grammar](grammar.html#label)).
 To label an expression, we just put a label in front of it
 
 ``` kotlin
@@ -41,7 +41,9 @@ A break qualified with a label jumps to the execution point right after the loop
 
 ## Return at Labels
 
-With function literals, local functions and object expression, functions can be nested in Kotlin. Qualified return's allow us to return from an outer function. The most important use case is returning from a function literal. Recall that when we write this:
+With function literals, local functions and object expression, functions can be nested in Kotlin. 
+Qualified return's allow us to return from an outer function. 
+The most important use case is returning from a function literal. Recall that when we write this:
 
 ``` kotlin
 fun foo() {
@@ -52,7 +54,9 @@ fun foo() {
 }
 ```
 
-The return expression returns from the nearest enclosing function, i.e. foo. If we need to return from a function literal, we have to label it and qualify the return
+The return expression returns from the nearest enclosing function, i.e. `foo`. 
+(Note that such non-local returns are supported only for function literals passed to [inline-functions](lambdas.html#inline-functions).) 
+If we need to return from a function literal, we have to label it and qualify the `return`:
 
 ``` kotlin
 fun foo() {
@@ -63,18 +67,17 @@ fun foo() {
 }
 ```
 
-Now, it returns only from the function literal. Often times it is more convenient to use the shortest implicit label @ for function literals
+Now, it returns only from the function literal. Often times it is more convenient to use implicits labels: 
+such a label has the same names as the function to which the lambda is passed:  
 
 ``` kotlin
 fun foo() {
   ints.forEach {
-    if (it == 0) return@ // Works if there's one and only one function literal in lexical scope up to named entity (function or class)
+    if (it == 0) return@forEach
     print(it)
   }
 }
 ```
-
-Note that such non-local returns are supported only for function literals passed to inline-functions.
 
 When returning a value, the parser gives preference to the qualified return, i.e.
 
@@ -82,7 +85,7 @@ When returning a value, the parser gives preference to the qualified return, i.e
 return@a 1
 ```
 
-means "return 1 at label @a" and not "return a labeled expression (@a 1)".
+means "return `1` at label `@a`" and not "return a labeled expression `(@a 1)`".
 
 Named functions automatically define labels
 
@@ -91,49 +94,9 @@ fun outer() {
   fun inner() {
     return@outer // the label @outer was defined automatically
   }
-}
+}                                                                             
 ```
 
-*Non-local returns are not implemented yet
- See the corresponding [issue](http://youtrack.jetbrains.com/issue/KT-1435).*{: warning }
-
-## Break and continue in custom control structures
-
-Inline functions make writing performant "custom control structures" easy, for example, the forEach() function that executes a function literal for every element in a collection
-
-``` kotlin
-inline fun <T> Collection<T>.forEach(body : (item : T) -> Unit) {
-  for (item in this) {
-    body(item)
-  }
-}
-```
-
-Note that this function is not exactly a redundant example easily substitutable by a normal for loop. Consider the following code
-
-``` kotlin
-ints filter {it > 0} sortby {-it} forEach {print(it)}
-```
-
-Now, what happens when we write break (or continue) inside the body of forEach? We simply get a compile-time error, because, lexically, there's no loop to break
-
-``` kotlin
-ints forEach {
-  if (it < 0) break // Error: 'break' does not belong to a loop
-  print(it)
-}
-```
-
-But, actually, there is a loop, hidden inside forEach, and it is inlined there, so we should be able to tell the compiler to understand that. An we can, by annotating the loop inside forEach with the loop annotation. The function parameter should also be annotated with loopbody annotation
-
-``` kotlin
-inline fun <T> Collection<T>.forEach(loopbody body : (item : T) -> Unit) {
-  [loop] for (item in this) {
-    body(item)
-  }
-}
-```
-
-Now, the compiler allows break and continue in the function literal argument passed to forEach, and these operators apply to the loop marked with @@.
-
-*Break and continue for custom control structures are not implemented yet. See the corresponding [issue](http://youtrack.jetbrains.com/issue/KT-1436).*{: warning }
+**Non-local returns are not implemented yet.**<br/>
+See the corresponding [issue](http://youtrack.jetbrains.com/issue/KT-1435).
+{:.warning}
