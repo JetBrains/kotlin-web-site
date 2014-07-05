@@ -24,11 +24,12 @@ annotation class fancy {}
 }
 ```
 
-The square brackets are optional and only required when annotating expressions.
+In most cases, the square brackets are optional and only required when annotating expressions or local declarations:
 
 ``` kotlin
 fancy class Foo() {
   fancy fun baz(fancy foo: Int) {
+    [fancy] fun bar() { ... }
     return [fancy] 1
   }
 }
