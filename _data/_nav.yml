@@ -75,6 +75,7 @@ reference:
       - /docs/reference/enum-classes.html: Enum Classes
       - /docs/reference/object-declarations.html: Objects
       - /docs/reference/delegation.html: Delegation
+      - /docs/reference/delegated-properties.html: Delegated Properties
 
   - title: Functions and Lambdas
     description: All about functions

@@ -21,6 +21,18 @@ public class Address { // parentheses denote a _primary constructor_
 }
 ```
 
+To use a property, one simply refers to it by name, as if it were a field in Java:
+
+``` kotlin
+fun copyAddress(address : Address) : Address {
+  val result = Address() // there's no 'new' keyword in Kotlin
+  result.name = address.name // accessors are called
+  result.street = address.street
+  // ...
+  return result
+}
+```
+
 ## Getters and Setters
 
 The full syntax for declaring a property is
@@ -118,16 +130,13 @@ In all respects, this is just the same as in Java since access to private proper
 
 See [Overriding Member](classes.html#overriding-members)
 
-## Using Properties
+## Delegated Properties
+  
+The most common kind of properties simply reads from (and maybe writes to) a backing field. 
+On the other hand, with custom getters and setters one can implement any behaviour of a property.
+Somewhere in between, there are certain common patterns of how a property may work. A few examples: lazy values,
+reading from a map by a given key, accessing a database, notifying listener on access, etc.
 
-To use a property, one simply refers to it by name, as if it were a field in Java:
+Such common behaviours can be implemented as libraries using _delegated properties_.
+For more information, look [here](delegated-properties.html).
 
-``` kotlin
-fun copyAddress(address : Address) : Address {
-  val result = Address() // there's no 'new' keyword in Kotlin
-  result.name = address.name // accessors are called
-  result.street = address.street
-  // ...
-  return result
-}
-```
