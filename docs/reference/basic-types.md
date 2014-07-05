@@ -20,15 +20,32 @@ Kotlin provides the following built-in types representing numbers (this is close
 | Double | 64       |
 | Float	 | 32       |
 | Long	 | 64       |
-| Int	 | 32       |
+| Int	   | 32       |
 | Short	 | 16       |
 | Byte	 | 8        |
 
 Note that characters are not numbers in Kotlin.
 
+### Literal Constants
+
+There are the following kinds of literal constants for integral values:
+
+* Decimals: `123`
+  * Longs are tagged by a capital `L`: `123L`
+* Hexadecimals: `0x0F`
+* Binaries: `0b00001011`
+
+NOTE: Octal literals are not supported.
+
+Kotlin also supports a conventional notation for floating-point numbers:
+ 
+* Doubles by default: `123.5`, `123.5e10`
+* Floats are tagged by `f` or `F`: `123.5f` 
+
 ### Representation
 
-On the Java platform, numbers are physically stored as JVM primitive types, unless we need a nullable number reference (e.g. Int?) or generics are involved. In the latter cases numbers are boxed.
+On the Java platform, numbers are physically stored as JVM primitive types, unless we need a nullable number reference (e.g. `Int?`) or generics are involved. 
+In the latter cases numbers are boxed.
 
 Note that boxing of numbers does not preserve identity:
 
@@ -91,22 +108,6 @@ Absence of implicit conversions is rarely noticeable because one can use literal
 
 ``` kotlin
 val l = 1.toLong() + 3 // Long + Int => Long
-```
-
-### Literals
-
-All the integer literals are written in the same way:
-
-* Decimals: 123, 123.5, 123.5e10
-* Hexadecimals: 0x0F
-* Binaries: 0b00001011
-
-NOTE: Octal literals are not supported.
-
-There're no "L"-tagged or otherwise tagged literals. In case of ambiguity, one should use explicit conversions to specify a type for a literal:
-
-``` kotlin
-val list = list(1.toLong(), 100000000000, 2.toLong())
 ```
 
 ### Operations
