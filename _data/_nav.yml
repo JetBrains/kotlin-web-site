@@ -82,7 +82,6 @@ reference:
     content:
       - /docs/reference/functions.html: Functions
       - /docs/reference/lambdas.html: Lambdas
-      - /docs/reference/expressions.html: Expressions
 
   - title: Other
     description: Various bits and bobs
