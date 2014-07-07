@@ -12,9 +12,11 @@ PDF_CONFIG = {
     'margin-bottom' => '0.8in',
     'margin-left' => '0.7in',
     'print-media-type' => '',
-    'header-html' => "file:///#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-header.html",
+    'header-html' => "file://#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-header.html",
     'header-spacing' => '10',
-    'footer-html' => "file:///#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-footer.html",
+    #'footer-html' => "file://#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-footer.html",
+    'footer-center' => '[page]',
+    'footer-font-size' => '9',
     'footer-spacing' => '7',
     'enable-smart-shrinking' => ''
 }
