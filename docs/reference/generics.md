@@ -29,7 +29,7 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that we are talk
 
 ## Variance
 
-One of the most tricky parts of *Java*'s type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html])). 
+One of the most tricky parts of *Java*'s type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)). 
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
 First, let's think about why *Java* needs those mysterious wildcards. The problem is explained in [Effective Java](http://java.sun.com/docs/books/effective/), [Item 28: *Use bounded wildcards to increase API flexibility*](http://java.sun.com/docs/books/effective/generics.pdf). 
