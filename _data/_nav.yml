@@ -71,6 +71,7 @@ reference:
       - /docs/reference/visibility-modifiers.html: Visibility Modifiers
       - /docs/reference/extensions.html: Extensions
       - /docs/reference/data-classes.html: Data Classes
+      - /docs/reference/generics.html: Generics
       - /docs/reference/nested-classes.html: Nested Classes
       - /docs/reference/enum-classes.html: Enum Classes
       - /docs/reference/object-declarations.html: Objects
@@ -82,8 +83,6 @@ reference:
     content:
       - /docs/reference/functions.html: Functions
       - /docs/reference/lambdas.html: Lambdas
-      - /docs/reference/generics.html: Generics
-      - /docs/reference/expressions.html: Expressions
 
   - title: Other
     description: Various bits and bobs

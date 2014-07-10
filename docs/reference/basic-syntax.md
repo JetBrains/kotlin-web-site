@@ -107,7 +107,7 @@ or
 fun max(a : Int, b : Int) = if (a > b) a else b
 ```
 
-See if [expressions](expressions.html).
+See [if expressions](control-flow.html#if-expression).
 
 ## Null-checks
 
