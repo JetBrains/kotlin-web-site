@@ -29,6 +29,7 @@ Some table below
 To use a keyword, just use *keyword*{: .keyword }
 
 If you want to define your own style, just wrap *it in something*{: .yourCSSClassHere }
+(yourCSSClassHere would then need to be defined)
 
 **hasItems**
 
