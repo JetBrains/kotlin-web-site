@@ -84,7 +84,7 @@
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .global-nav .extra-nav .link-icon {
           background-image: url("../layout/images/main-sprite@2x.png");
-          background-size: 150px 400px; } }
+          background-size: 150px auto; } }
     .global-nav .extra-nav .link:hover .link-icon {
       opacity: 1; }
     .global-nav .extra-nav .icon-github {
@@ -96,7 +96,7 @@
       height: 17px;
       background-position: -100px -50px; }
     .global-nav .extra-nav .icon-forum {
-      width: 25px;
+      width: 26px;
       height: 17px;
       background-position: -100px -400px; }
 

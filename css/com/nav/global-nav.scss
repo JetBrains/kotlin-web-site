@@ -86,7 +86,7 @@
 
             @include adapt_retina {
                 background-image: url('../layout/images/main-sprite@2x.png');
-                background-size: 150px 400px;
+                background-size: 150px auto;
             }
         }
 
@@ -107,7 +107,7 @@
         }
 
         .icon-forum {
-            width: 25px;
+            width: 26px;
             height: 17px;
             background-position: -100px -400px;
         }
