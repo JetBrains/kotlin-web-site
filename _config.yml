@@ -19,7 +19,7 @@ exclude:
   - LICENSE
 
 include:
-  - js/vendor
+  - js
 
 # Site Settings
 baseurl:
