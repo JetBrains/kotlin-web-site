@@ -2,7 +2,7 @@
 layout: api
 title: countTo
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [countTo](countTo.html)
+[stdlib](../index.md) / [kotlin](index.md) / [countTo](countTo.md)
 
 # countTo
 

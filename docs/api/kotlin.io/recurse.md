@@ -2,7 +2,7 @@
 layout: api
 title: recurse
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [recurse](recurse.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [recurse](recurse.md)
 
 # recurse
 Recursively process this file and all children with the given block

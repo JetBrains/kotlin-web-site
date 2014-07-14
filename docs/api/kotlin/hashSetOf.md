@@ -2,7 +2,7 @@
 layout: api
 title: hashSetOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [hashSetOf](hashSetOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [hashSetOf](hashSetOf.md)
 
 # hashSetOf
 Returns a new HashSet with a variable number of initial elements

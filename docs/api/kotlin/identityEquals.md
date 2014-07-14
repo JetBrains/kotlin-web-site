@@ -2,7 +2,7 @@
 layout: api
 title: identityEquals
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [identityEquals](identityEquals.html)
+[stdlib](../index.md) / [kotlin](index.md) / [identityEquals](identityEquals.md)
 
 # identityEquals
 

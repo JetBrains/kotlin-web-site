@@ -2,7 +2,7 @@
 layout: api
 title: klass
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FilterIsIterator](index.html) / [klass](klass.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FilterIsIterator](index.md) / [klass](klass.md)
 
 # klass
 

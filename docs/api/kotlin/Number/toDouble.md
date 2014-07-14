@@ -2,7 +2,7 @@
 layout: api
 title: toDouble
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Number](index.html) / [toDouble](toDouble.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Number](index.md) / [toDouble](toDouble.md)
 
 # toDouble
 

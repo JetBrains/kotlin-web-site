@@ -2,7 +2,7 @@
 layout: api
 title: codePointAt
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [codePointAt](codePointAt.html)
+[stdlib](../index.md) / [kotlin](index.md) / [codePointAt](codePointAt.md)
 
 # codePointAt
 

@@ -2,7 +2,7 @@
 layout: api
 title: assertNotNull
 ---
-[stdlib](../index.html) / [kotlin.test](index.html) / [assertNotNull](assertNotNull.html)
+[stdlib](../index.md) / [kotlin.test](index.md) / [assertNotNull](assertNotNull.md)
 
 # assertNotNull
 Asserts that the expression is not null, with an optional message and a function block to process the not-null value

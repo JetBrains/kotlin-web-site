@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [DoubleArray](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [DoubleArray](index.md) / [<init>](_init_.md)
 
 # <init>
 

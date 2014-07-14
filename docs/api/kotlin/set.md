@@ -2,7 +2,7 @@
 layout: api
 title: set
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [set](set.html)
+[stdlib](../index.md) / [kotlin](index.md) / [set](set.md)
 
 # set
 Provides [] access to maps

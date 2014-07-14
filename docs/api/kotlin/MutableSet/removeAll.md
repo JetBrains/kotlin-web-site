@@ -2,7 +2,7 @@
 layout: api
 title: removeAll
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableSet](index.html) / [removeAll](removeAll.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableSet](index.md) / [removeAll](removeAll.md)
 
 # removeAll
 

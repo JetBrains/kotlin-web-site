@@ -2,7 +2,7 @@
 layout: api
 title: onPropertyChange
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeListener](index.html) / [onPropertyChange](onPropertyChange.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeListener](index.md) / [onPropertyChange](onPropertyChange.md)
 
 # onPropertyChange
 

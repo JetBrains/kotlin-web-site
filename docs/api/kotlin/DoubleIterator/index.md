@@ -2,16 +2,18 @@
 layout: api
 title: DoubleIterator
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [DoubleIterator](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [DoubleIterator](index.md)
 
 # DoubleIterator
 
 ```
 abstract public class DoubleIterator
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public DoubleIterator()`<br>|
-|[next](next.html)|&nbsp;&nbsp;`public fun next(): Double`<br>|
-|[nextDouble](nextDouble.html)|&nbsp;&nbsp;`abstract public fun nextDouble(): Double`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public DoubleIterator()`**<br>|
+|[next](next.md)|&nbsp;&nbsp;**`public fun next(): Double`**<br>|
+|[nextDouble](nextDouble.md)|&nbsp;&nbsp;**`abstract public fun nextDouble(): Double`**<br>|

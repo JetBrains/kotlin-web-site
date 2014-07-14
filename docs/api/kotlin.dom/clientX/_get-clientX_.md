@@ -2,7 +2,7 @@
 layout: api
 title: <get-clientX>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [clientX](index.html) / [<get-clientX>](_get-clientX_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [clientX](index.md) / [<get-clientX>](_get-clientX_.md)
 
 # <get-clientX>
 

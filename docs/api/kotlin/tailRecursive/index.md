@@ -2,14 +2,16 @@
 layout: api
 title: tailRecursive
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [tailRecursive](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [tailRecursive](index.md)
 
 # tailRecursive
 
 ```
 public class tailRecursive
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public tailRecursive()`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public tailRecursive()`**<br>|

@@ -2,7 +2,7 @@
 layout: api
 title: onClick
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [onClick](onClick.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [onClick](onClick.md)
 
 # onClick
 

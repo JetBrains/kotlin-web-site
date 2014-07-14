@@ -2,7 +2,7 @@
 layout: api
 title: <get-tail>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [tail](index.html) / [<get-tail>](_get-tail_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [tail](index.md) / [<get-tail>](_get-tail_.md)
 
 # <get-tail>
 

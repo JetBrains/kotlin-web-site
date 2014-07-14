@@ -2,7 +2,7 @@
 layout: api
 title: previousIndex
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ListIterator](index.html) / [previousIndex](previousIndex.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ListIterator](index.md) / [previousIndex](previousIndex.md)
 
 # previousIndex
 

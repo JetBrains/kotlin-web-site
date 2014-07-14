@@ -2,7 +2,7 @@
 layout: api
 title: charArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [charArray](charArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [charArray](charArray.md)
 
 # charArray
 

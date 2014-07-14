@@ -2,7 +2,7 @@
 layout: api
 title: readLines
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [readLines](readLines.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [readLines](readLines.md)
 
 # readLines
 Reads file content as strings list. By default uses UTF-8 charset.

@@ -2,7 +2,7 @@
 layout: api
 title: predicate
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FilteringStream](index.html) / [predicate](predicate.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FilteringStream](index.md) / [predicate](predicate.md)
 
 # predicate
 

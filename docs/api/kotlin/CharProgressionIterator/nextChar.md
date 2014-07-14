@@ -2,7 +2,7 @@
 layout: api
 title: nextChar
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [CharProgressionIterator](index.html) / [nextChar](nextChar.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [CharProgressionIterator](index.md) / [nextChar](nextChar.md)
 
 # nextChar
 

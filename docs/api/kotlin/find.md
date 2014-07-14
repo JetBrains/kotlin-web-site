@@ -2,14 +2,9 @@
 layout: api
 title: find
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [find](find.html)
+[stdlib](../index.md) / [kotlin](index.md) / [find](find.md)
 
 # find
-
-```
-public fun <T> Array<T>.find(predicate: (T)->Boolean): T
-public fun <T> Iterable<T>.find(predicate: (T)->Boolean): T
-```
 Returns the first character which matches the given *predicate* or *null* if none matched
 ```
 public fun String.find(predicate: (Char)->Boolean): Char
@@ -17,6 +12,11 @@ public fun String.find(predicate: (Char)->Boolean): Char
 Returns the first element which matches the given *predicate* or *null* if none matched
 ```
 public fun <T : T> Iterator<T>.find(predicate: (T)->Boolean): T
+```
+
+```
+public fun <T> Array<T>.find(predicate: (T)->Boolean): T
+public fun <T> Iterable<T>.find(predicate: (T)->Boolean): T
 ```
 ## Description
 ```

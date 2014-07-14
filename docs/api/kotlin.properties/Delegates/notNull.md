@@ -2,7 +2,7 @@
 layout: api
 title: notNull
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [Delegates](index.html) / [notNull](notNull.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [Delegates](index.md) / [notNull](notNull.md)
 
 # notNull
 

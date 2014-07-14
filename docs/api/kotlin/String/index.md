@@ -2,18 +2,20 @@
 layout: api
 title: String
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [String](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [String](index.md)
 
 # String
 
 ```
 public class String
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public String()`<br>|
-|[compareTo](compareTo.html)|&nbsp;&nbsp;`open public fun compareTo(other: String): Int`<br>|
-|[get](get.html)|&nbsp;&nbsp;`open public fun get(index: Int): Char`<br>|
-|[length](length.html)|&nbsp;&nbsp;`open public val length: Int`<br>|
-|[plus](plus.html)|&nbsp;&nbsp;`public fun plus(other: Any): String`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public String()`**<br>|
+|[compareTo](compareTo.md)|&nbsp;&nbsp;**`open public fun compareTo(other: String): Int`**<br>|
+|[get](get.md)|&nbsp;&nbsp;**`open public fun get(index: Int): Char`**<br>|
+|[length](length.md)|&nbsp;&nbsp;**`open public val length: Int`**<br>|
+|[plus](plus.md)|&nbsp;&nbsp;**`public fun plus(other: Any): String`**<br>|

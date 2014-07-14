@@ -2,7 +2,7 @@
 layout: api
 title: shortArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [shortArray](shortArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [shortArray](shortArray.md)
 
 # shortArray
 

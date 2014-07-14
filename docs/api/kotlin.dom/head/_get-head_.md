@@ -2,7 +2,7 @@
 layout: api
 title: <get-head>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [head](index.html) / [<get-head>](_get-head_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [head](index.md) / [<get-head>](_get-head_.md)
 
 # <get-head>
 

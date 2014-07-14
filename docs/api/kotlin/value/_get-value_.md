@@ -2,7 +2,7 @@
 layout: api
 title: <get-value>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [value](index.html) / [<get-value>](_get-value_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [value](index.md) / [<get-value>](_get-value_.md)
 
 # <get-value>
 

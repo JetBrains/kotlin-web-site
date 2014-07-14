@@ -2,7 +2,7 @@
 layout: api
 title: listOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [listOf](listOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [listOf](listOf.md)
 
 # listOf
 Returns an empty list

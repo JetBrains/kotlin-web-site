@@ -2,7 +2,7 @@
 layout: api
 title: toRegex
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toRegex](toRegex.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toRegex](toRegex.md)
 
 # toRegex
 Converts the string into a regular expression [[Pattern]] optionally

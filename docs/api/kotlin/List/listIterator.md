@@ -2,7 +2,7 @@
 layout: api
 title: listIterator
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [List](index.html) / [listIterator](listIterator.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [List](index.md) / [listIterator](listIterator.md)
 
 # listIterator
 

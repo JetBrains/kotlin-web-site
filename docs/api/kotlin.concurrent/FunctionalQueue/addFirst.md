@@ -2,7 +2,7 @@
 layout: api
 title: addFirst
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [FunctionalQueue](index.html) / [addFirst](addFirst.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [FunctionalQueue](index.md) / [addFirst](addFirst.md)
 
 # addFirst
 

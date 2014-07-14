@@ -2,7 +2,7 @@
 layout: api
 title: <get-bubbles>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [bubbles](index.html) / [<get-bubbles>](_get-bubbles_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [bubbles](index.md) / [<get-bubbles>](_get-bubbles_.md)
 
 # <get-bubbles>
 

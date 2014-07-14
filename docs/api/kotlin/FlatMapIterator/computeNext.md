@@ -2,7 +2,7 @@
 layout: api
 title: computeNext
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FlatMapIterator](index.html) / [computeNext](computeNext.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FlatMapIterator](index.md) / [computeNext](computeNext.md)
 
 # computeNext
 

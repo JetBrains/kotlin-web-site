@@ -2,7 +2,7 @@
 layout: api
 title: compare
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FunctionComparator](index.html) / [compare](compare.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FunctionComparator](index.md) / [compare](compare.md)
 
 # compare
 

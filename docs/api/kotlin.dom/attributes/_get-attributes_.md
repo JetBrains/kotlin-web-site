@@ -2,7 +2,7 @@
 layout: api
 title: <get-attributes>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [attributes](index.html) / [<get-attributes>](_get-attributes_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [attributes](index.md) / [<get-attributes>](_get-attributes_.md)
 
 # <get-attributes>
 

@@ -2,7 +2,7 @@
 layout: api
 title: nextInt
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [IntIterator](index.html) / [nextInt](nextInt.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [IntIterator](index.md) / [nextInt](nextInt.md)
 
 # nextInt
 

@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ShortProgressionIterator](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ShortProgressionIterator](index.md) / [<init>](_init_.md)
 
 # <init>
 

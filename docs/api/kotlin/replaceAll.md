@@ -2,7 +2,7 @@
 layout: api
 title: replaceAll
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [replaceAll](replaceAll.html)
+[stdlib](../index.md) / [kotlin](index.md) / [replaceAll](replaceAll.md)
 
 # replaceAll
 Replaces every *regexp* occurence in the text with the value retruned by the given function *body* that can handle

@@ -2,7 +2,7 @@
 layout: api
 title: handleEvent
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [EventListenerHandler](index.html) / [handleEvent](handleEvent.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [EventListenerHandler](index.md) / [handleEvent](handleEvent.md)
 
 # handleEvent
 

@@ -2,7 +2,7 @@
 layout: api
 title: write
 ---
-[stdlib](../index.html) / [kotlin.concurrent](index.html) / [write](write.html)
+[stdlib](../index.md) / [kotlin.concurrent](index.md) / [write](write.md)
 
 # write
 Executes given calculation under write lock.

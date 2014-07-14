@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.test](../index.html) / [DefaultAsserter](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.test](../index.md) / [DefaultAsserter](index.md) / [<init>](_init_.md)
 
 # <init>
 Default implementation to avoid dependency on JUnit or TestNG

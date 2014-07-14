@@ -2,14 +2,16 @@
 layout: api
 title: ChangeListener
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeListener](index.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeListener](index.md)
 
 # ChangeListener
 
 ```
 abstract public trait ChangeListener
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[onPropertyChange](onPropertyChange.html)|&nbsp;&nbsp;`abstract public fun onPropertyChange(event: ChangeEvent): Unit`<br>|
+|[onPropertyChange](onPropertyChange.md)|&nbsp;&nbsp;**`abstract public fun onPropertyChange(event: ChangeEvent): Unit`**<br>|

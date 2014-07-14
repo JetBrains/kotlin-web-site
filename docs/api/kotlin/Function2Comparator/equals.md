@@ -2,7 +2,7 @@
 layout: api
 title: equals
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Function2Comparator](index.html) / [equals](equals.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Function2Comparator](index.md) / [equals](equals.md)
 
 # equals
 

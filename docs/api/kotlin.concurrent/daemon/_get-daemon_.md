@@ -2,7 +2,7 @@
 layout: api
 title: <get-daemon>
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [daemon](index.html) / [<get-daemon>](_get-daemon_.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [daemon](index.md) / [<get-daemon>](_get-daemon_.md)
 
 # <get-daemon>
 

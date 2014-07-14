@@ -2,7 +2,7 @@
 layout: api
 title: VALUE
 ---
-[stdlib](../../../index.html) / [kotlin](../../index.html) / [Unit](../index.html) / [<class-object-for-Unit>](index.html) / [VALUE](VALUE.html)
+[stdlib](../../../index.md) / [kotlin](../../index.md) / [Unit](../index.md) / [<class-object-for-Unit>](index.md) / [VALUE](VALUE.md)
 
 # VALUE
 

@@ -2,7 +2,7 @@
 layout: api
 title: unescape
 ---
-[stdlib](../index.html) / [kotlin.properties](index.html) / [unescape](unescape.html)
+[stdlib](../index.md) / [kotlin.properties](index.md) / [unescape](unescape.md)
 
 # unescape
 

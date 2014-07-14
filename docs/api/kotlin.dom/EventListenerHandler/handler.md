@@ -2,7 +2,7 @@
 layout: api
 title: handler
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [EventListenerHandler](index.html) / [handler](handler.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [EventListenerHandler](index.md) / [handler](handler.md)
 
 # handler
 

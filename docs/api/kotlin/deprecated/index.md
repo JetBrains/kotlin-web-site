@@ -2,15 +2,17 @@
 layout: api
 title: deprecated
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [deprecated](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [deprecated](index.md)
 
 # deprecated
 
 ```
 public class deprecated
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public deprecated(value: String)`<br>|
-|[value](value.html)|&nbsp;&nbsp;`val value: String`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public deprecated(value: String)`**<br>|
+|[value](value.md)|&nbsp;&nbsp;**`val value: String`**<br>|

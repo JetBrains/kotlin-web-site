@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeSupport](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeSupport](index.md) / [<init>](_init_.md)
 
 # <init>
 Represents an object where properties can be listened to and notified on

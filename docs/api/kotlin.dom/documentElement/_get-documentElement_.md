@@ -2,7 +2,7 @@
 layout: api
 title: <get-documentElement>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [documentElement](index.html) / [<get-documentElement>](_get-documentElement_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [documentElement](index.md) / [<get-documentElement>](_get-documentElement_.md)
 
 # <get-documentElement>
 

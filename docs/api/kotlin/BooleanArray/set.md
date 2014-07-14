@@ -2,7 +2,7 @@
 layout: api
 title: set
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [BooleanArray](index.html) / [set](set.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [BooleanArray](index.md) / [set](set.md)
 
 # set
 

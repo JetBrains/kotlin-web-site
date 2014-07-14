@@ -2,15 +2,17 @@
 layout: api
 title: inline
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [inline](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [inline](index.md)
 
 # inline
 
 ```
 public class inline
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public inline(strategy: InlineStrategy)`<br>|
-|[strategy](strategy.html)|&nbsp;&nbsp;`public val strategy: InlineStrategy`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public inline(strategy: InlineStrategy)`**<br>|
+|[strategy](strategy.md)|&nbsp;&nbsp;**`public val strategy: InlineStrategy`**<br>|

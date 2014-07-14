@@ -2,7 +2,7 @@
 layout: api
 title: lineIterator
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [lineIterator](lineIterator.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [lineIterator](lineIterator.md)
 
 # lineIterator
 

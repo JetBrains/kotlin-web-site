@@ -2,7 +2,7 @@
 layout: api
 title: isJavaLetter
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isJavaLetter](isJavaLetter.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isJavaLetter](isJavaLetter.md)
 
 # isJavaLetter
 

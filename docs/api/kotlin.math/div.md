@@ -2,11 +2,11 @@
 layout: api
 title: div
 ---
-[stdlib](../index.html) / [kotlin.math](index.html) / [div](div.html)
+[stdlib](../index.md) / [kotlin.math](index.md) / [div](div.md)
 
 # div
 
 ```
-public fun BigInteger.div(other: BigInteger): BigInteger
 public fun BigDecimal.div(other: BigDecimal): BigDecimal
+public fun BigInteger.div(other: BigInteger): BigInteger
 ```

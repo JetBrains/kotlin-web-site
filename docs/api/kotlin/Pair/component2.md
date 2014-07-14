@@ -2,7 +2,7 @@
 layout: api
 title: component2
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Pair](index.html) / [component2](component2.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Pair](index.md) / [component2](component2.md)
 
 # component2
 

@@ -2,7 +2,7 @@
 layout: api
 title: emptyList
 ---
-[stdlib](../../../index.html) / [kotlin.concurrent](../../index.html) / [FunctionalList](../index.html) / [<class-object-for-FunctionalList>](index.html) / [emptyList](emptyList.html)
+[stdlib](../../../index.md) / [kotlin.concurrent](../../index.md) / [FunctionalList](../index.md) / [<class-object-for-FunctionalList>](index.md) / [emptyList](emptyList.md)
 
 # emptyList
 

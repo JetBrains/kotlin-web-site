@@ -2,7 +2,7 @@
 layout: api
 title: synchronized
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [synchronized](synchronized.html)
+[stdlib](../index.md) / [kotlin](index.md) / [synchronized](synchronized.md)
 
 # synchronized
 

@@ -2,7 +2,7 @@
 layout: api
 title: parent
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [ClasspathBuilder](index.html) / [parent](parent.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [ClasspathBuilder](index.md) / [parent](parent.md)
 
 # parent
 

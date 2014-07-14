@@ -2,7 +2,7 @@
 layout: api
 title: <get-id>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [id](index.html) / [<get-id>](_get-id_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [id](index.md) / [<get-id>](_get-id_.md)
 
 # <get-id>
 

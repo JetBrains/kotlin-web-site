@@ -2,7 +2,7 @@
 layout: api
 title: size
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [NodeListAsList](index.html) / [size](size.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [NodeListAsList](index.md) / [size](size.md)
 
 # size
 

@@ -2,7 +2,7 @@
 layout: api
 title: initialValue
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [AllModules](index.html) / [initialValue](initialValue.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [AllModules](index.md) / [initialValue](initialValue.md)
 
 # initialValue
 

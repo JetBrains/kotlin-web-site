@@ -2,7 +2,7 @@
 layout: api
 title: toLinkedMap
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toLinkedMap](toLinkedMap.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toLinkedMap](toLinkedMap.md)
 
 # toLinkedMap
 Converts this [[Map]] to a [[LinkedHashMap]] so future insertion orders are maintained

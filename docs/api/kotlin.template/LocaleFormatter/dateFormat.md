@@ -2,7 +2,7 @@
 layout: api
 title: dateFormat
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [LocaleFormatter](index.html) / [dateFormat](dateFormat.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [LocaleFormatter](index.md) / [dateFormat](dateFormat.md)
 
 # dateFormat
 

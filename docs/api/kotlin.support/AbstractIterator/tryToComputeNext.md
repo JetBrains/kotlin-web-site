@@ -2,7 +2,7 @@
 layout: api
 title: tryToComputeNext
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [AbstractIterator](index.html) / [tryToComputeNext](tryToComputeNext.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [AbstractIterator](index.md) / [tryToComputeNext](tryToComputeNext.md)
 
 # tryToComputeNext
 

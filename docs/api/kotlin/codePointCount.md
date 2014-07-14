@@ -2,7 +2,7 @@
 layout: api
 title: codePointCount
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [codePointCount](codePointCount.html)
+[stdlib](../index.md) / [kotlin](index.md) / [codePointCount](codePointCount.md)
 
 # codePointCount
 

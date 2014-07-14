@@ -2,7 +2,7 @@
 layout: api
 title: array
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ImmutableArrayListBuilder](index.html) / [array](array.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ImmutableArrayListBuilder](index.md) / [array](array.md)
 
 # array
 

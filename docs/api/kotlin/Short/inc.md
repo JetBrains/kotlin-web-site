@@ -2,7 +2,7 @@
 layout: api
 title: inc
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Short](index.html) / [inc](inc.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Short](index.md) / [inc](inc.md)
 
 # inc
 

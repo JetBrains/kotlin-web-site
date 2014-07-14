@@ -2,7 +2,7 @@
 layout: api
 title: stdlib_emptyList
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [stdlib_emptyList](stdlib_emptyList.html)
+[stdlib](../index.md) / [kotlin](index.md) / [stdlib_emptyList](stdlib_emptyList.md)
 
 # stdlib_emptyList
 

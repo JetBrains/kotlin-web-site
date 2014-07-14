@@ -2,7 +2,7 @@
 layout: api
 title: capitalize
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [capitalize](capitalize.html)
+[stdlib](../index.md) / [kotlin](index.md) / [capitalize](capitalize.md)
 
 # capitalize
 Returns a copy of this string capitalised if it is not empty or already starting with an uppper case letter, otherwise returns this

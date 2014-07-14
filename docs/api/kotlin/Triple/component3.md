@@ -2,7 +2,7 @@
 layout: api
 title: component3
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Triple](index.html) / [component3](component3.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Triple](index.md) / [component3](component3.md)
 
 # component3
 

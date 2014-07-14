@@ -2,7 +2,7 @@
 layout: api
 title: isDescendant
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [isDescendant](isDescendant.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [isDescendant](isDescendant.md)
 
 # isDescendant
 Returns true if the given file is in the same directory or a descendant directory

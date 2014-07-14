@@ -2,7 +2,7 @@
 layout: api
 title: removeFirst
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [FunctionalQueue](index.html) / [removeFirst](removeFirst.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [FunctionalQueue](index.md) / [removeFirst](removeFirst.md)
 
 # removeFirst
 

@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [FunctionalQueue](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [FunctionalQueue](index.md) / [<init>](_init_.md)
 
 # <init>
 

@@ -2,7 +2,7 @@
 layout: api
 title: <get-head>
 ---
-[stdlib](../../../../../index.html) / [kotlin.concurrent](../../../../index.html) / [FunctionalList](../../../index.html) / [<class-object-for-FunctionalList>](../../index.html) / [Empty](../index.html) / [head](index.html) / [<get-head>](_get-head_.html)
+[stdlib](../../../../../index.md) / [kotlin.concurrent](../../../../index.md) / [FunctionalList](../../../index.md) / [<class-object-for-FunctionalList>](../../index.md) / [Empty](../index.md) / [head](index.md) / [<get-head>](_get-head_.md)
 
 # <get-head>
 

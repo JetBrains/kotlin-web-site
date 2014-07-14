@@ -2,7 +2,7 @@
 layout: api
 title: NotReady
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [State](index.html) / [NotReady](NotReady.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [State](index.md) / [NotReady](NotReady.md)
 
 # NotReady
 

@@ -2,7 +2,7 @@
 layout: api
 title: <get-nodeName>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [nodeName](index.html) / [<get-nodeName>](_get-nodeName_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [nodeName](index.md) / [<get-nodeName>](_get-nodeName_.md)
 
 # <get-nodeName>
 

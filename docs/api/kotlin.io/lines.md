@@ -2,7 +2,7 @@
 layout: api
 title: lines
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [lines](lines.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [lines](lines.md)
 
 # lines
 Returns an iterator over each line.

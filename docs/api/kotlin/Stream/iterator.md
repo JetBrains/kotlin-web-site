@@ -2,7 +2,7 @@
 layout: api
 title: iterator
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Stream](index.html) / [iterator](iterator.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Stream](index.md) / [iterator](iterator.md)
 
 # iterator
 

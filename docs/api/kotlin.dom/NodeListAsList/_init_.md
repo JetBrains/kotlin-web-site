@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [NodeListAsList](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [NodeListAsList](index.md) / [<init>](_init_.md)
 
 # <init>
 TODO this approach generates compiler errors...

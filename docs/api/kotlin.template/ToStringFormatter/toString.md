@@ -2,7 +2,7 @@
 layout: api
 title: toString
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [ToStringFormatter](index.html) / [toString](toString.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [ToStringFormatter](index.md) / [toString](toString.md)
 
 # toString
 

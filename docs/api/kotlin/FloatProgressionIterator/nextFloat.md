@@ -2,7 +2,7 @@
 layout: api
 title: nextFloat
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FloatProgressionIterator](index.html) / [nextFloat](nextFloat.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FloatProgressionIterator](index.md) / [nextFloat](nextFloat.md)
 
 # nextFloat
 

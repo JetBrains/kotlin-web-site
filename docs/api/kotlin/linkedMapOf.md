@@ -2,7 +2,7 @@
 layout: api
 title: linkedMapOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [linkedMapOf](linkedMapOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [linkedMapOf](linkedMapOf.md)
 
 # linkedMapOf
 Returns a new [[LinkedHashMap]] populated with the given pairs where the first value in each pair

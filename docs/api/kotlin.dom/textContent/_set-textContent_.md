@@ -2,7 +2,7 @@
 layout: api
 title: <set-textContent>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [textContent](index.html) / [<set-textContent>](_set-textContent_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [textContent](index.md) / [<set-textContent>](_set-textContent_.md)
 
 # <set-textContent>
 

@@ -2,7 +2,7 @@
 layout: api
 title: target
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [CloseableEventListener](index.html) / [target](target.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [CloseableEventListener](index.md) / [target](target.md)
 
 # target
 

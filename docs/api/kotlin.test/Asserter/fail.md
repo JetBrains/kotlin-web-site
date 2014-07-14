@@ -2,7 +2,7 @@
 layout: api
 title: fail
 ---
-[stdlib](../../index.html) / [kotlin.test](../index.html) / [Asserter](index.html) / [fail](fail.html)
+[stdlib](../../index.md) / [kotlin.test](../index.md) / [Asserter](index.md) / [fail](fail.md)
 
 # fail
 

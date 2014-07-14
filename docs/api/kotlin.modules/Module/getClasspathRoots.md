@@ -2,7 +2,7 @@
 layout: api
 title: getClasspathRoots
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [Module](index.html) / [getClasspathRoots](getClasspathRoots.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [Module](index.md) / [getClasspathRoots](getClasspathRoots.md)
 
 # getClasspathRoots
 

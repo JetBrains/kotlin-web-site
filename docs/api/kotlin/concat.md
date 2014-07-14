@@ -2,7 +2,7 @@
 layout: api
 title: concat
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [concat](concat.html)
+[stdlib](../index.md) / [kotlin](index.md) / [concat](concat.md)
 
 # concat
 

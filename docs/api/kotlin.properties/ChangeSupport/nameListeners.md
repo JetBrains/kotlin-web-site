@@ -2,7 +2,7 @@
 layout: api
 title: nameListeners
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeSupport](index.html) / [nameListeners](nameListeners.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeSupport](index.md) / [nameListeners](nameListeners.md)
 
 # nameListeners
 

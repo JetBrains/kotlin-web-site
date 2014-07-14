@@ -2,23 +2,23 @@
 layout: api
 title: stream
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [stream](stream.html)
+[stdlib](../index.md) / [kotlin](index.md) / [stream](stream.md)
 
 # stream
 Returns a stream from the given collection
 ```
-public fun CharArray.stream(): Stream<Char>
-public fun DoubleArray.stream(): Stream<Double>
-public fun LongArray.stream(): Stream<Long>
 public fun FloatArray.stream(): Stream<Float>
-public fun ByteArray.stream(): Stream<Byte>
-public fun <T> Iterable<T>.stream(): Stream<T>
+public fun ShortArray.stream(): Stream<Short>
+public fun <T> Array<T>.stream(): Stream<T>
+public fun DoubleArray.stream(): Stream<Double>
 public fun BooleanArray.stream(): Stream<Boolean>
 public fun String.stream(): Stream<Char>
-public fun IntArray.stream(): Stream<Int>
-public fun ShortArray.stream(): Stream<Short>
+public fun ByteArray.stream(): Stream<Byte>
 public fun <T> Stream<T>.stream(): Stream<T>
-public fun <T> Array<T>.stream(): Stream<T>
+public fun <T> Iterable<T>.stream(): Stream<T>
+public fun CharArray.stream(): Stream<Char>
+public fun IntArray.stream(): Stream<Int>
+public fun LongArray.stream(): Stream<Long>
 ```
 Returns a stream which invokes the function to calculate the next value based on the previous one on each iteration
 ```

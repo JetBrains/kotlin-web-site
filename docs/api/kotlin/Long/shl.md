@@ -2,7 +2,7 @@
 layout: api
 title: shl
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Long](index.html) / [shl](shl.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Long](index.md) / [shl](shl.md)
 
 # shl
 

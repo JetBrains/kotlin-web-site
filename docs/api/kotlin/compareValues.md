@@ -2,7 +2,7 @@
 layout: api
 title: compareValues
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [compareValues](compareValues.html)
+[stdlib](../index.md) / [kotlin](index.md) / [compareValues](compareValues.md)
 
 # compareValues
 Compares the two values which may be [[Comparable]] otherwise

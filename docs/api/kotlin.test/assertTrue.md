@@ -2,7 +2,7 @@
 layout: api
 title: assertTrue
 ---
-[stdlib](../index.html) / [kotlin.test](index.html) / [assertTrue](assertTrue.html)
+[stdlib](../index.md) / [kotlin.test](index.md) / [assertTrue](assertTrue.md)
 
 # assertTrue
 A number of helper methods for writing Kool unit tests

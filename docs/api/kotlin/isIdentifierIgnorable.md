@@ -2,7 +2,7 @@
 layout: api
 title: isIdentifierIgnorable
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isIdentifierIgnorable](isIdentifierIgnorable.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isIdentifierIgnorable](isIdentifierIgnorable.md)
 
 # isIdentifierIgnorable
 

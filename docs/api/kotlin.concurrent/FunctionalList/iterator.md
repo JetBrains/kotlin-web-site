@@ -2,7 +2,7 @@
 layout: api
 title: iterator
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [FunctionalList](index.html) / [iterator](iterator.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [FunctionalList](index.md) / [iterator](iterator.md)
 
 # iterator
 

@@ -2,7 +2,7 @@
 layout: api
 title: printStackTrace
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Throwable](index.html) / [printStackTrace](printStackTrace.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Throwable](index.md) / [printStackTrace](printStackTrace.md)
 
 # printStackTrace
 

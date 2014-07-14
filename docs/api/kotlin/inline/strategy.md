@@ -2,7 +2,7 @@
 layout: api
 title: strategy
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [inline](index.html) / [strategy](strategy.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [inline](index.md) / [strategy](strategy.md)
 
 # strategy
 

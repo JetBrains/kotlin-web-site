@@ -2,7 +2,7 @@
 layout: api
 title: toGenerator
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toGenerator](toGenerator.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toGenerator](toGenerator.md)
 
 # toGenerator
 

@@ -2,7 +2,7 @@
 layout: api
 title: <get-name>
 ---
-[stdlib](../../index.html) / [kotlin.io](../index.html) / [name](index.html) / [<get-name>](_get-name_.html)
+[stdlib](../../index.md) / [kotlin.io](../index.md) / [name](index.md) / [<get-name>](_get-name_.md)
 
 # <get-name>
 

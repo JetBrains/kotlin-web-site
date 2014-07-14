@@ -2,7 +2,7 @@
 layout: api
 title: isDigit
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isDigit](isDigit.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isDigit](isDigit.md)
 
 # isDigit
 

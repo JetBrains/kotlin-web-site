@@ -2,7 +2,7 @@
 layout: api
 title: get
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [NotNullVar](index.html) / [get](get.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [NotNullVar](index.md) / [get](get.md)
 
 # get
 

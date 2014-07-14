@@ -2,7 +2,7 @@
 layout: api
 title: clear
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableSet](index.html) / [clear](clear.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableSet](index.md) / [clear](clear.md)
 
 # clear
 

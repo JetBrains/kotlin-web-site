@@ -2,7 +2,7 @@
 layout: api
 title: nextLong
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [LongIterator](index.html) / [nextLong](nextLong.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [LongIterator](index.md) / [nextLong](nextLong.md)
 
 # nextLong
 

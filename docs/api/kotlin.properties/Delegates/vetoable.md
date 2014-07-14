@@ -2,7 +2,7 @@
 layout: api
 title: vetoable
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [Delegates](index.html) / [vetoable](vetoable.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [Delegates](index.md) / [vetoable](vetoable.md)
 
 # vetoable
 

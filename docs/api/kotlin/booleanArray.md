@@ -2,7 +2,7 @@
 layout: api
 title: booleanArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [booleanArray](booleanArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [booleanArray](booleanArray.md)
 
 # booleanArray
 

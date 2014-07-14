@@ -2,14 +2,16 @@
 layout: api
 title: volatile
 ---
-[stdlib](../../index.html) / [kotlin.jvm](../index.html) / [volatile](index.html)
+[stdlib](../../index.md) / [kotlin.jvm](../index.md) / [volatile](index.md)
 
 # volatile
 
 ```
 public class volatile
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public volatile()`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public volatile()`**<br>|

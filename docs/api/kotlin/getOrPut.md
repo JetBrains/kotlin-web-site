@@ -2,7 +2,7 @@
 layout: api
 title: getOrPut
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [getOrPut](getOrPut.html)
+[stdlib](../index.md) / [kotlin](index.md) / [getOrPut](getOrPut.md)
 
 # getOrPut
 Returns the value for the given key or the result of the defaultValue function is put into the map for the given value and returned

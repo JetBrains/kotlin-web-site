@@ -2,7 +2,7 @@
 layout: api
 title: substringBefore
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [substringBefore](substringBefore.html)
+[stdlib](../index.md) / [kotlin](index.md) / [substringBefore](substringBefore.md)
 
 # substringBefore
 Returns a substring before first occurrence of delimiter. In case of no delimiter, returns the whole string.

@@ -2,7 +2,7 @@
 layout: api
 title: lock
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [BlockingLazyVal](index.html) / [lock](lock.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [BlockingLazyVal](index.md) / [lock](lock.md)
 
 # lock
 

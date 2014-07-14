@@ -2,7 +2,7 @@
 layout: api
 title: emptyImmutableArrayList
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [emptyImmutableArrayList](emptyImmutableArrayList.html)
+[stdlib](../index.md) / [kotlin](index.md) / [emptyImmutableArrayList](emptyImmutableArrayList.md)
 
 # emptyImmutableArrayList
 

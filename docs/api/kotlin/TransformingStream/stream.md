@@ -2,7 +2,7 @@
 layout: api
 title: stream
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [TransformingStream](index.html) / [stream](stream.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [TransformingStream](index.md) / [stream](stream.md)
 
 # stream
 

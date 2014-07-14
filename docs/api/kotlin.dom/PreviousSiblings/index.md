@@ -2,16 +2,18 @@
 layout: api
 title: PreviousSiblings
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [PreviousSiblings](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [PreviousSiblings](index.md)
 
 # PreviousSiblings
 
 ```
 class PreviousSiblings
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public PreviousSiblings(node: Node)`<br>|
-|[iterator](iterator.html)|&nbsp;&nbsp;`open public fun iterator(): Iterator<Node>`<br>|
-|[node](node.html)|&nbsp;&nbsp;`val node: Node`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public PreviousSiblings(node: Node)`**<br>|
+|[iterator](iterator.md)|&nbsp;&nbsp;**`open public fun iterator(): Iterator<Node>`**<br>|
+|[node](node.md)|&nbsp;&nbsp;**`val node: Node`**<br>|

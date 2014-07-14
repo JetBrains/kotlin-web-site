@@ -2,7 +2,7 @@
 layout: api
 title: <get-shiftKey>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [shiftKey](index.html) / [<get-shiftKey>](_get-shiftKey_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [shiftKey](index.md) / [<get-shiftKey>](_get-shiftKey_.md)
 
 # <get-shiftKey>
 

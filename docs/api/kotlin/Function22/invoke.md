@@ -2,7 +2,7 @@
 layout: api
 title: invoke
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Function22](index.html) / [invoke](invoke.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Function22](index.md) / [invoke](invoke.md)
 
 # invoke
 

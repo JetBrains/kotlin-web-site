@@ -2,7 +2,7 @@
 layout: api
 title: getCause
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Throwable](index.html) / [getCause](getCause.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Throwable](index.md) / [getCause](getCause.md)
 
 # getCause
 

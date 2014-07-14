@@ -2,7 +2,7 @@
 layout: api
 title: or
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Int](index.html) / [or](or.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Int](index.md) / [or](or.md)
 
 # or
 

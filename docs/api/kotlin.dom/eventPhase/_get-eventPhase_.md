@@ -2,7 +2,7 @@
 layout: api
 title: <get-eventPhase>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [eventPhase](index.html) / [<get-eventPhase>](_get-eventPhase_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [eventPhase](index.md) / [<get-eventPhase>](_get-eventPhase_.md)
 
 # <get-eventPhase>
 

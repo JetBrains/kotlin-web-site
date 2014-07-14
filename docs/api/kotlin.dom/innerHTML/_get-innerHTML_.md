@@ -2,7 +2,7 @@
 layout: api
 title: <get-innerHTML>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [innerHTML](index.html) / [<get-innerHTML>](_get-innerHTML_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [innerHTML](index.md) / [<get-innerHTML>](_get-innerHTML_.md)
 
 # <get-innerHTML>
 

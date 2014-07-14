@@ -2,7 +2,7 @@
 layout: api
 title: measureTimeNano
 ---
-[stdlib](../index.html) / [kotlin.util](index.html) / [measureTimeNano](measureTimeNano.html)
+[stdlib](../index.md) / [kotlin.util](index.md) / [measureTimeNano](measureTimeNano.md)
 
 # measureTimeNano
 Executes current block and returns elapsed time in nanoseconds

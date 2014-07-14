@@ -2,7 +2,7 @@
 layout: api
 title: toFloat
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Short](index.html) / [toFloat](toFloat.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Short](index.md) / [toFloat](toFloat.md)
 
 # toFloat
 

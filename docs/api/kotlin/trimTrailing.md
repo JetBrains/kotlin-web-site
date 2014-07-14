@@ -2,7 +2,7 @@
 layout: api
 title: trimTrailing
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [trimTrailing](trimTrailing.html)
+[stdlib](../index.md) / [kotlin](index.md) / [trimTrailing](trimTrailing.md)
 
 # trimTrailing
 Returns the string with the trailing postfix of this string removed

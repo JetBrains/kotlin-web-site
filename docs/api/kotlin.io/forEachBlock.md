@@ -2,7 +2,7 @@
 layout: api
 title: forEachBlock
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [forEachBlock](forEachBlock.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [forEachBlock](forEachBlock.md)
 
 # forEachBlock
 Reads file by byte blocks and calls closure for each block read. Block size depends on implementation but never less than 512.

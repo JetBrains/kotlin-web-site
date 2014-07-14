@@ -2,14 +2,16 @@
 layout: api
 title: canonicalPath
 ---
-[stdlib](../../index.html) / [kotlin.io](../index.html) / [canonicalPath](index.html)
+[stdlib](../../index.md) / [kotlin.io](../index.md) / [canonicalPath](index.md)
 
 # canonicalPath
 Returns the canonical path of the file
 ```
 val File.canonicalPath: String
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-canonicalPath&gt;](_get-canonicalPath_.html)|&nbsp;&nbsp;`fun File.<get-canonicalPath>(): String`<br>|
+|[&lt;get-canonicalPath&gt;](_get-canonicalPath_.md)|&nbsp;&nbsp;**`fun File.<get-canonicalPath>(): String`**<br>|

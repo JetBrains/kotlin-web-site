@@ -2,7 +2,7 @@
 layout: api
 title: toHtml
 ---
-[stdlib](../index.html) / [kotlin.template](index.html) / [toHtml](toHtml.html)
+[stdlib](../index.md) / [kotlin.template](index.md) / [toHtml](toHtml.md)
 
 # toHtml
 Converts this string template to HTML text

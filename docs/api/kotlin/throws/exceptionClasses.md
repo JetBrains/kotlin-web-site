@@ -2,7 +2,7 @@
 layout: api
 title: exceptionClasses
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [throws](index.html) / [exceptionClasses](exceptionClasses.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [throws](index.md) / [exceptionClasses](exceptionClasses.md)
 
 # exceptionClasses
 

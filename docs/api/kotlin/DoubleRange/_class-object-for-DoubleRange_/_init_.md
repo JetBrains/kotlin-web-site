@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../../index.html) / [kotlin](../../index.html) / [DoubleRange](../index.html) / [<class-object-for-DoubleRange>](index.html) / [<init>](_init_.html)
+[stdlib](../../../index.md) / [kotlin](../../index.md) / [DoubleRange](../index.md) / [<class-object-for-DoubleRange>](index.md) / [<init>](_init_.md)
 
 # <init>
 

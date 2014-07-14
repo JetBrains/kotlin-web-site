@@ -2,7 +2,7 @@
 layout: api
 title: useLines
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [useLines](useLines.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [useLines](useLines.md)
 
 # useLines
 

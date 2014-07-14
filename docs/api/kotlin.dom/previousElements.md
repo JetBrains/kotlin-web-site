@@ -2,7 +2,7 @@
 layout: api
 title: previousElements
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [previousElements](previousElements.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [previousElements](previousElements.md)
 
 # previousElements
 Returns an [[Iterator]] of all the previous [[Element]] siblings

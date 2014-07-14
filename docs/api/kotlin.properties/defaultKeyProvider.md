@@ -2,7 +2,7 @@
 layout: api
 title: defaultKeyProvider
 ---
-[stdlib](../index.html) / [kotlin.properties](index.html) / [defaultKeyProvider](defaultKeyProvider.html)
+[stdlib](../index.md) / [kotlin.properties](index.md) / [defaultKeyProvider](defaultKeyProvider.md)
 
 # defaultKeyProvider
 

@@ -2,14 +2,16 @@
 layout: api
 title: Function0
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Function0](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Function0](index.md)
 
 # Function0
 
 ```
 abstract public trait Function0<R> 
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[invoke](invoke.html)|&nbsp;&nbsp;`abstract public fun invoke(): R`<br>|
+|[invoke](invoke.md)|&nbsp;&nbsp;**`abstract public fun invoke(): R`**<br>|

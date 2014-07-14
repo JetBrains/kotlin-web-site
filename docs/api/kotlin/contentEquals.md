@@ -2,7 +2,7 @@
 layout: api
 title: contentEquals
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [contentEquals](contentEquals.html)
+[stdlib](../index.md) / [kotlin](index.md) / [contentEquals](contentEquals.md)
 
 # contentEquals
 

@@ -2,7 +2,7 @@
 layout: api
 title: failsWith
 ---
-[stdlib](../index.html) / [kotlin.test](index.html) / [failsWith](failsWith.html)
+[stdlib](../index.md) / [kotlin.test](index.md) / [failsWith](failsWith.md)
 
 # failsWith
 Asserts that a block fails with a specific exception being thrown

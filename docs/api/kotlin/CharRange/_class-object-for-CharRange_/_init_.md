@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../../index.html) / [kotlin](../../index.html) / [CharRange](../index.html) / [<class-object-for-CharRange>](index.html) / [<init>](_init_.html)
+[stdlib](../../../index.md) / [kotlin](../../index.md) / [CharRange](../index.md) / [<class-object-for-CharRange>](index.md) / [<init>](_init_.md)
 
 # <init>
 

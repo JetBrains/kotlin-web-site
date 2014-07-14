@@ -2,7 +2,7 @@
 layout: api
 title: <get-screenX>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [screenX](index.html) / [<get-screenX>](_get-screenX_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [screenX](index.md) / [<get-screenX>](_get-screenX_.md)
 
 # <get-screenX>
 

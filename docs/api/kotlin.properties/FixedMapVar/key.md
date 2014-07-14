@@ -2,7 +2,7 @@
 layout: api
 title: key
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [FixedMapVar](index.html) / [key](key.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [FixedMapVar](index.md) / [key](key.md)
 
 # key
 

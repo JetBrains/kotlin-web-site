@@ -2,7 +2,7 @@
 layout: api
 title: nodesToXmlString
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [nodesToXmlString](nodesToXmlString.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [nodesToXmlString](nodesToXmlString.md)
 
 # nodesToXmlString
 Converts the collection of nodes to an XML String

@@ -2,7 +2,7 @@
 layout: api
 title: hashMap
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [hashMap](hashMap.html)
+[stdlib](../index.md) / [kotlin](index.md) / [hashMap](hashMap.md)
 
 # hashMap
 

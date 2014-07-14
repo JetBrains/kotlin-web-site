@@ -2,7 +2,7 @@
 layout: api
 title: <get-document>
 ---
-[stdlib](../../index.html) / [kotlin.browser](../index.html) / [document](index.html) / [<get-document>](_get-document_.html)
+[stdlib](../../index.md) / [kotlin.browser](../index.md) / [document](index.md) / [<get-document>](_get-document_.md)
 
 # <get-document>
 

@@ -2,7 +2,7 @@
 layout: api
 title: plusAssign
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [plusAssign](plusAssign.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [plusAssign](plusAssign.md)
 
 # plusAssign
 

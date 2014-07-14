@@ -2,7 +2,7 @@
 layout: api
 title: offset
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ImmutableArrayList](index.html) / [offset](offset.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ImmutableArrayList](index.md) / [offset](offset.md)
 
 # offset
 

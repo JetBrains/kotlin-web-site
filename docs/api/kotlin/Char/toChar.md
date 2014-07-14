@@ -2,7 +2,7 @@
 layout: api
 title: toChar
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Char](index.html) / [toChar](toChar.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Char](index.md) / [toChar](toChar.md)
 
 # toChar
 

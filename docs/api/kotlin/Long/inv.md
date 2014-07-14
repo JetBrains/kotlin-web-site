@@ -2,7 +2,7 @@
 layout: api
 title: inv
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Long](index.html) / [inv](inv.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Long](index.md) / [inv](inv.md)
 
 # inv
 

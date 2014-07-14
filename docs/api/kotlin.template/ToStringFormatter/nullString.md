@@ -2,7 +2,7 @@
 layout: api
 title: nullString
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [ToStringFormatter](index.html) / [nullString](nullString.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [ToStringFormatter](index.md) / [nullString](nullString.md)
 
 # nullString
 

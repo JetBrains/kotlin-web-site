@@ -2,7 +2,7 @@
 layout: api
 title: hasNext
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [CharProgressionIterator](index.html) / [hasNext](hasNext.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [CharProgressionIterator](index.md) / [hasNext](hasNext.md)
 
 # hasNext
 

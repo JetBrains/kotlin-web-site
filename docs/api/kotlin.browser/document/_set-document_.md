@@ -2,7 +2,7 @@
 layout: api
 title: <set-document>
 ---
-[stdlib](../../index.html) / [kotlin.browser](../index.html) / [document](index.html) / [<set-document>](_set-document_.html)
+[stdlib](../../index.md) / [kotlin.browser](../index.md) / [document](index.md) / [<set-document>](_set-document_.md)
 
 # <set-document>
 

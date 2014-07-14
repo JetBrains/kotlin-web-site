@@ -2,7 +2,7 @@
 layout: api
 title: <get-cancelable>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [cancelable](index.html) / [<get-cancelable>](_get-cancelable_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [cancelable](index.md) / [<get-cancelable>](_get-cancelable_.md)
 
 # <get-cancelable>
 

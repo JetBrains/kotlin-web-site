@@ -2,14 +2,16 @@
 layout: api
 title: target
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [target](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [target](index.md)
 
 # target
 
 ```
 val Event.target: EventTarget
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-target&gt;](_get-target_.html)|&nbsp;&nbsp;`fun Event.<get-target>(): EventTarget`<br>|
+|[&lt;get-target&gt;](_get-target_.md)|&nbsp;&nbsp;**`fun Event.<get-target>(): EventTarget`**<br>|

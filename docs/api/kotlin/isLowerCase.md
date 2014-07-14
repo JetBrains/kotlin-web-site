@@ -2,7 +2,7 @@
 layout: api
 title: isLowerCase
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isLowerCase](isLowerCase.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isLowerCase](isLowerCase.md)
 
 # isLowerCase
 Returns true if this character is lower case

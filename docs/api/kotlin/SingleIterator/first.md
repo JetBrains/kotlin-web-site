@@ -2,7 +2,7 @@
 layout: api
 title: first
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [SingleIterator](index.html) / [first](first.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [SingleIterator](index.md) / [first](first.md)
 
 # first
 

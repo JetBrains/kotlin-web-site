@@ -2,7 +2,7 @@
 layout: api
 title: add
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableList](index.html) / [add](add.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableList](index.md) / [add](add.md)
 
 # add
 

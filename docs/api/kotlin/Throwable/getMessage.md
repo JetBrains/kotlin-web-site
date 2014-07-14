@@ -2,7 +2,7 @@
 layout: api
 title: getMessage
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Throwable](index.html) / [getMessage](getMessage.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Throwable](index.md) / [getMessage](getMessage.md)
 
 # getMessage
 

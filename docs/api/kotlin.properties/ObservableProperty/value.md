@@ -2,7 +2,7 @@
 layout: api
 title: value
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ObservableProperty](index.html) / [value](value.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ObservableProperty](index.md) / [value](value.md)
 
 # value
 

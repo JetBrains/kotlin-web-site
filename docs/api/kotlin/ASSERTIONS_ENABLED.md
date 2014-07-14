@@ -2,7 +2,7 @@
 layout: api
 title: ASSERTIONS_ENABLED
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [ASSERTIONS_ENABLED](ASSERTIONS_ENABLED.html)
+[stdlib](../index.md) / [kotlin](index.md) / [ASSERTIONS_ENABLED](ASSERTIONS_ENABLED.md)
 
 # ASSERTIONS_ENABLED
 

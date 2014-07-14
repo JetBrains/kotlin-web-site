@@ -2,7 +2,7 @@
 layout: api
 title: <get-canonicalPath>
 ---
-[stdlib](../../index.html) / [kotlin.io](../index.html) / [canonicalPath](index.html) / [<get-canonicalPath>](_get-canonicalPath_.html)
+[stdlib](../../index.md) / [kotlin.io](../index.md) / [canonicalPath](index.md) / [<get-canonicalPath>](_get-canonicalPath_.md)
 
 # <get-canonicalPath>
 

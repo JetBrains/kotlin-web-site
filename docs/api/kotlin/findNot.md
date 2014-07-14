@@ -2,7 +2,7 @@
 layout: api
 title: findNot
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [findNot](findNot.html)
+[stdlib](../index.md) / [kotlin](index.md) / [findNot](findNot.md)
 
 # findNot
 Returns the first character which does not match the given *predicate* or *null* if none matched

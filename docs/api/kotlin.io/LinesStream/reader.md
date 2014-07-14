@@ -2,7 +2,7 @@
 layout: api
 title: reader
 ---
-[stdlib](../../index.html) / [kotlin.io](../index.html) / [LinesStream](index.html) / [reader](reader.html)
+[stdlib](../../index.md) / [kotlin.io](../index.md) / [LinesStream](index.md) / [reader](reader.md)
 
 # reader
 

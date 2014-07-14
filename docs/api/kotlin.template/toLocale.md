@@ -2,7 +2,7 @@
 layout: api
 title: toLocale
 ---
-[stdlib](../index.html) / [kotlin.template](index.html) / [toLocale](toLocale.html)
+[stdlib](../index.md) / [kotlin.template](index.md) / [toLocale](toLocale.md)
 
 # toLocale
 Converts this string template to internationalised text using the supplied

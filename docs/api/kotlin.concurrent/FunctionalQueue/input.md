@@ -2,7 +2,7 @@
 layout: api
 title: input
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [FunctionalQueue](index.html) / [input](input.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [FunctionalQueue](index.md) / [input](input.md)
 
 # input
 

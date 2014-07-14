@@ -2,7 +2,7 @@
 layout: api
 title: monitorExit
 ---
-[stdlib](../index.html) / [kotlin.jvm.internal.unsafe](index.html) / [monitorExit](monitorExit.html)
+[stdlib](../index.md) / [kotlin.jvm.internal.unsafe](index.md) / [monitorExit](monitorExit.md)
 
 # monitorExit
 

@@ -2,7 +2,7 @@
 layout: api
 title: append
 ---
-[stdlib](../index.html) / [kotlin.template](index.html) / [append](append.html)
+[stdlib](../index.md) / [kotlin.template](index.md) / [append](append.md)
 
 # append
 Appends the text representation of this string template to the given output

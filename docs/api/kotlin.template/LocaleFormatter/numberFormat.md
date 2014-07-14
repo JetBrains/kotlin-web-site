@@ -2,7 +2,7 @@
 layout: api
 title: numberFormat
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [LocaleFormatter](index.html) / [numberFormat](numberFormat.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [LocaleFormatter](index.md) / [numberFormat](numberFormat.md)
 
 # numberFormat
 

@@ -2,7 +2,7 @@
 layout: api
 title: get
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ByteArray](index.html) / [get](get.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ByteArray](index.md) / [get](get.md)
 
 # get
 

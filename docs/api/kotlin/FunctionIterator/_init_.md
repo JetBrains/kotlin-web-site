@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FunctionIterator](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FunctionIterator](index.md) / [<init>](_init_.md)
 
 # <init>
 An [[Iterator]] which invokes a function to calculate the next value in the iteration until the function returns *null*

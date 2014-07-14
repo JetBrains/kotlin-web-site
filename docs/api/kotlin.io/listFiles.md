@@ -2,7 +2,7 @@
 layout: api
 title: listFiles
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [listFiles](listFiles.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [listFiles](listFiles.md)
 
 # listFiles
 Returns an array of files and directories in the directory that satisfy the specified filter.

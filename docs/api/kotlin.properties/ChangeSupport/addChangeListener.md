@@ -2,7 +2,7 @@
 layout: api
 title: addChangeListener
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeSupport](index.html) / [addChangeListener](addChangeListener.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeSupport](index.md) / [addChangeListener](addChangeListener.md)
 
 # addChangeListener
 

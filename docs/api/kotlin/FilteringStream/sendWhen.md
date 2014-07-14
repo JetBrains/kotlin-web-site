@@ -2,7 +2,7 @@
 layout: api
 title: sendWhen
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FilteringStream](index.html) / [sendWhen](sendWhen.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FilteringStream](index.md) / [sendWhen](sendWhen.md)
 
 # sendWhen
 

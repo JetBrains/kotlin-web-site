@@ -2,7 +2,7 @@
 layout: api
 title: <get-reader>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [reader](index.html) / [<get-reader>](_get-reader_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [reader](index.md) / [<get-reader>](_get-reader_.md)
 
 # <get-reader>
 

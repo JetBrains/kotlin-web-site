@@ -2,7 +2,7 @@
 layout: api
 title: default
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [FixedMapVar](index.html) / [default](default.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [FixedMapVar](index.md) / [default](default.md)
 
 # default
 

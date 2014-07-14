@@ -2,14 +2,16 @@
 layout: api
 title: kotlin.platform
 ---
-[stdlib](../index.html) / [kotlin.platform](index.html)
+[stdlib](../index.md) / [kotlin.platform](index.md)
 
 # kotlin.platform
 
 ```
 package kotlin.platform
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[platformName](platformName/index.html)|&nbsp;&nbsp;`public class platformName`<br>|
+|[platformName](platformName/index.md)|&nbsp;&nbsp;**`public class platformName`**<br>|

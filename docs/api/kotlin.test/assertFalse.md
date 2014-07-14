@@ -2,7 +2,7 @@
 layout: api
 title: assertFalse
 ---
-[stdlib](../index.html) / [kotlin.test](index.html) / [assertFalse](assertFalse.html)
+[stdlib](../index.md) / [kotlin.test](index.md) / [assertFalse](assertFalse.md)
 
 # assertFalse
 Asserts that the expression is false with an optional message

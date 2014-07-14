@@ -2,7 +2,7 @@
 layout: api
 title: length
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [CharSequence](index.html) / [length](length.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [CharSequence](index.md) / [length](length.md)
 
 # length
 

@@ -2,7 +2,7 @@
 layout: api
 title: <get-key>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [key](index.html) / [<get-key>](_get-key_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [key](index.md) / [<get-key>](_get-key_.md)
 
 # <get-key>
 

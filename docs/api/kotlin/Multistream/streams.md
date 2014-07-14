@@ -2,7 +2,7 @@
 layout: api
 title: streams
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Multistream](index.html) / [streams](streams.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Multistream](index.md) / [streams](streams.md)
 
 # streams
 

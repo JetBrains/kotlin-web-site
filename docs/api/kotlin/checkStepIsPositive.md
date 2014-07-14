@@ -2,7 +2,7 @@
 layout: api
 title: checkStepIsPositive
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [checkStepIsPositive](checkStepIsPositive.html)
+[stdlib](../index.md) / [kotlin](index.md) / [checkStepIsPositive](checkStepIsPositive.md)
 
 # checkStepIsPositive
 

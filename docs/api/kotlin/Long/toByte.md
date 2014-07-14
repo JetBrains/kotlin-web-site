@@ -2,7 +2,7 @@
 layout: api
 title: toByte
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Long](index.html) / [toByte](toByte.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Long](index.md) / [toByte](toByte.md)
 
 # toByte
 

@@ -2,7 +2,7 @@
 layout: api
 title: repeat
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [repeat](repeat.html)
+[stdlib](../index.md) / [kotlin](index.md) / [repeat](repeat.md)
 
 # repeat
 Repeats a given string n times.

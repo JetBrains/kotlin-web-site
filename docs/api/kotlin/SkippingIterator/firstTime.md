@@ -2,7 +2,7 @@
 layout: api
 title: firstTime
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [SkippingIterator](index.html) / [firstTime](firstTime.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [SkippingIterator](index.md) / [firstTime](firstTime.md)
 
 # firstTime
 

@@ -2,7 +2,7 @@
 layout: api
 title: get
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [BlockingLazyVal](index.html) / [get](get.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [BlockingLazyVal](index.md) / [get](get.md)
 
 # get
 

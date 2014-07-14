@@ -2,7 +2,7 @@
 layout: api
 title: <set-priority>
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [priority](index.html) / [<set-priority>](_set-priority_.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [priority](index.md) / [<set-priority>](_set-priority_.md)
 
 # <set-priority>
 

@@ -2,7 +2,7 @@
 layout: api
 title: containsValue
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Map](index.html) / [containsValue](containsValue.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Map](index.md) / [containsValue](containsValue.md)
 
 # containsValue
 

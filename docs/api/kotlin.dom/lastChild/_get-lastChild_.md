@@ -2,7 +2,7 @@
 layout: api
 title: <get-lastChild>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [lastChild](index.html) / [<get-lastChild>](_get-lastChild_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [lastChild](index.md) / [<get-lastChild>](_get-lastChild_.md)
 
 # <get-lastChild>
 

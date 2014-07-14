@@ -2,7 +2,7 @@
 layout: api
 title: toList
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [toList](toList.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [toList](toList.md)
 
 # toList
 

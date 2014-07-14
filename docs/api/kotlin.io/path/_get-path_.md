@@ -2,7 +2,7 @@
 layout: api
 title: <get-path>
 ---
-[stdlib](../../index.html) / [kotlin.io](../index.html) / [path](index.html) / [<get-path>](_get-path_.html)
+[stdlib](../../index.md) / [kotlin.io](../index.md) / [path](index.md) / [<get-path>](_get-path_.md)
 
 # <get-path>
 

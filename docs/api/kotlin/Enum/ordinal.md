@@ -2,7 +2,7 @@
 layout: api
 title: ordinal
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Enum](index.html) / [ordinal](ordinal.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Enum](index.md) / [ordinal](ordinal.md)
 
 # ordinal
 

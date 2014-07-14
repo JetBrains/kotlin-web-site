@@ -2,7 +2,7 @@
 layout: api
 title: mapVal
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [Delegates](index.html) / [mapVal](mapVal.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [Delegates](index.md) / [mapVal](mapVal.md)
 
 # mapVal
 

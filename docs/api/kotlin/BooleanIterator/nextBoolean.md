@@ -2,7 +2,7 @@
 layout: api
 title: nextBoolean
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [BooleanIterator](index.html) / [nextBoolean](nextBoolean.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [BooleanIterator](index.md) / [nextBoolean](nextBoolean.md)
 
 # nextBoolean
 

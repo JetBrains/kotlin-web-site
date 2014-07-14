@@ -2,7 +2,7 @@
 layout: api
 title: value
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [BlockingLazyVal](index.html) / [value](value.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [BlockingLazyVal](index.md) / [value](value.md)
 
 # value
 

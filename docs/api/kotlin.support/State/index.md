@@ -2,17 +2,19 @@
 layout: api
 title: State
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [State](index.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [State](index.md)
 
 # State
 
 ```
 object State
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[Done](Done.html)|&nbsp;&nbsp;`val Done: Int`<br>|
-|[Failed](Failed.html)|&nbsp;&nbsp;`val Failed: Int`<br>|
-|[NotReady](NotReady.html)|&nbsp;&nbsp;`val NotReady: Int`<br>|
-|[Ready](Ready.html)|&nbsp;&nbsp;`val Ready: Int`<br>|
+|[Done](Done.md)|&nbsp;&nbsp;**`val Done: Int`**<br>|
+|[Failed](Failed.md)|&nbsp;&nbsp;**`val Failed: Int`**<br>|
+|[NotReady](NotReady.md)|&nbsp;&nbsp;**`val NotReady: Int`**<br>|
+|[Ready](Ready.md)|&nbsp;&nbsp;**`val Ready: Int`**<br>|

@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [ToStringFormatter](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [ToStringFormatter](index.md) / [<init>](_init_.md)
 
 # <init>
 Formats strings with no special encoding other than allowing the null text to be

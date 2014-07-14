@@ -2,7 +2,7 @@
 layout: api
 title: let
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [let](let.html)
+[stdlib](../index.md) / [kotlin](index.md) / [let](let.md)
 
 # let
 Converts receiver to body parameter

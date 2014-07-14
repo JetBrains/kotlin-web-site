@@ -2,16 +2,18 @@
 layout: api
 title: LinesStream
 ---
-[stdlib](../../index.html) / [kotlin.io](../index.html) / [LinesStream](index.html)
+[stdlib](../../index.md) / [kotlin.io](../index.md) / [LinesStream](index.md)
 
 # LinesStream
 
 ```
 class LinesStream
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public LinesStream(reader: BufferedReader)`<br>|
-|[iterator](iterator.html)|&nbsp;&nbsp;`open public fun iterator(): Iterator<String>`<br>|
-|[reader](reader.html)|&nbsp;&nbsp;`val reader: BufferedReader`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public LinesStream(reader: BufferedReader)`**<br>|
+|[iterator](iterator.md)|&nbsp;&nbsp;**`open public fun iterator(): Iterator<String>`**<br>|
+|[reader](reader.md)|&nbsp;&nbsp;**`val reader: BufferedReader`**<br>|

@@ -2,7 +2,7 @@
 layout: api
 title: floatArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [floatArray](floatArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [floatArray](floatArray.md)
 
 # floatArray
 

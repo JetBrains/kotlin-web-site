@@ -2,7 +2,7 @@
 layout: api
 title: <get-nodeValue>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [nodeValue](index.html) / [<get-nodeValue>](_get-nodeValue_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [nodeValue](index.md) / [<get-nodeValue>](_get-nodeValue_.md)
 
 # <get-nodeValue>
 

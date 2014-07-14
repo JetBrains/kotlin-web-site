@@ -2,7 +2,7 @@
 layout: api
 title: format
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [HtmlFormatter](index.html) / [format](format.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [HtmlFormatter](index.md) / [format](format.md)
 
 # format
 

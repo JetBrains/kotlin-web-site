@@ -2,7 +2,7 @@
 layout: api
 title: onDoubleClick
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [onDoubleClick](onDoubleClick.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [onDoubleClick](onDoubleClick.md)
 
 # onDoubleClick
 

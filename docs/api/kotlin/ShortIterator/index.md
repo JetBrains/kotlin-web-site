@@ -2,16 +2,18 @@
 layout: api
 title: ShortIterator
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ShortIterator](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ShortIterator](index.md)
 
 # ShortIterator
 
 ```
 abstract public class ShortIterator
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public ShortIterator()`<br>|
-|[next](next.html)|&nbsp;&nbsp;`public fun next(): Short`<br>|
-|[nextShort](nextShort.html)|&nbsp;&nbsp;`abstract public fun nextShort(): Short`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public ShortIterator()`**<br>|
+|[next](next.md)|&nbsp;&nbsp;**`public fun next(): Short`**<br>|
+|[nextShort](nextShort.md)|&nbsp;&nbsp;**`abstract public fun nextShort(): Short`**<br>|

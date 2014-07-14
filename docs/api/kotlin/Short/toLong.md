@@ -2,7 +2,7 @@
 layout: api
 title: toLong
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Short](index.html) / [toLong](toLong.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Short](index.md) / [toLong](toLong.md)
 
 # toLong
 

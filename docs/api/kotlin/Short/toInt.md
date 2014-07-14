@@ -2,7 +2,7 @@
 layout: api
 title: toInt
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Short](index.html) / [toInt](toInt.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Short](index.md) / [toInt](toInt.md)
 
 # toInt
 

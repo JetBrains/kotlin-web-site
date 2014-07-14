@@ -2,7 +2,7 @@
 layout: api
 title: <get-baseURI>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [baseURI](index.html) / [<get-baseURI>](_get-baseURI_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [baseURI](index.md) / [<get-baseURI>](_get-baseURI_.md)
 
 # <get-baseURI>
 

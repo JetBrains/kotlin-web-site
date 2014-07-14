@@ -2,7 +2,7 @@
 layout: api
 title: setOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [setOf](setOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [setOf](setOf.md)
 
 # setOf
 Returns a new read-only set of given elements

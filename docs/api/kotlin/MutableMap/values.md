@@ -2,7 +2,7 @@
 layout: api
 title: values
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableMap](index.html) / [values](values.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableMap](index.md) / [values](values.md)
 
 # values
 

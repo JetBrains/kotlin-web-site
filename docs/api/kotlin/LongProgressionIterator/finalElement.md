@@ -2,7 +2,7 @@
 layout: api
 title: finalElement
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [LongProgressionIterator](index.html) / [finalElement](finalElement.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [LongProgressionIterator](index.md) / [finalElement](finalElement.md)
 
 # finalElement
 

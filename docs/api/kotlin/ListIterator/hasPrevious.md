@@ -2,7 +2,7 @@
 layout: api
 title: hasPrevious
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ListIterator](index.html) / [hasPrevious](hasPrevious.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ListIterator](index.md) / [hasPrevious](hasPrevious.md)
 
 # hasPrevious
 

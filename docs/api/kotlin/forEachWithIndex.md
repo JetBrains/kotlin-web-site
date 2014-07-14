@@ -2,7 +2,7 @@
 layout: api
 title: forEachWithIndex
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [forEachWithIndex](forEachWithIndex.html)
+[stdlib](../index.md) / [kotlin](index.md) / [forEachWithIndex](forEachWithIndex.md)
 
 # forEachWithIndex
 

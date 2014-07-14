@@ -2,7 +2,7 @@
 layout: api
 title: entrySet
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableMap](index.html) / [entrySet](entrySet.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableMap](index.md) / [entrySet](entrySet.md)
 
 # entrySet
 

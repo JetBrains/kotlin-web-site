@@ -2,7 +2,7 @@
 layout: api
 title: runnable
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [runnable](runnable.html)
+[stdlib](../index.md) / [kotlin](index.md) / [runnable](runnable.md)
 
 # runnable
 A helper method for creating a [[Runnable]] from a function

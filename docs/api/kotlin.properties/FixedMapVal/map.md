@@ -2,7 +2,7 @@
 layout: api
 title: map
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [FixedMapVal](index.html) / [map](map.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [FixedMapVal](index.md) / [map](map.md)
 
 # map
 

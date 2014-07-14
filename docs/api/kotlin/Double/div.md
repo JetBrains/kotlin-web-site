@@ -2,7 +2,7 @@
 layout: api
 title: div
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Double](index.html) / [div](div.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Double](index.md) / [div](div.md)
 
 # div
 

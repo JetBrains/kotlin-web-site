@@ -2,7 +2,7 @@
 layout: api
 title: assertNot
 ---
-[stdlib](../index.html) / [kotlin.test](index.html) / [assertNot](assertNot.html)
+[stdlib](../index.md) / [kotlin.test](index.md) / [assertNot](assertNot.md)
 
 # assertNot
 Asserts that the given block returns false

@@ -2,7 +2,7 @@
 layout: api
 title: javaClass
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [javaClass](javaClass.html)
+[stdlib](../index.md) / [kotlin](index.md) / [javaClass](javaClass.md)
 
 # javaClass
 

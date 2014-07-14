@@ -2,7 +2,7 @@
 layout: api
 title: nextDouble
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [DoubleProgressionIterator](index.html) / [nextDouble](nextDouble.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [DoubleProgressionIterator](index.md) / [nextDouble](nextDouble.md)
 
 # nextDouble
 

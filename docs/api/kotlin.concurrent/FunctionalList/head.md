@@ -2,7 +2,7 @@
 layout: api
 title: head
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [FunctionalList](index.html) / [head](head.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [FunctionalList](index.md) / [head](head.md)
 
 # head
 

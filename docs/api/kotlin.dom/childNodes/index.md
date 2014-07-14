@@ -2,14 +2,16 @@
 layout: api
 title: childNodes
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [childNodes](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [childNodes](index.md)
 
 # childNodes
 
 ```
 val Node.childNodes: NodeList
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-childNodes&gt;](_get-childNodes_.html)|&nbsp;&nbsp;`fun Node.<get-childNodes>(): NodeList`<br>|
+|[&lt;get-childNodes&gt;](_get-childNodes_.md)|&nbsp;&nbsp;**`fun Node.<get-childNodes>(): NodeList`**<br>|

@@ -2,7 +2,7 @@
 layout: api
 title: newValue
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeEvent](index.html) / [newValue](newValue.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeEvent](index.md) / [newValue](newValue.md)
 
 # newValue
 

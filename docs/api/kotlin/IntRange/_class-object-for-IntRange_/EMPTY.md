@@ -2,7 +2,7 @@
 layout: api
 title: EMPTY
 ---
-[stdlib](../../../index.html) / [kotlin](../../index.html) / [IntRange](../index.html) / [<class-object-for-IntRange>](index.html) / [EMPTY](EMPTY.html)
+[stdlib](../../../index.md) / [kotlin](../../index.md) / [IntRange](../index.md) / [<class-object-for-IntRange>](index.md) / [EMPTY](EMPTY.md)
 
 # EMPTY
 

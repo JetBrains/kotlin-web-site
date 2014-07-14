@@ -2,7 +2,7 @@
 layout: api
 title: close
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [CloseableEventListener](index.html) / [close](close.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [CloseableEventListener](index.md) / [close](close.md)
 
 # close
 

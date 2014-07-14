@@ -2,7 +2,7 @@
 layout: api
 title: LINE_SEPARATOR
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [LINE_SEPARATOR](LINE_SEPARATOR.html)
+[stdlib](../index.md) / [kotlin](index.md) / [LINE_SEPARATOR](LINE_SEPARATOR.md)
 
 # LINE_SEPARATOR
 Line separator for current system.

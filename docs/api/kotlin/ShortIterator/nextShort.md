@@ -2,7 +2,7 @@
 layout: api
 title: nextShort
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ShortIterator](index.html) / [nextShort](nextShort.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ShortIterator](index.md) / [nextShort](nextShort.md)
 
 # nextShort
 

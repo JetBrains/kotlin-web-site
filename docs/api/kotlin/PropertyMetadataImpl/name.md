@@ -2,7 +2,7 @@
 layout: api
 title: name
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [PropertyMetadataImpl](index.html) / [name](name.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [PropertyMetadataImpl](index.md) / [name](name.md)
 
 # name
 

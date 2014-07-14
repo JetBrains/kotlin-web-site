@@ -2,7 +2,7 @@
 layout: api
 title: <get-inputStream>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [inputStream](index.html) / [<get-inputStream>](_get-inputStream_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [inputStream](index.md) / [<get-inputStream>](_get-inputStream_.md)
 
 # <get-inputStream>
 

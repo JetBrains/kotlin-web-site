@@ -2,14 +2,16 @@
 layout: api
 title: reader
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [reader](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [reader](index.md)
 
 # reader
 
 ```
 val String.reader: StringReader
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-reader&gt;](_get-reader_.html)|&nbsp;&nbsp;`fun String.<get-reader>(): StringReader`<br>|
+|[&lt;get-reader&gt;](_get-reader_.md)|&nbsp;&nbsp;**`fun String.<get-reader>(): StringReader`**<br>|

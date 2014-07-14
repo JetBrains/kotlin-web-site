@@ -2,7 +2,7 @@
 layout: api
 title: linkedMap
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [linkedMap](linkedMap.html)
+[stdlib](../index.md) / [kotlin](index.md) / [linkedMap](linkedMap.md)
 
 # linkedMap
 

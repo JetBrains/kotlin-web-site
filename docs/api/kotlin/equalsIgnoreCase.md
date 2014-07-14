@@ -2,7 +2,7 @@
 layout: api
 title: equalsIgnoreCase
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [equalsIgnoreCase](equalsIgnoreCase.html)
+[stdlib](../index.md) / [kotlin](index.md) / [equalsIgnoreCase](equalsIgnoreCase.md)
 
 # equalsIgnoreCase
 

@@ -2,7 +2,7 @@
 layout: api
 title: get
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ObservableProperty](index.html) / [get](get.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ObservableProperty](index.md) / [get](get.md)
 
 # get
 

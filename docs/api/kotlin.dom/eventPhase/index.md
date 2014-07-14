@@ -2,14 +2,16 @@
 layout: api
 title: eventPhase
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [eventPhase](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [eventPhase](index.md)
 
 # eventPhase
 
 ```
 val Event.eventPhase: Short
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-eventPhase&gt;](_get-eventPhase_.html)|&nbsp;&nbsp;`fun Event.<get-eventPhase>(): Short`<br>|
+|[&lt;get-eventPhase&gt;](_get-eventPhase_.md)|&nbsp;&nbsp;**`fun Event.<get-eventPhase>(): Short`**<br>|

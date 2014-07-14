@@ -2,14 +2,16 @@
 layout: api
 title: parentNode
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [parentNode](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [parentNode](index.md)
 
 # parentNode
 
 ```
 val Node.parentNode: Node
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-parentNode&gt;](_get-parentNode_.html)|&nbsp;&nbsp;`fun Node.<get-parentNode>(): Node`<br>|
+|[&lt;get-parentNode&gt;](_get-parentNode_.md)|&nbsp;&nbsp;**`fun Node.<get-parentNode>(): Node`**<br>|

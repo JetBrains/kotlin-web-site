@@ -2,11 +2,11 @@
 layout: api
 title: charAt
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [charAt](charAt.html)
+[stdlib](../index.md) / [kotlin](index.md) / [charAt](charAt.md)
 
 # charAt
 
 ```
-public fun String.charAt(index: Int): Char
 public fun CharSequence.charAt(index: Int): Char
+public fun String.charAt(index: Int): Char
 ```

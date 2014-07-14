@@ -2,7 +2,7 @@
 layout: api
 title: iterators
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [CompositeIterator](index.html) / [iterators](iterators.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [CompositeIterator](index.md) / [iterators](iterators.md)
 
 # iterators
 

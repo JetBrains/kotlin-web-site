@@ -2,7 +2,7 @@
 layout: api
 title: rangeTo
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Long](index.html) / [rangeTo](rangeTo.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Long](index.md) / [rangeTo](rangeTo.md)
 
 # rangeTo
 

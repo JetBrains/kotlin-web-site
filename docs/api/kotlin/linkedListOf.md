@@ -2,7 +2,7 @@
 layout: api
 title: linkedListOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [linkedListOf](linkedListOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [linkedListOf](linkedListOf.md)
 
 # linkedListOf
 Returns a new LinkedList with a variable number of initial elements

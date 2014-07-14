@@ -2,7 +2,7 @@
 layout: api
 title: <get-text>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [text](index.html) / [<get-text>](_get-text_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [text](index.md) / [<get-text>](_get-text_.md)
 
 # <get-text>
 

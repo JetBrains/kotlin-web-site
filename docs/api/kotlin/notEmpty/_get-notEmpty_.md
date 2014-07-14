@@ -2,7 +2,7 @@
 layout: api
 title: <get-notEmpty>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [notEmpty](index.html) / [<get-notEmpty>](_get-notEmpty_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [notEmpty](index.md) / [<get-notEmpty>](_get-notEmpty_.md)
 
 # <get-notEmpty>
 

@@ -2,14 +2,16 @@
 layout: api
 title: clientY
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [clientY](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [clientY](index.md)
 
 # clientY
 
 ```
 val MouseEvent.clientY: Int
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-clientY&gt;](_get-clientY_.html)|&nbsp;&nbsp;`fun MouseEvent.<get-clientY>(): Int`<br>|
+|[&lt;get-clientY&gt;](_get-clientY_.md)|&nbsp;&nbsp;**`fun MouseEvent.<get-clientY>(): Int`**<br>|

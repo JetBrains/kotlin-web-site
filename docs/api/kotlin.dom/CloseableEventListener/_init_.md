@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [CloseableEventListener](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [CloseableEventListener](index.md) / [<init>](_init_.md)
 
 # <init>
 

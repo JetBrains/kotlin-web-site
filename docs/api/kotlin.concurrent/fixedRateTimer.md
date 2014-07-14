@@ -2,7 +2,7 @@
 layout: api
 title: fixedRateTimer
 ---
-[stdlib](../index.html) / [kotlin.concurrent](index.html) / [fixedRateTimer](fixedRateTimer.html)
+[stdlib](../index.md) / [kotlin.concurrent](index.md) / [fixedRateTimer](fixedRateTimer.md)
 
 # fixedRateTimer
 

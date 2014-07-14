@@ -2,7 +2,7 @@
 layout: api
 title: escape
 ---
-[stdlib](../index.html) / [kotlin.properties](index.html) / [escape](escape.html)
+[stdlib](../index.md) / [kotlin.properties](index.md) / [escape](escape.md)
 
 # escape
 

@@ -2,7 +2,7 @@
 layout: api
 title: <get-annotationsPath>
 ---
-[stdlib](../../../index.html) / [kotlin.modules](../../index.html) / [ModuleBuilder](../index.html) / [annotationsPath](index.html) / [<get-annotationsPath>](_get-annotationsPath_.html)
+[stdlib](../../../index.md) / [kotlin.modules](../../index.md) / [ModuleBuilder](../index.md) / [annotationsPath](index.md) / [<get-annotationsPath>](_get-annotationsPath_.md)
 
 # <get-annotationsPath>
 

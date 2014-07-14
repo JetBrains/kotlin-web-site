@@ -2,7 +2,7 @@
 layout: api
 title: indices
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ShortArray](index.html) / [indices](indices.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ShortArray](index.md) / [indices](indices.md)
 
 # indices
 

@@ -2,7 +2,7 @@
 layout: api
 title: getOutputDirectory
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [Module](index.html) / [getOutputDirectory](getOutputDirectory.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [Module](index.md) / [getOutputDirectory](getOutputDirectory.md)
 
 # getOutputDirectory
 

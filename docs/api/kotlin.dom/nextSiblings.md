@@ -2,7 +2,7 @@
 layout: api
 title: nextSiblings
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [nextSiblings](nextSiblings.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [nextSiblings](nextSiblings.md)
 
 # nextSiblings
 Returns an [[Iterator]] over the next siblings of this node

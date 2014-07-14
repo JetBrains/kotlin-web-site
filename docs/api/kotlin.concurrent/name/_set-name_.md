@@ -2,7 +2,7 @@
 layout: api
 title: <set-name>
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [name](index.html) / [<set-name>](_set-name_.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [name](index.md) / [<set-name>](_set-name_.md)
 
 # <set-name>
 

@@ -2,7 +2,7 @@
 layout: api
 title: createTransformer
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [createTransformer](createTransformer.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [createTransformer](createTransformer.md)
 
 # createTransformer
 Creates a new TrAX transformer

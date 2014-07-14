@@ -2,7 +2,7 @@
 layout: api
 title: functions
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FunctionComparator](index.html) / [functions](functions.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FunctionComparator](index.md) / [functions](functions.md)
 
 # functions
 

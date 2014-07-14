@@ -2,7 +2,7 @@
 layout: api
 title: linkedList
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [linkedList](linkedList.html)
+[stdlib](../index.md) / [kotlin](index.md) / [linkedList](linkedList.md)
 
 # linkedList
 

@@ -2,7 +2,7 @@
 layout: api
 title: defaultLocale
 ---
-[stdlib](../index.html) / [kotlin.template](index.html) / [defaultLocale](defaultLocale.html)
+[stdlib](../index.md) / [kotlin.template](index.md) / [defaultLocale](defaultLocale.md)
 
 # defaultLocale
 

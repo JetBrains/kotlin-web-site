@@ -2,7 +2,7 @@
 layout: api
 title: putAll
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [putAll](putAll.html)
+[stdlib](../index.md) / [kotlin](index.md) / [putAll](putAll.md)
 
 # putAll
 Puts all the entries into this [[MutableMap]] with the first value in the pair being the key and the second the value

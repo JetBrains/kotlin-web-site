@@ -2,7 +2,7 @@
 layout: api
 title: <get-alive>
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [alive](index.html) / [<get-alive>](_get-alive_.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [alive](index.md) / [<get-alive>](_get-alive_.md)
 
 # <get-alive>
 

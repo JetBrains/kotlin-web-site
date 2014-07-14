@@ -2,7 +2,7 @@
 layout: api
 title: stopWhen
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [LimitedStream](index.html) / [stopWhen](stopWhen.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [LimitedStream](index.md) / [stopWhen](stopWhen.md)
 
 # stopWhen
 

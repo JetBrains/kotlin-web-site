@@ -2,7 +2,7 @@
 layout: api
 title: inputStream
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [inputStream](inputStream.html)
+[stdlib](../index.md) / [kotlin](index.md) / [inputStream](inputStream.md)
 
 # inputStream
 

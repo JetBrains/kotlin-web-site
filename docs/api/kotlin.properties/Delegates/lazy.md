@@ -2,7 +2,7 @@
 layout: api
 title: lazy
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [Delegates](index.html) / [lazy](lazy.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [Delegates](index.md) / [lazy](lazy.md)
 
 # lazy
 

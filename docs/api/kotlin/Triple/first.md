@@ -2,7 +2,7 @@
 layout: api
 title: first
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Triple](index.html) / [first](first.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Triple](index.md) / [first](first.md)
 
 # first
 

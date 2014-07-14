@@ -2,7 +2,7 @@
 layout: api
 title: getOrElse
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [getOrElse](getOrElse.html)
+[stdlib](../index.md) / [kotlin](index.md) / [getOrElse](getOrElse.md)
 
 # getOrElse
 Returns the value for the given key or returns the result of the defaultValue function if there was no entry for the given key

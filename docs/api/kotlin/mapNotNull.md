@@ -2,7 +2,7 @@
 layout: api
 title: mapNotNull
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [mapNotNull](mapNotNull.html)
+[stdlib](../index.md) / [kotlin](index.md) / [mapNotNull](mapNotNull.md)
 
 # mapNotNull
 Returns a stream containing the results of applying the given *transform* function to each non-null element of the original stream

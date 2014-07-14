@@ -2,7 +2,7 @@
 layout: api
 title: annotationType
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [annotationType](annotationType.html)
+[stdlib](../index.md) / [kotlin](index.md) / [annotationType](annotationType.md)
 
 # annotationType
 

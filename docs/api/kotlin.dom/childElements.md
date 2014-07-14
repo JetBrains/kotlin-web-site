@@ -2,7 +2,7 @@
 layout: api
 title: childElements
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [childElements](childElements.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [childElements](childElements.md)
 
 # childElements
 Returns the child elements of this element with the given name

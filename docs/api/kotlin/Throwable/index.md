@@ -2,17 +2,19 @@
 layout: api
 title: Throwable
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Throwable](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Throwable](index.md)
 
 # Throwable
 
 ```
 open public class Throwable
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public Throwable(message: String, cause: Throwable)`<br>|
-|[getCause](getCause.html)|&nbsp;&nbsp;`public fun getCause(): Throwable`<br>|
-|[getMessage](getMessage.html)|&nbsp;&nbsp;`public fun getMessage(): String`<br>|
-|[printStackTrace](printStackTrace.html)|&nbsp;&nbsp;`public fun printStackTrace(): Unit`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public Throwable(message: String, cause: Throwable)`**<br>|
+|[getCause](getCause.md)|&nbsp;&nbsp;**`public fun getCause(): Throwable`**<br>|
+|[getMessage](getMessage.md)|&nbsp;&nbsp;**`public fun getMessage(): String`**<br>|
+|[printStackTrace](printStackTrace.md)|&nbsp;&nbsp;**`public fun printStackTrace(): Unit`**<br>|

@@ -2,7 +2,7 @@
 layout: api
 title: thread
 ---
-[stdlib](../index.html) / [kotlin.concurrent](index.html) / [thread](thread.html)
+[stdlib](../index.md) / [kotlin.concurrent](index.md) / [thread](thread.md)
 
 # thread
 

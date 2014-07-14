@@ -2,7 +2,7 @@
 layout: api
 title: mapVar
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [Delegates](index.html) / [mapVar](mapVar.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [Delegates](index.md) / [mapVar](mapVar.md)
 
 # mapVar
 

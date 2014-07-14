@@ -2,7 +2,7 @@
 layout: api
 title: arrayListOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [arrayListOf](arrayListOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [arrayListOf](arrayListOf.md)
 
 # arrayListOf
 Returns a new ArrayList with a variable number of initial elements

@@ -2,7 +2,7 @@
 layout: api
 title: hashCode
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Pair](index.html) / [hashCode](hashCode.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Pair](index.md) / [hashCode](hashCode.md)
 
 # hashCode
 

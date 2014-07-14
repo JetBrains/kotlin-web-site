@@ -2,7 +2,7 @@
 layout: api
 title: measureTimeMillis
 ---
-[stdlib](../index.html) / [kotlin.util](index.html) / [measureTimeMillis](measureTimeMillis.html)
+[stdlib](../index.md) / [kotlin.util](index.md) / [measureTimeMillis](measureTimeMillis.md)
 
 # measureTimeMillis
 Executes current block and returns elapsed time in milliseconds

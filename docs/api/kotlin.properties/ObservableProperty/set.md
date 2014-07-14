@@ -2,7 +2,7 @@
 layout: api
 title: set
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ObservableProperty](index.html) / [set](set.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ObservableProperty](index.md) / [set](set.md)
 
 # set
 

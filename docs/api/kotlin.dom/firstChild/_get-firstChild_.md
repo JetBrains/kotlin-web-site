@@ -2,7 +2,7 @@
 layout: api
 title: <get-firstChild>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [firstChild](index.html) / [<get-firstChild>](_get-firstChild_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [firstChild](index.md) / [<get-firstChild>](_get-firstChild_.md)
 
 # <get-firstChild>
 

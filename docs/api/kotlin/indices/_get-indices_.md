@@ -2,7 +2,7 @@
 layout: api
 title: <get-indices>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [indices](index.html) / [<get-indices>](_get-indices_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [indices](index.md) / [<get-indices>](_get-indices_.md)
 
 # <get-indices>
 

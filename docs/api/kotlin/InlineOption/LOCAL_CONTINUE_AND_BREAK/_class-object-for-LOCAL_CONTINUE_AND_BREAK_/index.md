@@ -2,14 +2,16 @@
 layout: api
 title: <class-object-for-LOCAL_CONTINUE_AND_BREAK>
 ---
-[stdlib](../../../../index.html) / [kotlin](../../../index.html) / [InlineOption](../../index.html) / [LOCAL_CONTINUE_AND_BREAK](../index.html) / [<class-object-for-LOCAL_CONTINUE_AND_BREAK>](index.html)
+[stdlib](../../../../index.md) / [kotlin](../../../index.md) / [InlineOption](../../index.md) / [LOCAL_CONTINUE_AND_BREAK](../index.md) / [<class-object-for-LOCAL_CONTINUE_AND_BREAK>](index.md)
 
 # <class-object-for-LOCAL_CONTINUE_AND_BREAK>
 
 ```
 public object <class-object-for-LOCAL_CONTINUE_AND_BREAK>
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`private <class-object-for-LOCAL_CONTINUE_AND_BREAK>()`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`private <class-object-for-LOCAL_CONTINUE_AND_BREAK>()`**<br>|

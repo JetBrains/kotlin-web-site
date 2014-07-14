@@ -2,7 +2,7 @@
 layout: api
 title: hasNext
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [DoubleProgressionIterator](index.html) / [hasNext](hasNext.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [DoubleProgressionIterator](index.md) / [hasNext](hasNext.md)
 
 # hasNext
 

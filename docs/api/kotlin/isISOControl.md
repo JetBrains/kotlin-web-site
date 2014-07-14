@@ -2,7 +2,7 @@
 layout: api
 title: isISOControl
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isISOControl](isISOControl.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isISOControl](isISOControl.md)
 
 # isISOControl
 

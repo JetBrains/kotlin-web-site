@@ -2,7 +2,7 @@
 layout: api
 title: initializer
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [BlockingLazyVal](index.html) / [initializer](initializer.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [BlockingLazyVal](index.md) / [initializer](initializer.md)
 
 # initializer
 

@@ -2,7 +2,7 @@
 layout: api
 title: <get-altKey>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [altKey](index.html) / [<get-altKey>](_get-altKey_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [altKey](index.md) / [<get-altKey>](_get-altKey_.md)
 
 # <get-altKey>
 

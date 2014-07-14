@@ -2,7 +2,7 @@
 layout: api
 title: sortedSet
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [sortedSet](sortedSet.html)
+[stdlib](../index.md) / [kotlin](index.md) / [sortedSet](sortedSet.md)
 
 # sortedSet
 

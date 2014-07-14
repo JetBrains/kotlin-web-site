@@ -2,7 +2,7 @@
 layout: api
 title: <get-currentThread>
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [currentThread](index.html) / [<get-currentThread>](_get-currentThread_.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [currentThread](index.md) / [<get-currentThread>](_get-currentThread_.md)
 
 # <get-currentThread>
 

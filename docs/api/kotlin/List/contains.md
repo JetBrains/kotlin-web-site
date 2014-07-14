@@ -2,7 +2,7 @@
 layout: api
 title: contains
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [List](index.html) / [contains](contains.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [List](index.md) / [contains](contains.md)
 
 # contains
 

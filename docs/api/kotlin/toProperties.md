@@ -2,7 +2,7 @@
 layout: api
 title: toProperties
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toProperties](toProperties.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toProperties](toProperties.md)
 
 # toProperties
 Converts this [[Map]] to a [[Properties]] object

@@ -2,7 +2,7 @@
 layout: api
 title: writeXmlString
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [writeXmlString](writeXmlString.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [writeXmlString](writeXmlString.md)
 
 # writeXmlString
 Converts the node to an XML String and writes it to the given [[Writer]]

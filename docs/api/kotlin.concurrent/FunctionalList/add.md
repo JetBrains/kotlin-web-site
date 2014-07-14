@@ -2,7 +2,7 @@
 layout: api
 title: add
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [FunctionalList](index.html) / [add](add.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [FunctionalList](index.md) / [add](add.md)
 
 # add
 

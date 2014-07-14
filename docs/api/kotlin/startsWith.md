@@ -2,7 +2,7 @@
 layout: api
 title: startsWith
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [startsWith](startsWith.html)
+[stdlib](../index.md) / [kotlin](index.md) / [startsWith](startsWith.md)
 
 # startsWith
 

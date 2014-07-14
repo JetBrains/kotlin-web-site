@@ -2,7 +2,7 @@
 layout: api
 title: dec
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Char](index.html) / [dec](dec.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Char](index.md) / [dec](dec.md)
 
 # dec
 

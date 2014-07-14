@@ -2,7 +2,7 @@
 layout: api
 title: equals
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ShortProgression](index.html) / [equals](equals.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ShortProgression](index.md) / [equals](equals.md)
 
 # equals
 

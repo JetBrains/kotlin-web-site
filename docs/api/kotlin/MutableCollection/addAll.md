@@ -2,7 +2,7 @@
 layout: api
 title: addAll
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableCollection](index.html) / [addAll](addAll.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableCollection](index.md) / [addAll](addAll.md)
 
 # addAll
 

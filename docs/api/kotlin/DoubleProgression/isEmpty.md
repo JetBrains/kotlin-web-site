@@ -2,7 +2,7 @@
 layout: api
 title: isEmpty
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [DoubleProgression](index.html) / [isEmpty](isEmpty.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [DoubleProgression](index.md) / [isEmpty](isEmpty.md)
 
 # isEmpty
 

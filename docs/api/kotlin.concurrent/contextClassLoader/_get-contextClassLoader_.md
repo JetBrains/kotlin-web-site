@@ -2,7 +2,7 @@
 layout: api
 title: <get-contextClassLoader>
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [contextClassLoader](index.html) / [<get-contextClassLoader>](_get-contextClassLoader_.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [contextClassLoader](index.md) / [<get-contextClassLoader>](_get-contextClassLoader_.md)
 
 # <get-contextClassLoader>
 

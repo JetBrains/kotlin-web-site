@@ -2,7 +2,7 @@
 layout: api
 title: intern
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [intern](intern.html)
+[stdlib](../index.md) / [kotlin](index.md) / [intern](intern.md)
 
 # intern
 

@@ -2,7 +2,7 @@
 layout: api
 title: capture
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [CloseableEventListener](index.html) / [capture](capture.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [CloseableEventListener](index.md) / [capture](capture.md)
 
 # capture
 

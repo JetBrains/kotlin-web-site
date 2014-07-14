@@ -2,7 +2,7 @@
 layout: api
 title: mapValues
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [mapValues](mapValues.html)
+[stdlib](../index.md) / [kotlin](index.md) / [mapValues](mapValues.md)
 
 # mapValues
 Returns a new Map containing the results of applying the given *transform* function to each [[Map.Entry]] in this [[Map]]

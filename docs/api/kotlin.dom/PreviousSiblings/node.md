@@ -2,7 +2,7 @@
 layout: api
 title: node
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [PreviousSiblings](index.html) / [node](node.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [PreviousSiblings](index.md) / [node](node.md)
 
 # node
 

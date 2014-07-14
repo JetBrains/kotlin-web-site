@@ -2,7 +2,7 @@
 layout: api
 title: _document
 ---
-[stdlib](../index.html) / [kotlin.browser](index.html) / [_document](_document.html)
+[stdlib](../index.md) / [kotlin.browser](index.md) / [_document](_document.md)
 
 # _document
 

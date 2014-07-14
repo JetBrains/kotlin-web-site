@@ -2,7 +2,7 @@
 layout: api
 title: read
 ---
-[stdlib](../index.html) / [kotlin.concurrent](index.html) / [read](read.html)
+[stdlib](../index.md) / [kotlin.concurrent](index.md) / [read](read.md)
 
 # read
 Executes given calculation under read lock

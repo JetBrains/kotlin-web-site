@@ -2,7 +2,7 @@
 layout: api
 title: clear
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [clear](clear.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [clear](clear.md)
 
 # clear
 Removes all the children from this node

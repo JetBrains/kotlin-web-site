@@ -2,7 +2,7 @@
 layout: api
 title: assertEquals
 ---
-[stdlib](../index.html) / [kotlin.test](index.html) / [assertEquals](assertEquals.html)
+[stdlib](../index.md) / [kotlin.test](index.md) / [assertEquals](assertEquals.md)
 
 # assertEquals
 Asserts that the expected value is equal to the actual value, with an optional message

@@ -2,7 +2,7 @@
 layout: api
 title: computeNext
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [AbstractIterator](index.html) / [computeNext](computeNext.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [AbstractIterator](index.md) / [computeNext](computeNext.md)
 
 # computeNext
 Computes the next item in the iterator.

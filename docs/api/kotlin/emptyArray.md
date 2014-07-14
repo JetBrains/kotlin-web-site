@@ -2,7 +2,7 @@
 layout: api
 title: emptyArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [emptyArray](emptyArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [emptyArray](emptyArray.md)
 
 # emptyArray
 

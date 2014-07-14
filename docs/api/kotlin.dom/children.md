@@ -2,7 +2,7 @@
 layout: api
 title: children
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [children](children.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [children](children.md)
 
 # children
 Returns the children of the element as a list

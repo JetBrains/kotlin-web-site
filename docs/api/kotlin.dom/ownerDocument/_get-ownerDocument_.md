@@ -2,7 +2,7 @@
 layout: api
 title: <get-ownerDocument>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [ownerDocument](index.html) / [<get-ownerDocument>](_get-ownerDocument_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [ownerDocument](index.md) / [<get-ownerDocument>](_get-ownerDocument_.md)
 
 # <get-ownerDocument>
 

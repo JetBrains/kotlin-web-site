@@ -2,7 +2,7 @@
 layout: api
 title: getChars
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [getChars](getChars.html)
+[stdlib](../index.md) / [kotlin](index.md) / [getChars](getChars.md)
 
 # getChars
 

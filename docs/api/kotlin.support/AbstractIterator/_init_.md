@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [AbstractIterator](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [AbstractIterator](index.md) / [<init>](_init_.md)
 
 # <init>
 A base class to simplify implementing iterators so that implementations only have to implement [[computeNext()]]

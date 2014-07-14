@@ -2,14 +2,16 @@
 layout: api
 title: inputStream
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [inputStream](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [inputStream](index.md)
 
 # inputStream
 
 ```
 public val ByteArray.inputStream: ByteArrayInputStream
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-inputStream&gt;](_get-inputStream_.html)|&nbsp;&nbsp;`public fun ByteArray.<get-inputStream>(): ByteArrayInputStream`<br>|
+|[&lt;get-inputStream&gt;](_get-inputStream_.md)|&nbsp;&nbsp;**`public fun ByteArray.<get-inputStream>(): ByteArrayInputStream`**<br>|

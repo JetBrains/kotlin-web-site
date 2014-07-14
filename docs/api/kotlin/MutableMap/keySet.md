@@ -2,7 +2,7 @@
 layout: api
 title: keySet
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableMap](index.html) / [keySet](keySet.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableMap](index.md) / [keySet](keySet.md)
 
 # keySet
 

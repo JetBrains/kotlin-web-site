@@ -2,7 +2,7 @@
 layout: api
 title: Annotation
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [Annotation](Annotation.html)
+[stdlib](../index.md) / [kotlin](index.md) / [Annotation](Annotation.md)
 
 # Annotation
 

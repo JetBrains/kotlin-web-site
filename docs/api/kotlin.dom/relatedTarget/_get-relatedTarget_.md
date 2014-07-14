@@ -2,7 +2,7 @@
 layout: api
 title: <get-relatedTarget>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [relatedTarget](index.html) / [<get-relatedTarget>](_get-relatedTarget_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [relatedTarget](index.md) / [<get-relatedTarget>](_get-relatedTarget_.md)
 
 # <get-relatedTarget>
 

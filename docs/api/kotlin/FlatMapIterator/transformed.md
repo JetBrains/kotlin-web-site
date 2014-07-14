@@ -2,7 +2,7 @@
 layout: api
 title: transformed
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FlatMapIterator](index.html) / [transformed](transformed.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FlatMapIterator](index.md) / [transformed](transformed.md)
 
 # transformed
 

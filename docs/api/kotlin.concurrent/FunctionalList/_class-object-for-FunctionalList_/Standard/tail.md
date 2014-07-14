@@ -2,7 +2,7 @@
 layout: api
 title: tail
 ---
-[stdlib](../../../../index.html) / [kotlin.concurrent](../../../index.html) / [FunctionalList](../../index.html) / [<class-object-for-FunctionalList>](../index.html) / [Standard](index.html) / [tail](tail.html)
+[stdlib](../../../../index.md) / [kotlin.concurrent](../../../index.md) / [FunctionalList](../../index.md) / [<class-object-for-FunctionalList>](../index.md) / [Standard](index.md) / [tail](tail.md)
 
 # tail
 

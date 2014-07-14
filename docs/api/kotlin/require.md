@@ -2,7 +2,7 @@
 layout: api
 title: require
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [require](require.html)
+[stdlib](../index.md) / [kotlin](index.md) / [require](require.md)
 
 # require
 Throws an [[IllegalArgumentException]] with the *lazyMessage* if the *value* is false.

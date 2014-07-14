@@ -2,7 +2,7 @@
 layout: api
 title: <get-classSet>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [classSet](index.html) / [<get-classSet>](_get-classSet_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [classSet](index.md) / [<get-classSet>](_get-classSet_.md)
 
 # <get-classSet>
 

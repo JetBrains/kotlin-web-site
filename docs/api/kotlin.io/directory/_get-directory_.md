@@ -2,7 +2,7 @@
 layout: api
 title: <get-directory>
 ---
-[stdlib](../../index.html) / [kotlin.io](../index.html) / [directory](index.html) / [<get-directory>](_get-directory_.html)
+[stdlib](../../index.md) / [kotlin.io](../index.md) / [directory](index.md) / [<get-directory>](_get-directory_.md)
 
 # <get-directory>
 

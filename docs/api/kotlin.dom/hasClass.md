@@ -2,7 +2,7 @@
 layout: api
 title: hasClass
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [hasClass](hasClass.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [hasClass](hasClass.md)
 
 # hasClass
 Returns true if the element has the given CSS class style in its 'class' attribute

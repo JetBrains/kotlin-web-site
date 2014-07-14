@@ -2,7 +2,7 @@
 layout: api
 title: monitorEnter
 ---
-[stdlib](../index.html) / [kotlin.jvm.internal.unsafe](index.html) / [monitorEnter](monitorEnter.html)
+[stdlib](../index.md) / [kotlin.jvm.internal.unsafe](index.md) / [monitorEnter](monitorEnter.md)
 
 # monitorEnter
 

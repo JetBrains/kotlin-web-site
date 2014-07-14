@@ -2,7 +2,7 @@
 layout: api
 title: next
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [SkippingIterator](index.html) / [next](next.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [SkippingIterator](index.md) / [next](next.md)
 
 # next
 

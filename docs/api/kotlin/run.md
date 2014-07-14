@@ -2,7 +2,7 @@
 layout: api
 title: run
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [run](run.html)
+[stdlib](../index.md) / [kotlin](index.md) / [run](run.md)
 
 # run
 Run function f

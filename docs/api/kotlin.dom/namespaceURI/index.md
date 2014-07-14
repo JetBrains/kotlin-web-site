@@ -2,14 +2,16 @@
 layout: api
 title: namespaceURI
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [namespaceURI](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [namespaceURI](index.md)
 
 # namespaceURI
 
 ```
 val Node.namespaceURI: String
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-namespaceURI&gt;](_get-namespaceURI_.html)|&nbsp;&nbsp;`fun Node.<get-namespaceURI>(): String`<br>|
+|[&lt;get-namespaceURI&gt;](_get-namespaceURI_.md)|&nbsp;&nbsp;**`fun Node.<get-namespaceURI>(): String`**<br>|

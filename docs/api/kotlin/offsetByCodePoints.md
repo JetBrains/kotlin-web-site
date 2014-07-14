@@ -2,7 +2,7 @@
 layout: api
 title: offsetByCodePoints
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [offsetByCodePoints](offsetByCodePoints.html)
+[stdlib](../index.md) / [kotlin](index.md) / [offsetByCodePoints](offsetByCodePoints.md)
 
 # offsetByCodePoints
 

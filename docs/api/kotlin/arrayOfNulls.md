@@ -2,7 +2,7 @@
 layout: api
 title: arrayOfNulls
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [arrayOfNulls](arrayOfNulls.html)
+[stdlib](../index.md) / [kotlin](index.md) / [arrayOfNulls](arrayOfNulls.md)
 
 # arrayOfNulls
 

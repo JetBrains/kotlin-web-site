@@ -2,14 +2,16 @@
 layout: api
 title: timeStamp
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [timeStamp](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [timeStamp](index.md)
 
 # timeStamp
 
 ```
 val Event.timeStamp: Long
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-timeStamp&gt;](_get-timeStamp_.html)|&nbsp;&nbsp;`fun Event.<get-timeStamp>(): Long`<br>|
+|[&lt;get-timeStamp&gt;](_get-timeStamp_.md)|&nbsp;&nbsp;**`fun Event.<get-timeStamp>(): Long`**<br>|

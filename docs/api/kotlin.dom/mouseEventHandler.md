@@ -2,7 +2,7 @@
 layout: api
 title: mouseEventHandler
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [mouseEventHandler](mouseEventHandler.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [mouseEventHandler](mouseEventHandler.md)
 
 # mouseEventHandler
 

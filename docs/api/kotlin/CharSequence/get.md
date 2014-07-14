@@ -2,7 +2,7 @@
 layout: api
 title: get
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [CharSequence](index.html) / [get](get.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [CharSequence](index.md) / [get](get.md)
 
 # get
 

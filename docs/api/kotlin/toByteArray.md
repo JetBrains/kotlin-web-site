@@ -2,7 +2,7 @@
 layout: api
 title: toByteArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toByteArray](toByteArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toByteArray](toByteArray.md)
 
 # toByteArray
 

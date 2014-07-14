@@ -2,7 +2,7 @@
 layout: api
 title: isJavaIdentifierPart
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isJavaIdentifierPart](isJavaIdentifierPart.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isJavaIdentifierPart](isJavaIdentifierPart.md)
 
 # isJavaIdentifierPart
 

@@ -2,7 +2,7 @@
 layout: api
 title: <get-empty>
 ---
-[stdlib](../../../index.html) / [kotlin.concurrent](../../index.html) / [FunctionalQueue](../index.html) / [empty](index.html) / [<get-empty>](_get-empty_.html)
+[stdlib](../../../index.md) / [kotlin.concurrent](../../index.md) / [FunctionalQueue](../index.md) / [empty](index.md) / [<get-empty>](_get-empty_.md)
 
 # <get-empty>
 

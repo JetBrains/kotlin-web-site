@@ -2,7 +2,7 @@
 layout: api
 title: regionMatches
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [regionMatches](regionMatches.html)
+[stdlib](../index.md) / [kotlin](index.md) / [regionMatches](regionMatches.md)
 
 # regionMatches
 

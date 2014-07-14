@@ -2,7 +2,7 @@
 layout: api
 title: <get-button>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [button](index.html) / [<get-button>](_get-button_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [button](index.md) / [<get-button>](_get-button_.md)
 
 # <get-button>
 

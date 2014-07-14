@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ObservableProperty](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ObservableProperty](index.md) / [<init>](_init_.md)
 
 # <init>
 

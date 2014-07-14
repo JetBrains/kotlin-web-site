@@ -2,7 +2,7 @@
 layout: api
 title: stdin
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [stdin](stdin.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [stdin](stdin.md)
 
 # stdin
 

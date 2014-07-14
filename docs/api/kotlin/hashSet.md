@@ -2,7 +2,7 @@
 layout: api
 title: hashSet
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [hashSet](hashSet.html)
+[stdlib](../index.md) / [kotlin](index.md) / [hashSet](hashSet.md)
 
 # hashSet
 

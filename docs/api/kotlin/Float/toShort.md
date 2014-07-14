@@ -2,7 +2,7 @@
 layout: api
 title: toShort
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Float](index.html) / [toShort](toShort.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Float](index.md) / [toShort](toShort.md)
 
 # toShort
 

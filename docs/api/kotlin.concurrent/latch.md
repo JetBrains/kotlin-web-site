@@ -2,7 +2,7 @@
 layout: api
 title: latch
 ---
-[stdlib](../index.html) / [kotlin.concurrent](index.html) / [latch](latch.html)
+[stdlib](../index.md) / [kotlin.concurrent](index.md) / [latch](latch.md)
 
 # latch
 Execute given calculation and await for CountDownLatch

@@ -2,7 +2,7 @@
 layout: api
 title: longArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [longArray](longArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [longArray](longArray.md)
 
 # longArray
 

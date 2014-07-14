@@ -2,7 +2,7 @@
 layout: api
 title: arrayList
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [arrayList](arrayList.html)
+[stdlib](../index.md) / [kotlin](index.md) / [arrayList](arrayList.md)
 
 # arrayList
 

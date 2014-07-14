@@ -2,7 +2,7 @@
 layout: api
 title: allListeners
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeSupport](index.html) / [allListeners](allListeners.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeSupport](index.md) / [allListeners](allListeners.md)
 
 # allListeners
 

@@ -2,7 +2,7 @@
 layout: api
 title: invoke
 ---
-[stdlib](../index.html) / [kotlin.concurrent](index.html) / [invoke](invoke.html)
+[stdlib](../index.md) / [kotlin.concurrent](index.md) / [invoke](invoke.md)
 
 # invoke
 Allows you to use the executor as a function to

@@ -2,7 +2,7 @@
 layout: api
 title: sortedMapOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [sortedMapOf](sortedMapOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [sortedMapOf](sortedMapOf.md)
 
 # sortedMapOf
 Returns a new [[SortedMap]] populated with the given pairs where the first value in each pair

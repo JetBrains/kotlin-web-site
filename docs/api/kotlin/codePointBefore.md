@@ -2,7 +2,7 @@
 layout: api
 title: codePointBefore
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [codePointBefore](codePointBefore.html)
+[stdlib](../index.md) / [kotlin](index.md) / [codePointBefore](codePointBefore.md)
 
 # codePointBefore
 

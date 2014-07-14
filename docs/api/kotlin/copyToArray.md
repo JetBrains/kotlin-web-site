@@ -2,7 +2,7 @@
 layout: api
 title: copyToArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [copyToArray](copyToArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [copyToArray](copyToArray.md)
 
 # copyToArray
 

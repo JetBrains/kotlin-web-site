@@ -2,7 +2,7 @@
 layout: api
 title: first
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [first](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [first](index.md)
 
 # first
 TODO figure out necessary variance/generics ninja stuff... :)
@@ -30,7 +30,9 @@ answer.sort(comparator)
 Returns the first item in the list or null if the list is empty
 @includeFunctionBody ../../test/collections/ListSpecificTest.kt first
 
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-first&gt;](_get-first_.html)|&nbsp;&nbsp;`fun List<T>.<get-first>(): T`<br>|
+|[&lt;get-first&gt;](_get-first_.md)|&nbsp;&nbsp;**`fun List<T>.<get-first>(): T`**<br>|

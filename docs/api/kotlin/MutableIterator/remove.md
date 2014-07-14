@@ -2,7 +2,7 @@
 layout: api
 title: remove
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableIterator](index.html) / [remove](remove.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableIterator](index.md) / [remove](remove.md)
 
 # remove
 

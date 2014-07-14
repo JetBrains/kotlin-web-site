@@ -2,7 +2,7 @@
 layout: api
 title: <get-previousSibling>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [previousSibling](index.html) / [<get-previousSibling>](_get-previousSibling_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [previousSibling](index.md) / [<get-previousSibling>](_get-previousSibling_.md)
 
 # <get-previousSibling>
 

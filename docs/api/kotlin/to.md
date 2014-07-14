@@ -2,7 +2,7 @@
 layout: api
 title: to
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [to](to.html)
+[stdlib](../index.md) / [kotlin](index.md) / [to](to.md)
 
 # to
 Creates a tuple of type [[Pair<A,B>]] from this and *that* which can be useful for creating [[Map]] literals

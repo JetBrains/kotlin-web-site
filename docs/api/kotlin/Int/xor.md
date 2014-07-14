@@ -2,7 +2,7 @@
 layout: api
 title: xor
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Int](index.html) / [xor](xor.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Int](index.md) / [xor](xor.md)
 
 # xor
 

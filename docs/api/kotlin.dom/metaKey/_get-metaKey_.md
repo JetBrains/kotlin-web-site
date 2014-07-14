@@ -2,7 +2,7 @@
 layout: api
 title: <get-metaKey>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [metaKey](index.html) / [<get-metaKey>](_get-metaKey_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [metaKey](index.md) / [<get-metaKey>](_get-metaKey_.md)
 
 # <get-metaKey>
 

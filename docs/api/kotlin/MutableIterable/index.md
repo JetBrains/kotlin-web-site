@@ -2,14 +2,16 @@
 layout: api
 title: MutableIterable
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableIterable](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableIterable](index.md)
 
 # MutableIterable
 
 ```
 abstract public trait MutableIterable<T> 
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[iterator](iterator.html)|&nbsp;&nbsp;`abstract public fun iterator(): MutableIterator<T>`<br>|
+|[iterator](iterator.md)|&nbsp;&nbsp;**`abstract public fun iterator(): MutableIterator<T>`**<br>|

@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.jvm](../index.html) / [strictfp](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.jvm](../index.md) / [strictfp](index.md) / [<init>](_init_.md)
 
 # <init>
 

@@ -2,7 +2,7 @@
 layout: api
 title: state
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [AbstractIterator](index.html) / [state](state.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [AbstractIterator](index.md) / [state](state.md)
 
 # state
 

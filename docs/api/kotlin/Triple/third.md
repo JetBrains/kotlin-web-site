@@ -2,7 +2,7 @@
 layout: api
 title: third
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Triple](index.html) / [third](third.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Triple](index.md) / [third](third.md)
 
 # third
 

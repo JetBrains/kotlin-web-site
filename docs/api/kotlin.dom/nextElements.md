@@ -2,7 +2,7 @@
 layout: api
 title: nextElements
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [nextElements](nextElements.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [nextElements](nextElements.md)
 
 # nextElements
 Returns an [[Iterator]] of all the next [[Element]] siblings

@@ -2,7 +2,7 @@
 layout: api
 title: CompositeIterator
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [CompositeIterator](CompositeIterator.html)
+[stdlib](../index.md) / [kotlin](index.md) / [CompositeIterator](CompositeIterator.md)
 
 # CompositeIterator
 An [[Iterator]] which iterates over a number of iterators in sequence

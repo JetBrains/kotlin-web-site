@@ -2,7 +2,7 @@
 layout: api
 title: <get-eventType>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [eventType](index.html) / [<get-eventType>](_get-eventType_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [eventType](index.md) / [<get-eventType>](_get-eventType_.md)
 
 # <get-eventType>
 

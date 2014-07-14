@@ -2,7 +2,7 @@
 layout: api
 title: propogationId
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeEvent](index.html) / [propogationId](propogationId.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeEvent](index.md) / [propogationId](propogationId.md)
 
 # propogationId
 

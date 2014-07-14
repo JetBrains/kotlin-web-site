@@ -2,7 +2,7 @@
 layout: api
 title: start
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ShortProgression](index.html) / [start](start.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ShortProgression](index.md) / [start](start.md)
 
 # start
 

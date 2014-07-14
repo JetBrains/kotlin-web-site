@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.io](../index.html) / [LinesStream](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.io](../index.md) / [LinesStream](index.md) / [<init>](_init_.md)
 
 # <init>
 

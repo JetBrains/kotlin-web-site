@@ -2,7 +2,7 @@
 layout: api
 title: forEachLine
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [forEachLine](forEachLine.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [forEachLine](forEachLine.md)
 
 # forEachLine
 Reads file line by line. Default charset is UTF-8.

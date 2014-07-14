@@ -2,7 +2,7 @@
 layout: api
 title: isJavaLetterOrDigit
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isJavaLetterOrDigit](isJavaLetterOrDigit.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isJavaLetterOrDigit](isJavaLetterOrDigit.md)
 
 # isJavaLetterOrDigit
 

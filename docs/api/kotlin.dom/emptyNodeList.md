@@ -2,7 +2,7 @@
 layout: api
 title: emptyNodeList
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [emptyNodeList](emptyNodeList.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [emptyNodeList](emptyNodeList.md)
 
 # emptyNodeList
 

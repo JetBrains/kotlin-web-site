@@ -2,7 +2,7 @@
 layout: api
 title: <get-namespaceURI>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [namespaceURI](index.html) / [<get-namespaceURI>](_get-namespaceURI_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [namespaceURI](index.md) / [<get-namespaceURI>](_get-namespaceURI_.md)
 
 # <get-namespaceURI>
 

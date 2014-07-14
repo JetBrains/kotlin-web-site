@@ -2,7 +2,7 @@
 layout: api
 title: transformer
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FlatteningStream](index.html) / [transformer](transformer.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FlatteningStream](index.md) / [transformer](transformer.md)
 
 # transformer
 

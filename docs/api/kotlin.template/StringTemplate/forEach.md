@@ -2,7 +2,7 @@
 layout: api
 title: forEach
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [StringTemplate](index.html) / [forEach](forEach.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [StringTemplate](index.md) / [forEach](forEach.md)
 
 # forEach
 Performs the given function on each value in the collection

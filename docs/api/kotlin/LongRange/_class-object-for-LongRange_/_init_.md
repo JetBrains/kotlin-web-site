@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../../index.html) / [kotlin](../../index.html) / [LongRange](../index.html) / [<class-object-for-LongRange>](index.html) / [<init>](_init_.html)
+[stdlib](../../../index.md) / [kotlin](../../index.md) / [LongRange](../index.md) / [<class-object-for-LongRange>](index.md) / [<init>](_init_.md)
 
 # <init>
 

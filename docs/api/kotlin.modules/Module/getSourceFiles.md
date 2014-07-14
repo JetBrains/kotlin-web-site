@@ -2,7 +2,7 @@
 layout: api
 title: getSourceFiles
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [Module](index.html) / [getSourceFiles](getSourceFiles.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [Module](index.md) / [getSourceFiles](getSourceFiles.md)
 
 # getSourceFiles
 

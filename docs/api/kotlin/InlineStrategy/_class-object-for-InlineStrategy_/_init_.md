@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../../index.html) / [kotlin](../../index.html) / [InlineStrategy](../index.html) / [<class-object-for-InlineStrategy>](index.html) / [<init>](_init_.html)
+[stdlib](../../../index.md) / [kotlin](../../index.md) / [InlineStrategy](../index.md) / [<class-object-for-InlineStrategy>](index.md) / [<init>](_init_.md)
 
 # <init>
 

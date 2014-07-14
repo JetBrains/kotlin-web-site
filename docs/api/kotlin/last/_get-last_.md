@@ -2,7 +2,7 @@
 layout: api
 title: <get-last>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [last](index.html) / [<get-last>](_get-last_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [last](index.md) / [<get-last>](_get-last_.md)
 
 # <get-last>
 

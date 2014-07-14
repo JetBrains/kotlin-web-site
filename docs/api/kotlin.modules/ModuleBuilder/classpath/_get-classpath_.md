@@ -2,7 +2,7 @@
 layout: api
 title: <get-classpath>
 ---
-[stdlib](../../../index.html) / [kotlin.modules](../../index.html) / [ModuleBuilder](../index.html) / [classpath](index.html) / [<get-classpath>](_get-classpath_.html)
+[stdlib](../../../index.md) / [kotlin.modules](../../index.md) / [ModuleBuilder](../index.md) / [classpath](index.md) / [<get-classpath>](_get-classpath_.md)
 
 # <get-classpath>
 

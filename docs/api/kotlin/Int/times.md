@@ -2,7 +2,7 @@
 layout: api
 title: times
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Int](index.html) / [times](times.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Int](index.md) / [times](times.md)
 
 # times
 

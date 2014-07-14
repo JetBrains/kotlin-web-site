@@ -2,7 +2,7 @@
 layout: api
 title: retainAll
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableList](index.html) / [retainAll](retainAll.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableList](index.md) / [retainAll](retainAll.md)
 
 # retainAll
 

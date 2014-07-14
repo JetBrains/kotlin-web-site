@@ -2,7 +2,7 @@
 layout: api
 title: appendBytes
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [appendBytes](appendBytes.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [appendBytes](appendBytes.md)
 
 # appendBytes
 Appends bytes to the contents of the file.

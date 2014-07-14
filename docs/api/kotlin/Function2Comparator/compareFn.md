@@ -2,7 +2,7 @@
 layout: api
 title: compareFn
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Function2Comparator](index.html) / [compareFn](compareFn.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Function2Comparator](index.md) / [compareFn](compareFn.md)
 
 # compareFn
 

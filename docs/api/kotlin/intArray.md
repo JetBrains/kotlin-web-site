@@ -2,7 +2,7 @@
 layout: api
 title: intArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [intArray](intArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [intArray](intArray.md)
 
 # intArray
 

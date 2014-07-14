@@ -2,7 +2,7 @@
 layout: api
 title: with
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [with](with.html)
+[stdlib](../index.md) / [kotlin](index.md) / [with](with.md)
 
 # with
 Execute f with given receiver

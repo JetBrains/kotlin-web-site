@@ -2,7 +2,7 @@
 layout: api
 title: done
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [AbstractIterator](index.html) / [done](done.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [AbstractIterator](index.md) / [done](done.md)
 
 # done
 Sets the state to done so that the iteration terminates

@@ -2,7 +2,7 @@
 layout: api
 title: stream2
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MergingStream](index.html) / [stream2](stream2.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MergingStream](index.md) / [stream2](stream2.md)
 
 # stream2
 

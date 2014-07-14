@@ -2,7 +2,7 @@
 layout: api
 title: isHighSurrogate
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isHighSurrogate](isHighSurrogate.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isHighSurrogate](isHighSurrogate.md)
 
 # isHighSurrogate
 

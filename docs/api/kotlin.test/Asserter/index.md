@@ -1,16 +1,21 @@
 ---
 layout: api
-title: asserter
+title: Asserter
 ---
-[stdlib](../../index.html) / [kotlin.test](../index.html) / [asserter](../asserter/index.html)
+[stdlib](../../index.md) / [kotlin.test](../index.md) / [Asserter](index.md)
 
-# asserter
+# Asserter
+A plugin for performing assertions which can reuse JUnit or TestNG
+```
+abstract public trait Asserter
+```
 
-```
-public val asserter: Asserter
-```
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-asserter&gt;](_get-asserter_.html)|&nbsp;&nbsp;`public fun <get-asserter>(): Asserter`<br>|
-|[&lt;set-asserter&gt;](_set-asserter_.html)|&nbsp;&nbsp;`public fun <set-asserter>(value: Asserter): Unit`<br>|
+|[assertEquals](assertEquals.md)|&nbsp;&nbsp;**`abstract public fun assertEquals(message: String, expected: Any, actual: Any): Unit`**<br>|
+|[assertNotNull](assertNotNull.md)|&nbsp;&nbsp;**`abstract public fun assertNotNull(message: String, actual: Any): Unit`**<br>|
+|[assertNull](assertNull.md)|&nbsp;&nbsp;**`abstract public fun assertNull(message: String, actual: Any): Unit`**<br>|
+|[assertTrue](assertTrue.md)|&nbsp;&nbsp;**`abstract public fun assertTrue(message: String, actual: Boolean): Unit`**<br>|
+|[fail](fail.md)|&nbsp;&nbsp;**`abstract public fun fail(message: String): Unit`**<br>|

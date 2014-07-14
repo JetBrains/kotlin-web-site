@@ -2,7 +2,7 @@
 layout: api
 title: value
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [deprecated](index.html) / [value](value.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [deprecated](index.md) / [value](value.md)
 
 # value
 

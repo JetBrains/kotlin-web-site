@@ -2,7 +2,7 @@
 layout: api
 title: end
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Range](index.html) / [end](end.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Range](index.md) / [end](end.md)
 
 # end
 

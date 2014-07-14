@@ -2,14 +2,16 @@
 layout: api
 title: strictfp
 ---
-[stdlib](../../index.html) / [kotlin.jvm](../index.html) / [strictfp](index.html)
+[stdlib](../../index.md) / [kotlin.jvm](../index.md) / [strictfp](index.md)
 
 # strictfp
 
 ```
 public class strictfp
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public strictfp()`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public strictfp()`**<br>|

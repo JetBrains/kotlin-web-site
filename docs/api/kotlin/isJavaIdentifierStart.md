@@ -2,7 +2,7 @@
 layout: api
 title: isJavaIdentifierStart
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isJavaIdentifierStart](isJavaIdentifierStart.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isJavaIdentifierStart](isJavaIdentifierStart.md)
 
 # isJavaIdentifierStart
 

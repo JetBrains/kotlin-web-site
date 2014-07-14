@@ -2,7 +2,7 @@
 layout: api
 title: comparator
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [comparator](comparator.html)
+[stdlib](../index.md) / [kotlin](index.md) / [comparator](comparator.md)
 
 # comparator
 Creates a comparator using the sequence of functions used to calculate a value to compare on

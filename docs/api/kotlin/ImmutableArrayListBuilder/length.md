@@ -2,7 +2,7 @@
 layout: api
 title: length
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ImmutableArrayListBuilder](index.html) / [length](length.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ImmutableArrayListBuilder](index.md) / [length](length.md)
 
 # length
 

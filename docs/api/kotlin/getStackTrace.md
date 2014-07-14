@@ -2,7 +2,7 @@
 layout: api
 title: getStackTrace
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [getStackTrace](getStackTrace.html)
+[stdlib](../index.md) / [kotlin](index.md) / [getStackTrace](getStackTrace.md)
 
 # getStackTrace
 Returns the stack trace

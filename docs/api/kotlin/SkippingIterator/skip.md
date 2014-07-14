@@ -2,7 +2,7 @@
 layout: api
 title: skip
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [SkippingIterator](index.html) / [skip](skip.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [SkippingIterator](index.md) / [skip](skip.md)
 
 # skip
 

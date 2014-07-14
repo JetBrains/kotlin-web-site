@@ -2,7 +2,7 @@
 layout: api
 title: shr
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Long](index.html) / [shr](shr.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Long](index.md) / [shr](shr.md)
 
 # shr
 

@@ -2,14 +2,16 @@
 layout: api
 title: ReadOnlyProperty
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ReadOnlyProperty](index.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ReadOnlyProperty](index.md)
 
 # ReadOnlyProperty
 
 ```
 abstract public trait ReadOnlyProperty<R, T> 
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[get](get.html)|&nbsp;&nbsp;`abstract public fun get(thisRef: R, desc: PropertyMetadata): T`<br>|
+|[get](get.md)|&nbsp;&nbsp;**`abstract public fun get(thisRef: R, desc: PropertyMetadata): T`**<br>|

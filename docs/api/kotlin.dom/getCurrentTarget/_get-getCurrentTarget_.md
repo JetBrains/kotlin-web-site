@@ -2,7 +2,7 @@
 layout: api
 title: <get-getCurrentTarget>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [getCurrentTarget](index.html) / [<get-getCurrentTarget>](_get-getCurrentTarget_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [getCurrentTarget](index.md) / [<get-getCurrentTarget>](_get-getCurrentTarget_.md)
 
 # <get-getCurrentTarget>
 

@@ -2,7 +2,7 @@
 layout: api
 title: finalElement
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ByteProgressionIterator](index.html) / [finalElement](finalElement.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ByteProgressionIterator](index.md) / [finalElement](finalElement.md)
 
 # finalElement
 

@@ -2,7 +2,7 @@
 layout: api
 title: listBuilder
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [listBuilder](listBuilder.html)
+[stdlib](../index.md) / [kotlin](index.md) / [listBuilder](listBuilder.md)
 
 # listBuilder
 

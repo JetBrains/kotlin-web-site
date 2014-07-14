@@ -2,7 +2,7 @@
 layout: api
 title: toString
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Function2Comparator](index.html) / [toString](toString.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Function2Comparator](index.md) / [toString](toString.md)
 
 # toString
 

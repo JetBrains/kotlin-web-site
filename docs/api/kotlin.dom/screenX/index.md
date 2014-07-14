@@ -2,14 +2,16 @@
 layout: api
 title: screenX
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [screenX](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [screenX](index.md)
 
 # screenX
 
 ```
 val MouseEvent.screenX: Int
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-screenX&gt;](_get-screenX_.html)|&nbsp;&nbsp;`fun MouseEvent.<get-screenX>(): Int`<br>|
+|[&lt;get-screenX&gt;](_get-screenX_.md)|&nbsp;&nbsp;**`fun MouseEvent.<get-screenX>(): Int`**<br>|

@@ -2,7 +2,7 @@
 layout: api
 title: increment
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [LongProgression](index.html) / [increment](increment.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [LongProgression](index.md) / [increment](increment.md)
 
 # increment
 

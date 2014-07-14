@@ -2,7 +2,7 @@
 layout: api
 title: <get-localName>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [localName](index.html) / [<get-localName>](_get-localName_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [localName](index.md) / [<get-localName>](_get-localName_.md)
 
 # <get-localName>
 

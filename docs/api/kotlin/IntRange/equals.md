@@ -2,7 +2,7 @@
 layout: api
 title: equals
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [IntRange](index.html) / [equals](equals.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [IntRange](index.md) / [equals](equals.md)
 
 # equals
 

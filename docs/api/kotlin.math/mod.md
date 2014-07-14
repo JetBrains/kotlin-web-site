@@ -2,7 +2,7 @@
 layout: api
 title: mod
 ---
-[stdlib](../index.html) / [kotlin.math](index.html) / [mod](mod.html)
+[stdlib](../index.md) / [kotlin.math](index.md) / [mod](mod.md)
 
 # mod
 

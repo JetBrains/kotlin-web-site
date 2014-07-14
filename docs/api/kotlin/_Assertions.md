@@ -2,7 +2,7 @@
 layout: api
 title: _Assertions
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [_Assertions](_Assertions.html)
+[stdlib](../index.md) / [kotlin](index.md) / [_Assertions](_Assertions.md)
 
 # _Assertions
 

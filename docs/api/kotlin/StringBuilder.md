@@ -2,7 +2,7 @@
 layout: api
 title: StringBuilder
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [StringBuilder](StringBuilder.html)
+[stdlib](../index.md) / [kotlin](index.md) / [StringBuilder](StringBuilder.md)
 
 # StringBuilder
 Builds newly created StringBuilder using provided body.

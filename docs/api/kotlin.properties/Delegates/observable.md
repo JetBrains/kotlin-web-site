@@ -2,7 +2,7 @@
 layout: api
 title: observable
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [Delegates](index.html) / [observable](observable.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [Delegates](index.md) / [observable](observable.md)
 
 # observable
 

@@ -2,7 +2,7 @@
 layout: api
 title: nodeList
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [NodeListAsList](index.html) / [nodeList](nodeList.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [NodeListAsList](index.md) / [nodeList](nodeList.md)
 
 # nodeList
 

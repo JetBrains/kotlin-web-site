@@ -2,7 +2,7 @@
 layout: api
 title: nextByte
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ByteProgressionIterator](index.html) / [nextByte](nextByte.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ByteProgressionIterator](index.md) / [nextByte](nextByte.md)
 
 # nextByte
 

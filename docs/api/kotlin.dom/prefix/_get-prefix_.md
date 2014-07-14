@@ -2,7 +2,7 @@
 layout: api
 title: <get-prefix>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [prefix](index.html) / [<get-prefix>](_get-prefix_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [prefix](index.md) / [<get-prefix>](_get-prefix_.md)
 
 # <get-prefix>
 

@@ -2,7 +2,7 @@
 layout: api
 title: toXmlString
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [toXmlString](toXmlString.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [toXmlString](toXmlString.md)
 
 # toXmlString
 Converts the node to an XML String

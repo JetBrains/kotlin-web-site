@@ -2,7 +2,7 @@
 layout: api
 title: locale
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [LocaleFormatter](index.html) / [locale](locale.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [LocaleFormatter](index.md) / [locale](locale.md)
 
 # locale
 

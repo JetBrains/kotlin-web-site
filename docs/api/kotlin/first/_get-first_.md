@@ -2,7 +2,7 @@
 layout: api
 title: <get-first>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [first](index.html) / [<get-first>](_get-first_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [first](index.md) / [<get-first>](_get-first_.md)
 
 # <get-first>
 

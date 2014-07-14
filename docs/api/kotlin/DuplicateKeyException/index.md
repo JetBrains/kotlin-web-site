@@ -2,14 +2,16 @@
 layout: api
 title: DuplicateKeyException
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [DuplicateKeyException](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [DuplicateKeyException](index.md)
 
 # DuplicateKeyException
 
 ```
 public class DuplicateKeyException
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public DuplicateKeyException(message: String)`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public DuplicateKeyException(message: String)`**<br>|

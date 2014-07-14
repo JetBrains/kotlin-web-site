@@ -2,7 +2,7 @@
 layout: api
 title: plusAssign
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [AnnotationsPathBuilder](index.html) / [plusAssign](plusAssign.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [AnnotationsPathBuilder](index.md) / [plusAssign](plusAssign.md)
 
 # plusAssign
 

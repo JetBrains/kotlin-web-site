@@ -2,7 +2,7 @@
 layout: api
 title: <set-classSet>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [classSet](index.html) / [<set-classSet>](_set-classSet_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [classSet](index.md) / [<set-classSet>](_set-classSet_.md)
 
 # <set-classSet>
 

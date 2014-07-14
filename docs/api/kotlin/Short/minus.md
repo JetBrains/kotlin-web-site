@@ -2,7 +2,7 @@
 layout: api
 title: minus
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Short](index.html) / [minus](minus.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Short](index.md) / [minus](minus.md)
 
 # minus
 

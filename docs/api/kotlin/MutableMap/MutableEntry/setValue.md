@@ -2,7 +2,7 @@
 layout: api
 title: setValue
 ---
-[stdlib](../../../index.html) / [kotlin](../../index.html) / [MutableMap](../index.html) / [MutableEntry](index.html) / [setValue](setValue.html)
+[stdlib](../../../index.md) / [kotlin](../../index.md) / [MutableMap](../index.md) / [MutableEntry](index.md) / [setValue](setValue.md)
 
 # setValue
 

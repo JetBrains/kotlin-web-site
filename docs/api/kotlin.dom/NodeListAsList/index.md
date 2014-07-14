@@ -2,7 +2,7 @@
 layout: api
 title: NodeListAsList
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [NodeListAsList](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [NodeListAsList](index.md)
 
 # NodeListAsList
 TODO this approach generates compiler errors...
@@ -40,10 +40,12 @@ this.classSet = classSet
 return answer
 }
 
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|TODO this approach generates compiler errors...<br>&nbsp;&nbsp;`public NodeListAsList(nodeList: NodeList)`<br>|
-|[get](get.html)|&nbsp;&nbsp;`open public fun get(index: Int): Node`<br>|
-|[nodeList](nodeList.html)|&nbsp;&nbsp;`val nodeList: NodeList`<br>|
-|[size](size.html)|&nbsp;&nbsp;`open public fun size(): Int`<br>|
+|[*.init*](_init_.md)|TODO this approach generates compiler errors...<br>&nbsp;&nbsp;**`public NodeListAsList(nodeList: NodeList)`**<br>|
+|[get](get.md)|&nbsp;&nbsp;**`open public fun get(index: Int): Node`**<br>|
+|[nodeList](nodeList.md)|&nbsp;&nbsp;**`val nodeList: NodeList`**<br>|
+|[size](size.md)|&nbsp;&nbsp;**`open public fun size(): Int`**<br>|

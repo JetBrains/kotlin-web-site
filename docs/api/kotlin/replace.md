@@ -2,7 +2,7 @@
 layout: api
 title: replace
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [replace](replace.html)
+[stdlib](../index.md) / [kotlin](index.md) / [replace](replace.md)
 
 # replace
 

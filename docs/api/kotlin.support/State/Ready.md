@@ -2,7 +2,7 @@
 layout: api
 title: Ready
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [State](index.html) / [Ready](Ready.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [State](index.md) / [Ready](Ready.md)
 
 # Ready
 

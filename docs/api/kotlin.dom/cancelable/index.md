@@ -2,14 +2,16 @@
 layout: api
 title: cancelable
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [cancelable](index.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [cancelable](index.md)
 
 # cancelable
 
 ```
 val Event.cancelable: Boolean
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-cancelable&gt;](_get-cancelable_.html)|&nbsp;&nbsp;`fun Event.<get-cancelable>(): Boolean`<br>|
+|[&lt;get-cancelable&gt;](_get-cancelable_.md)|&nbsp;&nbsp;**`fun Event.<get-cancelable>(): Boolean`**<br>|

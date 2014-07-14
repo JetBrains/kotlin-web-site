@@ -2,7 +2,7 @@
 layout: api
 title: and
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Boolean](index.html) / [and](and.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Boolean](index.md) / [and](and.md)
 
 # and
 

@@ -2,7 +2,7 @@
 layout: api
 title: setNext
 ---
-[stdlib](../../index.html) / [kotlin.support](../index.html) / [AbstractIterator](index.html) / [setNext](setNext.html)
+[stdlib](../../index.md) / [kotlin.support](../index.md) / [AbstractIterator](index.md) / [setNext](setNext.md)
 
 # setNext
 Sets the next value in the iteration, called from the [[computeNext()]] function

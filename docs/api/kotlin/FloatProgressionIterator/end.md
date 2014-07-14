@@ -2,7 +2,7 @@
 layout: api
 title: end
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FloatProgressionIterator](index.html) / [end](end.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FloatProgressionIterator](index.md) / [end](end.md)
 
 # end
 

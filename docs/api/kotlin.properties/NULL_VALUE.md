@@ -2,7 +2,7 @@
 layout: api
 title: NULL_VALUE
 ---
-[stdlib](../index.html) / [kotlin.properties](index.html) / [NULL_VALUE](NULL_VALUE.html)
+[stdlib](../index.md) / [kotlin.properties](index.md) / [NULL_VALUE](NULL_VALUE.md)
 
 # NULL_VALUE
 

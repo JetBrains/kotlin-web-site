@@ -2,7 +2,7 @@
 layout: api
 title: sortedMap
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [sortedMap](sortedMap.html)
+[stdlib](../index.md) / [kotlin](index.md) / [sortedMap](sortedMap.md)
 
 # sortedMap
 

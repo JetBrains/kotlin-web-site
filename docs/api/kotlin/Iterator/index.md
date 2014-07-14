@@ -2,15 +2,17 @@
 layout: api
 title: Iterator
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Iterator](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Iterator](index.md)
 
 # Iterator
 
 ```
 abstract public trait Iterator<T> 
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[hasNext](hasNext.html)|&nbsp;&nbsp;`abstract public fun hasNext(): Boolean`<br>|
-|[next](next.html)|&nbsp;&nbsp;`abstract public fun next(): T`<br>|
+|[hasNext](hasNext.md)|&nbsp;&nbsp;**`abstract public fun hasNext(): Boolean`**<br>|
+|[next](next.md)|&nbsp;&nbsp;**`abstract public fun next(): T`**<br>|

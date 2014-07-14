@@ -2,7 +2,7 @@
 layout: api
 title: <set-asserter>
 ---
-[stdlib](../../index.html) / [kotlin.test](../index.html) / [asserter](../asserter/index.html) / [<set-asserter>](_set-asserter_.html)
+[stdlib](../../index.md) / [kotlin.test](../index.md) / [asserter](index.md) / [<set-asserter>](_set-asserter_.md)
 
 # <set-asserter>
 

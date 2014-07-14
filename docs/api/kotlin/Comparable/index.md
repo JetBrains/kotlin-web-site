@@ -2,14 +2,16 @@
 layout: api
 title: Comparable
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Comparable](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Comparable](index.md)
 
 # Comparable
 
 ```
 abstract public trait Comparable<T> 
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[compareTo](compareTo.html)|&nbsp;&nbsp;`abstract public fun compareTo(other: T): Int`<br>|
+|[compareTo](compareTo.md)|&nbsp;&nbsp;**`abstract public fun compareTo(other: T): Int`**<br>|

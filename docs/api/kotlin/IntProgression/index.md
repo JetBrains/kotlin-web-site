@@ -2,22 +2,24 @@
 layout: api
 title: IntProgression
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [IntProgression](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [IntProgression](index.md)
 
 # IntProgression
 
 ```
 public class IntProgression
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public IntProgression(start: Int, end: Int, increment: Int)`<br>|
-|[end](end.html)|&nbsp;&nbsp;`open public val end: Int`<br>|
-|[equals](equals.html)|&nbsp;&nbsp;`open public fun equals(other: Any): Boolean`<br>|
-|[hashCode](hashCode.html)|&nbsp;&nbsp;`open public fun hashCode(): Int`<br>|
-|[increment](increment.html)|&nbsp;&nbsp;`open public val increment: Int`<br>|
-|[isEmpty](isEmpty.html)|&nbsp;&nbsp;`public fun isEmpty(): Boolean`<br>|
-|[iterator](iterator.html)|&nbsp;&nbsp;`open public fun iterator(): IntIterator`<br>|
-|[start](start.html)|&nbsp;&nbsp;`open public val start: Int`<br>|
-|[toString](toString.html)|&nbsp;&nbsp;`open public fun toString(): String`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public IntProgression(start: Int, end: Int, increment: Int)`**<br>|
+|[end](end.md)|&nbsp;&nbsp;**`open public val end: Int`**<br>|
+|[equals](equals.md)|&nbsp;&nbsp;**`open public fun equals(other: Any): Boolean`**<br>|
+|[hashCode](hashCode.md)|&nbsp;&nbsp;**`open public fun hashCode(): Int`**<br>|
+|[increment](increment.md)|&nbsp;&nbsp;**`open public val increment: Int`**<br>|
+|[isEmpty](isEmpty.md)|&nbsp;&nbsp;**`public fun isEmpty(): Boolean`**<br>|
+|[iterator](iterator.md)|&nbsp;&nbsp;**`open public fun iterator(): IntIterator`**<br>|
+|[start](start.md)|&nbsp;&nbsp;**`open public val start: Int`**<br>|
+|[toString](toString.md)|&nbsp;&nbsp;**`open public fun toString(): String`**<br>|

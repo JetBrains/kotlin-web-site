@@ -2,7 +2,7 @@
 layout: api
 title: safeHashCode
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [safeHashCode](safeHashCode.html)
+[stdlib](../index.md) / [kotlin](index.md) / [safeHashCode](safeHashCode.md)
 
 # safeHashCode
 

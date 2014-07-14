@@ -2,7 +2,7 @@
 layout: api
 title: getAnnotationsRoots
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [ModuleBuilder](index.html) / [getAnnotationsRoots](getAnnotationsRoots.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [ModuleBuilder](index.md) / [getAnnotationsRoots](getAnnotationsRoots.md)
 
 # getAnnotationsRoots
 

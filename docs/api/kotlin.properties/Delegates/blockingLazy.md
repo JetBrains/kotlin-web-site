@@ -2,7 +2,7 @@
 layout: api
 title: blockingLazy
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [Delegates](index.html) / [blockingLazy](blockingLazy.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [Delegates](index.md) / [blockingLazy](blockingLazy.md)
 
 # blockingLazy
 

@@ -2,7 +2,7 @@
 layout: api
 title: relativePath
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [relativePath](relativePath.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [relativePath](relativePath.md)
 
 # relativePath
 Returns the relative path of the given descendant of this file if its a descendant

@@ -2,14 +2,16 @@
 layout: api
 title: transient
 ---
-[stdlib](../../index.html) / [kotlin.jvm](../index.html) / [transient](index.html)
+[stdlib](../../index.md) / [kotlin.jvm](../index.md) / [transient](index.md)
 
 # transient
 
 ```
 public class transient
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`public transient()`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`public transient()`**<br>|

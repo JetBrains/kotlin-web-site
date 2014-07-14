@@ -2,7 +2,7 @@
 layout: api
 title: addSourceFiles
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [ModuleBuilder](index.html) / [addSourceFiles](addSourceFiles.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [ModuleBuilder](index.md) / [addSourceFiles](addSourceFiles.md)
 
 # addSourceFiles
 

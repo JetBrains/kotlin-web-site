@@ -2,7 +2,7 @@
 layout: api
 title: toSortedMap
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toSortedMap](toSortedMap.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toSortedMap](toSortedMap.md)
 
 # toSortedMap
 Converts this [[Map]] to a [[SortedMap]] using the given *comparator* so that iteration order will be in the order

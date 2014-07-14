@@ -2,7 +2,7 @@
 layout: api
 title: <set-childrenText>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [childrenText](index.html) / [<set-childrenText>](_set-childrenText_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [childrenText](index.md) / [<set-childrenText>](_set-childrenText_.md)
 
 # <set-childrenText>
 

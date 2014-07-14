@@ -2,7 +2,7 @@
 layout: api
 title: split
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [split](split.html)
+[stdlib](../index.md) / [kotlin](index.md) / [split](split.md)
 
 # split
 

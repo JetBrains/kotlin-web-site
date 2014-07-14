@@ -2,7 +2,7 @@
 layout: api
 title: it
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [EmptyIterableException](index.html) / [it](it.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [EmptyIterableException](index.md) / [it](it.md)
 
 # it
 

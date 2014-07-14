@@ -2,7 +2,7 @@
 layout: api
 title: assertNotNull
 ---
-[stdlib](../../index.html) / [kotlin.test](../index.html) / [Asserter](index.html) / [assertNotNull](assertNotNull.html)
+[stdlib](../../index.md) / [kotlin.test](../index.md) / [Asserter](index.md) / [assertNotNull](assertNotNull.md)
 
 # assertNotNull
 

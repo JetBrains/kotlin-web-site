@@ -2,7 +2,7 @@
 layout: api
 title: <get-elements>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [elements](index.html) / [<get-elements>](_get-elements_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [elements](index.md) / [<get-elements>](_get-elements_.md)
 
 # <get-elements>
 

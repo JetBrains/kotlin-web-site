@@ -2,7 +2,7 @@
 layout: api
 title: ownerDocument
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [ownerDocument](ownerDocument.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [ownerDocument](ownerDocument.md)
 
 # ownerDocument
 Returns the owner document of the element or uses the provided document

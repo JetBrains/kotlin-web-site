@@ -2,7 +2,7 @@
 layout: api
 title: plus
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [plus](plus.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [plus](plus.md)
 
 # plus
 

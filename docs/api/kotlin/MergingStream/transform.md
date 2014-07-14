@@ -2,7 +2,7 @@
 layout: api
 title: transform
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MergingStream](index.html) / [transform](transform.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MergingStream](index.md) / [transform](transform.md)
 
 # transform
 

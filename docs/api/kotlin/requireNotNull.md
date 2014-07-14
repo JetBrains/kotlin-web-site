@@ -2,7 +2,7 @@
 layout: api
 title: requireNotNull
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [requireNotNull](requireNotNull.html)
+[stdlib](../index.md) / [kotlin](index.md) / [requireNotNull](requireNotNull.md)
 
 # requireNotNull
 Throws an [[IllegalArgumentException]] with the given *message* if the *value* is null otherwise

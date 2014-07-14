@@ -2,12 +2,12 @@
 layout: api
 title: getBytes
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [getBytes](getBytes.html)
+[stdlib](../index.md) / [kotlin](index.md) / [getBytes](getBytes.md)
 
 # getBytes
 
 ```
-public fun String.getBytes(): ByteArray
 public fun String.getBytes(charsetName: String): ByteArray
 public fun String.getBytes(charset: Charset): ByteArray
+public fun String.getBytes(): ByteArray
 ```

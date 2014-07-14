@@ -2,7 +2,7 @@
 layout: api
 title: withLock
 ---
-[stdlib](../index.html) / [kotlin.concurrent](index.html) / [withLock](withLock.html)
+[stdlib](../index.md) / [kotlin.concurrent](index.md) / [withLock](withLock.md)
 
 # withLock
 Executes given calculation under lock

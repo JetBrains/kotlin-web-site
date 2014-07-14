@@ -2,7 +2,7 @@
 layout: api
 title: eventHandler
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [eventHandler](eventHandler.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [eventHandler](eventHandler.md)
 
 # eventHandler
 Turns an event handler function into an [EventListener]

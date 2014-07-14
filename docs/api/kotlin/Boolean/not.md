@@ -2,7 +2,7 @@
 layout: api
 title: not
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Boolean](index.html) / [not](not.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Boolean](index.md) / [not](not.md)
 
 # not
 

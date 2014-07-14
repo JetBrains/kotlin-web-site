@@ -2,7 +2,7 @@
 layout: api
 title: buffered
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [buffered](buffered.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [buffered](buffered.md)
 
 # buffered
 Creates a buffered writer, or returns self if Writer is already buffered

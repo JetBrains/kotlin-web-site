@@ -2,13 +2,13 @@
 layout: api
 title: toString
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toString](toString.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toString](toString.md)
 
 # toString
 
 ```
-public fun Any.toString(): String
-public fun ByteArray.toString(encoding: Charset): String
 public fun ByteArray.toString(encoding: String): String
+public fun Any.toString(): String
 public fun CharSequence.toString(): String
+public fun ByteArray.toString(encoding: Charset): String
 ```

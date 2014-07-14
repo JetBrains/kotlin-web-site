@@ -2,7 +2,7 @@
 layout: api
 title: ushr
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Int](index.html) / [ushr](ushr.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Int](index.md) / [ushr](ushr.md)
 
 # ushr
 

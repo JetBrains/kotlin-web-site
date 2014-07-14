@@ -2,7 +2,7 @@
 layout: api
 title: scheduleAtFixedRate
 ---
-[stdlib](../index.html) / [kotlin.concurrent](index.html) / [scheduleAtFixedRate](scheduleAtFixedRate.html)
+[stdlib](../index.md) / [kotlin.concurrent](index.md) / [scheduleAtFixedRate](scheduleAtFixedRate.md)
 
 # scheduleAtFixedRate
 

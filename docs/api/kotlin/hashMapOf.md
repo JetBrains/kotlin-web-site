@@ -2,7 +2,7 @@
 layout: api
 title: hashMapOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [hashMapOf](hashMapOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [hashMapOf](hashMapOf.md)
 
 # hashMapOf
 Returns a new [[HashMap]] populated with the given pairs where the first value in each pair

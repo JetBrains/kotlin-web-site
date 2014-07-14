@@ -2,7 +2,7 @@
 layout: api
 title: <get-size>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [size](index.html) / [<get-size>](_get-size_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [size](index.md) / [<get-size>](_get-size_.md)
 
 # <get-size>
 

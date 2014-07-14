@@ -2,14 +2,16 @@
 layout: api
 title: Nothing
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [Nothing](index.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [Nothing](index.md)
 
 # Nothing
 
 ```
 public class Nothing
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[*.init*](_init_.html)|&nbsp;&nbsp;`private Nothing()`<br>|
+|[*.init*](_init_.md)|&nbsp;&nbsp;**`private Nothing()`**<br>|

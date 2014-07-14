@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [throws](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [throws](index.md) / [<init>](_init_.md)
 
 # <init>
 This annotation indicates what exceptions should be declared by a function when compiled to a JVM method

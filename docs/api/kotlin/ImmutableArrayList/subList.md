@@ -2,7 +2,7 @@
 layout: api
 title: subList
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ImmutableArrayList](index.html) / [subList](subList.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ImmutableArrayList](index.md) / [subList](subList.md)
 
 # subList
 

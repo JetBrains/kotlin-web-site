@@ -2,7 +2,7 @@
 layout: api
 title: callable
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [callable](callable.html)
+[stdlib](../index.md) / [kotlin](index.md) / [callable](callable.md)
 
 # callable
 A helper method for creating a [[Callable]] from a function

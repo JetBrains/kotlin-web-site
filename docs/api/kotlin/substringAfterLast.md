@@ -2,7 +2,7 @@
 layout: api
 title: substringAfterLast
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [substringAfterLast](substringAfterLast.html)
+[stdlib](../index.md) / [kotlin](index.md) / [substringAfterLast](substringAfterLast.md)
 
 # substringAfterLast
 Returns a substring after last occurrence of delimiter. In case of no delimiter, returns an empty string.

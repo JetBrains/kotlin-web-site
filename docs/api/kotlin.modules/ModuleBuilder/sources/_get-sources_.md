@@ -2,7 +2,7 @@
 layout: api
 title: <get-sources>
 ---
-[stdlib](../../../index.html) / [kotlin.modules](../../index.html) / [ModuleBuilder](../index.html) / [sources](index.html) / [<get-sources>](_get-sources_.html)
+[stdlib](../../../index.md) / [kotlin.modules](../../index.md) / [ModuleBuilder](../index.md) / [sources](index.md) / [<get-sources>](_get-sources_.md)
 
 # <get-sources>
 

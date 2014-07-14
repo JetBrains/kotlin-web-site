@@ -2,7 +2,7 @@
 layout: api
 title: currentIter
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [CompositeIterator](index.html) / [currentIter](currentIter.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [CompositeIterator](index.md) / [currentIter](currentIter.md)
 
 # currentIter
 

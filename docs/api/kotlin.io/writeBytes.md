@@ -2,7 +2,7 @@
 layout: api
 title: writeBytes
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [writeBytes](writeBytes.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [writeBytes](writeBytes.md)
 
 # writeBytes
 Writes the bytes as the contents of the file

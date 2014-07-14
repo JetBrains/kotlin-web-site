@@ -2,7 +2,7 @@
 layout: api
 title: firePropertyChanged
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeSupport](index.html) / [firePropertyChanged](firePropertyChanged.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeSupport](index.md) / [firePropertyChanged](firePropertyChanged.md)
 
 # firePropertyChanged
 

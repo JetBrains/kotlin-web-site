@@ -2,7 +2,7 @@
 layout: api
 title: value
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [inlineOptions](index.html) / [value](value.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [inlineOptions](index.md) / [value](value.md)
 
 # value
 

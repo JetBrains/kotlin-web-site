@@ -2,7 +2,7 @@
 layout: api
 title: module
 ---
-[stdlib](../index.html) / [kotlin.modules](index.html) / [module](module.html)
+[stdlib](../index.md) / [kotlin.modules](index.md) / [module](module.md)
 
 # module
 

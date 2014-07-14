@@ -2,7 +2,7 @@
 layout: api
 title: <get-ctrlKey>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [ctrlKey](index.html) / [<get-ctrlKey>](_get-ctrlKey_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [ctrlKey](index.md) / [<get-ctrlKey>](_get-ctrlKey_.md)
 
 # <get-ctrlKey>
 

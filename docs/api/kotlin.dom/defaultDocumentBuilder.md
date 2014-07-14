@@ -2,7 +2,7 @@
 layout: api
 title: defaultDocumentBuilder
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [defaultDocumentBuilder](defaultDocumentBuilder.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [defaultDocumentBuilder](defaultDocumentBuilder.md)
 
 # defaultDocumentBuilder
 Returns the default [[DocumentBuilder]]

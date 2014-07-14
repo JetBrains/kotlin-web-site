@@ -2,7 +2,7 @@
 layout: api
 title: value
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [SingleIterator](index.html) / [value](value.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [SingleIterator](index.md) / [value](value.md)
 
 # value
 

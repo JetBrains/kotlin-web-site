@@ -2,7 +2,7 @@
 layout: api
 title: defaultBufferSize
 ---
-[stdlib](../index.html) / [kotlin.io](index.html) / [defaultBufferSize](defaultBufferSize.html)
+[stdlib](../index.md) / [kotlin.io](index.md) / [defaultBufferSize](defaultBufferSize.md)
 
 # defaultBufferSize
 Returns the default buffer size when working with buffered streams

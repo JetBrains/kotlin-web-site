@@ -2,14 +2,16 @@
 layout: api
 title: tail
 ---
-[stdlib](../../../../../index.html) / [kotlin.concurrent](../../../../index.html) / [FunctionalList](../../../index.html) / [<class-object-for-FunctionalList>](../../index.html) / [Empty](../index.html) / [tail](index.html)
+[stdlib](../../../../../index.md) / [kotlin.concurrent](../../../../index.md) / [FunctionalList](../../../index.md) / [<class-object-for-FunctionalList>](../../index.md) / [Empty](../index.md) / [tail](index.md)
 
 # tail
 
 ```
 open public val tail: FunctionalList<T>
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-tail&gt;](_get-tail_.html)|&nbsp;&nbsp;`open public fun <get-tail>(): FunctionalList<T>`<br>|
+|[&lt;get-tail&gt;](_get-tail_.md)|&nbsp;&nbsp;**`open public fun <get-tail>(): FunctionalList<T>`**<br>|

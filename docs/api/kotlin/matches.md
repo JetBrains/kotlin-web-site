@@ -2,7 +2,7 @@
 layout: api
 title: matches
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [matches](matches.html)
+[stdlib](../index.md) / [kotlin](index.md) / [matches](matches.md)
 
 # matches
 

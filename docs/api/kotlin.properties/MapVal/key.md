@@ -2,7 +2,7 @@
 layout: api
 title: key
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [MapVal](index.html) / [key](key.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [MapVal](index.md) / [key](key.md)
 
 # key
 

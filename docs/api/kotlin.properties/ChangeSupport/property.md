@@ -2,7 +2,7 @@
 layout: api
 title: property
 ---
-[stdlib](../../index.html) / [kotlin.properties](../index.html) / [ChangeSupport](index.html) / [property](property.html)
+[stdlib](../../index.md) / [kotlin.properties](../index.md) / [ChangeSupport](index.md) / [property](property.md)
 
 # property
 

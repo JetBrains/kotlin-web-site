@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.modules](../index.html) / [AnnotationsPathBuilder](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.modules](../index.md) / [AnnotationsPathBuilder](index.md) / [<init>](_init_.md)
 
 # <init>
 

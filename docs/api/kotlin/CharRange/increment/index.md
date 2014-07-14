@@ -2,14 +2,16 @@
 layout: api
 title: increment
 ---
-[stdlib](../../../index.html) / [kotlin](../../index.html) / [CharRange](../index.html) / [increment](index.html)
+[stdlib](../../../index.md) / [kotlin](../../index.md) / [CharRange](../index.md) / [increment](index.md)
 
 # increment
 
 ```
 open public val increment: Int
 ```
+
 ## Members
+
 | Name | Summary |
 |------|---------|
-|[&lt;get-increment&gt;](_get-increment_.html)|&nbsp;&nbsp;`open public fun <get-increment>(): Int`<br>|
+|[&lt;get-increment&gt;](_get-increment_.md)|&nbsp;&nbsp;**`open public fun <get-increment>(): Int`**<br>|

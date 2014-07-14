@@ -2,7 +2,7 @@
 layout: api
 title: doubleArray
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [doubleArray](doubleArray.html)
+[stdlib](../index.md) / [kotlin](index.md) / [doubleArray](doubleArray.md)
 
 # doubleArray
 

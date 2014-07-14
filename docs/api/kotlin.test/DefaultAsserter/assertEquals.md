@@ -2,7 +2,7 @@
 layout: api
 title: assertEquals
 ---
-[stdlib](../../index.html) / [kotlin.test](../index.html) / [DefaultAsserter](index.html) / [assertEquals](assertEquals.html)
+[stdlib](../../index.md) / [kotlin.test](../index.md) / [DefaultAsserter](index.md) / [assertEquals](assertEquals.md)
 
 # assertEquals
 

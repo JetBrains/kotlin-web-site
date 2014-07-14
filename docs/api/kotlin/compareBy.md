@@ -2,7 +2,7 @@
 layout: api
 title: compareBy
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [compareBy](compareBy.html)
+[stdlib](../index.md) / [kotlin](index.md) / [compareBy](compareBy.md)
 
 # compareBy
 Helper method for implementing [[Comparable]] methods using a list of functions

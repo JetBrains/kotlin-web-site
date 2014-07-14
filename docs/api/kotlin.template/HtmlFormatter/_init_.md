@@ -2,7 +2,7 @@
 layout: api
 title: <init>
 ---
-[stdlib](../../index.html) / [kotlin.template](../index.html) / [HtmlFormatter](index.html) / [<init>](_init_.html)
+[stdlib](../../index.md) / [kotlin.template](../index.md) / [HtmlFormatter](index.md) / [<init>](_init_.md)
 
 # <init>
 Formats values for HTML encoding, escaping special characters in HTML.

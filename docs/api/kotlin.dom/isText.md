@@ -2,7 +2,7 @@
 layout: api
 title: isText
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [isText](isText.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [isText](isText.md)
 
 # isText
 Returns true if this node is a Text node or a CDATA node

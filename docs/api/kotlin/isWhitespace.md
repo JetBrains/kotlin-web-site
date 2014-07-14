@@ -2,7 +2,7 @@
 layout: api
 title: isWhitespace
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [isWhitespace](isWhitespace.html)
+[stdlib](../index.md) / [kotlin](index.md) / [isWhitespace](isWhitespace.md)
 
 # isWhitespace
 Returns true if the character is whitespace

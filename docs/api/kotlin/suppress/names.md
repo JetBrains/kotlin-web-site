@@ -2,7 +2,7 @@
 layout: api
 title: names
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [suppress](index.html) / [names](names.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [suppress](index.md) / [names](names.md)
 
 # names
 

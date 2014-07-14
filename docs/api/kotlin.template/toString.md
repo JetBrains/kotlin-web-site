@@ -2,7 +2,7 @@
 layout: api
 title: toString
 ---
-[stdlib](../index.html) / [kotlin.template](index.html) / [toString](toString.html)
+[stdlib](../index.md) / [kotlin.template](index.md) / [toString](toString.md)
 
 # toString
 Converts the string template into a string using the given formatter

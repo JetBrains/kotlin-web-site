@@ -2,7 +2,7 @@
 layout: api
 title: <get-parentNode>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [parentNode](index.html) / [<get-parentNode>](_get-parentNode_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [parentNode](index.md) / [<get-parentNode>](_get-parentNode_.md)
 
 # <get-parentNode>
 

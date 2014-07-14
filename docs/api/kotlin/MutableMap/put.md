@@ -2,7 +2,7 @@
 layout: api
 title: put
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [MutableMap](index.html) / [put](put.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [MutableMap](index.md) / [put](put.md)
 
 # put
 

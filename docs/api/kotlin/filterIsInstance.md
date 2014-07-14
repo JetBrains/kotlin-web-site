@@ -2,7 +2,7 @@
 layout: api
 title: filterIsInstance
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [filterIsInstance](filterIsInstance.html)
+[stdlib](../index.md) / [kotlin](index.md) / [filterIsInstance](filterIsInstance.md)
 
 # filterIsInstance
 Returns a list containing all elements that are instances of specified class

@@ -2,7 +2,7 @@
 layout: api
 title: reversed
 ---
-[stdlib](../../index.html) / [kotlin.concurrent](../index.html) / [FunctionalList](index.html) / [reversed](reversed.html)
+[stdlib](../../index.md) / [kotlin.concurrent](../index.md) / [FunctionalList](index.md) / [reversed](reversed.md)
 
 # reversed
 

@@ -2,23 +2,23 @@
 layout: api
 title: toSortedSet
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toSortedSet](toSortedSet.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toSortedSet](toSortedSet.md)
 
 # toSortedSet
 Returns a SortedSet of all elements
 ```
-public fun <T> Array<T>.toSortedSet(): SortedSet<T>
-public fun FloatArray.toSortedSet(): SortedSet<Float>
-public fun DoubleArray.toSortedSet(): SortedSet<Double>
-public fun <T> Iterable<T>.toSortedSet(): SortedSet<T>
+public fun CharArray.toSortedSet(): SortedSet<Char>
+public fun LongArray.toSortedSet(): SortedSet<Long>
 public fun ByteArray.toSortedSet(): SortedSet<Byte>
 public fun String.toSortedSet(): SortedSet<Char>
-public fun CharArray.toSortedSet(): SortedSet<Char>
-public fun IntArray.toSortedSet(): SortedSet<Int>
-public fun LongArray.toSortedSet(): SortedSet<Long>
-public fun BooleanArray.toSortedSet(): SortedSet<Boolean>
 public fun <T> Stream<T>.toSortedSet(): SortedSet<T>
+public fun <T> Array<T>.toSortedSet(): SortedSet<T>
+public fun FloatArray.toSortedSet(): SortedSet<Float>
+public fun <T> Iterable<T>.toSortedSet(): SortedSet<T>
+public fun BooleanArray.toSortedSet(): SortedSet<Boolean>
+public fun IntArray.toSortedSet(): SortedSet<Int>
 public fun ShortArray.toSortedSet(): SortedSet<Short>
+public fun DoubleArray.toSortedSet(): SortedSet<Double>
 ```
 Copies all elements into a [[SortedSet]]
 ```

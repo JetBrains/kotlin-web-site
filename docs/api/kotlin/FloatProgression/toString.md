@@ -2,7 +2,7 @@
 layout: api
 title: toString
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [FloatProgression](index.html) / [toString](toString.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [FloatProgression](index.md) / [toString](toString.md)
 
 # toString
 

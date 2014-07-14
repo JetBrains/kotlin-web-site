@@ -2,7 +2,7 @@
 layout: api
 title: invoke
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ExtensionFunction12](index.html) / [invoke](invoke.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ExtensionFunction12](index.md) / [invoke](invoke.md)
 
 # invoke
 

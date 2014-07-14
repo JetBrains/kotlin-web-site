@@ -2,7 +2,7 @@
 layout: api
 title: ensureCapacity
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ImmutableArrayListBuilder](index.html) / [ensureCapacity](ensureCapacity.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ImmutableArrayListBuilder](index.md) / [ensureCapacity](ensureCapacity.md)
 
 # ensureCapacity
 

@@ -2,7 +2,7 @@
 layout: api
 title: toString
 ---
-[stdlib](../../index.html) / [kotlin](../index.html) / [ShortProgression](index.html) / [toString](toString.html)
+[stdlib](../../index.md) / [kotlin](../index.md) / [ShortProgression](index.md) / [toString](toString.md)
 
 # toString
 

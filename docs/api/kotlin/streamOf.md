@@ -2,7 +2,7 @@
 layout: api
 title: streamOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [streamOf](streamOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [streamOf](streamOf.md)
 
 # streamOf
 

@@ -2,7 +2,7 @@
 layout: api
 title: toBoolean
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [toBoolean](toBoolean.html)
+[stdlib](../index.md) / [kotlin](index.md) / [toBoolean](toBoolean.md)
 
 # toBoolean
 

@@ -2,7 +2,7 @@
 layout: api
 title: check
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [check](check.html)
+[stdlib](../index.md) / [kotlin](index.md) / [check](check.md)
 
 # check
 Throws an [[IllegalStateException]] with an optional *message* if the *value* is false.

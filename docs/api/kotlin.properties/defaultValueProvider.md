@@ -2,7 +2,7 @@
 layout: api
 title: defaultValueProvider
 ---
-[stdlib](../index.html) / [kotlin.properties](index.html) / [defaultValueProvider](defaultValueProvider.html)
+[stdlib](../index.md) / [kotlin.properties](index.md) / [defaultValueProvider](defaultValueProvider.md)
 
 # defaultValueProvider
 

@@ -2,7 +2,7 @@
 layout: api
 title: <get-size>
 ---
-[stdlib](../../../index.html) / [kotlin.concurrent](../../index.html) / [FunctionalQueue](../index.html) / [size](index.html) / [<get-size>](_get-size_.html)
+[stdlib](../../../index.md) / [kotlin.concurrent](../../index.md) / [FunctionalQueue](../index.md) / [size](index.md) / [<get-size>](_get-size_.md)
 
 # <get-size>
 

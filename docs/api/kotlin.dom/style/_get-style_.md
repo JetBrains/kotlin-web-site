@@ -2,7 +2,7 @@
 layout: api
 title: <get-style>
 ---
-[stdlib](../../index.html) / [kotlin.dom](../index.html) / [style](index.html) / [<get-style>](_get-style_.html)
+[stdlib](../../index.md) / [kotlin.dom](../index.md) / [style](index.md) / [<get-style>](_get-style_.md)
 
 # <get-style>
 

@@ -2,7 +2,7 @@
 layout: api
 title: sortedSetOf
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [sortedSetOf](sortedSetOf.html)
+[stdlib](../index.md) / [kotlin](index.md) / [sortedSetOf](sortedSetOf.md)
 
 # sortedSetOf
 Returns a new [[SortedSet]] with the given *comparator* and the initial elements

@@ -2,7 +2,7 @@
 layout: api
 title: array
 ---
-[stdlib](../index.html) / [kotlin](index.html) / [array](array.html)
+[stdlib](../index.md) / [kotlin](index.md) / [array](array.md)
 
 # array
 

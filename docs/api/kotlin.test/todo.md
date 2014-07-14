@@ -2,7 +2,7 @@
 layout: api
 title: todo
 ---
-[stdlib](../index.html) / [kotlin.test](index.html) / [todo](todo.html)
+[stdlib](../index.md) / [kotlin.test](index.md) / [todo](todo.md)
 
 # todo
 Comments out a block of test code until it is implemented while keeping a link to the code

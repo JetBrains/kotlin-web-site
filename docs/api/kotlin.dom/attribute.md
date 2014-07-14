@@ -2,7 +2,7 @@
 layout: api
 title: attribute
 ---
-[stdlib](../index.html) / [kotlin.dom](index.html) / [attribute](attribute.html)
+[stdlib](../index.md) / [kotlin.dom](index.md) / [attribute](attribute.md)
 
 # attribute
 Returns the attribute value or empty string if its not present
