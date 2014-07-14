@@ -38,7 +38,7 @@
         margin-left: 15px;
         white-space: nowrap;
 
-        @media (max-width: 1165px) {
+        @media (max-width: 1205px) {
             left: auto;
             right: 0;
             top: 38px;
@@ -47,7 +47,7 @@
         &.social-links {
             position: absolute;
 
-            @media (max-width: 1165px) {
+            @media (max-width: 1205px) {
                 top: auto;
                 bottom: 38px;
             }
@@ -68,15 +68,15 @@
             vertical-align: top;
         }
 
-        .link:hover .link-icon {
-            opacity: 1;
-        }
-
         .link-github {
         }
 
         .link-twitter {
             top: 2px;
+        }
+
+        .link-forum {
+            top: 3px;
         }
 
         .link-icon {
@@ -90,6 +90,10 @@
             }
         }
 
+        .link:hover .link-icon {
+            opacity: 1;
+        }
+
         .icon-github {
             width: 20px;
             height: 20px;
@@ -100,6 +104,12 @@
             width: 20px;
             height: 17px;
             background-position: -100px -50px;
+        }
+
+        .icon-forum {
+            width: 25px;
+            height: 17px;
+            background-position: -100px -400px;
         }
     }
 }
