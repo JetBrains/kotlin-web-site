@@ -1,0 +1,11 @@
+---
+layout: api
+title: <init>
+---
+[stdlib](../../index.html) / [kotlin.properties](../index.html) / [BlockingLazyVal](index.html) / [<init>](_init_.html)
+
+# <init>
+
+```
+public BlockingLazyVal<T> (lock: Any, initializer: ()->T)
+```

@@ -103,7 +103,7 @@ reference:
   - title: Reference
     description: API and Grammar
     content:
-      - http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/index.html: API Reference
+      - /docs/api/index.html: API Reference
 #      - /docs/reference/grammar.html: Grammar
 
 

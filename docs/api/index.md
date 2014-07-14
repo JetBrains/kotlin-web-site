@@ -1,39 +1,29 @@
 ---
-type: doc
 layout: api
-category: "API"
-title: "JUnitMatcher"
+title: stdlib
 ---
+[stdlib](index.html)
 
-# Class JUnitMatcher
+# stdlib
 
-**java.lang.Object**
-
-![Inherit]({{ site.baseurl }}/assets/images/api/inherit.gif)**org.junit.matchers.JUnitMatchers**
-
-public class **JUnitMatchers** extends java.lang.Object
-
-Bla bla bla bla bla
-
-## Constructor Summary
-
-Some table below
-
-
-| Column 1 | Column 2 |
-|------------|---------------|
-| entry1 | value1 |
-| entry2 | value2 |
-
-
-To use a keyword, just use *keyword*{: .keyword }
-
-If you want to define your own style, just wrap *it in something*{: .yourCSSClassHere }
-(yourCSSClassHere would then need to be defined)
-
-**hasItems**
-
-public static \<T\> org.hamcrest.Matcher\<java.lang.Iterable\<\<T\>\> **hasItems**(Matcher matcher)
-
-
-
+```
+Module: stdlib
+```
+## Members
+| Name | Summary |
+|------|---------|
+|[kotlin](kotlin/index.html)|&nbsp;&nbsp;`package kotlin`<br>|
+|[kotlin.browser](kotlin.browser/index.html)|&nbsp;&nbsp;`package kotlin.browser`<br>|
+|[kotlin.concurrent](kotlin.concurrent/index.html)|&nbsp;&nbsp;`package kotlin.concurrent`<br>|
+|[kotlin.dom](kotlin.dom/index.html)|&nbsp;&nbsp;`package kotlin.dom`<br>|
+|[kotlin.io](kotlin.io/index.html)|&nbsp;&nbsp;`package kotlin.io`<br>|
+|[kotlin.jvm](kotlin.jvm/index.html)|&nbsp;&nbsp;`package kotlin.jvm`<br>|
+|[kotlin.jvm.internal.unsafe](kotlin.jvm.internal.unsafe/index.html)|&nbsp;&nbsp;`package kotlin.jvm.internal.unsafe`<br>|
+|[kotlin.math](kotlin.math/index.html)|&nbsp;&nbsp;`package kotlin.math`<br>|
+|[kotlin.modules](kotlin.modules/index.html)|&nbsp;&nbsp;`package kotlin.modules`<br>|
+|[kotlin.platform](kotlin.platform/index.html)|&nbsp;&nbsp;`package kotlin.platform`<br>|
+|[kotlin.properties](kotlin.properties/index.html)|&nbsp;&nbsp;`package kotlin.properties`<br>|
+|[kotlin.support](kotlin.support/index.html)|&nbsp;&nbsp;`package kotlin.support`<br>|
+|[kotlin.template](kotlin.template/index.html)|&nbsp;&nbsp;`package kotlin.template`<br>|
+|[kotlin.test](kotlin.test/index.html)|&nbsp;&nbsp;`package kotlin.test`<br>|
+|[kotlin.util](kotlin.util/index.html)|&nbsp;&nbsp;`package kotlin.util`<br>|
