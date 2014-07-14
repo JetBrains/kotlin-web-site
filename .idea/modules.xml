@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/site.iml" filepath="$PROJECT_DIR$/.idea/site.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kotlin-web-site.iml" filepath="$PROJECT_DIR$/.idea/kotlin-web-site.iml" />
     </modules>
   </component>
 </project>

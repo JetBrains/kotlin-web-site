@@ -25,7 +25,15 @@ fun lock<T>(lock : Lock, body : () -> T) : T {
 
 Let's examine the code above: body has a [function type](#function-types): () -> T, so it's supposed to be a function that takes no parameters and returns a value of type T. It is invoked inside the try block, while protected by the lock, and its result is returned by the lock() function.
 
-If we want to call lock(), we can pass a [function literal](#function-literals) to it as an argument:
+If we want to call lock, we can pass another function to it as an argument (see [function references](reflection.html#function-references)):
+
+``` kotlin
+fun toBeSynchronized() = sharedResource.operation()
+
+val result = lock(lock, ::toBeSynchronized)
+```
+
+Another, often more convenient way is to pass a [function literal](#function-literals) (often referred to as _lambda expression_):
 
 ``` kotlin
 val result = lock(lock, { sharedResource.operation() })
