@@ -12,7 +12,7 @@ description: "This tutorials walks you through creating a simple Hello World app
 In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][command_line]
 
-1. [Download IntelliJ IDEA][intellijdownload] 12 or 13 Beta and install the latest Kotlin Plugin
+1. [Download IntelliJ IDEA][intellijdownload] 13 or 14 Beta and install the latest Kotlin Plugin
    1. Under Preferences (OSX) or Settings (Windows/Linux), type Plugins to get the list of currently installed Plugins.
 
    ![Kotlin Plugin]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/install_kotlin_plugin.png)
@@ -30,7 +30,7 @@ For instructions on how to compile and execute Kotlin applications using the com
    We click the *Create* button to specify the Kotlin runtime. We can either Copy it to our project folder or use the bundle from the plugin. It is recommended to copy
    to project folder.
 
-4. We should now have the new projected created and the following folder structure
+4. We should now have the new project created and the following folder structure
 
    ![Kotlin Folder Structure]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/folders.png)
 
