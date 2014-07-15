@@ -221,7 +221,7 @@ fun reachable(from : Vertex, to : Vertex) : Boolean {
 A member function is a function that is defined inside a class or object
 
 ``` kotlin
-class Simple() {
+class Sample() {
     fun foo() { print("Foo") }
 }
 ```
