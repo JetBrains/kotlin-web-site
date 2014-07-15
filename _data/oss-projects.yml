@@ -41,7 +41,7 @@
 - name: Kotlin Vim
   description: Kotlin Syntax Highlighter for Vim
   type: Tools
-  link: https://github.com/ignatov/kotlin-vim
+  link: https://github.com/udalov/kotlin-vim
 
 - name: Griffon Plugin
   description: Griffon Support
