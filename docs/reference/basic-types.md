@@ -155,9 +155,6 @@ fun decimalDigitValue(c : Char) : Int {
 
 Like numbers, characters are boxed when a nullable reference is needed. Identity is not preserved by the boxing operation.
 
-## Strings
-
-
 ## Booleans
 
 The type Boolean represents booleans, and has two values: true and false.
