@@ -16,7 +16,7 @@ You can post technical questions on
 ## Chat Rooms
 
 - [irc.freenode.net](http://irc.freenode.net). #kotlin room
-- [Stackoverflow](http://chat.stackoverflow.com/rooms/56665/kotlin)
+
 
 ## Other mediums
 
