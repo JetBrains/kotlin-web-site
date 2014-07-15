@@ -104,7 +104,7 @@ reference:
     description: API and Grammar
     content:
       - /docs/api/index.html: API Reference
-#      - /docs/reference/grammar.html: Grammar
+      - /docs/reference/grammar.html: Grammar
 
 
   - title: Interop
