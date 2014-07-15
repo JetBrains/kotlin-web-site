@@ -48,9 +48,7 @@
   type: Tools
   link: https://github.com/griffon/griffon-kotlin-plugin
 
-
-
-
-
-
-
+- name: Android Rivers
+  description: RSS Readers for Android
+  type: Android App
+  link: https://github.com/dodyg/AndroidRivers
