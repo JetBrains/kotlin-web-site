@@ -70,7 +70,7 @@ html {
 }
 ```
 
-This is actually a function call that takes a [function literal](lambda.html) as an argument (see [this page](lambda.html#Higher-order-functions) for details). Actually, this function is defined as follows:
+This is actually a function call that takes a [function literal](lambdas.html) as an argument (see [this page](lambdas.html#higher-order-functions) for details). Actually, this function is defined as follows:
 
 ``` kotlin
 fun html(init : HTML.() -> Unit) : HTML {
