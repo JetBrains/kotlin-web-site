@@ -44,7 +44,7 @@ $item-padding: 5px;
 
             @include adapt_retina {
                 background-image: url('../layout/images/main-sprite@2x.png');
-                background-size: 150px 450px;
+                background-size: 150px auto;
             }
         }
 
