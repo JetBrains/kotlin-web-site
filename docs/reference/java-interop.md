@@ -8,7 +8,7 @@ title: "Java Interop"
 # Java Interop
 
 Kotlin is designed with Java Interoperability in mind. Existing Java code can be called from Kotlin in a natural way, and Kotlin code can be used from
-Java rather smoothly as welwl. In this section we describe some details about calling Java code from Kotlin.
+Java rather smoothly as well. In this section we describe some details about calling Java code from Kotlin.
 
 ## Calling Java code from Kotlin
 
@@ -72,11 +72,11 @@ fun render(list : List<out Any?>, to : Appendable) {
 Kotlin's generics are a little different from Java's (see Generics). When importing Java types to Kotlin we perform some conversions:
 
 * Java's wildcards are converted into type projections
-  * Foo<? extends Bar> becomes Foo<out Bar>
-  * Foo<? super Bar> becomes Foo<in Bar>
+  * Foo<? extends Bar> becomes Foo\<out Bar>
+  * Foo<? super Bar> becomes Foo\<in Bar>
 
 * Java's raw types are converted into star projections
-  * List becomes List<*>, i.e. List<out Any?>
+  * List becomes List<*>, i.e. List\<out Any?>
 
 Like Java's, Kotlin's generics are not retained at runtime, i.e. objects do not carry information about actual type arguments passed to their constructors, i.e. ArrayList<Integer>() is indistinguishable from ArrayList<Character>(). This makes it impossible to perform is-checks that take generics into account. Kotlin only allows is-checks for star-projected generic types:
 

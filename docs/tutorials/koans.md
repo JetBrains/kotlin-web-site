@@ -12,7 +12,7 @@ The exercises are located on [GitHub](https://github.com/jetbrains/workshop-jb).
 
 1. Download the Koans by cloning the project from GitHub
 
-    ``` sh
+    ```
     git clone https://github.com/jetbrains/workshop-jb
     ```
 

@@ -1,3 +1,5 @@
+This is the source for the [Kotlin Web Site](http://kotlinlang.org)
+
 - [Installation](#installation)
 - [Working with site](#working-with-site)
     - [Rake tasks](#rake-tasks)

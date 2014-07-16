@@ -41,16 +41,14 @@
 - name: Kotlin Vim
   description: Kotlin Syntax Highlighter for Vim
   type: Tools
-  link: https://github.com/ignatov/kotlin-vim
+  link: https://github.com/udalov/kotlin-vim
 
 - name: Griffon Plugin
   description: Griffon Support
   type: Tools
   link: https://github.com/griffon/griffon-kotlin-plugin
 
-
-
-
-
-
-
+- name: Android Rivers
+  description: RSS Readers for Android
+  type: Android App
+  link: https://github.com/dodyg/AndroidRivers
