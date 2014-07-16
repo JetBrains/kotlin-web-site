@@ -15,10 +15,10 @@ Define the version of Kotlin you want to use via *kotlin.version*. The possible 
 
 * X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
 only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, you need to [configure a snapshot repository
-in the pom file](#configuring-snapshot-repositories).
+in the build.gradle file](#using-snapshot-versions).
 
 * X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
-is needed in your pom file.
+is needed in your build.gradle file.
 
 The correspondence between milestones and versions is displayed below:
 
