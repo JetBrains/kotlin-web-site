@@ -147,7 +147,7 @@ We think that this is not a disadvantage, for the following reasons:
 
 ### Overriding Rules
 
-In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses, it must override *this*{: .keyword } member and provide its own implementation (perhaps, using one of the inherited ones). To denote the supertype from which the inherited implementation is taken, we use *this*{: .keyword } qualified by the supertype name in angle brackets, e.g. this<Base>:
+In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses, it must override this member and provide its own implementation (perhaps, using one of the inherited ones). To denote the supertype from which the inherited implementation is taken, we use *super*{: .keyword } qualified by the supertype name in angle brackets, e.g. *super&lt;Base&gt*;
 
 ``` kotlin
 open class A {
@@ -171,7 +171,7 @@ class C() : A(), B {
 
 It's fine to inherit from both *A* and *B*, and we have no problems with *a()* and *b()* since *C* inherits only one implementation of each of these functions.
 But for *f()* we have two implementations
-inherited by *C*, and this we have to override *f()* in *C* and provide our own implementation that eliminates the ambiguity.
+inherited by *C*, and thus we have to override *f()* in *C* and provide our own implementation that eliminates the ambiguity.
 
 ## Abstract Classes
 
