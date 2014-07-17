@@ -52,3 +52,8 @@
   description: RSS Readers for Android
   type: Android App
   link: https://github.com/dodyg/AndroidRivers
+
+- name: "RxKotlin" 
+  description: Kotlin Bindings for RxJava
+  type: Library
+  link: http://github.com/netflix/rxjava
