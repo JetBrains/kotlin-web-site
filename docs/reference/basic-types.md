@@ -11,7 +11,7 @@ In Kotlin, everything is an object in the sense that one can call member functio
 
 ## Numbers
 
-Kotlin handles numbers in a way close to Java, but not exactly the same. For example, there are no implicit widening conversions or numbers, and literals are slightly different in some cases.
+Kotlin handles numbers in a way close to Java, but not exactly the same. For example, there are no implicit widening conversions for numbers, and literals are slightly different in some cases.
 
 Kotlin provides the following built-in types representing numbers (this is close to Java):
 
