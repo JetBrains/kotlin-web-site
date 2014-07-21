@@ -6,20 +6,22 @@ latest:
   url: https://github.com/JetBrains/kotlin/releases/tag/build-0.8.11
 
 list:
-- milestone: M5.3
-  version: 0.5.998
-
-- milestone: M6
-  version: 0.6.69
-
-- milestone: M6.1
-  version: 0.6.602
-
-- milestone: M6.2
-  version: 0.6.1673
+- milestone: M8
+  version: 0.8.11
 
 - milestone: M7
   version: 0.7.270
   
-- milestone: M8
-  version: 0.8.11
+- milestone: M6.2
+  version: 0.6.1673
+
+- milestone: M6.1
+  version: 0.6.602
+
+- milestone: M6
+  version: 0.6.69
+
+- milestone: M5.3
+  version: 0.5.998
+
+

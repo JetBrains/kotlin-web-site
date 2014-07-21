@@ -147,7 +147,7 @@ We think that this is not a disadvantage, for the following reasons:
 
 ### Overriding Rules
 
-In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses, it must override *this*{: .keyword } member and provide its own implementation (perhaps, using one of the inherited ones). To denote the supertype from which the inherited implementation is taken, we use *this*{: .keyword } qualified by the supertype name in angle brackets, e.g. this<Base>:
+In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses, it must override this member and provide its own implementation (perhaps, using one of the inherited ones). To denote the supertype from which the inherited implementation is taken, we use *super*{: .keyword } qualified by the supertype name in angle brackets, e.g. *super&lt;Base&gt;*:
 
 ``` kotlin
 open class A {
@@ -171,7 +171,7 @@ class C() : A(), B {
 
 It's fine to inherit from both *A* and *B*, and we have no problems with *a()* and *b()* since *C* inherits only one implementation of each of these functions.
 But for *f()* we have two implementations
-inherited by *C*, and this we have to override *f()* in *C* and provide our own implementation that eliminates the ambiguity.
+inherited by *C*, and thus we have to override *f()* in *C* and provide our own implementation that eliminates the ambiguity.
 
 ## Abstract Classes
 
@@ -211,7 +211,7 @@ In Kotlin, unlike Java or C#, classes do not have static methods. In most cases,
 
 For example, to replace a constructor with a Factory method, one makes the constructor private and provides a function that calls the constructor. But if this function in located outside the class in question, it would not have any access to the constructor.
 
-To address this issue (and to provide some other interesting features), Kotlin introduces a concept of a class object (the closest analog in other languages would be Companion objects in Scala). Roughly speaking, a class object for class C is an object (in the sense of Object declaration) that is associated to C. There may be not more than one class object for each class. A class object is declared inside its associated class, and thus it can access its private members. A class object for C itself is (usually) not and instance of C. For example:
+To address this issue (and to provide some other interesting features), Kotlin introduces a concept of a class object (the closest analog in other languages would be Companion objects in Scala). Roughly speaking, a class object for class C is an object (in the sense of [Object declaration](object-declarations.html#object-declarations)) that is associated to C. There may be not more than one class object for each class. A class object is declared inside its associated class, and thus it can access its private members. A class object for C itself is (usually) not an instance of C. For example:
 
 ``` kotlin
 class C() {
@@ -252,7 +252,7 @@ class D : C()
 val d = D.create() // Error: no class object for D
 ```
 
-A description of some more interesting features related to class objects can be found in the Generic constraints section.
-r
-Note: if you think that class objects are a great way of implementing singletons in Kotlin, please see Object expressions and Declarations.
+A description of some more interesting features related to class objects can be found in the [Generic constraints](generics.html#generic-constraints) section.
+
+Note: if you think that class objects are a great way of implementing singletons in Kotlin, please see [Object expressions and Declarations](object-declarations.html).
 

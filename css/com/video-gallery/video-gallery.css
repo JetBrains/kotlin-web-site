@@ -51,7 +51,7 @@
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       .video-gallery .video-item-title .marker {
         background-image: url("../layout/images/main-sprite@2x.png");
-        background-size: 150px 400px; } }
+        background-size: 150px auto; } }
   .video-gallery .video-item-title .duration {
     display: inline-block;
     font-size: 12px;
