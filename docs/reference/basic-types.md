@@ -50,20 +50,20 @@ In the latter cases numbers are boxed.
 Note that boxing of numbers does not preserve identity:
 
 ``` kotlin
-val a : Int = 10000
+val a: Int = 10000
 print(a identityEquals a) // Prints 'true'
-val boxedA : Int? = a
-val anotherBoxedA : Int? = a
+val boxedA: Int? = a
+val anotherBoxedA: Int? = a
 print(boxedA identityEquals anotherBoxedA) // !!!Prints 'false'!!!
 ```
 
 On the other hand, it preserves equality:
 
 ``` kotlin
-val a : Int = 10000
+val a: Int = 10000
 print(a == a) // Prints 'true'
-val boxedA : Int? = a
-val anotherBoxedA : Int? = a
+val boxedA: Int? = a
+val anotherBoxedA: Int? = a
 print(boxedA == anotherBoxedA) // Prints 'true'
 ```
 
@@ -74,8 +74,8 @@ If they were, we would have troubles of the following sort
 
 ``` kotlin
 // Hypothetical code, does not actually compile:
-val a : Int? = 1 // A boxed Int (java.lang.Integer)
-val b : Long? = a // implicit conversion yields a boxed Long (java.lang.Long)
+val a: Int? = 1 // A boxed Int (java.lang.Integer)
+val b: Long? = a // implicit conversion yields a boxed Long (java.lang.Long)
 print(a == b) // Surprise! This prints "false" as Long's equals() check for other part to be Long as well
 ```
 
@@ -84,14 +84,14 @@ So not only identity, but even equality would have been lost silently all over t
 As a consequence, smaller types are NOT implicitly converted to bigger types. This means that one cannot assign a value of type Byte to an Integer variable without an explicit conversion
 
 ``` kotlin
-val b : Byte = 1 // OK, literals are checked statically
-val i : Int = b // ERROR
+val b: Byte = 1 // OK, literals are checked statically
+val i: Int = b // ERROR
 ```
 
 We can use explicit conversions to widen numbers
 
 ``` kotlin
-val i : Int = b.toInt() // OK: explicitly widened
+val i: Int = b.toInt() // OK: explicitly widened
 ```
 
 Every number type supports the following conversions:
@@ -135,7 +135,7 @@ Here is the complete list of bitwise operations (available for Int and Long only
 Characters are represented by the type Char. They are can not be treated directly as numbers
 
 ``` kotlin
-fun check(c : Char) {
+fun check(c: Char) {
   if (c == 1) { // ERROR: incompatible types
     // ...
   }
@@ -146,7 +146,7 @@ Character literals go in single quotes: '1', '\n', '\uFF00'.
 One can explicitly convert a character to an Int number
 
 ``` kotlin
-fun decimalDigitValue(c : Char) : Int {
+fun decimalDigitValue(c: Char) : Int {
   if (c !in '0'..'9')
     throw IllegalArgumentException("Out of range")
   return c.toInt() - '0'.toInt() // Explicit conversions to numbers
@@ -171,13 +171,13 @@ Built-in operations on booleans include
 Arrays in Kotlin are represented by the Array class, that has get and set functions (that turn into [] by operator overloading conventions), and size, along with a few other useful member functions:
 
 ``` kotlin
-class Array<T>(val size : Int, init : (Int) -> T) {
-  fun get(index : Int) : T
-  fun set(index : Int, value : T) : Unit
+class Array<T>(val size: Int, init: (Int) -> T) {
+  fun get(index: Int) : T
+  fun set(index: Int, value: T) : Unit
 
   fun iterator() : Iterator<T>
 
-  val indices : IntRange
+  val indices: IntRange
 }
 ```
 
