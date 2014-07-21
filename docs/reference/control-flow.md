@@ -103,6 +103,8 @@ when {
 
 ### Continue inside when
 
+**Note: There are currently [issues with this](http://youtrack.jetbrains.com/issue/KT-771)**
+
 Inside when expressions, continue jumps to the next branch condition, if any:
 
 ``` kotlin

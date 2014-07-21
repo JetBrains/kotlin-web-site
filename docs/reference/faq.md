@@ -86,7 +86,7 @@ No. It won't. We can still implement suggestions for variable names, etc.
 
 ### Is Kotlin extensible?
 
-We are planning on making it extensible in a few ways: from inline functions to annotations, type loaders and language quotations.
+We are planning on making it extensible in a few ways: from inline functions to annotations and type loaders.
 
 ### Can I embed my DSL into the language?
 
