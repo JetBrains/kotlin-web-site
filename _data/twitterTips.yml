@@ -4,11 +4,10 @@
   - "Instead of init-increment-condition 'for statement', we use for-each style: 'for (x in 0..10)', compiler optimises as needed."
   - "Declare immutable value with 'val' and mutable variable with 'var', either in class, function or top-level."
   - "Missing 'With' from Delphi? :) Standard library has 'public inline fun <T, R> with(receiver: T, f: T.() → R): R = receiver.f()'"
-  - "I can't have no fact for today, because type system forbids me from passing null to not-null parameter."
+  - "I can't have a fact for today, because type system forbids me from passing null to not-null parameter."
   - "Last functional argument of a method can be passed outside of parentheses: https://gist.github.com/orangy/11474248 <— 'using statement' DSL"
   - "There are 82 contributors to https://github.com/JetBrains/kotlin/ … and only 12 full-time JetBrains developers working on it."
   - "There are 217 repositories on @github about/with Kotlin. https://github.com/search?q=kotlin"
-  - "By convention, if some type has properties named component1, component2, etc, you can decompose value like 'val (a,b) = pair'"
   - "You can pass functional literal to Java method expecting interface with single method. Compiler implements interface for you."
   - "Type 'C.(T) → R' is a function type invoked on an instance of type C, gets argument of type T and returns R."
   - "Non-public functions and properties can omit type specification, it will be inferred: 'class C { val x = 1 + 1 }'"
@@ -33,3 +32,4 @@
   - "'using { ... }' is just a function call, not a special syntactic sugar. You can define your own."
 
 -tweeted:
+  - "By convention, if some type has properties named component1, component2, etc, you can decompose value like 'val (a,b) = pair'"
