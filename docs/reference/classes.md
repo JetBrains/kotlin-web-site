@@ -66,9 +66,9 @@ declared in the constructor can be mutable (*var*{: keyword }) or read-only (*va
 To create an instance of a class, we call the constructor as if it were a regular function
 
 ``` kotlin
-val = Invoice()
+val invoice = Invoice()
 
-val = Customer("Joe Smith")
+val customer = Customer("Joe Smith")
 ```
 
 Note that Kotlin does not have a *new*{: .keyword }
