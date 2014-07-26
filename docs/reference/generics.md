@@ -163,7 +163,7 @@ fun demo(x : Comparable<Number>) {
 We believe that the words **in** and **out** are self-explainig (as they were successfully used in C# for quite some time already), 
 thus the mnemonic mentioned above is not really needed, and one can rephrase it for a higher purpose:
 
-**The** [Existential|http://en.wikipedia.org/wiki/Existentialism] Transformation: Consumer in, Producer out\!* :-)
+**[The Existential](http://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out\!** :-)
 
 ## Type projections
 
