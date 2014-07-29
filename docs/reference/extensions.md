@@ -79,7 +79,7 @@ extension properties**. Their behavior can only be defined by explicitly providi
 Example:
 
 ``` kotlin
-val Foo.bar = 1 // ERROR: iitializers are not allowed for extension properties
+val Foo.bar = 1 // ERROR: initializers are not allowed for extension properties
 ```
     
 
