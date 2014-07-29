@@ -21,7 +21,7 @@ For instructions on how to compile and execute Kotlin applications using the com
 
    If you're using an EAP for which a compatible plugin is not released yet on the JetBrains Repository, please add the nightly builds as a new repository and download from there. For IntelliJ 14 EAP, the link is:
    
-   [http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml](http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xmlv)
+   [http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml](http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml)
    
 2. Once Kotlin is correctly installed, we can create a New Project. We select Java Module, give it a name and select the SDK. Kotlin works with JDK 1.6+
 
