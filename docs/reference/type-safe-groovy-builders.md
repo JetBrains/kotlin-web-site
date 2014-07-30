@@ -38,7 +38,7 @@ fun result(args : Array<String>) =
       // mixed content
       p {
         +"This is some"
-        b {<ref="plus":>+"mixed"}
+        b {+"mixed"}
         +"text. For more see the"
         a(href = "http://jetbrains.com/kotlin") {+"Kotlin"}
         +"project"
@@ -54,7 +54,7 @@ fun result(args : Array<String>) =
   }
 ```
 
-This is a completely legitimate Kotlin code. Click on names to navigate to definitions of function used in this example (they appear below in this page). 
+This is a completely legitimate Kotlin code. 
 You can play with this code online (modify it and run in the browser) [here](http://kotlin-demo.jetbrains.com/?folder=Longer_examples&name=HTML_Builder).
 
 ## How it works
