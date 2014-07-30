@@ -1,5 +1,6 @@
 This is the source for the [Kotlin Web Site](http://kotlinlang.org)
 
+- [Filing bugs](#filing-bugs)
 - [Installation](#installation)
 - [Working with site](#working-with-site)
     - [Rake tasks](#rake-tasks)
@@ -7,6 +8,11 @@ This is the source for the [Kotlin Web Site](http://kotlinlang.org)
     - [Templates](#templates)
     - [Page metadata](#page-metadata)
     - [Writing an content](#writing-an-content)
+
+
+Filing Bugs
+===========
+We use [YouTrack](http://youtrack.jetbrains.com/issues/KT#) for bug reports and suggestions. Click [here to report an issue](http://youtrack.jetbrains.com/newIssue?project=KT&clearDraft=true&c=Subsystems+Web+Site).
 
 Installation
 ============
