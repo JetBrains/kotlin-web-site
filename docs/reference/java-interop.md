@@ -89,9 +89,49 @@ if (a is List<*>) // OK: no guarantees about the contents of the list
 
 ### Invariant Arrays
 
-Arrays in Kotlin are invariant, unlike Java. This means that Kotlin does not let us assign an Array<String> to an Array<Any>, which prevents a possible runtime failure. Neither does it allow us to pass an array of a subclass as an array of superclass to a Java method. In most cases, this should not be a major obstacle, but if one really needs to pass an array in a covariant way, they may cast explicitly.
+Arrays in Kotlin are invariant, unlike Java. This means that Kotlin does not let us assign an ```Array<String>``` to an ```Array<Any>```, which prevents a possible runtime failure. Neither does it allow us to pass an array of a subclass as an array of superclass to a Java method. In most cases, this should not be a major obstacle, but if one really needs to pass an array in a covariant way, they may cast explicitly.
 
-On the Java platform, having a generic class Array to represent arrays leads to a lot of boxing/unboxing operations. As arrays are mostly use where performance is critical, we introduced a workaround for this issue and defined classes IntArray, DoubleArray, CharArray and so on, which are not related to the Array class and are compiled down to Java's primitive arrays.
+Arrays are used with primitive datatypes on the Java platform to avoid the cost of boxing/unboxing operations. As Kotlin hides those implementation details, a workaround is required to interface with Java code. There are specialized classes for every type of primitive array (IntArray, DoubleArray, CharArray, and so on) to handle this case. They are not related to the Array class and are compiled down to Java's primitive arrays for maximum performance.
+
+Suppose there is a Java method that accepts an int array of indices:
+
+``` java
+public class JavaArrayExample {
+
+    public void removeIndices(int[] indices) {
+        // code here...
+    }
+}
+```
+
+To pass an array of primitive values you can do the following in Kotlin:
+
+``` kotlin
+val javaObj = JavaArrayExample()
+val array = intArray(0, 1, 2, 3)
+javaObj.removeIndices(array)  // passes int[] to method
+```
+
+Java classes sometimes use a method declaration for the indices with a variable number of arguments (varargs). 
+
+``` java
+public class JavaArrayExample {
+
+    public void removeIndices(int... indices) {
+        // code here...
+    }
+}
+```
+
+In that case you need to use the spread operator * to pass the IntArray:
+
+``` kotlin
+val javaObj = JavaArray()
+val array = intArray(0, 1, 2, 3)
+javaObj.removeIndicesVarArg(*array)
+```
+
+It's currently not possible to pass null to a method that is declared as varargs.
 
 ### Object Methods
 
@@ -215,12 +255,13 @@ catch (IOException e) { // error: foo() does not declare IOException in the thro
 }
 ```
 
-we get an error message from the Java compiler, because foo() does not declare IOException. To work around this problem, use the [throws] annotation in Kotlin
-  ``` kotlin
-  [throws(javaClass<IOException>())] fun foo() {
+we get an error message from the Java compiler, because foo() does not declare IOException. To work around this problem, use the [throws] annotation in Kotlin:
+
+``` kotlin
+[throws(javaClass<IOException>())] fun foo() {
     throw IOException();
-  }
-  ```
+}
+```
 
 ### Null-safety
 
