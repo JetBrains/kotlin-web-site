@@ -285,9 +285,9 @@ In the code above there's something that looks very nice:
   }
 ```
 
-We access the *attributes*{: .keyword } map as if it were an "associative array": just with the *\*{: .keyword } operation. By [convention](operator-overloading.html) this compiles to a call to 
+We access the *attributes*{: .keyword } map as if it were an "associative array": just with the *[]*{: .keyword } operation. By [convention](operator-overloading.html) this compiles to a call to 
 *get(K)*{: .keyword } or *set(K, V)*{: .keyword }, all right. But we said that *attributes*{: .keyword } was a *Java* *Map*{: .keyword }, i.e. it does NOT have a *set(K, V)*{: .keyword }. 
-This problem is easily fixable in [Kotlin]:
+This problem is easily fixable in Kotlin:
 
 ``` kotlin
   fun <K, V> Map<K, V>.set(key : K, value : V) = this.put(key, value)
