@@ -1,7 +1,6 @@
 # Please wrap tweets with "  " (double quotes). If you need to use quotes inside a tweet, either use \" to escape it or use single quotes
 # New tweets should be added under -pending
 -pending:
-  - "Instead of init-increment-condition 'for statement', we use for-each style: 'for (x in 0..10)', compiler optimises as needed."
   - "Declare immutable value with 'val' and mutable variable with 'var', either in class, function or top-level."
   - "Missing 'With' from Delphi? :) Standard library has 'public inline fun <T, R> with(receiver: T, f: T.() → R): R = receiver.f()'"
   - "I can't have a fact for today, because type system forbids me from passing null to not-null parameter."
@@ -33,3 +32,7 @@
 
 -tweeted:
   - "By convention, if some type has properties named component1, component2, etc, you can decompose value like 'val (a,b) = pair'"
+  - "Instead of init-increment-condition 'for statement', we use for-each style: 'for (x in 0..10)', compiler optimises as needed."
+  
+  
+# 05/08/2014 - 1690 
