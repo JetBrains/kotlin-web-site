@@ -21,6 +21,7 @@ Taking this into account, if you are happy with Scala, you probably do not need 
     * To enrich your types with functions in Kotlin use [Extension functions](extensions.html).
 * Overridable type members
 * Path-dependent types
+* Macros
 * Existential types
     * [Type projections](generics.html#type-projections) are a very special case
 * Complicated logic for initialization of traits
@@ -32,22 +33,16 @@ Taking this into account, if you are happy with Scala, you probably do not need 
 
 Things that may be added to Kotlin later:
 
-* Higher kinds
 * Structural types
+* Value types
 * Yield operator
 * Actors
 * Parallel collections
-* .NET target
-
 
 ## What Kotlin has that Scala does not
 
 * [Zero-overhead null-safety](null-safety.html)
     * Scala has Option, which is a syntactic and run-time wrapper
 * [Smart casts](typecasts.html)
-* Static [extension functions](extensions.html)
-    * Instead of wrapping at runtime (with Scala 2.10, implicit value classes will fix the runtime overhead problem)
 * [Kotlin's Inline functions facilitate Nonlocal jumps](lambdas.html#inline-functions)
-* [String templates](basic-types.html#strings)
-    * This feature will be supported in Scala 2.10
 * [First-class delegation](delegation.html). Also implemented via 3rd party plugin: Autoproxy
