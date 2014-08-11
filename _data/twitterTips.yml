@@ -31,8 +31,10 @@
   - "'using { ... }' is just a function call, not a special syntactic sugar. You can define your own."
 
 -tweeted:
-  - "By convention, if some type has properties named component1, component2, etc, you can decompose value like 'val (a,b) = pair'"
-  - "Instead of init-increment-condition 'for statement', we use for-each style: 'for (x in 0..10)', compiler optimises as needed."
+  - description: "By convention, if some type has properties named component1, component2, etc, you can decompose value like 'val (a,b) = pair'"
+    date: 2014-07-23
+    rt:
+  - description: "Instead of init-increment-condition 'for statement', we use for-each style: 'for (x in 0..10)', compiler optimises as needed."
+  - date: 2014-08-05
+  - rt: 3  
   
-  
-# 05/08/2014 - 1690 
