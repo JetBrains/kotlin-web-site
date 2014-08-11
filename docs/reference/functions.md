@@ -114,11 +114,23 @@ When a function returns a single expression, the curly braces can be omitted and
 fun double(x: Int) : Int = x * 2
 ```
 
-Explicitly declaring the return type is optional when this can be inferred by the compiler
+Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler
 
 ``` kotlin
 fun double(x: Int) = x * 2
 ```
+
+### Explicit return types
+
+There are cases when an explicit return type is required:
+ 
+* Functions that are public or protected. These are considered to be part of the public API surface. Not having explicit return types makes it potentially easier to
+change the type. This is the same reason why explicit types are required for [properties](properties.html#getters-and-setters).
+* Functions with a block body must always specify return types explicitly, unless it's intended for them to return *Unit*{: .keyword }
+
+Kotlin cannot infer return types for functions with block bodies because such functions may have complex control flow in the body, and the return
+type will be non-obvious to the reader (and sometimes even for the compiler). 
+
 
 There are cases however when an explicit return type is required:
 
