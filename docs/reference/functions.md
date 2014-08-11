@@ -114,11 +114,16 @@ When a function returns a single expression, the curly braces can be omitted and
 fun double(x: Int) : Int = x * 2
 ```
 
-Explicitly declaring the return type is optional as this will be inferred by the compiler
+Explicitly declaring the return type is optional when this can be inferred by the compiler
 
 ``` kotlin
 fun double(x: Int) = x * 2
 ```
+
+There are cases however when an explicit return type is required:
+
+* the function is public or protected, i.e. it is part of the public API surface and an implicit signature change should be avoided.
+* the function has a block body with a non-trivial control flow, which results in almost unpredictable type inference.
 
 ### Varargs - Variable number of arguments
 
