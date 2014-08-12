@@ -83,9 +83,9 @@ reformat(str, wordSeparator = '_')
 ```
 
 
-### Unit returning functions
+### Unit-returning functions
 
-If a function does not return any useful value, its return type is *Unit*{: .keyword }. *Unit*{: .keyword } is a type with only one value - *Unit.VALUE*{: .keyword }. This
+If a function does not return any useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit.VALUE`. This
 value does not have to be returned explicitly
 
 ``` kotlin
@@ -98,7 +98,7 @@ fun printHello(name: String?): Unit {
 }
 ```
 
-The *Unit*{: .keyword } return type declaration is also optional. The above code is equivalent to
+The `Unit` return type declaration is also optional. The above code is equivalent to
 
 ``` kotlin
 fun printHello(name: String?) {
@@ -124,9 +124,10 @@ fun double(x: Int) = x * 2
 
 There are cases when an explicit return type is required:
  
-* Functions with no block body that are public or protected. These are considered to be part of the public API surface. Not having explicit return types makes it potentially easier to
-change the type. This is the same reason why explicit types are required for [properties](properties.html#getters-and-setters).
-* Functions with a block body must always specify return types explicitly, unless it's intended for them to return *Unit*{: .keyword }, [in which case it is optional](#unit-returning-functions). Kotlin cannot infer return types for functions with block bodies because such functions may have complex control flow in the body, and the return
+* Functions with expression body that are public or protected. These are considered to be part of the public API surface. Not having explicit return types makes it potentially easier to
+change the type accidentally. This is the same reason why explicit types are required for [properties](properties.html#getters-and-setters).
+* Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`, [in which case it is optional](#unit-returning-functions). 
+Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow in the body, and the return
 type will be non-obvious to the reader (and sometimes even for the compiler). 
 
 
