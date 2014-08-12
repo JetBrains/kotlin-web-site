@@ -24,6 +24,7 @@
 .global-nav {
   position: relative;
   float: right;
+  font-size: 0;
   margin-top: 13px; }
   .global-nav:after {
     display: block;
@@ -31,7 +32,7 @@
     height: 0;
     content: ''; }
   .global-nav .nav-item {
-    float: left;
+    display: inline-block;
     margin-left: 24px;
     opacity: 0.87;
     font-size: 18px;
@@ -47,9 +48,10 @@
       opacity: 1;
       font-weight: bold; }
   .global-nav .extra-nav {
-    overflow: hidden;
+    display: inline-block;
     left: 100%;
-    margin-left: 15px;
+    font-size: 14px;
+    margin-left: 24px;
     white-space: nowrap; }
     @media (max-width: 1205px) {
       .global-nav .extra-nav {
@@ -57,7 +59,8 @@
         right: 0;
         top: 38px; } }
     .global-nav .extra-nav.social-links {
-      position: absolute; }
+      position: absolute;
+      margin-left: 15px; }
       @media (max-width: 1205px) {
         .global-nav .extra-nav.social-links {
           top: auto;

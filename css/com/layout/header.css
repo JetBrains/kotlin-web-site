@@ -148,7 +148,6 @@
   .global-header .try-kotlin-button {
     top: -1px; }
   .global-header .get-kotlin-button {
-    margin-left: 24px;
     top: -2px; }
     .global-header .get-kotlin-button .version {
       font-size: 12px; }

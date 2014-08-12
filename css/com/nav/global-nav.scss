@@ -6,10 +6,11 @@
     @include clearfix;
     position: relative;
     float: right;
+    font-size: 0;
     margin-top: 13px;
 
     .nav-item {
-        float: left;
+        display: inline-block;
         margin-left: $unit*3;
         opacity: 0.87;
         font-size: 18px;
@@ -33,9 +34,10 @@
     }
 
     .extra-nav {
-        overflow: hidden;
+        display: inline-block;
         left: 100%;
-        margin-left: 15px;
+        font-size: $base-font-size;
+        margin-left: $unit*3;
         white-space: nowrap;
 
         @media (max-width: 1205px) {
@@ -46,6 +48,7 @@
 
         &.social-links {
             position: absolute;
+            margin-left: 15px;
 
             @media (max-width: 1205px) {
                 top: auto;
