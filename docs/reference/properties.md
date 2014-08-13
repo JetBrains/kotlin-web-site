@@ -48,7 +48,7 @@ The initializer, getter and setter are optional. Property type is optional if it
 Examples
 
 ``` kotlin
-var *allByDefault*{: .error } : Int? // error: explicit initializer required, default getter and setter implied
+var allByDefault : Int? // error: explicit initializer required, default getter and setter implied
 var initialized = 1 // has type Int, default getter and setter
 var setterVisibility : String = "abc" // Initializer required, not a nullable type
   private set // the setter is private and has the default implementation
@@ -57,7 +57,7 @@ var setterVisibility : String = "abc" // Initializer required, not a nullable ty
 Note that types are not inferred for properties exposed as parts of the public API, i.e. public and protected, because changing the initializer may cause an unintentional change in the public API then. For example
 
 ``` kotlin
-public val *example*{: .error } = 1 // A public property must have a type specified explicitly
+public val example = 1 // A public property must have a type specified explicitly
 ```
 
 The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with val instead of var and does not allow a setter:
