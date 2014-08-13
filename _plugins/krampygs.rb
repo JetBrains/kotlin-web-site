@@ -10,7 +10,9 @@ module Kramdown
         code = pygmentize(el.value, lang)
         code_attr = {}
         code_attr['class'] = "code-block _highlighted lang_#{lang}" if lang
-        "#{' '*indent}<pre#{html_attributes(attr)}><code#{html_attributes(code_attr)}>#{code}</code></pre>\n"
+        "#{' '*indent}<pre#{html_attributes(attr)}>" +
+          (lang ? "<code#{html_attributes(code_attr)}>#{code}</code>" : code) +
+        "</pre>\n"
       end
 
       def convert_codespan(el, indent)
