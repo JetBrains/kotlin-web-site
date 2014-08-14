@@ -77,7 +77,7 @@ For a **read-only** property (i.e. a *val*{:.keyword}), a delegate has to provid
  
 this function must return the same type as property (or its subtype).
 
-For a **mutable** property (a *val*{:.keyword}), a delegate has to _additionally_ provide a function named `set` that takes the following parameters:
+For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally_ provide a function named `set` that takes the following parameters:
  
 * receiver --- same as for `get()`,
 * matadata --- same as for `get()`,
