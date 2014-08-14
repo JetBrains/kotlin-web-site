@@ -30,7 +30,8 @@ fun demo(source : List<Int>) {
 
 ### Methods returning void
 
-If a Java method returns void, it will return Unit when called from Kotlin. If, by any chance, someone uses that return value, it will be assigned at the call site by the Kotlin compiler, since the value itself is known in advance (being Unit.VALUE).
+If a Java method returns void, it will return Unit when called from Kotlin. 
+If, by any chance, someone uses that return value, it will be assigned at the call site by the Kotlin compiler, since the value itself is known in advance (being `Unit`).
 
 ### Escaping for Java identifiers that are keywords in Kotlin
 
@@ -44,8 +45,8 @@ foo.`is`(bar)
 
 ### Null-Safety
 
-Any reference in Java may be null. As such, all the Java methods called from Kotlin return nullable references (except for those annotated with @NotNull).
-This allows Kotlin to keep the guarantee of having no NullPointerExceptions unless they are explicitly thrown by Kotlin code or caused by something
+Any reference in Java may be null. As such, all the Java methods called from Kotlin return nullable references (except for those annotated with `@NotNull`).
+This allows Kotlin to keep the guarantee of having no `NullPointerExceptions` unless they are explicitly thrown by Kotlin code or caused by something
 inside Java code called from Kotlin.
 
 Consider the following examples:
@@ -58,7 +59,8 @@ val iterator = list.iterator() // nullable (ordinary method)
 
 ### Checked Exceptions
 
-In Kotlin, all exceptions are unchecked, meaning that the compiler does not force you to catch any of them. So, when you call a Java method that declares a checked exception, Kotlin does not force you to do anything:
+In Kotlin, all exceptions are unchecked, meaning that the compiler does not force you to catch any of them. 
+So, when you call a Java method that declares a checked exception, Kotlin does not force you to do anything:
 
 ``` kotlin
 fun render(list : List<out Any?>, to : Appendable) {
@@ -69,16 +71,18 @@ fun render(list : List<out Any?>, to : Appendable) {
 
 ### Java generics in Kotlin
 
-Kotlin's generics are a little different from Java's (see Generics). When importing Java types to Kotlin we perform some conversions:
+Kotlin's generics are a little different from Java's (see [Generics](generics.html)). When importing Java types to Kotlin we perform some conversions:
 
 * Java's wildcards are converted into type projections
-  * Foo<? extends Bar> becomes Foo\<out Bar>
-  * Foo<? super Bar> becomes Foo\<in Bar>
+  * `Foo<? extends Bar>` becomes `Foo<out Bar>`
+  * `Foo<? super Bar>` becomes `Foo<in Bar>`
 
 * Java's raw types are converted into star projections
-  * List becomes List<*>, i.e. List\<out Any?>
+  * List becomes `List<*>`, i.e. `List<out Any?>`
 
-Like Java's, Kotlin's generics are not retained at runtime, i.e. objects do not carry information about actual type arguments passed to their constructors, i.e. ArrayList<Integer>() is indistinguishable from ArrayList<Character>(). This makes it impossible to perform is-checks that take generics into account. Kotlin only allows is-checks for star-projected generic types:
+Like Java's, Kotlin's generics are not retained at runtime, i.e. objects do not carry information about actual type arguments passed to their constructors, 
+i.e. `ArrayList<Integer>()` is indistinguishable from `ArrayList<Character>()`. This makes it impossible to perform `is`-checks that take generics into account. 
+Kotlin only allows `is`-checks for star-projected generic types:
 
 ``` kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
@@ -89,9 +93,14 @@ if (a is List<*>) // OK: no guarantees about the contents of the list
 
 ### Invariant Arrays
 
-Arrays in Kotlin are invariant, unlike Java. This means that Kotlin does not let us assign an ```Array<String>``` to an ```Array<Any>```, which prevents a possible runtime failure. Neither does it allow us to pass an array of a subclass as an array of superclass to a Java method. In most cases, this should not be a major obstacle, but if one really needs to pass an array in a covariant way, they may cast explicitly.
+Arrays in Kotlin are invariant, unlike Java. This means that Kotlin does not let us assign an `Array<String>` to an `Array<Any>`, 
+which prevents a possible runtime failure. Neither does it allow us to pass an array of a subclass as an array of superclass to a Java method. 
+In most cases, this should not be a major obstacle, but if one really needs to pass an array in a covariant way, they may cast explicitly.
 
-Arrays are used with primitive datatypes on the Java platform to avoid the cost of boxing/unboxing operations. As Kotlin hides those implementation details, a workaround is required to interface with Java code. There are specialized classes for every type of primitive array (IntArray, DoubleArray, CharArray, and so on) to handle this case. They are not related to the Array class and are compiled down to Java's primitive arrays for maximum performance.
+Arrays are used with primitive datatypes on the Java platform to avoid the cost of boxing/unboxing operations. 
+As Kotlin hides those implementation details, a workaround is required to interface with Java code. 
+There are specialized classes for every type of primitive array (`IntArray`, `DoubleArray`, `CharArray`, and so on) to handle this case. 
+They are not related to the `Array` class and are compiled down to Java's primitive arrays for maximum performance.
 
 Suppose there is a Java method that accepts an int array of indices:
 
@@ -123,7 +132,7 @@ public class JavaArrayExample {
 }
 ```
 
-In that case you need to use the spread operator * to pass the IntArray:
+In that case you need to use the spread operator `*` to pass the `IntArray`:
 
 ``` kotlin
 val javaObj = JavaArray()
@@ -135,8 +144,8 @@ It's currently not possible to pass null to a method that is declared as varargs
 
 ### Object Methods
 
-When Java types are imported into Kotlin, all the references of the type *java.lang.Object* are turned into *Any?*{: .keyword }. The big difference between
-the two is that *Any*{: .keyword } does not declare any members at all. This is due to the [inheritance](classes.html#inheritance) rules in Kotlin.
+When Java types are imported into Kotlin, all the references of the type *java.lang.Object* are turned into `Any?`. The big difference between
+the two is that `Any` does not declare any members at all. This is due to the [inheritance](classes.html#inheritance) rules in Kotlin.
 
 The problem this causes is that methods such as *toString* for instance are no longer available on the type. Kotlin solves this problem using [extension functions](extensions.html)
 
