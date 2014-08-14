@@ -4,7 +4,6 @@
   - "Declare immutable value with 'val' and mutable variable with 'var', either in class, function or top-level."
   - "Missing 'With' from Delphi? :) Standard library has 'public inline fun <T, R> with(receiver: T, f: T.() → R): R = receiver.f()'"
   - "I can't have a fact for today, because type system forbids me from passing null to not-null parameter."
-  - "Last functional argument of a method can be passed outside of parentheses: https://gist.github.com/orangy/11474248 <— 'using statement' DSL"
   - "There are 82 contributors to https://github.com/JetBrains/kotlin/ … and only 12 full-time JetBrains developers working on it."
   - "There are 217 repositories on @github about/with Kotlin. https://github.com/search?q=kotlin"
   - "You can pass functional literal to Java method expecting interface with single method. Compiler implements interface for you."
@@ -35,6 +34,8 @@
     date: 2014-07-23
     rt:
   - description: "Instead of init-increment-condition 'for statement', we use for-each style: 'for (x in 0..10)', compiler optimises as needed."
-  - date: 2014-08-05
-  - rt: 3  
-  
+    date: 2014-08-05
+    rt: 3
+  - description: "Last functional argument of a method can be passed outside of parentheses: https://gist.github.com/orangy/11474248 <— 'using statement' DSL"
+    date: 2014-08-14
+    rt:

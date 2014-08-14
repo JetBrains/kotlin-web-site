@@ -138,5 +138,5 @@ tutorials:
     content:
       - /docs/tutorials/getting-started.html: Getting Started with IntelliJ IDEA
       - /docs/tutorials/command-line.html: Working with the Command Line Compiler
+      - /docs/tutorials/build-tools.html: Working with Build Tools
       - /docs/tutorials/koans.html: Koans
-
