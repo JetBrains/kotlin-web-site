@@ -86,7 +86,7 @@ Classes can contain
 
 ## Inheritance
 
-All classes in Kotlin have a common superclass *Any*{: .keyword }, that is a default super for a class with no supertypes declared:
+All classes in Kotlin have a common superclass `Any`, that is a default super for a class with no supertypes declared:
 
 ``` kotlin
 class Example // Implicitly inherits from Any

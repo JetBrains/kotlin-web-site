@@ -122,9 +122,9 @@ val x = (1 shl 2) and 0x000FF000
 
 Here is the complete list of bitwise operations (available for Int and Long only):
 
-* `shl(bits)` – signed shift left (Java's \<\<)
-* `shr(bits)` – signed shift right (Java's \>\>)
-* `ushr(bits)` – unsigned shift right (Java's \>\>\>)
+* `shl(bits)` – signed shift left (Java's `<<`)
+* `shr(bits)` – signed shift right (Java's `>>`)
+* `ushr(bits)` – unsigned shift right (Java's `>>>`)
 * `and(bits)` – bitwise and
 * `or(bits)` – bitwise or
 * `xor(bits)` – bitwise xor

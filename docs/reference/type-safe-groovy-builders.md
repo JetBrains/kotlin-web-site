@@ -80,8 +80,8 @@ fun html(init : HTML.() -> Unit) : HTML {
 }
 ```
 
-This function takes one parameter named *init*{: .keyword }, which is itself a function. Actually, it is an [extension function](extensions.html) that has a receiver of type {{HTML}} 
-(and returns nothing interesting, i.e. [Unit|Functions#Unit]). So, when we pass a function literal to as an argument to *html*{: .keyword }, it is typed as an extension function literal, and 
+This function takes one parameter named `init`, which is itself a function. Actually, it is an [extension function](extensions.html) that has a receiver of type {{HTML}} 
+(and returns nothing interesting, i.e. [Unit|Functions#Unit]). So, when we pass a function literal to as an argument to `html`, it is typed as an extension function literal, and 
 there's *this* reference available:
 
 ``` kotlin
@@ -91,7 +91,7 @@ html {
 }
 ```
 
-*head*{: .keyword } and *body*{: .keyword } are member functions of *html*{: .keyword }.)
+`head` and `body` are member functions of `html`.)
 
 Now, *this* can be omitted, as usual, and we get something that looks very much like a builder already:
 
@@ -102,12 +102,12 @@ html {
 }
 ```
 
-So, what does this call do? Let's look at the body of *html*{: .keyword } function as defined above. It creates a new instance of *html*{: .keyword }, then it initializes it by calling the 
-function that is passed as an argument (in our example this boils down to calling *body*{: .keyword } on the *html*{: .keyword } instance), and then it returns this instance. 
+So, what does this call do? Let's look at the body of `html` function as defined above. It creates a new instance of `html`, then it initializes it by calling the 
+function that is passed as an argument (in our example this boils down to calling `body` on the `html` instance), and then it returns this instance. 
 This is exactly what a builder should do.
 
-The *head*{: .keyword } and *body*{: .keyword } functions in the *html*{: .keyword } class are defined similarly to *html*{: .keyword }. 
-The only difference is that they add the built instanced to the *children*{: .keyword } collection of the enclosing *html*{: .keyword } instance:
+The `head` and `body` functions in the `html` class are defined similarly to `html`. 
+The only difference is that they add the built instanced to the `children` collection of the enclosing `html` instance:
 
 ``` kotlin
 fun head(init : Head.() -> Unit) {
@@ -125,7 +125,7 @@ fun body(init : Body.() -> Unit) {
 }
 ```
 
-Actually these two functions do just the same thing, so we can have a generic version, *initTag*{: .keyword }:
+Actually these two functions do just the same thing, so we can have a generic version, `initTag`:
 
 ``` kotlin
   protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
@@ -143,7 +143,7 @@ fun head(init : Head.() -> Unit) = initTag(Head(), init)
 fun body(init : Body.() -> Unit) = initTag(Body(), init)
 ```
 
-And we can use them to build *<head>*{: .keyword } and *<body>*{: .keyword } tags. 
+And we can use them to build `<head>` and `<body>` tags. 
 
 
 One other thing to be discussed here is how we add text to tag bodies. In the example above we say something like
@@ -158,7 +158,7 @@ html {
 ```
 
 So basically, we just put a string inside a tag body, but there is this little "+" in front of it, do it is a function call that invokes a prefix "plus" operation. 
-That operation is actually defined by an extension function *plus*{: .keyword } that is a member of the *TagWithText*{: .keyword } abstract class (a parent of *Title*{: .keyword }):
+That operation is actually defined by an extension function `plus` that is a member of the `TagWithText` abstract class (a parent of `Title`):
 
 ``` kotlin
 fun String.plus() {
@@ -166,11 +166,11 @@ fun String.plus() {
 }
 ```
 
-So, what the prefix "+" does here is it wraps a string into an instance of *TextElement*{: .keyword } and adds it to the *children*{: .keyword } collection, so that it becomes a proper part of the tag tree.
+So, what the prefix "+" does here is it wraps a string into an instance of `TextElement` and adds it to the `children` collection, so that it becomes a proper part of the tag tree.
 
-All this is defined in a package *html*{: .keyword } that is imported at the top of the builder example above. In the next section you can read through the full definition of this namespace.
+All this is defined in a package `html` that is imported at the top of the builder example above. In the next section you can read through the full definition of this namespace.
 
-## Full definition of the *html*{: .keyword } namespace
+## Full definition of the `html` namespace
 
 This is how the namespace {{html}} is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and 
 [Extension function literals](lambdas.html#extension-function-literals).
@@ -285,11 +285,11 @@ In the code above there's something that looks very nice:
   }
 ```
 
-We access the *attributes*{: .keyword } map as if it were an "associative array": just with the *[]*{: .keyword } operation. By [convention](operator-overloading.html) this compiles to a call to 
-*get(K)*{: .keyword } or *set(K, V)*{: .keyword }, all right. But we said that *attributes*{: .keyword } was a *Java* *Map*{: .keyword }, i.e. it does NOT have a *set(K, V)*{: .keyword }. 
+We access the `attributes` map as if it were an "associative array": just with the `[]` operation. By [convention](operator-overloading.html) this compiles to a call to 
+`get(K)` or `set(K, V)`, all right. But we said that `attributes` was a *Java* `Map`, i.e. it does NOT have a `set(K, V)`. 
 This problem is easily fixable in Kotlin:
 
 ``` kotlin
   fun <K, V> Map<K, V>.set(key : K, value : V) = this.put(key, value)
 ```
-So, we simply define an [extension function](extensions.html) *set(K, V)*{: .keyword } that delegates to vanilla *put*{: .keyword } and make a Kotlin operator available for a *Java* class.
+So, we simply define an [extension function](extensions.html) `set(K, V)` that delegates to vanilla `put` and make a Kotlin operator available for a *Java* class.

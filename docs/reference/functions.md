@@ -133,7 +133,7 @@ type will be non-obvious to the reader (and sometimes even for the compiler).
 
 ### Varargs - Variable number of arguments
 
-The last parameter of a function may be marked with *vararg*{: .keyword } annotation
+The last parameter of a function may be marked with `vararg` annotation
 
 ``` kotlin
 fun asList<T>(vararg ts : T) : List<T> {
@@ -146,13 +146,13 @@ fun asList<T>(vararg ts : T) : List<T> {
 
 allowing a variable number of arguments to be passed in to the function.
 
-By default, *vararg*{: .keyword } creates an array, but this behavior can be customized by providing arguments to the annotation
+By default, `vararg` creates an array, but this behavior can be customized by providing arguments to the annotation
 
 ``` kotlin
 fun asList<T>(vararg<ArrayList<T>> ts : T) : List<T> = ts // ts is a List now!
 ```
 
-The type argument to the *vararg*{: .keyword } annotation denotes a *builder* type. A call to this function is compiled like so
+The type argument to the `vararg` annotation denotes a *builder* type. A call to this function is compiled like so
 
 ``` kotlin
 asList(0, 1, 2)
@@ -164,13 +164,13 @@ list.add(2)
 asList(list.build()) // For ArrayList, build() just returns the list itself
 ```
 
-As such, a *vararg*{: .keyword } builder must be a type that has
+As such, a `vararg` builder must be a type that has
 
 * A constructor that takes one *Int* parameter
 * An *add()* function
 * A *build()* function
 
-The type of the *vararg*{: .keyword } parameter is the returned type of *build()*
+The type of the `vararg` parameter is the returned type of *build()*
 
 ## Function Scope
 
