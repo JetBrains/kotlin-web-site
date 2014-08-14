@@ -228,7 +228,7 @@ fun fill(dest : Array<in String>, value : String) {
 Sometimes you want to say that you know nothing about the type argument, but still want to use it in a safe way. 
 The safe way here is to say that we are dealing with an *out*\-projection 
 (the object does not consume any values of unknown types), and that this projection is with the upper-bound of the corresponding parameter, i.e. *out Any?*{: .keyword } 
-for most cases. Kotlin provides a shortahnd syntax for this, that we call a **star-projection**: *Foo\<*\>*{: .keyword } means *Foo\<out Bar\>*{: .keyword } where *Bar*{: .keyword }
+for most cases. Kotlin provides a shorthand syntax for this, that we call a **star-projection**: *Foo\<&#42;\>*{: .keyword } means *Foo\<out Bar\>*{: .keyword } where *Bar*{: .keyword }
  is the upperbound for *Foo*{: .keyword }'s type parameter.
 
 *Note*: star-projections are very much like Java's raw types, but safe.
