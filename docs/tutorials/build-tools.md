@@ -3,9 +3,10 @@ type: tutorial
 layout: tutorial
 title:  "Working with Build Tools"
 description: "List of build tools that currently work with Kotlin"
+authors: Hadi Hariri
+showAuthorInfo: false
 ---
 
-# Build Tools
 
 In addition to the command line compiler and IntelliJ IDEA, you can also use Ant, Maven, Gradle and Griffon to build Kotlin projects. 
 

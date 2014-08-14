@@ -18,6 +18,13 @@ main_nav_id: docs
     <article role="main" class="page-content g-9">
         {% include edit-on-github-link.html %}
 
+        <h1>
+            {{ page.title }}
+        </h1>
+        {% if page.showAuthorInfo %}
+            <em>by</em> <strong>{{ page.authors }}</strong>
+        {% endif %}
+<br/><br/>
         {{ content }}
     </article>
 </div>
