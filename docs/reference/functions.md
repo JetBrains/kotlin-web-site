@@ -85,7 +85,7 @@ reformat(str, wordSeparator = '_')
 
 ### Unit-returning functions
 
-If a function does not return any useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit.VALUE`. This
+If a function does not return any useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`. This
 value does not have to be returned explicitly
 
 ``` kotlin
@@ -94,7 +94,7 @@ fun printHello(name: String?): Unit {
         println("Hello ${name}")
     else
         println("Hi there!")
-    // return Unit.VALUE or return is optional
+    // `return Unit` or `return` is optional
 }
 ```
 
