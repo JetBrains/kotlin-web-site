@@ -21,7 +21,7 @@ For the rest of the cases, Kotlin supports Dynamic types builders.
 Consider the following code that is taken from [here](http://groovy.codehaus.org/Builders) and slightly adapted:
 
 ``` kotlin
-import <ref="html_ns":>html.*
+import html.*
 
 fun result(args : Array<String>) =
   html {
@@ -59,8 +59,8 @@ You can play with this code online (modify it and run in the browser) [here](htt
 
 ## How it works
 
-Let's walk through the mechanisms of implementing type safe builders in [Kotlin]. First of all we need to define the model we want to build, in this case we need to model HTML tags. It is easily done with a bunch of classes. For example, {{HTML}} is a class that describes the {{<html>}} tag, i.e. it defines children like {{<head>}} and {{<body>}}.
-(See its declaration [below|#declarations].)
+Let's walk through the mechanisms of implementing type safe builders in Kotlin. First of all we need to define the model we want to build, in this case we need to model HTML tags. It is easily done with a bunch of classes. For example, `HTML` is a class that describes the `<html>` tag, i.e. it defines children like `<head>` and `<body>`.
+(See its declaration [below](#declarations).)
 
 Now, let's recall why we can say something like this in the code:
 
@@ -80,9 +80,9 @@ fun html(init : HTML.() -> Unit) : HTML {
 }
 ```
 
-This function takes one parameter named `init`, which is itself a function. Actually, it is an [extension function](extensions.html) that has a receiver of type {{HTML}} 
-(and returns nothing interesting, i.e. [Unit|Functions#Unit]). So, when we pass a function literal to as an argument to `html`, it is typed as an extension function literal, and 
-there's *this* reference available:
+This function takes one parameter named `init`, which is itself a function. Actually, it is an [extension function](extensions.html) that has a receiver of type `HTML`
+(and returns nothing interesting, i.e. `Unit`). So, when we pass a function literal to as an argument to `html`, it is typed as an extension function literal, and 
+there's a *this* reference available:
 
 ``` kotlin
 html {
@@ -91,7 +91,7 @@ html {
 }
 ```
 
-`head` and `body` are member functions of `html`.)
+(`head` and `body` are member functions of `html`.)
 
 Now, *this* can be omitted, as usual, and we get something that looks very much like a builder already:
 
@@ -102,12 +102,12 @@ html {
 }
 ```
 
-So, what does this call do? Let's look at the body of `html` function as defined above. It creates a new instance of `html`, then it initializes it by calling the 
-function that is passed as an argument (in our example this boils down to calling `body` on the `html` instance), and then it returns this instance. 
+So, what does this call do? Let's look at the body of `html` function as defined above. It creates a new instance of `HTML`, then it initializes it by calling the 
+function that is passed as an argument (in our example this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance. 
 This is exactly what a builder should do.
 
-The `head` and `body` functions in the `html` class are defined similarly to `html`. 
-The only difference is that they add the built instanced to the `children` collection of the enclosing `html` instance:
+The `head` and `body` functions in the `HTML` class are defined similarly to `html`. 
+The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
 ``` kotlin
 fun head(init : Head.() -> Unit) {
@@ -157,7 +157,7 @@ html {
 }
 ```
 
-So basically, we just put a string inside a tag body, but there is this little "+" in front of it, do it is a function call that invokes a prefix "plus" operation. 
+So basically, we just put a string inside a tag body, but there is this little "+" in front of it, so it is a function call that invokes a prefix "plus" operation. 
 That operation is actually defined by an extension function `plus` that is a member of the `TagWithText` abstract class (a parent of `Title`):
 
 ``` kotlin
@@ -172,8 +172,10 @@ All this is defined in a package `html` that is imported at the top of the build
 
 ## Full definition of the `html` namespace
 
-This is how the namespace {{html}} is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and 
+This is how the namespace `html` is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and 
 [Extension function literals](lambdas.html#extension-function-literals).
+
+<a href='declarations'></a>
 
 ``` kotlin
 package html
@@ -280,8 +282,8 @@ In the code above there's something that looks very nice:
 ``` kotlin
   class A() : BodyTag("a") {
     var href : String
-      get() = <ref="attributes":>attributes["href"]!!
-      set(value) { <ref="attributes":>attributes["href"] = value }
+      get() = attributes["href"]!!
+      set(value) { attributes["href"] = value }
   }
 ```
 
