@@ -32,6 +32,8 @@ site_github_url: http://github.com/JetBrains/kotlin-web-site
 edit_on_github_url: https://github.com/JetBrains/kotlin-web-site/edit/master/%path%
 img_tutorial_root: assets/images/tutorials
 
+grammar_file_path: grammar.xml
+
 # Analytics and webmaster tools stuff goes here
 google_analytics: UA-940435-32
 google_verify:
