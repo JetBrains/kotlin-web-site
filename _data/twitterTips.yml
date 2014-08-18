@@ -20,7 +20,6 @@
   - "Built-in interface delegation and primary ctor: class ItemsCollection(val items: List<String>) : Iterable<String> by items {}"
   - "Ranges as in 1..10 are useful to iterate over range of numbers, check if value is within range or get string or list subrange."
   - "You can declare local functions and classes with closures, inside another function's body."
-  - "Autocast helps avoid verbose casts after type check: if (obj is String) return obj.length // obj is String after check"
   - "Compiler can inline functions with lambdas, when instructed to do so, and thus don't build closures et al. in these cases."
   - "There is no 'new' keyword, creating an instance looks just like function call: val person = Person('John')"
   - "All types and members in Kotlin are sealed (non-inheritable, non-overridable) by default."
@@ -38,4 +37,7 @@
     rt: 3
   - description: "Last functional argument of a method can be passed outside of parentheses: https://gist.github.com/orangy/11474248 <— 'using statement' DSL"
     date: 2014-08-14
-    rt:
+    rt: 3
+  - description: "Autocast helps avoid verbose casts after check types: if (obj is String) return obj.length // obj is String after check"
+    date: 2014-08-18
+    rt: 
