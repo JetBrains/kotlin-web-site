@@ -8,9 +8,7 @@ showAuthorInfo: false
 related:
     - getting-started.md
 ---
-
-
-## Downloading the compiler
+### Downloading the compiler
 
 Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{site.data.releases.latest.url}}). Latest release is {{ site.data.last_version }}
 
@@ -23,7 +21,7 @@ Every release ships with a standalone version of the compiler. We can download i
 
 Important: If running on OSX/Linux, please make sure you run *chmod* to give execute permissions to the scripts.
 
-## Creating and running a first application
+### Creating and running a first application
 
 1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *app.kt* with the following
 
@@ -58,13 +56,13 @@ Important: If running on OSX/Linux, please make sure you run *chmod* to give exe
    ![Command Line Output]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/output.png)
 
 
-## Running the shell
+### Running the shell
 
 We can run any of the compilers without parameters to have an interactive shell. We can type any valid Kotlin code and see the results
 
 ![Shell]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/kotlin_shell.png)
 
-## Using the command line to run scripts
+### Using the command line to run scripts
 
 Kotlin can also be used as a scripting language. To run a script, we just pass the *-script* option to the compiler with the corresponding script file (.ktscript)
 

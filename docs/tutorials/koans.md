@@ -4,9 +4,6 @@ layout: tutorial
 title:  "Kotlin Koans"
 description: "This tutorials walks you through a series of exercises to get familiar with Kotlin"
 ---
-
-# Kotlin Koans
-
 Kotlin Koans are a series of exercises to get you familiar with the Kotlin Syntax. Each exercise is created as a failing unit test and your job is to make it pass.
 The exercises are located on [GitHub](https://github.com/jetbrains/workshop-jb).
 
