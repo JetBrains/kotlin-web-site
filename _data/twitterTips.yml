@@ -21,7 +21,6 @@
   - "Ranges as in 1..10 are useful to iterate over range of numbers, check if value is within range or get string or list subrange."
   - "You can declare local functions and classes with closures, inside another function's body."
   - "Compiler can inline functions with lambdas, when instructed to do so, and thus don't build closures et al. in these cases."
-  - "There is no 'new' keyword, creating an instance looks just like function call: val person = Person('John')"
   - "All types and members in Kotlin are sealed (non-inheritable, non-overridable) by default."
   - "This is valid code calling a bunch of functions, no syntax sugar: 'items filter { it.valid } map { it.name}'"
   - "String interpolation makes it easy to build complex formatting: 'My name is $name and I'm ${age.years} old'"
@@ -40,4 +39,7 @@
     rt: 3
   - description: "Autocast helps avoid verbose casts after check types: if (obj is String) return obj.length // obj is String after check"
     date: 2014-08-18
+    rt: 3
+  - description: "There is no 'new' keyword, creating an instance looks just like function call: val person = Person('John')"
+    date: 2014-08-21
     rt:
