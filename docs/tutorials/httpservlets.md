@@ -48,8 +48,8 @@ public class HomeController: HttpServlet() {
 }
 ```
 
-**Note:**The ? is necessary since these are types imported from Java and can potentially return null. To avoid having to use the ? operator,
-we can use KAnnotator to annotate the libraries used (this might change in the future).
+**Note:** The ? is necessary since these are types imported from Java and can potentially return null. To avoid having to use the ? operator,
+we can use KAnnotator to annotate the libraries used (this might become easier in the near future).
 
 ### Running the application
 
