@@ -21,9 +21,38 @@ main_nav_id: docs
         <h1>
             {{ page.title }}
         </h1>
-        {% if page.showAuthorInfo %}
-            <em>by</em> <strong>{{ page.authors }}</strong>
-        {% endif %}
+        <table>
+            {% if page.showAuthorInfo %}
+            <tr>
+                <td>
+                    <strong>Author</strong>
+                </td>
+                <td>
+                    {{ page.authors }}
+                </td>
+            </tr>
+            {% endif %}
+            {% if page.date %}
+            <tr>
+                <td>
+                    <strong>Last Updated</strong>
+                </td>
+                <td>
+                    {{ page.date | date: "%-d %B %Y" }}
+                </td>
+            </tr>
+            {% endif %}
+            {% if page.source %}
+            <tr>
+                <td>
+                    <strong>Source</strong>
+                </td>
+                <td>
+                    <a href="{{ site.code_baseurl}}/tutorials/{{ page.source }}">On GitHub</a>
+                </td>
+            </tr>
+            {% endif %}
+        </table>
 <br/><br/>
         {{ content }}
     </article>
