@@ -172,8 +172,9 @@
 
 .page_index .global-header {
   padding: 64px 0;
-  height: 432px;
+  height: 832px;
   background-image: url("images/index-page-header-bg.jpg");
+  background-attachment: fixed;
   background-position: center center; }
   .page_index .global-header .get-kotlin-button {
     text-transform: uppercase; }
