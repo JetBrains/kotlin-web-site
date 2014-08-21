@@ -40,4 +40,4 @@
     rt: 3
   - description: "Autocast helps avoid verbose casts after check types: if (obj is String) return obj.length // obj is String after check"
     date: 2014-08-18
-    rt: 
+    rt:
