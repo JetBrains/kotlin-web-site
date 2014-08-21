@@ -6,7 +6,7 @@ description: "This tutorial walks you through the process of creating a controll
 authors: Hadi Hariri
 showAuthorInfo: false
 date: 2014-08-21
-source: httpservlet
+source: httpservlets
 ---
 
 Java EE servlets can be used from Kotlin much like any other Java library or framework. We'll see
