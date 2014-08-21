@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Working with Build Tools"
-description: "List of build tools that currently work with Kotlin"
+description:
 authors: Hadi Hariri
 showAuthorInfo: false
 ---

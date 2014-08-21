@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Creating Web Applications with Http Servlets"
-description: "This tutorial walks you through the process of creating a controller using HttpServlet"
+description: "This tutorial walks us through the process of creating a simple controller using HttpServlet to display Hello World."
 authors: Hadi Hariri
 showAuthorInfo: false
 date: 2014-08-21
@@ -12,9 +12,7 @@ Java EE Http servlets can be used from Kotlin much like any other Java library o
 how to make a simple controller that returns "Hello, World!".
 
 ### Defining the project and dependencies
-
-In this tutorial we're going to use Gradle but the same can be accomplished using either IntelliJ IDEA project
- or Maven. For details on setting up Gradle to work with Kotlin, see [Using Gradle](/docs/reference/using-gradle.html).
+{{ site.text_using_gradle }}
 The main dependency required for using HTTP servlets is the JavaEE API:
 
 ``` groovy
@@ -54,17 +52,22 @@ we can use KAnnotator to annotate the libraries used (this might become easier i
 ### Running the application
 
 Using IntelliJ IDEA we can easily run and debug the application in any of the possible application servers defined such as Tomcat, Glassfish or WildFly. In this case we're going to use Tomcat
-which has previously been defined as an application server in IntelliJ IDEA
+which has previously [been defined as an application server in IntelliJ IDEA](http://www.jetbrains.com/idea/webhelp/defining-application-servers-in-intellij-idea.html)
 
-In order to run, we need the corresponding WAR's for deploying. We can generate these using the *war* task in Gradle
+In order to run, we need the corresponding WAR's for deploying. We can generate these using the *war* task in Gradle which can easily be executed via the Gradle tool window in IntelliJ IDEA.
+
 
 ![Gradle Tasks]({{ site.baseurl }}/{{ site.img_tutorial_root }}/httpservlets/gradle-tasks.png)
 
-We now create a Run Configuration in IntelliJ IDEA under Tomcat / Local
+Alternatively, we can run build it using the command line:
+
+    gradle war
+
+Next step is to create a Run Configuration in IntelliJ IDEA under Tomcat / Local which deploys the WAR and starts up Tomcat.
 
 ![Run Config]({{ site.baseurl }}/{{ site.img_tutorial_root }}/httpservlets/tomcat-config.png)
 
-and on successful deployment, should be able to navigate to the browser with the correct url and see the response
+Once we run the application (using this previous run configuration), and on successful deployment, we should be able to navigate to the browser with the correct url and see the response
 
 ![Browser Run]({{ site.baseurl }}/{{ site.img_tutorial_root }}/httpservlets/browser.png)
 

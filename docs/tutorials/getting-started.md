@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Getting Started with IntelliJ IDEA"
-description: "This tutorials walks you through creating a simple Hello World application using IntelliJ IDEA"
+description: "This tutorials walks us through creating a simple Hello World application using IntelliJ IDEA."
 authors: Hadi Hariri
 showAuthorInfo: false
 ---

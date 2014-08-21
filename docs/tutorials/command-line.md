@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title: "Working with the Command Line Compiler"
-description: "This tutorial walks you through creating a Hello World application using the command line compiler"
+description: "This tutorial walks us through creating a Hello World application using the command line compiler."
 authors: Hadi Hariri
 showAuthorInfo: false
 related:
