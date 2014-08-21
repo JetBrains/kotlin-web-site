@@ -8,7 +8,7 @@ showAuthorInfo: false
 date: 2014-08-21
 source: httpservlets
 ---
-Java EE servlets can be used from Kotlin much like any other Java library or framework. We'll see
+Java EE Http servlets can be used from Kotlin much like any other Java library or framework. We'll see
 how to make a simple controller that returns "Hello, World!".
 
 ### Defining the project and dependencies
