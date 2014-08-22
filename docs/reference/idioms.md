@@ -207,7 +207,7 @@ fun theAnswer() = 42
 This is equivalent to
 
 ``` kotlin
-fun theAnswer() {
+fun theAnswer(): Int {
     return 42
 }
 ```
