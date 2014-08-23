@@ -7,7 +7,7 @@ title: "Generics"
 
 # Generics
 
-As in *Java*, classes in [Kotlin] may have type parameters:
+As in *Java*, classes in Kotlin may have type parameters:
 
 ``` kotlin
 class Box<T>(t : T) {
@@ -32,7 +32,7 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that we are talk
 One of the most tricky parts of *Java*'s type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)). 
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
-First, let's think about why *Java* needs those mysterious wildcards. The problem is explained in [Effective Java](http://java.sun.com/docs/books/effective/), [Item 28: *Use bounded wildcards to increase API flexibility*](http://java.sun.com/docs/books/effective/generics.pdf). 
+First, let's think about why *Java* needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.google.com/search?q=effective+java+2nd+edition), Item 28: *Use bounded wildcards to increase API flexibility*. 
 First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`. 
 Why so? If List was not **invariant**, it would have been no 
 better than Java's arrays, cause the following code would have compiled and cause an exception at runtime:
@@ -64,7 +64,7 @@ void copyAll(Collection<Object> to, Collection<String> from) {
 }
 ```
 
-(In Java, we learned this lesson the hard way, see [Effective Java](http://java.sun.com/docs/books/effective/)'s [Item 25: *Prefer lists to arrays*](http://java.sun.com/docs/books/effective/generics.pdf))
+(In Java, we learned this lesson the hard way, see [Effective Java](http://www.google.com/search?q=effective+java+2nd+edition)'s Item 25: *Prefer lists to arrays*)
 
 
 That's why the actual signature of `addAll()` is the following:
@@ -82,7 +82,7 @@ it since we do not know what objects comply to that unknown subtype of `T`.
 In return for this limitation, we have the desired behaviour: `Collection<String>` *is* a subtype of `Collection<? extends Object>`. 
 In "clever words", the wildcard with an **extends**\-bound (**upper** bound) makes the type **covariant**.
 
-The key to understanding why this trick works is rather simple: if you can only **take** items from a collection, then a collection of String's 
+The key to understanding why this trick works is rather simple: if you can only **take** items from a collection, then using a collection of String's 
 and reading Object's from it is fine. Conversely, if you can only _put_ items into the collection, it's OK to take a collection of 
 Object's and put String's into it: in Java we have 
 `List<? super String>` a **supertype** of `List<Object>`.
@@ -122,7 +122,7 @@ void demo(Source<String> strs) {
 
 To fix this, we have to declare objects of type `Source<? extends Object>` that is sort of meaningless, because we can call all the same methods on such a variable, as before, so there's no value added by the more complex type. But the compiler does not know that.
 
-In [Kotlin], there is a way to explain this sort of thing to the compiler. This is called **declaration-site variance**: we can annotate the **type parameter** `T` of Source to make sure that it is only **returned** (produced) from members of `Source<T>`, and never consumed. 
+In Kotlin, there is a way to explain this sort of thing to the compiler. This is called **declaration-site variance**: we can annotate the **type parameter** `T` of Source to make sure that it is only **returned** (produced) from members of `Source<T>`, and never consumed. 
 To do this we provide the **out** modifier:
 
 ``` kotlin
@@ -194,7 +194,7 @@ This function is supposed to copy item from one array to another. Let's try to a
 ``` kotlin
 val ints : Array<Int> = array(1, 2, 3)
 val any = Array<Any>(3)
-copy<error desc="The arguments (Array<int>, Array<Any>) do not match the signature 'copy(Array<Any>, Array<Any>)'">(ints, any)</error> // Error: expects (Array<Any>, Array<Any>)
+copy(ints, any) // Error: expects (Array<Any>, Array<Any>)
 ```
 
 Here we run into the same familiar problem: `Array<T>` is **invariant** in `T`, thus neither of `Array<Int>` and `Array<Any>` 
@@ -228,7 +228,7 @@ fun fill(dest : Array<in String>, value : String) {
 Sometimes you want to say that you know nothing about the type argument, but still want to use it in a safe way. 
 The safe way here is to say that we are dealing with an *out*\-projection 
 (the object does not consume any values of unknown types), and that this projection is with the upper-bound of the corresponding parameter, i.e. `out Any?` 
-for most cases. Kotlin provides a shortahnd syntax for this, that we call a **star-projection**: `Foo<*>` means `Foo<out Bar>` where `Bar`
+for most cases. Kotlin provides a shorthand syntax for this, that we call a **star-projection**: `Foo<*>` means `Foo<out Bar>` where `Bar`
  is the upperbound for `Foo`'s type parameter.
 
 *Note*: star-projections are very much like Java's raw types, but safe.
@@ -276,7 +276,7 @@ The type specified after a colon is the **upper bound**: only subtype of `Compar
 
 ``` kotlin
 sort(list(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
-sort<error desc="Argument type mismatch">(list(HashMap<Int, String>()))</error> // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
+sort(list(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
 ```
 
 The default upper bound (if none specified) is Any?. There can be not more than one upper bound specified directly inside the angle brackets. If same type parameter needs more than one upper bound, 
@@ -317,7 +317,7 @@ Now, let's consider a function that takes a list of [nullable](null-safety.html)
 fun replaceNullsWithDefaults<T : Any>(list : List<T?>) : List<T> {
   return list map {
     if (it == null)
-      <error desc="The type T does not have a class object">T</error>.default // For now, we don't know if T's class object has such a property
+      T.default // Error. For now, we don't know if T's class object has such a property
     else it
   }
 }
