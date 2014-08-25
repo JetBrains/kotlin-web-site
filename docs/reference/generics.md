@@ -82,10 +82,9 @@ it since we do not know what objects comply to that unknown subtype of `T`.
 In return for this limitation, we have the desired behaviour: `Collection<String>` *is* a subtype of `Collection<? extends Object>`. 
 In "clever words", the wildcard with an **extends**\-bound (**upper** bound) makes the type **covariant**.
 
-The key to understanding why this trick works is rather simple: if you can only **take** items from a collection, then using a collection of String's 
-and reading Object's from it is fine. Conversely, if you can only _put_ items into the collection, it's OK to take a collection of 
-Object's and put String's into it: in Java we have 
-`List<? super String>` a **supertype** of `List<Object>`.
+The key to understanding why this trick works is rather simple: if you can only **take** items from a collection, then using a collection of `String`s
+and reading `Object`s from it is fine. Conversely, if you can only _put_ items into the collection, it's OK to take a collection of
+`Object`s and put `String`s into it: in Java we have `List<? super String>` a **supertype** of `List<Object>`.
  
 The latter is called **contravariance**, and you can only call methods that take String as an argument on `List<? super String>` 
 (e.g., you can call `add(String)` or `set(int, String)`), while 
@@ -317,7 +316,7 @@ Now, let's consider a function that takes a list of [nullable](null-safety.html)
 fun replaceNullsWithDefaults<T : Any>(list : List<T?>) : List<T> {
   return list map {
     if (it == null)
-      T.default // Error. For now, we don't know if T's class object has such a property
+      T.default // Error: For now, we don't know if T's class object has such a property
     else it
   }
 }
