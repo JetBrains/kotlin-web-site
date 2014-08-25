@@ -23,6 +23,7 @@ include:
 
 # Site Settings
 baseurl:
+code_baseurl: https://github.com/JetBrains/kotlin-web-site/tree/master/code
 
 # Custom Settings
 github_url: https://github.com/JetBrains/kotlin
@@ -37,3 +38,7 @@ grammar_file_path: grammar.xml
 # Analytics and webmaster tools stuff goes here
 google_analytics: UA-940435-32
 google_verify:
+
+
+# Text snippets used over and over again
+text_using_gradle: In this tutorial we're going to be using Gradle but the same can be accomplished using either IntelliJ IDEA project structure or Maven. For details on setting up Gradle to work with Kotlin, see [Using Gradle](/docs/reference/using-gradle.html).

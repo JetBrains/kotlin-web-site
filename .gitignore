@@ -19,3 +19,8 @@ _site/
 Gemfile.lock
 vendor
 .bundle
+build
+.gradle
+gradle/
+workspace.xml
+uiDesigner.xml

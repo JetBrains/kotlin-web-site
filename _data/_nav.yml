@@ -140,3 +140,7 @@ tutorials:
       - /docs/tutorials/command-line.html: Working with the Command Line Compiler
       - /docs/tutorials/build-tools.html: Working with Build Tools
       - /docs/tutorials/koans.html: Koans
+
+  - title: Web Development
+    content:
+      - /docs/tutorials/httpservlets.html: Creating Web Applications with Http Servlets

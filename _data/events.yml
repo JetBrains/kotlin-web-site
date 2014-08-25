@@ -597,9 +597,28 @@
   date: 2014-07-30
   location: Santa Clara, CA, USA
 
+- title: Android Australia User Group Meetup
+  url: http://www.meetup.com/Android-Australia-User-Group-Sydney/events/201086472/
+  subject: Kotlin, the Swift of Android
+  speaker: Mike Gouline
+  date: 2014-09-02
+  location: Sydney, Australia
+
+
+- title: JavaZone'14
+  url: http://2014.javazone.no/
+  subject: Refactoring to Functional
+  date: 2014-09-11
+  speaker: Hadi Hariri
+  location: Oslo, Norway
+  language: en
+
 - title: JavaZone'14
   url: http://2014.javazone.no/
   subject: Kotlin vs Java Puzzlers
+  speaker: Svetlana Isakova
   date: 2014-09-11
   location: Oslo, Norway
   language: en
+
+
