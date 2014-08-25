@@ -176,7 +176,7 @@ In the upcoming Kotlin standard library there are plans to have a Hashable inter
 
 #### wait()/notify()
 
-[Effective Java Item 69](http://java.sun.com/docs/books/effective) kindly suggests to Prefer concurrency utilities to wait and notify. Thus, these methods are not available on references of type Any, only on Java objects.
+[Effective Java Item 69](http://www.oracle.com/technetwork/java/effectivejava-136174.html) kindly suggests to Prefer concurrency utilities to wait and notify. Thus, these methods are not available on references of type Any, only on Java objects.
 
 #### getClass()
 
@@ -199,7 +199,7 @@ finalize() can be overridden exactly like toString()
 
 #### clone()
 
-clone() can be overridden like toString() but with specifying Cloneable as a supertype. Do not forget about [Effective Java Item 11](http://java.sun.com/docs/books/effective): Override clone judiciously.
+clone() can be overridden like toString() but with specifying Cloneable as a supertype. Do not forget about [Effective Java Item 11](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Override clone judiciously.
 
 ### Inheritance from Java classes
 At most one Java-class (and as many Java interfaces as you like) can be a supertype for a class in Kotlin. This class must go first in the supertype list.
