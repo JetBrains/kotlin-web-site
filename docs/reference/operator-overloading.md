@@ -58,7 +58,7 @@ The effect of computing the expression is:
 
 For `a--` the steps are completely analogous.
 
-For the *prefix* forms ++a and --a resolution works the same way, and the effect is:
+For the *prefix* forms `++a` and `--a` resolution works the same way, and the effect is:
 
 * Assign the result of a.inc() to a,
 * Return the new value of a as a result of the expression.
