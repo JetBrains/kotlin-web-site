@@ -12,7 +12,7 @@ title: "Basic Operations"
 In Kotlin there are two types of equality:
 
 * Referential equality (two references point to the same object)
-* Structural equality (a check for equals()
+* Structural equality (a check for equals())
 
 ### Referential equality
 
