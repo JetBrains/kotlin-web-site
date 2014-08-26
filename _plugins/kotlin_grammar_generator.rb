@@ -25,8 +25,11 @@ module KotlinGrammar
         node.elements.each('./*') do |node|
           case node.name
             # comment
-            when 'comment'
-              set['content'].push({'type' => 'comment', 'content' => node.text})
+            when 'doc'
+              set['content'].push({
+                'type' => 'comment',
+                'content' => node.text
+              })
 
             # item
             when 'item'
@@ -36,7 +39,10 @@ module KotlinGrammar
                 case node.name
                   # annotation
                   when 'annotation'
-                    item['content'].push({'type' => 'annotation', 'content' => node.text})
+                    item['content'].push({
+                      'type' => 'annotation',
+                      'content' => node.text
+                    })
 
                   # declaration
                   when 'declaration'
@@ -49,8 +55,8 @@ module KotlinGrammar
                     # declaration usages
                     node.elements.each('./usages/declaration') do |node|
                       declaration['usages'].push({
-                                                     'name' => node.text,
-                                                 })
+                        'name' => node.text,
+                      })
                     end
 
                     item['content'].push(declaration)
@@ -66,14 +72,26 @@ module KotlinGrammar
                         when 'whiteSpace'
                           token['type'] = 'whitespace'
                           token['crlf'] = node.attributes['crlf'] == 'true'
+                          token['content'] = node.text
 
                         when 'identifier'
                           token['type'] = 'identifier'
                           token['name'] = node.attributes['name']
 
-                        when 'string', 'symbol', 'other'
+                        when 'string',
+                             'symbol',
+                             'other'
                           token['type'] = node.name
                           token['content'] = node.text
+
+                          if node.name == 'string'
+                            if node.text[0,1] == '<' and node.text[node.text.length-1, node.text.length] == '>'
+                              #token['content'] = token['content'].gsub!('<', '&lt;')
+                            end
+                          end
+
+                        when 'crlf'
+                          token['type'] = 'crlf'
                       end
 
                       description['content'].push(token)
