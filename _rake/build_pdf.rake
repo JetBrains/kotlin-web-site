@@ -62,7 +62,8 @@ def build_html dir
 
   FileUtils.mkdir dir
   FileUtils.cp_r %w(_data _includes _layouts _plugins assets docs _config.yml), dir
-  FileUtils.mv "#{dir}/_layouts/pdf.html", "#{dir}/_layouts/reference.html" # substitute the original page layout
+  FileUtils.cp "#{dir}/_layouts/pdf.html", "#{dir}/_layouts/reference.html" # substitute the original page layout
+  FileUtils.cp "#{dir}/_layouts/pdf.html", "#{dir}/_layouts/api.html" # substitute the original page layout
   FileUtils.cd dir
 
   system "jekyll build --source=#{dir} --destination=#{dir}/_site"
@@ -86,6 +87,8 @@ def get_doc_contents
     if toc_data["content"]
       toc_data['content'].each do |item|
         item.each do |file_path, title|
+          puts "Processing #{file_path}"
+
           file_path = "#{tmp_dir}/_site/#{file_path}"
           file_basename = Pathname.new(file_path).basename
 
