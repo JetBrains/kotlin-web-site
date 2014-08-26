@@ -144,39 +144,19 @@ It's currently not possible to pass null to a method that is declared as varargs
 
 ### Object Methods
 
-When Java types are imported into Kotlin, all the references of the type *java.lang.Object* are turned into `Any?`. The big difference between
-the two is that `Any` does not declare any members at all. This is due to the [inheritance](classes.html#inheritance) rules in Kotlin.
-
-The problem this causes is that methods such as *toString* for instance are no longer available on the type. Kotlin solves this problem using [extension functions](extensions.html)
-
-
-#### toString()
-
-Declared as an extension function that looks for an instance function named *toString* and calls it. If there is no *toString* it returns the default
-``` kotlin
-this.javaClass.getName( + "@" + System.identityHashCode(this)
-```
-
-From a developer perspective nothing changes and all *toString* calls should work. When needing a custom implementation, merely define it in the class
-
-``` kotlin
-class A() {
-   fun toString() = "Custom A"
-```
-
-#### equals()
-
-In Kotlin, == stands for a [guarded call to equals()](equality.html). The expression on the left-hand side must have a method named equals that takes one parameter of type Any? and returns Boolean. Thus, all the Java objects have it out of the box. On the other hand, there's an extension function to Any? that performs the same kind of lookup as toString().
-
-#### hashCode()
-
-hashCode() works for Java objects.
-
-In the upcoming Kotlin standard library there are plans to have a Hashable interface that is required for something to be put into a non-identity hash-map.
+When Java types are imported into Kotlin, all the references of the type `java.lang.Object` are turned into `Any`.
+Since `Any` is not platform-specific, it only declares `toString()`, `hashCode()` and `equals()` as its members,
+so to make other members of `java.lang.Object` available, Kotlin uses [extension functions](extensions.html).
 
 #### wait()/notify()
 
-[Effective Java Item 69](http://www.oracle.com/technetwork/java/effectivejava-136174.html) kindly suggests to Prefer concurrency utilities to wait and notify. Thus, these methods are not available on references of type Any, only on Java objects.
+[Effective Java Item 69](http://www.oracle.com/technetwork/java/effectivejava-136174.html) kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
+Thus, these methods are not available on references of type `Any`.
+If you really need to call them, you can cast to `java.lang.Object`:
+
+```kotlin
+(foo as java.lang.Object).wait()
+```
 
 #### getClass()
 
@@ -193,13 +173,32 @@ Instead of Java's Foo.class use javaClass<Foo>().
 val fooClass = javaClass<Foo>()
 ```
 
-#### finalize()
-
-finalize() can be overridden exactly like toString()
-
 #### clone()
 
-clone() can be overridden like toString() but with specifying Cloneable as a supertype. Do not forget about [Effective Java Item 11](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Override clone judiciously.
+To override `clone()`, your class needs to extend `kotlin.Cloneable`:
+
+```kotlin
+
+class Example: Cloneable {
+  override fun clone(): Any { ... }
+}
+```
+
+ Do not forget about [Effective Java Item 11](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Override clone judiciously.
+
+#### finalize()
+
+To override `finalize()`, all you need to do is simply declare it, without using the *override*{:.keyword} keyword:
+
+```kotlin
+class C {
+  protected fun finalize() {
+    // finalization logic
+  }
+}
+```
+
+According to Java's rules, `finalize()` must not be `private`.
 
 ### Inheritance from Java classes
 At most one Java-class (and as many Java interfaces as you like) can be a supertype for a class in Kotlin. This class must go first in the supertype list.
