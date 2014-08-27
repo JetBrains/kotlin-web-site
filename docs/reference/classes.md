@@ -108,7 +108,7 @@ using the parameters of the primary constructor.
 
 The open annotation on a class is the opposite of Java's final: it allows others
 to inherit from this class. By default, all classes in Kotlin are final, which
-corresponds to [Item 17 of Effective Java: Design and document for inheritance or else prohibit it](http://java.sun.com/docs/books/effective).
+corresponds to [Item 17 of Effective Java: Design and document for inheritance or else prohibit it](http://www.oracle.com/technetwork/java/effectivejava-136174.html).
 
 ### Overriding Members
 
