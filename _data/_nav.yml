@@ -57,7 +57,6 @@ reference:
     description: The Basics
     content:
       - /docs/reference/basic-types.html: Basic Types
-      - /docs/reference/basic-ops.html: Basic Operations
       - /docs/reference/packages.html: Packages
       - /docs/reference/control-flow.html: Control Flow
       - /docs/reference/returns.html: Returns and Jumps
@@ -91,6 +90,7 @@ reference:
       - /docs/reference/ranges.html: Ranges
       - /docs/reference/typecasts.html: Type Checks and Casts
       - /docs/reference/this-expressions.html: This expressions
+      - /docs/reference/equality.html: Equality
       - /docs/reference/operator-overloading.html: Operator overloading
       - /docs/reference/null-safety.html: Null Safety
       - /docs/reference/exceptions.html: Exceptions

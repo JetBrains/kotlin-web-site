@@ -166,7 +166,7 @@ class A() {
 
 #### equals()
 
-In Kotlin, == stands for a [guarded call to equals()](basic-ops.html). The expression on the left-hand side must have a method named equals that takes one parameter of type Any? and returns Boolean. Thus, all the Java objects have it out of the box. On the other hand, there's an extension function to Any? that performs the same kind of lookup as toString().
+In Kotlin, == stands for a [guarded call to equals()](equality.html). The expression on the left-hand side must have a method named equals that takes one parameter of type Any? and returns Boolean. Thus, all the Java objects have it out of the box. On the other hand, there's an extension function to Any? that performs the same kind of lookup as toString().
 
 #### hashCode()
 
