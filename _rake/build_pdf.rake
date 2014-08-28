@@ -66,7 +66,7 @@ def build_html dir
   FileUtils.cp "#{dir}/_layouts/pdf.html", "#{dir}/_layouts/api.html" # substitute the original page layout
   FileUtils.cd dir
 
-  system "jekyll build --source=#{dir} --destination=#{dir}/_site"
+  system "jekyll build --source=#{dir} --destination=#{dir}/_site > /dev/null"
 end
 
 

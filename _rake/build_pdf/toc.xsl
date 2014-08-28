@@ -59,7 +59,7 @@
           .book-toc-item-title .text {
             display: block;
             border-bottom: 1px dotted #000;
-            height: 18px;
+            height: 19px;
           }
 
           .book-toc-item-title .text-inner {
