@@ -32,7 +32,7 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that we are talk
 One of the most tricky parts of *Java*'s type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)). 
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
-First, let's think about why *Java* needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.google.com/search?q=effective+java+2nd+edition), Item 28: *Use bounded wildcards to increase API flexibility*. 
+First, let's think about why *Java* needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
 First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`. 
 Why so? If List was not **invariant**, it would have been no 
 better than Java's arrays, cause the following code would have compiled and cause an exception at runtime:
@@ -64,7 +64,7 @@ void copyAll(Collection<Object> to, Collection<String> from) {
 }
 ```
 
-(In Java, we learned this lesson the hard way, see [Effective Java](http://www.google.com/search?q=effective+java+2nd+edition)'s Item 25: *Prefer lists to arrays*)
+(In Java, we learned this lesson the hard way, see [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html)'s Item 25: *Prefer lists to arrays*)
 
 
 That's why the actual signature of `addAll()` is the following:
@@ -82,10 +82,9 @@ it since we do not know what objects comply to that unknown subtype of `T`.
 In return for this limitation, we have the desired behaviour: `Collection<String>` *is* a subtype of `Collection<? extends Object>`. 
 In "clever words", the wildcard with an **extends**\-bound (**upper** bound) makes the type **covariant**.
 
-The key to understanding why this trick works is rather simple: if you can only **take** items from a collection, then using a collection of String's 
-and reading Object's from it is fine. Conversely, if you can only _put_ items into the collection, it's OK to take a collection of 
-Object's and put String's into it: in Java we have 
-`List<? super String>` a **supertype** of `List<Object>`.
+The key to understanding why this trick works is rather simple: if you can only **take** items from a collection, then using a collection of `String`s
+and reading `Object`s from it is fine. Conversely, if you can only _put_ items into the collection, it's OK to take a collection of
+`Object`s and put `String`s into it: in Java we have `List<? super String>` a **supertype** of `List<Object>`.
  
 The latter is called **contravariance**, and you can only call methods that take String as an argument on `List<? super String>` 
 (e.g., you can call `add(String)` or `set(int, String)`), while 
@@ -317,7 +316,7 @@ Now, let's consider a function that takes a list of [nullable](null-safety.html)
 fun replaceNullsWithDefaults<T : Any>(list : List<T?>) : List<T> {
   return list map {
     if (it == null)
-      T.default // Error. For now, we don't know if T's class object has such a property
+      T.default // Error: For now, we don't know if T's class object has such a property
     else it
   }
 }
