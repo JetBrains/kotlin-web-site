@@ -24,10 +24,9 @@
 
                 {% if item.usages.size > 0 %}
                 <div class="grammar-declaration-usedby">
-                    Used by
+                    (used by
                     {% for usage in item.usages %}
-                    <a href="#{{ usage.name }}">{{ usage.name }}</a>{% if forloop.last == false %},{% endif %}
-                    {% endfor %}
+                    <a href="#{{ usage.name }}">{{ usage.name }}</a>{% if forloop.last == false %},{% endif %}{% endfor %})
                 </div>
                 {% endif %}
             </div>

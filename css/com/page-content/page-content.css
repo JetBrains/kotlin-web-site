@@ -21,17 +21,17 @@
  * Grid column
  * @param {px} $font-size (optional)
 */
-.section-title, .page-content h1 {
+.section-title, .page-title, .page-content h1 {
   margin-top: 30px;
   margin-bottom: 15px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 30px;
   line-height: 33px; }
-  .section-title:first-of-type, .page-content h1:first-of-type {
+  .section-title:first-of-type, .page-title:first-of-type, .page-content h1:first-of-type {
     margin-top: 0;
     margin-bottom: 30px; }
   @media print {
-    .section-title, .page-content h1 {
+    .section-title, .page-title, .page-content h1 {
       page-break-before: always;
       page-break-after: avoid; } }
   .section-title {
@@ -171,17 +171,17 @@
   @media print {
     .page-content a {
       color: #497bb7 !important; } }
-  .page-content .section-title, .page-content h1 {
+  .page-content .section-title, .page-content .page-title, .page-content h1 {
     margin-top: 30px;
     margin-bottom: 15px;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 30px;
     line-height: 33px; }
-    .page-content .section-title:first-of-type, .page-content h1:first-of-type {
+    .page-content .section-title:first-of-type, .page-content .page-title:first-of-type, .page-content h1:first-of-type {
       margin-top: 0;
       margin-bottom: 30px; }
     @media print {
-      .page-content .section-title, .page-content h1 {
+      .page-content .section-title, .page-content .page-title, .page-content h1 {
         page-break-before: always;
         page-break-after: avoid; } }
     .page-content .section-title {

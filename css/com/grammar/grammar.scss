@@ -15,7 +15,6 @@
     }
 }
 
-
 .grammar-items-set {
     margin-bottom: 40px;
 }
@@ -28,11 +27,11 @@
 
 .grammar-item {
     margin-bottom: 20px;
+    font-family: $font-family-mono;
 }
 
 
 .grammar-annotation {
-    font-family: $font-family-mono;
 }
 
 
@@ -42,12 +41,14 @@
 
 
 .grammar-declaration-name {
+    display: inline-block;
     font-size: 16px;
     font-weight: bold;
 }
 
 
 .grammar-declaration-usedby {
+    display: inline-block;
     color: #999;
 }
 

@@ -8,6 +8,10 @@
     @extend %h1%_section-title;
 }
 
+.page-title {
+    @extend %h1;
+}
+
 .page-content {
     position: relative;
     margin-top: 0;

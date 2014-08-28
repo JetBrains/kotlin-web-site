@@ -5,7 +5,7 @@ category: "Grammar"
 title: "Grammar"
 ---
 
-# Grammar
+<div class="page-title">Grammar</div>
 
 {% if page.kotlinGrammar %}
 {% include toc.html %}
