@@ -131,7 +131,7 @@ Kotlin does not infer return types for functions with block bodies because such 
 type will be non-obvious to the reader (and sometimes even for the compiler). 
 
 
-### Varargs - Variable number of arguments
+### Variable number of arguments (Varargs)
 
 The last parameter of a function may be marked with `vararg` annotation
 
@@ -144,33 +144,24 @@ fun asList<T>(vararg ts : T) : List<T> {
 }
 ```
 
-allowing a variable number of arguments to be passed in to the function.
+allowing a variable number of arguments to be passed to the function:
 
-By default, `vararg` creates an array, but this behavior can be customized by providing arguments to the annotation
-
-``` kotlin
-fun asList<T>(vararg<ArrayList<T>> ts : T) : List<T> = ts // ts is a List now!
+```kotlin
+  val list = asList(1, 2, 3)
 ```
 
-The type argument to the `vararg` annotation denotes a *builder* type. A call to this function is compiled like so
+Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<T>`.
 
-``` kotlin
-asList(0, 1, 2)
-// Compiles to
-val list = ArrayList<Int>(3) // 3 is the size of the structure
-list.add(0)
-list.add(1)
-list.add(2)
-asList(list.build()) // For ArrayList, build() just returns the list itself
+Only one parameter may be annotated as `vararg`. It may be the last parameter or the one before last,
+if the last parameter has a function type (allowing a lambda to be passed outside parentheses).
+
+When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList(1, 2, 3)`, or, if we already have an array
+ and want to pass its contents to the function, we use the **spread** operator (prefix the array with `*`):
+
+```kotlin
+val a = array(1, 2, 3)
+val list = asList(-1, 0, *a, 4)
 ```
-
-As such, a `vararg` builder must be a type that has
-
-* A constructor that takes one *Int* parameter
-* An *add()* function
-* A *build()* function
-
-The type of the `vararg` parameter is the returned type of *build()*
 
 ## Function Scope
 
