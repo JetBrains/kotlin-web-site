@@ -35,10 +35,10 @@
       page-break-before: always;
       page-break-after: avoid; } }
   .section-title {
-    padding-top: 240px;
+    padding-top: 140px;
     margin-bottom: 45px;
-    font-size: 80px;
-    line-height: 90px;
+    font-size: 55px;
+    line-height: 65px;
     font-weight: bold; }
 
 .page-content h2 {
@@ -185,10 +185,10 @@
         page-break-before: always;
         page-break-after: avoid; } }
     .page-content .section-title {
-      padding-top: 240px;
+      padding-top: 140px;
       margin-bottom: 45px;
-      font-size: 80px;
-      line-height: 90px;
+      font-size: 55px;
+      line-height: 65px;
       font-weight: bold; }
   .page-content h2 {
     margin-top: 30px;
