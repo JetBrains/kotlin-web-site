@@ -168,6 +168,9 @@
   .page-content .page-link-to-github {
     float: right;
     top: 4px; }
+  @media print {
+    .page-content a {
+      color: #497bb7 !important; } }
   .page-content .section-title, .page-content h1 {
     margin-top: 30px;
     margin-bottom: 15px;
@@ -256,21 +259,21 @@
     .page-content ol ol {
       margin-top: 7.5px; }
   .page-content pre {
-    font-family: Consolas, Menlo, Courier, monospace;
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
     line-height: 22px; }
   .page-content pre code {
     display: block;
     padding: 15px 20px;
-    font-family: Consolas, Menlo, Courier, monospace; }
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
   .page-content code {
-    font-family: Consolas, Menlo, Courier, monospace; }
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
     .page-content p > code,
     .page-content li > code {
       padding: 0 5px;
       border-radius: 4px;
       background-color: #efefef; }
   .page-content pre {
-    font-family: Consolas, Menlo, Courier, monospace;
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
     line-height: 22px; }
   .page-content table {
     margin-bottom: 30px; }
@@ -525,7 +528,7 @@
     border: 1px solid #b5b5b5;
     color: #828282; }
   .page-content .keyword {
-    font-family: Consolas, Menlo, Courier, monospace;
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
     font-style: normal;
     color: #0000C0; }
   .page-content .error {

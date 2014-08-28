@@ -35,7 +35,7 @@
   margin-bottom: 20px; }
 
 .grammar-annotation {
-  font-family: Consolas, Menlo, Courier, monospace; }
+  font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
 
 .grammar-declaration-name {
   font-size: 16px;
@@ -45,7 +45,7 @@
   color: #999; }
 
 .grammar-description {
-  font-family: Consolas, Menlo, Courier, monospace; }
+  font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
 
 .grammar-string {
   color: #009C00; }
