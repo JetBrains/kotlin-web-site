@@ -30,7 +30,7 @@ desc 'Builds PDF'
 task :build_pdf do
   source_dir = CONFIG[:source_dir]
   tmp_dir = CONFIG[:tmp_dir]
-  pdf_filename = ENV['file'] || CONFIG[:pdf_filename]
+  pdf_filename = ENV['dest'] || CONFIG[:pdf_filename]
   pdf_filename = File.expand_path(pdf_filename)
   pdf_options_str = PDF_CONFIG.map{|key, value| "--#{key} #{value}"}.join(' ')
   pdf_toc_options_str = PDF_TOC_CONFIG.map{|key, value| "--#{key} #{value}"}.join(' ')
