@@ -18,7 +18,8 @@ PDF_CONFIG = {
     'footer-center' => '[page]',
     'footer-font-size' => '9',
     'footer-spacing' => '7',
-    'enable-smart-shrinking' => ''
+    'enable-smart-shrinking' => '',
+    'zoom' => '0.9'
 }
 
 PDF_TOC_CONFIG = {
