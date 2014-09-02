@@ -132,7 +132,7 @@ Here is the complete list of bitwise operations (available for Int and Long only
 
 ## Characters
 
-Characters are represented by the type Char. They are can not be treated directly as numbers
+Characters are represented by the type Char. They can not be treated directly as numbers
 
 ``` kotlin
 fun check(c: Char) {
