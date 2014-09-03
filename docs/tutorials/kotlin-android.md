@@ -86,7 +86,7 @@ The project has been set up. Let's make some layout first, then proceed to writi
 
 ![Layout Editor]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/layout-editor.png)
 
-Java libraries in Kotlin projects
+### Java libraries in Kotlin projects
 
 Kotlin is 100% compatible with Java, thus цу can use Java and Kotlin code in the same project together, as well as existing Java libraries. 
 
