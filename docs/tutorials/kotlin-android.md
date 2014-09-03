@@ -62,7 +62,7 @@ Kotlin classes are to be kept under */src/main/kotlin directory*, thus we create
 
 ![AddDir]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/addkotlindir.png)
 
-Upon switch to MainActivity.kt file we see a reminder from the IDE, saying that Kotlin file has to be under /src/main/kotlin directory, thus we agree to move it to there automatically (pressing Move file on the right).
+Upon switch to MainActivity.kt file we see a reminder from the IDE, saying that Kotlin file has to be under /src/main/kotlin directory, thus we agree to move it to there automatically (pressing **Move file** on the right).
 
 ![MoveFile]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/move-file.png)
 
