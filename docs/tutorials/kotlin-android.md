@@ -11,7 +11,7 @@ related:
 ### Creating a project
 We are already familiar with Android development using Java, thus we know what the project structure looks like, and how to build an Android application in general. 
 
-Let's start with **File | New Project | Android | Gradle: Android Module** to create a new project.
+Let's start with **File \| New Project \| Android \| Gradle: Android Module** to create a new project.
 
 ![New Project]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/kotlin-android-new.png)
 
