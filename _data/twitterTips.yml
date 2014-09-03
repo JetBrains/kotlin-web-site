@@ -21,7 +21,6 @@
   - "You can declare local functions and classes with closures, inside another function's body."
   - "Compiler can inline functions with lambdas, when instructed to do so, and thus don't build closures et al. in these cases."
   - "All types and members in Kotlin are sealed (non-inheritable, non-overridable) by default."
-  - "This is valid code calling a bunch of functions, no syntax sugar: 'items filter { it.valid } map { it.name}'"
   - "String interpolation makes it easy to build complex formatting: 'My name is $name and I'm ${age.years} old'"
   - "Like in C#, unlike in Java, there is no binding between file and type/function. You can declare top level functions too."
   - "'using { ... }' is just a function call, not a special syntactic sugar. You can define your own."
@@ -44,5 +43,8 @@
     rt: 0
   - description: "There are 258 repositories on @github about/with Kotlin. https://github.com/search?q=kotlin"
     date: 2014-09-01
+    rt: 5
+  - description: "This is valid code calling a bunch of functions, no syntax sugar: 'items filter { it.valid } map { it.name}'"
+    date: 2014-09-03
     rt: 
 
