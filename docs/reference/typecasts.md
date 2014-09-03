@@ -9,7 +9,7 @@ title: "Type Checks and Casts"
 
 ## `is` and `!is` Operators
 
-One can check whether an object conforms to a given type at runtime using `is` operator or its negated form `!is`:
+One can check whether an object conforms to a given type at runtime by using the `is` operator or its negated form `!is`:
 
 ``` kotlin
 if (obj is String) {
@@ -50,7 +50,7 @@ when (x) {
 
 ## "Unsafe" cast operator
 
-Usually, cast operator throws an exception if the cast is not possible. Thus, we call it unsafe. The unsafe cast in Kotlin is done by an infix operator as (see [operator precedence](grammar.html#operator-precedence)):
+Usually, the cast operator throws an exception if the cast is not possible. Thus, we call it unsafe. The unsafe cast in Kotlin is done by the infix operator `as` (see [operator precedence](grammar.html#operator-precedence)):
 
 ``` kotlin
 val x : String = y as String
