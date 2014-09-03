@@ -38,13 +38,13 @@ IntelliJ IDEA initializes the new project, and we see Java project structure and
 #### Converting Java code of the Activity to Kotlin
 
 We choose MainActivity.java file in the project tree and press **<Shift+Ctrl+Alt+J>** 
-(**<⌥⇧⌘ J>** on Mac OS). Kotlin plugin offers an automatic conversion from Java to Kotlin (.java -> .kt). We accept the offer with no backup (we don't need it indeed because the default activity was just generated for us).
+( **\<⌥⇧⌘ J\>** on Mac OS). Kotlin plugin offers an automatic conversion from Java to Kotlin (.java -> .kt). We accept the offer with no backup (we don't need it indeed because the default activity was just generated for us).
 
 ![Convert]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/5.png)
 
 #### Configuring Kotlin in the project
 
-Press **<Shift>** twice and *Search Everywhere* helper appears. Enter "Configure Kotlin" and choose an option "Configure Kotlin in Project". It enables Kotlin support for the project, including proper *build.gradle* changes and project structure inspections.
+Press **\<Shift\>** twice and _Search Everywhere_ helper appears. Enter "Configure Kotlin" and choose an option "Configure Kotlin in Project". It enables Kotlin support for the project, including proper _build.gradle_ changes and project structure inspections.
 
 ![Config-Kotlin]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/configure_kotlin.png)
 
@@ -56,16 +56,14 @@ After we choose Configure Kotlin in Project we are offered a choice of Kotlin pl
 
 After configuration, we saw a warning about project sync from Gradle plugin. Click Sync now, if it is the case.
 
-![Config-Kotlin-Details]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/gradlesync.png)
+![GradleSync]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/gradlesync.png)
 
 Kotlin classes are to be kept under */src/main/kotlin directory*, thus we create it. Navigate to */src/main/* in the project structure, press **<Alt+Insert>**, and choose Directory, then name new directory *kotlin*:
 
+![AddDir]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/addkotlindir.png)
 
-1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *app.kt* with the following
+Upon switch to MainActivity.kt file we see a reminder from the IDE, saying that Kotlin file has to be under /src/main/kotlin directory, thus we agree to move it to there automatically (pressing Move file on the right).
 
-   ``` kotlin
-   fun main(args: Array<String>) {
-      println("Hello, World!")
-   }
-   ```
+![AddDir]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/move-file.png)
 
+Kotlin plugin marks kotlin directory as sources automatically at the time of configuring the plugin in the project or later, as soon as the directory is created.
