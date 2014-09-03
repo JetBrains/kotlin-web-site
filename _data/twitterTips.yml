@@ -44,7 +44,7 @@
   - description: "There are 258 repositories on @github about/with Kotlin. https://github.com/search?q=kotlin"
     date: 2014-09-01
     rt: 5
-  - description: "This is valid code calling a bunch of functions, no syntax sugar: 'items filter { it.valid } map { it.name}'"
+  - description: "This is valid code, calling a bunch of functions. No syntax sugar: 'items filter { it.valid } map { it.name}'"
     date: 2014-09-03
     rt: 
 
