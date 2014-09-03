@@ -9,7 +9,7 @@ title: "Basic Syntax"
 
 ## Defining packages
 
-Package specification should be at the top of the source file.
+Package specification should be at the top of the source file:
 
 ``` kotlin
 package my.demo
@@ -19,7 +19,7 @@ import java.util.*
 // ...
 ```
 
-It is not required to match folder and package structure.
+It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
 
 See [Packages](packages.html).
 
@@ -39,18 +39,18 @@ Function with an expression body and inferred return type:
 fun sum(a: Int, b: Int) = a + b
 ```
 
+Function visible from outside of a module should have return type explicitly specified:
+
+``` kotlin
+public fun sum(a: Int, b: Int): Int = a + b
+```
+
 Function returning no meaningful value:
 
 ``` kotlin
 fun printSum(a: Int, b: Int): Unit {
   print(a + b)
 }
-```
-
-Function visible from outside of a module should have return type explicitly specified:
-
-``` kotlin
-public fun sum(a: Int, b: Int): Int = a + b
 ```
 
 `Unit` return type can be omitted:
@@ -70,7 +70,7 @@ Assign-once (read-only) local variable:
 ``` kotlin
 val a: Int = 1
 val b = 1 // `Int` type is inferred
-val c: Int // Type required when no initializer provided
+val c: Int // Type required when no initializer is provided
 c = 1 // definite assignment
 ```
 
@@ -114,11 +114,11 @@ fun max(a: Int, b: Int) = if (a > b) a else b
 
 See [if expressions](control-flow.html#if-expression).
 
-## Using nullable values and checking for null
+## Using nullable values and checking for `null`
 
 A reference must be explicitly marked as nullable when `null` value is possible.
 
-Return null if `str` does not hold an integer:
+Return `null` if `str` does not hold an integer:
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -126,12 +126,12 @@ fun parseInt(str: String): Int? {
 }
 ```
 
-Use function returning nullable value:
+Use a function returning nullable value:
 
 ``` kotlin
 fun main(args: Array<String>) {
   if (args.size < 2) {
-    print("Two integers expected.")
+    print("Two integers expected")
     return
   }
 
@@ -140,7 +140,7 @@ fun main(args: Array<String>) {
 
   // Using `x * y` yields error because they may hold nulls.
   if (x != null && y != null) {
-    // x and y are automatically casted to non-nullable after null check
+    // x and y are automatically cast to non-nullable after null check
     print(x * y)
   }
 }
@@ -159,7 +159,7 @@ or
     return
   }
 
-  // x and y are automatically casted to non-nullable after null check
+  // x and y are automatically cast to non-nullable after null check
   print(x * y)
 ```
 
@@ -173,11 +173,11 @@ If an immutable local variable or property is checked for a specific type, there
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
   if (obj is String) {
-    // `obj` is automatically casted to `String` in this branch
+    // `obj` is automatically cast to `String` in this branch
     return obj.length
   }
 
-  // `obj` is still of type `Any` outside of type-checked branch
+  // `obj` is still of type `Any` outside of the type-checked branch
   return null
 }
 ```
@@ -189,7 +189,7 @@ fun getStringLength(obj: Any): Int? {
   if (obj !is String)
     return null
 
- // `obj` is automatically casted to `String` in this branch
+ // `obj` is automatically cast to `String` in this branch
  return obj.length
 }
 ```
