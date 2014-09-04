@@ -301,6 +301,7 @@ abstract class Default<T> {
 ```
 
 For example, the class Int could extend Default in the following way:
+
 ``` kotlin
 class Int {
   class object : Default<Int> {
