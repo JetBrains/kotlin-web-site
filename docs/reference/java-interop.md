@@ -42,7 +42,6 @@ escaping it with the backtick (`) character
 foo.`is`(bar)
 ```
 
-
 ### Null-Safety
 
 Any reference in Java may be null. As such, all the Java methods called from Kotlin return nullable references (except for those annotated with `@NotNull`).
@@ -89,7 +88,6 @@ if (a is List<Int>) // Error: cannot check if it is really a List of Ints
 // but
 if (a is List<*>) // OK: no guarantees about the contents of the list
 ```
-
 
 ### Invariant Arrays
 
@@ -141,6 +139,63 @@ javaObj.removeIndicesVarArg(*array)
 ```
 
 It's currently not possible to pass null to a method that is declared as varargs.
+
+### Mapped types
+
+Kotlin treats some Java types specially. Such types are not loaded from Java "as is", but are _mapped_ to corresponding Kotlin types.
+The mapping only matters at compile time, the runtime representation remains unchanged.
+ Java's primitive types are mapped to corresponding Kotlin classes:
+
+| **Java type** | **Kotlin type**  |
+|---------------|------------------|
+| `byte`        | `kotlin.Byte`    |
+| `short`       | `kotlin.Short`   |
+| `int`         | `kotlin.Int`     |
+| `long`        | `kotlin.Long`    |
+| `char`        | `kotlin.Char`    |
+| `float`       | `kotlin.Float`   |
+| `double`      | `kotlin.Double`  |
+| `boolean`     | `kotlin.Boolean` |
+{:.zebra}
+
+Some non-primitive built-in classes are also mapped:
+
+| **Java type** | **Kotlin type**  |
+|---------------|------------------|
+| `java.lang.Object`       | `kotlin.Any`    |
+| `java.lang.Cloneable`    | `kotlin.Cloneable`    |
+| `java.lang.Comparable`   | `kotlin.Comparable`    |
+| `java.lang.Enum`         | `kotlin.Enum`    |
+| `java.lang.Annotation`   | `kotlin.Annotation`    |
+| `java.lang.Deprecated`   | `kotlin.deprecated`    |
+| `java.lang.Void`         | `kotlin.Nothing?`    |
+| `java.lang.CharSequence` | `kotlin.CharSequence`   |
+| `java.lang.String`       | `kotlin.String`   |
+| `java.lang.Number`       | `kotlin.Number`     |
+| `java.lang.Throwable`    | `kotlin.Throwable`    |
+{:.zebra}
+
+Java's arrays are mapped as mentioned [above](java-interop.html#invariant-arrays):
+
+| **Java type** | **Kotlin type**  |
+|---------------|------------------|
+| `int[]`       | `kotlin.IntArray` |
+| `String[]`    | `kotlin.Array<String>` |
+{:.zebra}
+
+Collection types may be read-only or mutable in Kotlin, so Java's collection are mapped as follows:
+
+| **Java type** | **Kotlin read-only type**  | **Kotlin mutable type** |
+|---------------|------------------|----|
+| `java.util.Iterator`       | `kotlin.Iterator`    | `kotlin.MutableIterator` |
+| `java.lang.Iterable`    | `kotlin.Iterable`    | `kotlin.MutableIterable` |
+| `java.util.Collection`    | `kotlin.Collection`    | `kotlin.MutableCollection` |
+| `java.util.Set`    | `kotlin.Set`    | `kotlin.MutableSet` |
+| `java.util.List`    | `kotlin.List`    | `kotlin.MutableList` |
+| `java.util.ListIterator`    | `kotlin.ListIterator`    | `kotlin.MutableListIterator` |
+| `java.util.Map`    | `kotlin.Map`    | `kotlin.MutableMap` |
+| `java.util.Map.Entry`    | `kotlin.Map.Entry`    | `kotlin.MutableMap.MutableEntry` |
+{:.zebra}
 
 ### Object Methods
 
