@@ -92,8 +92,8 @@ All classes in Kotlin have a common superclass `Any`, that is a default super fo
 class Example // Implicitly inherits from Any
 ```
 
-Any is not java.lang.Object; in particular, it does not have any members, not even equals(), hashCode or toString(). This does not mean that you can not call, say, toString() on any object: you can, but it will be an extension function.
-See [Java interoperability](java-interop.html#object-methods) for more details.
+`Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
+Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
 
 To declare an explicit supertype, one puts it after a colon in the class header:
 
