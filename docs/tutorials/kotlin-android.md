@@ -40,7 +40,7 @@ Kotlin automatically.
 
 #### Converting Java code to Kotlin
 
-We choose MainActivity.java file in the project tree and press **<Shift+Ctrl+Alt+J>**. This option can also be accessed via the Code | Convert to Kotlin  menu.
+We choose MainActivity.java file in the project tree and press **<Shift+Ctrl+Alt+J>**. This option can also be accessed via the _Code \| Convert Java File to Kotlin File_  menu entry.
 
 ( **\<⌥⇧⌘ J\>** on Mac OS). The Kotlin plugin offers to do an automatic conversion from Java to Kotlin (.java -> .kt).
 
@@ -82,8 +82,8 @@ We therefore need to make the appropriate changes manually, as shown in the scre
 
 Now we have the code ready to build and run, which can be done pressing **\<Shift-F10\>**.
 
-### Making user interface changed
-Now that the project has been set up, let's work with the layout and then proceed to writing code.
+### Making user interface changes
+Now that the project has been set up, we can work with the layout using IntelliJ IDEA's visual designer.
 There is nothing different in terms of layout when working with Kotlin, thus this is similar to regular Android Java development.
 While using layout designer in IntelliJ IDEA, note there are two tabs in the designer: **Text** and **Design**. The latter shows how the layout looks, while the former allows fine tuning with XML editing.
 
@@ -115,4 +115,4 @@ We are now ready to build the application in debug mode (**\<Shift+F9\>**), run 
 
 We can make a release of the application and sign it similarly to what we do for an Android application written in Java. 
 
-Kotlin compiler produces byte-code, as Java compiler does, thus neither an app store nor a device feel a difference between 100% Java and Kotlin applications. 
+Kotlin compiler produces byte-code, thus there really is no difference in terms of look and feel of Kotlin applications versus those written in Java.
