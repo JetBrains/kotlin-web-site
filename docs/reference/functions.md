@@ -29,7 +29,7 @@ fun powerOf(number: Int, exponent: Int) {
 
 ### Default Arguments
 
-Function parameters can have default values, which are used when a corresponding argument is omitted. This allows to reduce the number of overloads compared to
+Function parameters can have default values, which are used when a corresponding argument is omitted. This allows it to reduce the number of overloads compared to
 other languages.
 
 ``` kotlin
