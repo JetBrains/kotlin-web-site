@@ -61,6 +61,14 @@ class Customer(val customerName: String) {
 which is equivalent to the previous code. Much the same way as when declaring properties, those explicitly
 declared in the constructor can be mutable (*var*{: keyword }) or read-only (*val*{: keyword }).
 
+To specify a visibility of a constructor, use the following syntax:
+
+```kotlin
+class Customer private (name: String) { ... }
+```
+
+For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
+
 ### Creating instances of classes
 
 To create an instance of a class, we call the constructor as if it were a regular function

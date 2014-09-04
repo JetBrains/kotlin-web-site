@@ -102,7 +102,7 @@ class Unrelated(o: Outer) {
 
 ### Constructors
 
-To specify visibility of a constructor, use the following syntax:
+To specify a visibility of a constructor, use the following syntax:
 
 ``` kotlin
 class C private (a: Int) { ... }
