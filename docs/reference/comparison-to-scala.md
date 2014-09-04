@@ -29,7 +29,7 @@ Taking this into account, if you are happy with Scala, you probably do not need 
 * Custom symbolic operations
     * See [Operator overloading](operator-overloading.html)
 * Built-in XML
-    * See [Type-safe Groovy-style builders](type-safe-groovy-builders.html)
+    * See [Type-safe Groovy-style builders](type-safe-builders.html)
 
 Things that may be added to Kotlin later:
 
