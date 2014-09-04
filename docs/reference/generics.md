@@ -95,7 +95,7 @@ Joshua Bloch calls those objects you only **read** from **Producers**, and those
 *PECS stands for Producer-Extends, Consumer-Super.*
 
 *NOTE*: if you use a producer-object, say, `List<? extends Foo>`, you are not allowed to call `add()` or `set()` on this object, but this does not mean 
-that this object is **immutable**: for example, nothing prevents you to call `clear()` to remove all items from the list, since `clear()` 
+that this object is **immutable**: for example, nothing prevents you from calling `clear()` to remove all items from the list, since `clear()` 
 does not take any parameters at all. The only thing guaranteed by wildcards (or other types of variance) is **type safety**. Immutability is a completely different story.
 
 ### Declaration-site variance
@@ -109,7 +109,7 @@ interface Source<T> {
 }
 ```
 
-Then, it would be perfectly safe to store a reference to an instance of `Source<String>` in a variable of type `Source<Object>` -- there're no consumer-methods to call. But Java does not know this, and still prohibits:
+Then, it would be perfectly safe to store a reference to an instance of `Source<String>` in a variable of type `Source<Object>` -- there are no consumer-methods to call. But Java does not know this, and still prohibits it:
 
 ``` java
 // Java
@@ -119,7 +119,7 @@ void demo(Source<String> strs) {
 }
 ```
 
-To fix this, we have to declare objects of type `Source<? extends Object>` that is sort of meaningless, because we can call all the same methods on such a variable, as before, so there's no value added by the more complex type. But the compiler does not know that.
+To fix this, we have to declare objects of type `Source<? extends Object>`, which is sort of meaningless, because we can call all the same methods on such a variable as before, so there's no value added by the more complex type. But the compiler does not know that.
 
 In Kotlin, there is a way to explain this sort of thing to the compiler. This is called **declaration-site variance**: we can annotate the **type parameter** `T` of Source to make sure that it is only **returned** (produced) from members of `Source<T>`, and never consumed. 
 To do this we provide the **out** modifier:
@@ -200,7 +200,7 @@ Here we run into the same familiar problem: `Array<T>` is **invariant** in `T`, 
 is a subtype of the other. Why? Again, because copy **might** be doing bad things, i.e. it might attempt to **write**, say, a String to from, and if we actually 
 passed an array of Int there, a ClassCastException would have been thrown sometime later...
 
-Then, the only thing we want to ensure is that `copy()` does not do any bad things. We want to prohibit it to **write** to from, and we can:
+Then, the only thing we want to ensure is that `copy()` does not do any bad things. We want to prohibit it from **writing** to `from`, and we can:
 
 ``` kotlin
 fun copy(from : Array<out Any>, to : Array<Any>) {
@@ -208,9 +208,9 @@ fun copy(from : Array<out Any>, to : Array<Any>) {
 }
 ```
 
-What has happened here is called **type projection**: we said that from is not simply an array, but a restricted (**projected**) one: we can only call those methods that return the type parameter 
+What has happened here is called **type projection**: we said that `from` is not simply an array, but a restricted (**projected**) one: we can only call those methods that return the type parameter 
 `T`, in this case it means that we can only call `get()`. This is our approach to **use-site variance**, and corresponds to Java's `Array<? extends Object>`, 
-but in a little simpler way.
+but in a slightly simpler way.
 
 You can project a type with **in** as well:
 
@@ -263,7 +263,7 @@ The set of all possible types that can be substituted for a given type parameter
 
 ## Upper bounds
 
-The most common type a constraint is an **upper bound** that corresponds to *Java*'s *extends* keyword:
+The most common type of constraint is an **upper bound** that corresponds to *Java*'s *extends* keyword:
 
 ``` kotlin
 fun sort<T : Comparable<T>>(list : List<T>) {
@@ -271,15 +271,15 @@ fun sort<T : Comparable<T>>(list : List<T>) {
 }
 ```
 
-The type specified after a colon is the **upper bound**: only subtype of `Comparable<T>` may be substituted for `T`. For example
+The type specified after a colon is the **upper bound**: only a subtype of `Comparable<T>` may be substituted for `T`. For example
 
 ``` kotlin
 sort(list(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
 sort(list(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
 ```
 
-The default upper bound (if none specified) is Any?. There can be not more than one upper bound specified directly inside the angle brackets. If same type parameter needs more than one upper bound, 
-we need a separate **where**\-clause:
+The default upper bound (if none specified) is `Any?`. Only one upper bound can be specified inside the angle brackets.
+If the same type parameter needs more than one upper bound, we need a separate **where**\-clause:
 
 ``` kotlin
 fun cloneWhenGreater<T : Comparable<T>>(list : List<T>, threshold : T) : List<T>
@@ -301,6 +301,7 @@ abstract class Default<T> {
 ```
 
 For example, the class Int could extend Default in the following way:
+
 ``` kotlin
 class Int {
   class object : Default<Int> {
