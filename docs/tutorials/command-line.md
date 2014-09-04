@@ -10,14 +10,14 @@ related:
 ---
 ### Downloading the compiler
 
-Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{site.data.releases.latest.url}}). Latest release is {{ site.data.last_version }}
+Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{ site.data.releases.latest.url }}). Latest release is {{ site.data.releases.latest.version }}
 
 1. Unzip the standalone compiler into a directory and optionally add the bin folder to the system path. The bin folder contains four script files.
 
-* kotlinc-jvm: The Kotlin compiler and shell for targeting the JVM. For OSX and Linux users.
-* kotlinc-js: The Kotlin compiler and shell for targeting JavaScript. For OSX and Linux users.
-* kotlinc-jvm.bat: The Kotlin compiler and shell for targeting the JVM. For Windows users.
-* kotlinc-js.bat: The Kotlin compiler and shell for targeting JavaScript. For Windows users.
+    * kotlinc-jvm: The Kotlin compiler and shell for targeting the JVM. For OSX and Linux users.
+    * kotlinc-js: The Kotlin compiler and shell for targeting JavaScript. For OSX and Linux users.
+    * kotlinc-jvm.bat: The Kotlin compiler and shell for targeting the JVM. For Windows users.
+    * kotlinc-js.bat: The Kotlin compiler and shell for targeting JavaScript. For Windows users.
 
 Important: If running on OSX/Linux, please make sure you run *chmod* to give execute permissions to the scripts.
 
