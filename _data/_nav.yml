@@ -96,7 +96,7 @@ reference:
       - /docs/reference/exceptions.html: Exceptions
       - /docs/reference/annotations.html: Annotations
       - /docs/reference/reflection.html: Reflection
-      - /docs/reference/type-safe-groovy-builders.html: Type-Safe Builders
+      - /docs/reference/type-safe-builders.html: Type-Safe Builders
 
 
 

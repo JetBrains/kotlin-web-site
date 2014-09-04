@@ -61,6 +61,14 @@ class Customer(val customerName: String) {
 which is equivalent to the previous code. Much the same way as when declaring properties, those explicitly
 declared in the constructor can be mutable (*var*{: keyword }) or read-only (*val*{: keyword }).
 
+To specify a visibility of a constructor, use the following syntax:
+
+```kotlin
+class Customer private (name: String) { ... }
+```
+
+For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
+
 ### Creating instances of classes
 
 To create an instance of a class, we call the constructor as if it were a regular function
@@ -92,8 +100,8 @@ All classes in Kotlin have a common superclass `Any`, that is a default super fo
 class Example // Implicitly inherits from Any
 ```
 
-Any is not java.lang.Object; in particular, it does not have any members, not even equals(), hashCode or toString(). This does not mean that you can not call, say, toString() on any object: you can, but it will be an extension function.
-See [Java interoperability](java-interop.html#object-methods) for more details.
+`Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
+Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
 
 To declare an explicit supertype, one puts it after a colon in the class header:
 
