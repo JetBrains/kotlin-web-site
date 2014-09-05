@@ -23,7 +23,6 @@
   - "All types and members in Kotlin are sealed (non-inheritable, non-overridable) by default."
   - "String interpolation makes it easy to build complex formatting: 'My name is $name and I'm ${age.years} old'"
   - "Like in C#, unlike in Java, there is no binding between file and type/function. You can declare top level functions too."
-  - "'using { ... }' is just a function call, not a special syntactic sugar. You can define your own."
 
 -tweeted:
   - description: "By convention, if some type has properties named component1, component2, etc, you can decompose value like 'val (a,b) = pair'"
@@ -46,5 +45,7 @@
     rt: 5
   - description: "This is valid code, calling a bunch of functions. No syntax sugar: 'items filter { it.valid } map { it.name}'"
     date: 2014-09-03
-    rt: 
-
+    rt: 6
+  - description: "'using { ... }' is just a function call, not special syntactic sugar. You can define your own."
+    date: 2014-09-05
+    rt:
