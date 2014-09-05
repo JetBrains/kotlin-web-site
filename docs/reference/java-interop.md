@@ -215,7 +215,7 @@ If you really need to call them, you can cast to `java.lang.Object`:
 
 #### getClass()
 
-To retrieve the type information from an object, one uses the javaClass extension property.
+To retrieve the type information from an object, we use the javaClass extension property.
 
 ``` kotlin
 val fooClass = foo.javaClass
@@ -260,7 +260,7 @@ At most one Java-class (and as many Java interfaces as you like) can be a supert
 
 ### Accessing static members
 
-Static members of Java classes form "class objects" for these classes. One cannot pass such a "class object" around as a value, but can access the members explicitly, for example
+Static members of Java classes form "class objects" for these classes. We cannot pass such a "class object" around as a value, but can access the members explicitly, for example
 
 ``` kotlin
 if (Character.isLetter(a)) {

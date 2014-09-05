@@ -93,7 +93,7 @@ package foo.bar
 fun Baz.goo() { ... } 
 ``` 
 
-To use such an extension outside its declaring package, one needs to import it at the call site:
+To use such an extension outside its declaring package, we need to import it at the call site:
 
 ``` kotlin
 package com.example.usage

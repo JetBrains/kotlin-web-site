@@ -119,7 +119,7 @@ when (x) {
 }
 ```
 
-This mechanism replaces the concept of guards available in other languages. I.e. in Scala one has guard if expressions in match (that corresponds to when):
+This mechanism replaces the concept of guards available in other languages. I.e. in Scala we have guard if expressions in match (that corresponds to when):
 
 ``` scala
 // Scala
