@@ -139,6 +139,7 @@
       page-break-after: always; } }
   .page-content .page-link-to-github {
     position: relative;
+    z-index: 1;
     display: inline-block;
     border: 1px solid #b5b5b5;
     border-radius: 5px;
@@ -497,6 +498,37 @@
       color: #859900; }
     .page-content pre code._highlighted .err {
       color: #93a1a1; }
+  .page-content h1,
+  .page-content h2,
+  .page-content h3 {
+    position: relative; }
+    .page-content h1 .anchor,
+    .page-content h2 .anchor,
+    .page-content h3 .anchor {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      padding-left: 35px;
+      margin-left: -30px;
+      padding-right: 6px;
+      margin-top: 1px;
+      color: #828282;
+      text-decoration: none; }
+      .page-content h1 .anchor:after,
+      .page-content h2 .anchor:after,
+      .page-content h3 .anchor:after {
+        position: absolute;
+        display: none;
+        right: 15px;
+        content: '\00A7'; }
+    .page-content h1 .anchor:hover:after, .page-content h1:hover .anchor:after,
+    .page-content h2 .anchor:hover:after,
+    .page-content h2:hover .anchor:after,
+    .page-content h3 .anchor:hover:after,
+    .page-content h3:hover .anchor:after {
+      display: block;
+      color: #333333; }
   .page-content ul {
     line-height: 24px; }
   .page-content ol {
