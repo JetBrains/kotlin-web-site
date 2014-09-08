@@ -85,7 +85,7 @@ val Foo.bar = 1 // ERROR: initializers are not allowed for extension properties
 
 ## Scope of Extensions
 
-Most of the time we you define extensions on the top level, i.e. directly under packages:
+Most of the time we define extensions on the top level, i.e. directly under packages:
  
 ``` kotlin
 package foo.bar
