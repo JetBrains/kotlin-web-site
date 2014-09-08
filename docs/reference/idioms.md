@@ -30,7 +30,7 @@ provides a Customer class with the following functionality:
 val a = foo()
 ```
 
-### Default values for function paramters
+### Default values for function parameters
 
 ``` kotlin
 fun foo(a: Int = 0, b: String = "") { ... }
