@@ -13,4 +13,4 @@ For information on how to do use each of these tutorials refer to the correspond
 - [Ant](/docs/reference/using-ant.html)
 - [Maven](/docs/reference/using-maven.html)
 - [Gradle](/docs/reference/using-gradle.html)
-- [Griffon (external support)](/docs/reference/using-griffon.html)
+- [Griffon (external support)](https://github.com/griffon/griffon-kotlin-plugin)
