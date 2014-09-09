@@ -175,7 +175,7 @@ All this is defined in a package `com.example.html` that is imported at the top 
 This is how the package `com.example.html` is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and
 [Extension function literals](lambdas.html#extension-function-literals).
 
-<a href='declarations'></a>
+<a name='declarations'></a>
 
 ``` kotlin
 package com.example.html
