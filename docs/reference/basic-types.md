@@ -7,7 +7,7 @@ title: "Basic Types"
 
 # Basic Types
 
-In Kotlin, everything is an object in the sense that one can call member functions and properties on any variable. Some types are built-in, because their implementation is optimized, but for the used they look like ordinary classes. In this section we describe most of these types: numbers, characters, booleans and arrays.
+In Kotlin, everything is an object in the sense that we can call member functions and properties on any variable. Some types are built-in, because their implementation is optimized, but for the used they look like ordinary classes. In this section we describe most of these types: numbers, characters, booleans and arrays.
 
 ## Numbers
 
@@ -81,7 +81,7 @@ print(a == b) // Surprise! This prints "false" as Long's equals() check for othe
 
 So not only identity, but even equality would have been lost silently all over the place.
 
-As a consequence, smaller types are NOT implicitly converted to bigger types. This means that one cannot assign a value of type Byte to an Integer variable without an explicit conversion
+As a consequence, smaller types are NOT implicitly converted to bigger types. This means that we cannot assign a value of type Byte to an Integer variable without an explicit conversion
 
 ``` kotlin
 val b: Byte = 1 // OK, literals are checked statically
@@ -104,7 +104,7 @@ Every number type supports the following conversions:
 * `toDouble()` : Double
 * `toChar()` : Char
 
-Absence of implicit conversions is rarely noticeable because one can use literals almost freely cause the type is inferred from the context, and arithmetical operations are overloaded for appropriate conversions, for example
+Absence of implicit conversions is rarely noticeable because we can use literals almost freely cause the type is inferred from the context, and arithmetical operations are overloaded for appropriate conversions, for example
 
 ``` kotlin
 val l = 1.toLong() + 3 // Long + Int => Long
@@ -122,9 +122,9 @@ val x = (1 shl 2) and 0x000FF000
 
 Here is the complete list of bitwise operations (available for Int and Long only):
 
-* `shl(bits)` – signed shift left (Java's \<\<)
-* `shr(bits)` – signed shift right (Java's \>\>)
-* `ushr(bits)` – unsigned shift right (Java's \>\>\>)
+* `shl(bits)` – signed shift left (Java's `<<`)
+* `shr(bits)` – signed shift right (Java's `>>`)
+* `ushr(bits)` – unsigned shift right (Java's `>>>`)
 * `and(bits)` – bitwise and
 * `or(bits)` – bitwise or
 * `xor(bits)` – bitwise xor
@@ -132,7 +132,7 @@ Here is the complete list of bitwise operations (available for Int and Long only
 
 ## Characters
 
-Characters are represented by the type Char. They are can not be treated directly as numbers
+Characters are represented by the type Char. They can not be treated directly as numbers
 
 ``` kotlin
 fun check(c: Char) {
@@ -143,7 +143,7 @@ fun check(c: Char) {
 ```
 
 Character literals go in single quotes: '1', '\n', '\uFF00'.
-One can explicitly convert a character to an Int number
+We can explicitly convert a character to an Int number
 
 ``` kotlin
 fun decimalDigitValue(c: Char) : Int {
@@ -181,13 +181,13 @@ class Array<T>(val size: Int, init: (Int) -> T) {
 }
 ```
 
-To create an array one can call its constructor providing the array size and a function that knows how to initialize elements of the array
+To create an array we can call its constructor providing the array size and a function that knows how to initialize elements of the array
 
 ``` kotlin
 val asc = Array<Int>(5, {i -> i * i}) // Creates an array [0, 1, 4, 9, 16]
 ```
 
-Or, alternatively, one can use a library function array() and pass the item values to it, so that array(1, 2, 3) creates an array [1, 2, 3].
+Or, alternatively, we can use a library function array() and pass the item values to it, so that array(1, 2, 3) creates an array [1, 2, 3].
 
 As we said above, the [] operation stands for calls to member functions get() and set(). When compiling to JVM byte codes, the compiler optimizes
 access to arrays so that there's no overhead introduced, and all operations work exactly like in Java

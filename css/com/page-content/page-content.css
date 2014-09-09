@@ -21,24 +21,24 @@
  * Grid column
  * @param {px} $font-size (optional)
 */
-.section-title, .page-content h1 {
+.section-title, .page-title, .page-content h1 {
   margin-top: 30px;
   margin-bottom: 15px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 30px;
   line-height: 33px; }
-  .section-title:first-of-type, .page-content h1:first-of-type {
+  .section-title:first-of-type, .page-title:first-of-type, .page-content h1:first-of-type {
     margin-top: 0;
     margin-bottom: 30px; }
   @media print {
-    .section-title, .page-content h1 {
+    .section-title, .page-title, .page-content h1 {
       page-break-before: always;
       page-break-after: avoid; } }
   .section-title {
-    padding-top: 240px;
+    padding-top: 140px;
     margin-bottom: 45px;
-    font-size: 80px;
-    line-height: 90px;
+    font-size: 55px;
+    line-height: 65px;
     font-weight: bold; }
 
 .page-content h2 {
@@ -168,24 +168,27 @@
   .page-content .page-link-to-github {
     float: right;
     top: 4px; }
-  .page-content .section-title, .page-content h1 {
+  @media print {
+    .page-content a {
+      color: #497bb7 !important; } }
+  .page-content .section-title, .page-content .page-title, .page-content h1 {
     margin-top: 30px;
     margin-bottom: 15px;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 30px;
     line-height: 33px; }
-    .page-content .section-title:first-of-type, .page-content h1:first-of-type {
+    .page-content .section-title:first-of-type, .page-content .page-title:first-of-type, .page-content h1:first-of-type {
       margin-top: 0;
       margin-bottom: 30px; }
     @media print {
-      .page-content .section-title, .page-content h1 {
+      .page-content .section-title, .page-content .page-title, .page-content h1 {
         page-break-before: always;
         page-break-after: avoid; } }
     .page-content .section-title {
-      padding-top: 240px;
+      padding-top: 140px;
       margin-bottom: 45px;
-      font-size: 80px;
-      line-height: 90px;
+      font-size: 55px;
+      line-height: 65px;
       font-weight: bold; }
   .page-content h2 {
     margin-top: 30px;
@@ -256,21 +259,21 @@
     .page-content ol ol {
       margin-top: 7.5px; }
   .page-content pre {
-    font-family: Consolas, Menlo, Courier, monospace;
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
     line-height: 22px; }
   .page-content pre code {
     display: block;
     padding: 15px 20px;
-    font-family: Consolas, Menlo, Courier, monospace; }
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
   .page-content code {
-    font-family: Consolas, Menlo, Courier, monospace; }
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
     .page-content p > code,
     .page-content li > code {
       padding: 0 5px;
       border-radius: 4px;
       background-color: #efefef; }
   .page-content pre {
-    font-family: Consolas, Menlo, Courier, monospace;
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
     line-height: 22px; }
   .page-content table {
     margin-bottom: 30px; }
@@ -471,7 +474,7 @@
     .page-content pre code._highlighted .nx {
       color: #93a1a1; }
     .page-content pre code._highlighted .py {
-      color: #93a1a1; }
+      color: #000; }
     .page-content pre code._highlighted .nt {
       color: #001EAA; }
     .page-content pre code._highlighted .nv {
@@ -525,7 +528,7 @@
     border: 1px solid #b5b5b5;
     color: #828282; }
   .page-content .keyword {
-    font-family: Consolas, Menlo, Courier, monospace;
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
     font-style: normal;
     color: #0000C0; }
   .page-content .error {

@@ -119,7 +119,7 @@ when (x) {
 }
 ```
 
-This mechanism replaces the concept of guards available in other languages. I.e. in Scala one has guard if expressions in match (that corresponds to when):
+This mechanism replaces the concept of guards available in other languages. I.e. in Scala we have guard if expressions in match (that corresponds to when):
 
 ``` scala
 // Scala
@@ -157,9 +157,9 @@ for (item : Int in ints) {
 
 As mentioned before, for iterates through anything that provides and iterator, i.e.
 
-* has an instance- or extension-function iterator(), whose return type
-*has an instance- or extension-function next(), and
-*has an instance- or extension-function hasNext() that returns Boolean.
+* has an instance- or extension-function `iterator()`, whose return type
+  * has an instance- or extension-function `next()`, and
+  * has an instance- or extension-function `hasNext()` that returns Boolean.
 
 If you want to iterate through an array or list with an index, you can do it this way:
 

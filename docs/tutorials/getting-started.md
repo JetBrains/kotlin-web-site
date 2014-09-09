@@ -1,14 +1,12 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Getting Started"
-description: "This tutorials walks you through creating a simple Hello World application using IntelliJ IDEA"
+title:  "Getting Started with IntelliJ IDEA"
+description: "This tutorials walks us through creating a simple Hello World application using IntelliJ IDEA."
+authors: Hadi Hariri
+showAuthorInfo: false
 ---
-
-# Getting Started
-
-## Setting up the environment
-
+### Setting up the environment
 In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][command_line]
 

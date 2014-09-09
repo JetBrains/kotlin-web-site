@@ -17,7 +17,7 @@ If *this*{: .keyword } has no qualifiers, it refers to the _innermost enclosing 
 ## Qualified *this*{: .keyword }
 {:#qualified}
 
-To access *this*{: .keyword } from an outer scope (a [class](classes.html), or [extension function](extensions.html), or labeled [extension function literal](lambdas.html#function-literals) one writes *this{*}{{@label}} where {{@label}} is a [label](returns.html)
+To access *this*{: .keyword } from an outer scope (a [class](classes.html), or [extension function](extensions.html), or labeled [extension function literal](lambdas.html#function-literals) we write *this{*}{{@label}} where {{@label}} is a [label](returns.html)
 on the scope *this*{: .keyword } is meant to be from:
 
 ``` kotlin

@@ -70,7 +70,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-The expression `::x` evaluates to a property object of type `KProperty<Int>`, which allows one to read its 
+The expression `::x` evaluates to a property object of type `KProperty<Int>`, which allows us to read its
 value using `.get()` or retrieve the property name using the `.name` property. For more information, please refer to
  the [docs on the `KProperty` class](http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/kotlin/reflect/KProperty.html).
 

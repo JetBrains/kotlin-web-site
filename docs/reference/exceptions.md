@@ -9,7 +9,7 @@ title: "Exceptions"
 
 ## Exception Classes
 
-All exception classes in Kotlin are descendants of the class *Exception*. Every exception has a message, stack trance and an optional cause.
+All exception classes in Kotlin are descendants of the class *Exception*. Every exception has a message, stack trace and an optional cause.
 
 To throw an exception object, use the *throw*{: .keyword } expression
 
@@ -68,7 +68,7 @@ catch (IOException e) {
 }
 ```
 
-And this is no good, see [Effective Java Item 65](http://java.sun.com/docs/books/effective): Don't ignore exceptions.
+And this is no good, see [Effective Java Item 65](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Don't ignore exceptions.
 
 Bruce Eckel says in [Does Java need Checked Exceptions?](http://www.mindview.net/Etc/Discussions/CheckedExceptions) :
 

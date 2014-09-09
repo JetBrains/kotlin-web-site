@@ -17,7 +17,7 @@ There are four visibility modifiers in Kotlin:
 * `public` --- visible everywhere (if the owner of declaring scope is visible).
 
 **NOTE**: Functions _with expression bodies_ and all properties declared `public` must always specify return types explicitly. 
-This is required so that one has no chance of accidentally changing a type that is a part of a public API by merely 
+This is required so that we do not accidentally change a type that is a part of a public API by merely
 altering the implementation.
 
 ``` kotlin
@@ -102,7 +102,7 @@ class Unrelated(o: Outer) {
 
 ### Constructors
 
-To specify visibility of a constructor, use the following syntax:
+To specify a visibility of a constructor, use the following syntax:
 
 ``` kotlin
 class C private (a: Int) { ... }

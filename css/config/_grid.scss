@@ -1,5 +1,5 @@
 @import 'base';
 
-$grid-width: 960px;
-$grid-spacing: 30px;
-$grid-base-font-size: $base-font-size;
+$grid-width: 960px !global;
+$grid-spacing: 30px !global;
+$grid-base-font-size: $base-font-size !global;

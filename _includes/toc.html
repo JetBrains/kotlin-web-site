@@ -1,0 +1,13 @@
+{% capture uid %}{% time %}{% endcapture %}
+
+<script>
+    require(['jquery', 'com/toc'], function($, Toc) {
+        var toc = new Toc();
+
+        toc.render({
+            target: document.getElementById('toc-{{ uid }}')
+        });
+    });
+</script>
+
+<div id="toc-{{ uid }}"></div>

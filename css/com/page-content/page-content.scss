@@ -8,6 +8,10 @@
     @extend %h1%_section-title;
 }
 
+.page-title {
+    @extend %h1;
+}
+
 .page-content {
     position: relative;
     margin-top: 0;
@@ -22,6 +26,13 @@
     .page-link-to-github {
         float: right;
         top: 4px;
+    }
+
+
+    a {
+        @media print {
+            color: $base-link-color !important;
+        }
     }
 
 

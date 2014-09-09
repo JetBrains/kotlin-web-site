@@ -7,78 +7,86 @@ title: "Basic Syntax"
 
 # Basic Syntax
 
-## Defining Packages
+## Defining packages
+
+Package specification should be at the top of the source file:
 
 ``` kotlin
-package my.demo // One per file
+package my.demo
 
-import std.io.*
+import java.util.*
 
 // ...
-
 ```
+
+It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
 
 See [Packages](packages.html).
 
 ## Defining functions
 
+Function having two `Int` parameters with `Int` return type:
+
 ``` kotlin
-// Return type mandatory
-fun sum(a : Int, b : Int) : Int {
+fun sum(a: Int, b: Int): Int {
   return a + b
 }
 ```
 
-or
+Function with an expression body and inferred return type:
 
 ``` kotlin
-// Return type may be inferred
-fun sum(a : Int, b : Int) = a + b
-When no meaningful value returned:
+fun sum(a: Int, b: Int) = a + b
+```
 
-fun printSum(a : Int, b : Int) : Unit {
+Function visible from outside of a module should have return type explicitly specified:
+
+``` kotlin
+public fun sum(a: Int, b: Int): Int = a + b
+```
+
+Function returning no meaningful value:
+
+``` kotlin
+fun printSum(a: Int, b: Int): Unit {
   print(a + b)
 }
 ```
 
-or
+`Unit` return type can be omitted:
 
 ``` kotlin
-// Return type is optional when Unit is intended
-fun printSum(a : Int, b : Int) {
+public fun printSum(a: Int, b: Int) {
   print(a + b)
 }
 ```
 
 See [Functions](functions.html).
 
-
 ## Defining local variables
 
 Assign-once (read-only) local variable:
 
 ``` kotlin
-val a : Int = 1
-val b = 1 // Type is inferred
-val c : Int // Type required when no initializer provided
+val a: Int = 1
+val b = 1 // `Int` type is inferred
+val c: Int // Type required when no initializer is provided
 c = 1 // definite assignment
 ```
-
-Note that semicolons are optional.
 
 Mutable variable:
 
 ``` kotlin
-var x = 5 // Type inferred
+var x = 5 // `Int` type is inferred
 x += 1
 ```
 
 See also [Properties And Fields](properties.html).
 
-Use a string template
+## Using string templates
 
 ``` kotlin
-fun main(args : Array<String>) {
+fun main(args: Array<String>) {
   if (args.size == 0) return
 
   print("First argument: ${args[0]}")
@@ -86,13 +94,11 @@ fun main(args : Array<String>) {
 ```
 
 See [String templates](basic-types.html#string-templates).
-See [Arrays](basic-types.html#arrays).
-
 
 ## Using conditional expressions
 
 ``` kotlin
-fun max(a : Int, b : Int) : Int {
+fun max(a: Int, b: Int): Int {
   if (a > b)
     return a
   else
@@ -100,38 +106,42 @@ fun max(a : Int, b : Int) : Int {
 }
 ```
 
-or
+Using `if` as an expression:
 
 ``` kotlin
-// 'if' is an expression
-fun max(a : Int, b : Int) = if (a > b) a else b
+fun max(a: Int, b: Int) = if (a > b) a else b
 ```
 
 See [if expressions](control-flow.html#if-expression).
 
-## Null-checks
+## Using nullable values and checking for `null`
 
-A reference must be explicitly marked as nullable to be able hold a null:
+A reference must be explicitly marked as nullable when `null` value is possible.
+
+Return `null` if `str` does not hold an integer:
 
 ``` kotlin
-package multiplier
-
-// Return null if str does not hold a number
-fun parseInt(str : String) : Int? {
+fun parseInt(str: String): Int? {
   // ...
 }
+```
 
-fun main(args : Array<String>) {
+Use a function returning nullable value:
+
+``` kotlin
+fun main(args: Array<String>) {
   if (args.size < 2) {
-    print("No number supplied");
+    print("Two integers expected")
+    return
   }
+
   val x = parseInt(args[0])
   val y = parseInt(args[1])
 
-  // We cannot say 'x * y' now because they may hold nulls
-
+  // Using `x * y` yields error because they may hold nulls.
   if (x != null && y != null) {
-    print(x * y) // Now we can
+    // x and y are automatically cast to non-nullable after null check
+    print(x * y)
   }
 }
 ```
@@ -139,28 +149,35 @@ fun main(args : Array<String>) {
 or
 
 ``` kotlin
-// ...
-  if  (x == null) {
+  // ...
+  if (x == null) {
     print("Wrong number format in '${args[0]}'")
     return
   }
-  if  (y == null) {
+  if (y == null) {
     print("Wrong number format in '${args[1]}'")
     return
   }
-  print(x * y) // Now we know that x and y are not nulls
+
+  // x and y are automatically cast to non-nullable after null check
+  print(x * y)
 ```
 
 See [Null-safety](null-safety.html).
 
-## is-checks and automatic casts
+## Using type checks and automatic casts
 
-The is operator checks if an expression is an instance of a type (and more). If we is-checked an immutable local variable or property, there's no need to cast it explicitly to the is-checked type:
+The `is` operator checks if an expression is an instance of a type.
+If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
 
 ``` kotlin
-fun getStringLength(obj : Any) : Int? {
-  if (obj is String)
-    return obj.length // no cast to String is needed
+fun getStringLength(obj: Any): Int? {
+  if (obj is String) {
+    // `obj` is automatically cast to `String` in this branch
+    return obj.length
+  }
+
+  // `obj` is still of type `Any` outside of the type-checked branch
   return null
 }
 ```
@@ -168,20 +185,33 @@ fun getStringLength(obj : Any) : Int? {
 or
 
 ``` kotlin
-fun getStringLength(obj : Any) : Int? {
+fun getStringLength(obj: Any): Int? {
   if (obj !is String)
     return null
-  return obj.length // no cast to String is needed
+
+ // `obj` is automatically cast to `String` in this branch
+ return obj.length
 }
 ```
 
-See [Classes](classes.html) and [Inheritance](classes.html#inheritance).
-See [Type casts](typecasts.html).
-
-## Using a for-loop
+or even
 
 ``` kotlin
-fun main(args : Array<String>) {
+fun getStringLength(obj: Any): Int? {
+ // `obj` is automatically cast to `String` on the right-hand side of `&&`
+  if (obj is String && obj.length > 0)
+    return obj.length
+
+ return null
+}
+```
+
+See [Classes](classes.html) and [Type casts](typecasts.html).
+
+## Using a `for` loop
+
+``` kotlin
+fun main(args: Array<String>) {
   for (arg in args)
     print(arg)
 ```
@@ -194,24 +224,24 @@ for (i in args.indices)
 }
 ```
 
-See [for-loops](control-flow.html#for-loops).
+See [for loop](control-flow.html#for-loops).
 
-## Using a while-loop
+## Using a `while` loop
 
 ``` kotlin
-fun main(args : Array<String>) {
+fun main(args: Array<String>) {
   var i = 0
   while (i < args.size)
     print(args[i++])
 }
 ```
 
-See [while-loop](control-flow.html#while-loops).
+See [while loop](control-flow.html#while-loops).
 
-## Using when-expression
+## Using `when` expression
 
 ``` kotlin
-fun cases(obj : Any) {
+fun cases(obj: Any) {
   when (obj) {
     1          -> print("One")
     "Hello"    -> print("Greeting")
@@ -222,11 +252,11 @@ fun cases(obj : Any) {
 }
 ```
 
-See [`when`-expressions](control-flow.html#when-expression).
+See [when expression](control-flow.html#when-expression).
 
-## Using ranges and in
+## Using ranges
 
-Check if a number lies within a range:
+Check if a number is within a range using `in` operator:
 
 ``` kotlin
 if (x in 1..y-1)
@@ -240,14 +270,7 @@ if (x !in 0..array.lastIndex)
   print("Out")
 ```
 
-Check if a collection contains an object:
-
-``` kotlin
-if (obj in collection) // collection.contains(obj) is called
-  print("Yes")
-```
-
-## Iterating over a range:
+Iterating over a range:
 
 ``` kotlin
 for (x in 1..5)
@@ -256,10 +279,26 @@ for (x in 1..5)
 
 See [Ranges](ranges.html).
 
-Using function literals to filter and map collections
+## Using collections
+
+Iterating over a collection:
 
 ``` kotlin
-names filter {it.startsWith("A")} sortBy {it} map {it.toUpperCase()} forEach {print(it)}
+for (name in names)
+  println(name)
+```
+
+Checking if a collection contains an object using `in` operator:
+
+``` kotlin
+if (text in names) // names.contains(text) is called
+  print("Yes")
+```
+
+Using function literals to filter and map collections:
+
+``` kotlin
+names filter { it.startsWith("A") } sortBy { it } map { it.toUpperCase() } forEach { print(it) }
 ```
 
 See [Higher-order functions and Function literals](lambdas.html).

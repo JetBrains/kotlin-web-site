@@ -12,7 +12,7 @@ Kotlin slightly generalizes this concept with *object* expressions and *object* 
 
 ## Object expressions
 
-To create an object of an anonymous class that inherits from some type (or types), one writes:
+To create an object of an anonymous class that inherits from some type (or types), we write:
 
 ``` kotlin
 window.addMouseListener(object : MouseAdapter() {

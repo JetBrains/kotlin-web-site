@@ -9,7 +9,7 @@ title: "Type Checks and Casts"
 
 ## `is` and `!is` Operators
 
-One can check whether an object conforms to a given type at runtime using `is` operator or its negated form `!is`:
+We can check whether an object conforms to a given type at runtime by using the `is` operator or its negated form `!is`:
 
 ``` kotlin
 if (obj is String) {
@@ -37,6 +37,25 @@ fun demo(x : Any) {
 }
 ```
 
+The compiler is smart enough to know a cast to be safe is a negative check leads to a return:
+
+``` kotlin
+  if (x !is String) return
+  print(x.length) // x is automatically cast to String
+```
+
+or in the right-hand side of `&&` and `||`:
+
+``` kotlin
+  // x is automatically cast to string on the right-hand side of `||`
+  if (x !is String || x.length == 0) return
+
+  // x is automatically cast to string on the right-hand side of `&&`
+  if (x is String && x.length > 0)
+      print(x.length) // x is automatically cast to String
+```
+
+
 Such _smart casts_ work for [when](control-flow.html#when-expressions) expressions and [while loops](control-flow.html#while-loops) as well:
 
 ``` kotlin
@@ -50,7 +69,7 @@ when (x) {
 
 ## "Unsafe" cast operator
 
-Usually, cast operator throws an exception if the cast is not possible. Thus, we call it unsafe. The unsafe cast in Kotlin is done by an infix operator as (see [operator precedence](grammar.html#operator-precedence)):
+Usually, the cast operator throws an exception if the cast is not possible. Thus, we call it unsafe. The unsafe cast in Kotlin is done by the infix operator `as` (see [operator precedence](grammar.html#operator-precedence)):
 
 ``` kotlin
 val x : String = y as String
