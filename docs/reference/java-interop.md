@@ -42,7 +42,6 @@ escaping it with the backtick (`) character
 foo.`is`(bar)
 ```
 
-
 ### Null-Safety
 
 Any reference in Java may be null. As such, all the Java methods called from Kotlin return nullable references (except for those annotated with `@NotNull`).
@@ -89,7 +88,6 @@ if (a is List<Int>) // Error: cannot check if it is really a List of Ints
 // but
 if (a is List<*>) // OK: no guarantees about the contents of the list
 ```
-
 
 ### Invariant Arrays
 
@@ -142,45 +140,82 @@ javaObj.removeIndicesVarArg(*array)
 
 It's currently not possible to pass null to a method that is declared as varargs.
 
+### Mapped types
+
+Kotlin treats some Java types specially. Such types are not loaded from Java "as is", but are _mapped_ to corresponding Kotlin types.
+The mapping only matters at compile time, the runtime representation remains unchanged.
+ Java's primitive types are mapped to corresponding Kotlin classes:
+
+| **Java type** | **Kotlin type**  |
+|---------------|------------------|
+| `byte`        | `kotlin.Byte`    |
+| `short`       | `kotlin.Short`   |
+| `int`         | `kotlin.Int`     |
+| `long`        | `kotlin.Long`    |
+| `char`        | `kotlin.Char`    |
+| `float`       | `kotlin.Float`   |
+| `double`      | `kotlin.Double`  |
+| `boolean`     | `kotlin.Boolean` |
+{:.zebra}
+
+Some non-primitive built-in classes are also mapped:
+
+| **Java type** | **Kotlin type**  |
+|---------------|------------------|
+| `java.lang.Object`       | `kotlin.Any`    |
+| `java.lang.Cloneable`    | `kotlin.Cloneable`    |
+| `java.lang.Comparable`   | `kotlin.Comparable`    |
+| `java.lang.Enum`         | `kotlin.Enum`    |
+| `java.lang.Annotation`   | `kotlin.Annotation`    |
+| `java.lang.Deprecated`   | `kotlin.deprecated`    |
+| `java.lang.Void`         | `kotlin.Nothing?`    |
+| `java.lang.CharSequence` | `kotlin.CharSequence`   |
+| `java.lang.String`       | `kotlin.String`   |
+| `java.lang.Number`       | `kotlin.Number`     |
+| `java.lang.Throwable`    | `kotlin.Throwable`    |
+{:.zebra}
+
+Java's arrays are mapped as mentioned [above](java-interop.html#invariant-arrays):
+
+| **Java type** | **Kotlin type**  |
+|---------------|------------------|
+| `int[]`       | `kotlin.IntArray` |
+| `String[]`    | `kotlin.Array<String>` |
+{:.zebra}
+
+Collection types may be read-only or mutable in Kotlin, so Java's collection are mapped as follows:
+
+| **Java type** | **Kotlin read-only type**  | **Kotlin mutable type** |
+|---------------|------------------|----|
+| `java.util.Iterator`       | `kotlin.Iterator`    | `kotlin.MutableIterator` |
+| `java.lang.Iterable`    | `kotlin.Iterable`    | `kotlin.MutableIterable` |
+| `java.util.Collection`    | `kotlin.Collection`    | `kotlin.MutableCollection` |
+| `java.util.Set`    | `kotlin.Set`    | `kotlin.MutableSet` |
+| `java.util.List`    | `kotlin.List`    | `kotlin.MutableList` |
+| `java.util.ListIterator`    | `kotlin.ListIterator`    | `kotlin.MutableListIterator` |
+| `java.util.Map`    | `kotlin.Map`    | `kotlin.MutableMap` |
+| `java.util.Map.Entry`    | `kotlin.Map.Entry`    | `kotlin.MutableMap.MutableEntry` |
+{:.zebra}
+
 ### Object Methods
 
-When Java types are imported into Kotlin, all the references of the type *java.lang.Object* are turned into `Any?`. The big difference between
-the two is that `Any` does not declare any members at all. This is due to the [inheritance](classes.html#inheritance) rules in Kotlin.
-
-The problem this causes is that methods such as *toString* for instance are no longer available on the type. Kotlin solves this problem using [extension functions](extensions.html)
-
-
-#### toString()
-
-Declared as an extension function that looks for an instance function named *toString* and calls it. If there is no *toString* it returns the default
-``` kotlin
-this.javaClass.getName( + "@" + System.identityHashCode(this)
-```
-
-From a developer perspective nothing changes and all *toString* calls should work. When needing a custom implementation, merely define it in the class
-
-``` kotlin
-class A() {
-   fun toString() = "Custom A"
-```
-
-#### equals()
-
-In Kotlin, == stands for a [guarded call to equals()](equality.html). The expression on the left-hand side must have a method named equals that takes one parameter of type Any? and returns Boolean. Thus, all the Java objects have it out of the box. On the other hand, there's an extension function to Any? that performs the same kind of lookup as toString().
-
-#### hashCode()
-
-hashCode() works for Java objects.
-
-In the upcoming Kotlin standard library there are plans to have a Hashable interface that is required for something to be put into a non-identity hash-map.
+When Java types are imported into Kotlin, all the references of the type `java.lang.Object` are turned into `Any`.
+Since `Any` is not platform-specific, it only declares `toString()`, `hashCode()` and `equals()` as its members,
+so to make other members of `java.lang.Object` available, Kotlin uses [extension functions](extensions.html).
 
 #### wait()/notify()
 
-[Effective Java Item 69](http://www.oracle.com/technetwork/java/effectivejava-136174.html) kindly suggests to Prefer concurrency utilities to wait and notify. Thus, these methods are not available on references of type Any, only on Java objects.
+[Effective Java Item 69](http://www.oracle.com/technetwork/java/effectivejava-136174.html) kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
+Thus, these methods are not available on references of type `Any`.
+If you really need to call them, you can cast to `java.lang.Object`:
+
+```kotlin
+(foo as java.lang.Object).wait()
+```
 
 #### getClass()
 
-To retrieve the type information from an object, one uses the javaClass extension property.
+To retrieve the type information from an object, we use the javaClass extension property.
 
 ``` kotlin
 val fooClass = foo.javaClass
@@ -193,20 +228,39 @@ Instead of Java's Foo.class use javaClass<Foo>().
 val fooClass = javaClass<Foo>()
 ```
 
-#### finalize()
-
-finalize() can be overridden exactly like toString()
-
 #### clone()
 
-clone() can be overridden like toString() but with specifying Cloneable as a supertype. Do not forget about [Effective Java Item 11](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Override clone judiciously.
+To override `clone()`, your class needs to extend `kotlin.Cloneable`:
+
+```kotlin
+
+class Example: Cloneable {
+  override fun clone(): Any { ... }
+}
+```
+
+ Do not forget about [Effective Java Item 11](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Override clone judiciously.
+
+#### finalize()
+
+To override `finalize()`, all you need to do is simply declare it, without using the *override*{:.keyword} keyword:
+
+```kotlin
+class C {
+  protected fun finalize() {
+    // finalization logic
+  }
+}
+```
+
+According to Java's rules, `finalize()` must not be `private`.
 
 ### Inheritance from Java classes
 At most one Java-class (and as many Java interfaces as you like) can be a supertype for a class in Kotlin. This class must go first in the supertype list.
 
 ### Accessing static members
 
-Static members of Java classes form "class objects" for these classes. One cannot pass such a "class object" around as a value, but can access the members explicitly, for example
+Static members of Java classes form "class objects" for these classes. We cannot pass such a "class object" around as a value, but can access the members explicitly, for example
 
 ``` kotlin
 if (Character.isLetter(a)) {

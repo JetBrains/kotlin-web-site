@@ -29,7 +29,7 @@ fun powerOf(number: Int, exponent: Int) {
 
 ### Default Arguments
 
-Function parameters can have default values, which are used when a corresponding argument is omitted. This allows to reduce the number of overloads compared to
+Function parameters can have default values, which are used when a corresponding argument is omitted. This allows for a reduced number of overloads compared to
 other languages.
 
 ``` kotlin
@@ -161,7 +161,7 @@ When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList
 ```kotlin
 val a = array(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
-```
+```t
 
 ## Function Scope
 

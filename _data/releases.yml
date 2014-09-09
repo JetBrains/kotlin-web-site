@@ -4,6 +4,8 @@ latest:
   version: 0.8.11
   milestone: M8
   url: https://github.com/JetBrains/kotlin/releases/tag/build-0.8.11
+  runtime_size: 857KB
+  stdlib_size: 492KB
 
 list:
 - milestone: M8

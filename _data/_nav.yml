@@ -96,7 +96,7 @@ reference:
       - /docs/reference/exceptions.html: Exceptions
       - /docs/reference/annotations.html: Annotations
       - /docs/reference/reflection.html: Reflection
-      - /docs/reference/type-safe-groovy-builders.html: Type-Safe Builders
+      - /docs/reference/type-safe-builders.html: Type-Safe Builders
 
 
 
@@ -144,3 +144,7 @@ tutorials:
   - title: Web Development
     content:
       - /docs/tutorials/httpservlets.html: Creating Web Applications with Http Servlets
+
+  - title: Mobile
+    content:
+      - /docs/tutorials/kotlin-android.html: Getting Started With Android Development

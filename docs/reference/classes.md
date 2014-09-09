@@ -61,6 +61,14 @@ class Customer(val customerName: String) {
 which is equivalent to the previous code. Much the same way as when declaring properties, those explicitly
 declared in the constructor can be mutable (*var*{: keyword }) or read-only (*val*{: keyword }).
 
+To specify a visibility of a constructor, use the following syntax:
+
+```kotlin
+class Customer private (name: String) { ... }
+```
+
+For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
+
 ### Creating instances of classes
 
 To create an instance of a class, we call the constructor as if it were a regular function
@@ -92,10 +100,10 @@ All classes in Kotlin have a common superclass `Any`, that is a default super fo
 class Example // Implicitly inherits from Any
 ```
 
-Any is not java.lang.Object; in particular, it does not have any members, not even equals(), hashCode or toString(). This does not mean that you can not call, say, toString() on any object: you can, but it will be an extension function.
-See [Java interoperability](java-interop.html#object-methods) for more details.
+`Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
+Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
 
-To declare an explicit supertype, one puts it after a colon in the class header:
+To declare an explicit supertype, we place the type after a colon in the class header:
 
 ``` kotlin
 open class Base(p : Int)
@@ -209,7 +217,7 @@ abstract class Derived : Base() {
 
 In Kotlin, unlike Java or C#, classes do not have static methods. In most cases, namespace-level functions form a good substitute for them, but there are a few cases when they don't. These cases involve access to class' internals (private members).
 
-For example, to replace a constructor with a Factory method, one makes the constructor private and provides a function that calls the constructor. But if this function in located outside the class in question, it would not have any access to the constructor.
+For example, to replace a constructor with a Factory method, we make the constructor private and provide a function that calls the constructor. But if this function in located outside the class in question, it would not have any access to the constructor.
 
 To address this issue (and to provide some other interesting features), Kotlin introduces a concept of a class object (the closest analog in other languages would be Companion objects in Scala). Roughly speaking, a class object for class C is an object (in the sense of [Object declaration](object-declarations.html#object-declarations)) that is associated to C. There may be not more than one class object for each class. A class object is declared inside its associated class, and thus it can access its private members. A class object for C itself is (usually) not an instance of C. For example:
 
@@ -225,7 +233,7 @@ fun main() {
 }
 ```
 
-At first you may think that this is just a way of grouping static members of a class together instead of mixing them with instance members: in Java we access static members of C by calling C.foo(), and the same happens with class object's members in Kotlin. But in fact there is an important difference: a class object can have supertypes, and C, as an expression denotes this object as a value, so one can pass it around, say, as an argument for a function. Let's modify our example to demonstrate this
+At first you may think that this is just a way of grouping static members of a class together instead of mixing them with instance members: in Java we access static members of C by calling C.foo(), and the same happens with class object's members in Kotlin. But in fact there is an important difference: a class object can have supertypes, and C, as an expression denotes this object as a value, so we can pass it around, say, as an argument for a function. Let's modify our example to demonstrate this
 
 ``` kotlin
 abstract class Factory<out T> {

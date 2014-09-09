@@ -132,6 +132,11 @@ def get_doc_contents
             end
           end
 
+          # Find empty links
+          doc.elements.each("//a[count(child::node())=0]") do |link|
+            link.add_text ' '
+          end
+
           # Rename all headings to lower level
           5.downto(1) do |i|
             doc.elements.each("//h#{i}") do |node|

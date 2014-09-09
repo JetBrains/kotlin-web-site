@@ -21,7 +21,7 @@ For the rest of the cases, Kotlin supports Dynamic types builders.
 Consider the following code that is taken from [here](http://groovy.codehaus.org/Builders) and slightly adapted:
 
 ``` kotlin
-import html.*
+import com.example.html.* // see declarations below
 
 fun result(args : Array<String>) =
   html {
@@ -168,17 +168,17 @@ fun String.plus() {
 
 So, what the prefix "+" does here is it wraps a string into an instance of `TextElement` and adds it to the `children` collection, so that it becomes a proper part of the tag tree.
 
-All this is defined in a package `html` that is imported at the top of the builder example above. In the next section you can read through the full definition of this namespace.
+All this is defined in a package `com.example.html` that is imported at the top of the builder example above. In the next section you can read through the full definition of this package.
 
-## Full definition of the `html` namespace
+## Full definition of the `com.example.html` package
 
-This is how the namespace `html` is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and 
+This is how the package `com.example.html` is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and
 [Extension function literals](lambdas.html#extension-function-literals).
 
 <a href='declarations'></a>
 
 ``` kotlin
-package html
+package com.example.html
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -186,7 +186,7 @@ import java.util.HashMap
 trait Element {
     fun render(builder: StringBuilder, indent: String)
 
-    fun toString(): String? {
+    override fun toString(): String {
         val builder = StringBuilder()
         render(builder, "")
         return builder.toString()
@@ -199,7 +199,8 @@ class TextElement(val text: String): Element {
     }
 }
 
-abstract class Tag(val name: String): Element {
+abstract class Tag(val KT-1720
+                       × Pending Docs "Type-safe Groovy-style builders" wiki page appears to be out of date: String): Element {
     val children: ArrayList<Element> = ArrayList<Element>()
     val attributes = HashMap<String, String>()
 
