@@ -567,7 +567,7 @@
   location: Antwerp, Belgium
   content:
     slides: http://prezi.com/2nrkbg6nfc8h/kotlin-vs-java-puzzlers-devoxx/
-
+vi
 
 # 2014
 # ==============================================================================
@@ -596,6 +596,9 @@
   speaker: Andrey Breslav
   date: 2014-07-30
   location: Santa Clara, CA, USA
+  content:
+    slides: http://www.slideshare.net/abreslav/eval4j-jvmls-2014
+    video: http://medianetwork.oracle.com/video/player/3731152022001
 
 - title: Android Australia User Group Meetup
   url: http://www.meetup.com/Android-Australia-User-Group-Sydney/events/201086472/
@@ -622,5 +625,6 @@
   date: 2014-09-11
   location: Oslo, Norway
   language: en
-
+  content:
+    video: http://vimeo.com/album/3031533/video/105758307
 
