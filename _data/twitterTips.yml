@@ -51,6 +51,6 @@
   - description: "Unlike in Java, but like C#, there is no binding between file and type/function. You can declare top level functions too"
     date: 2014-09-09 
     rt: 1
-  - description: "String interpolation makes it easy to build complex formatting: \"My name is $name and I'm ${age.years} old\""    
+  - description: "String interpolation makes it easy to build complex formatting: \"My name is $name and I'm ${age.years} years old\""    
     date: 2014-09-15
     rt:     
