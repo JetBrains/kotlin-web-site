@@ -21,7 +21,7 @@
   - "You can declare local functions and classes with closures, inside another function's body."
   - "Compiler can inline functions with lambdas, when instructed to do so, and thus don't build closures et al. in these cases."
   - "All types and members in Kotlin are sealed (non-inheritable, non-overridable) by default."
-  - "String interpolation makes it easy to build complex formatting: 'My name is $name and I'm ${age.years} old'"
+
 
 -tweeted:
   - description: "By convention, if some type has properties named component1, component2, etc, you can decompose value like 'val (a,b) = pair'"
@@ -50,4 +50,7 @@
     rt: 1
   - description: "Unlike in Java, but like C#, there is no binding between file and type/function. You can declare top level functions too"
     date: 2014-09-09 
-    rt: 
+    rt: 1
+  - description: "String interpolation makes it easy to build complex formatting: \"My name is $name and I'm ${age.years} old\""    
+    date: 2014-09-15
+    rt:     
