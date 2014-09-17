@@ -264,3 +264,6 @@ A description of some more interesting features related to class objects can be 
 
 Note: if you think that class objects are a great way of implementing singletons in Kotlin, please see [Object expressions and Declarations](object-declarations.html).
 
+## Open Points
+
+* Why should an anonymous initializer be used? Is it just for clearity or is there a technical limitation? In Scala everything goes into the class body.
