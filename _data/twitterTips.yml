@@ -53,4 +53,8 @@
     rt: 1
   - description: "String interpolation makes it easy to build complex formatting: \"My name is $name and I'm ${age.years} years old\""    
     date: 2014-09-15
-    rt:     
+    rt: 1
+  - description: "All types and members in Kotlin are sealed (non-inheritable, non-overridable) by default."
+    date: 2014-09-17
+    rt: 
+
