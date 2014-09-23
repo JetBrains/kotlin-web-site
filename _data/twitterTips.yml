@@ -2,7 +2,6 @@
 # New tweets should be added under -pending
 -pending:
   - "Declare immutable value with 'val' and mutable variable with 'var', either in class, function or top-level."
-  - "Missing 'With' from Delphi? :) Standard library has 'public inline fun <T, R> with(receiver: T, f: T.() → R): R = receiver.f()'"
   - "I can't have a fact for today, because type system forbids me from passing null to not-null parameter."
   - "There are 82 contributors to https://github.com/JetBrains/kotlin/ … and only 12 full-time JetBrains developers working on it."
   - "You can pass functional literal to Java method expecting interface with single method. Compiler implements interface for you."
@@ -56,5 +55,8 @@
     rt: 1
   - description: "All types and members in Kotlin are sealed (non-inheritable, non-overridable) by default."
     date: 2014-09-17
+    rt: 3
+  - description: "Missing 'with' from Delphi? :) Standard library has 'public inline fun <T, R> with(receiver: T, f: T.() → R): R = receiver.f()'"
+    date: 2014-09-23
     rt: 
 
