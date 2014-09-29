@@ -121,7 +121,7 @@ trait Range<T: Comparable<T>> {
 }
 ```
 
-Progression defines a kind of arithmetical progression. It has start (first element of progression), end (last element which can be included) and increment (difference between each progression element and previous, non-zero). But the main feature of it is that the progression can be iterated over, so it is a subtype of Iterable. end is not necessary the last element of progression. Also, progression can be empty if start < end && increment > 0 or start > end && increment < 0.
+Progression defines a kind of arithmetical progression. It has start (first element of progression), end (last element which can be included) and increment (difference between each progression element and previous, non-zero). But the main feature of it is that the progression can be iterated over, so it is a subtype of Iterable. end is not necessary the last element of progression. Also, progression can be empty if start < end && increment < 0 or start > end && increment > 0.
 
 ``` kotlin
 trait Progression<N: Number>: Iterable<N> {
