@@ -25,7 +25,7 @@ For example, a regular variable of type String can not hold null:
 
 ``` kotlin
 var a : String = "abc"
-a = *null*{: .error } // compilation error
+a = null // compilation error
 ```
 
 To allow nulls, we can declare a variable as nullable string, written String?:
