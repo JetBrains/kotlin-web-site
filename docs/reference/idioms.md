@@ -15,14 +15,14 @@ A collection of random and frequently used idioms in Kotlin. If you have a favor
 data class Customer(val name: String, val email: String)
 ```
 
-provides a Customer class with the following functionality
+provides a Customer class with the following functionality:
 
-* getters (and setters in case of `var`s) for all properties
-* equals()
-* hashCode()
-* toString()
-* copy()
-* component1(), component2(), ..., for all properties
+* getters (and setters in case of `var`'s) for all properties
+* `equals()`
+* `hashCode()`
+* `toString()`
+* `copy()`
+* `component1()`, `component2()`, ..., for all properties (see [Data classes](data-classes.html))
 
 ### Declaring a final local variable
 
@@ -30,7 +30,7 @@ provides a Customer class with the following functionality
 val a = foo()
 ```
 
-### Default values for function paramters
+### Default values for function parameters
 
 ``` kotlin
 fun foo(a: Int = 0, b: String = "") { ... }
@@ -207,7 +207,7 @@ fun theAnswer() = 42
 This is equivalent to
 
 ``` kotlin
-fun theAnswer() {
+fun theAnswer(): Int {
     return 42
 }
 ```

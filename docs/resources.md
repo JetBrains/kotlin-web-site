@@ -1,25 +1,28 @@
 ---
-layout: docs-page
-title: Resources
-docs_nav_id: resources
+layout: resources
+title: More Resources
 ---
 
-# Community Content
+## Open Source Projects and Libraries
 
-A list of external content about Kotlin. Please feel free to contribute to this page.
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Description</th>
+  <th>Type</th>
+</tr>
+</thead>
+<tbody>
+{% for project in site.data.oss-projects %}
+<tr>
+  <td><a href="{{ project.link }}">{{ project.name }}</a></td>
+  <td>{{ project.description }}</td>
+  <td>{{ project.type }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
 
-
-
-
-## Project written in Kotlin
-
-
-## Libraries 
-
-
-## Articles
-
-
-## Videos
 
 

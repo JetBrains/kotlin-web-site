@@ -24,7 +24,6 @@
 
     .get-kotlin-button {
         @extend %button_default;
-        margin-left: $unit*3;
         top: -2px;
 
         .version {

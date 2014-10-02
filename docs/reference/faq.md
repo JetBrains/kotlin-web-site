@@ -1,8 +1,8 @@
 ---
 type: doc
 layout: reference
-category: "FAQ"
-title: "FAQ"
+category: FAQ
+title: FAQ
 ---
 
 # FAQ
@@ -60,7 +60,7 @@ Yes. You can download the standalone compiler and other builds tools from the [r
 
 ### Is Kotlin a Functional Language?
 
-Kotlin is an Object-Orientated language. However it has support for high-order functions as well as function literals and top-level functions. In addition, there are
+Kotlin is an Object-Orientated language. However it has support for higher-order functions as well as function literals and top-level functions. In addition, there are
 a good number of common functional language constructs in the standard Kotlin library (such as map, flatMap, reduce, etc.). Also, there's no clear definition on what a Functional Language is so we couldn't say Kotlin is one.
 
 ### Does Kotlin support generics?
@@ -86,7 +86,7 @@ No. It won't. We can still implement suggestions for variable names, etc.
 
 ### Is Kotlin extensible?
 
-We are planning on making it extensible in a few ways: from inline functions to annotations, type loaders and language quotations.
+We are planning on making it extensible in a few ways: from inline functions to annotations and type loaders.
 
 ### Can I embed my DSL into the language?
 
@@ -102,93 +102,3 @@ Currently at 5.
 Yes. There are plans to provide CommonJS and AMD support.
 
 
-## Comparison to Java
-
-### Some Java issues addressed in Kotlin
-
-Kotlin fixes a series of issues that Java suffers from
-
-* Null references are controlled by the type system.
-* Full type information is retained at runtime
-* No raw types
-* Arrays in Kotlin are invariant
-* Kotlin has high-order functions, a.k.a. closures
-* Use-site variance without wildcards
-* Kotlin does not have checked exceptions
-
-### What Java has that Kotlin does not
-
-* Checked exceptions
-* Primitive types that are not objects
-* Static members
-* Non-private fields
-* Type erasure
-* Wildcard-types
-
-### What Kotlin has that Java does not
-
-* Function literals + Inline functions = performant custom control structures
-* Null-safety
-* Smart casts
-* String templates
-* Properties
-* Primary constructors
-* Mixins and First-class delegation
-* Extension functions
-* Type inference for variable and property types
-* Singletons
-* Declaration-site variance & Type projections
-* Modules
-* Range expressions
-* Pattern matching
-* Generic types retained at runtime
-* Operator overloading
-* Class objects
-
-## Comparison to Scala
-
-The two main design goals for Kotlin are:
-
-* Make compilation at least as fast as Java
-* Keep useful level of expressiveness while maintaining the language simple as possible
-
-Taking this into account, if you are happy with Scala, you probably do not need Kotlin
-
-### What Scala has that Kotlin does not
-
-* Implicit conversions, parameters, etc
-    * In Scala, sometimes it's very hard to tell what's happening in your code without using a debugger, because too many implicits get into the picture
-    * To enrich your types with functions in Kotlin use Extension functions.
-* Overridable type members
-* Path-dependent types
-* Existential types
-    * Type projections are a very special case
-* Complicated logic for initialization of traits
-    * See Classes and Inheritance
-* Custom symbolic operations
-    * See Operator overloading
-* Built-in XML
-    * See Type-safe Groovy-style builders
-
-Things that may be added to Kotlin later:
-
-* Higher kinds
-* Structural types
-* Yield operator
-* Actors
-* Parallel collections
-* .NET target
-
-
-### What Kotlin has that Scala does not
-
-* Zero-overhead null-safety
-    * Scala has Option, which is a syntactic and run-time wrapper
-* Smart casts
-* Static extension functions
-    * Instead of wrapping at runtime (with Scala 2.10, implicit value classes will fix the runtime overhead problem)
-* Kotlin's Inline functions facilitate Nonlocal jumps
-* String templates.
-    * This feature will be supported in Scala 2.10
-* First-class delegation. Also implemented via 3rd party plugin: Autoproxy
-* Modules

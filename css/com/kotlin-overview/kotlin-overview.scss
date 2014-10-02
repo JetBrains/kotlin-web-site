@@ -44,6 +44,10 @@
     text-align: center;
     overflow: hidden;
 
+    .section-header {
+        margin-bottom: 30px;
+    }
+
     .section-description {
         margin-bottom: $unit*5;
     }
@@ -162,7 +166,7 @@
             &._expressive {width: 79px; height: 55px; background-position: 0 -200px;}
             &._safe {width: 39px; height: 59px; background-position: 0 -300px;}
             &._versatile {width: 58px; height: 57px; background-position: 0 -400px;}
-            &._interoperable {width: 56px; height: 56px; background-position: 0 -500px;}
+            &._interoperable {width: 55px; height: 72px; background-position: 0 -500px;}
         }
 
         .feature-title-pre-text {
@@ -209,6 +213,74 @@
             min-height: 500px;
         }
     }
+
+    .overview-popup_versatile {
+        .logos-list {
+            font-size: 0;
+        }
+
+        .logos-list-item {
+            position: relative;
+            display: inline-block;
+            font-size: $base-font-size;
+            width: 50%;
+            margin-bottom: 27px;
+            vertical-align: top;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .logo {
+                position: relative;
+                float: left;
+                margin-right: 20px;
+                background: url('images/logos-sprite.png') no-repeat;
+
+                @include adapt_retina {
+                    background-image: url('images/logos-sprite@2x.png');
+                    background-size: 100px 500px;
+                }
+
+                &._android {
+                    top: -5px;
+                    width: 65px;
+                    height: 77px;
+                    background-position: 0 0;
+                }
+                &._tomcat {
+                    width: 91px;
+                    height: 64px;
+                    background-position: 0 -100px;
+                }
+                &._js {
+                    width: 66px;
+                    height: 66px;
+                    background-position: 0 -200px;
+                }
+                &._javaee {
+                    top: -19px;
+                    width: 51px;
+                    height: 90px;
+                    margin-left: 20px;
+                    margin-right: 39px;
+                    background-position: 0 -300px;
+                }
+                &._html5 {
+                    top: -10px;
+                    width: 58px;
+                    height: 82px;
+                    background-position: 0 -400px;
+                }
+            }
+
+            .description {
+                display: block;
+                margin-right: 40px;
+            }
+        }
+    }
+
     .overview-popup-overlay {
         @extend %kotlin-overview-popup-overlay;
     }
@@ -558,7 +630,7 @@
 
             @include adapt_retina {
                 background-image: url('../layout/images/main-sprite@2x.png');
-                background-size: 150px 400px;
+                background-size: 150px auto;
             }
         }
         a:hover .video-player-play-button {
@@ -603,9 +675,10 @@
 
         .option-item {
             @include grid-col;
+            position: relative;
             width: 240px;
             padding: 10px 15px 30px;
-            min-height: 330px;
+            min-height: 360px;
             margin-left: $grid-spacing / 2;
             margin-right: $grid-spacing / 2;
             margin-bottom: $grid-spacing;
@@ -643,7 +716,8 @@
 
             @include adapt_retina {
                 background-image: url('images/get-kotlin-sprite@2x.png');
-                background-size: 50px 200px;
+                background-size: 100px 250px;
+
             }
         }
         .option-image._standalone-compiler:after {
@@ -662,9 +736,16 @@
             background-position: 0 -150px;
         }
 
-        .option-title-pre-text {
+        .option-image._try-online:after {
+            width: 54px;
+            height: 44px;
+            background-position: 0 -200px;
+        }
+
+      .option-title-pre-text {
             @extend %kotlin-overview-pre-text;
         }
+
 
         .option-title {
             font-size: 21px;
@@ -676,6 +757,13 @@
         .option-description {
             margin-bottom: 10px;
 
+        }
+
+        .option-link-wrap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
         }
 
         .option-link {

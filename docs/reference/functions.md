@@ -29,7 +29,7 @@ fun powerOf(number: Int, exponent: Int) {
 
 ### Default Arguments
 
-Function parameters can have default values, which are used when a corresponding argument is omitted. This allows to reduce the number of overloads compared to
+Function parameters can have default values, which are used when a corresponding argument is omitted. This allows for a reduced number of overloads compared to
 other languages.
 
 ``` kotlin
@@ -83,9 +83,9 @@ reformat(str, wordSeparator = '_')
 ```
 
 
-### Unit returning functions
+### Unit-returning functions
 
-If a function does not return any useful value, its return type is *Unit*{: .keyword }. *Unit*{: .keyword } is a type with only one value - *Unit.VALUE*{: .keyword }. This
+If a function does not return any useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`. This
 value does not have to be returned explicitly
 
 ``` kotlin
@@ -94,11 +94,11 @@ fun printHello(name: String?): Unit {
         println("Hello ${name}")
     else
         println("Hi there!")
-    // return Unit.VALUE or return is optional
+    // `return Unit` or `return` is optional
 }
 ```
 
-The *Unit*{: .keyword } return type declaration is also optional. The above code is equivalent to
+The `Unit` return type declaration is also optional. The above code is equivalent to
 
 ``` kotlin
 fun printHello(name: String?) {
@@ -114,15 +114,26 @@ When a function returns a single expression, the curly braces can be omitted and
 fun double(x: Int) : Int = x * 2
 ```
 
-Explicitly declaring the return type is optional as this will be inferred by the compiler
+Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler
 
 ``` kotlin
 fun double(x: Int) = x * 2
 ```
 
-### Varargs - Variable number of arguments
+### Explicit return types
 
-The last parameter of a function may be marked with *vararg*{: .keyword } annotation
+There are cases when an explicit return type is required:
+ 
+* Functions with expression body that are public or protected. These are considered to be part of the public API surface. Not having explicit return types makes it potentially easier to
+change the type accidentally. This is the same reason why explicit types are required for [properties](properties.html#getters-and-setters).
+* Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`, [in which case it is optional](#unit-returning-functions). 
+Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow in the body, and the return
+type will be non-obvious to the reader (and sometimes even for the compiler). 
+
+
+### Variable number of arguments (Varargs)
+
+The last parameter of a function may be marked with `vararg` annotation
 
 ``` kotlin
 fun asList<T>(vararg ts : T) : List<T> {
@@ -133,33 +144,24 @@ fun asList<T>(vararg ts : T) : List<T> {
 }
 ```
 
-allowing a variable number of arguments to be passed in to the function.
+allowing a variable number of arguments to be passed to the function:
 
-By default, *vararg*{: .keyword } creates an array, but this behavior can be customized by providing arguments to the annotation
-
-``` kotlin
-fun asList<T>(vararg<ArrayList<T>> ts : T) : List<T> = ts // ts is a List now!
+```kotlin
+  val list = asList(1, 2, 3)
 ```
 
-The type argument to the *vararg*{: .keyword } annotation denotes a *builder* type. A call to this function is compiled like so
+Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<T>`.
 
-``` kotlin
-asList(0, 1, 2)
-// Compiles to
-val list = ArrayList<Int>(3) // 3 is the size of the structure
-list.add(0)
-list.add(1)
-list.add(2)
-asList(list.build()) // For ArrayList, build() just returns the list itself
-```
+Only one parameter may be annotated as `vararg`. It may be the last parameter or the one before last,
+if the last parameter has a function type (allowing a lambda to be passed outside parentheses).
 
-As such, a *vararg*{: .keyword } builder must be a type that has
+When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList(1, 2, 3)`, or, if we already have an array
+ and want to pass its contents to the function, we use the **spread** operator (prefix the array with `*`):
 
-* A constructor that takes one *Int* parameter
-* An *add()* function
-* A *build()* function
-
-The type of the *vararg*{: .keyword } parameter is the returned type of *build()*
+```kotlin
+val a = array(1, 2, 3)
+val list = asList(-1, 0, *a, 4)
+```t
 
 ## Function Scope
 
@@ -221,7 +223,7 @@ fun reachable(from : Vertex, to : Vertex) : Boolean {
 A member function is a function that is defined inside a class or object
 
 ``` kotlin
-class Simple() {
+class Sample() {
     fun foo() { print("Foo") }
 }
 ```
@@ -252,7 +254,7 @@ Inline functions are explained in [High Order Functions](lambdas.html#inline-fun
 
 ### Extension Functions
 
-Extension functions are explained in [their own section](extension-functions.html)
+Extension functions are explained in [their own section](extensions.html)
 
 ### High Order Functions and Lambdas
 
@@ -277,7 +279,7 @@ Sample().foo() // create instance of class Sample and calls foo
 
 Functions can also be called using infix notations when
 
-* They are member functions or [extension functions](extension-functions.html)
+* They are member functions or [extension functions](extensions.html)
 * They have a single parameter
 
 ``` kotlin

@@ -2,12 +2,12 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "High-Order Functions and Lambdas"
+title: "Higher-Order Functions and Lambdas"
 ---
 
-# High-Order Functions and Lambdas
+# Higher-Order Functions and Lambdas
 
-## High-Order Functions
+## Higher-Order Functions
 
 A higher-order function is a function that takes functions as parameters, or returns a function. A good example of such a function is lock() that takes a lock object and a function, acquires the lock, runs the functions and releases the lock:
 
@@ -25,7 +25,15 @@ fun lock<T>(lock : Lock, body : () -> T) : T {
 
 Let's examine the code above: body has a [function type](#function-types): () -> T, so it's supposed to be a function that takes no parameters and returns a value of type T. It is invoked inside the try block, while protected by the lock, and its result is returned by the lock() function.
 
-If we want to call lock(), we can pass a [function literal](#function-literals) to it as an argument:
+If we want to call lock, we can pass another function to it as an argument (see [function references](reflection.html#function-references)):
+
+``` kotlin
+fun toBeSynchronized() = sharedResource.operation()
+
+val result = lock(lock, ::toBeSynchronized)
+```
+
+Another, often more convenient way is to pass a [function literal](#function-literals) (often referred to as _lambda expression_):
 
 ``` kotlin
 val result = lock(lock, { sharedResource.operation() })
@@ -98,7 +106,7 @@ finally {
 
 Isn't it what we wanted from the very beginning?
 
-To make the compiler do this, one needs to annotate the lock() function with the inline annotation:
+To make the compiler do this, we need to annotate the lock() function with the inline annotation:
 
 ``` kotlin
 inline fun lock<T>(lock : Lock, body : () -> T) : T {
@@ -107,9 +115,6 @@ inline fun lock<T>(lock : Lock, body : () -> T) : T {
 ```
 
 Inlining may cause the generated code to grow, but if we do it in a reasonable way (do not inline big functions) it will pay off in performance, especially at "megamorphic" call-sites inside loops.
-
-*Inline functions are not implemented yet. See the corresponding [issue](http://youtrack.jetbrains.com/issue/KT-1434)*{: .warning }
-
 
 ## Function Literals
 

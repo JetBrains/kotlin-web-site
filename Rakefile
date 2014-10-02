@@ -8,7 +8,7 @@ CONFIG = {
   :build_destination => "_site",
   :preview_host => "localhost",
   :preview_port => 4000,
-  :pdf_filename => "spec.pdf"
+  :pdf_filename => "kotlin-docs.pdf"
 }
 
 Dir['_rake/*.rake'].each { |r| load r }

@@ -6,13 +6,14 @@
     @include clearfix;
     position: relative;
     float: right;
+    font-size: 0;
     margin-top: 13px;
 
     .nav-item {
-        float: left;
+        display: inline-block;
         margin-left: $unit*3;
         opacity: 0.87;
-        font-size: 14px;
+        font-size: 18px;
         line-height: $unit*4;
         color: #fff;
         text-decoration: none;
@@ -33,12 +34,13 @@
     }
 
     .extra-nav {
-        overflow: hidden;
+        display: inline-block;
         left: 100%;
-        margin-left: 15px;
+        font-size: $base-font-size;
+        margin-left: $unit*3;
         white-space: nowrap;
 
-        @media (max-width: 1165px) {
+        @media (max-width: 1205px) {
             left: auto;
             right: 0;
             top: 38px;
@@ -46,8 +48,9 @@
 
         &.social-links {
             position: absolute;
+            margin-left: 15px;
 
-            @media (max-width: 1165px) {
+            @media (max-width: 1205px) {
                 top: auto;
                 bottom: 38px;
             }
@@ -68,15 +71,15 @@
             vertical-align: top;
         }
 
-        .link:hover .link-icon {
-            opacity: 1;
-        }
-
         .link-github {
         }
 
         .link-twitter {
             top: 2px;
+        }
+
+        .link-forum {
+            top: 3px;
         }
 
         .link-icon {
@@ -86,8 +89,12 @@
 
             @include adapt_retina {
                 background-image: url('../layout/images/main-sprite@2x.png');
-                background-size: 150px 400px;
+                background-size: 150px auto;
             }
+        }
+
+        .link:hover .link-icon {
+            opacity: 1;
         }
 
         .icon-github {
@@ -100,6 +107,12 @@
             width: 20px;
             height: 17px;
             background-position: -100px -50px;
+        }
+
+        .icon-forum {
+            width: 26px;
+            height: 17px;
+            background-position: -100px -400px;
         }
     }
 }

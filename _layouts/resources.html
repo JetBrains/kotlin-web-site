@@ -1,0 +1,24 @@
+---
+layout: base
+main_nav_id: docs
+---
+
+<div class="g-grid">
+
+    <div class="g-12">
+        {% include nav/docs-nav.html active='resources' %}
+    </div>
+
+    <article role="main" class="page-content g-9">
+        <p>There are over <a href="https://github.com/search?q=Kotlin&ref=cmdform"> 200 repositories on GitHub</a> alone with Kotlin projects. These are just a few of them. 
+        If you have an OSS project in Kotlin or know of one, please   <a href="https://github.com/JetBrains/kotlin-web-site/edit/master/_data/oss-projects.yml">
+            add it</a></p>
+        <br/>
+        <br/>
+        {{ content }}
+    </article>
+</div>
+
+
+
+<script>require(['page/resources']);</script>

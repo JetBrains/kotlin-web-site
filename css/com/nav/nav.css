@@ -24,6 +24,7 @@
 .global-nav {
   position: relative;
   float: right;
+  font-size: 0;
   margin-top: 13px; }
   .global-nav:after {
     display: block;
@@ -31,10 +32,10 @@
     height: 0;
     content: ''; }
   .global-nav .nav-item {
-    float: left;
+    display: inline-block;
     margin-left: 24px;
     opacity: 0.87;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 32px;
     color: #fff;
     text-decoration: none; }
@@ -47,18 +48,20 @@
       opacity: 1;
       font-weight: bold; }
   .global-nav .extra-nav {
-    overflow: hidden;
+    display: inline-block;
     left: 100%;
-    margin-left: 15px;
+    font-size: 14px;
+    margin-left: 24px;
     white-space: nowrap; }
-    @media (max-width: 1165px) {
+    @media (max-width: 1205px) {
       .global-nav .extra-nav {
         left: auto;
         right: 0;
         top: 38px; } }
     .global-nav .extra-nav.social-links {
-      position: absolute; }
-      @media (max-width: 1165px) {
+      position: absolute;
+      margin-left: 15px; }
+      @media (max-width: 1205px) {
         .global-nav .extra-nav.social-links {
           top: auto;
           bottom: 38px; } }
@@ -73,10 +76,10 @@
       line-height: 0;
       text-decoration: none;
       vertical-align: top; }
-    .global-nav .extra-nav .link:hover .link-icon {
-      opacity: 1; }
     .global-nav .extra-nav .link-twitter {
       top: 2px; }
+    .global-nav .extra-nav .link-forum {
+      top: 3px; }
     .global-nav .extra-nav .link-icon {
       display: inline-block;
       opacity: 0.8;
@@ -84,7 +87,9 @@
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .global-nav .extra-nav .link-icon {
           background-image: url("../layout/images/main-sprite@2x.png");
-          background-size: 150px 400px; } }
+          background-size: 150px auto; } }
+    .global-nav .extra-nav .link:hover .link-icon {
+      opacity: 1; }
     .global-nav .extra-nav .icon-github {
       width: 20px;
       height: 20px;
@@ -93,6 +98,10 @@
       width: 20px;
       height: 17px;
       background-position: -100px -50px; }
+    .global-nav .extra-nav .icon-forum {
+      width: 26px;
+      height: 17px;
+      background-position: -100px -400px; }
 
 .page_index .global-nav {
   margin-top: 0; }

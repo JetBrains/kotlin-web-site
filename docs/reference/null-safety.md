@@ -12,7 +12,7 @@ title: "Null Safety"
 Kotlin's type system is aimed at eliminating null references from code, also known as the [The Billion Dollar Mistake](http://qconlondon.com/london-2009/presentation/Null+References:+The+Billion+Dollar+Mistake)
 
 One of the most common pitfalls in many programming languages, including Java is that of accessing a member of a null references, resulting in null reference exceptions. In Java this
-would be the equivalent of a *NullPointerException*{: .keyword } or NPE for short.
+would be the equivalent of a `NullPointerException` or NPE for short.
 
 Kotlin's type system is aimed to eliminate NullPointerException's from our code. The only possible causes of NPE's may be
 
@@ -25,7 +25,7 @@ For example, a regular variable of type String can not hold null:
 
 ``` kotlin
 var a : String = "abc"
-a = *null*{: .error } // compilation error
+a = null // compilation error
 ```
 
 To allow nulls, we can declare a variable as nullable string, written String?:
@@ -103,7 +103,7 @@ If the expression to the left of ?: is not null, the elvis operator returns it, 
 
 ## The !! Operator
 
-The third option is for NPE-lovers. One can write b!!, and this will return a non-null value of b (e.g., a String in our example) or throw an NPE if b is null:
+The third option is for NPE-lovers. We can write b!!, and this will return a non-null value of b (e.g., a String in our example) or throw an NPE if b is null:
 
 ``` kotlin
 val l = b!!.length()

@@ -1,3 +1,6 @@
+This is the source for the [Kotlin Web Site](http://kotlinlang.org)
+
+- [Filing bugs](#filing-bugs)
 - [Installation](#installation)
 - [Working with site](#working-with-site)
     - [Rake tasks](#rake-tasks)
@@ -6,12 +9,17 @@
     - [Page metadata](#page-metadata)
     - [Writing an content](#writing-an-content)
 
+
+Filing Bugs
+===========
+We use [YouTrack](http://youtrack.jetbrains.com/issues/KT#) for bug reports and suggestions. Click [here to report an issue](http://youtrack.jetbrains.com/newIssue?project=KT&clearDraft=true&c=Subsystems+Web+Site).
+
 Installation
 ============
 
 Site is based on [Jekyll](http://jekyllrb.com), so you will need ruby (>= 1.9.3) and rubygems to get it working.
 
-- *Mac OS X*. Make sure that you have Command Line Developer Tools, otherwise install it: `which gcc || xcode-select --install`.
+- *Mac OS X*. Make sure that you have [Command Line Developer Tools](http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-command-line-tools/9329325#9329325).
 - *Windows*. Step-by-step Jekyll installation can be found [here](https://github.com/juthilo/run-jekyll-on-windows).
   We recommend to use [Cygwin](https://www.cygwin.com) or [Git Bash](http://git-scm.com) as command line interface.
 

@@ -10,7 +10,7 @@ title: "Traits"
 Traits are essentially interfaces with optional method implementations. What makes them different from abstract classes is that traits
 cannot store state. They can have properties but these need to be abstract.
 
-A trait is defined using the keyword *Trait*{: .keyword }
+A trait is defined using the keyword *trait*{: .keyword }
 
 ``` kotlin
 trait MyTrait {

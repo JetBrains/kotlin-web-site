@@ -1,0 +1,35 @@
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+.toc {
+  margin-bottom: 30px !important; }
+
+.toc ul {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+.toc ul > li {
+  margin-bottom: 0; }
+
+.toc-item_level_1 > a {
+  font-weight: bold; }

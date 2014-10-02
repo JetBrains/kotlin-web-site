@@ -16,7 +16,7 @@ safe:
 versatile:
   title: Versatile
   description: Suitable for any type of application. Even for sharing code between JVM/JS.
-  content_file: kotlin-features/versatile.md
+  content_file: kotlin-features/versatile.html
 
 interoperable:
   title: Interoperable

@@ -9,7 +9,7 @@ title: "Exceptions"
 
 ## Exception Classes
 
-All exception classes in Kotlin are descendants of the class *Exception*. Every exception has a message, stack trance and an optional cause.
+All exception classes in Kotlin are descendants of the class *Exception*. Every exception has a message, stack trace and an optional cause.
 
 To throw an exception object, use the *throw*{: .keyword } expression
 
@@ -42,10 +42,8 @@ should be present.
 val a : Int? = try { parseInt(input) } catch (e : NumberFormatException) { null }
 ```
 
-The returned value of a *try*{: .keyword } expression with no *finally*{: .keyword } is either the last expression in the *try*{: .keyword } block or the
-last expression in the *catch*{: .keyword } block (or blocks).
-
-If *finally*{: .keyword } block is present, its last expression is the value of the *try*{: .keyword } expression.
+The returned value of a *try*{: .keyword } expression is either the last expression in the *try*{: .keyword } block or the
+last expression in the *catch*{: .keyword } block (or blocks). Contents of the *finally*{: .keyword } block do not affect the result of the expression.
 
 ## Checked Exceptions
 
@@ -68,7 +66,7 @@ catch (IOException e) {
 }
 ```
 
-And this is no good, see [Effective Java Item 65](http://java.sun.com/docs/books/effective): Don't ignore exceptions.
+And this is no good, see [Effective Java Item 65](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Don't ignore exceptions.
 
 Bruce Eckel says in [Does Java need Checked Exceptions?](http://www.mindview.net/Etc/Discussions/CheckedExceptions) :
 

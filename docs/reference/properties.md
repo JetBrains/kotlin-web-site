@@ -9,15 +9,27 @@ title: "Properties and Fields"
 
 ## Declaring Properties
 
-Classes in Kotlin can have properties. These can be declared as mutable, using the *var*{: .keyword } keyword or immutable using the *val*{: .keyword } keyword.
+Classes in Kotlin can have properties. These can be declared as mutable, using the *var*{: .keyword } keyword or read-only using the *val*{: .keyword } keyword.
 
 ``` kotlin
-public class Address { // parentheses denote a _primary constructor_
+public class Address { 
   public var name : String = ...
-  public var street String = ...
+  public var street : String = ...
   public var city : String = ...
   public var state : String? = ...
   public var zip : String = ...
+}
+```
+
+To use a property, we simply refer to it by name, as if it were a field in Java:
+
+``` kotlin
+fun copyAddress(address : Address) : Address {
+  val result = Address() // there's no 'new' keyword in Kotlin
+  result.name = address.name // accessors are called
+  result.street = address.street
+  // ...
+  return result
 }
 ```
 
@@ -36,7 +48,7 @@ The initializer, getter and setter are optional. Property type is optional if it
 Examples
 
 ``` kotlin
-var *allByDefault*{: .error } : Int? // error: explicit initializer required, default getter and setter implied
+var allByDefault : Int? // error: explicit initializer required, default getter and setter implied
 var initialized = 1 // has type Int, default getter and setter
 var setterVisibility : String = "abc" // Initializer required, not a nullable type
   private set // the setter is private and has the default implementation
@@ -45,10 +57,10 @@ var setterVisibility : String = "abc" // Initializer required, not a nullable ty
 Note that types are not inferred for properties exposed as parts of the public API, i.e. public and protected, because changing the initializer may cause an unintentional change in the public API then. For example
 
 ``` kotlin
-public val *example*{: .error } = 1 // A public property must have a type specified explicitly
+public val example = 1 // A public property must have a type specified explicitly
 ```
 
-The full syntax of an immutable property declaration differs from a mutable one in two ways: it starts with val instead of var and does not allow a setter:
+The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with val instead of var and does not allow a setter:
 
 ``` kotlin
 val simple : Int? // has type Int, default getter, must be initialized in constructor
@@ -98,7 +110,6 @@ val isEmpty : Boolean
   get() = this.size > 0
 ```
 
-
 ### Backing Properties
 
 If you want to do something that does not fit into this "implicit backing field" scheme, you can always fall back to having a "backing property":
@@ -117,18 +128,15 @@ In all respects, this is just the same as in Java since access to private proper
 
 ## Overriding Properties
 
-See [Overriding Properties](classes.html#overriding-properties)
+See [Overriding Member](classes.html#overriding-members)
 
-## Using Properties
+## Delegated Properties
+  
+The most common kind of properties simply reads from (and maybe writes to) a backing field. 
+On the other hand, with custom getters and setters one can implement any behaviour of a property.
+Somewhere in between, there are certain common patterns of how a property may work. A few examples: lazy values,
+reading from a map by a given key, accessing a database, notifying listener on access, etc.
 
-To use a property, one simply refers to it by name, as if it were a field in Java:
+Such common behaviours can be implemented as libraries using _delegated properties_.
+For more information, look [here](delegated-properties.html).
 
-``` kotlin
-fun copyAddress(address : Address) : Address {
-  val result = Address() // there's no 'new' keyword in Kotlin
-  result.name = address.name // accessors are called
-  result.street = address.street
-  // ...
-  return result
-}
-```

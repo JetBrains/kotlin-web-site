@@ -1,0 +1,25 @@
+---
+layout: base
+main_nav_id: docs
+---
+
+<div class="g-grid">
+
+    <div class="g-12">
+        {% include nav/docs-nav.html active='api' %}
+    </div>
+
+    <aside class="g-3">
+        <div id="reference-nav">
+            {% include nav/side-tree-nav.html nav='api' %}
+        </div>
+    </aside>
+
+    <article role="main" class="page-content g-9">
+
+        {{ content }}
+    </article>
+</div>
+
+<script>
+</script>

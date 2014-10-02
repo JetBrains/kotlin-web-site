@@ -1,24 +1,26 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Getting Started"
-description: "This tutorials walks you through creating a simple Hello World application using IntelliJ IDEA"
+title:  "Getting Started with IntelliJ IDEA"
+description: "This tutorials walks us through creating a simple Hello World application using IntelliJ IDEA."
+authors: Hadi Hariri
+showAuthorInfo: false
 ---
-
-# Getting Started
-
-## Setting up the environment
-
+### Setting up the environment
 In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][command_line]
 
-1. [Download IntelliJ IDEA][intellijdownload] 12 or 13 Beta and install the latest Kotlin Plugin
+1. [Download IntelliJ IDEA][intellijdownload] 13 or 14 EAP and install the latest Kotlin Plugin
    1. Under Preferences (OSX) or Settings (Windows/Linux), type Plugins to get the list of currently installed Plugins.
 
    ![Kotlin Plugin]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/install_kotlin_plugin.png)
 
    Follow the instructions to restart the IDE.
 
+   If you're using an EAP for which a compatible plugin is not released yet on the JetBrains Repository, please add the nightly builds as a new repository and download from there. For IntelliJ 14 EAP, the link is:
+   
+   [http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml](http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml)
+   
 2. Once Kotlin is correctly installed, we can create a New Project. We select Java Module, give it a name and select the SDK. Kotlin works with JDK 1.6+
 
    ![Kotlin New Project]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/new_project_step1.png)
@@ -30,7 +32,7 @@ For instructions on how to compile and execute Kotlin applications using the com
    We click the *Create* button to specify the Kotlin runtime. We can either Copy it to our project folder or use the bundle from the plugin. It is recommended to copy
    to project folder.
 
-4. We should now have the new projected created and the following folder structure
+4. We should now have the new project created and the following folder structure
 
    ![Kotlin Folder Structure]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/folders.png)
 

@@ -12,17 +12,35 @@ exclude:
   - Rakefile
   - Gemfile
   - Gemfile.lock
+  - rake
+  - INSTALL.sh
+  - README.md
+  - notes.txt
+  - LICENSE
+
+include:
+  - js
 
 # Site Settings
 baseurl:
+code_baseurl: https://github.com/JetBrains/kotlin-web-site/tree/master/code
 
 # Custom Settings
 github_url: https://github.com/JetBrains/kotlin
 twitter_url: https://twitter.com/project_kotlin
-site_github_url: http://github.com/JetBrains/kotlin-web-site/tree/dev/
-edit_on_github_url: https://github.com/JetBrains/kotlin-web-site/edit/dev/%path%
+forum_url: http://devnet.jetbrains.com/community/kotlin
+site_github_url: http://github.com/JetBrains/kotlin-web-site
+edit_on_github_url: https://github.com/JetBrains/kotlin-web-site/edit/master/%path%
 img_tutorial_root: assets/images/tutorials
 
+grammar_file_path: grammar.xml
+
 # Analytics and webmaster tools stuff goes here
-google_analytics:
+google_analytics: UA-940435-32
 google_verify:
+
+
+# Text snippets used over and over again
+text_using_gradle: In this tutorial we're going to be using Gradle but the same can be accomplished using either IntelliJ IDEA project structure or Maven. For details on setting up Gradle to work with Kotlin, see [Using Gradle](/docs/reference/using-gradle.html).
+
+# Info

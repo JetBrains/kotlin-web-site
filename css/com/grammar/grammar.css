@@ -1,0 +1,51 @@
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+.grammar h1 {
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 20px; }
+  .grammar h1:first-child {
+    border-bottom: none;
+    padding-bottom: 0; }
+
+.grammar-items-set {
+  margin-bottom: 40px; }
+
+.grammar-item {
+  margin-bottom: 20px;
+  font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
+
+.grammar-declaration-name {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold; }
+
+.grammar-declaration-usedby {
+  display: inline-block;
+  color: #999; }
+
+.grammar-description {
+  font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
+
+.grammar-string {
+  color: #009C00; }

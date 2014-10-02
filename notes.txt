@@ -6,7 +6,8 @@ Tutorials
   Deep Dive into Collections
   Creating Type-Safe Builders - Intro to Extension Function Literals
   Interactive language tutorial (s)
-
+  Kotlin Build Tools
+  Kotlin Doc
 
 
 
@@ -52,14 +53,5 @@ Tutorials
      - add property delegation to delegation
      - related of all sections
      - best practices of all sections
-     - docs/generics
-     - All Links in FAQ
 
- - General to do
-
-     - Provide guidance on contributing docs
-
- - Left off at:
-
-    FAQ
 

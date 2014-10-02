@@ -35,5 +35,5 @@ class Outer() {
 val demo = Outer().Inner().foo() // == 1
 ```
 
-See [Qualified *this*{: .keyword } expressions](language-conventions.html#this-expression) to learn about disambiguation of *this*{: .keyword } in inner classes.
+See [Qualified *this*{: .keyword } expressions](this-expressions.html) to learn about disambiguation of *this*{: .keyword } in inner classes.
 

@@ -120,17 +120,17 @@
  * @param {px} $font-size (optional)
 */
 .kotlin-overview-section .overview-popup .popup-content pre {
-  font-family: Consolas, Menlo, Courier, monospace;
+  font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
   line-height: 22px; }
 
 .kotlin-overview-section .overview-popup .popup-content pre {
-  font-family: Consolas, Menlo, Courier, monospace;
+  font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
   line-height: 22px; }
 
 .kotlin-overview-section .overview-popup .popup-content pre code {
   display: block;
   padding: 15px 20px;
-  font-family: Consolas, Menlo, Courier, monospace; }
+  font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
 
 .kotlin-overview-section .overview-popup .popup-content pre code._highlighted {
   color: #A9B7C6;
@@ -356,7 +356,7 @@
   transition: all 0.5s;
   position: absolute;
   z-index: 2;
-  top: 40px;
+  top: 20px;
   bottom: auto;
   left: 0;
   right: 0;
@@ -366,7 +366,7 @@
   box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
   text-align: left; }
   .kotlin-overview-section .overview-popup, .kotlin-overview-section._features .overview-popup {
-    bottom: 40px; }
+    bottom: 20px; }
   .kotlin-overview-section ._hidden.overview-popup {
     visibility: hidden;
     opacity: 0; }
@@ -481,6 +481,8 @@
   position: relative;
   text-align: center;
   overflow: hidden; }
+  .kotlin-overview-section._features .section-header {
+    margin-bottom: 30px; }
   .kotlin-overview-section._features .section-description {
     margin-bottom: 40px; }
   .kotlin-overview-section._features .kotlin-features-carousel-wrap {
@@ -584,8 +586,8 @@
         height: 57px;
         background-position: 0 -400px; }
       .kotlin-overview-section._features .kotlin-features-list .feature-icon._interoperable {
-        width: 56px;
-        height: 56px;
+        width: 55px;
+        height: 72px;
         background-position: 0 -500px; }
     .kotlin-overview-section._features .kotlin-features-list .feature-title {
       font-size: 24px;
@@ -614,6 +616,54 @@
       .kotlin-overview-section._features .overview-popup {
         bottom: auto;
         min-height: 500px; } }
+  .kotlin-overview-section._features .overview-popup_versatile .logos-list {
+    font-size: 0; }
+  .kotlin-overview-section._features .overview-popup_versatile .logos-list-item {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    width: 50%;
+    margin-bottom: 27px;
+    vertical-align: top; }
+    .kotlin-overview-section._features .overview-popup_versatile .logos-list-item:last-child {
+      margin-bottom: 0; }
+    .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo {
+      position: relative;
+      float: left;
+      margin-right: 20px;
+      background: url("images/logos-sprite.png") no-repeat; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo {
+          background-image: url("images/logos-sprite@2x.png");
+          background-size: 100px 500px; } }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._android {
+        top: -5px;
+        width: 65px;
+        height: 77px;
+        background-position: 0 0; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._tomcat {
+        width: 91px;
+        height: 64px;
+        background-position: 0 -100px; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._js {
+        width: 66px;
+        height: 66px;
+        background-position: 0 -200px; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._javaee {
+        top: -19px;
+        width: 51px;
+        height: 90px;
+        margin-left: 20px;
+        margin-right: 39px;
+        background-position: 0 -300px; }
+      .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo._html5 {
+        top: -10px;
+        width: 58px;
+        height: 82px;
+        background-position: 0 -400px; }
+    .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .description {
+      display: block;
+      margin-right: 40px; }
 
 .kotlin-overview-section._code-examples {
   position: relative;
@@ -664,7 +714,7 @@
   .kotlin-overview-code-example .code {
     float: left;
     margin-right: 8px;
-    font-family: "Droid Sans Mono", Consolas, Menlo, Courier, monospace;
+    font-family: "Droid Sans Mono", "Liberation Mono", Consolas, Menlo, Courier, monospace;
     font-size: 30px;
     line-height: 37px;
     color: #9ebdd9;
@@ -909,7 +959,7 @@
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .kotlin-overview-section._video-overview .video-player-wrap .video-player-play-button {
           background-image: url("../layout/images/main-sprite@2x.png");
-          background-size: 150px 400px; } }
+          background-size: 150px auto; } }
     .kotlin-overview-section._video-overview .video-player-wrap a:hover .video-player-play-button {
       opacity: 1; }
   .kotlin-overview-section._video-overview .video-player {
@@ -943,9 +993,10 @@
       box-sizing: border-box;
       vertical-align: top;
       font-size: 14px;
+      position: relative;
       width: 240px;
       padding: 10px 15px 30px;
-      min-height: 330px;
+      min-height: 360px;
       margin-left: 15px;
       margin-right: 15px;
       margin-bottom: 30px;
@@ -974,7 +1025,7 @@
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image:after {
           background-image: url("images/get-kotlin-sprite@2x.png");
-          background-size: 50px 200px; } }
+          background-size: 100px 250px; } }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._standalone-compiler:after {
       width: 50px;
       height: 58px;
@@ -987,6 +1038,10 @@
       width: 40px;
       height: 50px;
       background-position: 0 -150px; }
+    .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-image._try-online:after {
+      width: 54px;
+      height: 44px;
+      background-position: 0 -200px; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title {
       font-size: 21px;
       line-height: 27px;
@@ -994,6 +1049,11 @@
       white-space: nowrap; }
     .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-description {
       margin-bottom: 10px; }
+    .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-link-wrap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px; }
 
 .kotlin-overview-section._community {
   padding-top: 48px;

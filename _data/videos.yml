@@ -1,74 +1,55 @@
-- title: Getting Started
+- title: Tutorials
   content:
-    - title: Basic Syntax
+    - title: Getting Started
       content:
-        - title: Basic Syntax 1
-          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+        - title: Hello World
+          url: https://www.youtube.com/watch?v=iMMBrcabSOI
 
-        - title: Basic Syntax 2
-          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+        - title: Variable Basics
+          url: https://www.youtube.com/watch?v=bklpMxuzCWU
 
-        - title: Basic Syntax 3
-          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+        - title: Function Basics
+          url: https://www.youtube.com/watch?v=-4XuESEe45c
 
-    - title: Simple Syntax 1
-      url: http://www.youtube.com/watch?v=viiDaLpPfN4
+        - title: Class Basics
+          url: https://www.youtube.com/watch?v=SI2HiSLDFFs
 
-    - title: Advanced Syntax
-      content:
-        - title: Advanced Syntax 1
-          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+        - title: Data Classes
+          url: https://www.youtube.com/watch?v=GhwZNoQqejQ
 
-        - title: Advanced Syntax 2
-          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+        - title: Extension Function Basics
+          url: https://www.youtube.com/watch?v=SMzNduaGcuo
 
-        - title: Advanced Syntax 3
-          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
-    - title: Simple Syntax
-      content:
-        - title: Simple Syntax 1
-          url: http://www.youtube.com/watch?v=viiDaLpPfN4
 
-        - title: Simple Syntax 2
-          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+- title: Conferences and Events
+  content:
+    - title: Introduction to Kotlin - Making Java Platform a Better Place
+      url: https://www.youtube.com/watch?v=sP9R9Nc3sRA
+      description: Andrey Breslav gives a talk at Google Tech Talks on Kotlin
 
-        - title: Simple Syntax 3
-          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+    - title: Practical Aspects of the JVM Language Implementation
+      url: https://www.youtube.com/watch?v=SdvFwRmyVRM
 
-    - title: Creative Syntax
-      content:
-        - title: Creative Syntax 1
-          url: http://www.youtube.com/watch?v=viiDaLpPfN4
-          duration: '5:08'
+    - title: Advanced Kotlin - New Features and More
+      url: https://www.youtube.com/watch?v=rwsvbSve_BI
 
-        - title: Creative Syntax 2
-          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+    - title: Who's more Functional? Kotlin, Groovy, Scala or Java?
+      url: https://www.youtube.com/watch?v=s4zasprvfVE
 
-        - title: Creative Syntax 3
-          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
+    - title: The Kotlin Programming Language
+      url: https://www.youtube.com/watch?v=ZfNjeBFh7Iw
+      description: A talk by Ladislav Thon
 
-    - title: Using Advanced Syntax
-      content:
-        - title: Using Advanced Syntax 1
-          url: http://www.youtube.com/watch?v=viiDaLpPfN4
+    - title: Introduction to Kotlin Part 1
+      url: https://www.youtube.com/watch?v=MgP7DxRCrt4
+      description: A Talk at the JUG Lviv
 
-        - title: Using Advanced Syntax 2
-          url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
+    - title: Kotlin - Making the Java Platform a better place - JavaZone
+      url: https://www.youtube.com/watch?v=ZbG7KmwiKRc
+      description: Talk given at JavaZone by Andrey Breslav
 
-        - title: Using Advanced Syntax 3
-          url: http://www.youtube.com/watch?v=SdvFwRmyVRM
 
-- title: JVM
-  url: http://www.youtube.com/watch?v=SdvFwRmyVRM
-  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa dolorem doloribus mollitia, nihil odio praesentium quae voluptates voluptatum.
 
-- title: JavaScript
-  url: http://www.youtube.com/watch?v=sP9R9Nc3sRA
-  description: Ad corporis dolores eligendi error eum in provident reiciendis saepe. Eos.
 
-- title: Android
-  url: http://www.youtube.com/watch?v=viiDaLpPfN4
 
-- title: Web
-  url: http://www.youtube.com/watch?v=SdvFwRmyVRM

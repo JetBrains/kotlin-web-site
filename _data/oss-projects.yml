@@ -1,0 +1,64 @@
+- name: Spek
+  description: A Specification Framework
+  type: Library
+  link: https://github.com/JetBrains/spek
+
+- name: Wasabi
+  description: An HTTP Framework
+  type: Framework
+  link: https://github.com/hhariri/wasabi
+
+- name: Kara
+  description: An MVC Framework
+  type: Framework
+  link: http://www.karaframework.com
+
+- name: Humanizer for JVM
+  description: Humanizer Library
+  type: Library
+  link: https://github.com/MehdiK/Humanizer.jvm
+
+- name: Kotlin-NoSQL
+  description: NoSQL MongoDB access for Kotlin
+  type: Library
+  link: https://github.com/cheptsov/kotlin-nosql
+
+- name: FunKtionale
+  description: Functional Helpers for Kotlin
+  type: Library
+  link: https://github.com/MarioAriasC/funKTionale
+
+- name: KotlinPrimavera
+  description: Kotlin Wrapper for Spring Framework
+  type: Library
+  link: https://github.com/MarioAriasC/KotlinPrimavera
+
+- name: Sublime Package
+  description: A Sublime Package for Kotlin
+  type: Tools
+  link: https://github.com/vkostyukov/kotlin-sublime-package
+
+- name: Kotlin Vim
+  description: Kotlin Syntax Highlighter for Vim
+  type: Tools
+  link: https://github.com/udalov/kotlin-vim
+
+- name: Griffon Plugin
+  description: Griffon Support
+  type: Tools
+  link: https://github.com/griffon/griffon-kotlin-plugin
+
+- name: Android Rivers
+  description: RSS Readers for Android
+  type: Android App
+  link: https://github.com/dodyg/AndroidRivers
+
+- name: RxKotlin 
+  description: Kotlin Bindings for RxJava
+  type: Library
+  link: https://github.com/ReactiveX/RxKotlin
+
+- name: Solr-Undertow
+  description: Solr Standalone Tiny and High performant server
+  type: Application
+  link: https://github.com/bremeld/solr-undertow

@@ -12,11 +12,14 @@ PDF_CONFIG = {
     'margin-bottom' => '0.8in',
     'margin-left' => '0.7in',
     'print-media-type' => '',
-    'header-html' => "file:///#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-header.html",
+    'header-html' => "file://#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-header.html",
     'header-spacing' => '10',
-    'footer-html' => "file:///#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-footer.html",
+    #'footer-html' => "file://#{CONFIG[:source_dir]}/_rake/build_pdf/book-page-footer.html",
+    'footer-center' => '[page]',
+    'footer-font-size' => '9',
     'footer-spacing' => '7',
-    'enable-smart-shrinking' => ''
+    'enable-smart-shrinking' => '',
+    'zoom' => '0.9'
 }
 
 PDF_TOC_CONFIG = {
@@ -28,7 +31,7 @@ desc 'Builds PDF'
 task :build_pdf do
   source_dir = CONFIG[:source_dir]
   tmp_dir = CONFIG[:tmp_dir]
-  pdf_filename = ENV['file'] || CONFIG[:pdf_filename]
+  pdf_filename = ENV['dest'] || CONFIG[:pdf_filename]
   pdf_filename = File.expand_path(pdf_filename)
   pdf_options_str = PDF_CONFIG.map{|key, value| "--#{key} #{value}"}.join(' ')
   pdf_toc_options_str = PDF_TOC_CONFIG.map{|key, value| "--#{key} #{value}"}.join(' ')
@@ -60,10 +63,11 @@ def build_html dir
 
   FileUtils.mkdir dir
   FileUtils.cp_r %w(_data _includes _layouts _plugins assets docs _config.yml), dir
-  FileUtils.mv "#{dir}/_layouts/pdf.html", "#{dir}/_layouts/reference.html" # substitute the original page layout
+  FileUtils.cp "#{dir}/_layouts/pdf.html", "#{dir}/_layouts/reference.html" # substitute the original page layout
+  FileUtils.cp "#{dir}/_layouts/pdf.html", "#{dir}/_layouts/api.html" # substitute the original page layout
   FileUtils.cd dir
 
-  system "jekyll build --source=#{dir} --destination=#{dir}/_site"
+  system "jekyll build --source=#{dir} --destination=#{dir}/_site > /dev/null"
 end
 
 
@@ -84,6 +88,8 @@ def get_doc_contents
     if toc_data["content"]
       toc_data['content'].each do |item|
         item.each do |file_path, title|
+          puts "Processing #{file_path}"
+
           file_path = "#{tmp_dir}/_site/#{file_path}"
           file_basename = Pathname.new(file_path).basename
 
@@ -124,6 +130,11 @@ def get_doc_contents
 
               link.attributes['href'] = "#" + new_anchor_id
             end
+          end
+
+          # Find empty links
+          doc.elements.each("//a[count(child::node())=0]") do |link|
+            link.add_text ' '
           end
 
           # Rename all headings to lower level
