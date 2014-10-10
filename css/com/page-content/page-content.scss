@@ -38,4 +38,18 @@
 
     // Page elements
     @import '../_page-content/_page-content';
+
+
+    .api-docs-table {
+        border: 1px solid #dcdcdc;
+    }
+
+    .api-docs-table p:last-child,
+    .api-docs-table pre:last-child {
+        margin-bottom: 0;
+    }
+
+    .api-docs-breadcrumbs {
+        margin-bottom: 25px;
+    }
 }
