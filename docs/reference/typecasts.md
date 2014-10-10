@@ -9,7 +9,7 @@ title: "Type Checks and Casts"
 
 ## `is` and `!is` Operators
 
-One can check whether an object conforms to a given type at runtime by using the `is` operator or its negated form `!is`:
+We can check whether an object conforms to a given type at runtime by using the `is` operator or its negated form `!is`:
 
 ``` kotlin
 if (obj is String) {

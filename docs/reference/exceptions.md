@@ -42,10 +42,8 @@ should be present.
 val a : Int? = try { parseInt(input) } catch (e : NumberFormatException) { null }
 ```
 
-The returned value of a *try*{: .keyword } expression with no *finally*{: .keyword } is either the last expression in the *try*{: .keyword } block or the
-last expression in the *catch*{: .keyword } block (or blocks).
-
-If *finally*{: .keyword } block is present, its last expression is the value of the *try*{: .keyword } expression.
+The returned value of a *try*{: .keyword } expression is either the last expression in the *try*{: .keyword } block or the
+last expression in the *catch*{: .keyword } block (or blocks). Contents of the *finally*{: .keyword } block do not affect the result of the expression.
 
 ## Checked Exceptions
 

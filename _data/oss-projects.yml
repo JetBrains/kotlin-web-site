@@ -53,7 +53,12 @@
   type: Android App
   link: https://github.com/dodyg/AndroidRivers
 
-- name: "RxKotlin" 
+- name: RxKotlin 
   description: Kotlin Bindings for RxJava
   type: Library
-  link: http://github.com/netflix/rxjava
+  link: https://github.com/ReactiveX/RxKotlin
+
+- name: Solr-Undertow
+  description: Solr Standalone Tiny and High performant server
+  type: Application
+  link: https://github.com/bremeld/solr-undertow

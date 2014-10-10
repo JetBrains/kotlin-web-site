@@ -15,13 +15,13 @@ class Box<T>(t : T) {
 }
 ```
 
-In general, to create an instance of such a class, one needs to provide the type parameters:
+In general, to create an instance of such a class, we need to provide the type arguments:
 
 ``` kotlin
 val box : Box<Int> = Box<Int>(1)
 ```
 
-But if the parameters may be inferred, e.g. from the constructor arguments or by some other means, one is allowed to omit the type parameters:
+But if the parameters may be inferred, e.g. from the constructor arguments or by some other means, one is allowed to omit the type arguments:
 
 ``` kotlin
 val box = Box(1) // 1 has type Int, so the compiler figures out that we are talking about Box<Int>
@@ -234,7 +234,7 @@ for most cases. Kotlin provides a shorthand syntax for this, that we call a **st
 
 # Generic functions
 
-Not only classes can have type parameters. Functions can, too. Usually, one places the type parameters in angle brackets **after** the name of the function:
+Not only classes can have type parameters. Functions can, too. Usually, we place the type parameters in angle brackets **after** the name of the function:
 
 ``` kotlin
 fun singletonList<T>(item : T) : List<T> {

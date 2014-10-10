@@ -21,7 +21,7 @@ public class Address {
 }
 ```
 
-To use a property, one simply refers to it by name, as if it were a field in Java:
+To use a property, we simply refer to it by name, as if it were a field in Java:
 
 ``` kotlin
 fun copyAddress(address : Address) : Address {

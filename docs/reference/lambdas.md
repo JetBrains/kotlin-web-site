@@ -106,7 +106,7 @@ finally {
 
 Isn't it what we wanted from the very beginning?
 
-To make the compiler do this, one needs to annotate the lock() function with the inline annotation:
+To make the compiler do this, we need to annotate the lock() function with the inline annotation:
 
 ``` kotlin
 inline fun lock<T>(lock : Lock, body : () -> T) : T {
