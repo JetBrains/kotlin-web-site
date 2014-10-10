@@ -32,6 +32,52 @@ h5 {
     @extend %h5;
 }
 
+h1,
+h2,
+h3 {
+    position: relative;
+
+    .anchor {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        padding-left: 35px;
+        margin-left: -30px;
+        padding-right: 6px;
+        margin-top: 1px;
+        text-decoration: none;
+
+        &:after {
+            position: absolute;
+            opacity: 0.5;
+            display: none;
+            top: 50%;
+            right: 15px;
+            margin-top: -7px;
+            width: 16px;
+            height: 16px;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAACxQAAAsUBidZ/7wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEqSURBVDiNjdM9S1xRFIXhB8QoihZ+DRoJjlPYWAy2qQSbBFv/gOlT2CuKf0BSphe0EAVBBAvRJlYxghrRQqNgFXEQK5tr4Wa4XO44t9jNXme9h732OZIk0azQigVc4wFr+JQkiSLmduwiyVQNlSKA72G4xzTK2IneZhHAGH6ikupVAvC/KaAB9HMAbhodmMUv3GEdgymtB8cB+JE1dmAjJ7Ct0HtT5nN0pc2d2K/PxgxGsIxJ9OEk9DOU6msM80GItxFSFd9ijV9xEfopBlIX+4DDEP9hNITt6D2nRvmN/szYFuuJUk4J4/gT2hNW0JYTuMs49KXBRkpoeWelagEYypjmMVzgTdgLwCo+Ygp/ozdXBDCBl5zdH6G7KSAoVW8/7hFXWMoLLK9eAaRNvta9bjm9AAAAAElFTkSuQmCC937405abf7d2fa1cd5d9079c2e5160ac');
+            content: '';
+        }
+    }
+
+    .anchor:hover:after,
+    &:hover .anchor:after,
+    &:target .anchor:after {
+        display: block;
+    }
+
+    .anchor:hover:after,
+    &:target .anchor:after {
+        opacity: 1;
+    }
+}
+
+h3 .anchor:after {
+    margin-top: -8px;
+}
+
 
 // list
 ul {
