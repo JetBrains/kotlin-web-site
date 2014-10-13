@@ -21,6 +21,30 @@
  * Grid column
  * @param {px} $font-size (optional)
 */
+@-webkit-keyframes header-highlighting {
+  0% {
+    background-color: #FFFFCC; }
+
+  100% {
+    background-color: #fff; } }
+@-moz-keyframes header-highlighting {
+  0% {
+    background-color: #FFFFCC; }
+
+  100% {
+    background-color: #fff; } }
+@-o-keyframes header-highlighting {
+  0% {
+    background-color: #FFFFCC; }
+
+  100% {
+    background-color: #fff; } }
+@keyframes header-highlighting {
+  0% {
+    background-color: #FFFFCC; }
+
+  100% {
+    background-color: #fff; } }
 /**
  * @param {string} $selector
  * @param {integer} $cols-span
