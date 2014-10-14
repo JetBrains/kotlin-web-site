@@ -15,6 +15,10 @@ module KotlinGrammar
       doc = REXML::Document.new file_contents
       grammar_page = site.pages.detect {|page| page.name.downcase.split('.')[0] == 'grammar'}
 
+      unless grammar_page
+        return nil
+      end
+
       # set
       doc.elements.each('/tokens/set') do |node|
         set = {
