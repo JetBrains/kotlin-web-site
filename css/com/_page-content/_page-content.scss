@@ -32,6 +32,38 @@ h5 {
     @extend %h5;
 }
 
+h1,
+h2,
+h3 {
+    position: relative;
+
+    .anchor {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        padding-left: 35px;
+        margin-left: -30px;
+        padding-right: 6px;
+        margin-top: 1px;
+        color: #828282;
+        text-decoration: none;
+
+        &:after {
+            position: absolute;
+            display: none;
+            right: 15px;
+            content: '\00A7';
+        }
+    }
+
+    .anchor:hover:after,
+    &:hover .anchor:after {
+        display: block;
+        color: $base-color;
+    }
+}
+
 
 // list
 ul {
