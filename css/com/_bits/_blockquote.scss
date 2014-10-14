@@ -1,6 +1,17 @@
 @import '../../config';
 
 %blockquote {
+    padding: 10px 20px;
+    background-color: #F7F7F7;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    code {
+        padding: 0;
+        background-color: transparent;
+    }
 
     &.note {
         padding: 20px 40px;
@@ -9,14 +20,5 @@
         background-repeat: no-repeat;
         background-position: 15px 24px;
         font-family: $font-family-sans-serif;
-
-        p:last-child {
-            margin-bottom: 0;
-        }
-
-        code {
-            padding: 0;
-            background-color: transparent;
-        }
     }
 }
