@@ -80,7 +80,7 @@ It prints 478 (239 * 2), because the value of *y* is obtained from this instance
 
 ## Resolving overriding conflicts
 
-When we declare many types in out supertype list, it may appear that we inherit more than one implementation of the same method. For example
+When we declare many types in our supertype list, it may appear that we inherit more than one implementation of the same method. For example
 
 ``` kotlin
 trait A {
