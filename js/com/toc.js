@@ -1,4 +1,4 @@
-define(function() {
+define(['jquery'], function($) {
     function Toc(options) {
         var that = this,
             option;
@@ -54,7 +54,7 @@ define(function() {
                 section = {
                     id: sectionNode.id,
                     level: parseInt(sectionNode.tagName.substr(1,1)),
-                    title: sectionNode.innerHTML,
+                    title: $(sectionNode).text(),
                     node: sectionNode,
                     content: []
                 };

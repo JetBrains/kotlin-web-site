@@ -6,7 +6,8 @@ CONFIG = {
   :source_dir => __dir__,
   :tmp_dir => "#{__dir__}/__tmp",
   :build_destination => "_site",
-  :preview_host => "localhost",
+  :preview_host => "0.0.0.0",
+  :default_env => 'dev',
   :preview_port => 4000,
   :pdf_filename => "kotlin-docs.pdf"
 }
