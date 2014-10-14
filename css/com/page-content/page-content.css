@@ -305,18 +305,21 @@
       .page-content table th:last-child,
       .page-content table td:last-child {
         padding-right: 12px; }
-  .page-content blockquote.note {
-    padding: 20px 40px;
-    background-color: #FFFFE3;
-    background-image: url(data:image/gif;base64,R0lGODlhEAAQAOYAAAIGEe7kANGuIOvNhLaTDfDgUN2/enJ0QPbSOPjw38+qR7yeN/DiwzU2P9rGAvTfqvPpF+PUuvHibOG+XuLQqcmtffDjlPHPRbaOKN3NoCYnOP//AI6IGt3cRsulQ0A3Hvf3KtrOIPbkWPXoQfDeiefUdxASIfLlK+zadsCZKLSMGP/7HdOuV/fu2PPnpfn1AO3cWs6mNN3DadSsO/3jMu/fh+/euNi2Svz1CLyWEsOdP//oR+jTgvbuBvrlZ/z25fbuIb+YIOjTpLuUG8KbNffmpfbpsffqyfbmnf7yJuXJI9OwMfHjVvbrQLidEuzce9itQvrxGfHhlMehQM+tJ+vZhzg8RRAUK+vmMuzbYePHb/LouN61SP//Cffrpv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUUAF8ALAAAAAAQABAAAAeWgF+Cg4SFhl8tCh42h4VcW0YejYMPWi5SJQaTXzNIS1Q+MQmNAzwXAFdKTCyHPzMWCCYaISMCDIYTVU87Hw0rJ0ALhUc3NRIiHAdJEDgOGYRQUihZBVgdED0vG0ODQjIkKDAjBE442hsBFYJTLk9ZMDQfVl0b9RsE617GTE1RIPb1VAiioINIihRBhuRYuBBDhE0QIwYCADs=);
-    background-repeat: no-repeat;
-    background-position: 15px 24px;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif; }
-    .page-content blockquote.note p:last-child {
+  .page-content blockquote {
+    padding: 10px 20px;
+    background-color: #F7F7F7; }
+    .page-content blockquote p:last-child {
       margin-bottom: 0; }
-    .page-content blockquote.note code {
+    .page-content blockquote code {
       padding: 0;
       background-color: transparent; }
+    .page-content blockquote.note {
+      padding: 20px 40px;
+      background-color: #FFFFE3;
+      background-image: url(data:image/gif;base64,R0lGODlhEAAQAOYAAAIGEe7kANGuIOvNhLaTDfDgUN2/enJ0QPbSOPjw38+qR7yeN/DiwzU2P9rGAvTfqvPpF+PUuvHibOG+XuLQqcmtffDjlPHPRbaOKN3NoCYnOP//AI6IGt3cRsulQ0A3Hvf3KtrOIPbkWPXoQfDeiefUdxASIfLlK+zadsCZKLSMGP/7HdOuV/fu2PPnpfn1AO3cWs6mNN3DadSsO/3jMu/fh+/euNi2Svz1CLyWEsOdP//oR+jTgvbuBvrlZ/z25fbuIb+YIOjTpLuUG8KbNffmpfbpsffqyfbmnf7yJuXJI9OwMfHjVvbrQLidEuzce9itQvrxGfHhlMehQM+tJ+vZhzg8RRAUK+vmMuzbYePHb/LouN61SP//Cffrpv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUUAF8ALAAAAAAQABAAAAeWgF+Cg4SFhl8tCh42h4VcW0YejYMPWi5SJQaTXzNIS1Q+MQmNAzwXAFdKTCyHPzMWCCYaISMCDIYTVU87Hw0rJ0ALhUc3NRIiHAdJEDgOGYRQUihZBVgdED0vG0ODQjIkKDAjBE442hsBFYJTLk9ZMDQfVl0b9RsE617GTE1RIPb1VAiioINIihRBhuRYuBBDhE0QIwYCADs=);
+      background-repeat: no-repeat;
+      background-position: 15px 24px;
+      font-family: "Open Sans", Helvetica, Arial, sans-serif; }
   .page-content pre code._highlighted {
     color: #000;
     background: #f7f7f7;
@@ -537,3 +540,10 @@
   .page-content .warning {
     background-color: #ffec68;
     padding: 0 4px; }
+  .page-content .api-docs-table {
+    border: 1px solid #dcdcdc; }
+  .page-content .api-docs-table p:last-child,
+  .page-content .api-docs-table pre:last-child {
+    margin-bottom: 0; }
+  .page-content .api-docs-breadcrumbs {
+    margin-bottom: 25px; }
