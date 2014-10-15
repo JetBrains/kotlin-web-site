@@ -109,7 +109,7 @@ import org.apache.commons.lang3.StringEscapeUtils
 When we need to combine Java and Kotlin sources, _src/main/java_ remains in the project tree, along with _src/main/kotlin_ directory. Kotlin sources will reside in _kotlin_ directory, and Java sources - in _java_ directory. It's necessary to make sure _kotlin_ directory is **marked as sources**. We should mark it manually, if it is not. 
 
 ### Building and publishing the Kotlin application for Android
-Kotlin has a small runtime and stdlib file size: the runtime has approximately {{ site.data.releases.latest.runtime_size }} and the stdlib has {{ site.data.releases.latest.stdlib_size }} (as of {{ site.data.releases.latest.version }}). It means Kotlin adds just a little to .apk file size.
+Kotlin has a small runtime file size: the library has approximately {{ site.data.releases.latest.runtime_size }} (as of {{ site.data.releases.latest.version }}). It means Kotlin adds just a little to .apk file size.
 
 We are now ready to build the application in debug mode (**\<Shift+F9\>**), run it on an emulator or device (**\<Shift+F10\>**), or build signed release of the application to upload it to Google Play or another application store.
 
