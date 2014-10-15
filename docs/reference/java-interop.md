@@ -305,7 +305,7 @@ if (Character.isLetter(a)) {
 
 Kotlin code can be called from Java easily.
 
-### Package-level functions
+### Package-Level Functions
 
 All the functions and properties declared inside a package `org.foo.bar` are put into a Java class named `org.foo.bar.BarPackage`.
 
@@ -326,6 +326,90 @@ demo.DemoPackage.bar();
 ```
 
 For the root package (the one that's called a "default package" in Java), a class named _DefaultPackage is created.
+
+### Static Methods and Fields
+
+As mentioned above, Kotlin generates static methods for package-level functions. On top of that, it also generates static methods
+for functions defined in named objects or class objects of classes and annotated as `[platformStatic]`. For example:
+
+``` kotlin
+class C {
+  class object {
+    platformStatic fun foo() {}
+    fun bar() {}
+  }
+}
+```
+
+Now, `foo()` is static in Java, while `bar()` is not:
+
+``` java
+C.foo(); // works fine
+C.bar(); // error: not a static method
+```
+
+Same for named objects:
+
+``` kotlin
+object Obj {
+    platformStatic fun foo() {}
+    fun bar() {}
+}
+```
+
+In Java:
+
+``` java
+Obj.foo(); // works fine
+Obj.bar(); // error
+Obj.INSTANCE$.bar(); // works, a call through the singleton instance
+Obj.INSTANCE$.foo(); // works too
+```
+
+Also, public properties defined in objects and class objects are turned into static fields in Java:
+
+``` kotlin
+object Obj {
+  val CONST = 1
+}
+```
+
+In Java:
+
+``` java
+int c = Obj.CONST;
+```
+
+### Handling signature clashes with [platformName]
+
+Sometimes we have a named function in Kotlin, for which we need a different JVM name the byte code.
+The most prominent example happens due to *type erasure*:
+
+``` kotlin
+fun List<String>.filterValid(): List<String>
+fun List<Int>.filterValid(): List<Int>
+```
+
+These two functions can not be defined side-by-side, because their JVM signatures are the same: `filterValid(Ljava/util/List;)Ljava/util/List;`.
+If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with `[platformName]` and specify a different name as an argument:
+
+``` kotlin
+fun List<String>.filterValid(): List<String>
+[platformName("filterValidInt")
+fun List<Int>.filterValid(): List<Int>
+```
+
+From Kotlin they will be accessible by the same name `filterValid`, btu from Java it will be `filterValid` and `filterValidInt`.
+
+The same trick applies when we need to have a property `x` alongside with a function `getX()`:
+
+``` kotlin
+val x: Int
+  [platformName("getX_prop")]
+  get() = 15
+
+fun getX() = 10
+```
 
 ### Checked Exceptions
 
@@ -361,7 +445,8 @@ we get an error message from the Java compiler, because foo() does not declare I
 
 ### Null-safety
 
-When calling Kotlin functions from Java, nobody prevents us from passing a null as a non-null parameter. That's why Kotlin generates runtime checks for all public functions that expect non-nulls. This way we get a NullPointerException in the Java code immediately.
+When calling Kotlin functions from Java, nobody prevents us from passing a null as a non-null parameter.
+That's why Kotlin generates runtime checks for all public functions that expect non-nulls. This way we get a NullPointerException in the Java code immediately.
 
 ### Properties
 
