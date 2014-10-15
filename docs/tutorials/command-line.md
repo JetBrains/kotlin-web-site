@@ -22,7 +22,7 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
 
 ### Creating and running a first application
 
-1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *app.kt* with the following
+1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following
 
    ``` kotlin
    fun main(args: Array<String>) {
@@ -33,10 +33,10 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
 2. Compile the application using the JVM compiler
 
    ``` sh
-   kotlinc-jvm app.kt -d app.jar
+   kotlinc-jvm hello.kt -include-runtime -d hello.jar
    ```
 
-   The *-d* option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a *.jar* file name.
+   The *-d* option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a *.jar* file name. The *-include-runtime* option makes the resulting *.jar* file self-contained and runnable.
    If you want to see all available options run
 
    ``` sh
@@ -46,15 +46,29 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
 3. Run the application.
 
    ``` sh
-   java -classpath app.jar:%path_to_runtime%/kotlin-runtime.jar _DefaultPackage
+   java -jar hello.jar
    ```
 
-   The classpath should contain the output from step 2 as well as the path to the *kotlin-runtime.jar* file. The _DefaultPackage is the name of the main class that
-   the Kotlin compiler generates by default.
+
+### Compiling a library
+
+   If you're developing a library to be used by other Kotlin applications, you can produce the .jar file without including the Kotlin runtime into it.
+   
+   ``` sh
+   kotlinc-jvm hello.kt -d hello.jar
+   ```
+   
+   Since binaries compiled this way depend on the Kotlin runtime you should make sure the latter is present in the classpath whenever your compiled library is used. For instance, an alternative way to execute the Hello World app would be
+   
+   ``` sh
+   java -classpath hello.jar:%path_to_runtime%/kotlin-runtime.jar _DefaultPackage
+   ```
+
+   The _DefaultPackage is the main class name that the Kotlin compiler generates by default for the root package. For a non-root package `org.acme.test` it would be `org.acme.test.TestPackage`.
 
    ![Command Line Output]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/output.png)
-
-
+   
+   
 ### Running the REPL
 
 We can run the compiler without parameters to have an interactive shell. We can type any valid Kotlin code and see the results.
