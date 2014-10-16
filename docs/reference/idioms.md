@@ -39,13 +39,13 @@ fun foo(a: Int = 0, b: String = "") { ... }
 ### Filtering a list
 
 ``` kotlin
-val positivies = list.filter { x -> x > 0 }
+val positives = list.filter { x -> x > 0 }
 ```
 
 Or alternatively, even shorter:
 
 ``` kotlin
-val positivies = list.filter { it > 0 }
+val positives = list.filter { it > 0 }
 ```
 
 ### String Interpolation
