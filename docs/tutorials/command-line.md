@@ -66,14 +66,14 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
 
    The _DefaultPackage is the main class name that the Kotlin compiler generates by default for the root package. For a non-root package `org.acme.test` it would be `org.acme.test.TestPackage`.
 
-   ![Command Line Output]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/output.png)
+    ![Command Line Output]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/output.png)
    
    
 ### Running the REPL
 
 We can run the compiler without parameters to have an interactive shell. We can type any valid Kotlin code and see the results.
 
-![Shell]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/kotlin_shell.png)
+    ![Shell]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/kotlin_shell.png)
 
 ### Using the command line to run scripts
 
