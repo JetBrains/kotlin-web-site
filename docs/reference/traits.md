@@ -26,7 +26,7 @@ trait MyTrait {
 A class or object can implement one or more traits
 
 ``` kotlin
-class Child: MyTrait {
+class Child : MyTrait {
 
    fun bar() {
       // body
@@ -47,7 +47,7 @@ trait MyTrait {
     }
 }
 
-class Child: MyTrait {
+class Child : MyTrait {
     override val property: Int = 29
 }
 ```
