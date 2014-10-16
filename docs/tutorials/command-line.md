@@ -80,6 +80,7 @@ We can run the compiler without parameters to have an interactive shell. We can 
 Kotlin can also be used as a scripting language. A script is a Kotlin source file (.kts) with top level executable code.
 
    ``` kotlin
+   
    import java.io.File
 
    val folders = File(args[0]).listFiles { file -> file.isDirectory() }
