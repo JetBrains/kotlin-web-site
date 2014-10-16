@@ -85,8 +85,9 @@ Kotlin can also be used as a scripting language. A script is a Kotlin source fil
 
    val folders = File(args[0]).listFiles { file -> file.isDirectory() }
    folders?.forEach { folder -> println(folder) }
+   
    ```
-
+   
 To run a script, we just pass the *-script* option to the compiler with the corresponding script file.
 
    ``` sh
