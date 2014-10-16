@@ -17,7 +17,7 @@ class Outer() {
   }
 }
 
-val demo = Outer.Inner().foo() // == 2
+val demo = Outer.Nested().foo() // == 2
 ```
 
 ## Inner classes
