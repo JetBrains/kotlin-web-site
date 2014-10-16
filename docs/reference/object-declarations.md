@@ -80,6 +80,8 @@ object DefaultListener : MouseAdapter() {
 }
 ```
 
+**NOTE**: object declarations can't be local (i.e. be nested in directly inside a function), but they can be nested into other object declarations or non-inner classes.
+
 ### Semantical difference between object expressions and declarations
 
 There is one important semantical difference between *object* expressions and *object* declarations:

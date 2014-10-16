@@ -96,7 +96,3 @@ fun outer() {
   }
 }                                                                             
 ```
-
-**Non-local returns are not implemented yet.**<br/>
-See the corresponding [issue](http://youtrack.jetbrains.com/issue/KT-1435).
-{:.warning}
