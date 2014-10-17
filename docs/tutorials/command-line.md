@@ -12,7 +12,7 @@ related:
 
 Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{ site.data.releases.latest.url }}). Latest release is {{ site.data.releases.latest.version }}
 
-1. Unzip the standalone compiler into a directory and optionally add the bin folder to the system path. The `bin` folder contains the following scripts:
+* Unzip the standalone compiler into a directory and optionally add the bin folder to the system path. The `bin` folder contains the following scripts:
 
     * `kotlinc-jvm`: The Kotlin compiler and shell for targeting the JVM.
     * `kotlinc-js`: The Kotlin compiler and shell for targeting JavaScript.
@@ -24,11 +24,11 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
 
 1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following
 
-``` kotlin
+   ``` kotlin
    fun main(args: Array<String>) {
        println("Hello, World!")
    }
-```
+   ```
 
 2. Compile the application using the JVM compiler
 
