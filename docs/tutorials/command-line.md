@@ -36,7 +36,7 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
    $ kotlinc-jvm hello.kt -include-runtime -d hello.jar
    ```
 
-   The *-d* option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a *.jar* file name. The *-include-runtime* option makes the resulting *.jar* file self-contained and runnable.
+   The `-d` option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a *.jar* file name. The `-include-runtime` option makes the resulting *.jar* file self-contained and runnable.
    If you want to see all available options run
 
    ```
@@ -64,7 +64,7 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
    $ java -classpath hello.jar:%path_to_runtime%/kotlin-runtime.jar _DefaultPackage
 ```
 
-   The _DefaultPackage is the main class name that the Kotlin compiler generates by default for the root package. For a non-root package `org.acme.test` it would be `org.acme.test.TestPackage`.
+   The `_DefaultPackage` is the main class name that the Kotlin compiler generates by default for the root package. For a non-root package `org.acme.test` it would be `org.acme.test.TestPackage`.
 
 ![Command Line Output]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/output.png)
    
@@ -79,14 +79,14 @@ We can run the compiler without parameters to have an interactive shell. We can 
 
 Kotlin can also be used as a scripting language. A script is a Kotlin source file (.kts) with top level executable code.
 
-```kotlin
+``` kotlin
    import java.io.File
 
    val folders = File(args[0]).listFiles { file -> file.isDirectory() }
    folders?.forEach { folder -> println(folder) }
 ```
    
-To run a script, we just pass the *-script* option to the compiler with the corresponding script file.
+To run a script, we just pass the `-script` option to the compiler with the corresponding script file.
 
 ```
    $ kotlinc-jvm -script list_folders.kts
