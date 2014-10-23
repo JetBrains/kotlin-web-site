@@ -84,6 +84,7 @@ impossible to eliminate entirely, because of generics).
 As mentioned above, platform types cannot be mentioned explicitly in the program, so there's no syntax for them in the language.
 Nevertheless, the compiler and IDE need to display them sometimes (in error messages, parameter info etc), so we have a
 mnemonic notation for them:
+
 * `T!` means "T or T?",
 * `(Mutable)Collection<T>!` means "Java collection of T may be mutable or not, may be nullable or not",
 * `Array<(out) T>!` means "Java array of T (or a subtype of T), nullable or not"
