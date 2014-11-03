@@ -9,9 +9,10 @@ title: "Returns and Jumps"
 
 Kotlin has three structural jump operators
 
-* `return`. By default returns from the nearest enclosing function.
-* `break`. Terminates the nearest enclosing loop.
-* `continue`. Proceeds to the next step of the nearest enclosing loop or to the next branch in the nearest enclosing [when expression](control-flow.html#when-expression)
+* *return*{: .keyword }. By default returns from the nearest enclosing function.
+* *break*{: .keyword }. Terminates the nearest enclosing loop.
+* *continue*{: .keyword }. Proceeds to the next step of the nearest enclosing loop or to the next branch
+in the nearest enclosing [*when*{: .keyword }-expression](control-flow.html#when-expression)
 
 ## Break and Continue Labels
 
@@ -25,7 +26,7 @@ To label an expression, we just put a label in front of it
 }
 ```
 
-Now, we can qualify a break or continue with a label:
+Now, we can qualify a *break*{: .keyword } or a *continue*{: .keyword } with a label:
 
 ``` kotlin
 @loop for (i in 1..100) {
@@ -36,13 +37,14 @@ Now, we can qualify a break or continue with a label:
 }
 ```
 
-A break qualified with a label jumps to the execution point right after the loop marked with that label. A continue proceeds to the next iteration of that loop.
+A *break*{: .keyword } qualified with a label jumps to the execution point right after the loop marked with that label.
+A *continue*{: .keyword } proceeds to the next iteration of that loop.
 
 
 ## Return at Labels
 
 With function literals, local functions and object expression, functions can be nested in Kotlin. 
-Qualified return's allow us to return from an outer function. 
+Qualified *return*{: .keyword }s allow us to return from an outer function. 
 The most important use case is returning from a function literal. Recall that when we write this:
 
 ``` kotlin
@@ -54,9 +56,9 @@ fun foo() {
 }
 ```
 
-The return expression returns from the nearest enclosing function, i.e. `foo`. 
+The *return*{: .keyword }-expression returns from the nearest enclosing function, i.e. `foo`.
 (Note that such non-local returns are supported only for function literals passed to [inline-functions](lambdas.html#inline-functions).) 
-If we need to return from a function literal, we have to label it and qualify the `return`:
+If we need to return from a function literal, we have to label it and qualify the *return*{: .keyword }:
 
 ``` kotlin
 fun foo() {

@@ -81,7 +81,8 @@ print(a == b) // Surprise! This prints "false" as Long's equals() check for othe
 
 So not only identity, but even equality would have been lost silently all over the place.
 
-As a consequence, smaller types are NOT implicitly converted to bigger types. This means that we cannot assign a value of type Byte to an Integer variable without an explicit conversion
+As a consequence, smaller types are NOT implicitly converted to bigger types.
+This means that we cannot assign a value of type `Byte` to an `Int` variable without an explicit conversion
 
 ``` kotlin
 val b: Byte = 1 // OK, literals are checked statically
@@ -157,7 +158,7 @@ Like numbers, characters are boxed when a nullable reference is needed. Identity
 
 ## Booleans
 
-The type Boolean represents booleans, and has two values: true and false.
+The type `Boolean` represents booleans, and has two values: *true*{: .keyword } and *false*{: .keyword }.
 
 Booleans are boxed if a nullable reference is needed.
 
@@ -206,7 +207,7 @@ for (i in array.indices) // no iterator created
   array[i] += 2
 ```
 
-Finally, in-checks have no overhead either
+Finally, *in*{: .keyword }-checks have no overhead either
 
 ``` kotlin
 if (i in array.indices) { // same as (i >= 0 && i < array.size)
@@ -218,7 +219,9 @@ Note: arrays are invariant. For the best performance on the JVM use specialized 
 
 ## Strings
 
-Strings are represented by the type String. Strings are immutable. Elements of a string are characters can be accessed by the indexing operation: s[i]. A string can be iterated over with a for loop:
+Strings are represented by the type `String`. Strings are immutable.
+Elements of a string are characters that can be accessed by the indexing operation: `s[i]`.
+A string can be iterated over with a *for*{: .keyword }-loop:
 
 ``` kotlin
 for (c in str) {

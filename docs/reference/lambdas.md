@@ -23,7 +23,9 @@ fun lock<T>(lock: Lock, body: () -> T): T {
 }
 ```
 
-Let's examine the code above: body has a [function type](#function-types): () -> T, so it's supposed to be a function that takes no parameters and returns a value of type T. It is invoked inside the try block, while protected by the lock, and its result is returned by the lock() function.
+Let's examine the code above: `body` has a [function type](#function-types): `() -> T`,
+so it's supposed to be a function that takes no parameters and returns a value of type `T`.
+It is invoked inside the *try*{: .keyword }-block, while protected by the `lock`, and its result is returned by the `lock()` function.
 
 If we want to call lock, we can pass another function to it as an argument (see [function references](reflection.html#function-references)):
 

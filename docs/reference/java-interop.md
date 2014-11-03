@@ -35,7 +35,8 @@ If, by any chance, someone uses that return value, it will be assigned at the ca
 
 ### Escaping for Java identifiers that are keywords in Kotlin
 
-Some of the Kotlin keywords are valid identifiers in Java: in, object, is, etc. If a Java library uses a Kotlin keyword for a method, you can still call the method
+Some of the Kotlin keywords are valid identifiers in Java: *in*{: .keyword }, *object*{: .keyword }, *is*{: .keyword }, etc.
+If a Java library uses a Kotlin keyword for a method, you can still call the method
 escaping it with the backtick (`) character
 
 ``` kotlin
@@ -44,7 +45,7 @@ foo.`is`(bar)
 
 ### Null-Safety and Platform Types
 
-Any reference in Java may be `null`, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
+Any reference in Java may be *null*{: .keyword }, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
 Types of Java declarations are treated specially in Kotlin and called *platform types*. Null-checks are relaxed for such types,
 so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
 
@@ -159,8 +160,9 @@ Kotlin's generics are a little different from Java's (see [Generics](generics.ht
   * List becomes `List<*>!`, i.e. `List<out Any?>!`
 
 Like Java's, Kotlin's generics are not retained at runtime, i.e. objects do not carry information about actual type arguments passed to their constructors,
-i.e. `ArrayList<Integer>()` is indistinguishable from `ArrayList<Character>()`. This makes it impossible to perform `is`-checks that take generics into account.
-Kotlin only allows `is`-checks for star-projected generic types:
+i.e. `ArrayList<Integer>()` is indistinguishable from `ArrayList<Character>()`.
+This makes it impossible to perform *is*{: .keyword }-checks that take generics into account.
+Kotlin only allows *is*{: .keyword }-checks for star-projected generic types:
 
 ``` kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
@@ -217,7 +219,7 @@ val array = intArray(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
 ```
 
-It's currently not possible to pass null to a method that is declared as varargs.
+It's currently not possible to pass *null*{: .keyword } to a method that is declared as varargs.
 
 ### Checked Exceptions
 
@@ -287,7 +289,7 @@ class C {
 }
 ```
 
-According to Java's rules, `finalize()` must not be `private`.
+According to Java's rules, `finalize()` must not be *private*{: .keyword }.
 
 ### Inheritance from Java classes
 At most one Java-class (and as many Java interfaces as you like) can be a supertype for a class in Kotlin. This class must go first in the supertype list.
@@ -446,8 +448,9 @@ we get an error message from the Java compiler, because foo() does not declare I
 
 ### Null-safety
 
-When calling Kotlin functions from Java, nobody prevents us from passing a null as a non-null parameter.
-That's why Kotlin generates runtime checks for all public functions that expect non-nulls. This way we get a NullPointerException in the Java code immediately.
+When calling Kotlin functions from Java, nobody prevents us from passing *null*{: .keyword } as a non-null parameter.
+That's why Kotlin generates runtime checks for all public functions that expect non-nulls.
+This way we get a `NullPointerException` in the Java code immediately.
 
 ### Properties
 
