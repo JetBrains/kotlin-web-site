@@ -27,7 +27,6 @@ A class or object can implement one or more traits
 
 ``` kotlin
 class Child : MyTrait {
-
    fun bar() {
       // body
    }
@@ -57,7 +56,7 @@ class Child : MyTrait {
 While traits cannot have state, you can access state
 
 ``` kotlin
-open class A(x : Int) {
+open class A(x: Int) {
   val y = x * 2
 }
 
@@ -89,15 +88,15 @@ trait A {
 }
 
 trait B {
-  fun foo() {print("B")}
-  fun bar() {print("bar")}
+  fun foo() { print("B") }
+  fun bar() { print("bar") }
 }
 
-class C() : A {
+class C : A {
   override fun bar() { print("bar") }
 }
 
-class D() : A, B {
+class D : A, B {
   override fun foo() {
     super<A>.foo()
     super<B>.foo()

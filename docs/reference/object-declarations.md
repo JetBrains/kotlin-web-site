@@ -16,11 +16,11 @@ To create an object of an anonymous class that inherits from some type (or types
 
 ``` kotlin
 window.addMouseListener(object : MouseAdapter() {
-  override fun mouseClicked(e : MouseEvent) {
+  override fun mouseClicked(e: MouseEvent) {
     // ...
   }
 
-  override fun mouseEntered(e : MouseEvent) {
+  override fun mouseEntered(e: MouseEvent) {
     // ...
   }
 })
@@ -30,8 +30,8 @@ If a  supertype has a constructor, appropriate constructor parameters must be pa
 
 
 ``` kotlin
-open class A(x : Int) {
-  public open val y : Int = x
+open class A(x: Int) {
+  public open val y: Int = x
 }
 
 trait B {...}
@@ -45,8 +45,8 @@ If, by any chance, we need "just an object", with no nontrivial supertypes, we c
 
 ``` kotlin
 val adHoc = object {
-  var x : Int = 0
-  var y : Int = 0
+  var x: Int = 0
+  var y: Int = 0
 }
 print(adHoc.x + adHoc.y)
 ```
@@ -57,7 +57,7 @@ print(adHoc.x + adHoc.y)
 
 ``` kotlin
 object DataProviderManager {
-  fun registerDataProvider(provider : DataProvider) {
+  fun registerDataProvider(provider: DataProvider) {
     // ...
   }
 
@@ -70,11 +70,11 @@ This is called an *object declaration*. If there's a name following the *object*
 
 ``` kotlin
 object DefaultListener : MouseAdapter() {
-  override fun mouseClicked(e : MouseEvent) {
+  override fun mouseClicked(e: MouseEvent) {
     // ...
   }
 
-  override fun mouseEntered(e : MouseEvent) {
+  override fun mouseEntered(e: MouseEvent) {
     // ...
   }
 }

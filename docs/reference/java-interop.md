@@ -17,7 +17,7 @@ Pretty much all Java code can be used without any issues
 ``` kotlin
 import java.util.*
 
-fun demo(source : List<Int>) {
+fun demo(source: List<Int>) {
   val list = ArrayList<Int>()
   // 'for'-loops work for Java collections:
   for (item in source)
@@ -225,7 +225,7 @@ In Kotlin, all exceptions are unchecked, meaning that the compiler does not forc
 So, when you call a Java method that declares a checked exception, Kotlin does not force you to do anything:
 
 ``` kotlin
-fun render(list : List<out Any?>, to : Appendable) {
+fun render(list: List<*>, to: Appendable) {
   for (item in list)
     to.append(item.toString()) // Java would require us to catch IOException here
 }
@@ -268,7 +268,7 @@ To override `clone()`, your class needs to extend `kotlin.Cloneable`:
 
 ```kotlin
 
-class Example: Cloneable {
+class Example : Cloneable {
   override fun clone(): Any { ... }
 }
 ```
@@ -312,17 +312,17 @@ All the functions and properties declared inside a package `org.foo.bar` are put
 
 ``` kotlin
 package demo
-  class Foo() {
-  }
 
-  fun bar() {
-  }
+class Foo
+
+fun bar() {
+}
 
 ```
 
 ``` java
 // Java
-new Foo();
+new demo.Foo();
 demo.DemoPackage.bar();
 ```
 
@@ -420,13 +420,13 @@ As we mentioned above, Kotlin does not have checked exceptions. So, normally, th
 package demo
 
 fun foo() {
-  throw IOException();
+  throw IOException()
 }
 ```
 
 And we want to call it from Java and catch the exception:
 
-``` kotlin
+``` java
 // Java
 try {
   demo.DemoPackage.foo();

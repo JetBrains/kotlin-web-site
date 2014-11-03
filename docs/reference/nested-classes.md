@@ -10,9 +10,9 @@ title: "Nested Classes"
 Classes can be nested in other classes
 
 ``` kotlin
-class Outer() {
-  private val bar : Int = 1
-  class Nested() {
+class Outer {
+  private val bar: Int = 1
+  class Nested {
     fun foo() = 2
   }
 }
@@ -25,9 +25,9 @@ val demo = Outer.Nested().foo() // == 2
 A class may be marked as *inner* to be able to access members of outer class. Inner classes carry a reference to an object of an outer class:
 
 ``` kotlin
-class Outer() {
-  private val bar : Int = 1
-  inner class Inner() {
+class Outer {
+  private val bar: Int = 1
+  inner class Inner {
     fun foo() = bar
   }
 }

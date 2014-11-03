@@ -12,13 +12,13 @@ title: "Higher-Order Functions and Lambdas"
 A higher-order function is a function that takes functions as parameters, or returns a function. A good example of such a function is lock() that takes a lock object and a function, acquires the lock, runs the functions and releases the lock:
 
 ``` kotlin
-fun lock<T>(lock : Lock, body : () -> T) : T {
+fun lock<T>(lock: Lock, body: () -> T): T {
   lock.lock()
   try {
     return body()
   }
   finally {
-    lock.unlock();
+    lock.unlock()
   }
 }
 ```
@@ -56,7 +56,7 @@ lock (lock) {
 Another example of a higher order function would be map() (of Map/Reduce):
 
 ``` kotlin
-fun <T, R> List<T>.map(transform : (T) -> R) : List<R> {
+fun <T, R> List<T>.map(transform: (T) -> R): List<R> {
   val result = ArrayList<R>()
   for (item in this)
     result.add(transform(item))
@@ -109,7 +109,7 @@ Isn't it what we wanted from the very beginning?
 To make the compiler do this, we need to annotate the lock() function with the inline annotation:
 
 ``` kotlin
-inline fun lock<T>(lock : Lock, body : () -> T) : T {
+inline fun lock<T>(lock: Lock, body: () -> T): T {
   // ...
 }
 ```
@@ -127,7 +127,7 @@ max(strings, {a, b -> a.length < b.length})
 Function max is a higher-order function, i.e. is takes a function value as the second argument. This second argument is an expression that is itself a function, i.e. a function literal. As a function, it is equivalent to
 
 ``` kotlin
-fun compare(a : String, b : String) : Boolean = a.length < b.length
+fun compare(a: String, b: String): Boolean = a.length < b.length
 ```
 
 ### Function Types
@@ -135,8 +135,8 @@ fun compare(a : String, b : String) : Boolean = a.length < b.length
 For a function to accept another function as a parameter, we have to specify a function type for that parameter. For example the abovementioned function max is defined as follows:
 
 ``` kotlin
-fun max<T>(collection : Collection<out T>, less : (T, T) -> Boolean) : T? {
-  var max : T? = null
+fun max<T>(collection: Collection<out T>, less: (T, T) -> Boolean): T? {
+  var max: T? = null
   for (it in collection)
     if (max == null || less(max!!, it))
       max = it
@@ -151,7 +151,7 @@ In the body, line 4, less is used as a function: it is called by passing two arg
 A function type is written as above, or may have named parameters, for documentation purposes and to enable calls with [named arguments](functions.html#named-arguments).
 
 ``` kotlin
-val compare : (x : T, y : T) -> Int = ...
+val compare: (x: T, y: T) -> Int = ...
 ```
 
 ### Syntactic form of function literals
@@ -159,7 +159,7 @@ val compare : (x : T, y : T) -> Int = ...
 The full syntactic form of function literals, i.e. literals of function types, is as follows:
 
 ``` kotlin
-val sum = {(x : Int, y : Int) : Int -> x + y}
+val sum = {(x: Int, y: Int): Int -> x + y}
 ```
 
 A function literal is always surrounded by curly braces,
@@ -169,19 +169,19 @@ the body goes after an '->' sign.
 If we leave all the optional annotations out, what's left looks like this:
 
 ``` kotlin
-val sum : (Int, Int) -> Int = {(x, y) -> x + y}
+val sum: (Int, Int) -> Int = {(x, y) -> x + y}
 ```
 
 As this is the most common case, Kotlin allows us to leave the parentheses out as well, if no type annotations are present, and so we get the short syntactic form for functional literals:
 
 ``` kotlin
-val sum : (Int, Int) -> Int = {x, y -> x + y}
+val sum: (Int, Int) -> Int = {x, y -> x + y}
 ```
 
 It very common that a function literal has only one parameter. If Kotlin can figure the signature out itself, it allows us not to declare the only parameter, and will implicitly declare it for us under the name it:
 
 ``` kotlin
-ints.filter {it > 0} // this literal is of type '(it : Int) -> Boolean'
+ints.filter {it > 0} // this literal is of type '(it: Int) -> Boolean'
 ```
 
 Note that if a function takes another function as the last parameter, the function literal argument can be passed outside the parenthesized argument list. See Higher-order functions and the grammar for [callSuffix](grammar.html#call-sufix).
@@ -205,7 +205,7 @@ In addition to ordinary functions, Kotlin supports extension functions. This kin
 An extension function differs from an ordinary one in that it has a receiver type specification.
 
 ``` kotlin
-val sum = {Int.(other : Int) : Int -> this + other}
+val sum = {Int.(other: Int): Int -> this + other}
 ```
 
 Receiver type may be specified only in the full syntactic form of a function literal (remember that parameter types and return type annotations are optional in this form).
@@ -213,7 +213,7 @@ Receiver type may be specified only in the full syntactic form of a function lit
 Such a literal has a function type with receiver
 
 ``` kotlin
-sum : Int.(other : Int) -> Int
+sum : Int.(other: Int) -> Int
 ```
 
 it can be called with a dot or in infix form (since it has only one parameter)

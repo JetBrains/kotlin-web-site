@@ -136,7 +136,7 @@ The `==` operation is special in two ways:
 * It looks up a function with a specific _signature_, not just a specific _name_. The function must be declared as
 
 ``` kotlin
-fun equals(other : Any?) : Boolean
+fun equals(other: Any?): Boolean
 ```
 
 Or an extension function with the same parameter list and return type.

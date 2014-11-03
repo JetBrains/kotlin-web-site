@@ -23,7 +23,7 @@ Consider the following code that is taken from [here](http://groovy.codehaus.org
 ``` kotlin
 import com.example.html.* // see declarations below
 
-fun result(args : Array<String>) =
+fun result(args: Array<String>) =
   html {
     head {
       title {+"XML encoding with Kotlin"}
@@ -73,7 +73,7 @@ html {
 This is actually a function call that takes a [function literal](lambdas.html) as an argument (see [this page](lambdas.html#higher-order-functions) for details). Actually, this function is defined as follows:
 
 ``` kotlin
-fun html(init : HTML.() -> Unit) : HTML {
+fun html(init: HTML.() -> Unit): HTML {
   val html = HTML()
   html.init()
   return html
@@ -110,14 +110,14 @@ The `head` and `body` functions in the `HTML` class are defined similarly to `ht
 The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
 ``` kotlin
-fun head(init : Head.() -> Unit) {
+fun head(init: Head.() -> Unit) {
   val head = Head()
   head.init()
   children.add(head)
   return head
 }
 
-fun body(init : Body.() -> Unit) {
+fun body(init: Body.() -> Unit) {
   val body = Body()
   body.init()
   children.add(body)
@@ -128,7 +128,7 @@ fun body(init : Body.() -> Unit) {
 Actually these two functions do just the same thing, so we can have a generic version, `initTag`:
 
 ``` kotlin
-  protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
+  protected fun initTag<T : Element>(tag: T, init: T.() -> Unit): T {
     tag.init()
     children.add(tag)
     return tag
@@ -138,9 +138,9 @@ Actually these two functions do just the same thing, so we can have a generic ve
 So, now our functions are very simple:
 
 ``` kotlin
-fun head(init : Head.() -> Unit) = initTag(Head(), init)
+fun head(init: Head.() -> Unit) = initTag(Head(), init)
 
-fun body(init : Body.() -> Unit) = initTag(Body(), init)
+fun body(init: Body.() -> Unit) = initTag(Body(), init)
 ```
 
 And we can use them to build `<head>` and `<body>` tags. 
@@ -199,8 +199,7 @@ class TextElement(val text: String): Element {
     }
 }
 
-abstract class Tag(val KT-1720
-                       × Pending Docs "Type-safe Groovy-style builders" wiki page appears to be out of date: String): Element {
+abstract class Tag(val date: String): Element {
     val children: ArrayList<Element> = ArrayList<Element>()
     val attributes = HashMap<String, String>()
 
@@ -282,7 +281,7 @@ In the code above there's something that looks very nice:
 
 ``` kotlin
   class A() : BodyTag("a") {
-    var href : String
+    var href: String
       get() = attributes["href"]!!
       set(value) { attributes["href"] = value }
   }
@@ -293,6 +292,6 @@ We access the `attributes` map as if it were an "associative array": just with t
 This problem is easily fixable in Kotlin:
 
 ``` kotlin
-  fun <K, V> Map<K, V>.set(key : K, value : V) = this.put(key, value)
+  fun <K, V> Map<K, V>.set(key: K, value: V) = this.put(key, value)
 ```
 So, we simply define an [extension function](extensions.html) `set(K, V)` that delegates to vanilla `put` and make a Kotlin operator available for a *Java* class.

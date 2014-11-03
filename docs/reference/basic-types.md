@@ -96,13 +96,13 @@ val i: Int = b.toInt() // OK: explicitly widened
 
 Every number type supports the following conversions:
 
-* `toByte()` : Byte
-* `toShort()` : Short
-* `toInt()` : Int
-* `toLong()` : Long
-* `toFloat()` : Float
-* `toDouble()` : Double
-* `toChar()` : Char
+* `toByte(): Byte`
+* `toShort(): Short`
+* `toInt(): Int`
+* `toLong(): Long`
+* `toFloat(): Float`
+* `toDouble(): Double`
+* `toChar(): Char`
 
 Absence of implicit conversions is rarely noticeable because we can use literals almost freely cause the type is inferred from the context, and arithmetical operations are overloaded for appropriate conversions, for example
 
@@ -146,7 +146,7 @@ Character literals go in single quotes: '1', '\n', '\uFF00'.
 We can explicitly convert a character to an Int number
 
 ``` kotlin
-fun decimalDigitValue(c: Char) : Int {
+fun decimalDigitValue(c: Char): Int {
   if (c !in '0'..'9')
     throw IllegalArgumentException("Out of range")
   return c.toInt() - '0'.toInt() // Explicit conversions to numbers
@@ -172,10 +172,10 @@ Arrays in Kotlin are represented by the Array class, that has get and set functi
 
 ``` kotlin
 class Array<T>(val size: Int, init: (Int) -> T) {
-  fun get(index: Int) : T
-  fun set(index: Int, value: T) : Unit
+  fun get(index: Int): T
+  fun set(index: Int, value: T): Unit
 
-  fun iterator() : Iterator<T>
+  fun iterator(): Iterator<T>
 
   val indices: IntRange
 }
