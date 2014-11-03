@@ -7,8 +7,9 @@ title: "Object Expressions and Declarations"
 
 # Object Expressions and Declarations
 
-Sometimes we need to create an object of a slight modification of some class, without explicitly declaring a new subclass for it. *Java* handles this case with *anonymous inner classes*.
-Kotlin slightly generalizes this concept with *object* expressions and *object* declarations.
+Sometimes we need to create an object of a slight modification of some class, without explicitly declaring a new subclass for it.
+Java handles this case with *anonymous inner classes*.
+Kotlin slightly generalizes this concept with *object expressions* and *object declarations*.
 
 ## Object expressions
 
@@ -26,7 +27,8 @@ window.addMouseListener(object : MouseAdapter() {
 })
 ```
 
-If a  supertype has a constructor, appropriate constructor parameters must be passed to it. Many supertypes may be specified as a comma-separated list after the colon:
+If a supertype has a constructor, appropriate constructor parameters must be passed to it.
+Many supertypes may be specified as a comma-separated list after the colon:
 
 
 ``` kotlin

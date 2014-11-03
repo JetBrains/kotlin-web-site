@@ -145,7 +145,7 @@ The **out** modifier is called a **variance annotation**, and  since it is provi
 This is in contrast with Java's **use-site variance** where wildcards in the type usages make the types covariant.
 
 In addition to **out**, Kotlin provides a complementary variance annotation: **in**. It makes a type parameter **contravariant**: it can only be consumed and never 
-produced. A good example of a contravariant class is Comparable:
+produced. A good example of a contravariant class is `Comparable`:
 
 ``` kotlin
 abstract class Comparable<in T> {
@@ -197,8 +197,8 @@ copy(ints, any) // Error: expects (Array<Any>, Array<Any>)
 ```
 
 Here we run into the same familiar problem: `Array<T>` is **invariant** in `T`, thus neither of `Array<Int>` and `Array<Any>` 
-is a subtype of the other. Why? Again, because copy **might** be doing bad things, i.e. it might attempt to **write**, say, a String to from, and if we actually 
-passed an array of Int there, a ClassCastException would have been thrown sometime later...
+is a subtype of the other. Why? Again, because copy **might** be doing bad things, i.e. it might attempt to **write**, say, a String to `from`,
+and if we actually passed an array of `Int` there, a `ClassCastException` would have been thrown sometime later.
 
 Then, the only thing we want to ensure is that `copy()` does not do any bad things. We want to prohibit it from **writing** to `from`, and we can:
 
@@ -292,7 +292,7 @@ fun cloneWhenGreater<T : Comparable<T>>(list: List<T>, threshold: T): List<T>
 
 Another type of generic constraints are *class object* constraints. They restrict the properties of a [class object](classes.html#class-objects) of the root class of a type being substituted for `T`.
 
-Consider the following example. Suppose, we have a class Default that has a property default that holds a **default** value to be used for this type:
+Consider the following example. Suppose, we have a class `Default` that has a property `default` that holds a **default** value to be used for this type:
 
 ``` kotlin
 abstract class Default<T> {
@@ -300,7 +300,7 @@ abstract class Default<T> {
 }
 ```
 
-For example, the class Int could extend Default in the following way:
+For example, the class `Int` could extend `Default` in the following way:
 
 ``` kotlin
 class Int {
@@ -311,7 +311,7 @@ class Int {
 }
 ```
 
-Now, let's consider a function that takes a list of [nullable](null-safety.html) `T`'s, i.e. `T?`, and replaces all the null's with the default values:
+Now, let's consider a function that takes a list of [nullable](null-safety.html) `T`'s, i.e. `T?`, and replaces all the `null`s with the default values:
 
 ``` kotlin
 fun replaceNullsWithDefaults<T : Any>(list: List<T?>): List<T> {
@@ -331,6 +331,6 @@ fun replaceNullsWithDefaults<T : Any>(list : List<T?>) : List<T>
 // ...
 ```
 
-Now the compiler knows that `T` (as a *class object* reference) has the **default** property, and we can access it.
+Now the compiler knows that `T` (as a *class object* reference) has the `default` property, and we can access it.
 
 

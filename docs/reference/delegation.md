@@ -9,7 +9,9 @@ title: "Delegation"
 
 ## Class Delegation
 
-The Delegation pattern has proven to be a good alternative to implementation inheritance, and Kotlin supports it natively requiring zero boilerplate code. A class Derived can inherit from a trait Base and delegate all of its public methods to a specified object:
+The [Delegation pattern](https://en.wikipedia.org/wiki/Delegation_pattern) has proven to be a good alternative to implementation inheritance,
+and Kotlin supports it natively requiring zero boilerplate code.
+A class `Derived` can inherit from a trait `Base` and delegate all of its public methods to a specified object:
 
 ``` kotlin
 trait Base {
