@@ -30,8 +30,9 @@ fun demo(source: List<Int>) {
 
 ### Methods returning void
 
-If a Java method returns void, it will return Unit when called from Kotlin. 
-If, by any chance, someone uses that return value, it will be assigned at the call site by the Kotlin compiler, since the value itself is known in advance (being `Unit`).
+If a Java method returns void, it will return `Unit` when called from Kotlin.
+If, by any chance, someone uses that return value, it will be assigned at the call site by the Kotlin compiler,
+since the value itself is known in advance (being `Unit`).
 
 ### Escaping for Java identifiers that are keywords in Kotlin
 
@@ -86,9 +87,9 @@ As mentioned above, platform types cannot be mentioned explicitly in the program
 Nevertheless, the compiler and IDE need to display them sometimes (in error messages, parameter info etc), so we have a
 mnemonic notation for them:
 
-* `T!` means "T or T?",
-* `(Mutable)Collection<T>!` means "Java collection of T may be mutable or not, may be nullable or not",
-* `Array<(out) T>!` means "Java array of T (or a subtype of T), nullable or not"
+* `T!` means "`T` or `T?`",
+* `(Mutable)Collection<T>!` means "Java collection of `T` may be mutable or not, may be nullable or not",
+* `Array<(out) T>!` means "Java array of `T` (or a subtype of `T`), nullable or not"
 
 ### Mapped types
 
@@ -257,7 +258,7 @@ To retrieve the type information from an object, we use the javaClass extension 
 val fooClass = foo.javaClass
 ```
 
-Instead of Java's Foo.class use javaClass<Foo>().
+Instead of Java's `Foo.class` use javaClass<Foo>().
 
 
 ``` kotlin
@@ -328,7 +329,7 @@ new demo.Foo();
 demo.DemoPackage.bar();
 ```
 
-For the root package (the one that's called a "default package" in Java), a class named _DefaultPackage is created.
+For the root package (the one that's called a "default package" in Java), a class named `_DefaultPackage` is created.
 
 ### Static Methods and Fields
 
@@ -416,7 +417,9 @@ fun getX() = 10
 
 ### Checked Exceptions
 
-As we mentioned above, Kotlin does not have checked exceptions. So, normally, the Java signatures of Kotlin functions do not declare exceptions thrown. Thus if we have a function in Kotlin like this:
+As we mentioned above, Kotlin does not have checked exceptions.
+So, normally, the Java signatures of Kotlin functions do not declare exceptions thrown.
+Thus if we have a function in Kotlin like this:
 
 ``` kotlin
 package demo
@@ -438,7 +441,8 @@ catch (IOException e) { // error: foo() does not declare IOException in the thro
 }
 ```
 
-we get an error message from the Java compiler, because foo() does not declare IOException. To work around this problem, use the [throws] annotation in Kotlin:
+we get an error message from the Java compiler, because `foo()` does not declare `IOException`.
+To work around this problem, use the `[throws]` annotation in Kotlin:
 
 ``` kotlin
 [throws(javaClass<IOException>())] fun foo() {

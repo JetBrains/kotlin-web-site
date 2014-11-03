@@ -9,7 +9,8 @@ title: "Exceptions"
 
 ## Exception Classes
 
-All exception classes in Kotlin are descendants of the class *Exception*. Every exception has a message, stack trace and an optional cause.
+All exception classes in Kotlin are descendants of the class `Exception`.
+Every exception has a message, stack trace and an optional cause.
 
 To throw an exception object, use the *throw*{: .keyword } expression
 
@@ -50,13 +51,15 @@ Contents of the *finally*{: .keyword } block do not affect the result of the exp
 
 Kotlin does not have checked exceptions. There are many reasons for this, but we will provide a simple example.
 
-The following is an example interface of the JDK implemented by *StringBuilder* class
+The following is an example interface of the JDK implemented by `StringBuilder` class
 
 ``` java
 Appendable append(CharSequence csq) throws IOException;
 ```
 
-What does this signature say? It says that every time I append a string to something (a StringBuilder, some kind of a log, a console, etc) I have to catch those IOExceptions. Why? Because it might be performing IO (Writer also implements Appendable)... So it results into this kind of code all over the place:
+What does this signature say? It says that every time I append a string to something (a `StringBuilder`, some kind of a log, a console, etc.)
+I have to catch those `IOExceptions`. Why? Because it might be performing IO (`Writer` also implements `Appendable`)...
+So it results into this kind of code all over the place:
 
 ``` kotlin
 try {

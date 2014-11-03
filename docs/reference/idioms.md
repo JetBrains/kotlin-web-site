@@ -15,7 +15,7 @@ A collection of random and frequently used idioms in Kotlin. If you have a favor
 data class Customer(val name: String, val email: String)
 ```
 
-provides a Customer class with the following functionality:
+provides a `Customer` class with the following functionality:
 
 * getters (and setters in case of *var*{: .keyword }'s) for all properties
 * `equals()`
@@ -72,7 +72,7 @@ for ((k, v) in map) {
 }
 ```
 
-k,v can be called anything.
+`k`, `v` can be called anything.
 
 ### Using ranges
 

@@ -134,4 +134,4 @@ This is a little better, but we have no or little help from the powerful code co
 list.swap(list.binarySearch(otherList.max()), list.max())
 ```
 
-But we don't want to implement all the possible methods inside the class List, right? This is where extensions help us.
+But we don't want to implement all the possible methods inside the class `List`, right? This is where extensions help us.

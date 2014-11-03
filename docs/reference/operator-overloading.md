@@ -93,7 +93,7 @@ For `in` and `!in` the procedure is the same, but the order of arguments is reve
 | `a[i, j] = b` | `a.set(i, j, b)` |
 | `a[i_1, ...,  i_n] = b` | `a.set(i_1, ..., i_n, b)` |
 
-Square brackets are translated to calls to get and set with appropriate numbers of arguments.
+Square brackets are translated to calls to `get` and `set` with appropriate numbers of arguments.
 
 | Symbol | Translated to |
 |--------|---------------|

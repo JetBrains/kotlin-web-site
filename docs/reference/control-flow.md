@@ -167,7 +167,7 @@ As mentioned before, *for*{: .keyword } iterates through anything that provides 
 
 * has an instance- or extension-function `iterator()`, whose return type
   * has an instance- or extension-function `next()`, and
-  * has an instance- or extension-function `hasNext()` that returns Boolean.
+  * has an instance- or extension-function `hasNext()` that returns `Boolean`.
 
 If you want to iterate through an array or list with an index, you can do it this way:
 

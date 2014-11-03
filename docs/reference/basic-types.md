@@ -121,7 +121,7 @@ As of bitwise operations, there're no special characters for them, but just name
 val x = (1 shl 2) and 0x000FF000
 ```
 
-Here is the complete list of bitwise operations (available for Int and Long only):
+Here is the complete list of bitwise operations (available for `Int` and `Long` only):
 
 * `shl(bits)` – signed shift left (Java's `<<`)
 * `shr(bits)` – signed shift right (Java's `>>`)
@@ -133,7 +133,7 @@ Here is the complete list of bitwise operations (available for Int and Long only
 
 ## Characters
 
-Characters are represented by the type Char. They can not be treated directly as numbers
+Characters are represented by the type `Char`. They can not be treated directly as numbers
 
 ``` kotlin
 fun check(c: Char) {
@@ -143,8 +143,8 @@ fun check(c: Char) {
 }
 ```
 
-Character literals go in single quotes: '1', '\n', '\uFF00'.
-We can explicitly convert a character to an Int number
+Character literals go in single quotes: `'1'`, `'\n'`, `'\uFF00'`.
+We can explicitly convert a character to an `Int` number
 
 ``` kotlin
 fun decimalDigitValue(c: Char): Int {
@@ -169,7 +169,7 @@ Built-in operations on booleans include
 
 ## Arrays
 
-Arrays in Kotlin are represented by the Array class, that has get and set functions (that turn into [] by operator overloading conventions), and size, along with a few other useful member functions:
+Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` functions (that turn into `[]` by operator overloading conventions), and `size`, along with a few other useful member functions:
 
 ``` kotlin
 class Array<T>(val size: Int, init: (Int) -> T) {
@@ -188,9 +188,9 @@ To create an array we can call its constructor providing the array size and a fu
 val asc = Array<Int>(5, {i -> i * i}) // Creates an array [0, 1, 4, 9, 16]
 ```
 
-Or, alternatively, we can use a library function array() and pass the item values to it, so that array(1, 2, 3) creates an array [1, 2, 3].
+Or, alternatively, we can use a library function `array()` and pass the item values to it, so that `array(1, 2, 3)` creates an array [1, 2, 3].
 
-As we said above, the [] operation stands for calls to member functions get() and set(). When compiling to JVM byte codes, the compiler optimizes
+As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`. When compiling to JVM byte codes, the compiler optimizes
 access to arrays so that there's no overhead introduced, and all operations work exactly like in Java
 
 ``` kotlin
@@ -239,7 +239,7 @@ val s = "Hello, world!\n"
 
 Escaping is done in the conventional way, with a backslash.
 
-A raw string is delimited by a triple quote ("""), contains no escaping and can contain newlines and any other characters:
+A raw string is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
 
 ``` kotlin
 val text = """

@@ -14,9 +14,9 @@ Kotlin's type system is aimed at eliminating null references from code, also kno
 One of the most common pitfalls in many programming languages, including Java is that of accessing a member of a null references, resulting in null reference exceptions. In Java this
 would be the equivalent of a `NullPointerException` or NPE for short.
 
-Kotlin's type system is aimed to eliminate NullPointerException's from our code. The only possible causes of NPE's may be
+Kotlin's type system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE's may be
 
-* An explicit call to throw NullPointerException()
+* An explicit call to `throw NullPointerException()`
 * External Java Code has caused it
 * There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere)
 
@@ -28,20 +28,20 @@ var a: String = "abc"
 a = null // compilation error
 ```
 
-To allow nulls, we can declare a variable as nullable string, written String?:
+To allow nulls, we can declare a variable as nullable string, written `String?`:
 
 ``` kotlin
 var b: String? = "abc"
 b = null // ok
 ```
 
-Now, if you call a method on a, it's guaranteed not to cause an NPE, so you can safely say
+Now, if you call a method on `a`, it's guaranteed not to cause an NPE, so you can safely say
 
 ``` kotlin
 val l = a.length()
 ```
 
-But if you want to call the same method on b, that would not be safe, and the compiler reports an error:
+But if you want to call the same method on `b`, that would not be safe, and the compiler reports an error:
 
 ``` kotlin
 val l = b.length() // error: variable 'b' can be null
@@ -72,7 +72,7 @@ which has a backing field and is not overridable), because otherwise it might ha
 
 ## Safe Calls
 
-Your second option is the safe call operator, written ?.:
+Your second option is the safe call operator, written `?.`:
 
 ``` kotlin
 b?.length()
@@ -90,7 +90,7 @@ Such a chain returns *null*{: .keyword } if any of the properties in it is null.
 
 ## Elvis Operator
 
-When we have a nullable reference r, we can say "if r is not null, use it, otherwise use some non-null value x":
+When we have a nullable reference `r`, we can say "if `r` is not null, use it, otherwise use some non-null value `x`":
 
 ``` kotlin
 val l: Int = if (b != null) b.length() else -1
@@ -102,11 +102,13 @@ Along with the complete *if*{: .keyword }-expression, this can be expressed with
 val l = b?.length() ?: -1
 ```
 
-If the expression to the left of ?: is not null, the elvis operator returns it, otherwise it returns the expression to the right. Note that the right-hand side expression is evaluated only if the left-hand side is null.
+If the expression to the left of `?:` is not null, the elvis operator returns it, otherwise it returns the expression to the right.
+Note that the right-hand side expression is evaluated only if the left-hand side is null.
 
-## The !! Operator
+## The `!!` Operator
 
-The third option is for NPE-lovers. We can write b!!, and this will return a non-null value of b (e.g., a String in our example) or throw an NPE if b is null:
+The third option is for NPE-lovers. We can write `b!!`, and this will return a non-null value of `b`
+(e.g., a `String` in our example) or throw an NPE if `b` is null:
 
 ``` kotlin
 val l = b!!.length()
@@ -114,7 +116,7 @@ val l = b!!.length()
 
 Thus, if you want an NPE, you can have it, but you have to ask for it explicitly, and it does not appear out of the blue.
 
-By the way, !! is added for conciseness, and formerly was emulated by an extension function from the standard library, defined as follows:
+By the way, `!!` is added for conciseness, and formerly was emulated by an extension function from the standard library, defined as follows:
 
 ``` kotlin
 inline fun <T : Any> T?.sure(): T =
