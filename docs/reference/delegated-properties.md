@@ -85,8 +85,7 @@ For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally
  
 ## Standard Delegates
 
-
-The `kotlin.properties.Delegates` object from the standard provides factory methods for several useful kinds of delegates.
+The `kotlin.properties.Delegates` object from the standard library provides factory methods for several useful kinds of delegates.
 
 ### Lazy
 

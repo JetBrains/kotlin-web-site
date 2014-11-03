@@ -70,7 +70,7 @@ fun foo() {
 ```
 
 Now, it returns only from the function literal. Often times it is more convenient to use implicits labels: 
-such a label has the same names as the function to which the lambda is passed:  
+such a label has the same name as the function to which the lambda is passed:
 
 ``` kotlin
 fun foo() {

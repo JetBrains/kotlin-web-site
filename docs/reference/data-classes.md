@@ -7,7 +7,7 @@ title: "Data Classes"
 
 # Data Classes
 
-We frequently create classes that do nothing but hold data. In such classes some functionality if often mechanically 
+We frequently create classes that do nothing but hold data. In such classes some functionality is often mechanically
 derivable from the data they hold. In Kotlin a class can be annotated as `data`:
  
 ``` kotlin
@@ -18,7 +18,7 @@ This is called a _data class_. The compiler automatically derives the following 
 the primary constructor_:
   
   * `equals()`/`hashCode()` pair, 
-  * `toString()` of the form `"User(name=a, age=1)"`,
+  * `toString()` of the form `"User(name=John, age=42)"`,
   * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order or declaration,
   * `copy()` function (see below).
   
@@ -56,4 +56,4 @@ println("$name, $age years of age") // prints "Jane, 35 years of age"
 ## Standard Data Classes
 
 The standard library provides `Pair` and `Triple`. In most cases, though, named data classes are a better design choice, 
-because they make the code more readable by providing meaningful names for properties.  
+because they make the code more readable by providing meaningful names for properties.

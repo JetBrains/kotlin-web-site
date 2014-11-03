@@ -37,7 +37,7 @@ fun demo(x: Any) {
 }
 ```
 
-The compiler is smart enough to know a cast to be safe is a negative check leads to a return:
+The compiler is smart enough to know a cast to be safe if a negative check leads to a return:
 
 ``` kotlin
   if (x !is String) return

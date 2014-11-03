@@ -12,13 +12,13 @@ title: "Exceptions"
 All exception classes in Kotlin are descendants of the class `Exception`.
 Every exception has a message, stack trace and an optional cause.
 
-To throw an exception object, use the *throw*{: .keyword } expression
+To throw an exception object, use the *throw*{: .keyword }-expression
 
 ``` kotlin
 throw MyException("Hi There!")
 ```
 
-To catch an exception, use the *try*{: .keyword } expression
+To catch an exception, use the *try*{: .keyword }-expression
 
 ``` kotlin
 try {
@@ -72,14 +72,14 @@ catch (IOException e) {
 
 And this is no good, see [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 65: *Don't ignore exceptions*.
 
-Bruce Eckel says in [Does Java need Checked Exceptions?](http://www.mindview.net/Etc/Discussions/CheckedExceptions) :
+Bruce Eckel says in [Does Java need Checked Exceptions?](http://www.mindview.net/Etc/Discussions/CheckedExceptions):
 
-Examination of small programs leads to the conclusion that requiring exception specifications could both enhance developer productivity and enhance code quality, but experience with large software projects suggests a different result – decreased productivity and little or no increase in code quality.
+> Examination of small programs leads to the conclusion that requiring exception specifications could both enhance developer productivity and enhance code quality, but experience with large software projects suggests a different result – decreased productivity and little or no increase in code quality.
 
 Other citations of this sort:
 
-[Java's checked exceptions were a mistake](http://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html) (Rod Waldhoff)
-[The Trouble with Checked Exceptions](http://www.artima.com/intv/handcuffs.html) (Anders Hejlsberg]
+* [Java's checked exceptions were a mistake](http://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html) (Rod Waldhoff)
+* [The Trouble with Checked Exceptions](http://www.artima.com/intv/handcuffs.html) (Anders Hejlsberg)
 
 ## Java Interoperability
 

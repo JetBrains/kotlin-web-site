@@ -126,7 +126,7 @@ Some non-primitive built-in classes are also mapped:
 | `java.lang.Throwable`    | `kotlin.Throwable!`    |
 {:.zebra}
 
-Collection types may be read-only or mutable in Kotlin, so Java's collection are mapped as follows
+Collection types may be read-only or mutable in Kotlin, so Java's collections are mapped as follows
 (all Kotlin types in this table reside in the package `kotlin`):
 
 | **Java type** | **Kotlin read-only type**  | **Kotlin mutable type** | **Loaded platform type** |
@@ -403,7 +403,7 @@ fun List<String>.filterValid(): List<String>
 fun List<Int>.filterValid(): List<Int>
 ```
 
-From Kotlin they will be accessible by the same name `filterValid`, btu from Java it will be `filterValid` and `filterValidInt`.
+From Kotlin they will be accessible by the same name `filterValid`, but from Java it will be `filterValid` and `filterValidInt`.
 
 The same trick applies when we need to have a property `x` alongside with a function `getX()`:
 
