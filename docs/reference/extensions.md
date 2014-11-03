@@ -16,7 +16,7 @@ To declare an extension function, we need to prefix its name with a _receiver ty
 The following adds a `swap` function to `MutableList`:
 
 ``` kotlin
-fun MutableList<Int>.swap(x : Int, y : Int) {
+fun MutableList<Int>.swap(x: Int, y: Int) {
   val tmp = this[x] // 'this' corresponds to the list
   this[x] = this[y]
   this[y] = tmp
@@ -34,7 +34,7 @@ l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
 Of course, this function makes sense for any `MutableList<T>`, and we can make it generic:
 
 ``` kotlin
-fun <T> MutableList<T>.swap(x : Int, y : Int) {
+fun <T> MutableList<T>.swap(x: Int, y: Int) {
   val tmp = this[x] // 'this' corresponds to the list
   this[x] = this[y]
   this[y] = tmp
@@ -79,7 +79,7 @@ extension properties**. Their behavior can only be defined by explicitly providi
 Example:
 
 ``` kotlin
-val Foo.bar = 1 // ERROR: initializers are not allowed for extension properties
+val Foo.bar = 1 // error: initializers are not allowed for extension properties
 ```
     
 

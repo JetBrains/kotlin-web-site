@@ -22,9 +22,8 @@ altering the implementation.
 
 ``` kotlin
 public val foo: Int = 5    // explicit return type required
-public fun bar() : Int = 5 // explicit return type required     
-public fun bar() {}        // block body: return type is Unit and can't be changed 
-                           // accidentally, so not required      
+public fun bar(): Int = 5  // explicit return type required
+public fun bar() {}        // block body: return type is Unit and can't be changed accidentally, so not required
 ```
 
 Below please find explanations of these for different type of declaring scopes.  
@@ -114,4 +113,4 @@ visible within the same module).
      
 ### Local declarations
      
-Local variables, functions and classes can not have visibility modifiers.     
+Local variables, functions and classes can not have visibility modifiers.

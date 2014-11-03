@@ -55,14 +55,14 @@ Range<T> denotes an interval in the mathematical sense, defined for comparable t
 
 Progression<N> denotes arithmetic progression, defined for number types. It has start, end and non-zero increment. Progression<N> is a subtype of Iterable<N>, so it can be used in for-loops and functions like map, filter, etc. First element is start, every next element equals previous plus increment. Iteration over Progression is equivalent to an indexed for-loop in Java/JavaScript:
 
-``` kotlin
+``` java
 // if increment > 0
 for (int i = start; i <= end; i += increment) {
   // ...
 }
 ```
 
-``` kotlin
+``` java
 // if increment < 0
 for (int i = start; i >= end; i += increment) {
   // ...
@@ -114,7 +114,7 @@ There are two base traits: Range and Progression.
 Range trait defines a range, or interval in mathematical sense. It has two endpoints, start and end, and also contains() function which checks if range contains given number (it also can be used as in/!in operator, which is neater). Start and end are included in range. If start == end, range contains exactly one element. If start > end, range is empty.
 
 ``` kotlin
-trait Range<T: Comparable<T>> {
+trait Range<T : Comparable<T>> {
   val start: T
   val end: T
   fun contains(element: T): Boolean
@@ -124,7 +124,7 @@ trait Range<T: Comparable<T>> {
 Progression defines a kind of arithmetical progression. It has start (first element of progression), end (last element which can be included) and increment (difference between each progression element and previous, non-zero). But the main feature of it is that the progression can be iterated over, so it is a subtype of Iterable. end is not necessary the last element of progression. Also, progression can be empty if start < end && increment < 0 or start > end && increment > 0.
 
 ``` kotlin
-trait Progression<N: Number>: Iterable<N> {
+trait Progression<N : Number> : Iterable<N> {
   val start: N
   val end: N
   val increment: Number // not N, because for Char we'll want it to be negative sometimes
@@ -134,7 +134,7 @@ trait Progression<N: Number>: Iterable<N> {
 
 Iteration over Progression is equivalent of indexed for-loop in Java:
 
-``` kotlin
+``` java
 // if increment > 0
 for (int i = start; i <= end; i += increment) {
   // ...
@@ -173,7 +173,7 @@ class IntRange(override val start: Int, override val end: Int): Range<Int>, Prog
 ComparableRange is also simple (remember that comparisons are translated into invocation of compareTo()):
 
 ``` kotlin
-class ComparableRange<T: Comparable<T>>(override val start: T, override val end: T): Range<T> {
+class ComparableRange<T : Comparable<T>>(override val start: T, override val end: T): Range<T> {
   override fun contains(element: T): Boolean = start <= element && element <= end
 }
 ```
@@ -188,9 +188,9 @@ Set of rangeTo() functions in number types simply call constructors of *Range cl
 ``` kotlin
 class Int {
   //...
-  fun rangeTo(other: Byte) : IntRange = IntRange(this, other)
+  fun rangeTo(other: Byte): IntRange = IntRange(this, other)
   //...
-  fun rangeTo(other: Int) : IntRange = IntRange(this, other)
+  fun rangeTo(other: Int): IntRange = IntRange(this, other)
   //...
 }
 ```
@@ -214,11 +214,11 @@ fun Byte.downTo(other: Int): IntProgression {
 Set of reversed() extension functions are defined for each *Range and *Progression classes, and all of them return reversed progressions.
 
 ``` kotlin
-IntProgression.reversed(): IntProgression {
+fun IntProgression.reversed(): IntProgression {
   return IntProgression(end, start, -increment)
 }
 
-IntRange.reversed(): IntProgression {
+fun IntRange.reversed(): IntProgression {
   return IntProgression(end, start, -1)
 }
 ```

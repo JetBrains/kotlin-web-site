@@ -36,7 +36,7 @@ class A { // implicit label @A
       }
 
 
-      val funLit2 = { (s:String) ->
+      val funLit2 = { (s: String) ->
         val d1 = this // foo()'s receiver, since enclosing function literal doesn't have any receiver
       }
     }

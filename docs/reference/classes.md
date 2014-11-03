@@ -106,9 +106,9 @@ Please consult the [Java interoperability](java-interop.html#object-methods) sec
 To declare an explicit supertype, we place the type after a colon in the class header:
 
 ``` kotlin
-open class Base(p : Int)
+open class Base(p: Int)
 
-class Derived(p : Int) : Base(p)
+class Derived(p: Int) : Base(p)
 ```
 
 As you can see, the base type can (and must) be initialized right there,
@@ -222,7 +222,7 @@ For example, to replace a constructor with a Factory method, we make the constru
 To address this issue (and to provide some other interesting features), Kotlin introduces a concept of a class object (the closest analog in other languages would be Companion objects in Scala). Roughly speaking, a class object for class C is an object (in the sense of [Object declaration](object-declarations.html#object-declarations)) that is associated to C. There may be not more than one class object for each class. A class object is declared inside its associated class, and thus it can access its private members. A class object for C itself is (usually) not an instance of C. For example:
 
 ``` kotlin
-class C() {
+class C {
   class object {
     fun create() = C()
   }
@@ -237,12 +237,12 @@ At first you may think that this is just a way of grouping static members of a c
 
 ``` kotlin
 abstract class Factory<out T> {
-  abstract fun create() : T
+  abstract fun create(): T
 }
 
-open class C() {
+class C {
   class object : Factory<C>() {
-    override fun create() : C = C()
+    override fun create(): C = C()
   }
 }
 

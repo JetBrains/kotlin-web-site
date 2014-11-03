@@ -10,7 +10,7 @@ title: "Generics"
 As in *Java*, classes in Kotlin may have type parameters:
 
 ``` kotlin
-class Box<T>(t : T) {
+class Box<T>(t: T) {
   var value = t
 }
 ```
@@ -18,7 +18,7 @@ class Box<T>(t : T) {
 In general, to create an instance of such a class, we need to provide the type arguments:
 
 ``` kotlin
-val box : Box<Int> = Box<Int>(1)
+val box: Box<Int> = Box<Int>(1)
 ```
 
 But if the parameters may be inferred, e.g. from the constructor arguments or by some other means, one is allowed to omit the type arguments:
@@ -126,11 +126,11 @@ To do this we provide the **out** modifier:
 
 ``` kotlin
 abstract class Source<out T> {
-  fun nextT() : T
+  fun nextT(): T
 }
 
-fun demo(strs : Source<String>) {
-  val objects : Source<Any> = strs // This is OK, since T is an out-parameter
+fun demo(strs: Source<String>) {
+  val objects: Source<Any> = strs // This is OK, since T is an out-parameter
   // ...
 }
 ```
@@ -149,13 +149,13 @@ produced. A good example of a contravariant class is Comparable:
 
 ``` kotlin
 abstract class Comparable<in T> {
-  fun compareTo(other : T) : Int
+  fun compareTo(other: T): Int
 }
 
-fun demo(x : Comparable<Number>) {
+fun demo(x: Comparable<Number>) {
   x.compareTo(1.0) // 1.0 has type Double, which is a subtype of Number
   // Thus, we can assign x to a variable of type Comparable<Double>
-  val y : Comparable<Double> = x // OK!
+  val y: Comparable<Double> = x // OK!
 }
 ```
 
@@ -172,17 +172,17 @@ It is very convenient to declare a type parameter T as *out* and have no trouble
 A good example of this is Array:
 
 ``` kotlin
-class Array<T>(val length : Int) {
-  fun get(index : Int) : T { /* ... */ }
-  fun set(index : Int, value : T) { /* ... */ }
+class Array<T>(val length: Int) {
+  fun get(index: Int): T { /* ... */ }
+  fun set(index: Int, value: T) { /* ... */ }
 }
 ```
 
 This class cannot be either co\- or contravariant in `T`. And this imposes certain inflexibilities. Consider the following function:
 
 ``` kotlin
-fun copy(from : Array<Any>, to : Array<Any>) {
-  assert {from.length == to.length}
+fun copy(from: Array<Any>, to: Array<Any>) {
+  assert(from.length == to.length)
   for (i in from.indices)
     to[i] = from[i]
 }
@@ -191,7 +191,7 @@ fun copy(from : Array<Any>, to : Array<Any>) {
 This function is supposed to copy item from one array to another. Let's try to apply it in practice:
 
 ``` kotlin
-val ints : Array<Int> = array(1, 2, 3)
+val ints: Array<Int> = array(1, 2, 3)
 val any = Array<Any>(3)
 copy(ints, any) // Error: expects (Array<Any>, Array<Any>)
 ```
@@ -203,7 +203,7 @@ passed an array of Int there, a ClassCastException would have been thrown someti
 Then, the only thing we want to ensure is that `copy()` does not do any bad things. We want to prohibit it from **writing** to `from`, and we can:
 
 ``` kotlin
-fun copy(from : Array<out Any>, to : Array<Any>) {
+fun copy(from: Array<out Any>, to: Array<Any>) {
  // ...
 }
 ```
@@ -215,7 +215,7 @@ but in a slightly simpler way.
 You can project a type with **in** as well:
 
 ``` kotlin
-fun fill(dest : Array<in String>, value : String) {
+fun fill(dest: Array<in String>, value: String) {
   // ...
 }
 ```
@@ -237,7 +237,7 @@ for most cases. Kotlin provides a shorthand syntax for this, that we call a **st
 Not only classes can have type parameters. Functions can, too. Usually, we place the type parameters in angle brackets **after** the name of the function:
 
 ``` kotlin
-fun singletonList<T>(item : T) : List<T> {
+fun singletonList<T>(item: T): List<T> {
   // ...
 }
 ```
@@ -266,7 +266,7 @@ The set of all possible types that can be substituted for a given type parameter
 The most common type of constraint is an **upper bound** that corresponds to *Java*'s *extends* keyword:
 
 ``` kotlin
-fun sort<T : Comparable<T>>(list : List<T>) {
+fun sort<T : Comparable<T>>(list: List<T>) {
   // ...
 }
 ```
@@ -282,7 +282,7 @@ The default upper bound (if none specified) is `Any?`. Only one upper bound can 
 If the same type parameter needs more than one upper bound, we need a separate **where**\-clause:
 
 ``` kotlin
-fun cloneWhenGreater<T : Comparable<T>>(list : List<T>, threshold : T) : List<T>
+fun cloneWhenGreater<T : Comparable<T>>(list: List<T>, threshold: T): List<T>
     where T : Cloneable {
   return list when {it > threshold} map {it.clone()}
 }
@@ -296,7 +296,7 @@ Consider the following example. Suppose, we have a class Default that has a prop
 
 ``` kotlin
 abstract class Default<T> {
-  val default : T
+  val default: T
 }
 ```
 
@@ -304,7 +304,7 @@ For example, the class Int could extend Default in the following way:
 
 ``` kotlin
 class Int {
-  class object : Default<Int> {
+  class object : Default<Int>() {
     override val default = 0
   }
   // ...
@@ -314,7 +314,7 @@ class Int {
 Now, let's consider a function that takes a list of [nullable](null-safety.html) `T`'s, i.e. `T?`, and replaces all the null's with the default values:
 
 ``` kotlin
-fun replaceNullsWithDefaults<T : Any>(list : List<T?>) : List<T> {
+fun replaceNullsWithDefaults<T : Any>(list: List<T?>): List<T> {
   return list map {
     if (it == null)
       T.default // Error: For now, we don't know if T's class object has such a property

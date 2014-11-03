@@ -28,7 +28,7 @@ Property delegates don’t have to implement any interface, but they have to pro
 For example:
 
 ``` kotlin
-class Delegate() {
+class Delegate {
   fun get(thisRef: Any?, prop: PropertyMetadata): String {
     return "$thisRef, thank you for delegating '${prop.name}' to me!"
   }

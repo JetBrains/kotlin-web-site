@@ -24,14 +24,14 @@ In Kotlin the type system distinguishes between references that can hold null (n
 For example, a regular variable of type String can not hold null:
 
 ``` kotlin
-var a : String = "abc"
+var a: String = "abc"
 a = null // compilation error
 ```
 
 To allow nulls, we can declare a variable as nullable string, written String?:
 
 ``` kotlin
-var b : String? = "abc"
+var b: String? = "abc"
 b = null // ok
 ```
 
@@ -90,7 +90,7 @@ Such a chain returns null if any of the properties in it is null.
 When we have a nullable reference r, we can say "if r is not null, use it, otherwise use some non-null value x":
 
 ``` kotlin
-val l : Int = if (b != null) b.length() else -1
+val l: Int = if (b != null) b.length() else -1
 ```
 
 Along with the complete if expression, this can be expressed with the Elvis operator, written ?::
@@ -114,7 +114,7 @@ Thus, if you want an NPE, you can have it, but you have to ask for it explicitly
 By the way, !! is added for conciseness, and formerly was emulated by an extension function from the standard library, defined as follows:
 
 ``` kotlin
-inline fun <T : Any> T?.sure() : T =
+inline fun <T : Any> T?.sure(): T =
   if (this == null)
     throw NullPointerException()
   else
@@ -126,6 +126,6 @@ inline fun <T : Any> T?.sure() : T =
 Regular casts may result into a ClassCastException if the object is not of the target type. Another option is to use safe casts that return null is the attempt was not successful:
 
 ``` kotlin
-val aInt : Int? = a as? Int
+val aInt: Int? = a as? Int
 ```
 

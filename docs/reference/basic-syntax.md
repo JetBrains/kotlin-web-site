@@ -189,8 +189,8 @@ fun getStringLength(obj: Any): Int? {
   if (obj !is String)
     return null
 
- // `obj` is automatically cast to `String` in this branch
- return obj.length
+  // `obj` is automatically cast to `String` in this branch
+  return obj.length
 }
 ```
 
@@ -198,11 +198,11 @@ or even
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
- // `obj` is automatically cast to `String` on the right-hand side of `&&`
+  // `obj` is automatically cast to `String` on the right-hand side of `&&`
   if (obj is String && obj.length > 0)
     return obj.length
 
- return null
+  return null
 }
 ```
 
@@ -214,14 +214,14 @@ See [Classes](classes.html) and [Type casts](typecasts.html).
 fun main(args: Array<String>) {
   for (arg in args)
     print(arg)
+}
 ```
 
 or
 
 ``` kotlin
 for (i in args.indices)
-    print(args[i])
-}
+  print(args[i])
 ```
 
 See [for loop](control-flow.html#for-loops).

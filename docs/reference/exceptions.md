@@ -23,7 +23,7 @@ To catch an exception, use the *try*{: .keyword } expression
 try {
   // some code
 }
-catch (e : SomeException) {
+catch (e: SomeException) {
   // handler
 }
 finally {
@@ -39,7 +39,7 @@ should be present.
 *try*{: .keyword } is an expression, i.e. it may have a return value.
 
 ``` kotlin
-val a : Int? = try { parseInt(input) } catch (e : NumberFormatException) { null }
+val a: Int? = try { parseInt(input) } catch (e: NumberFormatException) { null }
 ```
 
 The returned value of a *try*{: .keyword } expression is either the last expression in the *try*{: .keyword } block or the
@@ -51,7 +51,7 @@ Kotlin does not have checked exceptions. There are many reasons for this, but we
 
 The following is an example interface of the JDK implemented by *StringBuilder* class
 
-``` kotlin
+``` java
 Appendable append(CharSequence csq) throws IOException;
 ```
 
@@ -59,7 +59,7 @@ What does this signature say? It says that every time I append a string to somet
 
 ``` kotlin
 try {
-  log.append(message);
+  log.append(message)
 }
 catch (IOException e) {
   // Must be safe

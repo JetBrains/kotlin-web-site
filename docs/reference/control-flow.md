@@ -18,7 +18,7 @@ if (a < b)
   max = b 
  
 // With else 
-var max : Int 
+var max: Int
 if (a > b) 
   max = a 
 else 
@@ -132,7 +132,7 @@ term match {
 This can be rewritten in Kotlin with as follows:
 
 ``` kotlin
-when(term) {
+when (term) {
   is Fun -> { if (tem.v != term.body) continue; print(x) }
   else -> print("Nope!")
 }
@@ -148,9 +148,12 @@ For loop iterates through anything that provides an iterator. The syntax is as f
 ``` kotlin
 for (item in collection)
   print(item)
+```
+
 The body can be a block.
 
-for (item : Int in ints) {
+``` kotlin
+for (item: Int in ints) {
   // ...
 }
 ```
@@ -177,13 +180,13 @@ See the [grammar for for](grammar.html#for).
 While and do..while work as usual
 
 ``` kotlin
-while(x > 0) {
+while (x > 0) {
   x--
 }
 
 do {
   val y = retrieveData()
-} while(y != null) // y is visible here!
+} while (y != null) // y is visible here!
 ```
 
 See the [grammar for while](grammar.html#while).
