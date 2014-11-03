@@ -55,7 +55,7 @@ print(adHoc.x + adHoc.y)
 
 ## Object declarations
 
-[Singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a very useful pattern, and Kotlin (after *Scala*) makes it easy to declare singletons:
+[Singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a very useful pattern, and Kotlin (after Scala) makes it easy to declare singletons:
 
 ``` kotlin
 object DataProviderManager {
@@ -87,9 +87,9 @@ object DefaultListener : MouseAdapter() {
 
 ### Semantical difference between object expressions and declarations
 
-There is one important semantical difference between *object* expressions and *object* declarations:
+There is one important semantical difference between object expressions and object declarations:
 
-* *object* declarations are initialized lazily, when accessed for the first time
-* *object* expressions are executed (and initialized) immediately, where they are used
+* object declarations are initialized **lazily**, when accessed for the first time
+* object expressions are executed (and initialized) **immediately**, where they are used
 
 

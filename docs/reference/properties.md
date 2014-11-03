@@ -113,7 +113,7 @@ val isEmpty: Boolean
 
 ### Backing Properties
 
-If you want to do something that does not fit into this "implicit backing field" scheme, you can always fall back to having a "backing property":
+If you want to do something that does not fit into this "implicit backing field" scheme, you can always fall back to having a *backing property*:
 
 ``` kotlin
 private var _table: Map<String, Int>? = null

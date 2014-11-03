@@ -12,7 +12,7 @@ Builders allow for defining data in a semi-declarative way. Builders are good fo
 [describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081) and more...
 
 For many use cases, Kotlin allows to *type-check* builders, which makes them even more attractive than the 
-dynamically-typed implementation made in *Groovy* itself.
+dynamically-typed implementation made in Groovy itself.
 
 For the rest of the cases, Kotlin supports Dynamic types builders.
 
