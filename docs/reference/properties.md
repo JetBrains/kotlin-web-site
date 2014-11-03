@@ -129,7 +129,7 @@ In all respects, this is just the same as in Java since access to private proper
 
 ## Overriding Properties
 
-See [Overriding Member](classes.html#overriding-members)
+See [Overriding Members](classes.html#overriding-members)
 
 ## Delegated Properties
   
