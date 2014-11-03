@@ -66,7 +66,8 @@ object DataProviderManager {
 }
 ```
 
-This is called an *object declaration*. If there's a name following the *object* keyword, we are not talking about an _expression_ any more. We cannot assign such a thing to a variable, but we can refer to it by its name. Such objects can have supertypes:
+This is called an *object declaration*. If there's a name following the *object*{: .keyword } keyword, we are not talking about an _expression_ anymore.
+We cannot assign such a thing to a variable, but we can refer to it by its name. Such objects can have supertypes:
 
 ``` kotlin
 object DefaultListener : MouseAdapter() {

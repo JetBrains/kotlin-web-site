@@ -9,7 +9,8 @@ title: "Properties and Fields"
 
 ## Declaring Properties
 
-Classes in Kotlin can have properties. These can be declared as mutable, using the *var*{: .keyword } keyword or read-only using the *val*{: .keyword } keyword.
+Classes in Kotlin can have properties.
+These can be declared as mutable, using the *var*{: .keyword } keyword or read-only using the *val*{: .keyword } keyword.
 
 ``` kotlin
 public class Address { 

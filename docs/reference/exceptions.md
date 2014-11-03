@@ -31,8 +31,8 @@ finally {
 }
 ```
 
-There may be zero or more *catch*{: .keyword } blocks. *finally*{: .keyword } blocks may be omitted. However at least one *catch*{: .keyword } or *finally*{: .keyword } block
-should be present.
+There may be zero or more *catch*{: .keyword } blocks. *finally*{: .keyword } blocks may be omitted.
+However at least one *catch*{: .keyword } or *finally*{: .keyword } block should be present.
 
 ### Try is an expression
 
@@ -42,8 +42,9 @@ should be present.
 val a: Int? = try { parseInt(input) } catch (e: NumberFormatException) { null }
 ```
 
-The returned value of a *try*{: .keyword } expression is either the last expression in the *try*{: .keyword } block or the
-last expression in the *catch*{: .keyword } block (or blocks). Contents of the *finally*{: .keyword } block do not affect the result of the expression.
+The returned value of a *try*{: .keyword }-expression is either the last expression in the *try*{: .keyword } block or the
+last expression in the *catch*{: .keyword } block (or blocks).
+Contents of the *finally*{: .keyword } block do not affect the result of the expression.
 
 ## Checked Exceptions
 

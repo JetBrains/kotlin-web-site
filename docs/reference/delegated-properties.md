@@ -154,7 +154,7 @@ class Foo {
 }
 ```
 
-We could initialize it with `null`, bit then we’d have to check every time we access it. 
+We could initialize it with *null*{: .keyword }, but then we’d have to check every time we access it.
 
 `Delegates.notNull()` can solve this problem:
 

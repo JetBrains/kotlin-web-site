@@ -20,8 +20,8 @@ Kotlin's type system is aimed to eliminate NullPointerException's from our code.
 * External Java Code has caused it
 * There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere)
 
-In Kotlin the type system distinguishes between references that can hold null (nullable references) and those that can not (non-null references).
-For example, a regular variable of type String can not hold null:
+In Kotlin the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that can not (non-null references).
+For example, a regular variable of type `String` can not hold *null*{: .keyword }:
 
 ``` kotlin
 var a: String = "abc"
@@ -49,15 +49,16 @@ val l = b.length() // error: variable 'b' can be null
 
 But we still need to call that method, right? There are a few ways of doing that.
 
-## Checking for null in conditions
+## Checking for *null*{: .keyword } in conditions
 
-First, you can explicitly check if b is null, and handle the two options separately:
+First, you can explicitly check if `b` is *null*{: .keyword }, and handle the two options separately:
 
 ``` kotlin
 val l = if (b != null) b.length() else -1
 ```
 
-The compiler tracks the information about the check you performed, and allows the call to length() inside the if. More complex conditions are supported as well:
+The compiler tracks the information about the check you performed, and allows the call to `length()` inside the *if*{: .keyword }.
+More complex conditions are supported as well:
 
 ``` kotlin
 if (b != null && b.length() > 0)
@@ -66,7 +67,8 @@ else
   print("Empty string")
 ```
 
-Note that this only works where b is immutable (i.e. a local *val*{: .keyword } or a member *val*{: .keyword } which has a backing field and is not overridable), because otherwise it might happen that b changes to null after the check.
+Note that this only works where `b` is immutable (i.e. a local *val*{: .keyword } or a member *val*{: .keyword }
+which has a backing field and is not overridable), because otherwise it might happen that `b` changes to *null*{: .keyword } after the check.
 
 ## Safe Calls
 
@@ -75,15 +77,16 @@ Your second option is the safe call operator, written ?.:
 ``` kotlin
 b?.length()
 ```
-This returns b.length() if b is not null, and null otherwise. The type of this expression is Int?.
+This returns `b.length()` if `b` is not null, and *null*{: .keyword } otherwise. The type of this expression is `Int?`.
 
-Safe calls are useful in chains. For example, if Bob, an Employee, may be assigned to a Department (or not), that in turn may have another Employee as a department head, then to obtain the name of Bob's department head, if any), we write the following:
+Safe calls are useful in chains. For example, if Bob, an Employee, may be assigned to a Department (or not),
+that in turn may have another Employee as a department head, then to obtain the name of Bob's department head, if any), we write the following:
 
 ``` kotlin
 bob?.department?.head?.name
 ```
 
-Such a chain returns null if any of the properties in it is null.
+Such a chain returns *null*{: .keyword } if any of the properties in it is null.
 
 ## Elvis Operator
 
@@ -93,7 +96,7 @@ When we have a nullable reference r, we can say "if r is not null, use it, other
 val l: Int = if (b != null) b.length() else -1
 ```
 
-Along with the complete if expression, this can be expressed with the Elvis operator, written ?::
+Along with the complete *if*{: .keyword }-expression, this can be expressed with the Elvis operator, written `?:`:
 
 ``` kotlin
 val l = b?.length() ?: -1
@@ -123,7 +126,8 @@ inline fun <T : Any> T?.sure(): T =
 
 ## Safe Casts
 
-Regular casts may result into a ClassCastException if the object is not of the target type. Another option is to use safe casts that return null is the attempt was not successful:
+Regular casts may result into a `ClassCastException` if the object is not of the target type.
+Another option is to use safe casts that return *null*{: .keyword } if the attempt was not successful:
 
 ``` kotlin
 val aInt: Int? = a as? Int

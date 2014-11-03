@@ -29,11 +29,11 @@ val age = person.component2()
 ```
 
 The `component1()` and `component2()` functions are another example of the _principle of conventions_ widely used in Kotlin 
-(see operators like `+` and `*`, **for**-loops etc.). 
+(see operators like `+` and `*`, *for*{: .keyword }-loops etc.). 
 Anything can be on the right-hand side of a multi-assignment, as long as the required number of component functions can be called on it. 
 And, of course, there can be `component3()` and `component4()` and so on.
 
-Multi-declarations also work in for-loops: when you say
+Multi-declarations also work in *for*{: .keyword }-loops: when you say
 
 ``` kotlin
 for ((a, b) in collection) { ... }
@@ -86,4 +86,4 @@ fun <K, V> Map.Entry<K, V>.component2() = getValue()
   
 ```  
   
-So you can freely use multi-declarations in for-loops with maps (as well as collections of data class instances etc).
+So you can freely use multi-declarations in *for*{: .keyword }-loops with maps (as well as collections of data class instances etc).

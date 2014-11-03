@@ -59,7 +59,7 @@ class Customer(val customerName: String) {
 ```
 
 which is equivalent to the previous code. Much the same way as when declaring properties, those explicitly
-declared in the constructor can be mutable (*var*{: keyword }) or read-only (*val*{: keyword }).
+declared in the constructor can be mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 
 To specify a visibility of a constructor, use the following syntax:
 
@@ -79,7 +79,7 @@ val invoice = Invoice()
 val customer = Customer("Joe Smith")
 ```
 
-Note that Kotlin does not have a *new*{: .keyword }
+Note that Kotlin does not have a `new` keyword.
 
 
 ### Class Members
@@ -114,7 +114,7 @@ class Derived(p: Int) : Base(p)
 As you can see, the base type can (and must) be initialized right there,
 using the parameters of the primary constructor.
 
-The open annotation on a class is the opposite of Java's final: it allows others
+The *open*{: .keyword } annotation on a class is the opposite of Java's *final*{: .keyword }: it allows others
 to inherit from this class. By default, all classes in Kotlin are final, which
 corresponds to [Item 17 of Effective Java: Design and document for inheritance or else prohibit it](http://www.oracle.com/technetwork/java/effectivejava-136174.html).
 
@@ -132,9 +132,11 @@ class Derived() : Base() {
 }
 ```
 
-The override annotation is required for *Derived.v()*. If it were missing, the compiler would complain. If there is no open annotation on a function, like *Base.nv()*, declaring a method with the same signature in a subclass is illegal, either with override or without it. In a final class (e.g. a class with no open annotation), open members are prohibited.
+The *override*{: .keyword } annotation is required for `Derived.v()`. If it were missing, the compiler would complain.
+If there is no *open*{: .keyword } annotation on a function, like `Base.nv()`, declaring a method with the same signature in a subclass is illegal,
+either with *override*{: .keyword } or without it. In a final class (e.g. a class with no *open*{: .keyword } annotation), open members are prohibited.
 
-A member marked override is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use final:
+A member marked *override*{: .keyword } is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use *final*{: .keyword }:
 
 ``` kotlin
 open class AnotherDerived() : Base() {
@@ -155,7 +157,9 @@ We think that this is not a disadvantage, for the following reasons:
 
 ### Overriding Rules
 
-In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses, it must override this member and provide its own implementation (perhaps, using one of the inherited ones). To denote the supertype from which the inherited implementation is taken, we use *super*{: .keyword } qualified by the supertype name in angle brackets, e.g. *super&lt;Base&gt;*:
+In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses,
+it must override this member and provide its own implementation (perhaps, using one of the inherited ones).
+To denote the supertype from which the inherited implementation is taken, we use *super*{: .keyword } qualified by the supertype name in angle brackets, e.g. `super<Base>`:
 
 ``` kotlin
 open class A {
@@ -183,7 +187,9 @@ inherited by *C*, and thus we have to override *f()* in *C* and provide our own 
 
 ## Abstract Classes
 
-A class and some of its members may be declared abstract. An abstract member does not have an implementation in its class. Thus, when some descendant inherits an abstract member, it does not count as an implementation:
+A class and some of its members may be declared *abstract*{: .keyword }.
+An abstract member does not have an implementation in its class.
+Thus, when some descendant inherits an abstract member, it does not count as an implementation:
 
 ``` kotlin
 abstract class A {
