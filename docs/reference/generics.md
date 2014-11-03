@@ -32,7 +32,7 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that we are talk
 One of the most tricky parts of *Java*'s type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)). 
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
-First, let's think about why *Java* needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
+First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
 First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`. 
 Why so? If List was not **invariant**, it would have been no 
 better than Java's arrays, cause the following code would have compiled and cause an exception at runtime:
@@ -64,7 +64,7 @@ void copyAll(Collection<Object> to, Collection<String> from) {
 }
 ```
 
-(In Java, we learned this lesson the hard way, see [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html)'s Item 25: *Prefer lists to arrays*)
+(In Java, we learned this lesson the hard way, see [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 25: *Prefer lists to arrays*)
 
 
 That's why the actual signature of `addAll()` is the following:

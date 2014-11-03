@@ -70,7 +70,7 @@ catch (IOException e) {
 }
 ```
 
-And this is no good, see [Effective Java Item 65](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Don't ignore exceptions.
+And this is no good, see [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 65: *Don't ignore exceptions*.
 
 Bruce Eckel says in [Does Java need Checked Exceptions?](http://www.mindview.net/Etc/Discussions/CheckedExceptions) :
 
