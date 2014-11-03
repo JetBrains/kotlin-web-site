@@ -56,7 +56,7 @@ lock (lock) {
 }
 ```
 
-Another example of a higher order function would be map() (of Map/Reduce):
+Another example of a higher-order function would be `map()` (of [MapReduce](http://en.wikipedia.org/wiki/MapReduce)):
 
 ``` kotlin
 fun <T, R> List<T>.map(transform: (T) -> R): List<R> {

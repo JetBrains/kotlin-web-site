@@ -250,15 +250,15 @@ For more information on generic functions see [Generics](generics.html)
 
 ### Inline Functions
 
-Inline functions are explained in [High Order Functions](lambdas.html#inline-functions)
+Inline functions are explained in [Higher-Order Functions](lambdas.html#inline-functions)
 
 ### Extension Functions
 
 Extension functions are explained in [their own section](extensions.html)
 
-### High Order Functions and Lambdas
+### Higher-Order Functions and Lambdas
 
-High Order functions and Lambdas are explained in [their own section](lambdas.html)
+Higher-Order functions and Lambdas are explained in [their own section](lambdas.html)
 
 ## Function Usage
 
