@@ -7,7 +7,7 @@ title: "Generics"
 
 # Generics
 
-As in *Java*, classes in Kotlin may have type parameters:
+As in Java, classes in Kotlin may have type parameters:
 
 ``` kotlin
 class Box<T>(t: T) {
@@ -29,7 +29,7 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that we are talk
 
 ## Variance
 
-One of the most tricky parts of *Java*'s type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)). 
+One of the most tricky parts of Java's type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)).
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
 First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
@@ -263,7 +263,7 @@ The set of all possible types that can be substituted for a given type parameter
 
 ## Upper bounds
 
-The most common type of constraint is an **upper bound** that corresponds to *Java*'s *extends* keyword:
+The most common type of constraint is an **upper bound** that corresponds to Java's *extends* keyword:
 
 ``` kotlin
 fun sort<T : Comparable<T>>(list: List<T>) {
