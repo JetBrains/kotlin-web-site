@@ -188,7 +188,7 @@ fun copy(from: Array<Any>, to: Array<Any>) {
 }
 ```
 
-This function is supposed to copy item from one array to another. Let's try to apply it in practice:
+This function is supposed to copy items from one array to another. Let's try to apply it in practice:
 
 ``` kotlin
 val ints: Array<Int> = array(1, 2, 3)
@@ -226,9 +226,9 @@ fun fill(dest: Array<in String>, value: String) {
 
 Sometimes you want to say that you know nothing about the type argument, but still want to use it in a safe way. 
 The safe way here is to say that we are dealing with an *out*\-projection 
-(the object does not consume any values of unknown types), and that this projection is with the upper-bound of the corresponding parameter, i.e. `out Any?` 
+(the object does not consume any values of unknown types), and that this projection is with the upper bound of the corresponding parameter, i.e. `out Any?` 
 for most cases. Kotlin provides a shorthand syntax for this, that we call a **star-projection**: `Foo<*>` means `Foo<out Bar>` where `Bar`
- is the upperbound for `Foo`'s type parameter.
+ is the upper bound for `Foo`'s type parameter.
 
 *Note*: star-projections are very much like Java's raw types, but safe.
 

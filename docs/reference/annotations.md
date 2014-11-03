@@ -47,7 +47,7 @@ special("example") class Foo {}
 
 ## Java Annotations
 
-Java annotations are 100% compatible with Koltin
+Java annotations are 100% compatible with Kotlin
 
 ``` kotlin
 import org.junit.Test

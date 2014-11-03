@@ -48,7 +48,7 @@ Function literals are described in more [detail below](#function-literals), but 
 * Its parameters (if any) are declared before `->` (parameter types may be omitted),
 * The body goes after `->` (when present).
 
-In Kotlin, there is a convention that if the last parameter to a function is a function, then we can omit the parenthesis
+In Kotlin, there is a convention that if the last parameter to a function is a function, then we can omit the parentheses
 
 ``` kotlin
 lock (lock) {
@@ -237,7 +237,7 @@ Such a literal has a function type with receiver
 sum : Int.(other: Int) -> Int
 ```
 
-it can be called with a dot or in infix form (since it has only one parameter)
+It can be called with a dot or in infix form (since it has only one parameter)
 
 ``` kotlin
 1.sum(2)

@@ -10,7 +10,7 @@ title: Coding Conventions
 This page contains the current coding style for the Kotlin language.
 
 ## Naming Style
-if in doubt default to the Java Coding Conventions such as:
+If in doubt default to the Java Coding Conventions such as:
 
 * use of camelCase for names (and avoid underscore in names)
 * types start with upper case
