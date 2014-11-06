@@ -5,7 +5,7 @@ title: "Reference"
 
 # Reference
 
-Provides a complete reference to Kotlin.
+Provides a complete reference to Kotlin
 
 * *Basics*: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
 * *Syntax*: Full coverage of the Kotlin syntax.

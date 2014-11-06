@@ -3,7 +3,7 @@ task :build do
   dest = ENV["dest"] || CONFIG[:build_destination]
   env = ENV["env"] || CONFIG[:default_env]
 
-  command = "jekyll build --destination=#{dest}"
+  command = "jekyll build --trace --destination=#{dest}"
 
   if env != CONFIG[:default_env]
     env_filename = "_config_#{env}.yml"
