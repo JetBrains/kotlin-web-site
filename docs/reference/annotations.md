@@ -11,7 +11,7 @@ title: "Annotations"
 Annotations are means of attaching metadata to code. To declare an annotation, put the *annotation*{: .keyword } keyword in front of a class
 
 ``` kotlin
-annotation class fancy {}
+annotation class fancy
 ```
 
 ### Usage
