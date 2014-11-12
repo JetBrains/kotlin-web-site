@@ -37,3 +37,7 @@
 - company: JackOfHearts
   url: https://play.google.com/store/apps/details?id=truefool.android
   description: True Fool. A Durak card game for Android written in Kotlin and libGDX
+
+- company: Collokia
+  url: http://www.collokia.com
+  description: Using Kotlin for all back-end services, machine learning, graph processing, data processing including with vertx.io, Samza, Kafka, ElasticSearch, and Spark
