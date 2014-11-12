@@ -62,3 +62,8 @@
   description: Solr Standalone Tiny and High performant server
   type: Application
   link: https://github.com/bremeld/solr-undertow
+  
+- name: Kotlin Module for Jackson
+  description: Jackson module for easy serialization of Kotlin classes, including data classes
+  type: Library
+  link: https://github.com/FasterXML/jackson-module-kotlin
