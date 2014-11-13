@@ -18,7 +18,7 @@ annotation class fancy
 
 ``` kotlin
 [fancy] class Foo {
-  [fancy] fun baz([fancy] foo : Int) : Int {
+  [fancy] fun baz([fancy] foo: Int): Int {
     return [fancy] 1
   }
 }
@@ -27,7 +27,7 @@ annotation class fancy
 In most cases, the square brackets are optional and only required when annotating expressions or local declarations:
 
 ``` kotlin
-fancy class Foo() {
+fancy class Foo {
   fancy fun baz(fancy foo: Int) {
     [fancy] fun bar() { ... }
     return [fancy] 1
@@ -40,14 +40,14 @@ fancy class Foo() {
 Annotations may have constructors that take parameters.
 
 ``` kotlin
-annotation class special(val why : String)
+annotation class special(val why: String)
 
 special("example") class Foo {}
 ```
 
 ## Java Annotations
 
-Java annotations are 100% compatible with Koltin
+Java annotations are 100% compatible with Kotlin
 
 ``` kotlin
 import org.junit.Test

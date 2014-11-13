@@ -13,10 +13,10 @@ This is done via special declarations called _extensions_. Currently, Kotlin sup
 ## Extension Functions
 
 To declare an extension function, we need to prefix its name with a _receiver type_, i.e. the type being extended.
-The following adds a `swap` function to `MutableList`:
+The following adds a `swap` function to `MutableList<Int>`:
 
 ``` kotlin
-fun MutableList<Int>.swap(x : Int, y : Int) {
+fun MutableList<Int>.swap(x: Int, y: Int) {
   val tmp = this[x] // 'this' corresponds to the list
   this[x] = this[y]
   this[y] = tmp
@@ -34,7 +34,7 @@ l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
 Of course, this function makes sense for any `MutableList<T>`, and we can make it generic:
 
 ``` kotlin
-fun <T> MutableList<T>.swap(x : Int, y : Int) {
+fun <T> MutableList<T>.swap(x: Int, y: Int) {
   val tmp = this[x] // 'this' corresponds to the list
   this[x] = this[y]
   this[y] = tmp
@@ -44,12 +44,12 @@ fun <T> MutableList<T>.swap(x : Int, y : Int) {
 We declare the generic type parameter before the function name for it to be available in the receiver type expression. 
 See [Generic functions](generics.html).
 
-## Extensions are resolved STATICALLY
+## Extensions are resolved **statically**
 
 Extensions do not actually modify classes they extend. By defining an extension, you do not insert new members into a class,
 but merely make new functions callable with the dot-notation on instances of this class.
 
-We would like to emphasize that extension functions are resolved **statically**, i.e. they are not virtual by receiver type. 
+We would like to emphasize that extension functions are dispatched **statically**, i.e. they are not virtual by receiver type.
 If there's a member and extension of the same type both applicable to given arguments, a **member always wins**. 
 For example:
 
@@ -79,7 +79,7 @@ extension properties**. Their behavior can only be defined by explicitly providi
 Example:
 
 ``` kotlin
-val Foo.bar = 1 // ERROR: initializers are not allowed for extension properties
+val Foo.bar = 1 // error: initializers are not allowed for extension properties
 ```
     
 
@@ -134,4 +134,4 @@ This is a little better, but we have no or little help from the powerful code co
 list.swap(list.binarySearch(otherList.max()), list.max())
 ```
 
-But we don't want to implement all the possible methods inside the class List, right? This is where extensions help us.
+But we don't want to implement all the possible methods inside the class `List`, right? This is where extensions help us.

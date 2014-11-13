@@ -28,7 +28,7 @@ Property delegates don’t have to implement any interface, but they have to pro
 For example:
 
 ``` kotlin
-class Delegate() {
+class Delegate {
   fun get(thisRef: Any?, prop: PropertyMetadata): String {
     return "$thisRef, thank you for delegating '${prop.name}' to me!"
   }
@@ -85,8 +85,7 @@ For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally
  
 ## Standard Delegates
 
-
-The `kotlin.properties.Delegates` object from the standard provides factory methods for several useful kinds of delegates.
+The `kotlin.properties.Delegates` object from the standard library provides factory methods for several useful kinds of delegates.
 
 ### Lazy
 
@@ -154,7 +153,7 @@ class Foo {
 }
 ```
 
-We could initialize it with `null`, bit then we’d have to check every time we access it. 
+We could initialize it with *null*{: .keyword }, but then we’d have to check every time we access it.
 
 `Delegates.notNull()` can solve this problem:
 

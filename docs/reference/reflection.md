@@ -30,7 +30,7 @@ println(numbers.filter(::isOdd)) // prints [1, 3]
 Here `::isOdd` is a value of function type `(Int) -> Boolean`. 
 
 If we need to use a member of a class, or an extension function, it needs to be qualified, 
-and the result will be of type “extension function”,  
+and the result will be of type “extension function”,
 e.g. `String::toCharArray` gives us an extension function for type `String`: `String.() -> CharArray`.
 
 ### Example: Function Composition
@@ -71,7 +71,7 @@ fun main(args: Array<String>) {
 ```
 
 The expression `::x` evaluates to a property object of type `KProperty<Int>`, which allows us to read its
-value using `.get()` or retrieve the property name using the `.name` property. For more information, please refer to
+value using `get()` or retrieve the property name using the `name` property. For more information, please refer to
  the [docs on the `KProperty` class](http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/kotlin/reflect/KProperty.html).
 
 For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/kotlin/reflect/KMutableProperty.html), 
