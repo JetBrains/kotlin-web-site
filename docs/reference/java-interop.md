@@ -65,7 +65,7 @@ prevent nulls from propagating:
 item.substring(1) // allowed, may throw an exception if item == null
 ```
 
-Platform types are *non-denotable*, meaning that onw can not write them down explicitly in the language.
+Platform types are *non-denotable*, meaning that one can not write them down explicitly in the language.
 When a platform value is assigned to a Kotlin variable, we can rely on type inference (the variable will have an inferred platform type then,
  as `item` has in the example above), or we can choose the type that we expect (both nullable and non-null types are allowed):
 
