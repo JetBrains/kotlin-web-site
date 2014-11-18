@@ -121,16 +121,18 @@ fun main(args: Array<String>) {
 
 ## Constructor References
 
-Constructors can be referenced just like methods and properties. They can be used wherever an object of function type is expected that takes the same parameters as the constructor and returns an object of the appropriate type. Constructors are references by using the `::` operator and adding the class name. Consider the following function that expects a function parameter that returns an Object:
+Constructors can be referenced just like methods and properties. They can be used wherever an object of function type is expected that takes the same parameters as the constructor and returns an object of the appropriate type. Constructors are referenced by using the `::` operator and adding the class name. Consider the following function that expects a function parameter with no parameters and return type `Foo`.
 
 ``` kotlin
-fun function(factory : () -> Object) {
-    val x = factory()
+class Foo
+
+fun function(factory : () -> Foo) {
+    val x : Foo = factory()
 }
 ```
 
-Using `::Object`, the zero-argument constructor of the class Object, we can simply call it like this:
+Using `::Foo`, the zero-argument constructor of the class Foo, we can simply call it like this:
 
 ``` kotlin
-function(::Object)
+function(::Foo)
 ```
