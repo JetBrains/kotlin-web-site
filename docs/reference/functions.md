@@ -33,7 +33,7 @@ Function parameters can have default values, which are used when a corresponding
 other languages.
 
 ``` kotlin
-fun read(b: Array<Byte>, off: Int = 0, len: Int = -1) {
+fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
 ...
 }
 ```
@@ -111,7 +111,7 @@ fun printHello(name: String?) {
 When a function returns a single expression, the curly braces can be omitted and the body is specified after a **=** symbol
 
 ``` kotlin
-fun double(x: Int) : Int = x * 2
+fun double(x: Int): Int = x * 2
 ```
 
 Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler
@@ -136,7 +136,7 @@ type will be non-obvious to the reader (and sometimes even for the compiler).
 The last parameter of a function may be marked with `vararg` annotation
 
 ``` kotlin
-fun asList<T>(vararg ts : T) : List<T> {
+fun asList<T>(vararg ts: T): List<T> {
   val result = ArrayList<T>()
   for (t in ts) // ts is an Array
     result.add(t)
@@ -173,8 +173,8 @@ to top level functions, Kotlin functions can also be declared local, as member f
 Kotlin supports local functions, i.e. a function inside another function
 
 ``` kotlin
-fun dfs(graph : Graph){
-  fun dfs(current : Vertex, visited : Set<Vertex>) {
+fun dfs(graph: Graph) {
+  fun dfs(current: Vertex, visited: Set<Vertex>) {
     if (!visited.add(current)) return
     for (v in current.neighbors)
       dfs(v, visited)
@@ -187,9 +187,9 @@ fun dfs(graph : Graph){
 Local function can access local variables of outer functions (i.e. the closure), so in the case above, the *visited* can be a local variable
 
 ``` kotlin
-fun dfs(graph : Graph){
+fun dfs(graph: Graph) {
   val visited = HashSet<Vertex>()
-  fun dfs(current : Vertex) {
+  fun dfs(current: Vertex) {
     if (!visited.add(current)) return
     for (v in current.neighbors)
       dfs(v)
@@ -202,9 +202,9 @@ fun dfs(graph : Graph){
 Local functions can even return from outer functions using [qualified return expressions](returns.html)
 
 ``` kotlin
-fun reachable(from : Vertex, to : Vertex) : Boolean {
+fun reachable(from: Vertex, to: Vertex): Boolean {
   val visited = HashSet<Vertex>()
-  fun dfs(current : Vertex) {
+  fun dfs(current: Vertex) {
     // here we return from the outer function:
     if (current == to) return@reachable true
     // And here -- from local function:
@@ -224,7 +224,7 @@ A member function is a function that is defined inside a class or object
 
 ``` kotlin
 class Sample() {
-    fun foo() { print("Foo") }
+  fun foo() { print("Foo") }
 }
 ```
 
@@ -241,7 +241,7 @@ For more information on classes and overriding members see [Classes](classes.htm
 Functions can have generic parameters which are specified using angle brackets after the function name and before the value parameters
 
 ``` kotlin
-fun singletonArray<T>(item : T) : Array<T> {
+fun singletonArray<T>(item: T): Array<T> {
   return Array<T>(1, {item})
 }
 ```
@@ -250,15 +250,15 @@ For more information on generic functions see [Generics](generics.html)
 
 ### Inline Functions
 
-Inline functions are explained in [High Order Functions](lambdas.html#inline-functions)
+Inline functions are explained in [Higher-Order Functions](lambdas.html#inline-functions)
 
 ### Extension Functions
 
 Extension functions are explained in [their own section](extensions.html)
 
-### High Order Functions and Lambdas
+### Higher-Order Functions and Lambdas
 
-High Order functions and Lambdas are explained in [their own section](lambdas.html)
+Higher-Order functions and Lambdas are explained in [their own section](lambdas.html)
 
 ## Function Usage
 
@@ -284,8 +284,8 @@ Functions can also be called using infix notations when
 
 ``` kotlin
 // Define extension to Int
-fun Int.shl(x: Int) {
-..
+fun Int.shl(x: Int): Int {
+...
 }
 
 // call extension function using infix notation

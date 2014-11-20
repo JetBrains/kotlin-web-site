@@ -7,10 +7,10 @@ title: "Generics"
 
 # Generics
 
-As in *Java*, classes in Kotlin may have type parameters:
+As in Java, classes in Kotlin may have type parameters:
 
 ``` kotlin
-class Box<T>(t : T) {
+class Box<T>(t: T) {
   var value = t
 }
 ```
@@ -18,7 +18,7 @@ class Box<T>(t : T) {
 In general, to create an instance of such a class, we need to provide the type arguments:
 
 ``` kotlin
-val box : Box<Int> = Box<Int>(1)
+val box: Box<Int> = Box<Int>(1)
 ```
 
 But if the parameters may be inferred, e.g. from the constructor arguments or by some other means, one is allowed to omit the type arguments:
@@ -29,10 +29,10 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that we are talk
 
 ## Variance
 
-One of the most tricky parts of *Java*'s type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)). 
+One of the most tricky parts of Java's type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)).
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
-First, let's think about why *Java* needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
+First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
 First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`. 
 Why so? If List was not **invariant**, it would have been no 
 better than Java's arrays, cause the following code would have compiled and cause an exception at runtime:
@@ -64,7 +64,7 @@ void copyAll(Collection<Object> to, Collection<String> from) {
 }
 ```
 
-(In Java, we learned this lesson the hard way, see [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html)'s Item 25: *Prefer lists to arrays*)
+(In Java, we learned this lesson the hard way, see [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 25: *Prefer lists to arrays*)
 
 
 That's why the actual signature of `addAll()` is the following:
@@ -126,11 +126,11 @@ To do this we provide the **out** modifier:
 
 ``` kotlin
 abstract class Source<out T> {
-  fun nextT() : T
+  fun nextT(): T
 }
 
-fun demo(strs : Source<String>) {
-  val objects : Source<Any> = strs // This is OK, since T is an out-parameter
+fun demo(strs: Source<String>) {
+  val objects: Source<Any> = strs // This is OK, since T is an out-parameter
   // ...
 }
 ```
@@ -145,17 +145,17 @@ The **out** modifier is called a **variance annotation**, and  since it is provi
 This is in contrast with Java's **use-site variance** where wildcards in the type usages make the types covariant.
 
 In addition to **out**, Kotlin provides a complementary variance annotation: **in**. It makes a type parameter **contravariant**: it can only be consumed and never 
-produced. A good example of a contravariant class is Comparable:
+produced. A good example of a contravariant class is `Comparable`:
 
 ``` kotlin
 abstract class Comparable<in T> {
-  fun compareTo(other : T) : Int
+  fun compareTo(other: T): Int
 }
 
-fun demo(x : Comparable<Number>) {
+fun demo(x: Comparable<Number>) {
   x.compareTo(1.0) // 1.0 has type Double, which is a subtype of Number
   // Thus, we can assign x to a variable of type Comparable<Double>
-  val y : Comparable<Double> = x // OK!
+  val y: Comparable<Double> = x // OK!
 }
 ```
 
@@ -172,38 +172,38 @@ It is very convenient to declare a type parameter T as *out* and have no trouble
 A good example of this is Array:
 
 ``` kotlin
-class Array<T>(val length : Int) {
-  fun get(index : Int) : T { /* ... */ }
-  fun set(index : Int, value : T) { /* ... */ }
+class Array<T>(val length: Int) {
+  fun get(index: Int): T { /* ... */ }
+  fun set(index: Int, value: T) { /* ... */ }
 }
 ```
 
 This class cannot be either co\- or contravariant in `T`. And this imposes certain inflexibilities. Consider the following function:
 
 ``` kotlin
-fun copy(from : Array<Any>, to : Array<Any>) {
-  assert {from.length == to.length}
+fun copy(from: Array<Any>, to: Array<Any>) {
+  assert(from.length == to.length)
   for (i in from.indices)
     to[i] = from[i]
 }
 ```
 
-This function is supposed to copy item from one array to another. Let's try to apply it in practice:
+This function is supposed to copy items from one array to another. Let's try to apply it in practice:
 
 ``` kotlin
-val ints : Array<Int> = array(1, 2, 3)
+val ints: Array<Int> = array(1, 2, 3)
 val any = Array<Any>(3)
 copy(ints, any) // Error: expects (Array<Any>, Array<Any>)
 ```
 
 Here we run into the same familiar problem: `Array<T>` is **invariant** in `T`, thus neither of `Array<Int>` and `Array<Any>` 
-is a subtype of the other. Why? Again, because copy **might** be doing bad things, i.e. it might attempt to **write**, say, a String to from, and if we actually 
-passed an array of Int there, a ClassCastException would have been thrown sometime later...
+is a subtype of the other. Why? Again, because copy **might** be doing bad things, i.e. it might attempt to **write**, say, a String to `from`,
+and if we actually passed an array of `Int` there, a `ClassCastException` would have been thrown sometime later.
 
 Then, the only thing we want to ensure is that `copy()` does not do any bad things. We want to prohibit it from **writing** to `from`, and we can:
 
 ``` kotlin
-fun copy(from : Array<out Any>, to : Array<Any>) {
+fun copy(from: Array<out Any>, to: Array<Any>) {
  // ...
 }
 ```
@@ -215,7 +215,7 @@ but in a slightly simpler way.
 You can project a type with **in** as well:
 
 ``` kotlin
-fun fill(dest : Array<in String>, value : String) {
+fun fill(dest: Array<in String>, value: String) {
   // ...
 }
 ```
@@ -226,9 +226,9 @@ fun fill(dest : Array<in String>, value : String) {
 
 Sometimes you want to say that you know nothing about the type argument, but still want to use it in a safe way. 
 The safe way here is to say that we are dealing with an *out*\-projection 
-(the object does not consume any values of unknown types), and that this projection is with the upper-bound of the corresponding parameter, i.e. `out Any?` 
+(the object does not consume any values of unknown types), and that this projection is with the upper bound of the corresponding parameter, i.e. `out Any?` 
 for most cases. Kotlin provides a shorthand syntax for this, that we call a **star-projection**: `Foo<*>` means `Foo<out Bar>` where `Bar`
- is the upperbound for `Foo`'s type parameter.
+ is the upper bound for `Foo`'s type parameter.
 
 *Note*: star-projections are very much like Java's raw types, but safe.
 
@@ -237,7 +237,7 @@ for most cases. Kotlin provides a shorthand syntax for this, that we call a **st
 Not only classes can have type parameters. Functions can, too. Usually, we place the type parameters in angle brackets **after** the name of the function:
 
 ``` kotlin
-fun singletonList<T>(item : T) : List<T> {
+fun singletonList<T>(item: T): List<T> {
   // ...
 }
 ```
@@ -263,10 +263,10 @@ The set of all possible types that can be substituted for a given type parameter
 
 ## Upper bounds
 
-The most common type of constraint is an **upper bound** that corresponds to *Java*'s *extends* keyword:
+The most common type of constraint is an **upper bound** that corresponds to Java's *extends* keyword:
 
 ``` kotlin
-fun sort<T : Comparable<T>>(list : List<T>) {
+fun sort<T : Comparable<T>>(list: List<T>) {
   // ...
 }
 ```
@@ -282,7 +282,7 @@ The default upper bound (if none specified) is `Any?`. Only one upper bound can 
 If the same type parameter needs more than one upper bound, we need a separate **where**\-clause:
 
 ``` kotlin
-fun cloneWhenGreater<T : Comparable<T>>(list : List<T>, threshold : T) : List<T>
+fun cloneWhenGreater<T : Comparable<T>>(list: List<T>, threshold: T): List<T>
     where T : Cloneable {
   return list when {it > threshold} map {it.clone()}
 }
@@ -292,29 +292,29 @@ fun cloneWhenGreater<T : Comparable<T>>(list : List<T>, threshold : T) : List<T>
 
 Another type of generic constraints are *class object* constraints. They restrict the properties of a [class object](classes.html#class-objects) of the root class of a type being substituted for `T`.
 
-Consider the following example. Suppose, we have a class Default that has a property default that holds a **default** value to be used for this type:
+Consider the following example. Suppose, we have a class `Default` that has a property `default` that holds a **default** value to be used for this type:
 
 ``` kotlin
 abstract class Default<T> {
-  val default : T
+  val default: T
 }
 ```
 
-For example, the class Int could extend Default in the following way:
+For example, the class `Int` could extend `Default` in the following way:
 
 ``` kotlin
 class Int {
-  class object : Default<Int> {
+  class object : Default<Int>() {
     override val default = 0
   }
   // ...
 }
 ```
 
-Now, let's consider a function that takes a list of [nullable](null-safety.html) `T`'s, i.e. `T?`, and replaces all the null's with the default values:
+Now, let's consider a function that takes a list of [nullable](null-safety.html) `T`'s, i.e. `T?`, and replaces all the `null`s with the default values:
 
 ``` kotlin
-fun replaceNullsWithDefaults<T : Any>(list : List<T?>) : List<T> {
+fun replaceNullsWithDefaults<T : Any>(list: List<T?>): List<T> {
   return list map {
     if (it == null)
       T.default // Error: For now, we don't know if T's class object has such a property
@@ -331,6 +331,6 @@ fun replaceNullsWithDefaults<T : Any>(list : List<T?>) : List<T>
 // ...
 ```
 
-Now the compiler knows that `T` (as a *class object* reference) has the **default** property, and we can access it.
+Now the compiler knows that `T` (as a *class object* reference) has the `default` property, and we can access it.
 
 

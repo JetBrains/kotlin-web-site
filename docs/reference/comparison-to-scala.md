@@ -25,7 +25,7 @@ Taking this into account, if you are happy with Scala, you probably do not need 
 * Existential types
     * [Type projections](generics.html#type-projections) are a very special case
 * Complicated logic for initialization of traits
-    * See Classes and Inheritance
+    * See [Classes and Inheritance](classes.html)
 * Custom symbolic operations
     * See [Operator overloading](operator-overloading.html)
 * Built-in XML

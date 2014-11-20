@@ -106,19 +106,19 @@ fun max(a: Int, b: Int): Int {
 }
 ```
 
-Using `if` as an expression:
+Using *if*{: .keyword } as an expression:
 
 ``` kotlin
 fun max(a: Int, b: Int) = if (a > b) a else b
 ```
 
-See [if expressions](control-flow.html#if-expression).
+See [*if*{: .keyword }-expressions](control-flow.html#if-expression).
 
-## Using nullable values and checking for `null`
+## Using nullable values and checking for *null*{: .keyword }
 
-A reference must be explicitly marked as nullable when `null` value is possible.
+A reference must be explicitly marked as nullable when *null*{: .keyword } value is possible.
 
-Return `null` if `str` does not hold an integer:
+Return *null*{: .keyword } if `str` does not hold an integer:
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -167,7 +167,7 @@ See [Null-safety](null-safety.html).
 
 ## Using type checks and automatic casts
 
-The `is` operator checks if an expression is an instance of a type.
+The *is*{: .keyword } operator checks if an expression is an instance of a type.
 If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
 
 ``` kotlin
@@ -189,8 +189,8 @@ fun getStringLength(obj: Any): Int? {
   if (obj !is String)
     return null
 
- // `obj` is automatically cast to `String` in this branch
- return obj.length
+  // `obj` is automatically cast to `String` in this branch
+  return obj.length
 }
 ```
 
@@ -198,11 +198,11 @@ or even
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
- // `obj` is automatically cast to `String` on the right-hand side of `&&`
+  // `obj` is automatically cast to `String` on the right-hand side of `&&`
   if (obj is String && obj.length > 0)
     return obj.length
 
- return null
+  return null
 }
 ```
 
@@ -214,14 +214,14 @@ See [Classes](classes.html) and [Type casts](typecasts.html).
 fun main(args: Array<String>) {
   for (arg in args)
     print(arg)
+}
 ```
 
 or
 
 ``` kotlin
 for (i in args.indices)
-    print(args[i])
-}
+  print(args[i])
 ```
 
 See [for loop](control-flow.html#for-loops).
@@ -256,7 +256,7 @@ See [when expression](control-flow.html#when-expression).
 
 ## Using ranges
 
-Check if a number is within a range using `in` operator:
+Check if a number is within a range using *in*{: .keyword } operator:
 
 ``` kotlin
 if (x in 1..y-1)
@@ -288,7 +288,7 @@ for (name in names)
   println(name)
 ```
 
-Checking if a collection contains an object using `in` operator:
+Checking if a collection contains an object using *in*{: .keyword } operator:
 
 ``` kotlin
 if (text in names) // names.contains(text) is called

@@ -12,7 +12,7 @@ Builders allow for defining data in a semi-declarative way. Builders are good fo
 [describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081) and more...
 
 For many use cases, Kotlin allows to *type-check* builders, which makes them even more attractive than the 
-dynamically-typed implementation made in *Groovy* itself.
+dynamically-typed implementation made in Groovy itself.
 
 For the rest of the cases, Kotlin supports Dynamic types builders.
 
@@ -23,7 +23,7 @@ Consider the following code that is taken from [here](http://groovy.codehaus.org
 ``` kotlin
 import com.example.html.* // see declarations below
 
-fun result(args : Array<String>) =
+fun result(args: Array<String>) =
   html {
     head {
       title {+"XML encoding with Kotlin"}
@@ -59,7 +59,10 @@ You can play with this code online (modify it and run in the browser) [here](htt
 
 ## How it works
 
-Let's walk through the mechanisms of implementing type safe builders in Kotlin. First of all we need to define the model we want to build, in this case we need to model HTML tags. It is easily done with a bunch of classes. For example, `HTML` is a class that describes the `<html>` tag, i.e. it defines children like `<head>` and `<body>`.
+Let's walk through the mechanisms of implementing type-safe builders in Kotlin.
+First of all we need to define the model we want to build, in this case we need to model HTML tags.
+It is easily done with a bunch of classes.
+For example, `HTML` is a class that describes the `<html>` tag, i.e. it defines children like `<head>` and `<body>`.
 (See its declaration [below](#declarations).)
 
 Now, let's recall why we can say something like this in the code:
@@ -70,19 +73,21 @@ html {
 }
 ```
 
-This is actually a function call that takes a [function literal](lambdas.html) as an argument (see [this page](lambdas.html#higher-order-functions) for details). Actually, this function is defined as follows:
+This is actually a function call that takes a [function literal](lambdas.html) as an argument
+(see [this page](lambdas.html#higher-order-functions) for details). Actually, this function is defined as follows:
 
 ``` kotlin
-fun html(init : HTML.() -> Unit) : HTML {
+fun html(init: HTML.() -> Unit): HTML {
   val html = HTML()
   html.init()
   return html
 }
 ```
 
-This function takes one parameter named `init`, which is itself a function. Actually, it is an [extension function](extensions.html) that has a receiver of type `HTML`
-(and returns nothing interesting, i.e. `Unit`). So, when we pass a function literal to as an argument to `html`, it is typed as an extension function literal, and 
-there's a *this* reference available:
+This function takes one parameter named `init`, which is itself a function.
+Actually, it is an [extension function](extensions.html) that has a receiver of type `HTML` (and returns nothing interesting, i.e. `Unit`).
+So, when we pass a function literal as an argument to `html`, it is typed as an extension function literal,
+and there's a *this*{: .keyword } reference available:
 
 ``` kotlin
 html {
@@ -93,7 +98,7 @@ html {
 
 (`head` and `body` are member functions of `html`.)
 
-Now, *this* can be omitted, as usual, and we get something that looks very much like a builder already:
+Now, *this*{: .keyword } can be omitted, as usual, and we get something that looks very much like a builder already:
 
 ``` kotlin
 html {
@@ -102,22 +107,23 @@ html {
 }
 ```
 
-So, what does this call do? Let's look at the body of `html` function as defined above. It creates a new instance of `HTML`, then it initializes it by calling the 
-function that is passed as an argument (in our example this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance. 
+So, what does this call do? Let's look at the body of `html` function as defined above.
+It creates a new instance of `HTML`, then it initializes it by calling the function that is passed as an argument
+(in our example this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance. 
 This is exactly what a builder should do.
 
 The `head` and `body` functions in the `HTML` class are defined similarly to `html`. 
 The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
 ``` kotlin
-fun head(init : Head.() -> Unit) {
+fun head(init: Head.() -> Unit) {
   val head = Head()
   head.init()
   children.add(head)
   return head
 }
 
-fun body(init : Body.() -> Unit) {
+fun body(init: Body.() -> Unit) {
   val body = Body()
   body.init()
   children.add(body)
@@ -128,7 +134,7 @@ fun body(init : Body.() -> Unit) {
 Actually these two functions do just the same thing, so we can have a generic version, `initTag`:
 
 ``` kotlin
-  protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
+  protected fun initTag<T : Element>(tag: T, init: T.() -> Unit): T {
     tag.init()
     children.add(tag)
     return tag
@@ -138,9 +144,9 @@ Actually these two functions do just the same thing, so we can have a generic ve
 So, now our functions are very simple:
 
 ``` kotlin
-fun head(init : Head.() -> Unit) = initTag(Head(), init)
+fun head(init: Head.() -> Unit) = initTag(Head(), init)
 
-fun body(init : Body.() -> Unit) = initTag(Body(), init)
+fun body(init: Body.() -> Unit) = initTag(Body(), init)
 ```
 
 And we can use them to build `<head>` and `<body>` tags. 
@@ -157,8 +163,9 @@ html {
 }
 ```
 
-So basically, we just put a string inside a tag body, but there is this little "+" in front of it, so it is a function call that invokes a prefix "plus" operation. 
-That operation is actually defined by an extension function `plus` that is a member of the `TagWithText` abstract class (a parent of `Title`):
+So basically, we just put a string inside a tag body, but there is this little `+` in front of it,
+so it is a function call that invokes a prefix `plus()` operation. 
+That operation is actually defined by an extension function `plus()` that is a member of the `TagWithText` abstract class (a parent of `Title`):
 
 ``` kotlin
 fun String.plus() {
@@ -166,13 +173,16 @@ fun String.plus() {
 }
 ```
 
-So, what the prefix "+" does here is it wraps a string into an instance of `TextElement` and adds it to the `children` collection, so that it becomes a proper part of the tag tree.
+So, what the prefix `+` does here is it wraps a string into an instance of `TextElement` and adds it to the `children` collection,
+so that it becomes a proper part of the tag tree.
 
-All this is defined in a package `com.example.html` that is imported at the top of the builder example above. In the next section you can read through the full definition of this package.
+All this is defined in a package `com.example.html` that is imported at the top of the builder example above.
+In the next section you can read through the full definition of this package.
 
 ## Full definition of the `com.example.html` package
 
-This is how the package `com.example.html` is defined (only the elements used in the example above). It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and
+This is how the package `com.example.html` is defined (only the elements used in the example above).
+It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and
 [Extension function literals](lambdas.html#extension-function-literals).
 
 <a name='declarations'></a>
@@ -199,8 +209,7 @@ class TextElement(val text: String): Element {
     }
 }
 
-abstract class Tag(val KT-1720
-                       × Pending Docs "Type-safe Groovy-style builders" wiki page appears to be out of date: String): Element {
+abstract class Tag(val date: String): Element {
     val children: ArrayList<Element> = ArrayList<Element>()
     val attributes = HashMap<String, String>()
 
@@ -282,17 +291,20 @@ In the code above there's something that looks very nice:
 
 ``` kotlin
   class A() : BodyTag("a") {
-    var href : String
+    var href: String
       get() = attributes["href"]!!
       set(value) { attributes["href"] = value }
   }
 ```
 
-We access the `attributes` map as if it were an "associative array": just with the `[]` operation. By [convention](operator-overloading.html) this compiles to a call to 
-`get(K)` or `set(K, V)`, all right. But we said that `attributes` was a *Java* `Map`, i.e. it does NOT have a `set(K, V)`. 
+We access the `attributes` map as if it were an *associative array*: just with the `[]` operation.
+By [convention](operator-overloading.html) this compiles to a call to `get(K)` or `set(K, V)`, all right.
+But we said that `attributes` was a *Java* `Map`, i.e. it does NOT have a `set(K, V)`. 
 This problem is easily fixable in Kotlin:
 
 ``` kotlin
-  fun <K, V> Map<K, V>.set(key : K, value : V) = this.put(key, value)
+  fun <K, V> Map<K, V>.set(key: K, value: V) = this.put(key, value)
 ```
-So, we simply define an [extension function](extensions.html) `set(K, V)` that delegates to vanilla `put` and make a Kotlin operator available for a *Java* class.
+
+So, we simply define an [extension function](extensions.html) `set(K, V)` that delegates to vanilla `put`
+and makes a Kotlin operator available for a *Java* class.

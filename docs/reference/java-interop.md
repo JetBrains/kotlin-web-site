@@ -17,7 +17,7 @@ Pretty much all Java code can be used without any issues
 ``` kotlin
 import java.util.*
 
-fun demo(source : List<Int>) {
+fun demo(source: List<Int>) {
   val list = ArrayList<Int>()
   // 'for'-loops work for Java collections:
   for (item in source)
@@ -30,12 +30,14 @@ fun demo(source : List<Int>) {
 
 ### Methods returning void
 
-If a Java method returns void, it will return Unit when called from Kotlin. 
-If, by any chance, someone uses that return value, it will be assigned at the call site by the Kotlin compiler, since the value itself is known in advance (being `Unit`).
+If a Java method returns void, it will return `Unit` when called from Kotlin.
+If, by any chance, someone uses that return value, it will be assigned at the call site by the Kotlin compiler,
+since the value itself is known in advance (being `Unit`).
 
 ### Escaping for Java identifiers that are keywords in Kotlin
 
-Some of the Kotlin keywords are valid identifiers in Java: in, object, is, etc. If a Java library uses a Kotlin keyword for a method, you can still call the method
+Some of the Kotlin keywords are valid identifiers in Java: *in*{: .keyword }, *object*{: .keyword }, *is*{: .keyword }, etc.
+If a Java library uses a Kotlin keyword for a method, you can still call the method
 escaping it with the backtick (`) character
 
 ``` kotlin
@@ -44,7 +46,7 @@ foo.`is`(bar)
 
 ### Null-Safety and Platform Types
 
-Any reference in Java may be `null`, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
+Any reference in Java may be *null*{: .keyword }, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
 Types of Java declarations are treated specially in Kotlin and called *platform types*. Null-checks are relaxed for such types,
 so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
 
@@ -65,7 +67,7 @@ prevent nulls from propagating:
 item.substring(1) // allowed, may throw an exception if item == null
 ```
 
-Platform types are *non-denotable*, meaning that onw can not write them down explicitly in the language.
+Platform types are *non-denotable*, meaning that one can not write them down explicitly in the language.
 When a platform value is assigned to a Kotlin variable, we can rely on type inference (the variable will have an inferred platform type then,
  as `item` has in the example above), or we can choose the type that we expect (both nullable and non-null types are allowed):
 
@@ -85,9 +87,9 @@ As mentioned above, platform types cannot be mentioned explicitly in the program
 Nevertheless, the compiler and IDE need to display them sometimes (in error messages, parameter info etc), so we have a
 mnemonic notation for them:
 
-* `T!` means "T or T?",
-* `(Mutable)Collection<T>!` means "Java collection of T may be mutable or not, may be nullable or not",
-* `Array<(out) T>!` means "Java array of T (or a subtype of T), nullable or not"
+* `T!` means "`T` or `T?`",
+* `(Mutable)Collection<T>!` means "Java collection of `T` may be mutable or not, may be nullable or not",
+* `Array<(out) T>!` means "Java array of `T` (or a subtype of `T`), nullable or not"
 
 ### Mapped types
 
@@ -124,7 +126,7 @@ Some non-primitive built-in classes are also mapped:
 | `java.lang.Throwable`    | `kotlin.Throwable!`    |
 {:.zebra}
 
-Collection types may be read-only or mutable in Kotlin, so Java's collection are mapped as follows
+Collection types may be read-only or mutable in Kotlin, so Java's collections are mapped as follows
 (all Kotlin types in this table reside in the package `kotlin`):
 
 | **Java type** | **Kotlin read-only type**  | **Kotlin mutable type** | **Loaded platform type** |
@@ -159,8 +161,9 @@ Kotlin's generics are a little different from Java's (see [Generics](generics.ht
   * List becomes `List<*>!`, i.e. `List<out Any?>!`
 
 Like Java's, Kotlin's generics are not retained at runtime, i.e. objects do not carry information about actual type arguments passed to their constructors,
-i.e. `ArrayList<Integer>()` is indistinguishable from `ArrayList<Character>()`. This makes it impossible to perform `is`-checks that take generics into account.
-Kotlin only allows `is`-checks for star-projected generic types:
+i.e. `ArrayList<Integer>()` is indistinguishable from `ArrayList<Character>()`.
+This makes it impossible to perform *is*{: .keyword }-checks that take generics into account.
+Kotlin only allows *is*{: .keyword }-checks for star-projected generic types:
 
 ``` kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
@@ -217,7 +220,7 @@ val array = intArray(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
 ```
 
-It's currently not possible to pass null to a method that is declared as varargs.
+It's currently not possible to pass *null*{: .keyword } to a method that is declared as varargs.
 
 ### Checked Exceptions
 
@@ -225,7 +228,7 @@ In Kotlin, all exceptions are unchecked, meaning that the compiler does not forc
 So, when you call a Java method that declares a checked exception, Kotlin does not force you to do anything:
 
 ``` kotlin
-fun render(list : List<out Any?>, to : Appendable) {
+fun render(list: List<*>, to: Appendable) {
   for (item in list)
     to.append(item.toString()) // Java would require us to catch IOException here
 }
@@ -239,7 +242,7 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 
 #### wait()/notify()
 
-[Effective Java Item 69](http://www.oracle.com/technetwork/java/effectivejava-136174.html) kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
+[Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html) Item 69 kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
 Thus, these methods are not available on references of type `Any`.
 If you really need to call them, you can cast to `java.lang.Object`:
 
@@ -255,7 +258,7 @@ To retrieve the type information from an object, we use the javaClass extension 
 val fooClass = foo.javaClass
 ```
 
-Instead of Java's Foo.class use javaClass<Foo>().
+Instead of Java's `Foo.class` use javaClass<Foo>().
 
 
 ``` kotlin
@@ -268,12 +271,12 @@ To override `clone()`, your class needs to extend `kotlin.Cloneable`:
 
 ```kotlin
 
-class Example: Cloneable {
+class Example : Cloneable {
   override fun clone(): Any { ... }
 }
 ```
 
- Do not forget about [Effective Java Item 11](http://www.oracle.com/technetwork/java/effectivejava-136174.html): Override clone judiciously.
+ Do not forget about [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 11: *Override clone judiciously*.
 
 #### finalize()
 
@@ -287,7 +290,7 @@ class C {
 }
 ```
 
-According to Java's rules, `finalize()` must not be `private`.
+According to Java's rules, `finalize()` must not be *private*{: .keyword }.
 
 ### Inheritance from Java classes
 At most one Java-class (and as many Java interfaces as you like) can be a supertype for a class in Kotlin. This class must go first in the supertype list.
@@ -312,21 +315,21 @@ All the functions and properties declared inside a package `org.foo.bar` are put
 
 ``` kotlin
 package demo
-  class Foo() {
-  }
 
-  fun bar() {
-  }
+class Foo
+
+fun bar() {
+}
 
 ```
 
 ``` java
 // Java
-new Foo();
+new demo.Foo();
 demo.DemoPackage.bar();
 ```
 
-For the root package (the one that's called a "default package" in Java), a class named _DefaultPackage is created.
+For the root package (the one that's called a "default package" in Java), a class named `_DefaultPackage` is created.
 
 ### Static Methods and Fields
 
@@ -400,7 +403,7 @@ fun List<String>.filterValid(): List<String>
 fun List<Int>.filterValid(): List<Int>
 ```
 
-From Kotlin they will be accessible by the same name `filterValid`, btu from Java it will be `filterValid` and `filterValidInt`.
+From Kotlin they will be accessible by the same name `filterValid`, but from Java it will be `filterValid` and `filterValidInt`.
 
 The same trick applies when we need to have a property `x` alongside with a function `getX()`:
 
@@ -414,19 +417,21 @@ fun getX() = 10
 
 ### Checked Exceptions
 
-As we mentioned above, Kotlin does not have checked exceptions. So, normally, the Java signatures of Kotlin functions do not declare exceptions thrown. Thus if we have a function in Kotlin like this:
+As we mentioned above, Kotlin does not have checked exceptions.
+So, normally, the Java signatures of Kotlin functions do not declare exceptions thrown.
+Thus if we have a function in Kotlin like this:
 
 ``` kotlin
 package demo
 
 fun foo() {
-  throw IOException();
+  throw IOException()
 }
 ```
 
 And we want to call it from Java and catch the exception:
 
-``` kotlin
+``` java
 // Java
 try {
   demo.DemoPackage.foo();
@@ -436,7 +441,8 @@ catch (IOException e) { // error: foo() does not declare IOException in the thro
 }
 ```
 
-we get an error message from the Java compiler, because foo() does not declare IOException. To work around this problem, use the [throws] annotation in Kotlin:
+we get an error message from the Java compiler, because `foo()` does not declare `IOException`.
+To work around this problem, use the `[throws]` annotation in Kotlin:
 
 ``` kotlin
 [throws(javaClass<IOException>())] fun foo() {
@@ -446,8 +452,9 @@ we get an error message from the Java compiler, because foo() does not declare I
 
 ### Null-safety
 
-When calling Kotlin functions from Java, nobody prevents us from passing a null as a non-null parameter.
-That's why Kotlin generates runtime checks for all public functions that expect non-nulls. This way we get a NullPointerException in the Java code immediately.
+When calling Kotlin functions from Java, nobody prevents us from passing *null*{: .keyword } as a non-null parameter.
+That's why Kotlin generates runtime checks for all public functions that expect non-nulls.
+This way we get a `NullPointerException` in the Java code immediately.
 
 ### Properties
 

@@ -93,7 +93,7 @@ For `in` and `!in` the procedure is the same, but the order of arguments is reve
 | `a[i, j] = b` | `a.set(i, j, b)` |
 | `a[i_1, ...,  i_n] = b` | `a.set(i_1, ..., i_n, b)` |
 
-Square brackets are translated to calls to get and set with appropriate numbers of arguments.
+Square brackets are translated to calls to `get` and `set` with appropriate numbers of arguments.
 
 | Symbol | Translated to |
 |--------|---------------|
@@ -136,7 +136,7 @@ The `==` operation is special in two ways:
 * It looks up a function with a specific _signature_, not just a specific _name_. The function must be declared as
 
 ``` kotlin
-fun equals(other : Any?) : Boolean
+fun equals(other: Any?): Boolean
 ```
 
 Or an extension function with the same parameter list and return type.

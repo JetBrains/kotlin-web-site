@@ -25,7 +25,7 @@ Each enum constant is an object.
 Since each enum is an instance of the enum class, they can be initialized
 
 ``` kotlin
-enum class Color(val rgb : Int) {
+enum class Color(val rgb: Int) {
   RED : Color(0xFF0000)
   GREEN : Color(0x00FF00)
   BLUE : Color(0x0000FF)
@@ -46,7 +46,7 @@ enum class ProtocolState {
     override fun signal() = WAITING
   }
 
-  abstract fun signal() : ProtocolState
+  abstract fun signal(): ProtocolState
 }
 ```
 
