@@ -26,7 +26,17 @@ If any of these functions is explicitly defined in the class body or inherited f
   
 *NOTE* that if a constructor parameter does not have a `val` or `var` in front of it, it will not be included in computation 
 of all these functions; nor will be properties declared in the class body or inherited from the superclass.
-  
+
+## Constructors
+
+By default, the data class will have one constructor which takes values for all properties of this data class as constructor arguments. In order to use a data class with libraries, that require the objects to have a parameterless constructor (for example Jackson or JPA), you need to specify default values for each property:
+
+``` kotlin
+data class User(val name: String = "", val age: Int = 0)
+```
+
+The compiler will then generate an additional parameterless constructor for the data class. This parameterless constructor will use the default values to initialize the object.
+
 ## Copying
   
 It's often the case that we need to copy an object altering _some_ of its properties, but keeping the rest unchanged. 
