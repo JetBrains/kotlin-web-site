@@ -43,10 +43,10 @@ The correspondence between milestones and versions is displayed below:
 
 Kotlin sources should be located in a separate directory *kotlin* which is located at the same level as the *java* directory for Java sources:
 
-project
->  - main (root)
->>    - kotlin
->>    - java
+    project
+        - main (root)
+            - kotlin
+            - java
 
 
 ## Configuring Dependencies
