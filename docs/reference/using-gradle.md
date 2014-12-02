@@ -41,17 +41,17 @@ The correspondence between milestones and versions is displayed below:
 
 ## Project Layout
 
-In the project, Kotlin sources should be located under a common root folder named *kotlin* which is also the root to the *java* folder for Java sources
+Kotlin sources should be located in a separate directory *kotlin* which is located at the same level as the *java* directory for Java sources:
 
 project
-  - main (root)
-    - kotlin
-    - java
+>  - main (root)
+>>    - kotlin
+>>    - java
 
 
 ## Configuring Dependencies
 
-You need to add dependencies on kotlin-gradle-plugin and Kotlin standard library:
+You need to add dependencies on kotlin-gradle-plugin and the Kotlin standard library:
 
 ``` groovy
 
@@ -77,7 +77,7 @@ dependencies {
 
 ## Using Snapshot versions
 
-If you want to use a snapshot version (nightly build), first add out snapshot repository and change the version to 0.1-SNAPSHOT:
+If you want to use a snapshot version (nightly build), first add the snapshot repository and change the version to 0.1-SNAPSHOT:
 
 ``` groovy
 buildscript {
