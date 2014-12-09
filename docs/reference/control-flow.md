@@ -138,7 +138,7 @@ This can be rewritten in Kotlin as follows:
 
 ``` kotlin
 when (term) {
-  is Fun -> { if (tem.v != term.body) continue; print(x) }
+  is Fun -> { if (term.v != term.body) continue; print(x) }
   else -> print("Nope!")
 }
 ```
