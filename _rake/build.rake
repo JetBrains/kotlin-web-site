@@ -15,11 +15,15 @@ task :build do
     command += " --config _config.yml,#{env_filename}"
   end
 
-  system command
+  case env
+    when 'prod'
+      Rake::Task['generate_version_file'].invoke
+  end
 
+  system command
 
   case env
     when 'prod'
-      system 'rake build_pdf dest=_site/docs/kotlin-docs.pdf'
+      #system 'rake build_pdf dest=_site/docs/kotlin-docs.pdf'
   end
 end
