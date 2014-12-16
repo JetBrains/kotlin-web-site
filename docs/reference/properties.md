@@ -108,7 +108,7 @@ For example, in the following case there will be no backing field:
 
 ``` kotlin
 val isEmpty: Boolean
-  get() = this.size > 0
+  get() = this.size == 0
 ```
 
 ### Backing Properties
