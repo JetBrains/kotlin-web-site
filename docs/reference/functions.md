@@ -150,7 +150,7 @@ allowing a variable number of arguments to be passed to the function:
   val list = asList(1, 2, 3)
 ```
 
-Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<T>`.
+Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<out T>`.
 
 Only one parameter may be annotated as `vararg`. It may be the last parameter or the one before last,
 if the last parameter has a function type (allowing a lambda to be passed outside parentheses).
