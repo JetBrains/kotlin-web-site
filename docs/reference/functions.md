@@ -250,7 +250,7 @@ For more information on generic functions see [Generics](generics.html)
 
 ### Inline Functions
 
-Inline functions are explained in [Higher-Order Functions](lambdas.html#inline-functions)
+Inline functions are explained [here](inline-functions.html)
 
 ### Extension Functions
 
