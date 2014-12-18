@@ -44,6 +44,24 @@ inline fun lock<T>(lock: Lock, body: () -> T): T {
 Inlining may cause the generated code to grow, but if we do it in a reasonable way (do not inline big functions)
 it will pay off in performance, especially at "megamorphic" call-sites inside loops.
 
+## \[noinline\]
+
+In case you want only some of the lambdas passed to an inline function to be inlined, you can mark some of your function
+parameters with `[noinline]` annotation:
+
+``` kotlin
+inline fun foo(inlined: () -> Unit, [noinline] notInlined: () -> Unit) {
+  // ...
+}
+```
+
+Inlinable lambdas can only be called inside the inline functions or passed as inlinable arguments,
+but `[noinline]` one can be manipulated in any way we like: stored in fields, passed around etc.
+
+Note that if an inline function has no inlinable function parameters and no
+[reified type parameters](#reified-type-parameters), the compiler will issue a warning, since inlining such functions is
+ very unlikely to be beneficial (you can suppress the warning if you are sure the inlining is needed).
+
 ## Non-local returns
 
 In Kotlin, we can only use a normal, unqualified `return` to exit a named function..
