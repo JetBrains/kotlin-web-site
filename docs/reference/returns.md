@@ -57,7 +57,7 @@ fun foo() {
 ```
 
 The *return*{: .keyword }-expression returns from the nearest enclosing function, i.e. `foo`.
-(Note that such non-local returns are supported only for function literals passed to [inline-functions](lambdas.html#inline-functions).) 
+(Note that such non-local returns are supported only for function literals passed to [inline-functions](inline-functions.html).)
 If we need to return from a function literal, we have to label it and qualify the *return*{: .keyword }:
 
 ``` kotlin

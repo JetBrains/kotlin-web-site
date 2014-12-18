@@ -44,5 +44,5 @@ Things that may be added to Kotlin later:
 * [Zero-overhead null-safety](null-safety.html)
     * Scala has Option, which is a syntactic and run-time wrapper
 * [Smart casts](typecasts.html)
-* [Kotlin's Inline functions facilitate Nonlocal jumps](lambdas.html#inline-functions)
+* [Kotlin's Inline functions facilitate Nonlocal jumps](inline-functions.html#inline-functions)
 * [First-class delegation](delegation.html). Also implemented via 3rd party plugin: Autoproxy
