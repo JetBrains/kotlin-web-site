@@ -7,6 +7,7 @@ kramdown:
   hard_wrap: false
 highlighter: pygments
 exclude:
+  - '*.scss'
   - vendor
   - bin
   - Rakefile
