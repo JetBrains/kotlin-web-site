@@ -37,3 +37,7 @@
 - company: JackOfHearts
   url: https://play.google.com/store/apps/details?id=truefool.android
   description: True Fool. A Durak card game for Android written in Kotlin and libGDX
+  
+- company: Schibsted Tech Polska
+  url:
+  description: Android news application with 99% code writen in Kotlin
