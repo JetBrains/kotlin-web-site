@@ -191,6 +191,8 @@
   @media print {
     .page-content {
       page-break-after: always; } }
+  .os_linux.ua_chrome .page-content {
+    margin-left: -1px; }
   .page-content .page-link-to-github {
     position: relative;
     z-index: 1;

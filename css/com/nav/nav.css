@@ -49,6 +49,7 @@
       font-weight: bold; }
   .global-nav .extra-nav {
     display: inline-block;
+    top: 0;
     left: 100%;
     font-size: 14px;
     margin-left: 24px;
@@ -141,6 +142,8 @@
     vertical-align: top; }
     .docs-nav .nav-item-wrap:last-child {
       padding-right: 0; }
+    .os_linux.ua_chrome .docs-nav .nav-item-wrap {
+      width: 19.9%; }
   .docs-nav .nav-item {
     background-image: -moz-linear-gradient(#fafafa, #e4e4e4);
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#e4e4e4));
@@ -149,7 +152,7 @@
     display: block;
     box-sizing: border-box;
     margin-left: 0;
-    box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     background-color: #e1e1e1;
     border-radius: 3px;
     text-align: center;

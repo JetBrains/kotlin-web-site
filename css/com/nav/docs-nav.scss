@@ -17,6 +17,10 @@
         &:last-child {
             padding-right: 0;
         }
+        
+        @at-root .os_linux.ua_chrome & {
+            width: 19.9%;
+        }
     }
 
     .nav-item {
@@ -24,7 +28,7 @@
         display: block;
         box-sizing: border-box;
         margin-left: 0;
-        box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
         background-color: #e1e1e1;
         border-radius: 3px;
         text-align: center;
