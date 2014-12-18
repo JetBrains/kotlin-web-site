@@ -24,6 +24,6 @@ task :build do
 
   case env
     when 'prod'
-      #system 'rake build_pdf dest=_site/docs/kotlin-docs.pdf'
+      system 'rake build_pdf dest=_site/docs/kotlin-docs.pdf'
   end
 end
