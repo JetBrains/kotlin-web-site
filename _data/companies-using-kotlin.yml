@@ -41,3 +41,7 @@
 - company: Schibsted Tech Polska
   url:
   description: Android news application with 99% code written in Kotlin
+
+- company: Level Money
+  url: https://play.google.com/store/apps/details?id=com.levelmoney.mobile
+  description: Most new non-UI code written in Kotlin
