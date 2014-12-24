@@ -45,3 +45,7 @@
 - company: Level Money
   url: https://play.google.com/store/apps/details?id=com.levelmoney.mobile
   description: Most new non-UI code written in Kotlin
+
+- company: AppDialer
+  url: https://play.google.com/store/apps/details?id=name.pilgr.appdialer
+  description: Fuzzy app/contact search and new UI written in Kotlin
