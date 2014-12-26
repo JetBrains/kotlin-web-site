@@ -1,12 +1,15 @@
 url: https://github.com/JetBrains/kotlin/releases
 
 latest:
-  version: 0.10.4
-  milestone: M10
-  url: https://github.com/JetBrains/kotlin/releases/tag/build-0.10.4
+  version: 0.10.195
+  milestone: M10.1
+  url: https://github.com/JetBrains/kotlin/releases/tag/build-0.10.195
   runtime_size: 905KB
 
 list:
+- milestone: M10.1
+  version: 0.10.195
+
 - milestone: M10
   version: 0.10.4
 
