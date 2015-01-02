@@ -62,3 +62,9 @@
   description: Solr Standalone Tiny and High performant server
   type: Application
   link: https://github.com/bremeld/solr-undertow
+
+- name: Yested
+  description: A Web Framework
+  type: Framework
+  link: http://www.yested.net
+  
