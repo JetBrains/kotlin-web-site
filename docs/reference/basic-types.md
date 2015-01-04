@@ -51,7 +51,7 @@ Note that boxing of numbers does not preserve identity:
 
 ``` kotlin
 val a: Int = 10000
-print(a identityEquals a) // Prints 'true'
+print(a identityEquals a) // Prints 'false'
 val boxedA: Int? = a
 val anotherBoxedA: Int? = a
 print(boxedA identityEquals anotherBoxedA) // !!!Prints 'false'!!!
