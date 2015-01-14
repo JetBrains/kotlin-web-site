@@ -209,7 +209,7 @@ class TextElement(val text: String): Element {
     }
 }
 
-abstract class Tag(val date: String): Element {
+abstract class Tag(val name: String): Element {
     val children: ArrayList<Element> = ArrayList<Element>()
     val attributes = HashMap<String, String>()
 
