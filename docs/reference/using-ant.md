@@ -87,7 +87,7 @@ recommended to use *withKotlin* task
 
 ``` xml
 <project name="Ant Task Test" default="build">
-    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+    <typedef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <target name="build">
         <kotlin2js src="root1" output="out.js"/>
