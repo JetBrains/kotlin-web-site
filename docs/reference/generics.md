@@ -135,7 +135,7 @@ fun demo(strs: Source<String>) {
 }
 ```
 
-The general rule is: when a type parameter `T` of a class `C` is declared **out**, it may occur only in **out**\-position in the members of `C`, but in `return C<Base>` can safely be a supertype 
+The general rule is: when a type parameter `T` of a class `C` is declared **out**, it may occur only in **out**\-position in the members of `C`, but in return `C<Base>` can safely be a supertype 
 of `C<Derived>`.
 
 In "clever words" they say that the class `C` is **covariant** in the parameter `T`, or that `T` is a **covariant** type parameter. 
