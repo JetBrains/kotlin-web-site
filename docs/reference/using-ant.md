@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 title: "Using Ant"
-description: "This tutorials walks you through different scenarios when using Ant for building applications that contain Kotlin code"
+description: "This tutorial walks you through different scenarios when using Ant for building applications that contain Kotlin code"
 ---
 
 # Using Ant
@@ -13,7 +13,7 @@ Kotlin provides three tasks for Ant:
 
 * kotlinc: Kotlin compiler targeting the JVM
 * kotlin2js: Kotlin compiler targeting JavaScript
-* withKotin: Task to compile Kotlin files when using the standard *javac* Ant task
+* withKotlin: Task to compile Kotlin files when using the standard *javac* Ant task
 
 These tasks are defined in the *kotlin-ant.jar* library which is located in the *lib* folder for the [Kotlin Compiler]({{site.data.releases.latest.url}})
 
@@ -59,26 +59,26 @@ recommended to use *withKotlin* task
 ``` xml
 <project name="Ant Task Test" default="build">
 
-  <path id="classpath">
-    <fileset dir="${idea.sdk}/lib" includes="annotations.jar"/>
-    <fileset dir="${kotlin.home}" includes="kotlin-runtime.jar"/>
-  </path>
+    <path id="classpath">
+        <fileset dir="${idea.sdk}/lib" includes="annotations.jar"/>
+        <fileset dir="${kotlin.home}" includes="kotlin-runtime.jar"/>
+    </path>
 
-  <typedef name = "withKotlin" classname = "org.jetbrains.jet.buildtools.ant.KotlinCompilerAdapter"/>
+    <typedef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
-  <target name="build">
-      <delete dir="classes" failonerror="false"/>
-      <mkdir dir="classes"/>
-      <javac destdir="classes" includeAntRuntime="false" srcdir="root1">
-        <classpath refid="classpath"/>
-        <withKotlin externalannotations="root1/b/">
-          <externalannotations path="root1/a/" />
-        </withKotlin>
-      </javac>
-      <jar destfile="hello.jar">
-        <fileset dir="/classes"/>
-      </jar>
-  </target>
+    <target name="build">
+        <delete dir="classes" failonerror="false"/>
+        <mkdir dir="classes"/>
+        <javac destdir="classes" includeAntRuntime="false" srcdir="root1">
+            <classpath refid="classpath"/>
+            <withKotlin externalannotations="root1/b/">
+                <externalannotations path="root1/a/" />
+            </withKotlin>
+        </javac>
+        <jar destfile="hello.jar">
+            <fileset dir="/classes"/>
+        </jar>
+    </target>
 </project>
 ```
 
@@ -87,11 +87,11 @@ recommended to use *withKotlin* task
 
 ``` xml
 <project name="Ant Task Test" default="build">
-  <typdef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+    <typedef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
-  <target name="build">
-    <kotlin2js src="root1" output="out.js"/>
-  </target>
+    <target name="build">
+        <kotlin2js src="root1" output="out.js"/>
+    </target>
 </project>
 ```
 
@@ -99,11 +99,11 @@ recommended to use *withKotlin* task
 
 ``` xml
 <project name="Ant Task Test" default="build">
-  <taskdef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+    <taskdef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
-  <target name="build">
-    <kotlin2js src="root1" output="out.js" outputPrefix="prefix" outputPostfix="postfix" sourcemap="true"/>
-  </target>
+    <target name="build">
+        <kotlin2js src="root1" output="out.js" outputPrefix="prefix" outputPostfix="postfix" sourcemap="true"/>
+    </target>
 </project>
 ```
 
@@ -115,20 +115,19 @@ Complete list of elements and attributes are listed below
 
 | Name | Description | Required | Default Value |
 |------|-------------|----------|---------------|
-| `src`  | Kotlin source file or directory to compile | Either src or module needs to be defined |  |
-| `module`  | Kotlin module to compile | Either src or module needs to be defined |  |
-| `output`  | Destination directory | Either output or jar is required |  |
+| `src`  | Kotlin source file or directory to compile | Yes |  |
+| `output`  | Destination directory or .jar file name | Yes |  |
 | `classpath`  | Compilation class path | No |  |
 | `classpathref`  | Compilation class path reference | No |  |
 | `stdlib`  | Path to "kotlin-runtime.jar" | No | ""  |
-| `includeRuntime`  | If "jar" is used, whether Kotlin runtime library is included | No | true  |
+| `includeRuntime`  | If `output` is a .jar file, whether Kotlin runtime library is included in the jar | No | true  |
 
 
 ### withKotlin attributes
 
 | Name | Description | Required | Default Value |
 |------|-------------|----------|---------------|
-| `externalannotations ` | Path to external annotations | No |  |
+| `externalannotations` | Path to external annotations | No |  |
 
 
 ### kotlin2js Attributes
