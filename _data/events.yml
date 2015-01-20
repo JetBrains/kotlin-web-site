@@ -615,7 +615,7 @@
   date: 2014-09-11
   speaker: Hadi Hariri
   location: Oslo, Norway
-  language: en
+  lang: en
 
 - title: JavaZone'14
   url: http://2014.javazone.no/
@@ -623,17 +623,48 @@
   speaker: Svetlana Isakova
   date: 2014-09-11
   location: Oslo, Norway
-  language: en
+  lang: en
   content:
     video: http://vimeo.com/album/3031533/video/105758307
+
+- title: YAC 2014
+  url: https://events.yandex.ru/events/yac/2014/
+  subject: "Kotlin for Android: Less code, more sense"
+  speaker: Ilya Ryzhenkov
+  date: 2014-10-30
+  location: Moscow, Russia
+  lang: ru
+  content:
+    video: https://events.yandex.ru/lib/talks/2387/
+
+- title: "{MBLT}DEV 2014"
+  url: http://mbltdev.ru/
+  subject: Kotlin for Android, an easy way to stop coding in Java
+  speaker: Ilya Ryzhenkov
+  date: 2014-10-28
+  location: Moscow, Russia
+  lang: ru
+  content:
+    video: http://www.youtube.com/watch?v=Uq0DEmxeBBw
+
+- title: CEE SEC(R) 2014
+  url: http://2014.secr.ru/
+  subject: Kotlin on Android, an easy way to stop coding in Java
+  speaker: Ilya Ryzhenkov
+  date: 2014-10-23
+  location: Moscow, Russia
+  lang: ru
+  content:
+    video: http://www.youtube.com/watch?v=Go-Uav8GQ5c
+    slides: http://2014.secr.ru/2014/files/020_ryzhenkov.pdf
 
 # 2015
 # ==============================================================================
 
 - title: ECOOP'15
   url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
-  subject: Kotlin: Challenges in programming language design
+  subject: "Kotlin: Challenges in programming language design"
   speaker: Andrey Breslav
   date: [2015-06-06, 2015-06-10]
   location: Prague, Czech Republic
-  language: en
+  lang: en
