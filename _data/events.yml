@@ -627,3 +627,13 @@
   content:
     video: http://vimeo.com/album/3031533/video/105758307
 
+# 2015
+# ==============================================================================
+
+- title: ECOOP'15
+  url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
+  subject: Kotlin: Challenges in programming language design
+  speaker: Andrey Breslav
+  date: [2015-06-06, 2015-06-10]
+  location: Prague, Czech Republic
+  language: en
