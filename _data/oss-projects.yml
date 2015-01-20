@@ -67,4 +67,8 @@
   description: A Web Framework
   type: Framework
   link: http://www.yested.net
-  
+
+- name: Kotlin-Hashids
+  description: Library that generates short, unique, non-sequential hashes from numbers.
+  type: Library
+  link: http://hashids.org/kotlin/
