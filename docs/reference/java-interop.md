@@ -399,7 +399,7 @@ If we really want them to have the same name in Kotlin, we can annotate one (or 
 
 ``` kotlin
 fun List<String>.filterValid(): List<String>
-[platformName("filterValidInt")
+[platformName("filterValidInt")]
 fun List<Int>.filterValid(): List<Int>
 ```
 
