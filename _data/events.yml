@@ -661,6 +661,14 @@
 # 2015
 # ==============================================================================
 
+- title: MCE'15
+  url: http://mceconf.com/
+  subject: "Kotlin, the Swift of Android"
+  speaker: Svetlana Isakova
+  date: [2015-02-05, 2015-02-06]
+  location: Warsaw, Poland
+  lang: en
+  
 - title: ECOOP'15
   url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
   subject: "Kotlin: Challenges in programming language design"
