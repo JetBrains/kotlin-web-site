@@ -118,11 +118,12 @@ public class Application {
         }
     }
 }
+```
 
 ## Running the application
 We can now use the any of the standard Gradle tasks for Spring Boot to run the application. As such, running
 
-    gradle bootRun
+        gradle bootRun
 
 the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
 
