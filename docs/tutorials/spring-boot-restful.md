@@ -76,7 +76,7 @@ task wrapper(type: Wrapper) {
 }
 ```
 
-## Creating a Greeting Data Class and Controller
+### Creating a Greeting Data Class and Controller
 The next step is to create Greeting Data class that has two properties: *id* and a *content*
 
 ```kotlin
@@ -101,7 +101,7 @@ public class GreetingController {
 
 As can be seen, this is again pretty much a one-to-one translation of Java to Kotlin, with nothing special required for Kotlin.
 
-## Creating the Application class
+### Creating the Application class
 Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin
 using the *platformStatic* attribute. For this, we create a standard *Application* class and define a class object inside where we can then create
 a function decorated with *platformStatic*
@@ -120,7 +120,7 @@ public class Application {
 }
 ```
 
-## Running the application
+### Running the application
 We can now use the any of the standard Gradle tasks for Spring Boot to run the application. As such, running
 
         gradle bootRun
