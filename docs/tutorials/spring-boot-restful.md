@@ -106,7 +106,7 @@ Finally we need to define an Application class. As Spring Boot looks for a publi
 using the *platformStatic* attribute. For this, we create a standard *Application* class and define a class object inside where we can then create
 a function decorated with *platformStatic*
 
-Note: platformStatic is an annotation in Kotlin which is used for interoperability with Java, so that the result method is defined as static when called from Java.
+Note: platformStatic is an annotation in Kotlin which is used for interoperability with Java, so that the resulting method is defined as static when called from Java.
 
 ``` kotlin
 ComponentScan
