@@ -34,7 +34,7 @@ class Delegate {
   }
  
   fun set(thisRef: Any?, prop: PropertyMetadata, value: String) {
-    println("$value has been assigned")
+    println("$value has been assigned to '${prop.name} in $thisRef.'")
   }
 }
 ```
