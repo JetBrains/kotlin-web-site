@@ -4,13 +4,14 @@ layout: tutorial
 title:  "Getting Started with IntelliJ IDEA"
 description: "This tutorials walks us through creating a simple Hello World application using IntelliJ IDEA."
 authors: Hadi Hariri
+date: 2015-01-28
 showAuthorInfo: true
 ---
 ### Setting up the environment
 In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][command_line]
 
-1. [Download IntelliJ IDEA][intellijdownload] 13 or 14 EAP and install the latest Kotlin Plugin
+1. [Download IntelliJ IDEA][intellijdownload] 14 (13 also works) and install the latest Kotlin Plugin
    1. Under Preferences (OSX) or Settings (Windows/Linux), type Plugins to get the list of currently installed Plugins.
 
    ![Kotlin Plugin]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/install_kotlin_plugin.png)
