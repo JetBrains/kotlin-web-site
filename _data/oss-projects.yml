@@ -72,3 +72,8 @@
   description: Library that generates short, unique, non-sequential hashes from numbers.
   type: Library
   link: http://hashids.org/kotlin/
+  
+- name: Kotter Knife
+  descriotion: Butter-knife view binding for Kotlin
+  type: Library
+  link: https://github.com/JakeWharton/kotterknife
