@@ -99,7 +99,7 @@ public class GreetingController {
 }
 ```
 
-As can be seen this is again pretty much a one-to-one translation of Java to Kotlin, with nothing special required for Kotlin.
+As can be seen, this is again pretty much a one-to-one translation of Java to Kotlin, with nothing special required for Kotlin.
 
 ## Creating the Application class
 Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin
