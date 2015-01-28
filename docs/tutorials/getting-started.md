@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Getting Started with IntelliJ IDEA"
 description: "This tutorials walks us through creating a simple Hello World application using IntelliJ IDEA."
 authors: Hadi Hariri
-showAuthorInfo: false
+showAuthorInfo: true
 ---
 ### Setting up the environment
 In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].

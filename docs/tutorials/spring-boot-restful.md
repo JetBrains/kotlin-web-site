@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Creating a RESTful Web Service with Spring Boot"
 description: "This tutorial walks us through the process of creating a simple REST controller with Spring Boot"
 authors: Hadi Hariri
-showAuthorInfo: false
+showAuthorInfo: true
 date: 2015-01-28
 source: spring-boot-restful
 ---

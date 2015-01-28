@@ -4,7 +4,7 @@ layout: tutorial
 title: "Getting started with Android and Kotlin"
 description: "This tutorials walks us through creating a simple Kotlin application for Android using IntelliJ IDEA."
 authors: Philip Torchinsky
-showAuthorInfo: false
+showAuthorInfo: true
 date: 2014-09-04
 related:
     - getting-started.md
