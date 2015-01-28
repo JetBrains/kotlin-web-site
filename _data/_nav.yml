@@ -148,6 +148,7 @@ tutorials:
   - title: Web Development
     content:
       - /docs/tutorials/httpservlets.html: Creating Web Applications with Http Servlets
+      - /docs/tutorials/spring-boot-restful.html: Creating a RESTful Web Service with Spring Boot"
 
   - title: Mobile
     content:

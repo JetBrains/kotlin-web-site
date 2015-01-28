@@ -1,0 +1,53 @@
+buildscript {
+    ext.kotlin_version = '0.10.195'  // New
+    repositories {
+        maven { url "https://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"  // New
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.10.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'kotlin' // New
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'gs-rest-service'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
+}
+
+// New entire sourceSets
+sourceSets {
+    main {
+        kotlin {
+            srcDir "src/main/kotlin"
+        }
+    }
+    test {
+        kotlin {
+            srcDir "test/main/kotlin"
+        }
+    }
+}
+
+dependencies {
+    compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version") // New
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}

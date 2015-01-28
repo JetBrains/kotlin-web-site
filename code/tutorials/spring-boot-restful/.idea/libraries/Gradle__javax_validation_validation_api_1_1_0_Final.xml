@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: javax.validation:validation-api:1.1.0.Final">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
