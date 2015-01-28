@@ -5,7 +5,7 @@ title:  "Creating a RESTful Web Service with Spring Boot"
 description: "This tutorial walks us through the process of creating a simple REST controller with Spring Boot"
 authors: Hadi Hariri
 showAuthorInfo: false
-date: 2015-01-27
+date: 2015-01-28
 source: spring-boot-restful
 ---
 Kotlin works quite smoothly with Spring Boot and many of the steps found on the [Spring Guides](https://spring.io/guides) for creating a RESTful service
@@ -79,14 +79,14 @@ task wrapper(type: Wrapper) {
 ### Creating a Greeting Data Class and Controller
 The next step is to create Greeting Data class that has two properties: *id* and a *content*
 
-```kotlin
+``` kotlin
 data public class Greeting(val id: Long, val content: String)
 ```
 
 We now define the *GreetingController* which serves requests of the form */greeting?name={value}* and returns a JSON object
 representing an instance of *Greeting*
 
-```kotlin
+``` kotlin
 RestController
 public class GreetingController {
 
@@ -108,7 +108,7 @@ a function decorated with *platformStatic*
 
 Note: platformStatic is an annotation in Kotlin which is used for interoperability with Java, so that the result method is defined as static when called from Java.
 
-```kotlin
+``` kotlin
 ComponentScan
 EnableAutoConfiguration
 public class Application {
