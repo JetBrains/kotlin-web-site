@@ -77,7 +77,7 @@ task wrapper(type: Wrapper) {
 ```
 
 ## Creating a Greeting Data Class and Controller
-The next step is to create Greeting Data class that has two properties, an *id* and a *greeting*
+The next step is to create Greeting Data class that has two properties: *id* and a *content*
 
 ```kotlin
 data public class Greeting(val id: Long, val content: String)
