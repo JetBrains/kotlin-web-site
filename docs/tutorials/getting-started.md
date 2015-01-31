@@ -11,7 +11,7 @@ showAuthorInfo: true
 In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][command_line]
 
-1. [Download IntelliJ IDEA][intellijdownload] 14 (13 also works) and install the latest Kotlin Plugin
+1. [Download IntelliJ IDEA][intellijdownload] 14 (13 also works), JDK (1.6+) and install the latest Kotlin Plugin
    1. Under Preferences (OSX) or Settings (Windows/Linux), type Plugins to get the list of currently installed Plugins.
 
    ![Kotlin Plugin]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/install_kotlin_plugin.png)
@@ -22,7 +22,10 @@ For instructions on how to compile and execute Kotlin applications using the com
    
    [http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml](http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml)
    
+   You can get the latest JDK from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html.
+   
 2. Once Kotlin is correctly installed, we can create a New Project. We select Java Module, give it a name and select the SDK. Kotlin works with JDK 1.6+
+   1. If you haven't previously setup a Java SDK you will need to [to be written].
 
    ![Kotlin New Project]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/new_project_step1.png)
 
