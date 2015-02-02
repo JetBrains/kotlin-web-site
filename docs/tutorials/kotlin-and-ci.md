@@ -1,7 +1,7 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Kotlin and Continuous Integration"
+title:  "Kotlin and Continuous Integration with TeamCity"
 description:
 authors: Hadi Hariri
 date: 2015-02-02
