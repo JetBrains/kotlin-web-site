@@ -153,3 +153,6 @@ tutorials:
   - title: Mobile
     content:
       - /docs/tutorials/kotlin-android.html: Getting Started With Android Development
+  - title: Tools
+    content:
+      - /docs/tutorials/kotlin-and-ci.html: Setting up Kotlin on TeamCity
