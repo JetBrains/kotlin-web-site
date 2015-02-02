@@ -51,6 +51,8 @@ Basically this step is limited to defining the Step Name and the version of Kotl
 ![Setup Kotlin Compiler]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-and-ci/teamcity-setupkotlin.png)
 <br/>
 
+The runner will set the value for the property system.path.macro.KOTLIN.BUNDLED to the correct one based on the path settings from the IntelliJ IDEA project. However
+this value needs to be defined in TeamCity (and can be set to any value). Therefore we need to define it as a system variable.
 
 #### Setup Kotlin Compilation Step
 The final step is to define the actual compilation of the project, which uses the standard IntelliJ IDEA Runner Type
