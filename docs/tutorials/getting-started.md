@@ -11,7 +11,9 @@ showAuthorInfo: true
 In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][command_line]
 
-1. [Download IntelliJ IDEA][intellijdownload] 14 (13 also works) and install the latest Kotlin Plugin
+If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/). If you are new to IntelliJ IDEA, check out the [The IntelliJ IDEA Minimal Surivial Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
+
+1. [Download IntelliJ IDEA][intellijdownload] 14 (13 also works) as well as JDK 1.6+, and install the latest Kotlin Plugin
    1. Under Preferences (OSX) or Settings (Windows/Linux), type Plugins to get the list of currently installed Plugins.
 
    ![Kotlin Plugin]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/install_kotlin_plugin.png)
