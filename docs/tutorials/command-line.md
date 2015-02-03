@@ -89,7 +89,7 @@ Kotlin can also be used as a scripting language. A script is a Kotlin source fil
 To run a script, we just pass the `-script` option to the compiler with the corresponding script file.
 
 ```
-   $ kotlinc-jvm -script list_folders.kts
+   $ kotlinc-jvm -script list_folders.kts <path_to_folder_to_inspect>
 ```
 
 
