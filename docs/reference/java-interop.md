@@ -222,6 +222,30 @@ javaObj.removeIndicesVarArg(*array)
 
 It's currently not possible to pass *null*{: .keyword } to a method that is declared as varargs.
 
+When compiling to JVM byte codes, the compiler optimizes access to arrays so that there's no overhead introduced:
+
+``` kotlin
+val array = array(1, 2, 3, 4)
+array[x] = array[x] * 2 // no actual calls to get() and set() generated
+for (x in array) // no iterator created
+  print(x)
+```
+
+Even when we navigate with an index, it does not introduce any overhead
+
+``` kotlin
+for (i in array.indices) // no iterator created
+  array[i] += 2
+```
+
+Finally, *in*{: .keyword }-checks have no overhead either
+
+``` kotlin
+if (i in array.indices) { // same as (i >= 0 && i < array.size)
+  print(array[i])
+}
+```
+
 ### Checked Exceptions
 
 In Kotlin, all exceptions are unchecked, meaning that the compiler does not force you to catch any of them.

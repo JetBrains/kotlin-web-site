@@ -174,12 +174,14 @@ Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` 
 
 ``` kotlin
 class Array<T> private () {
+  fun size(): Int
   fun get(index: Int): T
   fun set(index: Int, value: T): Unit
 
   fun iterator(): Iterator<T>
 
-  val indices: IntRange
+  val indices: IntRange  // returns a range from 0 to size()-1
+  val lastIndex: Int     // returns size()-1
 }
 ```
 
@@ -190,35 +192,23 @@ Another option is to use a factory function that takes the array size and the fu
 of each array element given its index:
 
 ``` kotlin
-val asc = Array<Int>(5, {i -> i * i}) // Creates an array [0, 1, 4, 9, 16]
+// Creates an Array<String> with values ["0", "1", "4", "9", "16"]
+val asc = Array(5, {i -> (i * i).toString()})
 ```
 
-As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`. When compiling to JVM byte codes, the compiler optimizes
-access to arrays so that there's no overhead introduced, and all operations work exactly like in Java
+As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`.
+
+Note: unlike Java, arrays in Kotlin are invariant. This means that Kotlin does not let us assign an `Array<String>`
+to an `Array<Any>`, which prevents a possible runtime failure.
+
+Kotlin also has specialized classes to represent arrays of primitive types without boxing overhead: ByteArray,
+ShortArray, IntArray and so on. These classes have no inheritance relation to the `Array` class, but they
+have the same set of methods and properties. Each of them also has a corresponding factory function:
 
 ``` kotlin
-val array = array(1, 2, 3, 4)
-array[x] = array[x] * 2 // no actual calls to get() and set() generated
-for (x in array) // no iterator created
-  print(x)
+val x: IntArray = intArray(1, 2, 3)
+x[0] = x[1] + x[2]
 ```
-
-Even when we navigate with an index, it does not introduce any overhead
-
-``` kotlin
-for (i in array.indices) // no iterator created
-  array[i] += 2
-```
-
-Finally, *in*{: .keyword }-checks have no overhead either
-
-``` kotlin
-if (i in array.indices) { // same as (i >= 0 && i < array.size)
-  print(array[i])
-}
-```
-
-Note: arrays are invariant. For the best performance on the JVM use specialized array classes.
 
 ## Strings
 
