@@ -173,7 +173,7 @@ Built-in operations on booleans include
 Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` functions (that turn into `[]` by operator overloading conventions), and `size`, along with a few other useful member functions:
 
 ``` kotlin
-class Array<T>(val size: Int, init: (Int) -> T) {
+class Array<T> private () {
   fun get(index: Int): T
   fun set(index: Int, value: T): Unit
 
@@ -183,13 +183,15 @@ class Array<T>(val size: Int, init: (Int) -> T) {
 }
 ```
 
-To create an array we can call its constructor providing the array size and a function that knows how to initialize elements of the array
+To create an array, we can use a library function `array()` and pass the item values to it, so that `array(1, 2, 3)` creates an array [1, 2, 3].
+Alternatively, the `arrayOfNulls()` library function can be used to create an array of a given size filled with null elements.
+
+Another option is to use a factory function that takes the array size and the function that can return the initial value
+of each array element given its index:
 
 ``` kotlin
 val asc = Array<Int>(5, {i -> i * i}) // Creates an array [0, 1, 4, 9, 16]
 ```
-
-Or, alternatively, we can use a library function `array()` and pass the item values to it, so that `array(1, 2, 3)` creates an array [1, 2, 3].
 
 As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`. When compiling to JVM byte codes, the compiler optimizes
 access to arrays so that there's no overhead introduced, and all operations work exactly like in Java
