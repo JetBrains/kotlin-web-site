@@ -63,6 +63,21 @@ fun C.foo() { println("extension") }
 
 If we call `c.foo()` of any `c` of type `C`, it will print "member", not "extension".
 
+## Nullable Receiver
+
+Note that extensions can be defined with a nullable receiver type. Such extensions can be called on an object variable
+even if its value is null, and can check for `this == null` inside the body. This is what allows you
+to call toString() in Kotlin without checking for null: the check happens inside the extension function.
+
+``` kotlin
+fun Any?.toString(): String {
+    if (this == null) return "null"
+    // after the null check, 'this' is autocast to a non-null type, so the toString() below
+    // resolves to the member function of the Any class
+    return toString()
+}
+```
+
 ## Extension Properties
 
 Similarly to functions, Kotlin supports extension properties:
