@@ -179,9 +179,7 @@ class Array<T> private () {
   fun set(index: Int, value: T): Unit
 
   fun iterator(): Iterator<T>
-
-  val indices: IntRange  // returns a range from 0 to size()-1
-  val lastIndex: Int     // returns size()-1
+  // ...
 }
 ```
 
