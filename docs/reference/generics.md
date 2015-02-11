@@ -325,6 +325,7 @@ fun replaceNullsWithDefaults<T : Any>(list: List<T?>): List<T> {
 
 For this function to compile, we need to specify a type constraint that requires a **class object** of `T` to be of a subtype of `Default<T>`:
 
+*NOTE: This feature is not implemented yet (https://youtrack.jetbrains.com/issue/KT-1437)*
 ``` kotlin
 fun replaceNullsWithDefaults<T : Any>(list : List<T?>) : List<T>
     where class object T : Default<T> {
