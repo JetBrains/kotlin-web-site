@@ -3,7 +3,7 @@ type: tutorial
 layout: tutorial
 title:  "Creating a RESTful Web Service with Spring Boot"
 description: "This tutorial walks us through the process of creating a simple REST controller with Spring Boot"
-authors: Hadi Hariri
+authors: Hadi Hariri, Eduardo Vacchi
 showAuthorInfo: true
 date: 2015-01-28
 source: spring-boot-restful
@@ -120,16 +120,6 @@ public class Application {
 }
 ```
 
-### Running the application
-We can now use the any of the standard Gradle tasks for Spring Boot to run the application. As such, running
-
-        gradle bootRun
-
-the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
-
-![Running App]({{ site.baseurl }}/{{ site.img_tutorial_root }}/spring-boot-restful/running-app.png)
-
-
 ### Alternative Application class definition
 
 In Java, the `main()` method of a Spring Boot application is conventionally defined within the annotated application class. This is because Java *does not* support top-level methods.
@@ -162,6 +152,13 @@ springBoot {
 }
 ```
 
-Finally, you can start again the application with
+### Running the application
+We can now use the any of the standard Gradle tasks for Spring Boot to run the application. As such, running
 
         gradle bootRun
+
+the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
+
+![Running App]({{ site.baseurl }}/{{ site.img_tutorial_root }}/spring-boot-restful/running-app.png)
+
+
