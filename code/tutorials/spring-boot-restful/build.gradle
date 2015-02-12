@@ -42,11 +42,6 @@ sourceSets {
     }
 }
 
-springBoot {
-    mainClass = '_DefaultPackage'
-}
-
-
 dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version") // New
     compile("org.springframework.boot:spring-boot-starter-web")
