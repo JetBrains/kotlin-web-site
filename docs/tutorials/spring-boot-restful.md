@@ -65,11 +65,6 @@ sourceSets {
     }
 }
 
-// tells spring boot to look for the main method under the default package
-springBoot {
-    mainClass = '_DefaultPackage'
-}
-
 dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version") // New
     compile("org.springframework.boot:spring-boot-starter-web")
@@ -107,14 +102,21 @@ public class GreetingController {
 As can be seen, this is again pretty much a one-to-one translation of Java to Kotlin, with nothing special required for Kotlin.
 
 ### Creating the Application class
-Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin.
+Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin
+using the *platformStatic* attribute. For this, we create a standard *Application* class and define a class object inside where we can then create
+a function decorated with *platformStatic*
+
+Note: platformStatic is an annotation in Kotlin which is used for interoperability with Java, so that the resulting method is defined as static when called from Java.
 
 ``` kotlin
 ComponentScan
 EnableAutoConfiguration
-public class Application
-public fun main(args: Array<String>) {
-	SpringApplication.run(javaClass<Application>(), *args)
+public class Application {
+    class object {
+        platformStatic public fun main(args: Array<String>) {
+            SpringApplication.run(javaClass<Application>(), *args)
+        }
+    }
 }
 ```
 
@@ -126,3 +128,40 @@ We can now use the any of the standard Gradle tasks for Spring Boot to run the a
 the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
 
 ![Running App]({{ site.baseurl }}/{{ site.img_tutorial_root }}/spring-boot-restful/running-app.png)
+
+
+### Alternative Application class definition
+
+In Java, the `main()` method of a Spring Boot application is conventionally defined within the annotated application class. This is because Java *does not* support top-level methods.
+In Kotlin, however, we *do* have [top-level functions]({{ site.baseurl }}/docs/functions.html). Thus, we can make the Spring main entry point much simpler:
+
+```kotlin
+ComponentScan
+EnableAutoConfiguration
+public class Application
+
+public fun main(args: Array<String>) {
+	SpringApplication.run(javaClass<Application>(), *args)
+}
+```
+
+The only requirement for this variant to work is to declare in your `build.gradle` file to look for *this* main function. This is done through the `mainClass` property of the `springBoot` section:
+
+
+```groovy
+springBoot {
+    mainClass = 'my.package.YourMainClass'
+}
+```
+
+In Kotlin, top-level functions are compiled into static members of an automatically-generated class. The name of this class is derived from the name of the package. For instance, a top-level function in the `com.example` package would be defined in a class named `com.example.ExamplePackage`. In our case, because we did not declare a package explicitly, the function is defined in the so-called *default* package; thus, the special  class `_DefaultPackage`  is defined. You may add the following lines to your `build.gradle`:
+
+```groovy
+springBoot {
+    mainClass = '_DefaultPackage'
+}
+```
+
+Finally, you can start again the application with
+
+        gradle bootRun
