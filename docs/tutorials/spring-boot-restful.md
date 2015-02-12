@@ -65,6 +65,11 @@ sourceSets {
     }
 }
 
+// tells spring boot to look for the main method under the default package
+springBoot {
+    mainClass = '_DefaultPackage'
+}
+
 dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version") // New
     compile("org.springframework.boot:spring-boot-starter-web")
@@ -102,21 +107,14 @@ public class GreetingController {
 As can be seen, this is again pretty much a one-to-one translation of Java to Kotlin, with nothing special required for Kotlin.
 
 ### Creating the Application class
-Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin
-using the *platformStatic* attribute. For this, we create a standard *Application* class and define a class object inside where we can then create
-a function decorated with *platformStatic*
-
-Note: platformStatic is an annotation in Kotlin which is used for interoperability with Java, so that the resulting method is defined as static when called from Java.
+Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin.
 
 ``` kotlin
 ComponentScan
 EnableAutoConfiguration
-public class Application {
-    class object {
-        platformStatic public fun main(args: Array<String>) {
-            SpringApplication.run(javaClass<Application>(), *args)
-        }
-    }
+public class Application
+public fun main(args: Array<String>) {
+	SpringApplication.run(javaClass<Application>(), *args)
 }
 ```
 
