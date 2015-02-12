@@ -65,7 +65,7 @@ a good number of common functional language constructs in the standard Kotlin li
 
 ### Does Kotlin support generics?
 
-Kotlin supports generics with runtime retention. It also supports declaration-site variance and usage-site variance. Kotlin also does not have wildcard types.
+Kotlin supports generics. It also supports declaration-site variance and usage-site variance. Kotlin also does not have wildcard types. Inline functions support reified type parameters.
 
 ### Are semicolons required?
 
