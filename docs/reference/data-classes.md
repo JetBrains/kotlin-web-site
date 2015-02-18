@@ -26,7 +26,14 @@ If any of these functions is explicitly defined in the class body or inherited f
   
 *NOTE* that if a constructor parameter does not have a `val` or `var` in front of it, it will not be included in computation 
 of all these functions; nor will be properties declared in the class body or inherited from the superclass.
-  
+
+If the generated class should have a parameterless constructor, default values for all properties have to be specified
+(see [Constructors](classes.html#constructors)).
+
+``` kotlin
+data class User(val name: String = "", val age: Int = 0)
+```
+
 ## Copying
   
 It's often the case that we need to copy an object altering _some_ of its properties, but keeping the rest unchanged. 
