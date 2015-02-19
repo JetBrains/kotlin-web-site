@@ -197,7 +197,8 @@ val asc = Array(5, {i -> (i * i).toString()})
 As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`.
 
 Note: unlike Java, arrays in Kotlin are invariant. This means that Kotlin does not let us assign an `Array<String>`
-to an `Array<Any>`, which prevents a possible runtime failure.
+to an `Array<Any>`, which prevents a possible runtime failure (but you can use `Array<out Any>`, 
+see [Type Projections](generics.html#type-projections)).
 
 Kotlin also has specialized classes to represent arrays of primitive types without boxing overhead: ByteArray,
 ShortArray, IntArray and so on. These classes have no inheritance relation to the `Array` class, but they
