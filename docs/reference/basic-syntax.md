@@ -130,7 +130,7 @@ Use a function returning nullable value:
 
 ``` kotlin
 fun main(args: Array<String>) {
-  if (args.size < 2) {
+  if (args.size() < 2) {
     print("Two integers expected")
     return
   }
@@ -231,7 +231,7 @@ See [for loop](control-flow.html#for-loops).
 ``` kotlin
 fun main(args: Array<String>) {
   var i = 0
-  while (i < args.size)
+  while (i < args.size())
     print(args[i++])
 }
 ```
