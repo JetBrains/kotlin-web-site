@@ -24,7 +24,7 @@ on the scope *this*{: .keyword } is meant to be from:
 
 ``` kotlin
 class A { // implicit label @A
-  class B { // implicit label @B
+  inner class B { // implicit label @B
     fun Int.foo() { // implicit label @foo
       val a = this@A // A's this
       val b = this@B // B's this
@@ -39,7 +39,9 @@ class A { // implicit label @A
 
 
       val funLit2 = { (s: String) ->
-        val d1 = this // foo()'s receiver, since enclosing function literal doesn't have any receiver
+        // foo()'s receiver, since enclosing function literal 
+        // doesn't have any receiver
+        val d1 = this 
       }
     }
   }
