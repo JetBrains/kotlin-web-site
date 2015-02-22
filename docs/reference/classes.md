@@ -81,6 +81,12 @@ class Customer private (name: String) { ... }
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
 
+Constructor parameters can have default values. If all parameters have a default value provided, the generated class will also have a default no-args constructor. This can be required when building objects that can be instantiated by a framework, for example an object relational mapper (ORM).
+
+```kotlin
+class Foo(a: Int = 0, b: String = "") { ... }
+```
+
 ### Creating instances of classes
 
 To create an instance of a class, we call the constructor as if it were a regular function
