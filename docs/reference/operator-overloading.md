@@ -128,7 +128,7 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 | `a == b` | `a?.equals(b) ?: b.identityEquals(null)` |
 | `a != b` | `!(a?.equals(b) ?: b.identityEquals(null))` |
 
-*Note*: `identityEquals` checks if two references point to the same object.
+*Note*: `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them
 
 The `==` operation is special in two ways:
 
