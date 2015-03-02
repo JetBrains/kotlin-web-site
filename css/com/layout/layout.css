@@ -213,7 +213,7 @@
   padding-left: 33px; }
   .side-tree-nav + .reference-pdf-link {
     display: inline-block;
-    padding-top: 23px; }
+    margin-top: 23px; }
   .reference-pdf-link .icon {
     position: absolute;
     left: 0;
