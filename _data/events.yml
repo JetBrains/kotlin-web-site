@@ -588,6 +588,8 @@
   date: 2014-04-18
   location: Moscow, Russia
   lang: ru
+  content:
+    slides: http://www.slideshare.net/abreslav/trade-offs-22989326
 
 - title: JVM Language Summit 2014
   url: http://openjdk.java.net/projects/mlvm/jvmlangsummit/
