@@ -82,6 +82,7 @@ reference:
     content:
       - /docs/reference/functions.html: Functions
       - /docs/reference/lambdas.html: Lambdas
+      - /docs/reference/inline-functions.html: Inline Functions
 
   - title: Other
     description: Various bits and bobs
@@ -97,7 +98,6 @@ reference:
       - /docs/reference/annotations.html: Annotations
       - /docs/reference/reflection.html: Reflection
       - /docs/reference/type-safe-builders.html: Type-Safe Builders
-      - /docs/reference/inline-functions.html: Inline Functions
       - /docs/reference/dynamic-type.html: Dynamic Type
 
 
