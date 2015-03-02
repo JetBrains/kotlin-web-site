@@ -41,6 +41,9 @@ inline fun lock<T>(lock: Lock, body: () -> T): T {
 }
 ```
 
+The `inline` annotation affects both the function itself and the lambdas passed to it: all of those will be inlined
+into the call site.
+
 Inlining may cause the generated code to grow, but if we do it in a reasonable way (do not inline big functions)
 it will pay off in performance, especially at "megamorphic" call-sites inside loops.
 
@@ -56,7 +59,7 @@ inline fun foo(inlined: () -> Unit, [noinline] notInlined: () -> Unit) {
 ```
 
 Inlinable lambdas can only be called inside the inline functions or passed as inlinable arguments,
-but `[noinline]` one can be manipulated in any way we like: stored in fields, passed around etc.
+but `[noinline]` ones can be manipulated in any way we like: stored in fields, passed around etc.
 
 Note that if an inline function has no inlinable function parameters and no
 [reified type parameters](#reified-type-parameters), the compiler will issue a warning, since inlining such functions is
@@ -97,6 +100,21 @@ fun hasZeros(ints: List<Int>): Boolean {
   return false
 }
 ```
+
+Note that some inline functions may call the lambdas passed to them as parameters not directly from the function body,
+but from another execution context, such as a local object or a nested function. In such cases, non-local control flow
+is also not allowed in the lambdas. To indicate that, the lambda parameter needs to be annotated with
+the `InlineOptions.ONLY_LOCAL_RETURN` annotation:
+
+``` kotlin
+inline fun f(inlineOptions(InlineOption.ONLY_LOCAL_RETURN) body: () -> Unit) {
+    val f = object: Runnable {
+        override fun run() = body()
+    }
+    // ...
+}
+```
+
 
 > `break` and `continue` are not yet available in inlined lambdas, but we are planning to support them too
 
