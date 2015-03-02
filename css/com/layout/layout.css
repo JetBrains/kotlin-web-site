@@ -206,3 +206,25 @@
     display: block;
     height: 90px;
     content: ''; }
+
+.reference-pdf-link {
+  position: relative;
+  text-decoration: none;
+  padding-left: 33px; }
+  .side-tree-nav + .reference-pdf-link {
+    display: inline-block;
+    padding-top: 23px; }
+  .reference-pdf-link .icon {
+    position: absolute;
+    left: 0;
+    width: 23px;
+    height: 19px;
+    background: url("images/main-sprite.png") no-repeat 0 -450px; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .reference-pdf-link .icon {
+        background-image: url("images/main-sprite@2x.png");
+        background-size: 150px auto; } }
+  .reference-pdf-link:hover .icon {
+    background-position: -50px -450px; }
+  .reference-pdf-link .text {
+    text-decoration: underline; }

@@ -32,6 +32,7 @@ twitter_url: https://twitter.com/project_kotlin
 forum_url: http://devnet.jetbrains.com/community/kotlin
 site_github_url: http://github.com/JetBrains/kotlin-web-site
 edit_on_github_url: https://github.com/JetBrains/kotlin-web-site/edit/master/%path%
+pdf_url: /docs/kotlin-docs.pdf
 img_tutorial_root: assets/images/tutorials
 
 grammar_file_path: grammar.xml
