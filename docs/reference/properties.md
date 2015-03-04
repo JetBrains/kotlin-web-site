@@ -44,18 +44,17 @@ var <propertyName>: <PropertyType> [= <property_initializer>]
   <setter>
 ```
 
-The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer or from the base class member being overridden .
+The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer or from the base class member being overridden.
 
-Examples
+Examples:
 
 ``` kotlin
 var allByDefault: Int? // error: explicit initializer required, default getter and setter implied
 var initialized = 1 // has type Int, default getter and setter
-var setterVisibility: String = "abc" // Initializer required, not a nullable type
-  private set // the setter is private and has the default implementation
 ```
 
-Note that types are not inferred for properties exposed as parts of the public API, i.e. public and protected, because changing the initializer may cause an unintentional change in the public API then. For example
+Note that types are not inferred for properties exposed as parts of the public API, i.e. public and protected,
+because changing the initializer may cause an unintentional change in the public API then. For example:
 
 ``` kotlin
 public val example = 1 // error: a public property must have a type specified explicitly
@@ -75,8 +74,6 @@ val isEmpty: Boolean
   get() = this.size == 0
 ```
 
-Since this property is purely derived from others, the compiler will not generate a backing field for it.
-
 A custom setter looks like this:
 
 ``` kotlin
@@ -85,6 +82,19 @@ var stringRepresentation: String
   set(value) {
     setDataFromString(value) // parses the string and assigns values to other properties
   }
+```
+
+By convention, the name of the setter parameter is `value`, but you can choose a different name if you prefer.
+
+If you need to change the visibility of an accessor or to annotate it, but don't need to change the default implementation,
+you can define the accessor without defining its body:
+
+``` kotlin
+var setterVisibility: String = "abc" // Initializer required, not a nullable type
+  private set // the setter is private and has the default implementation
+
+var setterWithAnnotation: Any?
+  [Inject] set // annotate the setter with Inject
 ```
 
 ### Backing Fields
