@@ -8,7 +8,7 @@ title: "Annotations"
 # Annotations
 
 ## Annotation Declaration
-Annotations are means of attaching metadata to code. To declare an annotation, put the *annotation*{: .keyword } keyword in front of a class
+Annotations are means of attaching metadata to code. To declare an annotation, put the *annotation*{: .keyword } keyword in front of a class:
 
 ``` kotlin
 annotation class fancy
@@ -35,6 +35,23 @@ fancy class Foo {
 }
 ```
 
+Use the following syntax to annotate the primary constructor of a class:
+
+``` kotlin
+class Foo [inject](dependency: MyDependency) {
+  // ...
+}
+```
+
+You can also annotate property accessors:
+
+``` kotlin
+class Foo {
+    var x: MyDependency? = null
+        [inject] set
+}
+```
+
 ### Constructors
 
 Annotations may have constructors that take parameters.
@@ -47,7 +64,7 @@ special("example") class Foo {}
 
 ## Java Annotations
 
-Java annotations are 100% compatible with Kotlin
+Java annotations are 100% compatible with Kotlin:
 
 ``` kotlin
 import org.junit.Test
@@ -60,7 +77,7 @@ class Tests {
 }
 ```
 
-Java annotations can also be made to look like modifiers by renaming them on import
+Java annotations can also be made to look like modifiers by renaming them on import:
 
 ``` kotlin
 import org.junit.Test as test
