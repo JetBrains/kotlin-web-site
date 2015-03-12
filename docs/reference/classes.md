@@ -294,8 +294,9 @@ In Kotlin, unlike Java or C#, classes do not have static methods. In most cases,
 package-level functions instead.
 
 If you need to write a function that can be called without having a class instance but needs access to the internals
-of a class (for example, a factory method), you can write it as a member of an [object declarations](object-declarations.html)
+of a class (for example, a factory method), you can write it as a member of an [object declaration](object-declarations.html)
 inside that class.
 
 Even more specifically, if you declare a [default object](object-declarations.html#default-objects) inside your class,
-you'll be able to call its members as if they were static members of the class, using only the class name as a qualifier.
+you'll be able to call its members with the same syntax as calling static methods in Java/C#, using only the class name
+as a qualifier.
