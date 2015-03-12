@@ -288,64 +288,14 @@ abstract class Derived : Base() {
 }
 ```
 
-## Class Objects
+## Default Objects
 
-In Kotlin, unlike Java or C#, classes do not have static methods. In most cases, package-level functions form a good substitute for them,
-but there are a few cases when they don't. These cases involve access to class' internals (private members).
+In Kotlin, unlike Java or C#, classes do not have static methods. In most cases, it's recommended to simply use
+package-level functions instead.
 
-For example, to replace a constructor with a factory method, we make the constructor private and provide a function that calls the constructor.
-But if this function is located outside the class in question, it would not have any access to the constructor.
+If you need to write a function that can be called without having a class instance but needs access to the internals
+of a class (for example, a factory method), you can write it as a member of an [object declarations](object-declarations.html)
+inside that class.
 
-To address this issue (and to provide some other interesting features), Kotlin introduces a concept of a class object
-(the closest analog in other languages would be companion objects in Scala).
-Roughly speaking, a class object for class `C` is an object (in the sense of [Object declaration](object-declarations.html#object-declarations)) that is associated to `C`.
-There may be not more than one class object for each class.
-A class object is declared inside its associated class, and thus it can access its private members.
-A class object for `C` itself is (usually) not an instance of `C`. For example:
-
-``` kotlin
-class C {
-  class object {
-    fun create() = C()
-  }
-}
-
-fun main() {
-  val c = C.create() // C denotes the class object here
-}
-```
-
-At first you may think that this is just a way of grouping static members of a class together instead of mixing them with instance members:
-in Java we access static members of `C` by calling `C.foo()`, and the same happens with class object's members in Kotlin.
-But in fact there is an important difference: a class object can have supertypes, and `C`, as an expression denotes this object as a value,
-so we can pass it around, say, as an argument for a function. Let's modify our example to demonstrate this
-
-``` kotlin
-abstract class Factory<out T> {
-  abstract fun create(): T
-}
-
-class C {
-  class object : Factory<C>() {
-    override fun create(): C = C()
-  }
-}
-
-fun main() {
-  val factory = C // C denotes the class object
-  val c = factory.create()
-}
-```
-
-Note that class objects are never inherited:
-
-``` kotlin
-class D : C()
-
-val d = D.create() // Error: no class object for D
-```
-
-A description of some more interesting features related to class objects can be found in the [Generic constraints](generics.html#generic-constraints) section.
-
-Note: if you think that class objects are a great way of implementing singletons in Kotlin, please see [Object expressions and Declarations](object-declarations.html).
-
+Even more specifically, if you declare a [default object](object-declarations.html#default-objects) inside your class,
+you'll be able to call its members as if they were static members of the class, using only the class name as a qualifier.

@@ -85,6 +85,57 @@ object DefaultListener : MouseAdapter() {
 
 **NOTE**: object declarations can't be local (i.e. be nested in directly inside a function), but they can be nested into other object declarations or non-inner classes.
 
+
+### Default Objects
+
+An object declaration inside a class can be marked with the *default*{: .default } keyword:
+
+``` kotlin
+class MyClass {
+  default object Factory {
+    fun create(): MyClass = MyClass()
+  }
+}
+```
+
+Members of the default object can be called by using simply the class name as the qualifier:
+
+``` kotlin
+val instance = MyClass.create()
+```
+
+The name of the default object can be omitted, in which case the name `Default` will be used:
+
+``` kotlin
+class MyClass {
+  default object {
+  }
+}
+
+val x = MyClass.Default
+```
+
+Note that, even though the members of default objects look like static members in other languages, at runtime those
+are still instance members of real objects, and can, for example, implement interfaces:
+
+```
+trait Factory<T> {
+  fun create(): T
+}
+
+
+class MyClass {
+  default object : Factory<MyClass> {
+    override fun create(): MyClass = MyClass()
+  }
+}
+```
+
+However, on the JVM you can have members of default objects generated as real static methods and fields, if you use
+the `[platformStatic]` annotation. See the [Java interoperability](java-interop.html#static-methods-and-fields) section
+for more details.
+
+
 ### Semantical difference between object expressions and declarations
 
 There is one important semantical difference between object expressions and object declarations:
