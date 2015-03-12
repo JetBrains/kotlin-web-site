@@ -32,7 +32,7 @@ class Empty
 ### Constructors
 
 A class in Kotlin can have a **primary constructor** and one or more **secondary constructors**. The primary
-constructor is part of the class header: it goes between the class name and the opening curly brace.
+constructor is part of the class header: it goes after the class name (and optional type parameters).
 
 ``` kotlin
 class Person(firstName: String) {
@@ -40,7 +40,7 @@ class Person(firstName: String) {
 ```
 
 The primary constructor cannot contain any code. Initialization code can be placed
-in **initializer blocks**, which are prefixed with *init*{: .keyword }:
+in **initializer blocks**, which are prefixed with the *init*{: .keyword }:
 
 ``` kotlin
 class Customer(name: String) {
@@ -59,7 +59,7 @@ class Customer(name: String) {
 }
 ```
 
-In fact, for declaring properties and initializing them from the constructor, Kotlin has a more concise syntax:
+In fact, for declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:
 
 
 ``` kotlin
@@ -68,8 +68,8 @@ class Person(val firstName: String, val lastName: String, var age: Int) {
 }
 ```
 
-This is equivalent to the previous code. Much the same way as regular properties, the properties explicitly
-declared in the constructor can be mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
+Much the same way as regular properties, the properties declared in the primary constructor can be
+mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 
 To specify the visibility of the primary constructor, use the following syntax:
 
@@ -79,9 +79,10 @@ class Customer private (name: String) { ... }
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
 
+
 #### Secondary Constructors
 
-The class can also contain **secondary constructors**, which are prefixed with *constructor*{: .keyword }:
+The class can also declare **secondary constructors**, which are prefixed with *constructor*{: .keyword }:
 
 ``` kotlin
 class Person {
@@ -92,8 +93,8 @@ class Person {
 ```
 
 If the class has a primary constructor, each secondary constructor needs to delegate to the primary constructor, either
-directly or indirectly through another secondary constructor(s). Delegation to another constructor is done using the
-*this*{: .keyword } keyword:
+directly or indirectly through another secondary constructor(s). Delegation to another constructor of the same class
+is done using the *this*{: .keyword } keyword:
 
 ``` kotlin
 class Person(val name: String) {
