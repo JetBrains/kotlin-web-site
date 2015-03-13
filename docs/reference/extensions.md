@@ -96,7 +96,29 @@ Example:
 ``` kotlin
 val Foo.bar = 1 // error: initializers are not allowed for extension properties
 ```
-    
+
+
+## Default Object Extensions
+
+If a class has a [default object](object-declarations.html#default-objects) defined, you can also define extension
+functions and properties for the default object:
+
+``` kotlin
+class MyClass {
+  default object { }  // will be called "Default"
+}
+
+fun MyClass.Default.foo() {
+  // ...
+}
+```
+
+Just like regular members of the default object, they can be called using only the class name as the qualifier:
+
+``` kotlin
+MyClass.foo()
+```
+
 
 ## Scope of Extensions
 
