@@ -679,7 +679,32 @@
   location: Warsaw, Poland
   lang: en
   content:
+    video: https://www.youtube.com/watch?v=dJscNr1silY
     slides: http://prezi.com/xayqjquzu_l6/?utm_campaign=share&utm_medium=copy&rc=ex0share
+  
+  - title: DUMP'15
+  url: http://dump-conf.ru/
+  subject: "Type inference in Kotlin"
+  speaker: Svetlana Isakova
+  date: 2015-03-20
+  location: Yekaterinburg, Russia
+  lang: ru
+  
+  - title: JavaLand'15
+  url: http://www.javaland.eu/
+  subject: "Why Kotlin?"
+  speaker: Svetlana Isakova
+  date: [2015-03-24, 2015-03-25]
+  location: Brühl, Germany
+  lang: en
+  
+  - title: Codemotion Rome'15
+  url: http://rome2015.codemotionworld.com/
+  subject: "Kotlin, the Swift of Android"
+  speaker: Svetlana Isakova
+  date: [2015-03-27, 2015-03-28]
+  location: Rome, Italy
+  lang: en
   
 - title: ECOOP'15
   url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
