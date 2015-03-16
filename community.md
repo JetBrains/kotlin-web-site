@@ -12,6 +12,7 @@ You can post technical questions on
 
 - [Devnet Forums on JetBrains Forums](http://devnet.jetbrains.com/community/kotlin)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/kotlin). Make sure you tag questions with **kotlin**
+- [Reddit] (http://www.reddit.com/r/Kotlin/)
 
 ## Other mediums
 
