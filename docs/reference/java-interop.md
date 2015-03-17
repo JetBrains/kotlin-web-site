@@ -321,7 +321,7 @@ At most one Java-class (and as many Java interfaces as you like) can be a supert
 
 ### Accessing static members
 
-Static members of Java classes form "default objects" for these classes. We cannot pass such a "default object" around as a value,
+Static members of Java classes form "companion objects" for these classes. We cannot pass such a "companion object" around as a value,
 but can access the members explicitly, for example
 
 ``` kotlin
@@ -359,11 +359,11 @@ For the root package (the one that's called a "default package" in Java), a clas
 ### Static Methods and Fields
 
 As mentioned above, Kotlin generates static methods for package-level functions. On top of that, it also generates static methods
-for functions defined in named objects or default objects of classes and annotated as `[platformStatic]`. For example:
+for functions defined in named objects or companion objects of classes and annotated as `[platformStatic]`. For example:
 
 ``` kotlin
 class C {
-  default object {
+  companion object {
     platformStatic fun foo() {}
     fun bar() {}
   }
