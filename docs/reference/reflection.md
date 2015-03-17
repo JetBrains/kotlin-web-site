@@ -9,7 +9,23 @@ title: "Reflection"
 
 Reflection is a set of language and library features that allows for introspecting the structure of you own program at runtime.
 Kotlin makes functions and properties first-class citizens in the language, and introspecting them (i.e. learning a name or 
-a type of a property or function at runtime) is closely intertwined with simply using functional or reactive style.   
+a type of a property or function at runtime) is closely intertwined with simply using functional or reactive style.
+
+## Class References
+
+The most basic reflection feature is getting the runtime reference to a Kotlin class. To obtain the reference to a
+statically known Kotlin class, you can use the _class literal_ syntax:
+
+``` kotlin
+val c = MyClass::class
+```
+
+The reference is a value of type [KClass](/docs/api/kotlin.reflect/-k-class.html). You can use `KClass.properties`
+and `KClass.extensionProperties` to get the list of [property references](#property-references) for all properties
+defined in this class and its superclasses.
+
+Note that a Kotlin class reference is not the same as a Java class reference. See the [Java interop section](java-interop.html#object-methods)
+for information on obtaining a Java class reference corresponding to a Kotlin class.
 
 ## Function References
 
@@ -27,7 +43,10 @@ val numbers = listOf(1, 2, 3)
 println(numbers.filter(::isOdd)) // prints [1, 3]
 ```
 
-Here `::isOdd` is a value of function type `(Int) -> Boolean`. 
+Here `::isOdd` is a value of function type `(Int) -> Boolean`.
+
+Note that right now the `::` operator cannot be used for overloaded functions. In the future, we plan to
+provide a syntax for specifying parameter types so that a specific overload of a function could be selected.
 
 If we need to use a member of a class, or an extension function, it needs to be qualified, 
 and the result will be of type “extension function”,
@@ -72,13 +91,12 @@ fun main(args: Array<String>) {
 
 The expression `::x` evaluates to a property object of type `KProperty<Int>`, which allows us to read its
 value using `get()` or retrieve the property name using the `name` property. For more information, please refer to
- the [docs on the `KProperty` class](http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/kotlin/reflect/KProperty.html).
+the [docs on the `KProperty` class](/docs/api/kotlin.reflect/-k-property.html).
 
-For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/kotlin/reflect/KMutableProperty.html), 
+For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/docs/api/kotlin.reflect/-k-mutable-property.html),
 which has a `set()` method. 
  
 To access a property that is a member of a class, we qualify it:
-
 
 ``` kotlin
 class A(val p: Int)
