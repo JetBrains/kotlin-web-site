@@ -98,22 +98,22 @@ val Foo.bar = 1 // error: initializers are not allowed for extension properties
 ```
 
 
-## Default Object Extensions
+## Companion Object Extensions
 
-If a class has a [default object](object-declarations.html#default-objects) defined, you can also define extension
-functions and properties for the default object:
+If a class has a [companion object](object-declarations.html#companion-objects) defined, you can also define extension
+functions and properties for the companion object:
 
 ``` kotlin
 class MyClass {
-  default object { }  // will be called "Default"
+  companion object { }  // will be called "Companion"
 }
 
-fun MyClass.Default.foo() {
+fun MyClass.Companion.foo() {
   // ...
 }
 ```
 
-Just like regular members of the default object, they can be called using only the class name as the qualifier:
+Just like regular members of the companion object, they can be called using only the class name as the qualifier:
 
 ``` kotlin
 MyClass.foo()
