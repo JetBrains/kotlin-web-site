@@ -118,7 +118,7 @@ reference:
     description:
     content:
 #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
-#      - /docs/reference/kotlin-doc.html: Kotlin Doc
+      - /docs/reference/kotlin-doc.html: Documenting Kotlin Code
       - /docs/reference/using-maven.html: Using Maven
       - /docs/reference/using-ant.html: Using Ant
       - /docs/reference/using-griffon.html: Using Griffon
