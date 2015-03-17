@@ -13,7 +13,8 @@ a type of a property or function at runtime) is closely intertwined with simply 
 
 ## Class References
 
-The most basic reflection feature is getting the reference to a Kotlin class. This can be done using the following syntax:
+The most basic reflection feature is getting the runtime reference to a Kotlin class. To obtain the reference to a
+statically known Kotlin class, you can use the _class literal_ syntax:
 
 ``` kotlin
 val c = MyClass::class
