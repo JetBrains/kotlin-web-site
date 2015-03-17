@@ -93,6 +93,17 @@ when (x) {
 }
 ```
 
+Another possibility is to check that a value *is*{: .keyword } or *!is*{: .keyword } of a particular type. Note that,
+due to [smart casts](typecasts.html#smart-casts), you can access the methods and properties of the type without
+any extra checks.
+
+```kotlin
+val hasPrefix = when(x) {
+  is String -> x.startsWith("prefix")
+  else -> false
+}
+```
+
 *when*{: .keyword } can also be used as a replacement for an *if*{: .keyword }-*else*{: .keyword }-*if*{: .keyword } chain.
 If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:
 
@@ -104,47 +115,6 @@ when {
 }
 ```
 
-
-### Continue inside when
-
-**Note: There are currently [issues with this](http://youtrack.jetbrains.com/issue/KT-771)**
-
-Inside *when*{: .keyword } expressions, *continue*{: .keyword } jumps to the next branch condition, if any:
-
-``` kotlin
-when (x) {
-  in 1..100 ->
-    if (x.isOdd())
-      continue // Jump to the next branch, i.e. '3, 101 -> ...'
-    else
-      print("Even between 1 and 100")
-  3, 101 -> print("3 or 101")
-  1000 -> continue // Error: continue is not allowed in the last branch
-}
-```
-
-This mechanism replaces the concept of guards available in other languages.
-I.e. in Scala we have guard if expressions in match (that corresponds to *when*{: .keyword }):
-
-``` scala
-// Scala
-term match {
-  case Fun(x, y) if x == y -> print(x)
-  case _ -> print("Nope!")
-}
-```
-
-This can be rewritten in Kotlin as follows:
-
-``` kotlin
-when (term) {
-  is Fun -> if (term.v != term.body) continue else print(term.x)
-  else -> print("Nope!")
-}
-```
-
-See [Returns and jumps](returns.html) for more information about *continue*{: .keyword }.
-See the [grammar for *when*{: .keyword }](grammar.html#when).
 
 ## For Loops
 

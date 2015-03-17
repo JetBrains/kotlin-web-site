@@ -11,8 +11,7 @@ Kotlin has three structural jump operators
 
 * *return*{: .keyword }. By default returns from the nearest enclosing function.
 * *break*{: .keyword }. Terminates the nearest enclosing loop.
-* *continue*{: .keyword }. Proceeds to the next step of the nearest enclosing loop or to the next branch
-in the nearest enclosing [*when*{: .keyword }-expression](control-flow.html#when-expression)
+* *continue*{: .keyword }. Proceeds to the next step of the nearest enclosing loop.
 
 ## Break and Continue Labels
 
