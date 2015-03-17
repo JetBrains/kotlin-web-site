@@ -180,7 +180,8 @@ fun(x: Int, y: Int): Int = x + y
 ```
 
 A function expression looks very much like a regular function declaration, except that its name can be omitted.
-Its body can be either an expression (as shown above) or a block:
+(You can still specify the name, for example, if the function expression calls itself recursively). Its body can be
+either an expression (as shown above) or a block:
 
 ``` kotlin
 fun(x: Int, y: Int): Int {
