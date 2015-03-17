@@ -67,7 +67,7 @@ Note that if an inline function has no inlinable function parameters and no
 
 ## Non-local returns
 
-In Kotlin, we can only use a normal, unqualified `return` to exit a named function..
+In Kotlin, we can only use a normal, unqualified `return` to exit a named function or a function expression.
 This means that to exit a lambda, we have to use a [label](returns.html#return-at-labels), and a bare `return` is forbidden
 inside a lambda, because a lambda can not make the enclosing function return:
 

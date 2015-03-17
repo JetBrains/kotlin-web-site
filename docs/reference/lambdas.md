@@ -36,13 +36,13 @@ fun toBeSynchronized() = sharedResource.operation()
 val result = lock(lock, ::toBeSynchronized)
 ```
 
-Another, often more convenient way is to pass a [function literal](#function-literals) (often referred to as _lambda expression_):
+Another, often more convenient way is to pass a [function literal](#function-literals-and-function-expressions) (often referred to as _lambda expression_):
 
 ``` kotlin
 val result = lock(lock, { sharedResource.operation() })
 ```
 
-Function literals are described in more [detail below](#function-literals), but for purposes of continuing this section, let's see a brief overview
+Function literals are described in more [detail below](#function-literals-and-function-expressions), but for purposes of continuing this section, let's see a brief overview:
 
 * A function literal is always surrounded by curly braces,
 * Its parameters (if any) are declared before `->` (parameter types may be omitted),
@@ -60,27 +60,27 @@ Another example of a higher-order function would be `map()` (of [MapReduce](http
 
 ``` kotlin
 fun <T, R> List<T>.map(transform: (T) -> R): List<R> {
-  val result = ArrayList<R>()
+  val result = arrayListOf<R>()
   for (item in this)
     result.add(transform(item))
   return result
 }
 ```
 
-This function can be called as follows
+This function can be called as follows:
 
 ``` kotlin
 val doubled = ints.map {it -> it * 2}
 ```
 
-One other convention helps is that if a function literal has only one parameter,
-its declaration may be omitted (along with the `->`) and its name will be `it`
+One other helpful convention is that if a function literal has only one parameter,
+its declaration may be omitted (along with the `->`), and its name will be `it`:
 
 ``` kotlin
 ints map {it * 2} // Infix call + Implicit 'it'
 ```
 
-These conventions allow to write [LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code
+These conventions allow to write [LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code:
 
 ``` kotlin
 strings filter {it.length == 5} sortBy {it} map {it.toUpperCase()}
@@ -90,16 +90,16 @@ strings filter {it.length == 5} sortBy {it} map {it.toUpperCase()}
 
 Sometimes it is beneficial to enhance performance of higher-order functions using [inline functions](inline-functions.html).
 
-## Function Literals
+## Function Literals and Function Expressions
 
-A function literal as an "anonymous function", i.e. a function that is not declared, but passed immediately as an expression.
-Consider the following example:
+A function literal or a function expression is an "anonymous function", i.e. a function that is not declared,
+but passed immediately as an expression. Consider the following example:
 
 ``` kotlin
 max(strings, {a, b -> a.length < b.length})
 ```
 
-Function max is a higher-order function, i.e. it takes a function value as the second argument.
+Function `max` is a higher-order function, i.e. it takes a function value as the second argument.
 This second argument is an expression that is itself a function, i.e. a function literal. As a function, it is equivalent to
 
 ``` kotlin
@@ -133,17 +133,16 @@ to enable calls with [named arguments](functions.html#named-arguments).
 val compare: (x: T, y: T) -> Int = ...
 ```
 
-### Syntactic form of function literals
+### Function Literal Syntax
 
 The full syntactic form of function literals, i.e. literals of function types, is as follows:
 
 ``` kotlin
-val sum = {(x: Int, y: Int): Int -> x + y}
+val sum = {x: Int, y: Int -> x + y}
 ```
 
 A function literal is always surrounded by curly braces,
 parameter declarations in the full syntactic form go inside parentheses and have optional type annotations,
-the optional return type annotation goes after the parameter list,
 the body goes after an `->` sign.
 If we leave all the optional annotations out, what's left looks like this:
 
@@ -159,19 +158,61 @@ val sum: (Int, Int) -> Int = {x, y -> x + y}
 ```
 
 It's very common that a function literal has only one parameter.
-If Kotlin can figure the signature out itself, it allows us not to declare the only parameter, and will implicitly declare it for us under the name `it`:
+If Kotlin can figure the signature out itself, it allows us not to declare the only parameter, and will implicitly
+declare it for us under the name `it`:
 
 ``` kotlin
 ints.filter {it > 0} // this literal is of type '(it: Int) -> Boolean'
 ```
 
-Note that if a function takes another function as the last parameter, the function literal argument can be passed outside the parenthesized argument list.
+Note that if a function takes another function as the last parameter, the function literal argument can be passed
+outside the parenthesized argument list.
 See the grammar for [callSuffix](grammar.html#call-suffix).
+
+### Function Expressions
+
+One thing missing from the function literal syntax presented above is the ability to specify the return type of the
+function. In most cases, this is unnecessary because the return type can be inferred automatically. However, if you
+do need to specify it explicitly, you can use an alternative syntax: a _function expression_.
+
+``` kotlin
+fun(x: Int, y: Int): Int = x + y
+```
+
+A function expression looks very much like a regular function declaration, except that its name can be omitted.
+(You can still specify the name, for example, if the function expression calls itself recursively). Its body can be
+either an expression (as shown above) or a block:
+
+``` kotlin
+fun(x: Int, y: Int): Int {
+  return x + y
+}
+```
+
+The parameters and the return type are specified in the same way as for regular functions, except that the parameter
+types can be omitted if they can be inferred from context:
+
+``` kotlin
+ints.filter(fun(item) = item > 0)
+```
+
+The return type inference for function expressions works just like for normal functions: the return type is inferred
+automatically for function expressions with an expression body and has to be specified explicitly (or is assumed to be
+`Unit`) for function expressions with a block body.
+
+Note that function expression parameters are always passed inside the parentheses. The shorthand syntax allowing
+to leave the function outside the parentheses works only for function literals.
+
+One other difference between function literals and function expressions is the behavior of
+[non-local returns](inline-function.html#non-local-returns). A *return*{: .keyword }  statement without a label
+always returns from the function declared with the *fun*{: .keyword } keyword. This means that a *return*{: .keyword }
+inside a function literal will return from the enclosing function, whereas a *return*{: .keyword } inside
+a function expression will return from the function expression itself.
 
 ### Closures
 
-A function literal (as well as a [local function](functions.html#local-functions) and an [object expression](object-declarations.html#object-expressions))
-can access its closure, i.e. the variables declared in the outer scope. Unlike Java the variables captured in the closure can be modified:
+A function literal or expression (as well as a [local function](functions.html#local-functions) and an [object expression](object-declarations.html#object-expressions))
+can access its _closure_, i.e. the variables declared in the outer scope. Unlike Java, the variables captured in the closure can be modified:
 
 ``` kotlin
 var sum = 0
@@ -181,28 +222,28 @@ ints filter {it > 0} forEach {
 print(sum)
 ```
 
-### Extension Function Literals
+### Extension Function Expressions
 
 In addition to ordinary functions, Kotlin supports extension functions.
-This kind of functions is so useful, that extension function literals are also supported.
+This kind of functions is so useful that extension function literals and expressions are also supported.
 One of the most important examples of their usage is [Type-safe Groovy-style builders](type-safe-builders.html).
 
-An extension function differs from an ordinary one in that it has a receiver type specification.
+An extension function expression differs from an ordinary one in that it has a receiver type specification.
 
 ``` kotlin
-val sum = {Int.(other: Int): Int -> this + other}
+val sum = fun Int.(other: Int): Int = this + other
 ```
 
-Receiver type may be specified only in the full syntactic form of a function literal
-(remember that parameter types and return type annotations are optional in this form).
+Receiver type may be specified explicitly only in function expressions, not in function literals. Function literals
+can be used as extension function expressions, but only when the receiver type can be inferred from the context.
 
-Such a literal has a function type with receiver
+The type of an extension function expression is a function type with receiver:
 
 ``` kotlin
 sum : Int.(other: Int) -> Int
 ```
 
-It can be called with a dot or in infix form (since it has only one parameter)
+The function can be called with a dot or in infix form (since it has only one parameter):
 
 ``` kotlin
 1.sum(2)
