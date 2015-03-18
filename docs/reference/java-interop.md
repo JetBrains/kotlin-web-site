@@ -329,6 +329,24 @@ if (Character.isLetter(a)) {
 }
 ```
 
+### SAM Conversions
+
+Just like Java 8, Kotlin supports SAM conversions. This means that Kotlin function literals can be automatically converted
+into implementations of Java interfaces with a single non-default method, as long as the parameter types of the interface
+method match the parameter types of the Kotlin function. For example, here's how this works for the `Runnable` interface:
+
+``` kotlin
+val executor = ThreadPoolExecutor()
+// Java signature: void execute(Runnable command)
+executor.execute { println("This runs in a thread pool") }
+```
+
+Note that SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
+abstract method.
+
+Also note that this feature works only for Java interop; since Kotlin has proper function types, automatic conversion
+of functions into implementations of Kotlin traits is unnecessary and therefore unsupported.
+
 ## Calling Kotlin code from Java
 
 Kotlin code can be called from Java easily.
@@ -483,4 +501,3 @@ This way we get a `NullPointerException` in the Java code immediately.
 ### Properties
 
 Property getters are turned into *get*-methods, and setters – into *set*-methods.
-
