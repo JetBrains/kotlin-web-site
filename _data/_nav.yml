@@ -153,7 +153,6 @@ tutorials:
   - title: Mobile
     content:
       - /docs/tutorials/kotlin-android.html: Getting Started With Android Development
-    content:
       - /docs/tutorials/android-plugin.html: Kotlin Android Extensions
   - title: Tools
     content:
