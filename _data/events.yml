@@ -705,6 +705,16 @@
   date: [2015-03-27, 2015-03-28]
   location: Rome, Italy
   lang: en
+
+  
+- title: ETE'15
+  url: http://phillyemergingtech.com/sessions/kotlin-on-android/
+  subject: "Kotlin on Android"
+  speaker: Svetlana Isakova
+  date: [2015-04-07, 2015-04-08]
+  location: Philadelphia, PA, USA
+  lang: en  
+  
   
 - title: ECOOP'15
   url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
