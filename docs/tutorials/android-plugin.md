@@ -40,12 +40,12 @@ public class MyActivity : Activity() {
 
 The plugin is available for both IntelliJ IDEA (Ultimate and Community Editions) as well as Android Studio.
 
-We first need to add a buildscript dependency called `kotlin-android-compiler-plugin`:
+We first need to add a buildscript dependency called `kotlin-android-extensions`:
 
 ``` groovy
 buildscript {
     dependencies {
-        classpath 'org.jetbrains.kotlin:kotlin-android-compiler-plugin:<version>'
+        classpath 'org.jetbrains.kotlin:kotlin-android-extensions:<version>'
     }
 }
 ```
