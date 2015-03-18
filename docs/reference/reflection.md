@@ -11,6 +11,12 @@ Reflection is a set of language and library features that allows for introspecti
 Kotlin makes functions and properties first-class citizens in the language, and introspecting them (i.e. learning a name or 
 a type of a property or function at runtime) is closely intertwined with simply using functional or reactive style.
 
+> On the Java platform, the runtime component required for using the reflection features is distributed as a separate
+JAR file (`kotlin-reflect.jar`). This is done to reduce the required size of the runtime library for applications
+that do not use reflection features. If you do use reflection, please make sure that the .jar file is added to the
+classpath of your project.
+{:.note}
+
 ## Class References
 
 The most basic reflection feature is getting the runtime reference to a Kotlin class. To obtain the reference to a
