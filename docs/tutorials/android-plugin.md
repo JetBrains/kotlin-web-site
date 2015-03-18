@@ -76,7 +76,7 @@ How this works is that when invoking a synthetic property, where the receiver is
 For instance, given
 
 
-```
+``` kotlin
 class MyActivity: Activity()
 fun MyActivity.a() { this.textView.setText(“”) }
 ```
@@ -85,7 +85,7 @@ a hidden caching function is generated inside MyActivity, so we can use the cach
 
 However in the following case:
 
-```
+``` kotlin
 fun Activity.b() { this.textView.setText(“”) }
 ```
 
