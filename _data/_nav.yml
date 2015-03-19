@@ -105,7 +105,7 @@ reference:
   - title: Reference
     description: API and Grammar
     content:
-      - /docs/api/latest/jvm/stdlib/index.html: API Reference
+      - /api/latest/jvm/stdlib/index.html: API Reference
       - /docs/reference/grammar.html: Grammar
 
 
