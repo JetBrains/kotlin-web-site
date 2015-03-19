@@ -333,7 +333,15 @@ if (Character.isLetter(a)) {
 
 Just like Java 8, Kotlin supports SAM conversions. This means that Kotlin function literals can be automatically converted
 into implementations of Java interfaces with a single non-default method, as long as the parameter types of the interface
-method match the parameter types of the Kotlin function. For example, here's how this works for the `Runnable` interface:
+method match the parameter types of the Kotlin function.
+
+You can use this for creating instances of SAM interfaces:
+
+``` kotlin
+val runnable = Runnable { println("This runs in a runnable") }
+```
+
+...and in method calls:
 
 ``` kotlin
 val executor = ThreadPoolExecutor()
