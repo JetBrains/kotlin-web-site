@@ -66,7 +66,24 @@ Thus if the layout filename is `main.xml`, we'd import `kotlinx.android.syntheti
 
 If we want to call the synthetic properties on `View` (useful in adapter classes), we should also import `kotlinx.android.synthetic.main.view.*`.
 
-Once we do that, we can then invoke the corresponding extensions.
+Once we do that, we can then invoke the corresponding extensions, which are properties named after the views in the XML file. 
+For example, for this view:
+
+``` xml
+    <TextView
+            android:id="@+id/hello"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello World, MyActivity"
+            />
+```
+
+There will be property named `hello`:
+
+``` kotlin
+activity.hello.setText("Hi!")
+```
+
 
 
 ### Under the hood
