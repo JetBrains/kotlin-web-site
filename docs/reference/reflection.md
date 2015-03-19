@@ -26,7 +26,7 @@ statically known Kotlin class, you can use the _class literal_ syntax:
 val c = MyClass::class
 ```
 
-The reference is a value of type [KClass](/docs/api/kotlin.reflect/-k-class.html). You can use `KClass.properties`
+The reference is a value of type [KClass](/docs/api/latest/jvm/stdlib/kotlin.reflect/-k-class.html). You can use `KClass.properties`
 and `KClass.extensionProperties` to get the list of [property references](#property-references) for all properties
 defined in this class and its superclasses.
 
@@ -97,9 +97,9 @@ fun main(args: Array<String>) {
 
 The expression `::x` evaluates to a property object of type `KProperty<Int>`, which allows us to read its
 value using `get()` or retrieve the property name using the `name` property. For more information, please refer to
-the [docs on the `KProperty` class](/docs/api/kotlin.reflect/-k-property.html).
+the [docs on the `KProperty` class](/docs/api/latest/jvm/stdlib/kotlin.reflect/-k-property.html).
 
-For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/docs/api/kotlin.reflect/-k-mutable-property.html),
+For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/docs/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property.html),
 which has a `set()` method. 
  
 To access a property that is a member of a class, we qualify it:
