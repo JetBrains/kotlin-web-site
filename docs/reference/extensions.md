@@ -96,7 +96,29 @@ Example:
 ``` kotlin
 val Foo.bar = 1 // error: initializers are not allowed for extension properties
 ```
-    
+
+
+## Companion Object Extensions
+
+If a class has a [companion object](object-declarations.html#companion-objects) defined, you can also define extension
+functions and properties for the companion object:
+
+``` kotlin
+class MyClass {
+  companion object { }  // will be called "Companion"
+}
+
+fun MyClass.Companion.foo() {
+  // ...
+}
+```
+
+Just like regular members of the companion object, they can be called using only the class name as the qualifier:
+
+``` kotlin
+MyClass.foo()
+```
+
 
 ## Scope of Extensions
 
