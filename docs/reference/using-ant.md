@@ -24,7 +24,7 @@ When the project consists of exclusively Kotlin source code, the easiest way to 
 
 ``` xml
 <project name="Ant Task Test" default="build">
-    <typedef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <target name="build">
         <kotlinc src="hello.kt" output="hello.jar"/>
@@ -40,7 +40,7 @@ If a project consists of multiple source roots, use *src* as elements to define 
 
 ``` xml
 <project name="Ant Task Test" default="build">
-    <typedef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <target name="build">
         <kotlinc output="hello.jar">
@@ -64,7 +64,7 @@ recommended to use *withKotlin* task
         <fileset dir="${kotlin.home}" includes="kotlin-runtime.jar"/>
     </path>
 
-    <typedef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <target name="build">
         <delete dir="classes" failonerror="false"/>
@@ -87,7 +87,7 @@ recommended to use *withKotlin* task
 
 ``` xml
 <project name="Ant Task Test" default="build">
-    <typedef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <target name="build">
         <kotlin2js src="root1" output="out.js"/>
@@ -99,7 +99,7 @@ recommended to use *withKotlin* task
 
 ``` xml
 <project name="Ant Task Test" default="build">
-    <taskdef resource="org/jetbrains/jet/buildtools/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+    <taskdef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <target name="build">
         <kotlin2js src="root1" output="out.js" outputPrefix="prefix" outputPostfix="postfix" sourcemap="true"/>
