@@ -26,7 +26,7 @@ statically known Kotlin class, you can use the _class literal_ syntax:
 val c = MyClass::class
 ```
 
-The reference is a value of type [KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class.html). You can use `KClass.properties`
+The reference is a value of type [KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html). You can use `KClass.properties`
 and `KClass.extensionProperties` to get the list of [property references](#property-references) for all properties
 defined in this class and its superclasses.
 

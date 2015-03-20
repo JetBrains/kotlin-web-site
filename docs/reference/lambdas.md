@@ -204,7 +204,7 @@ Note that function expression parameters are always passed inside the parenthese
 to leave the function outside the parentheses works only for function literals.
 
 One other difference between function literals and function expressions is the behavior of
-[non-local returns](inline-function.html#non-local-returns). A *return*{: .keyword }  statement without a label
+[non-local returns](inline-functions.html#non-local-returns). A *return*{: .keyword }  statement without a label
 always returns from the function declared with the *fun*{: .keyword } keyword. This means that a *return*{: .keyword }
 inside a function literal will return from the enclosing function, whereas a *return*{: .keyword } inside
 a function expression will return from the function expression itself.
