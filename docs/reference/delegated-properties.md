@@ -80,7 +80,7 @@ this function must return the same type as property (or its subtype).
 For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally_ provide a function named `set` that takes the following parameters:
  
 * receiver --- same as for `get()`,
-* matadata --- same as for `get()`,
+* metadata --- same as for `get()`,
 * new value --- must be of the same type as a property or its subtype.
  
 ## Standard Delegates
