@@ -105,6 +105,17 @@ val l = b?.length() ?: -1
 If the expression to the left of `?:` is not null, the elvis operator returns it, otherwise it returns the expression to the right.
 Note that the right-hand side expression is evaluated only if the left-hand side is null.
 
+Note that, since *throw*{: .keyword } and *return*{: .keyword } are expressions in Kotlin, they can also be used on
+the right hand side of the elvis operator. This can be very handy, for example, for checking function arguments:
+
+``` kotlin
+fun foo(node: Node): String? {
+  val parent = node.getParent() ?: return null
+  val name = node.getName() ?: throw IllegalArgumentException("name expected")
+  // ...
+}
+```
+
 ## The `!!` Operator
 
 The third option is for NPE-lovers. We can write `b!!`, and this will return a non-null value of `b`
