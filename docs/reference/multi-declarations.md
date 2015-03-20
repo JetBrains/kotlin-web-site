@@ -81,7 +81,7 @@ To make this work, we should
 And indeed, the standard library provides such extensions:
 
 ``` kotlin
-fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V> = entrySet().iterator()
+fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V>> = entrySet().iterator()
 fun <K, V> Map.Entry<K, V>.component1() = getKey()
 fun <K, V> Map.Entry<K, V>.component2() = getValue()
   
