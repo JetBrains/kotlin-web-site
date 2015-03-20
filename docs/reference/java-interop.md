@@ -435,7 +435,7 @@ Obj.INSTANCE$.bar(); // works, a call through the singleton instance
 Obj.INSTANCE$.foo(); // works too
 ```
 
-Also, public properties defined in objects and class objects are turned into static fields in Java:
+Also, public properties defined in objects and companion objects are turned into static fields in Java:
 
 ``` kotlin
 object Obj {
