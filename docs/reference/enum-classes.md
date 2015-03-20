@@ -32,7 +32,7 @@ enum class Color(val rgb: Int) {
 }
 ```
 
-## Anonymous classes
+## Anonymous Classes
 
 Enum constants can also declare their own anonymous classes
 
@@ -51,3 +51,27 @@ enum class ProtocolState {
 ```
 
 with their corresponding methods, as well as overriding base methods.
+
+## Working with Enum Constants
+
+Just like in Java, enum classes in Kotlin have synthetic methods allowing to list
+the defined enum constants and to get an enum constant by its name. The signatures
+of these methods are as follows (assuming the name of the enum class is `EnumClass`):
+
+``` kotlin
+EnumClass.valueOf(value: String): EnumClass
+EnumClass.values(): Array<EnumClass>
+```
+
+The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
+not match any of the enum constants defined in the class.
+
+Every enum constant has methods to obtain its name and position in the enum class declaration:
+
+``` kotlin
+name(): String
+ordinal(): Int
+```
+
+The enum constants also implement the [Comparable](/api/latest/jvm/stdlib/kotlin/-comparable/index.html) trait,
+with the natural order being the order in which they are defined in the enum class.
