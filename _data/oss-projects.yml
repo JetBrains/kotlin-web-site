@@ -74,6 +74,11 @@
   link: http://hashids.org/kotlin/
   
 - name: Kotter Knife
-  descriotion: Butter-knife view binding for Kotlin
+  description: Butter-knife view binding for Kotlin
   type: Library
   link: https://github.com/JakeWharton/kotterknife
+
+- name: Android Kotlin Extensions
+  description: A collection of Android Kotlin extensions
+  type: Library
+  link: https://github.com/ragunathjawahar/android-kotlin-extensions
