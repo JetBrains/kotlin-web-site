@@ -117,7 +117,7 @@ Android's Gradle model is a little different from ordinary Gradle, so if you wan
 buildscript {
     ...
 }
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 ```
 
