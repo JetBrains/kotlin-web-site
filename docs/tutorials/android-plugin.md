@@ -40,9 +40,9 @@ public class MyActivity : Activity() {
 
 {{ site.text_using_gradle }}
 
-The [plugin](https://plugins.jetbrains.com/plugin?pluginId=7717) is available for both IntelliJ IDEA (Ultimate and Community Editions) as well as Android Studio.
+The IDE [plugin](https://plugins.jetbrains.com/plugin?pluginId=7717) is available for both IntelliJ IDEA (Ultimate and Community Editions) as well as Android Studio.
 
-We first need to add a buildscript dependency called `kotlin-android-extensions`:
+Also, we need to add a buildscript dependency called `kotlin-android-extensions` to the application build file (usually `app/build.gradle`):
 
 ``` groovy
 buildscript {
@@ -52,7 +52,7 @@ buildscript {
 }
 ```
 
-The plugin is available on Maven Central.
+A plugin for Gradle is available on Maven Central.
 
 #### Importing synthetic properties
 
