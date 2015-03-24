@@ -61,11 +61,16 @@ when (x) {
 ```
 
 *when*{: .keyword } matches its argument against all branches consequently until some branch condition is satisfied.
-*when*{: .keyword } is an expression and results in the satisfied branch's right hand side.
-If some of its branches return result in a value of type `Unit`, the whole expression has type `Unit`.
-Note that the *else*{: .keyword } branch is mandatory, unless the compiler can prove that all possible cases are covered with branch conditions.
+*when*{: .keyword } can be used either as an expression or as a statement. If it is used as an expression, the value
+of the satisfied branch becomes the value of the overall expression. If it is used as a statement, the values of
+individual branches are ignored. (Just like with *if*{: .keyword }, each branch can be a block, and its value
+is the value of the last expression in the block.)
 
-If many cases should be handled in the same way, the branch conditions may be combined with a comma
+The *else*{: .keyword } branch is evaluated if none of the other branch conditions are satisfied.
+If *when*{: .keyword } is used as an expression, the *else*{: .keyword } branch is mandatory,
+unless the compiler can prove that all possible cases are covered with branch conditions.
+
+If many cases should be handled in the same way, the branch conditions may be combined with a comma:
 
 ``` kotlin
 when (x) {
@@ -104,7 +109,7 @@ val hasPrefix = when(x) {
 }
 ```
 
-*when*{: .keyword } can also be used as a replacement for an *if*{: .keyword }-*else*{: .keyword }-*if*{: .keyword } chain.
+*when*{: .keyword } can also be used as a replacement for an *if*{: .keyword }-*else*{: .keyword } *if*{: .keyword } chain.
 If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:
 
 ``` kotlin
@@ -114,6 +119,8 @@ when {
   else -> print("x is funny")
 }
 ```
+
+See the [grammar for *when*{: .keyword }](grammar.html#when).
 
 
 ## For Loops
