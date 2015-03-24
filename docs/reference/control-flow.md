@@ -61,11 +61,12 @@ when (x) {
 ```
 
 *when*{: .keyword } matches its argument against all branches consequently until some branch condition is satisfied.
-*when*{: .keyword } is an expression and results in the satisfied branch's right hand side.
-If some of the branches return a value of type `Unit`, the whole expression has type `Unit`.
+*when*{: .keyword } can be used either as an expression or as a statement. If it is used as an expression, all branches
+need to return a value of type other than `Unit`, and the value of the satisfied branch becomes the value of the
+overall expression. If it is used as a statement, the values returned by individual branches are ignored.
 
 The *else*{: .keyword } branch is evaluated if none of the other branch conditions are satisfied.
-Note that if the return type of *when*{: .keyword } is not `Unit`, the *else*{: .keyword } branch is mandatory,
+If *when*{: .keyword } is used as an expression, the *else*{: .keyword } branch is mandatory,
 unless the compiler can prove that all possible cases are covered with branch conditions.
 
 If many cases should be handled in the same way, the branch conditions may be combined with a comma:
