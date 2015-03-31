@@ -82,3 +82,8 @@
   description: A collection of Android Kotlin extensions
   type: Library
   link: https://github.com/ragunathjawahar/android-kotlin-extensions
+
+- name: KAndroid
+  description: Kotlin library for Android
+  type: Library
+  link: https://github.com/pawegio/KAndroid
