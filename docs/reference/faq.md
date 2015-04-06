@@ -51,8 +51,7 @@ Yes. There is an IntelliJ IDEA plugin that is available as an OSS project under 
 
 ### Is there Eclipse support?
 
-Not currently although we plan to provide it after the IntelliJ IDEA plugin. We're also eager and willing to help any member of the community that wants to
-step up to the task!
+Yes. Please refer to the [tutorial](/docs/tutorials/getting-started-eclipse.html) for installation instructions.
 
 ### Is there a standalone compiler?
 
