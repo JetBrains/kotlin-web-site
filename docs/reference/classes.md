@@ -222,8 +222,7 @@ We think that this is not a disadvantage, for the following reasons:
 
 * Best practices say that you should not allow these hacks anyway
 * People successfully use other languages (C++, C#) that have similar approach
-* If people really want to hack, there still are ways: in some cases it will be possible to write your hack in Java, and Aspect frameworks always work for these purposes...
-
+* If people really want to hack, there still are ways: you can always write your hack in Java and call it from Kotlin (*see [Java Interop](java-interop.html)*), and Aspect frameworks always work for these purposes
 
 ### Overriding Rules
 
