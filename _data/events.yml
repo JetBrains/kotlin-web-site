@@ -690,6 +690,9 @@
   date: 2015-03-20
   location: Yekaterinburg, Russia
   lang: ru
+  content:
+    video: https://www.youtube.com/watch?v=SHrfRWNTRxU&list=PLRdS-n5seLRp6nwfAcqo7DTXta5GcclMq&index=8
+    slides: http://prezi.com/xru0nr7oyree/?utm_campaign=share&utm_medium=copy&rc=ex0share
   
 - title: JavaLand'15
   url: http://www.javaland.eu/
@@ -698,6 +701,8 @@
   date: [2015-03-24, 2015-03-25]
   location: Brühl, Germany
   lang: en
+  content:
+    slides: http://prezi.com/lyrcweqsbdoo/?utm_campaign=share&utm_medium=copy&rc=ex0share
   
 - title: Codemotion Rome'15
   url: http://rome2015.codemotionworld.com/
@@ -706,6 +711,8 @@
   date: [2015-03-27, 2015-03-28]
   location: Rome, Italy
   lang: en
+  content: 
+    slides: http://prezi.com/dwljauniwkm0/?utm_campaign=share&utm_medium=copy&rc=ex0share
 
   
 - title: ETE'15
@@ -715,6 +722,8 @@
   date: [2015-04-07, 2015-04-08]
   location: Philadelphia, PA, USA
   lang: en  
+  content:
+    slides: http://prezi.com/_54kwvc0i_zs/?utm_campaign=share&utm_medium=copy&rc=ex0share
   
   
 - title: ECOOP'15
