@@ -12,18 +12,20 @@ showAuthorInfo: true
 We're assuming Eclipse is installed. If not, it can be
 download from the [download page](https://www.eclipse.org/downloads/). The "Eclipse IDE for Java Developers" bundle is recommended. For correct functioning, Eclipse Luna S22 (4.4.2) or later is required.
 
-The Kotlin plugin can be installed using the update site.
+We recommend installing Kotlin plugin from [Eclipse Marketplace](http://marketplace.eclipse.org/content/kotlin-plugin-eclipse). 
+One option is to drag-and-drop this button into a running Eclipse window:
 
-Opening *Help -> Install New Software...* in
-the main menu, entering the following URL in the *"Work with:"* field:
+<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=2257536" class="drag" title="Drag to your running Eclipse workspace to install Kotlin Plugin for Eclipse"><img src="http://marketplace.eclipse.org/sites/all/themes/solstice/_themes/solstice_marketplace/public/images/btn-install.png" alt="Drag to your running Eclipse workspace to install Kotlin Plugin for Eclipse" /></a> 
 
-   ```
-   https://teamcity.jetbrains.com/guestAuth/repository/download/Kotlin_EclipsePlugin/release.tcbuildtag/
-   ```
-   
+Alternatively, you can choose *Help -> Eclipse Marketplace...* from the main menu and search for Kotlin plugin: 
 
-   ![Plugin Installation]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started-eclipse/install-kotlin-update-site.png)
-    
+   ![Eclipse Marketplace]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started-eclipse/marketplace.png)
+
+Or, if you prefer using an *update site* directly, use this one:
+
+```
+https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/last/
+```
 
 Once Eclipse has been restarted, we can check to make sure the Kotlin plugin is installed correctly, by opening the Kotlin perspective
 in main menu ``Window -> Open Perspective -> Other...``
