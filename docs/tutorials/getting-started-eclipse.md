@@ -17,11 +17,11 @@ One option is to drag-and-drop this button into a running Eclipse window:
 
 <a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=2257536" class="drag" title="Drag to your running Eclipse workspace to install Kotlin Plugin for Eclipse"><img src="http://marketplace.eclipse.org/sites/all/themes/solstice/_themes/solstice_marketplace/public/images/btn-install.png" alt="Drag to your running Eclipse workspace to install Kotlin Plugin for Eclipse" /></a> 
 
-Alternatively, you can choose *Help -> Eclipse Marketplace...* from the main menu and search for Kotlin plugin: 
+Alternatively, use the *Help -> Eclipse Marketplace...* menu and search for Kotlin plugin: 
 
    ![Eclipse Marketplace]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started-eclipse/marketplace.png)
 
-Or, if you prefer using an *update site* directly, use this one:
+A more old-fashioned way is using an *update site* directly:
 
 ```
 https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/last/
