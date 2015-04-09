@@ -655,7 +655,19 @@
 
     .section-header {
         color: #fff;
+    }
+
+    .kotlin-version {
+        margin-top: -7px;
+        margin-bottom: $unit*2;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .section-description {
         margin-bottom: $unit*4;
+        color: #fff;
     }
 
     .get-kotlin-options-list {
