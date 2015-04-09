@@ -74,22 +74,3 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
 We can run the compiler without parameters to have an interactive shell. We can type any valid Kotlin code and see the results.
 
 ![Shell]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/kotlin_shell.png)
-
-### Using the command line to run scripts
-
-Kotlin can also be used as a scripting language. A script is a Kotlin source file (.kts) with top level executable code.
-
-``` kotlin
-   import java.io.File
-
-   val folders = File(args[0]).listFiles { file -> file.isDirectory() }
-   folders?.forEach { folder -> println(folder) }
-```
-   
-To run a script, we just pass the `-script` option to the compiler with the corresponding script file.
-
-```
-   $ kotlinc-jvm -script list_folders.kts <path_to_folder_to_inspect>
-```
-
-
