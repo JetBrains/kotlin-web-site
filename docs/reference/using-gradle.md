@@ -146,6 +146,23 @@ External annotations for JDK and Android SDK will be configured automatically. I
 kotlinOptions.annotations = file('<path to annotations>')
 ```
 
+## Kotlin2JS
+
+Here we use a different plugin:
+
+```
+apply plugin: "kotlin2js"
+```
+
+Since Kotlin2JS only works for Kotlin files and not Java files, you want to use `main.kotlin.srcDirs` if you change the default directory to something other than `src/main/kotlin`:
+
+```
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/foo'
+}
+```
+
 ## Examples
 
 For more examples, including Android, Mixed Java/Kotlin, [check out the Samples](https://github.com/JetBrains/kotlin-examples/tree/master/gradle) folder on GitHub
+[Kotlin2JS examples](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin/src/test/resources/testProject/kotlin2JsProject) also exist. 
