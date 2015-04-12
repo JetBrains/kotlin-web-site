@@ -127,7 +127,7 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 To compile mixed code applications Kotlin compiler should be invoked before Java compiler.
 In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin.
 
-It could be done by moving Kotlin compilation to previous phase, process-sources (feel free to suggest a better solution if you have one):
+The shortest way of doing it is by moving Kotlin compilation to the previous phase, process-sources:
 
 ``` xml
 <plugin>
@@ -146,6 +146,52 @@ It could be done by moving Kotlin compilation to previous phase, process-sources
             <id>test-compile</id>
             <phase>process-test-sources</phase>
             <goals> <goal>test-compile</goal> </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+Alternatively, we can keep Kotlin compilation in the appropriate phase through the following technique. 
+Because the maven-compiler-plugin's executions are inherited from the packaging pom, by default they will always run 
+before any executions defined in the project pom. 
+To run the maven-compiler-plugin after kotlin-compiler-plugin, we must redefine the executions of maven-compiler-plugin and disable inheritance:
+
+``` xml
+<plugin>
+    <artifactId>kotlin-maven-plugin</artifactId>
+    <groupId>org.jetbrains.kotlin</groupId>
+    <version>0.1-SNAPSHOT</version>
+
+    <executions>
+        <execution>
+            <id>compile</id>
+            <phase>compile</phase>
+            <goals> <goal>compile</goal> </goals>
+        </execution>
+
+        <execution>
+            <id>test-compile</id>
+            <phase>test-compile</phase>
+            <goals> <goal>test-compile</goal> </goals>
+        </execution>
+    </executions>
+</plugin>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.3</version>
+    <executions>
+        <execution>
+            <id>default-compile</id>
+            <inherited>false</inherited>
+            <phase>compile</phase>
+            <goals><goal>compile</goal></goals>
+        </execution>
+        <execution>
+            <id>default-testCompile</id>
+            <inherited>false</inherited>
+            <phase>test-compile</phase>
+            <goals><goal>testCompile</goal></goals>
         </execution>
     </executions>
 </plugin>
