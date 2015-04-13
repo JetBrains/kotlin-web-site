@@ -2,7 +2,6 @@
 type: doc
 layout: reference
 title: "Using Gradle"
-description: "This tutorials walks you through different scenarios when using Gradle for building applications that contain Kotlin code"
 ---
 
 # Using Gradle
@@ -11,14 +10,14 @@ description: "This tutorials walks you through different scenarios when using Gr
 
 The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
 
-Define the version of Kotlin you want to use via *kotlin.version*. The possible values are:
+Define the version of Kotlin we want to use via *kotlin.version*. The possible values are:
 
 * X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
-only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, you need to [configure a snapshot repository
+only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, we need to [configure a snapshot repository
 in the build.gradle file](#using-snapshot-versions).
 
 * X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
-is needed in your build.gradle file.
+is needed in the build.gradle file.
 
 The correspondence between milestones and versions is displayed below:
 
@@ -39,22 +38,87 @@ The correspondence between milestones and versions is displayed below:
 </tbody>
 </table>
 
-## Project Layout
+## Targeting the JVM
 
-Kotlin sources should be located in a separate directory *kotlin* which is located at the same level as the *java* directory for Java sources:
+To target the JVM, the Kotlin plugin needs to be applied
 
-    project
-        - main (root)
-            - kotlin
-            - java
+``` groovy
+apply plugin: "kotlin"
+```
+
+As of M11, Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
+
+``` groovy
+project
+    - main (root)
+        - kotlin
+        - java
+```
+
+The corresponding *sourceSets* property should be updated if not using the default convention
+
+``` groovy
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/myKotlin'
+    main.java.srcDirs += 'src/main/myJava'
+}
+```
+
+## Targeting JavScript
+
+When targeting JavaScript, a different plugin should be applied:
+
+``` groovy
+apply plugin: "kotlin2js"
+```
+
+This plugin only works for Kotlin files so it is recommended to keep Kotlin and Java files separate (if it's the case that the same project contains Java files). As with
+targeting the JVM, if not using the default convention, we need to specify the source folder using *sourceSets*
+
+``` groovy
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/myKotlin'
+}
+```
+
+
+
+## Targeting Android
+
+Android's Gradle model is a little different from ordinary Gradle, so if we want to build an Android project written in Kotlin, we need
+*kotlin-android* plugin instead of *kotlin*:
+
+``` groovy
+buildscript {
+    ...
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+```
+
+### Android Studio
+
+If using Android Studio, the following needs to be added under android:
+
+``` groovy
+android {
+  ...
+
+  sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+  }
+}
+```
+
+This lets Android Studio know that the kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized.
+
 
 
 ## Configuring Dependencies
 
-You need to add dependencies on kotlin-gradle-plugin and the Kotlin standard library:
+We need to add dependencies on kotlin-gradle-plugin and the Kotlin standard library:
 
 ``` groovy
-
 buildscript {
   repositories {
     mavenCentral()
@@ -64,7 +128,7 @@ buildscript {
   }
 }
 
-apply plugin: "kotlin"
+apply plugin: "kotlin" // or apply plugin: "kotlin2js" if targeting JavaScript
 
 repositories {
   mavenCentral()
@@ -77,7 +141,7 @@ dependencies {
 
 ## Using Snapshot versions
 
-If you want to use a snapshot version (nightly build), first add the snapshot repository and change the version to 0.1-SNAPSHOT:
+If we want to use a snapshot version (nightly build), we need to add the snapshot repository and change the version to 0.1-SNAPSHOT:
 
 ``` groovy
 buildscript {
@@ -92,7 +156,7 @@ buildscript {
   }
 }
 
-apply plugin: "kotlin"
+apply plugin: "kotlin" // or apply plugin: "kotlin2js" if targeting JavaScript
 
 repositories {
   mavenCentral()
@@ -107,39 +171,9 @@ dependencies {
 ```
 
 
-## Android Projects
-
-Android's Gradle model is a little different from ordinary Gradle, so if you want to build an Android project written in Kotlin, you need
-*kotlin-android* plugin instead of *kotlin*:
-
-``` groovy
-
-buildscript {
-    ...
-}
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-```
-
-### Android Studio
-
-If you are using Android Studio, add the following under android:
-
-``` groovy
-android {
-  ...
-
-  sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
-  }
-}
-```
-
-This lets Android Studio know that your kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized.
-
 ## Using External Annotations
 
-External annotations for JDK and Android SDK will be configured automatically. If you want to add more annotations for some of your libraries, add the following line to your Gradle script:
+External annotations for JDK and Android SDK will be configured automatically. If we want to add more annotations for some libraries, we need to add the following line to the Gradle script:
 
 ``` groovy
 
@@ -148,4 +182,9 @@ kotlinOptions.annotations = file('<path to annotations>')
 
 ## Examples
 
-For more examples, including Android, Mixed Java/Kotlin, [check out the Samples](https://github.com/JetBrains/kotlin-examples/tree/master/gradle) folder on GitHub
+The [Kotlin Repository](https://github.com/jetbrains/kotlin) contains examples:
+
+* [Kotlin](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/hello-world)
+* [Mixed Java and Kotlin](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/mixed-java-kotlin-hello-world)
+* [Android](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-mixed-java-kotlin-project)
+* [JavaScript](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin/src/test/resources/testProject/kotlin2JsProject)
