@@ -64,7 +64,7 @@ sourceSets {
 }
 ```
 
-## Targeting JavScript
+## Targeting JavaScript
 
 When targeting JavaScript, a different plugin should be applied:
 
