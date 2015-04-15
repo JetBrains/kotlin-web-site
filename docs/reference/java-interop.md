@@ -158,7 +158,7 @@ Kotlin's generics are a little different from Java's (see [Generics](generics.ht
   * `Foo<? super Bar>` becomes `Foo<in Bar!>!`
 
 * Java's raw types are converted into star projections
-  * List becomes `List<*>!`, i.e. `List<out Any?>!`
+  * `List` becomes `List<*>!`, i.e. `List<out Any?>!`
 
 Like Java's, Kotlin's generics are not retained at runtime, i.e. objects do not carry information about actual type arguments passed to their constructors,
 i.e. `ArrayList<Integer>()` is indistinguishable from `ArrayList<Character>()`.
