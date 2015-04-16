@@ -1,6 +1,7 @@
 require 'pathname'
 require 'rexml/document'
 require 'uri'
+require 'cgi'
 require 'erb'
 
 # http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html
@@ -113,7 +114,7 @@ def get_doc_contents
 
           # Resolving links and anchors
           doc.elements.each("//a[@href]") do |link|
-            link_href = link.attributes['href']
+            link_href = CGI.escape(link.attributes['href'])
             uri = URI.parse(link_href)
 
             # Local link
