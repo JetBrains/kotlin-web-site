@@ -113,7 +113,7 @@ val hasPrefix = when(x) {
 If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:
 
 ``` kotlin
-when {
+when (x) {
   x.isOdd() -> print("x is odd")
   x.isEven() -> print("x is even")
   else -> print("x is funny")
