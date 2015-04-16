@@ -10,7 +10,7 @@ main:
     title: Contribute
 
   try:
-    url: http://kotlin-demo.jetbrains.com
+    url: http://try.kotlinlang.org
     title: Try Online
 
   download:

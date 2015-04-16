@@ -55,7 +55,7 @@ fun result(args: Array<String>) =
 ```
 
 This is a completely legitimate Kotlin code. 
-You can play with this code online (modify it and run in the browser) [here](http://kotlin-demo.jetbrains.com/?folder=Longer_examples&name=HTML_Builder).
+You can play with this code online (modify it and run in the browser) [here](http://try.kotlinlang.org/#/Examples/Longer examples/HTML Builder/HTML Builder.kt).
 
 ## How it works
 
