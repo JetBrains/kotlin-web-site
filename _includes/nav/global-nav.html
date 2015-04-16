@@ -21,7 +21,6 @@
 
         <a href="{% if is_external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"
            class="nav-item {% if is_active %}is_active{% endif %}"
-           {% if is_external %}target="_blank"{% endif %}
         >
             {{ item.title }}
         </a>
