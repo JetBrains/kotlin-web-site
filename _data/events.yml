@@ -20,6 +20,7 @@
 
 - title: JVM Language Summit 2011
   url: http://www.wiki.jvmlangsummit.com/Kotlin
+  speaker: Andrey Breslav, Dmitry Jemerov
   date: 2011-06-15
   location: Santa Clara, CA, USA
   content:
@@ -29,6 +30,7 @@
 
 - title: SOCON 2011, Emerging Languages
   url: http://www.oscon.com/oscon2011/public/schedule/detail/20924
+  speaker: Andrey Breslav, Dmitry Jemerov
   date: 2011-09-17
   location: Portland, OR, USA
   content:
@@ -37,6 +39,7 @@
 
 - title: Strange Loop 2011
   url: https://thestrangeloop.com/sessions/the-kotlin-programming-language
+  speaker: Andrey Breslav
   date: 2011-09-19
   location: St Louis, MO, USA
   content:
@@ -46,6 +49,7 @@
 
 - title: Yandex and CSClub
   url: http://logic.pdmi.ras.ru/csclub/en/node/1480
+  speaker: Andrey Breslav
   date: 2011-10-02
   location: Saint Petersburg, Russia
   content:
@@ -56,6 +60,7 @@
 - title: RivieraDEV 2011
   url: http://www.rivieradev.fr/application/talk?id=140
   date: [2011-10-20, 2011-10-20]
+  speaker: Dmitry Jemerov
   location: France
   content:
     slides: http://www.slideshare.net/intelliyole/kotlin-riviera-dev/
@@ -64,6 +69,7 @@
 
 - title: Devoxx 2011
   url: http://devoxx.com/display/DV11/The+Kotlin+Programming+Language
+  speaker: Andrey Breslav
   date: 2011-11-16
   location: Antwerp, Belgium
   content:
@@ -73,6 +79,7 @@
 
 - title: Devclub.eu
   url: http://www.devclub.eu/2011/12/09/announce-dec-2011/
+  speaker: Andrey Breslav
   date: 2011-12-21
   location: Tallinn, Estonia
   content:
@@ -84,6 +91,7 @@
 
 - title: JavaDay SPb
   url: http://oracle.timepad.ru/event/17633
+  speaker: Andrey Breslav
   date: 2012-02-10
   location: Saint Petersburg, Russia
   content:
@@ -92,6 +100,7 @@
 
 - title: Jfokus
   url: http://www.jfokus.se/jfokus/page.jsp?lang=en&id=schema_day1
+  speaker: Andrey Breslav
   date: 2012-02-14
   location: Stockholm, Sweden
   content:
@@ -100,6 +109,7 @@
 
 - title: 33rd Degree
   url: http://2012.33degree.org/talk/show/7
+  speaker: Andrey Breslav
   date: [2012-03-19, 2012-03-21]
   location: Krakow, Poland
   content:
@@ -108,6 +118,7 @@
 
 - title: Codemotion Roma
   url: http://www.codemotion.it/en/talk/bringing-kotlins-power-java-libraries
+  speaker: Andrey Breslav
   date: [2012-03-23, 2012-03-24]
   location: Rome, Italy
   content:
@@ -116,6 +127,7 @@
 
 - title: JavaOne and Oracle Develop Russia
   url: http://www.oracle.com/javaone/ru-en/savethedate/index.html
+  speaker: Andrey Breslav
   date: 2012-04-18
   location: Moscow, Russia
   content:
@@ -124,6 +136,7 @@
 
 - title: JUG.ru meeting
   url: http://jugru.timepad.ru/event/23921
+  speaker: Andrey Breslav
   date: 2012-04-26
   location: Saint Petersburg, Russia
   content:
@@ -133,6 +146,7 @@
 
 - title: ADD-3
   url: http://www.addconf.ru/event.sdf/ru/add_3/authors/594/595
+  speaker: Andrey Breslav
   date: 2012-05-12
   location: Moscow, Russia
   content:
@@ -141,6 +155,7 @@
 
 - title: A friendly visit to EPFL
   url: http://ic.epfl.ch/cms/lang/en/pid/77752
+  speaker: Andrey Breslav
   date: [2012-05-14, 2012-05-15]
   location: Lausanne, Switzerland
   content:
@@ -149,6 +164,7 @@
 
 - title: GeeCON
   url: http://2012.geecon.org
+  speaker: Andrey Breslav
   date: [2012-05-16, 2012-05-17]
   location: Poznań, Poland
   content:
@@ -158,6 +174,7 @@
 
 - title: scaladev'12
   url: http://scaladev.ru
+  speaker: Svetlana Isakova
   date: 2012-05-19
   location: Saint Petersburg, Russia
   content:
@@ -167,6 +184,7 @@
 
 - title: JEEConf
   url: http://jeeconf.com/program/#kotlin
+  speaker: Andrey Breslav
   date: 2012-05-19
   location: Kiev, Ukraine
   content:
@@ -176,6 +194,7 @@
 
 - title: DUMP-2012
   url: http://dump-it.ru/sections/zapovednik-goblinov
+  speaker: Stepan Koltsov
   date: [2012-05-25, 2012-05-26]
   location: Ekaterinburg, Russia
   content:
@@ -184,6 +203,7 @@
 
 - title: TNG BTD5
   url: http://www.tngtech.com/events-bigtechday05-abstracts.html#DmitryJemerov
+  speaker: Dmitry Jemerov
   date: 2012-06-15
   location: Munich, Germany
 
@@ -196,6 +216,7 @@
 
 - title: ÜberConf'12
   url: http://uberconf.com
+  speaker: Andrey Breslav
   date: 2012-06-21
   location: Denver, CO, USA
   content:
@@ -205,6 +226,7 @@
 
 - title: JAZOON'12
   url: http://jazoon.com/2012
+  speaker: Andrey Breslav
   date: 2012-06-27
   location: Zurich, Switzerland
   content:
@@ -213,6 +235,7 @@
 
 
 - title: Google Tech Talk
+  speaker: Andrey Breslav
   date: 2012-06-26
   location: Zurich, Switzerland
   content:
@@ -223,6 +246,7 @@
 
 - title: JUG CH
   url: http://www.jug.ch/html/events/2012/kotlin.html
+  speaker: Andrey Breslav
   date: 2012-06-28
   location: Zurich, Switzerland
   content:
@@ -237,12 +261,14 @@
 
 - title: OSCON'12
   url: http://www.oscon.com/oscon2012/public/schedule/detail/23963
+  speaker: Hadi Hariri
   date: 2012-07-20
   location: Portland, OR, USA
 
 
 - title: JVM Language Summit 2012
   url: http://openjdk.java.net/projects/mlvm/jvmlangsummit
+  speaker: Andrey Breslav
   date: [2012-07-30, 2012-08-01]
   location: Santa Clara, CA, USA
   content:
@@ -252,6 +278,7 @@
 
 - title: JavaZone'12
   url: http://javazone.no/incogito10/events/JavaZone%202012/sessions#29473593-ec86-4df1-bc52-f739db564242
+  speaker: Andrey Breslav
   date: 2012-09-13
   location: Oslo, Norway
   content:
@@ -260,6 +287,7 @@
 
 - title: GOTO Aarhus'12
   url: http://gotocon.com/aarhus-2012/presentation/Kotlin:%20A%20new%20language%20-%20Because%20we've%20lived%20through%20a%20lot
+  speaker: Hadi Hariri
   date: 2012-10-03
   location: Aarhus, Danmark
 
@@ -267,6 +295,7 @@
 - title: JavaOne'12
   url: http://www.oracle.com/javaone/index.html
   subject: "Who's More Functional: Kotlin, Groovy, Scala, or Java?"
+  speaker: Andrey Breslav
   date: 2012-09-30
   location: San Francisco, CA, USA
   content:
@@ -277,6 +306,7 @@
 - title: JavaOne'12
   url: http://www.oracle.com/javaone/index.html
   subject: 'Kotlin: Practical Aspects of JVM Language Implementation'
+  speaker: Andrey Breslav
   date: 2012-10-04
   location: San Francisco, CA, USA
   content:
@@ -287,6 +317,7 @@
 - title: JavaOne'12
   url: http://www.oracle.com/javaone/index.html
   subject: Incompetence * Motivation = Innovation? (How Kotlin and Other New Things Emerge)
+  speaker: Andrey Breslav
   date: 2012-10-04
   location: San Francisco, CA, USA
   content:
@@ -295,6 +326,7 @@
 
 
 - title: Advanced Kotlin (Google Tech talk video)
+  speaker: Andrey Breslav
   date: 2012-10-04
   location: Mountain View, CA, USA
   content:
@@ -303,6 +335,7 @@
 
 - title: CEE/SECR
   url: http://www.secr.ru/lang/en-en/key-speakers/andrey-breslav
+  speaker: Svetlana Isakova
   date: [2012-11-01, 2012-11-02]
   location: Moscow, Russia
   content:
@@ -311,6 +344,7 @@
 
 - title: Devoxx'12
   url: http://www.devoxx.com/display/DV12/Putting+Kotlin+to+the+test
+  speaker: Hadi Hariri
   date: [2012-11-12, 2012-11-16]
   location: Antwerp, Belgium
   content:
@@ -319,6 +353,7 @@
 
 - title: Øredev'12
   url: http://oredev.org/2012/sessions/kotlin-making-the-java-platform-a-better-place
+  speaker: Hadi Hariri
   date: [2012-11-05, 2012-11-09]
   location: Malmö, Sweden
   content:
@@ -327,6 +362,7 @@
 
 - title: ICAS-2012
   url: http://www.osp.ru/events/agenda/events_2812.html
+  speaker: Svetlana Isakova
   date: 2012-11-21
   location: Moscow, Russia
   content:
@@ -335,16 +371,16 @@
 
 - title: Java Day Riga'12
   url: http://javaday.lv/talks.html#IntroductionToKotlin
+  speaker: Svetlana Isakova
   date: 2012-11-29
   location: Riga, Latvia
   content:
-    slides:
-      - http://prezi.com/tuzmlzhpfklj/kotlin-java-day-riga
-      - http://prezi.com/zecatthlaikf/kotlin-java-day-riga-eng
+    slides: http://prezi.com/tuzmlzhpfklj/kotlin-java-day-riga
 
 
 - title: FProg.ru
   url: http://lanyrd.com/2012/fprog-12/scbgcz/
+  speaker: Andrey Breslav
   date: 2012-12-12
   location: Saint Petersburg, Russia
   lang: ru
@@ -366,6 +402,7 @@
 
 - title: In the Brain Of Andrey Breslav
   url: http://skillsmatter.com/event-details/home/introduction-to-kotlin
+  speaker: Andrey Breslav
   date: 2013-04-03
   location: London, UK
   content:
@@ -580,7 +617,6 @@
   content:
     slides: http://www.slideshare.net/abreslav/kotlin-for-android-brief-and-clear
     video: http://www.youtube.com/watch?v=VU_L2_XGQ9s
-
 
 - title: JPoint
   url: http://javapoint.ru/talks/
