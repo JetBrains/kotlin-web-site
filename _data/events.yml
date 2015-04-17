@@ -482,7 +482,6 @@
   content:
     article: http://jeeconf.com/materials/kotlin/
 
-
 - title: GeekOUT
   url: http://geekout.ee/schedule/andrey-breslav-jetbrains-building-jvm-languages/
   subject: Language Design Tradeoffs
@@ -491,6 +490,15 @@
   location: Tallinn, Estonia
   content:
     slides: http://www.slideshare.net/abreslav/trade-offs-22989326
+    
+- title: JDay Lviv
+  url: http://www.jday.com.ua/
+  subject: Introduction to Kotlin
+  speaker: Nikolay Krasko
+  date: 2013-06-29
+  location: Lviv, Ukraine
+  content:
+    video: https://www.youtube.com/watch?v=MgP7DxRCrt4
 
 
 - title: JVM Language Summit 2013
