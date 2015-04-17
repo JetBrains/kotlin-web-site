@@ -608,6 +608,16 @@
 # 2014
 # ==============================================================================
 
+- title: DevConf
+  url: http://devconf.cz/
+  subjet: 'Kotlin or The Quest For Java.Next'
+  location: Brno, Czech Republic
+  date: [2014-02-07, 2014-02-09]
+  speaker: Ladislav Thon
+  content:
+    slides: http://devconf.cz/filebrowser/download/381
+    video: https://www.youtube.com/watch?v=ZfNjeBFh7Iw
+
 - title: Mobius
   url: http://mobius.codefreeze.ru/talks/13/
   subject: Kotlin for Android
