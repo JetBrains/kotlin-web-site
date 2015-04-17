@@ -41,14 +41,12 @@
       url: https://www.youtube.com/watch?v=ZfNjeBFh7Iw
       description: A talk by Ladislav Thon
 
-    - title: Introduction to Kotlin Part 1
-      url: https://www.youtube.com/watch?v=MgP7DxRCrt4
-      description: A Talk at the JUG Lviv
-
     - title: Kotlin - Making the Java Platform a better place - JavaZone
       url: https://www.youtube.com/watch?v=ZbG7KmwiKRc
       description: Talk given at JavaZone by Andrey Breslav
 
+    - title: Kotlin on Android
+      url: https://www.youtube.com/watch?v=dJscNr1silY
 
 
 
