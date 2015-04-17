@@ -10,13 +10,13 @@ related:
     - getting-started.md
 ---
 ### Creating a project
-It’s extremely easy to start using Kotlin for android development! In this tutorial we’ll follow the warming up process with Android Studio. 
-If you prefer Intellij Idea with Android plugin, the process is almost the same.
+It’s extremely easy to start using Kotlin for Android development! In this tutorial we’ll follow the warming up process with Android Studio.
+If using Intellij IDEA with Android, the process is almost the same.
 
-At first let's create a new project. Just choose **Start a new Android Studio project** or **File | New project**. 
+First let's create a new project. We choose **Start a new Android Studio project** or **File | New project**.
 The following dialogs walk us through the process of new project creation. 
-We need to name the project and choose which Android SDK version we have installed. Most options can be left with their default values 
-(so just press 'Enter' several times). 
+We need to name the project and choose which Android SDK version we have installed. Most options can be left with their default values, so we can press 'Enter' several
+times.
 
 Name the project:
 ![Dialog 1]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/0-create-new-project.png)
@@ -44,11 +44,11 @@ you can write it in Java, then copy-paste Java code into Kotlin file, and Intell
 
 Open MainActivity.java file. Then invoke action **Convert Java File to Kotlin File**. You can do it by several ways.
 The most easiest one is to invoke [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html) and start typing an action name (like in a screencast below). 
-Alternatively you can call this option via the _Code \| Convert Java File to Kotlin File_  menu entry or by using the corresponding shortcut (you can find it at the menu entry).
+Alternatively we can call this option via the _Code \| Convert Java File to Kotlin File_  menu entry or by using the corresponding shortcut (we can find it at the menu entry).
  
 ![Convert]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/convert-java-to-kotlin.png)
 
-After the conversion you should have an activity written in Kotlin.
+After the conversion we should have an activity written in Kotlin.
 
 ![Koltin-Activity]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/converted-code.png)
 
@@ -65,10 +65,11 @@ We are then prompted for the version of Kotlin. Choose the latest available from
 
 After we configure Kotlin, build.gradle file for the application should be updated. 
 Now we can see that _apply plugin: 'kotlin-android'_ and the dependencies were added. 
-For the details how to set up gradle for your project, please check [Using Gradle](/docs/reference/using-gradle.html).
+
+*(For more details how to set up gradle for your project, please check [Using Gradle](/docs/reference/using-gradle.html))*
 
 
-The last thing to do is to sync the project. Either press 'Sync Now' in a prompt or invoke an action **Sync Project with Gradle Files**.
+The last thing to do is to sync the project. We can press 'Sync Now' in a prompt or invoke an action **Sync Project with Gradle Files**.
  
 ![Sync-Project-With-Gradle]({{ site.baseurl }}/{{ site.img_tutorial_root }}//kotlin-android/sync-project-with-gradle.png)
 
