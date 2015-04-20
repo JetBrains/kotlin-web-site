@@ -781,11 +781,12 @@
 
 - title: Event Madras JUG Developer Day '15
   url: http://www.meetup.com/Madras-JUG/events/221590867/
-  subject: An Hour of Kotlin
-  date: [2015-04-21]
+  subject: "An Hour of Kotlin"
+  speaker: Ragunath Jawahar
+  date: [2015-04-21, 2015-04-21]
   location: Chennai, India
   lang: en
-  
+
 - title: ECOOP'15
   url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
   subject: "Kotlin: Challenges in programming language design"
