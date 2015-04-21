@@ -3,14 +3,9 @@ concise:
   description: Drastically reduce the amount of boilerplate code you need to write.
   content_file: kotlin-features/concise.md
 
-expressive:
-  title: Expressive
-  description: Write code to express intent as opposed to surfacing implementation details.
-  content_file: kotlin-features/expressive.md
-
 safe:
   title: Safe
-  description: Avoid having to work with pesky null reference exception checks.
+  description: Avoid entire classes of errors such as null pointer exceptions.
   content_file: kotlin-features/safe.md
 
 versatile:
