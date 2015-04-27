@@ -46,14 +46,12 @@ define([
         tree.on('selectLeaf', function(e, branch, elem) {
             var videoUrl = elem.href,
                 videoId,
-                description = elem.getAttribute('data-description');
+                description = elem.getAttribute('data-description') || '';
 
             videoId = Player.getVideoIdFromUrl(videoUrl);
             player.playVideo(videoId);
 
-            if (description) {
-                config.descriptionElem.innerHTML = description;
-            }
+            config.descriptionElem.innerHTML = description;
         });
 
         $(elem).find('a').on('click', function(e) {
