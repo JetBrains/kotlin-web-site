@@ -786,6 +786,14 @@
   date: [2015-04-21, 2015-04-21]
   location: Chennai, India
   lang: en
+  
+- title: Michigan GDG DevFest 2015
+  url: http://michigandevfest.com/schedule/#session-6
+  subject: "Kotlin: New Hope in a Java 6 Wasteland"
+  speaker: Michael Pardo
+  date: [2015-05-09]
+  location: Detroit, MI, USA
+  lang: en
 
 - title: ECOOP'15
   url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
