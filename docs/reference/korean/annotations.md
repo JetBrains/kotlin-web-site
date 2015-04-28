@@ -43,7 +43,7 @@ class Foo [inject](dependency: MyDependency) {
 }
 ```
 
-Property 접근자에도 Annotation을 추가할 수 있습니다:
+프로퍼티 접근자에도 Annotation을 추가할 수 있습니다:
 
 ``` kotlin
 class Foo {
