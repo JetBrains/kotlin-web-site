@@ -197,7 +197,7 @@ val asc = Array(5, {i -> (i * i).toString()})
 
 Note: Java와 다르게, Kotlin의 배열은 변하지 않습니다. 이는 Kotlin이 가능한 런타임 실패를 막기 위해 `Array<String>` 을 `Array<Any>` 로 할당할 수 없음을 의미합니다(하지만 `Array<out Any>`를 사용할 수 있습니다. [Type Projections](generics.html#type-projections) 참고).
 
-Kotlin 또한 오버헤드 박싱 없이 프리미티브 타입들의 배열을 표현하기에 특화된 클래스를 갖습니다: ByteArray,
+Kotlin은 또한 오버헤드 박싱 없이 프리미티브 타입들의 배열을 표현하기에 특화된 클래스를 갖습니다: ByteArray,
 ShortArray, IntArray 등. 이 클래스들은 `Array` 클래스와 상속 관계가 없지만, 같은 메소드와 프로퍼티 셋을 갖습니다. 이들 각각은 그에 해당하는 팩토리 함수도 갖습니다:
 
 ``` kotlin
