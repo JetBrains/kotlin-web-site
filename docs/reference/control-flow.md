@@ -88,11 +88,12 @@ when (x) {
 }
 ```
 
-We can also check a value for being *in*{: .keyword } or *!in*{: .keyword } a [range](ranges.html)
+We can also check a value for being *in*{: .keyword } or *!in*{: .keyword } a [range](ranges.html) or a collection:
 
 ``` kotlin
 when (x) {
   in 1..10 -> print("x is in the range")
+  in validNumbers -> print("x is valid")
   !in 10..20 -> print("x is outside the range")
   else -> print("none of the above")
 }
