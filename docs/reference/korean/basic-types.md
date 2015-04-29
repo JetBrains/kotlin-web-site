@@ -122,7 +122,7 @@ Kotlin은 적절한 클래스의 멤버로 선언되어 있는 숫자들의 표�
 val x = (1 shl 2) and 0x000FF000
 ```
 
-다음 함수들이 모든 비트 연산들입니다. (`Int` 와 `Long` 타입에서만 사용 가능합니다.):
+다음 함수들이 모든 비트 연산들입니다. (`Int`와 `Long` 타입에서만 사용 가능합니다.):
 
 * `shl(bits)` – signed shift left (Java's `<<`)
 * `shr(bits)` – signed shift right (Java's `>>`)
@@ -134,7 +134,7 @@ val x = (1 shl 2) and 0x000FF000
 
 ## 문자
 
-문자는 `Char` 라는 타입으로 표현됩니다. 문자는 숫자로 직접 사용할 수는 없습니다.
+문자는 `Char`라는 타입으로 표현됩니다. 문자는 숫자로 직접 사용할 수는 없습니다.
 
 ``` kotlin
 fun check(c: Char) {
@@ -159,7 +159,7 @@ fun decimalDigitValue(c: Char): Int {
 
 ## 불
 
-`Boolean` 은 불 타입을 표현하고, 두 개의 값을 갖습니다: *true*{: .keyword } 와 *false*{: .keyword }.
+`Boolean`은 불 타입을 표현하고, 두 개의 값을 갖습니다: *true*{: .keyword } 와 *false*{: .keyword }.
 
 불 타입 또한 nullable 참조가 필요할 경우 감싸집니다.
 
@@ -170,7 +170,7 @@ fun decimalDigitValue(c: Char): Int {
 
 ## 배열
 
-Kotlin의 배열은 (연산자 오버로딩 컨벤션에 의해 `[]`로 표현되는) `get` 과 `set` 함수, `size` 함수 등 몇 가지 유용한 멤버 함수들을 갖는 `Array` 클래스로 표현됩니다:
+Kotlin의 배열은 (연산자 오버로딩 컨벤션에 의해 `[]`로 표현되는) `get`과 `set` 함수, `size` 함수 등 몇 가지 유용한 멤버 함수들을 갖는 `Array` 클래스로 표현됩니다:
 
 ``` kotlin
 class Array<T> private () {
@@ -183,8 +183,8 @@ class Array<T> private () {
 }
 ```
 
-배열을 만들기 위해 `array()` 라는 라이브러리 함수에 항목 값들을 넘겨줄 수 있는데, 따라서 `array(1, 2, 3)` 는 [1, 2, 3] 이라는 배열을 만듭니다.
-이를 대신해서, `arrayOfNulls()` 라는 라이브러리 함수를 사용하여 주어진 크기만큼 null 항목으로 채워진 배열을 만들 수도 있습니다.
+배열을 만들기 위해 `array()`라는 라이브러리 함수에 항목 값들을 넘겨줄 수 있는데, 따라서 `array(1, 2, 3)`는 [1, 2, 3] 이라는 배열을 만듭니다.
+이를 대신해서, `arrayOfNulls()`라는 라이브러리 함수를 사용하여 주어진 크기만큼 null 항목으로 채워진 배열을 만들 수도 있습니다.
 
 또 다른 옵션으로 배열의 크기와 주어진 인덱스로부터 항목의 초기 값을 반환하는 함수를 갖는 팩토리 함수를 사용할 수 있습니다:
 
@@ -193,9 +193,9 @@ class Array<T> private () {
 val asc = Array(5, {i -> (i * i).toString()})
 ```
 
-위에서 말했듯이, `[]` 연산은 멤버 함수인 `get()` 과 `set()` 의 호출을 대체합니다.
+위에서 말했듯이, `[]` 연산은 멤버 함수인 `get()`과 `set()` 의 호출을 대체합니다.
 
-Note: Java와 다르게, Kotlin의 배열은 변하지 않습니다. 이는 Kotlin이 가능한 런타임 실패를 막기 위해 `Array<String>` 을 `Array<Any>` 로 할당할 수 없음을 의미합니다(하지만 `Array<out Any>`를 사용할 수 있습니다. [Type Projections](generics.html#type-projections) 참고).
+Note: Java와 다르게, Kotlin의 배열은 변하지 않습니다. 이는 Kotlin이 가능한 런타임 실패를 막기 위해 `Array<String>`을 `Array<Any>`로 할당할 수 없음을 의미합니다(하지만 `Array<out Any>`를 사용할 수 있습니다. [Type Projections](generics.html#type-projections) 참고).
 
 Kotlin은 또한 오버헤드 박싱 없이 프리미티브 타입들의 배열을 표현하기에 특화된 클래스를 갖습니다: ByteArray,
 ShortArray, IntArray 등. 이 클래스들은 `Array` 클래스와 상속 관계가 없지만, 같은 메소드와 프로퍼티 셋을 갖습니다. 이들 각각은 그에 해당하는 팩토리 함수도 갖습니다:

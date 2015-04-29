@@ -25,7 +25,7 @@ import java.util.*
 
 ## 함수 정의
 
-다음은 두 개의 `Int` 매개 변수를 전달 받아 `Int` 를 반환하는 함수입니다:
+다음은 두 개의 `Int` 매개 변수를 전달 받아 `Int`를 반환하는 함수입니다:
 
 ``` kotlin
 fun sum(a: Int, b: Int): Int {
@@ -53,7 +53,7 @@ fun printSum(a: Int, b: Int): Unit {
 }
 ```
 
-`Unit` 이라는 반환 타입은 생략할 수 있습니다:
+`Unit`이라는 반환 타입은 생략할 수 있습니다:
 
 ``` kotlin
 public fun printSum(a: Int, b: Int) {
@@ -118,7 +118,7 @@ fun max(a: Int, b: Int) = if (a > b) a else b
 
 값이 *null*{: .keyword }일 수 있다면 참조시에 명시적으로 nullable 속성을 표시해야합니다.
 
-다음 코드는 `str` 이 정수 값을 갖지 않을 때 *null*{: .keyword }을 반환합니다:
+다음 코드는 `str`이 정수 값을 갖지 않을 때 *null*{: .keyword }을 반환합니다:
 
 ``` kotlin
 fun parseInt(str: String): Int? {
