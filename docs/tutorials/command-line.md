@@ -20,6 +20,13 @@ Every release ships with a standalone version of the compiler. We can download i
 
 There's a Bash version of each script for OS X and Linux users, and a batch file for Windows users.
 
+Alternatively, on OS X you can install the compiler via [Homebrew](http://brew.sh/).
+
+```
+   $ brew update
+   $ brew install kotlin-compiler
+```
+
 ### Creating and running a first application
 
 1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following
@@ -53,13 +60,13 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
 ### Compiling a library
 
    If you're developing a library to be used by other Kotlin applications, you can produce the .jar file without including the Kotlin runtime into it.
-   
+
 ```
    $ kotlinc-jvm hello.kt -d hello.jar
 ```
-   
+
    Since binaries compiled this way depend on the Kotlin runtime you should make sure the latter is present in the classpath whenever your compiled library is used. For instance, an alternative way to execute the Hello World app would be
-   
+
 ```
    $ java -classpath hello.jar:%path_to_runtime%/kotlin-runtime.jar _DefaultPackage
 ```
@@ -67,8 +74,8 @@ There's a Bash version of each script for OS X and Linux users, and a batch file
    The `_DefaultPackage` is the main class name that the Kotlin compiler generates by default for the root package. For a non-root package `org.acme.test` it would be `org.acme.test.TestPackage`.
 
 ![Command Line Output]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/output.png)
-   
-   
+
+
 ### Running the REPL
 
 We can run the compiler without parameters to have an interactive shell. We can type any valid Kotlin code and see the results.
@@ -85,11 +92,9 @@ Kotlin can also be used as a scripting language. A script is a Kotlin source fil
    val folders = File(args[0]).listFiles { file -> file.isDirectory() }
    folders?.forEach { folder -> println(folder) }
 ```
-   
+
 To run a script, we just pass the `-script` option to the compiler with the corresponding script file.
 
 ```
    $ kotlinc-jvm -script list_folders.kts <path_to_folder_to_inspect>
 ```
-
-
