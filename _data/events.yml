@@ -28,7 +28,7 @@
     article: http://drdobbs.com/231500204
 
 
-- title: SOCON 2011, Emerging Languages
+- title: OSCON 2011, Emerging Languages
   url: http://www.oscon.com/oscon2011/public/schedule/detail/20924
   speaker: Andrey Breslav, Dmitry Jemerov
   date: 2011-09-17
@@ -44,7 +44,7 @@
   location: St Louis, MO, USA
   content:
     slides: http://www.slideshare.net/abreslav/kotlin-strangeloop-2011
-    article: http://www.infoq.com/presentations/The-Kotlin-Programming-Language
+    video: http://www.infoq.com/presentations/The-Kotlin-Programming-Language
 
 
 - title: Yandex and CSClub
