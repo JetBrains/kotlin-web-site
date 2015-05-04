@@ -27,6 +27,10 @@ public class Customer {
 
     private String name;
 
+    public Customer(String s){
+        name = s;
+    }
+
     public String getName() {
         return name;
     }
@@ -37,10 +41,10 @@ public class Customer {
 }
 ```
 
-allows us to consume it from Kotlin like any other type in Kotlin.
+allows us to call it from Kotlin like any other type in Kotlin.
 
 ``` kotlin
-    val customer = Customer()
+    val customer = Customer("Phase")
 
     println(customer.getName())
 ```
