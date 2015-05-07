@@ -802,3 +802,11 @@
   date: [2015-06-06, 2015-06-10]
   location: Prague, Czech Republic
   lang: en
+
+- title: JBCN Conference
+  url: http://www.jbcnconf.com
+  subject: "Kotlin: What can it do for me?"
+  speaker: Hadi Hariri
+  date: [2015-06-26, 2015-06-27]
+  location: Barcelona, Spain
+  lang: en
