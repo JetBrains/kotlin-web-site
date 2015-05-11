@@ -62,4 +62,4 @@ Congratulations. We now have our first application running.
 
 [intellijdownload]: http://www.jetbrains.com/idea/download/index.html
 [jetbrains]: http://www.jetbrains.com
-[getting_started_command_line]: getting_started_command_line.html
+[getting_started_command_line]: command-line.html
