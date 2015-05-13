@@ -794,6 +794,8 @@
   date: 2015-05-10
   location: Detroit, MI, USA
   lang: en
+  content:
+    slides: https://speakerdeck.com/pardom/kotlin-new-hope-in-a-java-6-wasteland
 
 - title: ECOOP'15
   url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
