@@ -36,8 +36,16 @@
   padding-left: 36px;
   padding-bottom: 6px;
   padding-top: 6px; }
+  .video-gallery .video-item-title.is_external:hover {
+    cursor: pointer; }
   .video-gallery .video-item-title .text {
-    display: block; }
+    display: inline; }
+  .video-gallery .video-item-title.is_external .text {
+    padding-right: 5px;
+    font-weight: normal;
+    color: #497bb7; }
+  .video-gallery .video-item-title.is_external:hover .text {
+    color: #f47810; }
   .video-gallery .video-item-title .text::before {
     display: none; }
   .video-gallery .video-item-title .marker {
@@ -52,6 +60,12 @@
       .video-gallery .video-item-title .marker {
         background-image: url("../layout/images/main-sprite@2x.png");
         background-size: 150px auto; } }
+  .video-gallery .video-item-title.is_external .marker {
+    width: 16px;
+    height: 16px;
+    background-position: 0 -500px; }
+  .video-gallery .video-item-title.is_active.is_external .marker {
+    background-position: 0 -500px; }
   .video-gallery .video-item-title .duration {
     display: inline-block;
     font-size: 12px;
@@ -60,6 +74,8 @@
   background-color: transparent; }
   .video-gallery .video-item-title:hover .marker {
     background-position: -50px -200px; }
+  .video-gallery .video-item-title:hover.is_external .marker {
+    background-position: -50px -500px; }
 .video-gallery .video-item-title.is_active {
   cursor: default; }
   .video-gallery .video-item-title.is_active .marker {
@@ -71,6 +87,8 @@
   .video-gallery .tree-branch .video-item-title .marker {
     top: 9px;
     left: 12px; }
+  .video-gallery .tree-branch .video-item-title.is_external .marker {
+    left: 18px; }
 .video-gallery .tree-branch .tree-branch .video-item-title {
   margin-left: -36px;
   margin-right: 0;
@@ -81,6 +99,8 @@
   .video-gallery .tree-branch .tree-branch .video-item-title .marker {
     top: 7px;
     left: 24px; }
+  .video-gallery .tree-branch .tree-branch .video-item-title.is_external .marker {
+    left: 18px; }
 
 .video-gallery-description {
   margin-top: 5px; }

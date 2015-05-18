@@ -8,7 +8,16 @@ define([
         var hasUrl = 'url' in item,
             hasDuration = 'duration' in item,
             hasDescription = 'description' in item,
+            isExternal = hasUrl && Player.getVideoIdFromUrl(item.url) === null,
+            itemClassNames,
+            itemLinkClassNames,
             attrs = {};
+
+        itemClassNames = ['tree-item', 'tree-leaf', 'js-item', 'js-leaf', 'video-item'];
+        itemLinkClassNames = ['tree-item-title', 'tree-leaf-title', 'js-item-title', 'js-leaf-title', 'video-item-title'];
+
+        if (isExternal)
+            itemLinkClassNames.push('is_external');
 
         if (hasUrl) {
             attrs['href'] = item.url;
@@ -19,9 +28,9 @@ define([
         }
 
         var t =
-            ['.tree-item.tree-leaf.js-item.js-leaf.video-item',
+            ['.' + itemClassNames.join('.'),
                 [
-                    (hasUrl ? 'a' : 'div') + '.tree-item-title.tree-leaf-title.js-item-title.js-leaf-title.video-item-title', attrs,
+                    (hasUrl ? 'a.' : 'div.') + itemLinkClassNames.join('.'), attrs,
                     ['span.marker'],
                     ['span.text', item.title],
                     hasDuration
@@ -46,16 +55,27 @@ define([
         tree.on('selectLeaf', function(e, branch, elem) {
             var videoUrl = elem.href,
                 videoId,
-                description = elem.getAttribute('data-description') || '';
+                description = elem.getAttribute('data-description') || '',
+                $elem = $(elem);
 
             videoId = Player.getVideoIdFromUrl(videoUrl);
-            player.playVideo(videoId);
 
-            config.descriptionElem.innerHTML = description;
+            if (videoId) {
+                player.playVideo(videoId);
+
+                config.descriptionElem.innerHTML = description;
+            }
         });
 
         $(elem).find('a').on('click', function(e) {
-            e.preventDefault();
+            var $el = $(this);
+            var isExternal = $el.hasClass('is_external');
+
+            if (isExternal)
+                $el.attr('target', '_blank');
+            else
+                e.preventDefault();
+
         });
     }
 

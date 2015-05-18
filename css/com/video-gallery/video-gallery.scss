@@ -21,12 +21,25 @@ $item-padding: 5px;
         margin-left: 0;
         margin-right: $branch-padding * 2;
         padding-left: $branch-padding * 3;
-
         padding-bottom: 6px;
         padding-top: 6px;
 
+        &.is_external:hover {
+            cursor: pointer;
+        }
+
         .text {
-            display: block;
+            display: inline;
+        }
+
+        &.is_external .text {
+            padding-right: 5px;
+            font-weight: normal;
+            color: $base-link-color;
+        }
+
+        &.is_external:hover .text {
+            color: $base-link-hover-color;
         }
 
         .text::before {
@@ -48,6 +61,16 @@ $item-padding: 5px;
             }
         }
 
+        &.is_external .marker {
+            width: 16px;
+            height: 16px;
+            background-position: 0 -500px;
+        }
+
+        &.is_active.is_external .marker {
+            background-position: 0 -500px;
+        }
+
         .duration {
             display: inline-block;
             font-size: 12px;
@@ -60,6 +83,9 @@ $item-padding: 5px;
 
         .marker {
             background-position: -50px -200px;
+        }
+        &.is_external .marker {
+            background-position: -50px -500px;
         }
     }
 
@@ -84,6 +110,9 @@ $item-padding: 5px;
             top: 9px;
             left: $branch-padding;
         }
+        &.is_external .marker {
+            left: 18px;
+        }
     }
 
     .tree-branch .tree-branch .video-item-title {
@@ -97,6 +126,9 @@ $item-padding: 5px;
         .marker {
             top: 2px + $item-padding;
             left: $branch-padding * 2;
+        }
+        &.is_external .marker {
+            left: 18px;
         }
     }
 
