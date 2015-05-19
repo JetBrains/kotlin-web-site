@@ -118,7 +118,7 @@ val x = MyClass.Companion
 Note that, even though the members of companion objects look like static members in other languages, at runtime those
 are still instance members of real objects, and can, for example, implement interfaces:
 
-```
+``` kotlin
 trait Factory<T> {
   fun create(): T
 }
