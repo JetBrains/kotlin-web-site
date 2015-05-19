@@ -87,3 +87,8 @@
   description: Kotlin library for Android
   type: Library
   link: https://github.com/pawegio/KAndroid
+
+- name: Kotlin-Cli
+  description: Command line interface options parser.
+  type: Library
+  link: https://github.com/leprosus/kotlin-cli
