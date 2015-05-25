@@ -35,7 +35,7 @@ class Child : MyTrait {
 
 ## Properties in Traits
 
-Traits allow properties as long as these are stateless, that is because traits do not allow state.
+Trait do not allow the definition of *state*, but traits do allow the definition of properties as long as these are *abstract*. In this case, the *abstract*{: .keyword} modifier can be omitted.
 
 ``` kotlin
 trait MyTrait {
@@ -51,31 +51,35 @@ class Child : MyTrait {
 }
 ```
 
-## Accessing state in trait
+## Declaring Super Types
 
-While traits cannot have state, you can access state
+Similarly to [classes](classes.html#inheritance), even traits may declare *super types*. In its list of super types, a trait may declare *zero or more traits*, and *at most one* class type. 
+The reason for which only *one* class type is allowed in the list of super types of a trait, is because of the [*single inheritance*](classes.html#inheritance) constraint.
 
 ``` kotlin
 open class A(x: Int) {
   val y = x * 2
 }
-
 trait B : A {
   fun foo() {
     print(y)
   }
 }
-
-class C() : A(239), B {}
 ```
 
-In this example, we have a base class *A*, that defines a concrete property *y* and initializes it.
-The trait *B* extends this class, but does not pass a constructor parameter in, because traits have no initialization code at all.
-Note that *B* has access to the property *y* defined in *A*. Now, class *C* extends *A* and initializes it with *239*, and extends *B*.
-Extending *B* is OK because *B* requires *A*, and we extend *A*.
 
-What happens when we call *foo()* on an instance of *C*?
-It prints 478 (239 * 2), because the value of *y* is obtained from this instance, and the constructor of *C* has written 239 there.
+
+
+In this example, the open class `A` defines a property `y`.
+The trait `B` *requires* the super type `A`, thus making the property `y` accessible to the code of the trait.
+
+Any class that *implements* a trait that *requires* a class in its list of super types must *initialize* that class type. For instance, suppose that you want a class `C` to *implement* `B`: the super-type list *must* contain the initialization of `A`.
+
+``` kotlin
+class C : B, A(239) {}
+```
+
+Now, invoking `foo()` on an instance of `C` will print `478` on the screen, because `x` has been initialized as `239` in `A`, and `foo()` prints `y`, which has been initialized as `x * 2`.
 
 ## Resolving overriding conflicts
 
