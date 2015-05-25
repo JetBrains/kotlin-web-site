@@ -797,11 +797,11 @@
   content:
     slides: https://speakerdeck.com/pardom/kotlin-new-hope-in-a-java-6-wasteland
 
-- title: ECOOP'15
-  url: http://2015.ecoop.org/event/invited-speakers-intellij-idea
+- title: CurryOn'15
+  url: http://curry-on.org/2015/sessions/kotlin-challenges-in-language-design.html
   subject: "Kotlin: Challenges in programming language design"
   speaker: Andrey Breslav
-  date: [2015-06-06, 2015-06-10]
+  date: 2015-06-06]
   location: Prague, Czech Republic
   lang: en
 
