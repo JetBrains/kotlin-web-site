@@ -16,11 +16,11 @@ Kotlin has three structural jump operators
 ## Break and Continue Labels
 
 Any expression in Kotlin may be marked with a *label*{: .keyword }.
-Labels have the form of the `@` sign followed by an identifier, for example: `@abc`, `@fooBar` are valid labels (see the [grammar](grammar.html#label)).
+Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#label)).
 To label an expression, we just put a label in front of it
 
 ``` kotlin
-@loop for (i in 1..100) {
+loop@ for (i in 1..100) {
   // ...
 }
 ```
@@ -28,7 +28,7 @@ To label an expression, we just put a label in front of it
 Now, we can qualify a *break*{: .keyword } or a *continue*{: .keyword } with a label:
 
 ``` kotlin
-@loop for (i in 1..100) {
+loop@ for (i in 1..100) {
   for (j in 1..100) {
     if (...)
       break@loop
@@ -61,7 +61,7 @@ If we need to return from a function literal, we have to label it and qualify th
 
 ``` kotlin
 fun foo() {
-  ints.forEach @lit {
+  ints.forEach lit@ {
     if (it == 0) return@lit
     print(it)
   }
