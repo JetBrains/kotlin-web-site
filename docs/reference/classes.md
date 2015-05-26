@@ -74,7 +74,7 @@ mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 To specify the visibility of the primary constructor, use the following syntax:
 
 ``` kotlin
-class Customer private (name: String) { ... }
+class Customer private constructor (name: String) { ... }
 ```
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
@@ -109,7 +109,7 @@ constructor with no arguments. The visibility of the constructor will be public.
 to have a public constructor, you need to declare an empty primary constructor with non-default visibility:
 
 ``` kotlin
-class DontCreateMe private () {
+class DontCreateMe private constructor () {
 }
 ```
 

@@ -101,13 +101,14 @@ class Unrelated(o: Outer) {
 
 ### Constructors
 
-To specify a visibility of a constructor, use the following syntax:
+To specify a visibility of the primary constructor of a class, use the following syntax (note that you need to add an
+explicit *constructor*{: .keyword } keyword):
 
 ``` kotlin
-class C private (a: Int) { ... }
+class C private constructor(a: Int) { ... }
 ```
 
-Here constructor is private. Unlike other declarations, by default, all constructors are `public`, which effectively 
+Here the constructor is private. Unlike other declarations, by default, all constructors are `public`, which effectively
 amounts to the being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only 
 visible within the same module).
      
