@@ -480,6 +480,38 @@ val x: Int
 fun getX() = 10
 ```
 
+
+### Overloads Generation
+
+Normally, if you write a Kotlin method with default parameter values, it will be visible in Java only as a full
+signature, with all parameters present. If you wish to expose multiple overloads to Java calles, you can use the
+@jvmOverloads annotation.
+
+``` kotlin
+jvmOverloads fun f(a: String, b: Int = 0, c: String = "abc") {
+    ...
+}
+```
+
+For every parameter with a default value, this will generate one additional overload, which has this parameter and
+all parameters to the right of it in the parameter list removed. In this example, the following methods will be
+generated:
+
+``` java
+// Java
+void f(String a, int b, String c) { }
+void f(String a, int b) { }
+void f(String a) { }
+```
+
+The annotation also works for constructors, static methods etc. It can't be used on abstract methods, including methods
+defined in interfaces.
+
+Note that, as described in [Secondary Constructors](classes.html#secondary-constructors), if a class has default
+values for all constructor parameters, a public no-argument constructor will be generated for it. This works even
+if the @jvmOverloads annotation is not specified.
+
+
 ### Checked Exceptions
 
 As we mentioned above, Kotlin does not have checked exceptions.
