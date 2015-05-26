@@ -132,7 +132,7 @@ class MyClass {
 ```
 
 However, on the JVM you can have members of companion objects generated as real static methods and fields, if you use
-the `[platformStatic]` annotation. See the [Java interoperability](java-interop.html#static-methods-and-fields) section
+the `@platformStatic` annotation. See the [Java interoperability](java-interop.html#static-methods-and-fields) section
 for more details.
 
 

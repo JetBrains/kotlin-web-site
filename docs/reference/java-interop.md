@@ -399,7 +399,7 @@ For the root package (the one that's called a "default package" in Java), a clas
 ### Static Methods and Fields
 
 As mentioned above, Kotlin generates static methods for package-level functions. On top of that, it also generates static methods
-for functions defined in named objects or companion objects of classes and annotated as `[platformStatic]`. For example:
+for functions defined in named objects or companion objects of classes and annotated as `@platformStatic`. For example:
 
 ``` kotlin
 class C {
@@ -449,7 +449,7 @@ In Java:
 int c = Obj.CONST;
 ```
 
-### Handling signature clashes with [platformName]
+### Handling signature clashes with @platformName
 
 Sometimes we have a named function in Kotlin, for which we need a different JVM name the byte code.
 The most prominent example happens due to *type erasure*:
@@ -460,11 +460,11 @@ fun List<Int>.filterValid(): List<Int>
 ```
 
 These two functions can not be defined side-by-side, because their JVM signatures are the same: `filterValid(Ljava/util/List;)Ljava/util/List;`.
-If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with `[platformName]` and specify a different name as an argument:
+If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with `@platformName` and specify a different name as an argument:
 
 ``` kotlin
 fun List<String>.filterValid(): List<String>
-[platformName("filterValidInt")]
+@platformName("filterValidInt")
 fun List<Int>.filterValid(): List<Int>
 ```
 
@@ -474,7 +474,7 @@ The same trick applies when we need to have a property `x` alongside with a func
 
 ``` kotlin
 val x: Int
-  [platformName("getX_prop")]
+  @platformName("getX_prop")
   get() = 15
 
 fun getX() = 10
@@ -507,10 +507,10 @@ catch (IOException e) { // error: foo() does not declare IOException in the thro
 ```
 
 we get an error message from the Java compiler, because `foo()` does not declare `IOException`.
-To work around this problem, use the `[throws]` annotation in Kotlin:
+To work around this problem, use the `@throws` annotation in Kotlin:
 
 ``` kotlin
-[throws(javaClass<IOException>())] fun foo() {
+@throws(javaClass<IOException>()) fun foo() {
     throw IOException();
 }
 ```
