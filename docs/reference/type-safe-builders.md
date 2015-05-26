@@ -183,7 +183,7 @@ In the next section you can read through the full definition of this package.
 
 This is how the package `com.example.html` is defined (only the elements used in the example above).
 It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and
-[Extension function literals](lambdas.html#extension-function-literals).
+[Extension function literals](lambdas.html#extension-function-expressions).
 
 <a name='declarations'></a>
 
