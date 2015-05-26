@@ -36,7 +36,7 @@ open class A(x: Int) {
   public open val y: Int = x
 }
 
-trait B {...}
+interface B {...}
 
 val ab = object : A(1), B {
   override val y = 15
@@ -119,7 +119,7 @@ Note that, even though the members of companion objects look like static members
 are still instance members of real objects, and can, for example, implement interfaces:
 
 ``` kotlin
-trait Factory<T> {
+interface Factory<T> {
   fun create(): T
 }
 

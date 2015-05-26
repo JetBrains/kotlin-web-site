@@ -73,5 +73,5 @@ name(): String
 ordinal(): Int
 ```
 
-The enum constants also implement the [Comparable](/api/latest/jvm/stdlib/kotlin/-comparable/index.html) trait,
+The enum constants also implement the [Comparable](/api/latest/jvm/stdlib/kotlin/-comparable/index.html) interface,
 with the natural order being the order in which they are defined in the enum class.

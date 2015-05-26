@@ -6,7 +6,7 @@ title: "Classes and Inheritance"
 related:
     - functions.md
     - nested-classes.md
-    - traits.md
+    - interfaces.md
 ---
 
 # Classes and Inheritance
@@ -236,8 +236,8 @@ open class A {
   fun a() { print("a") }
 }
 
-trait B {
-  fun f() { print("B") } // trait members are 'open' by default
+interface B {
+  fun f() { print("B") } // interface members are 'open' by default
   fun b() { print("b") }
 }
 
@@ -265,7 +265,7 @@ abstract class A {
   abstract fun f()
 }
 
-trait B {
+interface B {
   open fun f() { print("B") }
 }
 

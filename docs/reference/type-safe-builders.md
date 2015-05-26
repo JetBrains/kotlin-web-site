@@ -193,7 +193,7 @@ package com.example.html
 import java.util.ArrayList
 import java.util.HashMap
 
-trait Element {
+interface Element {
     fun render(builder: StringBuilder, indent: String)
 
     override fun toString(): String {

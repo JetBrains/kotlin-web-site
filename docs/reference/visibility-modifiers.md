@@ -7,12 +7,12 @@ title: "Visibility Modifiers"
 
 # Visibility Modifiers
 
-Classes, objects, traits, constructors, functions, properties and their setters can have _visibility modifiers_. 
+Classes, objects, interfaces, constructors, functions, properties and their setters can have _visibility modifiers_.
 (Getters always have the same visibility as the property.) 
 There are four visibility modifiers in Kotlin:
 
 * `private` --- visible only in the declaring scope and its subscopes (inside the same module);
-* `protected` --- (applicable only to class/trait members) like `private`, but also visible in subclasses;
+* `protected` --- (applicable only to class/interface members) like `private`, but also visible in subclasses;
 * `internal` --- (used by default) visible everywhere within the same module (if the owner of declaring scope is visible);
 * `public` --- visible everywhere (if the owner of declaring scope is visible).
 
@@ -30,7 +30,7 @@ Below please find explanations of these for different type of declaring scopes.
   
 ## Packages
   
-Functions, properties and classes, objects and traits can be declared on the "top-level", i.e. directly inside a package:
+Functions, properties and classes, objects and interfaces can be declared on the "top-level", i.e. directly inside a package:
   
 ``` kotlin
 // file name: example.kt
@@ -61,7 +61,7 @@ public var bar: Int = 5 // property is visible everywhere
 internal val baz = 6    // visible inside the same module, the modifier can be omitted    
 ```
 
-## Classes and Traits
+## Classes and Interfaces
 
 When declared inside a class:
 

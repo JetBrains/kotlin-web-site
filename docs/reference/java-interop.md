@@ -368,7 +368,7 @@ Note that SAM conversions only work for interfaces, not for abstract classes, ev
 abstract method.
 
 Also note that this feature works only for Java interop; since Kotlin has proper function types, automatic conversion
-of functions into implementations of Kotlin traits is unnecessary and therefore unsupported.
+of functions into implementations of Kotlin interfaces is unnecessary and therefore unsupported.
 
 ## Calling Kotlin code from Java
 
