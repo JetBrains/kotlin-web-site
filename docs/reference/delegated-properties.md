@@ -116,7 +116,8 @@ computed only in one thread, and that all threads will see the same value.
 ### Observable
 
 `Delegates.observable()` takes two arguments: initial value and a handler for modifications. 
-The handler gets called every time we assign to the property, it has three parameters: a property being assigned to, the old value and the new one: 
+The handler gets called every time we assign to the property (before the assignment is performed). It has three
+parameters: a property being assigned to, the old value and the new one:
 
 ``` kotlin
 class User {
