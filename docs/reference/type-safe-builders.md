@@ -190,9 +190,6 @@ It builds an HTML tree. It makes heavy use of [Extension functions](extensions.h
 ``` kotlin
 package com.example.html
 
-import java.util.ArrayList
-import java.util.HashMap
-
 interface Element {
     fun render(builder: StringBuilder, indent: String)
 
@@ -210,8 +207,8 @@ class TextElement(val text: String): Element {
 }
 
 abstract class Tag(val name: String): Element {
-    val children: ArrayList<Element> = ArrayList<Element>()
-    val attributes = HashMap<String, String>()
+    val children = arrayListOf<Element>()
+    val attributes = hashMapOf<String, String>()
 
     protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
         tag.init()
