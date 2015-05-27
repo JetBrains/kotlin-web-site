@@ -542,8 +542,8 @@ we get an error message from the Java compiler, because `foo()` does not declare
 To work around this problem, use the `@throws` annotation in Kotlin:
 
 ``` kotlin
-@throws(javaClass<IOException>()) fun foo() {
-    throw IOException();
+@throws(IOException::class) fun foo() {
+    throw IOException()
 }
 ```
 
