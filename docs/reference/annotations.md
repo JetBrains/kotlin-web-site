@@ -24,7 +24,7 @@ annotation class fancy
 }
 ```
 
-In most cases, the @ sign is optional. It is only required when annotating expressions or local declarations:
+In most cases, the `@ `sign is optional. It is only required when annotating expressions or local declarations:
 
 ``` kotlin
 fancy class Foo {

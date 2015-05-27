@@ -484,7 +484,7 @@ fun getX() = 10
 ### Overloads Generation
 
 Normally, if you write a Kotlin method with default parameter values, it will be visible in Java only as a full
-signature, with all parameters present. If you wish to expose multiple overloads to Java calles, you can use the
+signature, with all parameters present. If you wish to expose multiple overloads to Java callers, you can use the
 @jvmOverloads annotation.
 
 ``` kotlin
