@@ -35,6 +35,14 @@ A class in Kotlin can have a **primary constructor** and one or more **secondary
 constructor is part of the class header: it goes after the class name (and optional type parameters).
 
 ``` kotlin
+class Person constructor(firstName: String) {
+}
+```
+
+If the primary constructor does not have any annotations or visibility modifiers, the *constructor*{: .keyword }
+keyword can be omitted:
+
+``` kotlin
 class Person(firstName: String) {
 }
 ```
@@ -71,10 +79,11 @@ class Person(val firstName: String, val lastName: String, var age: Int) {
 Much the same way as regular properties, the properties declared in the primary constructor can be
 mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 
-To specify the visibility of the primary constructor, use the following syntax:
+If the constructor has annotations or visibility modifiers, the *constructor*{: .keyword } keyword is required, and
+the modifiers go before it:
 
 ``` kotlin
-class Customer private constructor (name: String) { ... }
+class Customer public inject constructor(name: String) { ... }
 ```
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
