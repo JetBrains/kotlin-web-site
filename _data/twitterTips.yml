@@ -11,7 +11,7 @@
   - "Powerful 'when' expression is replacing complex switch/case statements, and allows for multiple type checks with automatic cast."
   - "Language doesn't have pattern matching because we figured that it is really needed mostly to compiler developers."
   - "Operators are resolved by convention, so you can provide operators for any type, even 'invoke' for call operator ()"
-  - "Trait is a type without a state which you cannot instantiate directly. You can inherit multiple traits by a class."
+  - "Interface is a type without a state which you cannot instantiate directly. You can inherit multiple interfaces by a class."
   - "Extension function 'fun String.firstChar() = get(0)' adds firstChar operation to String, and has String as 'this' in the body."
   - "Delegating properties are powerful for many cases: val property by Delegates.lazy { calcProperty() }"
   - "Built-in interface delegation and primary ctor: class ItemsCollection(val items: List<String>) : Iterable<String> by items {}"

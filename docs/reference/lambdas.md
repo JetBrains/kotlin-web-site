@@ -147,13 +147,6 @@ the body goes after an `->` sign.
 If we leave all the optional annotations out, what's left looks like this:
 
 ``` kotlin
-val sum: (Int, Int) -> Int = {(x, y) -> x + y}
-```
-
-As this is the most common case, Kotlin allows us to leave the parentheses out as well, if no type annotations are present,
-and so we get the short syntactic form for functional literals:
-
-``` kotlin
 val sum: (Int, Int) -> Int = {x, y -> x + y}
 ```
 
@@ -179,9 +172,8 @@ do need to specify it explicitly, you can use an alternative syntax: a _function
 fun(x: Int, y: Int): Int = x + y
 ```
 
-A function expression looks very much like a regular function declaration, except that its name can be omitted.
-(You can still specify the name, for example, if the function expression calls itself recursively). Its body can be
-either an expression (as shown above) or a block:
+A function expression looks very much like a regular function declaration, except that its name is omitted. Its body
+can be either an expression (as shown above) or a block:
 
 ``` kotlin
 fun(x: Int, y: Int): Int {

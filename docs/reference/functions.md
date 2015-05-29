@@ -47,7 +47,11 @@ Function parameters can be named when calling functions. This is very convenient
 Given the following function
 
 ``` kotlin
-fun reformat(str: String, normalizeCase: Boolean = true, upperCaseFirstLetter: Boolean = true, divideByCamelHumps: Boolean = false, wordSeparator: Character = ' ') {
+fun reformat(str: String,
+             normalizeCase: Boolean = true,
+             upperCaseFirstLetter: Boolean = true,
+             divideByCamelHumps: Boolean = false,
+             wordSeparator: Character = ' ') {
 ...
 }
 ```

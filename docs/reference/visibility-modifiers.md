@@ -7,12 +7,12 @@ title: "Visibility Modifiers"
 
 # Visibility Modifiers
 
-Classes, objects, traits, constructors, functions, properties and their setters can have _visibility modifiers_. 
+Classes, objects, interfaces, constructors, functions, properties and their setters can have _visibility modifiers_.
 (Getters always have the same visibility as the property.) 
 There are four visibility modifiers in Kotlin:
 
 * `private` --- visible only in the declaring scope and its subscopes (inside the same module);
-* `protected` --- (applicable only to class/trait members) like `private`, but also visible in subclasses;
+* `protected` --- (applicable only to class/interface members) like `private`, but also visible in subclasses;
 * `internal` --- (used by default) visible everywhere within the same module (if the owner of declaring scope is visible);
 * `public` --- visible everywhere (if the owner of declaring scope is visible).
 
@@ -30,7 +30,7 @@ Below please find explanations of these for different type of declaring scopes.
   
 ## Packages
   
-Functions, properties and classes, objects and traits can be declared on the "top-level", i.e. directly inside a package:
+Functions, properties and classes, objects and interfaces can be declared on the "top-level", i.e. directly inside a package:
   
 ``` kotlin
 // file name: example.kt
@@ -61,7 +61,7 @@ public var bar: Int = 5 // property is visible everywhere
 internal val baz = 6    // visible inside the same module, the modifier can be omitted    
 ```
 
-## Classes and Traits
+## Classes and Interfaces
 
 When declared inside a class:
 
@@ -101,13 +101,14 @@ class Unrelated(o: Outer) {
 
 ### Constructors
 
-To specify a visibility of a constructor, use the following syntax:
+To specify a visibility of the primary constructor of a class, use the following syntax (note that you need to add an
+explicit *constructor*{: .keyword } keyword):
 
 ``` kotlin
-class C private (a: Int) { ... }
+class C private constructor(a: Int) { ... }
 ```
 
-Here constructor is private. Unlike other declarations, by default, all constructors are `public`, which effectively 
+Here the constructor is private. Unlike other declarations, by default, all constructors are `public`, which effectively
 amounts to the being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only 
 visible within the same module).
      

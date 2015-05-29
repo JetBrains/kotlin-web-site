@@ -183,17 +183,14 @@ In the next section you can read through the full definition of this package.
 
 This is how the package `com.example.html` is defined (only the elements used in the example above).
 It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and
-[Extension function literals](lambdas.html#extension-function-literals).
+[Extension function literals](lambdas.html#extension-function-expressions).
 
 <a name='declarations'></a>
 
 ``` kotlin
 package com.example.html
 
-import java.util.ArrayList
-import java.util.HashMap
-
-trait Element {
+interface Element {
     fun render(builder: StringBuilder, indent: String)
 
     override fun toString(): String {
@@ -210,8 +207,8 @@ class TextElement(val text: String): Element {
 }
 
 abstract class Tag(val name: String): Element {
-    val children: ArrayList<Element> = ArrayList<Element>()
-    val attributes = HashMap<String, String>()
+    val children = arrayListOf<Element>()
+    val attributes = hashMapOf<String, String>()
 
     protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
         tag.init()

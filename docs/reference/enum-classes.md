@@ -11,14 +11,11 @@ The most basic usage of enum classes is implementing type-safe enums
 
 ``` kotlin
 enum class Direction {
-  NORTH
-  SOUTH
-  WEST
-  EAST
+  NORTH, SOUTH, WEST, EAST
 }
 ```
 
-Each enum constant is an object.
+Each enum constant is an object. Enum constants are separated with commas.
 
 ## Initialization
 
@@ -26,9 +23,9 @@ Since each enum is an instance of the enum class, they can be initialized
 
 ``` kotlin
 enum class Color(val rgb: Int) {
-  RED : Color(0xFF0000)
-  GREEN : Color(0x00FF00)
-  BLUE : Color(0x0000FF)
+    RED(0xFF0000),
+    GREEN(0x00FF00),
+    BLUE(0x0000FF)
 }
 ```
 
@@ -40,17 +37,19 @@ Enum constants can also declare their own anonymous classes
 enum class ProtocolState {
   WAITING {
     override fun signal() = TALKING
-  }
+  },
 
   TALKING {
     override fun signal() = WAITING
-  }
+  };
 
   abstract fun signal(): ProtocolState
 }
 ```
 
-with their corresponding methods, as well as overriding base methods.
+with their corresponding methods, as well as overriding base methods. Note that if the enum class defines any
+members, you need to separate the enum constant definitions from the member definitions with a semicolon, just like
+in Java.
 
 ## Working with Enum Constants
 
@@ -73,5 +72,5 @@ name(): String
 ordinal(): Int
 ```
 
-The enum constants also implement the [Comparable](/api/latest/jvm/stdlib/kotlin/-comparable/index.html) trait,
+The enum constants also implement the [Comparable](/api/latest/jvm/stdlib/kotlin/-comparable/index.html) interface,
 with the natural order being the order in which they are defined in the enum class.

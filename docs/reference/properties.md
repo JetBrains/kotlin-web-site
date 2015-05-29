@@ -94,7 +94,7 @@ var setterVisibility: String = "abc" // Initializer required, not a nullable typ
   private set // the setter is private and has the default implementation
 
 var setterWithAnnotation: Any?
-  [Inject] set // annotate the setter with Inject
+  @Inject set // annotate the setter with Inject
 ```
 
 ### Backing Fields

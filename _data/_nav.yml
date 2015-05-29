@@ -66,7 +66,7 @@ reference:
     content:
       - /docs/reference/classes.html: Classes and Inheritance
       - /docs/reference/properties.html: Properties and Fields
-      - /docs/reference/traits.html: Traits
+      - /docs/reference/interfaces.html: Interfaces
       - /docs/reference/visibility-modifiers.html: Visibility Modifiers
       - /docs/reference/extensions.html: Extensions
       - /docs/reference/data-classes.html: Data Classes

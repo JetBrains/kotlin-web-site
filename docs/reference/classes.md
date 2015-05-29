@@ -6,7 +6,7 @@ title: "Classes and Inheritance"
 related:
     - functions.md
     - nested-classes.md
-    - traits.md
+    - interfaces.md
 ---
 
 # Classes and Inheritance
@@ -33,6 +33,14 @@ class Empty
 
 A class in Kotlin can have a **primary constructor** and one or more **secondary constructors**. The primary
 constructor is part of the class header: it goes after the class name (and optional type parameters).
+
+``` kotlin
+class Person constructor(firstName: String) {
+}
+```
+
+If the primary constructor does not have any annotations or visibility modifiers, the *constructor*{: .keyword }
+keyword can be omitted:
 
 ``` kotlin
 class Person(firstName: String) {
@@ -71,10 +79,11 @@ class Person(val firstName: String, val lastName: String, var age: Int) {
 Much the same way as regular properties, the properties declared in the primary constructor can be
 mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 
-To specify the visibility of the primary constructor, use the following syntax:
+If the constructor has annotations or visibility modifiers, the *constructor*{: .keyword } keyword is required, and
+the modifiers go before it:
 
 ``` kotlin
-class Customer private (name: String) { ... }
+class Customer public inject constructor(name: String) { ... }
 ```
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
@@ -109,7 +118,7 @@ constructor with no arguments. The visibility of the constructor will be public.
 to have a public constructor, you need to declare an empty primary constructor with non-default visibility:
 
 ``` kotlin
-class DontCreateMe private () {
+class DontCreateMe private constructor () {
 }
 ```
 
@@ -236,8 +245,8 @@ open class A {
   fun a() { print("a") }
 }
 
-trait B {
-  fun f() { print("B") } // trait members are 'open' by default
+interface B {
+  fun f() { print("B") } // interface members are 'open' by default
   fun b() { print("b") }
 }
 
@@ -265,7 +274,7 @@ abstract class A {
   abstract fun f()
 }
 
-trait B {
+interface B {
   open fun f() { print("B") }
 }
 

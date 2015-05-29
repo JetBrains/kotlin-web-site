@@ -368,7 +368,7 @@ Note that SAM conversions only work for interfaces, not for abstract classes, ev
 abstract method.
 
 Also note that this feature works only for Java interop; since Kotlin has proper function types, automatic conversion
-of functions into implementations of Kotlin traits is unnecessary and therefore unsupported.
+of functions into implementations of Kotlin interfaces is unnecessary and therefore unsupported.
 
 ## Calling Kotlin code from Java
 
@@ -399,7 +399,7 @@ For the root package (the one that's called a "default package" in Java), a clas
 ### Static Methods and Fields
 
 As mentioned above, Kotlin generates static methods for package-level functions. On top of that, it also generates static methods
-for functions defined in named objects or companion objects of classes and annotated as `[platformStatic]`. For example:
+for functions defined in named objects or companion objects of classes and annotated as `@platformStatic`. For example:
 
 ``` kotlin
 class C {
@@ -449,7 +449,7 @@ In Java:
 int c = Obj.CONST;
 ```
 
-### Handling signature clashes with [platformName]
+### Handling signature clashes with @platformName
 
 Sometimes we have a named function in Kotlin, for which we need a different JVM name the byte code.
 The most prominent example happens due to *type erasure*:
@@ -460,11 +460,11 @@ fun List<Int>.filterValid(): List<Int>
 ```
 
 These two functions can not be defined side-by-side, because their JVM signatures are the same: `filterValid(Ljava/util/List;)Ljava/util/List;`.
-If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with `[platformName]` and specify a different name as an argument:
+If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with `@platformName` and specify a different name as an argument:
 
 ``` kotlin
 fun List<String>.filterValid(): List<String>
-[platformName("filterValidInt")]
+@platformName("filterValidInt")
 fun List<Int>.filterValid(): List<Int>
 ```
 
@@ -474,11 +474,43 @@ The same trick applies when we need to have a property `x` alongside with a func
 
 ``` kotlin
 val x: Int
-  [platformName("getX_prop")]
+  @platformName("getX_prop")
   get() = 15
 
 fun getX() = 10
 ```
+
+
+### Overloads Generation
+
+Normally, if you write a Kotlin method with default parameter values, it will be visible in Java only as a full
+signature, with all parameters present. If you wish to expose multiple overloads to Java callers, you can use the
+@jvmOverloads annotation.
+
+``` kotlin
+jvmOverloads fun f(a: String, b: Int = 0, c: String = "abc") {
+    ...
+}
+```
+
+For every parameter with a default value, this will generate one additional overload, which has this parameter and
+all parameters to the right of it in the parameter list removed. In this example, the following methods will be
+generated:
+
+``` java
+// Java
+void f(String a, int b, String c) { }
+void f(String a, int b) { }
+void f(String a) { }
+```
+
+The annotation also works for constructors, static methods etc. It can't be used on abstract methods, including methods
+defined in interfaces.
+
+Note that, as described in [Secondary Constructors](classes.html#secondary-constructors), if a class has default
+values for all constructor parameters, a public no-argument constructor will be generated for it. This works even
+if the @jvmOverloads annotation is not specified.
+
 
 ### Checked Exceptions
 
@@ -507,11 +539,11 @@ catch (IOException e) { // error: foo() does not declare IOException in the thro
 ```
 
 we get an error message from the Java compiler, because `foo()` does not declare `IOException`.
-To work around this problem, use the `[throws]` annotation in Kotlin:
+To work around this problem, use the `@throws` annotation in Kotlin:
 
 ``` kotlin
-[throws(javaClass<IOException>())] fun foo() {
-    throw IOException();
+@throws(IOException::class) fun foo() {
+    throw IOException()
 }
 ```
 

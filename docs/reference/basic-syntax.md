@@ -301,5 +301,5 @@ Using function literals to filter and map collections:
 names filter { it.startsWith("A") } sortBy { it } map { it.toUpperCase() } forEach { print(it) }
 ```
 
-See [Higher-order functions and Function literals](lambdas.html).
+See [Higher-order functions and Lambdas](lambdas.html).
 

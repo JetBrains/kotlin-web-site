@@ -50,7 +50,7 @@ for (i in 1.0..2.0 step 0.3) print("$i ") // prints "1.0 1.3 1.6 1.9 "
 
 ## How it works
 
-There are two traits in the library: `Range<T>` and `Progression<N>`.
+There are two interfaces in the library: `Range<T>` and `Progression<N>`.
 
 `Range<T>` denotes an interval in the mathematical sense, defined for comparable types.
 It has two endpoints: `start` and `end`, which are included in the range.
@@ -115,18 +115,18 @@ for (x in 2.0 downTo 1.0 step 0.3) print("$x ") // prints "2.0 1.7 1.4 1.1 "
 for (str in "island".."isle") println(str) // error: string range cannot be iterated over
 ```
 
-### Common Traits Definition
+### Common Interfaces Definition
 
-There are two base traits: `Range` and `Progression`.
+There are two base interfaces: `Range` and `Progression`.
 
-`Range` trait defines a range, or an interval in a mathematical sense.
+`Range` interface defines a range, or an interval in a mathematical sense.
 It has two endpoints, `start` and `end`, and also `contains()` function which checks if the range contains a given number
 (it also can be used as *in*{: .keyword }/*!in*{: .keyword } operator, which is neater).
 `start` and `end` are included in the range. If `start` == `end`, the range contains exactly one element.
 If `start` > `end`, the range is empty.
 
 ``` kotlin
-trait Range<T : Comparable<T>> {
+interface Range<T : Comparable<T>> {
   val start: T
   val end: T
   fun contains(element: T): Boolean
@@ -141,11 +141,11 @@ But the main feature of it is that the progression can be iterated over, so it i
 Also, progression can be empty if `start < end && increment < 0` or `start > end && increment > 0`.
 
 ``` kotlin
-trait Progression<N : Number> : Iterable<N> {
+interface Progression<N : Number> : Iterable<N> {
   val start: N
   val end: N
   val increment: Number // not N, because for Char we'll want it to be negative sometimes
-  // fun iterator(): Iterator<N> is defined in Iterable trait
+  // fun iterator(): Iterator<N> is defined in Iterable interface
 }
 ```
 
