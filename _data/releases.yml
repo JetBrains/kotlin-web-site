@@ -1,12 +1,15 @@
 url: https://github.com/JetBrains/kotlin/releases
 
 latest:
-  version: 0.11.91.1
-  milestone: M11.1
-  url: https://github.com/JetBrains/kotlin/releases/tag/M11.1-bootstrap
-  runtime_size: 1011KB
+  version: 0.12.200
+  milestone: M12
+  url: https://github.com/JetBrains/kotlin/releases/tag/build-0.12.200
+  runtime_size: 1073KB
 
 list:
+- milestone: M12
+  version: 0.12.200
+  
 - milestone: M11.1
   version: 0.11.91.1
 
