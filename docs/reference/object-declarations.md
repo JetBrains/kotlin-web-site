@@ -53,6 +53,27 @@ val adHoc = object {
 print(adHoc.x + adHoc.y)
 ```
 
+Just like Java's anonymous inner classes, code in object expressions can access variables from the enclosing scope.
+(Unlike Java, this is not restricted to final variables.)
+
+``` kotlin
+fun countClicks(window: JComponent) {
+  var clickCount = 0
+  var enterCount = 0
+
+  window.addMouseListener(object : MouseAdapter() {
+    override fun mouseClicked(e: MouseEvent) {
+      clickCount++
+    }
+
+    override fun mouseEntered(e: MouseEvent) {
+      enterCount++
+    }
+  })
+  // ...
+}
+```
+
 ## Object declarations
 
 [Singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a very useful pattern, and Kotlin (after Scala) makes it easy to declare singletons:
