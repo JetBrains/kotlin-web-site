@@ -797,11 +797,19 @@
   content:
     slides: https://speakerdeck.com/pardom/kotlin-new-hope-in-a-java-6-wasteland
 
+- title: DroidCon 2015
+  url: http://droidcon.de/session/kotlin-swift-android
+  subject: "Kotlin - the Swift of Android"
+  speaker: Svetlana Isakova
+  date: 2015-06-04
+  location: Berlin, Germany
+  lang: en
+
 - title: CurryOn'15
   url: http://curry-on.org/2015/sessions/kotlin-challenges-in-language-design.html
   subject: "Kotlin: Challenges in programming language design"
   speaker: Andrey Breslav
-  date: 2015-06-06]
+  date: 2015-06-06
   location: Prague, Czech Republic
   lang: en
 
