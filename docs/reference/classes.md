@@ -283,7 +283,7 @@ class C() : A(), B {
 }
 ```
 
-Note that we do not need to annotate an abstract class open – it goes without saying. Neither need we annotate an abstract function open.
+Note that we do not need to annotate an abstract class or function with open – it goes without saying.
 
 We can override a non-abstract open member with an abstract one
 
