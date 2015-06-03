@@ -81,6 +81,14 @@ sourceSets {
 }
 ```
 
+If you want to create a re-usable library, use `kotlinOptions.metaInfo` to generate additional JS file with binary descriptors.
+This file should be distributed together with the result of translation.
+
+``` groovy
+compileKotlin2Js {
+	kotlinOptions.metaInfo = true
+}
+```
 
 
 ## Targeting Android
