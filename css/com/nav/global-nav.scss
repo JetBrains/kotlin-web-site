@@ -7,38 +7,33 @@
     position: relative;
     float: right;
     font-size: 0;
-    margin-top: 13px;
+    margin-top: 2px;
 
     .nav-item {
         display: inline-block;
-        margin-left: $unit*3;
-        opacity: 0.87;
-        font-size: 18px;
-        line-height: $unit*4;
-        color: #fff;
+        margin-right: $unit*4;
+        color: #d1d1d1;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 43px;
+        letter-spacing: 0.02em;
         text-decoration: none;
-
-        &:first-child {
-            margin-left: 0;
-        }
+        text-transform: uppercase;
 
         &:hover {
-            opacity: 1;
-            text-decoration: underline;
+            color: #fff;
         }
 
         &.is_active {
-            opacity: 1;
-            font-weight: bold;
+            color: #7d838b;
         }
     }
 
     .extra-nav {
         display: inline-block;
         top: 0;
-        left: 100%;
+        left: 0;
         font-size: $base-font-size;
-        margin-left: $unit*3;
         white-space: nowrap;
 
         @media (max-width: 1205px) {
@@ -48,12 +43,11 @@
         }
 
         &.social-links {
-            position: absolute;
-            margin-left: 15px;
+            position: relative;
+            line-height: 31px;
 
             @media (max-width: 1205px) {
                 top: auto;
-                bottom: 38px;
             }
         }
 
@@ -64,12 +58,16 @@
         .link {
             position: relative;
             display: inline-block;
-            margin-right: 0;
+            margin-right: 4px;
             padding: 4px;
             font-size: 0;
             line-height: 0;
             text-decoration: none;
             vertical-align: top;
+            
+            &:last-child {
+                margin-right: 0;
+            }
         }
 
         .link-github {

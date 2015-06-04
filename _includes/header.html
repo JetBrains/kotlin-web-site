@@ -1,15 +1,20 @@
 <header class="global-header">
+
+    <div class="global-header-panel">
+        <div class="g-layout">
+            <a class="global-header-logo" href="{{ site.baseurl }}/">Kotlin</a>
+
+            {% if include.active %}
+                {% assign active = include.active %}
+            {% else %}
+                {% assign active = page.main_nav_id %}
+            {% endif %}
+
+            {% include nav/global-nav.html active=active %}
+        </div>
+    </div>
+    
     <div class="g-layout">
-        <a class="global-header-logo" href="{{ site.baseurl }}/">Kotlin</a>
-
-        {% if include.active %}
-            {% assign active = include.active %}
-        {% else %}
-            {% assign active = page.main_nav_id %}
-        {% endif %}
-
-        {% include nav/global-nav.html active=active %}
-
         {% if page.layout == 'index' %}
         <div class="kotlin-info">
             <div class="kotlin-info-description">
@@ -24,8 +29,5 @@
             </a>
         </div>
         {% endif %}
-
-
-
     </div>
 </header>
