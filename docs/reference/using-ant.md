@@ -107,6 +107,23 @@ recommended to use *withKotlin* task
 </project>
 ```
 
+## Targeting JavaScript with single source folder and metaInfo option
+
+The metaInfo option is useful, if you want to create a Kotlin/JavaScript library.
+If metaInfo was set to true, then during compilation additional js-file with
+binary metadata will be created.
+
+``` xml
+<project name="Ant Task Test" default="build">
+    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
+
+    <target name="build">
+        <!-- out.meta.js will be created, which contains binary descriptors -->
+        <kotlin2js src="root1" output="out.js" metaInfo="true"/>
+    </target>
+</project>
+```
+
 ## References
 
 Complete list of elements and attributes are listed below
@@ -140,6 +157,7 @@ Complete list of elements and attributes are listed below
 | `outputPrefix`  | Prefix to use for generated JavaScript files | No |
 | `outputSuffix` | Suffix to use for generated JavaScript files | No |
 | `sourcemap`  | Whether sourcemap file should be generated | No |
+| `metaInfo`  | Whether metadata file with binary descriptors should be generated | No |
 | `main`  | Should compiler generated code call the main function | No |
 
 

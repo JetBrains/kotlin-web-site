@@ -81,6 +81,13 @@ sourceSets {
 }
 ```
 
+If you want to generate additional js-file with binary descriptors (which is needed in order to create a Koltin/JavaScript library), the following should be used
+
+``` groovy
+compileKotlin2Js {
+	kotlinOptions.metaInfo = true
+}
+```
 
 
 ## Targeting Android
