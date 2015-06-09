@@ -83,7 +83,7 @@ If the constructor has annotations or visibility modifiers, the *constructor*{: 
 the modifiers go before it:
 
 ``` kotlin
-class Customer public inject constructor(name: String) { ... }
+class Customer public @inject constructor(name: String) { ... }
 ```
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
