@@ -87,3 +87,13 @@
   description: Kotlin library for Android
   type: Library
   link: https://github.com/pawegio/KAndroid
+  
+- name: Kovenant
+  description: Promises for Kotlin and Android
+  type: Library
+  link: https://github.com/mplatvoet/kovenant
+  
+- name: Progress
+  description: Simple Progress tracking
+  type: Library
+  link: https://github.com/mplatvoet/progress
