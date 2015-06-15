@@ -44,8 +44,8 @@ If a project consists of multiple source roots, use *src* as elements to define 
 
     <target name="build">
         <kotlinc output="hello.jar">
-          <src path="root1"/>
-          <src path="root2"/>
+            <src path="root1"/>
+            <src path="root2"/>
         </kotlinc>
     </target>
 </project>
@@ -58,25 +58,16 @@ recommended to use *withKotlin* task
 
 ``` xml
 <project name="Ant Task Test" default="build">
-
-    <path id="classpath">
-        <fileset dir="${idea.sdk}/lib" includes="annotations.jar"/>
-        <fileset dir="${kotlin.home}" includes="kotlin-runtime.jar"/>
-    </path>
-
     <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <target name="build">
         <delete dir="classes" failonerror="false"/>
         <mkdir dir="classes"/>
-        <javac destdir="classes" includeAntRuntime="false" srcdir="root1">
-            <classpath refid="classpath"/>
-            <withKotlin externalannotations="root1/b/">
-                <externalannotations path="root1/a/" />
-            </withKotlin>
+        <javac destdir="classes" includeAntRuntime="false" srcdir="src">
+            <withKotlin/>
         </javac>
         <jar destfile="hello.jar">
-            <fileset dir="/classes"/>
+            <fileset dir="classes"/>
         </jar>
     </target>
 </project>
