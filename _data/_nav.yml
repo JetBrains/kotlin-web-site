@@ -143,6 +143,10 @@ tutorials:
       - /docs/tutorials/command-line.html: Working with the Command Line Compiler
       - /docs/tutorials/build-tools.html: Working with Build Tools
       - /docs/tutorials/koans.html: Koans
+  - title: JavaScript
+    content:
+      - /docs/tutorials/create-library-js.html: Creating Kotlin/JavaScript library with IntelliJ IDEA
+      - /docs/tutorials/command-line-library-js.html: Creating Kotlin/JavaScript library with the Command Line Compiler       
   - title: Interop
     content:
       - /docs/tutorials/mixing-java-kotlin-intellij.html: Mixing Java and Kotlin in one project
