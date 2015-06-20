@@ -109,7 +109,7 @@ class C private constructor(a: Int) { ... }
 ```
 
 Here the constructor is private. Unlike other declarations, by default, all constructors are `public`, which effectively
-amounts to the being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only 
+amounts to them being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only 
 visible within the same module).
      
 ### Local declarations
