@@ -777,6 +777,7 @@
   location: Philadelphia, PA, USA
   lang: en  
   content:
+    video: http://www.youtube.com/watch?v=ts-dnfLlZfM
     slides: http://prezi.com/_54kwvc0i_zs/?utm_campaign=share&utm_medium=copy&rc=ex0share
 
 - title: Event Madras JUG Developer Day '15
@@ -804,6 +805,9 @@
   date: 2015-06-04
   location: Berlin, Germany
   lang: en
+  content:
+    video: https://www.youtube.com/watch?v=-BvN0X5tqjw
+    slides: http://droidcon.de/sites/droidcon.de/files/media/documents/Svetlana%20Isakova-Kotlin_the%20Swift%20of%20Android.pdf
 
 - title: CurryOn'15
   url: http://curry-on.org/2015/sessions/kotlin-challenges-in-language-design.html
