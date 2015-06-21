@@ -820,10 +820,12 @@
   date: 2015-06-11
   location: Novosibirsk, Russia
   lang: ru
+  content:
+    slides: http://www.slideshare.net/AlekseyZhidkov/kotlin-java-49596180
   
 - title: LambdaNsk
   url: http://vk.com/lambdansk
-  subject: "Fuctional programming in Kotlin"
+  subject: "Functional programming in Kotlin"
   speaker: Aleksey Zhidkov
   date: 2015-06-21
   location: Novosibirsk, Russia
