@@ -38,7 +38,7 @@ To see the full Gradle script check out the source of the project on GitHub.
 Once we have the build script defined with the correct dependencies, we can now create a controller
 
 ``` kotlin
-WebServlet(name = "Hello", value = array("/hello"))
+WebServlet(name = "Hello", value = "/hello")
 public class HomeController: HttpServlet() {
     override fun doGet(req: HttpServletRequest?, resp: HttpServletResponse?) {
         resp?.getWriter()?.write("Hello, World!")
