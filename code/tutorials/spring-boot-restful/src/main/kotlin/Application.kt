@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication
 ComponentScan
 EnableAutoConfiguration
 public class Application {
-    class object {
+    companion  object {
         platformStatic public fun main(args: Array<String>) {
             SpringApplication.run(javaClass<Application>(), *args)
         }

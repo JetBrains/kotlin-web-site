@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '0.10.195'  // New
+    ext.kotlin_version = '0.12.213'  // New
     repositories {
         maven { url "https://repo.spring.io/libs-release" }
         mavenLocal()
