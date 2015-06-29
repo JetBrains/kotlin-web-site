@@ -13,7 +13,7 @@ For instructions on how to compile and execute Kotlin applications using the com
 
 If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/). If you are new to IntelliJ IDEA, check out the [The IntelliJ IDEA Minimal Surivial Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
 
-1. [Download IntelliJ IDEA][intellijdownload] 14 (13 also works) as well as JDK 1.6+, and install the latest Kotlin Plugin
+1. [Download IntelliJ IDEA][intellijdownload] 14.1 (Android Studio 1.2 also works) as well as JDK 1.6+, and install the latest Kotlin Plugin
 
    Under Preferences (OSX) or Settings (Windows/Linux), type Plugins to get the list of currently installed Plugins.
 
@@ -21,7 +21,7 @@ If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](h
 
    Follow the instructions to restart the IDE.
 
-   If you're using an EAP for which a compatible plugin is not released yet on the JetBrains Repository, please add the nightly builds as a new repository and download from there. For IntelliJ 14 EAP, the link is:
+   If you're using an EAP for which a compatible plugin is not released yet on the JetBrains Repository, please add the nightly builds as a new repository and download from there. For IntelliJ 15 nightly builds, the link is:
    
    [http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml](http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml)
    
