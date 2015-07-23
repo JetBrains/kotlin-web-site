@@ -33,7 +33,7 @@ Function parameters can have default values, which are used when a corresponding
 other languages.
 
 ``` kotlin
-fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
+fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size()) {
 ...
 }
 ```
@@ -51,7 +51,7 @@ fun reformat(str: String,
              normalizeCase: Boolean = true,
              upperCaseFirstLetter: Boolean = true,
              divideByCamelHumps: Boolean = false,
-             wordSeparator: Character = ' ') {
+             wordSeparator: Char = ' ') {
 ...
 }
 ```
