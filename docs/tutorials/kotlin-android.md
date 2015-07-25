@@ -5,7 +5,7 @@ title: "Getting started with Android and Kotlin"
 description: "This tutorial walks us through creating a simple Kotlin application for Android using Android Studio."
 authors: Philip Torchinsky, Svetlana Isakova
 showAuthorInfo: true
-date: 2015-04-16
+date: 2015-07-25
 related:
     - getting-started.md
 ---
@@ -83,7 +83,7 @@ While using layout designer in IntelliJ IDEA, note there are two tabs in the des
 
 ### Building and publishing the Kotlin application for Android
 
-Kotlin has a rather small runtime file size: the library has approximately {{ site.data.releases.latest.runtime_size }} (as of {{ site.data.releases.latest.version }}). It means Kotlin adds just a little to .apk file size.
+Kotlin has a rather small runtime file size: the library is approximately {{ site.data.releases.latest.runtime_size }} (as of {{ site.data.releases.latest.version }}). This means Kotlin adds just a little to .apk file size.
 
 We are now ready to build the application in debug mode (**\<Shift+F9\>**), run it on an emulator or device (**\<Shift+F10\>**), or build signed release of the application to upload it to Google Play or another application store.
 
@@ -93,4 +93,4 @@ Kotlin compiler produces byte-code, thus there really is no difference in terms 
 
 ### What's next?
 
-Read about [Kotlin Android Extensions plugin](android-plugin.html). If you want to learn different Kotlin features, try [Kotlin koans](koans.html).
+Read about [Kotlin Android Extensions plugin](android-plugin.html). If you want to learn different Kotlin features, try [Kotlin Koans](koans.html).
