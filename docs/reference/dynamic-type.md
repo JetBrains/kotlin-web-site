@@ -8,7 +8,7 @@ title: "Dynamic Type"
 # Dynamic Type
 
 Being a statically typed language, Kotlin still has to interoperate with untyped or loosely typed environments,
-such as JavaScript ecosystem. To facilitate these use cases, the `dynamic` type is available in the language:
+such as the JavaScript ecosystem. To facilitate these use cases, the `dynamic` type is available in the language:
 
 ``` kotlin
 val dyn: dynamic = ...
