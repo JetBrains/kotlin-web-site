@@ -16,6 +16,42 @@ fun double(x: Int): Int {
 }
 ```
 
+## Function Usage
+
+Calling functions uses the traditional approach
+
+``` kotlin
+val result = double(2)
+```
+
+
+Calling member functions uses the dot notation
+
+``` kotlin
+Sample().foo() // create instance of class Sample and calls foo
+```
+
+### Infix notation
+
+Functions can also be called using infix notations when
+
+* They are member functions or [extension functions](extensions.html)
+* They have a single parameter
+
+``` kotlin
+// Define extension to Int
+fun Int.shl(x: Int): Int {
+...
+}
+
+// call extension function using infix notation
+
+1 shl 2
+
+// is the same as
+
+1.shl(2)
+```
 
 ### Parameters
 
@@ -239,7 +275,7 @@ Sample().foo() // creates instance of class Sample and calls foo
 
 For more information on classes and overriding members see [Classes](classes.html) and [Inheritance](classes.html#inheritance)
 
-### Generic Functions
+## Generic Functions
 
 Functions can have generic parameters which are specified using angle brackets after the function name and before the value parameters
 
@@ -251,52 +287,38 @@ fun singletonArray<T>(item: T): Array<T> {
 
 For more information on generic functions see [Generics](generics.html)
 
-### Inline Functions
+## Inline Functions
 
 Inline functions are explained [here](inline-functions.html)
 
-### Extension Functions
+## Extension Functions
 
 Extension functions are explained in [their own section](extensions.html)
 
-### Higher-Order Functions and Lambdas
+## Higher-Order Functions and Lambdas
 
 Higher-Order functions and Lambdas are explained in [their own section](lambdas.html)
 
-## Function Usage
+## Tail recursive functions
 
-Calling functions uses the traditional approach
+Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call). This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow. When a function is marked with the `tailRecursive` annotation and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
 
 ``` kotlin
-val result = double(2)
+tailRecursive fun findFixPoint(x: Double = 1.0): Double = if (x == Math.cos(x)) x  else findFixPoint(Math.cos(x))
 ```
 
-
-Calling member functions uses the dot notation
-
-``` kotlin
-Sample().foo() // create instance of class Sample and calls foo
-```
-
-### Infix notation
-
-Functions can also be called using infix notations when
-
-* They are member functions or [extension functions](extensions.html)
-* They have a single parameter
+This code calculates the fixpoint of cosine, which is a mathematical constant. It simply calls Math.cos repeatedly starting at 1.0 until the result doesn't change any more, yielding a result of 0.7390851332151607. The resulting code is equivalent to this more traditional style:
 
 ``` kotlin
-// Define extension to Int
-fun Int.shl(x: Int): Int {
-...
+private fun findFixPoint(): Double {
+    var x = 1.0
+    while (true) {
+        val y = Math.cos(x)
+        if (x == y) return y
+        x = y
+    }
 }
-
-// call extension function using infix notation
-
-1 shl 2
-
-// is the same as
-
-1.shl(2)
 ```
+
+To be eligible for the `tailRecursive` annotation a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call. Currently tail recursion is only supported in the JVM backend.
 
