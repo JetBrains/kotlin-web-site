@@ -304,7 +304,8 @@ Higher-Order functions and Lambdas are explained in [their own section](lambdas.
 Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call). This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow. When a function is marked with the `tailRecursive` annotation and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
 
 ``` kotlin
-tailRecursive fun findFixPoint(x: Double = 1.0): Double = if (x == Math.cos(x)) x  else findFixPoint(Math.cos(x))
+tailRecursive fun findFixPoint(x: Double = 1.0): Double 
+        = if (x == Math.cos(x)) x else findFixPoint(Math.cos(x))
 ```
 
 This code calculates the fixpoint of cosine, which is a mathematical constant. It simply calls Math.cos repeatedly starting at 1.0 until the result doesn't change any more, yielding a result of 0.7390851332151607. The resulting code is equivalent to this more traditional style:
@@ -320,5 +321,5 @@ private fun findFixPoint(): Double {
 }
 ```
 
-To be eligible for the `tailRecursive` annotation a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call. Currently tail recursion is only supported in the JVM backend.
+To be eligible for the `tailRecursive` annotation a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call, and you cannot use it within try/catch/finally blocks. Currently tail recursion is only supported in the JVM backend.
 
