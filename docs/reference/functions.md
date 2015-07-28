@@ -320,5 +320,5 @@ private fun findFixPoint(): Double {
 }
 ```
 
-To be eligible for the `tailRecursive` annotation a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call. Currently tail recursion is only supported in the JVM backend.
+To be eligible for the `tailRecursive` annotation a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call, and you cannot use it within try/catch/finally blocks. Currently tail recursion is only supported in the JVM backend.
 
