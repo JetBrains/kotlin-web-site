@@ -842,3 +842,11 @@
   date: [2015-06-26, 2015-06-27]
   location: Barcelona, Spain
   lang: en
+
+- title:Stockholm Java User Group 
+  url: http://www.meetup.com/Stockholm-Java-User-Group/events/224295980/
+  subject: "Using Kotlin in an existing Java code base"
+  speaker: Hadi Hariri
+  date: 2015-08-25
+  location: Stockholm, Sweden
+  lang: en
