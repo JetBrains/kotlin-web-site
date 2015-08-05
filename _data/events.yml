@@ -850,3 +850,12 @@
   date: 2015-08-25
   location: Stockholm, Sweden
   lang: en
+  
+  - title: JVM Language Summit 2014
+  url: http://openjdk.java.net/projects/mlvm/jvmlangsummit/
+  subject: "Flexible types in Kotlin"
+  speaker: Andrey Breslav
+  date: 2015-08-10
+  location: Santa Clara, CA, USA
+  lang: en
+
