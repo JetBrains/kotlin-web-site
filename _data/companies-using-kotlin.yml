@@ -61,3 +61,7 @@
 - company: AzaGroup
   url: https://play.google.com/store/apps/details?id=azagroup.reedy
   description: Reedy – Intelligent speed reading application for Android written in Kotlin
+
+- company: Collokia
+  url:https://www.collokia.com
+  description: Everything that isn't JavaScript front-end is Kotlin.  Combined with Vert.x, Apache Spark, ElasticSearch
