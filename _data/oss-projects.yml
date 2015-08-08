@@ -97,3 +97,8 @@
   description: Simple Progress tracking
   type: Library
   link: https://github.com/mplatvoet/progress
+  
+- name: Injekt (Kohesive-Injekt)
+  description: Dependency Injection / Object Factor for Kotlin
+  type: Library
+  link: https://github.com/kohesive/injekt
