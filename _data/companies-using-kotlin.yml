@@ -65,3 +65,7 @@
 - company: Collokia
   url: https://www.collokia.com
   description: Everything that isn't JavaScript front-end is Kotlin.  Combined with Vert.x, Apache Spark, ElasticSearch
+
+- company: Edible Day
+  url: http://edibleday.com
+  description: Using Kotlin in mobile applicatons and backend
