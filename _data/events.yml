@@ -816,6 +816,9 @@
   date: 2015-07-06
   location: Prague, Czech Republic
   lang: en
+  content:
+    video: https://www.youtube.com/watch?v=zVZFv80l_lQ
+    slides: https://onedrive.live.com/redir?resid=AE5485EE4D222D8D!155&authkey=!ALJNlYpBC_ktAV0&ithint=file%2cpptx
   
 - title: IT Letnik
   url: http://itletnik.ru
@@ -858,4 +861,6 @@
   date: 2015-08-10
   location: Santa Clara, CA, USA
   lang: en
-
+  content:
+    slides: https://onedrive.live.com/redir?resid=AE5485EE4D222D8D!157&authkey=!ACQKNL3Z2R4bTrk&ithint=file%2cpptx
+    video: https://www.youtube.com/watch?v=2IhT8HACc2E&list=PLX8CzqL3ArzUo2dtMurvpUTAaujPMeuuU&index=20
