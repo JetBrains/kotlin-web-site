@@ -68,7 +68,7 @@ else
 ```
 
 Note that this only works where `b` is immutable (i.e. a local variable which is not modified between the check and the
-usage or a member *val*{: .keyword }which has a backing field and is not overridable), because otherwise it might
+usage or a member *val*{: .keyword } which has a backing field and is not overridable), because otherwise it might
 happen that `b` changes to *null*{: .keyword } after the check.
 
 ## Safe Calls
