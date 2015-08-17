@@ -42,9 +42,9 @@
   url: https://play.google.com/store/apps/details?id=truefool.android
   description: True Fool. A Durak card game for Android written in Kotlin and libGDX
   
-- company: Schibsted Tech Polska
-  url:
-  description: Android news application with 99% code written in Kotlin
+- company: Schibsted Tech Polska (Omni)
+  url: https://play.google.com/store/apps/details?id=se.omni
+  description: Android news application with 96.6% code written in Kotlin
 
 - company: Level Money
   url: https://play.google.com/store/apps/details?id=com.levelmoney.mobile
