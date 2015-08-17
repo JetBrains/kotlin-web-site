@@ -102,3 +102,8 @@
   description: Dependency Injection / Object Factor for Kotlin
   type: Library
   link: https://github.com/kohesive/injekt
+  
+- name: Fuel
+  description: HTTP Client library written in Kotlin
+  type: Library
+  link: https://github.com/kittinunf/Fuel
