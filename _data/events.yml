@@ -798,7 +798,7 @@
   content:
     slides: https://speakerdeck.com/pardom/kotlin-new-hope-in-a-java-6-wasteland
 
-- title: DroidCon 2015
+- title: DroidCon Berlin 2015
   url: http://droidcon.de/session/kotlin-swift-android
   subject: "Kotlin - the Swift of Android"
   speaker: Svetlana Isakova
@@ -864,3 +864,11 @@
   content:
     slides: https://onedrive.live.com/redir?resid=AE5485EE4D222D8D!157&authkey=!ACQKNL3Z2R4bTrk&ithint=file%2cpptx
     video: https://www.youtube.com/watch?v=2IhT8HACc2E&list=PLX8CzqL3ArzUo2dtMurvpUTAaujPMeuuU&index=20
+    
+- title: DroidCon Greece 2015
+  url: http://droidcon.gr/session/svetlana-isakova/
+  subject: "Kotlin on Android"
+  speaker: Svetlana Isakova
+  date: [2015-09-10, 2015-09-11]
+  location: Thessaloniki, Greece
+  lang: en    
