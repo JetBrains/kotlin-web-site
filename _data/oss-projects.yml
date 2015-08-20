@@ -107,3 +107,8 @@
   description: HTTP Client library written in Kotlin
   type: Library
   link: https://github.com/kittinunf/Fuel
+
+- name: Klutter 
+  description: Small helper libraries for Kotlin, usually extensions to other libraries
+  type: Library
+  link: https://github.com/klutter/klutter
