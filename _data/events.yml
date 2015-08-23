@@ -872,3 +872,11 @@
   date: [2015-09-10, 2015-09-11]
   location: Thessaloniki, Greece
   lang: en    
+
+- title: Droidcon NYC 2015
+  url: http://droidcon.nyc/2015/dcnyc/53/
+  subject: "Kotlin: New Hope in a Java 6 Wasteland"
+  speaker: Michael Pardo
+  date: 2015-08-28
+  location: New York, NY, USA
+  lang: en
