@@ -5,6 +5,9 @@ category: "Tools"
 title: "Documenting Kotlin Code"
 ---
 
+> Kdoc is being replaced by [Dokka](https://github.com/orangy/dokka).
+{:.note}
+
 # Documenting Kotlin Code
 
 The language used to document Kotlin code (the equivalent of Java's JavaDoc) is called **KDoc**. In its essence, KDoc
