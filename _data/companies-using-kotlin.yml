@@ -69,3 +69,7 @@
 - company: Edible Day
   url: http://edibleday.com
   description: Using Kotlin in mobile applicatons and backend
+
+- company: Dojo Madness
+  url: http://dojomadness.com/
+  description: About 25% of LOLSUMO Android app currently in Kotlin (w/ Dagger2, RxKotlin) ; all new code and tests in Kotlin.
