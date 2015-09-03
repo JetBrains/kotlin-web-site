@@ -16,7 +16,7 @@ You can post technical questions on
 
 ## Other mediums
 
-- [Twitter](http://twitter.com/project_kotlin)
+- [Twitter](http://twitter.com/kotlin)
 - [LinkedIn](https://www.linkedin.com/groups/Kotlin-Developers-7417237?gid=7417237&mostPopular=&trk=tyah&trkInfo=tarId%3A1404329340748%2Ctas%3Akotlin%2Cidx%3A2-1-6). Mostly for job related posts.
 - [Google+](https://plus.google.com/communities/104597899765146112928)
 - #kotlin channel on the [freenode.net](http://freenode.net) IRC network
