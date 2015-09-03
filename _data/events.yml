@@ -880,3 +880,11 @@
   date: 2015-08-28
   location: New York, NY, USA
   lang: en
+  
+- title: Mobiconf 2015
+  url: http://2015.mobiconf.org/
+  subject: "Kotlin on Android"
+  speaker: Svetlana Isakova
+  date: [2015-10-01, 2015-10-02]
+  location: Krakow, Poland
+  lang: en    
