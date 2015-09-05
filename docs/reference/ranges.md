@@ -141,10 +141,10 @@ But the main feature of it is that the progression can be iterated over, so it i
 Also, progression can be empty if `start < end && increment < 0` or `start > end && increment > 0`.
 
 ``` kotlin
-interface Progression<N : Number> : Iterable<N> {
+interface Progression<N : Any> : Iterable<N> {
   val start: N
   val end: N
-  val increment: Number // not N, because for Char we'll want it to be negative sometimes
+  val increment: Number
   // fun iterator(): Iterator<N> is defined in Iterable interface
 }
 ```
