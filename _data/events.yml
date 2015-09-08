@@ -848,11 +848,13 @@
 
 - title: Stockholm Java User Group
   url: http://www.meetup.com/Stockholm-Java-User-Group/events/224295980/
-  subject: "Using Kotlin in an existing Java code base"
-  speaker: Hadi Hariri
+  subject: "Building APIs with Kotlin and Spark"
+  speaker: Travis Spencer
   date: 2015-08-25
   location: Stockholm, Sweden
   lang: en
+  content:
+    slides: http://www.slideshare.net/nordicapis/building-apis-with-kotlin-and-spark
   
 - title: JVM Language Summit 2015
   url: http://openjdk.java.net/projects/mlvm/jvmlangsummit/
@@ -880,7 +882,9 @@
   date: 2015-08-28
   location: New York, NY, USA
   lang: en
-  
+  content:
+    slides: https://speakerdeck.com/pardom/kotlin-new-hope-in-a-java-6-wasteland/
+
 - title: Mobiconf 2015
   url: http://2015.mobiconf.org/
   subject: "Kotlin on Android"
@@ -888,3 +892,38 @@
   date: [2015-10-01, 2015-10-02]
   location: Krakow, Poland
   lang: en    
+
+- title: Mobile Warsaw #27
+  url: http://mobile-warsaw.pl/meetup_027.html
+  subject: "Kotlin for Android"
+  speaker: Paweł Gajda
+  date: 2015-07-20
+  location: Warsaw, Poland
+  lang: en
+  content:
+    slides: http://slides.com/pawegio/kotlin-android#/
+    video: https://youtu.be/qns9F5ZtgpI
+
+- title: Oredev
+  url: http://oredev.org/
+  subject: "Advancing Android Development with the Kotlin Language"
+  speaker: Jake Wharton
+  date: [2015-11-03, 2015-11-06]
+  location: Malmö, Sweden
+  lang: en
+
+- title: DroidCon London 2015
+  url: http://uk.droidcon.com/2015/
+  subject: "Advancing Development with the Kotlin Language"
+  speaker: Jake Wharton
+  date: [2015-10-29, 2015-10-30]
+  location: London, UK
+  lang: en
+
+- title: JOKER
+  url: http://jokerconf.com
+  subject: "The Experience of Using Kotlin in JetBrains"
+  speaker: Dmitry Jemerov
+  date: [2015-10-16, 2015-10-17]
+  location: Saint Petersburg, Russia
+  lang: ru
