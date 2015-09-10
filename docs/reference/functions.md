@@ -171,7 +171,7 @@ type will be non-obvious to the reader (and sometimes even for the compiler).
 
 ### Variable number of arguments (Varargs)
 
-The last parameter of a function may be marked with `vararg` modiifer:
+The last parameter of a function may be marked with `vararg` modifier:
 
 ``` kotlin
 fun asList<T>(vararg ts: T): List<T> {
@@ -190,7 +190,7 @@ allowing a variable number of arguments to be passed to the function:
 
 Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<out T>`.
 
-Only one parameter may be annotated as `vararg`. If a `vararg` parameter is not the last one in the list, values for the
+Only one parameter may be marked as `vararg`. If a `vararg` parameter is not the last one in the list, values for the
 following parameters can be passed using the named argument syntax, or, if the parameter has a function type, by passing
 a lambda outside parentheses.
 
@@ -302,7 +302,7 @@ Higher-Order functions and Lambdas are explained in [their own section](lambdas.
 ## Tail recursive functions
 
 Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call). This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow.
-When a function is marked with the `tairec` modifier and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
+When a function is marked with the `tailrec` modifier and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
 
 ``` kotlin
 tailrec fun findFixPoint(x: Double = 1.0): Double

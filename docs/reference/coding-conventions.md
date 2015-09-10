@@ -18,18 +18,6 @@ If in doubt default to the Java Coding Conventions such as:
 * use 4 space indentation
 * public functions should have documentation such that it appears in Kotlin Doc
 
-In some cases, it's necessary to define a [backing property](properties.html#backing-properties) for a property.
-(For example, it can be necessary when the public view of a property is a read-only collection, and inside the class
-the collection is mutable). In that case, the name of the backing property should use the _ prefix:
-
-```
-class Node {
-    private val _children = arrayListOf<Node>()
-
-    public val children: List<Node> get() = _children
-}
-```
-
 ## Colon
 
 There is a space before colon where colon separates type and supertype and there's no space where colon separates instance and type:

@@ -128,8 +128,8 @@ being used. If there are multiple applicable targets, the first applicable targe
   * `param`
   * `field`
   * `property`
-  * `get`
   * `set`
+  * `get`
 
 
 ## Java Annotations

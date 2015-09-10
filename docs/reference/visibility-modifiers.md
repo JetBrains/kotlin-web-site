@@ -9,14 +9,10 @@ title: "Visibility Modifiers"
 
 Classes, objects, interfaces, constructors, functions, properties and their setters can have _visibility modifiers_.
 (Getters always have the same visibility as the property.) 
-There are four visibility modifiers in Kotlin:
+There are four visibility modifiers in Kotlin: `private`, `protected`, `internal` and `public`.
+The default visibility, used if there is no explicit modifier, is `public`.
 
-* `private` --- visible only in the declaring scope and its subscopes (inside the same module);
-* `protected` --- (applicable only to class/interface members) like `private`, but also visible in subclasses;
-* `internal` --- visible everywhere within the same module (if the owner of declaring scope is visible);
-* `public` --- (used by default) visible everywhere (if the owner of declaring scope is visible).
-
-Below please find explanations of these for different type of declaring scopes.  
+Below please find explanations of these for different type of declaring scopes.
   
 ## Packages
   
@@ -68,7 +64,7 @@ open class Outer {
     private val a = 1
     protected val b = 2
     internal val c = 3
-    public val d = 4  // public by default
+    val d = 4  // public by default
     
     protected class Nested {
         public val e: Int = 5

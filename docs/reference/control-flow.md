@@ -143,9 +143,9 @@ for (item: Int in ints) {
 
 As mentioned before, *for*{: .keyword } iterates through anything that provides an iterator, i.e.
 
-* has an member- or extension-function `iterator()`, whose return type
-  * has an member- or extension-function `next()`, and
-  * has an member- or extension-function `hasNext()` that returns `Boolean`.
+* has a member- or extension-function `iterator()`, whose return type
+  * has a member- or extension-function `next()`, and
+  * has a member- or extension-function `hasNext()` that returns `Boolean`.
 
 If you want to iterate through an array or a list with an index, you can do it this way:
 

@@ -138,7 +138,7 @@ However, fairly often this is not convenient. For example, properties can be ini
 or in the setup method of a unit test. In this case, you cannot supply a non-null initializer in the constructor,
 but you still want to avoid null checks when referencing the property inside the body of a class.
 
-To handle this case, you can annotate the property with the `lateinit` modifier:
+To handle this case, you can mark the property with the `lateinit` modifier:
 
 ``` kotlin
 public class MyTest {

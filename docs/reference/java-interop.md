@@ -110,8 +110,8 @@ mnemonic notation for them:
 #### Nullability annotations
 
 Java types which have nullability annotations are represented not as platform types, but as actual nullable or non-null
-Kotlin types. Currently, the compiler supports the JetBrains flavor of the nullability annotations (`@Nullable` and `@NotNull`
-from the `org.jetbrains.annotations` package.
+Kotlin types. Currently, the compiler supports the [JetBrains flavor of the nullability annotations](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
+(`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package).
 
 ### Mapped types
 
@@ -304,7 +304,7 @@ To retrieve the type information from an object, we use the javaClass extension 
 val fooClass = foo.javaClass
 ```
 
-Instead of Java's `Foo.class` use Foo::class.java().
+Instead of Java's `Foo.class` use Foo::class.java.
 
 
 ``` kotlin
@@ -356,12 +356,7 @@ if (Character.isLetter(a)) {
 ### Java Reflection
 
 Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance.javaClass` or 
-`ClassName::class.java` to enter Java reflection through `java.lang.Class`. You can then "convert" to Kotlin reflection
-by calling `.kotlin`:
- 
-``` kotlin 
-val kClass = x.javaClass.kotlin  
-```
+`ClassName::class.java` to enter Java reflection through `java.lang.Class`.
  
 Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property,
 getting a containing `KPackage` instance for a Java class, and getting a `KProperty` for a Java field.
@@ -398,8 +393,8 @@ Kotlin code can be called from Java easily.
 
 ### Package-Level Functions
 
-All the functions and properties declared in a file `example.kt' inside a package `org.foo.bar` are put into a Java
-class named `org.foo.bar.Example`.
+All the functions and properties declared in a file `example.kt` inside a package `org.foo.bar` are put into a Java
+class named `org.foo.bar.ExampleKt`.
 
 ``` kotlin
 // example.kt
@@ -415,15 +410,15 @@ fun bar() {
 ``` java
 // Java
 new demo.Foo();
-demo.Example.bar();
+demo.ExampleKt.bar();
 ```
 
 The name of the generated Java class can be changed using the `@JvmName` annotation:
 
 ``` kotlin
-package demo
-
 @file:JvmName("DemoUtils")
+
+package demo
 
 class Foo
 
@@ -445,10 +440,10 @@ To enable the generation of such a facade, use the @JvmMultifileClass annotation
 
 ``` kotlin
 // oldutils.kt
-package demo
-
 @file:JvmName("Utils")
 @file:JvmMultifileClass
+
+package demo
 
 fun foo() {
 }
@@ -456,10 +451,10 @@ fun foo() {
 
 ``` kotlin
 // newutils.kt
-package demo
-
 @file:JvmName("Utils")
 @file:JvmMultifileClass
+
+package demo
 
 fun bar() {
 }
