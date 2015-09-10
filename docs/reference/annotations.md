@@ -18,7 +18,7 @@ To specify the possible targets, retention policy and other attributes of the an
 annotation class itself with the corresponding annotations (@Target, @Retention, @Repeatable, @MustBeDocumented).
 This is very similar to how this works in Java.
 
-```
+``` kotlin
 @Target(FIELD)
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
@@ -98,7 +98,7 @@ the top level of a file:
 If you have multiple annotations with the same target, you can avoid repeating the target by adding brackets after the
 target and putting all the annotations inside the brackets:
 
-```
+``` kotlin
 class Example {
      @set:[Inject VisibleForTesting]
      public var collaborator: Collaborator
@@ -112,9 +112,24 @@ The full list of supported use-site targets is:
   * `field`
   * `get` (property getter)
   * `set` (property setter)
-  * `receiver`
+  * `receiver` (receiver parameter of an extension function or property)
   * `param` (constructor parameter)
   * `sparam` (property setter parameter)
+
+To annotate the receiver parameter of an extension function, use the following syntax:
+
+``` kotlin
+fun @receiver:Fancy String.myExtension() { }
+```
+
+If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
+being used. If there are multiple applicable targets, the first applicable target from the following list is used:
+
+  * `param`
+  * `field`
+  * `property`
+  * `get`
+  * `set`
 
 
 ## Java Annotations
