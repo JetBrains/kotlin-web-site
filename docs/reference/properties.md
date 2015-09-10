@@ -53,13 +53,6 @@ var allByDefault: Int? // error: explicit initializer required, default getter a
 var initialized = 1 // has type Int, default getter and setter
 ```
 
-Note that types are not inferred for properties exposed as parts of the public API, i.e. public and protected,
-because changing the initializer may cause an unintentional change in the public API then. For example:
-
-``` kotlin
-public val example = 1 // error: a public property must have a type specified explicitly
-```
-
 The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with val instead of var and does not allow a setter:
 
 ``` kotlin
@@ -136,6 +129,37 @@ public val table: Map<String, Int>
 ```
 
 In all respects, this is just the same as in Java since access to private properties with default getters and setters is optimized so that no function call overhead is introduced.
+
+
+## Late-Initialized Properties
+
+Normally, properties declared as having a non-null type must be initialized in the constructor.
+However, fairly often this is not convenient. For example, properties can be initialized through dependency injection,
+or in the setup method of a unit test. In this case, you cannot supply a non-null initializer in the constructor,
+but you still want to avoid null checks when referencing the property inside the body of a class.
+
+To handle this case, you can annotate the property with the `lateinit` modifier:
+
+``` kotlin
+public class MyTest {
+    lateinit var subject: TestSubject
+
+    @SetUp fun setup() {
+        subject = TestSubject()
+    }
+
+    @Test fun test() {
+        subject.method()  // dereference directly
+    }
+}
+```
+
+The modifier can only be used on properties declared inside the body of a class (not in the primary constructor), and only
+when the property does not have a custom getter or setter. The type of the property must be non-null, and it must not be
+a primitive type.
+
+Accessing a `lateinit` property before it has been initialized throws a special exception that clearly identifies the property
+being accessed and the fact that it hasn't been initialized.
 
 ## Overriding Properties
 

@@ -13,18 +13,8 @@ There are four visibility modifiers in Kotlin:
 
 * `private` --- visible only in the declaring scope and its subscopes (inside the same module);
 * `protected` --- (applicable only to class/interface members) like `private`, but also visible in subclasses;
-* `internal` --- (used by default) visible everywhere within the same module (if the owner of declaring scope is visible);
-* `public` --- visible everywhere (if the owner of declaring scope is visible).
-
-**NOTE**: Functions _with expression bodies_ and all properties declared `public` must always specify return types explicitly. 
-This is required so that we do not accidentally change a type that is a part of a public API by merely
-altering the implementation.
-
-``` kotlin
-public val foo: Int = 5    // explicit return type required
-public fun bar(): Int = 5  // explicit return type required
-public fun bar() {}        // block body: return type is Unit and can't be changed accidentally, so not required
-```
+* `internal` --- visible everywhere within the same module (if the owner of declaring scope is visible);
+* `public` --- (used by default) visible everywhere (if the owner of declaring scope is visible).
 
 Below please find explanations of these for different type of declaring scopes.  
   
@@ -40,11 +30,10 @@ fun baz() {}
 class Bar {}
 ```
 
-* If you do not specify any visibility modifier, `internal` is used by default, which means that your declarations will be 
-visible everywhere within the same module;  
-* If you mark a declaration `private`, it will only be visible inside this package and its subpackages, and only within 
-the same module;
-* If you mark it `public`, it is visible everywhere;
+* If you do not specify any visibility modifier, `public` is used by default, which means that your declarations will be
+visible everywhere;
+* If you mark a declaration `private`, it will only be visible inside the file containing the declaration;
+* If you mark it `internal`, it is visible everywhere in the same module;
 * `protected` is not available for top-level declarations.
 
 Examples:
@@ -53,12 +42,12 @@ Examples:
 // file name: example.kt
 package foo
 
-private fun foo() {} // visible inside this package and subpackaged
+private fun foo() {} // visible inside example.kt
 
 public var bar: Int = 5 // property is visible everywhere
-    private set         // setter is visible only in this package and subpackages
+    private set         // setter is visible only in example.kt
     
-internal val baz = 6    // visible inside the same module, the modifier can be omitted    
+internal val baz = 6    // visible inside the same module
 ```
 
 ## Classes and Interfaces
@@ -78,8 +67,8 @@ Examples:
 open class Outer {
     private val a = 1
     protected val b = 2
-    val c = 3 // internal by default
-    public val d: Int = 4 // return type required
+    internal val c = 3
+    public val d = 4  // public by default
     
     protected class Nested {
         public val e: Int = 5
@@ -108,10 +97,20 @@ explicit *constructor*{: .keyword } keyword):
 class C private constructor(a: Int) { ... }
 ```
 
-Here the constructor is private. Unlike other declarations, by default, all constructors are `public`, which effectively
+Here the constructor is private. By default, all constructors are `public`, which effectively
 amounts to them being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only 
 visible within the same module).
      
 ### Local declarations
      
 Local variables, functions and classes can not have visibility modifiers.
+
+
+## Modules
+
+The `internal` visibility modifier means that the member is visible with the same module. More specifically,
+a module is a set of Kotlin files compiled together:
+
+  * an IntelliJ IDEA module;
+  * a Maven or Gradle project;
+  * a set of files compiled with one invocation of the <kotlinc> Ant task.

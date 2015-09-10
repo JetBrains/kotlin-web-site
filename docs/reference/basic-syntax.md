@@ -39,12 +39,6 @@ Function with an expression body and inferred return type:
 fun sum(a: Int, b: Int) = a + b
 ```
 
-Function visible from outside of a module should have return type explicitly specified:
-
-``` kotlin
-public fun sum(a: Int, b: Int): Int = a + b
-```
-
 Function returning no meaningful value:
 
 ``` kotlin
@@ -298,7 +292,7 @@ if (text in names) // names.contains(text) is called
 Using function literals to filter and map collections:
 
 ``` kotlin
-names filter { it.startsWith("A") } sortBy { it } map { it.toUpperCase() } forEach { print(it) }
+names.filter { it.startsWith("A") }.sortBy { it }.map { it.toUpperCase() }.forEach { print(it) }
 ```
 
 See [Higher-order functions and Lambdas](lambdas.html).

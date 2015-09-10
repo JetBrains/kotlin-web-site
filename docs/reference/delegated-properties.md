@@ -85,41 +85,41 @@ For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally
  
 ## Standard Delegates
 
-The `kotlin.properties.Delegates` object from the standard library provides factory methods for several useful kinds of delegates.
+The Kotln standard library provides factory methods for several useful kinds of delegates.
 
 ### Lazy
 
-`Delegates.lazy()` is a function that takes a lambda and returns a delegate that implements a lazy property: 
+`lazy()` is a function that takes a lambda and returns a delegate that implements a lazy property:
 the first call to `get()` executes the lambda passed to `lazy()` and remembers the result, 
 subsequent calls to `get()` simply return the remembered result. 
 
 
 ``` kotlin
-import kotlin.properties.Delegates
- 
-val lazy: String by Delegates.lazy {
+val lazyValue: String by lazy {
     println("computed!")
     "Hello"
 }
 
 fun main(args: Array<String>) {
-    println(lazy)
-    println(lazy)
+    println(lazyValue)
+    println(lazyValue)
 }
 ```
 
 
-If you want **thread safety**, use `blockingLazy()`: it works the same way, but guarantees that the values will be 
-computed only in one thread, and that all threads will see the same value.
+If you want **thread safety**, use the overload of `lazy()` that takes a lock as a parameter or pass `LazyThreadSafetyMode.SYNCHRONIZED`.
+It works the same way, but guarantees that the values will be computed only in one thread, and that all threads will see the same value.
 
 
 ### Observable
 
-`Delegates.observable()` takes two arguments: initial value and a handler for modifications. 
+`Delegates.observable()` takes two arguments: the initial value and a handler for modifications.
 The handler gets called every time we assign to the property (before the assignment is performed). It has three
 parameters: a property being assigned to, the old value and the new one:
 
 ``` kotlin
+import kotlin.properties.Delegates
+
 class User {
     var name: String by Delegates.observable("<no name>") {
         d, old, new ->
@@ -143,28 +143,6 @@ first -> second
 
 If you want to be able to intercept an assignment and "veto" it, use `vetoable()` instead of `observable()`.
 
-### Not-Null
-
-Sometimes we have a non-null *var*{:.keyword}, but we don’t have an appropriate value to assign to it in the constructor, 
-i.e. it must be assigned later. The problem is that you can’t have an uninitialized non-abstract property in Kotlin:
-
-``` kotlin
-class Foo {
-  var bar: Bar // ERROR: must be initialized
-}
-```
-
-We could initialize it with *null*{: .keyword }, but then we’d have to check every time we access it.
-
-`Delegates.notNull()` can solve this problem:
-
-``` kotlin
-class Foo {
-  var bar: Bar by Delegates.notNull()
-}
-```
-
-If this property is read before being written to for the first time, it throws an exception, after the first assignment it works as expected.
 
 ### Storing Properties in a Map
 

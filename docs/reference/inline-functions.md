@@ -16,7 +16,7 @@ The functions shown above are good examples of this situation. I.e., the `lock()
 Consider the following case:
 
 ``` kotlin
-lock(l) {foo()}
+lock(l) { foo() }
 ```
 
 Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code
@@ -33,7 +33,7 @@ finally {
 
 Isn't it what we wanted from the very beginning?
 
-To make the compiler do this, we need to annotate the `lock()` function with the `inline` annotation:
+To make the compiler do this, we need to mark the `lock()` function with the `inline` modifier:
 
 ``` kotlin
 inline fun lock<T>(lock: Lock, body: () -> T): T {
@@ -41,25 +41,25 @@ inline fun lock<T>(lock: Lock, body: () -> T): T {
 }
 ```
 
-The `inline` annotation affects both the function itself and the lambdas passed to it: all of those will be inlined
+The `inline` modifier affects both the function itself and the lambdas passed to it: all of those will be inlined
 into the call site.
 
 Inlining may cause the generated code to grow, but if we do it in a reasonable way (do not inline big functions)
 it will pay off in performance, especially at "megamorphic" call-sites inside loops.
 
-## @noinline
+## noinline
 
 In case you want only some of the lambdas passed to an inline function to be inlined, you can mark some of your function
-parameters with `@noinline` annotation:
+parameters with the `noinline` modifier:
 
 ``` kotlin
-inline fun foo(inlined: () -> Unit, @noinline notInlined: () -> Unit) {
+inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) {
   // ...
 }
 ```
 
 Inlinable lambdas can only be called inside the inline functions or passed as inlinable arguments,
-but `@noinline` ones can be manipulated in any way we like: stored in fields, passed around etc.
+but `noinline` ones can be manipulated in any way we like: stored in fields, passed around etc.
 
 Note that if an inline function has no inlinable function parameters and no
 [reified type parameters](#reified-type-parameters), the compiler will issue a warning, since inlining such functions is
@@ -103,11 +103,11 @@ fun hasZeros(ints: List<Int>): Boolean {
 
 Note that some inline functions may call the lambdas passed to them as parameters not directly from the function body,
 but from another execution context, such as a local object or a nested function. In such cases, non-local control flow
-is also not allowed in the lambdas. To indicate that, the lambda parameter needs to be annotated with
-the `InlineOptions.ONLY_LOCAL_RETURN` annotation:
+is also not allowed in the lambdas. To indicate that, the lambda parameter needs to be marked with
+the `crossinline` modifier:
 
 ``` kotlin
-inline fun f(inlineOptions(InlineOption.ONLY_LOCAL_RETURN) body: () -> Unit) {
+inline fun f(crossinline body: () -> Unit) {
     val f = object: Runnable {
         override fun run() = body()
     }
@@ -128,7 +128,7 @@ fun <T> TreeNode.findParentOfType(clazz: Class<T>): T? {
     while (p != null && !clazz.isInstance(p)) {
         p = p?.parent
     }
-    @suppress("UNCHECKED_CAST")
+    @Suppress("UNCHECKED_CAST")
     return p as T
 }
 ```
@@ -137,10 +137,10 @@ Here, we walk up a tree and use reflection to check if a node has a certain type
 It’s all fine, but the call site is not very pretty:
 
 ``` kotlin
-myTree.findParentOfType(javaClass<MyTreeNodeType>())
+myTree.findParentOfType(MyTreeNodeType::class.java)
 ```
 
-What we actually want is simply pass a type to this function, i.e. call is like this:
+What we actually want is simply pass a type to this function, i.e. call it like this:
 
 ``` kotlin
 myTree.findParentOfType<MyTreeNodeType>()
@@ -158,17 +158,17 @@ inline fun <reified T> TreeNode.findParentOfType(): T? {
 }
 ```
 
-We qualified the type parameter with the reified modifier, now it’s accessible inside the function,
+We qualified the type parameter with the `reified` modifier, now it’s accessible inside the function,
 almost as if it were a normal class. Since the function is inlined, no reflection is needed, normal operators like `!is`
 and `as` are working now. Also, we can call it as mentioned above: `myTree.findParentOfType<MyTreeNodeType>()`.
 
-Though reflection may not be needed in many cases, we can still use it with a reified type parameter: `javaClass()` gives us access to it:
+Though reflection may not be needed in many cases, we can still use it with a reified type parameter:
 
 ``` kotlin
-inline fun methodsOf<reified T>() = javaClass<T>().getMethods()
+inline fun methodsOf<reified T>() = T::class.members
 
 fun main(s: Array<String>) {
-  println(methodsOf<String>().joinToString("\n"))
+  println(methodsOf<StringBuilder>().joinToString("\n"))
 }
 ```
 

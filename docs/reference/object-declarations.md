@@ -84,7 +84,7 @@ object DataProviderManager {
     // ...
   }
 
-  val allDataProviders : Collection<DataProvider>
+  val allDataProviders: Collection<DataProvider>
     get() = // ...
 }
 ```
@@ -153,13 +153,13 @@ class MyClass {
 ```
 
 However, on the JVM you can have members of companion objects generated as real static methods and fields, if you use
-the `@platformStatic` annotation. See the [Java interoperability](java-interop.html#static-methods-and-fields) section
+the `@JvmStatic` annotation. See the [Java interoperability](java-interop.html#static-methods-and-fields) section
 for more details.
 
 
-### Semantical difference between object expressions and declarations
+### Semantic difference between object expressions and declarations
 
-There is one important semantical difference between object expressions and object declarations:
+There is one important semantic difference between object expressions and object declarations:
 
 * object declarations are initialized **lazily**, when accessed for the first time
 * object expressions are executed (and initialized) **immediately**, where they are used

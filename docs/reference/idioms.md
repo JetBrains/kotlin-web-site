@@ -24,11 +24,6 @@ provides a `Customer` class with the following functionality:
 * `copy()`
 * `component1()`, `component2()`, ..., for all properties (see [Data classes](data-classes.html))
 
-### Declaring a final local variable
-
-``` kotlin
-val a = foo()
-```
 
 ### Default values for function parameters
 
@@ -103,7 +98,7 @@ map["key"] = value
 ### Lazy property
 
 ``` kotlin
-val p: String by Delegates.lazy {
+val p: String by lazy {
     // compute the string
 }
 ```
@@ -170,7 +165,7 @@ fun transform(color: String): Int {
 }
 ```
 
-### Return on try catch block
+### 'try/catch' as an expression
 
 ``` kotlin
 fun test() {
@@ -184,7 +179,7 @@ fun test() {
 }
 ```
 
-### Return on if statement
+### 'if' as an expression
 
 ``` kotlin
 fun foo(param: Int) {

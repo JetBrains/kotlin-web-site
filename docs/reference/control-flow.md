@@ -143,9 +143,9 @@ for (item: Int in ints) {
 
 As mentioned before, *for*{: .keyword } iterates through anything that provides an iterator, i.e.
 
-* has an instance- or extension-function `iterator()`, whose return type
-  * has an instance- or extension-function `next()`, and
-  * has an instance- or extension-function `hasNext()` that returns `Boolean`.
+* has an member- or extension-function `iterator()`, whose return type
+  * has an member- or extension-function `next()`, and
+  * has an member- or extension-function `hasNext()` that returns `Boolean`.
 
 If you want to iterate through an array or a list with an index, you can do it this way:
 
@@ -155,6 +155,14 @@ for (i in array.indices)
 ```
 
 Note that this "iteration through a range" is compiled down to optimal implementation with no extra objects created.
+
+Alternatively, you can use the `withIndex` library function:
+
+``` kotlin
+for ((index, value) in array.withIndex()) {
+    println("the element at $index is $value")
+}
+```
 
 See the [grammar for *for*{: .keyword }](grammar.html#for).
 

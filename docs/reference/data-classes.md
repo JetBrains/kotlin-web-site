@@ -22,7 +22,7 @@ the primary constructor_:
   * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order or declaration,
   * `copy()` function (see below).
   
-If any of these functions is explicitly defined in the class body or inherited from the base types, it will not be generated.  
+If any of these functions is explicitly defined in the class body or inherited from the base types, it will not be generated.
   
 *NOTE* that if a constructor parameter does not have a `val` or `var` in front of it, it will not be included in computation
 of all these functions; nor will be properties declared in the class body or inherited from the superclass.

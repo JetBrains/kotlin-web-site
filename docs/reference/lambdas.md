@@ -56,7 +56,7 @@ lock (lock) {
 }
 ```
 
-Another example of a higher-order function would be `map()` (of [MapReduce](http://en.wikipedia.org/wiki/MapReduce)):
+Another example of a higher-order function would be `map()`:
 
 ``` kotlin
 fun <T, R> List<T>.map(transform: (T) -> R): List<R> {
@@ -70,20 +70,14 @@ fun <T, R> List<T>.map(transform: (T) -> R): List<R> {
 This function can be called as follows:
 
 ``` kotlin
-val doubled = ints.map {it -> it * 2}
+val doubled = ints.map { it -> it * 2 }
 ```
 
 One other helpful convention is that if a function literal has only one parameter,
 its declaration may be omitted (along with the `->`), and its name will be `it`:
 
 ``` kotlin
-ints map {it * 2} // Infix call + Implicit 'it'
-```
-
-These conventions allow to write [LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code:
-
-``` kotlin
-strings filter {it.length == 5} sortBy {it} map {it.toUpperCase()}
+ints.map { it * 2 } // Infix call + Implicit 'it'
 ```
 
 ## Inline Functions
@@ -96,7 +90,7 @@ A function literal or a function expression is an "anonymous function", i.e. a f
 but passed immediately as an expression. Consider the following example:
 
 ``` kotlin
-max(strings, {a, b -> a.length < b.length})
+max(strings, { a, b -> a.length < b.length })
 ```
 
 Function `max` is a higher-order function, i.e. it takes a function value as the second argument.
@@ -138,7 +132,7 @@ val compare: (x: T, y: T) -> Int = ...
 The full syntactic form of function literals, i.e. literals of function types, is as follows:
 
 ``` kotlin
-val sum = {x: Int, y: Int -> x + y}
+val sum = { x: Int, y: Int -> x + y }
 ```
 
 A function literal is always surrounded by curly braces,
@@ -147,7 +141,7 @@ the body goes after an `->` sign.
 If we leave all the optional annotations out, what's left looks like this:
 
 ``` kotlin
-val sum: (Int, Int) -> Int = {x, y -> x + y}
+val sum: (Int, Int) -> Int = { x, y -> x + y }
 ```
 
 It's very common that a function literal has only one parameter.
@@ -155,7 +149,7 @@ If Kotlin can figure the signature out itself, it allows us not to declare the o
 declare it for us under the name `it`:
 
 ``` kotlin
-ints.filter {it > 0} // this literal is of type '(it: Int) -> Boolean'
+ints.filter { it > 0 } // this literal is of type '(it: Int) -> Boolean'
 ```
 
 Note that if a function takes another function as the last parameter, the function literal argument can be passed
@@ -208,7 +202,7 @@ can access its _closure_, i.e. the variables declared in the outer scope. Unlike
 
 ``` kotlin
 var sum = 0
-ints filter {it > 0} forEach {
+ints.filter { it > 0 }.forEach {
   sum += it
 }
 print(sum)

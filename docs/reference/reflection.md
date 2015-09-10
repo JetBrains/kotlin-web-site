@@ -26,24 +26,22 @@ statically known Kotlin class, you can use the _class literal_ syntax:
 val c = MyClass::class
 ```
 
-The reference is a value of type [KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html). You can use `KClass.properties`
-and `KClass.extensionProperties` to get the list of [property references](#property-references) for all properties
-defined in this class and its superclasses.
+The reference is a value of type [KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html).
 
-Note that a Kotlin class reference is not the same as a Java class reference. See the [Java interop section](java-interop.html#object-methods)
-for information on obtaining a Java class reference corresponding to a Kotlin class.
+Note that a Kotlin class reference is not the same as a Java class reference. To obtain a Java class reference,
+use the `.java` property on a `KClass` instance.
 
 ## Function References
 
 When we have a named function declared like this:
-  
+
 ``` kotlin
 fun isOdd(x: Int) = x % 2 != 0
 ```
 
-We can easily call it directly (`isOdd(5)`), but we can also pass it as a value, e.g. to another function. 
-To do this, we use the `::` operator:  
-  
+We can easily call it directly (`isOdd(5)`), but we can also pass it as a value, e.g. to another function.
+To do this, we use the `::` operator:
+
 ``` kotlin
 val numbers = listOf(1, 2, 3)
 println(numbers.filter(::isOdd)) // prints [1, 3]
@@ -54,8 +52,7 @@ Here `::isOdd` is a value of function type `(Int) -> Boolean`.
 Note that right now the `::` operator cannot be used for overloaded functions. In the future, we plan to
 provide a syntax for specifying parameter types so that a specific overload of a function could be selected.
 
-If we need to use a member of a class, or an extension function, it needs to be qualified, 
-and the result will be of type “extension function”,
+If we need to use a member of a class, or an extension function, it needs to be qualified.
 e.g. `String::toCharArray` gives us an extension function for type `String`: `String.() -> CharArray`.
 
 ### Example: Function Composition
@@ -68,13 +65,13 @@ fun compose<A, B, C>(f: (B) -> C, g: (A) -> B): (A) -> C {
 }
 ```
 
-It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))`. 
+It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))`.
 Now, you can apply it to callable references:
 
 
 ``` kotlin
 fun length(s: String) = s.size
- 
+
 val oddLength = compose(::isOdd, ::length)
 val strings = listOf("a", "ab", "abc")
 
@@ -87,7 +84,7 @@ To access properties as first-class objects in Kotlin, we can also use the `::` 
 
 ``` kotlin
 var x = 1
- 
+
 fun main(args: Array<String>) {
     println(::x.get()) // prints "1"
     ::x.set(2)
@@ -100,13 +97,13 @@ value using `get()` or retrieve the property name using the `name` property. For
 the [docs on the `KProperty` class](/api/latest/jvm/stdlib/kotlin.reflect/-k-property.html).
 
 For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property.html),
-which has a `set()` method. 
- 
+which has a `set()` method.
+
 To access a property that is a member of a class, we qualify it:
 
 ``` kotlin
 class A(val p: Int)
- 
+
 fun main(args: Array<String>) {
     val prop = A::p
     println(prop.get(A(1))) // prints "1"
@@ -119,7 +116,7 @@ For an extension property:
 ``` kotlin
 val String.lastChar: Char
   get() = this[size - 1]
- 
+
 fun main(args: Array<String>) {
   println(String::lastChar.get("abc")) // prints "c"
 }
