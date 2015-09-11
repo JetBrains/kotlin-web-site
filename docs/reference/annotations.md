@@ -14,12 +14,22 @@ Annotations are means of attaching metadata to code. To declare an annotation, p
 annotation class Fancy
 ```
 
-To specify the possible targets, retention policy and other attributes of the annotation, you can annotate the
-annotation class itself with the corresponding annotations (@Target, @Retention, @Repeatable, @MustBeDocumented).
-This is very similar to how this works in Java.
+Additional attributes of the annotation can be specified by annotating the annotation class with meta-annotations:
+
+  * [`@Target`](/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html) specifies the possible kinds of
+    elements which can be annotated with the annotation (classes, functions, properties, expressions etc.);
+  * [`@Retention`](/api/latest/jvm/stdlib/kotlin.annotation/-retention/index.html) specifies whether the
+    annotation is stored in the compiled class files and whether it's visible through reflection at runtime
+    (by default, both are true);
+  * [`@Repeatable`](/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/index.html) allows using the same annotation
+    on a single element multiple times;
+  * [`@MustBeDocumented`](/api/latest/jvm/stdlib/kotlin.annotation/-must-be-documented/index.html) specifies that the
+    annotation is part of the public API and should be included in the class or method signature shown in the
+    generated API documentation.
 
 ``` kotlin
-@Target(FIELD)
+@Target([AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
+         AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION])
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
 public annotation class Fancy
@@ -89,10 +99,12 @@ class Example(@field:Ann val foo,    // annotate Java field
 ```
 
 The same syntax can be used to annotate the entire file. To do this, put an annotation with the target `file` at
-the top level of a file:
+the top level of a file, before the package directive or before all imports if the file is in the default package:
 
 ``` kotlin
 @file:JvmName("Foo")
+
+package org.jetbrains.demo
 ```
 
 If you have multiple annotations with the same target, you can avoid repeating the target by adding brackets after the

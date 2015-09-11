@@ -165,7 +165,7 @@ fun transform(color: String): Int {
 }
 ```
 
-### 'try/catch' as an expression
+### 'try/catch' expression
 
 ``` kotlin
 fun test() {
@@ -179,7 +179,7 @@ fun test() {
 }
 ```
 
-### 'if' as an expression
+### 'if' expression
 
 ``` kotlin
 fun foo(param: Int) {
@@ -192,6 +192,15 @@ fun foo(param: Int) {
     }
 }
 ```
+
+### Builder-style usage of methods that return `Unit`
+
+``` kotlin
+fun arrayOfMinusOnes(size: Int) {
+    return IntArray(size).apply { fill(-1) }
+}
+```
+
 
 ### Single-expression functions
 

@@ -106,9 +106,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-
-If you want **thread safety**, use the overload of `lazy()` that takes a lock as a parameter or pass `LazyThreadSafetyMode.SYNCHRONIZED`.
-It works the same way, but guarantees that the values will be computed only in one thread, and that all threads will see the same value.
+By default, the evaluation of lazy properties is **synchronized**: the value is computed only in one thread, and all threads
+will see the same value. If the synchronization is not required (multiple threads can call the delegate), pass
+`LazyThreadSafetyMode.NONE` as a parameter to the `lazy()` function.
 
 
 ### Observable

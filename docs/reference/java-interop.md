@@ -39,7 +39,7 @@ import java.util.Calendar
 fun calendarDemo() {
     val calendar = Calendar.getInstance()
     if (calendar.firstDayOfWeek == Calendar.SUNDAY) {  // call getFirstDayOfWeek()
-        calendar.firstDayOfWee = Calendar.MONDAY       // call setFirstDayOfWeek()
+        calendar.firstDayOfWeek = Calendar.MONDAY       // call setFirstDayOfWeek()
     }
 }
 ```
@@ -440,8 +440,7 @@ To enable the generation of such a facade, use the @JvmMultifileClass annotation
 
 ``` kotlin
 // oldutils.kt
-@file:JvmName("Utils")
-@file:JvmMultifileClass
+@file:[JvmName("Utils") JvmMultifileClass]
 
 package demo
 
@@ -451,8 +450,7 @@ fun foo() {
 
 ``` kotlin
 // newutils.kt
-@file:JvmName("Utils")
-@file:JvmMultifileClass
+@file:[JvmName("Utils") JvmMultifileClass]
 
 package demo
 

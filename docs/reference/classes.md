@@ -329,8 +329,8 @@ sealed class Expr {
 }
 ```
 
-Note that multiple levels of inheritance are also allowed, as long as the entire hierarchy is nested within the
-enclosing sealed class.
+Note that classes which extend subclasses of a sealed class (indirect inheritors) can be placed anywhere, not necessarily inside
+the declaration of the sealed class.
 
 The key benefit of using sealed classes comes into play when you use them in a [`when` expression](control-flow.html#when-expression). If it's possible
 to verify that the statement covers all cases, you don't need to add an `else` clause to the statement.

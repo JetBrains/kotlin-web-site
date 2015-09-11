@@ -77,7 +77,13 @@ One other helpful convention is that if a function literal has only one paramete
 its declaration may be omitted (along with the `->`), and its name will be `it`:
 
 ``` kotlin
-ints.map { it * 2 } // Infix call + Implicit 'it'
+ints.map { it * 2 }
+```
+
+These conventions allow to write [LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code:
+
+``` kotlin
+strings.filter { it.length == 5 }.sortBy { it }.map { it.toUpperCase() }
 ```
 
 ## Inline Functions
