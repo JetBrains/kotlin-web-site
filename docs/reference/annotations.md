@@ -138,10 +138,8 @@ If you don't specify a use-site target, the target is chosen according to the `@
 being used. If there are multiple applicable targets, the first applicable target from the following list is used:
 
   * `param`
-  * `field`
   * `property`
-  * `set`
-  * `get`
+  * `field`
 
 
 ## Java Annotations
