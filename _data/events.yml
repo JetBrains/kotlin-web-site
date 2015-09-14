@@ -855,6 +855,7 @@
   lang: en
   content:
     slides: http://www.slideshare.net/nordicapis/building-apis-with-kotlin-and-spark
+    video: https://youtu.be/eDHUabQMRb4
   
 - title: JVM Language Summit 2015
   url: http://openjdk.java.net/projects/mlvm/jvmlangsummit/
@@ -927,3 +928,37 @@
   date: [2015-10-16, 2015-10-17]
   location: Saint Petersburg, Russia
   lang: ru
+
+- title: DevFest 2015
+  url: http://www.eventbrite.it/e/biglietti-devfest-2015-18033194771?aff=es2
+  subject: "Kotlin: lo Swift di Android"
+  speaker: Omar Miatello
+  date: 2015-10-03
+  location: Milan, Italy
+  lang: it
+
+- title: 関西Kotlin勉強会
+  url: http://connpass.com/event/18102/
+  subject: "Kotlinのdata classへJacksonでデシリアライズしようとして苦労した話"
+  speaker: "@yy_yankさん"
+  date: 2015-09-19
+  location: 兵庫県芦屋市業平町8番24号
+  lang: jp
+
+- title: JavaOne 2015
+  url: https://www.oracle.com/javaone/index.html
+  subject: "Type Inference in Kotlin"
+  speaker: Svetlana Isakova
+  date: [2015-10-25, 2015-10-29]
+  location: San Francisco, CA, USA
+  lang: en
+
+- title: JavaOne 2015
+  url: https://www.oracle.com/javaone/index.html
+  subject: "Kotlin in Anger"
+  speaker: Justin Lee
+  date: [2015-10-25, 2015-10-29]
+  location: San Francisco, CA, USA
+  lang: en
+
+
