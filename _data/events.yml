@@ -961,4 +961,18 @@
   location: San Francisco, CA, USA
   lang: en
 
+- title: Kotlin Developers in Manchester Meetup #1
+  url: http://www.meetup.com/Kotlin-Manchester/events/225343001/
+  subject: "Introduction"
+  speaker: Arthur Emblenton
+  date: 2015-09-23
+  location: Manchester, UK
+  lang: en
 
+- title: Kotlin Developers in Manchester Meetup #1
+  url: http://www.meetup.com/Kotlin-Manchester/events/225343001/
+  subject: "Functional programming in Kotlin with funKTionale"
+  speaker: Mario Arias
+  date: 2015-09-23
+  location: Manchester, UK
+  lang: en
