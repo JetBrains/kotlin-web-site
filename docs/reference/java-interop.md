@@ -440,7 +440,8 @@ To enable the generation of such a facade, use the @JvmMultifileClass annotation
 
 ``` kotlin
 // oldutils.kt
-@file:[JvmName("Utils") JvmMultifileClass]
+@file:JvmName("Utils") 
+@file:JvmMultifileClass
 
 package demo
 
@@ -450,7 +451,8 @@ fun foo() {
 
 ``` kotlin
 // newutils.kt
-@file:[JvmName("Utils") JvmMultifileClass]
+@file:JvmName("Utils")
+@file:JvmMultifileClass
 
 package demo
 
