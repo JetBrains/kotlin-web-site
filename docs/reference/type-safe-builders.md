@@ -5,6 +5,7 @@ category: "Syntax"
 title: "Type-Safe Groovy-Style Builders"
 ---
 
+# Type-Safe Builders
 
 The concept of [builders](http://groovy.codehaus.org/Builders) is rather popular in the *Groovy* community. 
 Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://groovy.codehaus.org/GroovyMarkup), 
@@ -280,28 +281,3 @@ fun html(init: HTML.() -> Unit): HTML {
     return html
 }
 ```
-
-
-### Appendix. Making Java classes nicer
-
-In the code above there's something that looks very nice:
-
-``` kotlin
-  class A() : BodyTag("a") {
-    var href: String
-      get() = attributes["href"]!!
-      set(value) { attributes["href"] = value }
-  }
-```
-
-We access the `attributes` map as if it were an *associative array*: just with the `[]` operation.
-By [convention](operator-overloading.html) this compiles to a call to `get(K)` or `set(K, V)`, all right.
-But we said that `attributes` was a *Java* `Map`, i.e. it does NOT have a `set(K, V)`. 
-This problem is easily fixable in Kotlin:
-
-``` kotlin
-  fun <K, V> Map<K, V>.set(key: K, value: V) = this.put(key, value)
-```
-
-So, we simply define an [extension function](extensions.html) `set(K, V)` that delegates to vanilla `put`
-and makes a Kotlin operator available for a *Java* class.

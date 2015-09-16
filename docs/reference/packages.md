@@ -26,7 +26,7 @@ If the package is not specified, the contents of such a file belong to "default"
 
 ## Imports
 
-Apart from the default imports declared by the module, each file may contain its own import directives.
+Apart from the default imports, each file may contain its own import directives.
 Syntax for imports is described in the [grammar](grammar.html#imports).
 
 We can import either a single name, e.g.
@@ -48,11 +48,6 @@ import foo.Bar // Bar is accessible
 import bar.Bar as bBar // bBar stands for 'bar.Bar'
 ```
 
-## Visibility and Package Nesting
+## Visibility of Top-level Declarations
 
-If a top-level declaration is marked *private*{: .keyword }, it is private to the package it's declared in (see [Visibility Modifiers](visibility-modifiers.html)).
-Since packages really nest in Kotlin, i.e. package `foo.bar` is considered a member of `foo`, if something is *private*{: .keyword } in a package, 
-it is visible to all its subpackages.
-
-Note that members of outer packages are **not** imported by default, i.e. in a file in package `foo.bar` we can't access
-members of `foo` without importing them.
+If a top-level declaration is marked *private*{: .keyword }, it is private to the file it's declared in (see [Visibility Modifiers](visibility-modifiers.html)).

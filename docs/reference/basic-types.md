@@ -15,12 +15,12 @@ Kotlin handles numbers in a way close to Java, but not exactly the same. For exa
 
 Kotlin provides the following built-in types representing numbers (this is close to Java):
 
-| Type	 | Bitwidth |
+| Type	 | Bit width|
 |--------|----------|
 | Double | 64       |
 | Float	 | 32       |
 | Long	 | 64       |
-| Int	   | 32       |
+| Int	 | 32       |
 | Short	 | 16       |
 | Byte	 | 8        |
 
@@ -70,7 +70,7 @@ print(boxedA == anotherBoxedA) // Prints 'true'
 ### Explicit Conversions
 
 Due to different representations, smaller types are not subtypes of bigger ones.
-If they were, we would have troubles of the following sort
+If they were, we would have troubles of the following sort:
 
 ``` kotlin
 // Hypothetical code, does not actually compile:
@@ -105,10 +105,10 @@ Every number type supports the following conversions:
 * `toDouble(): Double`
 * `toChar(): Char`
 
-Absence of implicit conversions is rarely noticeable because we can use literals almost freely cause the type is inferred from the context, and arithmetical operations are overloaded for appropriate conversions, for example
+Absence of implicit conversions is rarely noticeable because the type is inferred from the context, and arithmetical operations are overloaded for appropriate conversions, for example
 
 ``` kotlin
-val l = 1.toLong() + 3 // Long + Int => Long
+val l = 1L + 3 // Long + Int => Long
 ```
 
 ### Operations
@@ -173,7 +173,7 @@ Built-in operations on booleans include
 Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` functions (that turn into `[]` by operator overloading conventions), and `size`, along with a few other useful member functions:
 
 ``` kotlin
-class Array<T> private () {
+class Array<T> private constructor() {
   fun size(): Int
   fun get(index: Int): T
   fun set(index: Int, value: T): Unit
@@ -191,7 +191,7 @@ of each array element given its index:
 
 ``` kotlin
 // Creates an Array<String> with values ["0", "1", "4", "9", "16"]
-val asc = Array(5, {i -> (i * i).toString()})
+val asc = Array(5, { i -> (i * i).toString() })
 ```
 
 As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`.
@@ -257,3 +257,9 @@ val s = "abc"
 val str = "$s.length is ${s.length}" // evaluates to "abc.length is 3"
 ```
 
+Templates are supported both inside raw strings and inside escaped strings.
+If you need to represent a literal `$` character, you can use the following syntax:
+
+``` kotlin
+val price = "${'$'}9.99"
+```

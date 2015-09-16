@@ -8,29 +8,39 @@ title: "Annotations"
 # Annotations
 
 ## Annotation Declaration
-Annotations are means of attaching metadata to code. To declare an annotation, put the *annotation*{: .keyword } keyword in front of a class:
+Annotations are means of attaching metadata to code. To declare an annotation, put the *annotation*{: .keyword } modifier in front of a class:
 
 ``` kotlin
-annotation class fancy
+annotation class Fancy
+```
+
+Additional attributes of the annotation can be specified by annotating the annotation class with meta-annotations:
+
+  * [`@Target`](/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html) specifies the possible kinds of
+    elements which can be annotated with the annotation (classes, functions, properties, expressions etc.);
+  * [`@Retention`](/api/latest/jvm/stdlib/kotlin.annotation/-retention/index.html) specifies whether the
+    annotation is stored in the compiled class files and whether it's visible through reflection at runtime
+    (by default, both are true);
+  * [`@Repeatable`](/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/index.html) allows using the same annotation
+    on a single element multiple times;
+  * [`@MustBeDocumented`](/api/latest/jvm/stdlib/kotlin.annotation/-must-be-documented/index.html) specifies that the
+    annotation is part of the public API and should be included in the class or method signature shown in the
+    generated API documentation.
+
+``` kotlin
+@Target([AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
+         AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION])
+@Retention(AnnotationRetention.SOURCE)
+@MustBeDocumented
+public annotation class Fancy
 ```
 
 ### Usage
 
 ``` kotlin
-@fancy class Foo {
-  @fancy fun baz(@fancy foo: Int): Int {
-    return (@fancy 1)
-  }
-}
-```
-
-In most cases, the `@ `sign is optional. It is only required when annotating expressions or local declarations:
-
-``` kotlin
-fancy class Foo {
-  fancy fun baz(fancy foo: Int): Int {
-    @fancy fun bar() { ... }
-    return (@fancy 1)
+@Fancy class Foo {
+  @Fancy fun baz(@Fancy foo: Int): Int {
+    return (@Fancy 1)
   }
 }
 ```
@@ -40,7 +50,7 @@ to the constructor declaration, and add the annotations before it:
 
 
 ``` kotlin
-class Foo @inject constructor(dependency: MyDependency) {
+class Foo @Inject constructor(dependency: MyDependency) {
   // ...
 }
 ```
@@ -50,7 +60,7 @@ You can also annotate property accessors:
 ``` kotlin
 class Foo {
     var x: MyDependency? = null
-        @inject set
+        @Inject set
 }
 ```
 
@@ -59,9 +69,9 @@ class Foo {
 Annotations may have constructors that take parameters.
 
 ``` kotlin
-annotation class special(val why: String)
+annotation class Special(val why: String)
 
-special("example") class Foo {}
+@Special("example") class Foo {}
 ```
 
 ### Lambdas
@@ -76,6 +86,61 @@ annotation class Suspendable
 val f = @Suspendable { Fiber.sleep(10) }
 ```
 
+## Annotation Use-site Targets
+
+When you're annotating a property or a primary constructor parameter, there are multiple Java elements which are
+generated from the corresponding Kotlin element, and therefore multiple possible locations for the annotation in
+the generated Java bytecode. To specify how exactly the annotation should be generated, use the following syntax:
+
+``` kotlin
+class Example(@field:Ann val foo,    // annotate Java field
+              @get:Ann val bar,      // annotate Java getter
+              @param:Ann val quux)   // annotate Java constructor parameter
+```
+
+The same syntax can be used to annotate the entire file. To do this, put an annotation with the target `file` at
+the top level of a file, before the package directive or before all imports if the file is in the default package:
+
+``` kotlin
+@file:JvmName("Foo")
+
+package org.jetbrains.demo
+```
+
+If you have multiple annotations with the same target, you can avoid repeating the target by adding brackets after the
+target and putting all the annotations inside the brackets:
+
+``` kotlin
+class Example {
+     @set:[Inject VisibleForTesting]
+     public var collaborator: Collaborator
+}
+```
+
+The full list of supported use-site targets is:
+
+  * `file`
+  * `property` (annotations with this target are not visible to Java)
+  * `field`
+  * `get` (property getter)
+  * `set` (property setter)
+  * `receiver` (receiver parameter of an extension function or property)
+  * `param` (constructor parameter)
+  * `sparam` (property setter parameter)
+
+To annotate the receiver parameter of an extension function, use the following syntax:
+
+``` kotlin
+fun @receiver:Fancy String.myExtension() { }
+```
+
+If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
+being used. If there are multiple applicable targets, the first applicable target from the following list is used:
+
+  * `param`
+  * `property`
+  * `field`
+
 
 ## Java Annotations
 
@@ -86,20 +151,8 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class Tests {
-  Test fun simple() {
+  @Test fun simple() {
     assertEquals(42, getTheAnswer())
-  }
-}
-```
-
-Java annotations can also be made to look like modifiers by renaming them on import:
-
-``` kotlin
-import org.junit.Test as test
-
-class Tests {
-  test fun simple() {
-    ...
   }
 }
 ```

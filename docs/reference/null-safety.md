@@ -128,16 +128,6 @@ val l = b!!.length()
 
 Thus, if you want an NPE, you can have it, but you have to ask for it explicitly, and it does not appear out of the blue.
 
-By the way, `!!` is added for conciseness, and formerly was emulated by an extension function from the standard library, defined as follows:
-
-``` kotlin
-inline fun <T : Any> T?.sure(): T =
-  if (this == null)
-    throw NullPointerException()
-  else
-    this
-```
-
 ## Safe Casts
 
 Regular casts may result into a `ClassCastException` if the object is not of the target type.

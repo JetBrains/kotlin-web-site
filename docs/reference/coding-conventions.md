@@ -18,11 +18,6 @@ If in doubt default to the Java Coding Conventions such as:
 * use 4 space indentation
 * public functions should have documentation such that it appears in Kotlin Doc
 
-Kotlin does not have fields as a primary concept in the language -- it only has properties.
-Avoid the use of prefixes on properties, such as _ or m_ or other kinds of notation.
-If you need access to a backing field of a property, use the $ prefix: `$foo` to refer to a field behind property `foo`;
-never create a private property and call it `_foo`
-
 ## Colon
 
 There is a space before colon where colon separates type and supertype and there's no space where colon separates instance and type:
@@ -33,7 +28,20 @@ interface Foo<out T : Any> : Bar {
 }
 ```
 
+## Lambdas
+
+In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
+from the body. Whenever possible, a lambda should be passed outside of parentheses.
+
+``` kotlin
+list.filter { it > 10 }.map { element -> element * 2 }
+```
+
+In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
+explicitly. In nested lambdas with parameters, parameters should be always declared explicitly.
+
 ## Unit
+
 If a function returns Unit, the return type should be omitted:
 
 ``` kotlin

@@ -9,7 +9,7 @@ title: "Exceptions"
 
 ## Exception Classes
 
-All exception classes in Kotlin are descendants of the class `Exception`.
+All exception classes in Kotlin are descendants of the class `Throwable`.
 Every exception has a message, stack trace and an optional cause.
 
 To throw an exception object, use the *throw*{: .keyword }-expression

@@ -121,6 +121,9 @@ and if we do not need all arguments
 reformat(str, wordSeparator = '_')
 ```
 
+Note that the named argument syntax cannot be used when calling Java functions, because Java bytecode does not
+always preserve names of function parameters.
+
 
 ### Unit-returning functions
 
@@ -161,18 +164,14 @@ fun double(x: Int) = x * 2
 
 ### Explicit return types
 
-There are cases when an explicit return type is required:
- 
-* Functions with expression body that are public or protected. These are considered to be part of the public API surface. Not having explicit return types makes it potentially easier to
-change the type accidentally. This is the same reason why explicit types are required for [properties](properties.html#getters-and-setters).
-* Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`, [in which case it is optional](#unit-returning-functions). 
+Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`, [in which case it is optional](#unit-returning-functions).
 Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow in the body, and the return
 type will be non-obvious to the reader (and sometimes even for the compiler). 
 
 
 ### Variable number of arguments (Varargs)
 
-The last parameter of a function may be marked with `vararg` annotation
+The last parameter of a function may be marked with `vararg` modifier:
 
 ``` kotlin
 fun asList<T>(vararg ts: T): List<T> {
@@ -191,8 +190,9 @@ allowing a variable number of arguments to be passed to the function:
 
 Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<out T>`.
 
-Only one parameter may be annotated as `vararg`. It may be the last parameter or the one before last,
-if the last parameter has a function type (allowing a lambda to be passed outside parentheses).
+Only one parameter may be marked as `vararg`. If a `vararg` parameter is not the last one in the list, values for the
+following parameters can be passed using the named argument syntax, or, if the parameter has a function type, by passing
+a lambda outside parentheses.
 
 When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList(1, 2, 3)`, or, if we already have an array
  and want to pass its contents to the function, we use the **spread** operator (prefix the array with `*`):
@@ -301,10 +301,11 @@ Higher-Order functions and Lambdas are explained in [their own section](lambdas.
 
 ## Tail recursive functions
 
-Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call). This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow. When a function is marked with the `tailRecursive` annotation and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
+Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call). This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow.
+When a function is marked with the `tailrec` modifier and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
 
 ``` kotlin
-tailRecursive fun findFixPoint(x: Double = 1.0): Double 
+tailrec fun findFixPoint(x: Double = 1.0): Double
         = if (x == Math.cos(x)) x else findFixPoint(Math.cos(x))
 ```
 
@@ -321,5 +322,5 @@ private fun findFixPoint(): Double {
 }
 ```
 
-To be eligible for the `tailRecursive` annotation a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call, and you cannot use it within try/catch/finally blocks. Currently tail recursion is only supported in the JVM backend.
+To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call, and you cannot use it within try/catch/finally blocks. Currently tail recursion is only supported in the JVM backend.
 
