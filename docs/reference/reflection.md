@@ -140,6 +140,12 @@ fun main(args: Array<String>) {
 }
 ```
 
+To get the Kotlin class corresponding to a Java class, use the `.kotlin` extension property:
+
+``` kotlin
+fun getKClass(o: Any): KClass<Any> = o.javaClass.kotlin
+```
+
 ## Constructor References
 
 Constructors can be referenced just like methods and properties. They can be used wherever an object of function type 
