@@ -241,7 +241,7 @@ val text = """
 ```
 
 
-### Templates
+### String Templates
 
 Strings may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string. A template expression starts with a dollar sign ($) and consists of either a simple name:
 

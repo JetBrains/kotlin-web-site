@@ -87,7 +87,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-See [String templates](basic-types.html#templates).
+See [String templates](basic-types.html#string-templates).
 
 ## Using conditional expressions
 
