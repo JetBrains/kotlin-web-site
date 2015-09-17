@@ -10,26 +10,20 @@ related:
 ---
 ### Downloading the compiler
 
-Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{ site.data.releases.latest.url }}). Latest release is {{ site.data.releases.latest.version }}
+Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{ site.data.releases.latest.url }}). The latest release is {{ site.data.releases.latest.version }}.
 
-* Unzip the standalone compiler into a directory and optionally add the bin folder to the system path. The `bin` folder contains the following scripts:
-
-    * `kotlinc-jvm`: The Kotlin compiler and shell for targeting the JVM.
-    * `kotlinc-js`: The Kotlin compiler and shell for targeting JavaScript.
-    * `kotlinc`: An alias for `kotlinc-jvm`.
-
-There's a Bash version of each script for OS X and Linux users, and a batch file for Windows users.
+Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path. The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, OS X and Linux.
 
 Alternatively, on OS X you can install the compiler via [Homebrew](http://brew.sh/).
 
 ```
    $ brew update
-   $ brew install kotlin-compiler
+   $ brew install kotlin
 ```
 
 ### Creating and running a first application
 
-1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following
+1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following:
 
    ``` kotlin
    fun main(args: Array<String>) {
@@ -37,17 +31,17 @@ Alternatively, on OS X you can install the compiler via [Homebrew](http://brew.s
    }
    ```
 
-2. Compile the application using the JVM compiler
+2. Compile the application using the Kotlin compiler
 
    ```
-   $ kotlinc-jvm hello.kt -include-runtime -d hello.jar
+   $ kotlinc hello.kt -include-runtime -d hello.jar
    ```
 
-   The `-d` option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a *.jar* file name. The `-include-runtime` option makes the resulting *.jar* file self-contained and runnable.
+   The `-d` option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a *.jar* file name. The `-include-runtime` option makes the resulting *.jar* file self-contained and runnable by including the Kotlin runtime library in it.
    If you want to see all available options run
 
    ```
-   $ kotlinc-jvm -help
+   $ kotlinc -help
    ```
 
 3. Run the application.
@@ -62,19 +56,18 @@ Alternatively, on OS X you can install the compiler via [Homebrew](http://brew.s
    If you're developing a library to be used by other Kotlin applications, you can produce the .jar file without including the Kotlin runtime into it.
 
 ```
-   $ kotlinc-jvm hello.kt -d hello.jar
+   $ kotlinc hello.kt -d hello.jar
 ```
 
-   Since binaries compiled this way depend on the Kotlin runtime you should make sure the latter is present in the classpath whenever your compiled library is used. For instance, an alternative way to execute the Hello World app would be
+   Since binaries compiled this way depend on the Kotlin runtime you should make sure the latter is present in the classpath whenever your compiled library is used.
+   
+   You can also use the `kotlin` script to run binaries produced by the Kotlin compiler:
 
 ```
-   $ java -classpath hello.jar:%path_to_runtime%/kotlin-runtime.jar _DefaultPackage
+   $ kotlin -classpath hello.jar HelloKt
 ```
 
-   The `_DefaultPackage` is the main class name that the Kotlin compiler generates by default for the root package. For a non-root package `org.acme.test` it would be `org.acme.test.TestPackage`.
-
-![Command Line Output]({{ site.baseurl }}/{{ site.img_tutorial_root }}/command-line/output.png)
-
+   `HelloKt` is the main class name that the Kotlin compiler generates for the file named `hello.kt`.
 
 ### Running the REPL
 
@@ -96,5 +89,6 @@ Kotlin can also be used as a scripting language. A script is a Kotlin source fil
 To run a script, we just pass the `-script` option to the compiler with the corresponding script file.
 
 ```
-   $ kotlinc-jvm -script list_folders.kts <path_to_folder_to_inspect>
+   $ kotlinc -script list_folders.kts <path_to_folder_to_inspect>
 ```
+
