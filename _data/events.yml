@@ -885,6 +885,7 @@
   lang: en
   content:
     slides: https://speakerdeck.com/pardom/kotlin-new-hope-in-a-java-6-wasteland/
+    video: https://youtu.be/0BiPmgk3nyw
 
 - title: Mobiconf 2015
   url: http://2015.mobiconf.org/
@@ -894,7 +895,7 @@
   location: Krakow, Poland
   lang: en    
 
-- title: Mobile Warsaw #27
+- title: "Mobile Warsaw #27"
   url: http://mobile-warsaw.pl/meetup_027.html
   subject: "Kotlin for Android"
   speaker: Paweł Gajda
@@ -961,7 +962,7 @@
   location: San Francisco, CA, USA
   lang: en
 
-- title: Kotlin Developers in Manchester Meetup #1
+- title: "Kotlin Developers in Manchester Meetup #1"
   url: http://www.meetup.com/Kotlin-Manchester/events/225343001/
   subject: "Introduction"
   speaker: Arthur Emblenton
@@ -969,10 +970,18 @@
   location: Manchester, UK
   lang: en
 
-- title: Kotlin Developers in Manchester Meetup #1
+- title: "Kotlin Developers in Manchester Meetup #1"
   url: http://www.meetup.com/Kotlin-Manchester/events/225343001/
   subject: "Functional programming in Kotlin with funKTionale"
   speaker: Mario Arias
   date: 2015-09-23
   location: Manchester, UK
   lang: en
+
+- title: dotnetconf 2015
+  url: http://dotnetconf.ru/discussion#
+  subject: "Kotlin in Production. Why? How?"
+  speaker: Kirill Bubochkin
+  date: 2015-10-31
+  location: Chelyabinsk, RU
+  lang: ru
