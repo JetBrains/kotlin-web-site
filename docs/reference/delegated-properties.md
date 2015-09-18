@@ -144,15 +144,20 @@ first -> second
 If you want to be able to intercept an assignment and "veto" it, use `vetoable()` instead of `observable()`.
 
 
-### Storing Properties in a Map
+## Storing Properties in a Map
 
-`Delegates.mapVal()` takes a map instance and returns a delegate that reads property values from this map, using property name as a key.
-There are many use cases of this kind in applications like parsing JSON or doing other “dynamic” things:
+One common use case is storing the values of properties in a map.
+This comes up often in applications like parsing JSON or doing other “dynamic” things.
+In this case, you can use the map instance itself as the delegate for a delegated property.
+In order for this to work, you need to import an extension function that adapts maps to the
+delegated property API:
 
 ``` kotlin
+import kotlin.properties.get
+
 class User(val map: Map<String, Any?>) {
-    val name: String by Delegates.mapVal(map)
-    val age: Int     by Delegates.mapVal(map)
+    val name: String by map
+    val age: Int     by map
 }
 ```
 
@@ -173,4 +178,5 @@ println(user.name) // Prints "John Doe"
 println(user.age)  // Prints 25
 ```
 
-For *var*{:.keyword}’s we can use `mapVar()` (note that it takes a `MutableMap` instead of read-only `Map`).
+This works also for *var*{:.keyword}’s properties if you use a `MutableMap` instead of read-only `Map`
+and import an additional extension function: `kotlin.properties.set`
