@@ -146,14 +146,16 @@ first -> second
 
 If you want to be able to intercept an assignment and "veto" it, use `vetoable()` instead of `observable()`. The handler passed to the `vetoable` is called _before_ the assignment of a new property value has been performed.
 
+## Storing Properties in a Map
 
-### Storing Properties in a Map
-
-You can delegate read-only (*val*{:.keyword}) properties to a read-only map with the extension `get()` accessor provided by standard library. This accessor reads property values from the map, using property name as a key.
-There are many use cases of this kind in applications like parsing JSON or doing other “dynamic” things:
+One common use case is storing the values of properties in a map.
+This comes up often in applications like parsing JSON or doing other “dynamic” things.
+In this case, you can use the map instance itself as the delegate for a delegated property.
+In order for this to work, you need to import an extension accessor function `get()` that adapts maps to the
+delegated property API: it reads property values from the map, using property name as a key.
 
 ``` kotlin
-import kotlin.properties.*
+import kotlin.properties.get
 
 class User(val map: Map<String, Any?>) {
     val name: String by map
@@ -178,10 +180,12 @@ println(user.name) // Prints "John Doe"
 println(user.age)  // Prints 25
 ```
 
-To delegate *var*{:.keyword} properties you should use a `MutableMap` instead of read-only `Map`, so the property value can be stored back to the map:
+This works also for *var*{:.keyword}’s properties if you use a `MutableMap` instead of read-only `Map`
+and import an additional extension function: `kotlin.properties.set`
 
 ``` kotlin
-import kotlin.properties.*
+import kotlin.properties.get
+import kotlin.properties.set
 
 class MutableUser(val map: MutableMap<String, Any?>) {
     var name: String by map
