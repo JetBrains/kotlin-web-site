@@ -985,3 +985,13 @@
   date: 2015-10-31
   location: Chelyabinsk, RU
   lang: ru
+
+- title: Voxxed days Vilnius 2015
+  url: https://voxxeddaysvilnius2015.sched.org/
+  subject: "Intro to Kotlin"
+  speaker: Anton Rutkevich
+  date: 2015-09-18
+  location: Vilnus, LT
+  lang: en
+  content:
+    slides: http://slides.com/antonrutkevich/kotlin-intro-voxxed#/
