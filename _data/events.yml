@@ -995,3 +995,11 @@
   lang: en
   content:
     slides: http://slides.com/antonrutkevich/kotlin-intro-voxxed#/
+
+- title: DevFest Milano
+  url: http://www.eventbrite.it/e/biglietti-devfest-2015-18033194771?aff=es2
+  subject: "Kotlin: lo Swift di Android"
+  speaker: Omar Miatello
+  date: 2015-10-03
+  location: Milan, IT
+  lang: it
