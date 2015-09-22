@@ -29,11 +29,11 @@ For example:
 
 ``` kotlin
 class Delegate {
-  fun get(thisRef: Any?, prop: PropertyMetadata): String {
+  fun get(thisRef: Any?, property: PropertyMetadata): String {
     return "$thisRef, thank you for delegating '${prop.name}' to me!"
   }
  
-  fun set(thisRef: Any?, prop: PropertyMetadata, value: String) {
+  fun set(thisRef: Any?, property: PropertyMetadata, value: String) {
     println("$value has been assigned to '${prop.name} in $thisRef.'")
   }
 }
@@ -81,15 +81,18 @@ For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally
  
 * receiver --- same as for `get()`,
 * metadata --- same as for `get()`,
-* new value --- must be of the same type as a property or its subtype.
+* new value --- must be of the same type as a property or its supertype.
  
+`get()` and/or `set()` functions may be provided either as member functions of the delegate class or extension functions. The latter is handy when you need to delegate property to an object, which doesn't originally provide these functions.
+
+
 ## Standard Delegates
 
 The Kotlin standard library provides factory methods for several useful kinds of delegates.
 
 ### Lazy
 
-`lazy()` is a function that takes a lambda and returns a delegate that implements a lazy property:
+`lazy()` is a function that takes a lambda and returns an instance of `Lazy<T>` which can serve as a delegate for implementing a lazy property:
 the first call to `get()` executes the lambda passed to `lazy()` and remembers the result, 
 subsequent calls to `get()` simply return the remembered result. 
 
@@ -114,7 +117,7 @@ will see the same value. If the synchronization is not required (multiple thread
 ### Observable
 
 `Delegates.observable()` takes two arguments: the initial value and a handler for modifications.
-The handler gets called every time we assign to the property (before the assignment is performed). It has three
+The handler gets called every time we assign to the property (_after_ the assignment has been performed). It has three
 parameters: a property being assigned to, the old value and the new one:
 
 ``` kotlin
@@ -122,7 +125,7 @@ import kotlin.properties.Delegates
 
 class User {
     var name: String by Delegates.observable("<no name>") {
-        d, old, new ->
+        prop, old, new ->
         println("$old -> $new")
     }
 }
@@ -141,18 +144,22 @@ This example prints
 first -> second
 ```
 
-If you want to be able to intercept an assignment and "veto" it, use `vetoable()` instead of `observable()`.
+If you want to be able to intercept an assignment and "veto" it, use `vetoable()` instead of `observable()`. The handler passed to the `vetoable` is called _before_ the assignment of a new property value has been performed.
 
+## Storing Properties in a Map
 
-### Storing Properties in a Map
-
-`Delegates.mapVal()` takes a map instance and returns a delegate that reads property values from this map, using property name as a key.
-There are many use cases of this kind in applications like parsing JSON or doing other “dynamic” things:
+One common use case is storing the values of properties in a map.
+This comes up often in applications like parsing JSON or doing other “dynamic” things.
+In this case, you can use the map instance itself as the delegate for a delegated property.
+In order for this to work, you need to import an extension accessor function `get()` that adapts maps to the
+delegated property API: it reads property values from the map, using property name as a key.
 
 ``` kotlin
+import kotlin.properties.get
+
 class User(val map: Map<String, Any?>) {
-    val name: String by Delegates.mapVal(map)
-    val age: Int     by Delegates.mapVal(map)
+    val name: String by map
+    val age: Int     by map
 }
 ```
 
@@ -165,7 +172,7 @@ val user = User(mapOf(
 ))
 ```
 
-Delegates take values from this map (by the string keys – names of properties):
+Delegated properties take values from this map (by the string keys --– names of properties):
 
 
 ``` kotlin
@@ -173,4 +180,15 @@ println(user.name) // Prints "John Doe"
 println(user.age)  // Prints 25
 ```
 
-For *var*{:.keyword}’s we can use `mapVar()` (note that it takes a `MutableMap` instead of read-only `Map`).
+This works also for *var*{:.keyword}’s properties if you use a `MutableMap` instead of read-only `Map`
+and import an additional extension function: `kotlin.properties.set`
+
+``` kotlin
+import kotlin.properties.get
+import kotlin.properties.set
+
+class MutableUser(val map: MutableMap<String, Any?>) {
+    var name: String by map
+    var age: Int     by map
+}
+```
