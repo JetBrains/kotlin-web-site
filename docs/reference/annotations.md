@@ -28,8 +28,8 @@ Additional attributes of the annotation can be specified by annotating the annot
     generated API documentation.
 
 ``` kotlin
-@Target([AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
-         AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION])
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
+        AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION)
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
 public annotation class Fancy
