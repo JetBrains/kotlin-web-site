@@ -977,6 +977,8 @@
   date: 2015-09-23
   location: Manchester, UK
   lang: en
+  content:
+    slides: https://speakerdeck.com/marioariasc/functional-programming-in-kotlin-with-funktionale
 
 - title: dotnetconf 2015
   url: http://dotnetconf.ru/discussion#
