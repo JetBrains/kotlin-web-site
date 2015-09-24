@@ -997,3 +997,12 @@
   lang: en
   content:
     slides: http://slides.com/antonrutkevich/kotlin-intro-voxxed#/
+
+- title: JavaLand 2016
+  url: http://dukecon.org/javaland/talk.html#talk?talkId=509354
+  subject: "Kotlin in Action"
+  speaker: Justin Lee
+  date: [2016-03-08, 2016-03-10]
+  location: Brühl, Germany
+  lang: en
+
