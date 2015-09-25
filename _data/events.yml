@@ -1005,4 +1005,12 @@
   date: [2016-03-08, 2016-03-10]
   location: Brühl, Germany
   lang: en
+  
+  - title: Mobilization 2015
+  url: http://2015.mobilization.pl/
+  subject: "Kotlin for Android"
+  speaker: Paweł Gajda
+  date: [2015-10-17]
+  location: Lodz, Poland
+  lang: pl
 
