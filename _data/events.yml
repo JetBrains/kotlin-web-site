@@ -1014,3 +1014,10 @@
   location: Lodz, Poland
   lang: pl
 
+- title: Codemotion 2015
+  url: http://2015.codemotion.es/agenda.html#5699289732874240
+  subject: "Kotlin for Android Developers"
+  speaker: Antonio Leiva Gordillo
+  date: [2015-11-27, 2015-11-28]
+  location: Madrid, Spain
+  lang: sp
