@@ -505,18 +505,24 @@ Obj.INSTANCE$.bar(); // works, a call through the singleton instance
 Obj.INSTANCE$.foo(); // works too
 ```
 
-Also, public properties defined in objects and companion objects are turned into static fields in Java:
+Also, public properties defined in objects and companion objects, as well as top-level properties annotated with `const`,
+are turned into static fields in Java:
 
 ``` kotlin
+// file example.kt
+
 object Obj {
   val CONST = 1
 }
+
+const val MAX = 239
 ```
 
 In Java:
 
 ``` java
 int c = Obj.CONST;
+int d = ExampleKt.MAX;
 ```
 
 ### Handling signature clashes with @JvmName
