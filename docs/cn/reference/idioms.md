@@ -5,51 +5,51 @@ category: "Basics"
 title: "Idioms"
 ---
 
-# Idioms
+# Kotlin特点
 
-A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it. Do a pull request.
+一些在 Kotlin 中广泛使用的语法习惯，如果你有更喜欢的语法习惯或者风格，pull一个request贡献给我们吧！
 
-### Creating DTO's (POJO's/POCO's)
+### 创建方便任务间传递的数据 DTO's (POJO's/POCO's)
 
 ``` kotlin
 data class Customer(val name: String, val email: String)
 ```
 
-provides a `Customer` class with the following functionality:
+会为 `Customer` 类提供以下功能：
 
-* getters (and setters in case of *var*{: .keyword }'s) for all properties
+* getters (还有 setters )， 所有以 *var*{: .keyword }'s) 标记的类属性都会自动生成
 * `equals()`
 * `hashCode()`
 * `toString()`
 * `copy()`
-* `component1()`, `component2()`, ..., for all properties (see [Data classes](data-classes.html))
+* `component1()`, `component2()`, ..., 所有属性都会生成 (参阅 [Data classes](data-classes.html))
 
 
-### Default values for function parameters
+### 函数默认参数
 
 ``` kotlin
 fun foo(a: Int = 0, b: String = "") { ... }
 ```
 
-### Filtering a list
+### 过滤链表
 
 ``` kotlin
 val positives = list.filter { x -> x > 0 }
 ```
 
-Or alternatively, even shorter:
+或者可以更短:
 
 ``` kotlin
 val positives = list.filter { it > 0 }
 ```
 
-### String Interpolation
+### String内插入String
 
 ``` kotlin
 println("Name $name")
 ```
 
-### Instance Checks
+### 类型判断
 
 ``` kotlin
 when (x) {
@@ -59,7 +59,7 @@ when (x) {
 }
 ```
 
-### Traversing a map/list of pairs
+### 遍历 map/list 中的键值对
 
 ``` kotlin
 for ((k, v) in map) {
@@ -67,35 +67,35 @@ for ((k, v) in map) {
 }
 ```
 
-`k`, `v` can be called anything.
+`k`, `v` 可以改成任意名字.
 
-### Using ranges
+### 使用区间 ranges
 
 ``` kotlin
 for (i in 1..100) { ... }
 for (x in 2..10) { ... }
 ```
 
-### Read-only list
+### 只读链表
 
 ``` kotlin
 val list = listOf("a", "b", "c")
 ```
 
-### Read-only map
+### 只读表
 
 ``` kotlin
 val map = mapOf("a" to 1, "b" to 2, "c" to 3)
 ```
 
-### Accessing a map
+### 表的访问与赋值
 
 ``` kotlin
 println(map["key"])
 map["key"] = value
 ```
 
-### Lazy property
+### 延迟属性
 
 ``` kotlin
 val p: String by lazy {
@@ -103,7 +103,7 @@ val p: String by lazy {
 }
 ```
 
-### Extension Functions
+### 扩展函数
 
 ``` kotlin
 fun String.spaceToCamelCase() { ... }
@@ -111,7 +111,7 @@ fun String.spaceToCamelCase() { ... }
 "Convert this to camelcase".spaceToCamelCase()
 ```
 
-### Creating a singleton
+### 创建单例
 
 ``` kotlin
 object Resource {
@@ -119,7 +119,7 @@ object Resource {
 }
 ```
 
-### If not null shorthand
+### If not null 缩写
 
 ``` kotlin
 val files = File("Test").listFiles()
@@ -127,7 +127,9 @@ val files = File("Test").listFiles()
 println(files?.size)
 ```
 
-### If not null and else shorthand
+files?.size 等价于 if (files != null) files.size else null
+
+### If not null and else 缩写
 
 ``` kotlin
 val files = File("Test").listFiles()
@@ -135,24 +137,24 @@ val files = File("Test").listFiles()
 println(files?.size ?: "empty")
 ```
 
-### Executing a statement if null
+### if null 缩写
 
 ``` kotlin
 val data = ...
 val email = data["email"] ?: throw IllegalStateException("Email is missing!")
 ```
 
-### Execute if not null
+### if not null 缩写
 
 ``` kotlin
 val data = ...
 
 data?.let {
-    ... // execute this block if not null
+    ... // 代码会执行到此处, 假如data不为null
 }
 ```
 
-### Return on when statement
+### when表达式具有返回值
 
 ``` kotlin
 fun transform(color: String): Int {
@@ -165,7 +167,7 @@ fun transform(color: String): Int {
 }
 ```
 
-### 'try/catch' expression
+### 'try/catch' 表达式也具有返回值
 
 ``` kotlin
 fun test() {
@@ -179,7 +181,7 @@ fun test() {
 }
 ```
 
-### 'if' expression
+### 'if' 表达式你猜
 
 ``` kotlin
 fun foo(param: Int) {
@@ -193,7 +195,7 @@ fun foo(param: Int) {
 }
 ```
 
-### Builder-style usage of methods that return `Unit`
+### 返回类型为 `Unit` 的方法，可以轻松实现类Builder模式的代码风格
 
 ``` kotlin
 fun arrayOfMinusOnes(size: Int) {
@@ -202,13 +204,13 @@ fun arrayOfMinusOnes(size: Int) {
 ```
 
 
-### Single-expression functions
+### 单表达式函数
 
 ``` kotlin
 fun theAnswer() = 42
 ```
 
-This is equivalent to
+等价于
 
 ``` kotlin
 fun theAnswer(): Int {
@@ -216,7 +218,7 @@ fun theAnswer(): Int {
 }
 ```
 
-This can be effectively combined with other idioms, leading to shorter code. E.g. with the *when*{: .keyword }-expression:
+单表达式函数与其它kotlin风格一起使用的时候，能简化代码，比如和 *when*{: .keyword } 表达式一起使用：
 
 ``` kotlin
 fun transform(color: String): Int = when (color) {
