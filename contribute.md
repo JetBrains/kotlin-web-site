@@ -34,7 +34,14 @@ If you've given or are giving presentations on Kotlin, let us know. We'll [featu
 
 Kotlin ships with a very small runtime and it's the aim to keep it that way. We believe other functionality that is missing from the standard runtime library can be developed
 as Kotlin Contributions under the [Kotlin-X](https://github.com/kotlinx/kotlinx) umbrella or as individual projects by community members. If you have a library that you think
-others might find useful, let us know. If you want to contribute to any of the existing ones, check them out. 
+others might find useful, let us know. If you want to contribute to any of the existing ones, check them out.
+
+### Translations
+
+You are welcome to translate the Kotlin documentation into your own language and to publish your translation on your Web site.
+However, note that we will not be able to host your translation in this repository and to publish it on kotlinlang.org.
+This site is the official documentation for the language, and we need to be able to ensure that all the information here
+is correct and up-to-date. Doing this with a language that no one on the team speaks is unfortunately not feasible at this time.
 
 ### Spread the word
 
