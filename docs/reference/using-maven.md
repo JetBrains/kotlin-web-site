@@ -151,6 +151,10 @@ It could be done by moving Kotlin compilation to previous phase, process-sources
 </plugin>
 ```
 
+## OSGi
+
+For OSGi support see [Kotlin OSGi wiki page](kotlin-osgi.md)
+
 ## Using External Annotations
 
 Kotlin uses external annotation to have precise information about types in Java libraries. To specify these annotations, use annotationPaths in <configuration>:
