@@ -237,7 +237,7 @@ for most cases. Kotlin provides a shorthand syntax for this, that we call a **st
 Not only classes can have type parameters. Functions can, too. Usually, we place the type parameters in angle brackets **after** the name of the function:
 
 ``` kotlin
-fun singletonList<T>(item: T): List<T> {
+fun <T> singletonList(item: T): List<T> {
   // ...
 }
 ```
@@ -266,7 +266,7 @@ The set of all possible types that can be substituted for a given type parameter
 The most common type of constraint is an **upper bound** that corresponds to Java's *extends* keyword:
 
 ``` kotlin
-fun sort<T : Comparable<T>>(list: List<T>) {
+fun <T : Comparable<T>> sort(list: List<T>) {
   // ...
 }
 ```
@@ -282,7 +282,7 @@ The default upper bound (if none specified) is `Any?`. Only one upper bound can 
 If the same type parameter needs more than one upper bound, we need a separate **where**\-clause:
 
 ``` kotlin
-fun cloneWhenGreater<T : Comparable<T>>(list: List<T>, threshold: T): List<T>
+fun <T : Comparable<T>> cloneWhenGreater(list: List<T>, threshold: T): List<T>
     where T : Cloneable {
   return list when {it > threshold} map {it.clone()}
 }
