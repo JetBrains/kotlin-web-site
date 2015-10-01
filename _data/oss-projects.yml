@@ -98,8 +98,8 @@
   type: Library
   link: https://github.com/mplatvoet/progress
   
-- name: Injekt (Kohesive-Injekt)
-  description: Dependency Injection / Object Factor for Kotlin
+- name: Injekt
+  description: Dependency Injection / Object Factory for Kotlin
   type: Library
   link: https://github.com/kohesive/injekt
   
@@ -112,3 +112,8 @@
   description: Small helper libraries for Kotlin, usually extensions to other libraries
   type: Library
   link: https://github.com/klutter/klutter
+  
+- name: Kovert
+  description: An invisible REST framework for Kotlin
+  type: Library
+  link: https://github.com/kohesive/kovert
