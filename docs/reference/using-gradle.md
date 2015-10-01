@@ -189,6 +189,10 @@ External annotations for JDK and Android SDK will be configured automatically. I
 kotlinOptions.annotations = file('<path to annotations>')
 ```
 
+## OSGi
+
+For OSGi support see [Kotlin OSGi wiki page](kotlin-osgi.md)
+
 ## Examples
 
 The [Kotlin Repository](https://github.com/jetbrains/kotlin) contains examples:
