@@ -8,14 +8,14 @@ title: "Data Classes"
 # Data Classes
 
 We frequently create classes that do nothing but hold data. In such classes some functionality is often mechanically
-derivable from the data they hold. In Kotlin a class can be annotated as `data`:
+derivable from the data they hold. In Kotlin a class can be marked as `data`:
  
 ``` kotlin
 data class User(val name: String, val age: Int)
 ```
 
-This is called a _data class_. The compiler automatically derives the following members from all properties _declared in 
-the primary constructor_:
+This is called a _data class_. The compiler automatically derives the following members from all properties declared in
+the primary constructor:
   
   * `equals()`/`hashCode()` pair, 
   * `toString()` of the form `"User(name=John, age=42)"`,
@@ -23,10 +23,14 @@ the primary constructor_:
   * `copy()` function (see below).
   
 If any of these functions is explicitly defined in the class body or inherited from the base types, it will not be generated.
-  
-*NOTE* that if a constructor parameter does not have a `val` or `var` in front of it, it will not be included in computation
-of all these functions; nor will be properties declared in the class body or inherited from the superclass.
 
+To ensure consistency and meaningful behavior of the generated code, data classes have to fulfil the following requirements:
+
+  * The primary constructor needs to have at least one parameter;
+  * All primary constructor parameters need to be marked as `val` or `var`;
+  * Data classes cannot be abstract, open, sealed or inner;
+  * Data classes may not extend other classes (but may implement interfaces).
+  
 > On the JVM, if the generated class needs to have a parameterless constructor, default values for all properties have to be specified
 > (see [Constructors](classes.html#constructors)).
 >

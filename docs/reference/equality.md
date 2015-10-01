@@ -17,14 +17,6 @@ In Kotlin there are two types of equality:
 Referential equality is checked by the `===` operation (and its negated counterpart `!==`). `a === b` evaluates to
 true if and only if `a` and `b` point to the same object.
 
-Alternatively, you can check for reference equality using a built-in inline function `identityEquals()`:
-
-``` kotlin
-a.identityEquals(b)
-```
-
-This also returns true if and only if `a` and `b` point to the same object.
-
 ## Structural equality
 
 Structural equality is checked by the `==` operation (and its negated counterpart `!=`). By convention, an expression like `a == b` is translated to

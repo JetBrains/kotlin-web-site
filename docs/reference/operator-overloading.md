@@ -10,6 +10,7 @@ category: "Syntax"
 Kotlin allows us to provide implementations for a predefined set of operators on our types. These operators have fixed symbolic representation
 (like `+` or `*`) and fixed [precedence](grammar.html#precedence). To implement an operator, we provide a [member function](functions.html#member-functions)
 or an [extension function](extensions.html) with a fixed name, for the corresponding type, i.e. left-hand side type for binary operations and argument type for unary ones.
+Functions that overload operators need to be marked with the `operator` modifier.
 
 ## Conventions
 
@@ -26,7 +27,7 @@ Here we describe the conventions that regulate operator overloading for differen
 This table says that when the compiler processes, for example, an expression `+a`, it performs the following steps:
 
 * Determines the type of `a`, let it be `T`.
-* Looks up a function `plus()` with no parameters for the receiver `T`, i.e. a member function or an extension function.
+* Looks up a function `plus()` with the `operator` modifier and no parameters for the receiver `T`, i.e. a member function or an extension function.
 * If the function is absent or ambiguous, it is a compilation error.
 * If the function is present and its return type is `R`, the expression `+a` has type `R`.
 
@@ -47,7 +48,7 @@ These operations are supposed to change their receiver and (optionally) return a
 The compiler performs the following steps for resolution of an operator in the *postfix* form, e.g. `a++`:
 
 * Determines the type of `a`, let it be `T`.
-* Looks up a function `inc()` with no parameters, applicable to the receiver of type `T`.
+* Looks up a function `inc()` with the `operator` modifier and no parameters, applicable to the receiver of type `T`.
 * If the function returns a type `R`, then it must be a subtype of `T`.
 
 The effect of computing the expression is:
@@ -101,7 +102,7 @@ Square brackets are translated to calls to `get` and `set` with appropriate numb
 | `a(i, j)`  | `a.invoke(i, j)` |
 | `a(i_1, ...,  i_n)`  | `a.invoke(i_1, ...,  i_n)` |
 
-Parentheses are translated to calls to invoke with appropriate number of arguments.
+Parentheses are translated to calls to `invoke` with appropriate number of arguments.
 
 | Expression | Translated to |
 |------------|---------------|
@@ -125,8 +126,8 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 
 | Expression | Translated to |
 |------------|---------------|
-| `a == b` | `a?.equals(b) ?: b.identityEquals(null)` |
-| `a != b` | `!(a?.equals(b) ?: b.identityEquals(null))` |
+| `a == b` | `a?.equals(b) ?: b === null` |
+| `a != b` | `!(a?.equals(b) ?: b === null)` |
 
 *Note*: `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them
 

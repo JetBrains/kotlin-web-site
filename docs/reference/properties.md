@@ -93,17 +93,17 @@ var setterWithAnnotation: Any?
 ### Backing Fields
 
 Classes in Kotlin cannot have fields. However, sometimes it is necessary to have a backing field when using custom accessors. For these purposes, Kotlin provides
-an automatic backing field which can be accessed using the *$* symbol followed by the property name.
+an automatic backing field which can be accessed using the `field` identifier:
 
 ``` kotlin
 var counter = 0 // the initializer value is written directly to the backing field
   set(value) {
     if (value >= 0)
-      $counter = value
+      field = value
   }
 ```
 
-The `$counter` field can be accessed only from inside the class where the counter property is defined.
+The `field` identifier can only be used in the accessors of the property.
 
 The compiler looks at the accessors' bodies, and if they use the backing field (or the accessor implementation is left by default), a backing field is generated, otherwise it is not.
 
@@ -131,6 +131,24 @@ public val table: Map<String, Int>
 In all respects, this is just the same as in Java since access to private properties with default getters and setters is optimized so that no function call overhead is introduced.
 
 
+## Compile-Time Constants
+
+Properties the value of which is known at compile time can be marked as _compile time constants_ using the `const` modifier.
+Such properties need to fulfil the following requirements:
+
+  * Top-level or member of an `object`
+  * Initialized with a value of type `String` or a primitive type
+  * No custom getter
+
+Such properties can be used in annotations:
+
+``` kotlin
+const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
+
+@Deprecated(SUBSYSTEM_DEPRECATED) fun foo() { ... }
+```
+
+
 ## Late-Initialized Properties
 
 Normally, properties declared as having a non-null type must be initialized in the constructor.
@@ -154,7 +172,7 @@ public class MyTest {
 }
 ```
 
-The modifier can only be used on properties declared inside the body of a class (not in the primary constructor), and only
+The modifier can only be used on `var` properties declared inside the body of a class (not in the primary constructor), and only
 when the property does not have a custom getter or setter. The type of the property must be non-null, and it must not be
 a primitive type.
 
