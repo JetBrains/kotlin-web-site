@@ -110,8 +110,10 @@ fun main(args: Array<String>) {
 ```
 
 By default, the evaluation of lazy properties is **synchronized**: the value is computed only in one thread, and all threads
-will see the same value. If the synchronization is not required (multiple threads can call the delegate), pass
-`LazyThreadSafetyMode.NONE` as a parameter to the `lazy()` function.
+will see the same value. If the synchronization of initialization delegate is not required, so that multiple threads
+can execute it simultaneously, pass `LazyThreadSafetyMode.PUBLICATION` as a parameter to the `lazy()` function. 
+And if you're sure that the initialization will always happen on a single thread, you can use `LazyThreadSafetyMode.NONE` mode, 
+which doesn't incur any thread-safety guaratees and the related overhead.
 
 
 ### Observable
