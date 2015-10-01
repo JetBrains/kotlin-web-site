@@ -170,7 +170,7 @@ public @interface Ann {
 
 ``` kotlin
 // Kotlin
-Ann(intValue = 1, stringValue = "abc") class C
+@Ann(intValue = 1, stringValue = "abc") class C
 ```
 
 Just like in Java, a special case is the `value` parameter; its value can be specified without an explicit name.
@@ -184,7 +184,7 @@ public @interface AnnWithValue {
 
 ``` kotlin
 // Kotlin
-AnnWithValue("abc") class C
+@AnnWithValue("abc") class C
 ```
 
 If the `value` argument in Java has an array type, it becomes a `vararg` parameter in Kotlin:
@@ -198,7 +198,7 @@ public @interface AnnWithArrayValue {
 
 ``` kotlin
 // Kotlin
-AnnWithArrayValue("abc", "foo", "bar") class C
+@AnnWithArrayValue("abc", "foo", "bar") class C
 ```
 
 If you need to specify a class as an argument of an annotation, use a Kotlin class
@@ -212,7 +212,7 @@ import kotlin.reflect.KClass
 
 annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any?>)
 
-Ann(String::class, Int::class) class MyClass
+@Ann(String::class, Int::class) class MyClass
 ```
 
 Values of an annotation instance are exposed as properties to Kotlin code.
