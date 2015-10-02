@@ -15,6 +15,8 @@ Provides a complete reference to Kotlin
 ### Browse offline
 You can download the entire reference documentation as a single [PDF file]({{ site.pdf_url }}).
 
+# Books
+
 ## Kotlin in Action
 
    <a href="https://manning.com/books/kotlin-in-action"><img src="{{ site.baseurl }}/assets/images/Jemerov-Kotlin-MEAP-HI.png"></a>
@@ -24,3 +26,11 @@ developers on the Kotlin team. The book is currently available through the MEAP 
 chapter-by-chapter while it is being written and get the final book when it is finished.
 
 Use the coupon code '39jemerov' to get a 39% discount code on the book.
+
+## Kotlin for Android Developers
+
+  <a href="https://leanpub.com/kotlin-for-android-developers"><img src="{{ site.baseurl }}/assets/images/kotlin-for-android-developers.png"></a>
+
+[Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers) is a book by Antonio Leiva showing
+how Kotlin can be used for creating an Android application from scratch.
+The book is a "lean publication", meaning that it is available for purchase while the book is still written.
