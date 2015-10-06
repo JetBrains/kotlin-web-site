@@ -1021,3 +1021,11 @@
   date: [2015-11-27, 2015-11-28]
   location: Madrid, Spain
   lang: sp
+
+- title: GDG Karlsruhe DevFest
+  url: http://www.devfestka.de/programm
+  subject: "Kotlin: A New Language for Android Development"
+  speaker: Dmitry Jemerov
+  date: 2015-11-14
+  location: Karlsruhe, Germany
+  lang: en
