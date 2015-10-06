@@ -30,11 +30,11 @@ For example:
 ``` kotlin
 class Delegate {
   fun get(thisRef: Any?, property: PropertyMetadata): String {
-    return "$thisRef, thank you for delegating '${prop.name}' to me!"
+    return "$thisRef, thank you for delegating '${property.name}' to me!"
   }
  
   fun set(thisRef: Any?, property: PropertyMetadata, value: String) {
-    println("$value has been assigned to '${prop.name} in $thisRef.'")
+    println("$value has been assigned to '${property.name} in $thisRef.'")
   }
 }
 ```
