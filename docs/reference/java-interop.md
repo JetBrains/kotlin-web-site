@@ -381,6 +381,14 @@ val executor = ThreadPoolExecutor()
 executor.execute { println("This runs in a thread pool") }
 ```
 
+If the Java class has multiple methods taking functional interfaces, you can choose the one you need to call by
+using an adapter function that converts a lambda to a specific SAM type. Those adapter functions are also generated
+by the compiler when needed.
+
+``` kotlin
+executor.execute(Runnable { println("This runs in a thread pool") })
+```
+
 Note that SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
 abstract method.
 
