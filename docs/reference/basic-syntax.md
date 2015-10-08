@@ -5,11 +5,11 @@ category: "Basics"
 title: "Basic Syntax"
 ---
 
-# 基础语法
+# 基本语法
 
 ## 定义包
 
-应该在源文件的最顶端定义包:
+包的声明应处于文件顶部：
 
 ``` kotlin
 package my.demo
@@ -19,13 +19,13 @@ import java.util.*
 // ...
 ```
 
-没必要去匹配目录和包: 在文件系统中源文件可以任意放置。
+包的结构并不需要与文件夹路径完全匹配：源代码可以在文件系统的任意位置
 
-查看 [包](packages.html).
+参阅 [Packages](packages.html).
 
-## 定义方法
+## 定义函数
 
-这个方法有两个 `Int` 参数 ，和`Int`类型的返回值:
+带有两个 `Int` 参数， 返回 `Int` 的函数:
 
 ``` kotlin
 fun sum(a: Int, b: Int): Int {
@@ -33,19 +33,13 @@ fun sum(a: Int, b: Int): Int {
 }
 ```
 
-这个方法使用的是表达式的方法体和推断类型的返回值:
+将表达式作为函数体，返回值自动推断的函数:
 
 ``` kotlin
 fun sum(a: Int, b: Int) = a + b
 ```
 
-一个方法如果是public的，应该有明确的返回值:
-
-``` kotlin
-public fun sum(a: Int, b: Int): Int = a + b
-```
-
-这个方法是返回无意义的值（其实就是空吧）:
+不确定返回值 `Unit` 的函数:
 
 ``` kotlin
 fun printSum(a: Int, b: Int): Unit {
@@ -53,7 +47,7 @@ fun printSum(a: Int, b: Int): Unit {
 }
 ```
 
-`Unit`返回值可以被省略:
+`Unit` 类型的返回，在函数定义中可以省略:
 
 ``` kotlin
 public fun printSum(a: Int, b: Int) {
@@ -61,29 +55,29 @@ public fun printSum(a: Int, b: Int) {
 }
 ```
 
-查看 [方法](functions.html).
+参阅 [Functions](functions.html).
 
 ## 定义局部变量
 
-不可变(只读)变量:
+常量（使用 `val` 关键字声明）:
 
 ``` kotlin
 val a: Int = 1
-val b = 1 // `Int` type is inferred
-val c: Int // Type required when no initializer is provided
-c = 1 // definite assignment
+val b = 1  // `Int` 类型自动推断
+val c: Int // 如果没有初始值，声明常量时，常量的类型不能省略
+c = 1 // 明确赋值
 ```
 
-可变变量:
+变量（使用 `var` 关键字声明）:
 
 ``` kotlin
-var x = 5 // `Int` type is inferred
+var x = 5 // `Int` 类型自动推断（ 5 默认是 `Int` ）
 x += 1
 ```
 
-查看 [Properties And Fields](properties.html).
+参阅 [Properties And Fields](properties.html).
 
-## 使用String模板
+## 使用字符串模板
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -93,9 +87,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-查看 [String模板](basic-types.html#string-templates).
+参阅 [String templates](basic-types.html#string-templates).
 
-## 使用条件表达式
+## 使用条件判断
 
 ``` kotlin
 fun max(a: Int, b: Int): Int {
@@ -106,19 +100,20 @@ fun max(a: Int, b: Int): Int {
 }
 ```
 
-使用 *if*{: .keyword } 作表达式:
+使用 *if*{: .keyword } 作为表达式:
 
 ``` kotlin
 fun max(a: Int, b: Int) = if (a > b) a else b
 ```
 
-查看 [*if*{: .keyword }-表达式](control-flow.html#if-expression).
+参阅 [*if*{: .keyword }-expressions](control-flow.html#if-expression).
 
-## 使用可空类型（nullable）变量来判断 *null*{: .keyword }
+## Using nullable values and checking for *null*{: .keyword }
 
-一个引用必须被显示标记为nullable，当它可能为空的时候。
+当某个变量的值可以为 *null*{: .keyword } 的时候，必须在声明处的类型后添加 ? 来标识该引用可为空
+A reference must be explicitly marked as nullable when *null*{: .keyword } value is possible.
 
-返回 *null*{: .keyword } 如果 `str` 不是整数的话。
+返回 *null*{: .keyword } 假如 `str` 的内容不是数字:
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -126,7 +121,7 @@ fun parseInt(str: String): Int? {
 }
 ```
 
-下面是返回可空值的方法:
+返回值可以是 *null*{: .keyword } 的函数:
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -138,9 +133,9 @@ fun main(args: Array<String>) {
   val x = parseInt(args[0])
   val y = parseInt(args[1])
 
-  // Using `x * y` yields error because they may hold nulls.
+  // 直接使用 `x * y` 可能会报错，因为他们可能为 null
   if (x != null && y != null) {
-    // x and y are automatically cast to non-nullable after null check
+    // 在空指针判断后，x 和 y 会自动变成非空(non-nullable)值
     print(x * y)
   }
 }
@@ -159,25 +154,25 @@ fun main(args: Array<String>) {
     return
   }
 
-  // x and y are automatically cast to non-nullable after null check
+  // 在空指针判断后，x 和 y 会自动变成非空值
   print(x * y)
 ```
 
-查看 [Null-safety](null-safety.html).
+参阅 [Null-safety](null-safety.html).
 
-## 使用类型检查和自动转换
+## Using type checks and automatic casts
 
-*is*{: .keyword } 操作符会检查一个表达式是否是该类型。
-如果检查到一个局部变量或属性是这个类型，那么就会进行自动转换:
+*is*{: .keyword } 运算符用于类型判断: 检查某个实例是否是某类型
+如果一个局部常量或者不可变的类成员变量已经判断出为某类型，那么判断后的分支中可以直接当作该类型使用，无需强制转换
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
   if (obj is String) {
-    // `obj` is automatically cast to `String` in this branch
+    // `obj` 在该条件判断分支内自动转换成 `String`
     return obj.length
   }
 
-  // `obj` is still of type `Any` outside of the type-checked branch
+  // 在离开类型判断分支后， `obj` 仍然是 `Any` 类型
   return null
 }
 ```
@@ -189,16 +184,16 @@ fun getStringLength(obj: Any): Int? {
   if (obj !is String)
     return null
 
-  // `obj` is automatically cast to `String` in this branch
+  // `obj` 在一下类型判断分支自动转换为 `String`
   return obj.length
 }
 ```
 
-更甚
+甚至
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
-  // `obj` is automatically cast to `String` on the right-hand side of `&&`
+  // `obj` 在 `&&` 右边自动转换成 `String` 类型
   if (obj is String && obj.length > 0)
     return obj.length
 
@@ -206,7 +201,7 @@ fun getStringLength(obj: Any): Int? {
 }
 ```
 
-查看 [Classes](classes.html) 和 [Type casts](typecasts.html).
+参阅 [Classes](classes.html) and [Type casts](typecasts.html).
 
 ## 使用 `for` 循环
 
@@ -224,9 +219,9 @@ for (i in args.indices)
   print(args[i])
 ```
 
-查看 [for loop](control-flow.html#for-loops).
+参阅 [for循环](control-flow.html#for-loops).
 
-## 使用  `while` 循环
+## Using a `while` loop
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -236,7 +231,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-查看 [while loop](control-flow.html#while-loops).
+See [while 循环](control-flow.html#while-loops).
 
 ## 使用 `when` 表达式
 
@@ -252,54 +247,53 @@ fun cases(obj: Any) {
 }
 ```
 
-查看 [when expression](control-flow.html#when-expression).
+参阅 [when表达式](control-flow.html#when-expression).
 
-## 使用范围表达式
+## 使用区间（ranges）
 
-查看一个数字是否在某个范围里使用 *in*{: .keyword } 操作符:
+使用 *in*{: .keyword } 运算符来检查某个数字是否在指定区间内：
 
 ``` kotlin
 if (x in 1..y-1)
   print("OK")
 ```
 
-检查一个数字是否不在某范围:
+检查某个数字是否在指定区间外:
 
 ``` kotlin
 if (x !in 0..array.lastIndex)
   print("Out")
 ```
 
-在一个范围内迭代:
+区间内迭代:
 
 ``` kotlin
 for (x in 1..5)
   print(x)
 ```
 
-查看 [Ranges](ranges.html).
+参阅 [区间 Ranges](ranges.html).
 
 ## 使用集合
 
-在一个集合里迭代:
+对集合进行迭代:
 
 ``` kotlin
 for (name in names)
   println(name)
 ```
 
-查看一个集合里是否有某个对象使用 *in*{: .keyword } 操作符:
+使用 *in*{: .keyword } 运算符来判断集合内是否包含(.contains)某实例 *in*{: .keyword } ：
 
 ``` kotlin
-if (text in names) // names.contains(text) is called
+if (text in names) // 自动调用 names.contains(text)
   print("Yes")
 ```
 
-使用函数来过滤和控制集合:
+使用字面量函数(方便的 Higher-order 函数)来过滤(filter)和变换(map)集合：
 
 ``` kotlin
-names filter { it.startsWith("A") } sortBy { it } map { it.toUpperCase() } forEach { print(it) }
+names.filter { it.startsWith("A") }.sortBy { it }.map { it.toUpperCase() }.forEach { print(it) }
 ```
 
-查看 [Higher-order functions and Lambdas](lambdas.html).
-
+参阅 [Higher-order函数及Lambda表达式](lambdas.html).
