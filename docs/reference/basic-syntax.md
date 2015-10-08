@@ -5,11 +5,11 @@ category: "Basics"
 title: "Basic Syntax"
 ---
 
-# Basic Syntax
+# 基础语法
 
-## Defining packages
+## 定义包
 
-Package specification should be at the top of the source file:
+应该在源文件的最顶端定义包:
 
 ``` kotlin
 package my.demo
@@ -19,13 +19,13 @@ import java.util.*
 // ...
 ```
 
-It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
+没必要去匹配目录和包: 在文件系统中源文件可以任意放置。
 
-See [Packages](packages.html).
+查看 [包](packages.html).
 
-## Defining functions
+## 定义方法
 
-Function having two `Int` parameters with `Int` return type:
+这个方法有两个 `Int` 参数 ，和`Int`类型的返回值:
 
 ``` kotlin
 fun sum(a: Int, b: Int): Int {
@@ -33,13 +33,19 @@ fun sum(a: Int, b: Int): Int {
 }
 ```
 
-Function with an expression body and inferred return type:
+这个方法使用的是表达式的方法体和推断类型的返回值:
 
 ``` kotlin
 fun sum(a: Int, b: Int) = a + b
 ```
 
-Function returning no meaningful value:
+一个方法如果是public的，应该有明确的返回值:
+
+``` kotlin
+public fun sum(a: Int, b: Int): Int = a + b
+```
+
+这个方法是返回无意义的值（其实就是空吧）:
 
 ``` kotlin
 fun printSum(a: Int, b: Int): Unit {
@@ -47,7 +53,7 @@ fun printSum(a: Int, b: Int): Unit {
 }
 ```
 
-`Unit` return type can be omitted:
+`Unit`返回值可以被省略:
 
 ``` kotlin
 public fun printSum(a: Int, b: Int) {
@@ -55,11 +61,11 @@ public fun printSum(a: Int, b: Int) {
 }
 ```
 
-See [Functions](functions.html).
+查看 [方法](functions.html).
 
-## Defining local variables
+## 定义局部变量
 
-Assign-once (read-only) local variable:
+不可变(只读)变量:
 
 ``` kotlin
 val a: Int = 1
@@ -68,16 +74,16 @@ val c: Int // Type required when no initializer is provided
 c = 1 // definite assignment
 ```
 
-Mutable variable:
+可变变量:
 
 ``` kotlin
 var x = 5 // `Int` type is inferred
 x += 1
 ```
 
-See also [Properties And Fields](properties.html).
+查看 [Properties And Fields](properties.html).
 
-## Using string templates
+## 使用String模板
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -87,9 +93,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-See [String templates](basic-types.html#string-templates).
+查看 [String模板](basic-types.html#string-templates).
 
-## Using conditional expressions
+## 使用条件表达式
 
 ``` kotlin
 fun max(a: Int, b: Int): Int {
@@ -100,19 +106,19 @@ fun max(a: Int, b: Int): Int {
 }
 ```
 
-Using *if*{: .keyword } as an expression:
+使用 *if*{: .keyword } 作表达式:
 
 ``` kotlin
 fun max(a: Int, b: Int) = if (a > b) a else b
 ```
 
-See [*if*{: .keyword }-expressions](control-flow.html#if-expression).
+查看 [*if*{: .keyword }-表达式](control-flow.html#if-expression).
 
-## Using nullable values and checking for *null*{: .keyword }
+## 使用可空类型（nullable）变量来判断 *null*{: .keyword }
 
-A reference must be explicitly marked as nullable when *null*{: .keyword } value is possible.
+一个引用必须被显示标记为nullable，当它可能为空的时候。
 
-Return *null*{: .keyword } if `str` does not hold an integer:
+返回 *null*{: .keyword } 如果 `str` 不是整数的话。
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -120,7 +126,7 @@ fun parseInt(str: String): Int? {
 }
 ```
 
-Use a function returning nullable value:
+下面是返回可空值的方法:
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -140,7 +146,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-or
+或者
 
 ``` kotlin
   // ...
@@ -157,12 +163,12 @@ or
   print(x * y)
 ```
 
-See [Null-safety](null-safety.html).
+查看 [Null-safety](null-safety.html).
 
-## Using type checks and automatic casts
+## 使用类型检查和自动转换
 
-The *is*{: .keyword } operator checks if an expression is an instance of a type.
-If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
+*is*{: .keyword } 操作符会检查一个表达式是否是该类型。
+如果检查到一个局部变量或属性是这个类型，那么就会进行自动转换:
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
@@ -176,7 +182,7 @@ fun getStringLength(obj: Any): Int? {
 }
 ```
 
-or
+或者
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
@@ -188,7 +194,7 @@ fun getStringLength(obj: Any): Int? {
 }
 ```
 
-or even
+更甚
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
@@ -200,9 +206,9 @@ fun getStringLength(obj: Any): Int? {
 }
 ```
 
-See [Classes](classes.html) and [Type casts](typecasts.html).
+查看 [Classes](classes.html) 和 [Type casts](typecasts.html).
 
-## Using a `for` loop
+## 使用 `for` 循环
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -211,16 +217,16 @@ fun main(args: Array<String>) {
 }
 ```
 
-or
+或者
 
 ``` kotlin
 for (i in args.indices)
   print(args[i])
 ```
 
-See [for loop](control-flow.html#for-loops).
+查看 [for loop](control-flow.html#for-loops).
 
-## Using a `while` loop
+## 使用  `while` 循环
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -230,9 +236,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-See [while loop](control-flow.html#while-loops).
+查看 [while loop](control-flow.html#while-loops).
 
-## Using `when` expression
+## 使用 `when` 表达式
 
 ``` kotlin
 fun cases(obj: Any) {
@@ -246,54 +252,54 @@ fun cases(obj: Any) {
 }
 ```
 
-See [when expression](control-flow.html#when-expression).
+查看 [when expression](control-flow.html#when-expression).
 
-## Using ranges
+## 使用范围表达式
 
-Check if a number is within a range using *in*{: .keyword } operator:
+查看一个数字是否在某个范围里使用 *in*{: .keyword } 操作符:
 
 ``` kotlin
 if (x in 1..y-1)
   print("OK")
 ```
 
-Check if a number is out of range:
+检查一个数字是否不在某范围:
 
 ``` kotlin
 if (x !in 0..array.lastIndex)
   print("Out")
 ```
 
-Iterating over a range:
+在一个范围内迭代:
 
 ``` kotlin
 for (x in 1..5)
   print(x)
 ```
 
-See [Ranges](ranges.html).
+查看 [Ranges](ranges.html).
 
-## Using collections
+## 使用集合
 
-Iterating over a collection:
+在一个集合里迭代:
 
 ``` kotlin
 for (name in names)
   println(name)
 ```
 
-Checking if a collection contains an object using *in*{: .keyword } operator:
+查看一个集合里是否有某个对象使用 *in*{: .keyword } 操作符:
 
 ``` kotlin
 if (text in names) // names.contains(text) is called
   print("Yes")
 ```
 
-Using function literals to filter and map collections:
+使用函数来过滤和控制集合:
 
 ``` kotlin
-names.filter { it.startsWith("A") }.sortBy { it }.map { it.toUpperCase() }.forEach { print(it) }
+names filter { it.startsWith("A") } sortBy { it } map { it.toUpperCase() } forEach { print(it) }
 ```
 
-See [Higher-order functions and Lambdas](lambdas.html).
+查看 [Higher-order functions and Lambdas](lambdas.html).
 

@@ -50,10 +50,9 @@ As of M11, Kotlin sources can be mixed with Java sources in the same folder, or 
 
 ``` groovy
 project
-    - src
-        - main (root)
-            - kotlin
-            - java
+    - main (root)
+        - kotlin
+        - java
 ```
 
 The corresponding *sourceSets* property should be updated if not using the default convention

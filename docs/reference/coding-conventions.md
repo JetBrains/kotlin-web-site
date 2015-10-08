@@ -5,22 +5,27 @@ category: Basics
 title: Coding Conventions
 ---
 
-# Coding Conventions
+# 编码习惯
 
-This page contains the current coding style for the Kotlin language.
+下面是kotlin语言当前的编码习惯。
 
-## Naming Style
-If in doubt default to the Java Coding Conventions such as:
+## 命名风格
+很多情况采用Java的编码风格，例如:
 
-* use of camelCase for names (and avoid underscore in names)
-* types start with upper case
-* methods and properties start with lower case
-* use 4 space indentation
-* public functions should have documentation such that it appears in Kotlin Doc
+* 名称使用驼峰写法 (避免名称中出现下划线)
+* 类型用大写字母开头
+* 方法和属性用小写字母开头
+* 4个空格缩进
+* public 方法应该有文档注释
 
-## Colon
+Kotlin没有fields概念 -- 只有属性。
+避免在属性前使用前缀, 例如 _ 或者 m_ 或者其它符号。
+如果你希望一个属性能像field一样使用, 使用 $前缀: `$foo`指的是后面属性`foo`;
+永远不要建立像这样的`_foo` 私有属性。
 
-There is a space before colon where colon separates type and supertype and there's no space where colon separates instance and type:
+## 冒号
+
+在分隔子父类或接口的时候，或在分隔实例和类型的时候应该有一个空格:
 
 ``` kotlin
 interface Foo<out T : Any> : Bar {
@@ -28,21 +33,8 @@ interface Foo<out T : Any> : Bar {
 }
 ```
 
-## Lambdas
-
-In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
-from the body. Whenever possible, a lambda should be passed outside of parentheses.
-
-``` kotlin
-list.filter { it > 10 }.map { element -> element * 2 }
-```
-
-In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
-explicitly. In nested lambdas with parameters, parameters should be always declared explicitly.
-
 ## Unit
-
-If a function returns Unit, the return type should be omitted:
+如果一个方法返回 Unit（感觉就是空）,返回类型可以被省略:
 
 ``` kotlin
 fun foo() { // ": Unit" is omitted here
