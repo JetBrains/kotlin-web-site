@@ -5,21 +5,16 @@ category: "Syntax"
 title: "Type-Safe Groovy-Style Builders"
 ---
 
-# Type-Safe Builders
 
-The concept of [builders](http://groovy.codehaus.org/Builders) is rather popular in the *Groovy* community. 
-Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://groovy.codehaus.org/GroovyMarkup), 
-[laying out UI components](http://groovy.codehaus.org/GroovySWT), 
-[describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081) and more...
+[构建器](http://groovy.codehaus.org/Builders)(builders)的概念在*Groovy*社区非常热门。
+使用构建器我们可以用半声明(semi-declarative)的方式定义数据。
+构建器非常适合用来生成[XML](http://groovy.codehaus.org/GroovyMarkup)，[组装UI组件](http://groovy.codehaus.org/GroovySWT), [描述3D场景](http://www.artima.com/weblogs/viewpost.jsp?thread=296081)，以及很多其他功能...
+很多情况下，Kotlin允许*检查类型*的构建器，这样比Groovy本身提供的构建器更有吸引力。
+其他情况下，Kotlin也支持*动态类型*的构建器。
 
-For many use cases, Kotlin allows to *type-check* builders, which makes them even more attractive than the 
-dynamically-typed implementation made in Groovy itself.
+## 一个类型安全的构建器的示例
 
-For the rest of the cases, Kotlin supports Dynamic types builders.
-
-## A type-safe builder example
-
-Consider the following code that is taken from [here](http://groovy.codehaus.org/Builders) and slightly adapted:
+考虑下面的代码。这段代码是从[这里](http://groovy.codehaus.org/Builders)摘出来并稍作修改的：
 
 ``` kotlin
 import com.example.html.* // see declarations below
@@ -34,14 +29,14 @@ fun result(args: Array<String>) =
       p  {+"this format can be used as an alternative markup to XML"}
 
       // an element with attributes and text content
-      a(href = "http://kotlinlang.org") {+"Kotlin"}
+      a(href = "http://jetbrains.com/kotlin") {+"Kotlin"}
 
       // mixed content
       p {
         +"This is some"
         b {+"mixed"}
         +"text. For more see the"
-        a(href = "http://kotlinlang.org") {+"Kotlin"}
+        a(href = "http://jetbrains.com/kotlin") {+"Kotlin"}
         +"project"
       }
       p {+"some text"}
@@ -55,18 +50,17 @@ fun result(args: Array<String>) =
   }
 ```
 
-This is a completely legitimate Kotlin code. 
-You can play with this code online (modify it and run in the browser) [here](http://try.kotlinlang.org/#/Examples/Longer examples/HTML Builder/HTML Builder.kt).
+这是一段完全合法的Kotlin代码。(在IDEA中)，可以点击函数名称浏览他们的定义代码。 [这里](http://try.kotlinlang.org/#/Examples/Longer examples/HTML Builder/HTML Builder.kt).
 
-## How it works
+## 构建器的实现原理
 
-Let's walk through the mechanisms of implementing type-safe builders in Kotlin.
-First of all we need to define the model we want to build, in this case we need to model HTML tags.
-It is easily done with a bunch of classes.
-For example, `HTML` is a class that describes the `<html>` tag, i.e. it defines children like `<head>` and `<body>`.
-(See its declaration [below](#declarations).)
+让我们一步一步了解Kotlin中的类型安全构建器是如何实现的。
+首先我们需要定义构建的模型，在这里我们需要构建的是HTML标签的模型。
+用一些类就可以轻易实现。
+比如`HTML`是一个类，描述`<html>`标签；它定义了子标签`<head>`和`<body>`。
+(查看它的定义[下方](#declarations).)
 
-Now, let's recall why we can say something like this in the code:
+现在我们先回忆一下我们在构建器代码中这么声明:
 
 ``` kotlin
 html {
@@ -74,8 +68,8 @@ html {
 }
 ```
 
-This is actually a function call that takes a [function literal](lambdas.html) as an argument
-(see [this page](lambdas.html#higher-order-functions) for details). Actually, this function is defined as follows:
+这实际上是一个函数，其参数是一个[函数字面量](lambdas.html)(查看[这个页面](lambdas.html#higher-order-functions)的详细说明)
+这个函数定义如下：
 
 ``` kotlin
 fun html(init: HTML.() -> Unit): HTML {
@@ -85,10 +79,8 @@ fun html(init: HTML.() -> Unit): HTML {
 }
 ```
 
-This function takes one parameter named `init`, which is itself a function.
-Actually, it is an [extension function](extensions.html) that has a receiver of type `HTML` (and returns nothing interesting, i.e. `Unit`).
-So, when we pass a function literal as an argument to `html`, it is typed as an extension function literal,
-and there's a *this*{: .keyword } reference available:
+这个函数定义一个叫做`init`的参数，本身是个函数。实际上，它是一个[扩展函数](extensions.html)，其接受者类型为`HTML`(并且返回`Unit`)。
+所以，当我们传入一个函数字面量作为参数时， 它被认定为一个扩展函数，从而在内部就可以使用*this*{: .keyword }引用了。
 
 ``` kotlin
 html {
@@ -97,9 +89,10 @@ html {
 }
 ```
 
-(`head` and `body` are member functions of `html`.)
 
-Now, *this*{: .keyword } can be omitted, as usual, and we get something that looks very much like a builder already:
+(`head` 和 `body`都是`HTML`类的成员函数)
+
+现在，和平时一样，*this*{: .keyword }可以省略掉，所以我们就可以得到一段已经很有构建器风格的代码：:
 
 ``` kotlin
 html {
@@ -108,13 +101,11 @@ html {
 }
 ```
 
-So, what does this call do? Let's look at the body of `html` function as defined above.
-It creates a new instance of `HTML`, then it initializes it by calling the function that is passed as an argument
-(in our example this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance. 
-This is exactly what a builder should do.
+那么，这个调用做了什么？ 
+让我们看看上面定义的`html`函数的函数体。它新建了一个`HTML`对象，接着调用传入的函数来初始化它，（在我们上面的`HTML`例子中，在`html`对象上调用了`body()`函数），接着返回this实例。
+这正是构建器所应做的。
 
-The `head` and `body` functions in the `HTML` class are defined similarly to `html`. 
-The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
+HTML类里定义的`head`和`body`函数的定义类似于`html`函数。唯一的区别是，它们将新建的实力先添加到html的children属性上，再返回：
 
 ``` kotlin
 fun head(init: Head.() -> Unit) {
@@ -132,7 +123,7 @@ fun body(init: Body.() -> Unit) {
 }
 ```
 
-Actually these two functions do just the same thing, so we can have a generic version, `initTag`:
+实际上这两个函数做的是完全相同的事情，所以我们可以定义一个泛型函数`initTag`：
 
 ``` kotlin
   protected fun initTag<T : Element>(tag: T, init: T.() -> Unit): T {
@@ -142,7 +133,7 @@ Actually these two functions do just the same thing, so we can have a generic ve
   }
 ```
 
-So, now our functions are very simple:
+现在我们的函数变成了这样:
 
 ``` kotlin
 fun head(init: Head.() -> Unit) = initTag(Head(), init)
@@ -150,10 +141,10 @@ fun head(init: Head.() -> Unit) = initTag(Head(), init)
 fun body(init: Body.() -> Unit) = initTag(Body(), init)
 ```
 
-And we can use them to build `<head>` and `<body>` tags. 
+我们可以使用它们来构建`<head>` 和 `<body>` 标签. 
 
 
-One other thing to be discussed here is how we add text to tag bodies. In the example above we say something like
+另外一个需要讨论的是如何给标签添加文本内容。在上面的例子里我们使用了如下的方式：
 
 ``` kotlin
 html {
@@ -164,9 +155,9 @@ html {
 }
 ```
 
-So basically, we just put a string inside a tag body, but there is this little `+` in front of it,
-so it is a function call that invokes a prefix `plus()` operation. 
-That operation is actually defined by an extension function `plus()` that is a member of the `TagWithText` abstract class (a parent of `Title`):
+所以基本上，我们直接在标签体中添加文字，但前面需要在前面加一个`+`符号。
+事实上这个符号是用一个扩展函数`plus()`来定义的。
+`plus()`是抽象类`TagWithText`(`Title`的父类)的成员函数。
 
 ``` kotlin
 fun String.plus() {
@@ -174,17 +165,15 @@ fun String.plus() {
 }
 ```
 
-So, what the prefix `+` does here is it wraps a string into an instance of `TextElement` and adds it to the `children` collection,
-so that it becomes a proper part of the tag tree.
+所以，前缀`+`所做的事情是把字符串用`TextElement`对象包裹起来，并添加到children集合上，这样就正确加入到标签树中了。
+所有这些都定义在包`com.example.html`里，上面的构建器例子在代码顶端导入了。
+下一节里你可以详细的浏览这个名字空间中的所有定义。
 
-All this is defined in a package `com.example.html` that is imported at the top of the builder example above.
-In the next section you can read through the full definition of this package.
+## 包`com.example.html`的完整定义
 
-## Full definition of the `com.example.html` package
 
-This is how the package `com.example.html` is defined (only the elements used in the example above).
-It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and
-[Extension function literals](lambdas.html#extension-function-expressions).
+下面是包`com.example.html`的定义（只列出了上面的例子中用到的元素）。它可以生成一个HTML树。
+代码中大量使用了[扩展函数](extensions.html)和[扩展函数字面量](lambdas.html#extension-function-expressions)技术
 
 <a name='declarations'></a>
 
@@ -281,3 +270,27 @@ fun html(init: HTML.() -> Unit): HTML {
     return html
 }
 ```
+
+
+### 附录.让Java类更好
+
+上面的代码中有一段很好的：
+
+``` kotlin
+  class A() : BodyTag("a") {
+    var href: String
+      get() = attributes["href"]!!
+      set(value) { attributes["href"] = value }
+  }
+```
+
+我们访问映射(Map) `attributes`的方式，是把它当作 "关联数组" (associate array)来访问的：用`[]`操作符。
+依照编译器的[惯例](operator-overloading.html))它被翻译成`get(K)`和`set(K, V)`，正好。
+但是我们说过，`attributes`是一个*Java*`Map`，也就是说，它没有`set(K, V)`函数。(译注：Java的映射中的函数是`put(K, V)`)。
+在Kotlin中，这个问题很容易解决：
+
+``` kotlin
+  fun <K, V> Map<K, V>.set(key: K, value: V) = this.put(key, value)
+```
+
+所以我们只要给`Map`类添加一个[扩展函数](extensions.html)`set(K, V)`， 并委托`Map`类原有的`put(K, V)`函数，就可以让*Java*类使用Kotlin的操作符号了。

@@ -5,9 +5,9 @@ category: "Syntax"
 title: "Packages"
 ---
 
-# Packages
+# 包
 
-A source file may start with a package declaration:
+源文件通常以包声明开头:
 
 ``` kotlin
 package foo.bar
@@ -19,35 +19,38 @@ class Goo {}
 // ...
 ```
 
-All the contents (such as classes and functions) of the source file are contained by the package declared.
-So, in the example above, the full name of `baz()` is `foo.bar.baz`, and the full name of `Goo` is `foo.bar.Goo`. 
+源文件所有的(无论是类或者函数)被包声明覆盖.
+所以`baz()`的全名是`foo.bar.baz`, `Goo`的全名是`foo.bar.Goo`. 
  
-If the package is not specified, the contents of such a file belong to "default" package that has no name.
+如果没有明确声明文件属于"default"且包没有名称.
 
-## Imports
+## 导入
 
-Apart from the default imports, each file may contain its own import directives.
-Syntax for imports is described in the [grammar](grammar.html#imports).
+除了模块定义的默认导入之外，每个源文件也可以声明自己的导入。
+导入语句的语法定义描述在[grammar](grammar.html#imports).
 
-We can import either a single name, e.g.
+可以导入一个单独的名称，如.
 
 ``` kotlin
 import foo.Bar // Bar is now accessible without qualification
 ```
 
-or all the accessible contents of a scope (package, class, object etc):
+也可以导入一个作用域下的所有内容（包、类、对象等）:
 
 ``` kotlin
 import foo.* // everything in 'foo' becomes accessible
 ```
 
-If there is a name clash, we can disambiguate by using *as*{: .keyword } keyword to locally rename the clashing entity:
+如果出现名称冲突，可以使用 *as*{: .keyword } `as`关键字来重命名导入的名称：
 
 ``` kotlin
 import foo.Bar // Bar is accessible
 import bar.Bar as bBar // bBar stands for 'bar.Bar'
 ```
 
-## Visibility of Top-level Declarations
+## 可见性和包嵌套
 
-If a top-level declaration is marked *private*{: .keyword }, it is private to the file it's declared in (see [Visibility Modifiers](visibility-modifiers.html)).
+如果顶层声明是*private*{: .keyword }, 它将是私有的(查看 [Visibility Modifiers](visibility-modifiers.html)).
+尽管Kotlin中可以包嵌套, 如 包`foo.bar` 是`foo`的一个成员,但是一些*private*{: .keyword } 仅仅可以被它的子包所见.
+
+注意外部包成员**不是**默认引入的,例如，在`foo.bar`包的文件中我们不能在不引入的情况下访问`foo`.

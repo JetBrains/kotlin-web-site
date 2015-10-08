@@ -5,14 +5,13 @@ category: "Interop"
 title: "Java Interop"
 ---
 
-# Java Interop
+# Java交互
 
-Kotlin is designed with Java Interoperability in mind. Existing Java code can be called from Kotlin in a natural way, and Kotlin code can be used from
-Java rather smoothly as well. In this section we describe some details about calling Java code from Kotlin.
+Kotlin 在设计时就是以与 java 交互为中心的。现存的 Java 代码可以在 kotlin 中使用，并且 Kotlin 代码也可以在 Java 中流畅运行。这节我们会讨论在 kotlin 中调用 Java 代码的细节。
 
-## Calling Java code from Kotlin
+## 在Kotlin中调用Java代码
 
-Pretty much all Java code can be used without any issues
+基本所有的 Java 代码都可以运行
 
 ``` kotlin
 import java.util.*
@@ -28,45 +27,26 @@ fun demo(source: List<Int>) {
 }
 ```
 
-### Getters and Setters
+### 返回void的方法
 
-Methods that follow the Java conventions for getters and setters (no-argument methods with names starting with `get`
-and single-argument methods with names starting with `set`) are represented as properties in Kotlin. For example:
+如果一个Java方法返回void，那么在Kotlin中，它会返回`Unit`。
+万一有人使用它的返回值，Kotlin的编译器会在调用的地方赋值，因为这个值本身已经提前可以预知了(这个值就是`Unit`)。
 
-``` kotlin
-import java.util.Calendar
+### 将Java代码中与Kotlin关键字冲突的标识符进行转义
 
-fun calendarDemo() {
-    val calendar = Calendar.getInstance()
-    if (calendar.firstDayOfWeek == Calendar.SUNDAY) {  // call getFirstDayOfWeek()
-        calendar.firstDayOfWeek = Calendar.MONDAY       // call setFirstDayOfWeek()
-    }
-}
-```
-
-### Methods returning void
-
-If a Java method returns void, it will return `Unit` when called from Kotlin.
-If, by any chance, someone uses that return value, it will be assigned at the call site by the Kotlin compiler,
-since the value itself is known in advance (being `Unit`).
-
-### Escaping for Java identifiers that are keywords in Kotlin
-
-Some of the Kotlin keywords are valid identifiers in Java: *in*{: .keyword }, *object*{: .keyword }, *is*{: .keyword }, etc.
-If a Java library uses a Kotlin keyword for a method, you can still call the method
-escaping it with the backtick (`) character
+一些Kotlin的关键字在Java中是合法的标识符: *in*{: .keyword }, *object*{: .keyword }, *is*{: .keyword }, 等等.
+如果一个Java库在方法中使用了Kotlin关键字,你仍然可以使用这个方法
+使用反引号(`)转义来避免冲突。
 
 ``` kotlin
 foo.`is`(bar)
 ```
 
-### Null-Safety and Platform Types
+### Null安全性和平台类型
 
-Any reference in Java may be *null*{: .keyword }, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
-Types of Java declarations are treated specially in Kotlin and called *platform types*. Null-checks are relaxed for such types,
-so that safety guarantees for them are the same as in Java (see more [below](#mapped-types)).
+Java中的所有引用都可能是*null*{: .keyword }值，这使得Kotlin严格的null控制对来自Java的对象来说变得不切实际。在Kotlin中Java声明类型被特别对待叫做*platform types*.这种类型的Null检查是不严格的，所以他们还维持着同Java中一样的安全性。
 
-Consider the following examples:
+考虑如下例子:
 
 ``` kotlin
 val list = ArrayList<String>() // non-null (constructor result)
@@ -107,12 +87,6 @@ mnemonic notation for them:
 * `(Mutable)Collection<T>!` means "Java collection of `T` may be mutable or not, may be nullable or not",
 * `Array<(out) T>!` means "Java array of `T` (or a subtype of `T`), nullable or not"
 
-#### Nullability annotations
-
-Java types which have nullability annotations are represented not as platform types, but as actual nullable or non-null
-Kotlin types. Currently, the compiler supports the [JetBrains flavor of the nullability annotations](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
-(`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package).
-
 ### Mapped types
 
 Kotlin treats some Java types specially. Such types are not loaded from Java "as is", but are _mapped_ to corresponding Kotlin types.
@@ -140,7 +114,7 @@ Some non-primitive built-in classes are also mapped:
 | `java.lang.Comparable`   | `kotlin.Comparable!`    |
 | `java.lang.Enum`         | `kotlin.Enum!`    |
 | `java.lang.Annotation`   | `kotlin.Annotation!`    |
-| `java.lang.Deprecated`   | `kotlin.Deprecated!`    |
+| `java.lang.Deprecated`   | `kotlin.deprecated!`    |
 | `java.lang.Void`         | `kotlin.Nothing!`    |
 | `java.lang.CharSequence` | `kotlin.CharSequence!`   |
 | `java.lang.String`       | `kotlin.String!`   |
@@ -304,11 +278,11 @@ To retrieve the type information from an object, we use the javaClass extension 
 val fooClass = foo.javaClass
 ```
 
-Instead of Java's `Foo.class` use Foo::class.java.
+Instead of Java's `Foo.class` use javaClass<Foo>().
 
 
 ``` kotlin
-val fooClass = Foo::class.java
+val fooClass = javaClass<Foo>()
 ```
 
 #### clone()
@@ -339,7 +313,6 @@ class C {
 According to Java's rules, `finalize()` must not be *private*{: .keyword }.
 
 ### Inheritance from Java classes
-
 At most one Java-class (and as many Java interfaces as you like) can be a supertype for a class in Kotlin. This class must go first in the supertype list.
 
 ### Accessing static members
@@ -356,9 +329,15 @@ if (Character.isLetter(a)) {
 ### Java Reflection
 
 Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance.javaClass` or 
-`ClassName::class.java` to enter Java reflection through `java.lang.Class`.
+`javaClass<ClassName>()` to enter Java reflection through `java.lang.Class`. You can then "convert" to Kotlin reflection
+by calling `.kotlin`:
  
-Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property,
+``` kotlin 
+val kClass = x.javaClass.kotlin  
+```
+ 
+In much the same way you can convert from Kotlin reflection to Java: `ClassName::class.java` is the same as `javaClass<ClassName>()`.
+Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property, 
 getting a containing `KPackage` instance for a Java class, and getting a `KProperty` for a Java field.
 
 ### SAM Conversions
@@ -393,11 +372,9 @@ Kotlin code can be called from Java easily.
 
 ### Package-Level Functions
 
-All the functions and properties declared in a file `example.kt` inside a package `org.foo.bar` are put into a Java
-class named `org.foo.bar.ExampleKt`.
+All the functions and properties declared inside a package `org.foo.bar` are put into a Java class named `org.foo.bar.BarPackage`.
 
 ``` kotlin
-// example.kt
 package demo
 
 class Foo
@@ -410,71 +387,20 @@ fun bar() {
 ``` java
 // Java
 new demo.Foo();
-demo.ExampleKt.bar();
+demo.DemoPackage.bar();
 ```
 
-The name of the generated Java class can be changed using the `@JvmName` annotation:
-
-``` kotlin
-@file:JvmName("DemoUtils")
-
-package demo
-
-class Foo
-
-fun bar() {
-}
-
-```
-
-``` java
-// Java
-new demo.Foo();
-demo.DemoUtils.bar();
-```
-
-Having multiple files which have the same generated Java class name (the same package and the same name or the same
-@JvmName annotation) is normally an error. However, the compiler has the ability to generate a single Java facade
-class which has the specified name and contains all the declarations from all the files which have that name.
-To enable the generation of such a facade, use the @JvmMultifileClass annotation in all of the files.
-
-``` kotlin
-// oldutils.kt
-@file:JvmName("Utils") 
-@file:JvmMultifileClass
-
-package demo
-
-fun foo() {
-}
-```
-
-``` kotlin
-// newutils.kt
-@file:JvmName("Utils")
-@file:JvmMultifileClass
-
-package demo
-
-fun bar() {
-}
-```
-
-``` java
-// Java
-demo.Utils.foo();
-demo.Utils.bar();
-```
+For the root package (the one that's called a "default package" in Java), a class named `_DefaultPackage` is created.
 
 ### Static Methods and Fields
 
 As mentioned above, Kotlin generates static methods for package-level functions. On top of that, it also generates static methods
-for functions defined in named objects or companion objects of classes and annotated as `@JvmStatic`. For example:
+for functions defined in named objects or companion objects of classes and annotated as `@platformStatic`. For example:
 
 ``` kotlin
 class C {
   companion object {
-    @JvmStatic fun foo() {}
+    platformStatic fun foo() {}
     fun bar() {}
   }
 }
@@ -491,7 +417,7 @@ Same for named objects:
 
 ``` kotlin
 object Obj {
-    @JvmStatic fun foo() {}
+    platformStatic fun foo() {}
     fun bar() {}
 }
 ```
@@ -519,7 +445,7 @@ In Java:
 int c = Obj.CONST;
 ```
 
-### Handling signature clashes with @JvmName
+### Handling signature clashes with @platformName
 
 Sometimes we have a named function in Kotlin, for which we need a different JVM name the byte code.
 The most prominent example happens due to *type erasure*:
@@ -530,12 +456,11 @@ fun List<Int>.filterValid(): List<Int>
 ```
 
 These two functions can not be defined side-by-side, because their JVM signatures are the same: `filterValid(Ljava/util/List;)Ljava/util/List;`.
-If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with `@JvmName` and specify a different name as an argument:
+If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with `@platformName` and specify a different name as an argument:
 
 ``` kotlin
 fun List<String>.filterValid(): List<String>
-
-@JvmName("filterValidInt")
+@platformName("filterValidInt")
 fun List<Int>.filterValid(): List<Int>
 ```
 
@@ -545,7 +470,7 @@ The same trick applies when we need to have a property `x` alongside with a func
 
 ``` kotlin
 val x: Int
-  @JvmName("getX_prop")
+  @platformName("getX_prop")
   get() = 15
 
 fun getX() = 10
@@ -556,10 +481,10 @@ fun getX() = 10
 
 Normally, if you write a Kotlin method with default parameter values, it will be visible in Java only as a full
 signature, with all parameters present. If you wish to expose multiple overloads to Java callers, you can use the
-@JvmOverloads annotation.
+@jvmOverloads annotation.
 
 ``` kotlin
-@JvmOverloads fun f(a: String, b: Int = 0, c: String = "abc") {
+jvmOverloads fun f(a: String, b: Int = 0, c: String = "abc") {
     ...
 }
 ```
@@ -580,7 +505,7 @@ defined in interfaces.
 
 Note that, as described in [Secondary Constructors](classes.html#secondary-constructors), if a class has default
 values for all constructor parameters, a public no-argument constructor will be generated for it. This works even
-if the @JvmOverloads annotation is not specified.
+if the @jvmOverloads annotation is not specified.
 
 
 ### Checked Exceptions
@@ -590,7 +515,6 @@ So, normally, the Java signatures of Kotlin functions do not declare exceptions 
 Thus if we have a function in Kotlin like this:
 
 ``` kotlin
-// example.kt
 package demo
 
 fun foo() {
@@ -603,7 +527,7 @@ And we want to call it from Java and catch the exception:
 ``` java
 // Java
 try {
-  demo.Example.foo();
+  demo.DemoPackage.foo();
 }
 catch (IOException e) { // error: foo() does not declare IOException in the throws list
   // ...
@@ -611,10 +535,10 @@ catch (IOException e) { // error: foo() does not declare IOException in the thro
 ```
 
 we get an error message from the Java compiler, because `foo()` does not declare `IOException`.
-To work around this problem, use the `@Throws` annotation in Kotlin:
+To work around this problem, use the `@throws` annotation in Kotlin:
 
 ``` kotlin
-@Throws(IOException::class) fun foo() {
+@throws(IOException::class) fun foo() {
     throw IOException()
 }
 ```

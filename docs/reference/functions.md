@@ -5,57 +5,22 @@ category: "Syntax"
 title: "Functions"
 ---
 
-# Functions
+# 函数
 
-## Function Declarations
+## 函数声明
 
-Functions in Kotlin are declared using the *fun*{: .keyword } keyword
+在Kotlin中，函数声明使用关键字 *fun*{: .keyword }
 
 ``` kotlin
 fun double(x: Int): Int {
 }
 ```
 
-## Function Usage
+### 参数
 
-Calling functions uses the traditional approach
+函数参数是使用Pascal符号定义,即 *name*: *type*.
 
-``` kotlin
-val result = double(2)
-```
-
-
-Calling member functions uses the dot notation
-
-``` kotlin
-Sample().foo() // create instance of class Sample and calls foo
-```
-
-### Infix notation
-
-Functions can also be called using infix notations when
-
-* They are member functions or [extension functions](extensions.html)
-* They have a single parameter
-
-``` kotlin
-// Define extension to Int
-fun Int.shl(x: Int): Int {
-...
-}
-
-// call extension function using infix notation
-
-1 shl 2
-
-// is the same as
-
-1.shl(2)
-```
-
-### Parameters
-
-Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed.
+参数用逗号隔开。每个参数必须显式类型。
 
 ``` kotlin
 fun powerOf(number: Int, exponent: Int) {
@@ -63,48 +28,47 @@ fun powerOf(number: Int, exponent: Int) {
 }
 ```
 
-### Default Arguments
+### 默认参数(缺省参数)
 
-Function parameters can have default values, which are used when a corresponding argument is omitted. This allows for a reduced number of overloads compared to
-other languages.
+函数参数有默认值,当对应的参数是省略。与其他语言相比可以减少数量的过载。
 
 ``` kotlin
-fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size()) {
+fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
 ...
 }
 ```
 
-Default values are defined using the **=** after type along with the value.
+默认值定义使用后* * = * *类型的值。
 
-### Named Arguments
+### 参数命名
 
-Function parameters can be named when calling functions. This is very convenient when a function has a high number of parameters or default ones.
+函数参数可以在调用函数时被命名。这是非常方便的，当一个函数有大量的参数或默认的。
 
-Given the following function
+给出下面的函数:
 
 ``` kotlin
 fun reformat(str: String,
              normalizeCase: Boolean = true,
              upperCaseFirstLetter: Boolean = true,
              divideByCamelHumps: Boolean = false,
-             wordSeparator: Char = ' ') {
+             wordSeparator: Character = ' ') {
 ...
 }
 ```
 
-we could call this using default arguments
+我们可以使用默认参数来调用这个
 
 ``` kotlin
 reformat(str)
 ```
 
-However, when calling it with non-default, the call would look something like
+然而，调用非默认时，调用类似于
 
 ``` kotlin
 reformat(str, true, true, false, '_')
 ```
 
-With named arguments we can make the code much more readable
+使用命名参数我们可以使代码更具有可读性
 
 ``` kotlin
 reformat(str,
@@ -115,20 +79,16 @@ reformat(str,
   )
 ```
 
-and if we do not need all arguments
+如果我们不需要所有的参数
+
 
 ``` kotlin
 reformat(str, wordSeparator = '_')
 ```
 
-Note that the named argument syntax cannot be used when calling Java functions, because Java bytecode does not
-always preserve names of function parameters.
+### Unit返回函数
 
-
-### Unit-returning functions
-
-If a function does not return any useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`. This
-value does not have to be returned explicitly
+如果一个函数不返回任何有用的值，它的返回类型是`Unit`。Unit`是一种只有一个值 - `Unit`。这值不需要显式地返回
 
 ``` kotlin
 fun printHello(name: String?): Unit {
@@ -140,7 +100,7 @@ fun printHello(name: String?): Unit {
 }
 ```
 
-The `Unit` return type declaration is also optional. The above code is equivalent to
+`Unit`返回类型声明也是可选的。上面的代码等同于
 
 ``` kotlin
 fun printHello(name: String?) {
@@ -148,30 +108,32 @@ fun printHello(name: String?) {
 }
 ```
 
-### Single-Expression functions
+### 单个表达式函数
 
-When a function returns a single expression, the curly braces can be omitted and the body is specified after a **=** symbol
+当一个函数返回单个表达式，花括号可以省略并且主体由** =**符号之后指定
 
 ``` kotlin
 fun double(x: Int): Int = x * 2
 ```
 
-Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler
+显式地声明返回类型[可选](# explicit-return-types)时,这可以由编译器推断
 
 ``` kotlin
 fun double(x: Int) = x * 2
 ```
 
-### Explicit return types
+### 显式地返回类型
 
-Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`, [in which case it is optional](#unit-returning-functions).
-Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow in the body, and the return
-type will be non-obvious to the reader (and sometimes even for the compiler). 
+在某些情况下,一个显式地返回类型是必需的:
+
+* 函数表达式是公共的或是受保护的.这些都被认为是公共API的一部分.由于没有显式地返回类型使得它有可能更容易更改类型.这就是为什么显式地类型都需要相同的原因[属性](properties.html#getters-and-setters).
+
+* 函数模块体必须显式地指定返回类型,除非是用于返回`Unit`,在这种情况下,它是可选的。Kotlin不推断返回类型与函数在模块体的功能，因为这些功能可能在模块体有复杂的控制流程，返回类型将不明显的阅读器（有时甚至为编译器）.
 
 
-### Variable number of arguments (Varargs)
+### 可变的参数(可变参数)
 
-The last parameter of a function may be marked with `vararg` modifier:
+函数的最后一个参数可以使用'vararg`注释
 
 ``` kotlin
 fun asList<T>(vararg ts: T): List<T> {
@@ -182,34 +144,30 @@ fun asList<T>(vararg ts: T): List<T> {
 }
 ```
 
-allowing a variable number of arguments to be passed to the function:
+允许可变参数传递给函数:
 
 ```kotlin
   val list = asList(1, 2, 3)
 ```
 
-Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<out T>`.
+内部函数`vararg`类型`T`是可见的array`T`,即`ts`变量在上面的例子是`Array<out T>`类型。
 
-Only one parameter may be marked as `vararg`. If a `vararg` parameter is not the last one in the list, values for the
-following parameters can be passed using the named argument syntax, or, if the parameter has a function type, by passing
-a lambda outside parentheses.
+只有一个参数可以标注为 `vararg`.这可能是最后一个参数或前一个最后的，如果最后一个参数类型（允许一个lambda括号外传递）
 
-When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList(1, 2, 3)`, or, if we already have an array
- and want to pass its contents to the function, we use the **spread** operator (prefix the array with `*`):
+当我们调用`vararg`函数，我们可以一个接一个传递参数，例如 `asList(1, 2, 3)`或者，如果我们已经有了一个数组并希望将其内容传递给函数，我们使用**spread** 操作符(在数组前面加`*`)
 
 ```kotlin
 val a = array(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
 ```
 
-## Function Scope
+## 函数作用域(函数范围)
 
-In Kotlin functions can be declared at top level in a file, meaning you do not need to create a class to hold a function, like languages such as Java, C# or Scala. In addition
-to top level functions, Kotlin functions can also be declared local, as member functions and extension functions.
+在Kotlin中,函数可以在文件头部声明，这意味着您不需要创建一个类来保存一个函数,类似的语言如Java，C＃或Scala。此外除了头部函数功能，Kotlin函数也可以在局部声明，作为成员函数和扩展功能.
 
-### Local Functions
+### 局部函数
 
-Kotlin supports local functions, i.e. a function inside another function
+Kotlin提供局部函数,即一个函数在另一个函数中
 
 ``` kotlin
 fun dfs(graph: Graph) {
@@ -223,7 +181,8 @@ fun dfs(graph: Graph) {
 }
 ```
 
-Local function can access local variables of outer functions (i.e. the closure), so in the case above, the *visited* can be a local variable
+局部函数可以访问外部函数的局部变量(即，关闭),所以在上面的例子，the *visited*是局部变量.
+
 
 ``` kotlin
 fun dfs(graph: Graph) {
@@ -238,7 +197,7 @@ fun dfs(graph: Graph) {
 }
 ```
 
-Local functions can even return from outer functions using [qualified return expressions](returns.html)
+从外部函数使用局部函数甚至可以返回[正确的表达式](returns.html)
 
 ``` kotlin
 fun reachable(from: Vertex, to: Vertex): Boolean {
@@ -257,9 +216,9 @@ fun reachable(from: Vertex, to: Vertex): Boolean {
 }
 ```
 
-### Member Functions
+### 成员函数
 
-A member function is a function that is defined inside a class or object
+成员函数是一个函数,定义在一个类或对象里
 
 ``` kotlin
 class Sample() {
@@ -267,17 +226,17 @@ class Sample() {
 }
 ```
 
-Member functions are called with dot notation
+成员函数调用点符号
 
 ``` kotlin
 Sample().foo() // creates instance of class Sample and calls foo
 ```
 
-For more information on classes and overriding members see [Classes](classes.html) and [Inheritance](classes.html#inheritance)
+有关类信息和主要成员查看[Classes](classes.html) 和 [Inheritance](classes.html#inheritance)
 
-## Generic Functions
+### 重载函数
 
-Functions can have generic parameters which are specified using angle brackets after the function name and before the value parameters
+函数可以有泛型参数,在函数之后使用尖括号和在参数值之前。
 
 ``` kotlin
 fun singletonArray<T>(item: T): Array<T> {
@@ -285,42 +244,68 @@ fun singletonArray<T>(item: T): Array<T> {
 }
 ```
 
-For more information on generic functions see [Generics](generics.html)
+有关重载函数更多信息请查看 [Generics](generics.html)
 
-## Inline Functions
+### 内联函数
 
-Inline functions are explained [here](inline-functions.html)
+内联函数解释 [here](inline-functions.html)
 
-## Extension Functions
 
-Extension functions are explained in [their own section](extensions.html)
+### 扩展函数
 
-## Higher-Order Functions and Lambdas
+扩展函数解释 [their own section](extensions.html)
 
-Higher-Order functions and Lambdas are explained in [their own section](lambdas.html)
 
-## Tail recursive functions
+### 高阶函数和Lambdas表达式
 
-Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call). This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow.
-When a function is marked with the `tailrec` modifier and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
+高阶函数和Lambdas表达式中有详细解释 [their own section](lambdas.html)
+
+## 函数用途
+
+调用函数使用传统的方法
 
 ``` kotlin
-tailrec fun findFixPoint(x: Double = 1.0): Double
-        = if (x == Math.cos(x)) x else findFixPoint(Math.cos(x))
+val result = double(2)
 ```
 
-This code calculates the fixpoint of cosine, which is a mathematical constant. It simply calls Math.cos repeatedly starting at 1.0 until the result doesn't change any more, yielding a result of 0.7390851332151607. The resulting code is equivalent to this more traditional style:
+调用成员函数使用点符号
 
 ``` kotlin
-private fun findFixPoint(): Double {
-    var x = 1.0
-    while (true) {
-        val y = Math.cos(x)
-        if (x == y) return y
-        x = y
-    }
+Sample().foo() // create instance of class Sample and calls foo
+```
+
+### 插入表示法 
+
+函数还可以用中缀表示法，当
+
+ * 他们是成员函数 或者 [扩展函数](extensions.html)
+ 
+ * 他们有一个参数
+
+``` kotlin
+// Define extension to Int
+fun Int.shl(x: Int): Int {
+...
 }
+
+// call extension function using infix notation
+
+1 shl 2
+
+// is the same as
+
+1.shl(2)
 ```
 
-To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call, and you cannot use it within try/catch/finally blocks. Currently tail recursion is only supported in the JVM backend.
+---
+
+翻译By Jacky Xu
+
+
+
+
+
+
+
+
 

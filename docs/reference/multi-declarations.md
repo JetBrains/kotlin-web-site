@@ -5,46 +5,45 @@ category: "Other"
 title: "Multi-Declarations"
 ---
 
-# Multi-Declarations
+# 多重申明
 
-Sometimes it is convenient to _decompose_ an object into a number of variables, for example:
+有时把一个对象_分解_成很多变量很比较方便，比如:
 
 ``` kotlin
 val (name, age) = person 
 ```
 
-This syntax is called a _multi-declaration_. A multi-declaration creates multiple variables at once.
-We have declared two new variables: `name` and `age`, and can use them independently:
+这种语法叫做_多重申明_。一个多重申明同时创造多个变量。
+我们申明了两个新变量：`name` 和 `age`,并且可以独立使用他们。
  
 ``` kotlin
 println(name)
 println(age)
 ```
 
-A multi-declaration is compiled down to the following code:
+一个多重申明会被向下编译成下面的代码：
 
 ``` kotlin
 val name = person.component1()
 val age = person.component2()
 ```
 
-The `component1()` and `component2()` functions are another example of the _principle of conventions_ widely used in Kotlin 
-(see operators like `+` and `*`, *for*{: .keyword }-loops etc.). 
-Anything can be on the right-hand side of a multi-assignment, as long as the required number of component functions can be called on it. 
-And, of course, there can be `component3()` and `component4()` and so on.
+`component1()` 和 `component2()` 函数是 _principle of conventions_ widely 在Kotlin 中的另一个例子。 
+(参考运算符如 `+` ， `*`, *for*{: .keyword }-loops 等)
+任何可以被放在多重分配右边的和组件函数的需求数字都可以调用它。当然，这里可以有更多的如 `component3()` 和 `component4()`.
 
-Multi-declarations also work in *for*{: .keyword }-loops: when you say
+多重申明对 *for*{: .keyword }-loops有效：
 
 ``` kotlin
 for ((a, b) in collection) { ... }
 ```
 
-Variables `a` and `b` get the values returned by `component1()` and `component2()` called on elements of the collection. 
+变量 `a` 和 `b` 从调用从 `component1()` 和 `component2()` 返回的集合collection中的对象。
 
-## Example: Returning Two Values from a Function
+## 例：从函数中返回两个变量
  
-Let's say we need to return two things from a function. For example, a result object and a status of some sort.
-A compact way of doing this in Kotlin is to declare a [_data class_](data-classes.html) and return its instance:
+让我们从一个函数中返回两个变量。例如，一个结果对象和一些排序的状态。
+在Kotlin中一个简单的实现方式是申明一个[_data class_](data-classes.html)并且返回他的实例：
  
 ``` kotlin
 data class Result(val result: Int, val status: Status)
@@ -58,14 +57,14 @@ fun function(...): Result {
 val (result, status) = function(...)
 ```
 
-Since data classes automatically declare `componentN()` functions, multi-declarations work here.
+既然数据类自动申明 `componentN()` 函数，多重申明在这里也有效。
 
-**NOTE**: we could also use the standard class `Pair` and have `function()` return `Pair<Int, Status>`, 
-but it's often better to have your data named properly.  
+**NOTE**: 我们也可用标准类 `Pair` 并且让 `function()` 返回 `Pair<Int, Status>`, 
+但是如果让数据合理命名通常还是更好。  
 
-## Example: Multi-Declarations and Maps
+## 例: 多重申明和图。
 
-Probably the nicest way to traverse a map is this:
+可能最好的遍历一个图的方式就是这样：
 
 ``` kotlin
 for ((key, value) in map) {
@@ -73,12 +72,12 @@ for ((key, value) in map) {
 }
 ```
 
-To make this work, we should 
+为了实现这个，我们需要
 
-* present the map as sequence of values by providing an `iterator()` function,
-* present each of the elements as a pair by providing functions `component1()` and `component2()`.
+* 通过提供一个 `iterator()`迭代函数来表示一系列有序值来表示图。
+* 把每个元素标识为一对函数 `component1()` 和 `component2()`.
   
-And indeed, the standard library provides such extensions:
+当然，标准库中提供了这一扩展:
 
 ``` kotlin
 fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V>> = entrySet().iterator()
@@ -87,4 +86,8 @@ fun <K, V> Map.Entry<K, V>.component2() = getValue()
   
 ```  
   
-So you can freely use multi-declarations in *for*{: .keyword }-loops with maps (as well as collections of data class instances etc).
+于是你可以自由的使用多重申明 *for*{: .keyword }-loops 来操作图(也可以用在数据类实例的集合等)。
+
+---
+
+翻译By EasonZhou

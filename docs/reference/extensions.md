@@ -5,53 +5,52 @@ category: "Syntax"
 title: "Extensions"
 ---
 
-# Extensions
+# 扩展
 
-Kotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator.
-This is done via special declarations called _extensions_. Currently, Kotlin supports _extension functions_ and _extension properties_.
+Kotlin和c#、Gosu一样，能够扩展一个类的新功能,而无需继承类或使用任何类型的设计模式,如装饰者。 
 
-## Extension Functions
+这通过特殊的声明调用_extensions_.现在，Kotlin支持_extension functions_ 和 _extension properties_.
 
-To declare an extension function, we need to prefix its name with a _receiver type_, i.e. the type being extended.
-The following adds a `swap` function to `MutableList<Int>`:
+## 扩展方法
+
+
+声明一个扩展方法，我们需要用一个 _receiver type_,也就是扩展的类型来作为他的前缀。下面是为`MutableList<Int>`添加一个`swap`方法：
 
 ``` kotlin
-fun MutableList<Int>.swap(index1: Int, index2: Int) {
-  val tmp = this[index1] // 'this' corresponds to the list
-  this[index1] = this[index2]
-  this[index2] = tmp
+fun MutableList<Int>.swap(x: Int, y: Int) {
+  val tmp = this[x] // 'this' corresponds to the list
+  this[x] = this[y]
+  this[y] = tmp
 }
 ```
 
-The *this*{: .keyword } keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot). 
-Now, we can call such a function on any `MutableList<Int>`:
+这个*this*{: .keyword }关键字在扩展方法内接受对应的对象（在点符号以前传过来的）
+
+
+现在，我们可以像一个其他方法一样调用`MutableList<Int>`:  
 
 ``` kotlin
 val l = mutableListOf(1, 2, 3)
 l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
 ```
 
-Of course, this function makes sense for any `MutableList<T>`, and we can make it generic:
+当然，这个方法像这样`MutableList<T>`，我们可以使用泛型：
 
 ``` kotlin
-fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
-  val tmp = this[index1] // 'this' corresponds to the list
-  this[index1] = this[index2]
-  this[index2] = tmp
+fun <T> MutableList<T>.swap(x: Int, y: Int) {
+  val tmp = this[x] // 'this' corresponds to the list
+  this[x] = this[y]
+  this[y] = tmp
 }
 ```
 
-We declare the generic type parameter before the function name for it to be available in the receiver type expression. 
-See [Generic functions](generics.html).
+在接收类型表达式中，我们要在方法名可用前声明泛型类型参数。参见[Generic functions](generics.html). 
 
-## Extensions are resolved **statically**
+## 扩展的静态解析
 
-Extensions do not actually modify classes they extend. By defining an extension, you do not insert new members into a class,
-but merely make new functions callable with the dot-notation on instances of this class.
+扩展不能真正的修改他们继承的类。通过定义一个扩展，你不能在类内插入新成员，仅仅是通过该类的实例去调用这个新方法。
 
-We would like to emphasize that extension functions are dispatched **statically**, i.e. they are not virtual by receiver type.
-If there's a member and extension of the same type both applicable to given arguments, a **member always wins**. 
-For example:
+我们想强调下扩展方法是被静态分发的，即他们不是接收类型的虚方法。如果有一个成员方法和相同类型的扩展方法都适用于给定的参数，**成员方法总是赢**.例如：
 
 ``` kotlin
 class C {
@@ -61,13 +60,13 @@ class C {
 fun C.foo() { println("extension") }
 ```
 
-If we call `c.foo()` of any `c` of type `C`, it will print "member", not "extension".
 
-## Nullable Receiver
+如果我们调用`C`类型的`c`的`c.foo()`，它将打印"member"，而不是"extension". 
 
-Note that extensions can be defined with a nullable receiver type. Such extensions can be called on an object variable
-even if its value is null, and can check for `this == null` inside the body. This is what allows you
-to call toString() in Kotlin without checking for null: the check happens inside the extension function.
+## Nullable接受者
+
+
+注意扩展可被定义为null的接受类型。这样的扩展被称为对象变量。即使他的值是null，你可以在方法体内检查`this == null`，这也允许你调用Kotlin中的toString()在没有检查null的时候：检查发生在扩展方法的内部的时候
 
 ``` kotlin
 fun Any?.toString(): String {
@@ -78,30 +77,29 @@ fun Any?.toString(): String {
 }
 ```
 
-## Extension Properties
+## 扩展属性
 
-Similarly to functions, Kotlin supports extension properties:
+和方法相似，Kotlin支持扩展属性
 
 ``` kotlin
 val <T> List<T>.lastIndex: Int
   get() = size - 1
 ```
 
-Note that, since extensions do not actually insert members into classes, there's no efficient way for an extension 
-property to have a [backing field](properties.html#backing-fields). This is why **initializers are not allowed for 
-extension properties**. Their behavior can only be defined by explicitly providing getters/setters.
 
-Example:
+注意：由于扩展没有实际的将成员插入类中，因此对扩展来说是无效的
+属性是有[backing field](properties.html#backing-fields).这就是为什么**初始化其不允许有扩展属性**。他们的行为只能显式的使用 getters/setters.  
+
+例子:
 
 ``` kotlin
 val Foo.bar = 1 // error: initializers are not allowed for extension properties
 ```
 
 
-## Companion Object Extensions
+## 伴生对象的扩展
 
-If a class has a [companion object](object-declarations.html#companion-objects) defined, you can also define extension
-functions and properties for the companion object:
+如果一个类定义有一个[伴生对象](object-declarations.html#companion-objects) ，你也可以为伴生对象定义扩张方法和属性
 
 ``` kotlin
 class MyClass {
@@ -113,16 +111,16 @@ fun MyClass.Companion.foo() {
 }
 ```
 
-Just like regular members of the companion object, they can be called using only the class name as the qualifier:
-
+  
+就像伴生对象的其他普通成员，只用用类名作为限定符去调用他们
 ``` kotlin
 MyClass.foo()
 ```
 
 
-## Scope of Extensions
+## 扩展范围
 
-Most of the time we define extensions on the top level, i.e. directly under packages:
+大多数时候，我们定义扩张方法在顶层，即直接在包里
  
 ``` kotlin
 package foo.bar
@@ -130,7 +128,7 @@ package foo.bar
 fun Baz.goo() { ... } 
 ``` 
 
-To use such an extension outside its declaring package, we need to import it at the call site:
+使用一个定义的包之外的扩展，我们需要导入他的头文件：
 
 ``` kotlin
 package com.example.usage
@@ -144,31 +142,37 @@ fun usage(baz: Baz) {
 )
 
 ```
+ 更多信息参见[Imports](packages.html#imports)
 
-See [Imports](packages.html#imports) for more information.
- 
-## Motivation
+## 动机
 
-In Java, we are used to classes named "\*Utils": `FileUtils`, `StringUtils` and so on. The famous `java.util.Collections` belongs to the same breed.
-And the unpleasant part about these Utils-classes is that the code that uses them looks like this:
+
+在Java中，我们将类命名为"\*Utils": `FileUtils`, `StringUtils`等，著名的`java.util.Collections`也属于同一种命名方式。关于这些Utils-classes的不愉快的部分是这样写代码的：
 
 ``` java
 // Java
 Collections.swap(list, Collections.binarySearch(list, Collections.max(otherList)), Collections.max(list))
 ```
 
-Those class names are always getting in the way. We can use static imports and get this:
+ 
+这些类名总是碍手碍脚的，我们可以通过静态导入得到：
 
 ``` java
 // Java
 swap(list, binarySearch(list, max(otherList)), max(list))
 ```
 
-This is a little better, but we have no or little help from the powerful code completion of the IDE. It would be so much better if we could say
+这会变得好一点，但是我们并没有从IDE强大的自动补全功能中得到帮助。我们希望它能更好点
+
 
 ``` java
 // Java
 list.swap(list.binarySearch(otherList.max()), list.max())
 ```
 
-But we don't want to implement all the possible methods inside the class `List`, right? This is where extensions help us.
+但是我们不希望实现`List`类内所有可能的方法，对吧？这时候扩展将会帮助我们。
+
+
+--- 
+
+翻译By S_arige

@@ -5,22 +5,21 @@ category: "Syntax"
 title: "This expressions"
 ---
 
-# This Expression
+# This表达式
 
-To denote the current _receiver_, we use *this*{: .keyword } expressions:
+为了记录下当前的接受者我们使用*this*{: .keyword }表达式:
 
-* In a member of a [class](classes.html#inheritance), *this*{: .keyword } refers to the current object of that class
-* In an [extension function](extensions.html) or an [extension function literal](lambdas.html#function-literals),
-*this*{: .keyword } denotes the _receiver_ parameter that is passed on the left-hand side of a dot.
+* 在一个[类](classes.html#inheritance)成员中, *this*{: .keyword }指的是当前类对象。
+* 在一个[扩展函数](extensions.html)或者[扩展字面函数](lambdas.html#function-literals),
+*this*{: .keyword }表示左边的接受者.
 
-If *this*{: .keyword } has no qualifiers, it refers to the _innermost enclosing scope_. To refer to *this*{: .keyword } in other scopes, _label qualifiers_ are used:
+如果 *this*{: .keyword } 没有应用者，则指向的是最内层的闭合范围。为了在其它范围中返回 this ，需要使用标签：
 
-## Qualified *this*{: .keyword }
+## *this*{: .keyword }使用范围
 {:#qualified}
 
-To access *this*{: .keyword } from an outer scope (a [class](classes.html), or [extension function](extensions.html),
-or labeled [extension function literal](lambdas.html#function-literals) we write `this@label` where `@label` is a [label](returns.html)
-on the scope *this*{: .keyword } is meant to be from:
+为了在范围外部访问*this*{: .keyword }(一个[类](classes.html), 或者[扩展函数](extensions.html),
+或者带标签的[扩展字面函数](lambdas.html#function-literals) 我们使用`this@label`作为[label](returns.html)：
 
 ``` kotlin
 class A { // implicit label @A

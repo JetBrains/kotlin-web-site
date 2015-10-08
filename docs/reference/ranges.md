@@ -5,10 +5,10 @@ category: "Syntax"
 title: "Ranges"
 ---
 
-# Ranges
+# 范围
 
-Range expressions are formed with `rangeTo` functions that have the operator form `..` which is complemented by *in*{: .keyword } and *!in*{: .keyword }.
-Range is defined for any comparable type, but for number primitives it is optimized. Here are some examples of using ranges
+范围表达式是由“rangeTo”函数组成的，操作符的形式是`..`由*in*{: .keyword }和*!in*{: .keyword }补充。
+范围被定义为任何可比类型,但是最好用于数字的比较。下面是使用范围的例子
 
 ``` kotlin
 if (i in 1..10) { // equivalent of 1 <= i && i <= 10
@@ -20,8 +20,8 @@ if (x !in 1.0..3.0) println(x)
 if (str in "island".."isle") println(str)
 ```
 
-Numerical ranges have an extra feature: they can be iterated over.
-The compiler takes care of converting this analogously to Java's indexed *for*{: .keyword }-loop, without extra overhead.
+数值范围有一个额外的功能:他们可以遍历。
+编译者需要关心的转换是简单模拟Java的索引*for*{: .keyword }循环,不用担心越界。例如：
 
 ``` kotlin
 for (i in 1..4) print(i) // prints "1234"
@@ -31,13 +31,13 @@ for (i in 4..1) print(i) // prints nothing
 for (x in 1.0..2.0) print("$x ") // prints "1.0 2.0 "
 ```
 
-What if you want to iterate over numbers in reverse order? It's simple. You can use the `downTo()` function defined in the standard library
+你想要遍历数字颠倒顺序吗?这很简单。您可以使用标准库里面的`downTo()`函数
 
 ``` kotlin
 for (i in 4 downTo 1) print(i) // prints "4321"
 ```
 
-Is it possible to iterate over numbers with arbitrary step, not equal to 1? Sure, the `step()` function will help you
+是否可以任意进行数量的迭代,而不必每次的变化都是1呢?当然, `step()`函数可以实现
 
 ``` kotlin
 for (i in 1..4 step 2) print(i) // prints "13"
@@ -48,19 +48,19 @@ for (i in 1.0..2.0 step 0.3) print("$i ") // prints "1.0 1.3 1.6 1.9 "
 ```
 
 
-## How it works
+## 它是如何工作的
 
-There are two interfaces in the library: `Range<T>` and `Progression<N>`.
+在库里有两个接口:`Range<T>`和`Progression<N>`。
 
-`Range<T>` denotes an interval in the mathematical sense, defined for comparable types.
-It has two endpoints: `start` and `end`, which are included in the range.
-The main operation is `contains`, usually used in the form of *in*{: .keyword }/*!in*{: .keyword } operators.
+`Range<T>` 在数学意义上表示一个间隔,是对比较类型的定义。
+它有两个端点:‘开始’和‘结束’,这是包含在范围内。
+主要的操作是`contains`,通常用*in*{: .keyword } /*!in* {: .keyword }操作符内。
 
-`Progression<N>` denotes an arithmetic progression, defined for number types.
-It has `start`, `end` and a non-zero `increment`.
-`Progression<N>` is a subtype of `Iterable<N>`, so it can be used in *for*{: .keyword }-loops and functions like `map`, `filter`, etc.
-The first element is `start`, subsequent elements are the previous element plus `increment`.
-Iteration over `Progression` is equivalent to an indexed *for*{: .keyword }-loop in Java/JavaScript:
+`Progression<N>` 表示一个等差数列,是数字类型定义。
+它有“开始”,“结束”和一个非零的“增量”。
+`Progression<N>` 是一Iterable < N >的子类,所以它可以用在*for* {: .keyword }循环中或者`map`, `filter`等函数中。
+第一个元素是`start`,下一个元素等于前面加上`increment`。
+迭代`Progression`与Java/JavaScript的*for*{: .keyword }循环相同:
 
 ``` java
 // if increment > 0
@@ -76,12 +76,12 @@ for (int i = start; i >= end; i += increment) {
 }
 ```
 
-For numbers, the `..` operator creates an object which implements both `Range` and `Progression`.
-The result of the `downTo()` and `step()` functions is always a `Progression`.
+对于数字, `..`操作符创建一个对象既包含`Range`也包含`Progression`。
+由于 `downTo()`和 `step()`函数所以一直是`Progression`。
 
-## Range Specifications
+## 范围指标
 
-### Use Cases
+### 使用范例
 
 ``` kotlin
 // Checking if value of comparable is in range. Optimized for number primitives.
@@ -115,15 +115,15 @@ for (x in 2.0 downTo 1.0 step 0.3) print("$x ") // prints "2.0 1.7 1.4 1.1 "
 for (str in "island".."isle") println(str) // error: string range cannot be iterated over
 ```
 
-### Common Interfaces Definition
+###常见的接口定义
 
-There are two base interfaces: `Range` and `Progression`.
+有两种基本接口:`Range`和`Progression`。
 
-The `Range` interface defines a range, or an interval in the mathematical sense.
-It has two endpoints, `start` and `end` as well as a `contains()` function which checks if the range contains a given number
-(it can also be used with the *in*{: .keyword }/*!in*{: .keyword } operator, which is neater).
-`start` and `end` are included in the range. If `start` == `end`, the range contains exactly one element.
-If `start` > `end`, the range is empty.
+`Range` 接口定义了一个范围或一个数学意义上的区间。
+它有两个端点,`start` 和`end`,并且`contains()`函数检查是否包含一个给定的数字范围
+(也可以作为*in*{: .keyword } /*!in*{: .keyword }操作符)。
+“开始”和“结束”是包含在范围内。如果`start`= =`end`,范围包含一个确定的元素。
+如果 `start` > `end`,范围是空的.
 
 ``` kotlin
 interface Range<T : Comparable<T>> {
@@ -133,23 +133,22 @@ interface Range<T : Comparable<T>> {
 }
 ```
 
-`Progression` defines a kind of arithmetical progression.
-It has `start` (the first element of a progression), `end` (the last element which can be included)
-and `increment` (the difference between each progression element and the previous; non-zero).
-But the main feature of it is that the progression can be iterated over, so it is a subtype of `Iterable`.
-`end` is not necessarily the last element of progression.
-Also, progression can be empty if `start < end && increment < 0` or `start > end && increment > 0`.
+`Progression`定义了一种等差算法。
+它有 `start`(进程中的第一个元素), `end`(被包含的最后一个元素)
+和`increment` (每个进程元素和以前的区别,非零)。
+但它的主要特征是,可以遍历过程,所以这是`Iterable`的子类。
+`end`最后一个元素不是必须的，如 `start < end && increment < 0` or `start > end && increment > 0`.
 
 ``` kotlin
-interface Progression<N : Any> : Iterable<N> {
+interface Progression<N : Number> : Iterable<N> {
   val start: N
   val end: N
-  val increment: Number
+  val increment: Number // not N, because for Char we'll want it to be negative sometimes
   // fun iterator(): Iterator<N> is defined in Iterable interface
 }
 ```
 
-Iteration over `Progression` is equivalent to an indexed *for*{: .keyword }-loop in Java:
+迭代'Progression'相当于一个索引*for* {:.Java关键字}循环:
 
 ``` java
 // if increment > 0
@@ -164,13 +163,14 @@ for (int i = start; i >= end; i += increment) {
 ```
 
 
-### Implementation Classes
+### 类的实现
 
-To avoid unnecessary repetition, let's consider only one number type, `Int`.
-For other number types the implementation is the same.
-Note that instances can be created using constructors of these classes, but it's more useful to use `rangeTo()` (by method call or using the `..` operator), `downTo()`, `reversed()` and `step()` utility functions, which are introduced later.
+为了避免不必要的重复,让我们只考虑一个数字类型,`Int`。
+对于其他类型的数量实现是一样的。
+注意,可以使用这些类的构造函数创建实例,
+而更方便使用的`rangeTo()`(这个名字,或作为`..`操作符), `downTo()`, `reversed()`和`step()`等实用的函数,以后介绍。
 
-The `IntProgression` class is pretty straightforward and simple:
+`IntProgression` 类很简单快捷:
 
 ``` kotlin
 class IntProgression(override val start: Int, override val end: Int, override val increment: Int): Progression<Int> {
@@ -178,8 +178,7 @@ class IntProgression(override val start: Int, override val end: Int, override va
 }
 ```
 
-`IntRange` is a bit tricky: it implements `Progression<Int>` along with `Range<Int>`,
-because it's natural to iterate over a range (the default increment value is 1 for both integer and floating-point types):
+`IntRange` IntRange是有点复杂:它的实现类是 `Progression<Int>`和`Range<Int>`,因为它是自然的遍历的(默认增量值为1整数和浮点类型):
 
 ``` kotlin
 class IntRange(override val start: Int, override val end: Int): Range<Int>, Progression<Int> {
@@ -190,7 +189,7 @@ class IntRange(override val start: Int, override val end: Int): Range<Int>, Prog
 }
 ```
 
-`ComparableRange` is also simple (remember that comparisons are translated into invocation of `compareTo()`):
+`ComparableRange` 也很简单(请记住,比较转换是`compareTo()`):
 
 ``` kotlin
 class ComparableRange<T : Comparable<T>>(override val start: T, override val end: T): Range<T> {
@@ -198,12 +197,12 @@ class ComparableRange<T : Comparable<T>>(override val start: T, override val end
 }
 ```
 
-## Utility functions
+## 一些实用函数
 
 
 ### `rangeTo()`
 
-The `rangeTo()` functions in number types simply call the constructors of `*Range` classes, e.g.:
+定义`rangeTo()`函数,只要简单地调用构造函数`*Range`类,例如:
 
 ``` kotlin
 class Int {
@@ -217,7 +216,7 @@ class Int {
 
 ### `downTo()`
 
-The `downTo()` extension function is defined for any pair of number types, here are two examples:
+`downTo()`的扩展函数可以为任何数字类型定义,这里有两个例子:
 
 ``` kotlin
 fun Long.downTo(other: Double): DoubleProgression {
@@ -231,7 +230,7 @@ fun Byte.downTo(other: Int): IntProgression {
 
 ### `reversed()`
 
-The `reversed()` extension functions are defined for each `*Range` and `*Progression` classes, and all of them return reversed progressions.
+定义`reversed()`扩展函数是为了每个 `*Range`和 `*Progression`类定义的,它们返回反向的级数。
 
 ``` kotlin
 fun IntProgression.reversed(): IntProgression {
@@ -245,9 +244,9 @@ fun IntRange.reversed(): IntProgression {
 
 ### `step()`
 
-`step()` extension functions are defined for `*Range` and `*Progression` classes,
-all of them return progressions with modified `step` values (function parameter).
-Note that the step value is always positive, therefore this function never changes the direction of iteration.
+`step()`扩展函数是为每个`*Range` 和 `*Progression`类定义的,
+他们返回级数与都修改了`step`值(函数参数)。
+注意,step值总是正的,因此这个函数从不改变的迭代方向。
 
 ``` kotlin
 fun IntProgression.step(step: Int): IntProgression {
@@ -260,3 +259,7 @@ fun IntRange.step(step: Int): IntProgression {
   return IntProgression(start, end, step)
 }
 ```
+
+---
+
+翻译By 空白

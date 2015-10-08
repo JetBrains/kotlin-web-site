@@ -133,7 +133,7 @@ It could be done by moving Kotlin compilation to previous phase, process-sources
 <plugin>
     <artifactId>kotlin-maven-plugin</artifactId>
     <groupId>org.jetbrains.kotlin</groupId>
-    <version>${kotlin.version}</version>
+    <version>0.1-SNAPSHOT</version>
 
     <executions>
         <execution>
