@@ -13,7 +13,7 @@ For instructions on how to compile and execute Kotlin applications using the com
 
 If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/). If you are new to IntelliJ IDEA, check out the [The IntelliJ IDEA Minimal Surivial Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
 
-**Note: Kotlin is now shipping with IntelliJ 15 EAP. If you're using that you can skip this step. **
+**Note: Kotlin is now shipping with IntelliJ 15 EAP. If you're using that you can skip step 1.**
 
 1. [Download IntelliJ IDEA][intellijdownload] 14.1 (Android Studio 1.2 also works) as well as JDK 1.6+, and install the latest Kotlin Plugin
 
