@@ -191,7 +191,7 @@ kotlinOptions.annotations = file('<path to annotations>')
 
 ## OSGi
 
-For OSGi support see [Kotlin OSGi wiki page](kotlin-osgi.md)
+For OSGi support see the [Kotlin OSGi page](kotlin-osgi.html).
 
 ## Examples
 

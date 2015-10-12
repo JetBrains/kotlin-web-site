@@ -153,7 +153,7 @@ It could be done by moving Kotlin compilation to previous phase, process-sources
 
 ## OSGi
 
-For OSGi support see [Kotlin OSGi wiki page](kotlin-osgi.md)
+For OSGi support see the [Kotlin OSGi page](kotlin-osgi.html).
 
 ## Using External Annotations
 
