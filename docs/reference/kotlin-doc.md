@@ -2,8 +2,7 @@
 type: doc
 layout: reference
 category: "Tools"
-
-标题: "Documenting Kotlin Code"
+title: "Documenting Kotlin Code"
 ---
 
 # 生成kotlin代码文档
