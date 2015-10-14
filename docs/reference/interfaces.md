@@ -5,13 +5,11 @@ category: "Syntax"
 title: "Interfaces"
 ---
 
-# Interfaces
+# 接口
 
-Interfaces in Kotlin are very similar to Java 8. They can contain declarations of abstract methods, as well as method
-implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have
-properties but these need to be abstract.
+Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现。与抽象类不同的是，接口无法保存状态。它的的属性必须声明为 abstract。
 
-An interface is defined using the keyword *interface*{: .keyword }
+使用关键字 *interface*{: .keyword } 来定义接口。
 
 ``` kotlin
 interface MyInterface {
@@ -22,9 +20,9 @@ interface MyInterface {
 }
 ```
 
-## Implementing Interfaces
+## 实现接口
 
-A class or object can implement one or more interfaces
+一个类或者对象可以实现一个或多个接口。
 
 ``` kotlin
 class Child : MyInterface {
@@ -34,9 +32,9 @@ class Child : MyInterface {
 }
 ```
 
-## Properties in Interfaces
+## 接口属性
 
-Interfaces allow properties as long as these are stateless, that is because interfaces do not allow state.
+接口只能定义无状态（stateless）的属性。
 
 ``` kotlin
 interface MyInterface {
@@ -52,9 +50,9 @@ class Child : MyInterface {
 }
 ```
 
-## Resolving overriding conflicts
+## 解决重写（Override）冲突
 
-When we declare many types in our supertype list, it may appear that we inherit more than one implementation of the same method. For example
+实现多个接口时，可能会遇到接口方法名同名的问题。
 
 ``` kotlin
 interface A {
@@ -79,7 +77,4 @@ class D : A, B {
 }
 ```
 
-Interfaces *A* and *B* both declare functions *foo()* and *bar()*. Both of them implement *foo()*, but only *B* implements *bar()* (*bar()* is not marked abstract in *A*,
-because this is the default for interfaces, if the function has no body). Now, if we derive a concrete class *C* from *A*, we, obviously, have to override *bar()* and provide
-an implementation. And if we derive *D* from *A* and *B*, we don’t have to override *bar()*, because we have inherited only one implementation of it.
-But we have inherited two implementations of *foo()*, so the compiler does not know which one to choose, and forces us to override *foo()* and say what we want explicitly.
+上例中，接口 *A* 和 *B* 都定义了方法 *foo()* 和 *bar()*。 两者都实现了 *foo()*, 但是只有 *B* 实现了 *bar()* (*bar()* 在 *A* 中没有标记为 abstract，因为没有方法体时默认为 abstract）。因为 *C* 是一个实现了 *A* 的具体类，所以必须要重写 *bar()* 并实现这个抽象方法。*D* 可以不用重写 *bar()*，因为它实现了 *A* 和 *B*，因而可以自动继承 *B* 中 *bar()* 的实现，但是两个接口都定义了方法 *foo()*，为了告诉编译器 *D* 会继承谁的方法，必须在 *D* 中重写 *foo()*。 
