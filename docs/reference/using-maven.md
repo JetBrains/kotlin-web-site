@@ -7,7 +7,7 @@ description: "This tutorials walks you through different scenarios when using Ma
 
 # 使用 Maven
 
-## 关于查件与版本的说明
+## 插件与版本
 
 *kotlin-maven-plugin* 用于编译 Kotlin 源码与模块，当前只支持 Marven V3
 
