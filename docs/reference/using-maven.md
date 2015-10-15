@@ -86,7 +86,7 @@ Kotlin 提供了大量的标准库以供开发使用，需要在 pom 文件中�
 
 ## 仅编译 Kotlin 源码
 
-在 <build> 标签中指定所要编译的 Kotlin 源码目录：
+在 &lt;build&gt; 标签中指定所要编译的 Kotlin 源码目录：
 
 ``` xml
 <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
@@ -122,7 +122,7 @@ Maven 中需要引用 Kotlin 插件用于编码源码：
 
 编译混合代码时 Kotlin 编译器应先于 Java 的编译器被调用。在 Maven 中这表示 kotlin-maven-plugin 先于 maven-compiler-plugin 运行。
 
-通过指定 pom 文件中 <phase> 标签的值为 process-sources 可实现以上目的。（如果有更好的方法欢迎提出）
+通过指定 pom 文件中 &lt;phase&gt; 标签的值为 process-sources 可实现以上目的。（如果有更好的方法欢迎提出）
 
 ``` xml
 <plugin>
@@ -148,7 +148,7 @@ Maven 中需要引用 Kotlin 插件用于编码源码：
 
 ## 使用外部的注解
 
-Kotlin 使用外部注解为 Java 库提供精准的类型信息，通过 <configuration> 标签中的 annotationPaths 指定这些注解。
+Kotlin 使用外部注解为 Java 库提供精准的类型信息，通过 &lt;configuration&gt; 标签中的 annotationPaths 指定这些注解。
 
 ``` xml
 <plugin>
