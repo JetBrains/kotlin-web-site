@@ -5,23 +5,19 @@ title: "Using Maven"
 description: "This tutorials walks you through different scenarios when using Maven for building applications that contain Kotlin code"
 ---
 
-# Using Maven
+# 使用 Maven
 
-## Plugin and Versions
+## 关于查件与版本的说明
 
-The *kotlin-maven-plugin* compiles Kotlin sources and modules. Currently only Maven v3 is supported.
+*kotlin-maven-plugin* 用于编译 Kotlin 源码与模块，当前只支持 Marven V3
 
-Define the version of Kotlin you want to use via *kotlin.version*. The possible values are:
+通过 *kotlin.version* 指定所要使用的 Kotlin 版本，有以下值可供选择：
 
-* X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
-only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, you need to [configure a snapshot repository
-in the pom file](#configuring-snapshot-repositories).
+* X.Y-SNAPSHOP：指定 X.Y 的值使用对应的最新开发版，当前只有一个开发版版本号 0.1-SNAPSHOT。这是非稳定的版本的只适用于测试编译器的新特性。使用开发版需要在 pom 文件中[设置相应的 repository](#configuring-snapshot-repositories).
 
-* X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
-is needed in your pom file.
+* X.Y.Z：指定 X.Y.Z 值使用对应的稳定版本，这些版本发布在 Maven Central Repository 中，无需在 pom 文件中进行额外的设置。
 
-The correspondence between milestones and versions is displayed below:
-
+以下是稳定版本对应的版本号 X.Y.Z 值：
 <table>
 <thead>
 <tr>
@@ -40,9 +36,9 @@ The correspondence between milestones and versions is displayed below:
 </table>
 
 
-## Configuring Snapshot Repositories
+## 设置开发版的 repository
 
-To use a snapshot version of Kotlin, include the following repository definitions to the pom
+使用 Kotlin 的开发版需要在 pom 文件中定义以下的 respository：
 
 ``` xml
 <repositories>
@@ -74,9 +70,9 @@ To use a snapshot version of Kotlin, include the following repository definition
 </pluginRepositories>
 ```
 
-## Dependencies
+## 依赖
 
-Kotlin has an extensive standard library that can be used in your applications. Configure the following dependency in the pom file
+Kotlin 提供了大量的标准库以供开发使用，需要在 pom 文件中设置以下依赖：
 
 ``` xml
 <dependencies>
@@ -88,16 +84,16 @@ Kotlin has an extensive standard library that can be used in your applications. 
 </dependencies>
 ```
 
-## Compiling Kotlin only source code
+## 仅编译 Kotlin 源码
 
-To compile source code, specify the source directories in the <build> tag:
+在 <build> 标签中指定所要编译的 Kotlin 源码目录：
 
 ``` xml
 <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
 <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
 ```
 
-The Kotlin Maven Plugin needs to be referenced to compile the sources:
+Maven 中需要引用 Kotlin 插件用于编码源码：
 
 ``` xml
 
@@ -122,12 +118,11 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 </plugin>
 ```
 
-## Compiling Kotlin and Java sources
+## 同时编译 Kotlin 与 Java 源码
 
-To compile mixed code applications Kotlin compiler should be invoked before Java compiler.
-In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin.
+编译混合代码时 Kotlin 编译器应先于 Java 的编译器被调用。在 Maven 中这表示 kotlin-maven-plugin 先于 maven-compiler-plugin 运行。
 
-It could be done by moving Kotlin compilation to previous phase, process-sources (feel free to suggest a better solution if you have one):
+通过指定 pom 文件中 <phase> 标签的值为 process-sources 可实现以上目的。（如果有更好的方法欢迎提出）
 
 ``` xml
 <plugin>
@@ -151,9 +146,9 @@ It could be done by moving Kotlin compilation to previous phase, process-sources
 </plugin>
 ```
 
-## Using External Annotations
+## 使用外部的注解
 
-Kotlin uses external annotation to have precise information about types in Java libraries. To specify these annotations, use annotationPaths in <configuration>:
+Kotlin 使用外部注解为 Java 库提供精准的类型信息，通过 <configuration> 标签中的 annotationPaths 指定这些注解。
 
 ``` xml
 <plugin>
@@ -163,13 +158,16 @@ Kotlin uses external annotation to have precise information about types in Java 
 
     <configuration>
         <annotationPaths>
-            <annotationPath>path to annotations root</annotationPath>
+            <!--指向注解文件的根目录-->
+            <annotationPath>${project.basedir}/src/main/resources/</annotationPath>
         </annotationPaths>
     </configuration>
 
 ...
 ```
 
-## Examples
+## 例子
 
-An example Maven project can be [downloaded directly from the GitHub repository](https://github.com/JetBrains/kotlin-examples/archive/master/maven.zip)
+Maven 工程的例子可从 [Github 直接下载](https://github.com/JetBrains/kotlin-examples/archive/master/maven.zip)
+
+翻译 by [DemoJameson](http://www.demojameson.com)
