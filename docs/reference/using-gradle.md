@@ -1,31 +1,28 @@
 ---
 type: doc
 layout: reference
-title: "Using Gradle"
+title: "使用 Gradle"
 ---
 
-# Using Gradle
+# 使用 Gradle
 
-## Plugin and Versions
+## 插件和版本
 
-The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
+使用 *kotlin-gradle-plugin* 编译Kotlin的源代码和模块.
 
-Define the version of Kotlin we want to use via *kotlin.version*. The possible values are:
+我们希望通过 *kotlin.version*这样的形式来定义Kotlin的版本. 可能使用的形式是:
 
-* X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
-only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, we need to [configure a snapshot repository
-in the build.gradle file](#using-snapshot-versions).
+* X.Y-SNAPSHOT: 对应于每一个X.Y形式的发布版本, 在服务器上都会更新为对应的成功编译的版本. 这种版本是不稳定的，并且推荐您仅用于测试编译器新功能. 现阶段所有的构建版本都以0.1-SNAPSHOT的形式发布. 通过使用快照方式, 我们需要 [在build.gradle文件中配置一个快照仓库](#using-snapshot-versions).
 
-* X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
-is needed in the build.gradle file.
+* X.Y.Z: 对应于发布版本和里程碑版本 X.Y.Z, 是通过手动升级的. 这是稳定的版本. 正式版会在 Maven Central Repository中发布. 并不需要在build.gradle文件中额外配置.
 
-The correspondence between milestones and versions is displayed below:
+里程碑和版本之间的对应关系如下:
 
 <table>
 <thead>
 <tr>
-  <th>Milestone</th>
-  <th>Version</th>
+  <th>里程碑</th>
+  <th>版本</th>
 </tr>
 </thead>
 <tbody>
@@ -38,15 +35,15 @@ The correspondence between milestones and versions is displayed below:
 </tbody>
 </table>
 
-## Targeting the JVM
+## 应用于JVM
 
-To target the JVM, the Kotlin plugin needs to be applied
+为了在JVM中应用, Kotlin插件需要配置如下
 
 ``` groovy
 apply plugin: "kotlin"
 ```
 
-As of M11, Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
+在M11版本, Kotlin源文件和Java源文件可以在同一个文件夹中存在, 也可以在不同文件夹中. 默认采用的是不同的文件夹:
 
 ``` groovy
 project
@@ -55,7 +52,7 @@ project
         - java
 ```
 
-The corresponding *sourceSets* property should be updated if not using the default convention
+如果不想使用默认选项，你需要更新对应的 *sourceSets* 属性
 
 ``` groovy
 sourceSets {
@@ -64,16 +61,15 @@ sourceSets {
 }
 ```
 
-## Targeting JavaScript
+## 应用于 JavaScript
 
-When targeting JavaScript, a different plugin should be applied:
+当应用于 JavaScript 的时候, 需要设置一个不同的插件:
 
 ``` groovy
 apply plugin: "kotlin2js"
 ```
 
-This plugin only works for Kotlin files so it is recommended to keep Kotlin and Java files separate (if it's the case that the same project contains Java files). As with
-targeting the JVM, if not using the default convention, we need to specify the source folder using *sourceSets*
+该插件仅作用于Kotlin文件，因此推荐使用这个插件来区分Kotlin和Java文件 (这种情况仅仅是同一工程中包含Java源文件的时候). 如果不使用默认选项，又为了应用于 JVM，我们需要指定源文件夹使用 *sourceSets*
 
 ``` groovy
 sourceSets {
@@ -81,8 +77,8 @@ sourceSets {
 }
 ```
 
-If you want to create a re-usable library, use `kotlinOptions.metaInfo` to generate additional JS file with binary descriptors.
-This file should be distributed together with the result of translation.
+如果你想创建一个可重用的库, 使用 `kotlinOptions.metaInfo` 来生成额外的二进制形式的JS文件.
+这个文件应该和编译结果一起分发.
 
 ``` groovy
 compileKotlin2Js {
@@ -91,10 +87,10 @@ compileKotlin2Js {
 ```
 
 
-## Targeting Android
+## 应用于 Android
 
-Android's Gradle model is a little different from ordinary Gradle, so if we want to build an Android project written in Kotlin, we need
-*kotlin-android* plugin instead of *kotlin*:
+Android的 Gradle模型和传统的Gradle有些不同, 因此如果我们想要通过Kotlin来创建一个Android应用, 应该使用
+*kotlin-android* 插件来代替 *kotlin*:
 
 ``` groovy
 buildscript {
@@ -106,7 +102,7 @@ apply plugin: 'kotlin-android'
 
 ### Android Studio
 
-If using Android Studio, the following needs to be added under android:
+如果你使用的是Android Studio, 下面的一些属性需要添加到文件中:
 
 ``` groovy
 android {
@@ -118,13 +114,13 @@ android {
 }
 ```
 
-This lets Android Studio know that the kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized.
+上述属性可以使kotlin目录在Android Studio中作为源码根目录存在, 所以当项目模型加载到IDE可以被正确识别.
 
 
 
-## Configuring Dependencies
+## 配置依赖
 
-We need to add dependencies on kotlin-gradle-plugin and the Kotlin standard library:
+我们需要添加kotlin-gradle-plugin和Kotlin标准库的依赖:
 
 ``` groovy
 buildscript {
@@ -147,9 +143,9 @@ dependencies {
 }
 ```
 
-## Using Snapshot versions
+## 使用快照版本
 
-If we want to use a snapshot version (nightly build), we need to add the snapshot repository and change the version to 0.1-SNAPSHOT:
+如果想要使用快照版本 (每日构建), 我们需要添加一个快照仓库并且将版本更改为0.1-SNAPSHOT:
 
 ``` groovy
 buildscript {
@@ -179,20 +175,22 @@ dependencies {
 ```
 
 
-## Using External Annotations
+## 使用外部注释
 
-External annotations for JDK and Android SDK will be configured automatically. If we want to add more annotations for some libraries, we need to add the following line to the Gradle script:
+JDK和Android SDK的外部注释将自动配置. 如果想要为一些库添加更多的注解，需要在Gradle脚本中添加下面这一行:
 
 ``` groovy
 
 kotlinOptions.annotations = file('<path to annotations>')
 ```
 
-## Examples
+## 例子
 
-The [Kotlin Repository](https://github.com/jetbrains/kotlin) contains examples:
+[Kotlin Repository](https://github.com/jetbrains/kotlin) 包含的例子:
 
 * [Kotlin](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/hello-world)
 * [Mixed Java and Kotlin](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/mixed-java-kotlin-hello-world)
 * [Android](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-mixed-java-kotlin-project)
 * [JavaScript](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin/src/test/resources/testProject/kotlin2JsProject)
+
+翻译By [ChiahaoLu](https://github.com/chiahaolu)
