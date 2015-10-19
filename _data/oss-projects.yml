@@ -117,3 +117,8 @@
   description: An invisible REST framework for Kotlin
   type: Library
   link: https://github.com/kohesive/kovert
+
+- name: khttp
+  description: HTTP client similar to Python's requests.
+  type: Library
+  link: https://github.com/jkcclemens/khttp
