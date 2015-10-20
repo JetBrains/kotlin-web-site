@@ -20,14 +20,14 @@ Here we describe the conventions that regulate operator overloading for differen
 
 | Expression | Translated to |
 |------------|---------------|
-| `+a` | `a.plus()` |
-| `-a` | `a.minus()` |
+| `+a` | `a.unaryPlus()` |
+| `-a` | `a.unaryMinus()` |
 | `!a` | `a.not()` |
 
 This table says that when the compiler processes, for example, an expression `+a`, it performs the following steps:
 
 * Determines the type of `a`, let it be `T`.
-* Looks up a function `plus()` with the `operator` modifier and no parameters for the receiver `T`, i.e. a member function or an extension function.
+* Looks up a function `unaryPlus()` with the `operator` modifier and no parameters for the receiver `T`, i.e. a member function or an extension function.
 * If the function is absent or ambiguous, it is a compilation error.
 * If the function is present and its return type is `R`, the expression `+a` has type `R`.
 

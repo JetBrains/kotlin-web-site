@@ -63,7 +63,7 @@ and [*while*{: .keyword }-loops](control-flow.html#while-loops) as well:
 when (x) {
   is Int -> print(x + 1)
   is String -> print(x.length + 1)
-  is Array<Int> -> print(x.sum())
+  is IntArray -> print(x.sum())
 }
 ```
 

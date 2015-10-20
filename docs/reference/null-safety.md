@@ -35,34 +35,34 @@ var b: String? = "abc"
 b = null // ok
 ```
 
-Now, if you call a method on `a`, it's guaranteed not to cause an NPE, so you can safely say
+Now, if you call a method or access a property on `a`, it's guaranteed not to cause an NPE, so you can safely say
 
 ``` kotlin
-val l = a.length()
+val l = a.length
 ```
 
-But if you want to call the same method on `b`, that would not be safe, and the compiler reports an error:
+But if you want to access the same property on `b`, that would not be safe, and the compiler reports an error:
 
 ``` kotlin
-val l = b.length() // error: variable 'b' can be null
+val l = b.length // error: variable 'b' can be null
 ```
 
-But we still need to call that method, right? There are a few ways of doing that.
+But we still need to access that property, right? There are a few ways of doing that.
 
 ## Checking for *null*{: .keyword } in conditions
 
 First, you can explicitly check if `b` is *null*{: .keyword }, and handle the two options separately:
 
 ``` kotlin
-val l = if (b != null) b.length() else -1
+val l = if (b != null) b.length else -1
 ```
 
-The compiler tracks the information about the check you performed, and allows the call to `length()` inside the *if*{: .keyword }.
+The compiler tracks the information about the check you performed, and allows the call to `length` inside the *if*{: .keyword }.
 More complex conditions are supported as well:
 
 ``` kotlin
-if (b != null && b.length() > 0)
-  print("String of length ${b.length()}")
+if (b != null && b.length > 0)
+  print("String of length ${b.length}")
 else
   print("Empty string")
 ```
@@ -76,9 +76,9 @@ happen that `b` changes to *null*{: .keyword } after the check.
 Your second option is the safe call operator, written `?.`:
 
 ``` kotlin
-b?.length()
+b?.length
 ```
-This returns `b.length()` if `b` is not null, and *null*{: .keyword } otherwise. The type of this expression is `Int?`.
+This returns `b.length` if `b` is not null, and *null*{: .keyword } otherwise. The type of this expression is `Int?`.
 
 Safe calls are useful in chains. For example, if Bob, an Employee, may be assigned to a Department (or not),
 that in turn may have another Employee as a department head, then to obtain the name of Bob's department head, if any), we write the following:
@@ -94,13 +94,13 @@ Such a chain returns *null*{: .keyword } if any of the properties in it is null.
 When we have a nullable reference `r`, we can say "if `r` is not null, use it, otherwise use some non-null value `x`":
 
 ``` kotlin
-val l: Int = if (b != null) b.length() else -1
+val l: Int = if (b != null) b.length else -1
 ```
 
 Along with the complete *if*{: .keyword }-expression, this can be expressed with the Elvis operator, written `?:`:
 
 ``` kotlin
-val l = b?.length() ?: -1
+val l = b?.length ?: -1
 ```
 
 If the expression to the left of `?:` is not null, the elvis operator returns it, otherwise it returns the expression to the right.

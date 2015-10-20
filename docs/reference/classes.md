@@ -48,7 +48,7 @@ class Person(firstName: String) {
 ```
 
 The primary constructor cannot contain any code. Initialization code can be placed
-in **initializer blocks**, which are prefixed with the *init*{: .keyword }:
+in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword:
 
 ``` kotlin
 class Customer(name: String) {
@@ -275,7 +275,7 @@ abstract class A {
 }
 
 interface B {
-  open fun f() { print("B") }
+  fun f() { print("B") }
 }
 
 class C() : A(), B {

@@ -147,6 +147,8 @@ As mentioned before, *for*{: .keyword } iterates through anything that provides 
   * has a member- or extension-function `next()`, and
   * has a member- or extension-function `hasNext()` that returns `Boolean`.
 
+All of these three functions need to be marked as `operator`.
+
 If you want to iterate through an array or a list with an index, you can do it this way:
 
 ``` kotlin

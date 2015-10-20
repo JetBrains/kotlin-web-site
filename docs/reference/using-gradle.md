@@ -46,7 +46,7 @@ To target the JVM, the Kotlin plugin needs to be applied
 apply plugin: "kotlin"
 ```
 
-As of M11, Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
+Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
 
 ``` groovy
 project
@@ -179,15 +179,6 @@ dependencies {
 }
 ```
 
-
-## Using External Annotations
-
-External annotations for JDK and Android SDK will be configured automatically. If we want to add more annotations for some libraries, we need to add the following line to the Gradle script:
-
-``` groovy
-
-kotlinOptions.annotations = file('<path to annotations>')
-```
 
 ## OSGi
 

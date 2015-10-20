@@ -74,6 +74,27 @@ annotation class Special(val why: String)
 @Special("example") class Foo {}
 ```
 
+Allowed parameter types are:
+
+ * types that correspond to Java primitive types (Int, Long etc.);
+ * strings;
+ * classes (`Foo::class`);
+ * enums;
+ * other annotations;
+ * arrays of the types listed above.
+
+If an annotation is used as a parameter of another annotation, its name is not prefixed with the @ character:
+
+``` kotlin
+public annotation class ReplaceWith(val expression: String)
+
+public annotation class Deprecated(
+        val message: String,
+        val replaceWith: ReplaceWith = ReplaceWith(""))
+
+@Deprecated("This function is deprecated, use === instead", ReplaceWith("this === other"))
+```
+
 ### Lambdas
 
 Annotations can also be used on lambdas. They will be applied to the `invoke()` method into which the body
@@ -126,7 +147,7 @@ The full list of supported use-site targets is:
   * `set` (property setter)
   * `receiver` (receiver parameter of an extension function or property)
   * `param` (constructor parameter)
-  * `sparam` (property setter parameter)
+  * `setparam` (property setter parameter)
 
 To annotate the receiver parameter of an extension function, use the following syntax:
 

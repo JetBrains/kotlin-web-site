@@ -44,6 +44,8 @@ fun calendarDemo() {
 }
 ```
 
+Note that, if the Java class only has a setter, it will not be visible as a property in Kotlin, because Kotlin does not support set-only properties at this time.
+
 ### Methods returning void
 
 If a Java method returns void, it will return `Unit` when called from Kotlin.
@@ -72,7 +74,7 @@ Consider the following examples:
 val list = ArrayList<String>() // non-null (constructor result)
 list.add("Item")
 val size = list.size() // non-null (primitive int)
-val item = list.get(0) // platform type inferred (ordinary Java object)
+val item = list[0] // platform type inferred (ordinary Java object)
 ```
 
 When we call methods on variables of platform types, Kotlin does not issue nullability errors at compile time,
@@ -219,7 +221,7 @@ To pass an array of primitive values you can do the following in Kotlin:
 
 ``` kotlin
 val javaObj = JavaArrayExample()
-val array = intArray(0, 1, 2, 3)
+val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndices(array)  // passes int[] to method
 ```
 
@@ -238,7 +240,7 @@ In that case you need to use the spread operator `*` to pass the `IntArray`:
 
 ``` kotlin
 val javaObj = JavaArray()
-val array = intArray(0, 1, 2, 3)
+val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
 ```
 
@@ -267,6 +269,13 @@ if (i in array.indices) { // same as (i >= 0 && i < array.size)
   print(array[i])
 }
 ```
+
+### Operators
+
+Since Java has no way of marking methods for which it makes sense to use the operator syntax, Kotlin allows using any
+Java methods with the right name and signature as operator overloads and other conventions (`invoke()` etc.)
+Calling Java methods using the infix call syntax is not allowed.
+
 
 ### Checked Exceptions
 
@@ -340,7 +349,7 @@ According to Java's rules, `finalize()` must not be *private*{: .keyword }.
 
 ### Inheritance from Java classes
 
-At most one Java-class (and as many Java interfaces as you like) can be a supertype for a class in Kotlin. This class must go first in the supertype list.
+At most one Java-class (and as many Java interfaces as you like) can be a supertype for a class in Kotlin.
 
 ### Accessing static members
 
@@ -397,6 +406,10 @@ of functions into implementations of Kotlin interfaces is unnecessary and theref
 ## Calling Kotlin code from Java
 
 Kotlin code can be called from Java easily.
+
+### Properties
+
+Property getters are turned into *get*-methods, and setters – into *set*-methods.
 
 ### Package-Level Functions
 
@@ -473,6 +486,27 @@ demo.Utils.foo();
 demo.Utils.bar();
 ```
 
+### Fields
+
+If you need to expose a Kotlin property as a field in Java, you need to annotate it with the `@JvmField` annotation.
+The field will have the same visibility as the underlying property. You can annotate a property with `@JvmField`
+if it has a backing field, is not private, does not have `open`, `override` or `const` modifiers, and is not a delegated property.
+
+``` kotlin
+class C(id: String) {
+    @JvmField val ID = id
+}
+```
+
+``` java
+// Java
+class JavaClient {
+    public String getID(C c) {
+        return c.ID;
+    }
+}
+```
+
 ### Static Methods and Fields
 
 As mentioned above, Kotlin generates static methods for package-level functions. On top of that, it also generates static methods
@@ -508,8 +542,8 @@ In Java:
 ``` java
 Obj.foo(); // works fine
 Obj.bar(); // error
-Obj.INSTANCE$.bar(); // works, a call through the singleton instance
-Obj.INSTANCE$.foo(); // works too
+Obj.INSTANCE.bar(); // works, a call through the singleton instance
+Obj.INSTANCE.foo(); // works too
 ```
 
 Also, public properties defined in objects and companion objects, as well as top-level properties annotated with `const`,
@@ -627,7 +661,8 @@ we get an error message from the Java compiler, because `foo()` does not declare
 To work around this problem, use the `@Throws` annotation in Kotlin:
 
 ``` kotlin
-@Throws(IOException::class) fun foo() {
+@Throws(IOException::class)
+fun foo() {
     throw IOException()
 }
 ```
@@ -637,7 +672,3 @@ To work around this problem, use the `@Throws` annotation in Kotlin:
 When calling Kotlin functions from Java, nobody prevents us from passing *null*{: .keyword } as a non-null parameter.
 That's why Kotlin generates runtime checks for all public functions that expect non-nulls.
 This way we get a `NullPointerException` in the Java code immediately.
-
-### Properties
-
-Property getters are turned into *get*-methods, and setters – into *set*-methods.

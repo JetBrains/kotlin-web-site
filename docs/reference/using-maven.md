@@ -155,25 +155,6 @@ It could be done by moving Kotlin compilation to previous phase, process-sources
 
 For OSGi support see the [Kotlin OSGi page](kotlin-osgi.html).
 
-## Using External Annotations
-
-Kotlin uses external annotation to have precise information about types in Java libraries. To specify these annotations, use annotationPaths in <configuration>:
-
-``` xml
-<plugin>
-    <artifactId>kotlin-maven-plugin</artifactId>
-    <groupId>org.jetbrains.kotlin</groupId>
-    <version>0.1-SNAPSHOT</version>
-
-    <configuration>
-        <annotationPaths>
-            <annotationPath>path to annotations root</annotationPath>
-        </annotationPaths>
-    </configuration>
-
-...
-```
-
 ## Examples
 
 An example Maven project can be [downloaded directly from the GitHub repository](https://github.com/JetBrains/kotlin-examples/archive/master/maven.zip)

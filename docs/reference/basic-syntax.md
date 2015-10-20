@@ -63,9 +63,9 @@ Assign-once (read-only) local variable:
 
 ``` kotlin
 val a: Int = 1
-val b = 1 // `Int` type is inferred
-val c: Int // Type required when no initializer is provided
-c = 1 // definite assignment
+val b = 1   // `Int` type is inferred
+val c: Int  // Type required when no initializer is provided
+c = 1       // definite assignment
 ```
 
 Mutable variable:
@@ -292,7 +292,11 @@ if (text in names) // names.contains(text) is called
 Using function literals to filter and map collections:
 
 ``` kotlin
-names.filter { it.startsWith("A") }.sortBy { it }.map { it.toUpperCase() }.forEach { print(it) }
+names
+    .filter { it.startsWith("A") }
+    .sortedBy { it }
+    .map { it.toUpperCase() }
+    .forEach { print(it) }
 ```
 
 See [Higher-order functions and Lambdas](lambdas.html).

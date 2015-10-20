@@ -37,10 +37,11 @@ Functions can also be called using infix notations when
 
 * They are member functions or [extension functions](extensions.html)
 * They have a single parameter
+* They are marked with the `infix` keyword
 
 ``` kotlin
 // Define extension to Int
-fun Int.shl(x: Int): Int {
+infix fun Int.shl(x: Int): Int {
 ...
 }
 
@@ -171,7 +172,7 @@ type will be non-obvious to the reader (and sometimes even for the compiler).
 
 ### Variable number of arguments (Varargs)
 
-The last parameter of a function may be marked with `vararg` modifier:
+A parameter of a function (normally the last one) may be marked with `vararg` modifier:
 
 ``` kotlin
 fun asList<T>(vararg ts: T): List<T> {
@@ -277,11 +278,11 @@ For more information on classes and overriding members see [Classes](classes.htm
 
 ## Generic Functions
 
-Functions can have generic parameters which are specified using angle brackets after the function name and before the value parameters
+Functions can have generic parameters which are specified using angle brackets before the function name
 
 ``` kotlin
-fun singletonArray<T>(item: T): Array<T> {
-  return Array<T>(1, {item})
+fun <T> singletonList(item: T): List<T> {
+  // ...
 }
 ```
 
@@ -301,7 +302,8 @@ Higher-Order functions and Lambdas are explained in [their own section](lambdas.
 
 ## Tail recursive functions
 
-Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call). This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow.
+Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call).
+This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow.
 When a function is marked with the `tailrec` modifier and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
 
 ``` kotlin
