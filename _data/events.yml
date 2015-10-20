@@ -875,6 +875,8 @@
   date: [2015-09-10, 2015-09-11]
   location: Thessaloniki, Greece
   lang: en    
+  content:
+    slides: https://prezi.com/dxavcfi0l_-b/droidcon-greece-2015/
 
 - title: Droidcon NYC 2015
   url: http://droidcon.nyc/2015/dcnyc/53/
@@ -894,6 +896,8 @@
   date: [2015-10-01, 2015-10-02]
   location: Krakow, Poland
   lang: en    
+  content:
+    slides: https://prezi.com/5krzwy15ixea/kotlin-on-android-mobiconf-2015/
 
 - title: "Mobile Warsaw #27"
   url: http://mobile-warsaw.pl/meetup_027.html
@@ -929,6 +933,14 @@
   date: [2015-10-16, 2015-10-17]
   location: Saint Petersburg, Russia
   lang: ru
+  
+- title: JOKER University Day
+  url: http://university.jokerconf.com/
+  subject: "Kotlin: what do we mean by the modern language"
+  speaker: Svetlana Isakova
+  date: 2015-10-18
+  location: Saint Petersburg, Russia
+  lang: ru  
 
 - title: DevFest 2015
   url: http://www.eventbrite.it/e/biglietti-devfest-2015-18033194771?aff=es2
@@ -1029,3 +1041,11 @@
   date: 2015-11-14
   location: Karlsruhe, Germany
   lang: en
+
+- title: DroidCon Paris
+  url: http://droidcon.fr/
+  subject: "Kotlin on Android"
+  speaker: Svetlana Isakova
+  date: [2015-11-09,2015-11-10]
+  location: Paris, France
+  lang: en 
