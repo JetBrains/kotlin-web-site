@@ -73,7 +73,7 @@ Here we summarize requirements to delegate objects.
 For a **read-only** property (i.e. a *val*{:.keyword}), a delegate has to provide a function named `getValue` that takes the following parameters:
 
 * receiver --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended),
-* metadata --- must be of type `KProperty` or its supertype,
+* metadata --- must be of type `KProperty<*>` or its supertype,
  
 this function must return the same type as property (or its subtype).
 
