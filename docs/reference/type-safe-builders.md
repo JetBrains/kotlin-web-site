@@ -117,14 +117,14 @@ The `head` and `body` functions in the `HTML` class are defined similarly to `ht
 The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
 ``` kotlin
-fun head(init: Head.() -> Unit) {
+fun head(init: Head.() -> Unit) : Head {
   val head = Head()
   head.init()
   children.add(head)
   return head
 }
 
-fun body(init: Body.() -> Unit) {
+fun body(init: Body.() -> Unit) : Body {
   val body = Body()
   body.init()
   children.add(body)
@@ -235,7 +235,7 @@ abstract class Tag(val name: String): Element {
 }
 
 abstract class TagWithText(name: String): Tag(name) {
-    fun String.plus() {
+    operator fun String.plus() {
         children.add(TextElement(this))
     }
 }
