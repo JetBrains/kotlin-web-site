@@ -42,7 +42,8 @@ val max = if (a > b) {
   }
 ```
 
-When *if*{: .keyword } has only one branch, or one of its branches results in `Unit`, its type is `Unit`.
+If you're using *if*{: .keyword } as an expression rather than a statement (for example, returning its value or
+assigning it to a variable), the expression is required to have an `else` branch.
 
 See the [grammar for *if*{: .keyword }](grammar.html#if).
 
