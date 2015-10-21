@@ -146,7 +146,12 @@ Maven 中需要引用 Kotlin 插件用于编码源码：
 </plugin>
 ```
 
+## OSGi
+
+OSGi支持查看 [Kotlin OSGi page](kotlin-osgi.html).
+
 ## 使用外部的注解
+
 
 Kotlin 使用外部注解为 Java 库提供精准的类型信息，通过 &lt;configuration&gt; 标签中的 annotationPaths 指定这些注解。
 

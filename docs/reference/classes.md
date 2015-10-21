@@ -306,6 +306,15 @@ abstract class Derived : Base() {
 
 如果你需要写一个可以调用的函数，而不依赖一个类的实例，但需要访问的内部一个类（例如，一个工厂方法），你可以写为[对象声明]（object_declarations.html）中的一员里面的那个类。
 
+``` kotlin
+sealed class Expr {
+    class Const(val number: Double) : Expr()
+    class Sum(val e1: Expr, val e2: Expr) : Expr()
+    object NotANumber : Expr()
+}
+```
+
+
 更具体地讲，如果你声明一个[同伴对象](object-declarations.html#companion-objects)在你的的类中，
 你就可以在Java/ C＃中调用与它的成员方法相同的语法的静态方法，只使用类名作为一个修饰语。
 

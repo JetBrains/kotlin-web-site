@@ -8,6 +8,7 @@ title: "Data Classes"
 # 数据类
 
 我们经常创建一些只是处理数据的类。在这些类里的功能经常是衍生自他们所持有的数据。在Kotlin中，这样的类可以被称为`data`：
+
  
 ``` kotlin
 data class User(val name: String, val age: Int)
@@ -24,9 +25,15 @@ data class User(val name: String, val age: Int)
 
 如果有某个函数被明确地定义在类里或者被继承，编译器就不会生成这个函数。
   
-*NOTE*如果一个构造参数没有`val`或者`var`在前面，它将不会被包括进这些成员里;也不会在类里声明成属性或者继承自父类
+To ensure consistency and meaningful behavior of the generated code, data classes have to fulfil the following requirements:
+
+  * The primary constructor needs to have at least one parameter;
+  * All primary constructor parameters need to be marked as `val` or `var`;
+  * Data classes cannot be abstract, open, sealed or inner;
+  * Data classes may not extend other classes (but may implement interfaces).
 
 > 在JVM中，如果生成的类需要含有一个无参的构造函数，则所有的属性必须有默认值。
+> (查看 [Constructors](classes.html#constructors)).
 >
 > ``` kotlin
 > data class User(val name: String = "", val age: Int = 0)

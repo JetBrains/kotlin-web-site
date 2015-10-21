@@ -360,6 +360,14 @@ val executor = ThreadPoolExecutor()
 executor.execute { println("This runs in a thread pool") }
 ```
 
+If the Java class has multiple methods taking functional interfaces, you can choose the one you need to call by
+using an adapter function that converts a lambda to a specific SAM type. Those adapter functions are also generated
+by the compiler when needed.
+
+``` kotlin
+executor.execute(Runnable { println("This runs in a thread pool") })
+```
+
 Note that SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
 abstract method.
 
@@ -431,18 +439,24 @@ Obj.INSTANCE$.bar(); // works, a call through the singleton instance
 Obj.INSTANCE$.foo(); // works too
 ```
 
-Also, public properties defined in objects and companion objects are turned into static fields in Java:
+Also, public properties defined in objects and companion objects, as well as top-level properties annotated with `const`,
+are turned into static fields in Java:
 
 ``` kotlin
+// file example.kt
+
 object Obj {
   val CONST = 1
 }
+
+const val MAX = 239
 ```
 
 In Java:
 
 ``` java
 int c = Obj.CONST;
+int d = ExampleKt.MAX;
 ```
 
 ### Handling signature clashes with @platformName

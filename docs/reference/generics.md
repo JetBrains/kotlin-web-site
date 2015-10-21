@@ -228,7 +228,7 @@ fun fill(dest: Array<in String>, value: String) {
 
 
 ``` kotlin
-fun singletonList<T>(item: T): List<T> {
+fun <T> singletonList(item: T): List<T> {
   // ...
 }
 ```
@@ -258,7 +258,7 @@ val l = singletonList<Int>(1)
 约束最常见的类型是**上界**相比较于Java中的*extends*关键字：
 
 ``` kotlin
-fun sort<T : Comparable<T>>(list: List<T>) {
+fun <T : Comparable<T>> sort(list: List<T>) {
   // ...
 }
 ```
@@ -273,9 +273,10 @@ sort(list(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subty
 如果相同的类型参数需要多个上界，我们需要分割符 **where**\-子句，如:
 
 ``` kotlin
-fun cloneWhenGreater<T : Comparable<T>>(list: List<T>, threshold: T): List<T>
-    where T : Cloneable {
-  return list when {it > threshold} map {it.clone()}
+fun <T> cloneWhenGreater(list: List<T>, threshold: T): List<T>
+    where T : Comparable,
+          T : Cloneable {
+  return list.filter{ it > threshold }.map { it.clone() }
 }
 ```
 

@@ -122,7 +122,7 @@ public @interface Ann {
 
 ``` kotlin
 // Kotlin
-Ann(intValue = 1, stringValue = "abc") class C
+@Ann(intValue = 1, stringValue = "abc") class C
 ```
 
 
@@ -137,7 +137,7 @@ public @interface AnnWithValue {
 
 ``` kotlin
 // Kotlin
-AnnWithValue("abc") class C
+@AnnWithValue("abc") class C
 ```
 
 
@@ -152,7 +152,7 @@ public @interface AnnWithArrayValue {
 
 ``` kotlin
 // Kotlin
-AnnWithArrayValue("abc", "foo", "bar") class C
+@AnnWithArrayValue("abc", "foo", "bar") class C
 ```
 
 
@@ -164,7 +164,7 @@ import kotlin.reflect.KClass
 
 annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any?>)
 
-Ann(String::class, Int::class) class MyClass
+@Ann(String::class, Int::class) class MyClass
 ```
 
 注解实例的值被视为Kotlin的属性。

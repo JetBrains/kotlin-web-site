@@ -184,6 +184,11 @@ JDK和Android SDK的外部注释将自动配置. 如果想要为一些库添加�
 kotlinOptions.annotations = file('<path to annotations>')
 ```
 
+
+## OSGi
+
+OSGi 支持查看 [Kotlin OSGi page](kotlin-osgi.html).
+
 ## 例子
 
 [Kotlin Repository](https://github.com/jetbrains/kotlin) 包含的例子:

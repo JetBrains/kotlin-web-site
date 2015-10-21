@@ -28,12 +28,13 @@ class Example {
 
 ``` kotlin
 class Delegate {
-  fun get(thisRef: Any?, prop: PropertyMetadata): String {
-    return "$thisRef, thank you for delegating '${prop.name}' to me!"
+
+  fun get(thisRef: Any?, property: PropertyMetadata): String {
+    return "$thisRef, thank you for delegating '${property.name}' to me!"
   }
  
-  fun set(thisRef: Any?, prop: PropertyMetadata, value: String) {
-    println("$value has been assigned to '${prop.name} in $thisRef.'")
+  fun set(thisRef: Any?, property: PropertyMetadata, value: String) {
+    println("$value has been assigned to '${property.name} in $thisRef.'")
   }
 }
 ```
@@ -107,6 +108,11 @@ fun main(args: Array<String>) {
 }
 ```
 
+By default, the evaluation of lazy properties is **synchronized**: the value is computed only in one thread, and all threads
+will see the same value. If the synchronization of initialization delegate is not required, so that multiple threads
+can execute it simultaneously, pass `LazyThreadSafetyMode.PUBLICATION` as a parameter to the `lazy()` function. 
+And if you're sure that the initialization will always happen on a single thread, you can use `LazyThreadSafetyMode.NONE` mode, 
+which doesn't incur any thread-safety guaratees and the related overhead.
 
 如果你需要 **线程安全**, 使用 `blockingLazy()`: 它会进行同样的操作，但是能够保证数值将会只在一个线程中计算，同时所有线程会看到同样的数值。
 

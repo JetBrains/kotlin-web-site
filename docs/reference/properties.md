@@ -100,17 +100,19 @@ var setterWithAnnotation: Any?
 ### 实际字段
 
 在Kotlin不能有字段。然而,有时有必要有使用一个字段在使用定制的访问器的时候。对于这些目的,Kotlin提供
-自动支持,在属性名后面使用* $ *符号。
+自动支持,在属性名后面使用 `field`符号。
+
 
 ``` kotlin
 var counter = 0 // the initializer value is written directly to the backing field
   set(value) {
     if (value >= 0)
-      $counter = value
+      field = value
   }
 ```
 
-上面的`$counter`字段就可以在counter属性的访问器实现里读和写。并且只能在构造函数里赋值。在其他地方，都不能使用或访问`$counter`
+上面的`field`字段只能用在访问属性
+
 
 编译器会查看访问器的内部， 如果他们使用了实际字段（或者访问器使用默认实现），那么将会生成一个实际字段，否则不会生成。
 
@@ -134,9 +136,55 @@ public val table: Map<String, Int>
     return _table ?: throw AssertionError("Set to null by another thread")
   }
 ```
-从各种角度看，这和在Java中定义Bean属性的方式一样。因为访问私有的属性的getter和setter函数，会被编译器优化成直接反问其实际字段。
+从各种角度看，这和在Java中定义Bean属性的方式一样。因为访问私有的属性的getter和setter函数，无寒函数调用开销。
 
-## 重写属性
+
+## Compile-Time Constants
+
+Properties the value of which is known at compile time can be marked as _compile time constants_ using the `const` modifier.
+Such properties need to fulfil the following requirements:
+
+  * Top-level or member of an `object`
+  * Initialized with a value of type `String` or a primitive type
+  * No custom getter
+
+Such properties can be used in annotations:
+
+``` kotlin
+const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
+
+@Deprecated(SUBSYSTEM_DEPRECATED) fun foo() { ... }
+```
+
+
+## Late-Initialized Properties
+
+Normally, properties declared as having a non-null type must be initialized in the constructor.
+However, fairly often this is not convenient. For example, properties can be initialized through dependency injection,
+or in the setup method of a unit test. In this case, you cannot supply a non-null initializer in the constructor,
+but you still want to avoid null checks when referencing the property inside the body of a class.
+
+To handle this case, you can mark the property with the `lateinit` modifier:
+
+``` kotlin
+public class MyTest {
+    lateinit var subject: TestSubject
+
+    @SetUp fun setup() {
+        subject = TestSubject()
+    }
+
+    @Test fun test() {
+        subject.method()  // dereference directly
+    }
+}
+```
+
+The modifier can only be used on `var` properties declared inside the body of a class (not in the primary constructor), and only
+when the property does not have a custom getter or setter. The type of the property must be non-null, and it must not be
+a primitive type.
+
+## 重写属性 
 
 查看 [Overriding Members](classes.html#overriding-members)
 
