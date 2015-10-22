@@ -172,7 +172,7 @@ It is very convenient to declare a type parameter T as *out* and have no trouble
 A good example of this is Array:
 
 ``` kotlin
-class Array<T>(val length: Int) {
+class Array<T>(val size: Int) {
   fun get(index: Int): T { /* ... */ }
   fun set(index: Int, value: T) { /* ... */ }
 }
@@ -182,7 +182,7 @@ This class cannot be either co\- or contravariant in `T`. And this imposes certa
 
 ``` kotlin
 fun copy(from: Array<Any>, to: Array<Any>) {
-  assert(from.length == to.length)
+  assert(from.size == to.size)
   for (i in from.indices)
     to[i] = from[i]
 }
@@ -234,24 +234,19 @@ for most cases. Kotlin provides a shorthand syntax for this, that we call a **st
 
 # Generic functions
 
-Not only classes can have type parameters. Functions can, too. Usually, we place the type parameters in angle brackets **after** the name of the function:
+Not only classes can have type parameters. Functions can, too. Type parameters are placed before the name of the function:
 
 ``` kotlin
 fun <T> singletonList(item: T): List<T> {
   // ...
 }
-```
 
-But for [Extension functions](extensions.html) it may be necessary to declare type parameters before specifying the receiver type, so 
-Kotlin allows the alternative syntax:
-
-``` kotlin
-fun <T> T.basicToString() : String {
-  return typeinfo.typeinfo(this) + "@" + System.identityHashCode(this)
+fun <T> T.basicToString() : String {  // extension function
+  // ...
 }
 ```
 
-If type parameters are passed explicitly at the call site, they can be only specified **after** the name of the function:
+If type parameters are passed explicitly at the call site, they are specified **after** the name of the function:
 
 ``` kotlin
 val l = singletonList<Int>(1)
@@ -274,8 +269,8 @@ fun <T : Comparable<T>> sort(list: List<T>) {
 The type specified after a colon is the **upper bound**: only a subtype of `Comparable<T>` may be substituted for `T`. For example
 
 ``` kotlin
-sort(list(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
-sort(list(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
+sort(listOf(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
+sort(listOf(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
 ```
 
 The default upper bound (if none specified) is `Any?`. Only one upper bound can be specified inside the angle brackets.
@@ -285,6 +280,6 @@ If the same type parameter needs more than one upper bound, we need a separate *
 fun <T> cloneWhenGreater(list: List<T>, threshold: T): List<T>
     where T : Comparable,
           T : Cloneable {
-  return list.filter{ it > threshold }.map { it.clone() }
+  return list.filter { it > threshold }.map { it.clone() }
 }
 ```

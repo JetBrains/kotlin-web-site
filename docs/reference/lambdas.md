@@ -235,11 +235,10 @@ The type of an extension function expression is a function type with receiver:
 sum : Int.(other: Int) -> Int
 ```
 
-The function can be called with a dot or in infix form (since it has only one parameter):
+The function can be called as if it were a method on the receiver object:
 
 ``` kotlin
 1.sum(2)
-1 sum 2
 ```
 
 

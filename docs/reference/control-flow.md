@@ -42,7 +42,8 @@ val max = if (a > b) {
   }
 ```
 
-When *if*{: .keyword } has only one branch, or one of its branches results in `Unit`, its type is `Unit`.
+If you're using *if*{: .keyword } as an expression rather than a statement (for example, returning its value or
+assigning it to a variable), the expression is required to have an `else` branch.
 
 See the [grammar for *if*{: .keyword }](grammar.html#if).
 
@@ -146,6 +147,8 @@ As mentioned before, *for*{: .keyword } iterates through anything that provides 
 * has a member- or extension-function `iterator()`, whose return type
   * has a member- or extension-function `next()`, and
   * has a member- or extension-function `hasNext()` that returns `Boolean`.
+
+All of these three functions need to be marked as `operator`.
 
 If you want to iterate through an array or a list with an index, you can do it this way:
 

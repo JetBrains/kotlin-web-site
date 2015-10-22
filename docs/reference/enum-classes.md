@@ -65,11 +65,11 @@ EnumClass.values(): Array<EnumClass>
 The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
 not match any of the enum constants defined in the class.
 
-Every enum constant has methods to obtain its name and position in the enum class declaration:
+Every enum constant has properties to obtain its name and position in the enum class declaration:
 
 ``` kotlin
-name(): String
-ordinal(): Int
+val name: String
+val ordinal: Int
 ```
 
 The enum constants also implement the [Comparable](/api/latest/jvm/stdlib/kotlin/-comparable/index.html) interface,

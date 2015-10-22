@@ -167,14 +167,15 @@ Built-in operations on booleans include
 
 * `||` – lazy disjunction
 * `&&` – lazy conjunction
+* `!` - negation
 
 ## Arrays
 
-Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` functions (that turn into `[]` by operator overloading conventions), and `size`, along with a few other useful member functions:
+Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` functions (that turn into `[]` by operator overloading conventions), and `size` property, along with a few other useful member functions:
 
 ``` kotlin
 class Array<T> private constructor() {
-  fun size(): Int
+  val size: Int
   fun get(index: Int): T
   fun set(index: Int, value: T): Unit
 
@@ -200,12 +201,12 @@ Note: unlike Java, arrays in Kotlin are invariant. This means that Kotlin does n
 to an `Array<Any>`, which prevents a possible runtime failure (but you can use `Array<out Any>`, 
 see [Type Projections](generics.html#type-projections)).
 
-Kotlin also has specialized classes to represent arrays of primitive types without boxing overhead: ByteArray,
-ShortArray, IntArray and so on. These classes have no inheritance relation to the `Array` class, but they
+Kotlin also has specialized classes to represent arrays of primitive types without boxing overhead: `ByteArray`,
+`ShortArray`, `IntArray` and so on. These classes have no inheritance relation to the `Array` class, but they
 have the same set of methods and properties. Each of them also has a corresponding factory function:
 
 ``` kotlin
-val x: IntArray = intArray(1, 2, 3)
+val x: IntArray = intArrayOf(1, 2, 3)
 x[0] = x[1] + x[2]
 ```
 
@@ -243,7 +244,8 @@ val text = """
 
 ### String Templates
 
-Strings may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string. A template expression starts with a dollar sign ($) and consists of either a simple name:
+Strings may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string.
+A template expression starts with a dollar sign ($) and consists of either a simple name:
 
 ``` kotlin
 val i = 10

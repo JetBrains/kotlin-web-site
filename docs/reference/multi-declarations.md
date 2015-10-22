@@ -33,6 +33,8 @@ The `component1()` and `component2()` functions are another example of the _prin
 Anything can be on the right-hand side of a multi-assignment, as long as the required number of component functions can be called on it. 
 And, of course, there can be `component3()` and `component4()` and so on.
 
+Note that the `componentN()` functions need to be marked with the `operator` keyword to allow using them in a multi-declaration.
+
 Multi-declarations also work in *for*{: .keyword }-loops: when you say
 
 ``` kotlin
@@ -81,9 +83,9 @@ To make this work, we should
 And indeed, the standard library provides such extensions:
 
 ``` kotlin
-fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V>> = entrySet().iterator()
-fun <K, V> Map.Entry<K, V>.component1() = getKey()
-fun <K, V> Map.Entry<K, V>.component2() = getValue()
+operator fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V>> = entrySet().iterator()
+operator fun <K, V> Map.Entry<K, V>.component1() = getKey()
+operator fun <K, V> Map.Entry<K, V>.component2() = getValue()
   
 ```  
   

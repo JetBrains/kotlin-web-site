@@ -132,12 +132,6 @@ Complete list of elements and attributes are listed below
 | `includeRuntime`  | If `output` is a .jar file, whether Kotlin runtime library is included in the jar | No | true  |
 
 
-### withKotlin attributes
-
-| Name | Description | Required | Default Value |
-|------|-------------|----------|---------------|
-| `externalannotations` | Path to external annotations | No |  |
-
 
 ### kotlin2js Attributes
 

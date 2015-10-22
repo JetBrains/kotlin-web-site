@@ -121,7 +121,6 @@ reference:
       - /docs/reference/kotlin-doc.html: Documenting Kotlin Code
       - /docs/reference/using-maven.html: Using Maven
       - /docs/reference/using-ant.html: Using Ant
-      - /docs/reference/using-griffon.html: Using Griffon
       - /docs/reference/using-gradle.html: Using Gradle
       - /docs/reference/kotlin-osgi.html: Kotlin and OSGi
 

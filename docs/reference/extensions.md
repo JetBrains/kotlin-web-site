@@ -8,7 +8,7 @@ title: "Extensions"
 # Extensions
 
 Kotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator.
-This is done via special declarations called _extensions_. Currently, Kotlin supports _extension functions_ and _extension properties_.
+This is done via special declarations called _extensions_. Kotlin supports _extension functions_ and _extension properties_.
 
 ## Extension Functions
 

@@ -48,6 +48,13 @@ import foo.Bar // Bar is accessible
 import bar.Bar as bBar // bBar stands for 'bar.Bar'
 ```
 
+The `import` keyword is not restricted to importing classes; you can also use it to import other declarations:
+  * top-level functions and properties;
+  * functions and properties declared in [object declarations](object-declarations.html#object-declarations);
+  * [enum constants](enum-classes.html)
+
+Unlike Java, Kotlin does not have a separate "import static" syntax; all of these declarations are imported using the regular `import` keyword.
+
 ## Visibility of Top-level Declarations
 
 If a top-level declaration is marked *private*{: .keyword }, it is private to the file it's declared in (see [Visibility Modifiers](visibility-modifiers.html)).

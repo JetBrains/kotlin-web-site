@@ -23,23 +23,23 @@ class Example {
 ```
 
 The syntax is: `val/var <property name>: <Type> by <expression>`. The expression after *by*{:.keyword} is the _delegate_, 
-because `get()` (and `set()`) corresponding to the property will be delegated to it.  
-Property delegates don’t have to implement any interface, but they have to provide a `get()` function (and `set()` --- for *var*{:.keyword}'s). 
+because `get()` (and `set()`) corresponding to the property will be delegated to its `getValue()` and `setValue()` methods.
+Property delegates don’t have to implement any interface, but they have to provide a `getValue()` function (and `setValue()` --- for *var*{:.keyword}'s).
 For example:
 
 ``` kotlin
 class Delegate {
-  fun get(thisRef: Any?, property: PropertyMetadata): String {
+  operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
     return "$thisRef, thank you for delegating '${property.name}' to me!"
   }
  
-  fun set(thisRef: Any?, property: PropertyMetadata, value: String) {
+  operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
     println("$value has been assigned to '${property.name} in $thisRef.'")
   }
 }
 ```
 
-When we read from `p` that delegates to an instance of `Delegate`, the `get()` function from `Delegate` is called, 
+When we read from `p` that delegates to an instance of `Delegate`, the `getValue()` function from `Delegate` is called,
 so that its first parameter is the object we read `p` from and the second parameter holds a description of `p` itself 
 (e.g. you can take its name). For example:
 
@@ -54,7 +54,7 @@ This prints
 Example@33a17727, thank you for delegating ‘p’ to me!
 ```
  
-Similarly, when we assign to `p`, the `set()` function is called. The first two parameters are the same, and the third holds the value being assigned:
+Similarly, when we assign to `p`, the `setValue()` function is called. The first two parameters are the same, and the third holds the value being assigned:
 
 ``` kotlin
 e.p = "NEW"
@@ -70,20 +70,22 @@ NEW has been assigned to ‘p’ in Example@33a17727.
 
 Here we summarize requirements to delegate objects. 
 
-For a **read-only** property (i.e. a *val*{:.keyword}), a delegate has to provide a function named `get` that takes the following parameters:
+For a **read-only** property (i.e. a *val*{:.keyword}), a delegate has to provide a function named `getValue` that takes the following parameters:
 
 * receiver --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended),
-* metadata --- must be of type `PropertyMetadata` or its supertype,
+* metadata --- must be of type `KProperty<*>` or its supertype,
  
 this function must return the same type as property (or its subtype).
 
-For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally_ provide a function named `set` that takes the following parameters:
+For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally_ provide a function named `setValue` that takes the following parameters:
  
-* receiver --- same as for `get()`,
-* metadata --- same as for `get()`,
+* receiver --- same as for `getValue()`,
+* metadata --- same as for `getValue()`,
 * new value --- must be of the same type as a property or its supertype.
  
-`get()` and/or `set()` functions may be provided either as member functions of the delegate class or extension functions. The latter is handy when you need to delegate property to an object, which doesn't originally provide these functions.
+`getValue()` and/or `setValue()` functions may be provided either as member functions of the delegate class or extension functions.
+The latter is handy when you need to delegate property to an object which doesn't originally provide these functions.
+Both of the functions need to be marked with the `operator` keyword.
 
 
 ## Standard Delegates
@@ -146,18 +148,19 @@ This example prints
 first -> second
 ```
 
-If you want to be able to intercept an assignment and "veto" it, use `vetoable()` instead of `observable()`. The handler passed to the `vetoable` is called _before_ the assignment of a new property value has been performed.
+If you want to be able to intercept an assignment and "veto" it, use `vetoable()` instead of `observable()`.
+The handler passed to the `vetoable` is called _before_ the assignment of a new property value has been performed.
 
 ## Storing Properties in a Map
 
 One common use case is storing the values of properties in a map.
 This comes up often in applications like parsing JSON or doing other “dynamic” things.
 In this case, you can use the map instance itself as the delegate for a delegated property.
-In order for this to work, you need to import an extension accessor function `get()` that adapts maps to the
+In order for this to work, you need to import an extension accessor function `getValue()` that adapts maps to the
 delegated property API: it reads property values from the map, using property name as a key.
 
 ``` kotlin
-import kotlin.properties.get
+import kotlin.properties.getValue
 
 class User(val map: Map<String, Any?>) {
     val name: String by map
@@ -183,11 +186,11 @@ println(user.age)  // Prints 25
 ```
 
 This works also for *var*{:.keyword}’s properties if you use a `MutableMap` instead of read-only `Map`
-and import an additional extension function: `kotlin.properties.set`
+and import an additional extension function: `kotlin.properties.setValue`
 
 ``` kotlin
-import kotlin.properties.get
-import kotlin.properties.set
+import kotlin.properties.getValue
+import kotlin.properties.setValue
 
 class MutableUser(val map: MutableMap<String, Any?>) {
     var name: String by map
