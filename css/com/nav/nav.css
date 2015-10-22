@@ -21,7 +21,33 @@
  * Grid column
  * @param {px} $font-size (optional)
 */
+/**
+ * @param {string} $selector
+ * @param {integer} $cols-span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $is-fluid (optional)
+*/
+/**
+ * @param {integer} $grid-spacing (optional)
+ */
+/**
+ *
+ * @param {integer} $span
+ * @param {px} $spacing (optional)
+ * @param {px} $grid-width (optional)
+ * @param {integer} $cols-count (optional)
+ * @param {boolean} $grid-is-fluid (optional)
+*/
+/**
+ * Grid column
+ * @param {px} $font-size (optional)
+*/
+/* Buttons */
 .global-nav {
+  display: flex;
+  align-items: center;
   position: relative;
   float: right;
   font-size: 0;
@@ -63,7 +89,8 @@
         .global-nav .extra-nav.social-links {
           top: auto; } }
     .global-nav .extra-nav.download-button {
-      line-height: 36px; }
+      line-height: 36px;
+      margin-right: 20px; }
     .global-nav .extra-nav .link {
       position: relative;
       display: inline-block;
@@ -73,8 +100,6 @@
       line-height: 0;
       text-decoration: none;
       vertical-align: top; }
-      .global-nav .extra-nav .link:last-child {
-        margin-right: 0; }
     .global-nav .extra-nav .link-twitter {
       top: 2px; }
     .global-nav .extra-nav .link-forum {
@@ -101,6 +126,58 @@
       width: 26px;
       height: 17px;
       background-position: -100px -400px; }
+  .global-nav .global-search {
+    display: inline-block;
+    overflow: hidden;
+    min-width: 33px; }
+    .global-nav .global-search .search-button {
+      position: absolute;
+      z-index: 1;
+      vertical-align: middle;
+      cursor: pointer;
+      opacity: 0.8;
+      padding: 5px; }
+      .global-nav .global-search .search-button .icon {
+        background: url("../layout/images/main-sprite.png") no-repeat 0 -550px;
+        width: 23px;
+        height: 23px; }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .global-nav .global-search .search-button .icon {
+            background-image: url("../layout/images/main-sprite@2x.png");
+            background-size: 150px auto; } }
+    .global-nav .global-search .search-box {
+      float: right;
+      height: 34px;
+      width: 0;
+      display: inline-block;
+      vertical-align: middle;
+      opacity: 0;
+      transition: all 0.4s; }
+    .global-nav .global-search .gsc-input {
+      height: 34px;
+      width: 100%;
+      padding-right: 0; }
+    .global-nav .global-search .search-button:hover {
+      opacity: 1; }
+    .global-nav .global-search .gsc-search-button {
+      display: none; }
+    .global-nav .global-search .gsc-clear-button {
+      display: none; }
+    .global-nav .global-search .gsc-search-box {
+      margin-bottom: 0; }
+      .global-nav .global-search .gsc-search-box input {
+        box-sizing: border-box;
+        border: 0;
+        padding: 0 0 0 33px;
+        border-radius: 4px; }
+  .global-nav .global-search._expanded {
+    background-color: white;
+    border-radius: 4px; }
+    .global-nav .global-search._expanded .search-button .icon {
+      background-position: -50px -550px; }
+    .global-nav .global-search._expanded .search-box {
+      opacity: 1;
+      width: 300px; }
 
 .page_index .global-nav {
   margin-top: 0; }
@@ -283,7 +360,7 @@
   padding-left: 12px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #497bb7; }
+  color: #497BB7; }
   .tree-branch-title:hover {
     background-color: #F2F2F2;
     text-decoration: underline; }
@@ -296,7 +373,7 @@
     height: 0;
     border-style: solid;
     border-width: 4px 0 4px 5px;
-    border-color: transparent transparent transparent #497bb7; }
+    border-color: transparent transparent transparent #497BB7; }
 
 .tree-branch-title.is_active {
   background-color: #F2F2F2;
@@ -342,3 +419,5 @@
 .tree-leaf-title.is_active {
   font-weight: bold;
   color: #333333; }
+
+/*# sourceMappingURL=nav.css.map */
