@@ -22,7 +22,7 @@ true if and only if `a` and `b` point to the same object.
 Structural equality is checked by the `==` operation (and its negated counterpart `!=`). By convention, an expression like `a == b` is translated to
 
 ``` kotlin
-a?.equals(b) ?: b === null
+a?.equals(b) ?: (b === null)
 ```
 
 I.e. if `a` is not `null`, it calls the `equals(Any?)` function, otherwise (i.e. `a` is `null`) it checks that `b` is referentially equal to `null`.
