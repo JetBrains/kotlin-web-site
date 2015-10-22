@@ -33,4 +33,3 @@ Use the coupon code '39jemerov' to get a 39% discount code on the book.
 
 [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers) is a book by Antonio Leiva showing
 how Kotlin can be used for creating an Android application from scratch.
-The book is a "lean publication", meaning that it is available for purchase while the book is still written.
