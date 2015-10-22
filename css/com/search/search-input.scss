@@ -1,0 +1,80 @@
+@import '../../_utils';
+
+.global-search {
+    display: inline-block;
+    overflow: hidden;
+    min-width: 33px;
+
+    .search-button {
+        position: absolute;
+        z-index: 1;
+        vertical-align: middle;
+        cursor: pointer;
+        opacity: 0.8;
+        padding: 5px;
+        .icon {
+            background: url('../layout/images/main-sprite.png') no-repeat 0 -550px;
+            width: 23px;
+            height: 23px;
+
+            @include adapt_retina {
+                background-image: url('../layout/images/main-sprite@2x.png');
+                background-size: 150px auto;
+            }
+        }
+    }
+
+    .search-box {
+        float: right;
+        height: 34px;
+        width: 0;
+        display: inline-block;
+        vertical-align: middle;
+        opacity: 0;
+        transition: all 0.4s;
+    }
+
+    .gsc-input {
+        height: 34px;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .search-button:hover {
+        opacity: 1;
+    }
+
+    .gsc-search-button {
+        display: none;
+    }
+
+    .gsc-clear-button {
+        display: none;
+    }
+
+    .gsc-search-box {
+        margin-bottom: 0;
+        input {
+            box-sizing: border-box;
+            border: 0;
+            padding: 0 0 0 33px;
+            border-radius: 4px;
+        }
+    }
+}
+
+.global-search._expanded {
+    background-color: white;
+    border-radius: 4px;
+
+    .search-button {
+        .icon {
+            background-position: -50px -550px;
+        }
+    }
+
+    .search-box {
+        opacity: 1;
+        width: 300px;
+    }
+}
