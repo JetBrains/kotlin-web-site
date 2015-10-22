@@ -1,12 +1,15 @@
 url: https://github.com/JetBrains/kotlin/releases
 
 latest:
-  version: 0.14.449
-  milestone: M14
-  url: https://github.com/JetBrains/kotlin/releases/tag/build-0.14.449
-  runtime_size: 1197KB
+  version: 1.0.0-beta-1038
+  milestone: Beta Candidate
+  url: https://github.com/JetBrains/kotlin/releases/tag/build-1.0.0-beta-1038
+  runtime_size: 968KB
 
 list:
+- milestone: Beta Candidate
+  version: 1.0.0-beta-1038
+
 - milestone: M14
   version: 0.14.449
 
