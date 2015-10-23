@@ -99,13 +99,3 @@ return@a 1
 ```
 
 means "return `1` at label `@a`" and not "return a labeled expression `(@a 1)`".
-
-Named functions automatically define labels:
-
-``` kotlin
-fun outer() {
-  fun inner() {
-    return@outer // the label @outer was defined automatically
-  }
-}                                                                             
-```
