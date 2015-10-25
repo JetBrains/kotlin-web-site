@@ -113,6 +113,11 @@
   type: Library
   link: https://github.com/klutter/klutter
   
+- name: Kodein
+  description: Painless Kotlin Dependency Injection
+  type: Library
+  link: https://github.com/SalomonBrys/Kodein
+
 - name: Kovert
   description: An invisible REST framework for Kotlin
   type: Library
