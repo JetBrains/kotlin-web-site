@@ -779,6 +779,16 @@
   content:
     video: http://www.youtube.com/watch?v=ts-dnfLlZfM
     slides: http://prezi.com/_54kwvc0i_zs/?utm_campaign=share&utm_medium=copy&rc=ex0share
+    
+- title: DroidCon Montreal 2015
+  url: http://www.droidcon.ca/speakers/26
+  subject: "I built an app in Kotlin, and my client still paid me"
+  speaker: Matt Wear
+  date: [2015-04-09, 2015-04-10]
+  location: Montreal, Canada
+  lang: en  
+  content:
+    video: http://www.youtube.com/watch?v=d7BiXy3Qdt8
 
 - title: Event Madras JUG Developer Day '15
   url: http://www.meetup.com/Madras-JUG/events/221590867/
