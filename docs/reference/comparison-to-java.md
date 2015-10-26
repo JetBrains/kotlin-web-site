@@ -2,43 +2,43 @@
 type: doc
 layout: reference
 category: FAQ
-title: "Comparison to Java"
+title: "对比Java"
 ---
 
-# Comparison to Java
+# 对比Java
 
-## Some Java issues addressed in Kotlin
+## Kotlin解决了一些Java中难搞的问题
 
-Kotlin fixes a series of issues that Java suffers from
+Kotlin 修复了Java中一系列长期困扰我们的问题
 
-* Null references are [controlled by the type system](null-safety.html).
-* [No raw types](java-interop.html)
-* Arrays in Kotlin are [invariant](basic-types.html#Arrays)
-* Kotlin has proper [function types](lambdas.html#function-types), as opposed to Java's SAM-conversions
-* [Use-site variance](generics.html#use-site-variance) without wildcards
-* Kotlin does not have checked [exceptions](exceptions.html)
+* [类型系统](null-safety.html)控制了空引用的发生.
+* [没有原始类型](java-interop.html)
+* Kotlin中数组是[不变的](basic-types.html#Arrays)
+* 相对于Java的SAM-conversions，Kotlin有更加合适的[函数类型](lambdas.html#function-types)
+* 使用没有通配符的[site variance](generics.html#use-site-variance)
+* Kotlin 没有检查[异常](exceptions.html)
 
-## What Java has that Kotlin does not
+## Java有但是Kotlin没有的东东
 
-* [Checked exceptions](exceptions.html)
-* [Primitive types](basic-types.html) that are not classes
-* [Static members](classes.html)
-* [Non-private fields](properties.html)
-* [Wildcard-types](generics.html)
+* [检查异常](exceptions.html)
+* [原始类型](basic-types.html) ，不是类
+* [静态成员](classes.html)
+* [未私有化字段](properties.html)
+* [通配符类型](generics.html)
 
-## What Kotlin has that Java does not
+## Kotlin有但是Java没有的东东
 
-* [Function literals](lambdas.html) + [Inline functions](inline-functions.html) = performant custom control structures
-* [Extension functions](extensions.html)
-* [Null-safety](null-safety.html)
-* [Smart casts](typecasts.html)
-* [String templates](basic-types.html#strings)
-* [Properties](properties.html)
-* [Primary constructors](classes.html)
-* [First-class delegation](delegation.html)
-* [Type inference for variable and property types](basic-types.html)
-* [Singletons](object-declarations.html)
-* [Declaration-site variance & Type projections](generics.html)
-* [Range expressions](ranges.html)
-* [Operator overloading](operator-overloading.html)
-* [Companion objects](classes.html#companion-objects)
+* [高阶函数](lambdas.html) + [内联函数](inline-functions.html) = 高性能自定义结构
+* [扩展函数](extensions.html)
+* [Null 安全性](null-safety.html)
+* [智能类型转换](typecasts.html)
+* [字符串类型模板](basic-types.html#strings)
+* [属性](properties.html)
+* [主构造方法](classes.html)
+* [一级委托](delegation.html)
+* [变量和属性类型的类型接口](basic-types.html)
+* [单例](object-declarations.html)
+* [声明点变化 & 类型预测](generics.html)
+* [范围表达式](ranges.html)
+* [运算符重载](operator-overloading.html)
+* [同伴对象](classes.html#companion-objects)
