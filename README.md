@@ -23,7 +23,7 @@ Site is based on [Jekyll](http://jekyllrb.com), so you will need ruby (>= 1.9.3)
 - *Windows*. Step-by-step Jekyll installation can be found [here](https://github.com/juthilo/run-jekyll-on-windows).
   We recommend to use [Cygwin](https://www.cygwin.com) or [Git Bash](http://git-scm.com) as command line interface.
 
-Run `sh ./INSTALL.sh` to install.
+Run `./INSTALL.sh` to install.
 
 ## PDF building
 
