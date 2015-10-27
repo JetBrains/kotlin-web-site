@@ -133,7 +133,7 @@ val x = (1 shl 2) and 0x000FF000
 
 ## Characters
 
-Characters 用 `Char`来表示. 像对待numbers那样就行
+Characters 用 `Char`来表示. 不能像对待numbers那样处理
 
 ``` kotlin
 fun check(c: Char) {
