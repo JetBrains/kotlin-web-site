@@ -113,6 +113,11 @@
   type: Library
   link: https://github.com/klutter/klutter
   
+- name: Kodein
+  description: Painless Kotlin Dependency Injection
+  type: Library
+  link: https://github.com/SalomonBrys/Kodein
+
 - name: Kovert
   description: An invisible REST framework for Kotlin
   type: Library
@@ -122,3 +127,14 @@
   description: HTTP client similar to Python's requests.
   type: Library
   link: https://github.com/jkcclemens/khttp
+
+- name: Kobalt
+  description: A build system written in Kotlin
+  type: Build system
+  link: https://beust.com/kobalt
+
+- name: Klaxon
+  description: A JSON library written in Kotlin
+  type: Library
+  link: https://beust.com/klaxon
+
