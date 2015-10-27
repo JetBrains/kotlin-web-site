@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 RUBY_VERSION_=`ruby -e "puts RUBY_VERSION"`
 BUNDLER_VERSION_=1.6.2
 GEM_LOCAL_PATH_=~/.gem/ruby/$RUBY_VERSION_/gems
