@@ -1,13 +1,12 @@
 buildscript {
-    ext.kotlin_version = '0.12.213'  // New
+    ext.kotlin_version = '0.14.449'  // New
+	ext.spring_boot_version = '1.2.7.RELEASE'
     repositories {
-        maven { url "https://repo.spring.io/libs-release" }
-        mavenLocal()
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"  // New
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.10.RELEASE")
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
     }
 }
 
@@ -23,9 +22,7 @@ jar {
 }
 
 repositories {
-    mavenLocal()
-    mavenCentral()
-    maven { url "https://repo.spring.io/libs-release" }
+	jcenter()
 }
 
 // New entire sourceSets
