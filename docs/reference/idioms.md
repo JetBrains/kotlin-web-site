@@ -227,7 +227,8 @@ fun transform(color: String): Int = when (color) {
 }
 ```
 
-###Calling multiple methods on an object instance ('with')
+### Calling multiple methods on an object instance ('with')
+
 ``` kotlin
 class Turtle {
     fun penDown()
@@ -244,5 +245,14 @@ with(myTurtle) { //draw a 100 pix square
         turn(90.0)
     }
     penUp()
+}
+```
+
+### Java 7's try with resources
+
+``` kotlin
+val stream = Files.newInputStream(Paths.get("/some/file.txt"))
+stream.buffered().reader().use { reader ->
+    println(reader.readText())
 }
 ```
