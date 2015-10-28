@@ -1060,3 +1060,11 @@
   date: [2015-11-09,2015-11-10]
   location: Paris, France
   lang: en 
+
+- title: AnDevCon 2015
+  url: http://www.andevcon.com/santaclara/classes#IntroducingKotlinforAndroidDevelopment
+  subject: "Introducing Kotlin for Android Development"
+  speaker: ChongLim Kim
+  date: [2015-12-01,2015-12-03]
+  location: Santa Clara, CA, US
+  lang: en 
