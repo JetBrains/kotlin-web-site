@@ -80,9 +80,9 @@ The `rangeTo()` functions in number types simply call the constructors of `*Rang
 ``` kotlin
 class Int {
   //...
-  fun rangeTo(other: Byte): IntRange = IntRange(this, other)
+  operator fun rangeTo(other: Byte): IntRange = IntRange(this, other)
   //...
-  fun rangeTo(other: Int): IntRange = IntRange(this, other)
+  operator fun rangeTo(other: Int): IntRange = IntRange(this, other)
   //...
 }
 ```
