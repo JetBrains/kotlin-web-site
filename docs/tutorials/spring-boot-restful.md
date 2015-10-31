@@ -15,6 +15,8 @@ and the project layout structure, as well as the initialization code.
 In this tutorial we'll walk through the steps required. For a more thorough explanation of Spring Boot and RESTful services, please see
 [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
 
+Note that all classes in this tutorial are in the `kotlin.demo` package.
+
 ### Defining the project and dependencies
 {{ site.text_using_gradle }}
 
@@ -22,15 +24,14 @@ The Gradle file is pretty much standard for Spring Boot. The only difference is 
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '0.10.195'  // New
+    ext.kotlin_version = '1.0.0-beta-1038'  // New
+	ext.spring_boot_version = '1.2.7.RELEASE'
     repositories {
-        maven { url "https://repo.spring.io/libs-release" }
-        mavenLocal()
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"  // New
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.10.RELEASE")
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
     }
 }
 
@@ -46,9 +47,7 @@ jar {
 }
 
 repositories {
-    mavenLocal()
-    mavenCentral()
-    maven { url "https://repo.spring.io/libs-release" }
+	jcenter()
 }
 
 // New entire sourceSets
@@ -80,20 +79,20 @@ task wrapper(type: Wrapper) {
 The next step is to create Greeting Data class that has two properties: *id* and a *content*
 
 ``` kotlin
-data public class Greeting(val id: Long, val content: String)
+data class Greeting(val id: Long, val content: String)
 ```
 
 We now define the *GreetingController* which serves requests of the form */greeting?name={value}* and returns a JSON object
 representing an instance of *Greeting*
 
 ``` kotlin
-RestController
-public class GreetingController {
+@RestController
+class GreetingController {
 
     val counter = AtomicLong()
 
-    RequestMapping("/greeting")
-    public fun greeting(RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
+    @RequestMapping("/greeting")
+    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
         return Greeting(counter.incrementAndGet(), "Hello, $name")
     }
 }
@@ -103,18 +102,19 @@ As can be seen, this is again pretty much a one-to-one translation of Java to Ko
 
 ### Creating the Application class
 Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin
-using the *platformStatic* attribute. For this, we create a standard *Application* class and define a companion object inside where we can then create
-a function decorated with *platformStatic*
+using the *@JvmStatic* annotation. For this, we create a standard *Application* class and define a companion object inside where we can then create
+a function annotated with *@JvmStatic*
 
-Note: platformStatic is an annotation in Kotlin which is used for interoperability with Java, so that the resulting method is defined as static when called from Java.
+Note: JvmStatic is an annotation in Kotlin which is used for interoperability with Java, so that the resulting method is defined as static when called from Java.
+
+The other change needed for Spring Boot is to mark the class as open. Spring boot *@Configuration* classes cannot be final. Classes in Kotlin are final by default without the *open* modifier.
 
 ``` kotlin
-ComponentScan
-EnableAutoConfiguration
-public class Application {
+@SpringBootApplication
+open class Application {
     companion object {
-        platformStatic public fun main(args: Array<String>) {
-            SpringApplication.run(javaClass<Application>(), *args)
+        @JvmStatic public fun main(args: Array<String>) {
+            SpringApplication.run(Application::class.java, *args)
         }
     }
 }
@@ -126,12 +126,11 @@ In Java, the `main()` method of a Spring Boot application is conventionally defi
 In Kotlin, however, we *do* have [top-level functions]({{ site.baseurl }}/docs/reference/functions.html). Thus, we can make the Spring main entry point much simpler:
 
 ```kotlin
-ComponentScan
-EnableAutoConfiguration
-public class Application
+@SpringBootApplication
+open class Application
 
-public fun main(args: Array<String>) {
-	SpringApplication.run(javaClass<Application>(), *args)
+fun main(args: Array<String>) {
+	SpringApplication.run(Application::class.java, *args)
 }
 ```
 
@@ -144,11 +143,11 @@ springBoot {
 }
 ```
 
-In Kotlin, top-level functions are compiled into static members of an automatically-generated class. The name of this class is derived from the name of the package. For instance, a top-level function in the `com.example` package would be defined in a class named `com.example.ExamplePackage`. In our case, because we did not declare a package explicitly, the function is defined in the so-called *default* package; thus, the special  class `_DefaultPackage`  is defined. You may add the following lines to your `build.gradle`:
+In Kotlin, top-level functions are compiled into static members of an automatically-generated class. The name of this class is derived from the name of the source file. For instance, a top-level function in the `Application.kt` file would be defined in a class named `ApplicationKt`. You may add the following lines to your `build.gradle`:
 
 ```groovy
 springBoot {
-    mainClass = '_DefaultPackage'
+    mainClass = 'kotlin.demo.ApplicationKt'
 }
 ```
 
