@@ -936,6 +936,8 @@
   date: [2015-10-29, 2015-10-30]
   location: London, UK
   lang: en
+  content:
+    slides: https://speakerdeck.com/jakewharton/advancing-development-with-kotlin-droidcon-uk-2015
 
 - title: JOKER
   url: http://jokerconf.com
