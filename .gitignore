@@ -24,3 +24,5 @@ build
 gradle/
 workspace.xml
 uiDesigner.xml
+*.css.map
+api/
