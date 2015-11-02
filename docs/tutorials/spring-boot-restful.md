@@ -5,7 +5,7 @@ title:  "Creating a RESTful Web Service with Spring Boot"
 description: "This tutorial walks us through the process of creating a simple REST controller with Spring Boot"
 authors: Hadi Hariri, Edoardo Vacchi
 showAuthorInfo: true
-date: 2015-01-28
+date: 2015-10-31
 source: spring-boot-restful
 ---
 Kotlin works quite smoothly with Spring Boot and many of the steps found on the [Spring Guides](https://spring.io/guides) for creating a RESTful service
