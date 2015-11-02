@@ -74,6 +74,11 @@
   url: http://dojomadness.com/
   description: About 25% of LOLSUMO Android app currently in Kotlin (w/ Dagger2, RxKotlin) ; all new code and tests in Kotlin.
   
-  - company: Bryx 911
+- company: Bryx 911
   url: http://bryx911.com
   description: Android app for helping first responders written in Kotlin
+  
+- company: DF Studio
+  url: http://www.dfstudio.com
+  description: Cloud-based enterprise and professional photography acquisition and workflow. Using Kotlin for server-side code and a desktop Download application.
+
