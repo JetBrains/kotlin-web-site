@@ -15,7 +15,7 @@ If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](h
 
 1. **Kotlin is shipping with IntelliJ IDEA 15** ([download][intellijdownload]).
 
-   For writing in Kotlin with [previous versions][oldintellijdownload] or Android Studio you should manually install the latest Kotlin Plugin.
+   To use Kotlin with [previous versions][oldintellijdownload] or Android Studio we should manually install the latest Kotlin Plugin.
    Under Preferences (OSX) or Settings (Windows/Linux) > Plugins > Browse Repositories type **Kotlin** to find Kotlin plugin. Click install and follow the instructions.
 
    ![Kotlin Plugin]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/install_kotlin_plugin.png)
