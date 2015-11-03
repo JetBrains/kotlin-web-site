@@ -132,6 +132,31 @@ kbd {
     color: #0000C0;
 }
 
+
+.keyword {
+    font-family: $font-family-mono;
+    font-style: normal;
+    color: #0000C0;
+}
+
+.summarizedTypeName {
+    background-color: lightcyan;
+    font-style: italic;
+}
+
+.parameterName {
+  font-weight: bold;
+}
+
+.signature {
+  background-color: #efefef;
+  padding: 4px;
+}
+
+.overload-group {
+  padding-bottom: 50px;
+}
+
 .error {
     color: #ff0000;
     padding: 0 4px;
