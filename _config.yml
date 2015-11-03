@@ -23,7 +23,7 @@ include:
   - js
 
 # Site Settings
-baseurl:
+baseurl: /kotlin-web-site-ja
 code_baseurl: https://github.com/dogwood008/kotlin-web-site-ja/tree/master/code
 
 # Custom Settings
