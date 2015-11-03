@@ -82,3 +82,6 @@
   url: http://www.dfstudio.com
   description: Cloud-based enterprise and professional photography acquisition and workflow. Using Kotlin for server-side code and a desktop Download application.
 
+- company: 3D Robotics
+  url: https://3drobotics.com/
+  description: Using Kotlin in the 3DR Tower Android app, the best open source drone flight control app.
