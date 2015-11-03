@@ -15,7 +15,7 @@ If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](h
 
 1. **Kotlin is shipped with IntelliJ IDEA 15** ([download][intellijdownload]).
 
-   To use Kotlin with the [previous versions][oldintellijdownload] or Android Studio, you need to manually install the latest Kotlin Plugin.
+   To use Kotlin with the [previous versions][oldintellijdownload] or Android Studio, we need to manually install the latest Kotlin Plugin.
    Under **Preferences (OSX) or Settings (Windows/Linux) > Plugins > Browse Repositories** type **Kotlin** to find the Kotlin plugin. Click **Install** and follow the instructions.
 
    ![Kotlin Plugin]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/install_kotlin_plugin.png)
@@ -30,7 +30,7 @@ If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](h
 
    ![Kotlin Select Technologies]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/kotlin_java.png)
 
-4. Give your project a name on the next step.
+4. Give our project a name on the next step.
 
    ![Kotlin Project Name]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/project_name.png)
 
@@ -58,7 +58,7 @@ If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](h
 
    ![Kotlin Folder Structure]({{ site.baseurl }}/{{ site.img_tutorial_root }}//getting-started/run_window.png)
 
-Congratulations! You now have your first application running.
+Congratulations! We now have our first application running.
 
 [intellijdownload]: http://www.jetbrains.com/idea/download/index.html
 [oldintellijdownload]: https://confluence.jetbrains.com/display/IntelliJIDEA/Previous+IntelliJ+IDEA+Releases
