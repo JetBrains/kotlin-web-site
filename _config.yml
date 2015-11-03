@@ -27,6 +27,7 @@ baseurl:
 code_baseurl: https://github.com/dogwood008/kotlin-web-site-ja/tree/master/code
 
 # Custom Settings
+github_url: https://github.com/JetBrains/kotlin
 twitter_url: https://twitter.com/dogwood008
 forum_url: http://devnet.jetbrains.com/community/kotlin
 site_github_url: http://github.com/dogwood008/kotlin-web-site-ja
