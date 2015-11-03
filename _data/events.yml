@@ -962,6 +962,8 @@
   date: 2015-10-03
   location: Milan, Italy
   lang: it
+  content:
+    video: https://youtu.be/0xPDg8NXvko
 
 - title: 関西Kotlin勉強会
   url: http://connpass.com/event/18102/
