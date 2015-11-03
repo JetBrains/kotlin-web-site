@@ -23,7 +23,7 @@ include:
   - js
 
 # Site Settings
-baseurl:
+baseurl: /kotlin-web-site-ja
 code_baseurl: https://github.com/dogwood008/kotlin-web-site-ja/tree/master/code
 
 # Custom Settings
@@ -38,7 +38,7 @@ img_tutorial_root: assets/images/tutorials
 grammar_file_path: grammar.xml
 
 # Analytics and webmaster tools stuff goes here
-google_analytics: UA-940435-32
+google_analytics: UA-68403381-2
 google_verify:
 
 
