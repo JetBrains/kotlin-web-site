@@ -928,6 +928,14 @@
   date: [2015-11-03, 2015-11-06]
   location: Malmö, Sweden
   lang: en
+  
+- title: CDG DevFest Dublin
+  url: "http://gdg-dublin.appspot.com/#!/schedule/4"
+  subject: "Advancing Android with Kotlin"
+  speaker: Jake Wharton
+  date: [2015-11-06, 2015-11-08]
+  location: Dublin, Ireland
+  lang: en
 
 - title: DroidCon London 2015
   url: http://uk.droidcon.com/2015/
