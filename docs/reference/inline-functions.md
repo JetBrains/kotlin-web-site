@@ -22,12 +22,12 @@ lock(l) { foo() }
 Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code
 
 ``` kotlin
-lock.lock()
+l.lock()
 try {
   foo()
 }
 finally {
-  lock.unlock()
+  l.unlock()
 }
 ```
 
