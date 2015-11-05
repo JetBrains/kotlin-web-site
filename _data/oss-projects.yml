@@ -137,4 +137,8 @@
   description: A JSON library written in Kotlin
   type: Library
   link: https://beust.com/klaxon
-
+  
+- name: Result
+  description: The modelling for success/failure of operations in Kotlin
+  type: Library
+  link: https://github.com/kittinunf/Result
