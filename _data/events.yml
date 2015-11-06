@@ -928,6 +928,9 @@
   date: [2015-11-03, 2015-11-06]
   location: Malmö, Sweden
   lang: en
+  content:
+    slides: https://speakerdeck.com/jakewharton/advancing-development-with-kotlin-droidcon-uk-2015
+    video: https://vimeo.com/144877458
   
 - title: CDG DevFest Dublin
   url: "http://gdg-dublin.appspot.com/#!/schedule/4"
