@@ -196,7 +196,7 @@ fun foo(param: Int) {
 ### Builder-style usage of methods that return `Unit`
 
 ``` kotlin
-fun arrayOfMinusOnes(size: Int) {
+fun arrayOfMinusOnes(size: Int): IntArray {
     return IntArray(size).apply { fill(-1) }
 }
 ```
