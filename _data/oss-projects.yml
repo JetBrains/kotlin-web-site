@@ -142,3 +142,8 @@
   description: The modelling for success/failure of operations in Kotlin
   type: Library
   link: https://github.com/kittinunf/Result
+
+- name: ext4klaxon
+  description: Type Extensions (Long, Int, Enum, Date) for Klaxon
+  type: Library
+  link: https://github.com/fboldog/ext4klaxon
