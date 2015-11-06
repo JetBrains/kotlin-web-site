@@ -138,3 +138,7 @@
   type: Library
   link: http://beust.com/klaxon
 
+- name: Result
+  description: The modelling for success/failure of operations in Kotlin
+  type: Library
+  link: https://github.com/kittinunf/Result
