@@ -131,10 +131,10 @@
 - name: Kobalt
   description: A build system written in Kotlin
   type: Build system
-  link: https://beust.com/kobalt
+  link: http://beust.com/kobalt
 
 - name: Klaxon
   description: A JSON library written in Kotlin
   type: Library
-  link: https://beust.com/klaxon
+  link: http://beust.com/klaxon
 
