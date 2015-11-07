@@ -115,7 +115,7 @@ By default, the evaluation of lazy properties is **synchronized**: the value is 
 will see the same value. If the synchronization of initialization delegate is not required, so that multiple threads
 can execute it simultaneously, pass `LazyThreadSafetyMode.PUBLICATION` as a parameter to the `lazy()` function. 
 And if you're sure that the initialization will always happen on a single thread, you can use `LazyThreadSafetyMode.NONE` mode, 
-which doesn't incur any thread-safety guaratees and the related overhead.
+which doesn't incur any thread-safety guarantees and the related overhead.
 
 
 ### Observable
