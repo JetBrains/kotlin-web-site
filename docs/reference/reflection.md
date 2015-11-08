@@ -94,9 +94,9 @@ fun main(args: Array<String>) {
 
 The expression `::x` evaluates to a property object of type `KProperty<Int>`, which allows us to read its
 value using `get()` or retrieve the property name using the `name` property. For more information, please refer to
-the [docs on the `KProperty` class](/api/latest/jvm/stdlib/kotlin.reflect/-k-property.html).
+the [docs on the `KProperty` class](/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html).
 
-For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property.html),
+For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html),
 which has a `set()` method.
 
 To access a property that is a member of a class, we qualify it:
