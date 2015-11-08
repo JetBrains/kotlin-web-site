@@ -60,19 +60,19 @@ e.g. `String::toCharArray` gives us an extension function for type `String`: `St
 Consider the following function:
 
 ``` kotlin
-fun compose<A, B, C>(f: (B) -> C, g: (A) -> B): (A) -> C {
-    return {x -> f(g(x))}
+fun compose<A, B, C>(f: (A) -> B, g: (B) -> C): (A) -> C {
+    return {x -> g(f(x))}
 }
 ```
 
-It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))`.
+It returns a composition of two functions passed to it: `compose(f, g) = g(f(*))`.
 Now, you can apply it to callable references:
 
 
 ``` kotlin
 fun length(s: String) = s.size
 
-val oddLength = compose(::isOdd, ::length)
+val oddLength = compose(::length, ::isOdd)
 val strings = listOf("a", "ab", "abc")
 
 println(strings.filter(oddLength)) // Prints "[a, abc]"
