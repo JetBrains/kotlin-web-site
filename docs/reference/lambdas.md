@@ -13,7 +13,7 @@ A higher-order function is a function that takes functions as parameters, or ret
 A good example of such a function is `lock()` that takes a lock object and a function, acquires the lock, runs the function and releases the lock:
 
 ``` kotlin
-fun lock<T>(lock: Lock, body: () -> T): T {
+fun <T> lock(lock: Lock, body: () -> T): T {
   lock.lock()
   try {
     return body()
