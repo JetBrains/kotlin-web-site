@@ -1075,6 +1075,14 @@
   date: [2015-11-09,2015-11-10]
   location: Paris, France
   lang: en 
+  
+- title: DroidCon Paris
+  url: http://droidcon.fr/
+  subject: "Functional Progrramming on Android with Kotlin"
+  speaker: Mounir Boudraa
+  date: [2015-11-09,2015-11-10]
+  location: Paris, France
+  lang: fr   
 
 - title: AnDevCon 2015
   url: http://www.andevcon.com/santaclara/classes#IntroducingKotlinforAndroidDevelopment
