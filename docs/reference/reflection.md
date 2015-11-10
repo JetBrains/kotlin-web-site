@@ -60,8 +60,8 @@ e.g. `String::toCharArray` gives us an extension function for type `String`: `St
 Consider the following function:
 
 ``` kotlin
-fun compose<A, B, C>(f: (B) -> C, g: (A) -> B): (A) -> C {
-    return {x -> f(g(x))}
+fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
+    return { x -> f(g(x)) }
 }
 ```
 
