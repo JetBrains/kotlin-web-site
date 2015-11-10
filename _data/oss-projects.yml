@@ -147,3 +147,8 @@
   description: Type Extensions (Long, Int, Enum, Date) for Klaxon
   type: Library
   link: https://github.com/fboldog/ext4klaxon
+  
+- name: Bubble
+  description: Library for obtaining screen orientation when orientation is blocked in AndroidManifest
+  type: Library
+  link: https://github.com/TouK/bubble
