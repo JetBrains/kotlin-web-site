@@ -112,10 +112,10 @@ For a function to accept another function as a parameter, we have to specify a f
 For example the abovementioned function `max` is defined as follows:
 
 ``` kotlin
-fun max<T>(collection: Collection<out T>, less: (T, T) -> Boolean): T? {
+fun <T> max(collection: Collection<T>, less: (T, T) -> Boolean): T? {
   var max: T? = null
   for (it in collection)
-    if (max == null || less(max!!, it))
+    if (max == null || less(max, it))
       max = it
   return max
 }
