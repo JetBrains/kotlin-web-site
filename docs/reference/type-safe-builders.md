@@ -7,9 +7,9 @@ title: "Type-Safe Groovy-Style Builders"
 
 # Type-Safe Builders
 
-The concept of [builders](http://groovy.codehaus.org/Builders) is rather popular in the *Groovy* community. 
-Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://groovy.codehaus.org/GroovyMarkup), 
-[laying out UI components](http://groovy.codehaus.org/GroovySWT), 
+The concept of [builders](http://www.groovy-lang.org/dsls.html#_dombuilder) is rather popular in the *Groovy* community. 
+Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://www.groovy-lang.org/processing-xml.html#_creating_xml), 
+[laying out UI components](http://www.groovy-lang.org/swing.html), 
 [describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081) and more...
 
 For many use cases, Kotlin allows to *type-check* builders, which makes them even more attractive than the 
@@ -19,7 +19,7 @@ For the rest of the cases, Kotlin supports Dynamic types builders.
 
 ## A type-safe builder example
 
-Consider the following code that is taken from [here](http://groovy.codehaus.org/Builders) and slightly adapted:
+Consider the following code:
 
 ``` kotlin
 import com.example.html.* // see declarations below
