@@ -1091,3 +1091,19 @@
   date: [2015-12-01,2015-12-03]
   location: Santa Clara, CA, US
   lang: en 
+
+- title: Native Development Meetup
+  url: http://www.meetup.com/Native-Development-Meetup/events/226695631/
+  subject: "How Kotlin can change Android development"
+  speaker: Mate Herber
+  date: 2015-11-25
+  location: Budapest, Hungary
+  lang: en 
+  
+- title: The JVM - A wonderful place to be
+  url: http://info.jetbrains.com/JetBrains-Night-Munich-2015-registration.html
+  subject: "Kotlin: How can another language help me?"
+  speaker: Dmitry Jemerov
+  date: 2015-11-25
+  location: Munich, Germany
+  lang: en 
