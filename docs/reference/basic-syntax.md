@@ -5,11 +5,11 @@ category: "Basics"
 title: "Basic Syntax"
 ---
 
-# Basic Syntax
+# 基本文法
 
-## Defining packages
+## パッケージの定義
 
-Package specification should be at the top of the source file:
+パッケージの記述は、ソースファイルの先頭になければならない。
 
 ``` kotlin
 package my.demo
@@ -19,13 +19,14 @@ import java.util.*
 // ...
 ```
 
-It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
+ディレクトリやパッケージに合致する必要はない。
+ソースファイルをファイルシステムの任意の位置に置くことができる。
 
-See [Packages](packages.html).
+[Packages](packages.html)を参照のこと。
 
-## Defining functions
+## 関数の定義
 
-Function having two `Int` parameters with `Int` return type:
+2つの`Int`型の引数を持ち、`Int`型を戻り値とする関数：
 
 ``` kotlin
 fun sum(a: Int, b: Int): Int {
@@ -33,13 +34,13 @@ fun sum(a: Int, b: Int): Int {
 }
 ```
 
-Function with an expression body and inferred return type:
+実体と推論された戻り値の型を持つ関数：
 
 ``` kotlin
 fun sum(a: Int, b: Int) = a + b
 ```
 
-Function returning no meaningful value:
+意味のある値を返さない関数：
 
 ``` kotlin
 fun printSum(a: Int, b: Int): Unit {
@@ -47,7 +48,7 @@ fun printSum(a: Int, b: Int): Unit {
 }
 ```
 
-`Unit` return type can be omitted:
+`Unit`型の戻り値は、省略できる：
 
 ``` kotlin
 public fun printSum(a: Int, b: Int) {
@@ -55,29 +56,29 @@ public fun printSum(a: Int, b: Int) {
 }
 ```
 
-See [Functions](functions.html).
+[Functions](functions.html)を参照のこと。
 
-## Defining local variables
+## ローカル変数の定義
 
-Assign-once (read-only) local variable:
+1度だけ代入できる（読み取り専用）ローカル変数：
 
 ``` kotlin
 val a: Int = 1
-val b = 1   // `Int` type is inferred
-val c: Int  // Type required when no initializer is provided
-c = 1       // definite assignment
+val b = 1   // `Int`型が推論される
+val c: Int  // 初期値が与えられない場合、型指定が必要
+c = 1       // 明確な代入
 ```
 
-Mutable variable:
+Mutable（可変）な変数：
 
 ``` kotlin
-var x = 5 // `Int` type is inferred
+var x = 5 // `Int`型が推論される
 x += 1
 ```
 
-See also [Properties And Fields](properties.html).
+[Properties And Fields](properties.html)も参照のこと。
 
-## Using string templates
+## Stringテンプレートの使用
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -87,9 +88,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-See [String templates](basic-types.html#string-templates).
+[String templates](basic-types.html#string-templates)も参照のこと。
 
-## Using conditional expressions
+## 条件式
 
 ``` kotlin
 fun max(a: Int, b: Int): Int {
@@ -100,19 +101,19 @@ fun max(a: Int, b: Int): Int {
 }
 ```
 
-Using *if*{: .keyword } as an expression:
+*if*{: .keyword }を式のように使用することもできる：
 
 ``` kotlin
 fun max(a: Int, b: Int) = if (a > b) a else b
 ```
 
-See [*if*{: .keyword }-expressions](control-flow.html#if-expression).
+[*if*{: .keyword }-expressions](control-flow.html#if-expression)を参照のこと。
 
-## Using nullable values and checking for *null*{: .keyword }
+## null許容変数の使用と *null*{: .keyword }のチェック
 
-A reference must be explicitly marked as nullable when *null*{: .keyword } value is possible.
+*null*{: .keyword }値を許容するのであれば、明示的にnull許容であると表記しなければならない。
 
-Return *null*{: .keyword } if `str` does not hold an integer:
+もし`str`が整数値を持たなければ、 *null*{: .keyword }を返す：
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -120,7 +121,7 @@ fun parseInt(str: String): Int? {
 }
 ```
 
-Use a function returning nullable value:
+null許容値を戻り値として返す関数を使う：
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -132,15 +133,15 @@ fun main(args: Array<String>) {
   val x = parseInt(args[0])
   val y = parseInt(args[1])
 
-  // Using `x * y` yields error because they may hold nulls.
+  // `x`, `y`はnullが入っていることがあるので、`x * y`はエラーを引き起こす
   if (x != null && y != null) {
-    // x and y are automatically cast to non-nullable after null check
+    // `x`と`y`は、nullチェックの後自動的に非null許容型へキャストされる
     print(x * y)
   }
 }
 ```
 
-or
+または
 
 ``` kotlin
   // ...
@@ -153,46 +154,46 @@ or
     return
   }
 
-  // x and y are automatically cast to non-nullable after null check
+  // `x`と`y`は、nullチェックの後自動的に非null許容型へキャストされる
   print(x * y)
 ```
 
-See [Null-safety](null-safety.html).
+[Null-safety](null-safety.html)を参照のこと。
 
-## Using type checks and automatic casts
+## 型チェックと自動キャストの使用
 
-The *is*{: .keyword } operator checks if an expression is an instance of a type.
-If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
+*is*{: .keyword }演算子は、式がその型のインスタンスであるかを確かめる。
+もし可変なローカル変数やプロパティが特定の型でチェックされれば、明示的にキャストする必要はない：
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
   if (obj is String) {
-    // `obj` is automatically cast to `String` in this branch
+    // `obj` はこのブランチ内では自動的に`String`へキャストされる
     return obj.length
   }
 
-  // `obj` is still of type `Any` outside of the type-checked branch
+  // `obj` は型チェックが行われたブランチ外では、まだ`Any`型である
   return null
 }
 ```
 
-or
+または
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
   if (obj !is String)
     return null
 
-  // `obj` is automatically cast to `String` in this branch
+  // `obj` はこのブランチ内では自動的に`String`へキャストされる
   return obj.length
 }
 ```
 
-or even
+または
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
-  // `obj` is automatically cast to `String` on the right-hand side of `&&`
+  // `obj` は`&&`の右側では自動的に`String`へキャストされる
   if (obj is String && obj.length > 0)
     return obj.length
 
@@ -200,9 +201,9 @@ fun getStringLength(obj: Any): Int? {
 }
 ```
 
-See [Classes](classes.html) and [Type casts](typecasts.html).
+[Classes](classes.html) and [Type casts](typecasts.html)を参照のこと。
 
-## Using a `for` loop
+## `for`ループの使用
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -211,16 +212,16 @@ fun main(args: Array<String>) {
 }
 ```
 
-or
+または
 
 ``` kotlin
 for (i in args.indices)
   print(args[i])
 ```
 
-See [for loop](control-flow.html#for-loops).
+[for loop](control-flow.html#for-loops)を参照のこと。
 
-## Using a `while` loop
+## `while`ループの使用
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -230,9 +231,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-See [while loop](control-flow.html#while-loops).
+[while loop](control-flow.html#while-loops)を参照のこと。
 
-## Using `when` expression
+## `when`式の使用
 
 ``` kotlin
 fun cases(obj: Any) {
@@ -246,50 +247,50 @@ fun cases(obj: Any) {
 }
 ```
 
-See [when expression](control-flow.html#when-expression).
+[when expression](control-flow.html#when-expression)を参照のこと。
 
-## Using ranges
+## 範囲の使用
 
-Check if a number is within a range using *in*{: .keyword } operator:
+*in*{: .keyword }演算子を使用すると、ある数が範囲内にあるかをチェックできる：
 
 ``` kotlin
 if (x in 1..y-1)
   print("OK")
 ```
 
-Check if a number is out of range:
+ある数が範囲外かチェックする：
 
 ``` kotlin
 if (x !in 0..array.lastIndex)
   print("Out")
 ```
 
-Iterating over a range:
+範囲内で反復する：
 
 ``` kotlin
 for (x in 1..5)
   print(x)
 ```
 
-See [Ranges](ranges.html).
+[Ranges](ranges.html)を参照のこと。
 
-## Using collections
+## コレクションの使用
 
-Iterating over a collection:
+コレクション内で反復する：
 
 ``` kotlin
 for (name in names)
   println(name)
 ```
 
-Checking if a collection contains an object using *in*{: .keyword } operator:
+コレクションがあるオブジェクトを含むかを *in*{: .keyword }演算子で調べる：
 
 ``` kotlin
-if (text in names) // names.contains(text) is called
+if (text in names) // names.contains(text) が呼ばれる
   print("Yes")
 ```
 
-Using function literals to filter and map collections:
+関数リテラルを`filter`や`map`のコレクションとして使用する：
 
 ``` kotlin
 names
@@ -299,5 +300,4 @@ names
     .forEach { print(it) }
 ```
 
-See [Higher-order functions and Lambdas](lambdas.html).
-
+[Higher-order functions and Lambdas](lambdas.html)を参照のこと。

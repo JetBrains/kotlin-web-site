@@ -1,3 +1,12 @@
+First of All
+=================
+**[日本語版Kotlinリファレンス](http://dogwood008.github.io/kotlin-web-site-ja)**
+
+This is a Japanese translation of [Kotlin Reference](https://kotlinlang.org/docs/reference/).
+This translation is unofficial.
+
+---
+
 This is the source for the [Kotlin Web Site](http://kotlinlang.org)
 
 - [Filing bugs](#filing-bugs)

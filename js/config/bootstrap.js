@@ -1,5 +1,5 @@
 require._config({
-    baseUrl: '/js',
+    baseUrl: '/kotlin-web-site-ja/js',
 
     paths: {
         'jquery': 'vendor/jquery/jquery-1.11.0.min',
