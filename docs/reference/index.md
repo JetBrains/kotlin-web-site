@@ -33,9 +33,7 @@ Kotlinの完璧なリファレンスを提供する
 
 # 図書
 
-<!--- ## Kotlin in Action -->
-
-## 進行中のKotlin書籍
+## Kotlin in Action
 
    <a href="https://manning.com/books/kotlin-in-action"><img src="{{ site.baseurl }}/assets/images/Jemerov-Kotlin-MEAP-HI.png" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 
