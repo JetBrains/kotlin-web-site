@@ -32,7 +32,7 @@ twitter_url: https://twitter.com/dogwood008
 forum_url: http://devnet.jetbrains.com/community/kotlin
 site_github_url: http://github.com/dogwood008/kotlin-web-site-ja
 edit_on_github_url: https://github.com/dogwood008/kotlin-web-site-ja/edit/master/%path%
-pdf_url: /docs/kotlin-docs.pdf
+pdf_url: /kotlin-web-site-ja/kotlin-docs.pdf
 img_tutorial_root: assets/images/tutorials
 
 grammar_file_path: grammar.xml
