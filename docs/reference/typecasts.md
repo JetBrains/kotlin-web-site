@@ -67,6 +67,14 @@ when (x) {
 }
 ```
 
+Note that smart casts do not work when the compiler cannot guarantee that the variable cannot change between the check and the usage.
+More specifically, smart casts are applicable according to the following rules:
+
+  * *val*{: .keyword } local variables - always;
+  * *val*{: .keyword } properties - if the property is private or internal or the check is performed in the same module where the property is declared;
+  * *var*{: .keyword } local variables - if the variable is not modified between the check and the usage and is not captured in a lambda;
+  * *var*{: .keyword } properties - never (because the variable can be modified at any time from a different thread).
+
 
 ## "Unsafe" cast operator
 
