@@ -54,9 +54,9 @@ val jack = User(name = "Jack", age = 1)
 val olderJack = jack.copy(age = 2)
 ```
 
-## Data Classes and Multi-Declarations
+## Data Classes and Destructuring Declarations
 
-_Component functions_ generated for data classes enable their use in [multi-declarations](multi-declarations.html):
+_Component functions_ generated for data classes enable their use in [destructuring declarations](multi-declarations.html):
 
 ``` kotlin
 val jane = User("Jane", 35) 
