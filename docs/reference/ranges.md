@@ -8,7 +8,7 @@ title: "Ranges"
 # Ranges
 
 Range expressions are formed with `rangeTo` functions that have the operator form `..` which is complemented by *in*{: .keyword } and *!in*{: .keyword }.
-Range is defined for any comparable type, but for integer number primitives it is optimized. Here are some examples of using ranges
+Range is defined for any comparable type, but for integral primitive types it has an optimized implementation. Here are some examples of using ranges
 
 ``` kotlin
 if (i in 1..10) { // equivalent of 1 <= i && i <= 10
@@ -16,7 +16,7 @@ if (i in 1..10) { // equivalent of 1 <= i && i <= 10
 }
 ```
 
-Integral numeric ranges (`IntRange`, `LongRange`, `CharRange`) have an extra feature: they can be iterated over.
+Integral type ranges (`IntRange`, `LongRange`, `CharRange`) have an extra feature: they can be iterated over.
 The compiler takes care of converting this analogously to Java's indexed *for*{: .keyword }-loop, without extra overhead.
 
 ``` kotlin
@@ -42,13 +42,13 @@ for (i in 4 downTo 1 step 2) print(i) // prints "42"
 
 ## How it works
 
-Ranges implement common interface in the library: `ClosedRange<T>`.
+Ranges implement a common interface in the library: `ClosedRange<T>`.
 
 `ClosedRange<T>` denotes a closed interval in the mathematical sense, defined for comparable types.
 It has two endpoints: `start` and `endInclusive`, which are included in the range.
 The main operation is `contains`, usually used in the form of *in*{: .keyword }/*!in*{: .keyword } operators.
 
-Integer number progressions (`IntProgression`, `LongProgression`, `CharProgression`) denote an arithmetic progression, defined for number types.
+Integral type progressions (`IntProgression`, `LongProgression`, `CharProgression`) denote an arithmetic progression.
 Progressions are defined by the `first` element, the `last` element and a non-zero `increment`.
 The first element is `first`, subsequent elements are the previous element plus `increment`. The `last` element is always hit by iteration unless the progression is empty.
 
@@ -61,8 +61,8 @@ for (int i = first; i != last; i += increment) {
 }
 ```
 
-For integer numbers, the `..` operator creates an object which implements both `ClosedRange<T>` and `*Progression`.
-For example, `IntRange` implements `ClosedRange<Int>` and extends `IntProgression`.
+For integral types, the `..` operator creates an object which implements both `ClosedRange<T>` and `*Progression`.
+For example, `IntRange` implements `ClosedRange<Int>` and extends `IntProgression`, thus all operations defined for `IntProgression` are available for `IntRange` as well.
 The result of the `downTo()` and `step()` functions is always a `*Progression`.
 
 Progressions are constructed with the `fromClosedRange` function defined in their companion objects:
@@ -71,7 +71,7 @@ Progressions are constructed with the `fromClosedRange` function defined in thei
   IntProgression.fromClosedRange(start, end, increment)
 ```
 
-The `last` element of the progression is calculated to find maximum value not greater than the `end` value for positive `increment` or minimum value not less than the `end` value for negative `increment` so that `(last - first) % increment == 0`.
+The `last` element of the progression is calculated to find maximum value not greater than the `end` value for positive `increment` or minimum value not less than the `end` value for negative `increment` such that `(last - first) % increment == 0`.
 
 
 
@@ -79,12 +79,12 @@ The `last` element of the progression is calculated to find maximum value not gr
 
 ### `rangeTo()`
 
-The `rangeTo()` operators in integer numeric types simply call the constructors of `*Range` classes, e.g.:
+The `rangeTo()` operators on integral types simply call the constructors of `*Range` classes, e.g.:
 
 ``` kotlin
 class Int {
   //...
-  operator fun rangeTo(other: Byte): IntRange = IntRange(this, other)
+  operator fun rangeTo(other: Long): LongRange = LongRange(this, other)
   //...
   operator fun rangeTo(other: Int): IntRange = IntRange(this, other)
   //...
@@ -101,7 +101,7 @@ The range returned by this function cannot be used for iteration.
 
 ### `downTo()`
 
-The `downTo()` extension function is defined for any pair of integer number types, here are two examples:
+The `downTo()` extension function is defined for any pair of integral types, here are two examples:
 
 ``` kotlin
 fun Long.downTo(other: Int): LongProgression {
@@ -127,7 +127,7 @@ fun IntProgression.reversed(): IntProgression {
 
 `step()` extension functions are defined for `*Progression` classes,
 all of them return progressions with modified `step` values (function parameter).
-Note that the step value is always positive, therefore this function never changes the direction of iteration.
+The step value is required to be always positive, therefore this function never changes the direction of iteration.
 
 ``` kotlin
 fun IntProgression.step(step: Int): IntProgression {
@@ -144,7 +144,7 @@ fun CharProgression.step(step: Int): CharProgression {
 Note that the `last` value of the returned progression may become different from the `last` value of the original progression in order to preserve the invariant `(last - first) % increment == 0`. Here is an example:
 
 ``` kotlin
-  (1..12 step 2).last == 11
-  (1..12 step 3).last == 10
-  (1..12 step 4).last == 9
+  (1..12 step 2).last == 11  // progression with values [1, 3, 5, 7, 9, 11]
+  (1..12 step 3).last == 10  // progression with values [1, 4, 7, 10]
+  (1..12 step 4).last == 9   // progression with values [1, 5, 9]
 ```
