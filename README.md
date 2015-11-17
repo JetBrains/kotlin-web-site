@@ -1,3 +1,5 @@
+[![Join Us on Slack](https://slack.kotlinlang.com/badge.svg)](http://kotlinslackin.herokuapp.com/)
+
 This is the source for the [Kotlin Web Site](http://kotlinlang.org)
 
 - [Filing bugs](#filing-bugs)
