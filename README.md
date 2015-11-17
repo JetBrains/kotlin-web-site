@@ -1,4 +1,5 @@
-[![Slack status](http://kotlinslackin.herokuapp.com/badge.svg =x20)](http://kotlinslackin.herokuapp.com/)
+
+[![Slack status](http://kotlinslackin.herokuapp.com/badge.svg)](http://kotlinslackin.herokuapp.com/)
 
 This is the source for the [Kotlin Web Site](http://kotlinlang.org)
 
