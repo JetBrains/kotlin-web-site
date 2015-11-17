@@ -1,5 +1,5 @@
 <img src="https://slack.yourdomain.com/badge.svg">
-[![Slack status](http://kotlinslackin.herokuapp.com/badge.svg)](http://kotlinslackin.herokuapp.com/)
+#[![Slack status](http://kotlinslackin.herokuapp.com/badge.svg)](http://kotlinslackin.herokuapp.com/)
 
 This is the source for the [Kotlin Web Site](http://kotlinlang.org)
 
