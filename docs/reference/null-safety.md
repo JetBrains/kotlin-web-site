@@ -20,7 +20,7 @@ Kotlin's type system is aimed to eliminate `NullPointerException`'s from our cod
 * External Java code has caused it
 * There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere)
 
-In Kotlin the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that can not (non-null references).
+In Kotlin, the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that can not (non-null references).
 For example, a regular variable of type `String` can not hold *null*{: .keyword }:
 
 ``` kotlin
