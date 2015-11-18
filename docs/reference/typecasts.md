@@ -71,7 +71,7 @@ Note that smart casts do not work when the compiler cannot guarantee that the va
 More specifically, smart casts are applicable according to the following rules:
 
   * *val*{: .keyword } local variables - always;
-  * *val*{: .keyword } properties - if the property is private or internal or the check is performed in the same module where the property is declared;
+  * *val*{: .keyword } properties - if the property is private or internal or the check is performed in the same module where the property is declared. Smart casts aren't applicable to open properties or properties that have custom getters;
   * *var*{: .keyword } local variables - if the variable is not modified between the check and the usage and is not captured in a lambda that modifies it;
   * *var*{: .keyword } properties - never (because the variable can be modified at any time by other code).
 
