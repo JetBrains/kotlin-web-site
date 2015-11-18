@@ -8,12 +8,12 @@ description: "This tutorials walks you through a series of exercises to get fami
 ---
 Kotlin Koans are a series of exercises to get you familiar with the Kotlin Syntax.
 Each exercise is created as a failing unit test and your job is to make it pass.
-You can play with [Koans online](http://try.kotlinlang.org/koans) or offline by cloning the project on [GitHub](https://github.com/jetbrains/workshop-jb):
+You can play with [Koans online](http://try.kotlinlang.org/koans) or offline by cloning the project on [GitHub](https://github.com/Kotlin/kotlin-koans):
 
 1. Download the Koans by cloning the project from GitHub
 
     ```
-    git clone https://github.com/jetbrains/workshop-jb
+    git clone https://github.com/Kotlin/kotlin-koans
     ```
 
 2. Open up the project in IntelliJ IDEA or your favorite editor. Note: If IntelliJ IDEA prompts you to update the Kotlin library, just click yes. 
