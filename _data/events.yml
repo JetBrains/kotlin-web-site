@@ -1107,3 +1107,19 @@
   date: 2015-11-25
   location: Munich, Germany
   lang: en 
+  
+- title: GDC DevFest 2015 Belarus
+  url: "https://devfest-belarus.appspot.com/#!/speakers/6"
+  subject: "Kotlin for Android developers (WORKSHOP)"
+  speaker: Anton Rutkevich
+  date: [2015-11-20, 2015-11-21]
+  location: Minsk, Belarus
+  lang: en
+
+- title: DroidCon Krakow
+  url: http://droidcon.pl/agenda/index.html
+  subject: "Kotlin in a real-world Android project"
+  speaker: Anton Rutkevich
+  date: [2015-12-04, 2015-12-06]
+  location: Krakow, Poland
+  lang: en
