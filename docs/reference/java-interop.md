@@ -353,7 +353,7 @@ At most one Java class (and as many Java interfaces as you like) can be a supert
 
 ## Accessing static members
 
-Static members of Java classes form a "companion objects" for these classes. We cannot pass such a "companion object" around as a value,
+Static members of Java classes form "companion objects" for these classes. We cannot pass such a "companion object" around as a value,
 but can access the members explicitly, for example
 
 ``` kotlin
