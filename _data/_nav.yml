@@ -112,7 +112,8 @@ reference:
   - title: Interop
     description: What you need to know about interoperability with Java and JavaScript.
     content:
-      - /docs/reference/java-interop.html: Java Interop
+      - /docs/reference/java-interop.html: Calling Java from Kotlin
+      - /docs/reference/java-to-kotlin-interop.html: Calling Kotlin from Java
 
   - title: Tools
     description:
