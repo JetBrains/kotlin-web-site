@@ -152,3 +152,8 @@
   description: Library for obtaining screen orientation when orientation is blocked in AndroidManifest
   type: Library
   link: https://github.com/TouK/bubble
+  
+- name: Blaze
+  description: Replacement for shell scripts. A speedy, flexible, general purpose scripting stack for the JVM
+  type: Tools
+  link: https://github.com/fizzed/blaze
