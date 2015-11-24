@@ -152,3 +152,9 @@
   description: Library for obtaining screen orientation when orientation is blocked in AndroidManifest
   type: Library
   link: https://github.com/TouK/bubble
+
+- name: HamKrest
+  description: Self-describing matchers for testing and validation (a port of Java's Hamcrest to Kotlin)
+  type: Library
+  link: https://github.com/npryce/hamkrest
+
