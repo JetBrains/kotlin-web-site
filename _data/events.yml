@@ -1116,10 +1116,10 @@
   location: Minsk, Belarus
   lang: en
 
-- title: DroidCon Krakow
-  url: http://droidcon.pl/agenda/index.html
-  subject: "Kotlin in a real-world Android project"
-  speaker: Anton Rutkevich
-  date: [2015-12-04, 2015-12-06]
-  location: Krakow, Poland
+- title: GDG DevFest Warsaw
+  url: "http://devfest.pl/schedule/#session-15"
+  subject: "fun things(you: CanDo<in Kotlin>) = ..."
+  speaker: Maciej Górski
+  date: 2015-11-28
+  location: Warsaw, Poland
   lang: en
