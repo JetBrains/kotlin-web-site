@@ -1025,6 +1025,9 @@
   date: 2015-10-31
   location: Chelyabinsk, RU
   lang: ru
+  content:
+    slides: http://www.slideshare.net/dotnetconf/kotlin-production
+    video: http://www.youtube.com/watch?v=3rQi_ydd8yE
 
 - title: Voxxed days Vilnius 2015
   url: https://voxxeddaysvilnius2015.sched.org/
