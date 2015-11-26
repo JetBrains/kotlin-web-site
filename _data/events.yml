@@ -1109,7 +1109,9 @@
   speaker: Dmitry Jemerov
   date: 2015-11-25
   location: Munich, Germany
-  lang: en 
+  lang: en
+  content:
+    slides: http://www.slideshare.net/intelliyole/kotlin-why-do-you-care
   
 - title: GDC DevFest 2015 Belarus
   url: "https://devfest-belarus.appspot.com/#!/speakers/6"
