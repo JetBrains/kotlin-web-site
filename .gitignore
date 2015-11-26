@@ -21,8 +21,9 @@ vendor
 .bundle
 build
 .gradle
-gradle/
 workspace.xml
 uiDesigner.xml
 *.css.map
 api/
+.idea
+*.iml
