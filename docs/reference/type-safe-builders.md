@@ -135,7 +135,7 @@ fun body(init: Body.() -> Unit) : Body {
 Actually these two functions do just the same thing, so we can have a generic version, `initTag`:
 
 ``` kotlin
-  protected fun initTag<T : Element>(tag: T, init: T.() -> Unit): T {
+  protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
     tag.init()
     children.add(tag)
     return tag
@@ -211,7 +211,7 @@ abstract class Tag(val name: String): Element {
     val children = arrayListOf<Element>()
     val attributes = hashMapOf<String, String>()
 
-    protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
+    protected fun <T: Element> initTag(tag: T, init: T.() -> Unit): T {
         tag.init()
         children.add(tag)
         return tag
