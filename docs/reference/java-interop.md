@@ -197,7 +197,7 @@ if (a is List<*>) // OK: no guarantees about the contents of the list
 
 Arrays in Kotlin are invariant, unlike Java. This means that Kotlin does not let us assign an `Array<String>` to an `Array<Any>`,
 which prevents a possible runtime failure. Passing an array of a subclass as an array of superclass to a Kotlin method is also prohibited,
-but for Java methods this is allowed (though [platform types](#platform-types) of the form `Array<(out) String>!`).
+but for Java methods this is allowed (through [platform types](#platform-types) of the form `Array<(out) String>!`).
 
 Arrays are used with primitive datatypes on the Java platform to avoid the cost of boxing/unboxing operations.
 As Kotlin hides those implementation details, a workaround is required to interface with Java code.
