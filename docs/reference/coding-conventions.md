@@ -5,22 +5,25 @@ category: Basics
 title: Coding Conventions
 ---
 
-# Coding Conventions
+# コーディング規約
 
-This page contains the current coding style for the Kotlin language.
+このページにはKotlin言語の現在のコーディングスタイルが記述されている。
 
-## Naming Style
+## 命名スタイル
 If in doubt default to the Java Coding Conventions such as:
+次のような標準のJavaのコード規約に疑念を抱いているなら：
 
-* use of camelCase for names (and avoid underscore in names)
-* types start with upper case
-* methods and properties start with lower case
-* use 4 space indentation
-* public functions should have documentation such that it appears in Kotlin Doc
+* キャメルケースの使用（そして命名でのアンダースコアの使用）
+* 大文字で始まる型
+* メソッドとプロパティが小文字で始まる
+* 4スペースインデント
 
-## Colon
+public関数はKotlinの書式でのドキュメンテーションがある。
 
-There is a space before colon where colon separates type and supertype and there's no space where colon separates instance and type:
+## コロン
+
+コロンが型と継承元のセパレータとして使用される際は、一つ前にスペースが必要。
+一方、インスタンスと型のセパレータとして使用するときには、スペースは不要。
 
 ``` kotlin
 interface Foo<out T : Any> : Bar {
@@ -28,24 +31,24 @@ interface Foo<out T : Any> : Bar {
 }
 ```
 
-## Lambdas
+## ラムダ
 
-In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
-from the body. Whenever possible, a lambda should be passed outside of parentheses.
+ラムダ式中では、スペースが波括弧の両内側に必要である。また、パラメータを本体と分かつアロー（->）も同様である。
+可能な際にはいつでも、ラムダは丸括弧に渡される。
 
 ``` kotlin
 list.filter { it > 10 }.map { element -> element * 2 }
 ```
 
-In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
-explicitly. In nested lambdas with parameters, parameters should be always declared explicitly.
+短くてネストされていない（入れ子でない）ラムダ内では、 パラメータを明示的に宣言する代わりに `it` 規約を使用することを推奨する。
+パラメータ付きのネストされたラムダ内では、パラメータは常に明示的に宣言されなければならない。
 
-## Unit
+## ユニット (Unit)
 
-If a function returns Unit, the return type should be omitted:
+関数がUnit型を返すなら、戻り値の型は除去される：
 
 ``` kotlin
-fun foo() { // ": Unit" is omitted here
+fun foo() { // ": Unit"はここで除去される
 
 }
 ```
