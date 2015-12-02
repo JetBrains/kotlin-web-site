@@ -9,7 +9,7 @@ title: "Interfaces"
 
 Interfaces in Kotlin are very similar to Java 8. They can contain declarations of abstract methods, as well as method
 implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have
-properties but these need to be abstract.
+properties but these need to be abstract or to provide accessor implementations.
 
 An interface is defined using the keyword *interface*{: .keyword }
 
@@ -36,11 +36,16 @@ class Child : MyInterface {
 
 ## Properties in Interfaces
 
-Interfaces allow properties as long as these are stateless, that is because interfaces do not allow state.
+You can declare properties in interfaces. A property declared in an interface can either be abstract, or it can provide
+implementations for accessors. Properties declared in interfaces can't have backing fields, and therefore accessors
+declared in interfaces can't reference them.
 
 ``` kotlin
 interface MyInterface {
     val property: Int // abstract
+
+    val propertyWithImplementation: String
+        get() = "foo"
 
     fun foo() {
         print(property)
