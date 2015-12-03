@@ -158,3 +158,7 @@
   type: Library
   link: https://github.com/npryce/hamkrest
 
+- name: Kotpref
+  description: Android SharedPreference delegation for Kotlin
+  type: Library
+  link: https://github.com/chibatching/Kotpref
