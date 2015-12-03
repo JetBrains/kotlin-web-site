@@ -162,3 +162,8 @@
   description: Android SharedPreference delegation for Kotlin
   type: Library
   link: https://github.com/chibatching/Kotpref
+
+- name: KotliQuery
+  description: A handy database access library in Kotlin
+  type: Library
+  link: https://github.com/seratch/kotliquery
