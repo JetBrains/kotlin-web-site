@@ -61,7 +61,7 @@ when (x) {
 }
 ```
 
-*when*{: .keyword } matches its argument against all branches consequently until some branch condition is satisfied.
+*when*{: .keyword } matches its argument against all branches sequentially until some branch condition is satisfied.
 *when*{: .keyword } can be used either as an expression or as a statement. If it is used as an expression, the value
 of the satisfied branch becomes the value of the overall expression. If it is used as a statement, the values of
 individual branches are ignored. (Just like with *if*{: .keyword }, each branch can be a block, and its value
