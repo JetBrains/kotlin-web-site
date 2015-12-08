@@ -50,7 +50,7 @@ fun printSum(a: Int, b: Int): Unit {
 `Unit` return type can be omitted:
 
 ``` kotlin
-public fun printSum(a: Int, b: Int) {
+fun printSum(a: Int, b: Int) {
   print(a + b)
 }
 ```
@@ -289,7 +289,7 @@ if (text in names) // names.contains(text) is called
   print("Yes")
 ```
 
-Using function literals to filter and map collections:
+Using lambda expressions to filter and map collections:
 
 ``` kotlin
 names

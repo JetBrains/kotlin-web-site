@@ -28,7 +28,7 @@ Kotlin fixes a series of issues that Java suffers from
 
 ## What Kotlin has that Java does not
 
-* [Function literals](lambdas.html) + [Inline functions](inline-functions.html) = performant custom control structures
+* [Lambda expressions](lambdas.html) + [Inline functions](inline-functions.html) = performant custom control structures
 * [Extension functions](extensions.html)
 * [Null-safety](null-safety.html)
 * [Smart casts](typecasts.html)

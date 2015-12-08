@@ -92,7 +92,7 @@ Sometimes it is beneficial to enhance performance of higher-order functions usin
 
 ## Lambda Expressions and Anonymous Functions
 
-A lambda expression or an anonymous function is an "function literal", i.e. a function that is not declared,
+A lambda expression or an anonymous function is a "function literal", i.e. a function that is not declared,
 but passed immediately as an expression. Consider the following example:
 
 ``` kotlin
