@@ -88,7 +88,7 @@ activity.hello.setText("Hi!")
 
 Android Extensions plugin supports Android flavors. Suppose you have a flavor named `free` in your `build.gradle` file:
 
-```gradle
+```
 android {
     productFlavors {
         free {
