@@ -9,7 +9,7 @@ title: "Returns and Jumps"
 
 Kotlin has three structural jump operators
 
-* *return*{: .keyword }. By default returns from the nearest enclosing function or [function expression](lambdas.html#function-expressions).
+* *return*{: .keyword }. By default returns from the nearest enclosing function or [anonymous function](lambdas.html#anonymous-functions).
 * *break*{: .keyword }. Terminates the nearest enclosing loop.
 * *continue*{: .keyword }. Proceeds to the next step of the nearest enclosing loop.
 
@@ -44,7 +44,7 @@ A *continue*{: .keyword } proceeds to the next iteration of that loop.
 
 With function literals, local functions and object expression, functions can be nested in Kotlin. 
 Qualified *return*{: .keyword }s allow us to return from an outer function. 
-The most important use case is returning from a function literal. Recall that when we write this:
+The most important use case is returning from a lambda expression. Recall that when we write this:
 
 ``` kotlin
 fun foo() {
@@ -56,8 +56,8 @@ fun foo() {
 ```
 
 The *return*{: .keyword }-expression returns from the nearest enclosing function, i.e. `foo`.
-(Note that such non-local returns are supported only for function literals passed to [inline-functions](inline-functions.html).)
-If we need to return from a function literal, we have to label it and qualify the *return*{: .keyword }:
+(Note that such non-local returns are supported only for lambda expressions passed to [inline functions](inline-functions.html).)
+If we need to return from a lambda expression, we have to label it and qualify the *return*{: .keyword }:
 
 ``` kotlin
 fun foo() {
@@ -68,7 +68,7 @@ fun foo() {
 }
 ```
 
-Now, it returns only from the function literal. Oftentimes it is more convenient to use implicits labels:
+Now, it returns only from the lambda expression. Oftentimes it is more convenient to use implicits labels:
 such a label has the same name as the function to which the lambda is passed.
 
 ``` kotlin
@@ -80,8 +80,8 @@ fun foo() {
 }
 ```
 
-Alternatively, we can replace the function literal with a [function expression](lambdas.html#function-expressions).
-A *return*{: .keyword } statement in a function expression will return from the function expression itself.
+Alternatively, we can replace the lambda expression with an [anonymous function](lambdas.html#anonymous-functions).
+A *return*{: .keyword } statement in an anomymous function will return from the anonymous function itself.
 
 ``` kotlin
 fun foo() {
