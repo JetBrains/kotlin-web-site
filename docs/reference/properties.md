@@ -40,8 +40,8 @@ The full syntax for declaring a property is
 
 ``` kotlin
 var <propertyName>: <PropertyType> [= <property_initializer>]
-  <getter>
-  <setter>
+  [<getter>]
+  [<setter>]
 ```
 
 The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer or from the base class member being overridden.
