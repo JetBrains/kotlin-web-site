@@ -5,19 +5,19 @@ category: "Syntax"
 title: "Returns and Jumps"
 ---
 
-# Returns and Jumps
+# returnとジャンプ
 
-Kotlin has three structural jump operators
+Kotlinには3つの構造的ジャンプ演算子がある。
 
-* *return*{: .keyword }. By default returns from the nearest enclosing function or [function expression](lambdas.html#function-expressions).
-* *break*{: .keyword }. Terminates the nearest enclosing loop.
-* *continue*{: .keyword }. Proceeds to the next step of the nearest enclosing loop.
+* *return*{: .keyword }。デフォルトでは最近のクロージャ（関数閉包）や [function expression](lambdas.html#function-expressions) から抜け出す。
+* *break*{: .keyword }。最近の内包ループを終わらせる。
+* *continue*{: .keyword }。次の最近内包ループへ進む。
 
-## Break and Continue Labels
+## breakとcontinueのラベル
 
-Any expression in Kotlin may be marked with a *label*{: .keyword }.
-Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#label)).
-To label an expression, we just put a label in front of it
+Kotlinの式は *label*{: .keyword } としてマークできる。
+ラベルは `@` の記号で終わる識別子を持つ。例として、 `abc@` や `fooBar@` は有効なラベルである（ [grammar](grammar.html#label)) を参照のこと）。
+式をラベル付けするにはラベルをその前に置けば良い：
 
 ``` kotlin
 loop@ for (i in 1..100) {
@@ -25,7 +25,8 @@ loop@ for (i in 1..100) {
 }
 ```
 
-Now, we can qualify a *break*{: .keyword } or a *continue*{: .keyword } with a label:
+*break*{: .keyword } や *continue*{: .keyword } にはラベルをつけることができる。
+
 
 ``` kotlin
 loop@ for (i in 1..100) {
@@ -36,15 +37,17 @@ loop@ for (i in 1..100) {
 }
 ```
 
-A *break*{: .keyword } qualified with a label jumps to the execution point right after the loop marked with that label.
-A *continue*{: .keyword } proceeds to the next iteration of that loop.
+ラベル付き *break*{: .keyword } はそのラベルが付いたループの後右の実行ポイントへジャンプする。
+*continue*{: .keyword } はそのループの次の繰り返し実行（イテレーション）まで進む。
 
 
-## Return at Labels
+## returnでラベルに復帰する
 
-With function literals, local functions and object expression, functions can be nested in Kotlin. 
-Qualified *return*{: .keyword }s allow us to return from an outer function. 
-The most important use case is returning from a function literal. Recall that when we write this:
+Kotlinでは、関数リテラル、ローカル変数、オブジェクト式を使用すると、関数を入れ子にすることができる。
+ラベル付き *return*{: .keyword } は外側の関数から復帰することができる。
+最も重要なユースケースは関数リテラルからの復帰である。復帰を書くときは思い出せ：
+（訳注：最新版では次のように書き換わっている。「最も重要なユースケースは **ラムダ式** からの復帰である。復帰を書くときは思い出せ：」）
+<!-- 最新版：The most important use case is returning from a lambda expression. -->
 
 ``` kotlin
 fun foo() {
@@ -55,9 +58,9 @@ fun foo() {
 }
 ```
 
-The *return*{: .keyword }-expression returns from the nearest enclosing function, i.e. `foo`.
-(Note that such non-local returns are supported only for function literals passed to [inline-functions](inline-functions.html).)
-If we need to return from a function literal, we have to label it and qualify the *return*{: .keyword }:
+*return*{: .keyword } 式は最近のクロージャ、すなわち `foo` から復帰する。
+（このようなローカルでない（非局所的な）復帰は [inline-functions](inline-functions.html) に渡された関数リテラルにのみサポートされている。）
+もし関数リテラルからの復帰が必要なら、 *return*{: .keyword } のラベル付けが必要である：
 
 ``` kotlin
 fun foo() {
@@ -68,8 +71,9 @@ fun foo() {
 }
 ```
 
-Now, it returns only from the function literal. Oftentimes it is more convenient to use implicits labels:
-such a label has the same name as the function to which the lambda is passed.
+これは関数リテラルからのみ復帰する。
+（訳注：最新版では「これはラムダ式からのみ復帰する。」）
+多くの場合、暗黙ラベルを使用する方が便利である。例えばこのようなラベルはラムダが渡される関数と同じ名前を持つ。
 
 ``` kotlin
 fun foo() {
@@ -80,8 +84,10 @@ fun foo() {
 }
 ```
 
-Alternatively, we can replace the function literal with a [function expression](lambdas.html#function-expressions).
-A *return*{: .keyword } statement in a function expression will return from the function expression itself.
+代わりの手法として、関数リテラルと [function expression](lambdas.html#function-expressions) を置換することができる。
+（訳注：最新版では[無名関数](https://kotlinlang.org/docs/reference/lambdas.html#anonymous-functions)）
+関数式内の *return*{: .keyword } 文は、その関数式自身から復帰する。
+（訳注：最新版では「無名関数内の *return*{: .keyword } 文はその無名関数自体から復帰する。」）
 
 ``` kotlin
 fun foo() {
@@ -92,10 +98,10 @@ fun foo() {
 }
 ```
 
-When returning a value, the parser gives preference to the qualified return, i.e.
+値を返すときにはパーサはラベル付きreturnを優先する。すなわち、
 
 ``` kotlin
 return@a 1
 ```
 
-means "return `1` at label `@a`" and not "return a labeled expression `(@a 1)`".
+上記は、「 `@a` ラベルにおける復帰」を意味し、「 `(@a1)` ラベルが付いた式からの復帰」ではない。
