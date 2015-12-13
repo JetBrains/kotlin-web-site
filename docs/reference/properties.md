@@ -107,7 +107,6 @@ var counter = 0 // イニシャライザの値は直接バッキングフィー�
 
 `field` 識別子はプロパティのアクセサのみで使用できる。
 
-The compiler looks at the accessors' bodies, and if they use the backing field (or the accessor implementation is left by default), a backing field is generated, otherwise it is not.
 アクセサの本体や本体がバッキングフィールドを使用しているかどうか（またはアクセサの実装がデフォルトと異なっているか）をコンパイラは見て、バッキングフィールドが生成される。それ以外の場合はされない。
 
 例えば、次の事例ではバッキングフィールドは存在しない：
