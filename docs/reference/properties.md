@@ -5,15 +5,15 @@ category: "Syntax"
 title: "Properties and Fields"
 ---
 
-# Properties and Fields
+# プロパティとフィールド
 
-## Declaring Properties
+## プロパティの宣言
 
-Classes in Kotlin can have properties.
-These can be declared as mutable, using the *var*{: .keyword } keyword or read-only using the *val*{: .keyword } keyword.
+Kotlinでのクラスはプロパティを持つことができる。
+*var*{: .keyword } キーワードでミュータブルとして宣言でき、 *val*{: .keyword } キーワードで読み取り専用として宣言できる
 
 ``` kotlin
-public class Address { 
+public class Address {
   public var name: String = ...
   public var street: String = ...
   public var city: String = ...
@@ -22,21 +22,21 @@ public class Address {
 }
 ```
 
-To use a property, we simply refer to it by name, as if it were a field in Java:
+プロパティを使うにはJavaでのフィールでやるように、ただ単純に名前で参照するだけで良い：
 
 ``` kotlin
 fun copyAddress(address: Address): Address {
-  val result = Address() // there's no 'new' keyword in Kotlin
-  result.name = address.name // accessors are called
+  val result = Address() // Kotlinには 'new' キーワードがない
+  result.name = address.name // アクセサが呼ばれる
   result.street = address.street
   // ...
   return result
 }
 ```
 
-## Getters and Setters
+## ゲッターとセッター
 
-The full syntax for declaring a property is
+プロパティを宣言する完全な構文は
 
 ``` kotlin
 var <propertyName>: <PropertyType> [= <property_initializer>]
@@ -44,103 +44,107 @@ var <propertyName>: <PropertyType> [= <property_initializer>]
   <setter>
 ```
 
-The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer or from the base class member being overridden.
+イニシャライザであるゲッターとセッターは必須ではない。
+イニシャライザか基本クラスのメンバーからオーバライドされることが推測される場合は、プロパティの型はオプションである。
 
-Examples:
+例:
 
 ``` kotlin
 var allByDefault: Int? // error: explicit initializer required, default getter and setter implied
 var initialized = 1 // has type Int, default getter and setter
 ```
 
-The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with `val` instead of `var` and does not allow a setter:
+読み取り専用のプロパティ宣言の完全な構文は、ミュータブルのものと比べて2点異なる。
+`var` の代わりに `val` で始まるのと、セッターを認めないことである：
 
 ``` kotlin
-val simple: Int? // has type Int, default getter, must be initialized in constructor
-val inferredType = 1 // has type Int and a default getter
+val simple: Int? // これはInt型を持ち、デフォルトのゲッターはコンストラクタ内で初期化されなければならない
+val inferredType = 1 // これはInt型とデフォルトのゲッターを持つ
 ```
 
-We can write custom accessors, very much like ordinary functions, right inside a property declaration. Here's an example of a custom getter:
+カスタムアクセサは普通の関数ととても似ており、プロパティの中に宣言することができる。
+これはカスタムゲッターの例である：
 
 ``` kotlin
 val isEmpty: Boolean
   get() = this.size == 0
 ```
 
-A custom setter looks like this:
+カスタムセッターはこのようになる：
 
 ``` kotlin
 var stringRepresentation: String
   get() = this.toString()
   set(value) {
-    setDataFromString(value) // parses the string and assigns values to other properties
+    setDataFromString(value) // 文字列をパースし、値を他のプロパティへ代入する
   }
 ```
 
-By convention, the name of the setter parameter is `value`, but you can choose a different name if you prefer.
+慣例では、セッターのパラメータは `value` であるが、異なる名前が良いならそちらを選択することもできる。
 
-If you need to change the visibility of an accessor or to annotate it, but don't need to change the default implementation,
-you can define the accessor without defining its body:
+アクセサの可視性を変えたりアノテーションを付けたりしたいときは、デフォルトの実装を変える必要はなく、本体を定義せずにアクセサを定義するすることができる：
 
 ``` kotlin
-var setterVisibility: String = "abc" // Initializer required, not a nullable type
-  private set // the setter is private and has the default implementation
+var setterVisibility: String = "abc" // イニシャライザが必要、null許容型でない
+  private set // セッターはprivateでデフォルトの実装を持つ
 
 var setterWithAnnotation: Any?
-  @Inject set // annotate the setter with Inject
+  @Inject set // セッターを Inject でアノテーション付けする
 ```
 
-### Backing Fields
+### バッキングフィールド（Backing Fields）
 
-Classes in Kotlin cannot have fields. However, sometimes it is necessary to have a backing field when using custom accessors. For these purposes, Kotlin provides
-an automatic backing field which can be accessed using the `field` identifier:
+Kotlinのクラスはフィールドを持つことができない。しかし、バッキングフィールドがカスタムアクセサを使用する際に時々必要になることがある。
+この目的のため、Kotlinは自動バッキングフィールドを提供する。このフィールドには `field` 識別子を使うとアクセス可能になる。
 
 ``` kotlin
-var counter = 0 // the initializer value is written directly to the backing field
+var counter = 0 // イニシャライザの値は直接バッキングフィールドへ書き込まれる
   set(value) {
     if (value >= 0)
       field = value
   }
 ```
 
-The `field` identifier can only be used in the accessors of the property.
+`field` 識別子はプロパティのアクセサのみで使用できる。
 
 The compiler looks at the accessors' bodies, and if they use the backing field (or the accessor implementation is left by default), a backing field is generated, otherwise it is not.
+アクセサの本体や本体がバッキングフィールドを使用しているかどうか（またはアクセサの実装がデフォルトと異なっているか）をコンパイラは見て、バッキングフィールドが生成される。それ以外の場合はされない。
 
-For example, in the following case there will be no backing field:
+例えば、次の事例ではバッキングフィールドは存在しない：
 
 ``` kotlin
 val isEmpty: Boolean
   get() = this.size == 0
 ```
 
-### Backing Properties
+### バッキングプロパティ
 
-If you want to do something that does not fit into this "implicit backing field" scheme, you can always fall back to having a *backing property*:
+"暗黙的バッキングフィールド"にそぐわないことをやりたい場合には、 *backing property* を持つようにもできる：
 
 ``` kotlin
 private var _table: Map<String, Int>? = null
 public val table: Map<String, Int>
   get() {
     if (_table == null)
-      _table = HashMap() // Type parameters are inferred
+      _table = HashMap() // 型パラメータが推測される
     return _table ?: throw AssertionError("Set to null by another thread")
   }
 ```
 
-In all respects, this is just the same as in Java since access to private properties with default getters and setters is optimized so that no function call overhead is introduced.
+全ての点より、これはちょうどJavaと同じである。
+なぜなら、privateプロパティへデフォルトゲッターとセッターでアクセスし、セッターがオーバヘッド無しの関数呼び出しに最適化されているためである。
 
 
-## Compile-Time Constants
+## コンパイル時定数
 
-Properties the value of which is known at compile time can be marked as _compile time constants_ using the `const` modifier.
-Such properties need to fulfil the following requirements:
+コンパイル時に把握されるプロパティの値は `const` 修飾子を使用して _compile time constants_ としてマークすることができる。
+このようなプロパティは次の要件を満たす必要がある：
 
-  * Top-level or member of an `object`
-  * Initialized with a value of type `String` or a primitive type
-  * No custom getter
+  * トップレベル、または `object` のメンバ
+  * `String` 型で初期化されるかプリミティブ型であること
+  * カスタムゲッターが無いこと
 
-Such properties can be used in annotations:
+このプロパティはアノテーションで使用することができる：
 
 ``` kotlin
 const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
@@ -149,14 +153,13 @@ const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
 ```
 
 
-## Late-Initialized Properties
+## 遅延初期化プロパティ
 
-Normally, properties declared as having a non-null type must be initialized in the constructor.
-However, fairly often this is not convenient. For example, properties can be initialized through dependency injection,
-or in the setup method of a unit test. In this case, you cannot supply a non-null initializer in the constructor,
-but you still want to avoid null checks when referencing the property inside the body of a class.
+通常、非null型として宣言されたプロパティは、コンストラクタ内で初期化される必要がある。
+しかし、これはかなり不便である。例えば、プロパティが依存オブジェクト (dependency injection　訳注：[参考](http://blog.a-way-out.net/blog/2015/08/31/your-dependency-injection-is-wrong-as-I-expected/))により初期化されたり、ユニットテストのセットアップメソッドで初期化されたり。
+この事例では、非nullイニシャライザをコンストラクタ内で提供することができないが、それでもクラス内の本体にあるプロパティを参照する際にnullチェックを避けたいであろう。
 
-To handle this case, you can mark the property with the `lateinit` modifier:
+このような事例を処理するには、プロパティを `lateinit` 識別子でマークすることができる：
 
 ``` kotlin
 public class MyTest {
@@ -167,29 +170,25 @@ public class MyTest {
     }
 
     @Test fun test() {
-        subject.method()  // dereference directly
+        subject.method()  // 直接、逆参照する
     }
 }
 ```
 
-The modifier can only be used on `var` properties declared inside the body of a class (not in the primary constructor), and only
-when the property does not have a custom getter or setter. The type of the property must be non-null, and it must not be
-a primitive type.
+この識別子はクラス本体（主コンストラクタでない）の中で宣言された `var` プロパティで、カスタムゲッターやカスタムセッターを持たないプロパティでのみ使用することができる。
+プロパティの型は非nullでなければならず、プリミティブ型であってはならない。
 
-Accessing a `lateinit` property before it has been initialized throws a special exception that clearly identifies the property
-being accessed and the fact that it hasn't been initialized.
+`lateinit` プロパティが初期化される前にアクセスした場合、アクセスされたプロパティと、それが初期化されていないことを明確に示す特別な例外が投げられる。
 
-## Overriding Properties
+## プロパティのオーバライド
 
-See [Overriding Members](classes.html#overriding-members)
+[Overriding Members](classes.html#overriding-members) を参照のこと。
 
-## Delegated Properties
-  
-The most common kind of properties simply reads from (and maybe writes to) a backing field. 
-On the other hand, with custom getters and setters one can implement any behaviour of a property.
-Somewhere in between, there are certain common patterns of how a property may work. A few examples: lazy values,
-reading from a map by a given key, accessing a database, notifying listener on access, etc.
+## 委譲プロパティ（Delegated Properties）
 
-Such common behaviours can be implemented as libraries using _delegated properties_.
-For more information, look [here](delegated-properties.html).
+プロパティの最も一般的な種類はバッキングフィールドから読み込む（または書き込むかもしれない）ことである。
+一方、カスタムゲッターとセッターを使えばプロパティの振る舞いを如何様にも実装できる。
+プロパティの動作の確立された共通パターンがある。遅延評価値、与えられたキーでのmapの読み込み、データベースへのアクセス、アクセスをトリガとしてリスナに通知等が例として挙げられる。
 
+このような一般的な振る舞いは、 _delegated properties_ を使ってライブラリに実装することができる。
+詳細は [here](delegated-properties.html) を参照のこと。
