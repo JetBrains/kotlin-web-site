@@ -1128,3 +1128,11 @@
   date: 2015-11-28
   location: Warsaw, Poland
   lang: en
+  
+- title: Munchen Kotlin User Group
+  url: "http://www.meetup.com/de/Kotlin-User-Group-Munich/events/219774187/?a=socialmedia"
+  subject: "First Meetup"
+  speaker: Sven Ruppert
+  date: 2015-12-15
+  location: Munich, Germany
+  lang: en
