@@ -5,53 +5,55 @@ category: "Syntax"
 title: "Extensions"
 ---
 
-# Extensions
+# 拡張
 
-Kotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator.
-This is done via special declarations called _extensions_. Kotlin supports _extension functions_ and _extension properties_.
+Kotlinは、C#やGosuと似ていて、クラスを継承したりDecoratorのようなデザインパターンを使用せずとも、クラスを新しい機能で拡張する能力を提供する。
+これは _拡張 (extensions)_ と呼ばれる特別な宣言で行われる。
+Kotlinは _拡張関数 (extension functions)_ と _拡張プロパティ (extension properties)_ をサポートする。
 
-## Extension Functions
+## 拡張関数
 
-To declare an extension function, we need to prefix its name with a _receiver type_, i.e. the type being extended.
-The following adds a `swap` function to `MutableList<Int>`:
+拡張関数を宣言するには _レシーバタイプ (receiver type)_ を関数名の前に付ける必要がある。すなわち、その型は拡張されている。
+次の例では、 `swap` 関数を `MutableList<Int>` に追加している：
 
 ``` kotlin
 fun MutableList<Int>.swap(index1: Int, index2: Int) {
-  val tmp = this[index1] // 'this' corresponds to the list
+  val tmp = this[index1] // 'this' はlistに合致する
   this[index1] = this[index2]
   this[index2] = tmp
 }
 ```
 
-The *this*{: .keyword } keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot). 
-Now, we can call such a function on any `MutableList<Int>`:
+拡張関数の中にある *this*{: .keyword } キーワードはレシーバオブジェクト（ドットの前に置かれるもの）と合致する。
+これでこの関数をどの `MutableList<Int>` からでも呼べるようになった：
 
 ``` kotlin
 val l = mutableListOf(1, 2, 3)
-l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
+l.swap(0, 2) // 'swap()'の中にある'this'は'l'の値を保持する
 ```
 
-Of course, this function makes sense for any `MutableList<T>`, and we can make it generic:
+もちろん、任意の `MutableList<T>` についてこの関数は理にかなっており、ジェネリックにもできる：
 
 ``` kotlin
 fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
-  val tmp = this[index1] // 'this' corresponds to the list
+  val tmp = this[index1] // 'this'はlistに合致する
   this[index1] = this[index2]
   this[index2] = tmp
 }
 ```
 
-We declare the generic type parameter before the function name for it to be available in the receiver type expression. 
-See [Generic functions](generics.html).
+関数名の前でジェネリック型のパラメータを宣言すると、レシーバ型の式で使用できるようになる。
 
-## Extensions are resolved **statically**
+詳細は [Generic functions](generics.html) を参照のこと。
 
-Extensions do not actually modify classes they extend. By defining an extension, you do not insert new members into a class,
-but merely make new functions callable with the dot-notation on instances of this class.
+## 拡張は **静的** に解決される
 
-We would like to emphasize that extension functions are dispatched **statically**, i.e. they are not virtual by receiver type.
-If there's a member and extension of the same type both applicable to given arguments, a **member always wins**. 
-For example:
+拡張は拡張したクラスを実際に変更するわけではない。
+拡張を定義すると、クラスに新たなメンバを挿入できなくなるが、そのクラスのインスタンスにおいてその新しい関数をただドット付きで呼べるようにするだけではない。
+
+拡張関数は **静的に** 処理されるということを強調したい。つまり、それらはレシーバ型における仮想ではない。
+もしメンバと同型の拡張が与えられた引数において受容可能であれば、 **常にメンバが優先される** 。 
+例：
 
 ``` kotlin
 class C {
@@ -61,51 +63,50 @@ class C {
 fun C.foo() { println("extension") }
 ```
 
-If we call `c.foo()` of any `c` of type `C`, it will print "member", not "extension".
+`C` 型の任意の `c` から `c.foo()` を呼べば、"extension"ではなく、"member"と表示する。
 
-## Nullable Receiver
+## null許容レシーバ
 
-Note that extensions can be defined with a nullable receiver type. Such extensions can be called on an object variable
-even if its value is null, and can check for `this == null` inside the body. This is what allows you
-to call toString() in Kotlin without checking for null: the check happens inside the extension function.
+拡張はnull許容レシーバ型で定義することができることに注意すること。
+そのような拡張は値がnullであってもオブジェクトから呼び出すことができる。そして、本体で `this == null` のチェックを行うことができる。
+これにより、KotlinではnullチェックをせずにtoString()を呼ぶことができ、チェックは拡張関数の中で行われる。
 
 ``` kotlin
 fun Any?.toString(): String {
     if (this == null) return "null"
-    // after the null check, 'this' is autocast to a non-null type, so the toString() below
-    // resolves to the member function of the Any class
+    // nullチェック後、 'this' は非null型に自動キャストされ、
+    // 次のtoString()はAnyクラスのメンバ関数として解決される
     return toString()
 }
 ```
 
-## Extension Properties
+## 拡張プロパティ
 
-Similarly to functions, Kotlin supports extension properties:
+関数と同様、Kotlinは拡張プロパティをサポートする：
 
 ``` kotlin
 val <T> List<T>.lastIndex: Int
   get() = size - 1
 ```
 
-Note that, since extensions do not actually insert members into classes, there's no efficient way for an extension 
-property to have a [backing field](properties.html#backing-fields). This is why **initializers are not allowed for 
-extension properties**. Their behavior can only be defined by explicitly providing getters/setters.
+拡張は実際にメンバをクラスへ挿入しないので、拡張プロパティが[バッキングフィールド](properties.html#backing-fields)をもつ効果的な方法はない。
+これは **イニシャライザが拡張プロパティで許可されていない** からである。
+この振る舞いは明示的にゲッター/セッターを提供して定義したときのみおこる。
 
-Example:
+例：
 
 ``` kotlin
-val Foo.bar = 1 // error: initializers are not allowed for extension properties
+val Foo.bar = 1 // エラー：イニシャライザは拡張プロパティでは許可されていない
 ```
 
 
-## Companion Object Extensions
+## コンパニオンオブジェクトの拡張
 
-If a class has a [companion object](object-declarations.html#companion-objects) defined, you can also define extension
-functions and properties for the companion object:
+クラスが [コンパニオンオブジェクト](object-declarations.html#companion-objects) 定義を持つなら、拡張関数やプロパティもコンパニオンオブジェクトに定義することができる：
 
 ``` kotlin
 class MyClass {
-  companion object { }  // will be called "Companion"
+  companion object { }  // "コンパニオン"と呼ばれる
 }
 
 fun MyClass.Companion.foo() {
@@ -113,31 +114,31 @@ fun MyClass.Companion.foo() {
 }
 ```
 
-Just like regular members of the companion object, they can be called using only the class name as the qualifier:
+コンパニオンオブジェクトの通常のメンバと同じように、クラス名のみを修飾子として使用して呼ぶことができる。
 
 ``` kotlin
 MyClass.foo()
 ```
 
 
-## Scope of Extensions
+## 拡張のスコープ
 
-Most of the time we define extensions on the top level, i.e. directly under packages:
- 
+ほとんどの場合、トップレベルで拡張を定義する。すなわち、パッケージ直下である：
+
 ``` kotlin
 package foo.bar
- 
-fun Baz.goo() { ... } 
-``` 
 
-To use such an extension outside its declaring package, we need to import it at the call site:
+fun Baz.goo() { ... }
+```
+
+宣言パッケージ外でこのような拡張を使用するには、呼び出し時にインポートする必要がある：
 
 ``` kotlin
 package com.example.usage
 
-import foo.bar.goo // importing all extensions by name "goo"
-                   // or
-import foo.bar.*   // importing everything from "foo.bar"
+import foo.bar.goo // "goo"という名前の全ての拡張をインポートする
+                   // または
+import foo.bar.*   // 全てを"foo.bar"からインポートする
 
 fun usage(baz: Baz) {
   baz.goo()
@@ -145,30 +146,31 @@ fun usage(baz: Baz) {
 
 ```
 
-See [Imports](packages.html#imports) for more information.
- 
-## Motivation
+詳細は [Imports](packages.html#imports) を参照のこと。
 
-In Java, we are used to classes named "\*Utils": `FileUtils`, `StringUtils` and so on. The famous `java.util.Collections` belongs to the same breed.
-And the unpleasant part about these Utils-classes is that the code that uses them looks like this:
+##  モチベーション
+
+Javaでは、"\*Utils"のような名前のクラスを使っている。例として、 `FileUtils` や `StringUtils` 等が挙げられる。
+有名な `java.util.Collections` は同じ種に属する。
+そしてこれらのUtilsクラスの不快な部分は、コードを次のように使うところである：
 
 ``` java
 // Java
 Collections.swap(list, Collections.binarySearch(list, Collections.max(otherList)), Collections.max(list))
 ```
 
-Those class names are always getting in the way. We can use static imports and get this:
+これらのクラス名は常に邪魔になる。staticインポートでこのようになる：
 
 ``` java
 // Java
 swap(list, binarySearch(list, max(otherList)), max(list))
 ```
 
-This is a little better, but we have no or little help from the powerful code completion of the IDE. It would be so much better if we could say
+これは少し良いが、IDEの強力な助けを全くまたはほとんど得られない。次のようにできればどんなに良いことだろう：
 
 ``` java
 // Java
 list.swap(list.binarySearch(otherList.max()), list.max())
 ```
 
-But we don't want to implement all the possible methods inside the class `List`, right? This is where extensions help us.
+しかし全てのとりうるメソッドを `List` クラスの中に実装したくはないだろう？このようなときに拡張が助けてくれる。
