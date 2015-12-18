@@ -1136,3 +1136,11 @@
   date: 2015-12-15
   location: Munich, Germany
   lang: en
+
+- title: Gradle and Android Holiday Meetup
+  url: "http://www.meetup.com/sfandroid/events/226399275/"
+  subject: "Better Android Development with Kotlin and Gradle"
+  speaker: Ty Smith and Yohan Hartanto
+  date: 2015-12-18
+  location: San Francisco, CA, US
+  lang: en
