@@ -1144,3 +1144,11 @@
   date: 2015-12-18
   location: San Francisco, CA, US
   lang: en
+  
+- title: Voxxed Days Zürich 2016
+  url: https://cfp-vdz.exteso.com/2016/speaker/hadi_hariri
+  subject: "Kotlin - Ready for Production"
+  speaker: Hadi Hariri
+  date: 2016-03-03
+  location: Zürich, SW
+  lang: en
