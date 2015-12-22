@@ -97,7 +97,14 @@ value using `get()` or retrieve the property name using the `name` property. For
 the [docs on the `KProperty` class](/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html).
 
 For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html),
-which has a `set()` method.
+which has a `set()` method.                     
+
+A property reference can be used where a function with no parameters is expected:
+ 
+``` kotlin
+val strs = listOf("a", "bc", "def")
+println(strs.map(String::length)) // prints [1, 2, 3]
+```
 
 To access a property that is a member of a class, we qualify it:
 
