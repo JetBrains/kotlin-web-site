@@ -224,11 +224,7 @@ define([
 
     var bannersRotator = {};
 
-    bannersRotator.instances = null;
-
-    bannersRotator.init = function (path) {
-        this.instances = [];
-    };
+    bannersRotator.instances = [];
 
     bannersRotator.createBanner = function (params) {
         if (this.isBannerShouldBeShown(params.id)) {
