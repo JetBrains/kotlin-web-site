@@ -790,7 +790,7 @@ define([
 
 
     function initializeCookieBanner() {
-        var template = '<div class="cookies-notify" id="cookies-terminal">\n    <p class="cookies-notify__paragraph">Cookies help us improve our web content and deliver personalised content. By using this web site, you agree to our use of cookies.</p>\n    <p class="cookies-notify__paragraph">Type `man cookies\' to <a href="/company/privacy.html#using-website" class="cookies-notify__link">learn more</a> or `exit\' to close.</p>\n    <div class="cookies-notify__content"></div>\n</div>'
+        var template = '<div class="cookies-notify" id="cookies-terminal">\n    <p class="cookies-notify__paragraph">Cookies help us improve our web content and deliver personalised content. By using this web site, you agree to our use of cookies.</p>\n    <p class="cookies-notify__paragraph">Type `man cookies\' to <a href="//www.jetbrains.com/company/privacy.html#using-website" class="cookies-notify__link">learn more</a> or `exit\' to close.</p>\n    <div class="cookies-notify__content"></div>\n</div>'
 
         bannersRotator.createBanner({
             id: 'cookies',
@@ -829,7 +829,7 @@ define([
                     switch (line) {
                         case (commands.man):
                             this.expandFrame();
-                            return '\nA cookie is a small piece of data sent by a website to your browser. It helps the website to remember information about your visit, like your country and other settings. That can make your next visit easier and the site more useful to you.\n\nWe use cookies on some (but not all) pages to deliver personalized content or to tailor our information offerings or responses according to the way you use the site, and/or your current context on the site. We do not use cookies to gather or transmit any personally identifiable information about you.\n\nRead our <a href="/company/privacy.html" class="cookies-notify__link">privacy policy</a> for a detailed explanation on how we protect your privacy in our use of cookies and other information.\n \n';
+                            return '\nA cookie is a small piece of data sent by a website to your browser. It helps the website to remember information about your visit, like your country and other settings. That can make your next visit easier and the site more useful to you.\n\nWe use cookies on some (but not all) pages to deliver personalized content or to tailor our information offerings or responses according to the way you use the site, and/or your current context on the site. We do not use cookies to gather or transmit any personally identifiable information about you.\n\nRead our <a href="//www.jetbrains.com/company/privacy.html" class="cookies-notify__link">privacy policy</a> for a detailed explanation on how we protect your privacy in our use of cookies and other information.\n \n';
 
                         case (commands.help):
                             return helpMessage;
