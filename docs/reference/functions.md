@@ -200,7 +200,7 @@ When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList
 
 ```kotlin
 val a = arrayOf(1, 2, 3)
-val list = listOf(-1, 0, *a, 4)
+val list = asList(-1, 0, *a, 4)
 ```
 
 ## Function Scope
