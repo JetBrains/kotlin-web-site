@@ -964,7 +964,9 @@
   speaker: Svetlana Isakova
   date: 2015-10-18
   location: Saint Petersburg, Russia
-  lang: ru  
+  lang: ru
+  content:
+    video: https://youtu.be/IXFIUF_KW_o
 
 - title: DevFest 2015
   url: http://www.eventbrite.it/e/biglietti-devfest-2015-18033194771?aff=es2
