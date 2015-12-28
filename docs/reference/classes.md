@@ -267,22 +267,6 @@ and provide our own implementation that eliminates the ambiguity.
 
 A class and some of its members may be declared *abstract*{: .keyword }.
 An abstract member does not have an implementation in its class.
-Thus, when some descendant inherits an abstract member, it does not count as an implementation:
-
-``` kotlin
-abstract class A {
-  abstract fun f()
-}
-
-interface B {
-  fun f() { print("B") }
-}
-
-class C() : A(), B {
-  // We are not required to override f()
-}
-```
-
 Note that we do not need to annotate an abstract class or function with open – it goes without saying.
 
 We can override a non-abstract open member with an abstract one
