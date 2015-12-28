@@ -32,7 +32,6 @@ Kotlinでは文字は数値でないことに注意すること。
 ### リテラル定数
 
 次の整数値を表現するためのリテラル定数には、次の種類がある：
-There are the following kinds of literal constants for integral values:
 
 * 小数: `123`
   * Long型の数を表すには大文字の`L`でタグ付けする: `123L`
