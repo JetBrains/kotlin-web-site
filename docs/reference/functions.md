@@ -199,7 +199,7 @@ When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList
  and want to pass its contents to the function, we use the **spread** operator (prefix the array with `*`):
 
 ```kotlin
-val a = array(1, 2, 3)
+val a = arrayOf(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
 ```
 
