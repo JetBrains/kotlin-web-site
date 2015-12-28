@@ -278,7 +278,7 @@ This way we get a `NullPointerException` in the Java code immediately.
 ## Variant generics
 
 When Kotlin classes make use of [declaration-site variance](generics.html#declaration-site-variance), there are two 
-options of how their usages are seen from the Java code. Let's say we have the following class and a functions that use it:
+options of how their usages are seen from the Java code. Let's say we have the following class and two functions that use it:
 
 ``` kotlin
 class Box<out T>(val value: T)
@@ -309,9 +309,9 @@ Here we make use of Java's *wildcards types* (`? extends Base`) to emulate decla
 variance, because it is all Java has.
 
 To make Kotlin APIs work in Java we generate `Box<Super>` as `Box<? extends Super>` for covariantly defined `Box` 
-(`Foo<? super Bar>` for contravariantly defined `Foo`) when it appears *as a parameter*. When it's a return value, 
+(or `Foo<? super Bar>` for contravariantly defined `Foo`) when it appears *as a parameter*. When it's a return value,
 we don't generate wildcards, because otherwise Java clients will have to deal with them (and it's against the common 
-Java coding style), so the function from our example are actually translated as follows:
+Java coding style). Therefore, the functions from our example are actually translated as follows:
   
 ``` java
 // return type - no wildcards
@@ -341,11 +341,11 @@ fun unboxBase(box: Box<@JvmSuppressWildcards Base>): Base = box.value
 ```
 
 NOTE: `@JvmSuppressWildcards` can be used not only on individual type arguments, but on entire declarations, such as 
-functions or classes, causing all wildcards inside them to be suppressed
+functions or classes, causing all wildcards inside them to be suppressed.
 
 ### Translation of type Nothing
  
-The type `Nothing` is special, because it has no natural counterpart in Java, indeed, every Java reference type, including 
+The type `Nothing` is special, because it has no natural counterpart in Java. Indeed, every Java reference type, including
 `java.lang.Void`, accepts `null` as a value, and `Nothing` doesn't accept even that. So, this type cannot be accurately
 represented in the Java world. This is why Kotlin generates a raw type where an argument of type `Nothing` is used:
 
