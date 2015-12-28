@@ -10,15 +10,13 @@ title: Coding Conventions
 このページにはKotlin言語の現在のコーディングスタイルが記述されている。
 
 ## 命名スタイル
-If in doubt default to the Java Coding Conventions such as:
-次のような標準のJavaのコード規約に疑念を抱いているなら：
+よく分からない場合はJava のコード規約に従う：
 
 * キャメルケースの使用（そして命名でのアンダースコアの使用）
 * 大文字で始まる型
 * メソッドとプロパティが小文字で始まる
 * 4スペースインデント
-
-public関数はKotlinの書式でのドキュメンテーションがある。
+* public関数はKotlinの書式でのドキュメンテーションがある
 
 ## コロン
 
