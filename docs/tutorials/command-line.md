@@ -16,7 +16,7 @@ Every release ships with a standalone version of the compiler. We can download i
 Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path. The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, OS X and Linux.
 
 #### SDKMAN!
-An easier way to install Kotlin on Windows, OS X and Linux is by using [SDKMAN!](http://sdkman.io).
+An easier way to install Kotlin on UNIX based systems such as OS X, Linux, Cygwin, FreeBSD and Solaris is by using [SDKMAN!](http://sdkman.io).
 Simply run the following in a terminal and follow any instructions:
 
 ```
