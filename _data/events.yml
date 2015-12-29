@@ -1064,6 +1064,9 @@
   date: [2015-11-27, 2015-11-28]
   location: Madrid, Spain
   lang: sp
+  content:
+    video: https://youtu.be/NRJl_942r08
+    slides: https://speakerdeck.com/antoniolg/kotlin-for-android-developers-v2
 
 - title: GDG Karlsruhe DevFest
   url: http://www.devfestka.de/programm
