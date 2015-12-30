@@ -65,7 +65,7 @@ So it results into this kind of code all over the place:
 try {
   log.append(message)
 }
-catch (IOException e) {
+catch (e: IOException) {
   // Must be safe
 }
 ```
