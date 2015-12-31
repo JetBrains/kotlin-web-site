@@ -1068,6 +1068,16 @@
     video: https://youtu.be/NRJl_942r08
     slides: https://speakerdeck.com/antoniolg/kotlin-for-android-developers-v2
 
+- title: Karumi Talks
+  url: https://www.eventbrite.es/e/entradas-karumi-talks-scala-vs-kotlin-for-android-by-javi-pacheco-and-antonio-leiva-19726542620
+  subject: "Scala vs Kotlin for Android"
+  speaker: Javi Pacheco and Antonio Leiva
+  date: 2015-12-09
+  location: Madrid, Spain
+  lang: sp
+  content:
+    slides: https://speakerdeck.com/antoniolg/scala-vs-kotlin
+
 - title: GDG Karlsruhe DevFest
   url: http://www.devfestka.de/programm
   subject: "Kotlin: A New Language for Android Development"
