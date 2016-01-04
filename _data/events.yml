@@ -1056,6 +1056,9 @@
   date: 2015-10-17
   location: Lodz, Poland
   lang: pl
+  content:
+    video: https://youtu.be/r6OCfbyNEP8
+    slides: http://slides.com/pawegio/kotlin-android
 
 - title: Codemotion 2015
   url: http://2015.codemotion.es/agenda.html#5699289732874240
