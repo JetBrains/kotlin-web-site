@@ -98,6 +98,7 @@ Square brackets are translated to calls to `get` and `set` with appropriate numb
 
 | Symbol | Translated to |
 |--------|---------------|
+| `a()`  | `a.invoke()` |
 | `a(i)`  | `a.invoke(i)` |
 | `a(i, j)`  | `a.invoke(i, j)` |
 | `a(i_1, ...,  i_n)`  | `a.invoke(i_1, ...,  i_n)` |
