@@ -165,7 +165,7 @@ and `as` are working now. Also, we can call it as mentioned above: `myTree.findP
 Though reflection may not be needed in many cases, we can still use it with a reified type parameter:
 
 ``` kotlin
-inline fun membersOf<reified T>() = T::class.members
+inline fun <reified T> membersOf() = T::class.members
 
 fun main(s: Array<String>) {
   println(membersOf<StringBuilder>().joinToString("\n"))
