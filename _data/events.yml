@@ -1170,3 +1170,11 @@
   date: 2016-03-03
   location: Zürich, CH
   lang: en
+
+- title: "Kotlin Developers in Manchester Meetup"
+  url: http://www.meetup.com/Kotlin-Manchester/events/rkrdmlyvdblb/
+  subject: "Introduction and State of Kotlin"
+  speaker: Arthur Emblenton
+  date: 2016-02-08
+  location: Manchester, UK
+  lang: en
