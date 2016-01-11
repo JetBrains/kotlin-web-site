@@ -175,7 +175,7 @@ type will be non-obvious to the reader (and sometimes even for the compiler).
 A parameter of a function (normally the last one) may be marked with `vararg` modifier:
 
 ``` kotlin
-fun asList<T>(vararg ts: T): List<T> {
+fun <T> asList(vararg ts: T): List<T> {
   val result = ArrayList<T>()
   for (t in ts) // ts is an Array
     result.add(t)
