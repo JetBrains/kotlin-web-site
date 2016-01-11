@@ -111,8 +111,9 @@ class JavaClient {
 
 ## Static Methods and Fields
 
-As mentioned above, Kotlin generates static methods for package-level functions. On top of that, it also generates static methods
-for functions defined in named objects or companion objects of classes and annotated as `@JvmStatic`. For example:
+As mentioned above, Kotlin generates static methods for package-level functions.
+Kotlin can also generate static methods for functions defined in named objects or companion objects if you annotate those functions as `@JvmStatic`.
+For example:
 
 ``` kotlin
 class C {
