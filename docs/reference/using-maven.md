@@ -109,13 +109,11 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
     <executions>
         <execution>
             <id>compile</id>
-            <phase>compile</phase>
             <goals> <goal>compile</goal> </goals>
         </execution>
 
         <execution>
             <id>test-compile</id>
-            <phase>test-compile</phase>
             <goals> <goal>test-compile</goal> </goals>
         </execution>
     </executions>
