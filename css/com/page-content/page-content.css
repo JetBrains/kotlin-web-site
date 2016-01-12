@@ -647,6 +647,8 @@
   .page-content .signature {
     background-color: #efefef;
     padding: 4px; }
+  .page-content .signature :target {
+    background-color: #FFFFCC; }
   .page-content .overload-group {
     padding-bottom: 50px; }
   .page-content .error {
@@ -662,5 +664,3 @@
     margin-bottom: 0; }
   .page-content .api-docs-breadcrumbs {
     margin-bottom: 25px; }
-
-/*# sourceMappingURL=page-content.css.map */

@@ -153,6 +153,10 @@ kbd {
   padding: 4px;
 }
 
+.signature :target {
+   background-color: #FFFFCC;
+}
+
 .overload-group {
   padding-bottom: 50px;
 }
