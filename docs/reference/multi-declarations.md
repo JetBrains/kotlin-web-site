@@ -77,7 +77,7 @@ for ((key, value) in map) {
 
 To make this work, we should 
 
-* present the map as sequence of values by providing an `iterator()` function,
+* present the map as a sequence of values by providing an `iterator()` function,
 * present each of the elements as a pair by providing functions `component1()` and `component2()`.
   
 And indeed, the standard library provides such extensions:
