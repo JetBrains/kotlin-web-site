@@ -1178,3 +1178,11 @@
   date: 2016-02-08
   location: Manchester, UK
   lang: en
+
+- title: "GDG Indy"
+  url: http://www.meetup.com/indy-gdg/events/227450030/
+  subject: "Kotlin Code Lab"
+  speaker: Vince, Aaron M.
+  date: 2016-01-19
+  location: Indianapolis, IN, US
+  lang: en
