@@ -1189,8 +1189,17 @@
 
 - title: ElsassJUG Meetup
   url: http://www.meetup.com/ElsassJUG/events/227884741/
-  subject: "Kotlin pour Android"
+  subject: "Power-up Your Android-fu with Kotlin"
   speaker: Nicolas Frankel
   date: 2016-01-13
   location: Strasbourg, France
-  lang: fr
+  lang: en
+  content:
+    slides: http://www.slideshare.net/nfrankel/improve-your-androidfu-with-kotlin
+
+- title: "MobileTechCon"
+  url: https://mobiletechcon.de/session/kotlin-fuer-android-entwickler/
+  subject: "Kotlin für Android-Entwickler"
+  speaker: Benedict Pregler
+  date: [2016-03-14, 2016-03-16]
+  location: München, Germany
