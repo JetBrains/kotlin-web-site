@@ -1203,3 +1203,11 @@
   speaker: Benedict Pregler
   date: [2016-03-14, 2016-03-16]
   location: München, Germany
+
+- title: Utah Country Android Developers Meetup
+  url: http://www.meetup.com/Utah-County-Android-Developers/events/226891591/
+  subject: "Kotlin: The future of Android development?"
+  speaker: Jacob Moncur
+  date: 2016-01-14
+  location: Lehi, UT, US
+  lang: en
