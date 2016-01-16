@@ -126,7 +126,7 @@ To do this we provide the **out** modifier:
 
 ``` kotlin
 abstract class Source<out T> {
-  fun nextT(): T
+  abstract fun nextT(): T
 }
 
 fun demo(strs: Source<String>) {
@@ -149,7 +149,7 @@ produced. A good example of a contravariant class is `Comparable`:
 
 ``` kotlin
 abstract class Comparable<in T> {
-  fun compareTo(other: T): Int
+  abstract fun compareTo(other: T): Int
 }
 
 fun demo(x: Comparable<Number>) {
