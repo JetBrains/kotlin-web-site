@@ -839,6 +839,7 @@
   lang: ru
   content:
     slides: http://www.slideshare.net/AlekseyZhidkov/kotlin-java-49596180
+    examples: https://github.com/aleksey-zhidkov/HelloWorldEE
   
 - title: LambdaNsk
   url: http://vk.com/lambdansk
@@ -847,6 +848,8 @@
   date: 2015-06-21
   location: Novosibirsk, Russia
   lang: ru
+  content:
+    examples: https://github.com/aleksey-zhidkov/kotlin-fp
 
 - title: JBCN Conference
   url: http://www.jbcnconf.com
@@ -855,6 +858,8 @@
   date: [2015-06-26, 2015-06-27]
   location: Barcelona, Spain
   lang: en
+  content:
+    video: https://www.youtube.com/watch?v=8dM4I7Iue78
 
 - title: Stockholm Java User Group
   url: http://www.meetup.com/Stockholm-Java-User-Group/events/224295980/
@@ -977,6 +982,7 @@
   lang: it
   content:
     video: https://youtu.be/0xPDg8NXvko
+    slides: https://docs.google.com/presentation/d/1XTm-9WnwoiYhyHGamt-dHJBKmkEr3WajDCOGxgfIRsc
 
 - title: 関西Kotlin勉強会
   url: http://connpass.com/event/18102/
@@ -1095,7 +1101,10 @@
   speaker: Svetlana Isakova
   date: [2015-11-09,2015-11-10]
   location: Paris, France
-  lang: en 
+  lang: en
+  content:
+    video: https://youtu.be/50lASllvG3Q
+    slides: https://drive.google.com/file/d/0B1CCib0JzAOJVXdaejZJVHhGaVU/view
   
 - title: DroidCon Paris
   url: http://droidcon.fr/
@@ -1103,7 +1112,10 @@
   speaker: Mounir Boudraa
   date: [2015-11-09,2015-11-10]
   location: Paris, France
-  lang: fr   
+  lang: fr
+  content:
+    video: https://youtu.be/pcg2Cjgl8F4
+    slides: https://drive.google.com/file/d/0B1CCib0JzAOJV2kySFBrcVdqQ3c/view
 
 - title: AnDevCon 2015
   url: http://www.andevcon.com/santaclara/classes#IntroducingKotlinforAndroidDevelopment
@@ -1111,7 +1123,9 @@
   speaker: ChongLim Kim
   date: [2015-12-01,2015-12-03]
   location: Santa Clara, CA, US
-  lang: en 
+  lang: en
+  content:
+    examples: https://github.com/clkim/demoKotlinAndroidDev2015
 
 - title: Native Development Meetup
   url: http://www.meetup.com/Native-Development-Meetup/events/226695631/
@@ -1119,7 +1133,10 @@
   speaker: Mate Herber
   date: 2015-11-25
   location: Budapest, Hungary
-  lang: en 
+  lang: en
+  content:
+    slides: https://github.com/NativeDevelopmentMeetup/NativeDevelopmentMeetup/blob/master/presentations/November/How%20can%20Kotlin%20change%20Android%20development.pdf
+    video: https://youtu.be/C3F0p5h3NC8?t=29m1s
   
 - title: The JVM - A wonderful place to be
   url: http://info.jetbrains.com/JetBrains-Night-Munich-2015-registration.html
@@ -1146,6 +1163,8 @@
   date: 2015-11-28
   location: Warsaw, Poland
   lang: en
+  content:
+    examples: https://github.com/mg6maciej/fun-things-you-CanDo-in-Kotlin
   
 - title: Munchen Kotlin User Group
   url: "http://www.meetup.com/de/Kotlin-User-Group-Munich/events/219774187/?a=socialmedia"
@@ -1211,3 +1230,13 @@
   date: 2016-01-14
   location: Lehi, UT, US
   lang: en
+
+- title: DroidCon Tunisia 2016
+  url: "http://www.droidcon.tn/fun-thingsyou-cando/"
+  subject: "fun things(you: CanDo<in Kotlin>) = ..."
+  speaker: Maciej Górski
+  date: [2016-03-05, 2016-03-06]
+  location: Tunis, Tunisia
+  lang: en
+  content:
+    examples: https://github.com/mg6maciej/fun-things-you-CanDo-in-Kotlin
