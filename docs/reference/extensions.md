@@ -50,7 +50,7 @@ Extensions do not actually modify classes they extend. By defining an extension,
 but merely make new functions callable with the dot-notation on instances of this class.
 
 We would like to emphasize that extension functions are dispatched **statically**, i.e. they are not virtual by receiver type.
-This means that the extension function being called is determined by the type of the variable on which the function is invoked,
+This means that the extension function being called is determined by the type of the expression on which the function is invoked,
 not by the type of the object stored in this variable at runtime. For example:
 
 ``` kotlin
@@ -72,7 +72,8 @@ printFoo(D())
 This example will print "c", because the extension function being called depends only on the declared type of the
 parameter `c`, which is the `C` class.
 
-If a class has a member function and an extension function with the same name applicable to given arguments, the **member always wins**.
+If a class has a member function, and an extension function is defined which has the same receiver type, the same name
+and is applicable to given arguments, the **member always wins**.
 For example:
 
 ``` kotlin
