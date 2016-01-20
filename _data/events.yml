@@ -1216,13 +1216,6 @@
   content:
     slides: http://www.slideshare.net/nfrankel/improve-your-androidfu-with-kotlin
 
-- title: "MobileTechCon"
-  url: https://mobiletechcon.de/session/kotlin-fuer-android-entwickler/
-  subject: "Kotlin für Android-Entwickler"
-  speaker: Benedict Pregler
-  date: [2016-03-14, 2016-03-16]
-  location: München, Germany
-
 - title: Utah Country Android Developers Meetup
   url: http://www.meetup.com/Utah-County-Android-Developers/events/226891591/
   subject: "Kotlin: The future of Android development?"
@@ -1230,6 +1223,21 @@
   date: 2016-01-14
   location: Lehi, UT, US
   lang: en
+
+- title: "DevNexus"
+  url: http://devnexus.com
+  subject: "Kotlin - Ready for Production"
+  speaker: Hadi Hariri
+  date: [2016-02-15, 2016-02-17]
+  location: Atlanta, US
+  
+- title: "Voxxed Days Vienna"
+  url: https://voxxeddays.com/vienna16/
+  subject: "Kotlin - Ready for Production"
+  speaker: Hadi Hariri
+  date: [2016-03-01]
+  location: Vienna, Austria
+  
 
 - title: DroidCon Tunisia 2016
   url: "http://www.droidcon.tn/fun-thingsyou-cando/"
@@ -1240,3 +1248,19 @@
   lang: en
   content:
     examples: https://github.com/mg6maciej/fun-things-you-CanDo-in-Kotlin
+
+- title: "MobileTechCon"
+  url: https://mobiletechcon.de/session/kotlin-fuer-android-entwickler/
+  subject: "Kotlin für Android-Entwickler"
+  speaker: Benedict Pregler
+  date: [2016-03-14, 2016-03-16]
+  location: München, Germany
+
+- title: "CraftCon"
+  url: http://craft-conf.com
+  subject: "Kotlin - Ready for Production"
+  speaker: Hadi Hariri
+  date: [2016-04-28]
+  location: Budapest, Hungary
+  
+
