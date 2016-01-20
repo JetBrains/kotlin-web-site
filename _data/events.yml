@@ -1238,13 +1238,7 @@
   date: [2016-03-01]
   location: Vienna, Austria
   
-- title: "Voxxed Days Zurich"
-  url: https://voxxeddays.com/zurich/
-  subject: "Kotlin - Ready for Production"
-  speaker: Hadi Hariri
-  date: [2016-03-03]
-  location: Zurich, Switzerland
-  
+
 - title: DroidCon Tunisia 2016
   url: "http://www.droidcon.tn/fun-thingsyou-cando/"
   subject: "fun things(you: CanDo<in Kotlin>) = ..."
