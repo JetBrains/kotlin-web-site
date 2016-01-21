@@ -110,7 +110,7 @@ With named arguments we can make the code much more readable
 ``` kotlin
 reformat(str,
     normalizeCase = true,
-    uppercaseFirstLetter = true,
+    upperCaseFirstLetter = true,
     divideByCamelHumps = false,
     wordSeparator = '_'
   )
