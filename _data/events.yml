@@ -883,6 +883,16 @@
     slides: https://onedrive.live.com/redir?resid=AE5485EE4D222D8D!157&authkey=!ACQKNL3Z2R4bTrk&ithint=file%2cpptx
     video: https://www.youtube.com/watch?v=2IhT8HACc2E&list=PLX8CzqL3ArzUo2dtMurvpUTAaujPMeuuU&index=20
     
+- title: Android DevConference 2015
+  url: http://androidconference.imasters.com.br/
+  subject: "Kotlin para Android: O Despertar Da Força"
+  speaker: [Ademar Alves, Mickele Moriconi]
+  date: 2015-08-29
+  location: São Paulo, Brazil
+  lang: pt
+  content:
+    video: https://youtu.be/HZonRC5jgx4
+    
 - title: DroidCon Greece 2015
   url: http://droidcon.gr/session/svetlana-isakova/
   subject: "Kotlin on Android"
@@ -1126,6 +1136,15 @@
   lang: en
   content:
     examples: https://github.com/clkim/demoKotlinAndroidDev2015
+    
+- title: Android KW
+  url: http://www.meetup.com/androidkw/events/226683586/
+  subject: "Android Development with Kotlin"
+  speaker: Jake Wharton
+  date: 2015-12-03
+  lang: en
+  content:
+    video: https://youtu.be/A2LukgT2mKc
 
 - title: Native Development Meetup
   url: http://www.meetup.com/Native-Development-Meetup/events/226695631/
