@@ -1314,4 +1314,26 @@
   date: 2016-02-06
   location: Brno, Czech Republic
   
+- title: RigaDev Day 2016
+  url: http://rigadevday.lv/
+  subject: "Kotlin on Android"
+  speaker: Svetlana Isakova
+  date: [2016-03-02, 2016-03-04]
+  location: Riga, Latvia
+  lang: en   
 
+- title: DroidCon Zagreb 2016
+  url: http://droidcon.hr/en/sessions/you-can-do-better-with-kotlin/
+  subject: "You can do better with Kotlin"
+  speaker: Svetlana Isakova
+  date: [2016-04-27, 2016-04-29]
+  location: Zagreb, Croatia
+  lang: en   
+
+- title: Voxxed Days Ticino 2016
+  url: https://cfp-vdt.exteso.com/2016/speaker/svetlana_isakova
+  subject: "You can do better with Kotlin"
+  speaker: Svetlana Isakova
+  date: 2016-04-30
+  location: Lugano, Switzerland
+  lang: en
