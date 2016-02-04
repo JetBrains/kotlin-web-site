@@ -10,16 +10,7 @@ title: "Using Gradle"
 
 The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
 
-Define the version of Kotlin we want to use via *kotlin.version*. The possible values are:
-
-* X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
-only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, we need to [configure a snapshot repository
-in the build.gradle file](#using-snapshot-versions).
-
-* X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
-is needed in the build.gradle file.
-
-The correspondence between milestones and versions is displayed below:
+Define the version of Kotlin we want to use via *kotlin.version*. The correspondence between Kotlin releases and versions is displayed below:
 
 <table>
 <thead>
@@ -145,37 +136,6 @@ repositories {
 
 dependencies {
   compile 'org.jetbrains.kotlin:kotlin-stdlib:<version>'
-}
-```
-
-## Using Snapshot versions
-
-If we want to use a snapshot version (nightly build), we need to add the snapshot repository and change the version to 0.1-SNAPSHOT:
-
-``` groovy
-buildscript {
-  repositories {
-    mavenCentral()
-    maven {
-      url 'http://oss.sonatype.org/content/repositories/snapshots'
-    }
-  }
-  dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:0.1-SNAPSHOT'
-  }
-}
-
-apply plugin: "kotlin" // or apply plugin: "kotlin2js" if targeting JavaScript
-
-repositories {
-  mavenCentral()
-  maven {
-    url 'http://oss.sonatype.org/content/repositories/snapshots'
-  }
-}
-
-dependencies {
-  compile 'org.jetbrains.kotlin:kotlin-stdlib:0.1-SNAPSHOT'
 }
 ```
 
