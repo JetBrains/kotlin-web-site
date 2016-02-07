@@ -167,3 +167,8 @@
   description: A handy database access library in Kotlin
   type: Library
   link: https://github.com/seratch/kotliquery
+
+- name: Awesome Kotlin
+  description: A curated list of awesome Kotlin related stuff
+  type: Awesome List
+  link: https://javaby.github.io/awesome-kotlin/
