@@ -10,7 +10,23 @@ title: "Using Gradle"
 
 The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
 
-Define the version of Kotlin we want to use via *kotlin.version*. The correspondence between Kotlin releases and versions is displayed below:
+The version of Kotlin to use is usually defined as the *kotlin_version* property:
+
+``` groovy
+buildscript {
+   ext.kotlin_version = '<version to use>'
+
+   repositories {
+     mavenCentral()
+   }
+
+   dependencies {
+     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+   }
+}
+```
+
+The correspondence between Kotlin releases and versions is displayed below:
 
 <table>
 <thead>
@@ -116,15 +132,16 @@ This lets Android Studio know that the kotlin directory is a source root, so whe
 
 ## Configuring Dependencies
 
-We need to add dependencies on kotlin-gradle-plugin and the Kotlin standard library:
+In addition to the kotlin-gradle-plugin dependency shown above, you need to add a dependency on the Kotlin standard library:
 
 ``` groovy
 buildscript {
+   ext.kotlin_version = '<version to use>'
   repositories {
     mavenCentral()
   }
   dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:<version>'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
 }
 
@@ -135,8 +152,15 @@ repositories {
 }
 
 dependencies {
-  compile 'org.jetbrains.kotlin:kotlin-stdlib:<version>'
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
+```
+
+If your project uses Kotlin reflection or testing facilities, you need to add the corresponding dependencies as well:
+
+``` groovy
+compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+compile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
 ```
 
 
