@@ -7,7 +7,7 @@ title: "Collections"
 
 # Collections
 
-Unlike many languages, Kotlin distinguishes between mutable and immutable collections (lists, sets, maps etc). Precise control over exactly when collections can be edited is useful for eliminating bugs, and for designing good APIs.
+Unlike many languages, Kotlin distinguishes between mutable and immutable collections (lists, sets, maps, etc). Precise control over exactly when collections can be edited is useful for eliminating bugs, and for designing good APIs.
 
 It is important to understand up front the difference between a read only _view_ of a mutable collection, and an actually immutable collection. Both are easy to create, but the type system doesn't express the difference, so keeping track of that (if it's relevant) is up to you.
 
@@ -27,10 +27,11 @@ val strings = hashSetOf("a", "b", "c", "c")
 assert(strings.size == 3)
 ```
 
-Kotlin does not have syntax sugar for the creation of lists or sets. You must always use methods from the standard library, such as
-`mutableListOf()`.
+Kotlin does not have dedicated syntax constructs for creating lists or sets. Use methods from the standard library, such as
+`listOf()`, `mutableListOf()`, `setOf()`, `mutableSetOf()`.
+For creating maps in a not performance-critical code a simple [idiom](idioms.html#read-only-map) may be used: `mapOf(a to b, c to d)`
 
-Note that the readOnlyView variable points to the same list and changes as the underlying list changes. If the only references that exist to a list are of the read only variety, we can consider the collection fully immutable. A simple way to create such a collection is like this:
+Note that the `readOnlyView` variable points to the same list and changes as the underlying list changes. If the only references that exist to a list are of the read only variety, we can consider the collection fully immutable. A simple way to create such a collection is like this:
 
 ``` kotlin
 val items = listOf(1, 2, 3)
