@@ -88,6 +88,7 @@ reference:
     description: Various bits and bobs
     content:
       - /docs/reference/multi-declarations.html: Destructuring Declarations
+      - /docs/reference/collections.html: Collections
       - /docs/reference/ranges.html: Ranges
       - /docs/reference/typecasts.html: Type Checks and Casts
       - /docs/reference/this-expressions.html: This expressions
