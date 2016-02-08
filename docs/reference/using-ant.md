@@ -73,7 +73,8 @@ recommended to use *withKotlin* task
 </project>
 ```
 
-To specify additional command line parameters for `<withKotlin>`, you can use a nested `<compilerArg>` parameter.
+To specify additional command line arguments for `<withKotlin>`, you can use a nested `<compilerArg>` parameter.
+The full list of arguments that can be used is shown when you run `kotlinc -help`.
 You can also specify the name of the module being compiled as the `moduleName` attribute:
 
 ``` xml
