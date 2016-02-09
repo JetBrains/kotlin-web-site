@@ -160,7 +160,7 @@ If your project uses Kotlin reflection or testing facilities, you need to add th
 
 ``` groovy
 compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-test "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+compileTest "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
 ```
 
 
