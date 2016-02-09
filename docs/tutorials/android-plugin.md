@@ -42,17 +42,11 @@ public class MyActivity : Activity() {
 
 Android Extensions is a part of the Kotlin IDEA plugin. You do not need to install additional plugins.
 
-All you need is to add a buildscript dependency called `kotlin-android-extensions` to the application build file (usually `app/build.gradle`):
+All you need is to enable the Android Extensions Gradle plugin in your project-local `build.gradle` file:
 
 ``` groovy
-buildscript {
-    dependencies {
-        classpath 'org.jetbrains.kotlin:kotlin-android-extensions:<version>'
-    }
-}
+apply plugin: 'kotlin-android-extensions'
 ```
-
-A plugin for Gradle is available on Maven Central.
 
 #### Importing synthetic properties
 
