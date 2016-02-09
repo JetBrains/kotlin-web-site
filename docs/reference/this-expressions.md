@@ -32,7 +32,7 @@ class A { // implicit label @A
       val c = this // foo()'s receiver, an Int
       val c1 = this@foo // foo()'s receiver, an Int
 
-      val funLit = lambda@ fun String.(): Unit {
+      val funLit = lambda@ fun String.() {
         val d = this // funLit's receiver
       }
 
