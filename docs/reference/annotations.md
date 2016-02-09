@@ -148,6 +148,7 @@ The full list of supported use-site targets is:
   * `receiver` (receiver parameter of an extension function or property)
   * `param` (constructor parameter)
   * `setparam` (property setter parameter)
+  * `delegate` (the field storing the delegate instance for a delegated property)
 
 To annotate the receiver parameter of an extension function, use the following syntax:
 

@@ -149,14 +149,13 @@ Obj.INSTANCE.bar(); // works, a call through the singleton instance
 Obj.INSTANCE.foo(); // works too
 ```
 
-Also, public properties defined in objects and companion objects, as well as top-level properties annotated with `const`,
-are turned into static fields in Java:
+Also properties annotated with `const` (in classes as well as at the top level) are turned into static fields in Java:
 
 ``` kotlin
 // file example.kt
 
 object Obj {
-  val CONST = 1
+  const val CONST = 1
 }
 
 const val MAX = 239
