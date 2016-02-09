@@ -34,7 +34,6 @@ class A { // implicit label @A
 
       val funLit = lambda@ fun String.(): Unit {
         val d = this // funLit's receiver
-        val d1 = this@lambda // funLit's receiver
       }
 
 
