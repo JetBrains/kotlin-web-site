@@ -1267,6 +1267,7 @@
   speaker: Hadi Hariri
   date: [2016-02-15, 2016-02-17]
   location: Atlanta, US
+  lang: en
   
 - title: "Voxxed Days Vienna"
   url: https://voxxeddays.com/vienna16/
@@ -1274,6 +1275,7 @@
   speaker: Hadi Hariri
   date: 2016-03-01
   location: Vienna, Austria
+  lang: en
   
 
 - title: DroidCon Tunisia 2016
@@ -1292,6 +1294,7 @@
   speaker: Benedict Pregler
   date: [2016-03-14, 2016-03-16]
   location: München, Germany
+  lang: en
 
 - title: "CraftCon"
   url: http://craft-conf.com
@@ -1299,6 +1302,7 @@
   speaker: Hadi Hariri
   date: 2016-04-28
   location: Budapest, Hungary
+  lang: en
   
 - title: "STRV’s Developers Meetup"
   url: hhttps://www.facebook.com/events/1059379367448273/
@@ -1306,6 +1310,7 @@
   speaker: Artem Ufimtcev
   date: 2016-01-28
   location: Prague, Czech Republic
+  lang: en
   
 - title: "STRV’s Developers Meetup"
   url: https://www.facebook.com/events/1656331054627672/
@@ -1313,6 +1318,7 @@
   speaker: Artem Ufimtcev
   date: 2016-02-06
   location: Brno, Czech Republic
+  lang: en
   
 - title: RigaDev Day 2016
   url: http://rigadevday.lv/
@@ -1336,4 +1342,12 @@
   speaker: Svetlana Isakova
   date: 2016-04-30
   location: Lugano, Switzerland
+  lang: en
+
+- title: Sydney Mobile Developers MeetUp
+  url: http://www.meetup.com/SydneyMobileDotNetDevelopers/events/228275331/
+  subject: "Kotlin with Xamarin"
+  speaker: Mitchell Tilbrook
+  date: 2016-02-09
+  location: Sydney, Australia
   lang: en
