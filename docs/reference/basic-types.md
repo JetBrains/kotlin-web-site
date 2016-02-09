@@ -144,8 +144,12 @@ fun check(c: Char) {
 }
 ```
 
-Character literals go in single quotes: `'1'`, `'\n'`, `'\uFF00'`.
-We can explicitly convert a character to an `Int` number
+Character literals go in single quotes: `'1'`.
+Special characters can be escaped using a backslash.
+The following escape sequences are supported: `\t`, `\b`, `\n`, `\r`, `\'`, `\"`, `\\` and `\$`.
+To encode any other character, use the Unicode escape sequence syntax: `'\uFF00'`.
+
+We can explicitly convert a character to an `Int` number:
 
 ``` kotlin
 fun decimalDigitValue(c: Char): Int {
@@ -230,7 +234,7 @@ Kotlin has two types of string literals: escaped strings that may have escaped c
 val s = "Hello, world!\n"
 ```
 
-Escaping is done in the conventional way, with a backslash.
+Escaping is done in the conventional way, with a backslash. See [Characters](#characters) above for the list of supported escape sequences.
 
 A raw string is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
 
@@ -260,8 +264,10 @@ val str = "$s.length is ${s.length}" // evaluates to "abc.length is 3"
 ```
 
 Templates are supported both inside raw strings and inside escaped strings.
-If you need to represent a literal `$` character, you can use the following syntax:
+If you need to represent a literal `$` character in a raw string (which doesn't support backslash escaping), you can use the following syntax:
 
 ``` kotlin
-val price = "${'$'}9.99"
+val price = """
+${'$'}9.99
+"""
 ```
