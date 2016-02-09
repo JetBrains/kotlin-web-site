@@ -1351,3 +1351,11 @@
   date: 2016-02-09
   location: Sydney, Australia
   lang: en
+
+- title: "GDG Krakow. Android Tech Talks #12"
+  url: http://www.meetup.com/GDG-Krakow/events/228450540/
+  subject: "Kotlin Android Extensions oraz Anko"
+  speaker: Rafał Ciurkot
+  date: 2016-02-09
+  location: Kraków, Poland
+  lang: pl
