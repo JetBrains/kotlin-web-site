@@ -44,4 +44,5 @@ class A { // implicit label @A
       }
     }
   }
-}```
+}
+```
