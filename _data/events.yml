@@ -1359,3 +1359,11 @@
   date: 2016-02-09
   location: Kraków, Poland
   lang: pl
+
+- title: Jfokus 2016
+  url: "http://www.jfokus.se/jfokus/talks.jsp#KotlininAction"
+  subject: "Kotlin in Action"
+  speaker: Justin Lee
+  date: [2016-02-08, 2015-02-10]
+  location: Stockholm, Sweden
+  lang: en
