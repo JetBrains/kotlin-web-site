@@ -182,7 +182,7 @@ This class cannot be either co\- or contravariant in `T`. And this imposes certa
 
 ``` kotlin
 fun copy(from: Array<Any>, to: Array<Any>) {
-  assert(from.size == to.size)
+  assert(from.size() == to.size())
   for (i in from.indices)
     to[i] = from[i]
 }
