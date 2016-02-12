@@ -88,7 +88,7 @@ demo.Utils.foo();
 demo.Utils.bar();
 ```
 
-## Fields
+## Instance Fields
 
 If you need to expose a Kotlin property as a field in Java, you need to annotate it with the `@JvmField` annotation.
 The field will have the same visibility as the underlying property. You can annotate a property with `@JvmField`
@@ -109,7 +109,78 @@ class JavaClient {
 }
 ```
 
-## Static Methods and Fields
+[Late-Initialized](properties.html#late-initialized-properties) properties are also exposed as fields. 
+The visibility of the field will be the same as the visibility of `lateinit` property setter.
+
+## Static Fields
+
+Kotlin properties declared in a named object or a companion object have their backing fields being static
+either in that named object or in a class containing the companion object.
+
+Usually these fields are private but they can be exposed in one of the following ways:
+ - `@JvmField` annotation;
+ - `lateinit` modifier;
+ - `const` modifier.
+ 
+Annotating such property with `@JvmField` makes it a static field with the same visibility as the property itself have.
+
+``` kotlin
+class Key(val value: Int) {
+    companion object {
+        @JvmField
+        val COMPARATOR: Comparator<Key> = compareBy<Key> { it.value }
+    }
+}
+```
+
+``` java
+// Java
+Key.COMPARATOR.compare(key1, key2);
+// public static final field in Key class
+```
+
+[Late-Initialized](properties.html#late-initialized-properties) property in an object or a companion object 
+has a static backing field as visible as the property setter.
+
+``` kotlin
+object Singleton {
+    lateinit var provider: Provider
+}
+```
+
+``` java
+// Java
+Singleton.provider = new Provider();
+// public static non-final field in Singleton class
+```
+
+Properties annotated with `const` (in classes as well as at the top level) are turned into static fields in Java:
+
+``` kotlin
+// file example.kt
+
+object Obj {
+  const val CONST = 1
+}
+
+class C {
+    companion object {
+        const val VERSION = 9
+    }
+}
+
+const val MAX = 239
+```
+
+In Java:
+
+``` java
+int c = Obj.CONST;
+int d = ExampleKt.MAX;
+int v = C.VERSION;
+```
+
+## Static Methods
 
 As mentioned above, Kotlin generates static methods for package-level functions.
 Kotlin can also generate static methods for functions defined in named objects or companion objects if you annotate those functions as `@JvmStatic`.
@@ -149,24 +220,9 @@ Obj.INSTANCE.bar(); // works, a call through the singleton instance
 Obj.INSTANCE.foo(); // works too
 ```
 
-Also properties annotated with `const` (in classes as well as at the top level) are turned into static fields in Java:
+`@JvmStatic` annotation can also be applied on a property of an object or a companion object
+making its getter and setter methods be static members in that object or the class containing the companion object.
 
-``` kotlin
-// file example.kt
-
-object Obj {
-  const val CONST = 1
-}
-
-const val MAX = 239
-```
-
-In Java:
-
-``` java
-int c = Obj.CONST;
-int d = ExampleKt.MAX;
-```
 
 ## Handling signature clashes with @JvmName
 
