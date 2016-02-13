@@ -1367,3 +1367,21 @@
   date: [2016-02-08, 2016-02-10]
   location: Stockholm, Sweden
   lang: en
+  
+- title: Mobile Meetup Kirov
+  url: https://vk.com/mobilemeetup
+  subject: "Kotlin. New Programming Language by JetBrains"
+  speaker: Andrej Lapshin
+  date: 2015-12-25
+  location: Kirov, Russia
+  lang: ru
+  content:
+    video: https://youtu.be/hxUylSMzi5g
+
+- title: Ulmap Winter 2016
+  url: "http://winter.ulcamp.ru/program/#kotlin"
+  subject: "Kotlin Language"
+  speaker: Vasily Vasilkov
+  date: 2015-02-13
+  location: Uljanovsk, Russia
+  lang: ru
