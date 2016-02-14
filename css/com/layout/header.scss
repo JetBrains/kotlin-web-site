@@ -91,7 +91,6 @@
 .global-header-logo {
     @include transition(0.3s all);
     position: relative;
-    opacity: 0.8;
     top: 12px;
     float: left;
     width: 103px;
@@ -103,9 +102,5 @@
     @include adapt_retina {
         background-image: url('images/logos-sprite@2x.png');
         background-size: 200px 100px;
-    }
-
-    &:hover {
-        opacity: 1;
     }
 }
