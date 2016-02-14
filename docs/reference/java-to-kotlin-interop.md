@@ -114,15 +114,15 @@ The visibility of the field will be the same as the visibility of `lateinit` pro
 
 ## Static Fields
 
-Kotlin properties declared in a named object or a companion object have their backing fields being static
-either in that named object or in a class containing the companion object.
+Kotlin properties declared in a named object or a companion object will have static backing fields
+either in that named object or in the class containing the companion object.
 
 Usually these fields are private but they can be exposed in one of the following ways:
  - `@JvmField` annotation;
  - `lateinit` modifier;
  - `const` modifier.
  
-Annotating such property with `@JvmField` makes it a static field with the same visibility as the property itself have.
+Annotating such a property with `@JvmField` makes it a static field with the same visibility as the property itself.
 
 ``` kotlin
 class Key(val value: Int) {
@@ -139,8 +139,8 @@ Key.COMPARATOR.compare(key1, key2);
 // public static final field in Key class
 ```
 
-[Late-Initialized](properties.html#late-initialized-properties) property in an object or a companion object 
-has a static backing field as visible as the property setter.
+A [late-initialized](properties.html#late-initialized-properties) property in an object or a companion object
+has a static backing field with the same visibility as the property setter.
 
 ``` kotlin
 object Singleton {
