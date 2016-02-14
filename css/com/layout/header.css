@@ -178,7 +178,7 @@
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .global-header-logo {
       background-image: url("images/logos-sprite@2x.png");
-      background-size: 150px 100px; } }
+      background-size: 200px 100px; } }
   .global-header-logo:hover {
     opacity: 1; }
 
