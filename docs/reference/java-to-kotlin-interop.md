@@ -118,6 +118,7 @@ Kotlin properties declared in a named object or a companion object will have sta
 either in that named object or in the class containing the companion object.
 
 Usually these fields are private but they can be exposed in one of the following ways:
+
  - `@JvmField` annotation;
  - `lateinit` modifier;
  - `const` modifier.
