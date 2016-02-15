@@ -117,3 +117,7 @@
 - company: FarmLogs
   url: https://farmlogs.com/
   description: Using data science to improve agriculture. Most new Android code written in Kotlin.
+
+- company: StyleShare
+  url: https://www.stylesha.re/
+  description: Millions of fashion people is using StyleShare for Android. Most new code written in Kotlin.
