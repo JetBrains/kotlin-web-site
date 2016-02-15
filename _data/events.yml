@@ -1327,6 +1327,14 @@
   date: [2016-03-02, 2016-03-04]
   location: Riga, Latvia
   lang: en   
+  
+- title: DroidCon Italy 2016
+  url: http://it.droidcon.com/2016/sessions/you-can-do-better-with-kotlin/
+  subject: "You can do better with Kotlin"
+  speaker: Svetlana Isakova
+  date: [2016-04-07, 2016-04-08]
+  location: Turin, Italy
+  lang: en   
 
 - title: DroidCon Zagreb 2016
   url: http://droidcon.hr/en/sessions/you-can-do-better-with-kotlin/
