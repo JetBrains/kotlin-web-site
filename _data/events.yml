@@ -1329,7 +1329,7 @@
   lang: en   
   
 - title: DroidCon Italy 2016
-  url: http://it.droidcon.com/2016/sessions/you-can-do-better-with-kotlin/
+  url: http://it.droidcon.com/2016/
   subject: "You can do better with Kotlin"
   speaker: Svetlana Isakova
   date: [2016-04-07, 2016-04-08]
@@ -1337,7 +1337,7 @@
   lang: en   
 
 - title: DroidCon Zagreb 2016
-  url: http://droidcon.hr/en/sessions/you-can-do-better-with-kotlin/
+  url: http://droidcon.hr/en/
   subject: "You can do better with Kotlin"
   speaker: Svetlana Isakova
   date: [2016-04-27, 2016-04-29]
@@ -1345,7 +1345,7 @@
   lang: en   
 
 - title: Voxxed Days Ticino 2016
-  url: https://cfp-vdt.exteso.com/2016/speaker/svetlana_isakova
+  url: https://voxxeddays.com/ticino/
   subject: "You can do better with Kotlin"
   speaker: Svetlana Isakova
   date: 2016-04-30
