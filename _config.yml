@@ -18,6 +18,7 @@ exclude:
   - README.md
   - notes.txt
   - LICENSE
+  - node_modules
 
 include:
   - js
