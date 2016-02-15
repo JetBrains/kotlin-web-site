@@ -35,6 +35,26 @@
         text-align: left;
     }
 
+    .release-banner {
+        display: inline-block;
+        color: white;
+        background: rgba(103, 133, 163, 0.4);
+        opacity: 0.9;
+        height: 54px;
+        line-height: 52px;
+        padding: 0 50px;
+        margin-left: 250px;
+        font-family: $font-family-serif;
+        font-size: 28px;
+        border-radius: 3px;
+    }
+
+    .release-banner__link {
+        color: white;
+        margin-left: 15px;
+        font-size: 18px;
+    }
+
     .kotlin-info-description {
         margin-bottom: $unit*3;
         color: #fff;
