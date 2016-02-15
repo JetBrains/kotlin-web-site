@@ -101,3 +101,15 @@
 - company: Catapush
   url: http://www.catapush.com
   description: Kotlin is gaining more and more lines of code in our Android SDK and internal libraries, shared between Android and Java8 backend.
+
+- company: Uprizer Labs
+  url: http://uprizer.com/
+  description: We have found that Kotlin dramatically speeds up development time on Uprizer's diverse projects
+
+- company: ZDV
+  url: https://play.google.com/store/apps/details?id=com.zdvdev.sef
+  description: SeFix, a lagfix for Root users (100% migrated to Kotlin).
+
+- company: BQ
+  url: http://www.bq.com
+  description: Android apps related to robotics, 3D printing, IoT and much more.
