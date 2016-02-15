@@ -97,3 +97,7 @@
 - company: Roger
   url: https://rogertalk.com
   description: Kotlin allows us to focus on building a robust and beautiful Android voice communication app
+  
+- company: Uprizer Labs
+  url: http://uprizer.com/
+  description: We have found that Kotlin dramatically speeds up development time on Uprizer's diverse projects
