@@ -97,3 +97,7 @@
 - company: Roger
   url: https://rogertalk.com
   description: Kotlin allows us to focus on building a robust and beautiful Android voice communication app
+
+- company: Catapush
+  url: http://www.catapush.com
+  description: Kotlin is gaining more and more lines of code in our Android SDK and internal libraries, shared between Android and Java8 backend.
