@@ -28,7 +28,7 @@ A class or object can implement one or more interfaces
 
 ``` kotlin
 class Child : MyInterface {
-   fun bar() {
+   override fun bar() {
       // body
    }
 }
