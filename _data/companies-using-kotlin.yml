@@ -149,3 +149,7 @@
 - company: NBC News Digital, LLC
   url: https://play.google.com/store/apps/developer?id=NBC+News+Digital+LLC
   description: NBC News, TODAY and Nightly News Android apps using Kotlin.
+
+- company: Moshbit GmbH
+  url: http://moshbit.com
+  description: Increasing productivity by using Kotlin for all our Android apps.
