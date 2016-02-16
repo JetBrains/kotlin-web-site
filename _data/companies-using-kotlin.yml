@@ -145,3 +145,7 @@
 - company: TinyOwl Technology Pvt. Ltd.
   url: http://tinyowl.com/
   description: Using Kotlin to write cleaner ViewModels with Rx in our Android app
+
+- company: NBC News Digital, LLC
+  url: https://play.google.com/store/apps/developer?id=NBC+News+Digital+LLC
+  description: NBC News, TODAY and Nightly News Android apps using Kotlin.
