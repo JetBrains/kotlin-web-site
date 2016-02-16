@@ -3,6 +3,10 @@ layout: resources
 title: More Resources
 ---
 
+## Community-Maintained Links
+
+You can find a community-maintained list of links to Kotlin projects, libraries and other resources at [Awesome Kotlin](https://javaby.github.io/awesome-kotlin/).
+
 ## Open Source Projects and Libraries
 
 <table>
