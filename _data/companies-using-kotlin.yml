@@ -125,3 +125,7 @@
 - company: EL Passion
   url: http://www.elpassion.com/
   description: Software House from Warsaw. All new Android apps written in Kotlin.
+
+- company: Nulab Inc.
+  url: http://nulab-inc.com/
+  description: Collaborative tools maker. Use Kotlin in Android App for task management.
