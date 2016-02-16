@@ -137,3 +137,7 @@
 - company: Nulab Inc.
   url: http://nulab-inc.com/
   description: Collaborative tools maker. Use Kotlin in Android App for task management.
+  
+- company: Allegro Group.
+  url: http://allegro.tech
+  description: Backend microservices based on Spring Boot.
