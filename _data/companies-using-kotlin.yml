@@ -141,3 +141,7 @@
 - company: Allegro Group.
   url: http://allegro.tech
   description: Backend microservices based on Spring Boot.
+
+- company: TinyOwl Technology Pvt. Ltd.
+  url: http://tinyowl.com/
+  description: Using Kotlin to write cleaner ViewModels with Rx in our Android app
