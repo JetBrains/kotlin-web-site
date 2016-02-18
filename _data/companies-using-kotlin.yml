@@ -2,6 +2,10 @@
   url: http://www.jetbrains.com/
   description: IntelliJ IDEA plugins, YouTrack vNext, CRM apps, new products etc.
 
+- company: Vinted
+  url: https://www.vinted.com
+  description: A marketplace to sell, buy and swap second-hand clothes. Using Kotlin for the Android app.
+
 - company: Industrial Geodetic Systems
   url: http://hive.geosystems.aero/?locale=en
   description: Using Kotlin for the Front-End Web
