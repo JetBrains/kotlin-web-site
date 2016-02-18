@@ -165,3 +165,7 @@
 - company: Luxoft
   url: https://luxoft.com
   description: Global IT service provider. We use Kotlin in several customer and internal automation projects.
+
+- company: Vinted
+  url: https://www.vinted.com
+  description: A marketplace to sell, buy and swap second-hand clothes. Using Kotlin for the Android app.
