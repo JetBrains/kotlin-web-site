@@ -1393,3 +1393,12 @@
   date: 2015-02-13
   location: Uljanovsk, Russia
   lang: ru
+
+- title: Rails School Class
+  url: "https://www.railsschool.org/l/kotlin-tour"
+  subject: "Kotlin Tour"
+  speaker: ADRIEN CADET
+  date: 2015-02-23
+  location: San Francisco, USA
+  lang: en
+
