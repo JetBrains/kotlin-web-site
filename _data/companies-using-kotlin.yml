@@ -161,3 +161,7 @@
 - company: Taskworld
   url: http://taskworld.com
   description: Empowers your enterprise to finish projects on time. All Android apps are written in Kotlin.
+
+- company: Luxoft
+  url: https://luxoft.com
+  description: Global IT service provider. We use Kotlin in several customer and internal automation projects.
