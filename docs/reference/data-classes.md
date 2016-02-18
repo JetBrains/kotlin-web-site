@@ -19,7 +19,7 @@ the primary constructor:
   
   * `equals()`/`hashCode()` pair, 
   * `toString()` of the form `"User(name=John, age=42)"`,
-  * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order or declaration,
+  * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order of declaration,
   * `copy()` function (see below).
   
 If any of these functions is explicitly defined in the class body or inherited from the base types, it will not be generated.
