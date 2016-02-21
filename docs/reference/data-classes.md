@@ -7,15 +7,14 @@ title: "Data Classes"
 
 # Data Classes
 
-We frequently create classes that do nothing but hold data. In such classes some functionality is often mechanically
-derivable from the data they hold. In Kotlin a class can be marked as `data`:
+We frequently create a class to do nothing but hold data. In such a class some standard functionality is often mechanically
+derivable from the data. In Kotlin, this is called a _data class_ and is marked as `data`:
  
 ``` kotlin
 data class User(val name: String, val age: Int)
 ```
 
-This is called a _data class_. The compiler automatically derives the following members from all properties declared in
-the primary constructor:
+The compiler automatically derives the following members from all properties declared in the primary constructor:
   
   * `equals()`/`hashCode()` pair, 
   * `toString()` of the form `"User(name=John, age=42)"`,
