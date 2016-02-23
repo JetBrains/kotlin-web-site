@@ -402,3 +402,13 @@ abstract method.
 
 Also note that this feature works only for Java interop; since Kotlin has proper function types, automatic conversion
 of functions into implementations of Kotlin interfaces is unnecessary and therefore unsupported.
+
+## Using JNI with Kotlin
+
+To declare a function that is implemented in native (C or C++) code, you need to mark it with the `external` modifier:
+
+``` kotlin
+external fun foo(x: Int): Double
+```
+
+The rest of the procedure works in exactly the same way as in Java.
