@@ -196,7 +196,7 @@ class C {
 ```
 
 In case of a name conflict between the members of the dispatch receiver and the extension receiver, the extension receiver takes
-precedence. To refer to the member of the dispatch receiver you can use the [qualified `this` syntax](this-expressions.html#qualified].
+precedence. To refer to the member of the dispatch receiver you can use the [qualified `this` syntax](this-expressions.html#qualified).
 
 ``` kotlin
 class C {
