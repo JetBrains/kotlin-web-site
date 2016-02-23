@@ -150,6 +150,8 @@ As mentioned before, *for*{: .keyword } iterates through anything that provides 
 
 All of these three functions need to be marked as `operator`.
 
+A `for` loop over an array is compiled to an index-based loop that does not create an iterator object.
+
 If you want to iterate through an array or a list with an index, you can do it this way:
 
 ``` kotlin
