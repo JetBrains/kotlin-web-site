@@ -169,6 +169,82 @@ fun usage(baz: Baz) {
 ```
 
 See [Imports](packages.html#imports) for more information.
+
+## Declaring Extensions as Members
+
+Inside a class, you can declare extensions for another class. Inside such an extension, there are multiple _implicit receivers_ -
+objects members of which can be accessed without a qualifier. The instance of the class in which the extension is declared is called
+_dispatch receiver_, and the instance of the receiver type of the extension method is called _extension receiver_.
+
+``` kotlin
+class D {
+    fun bar() { ... }
+}
+
+class C {
+    fun baz() { ... }
+
+    fun D.foo() {
+        bar()   // calls D.bar
+        baz()   // calls C.baz
+    }
+
+    fun caller(d: D) {
+        d.foo()   // call the extension function
+    }
+}
+```
+
+In case of a name conflict between the members of the dispatch receiver and the extension receiver, the extension receiver takes
+precedence. To refer to the member of the dispatch receiver you can use the [qualified `this` syntax](this-expressions.html#qualified].
+
+``` kotlin
+class C {
+    fun D.foo() {
+        toString()         // calls D.toString()
+        this@C.toString()  // calls C.toString()
+    }
+```
+
+Extensions declared as members can be declared as `open` and overridden in subclasses. This means that the dispatch of such
+functions is virtual with regard to the dispatch receiver type, but static with regard to the extension receiver type.
+
+``` kotlin
+open class D {
+}
+
+class D1 : D() {
+}
+
+open class C {
+    open fun D.foo() {
+        println("D.foo in C")
+    }
+
+    open fun D1.foo() {
+        println("D1.foo in C")
+    }
+
+    fun caller(d: D) {
+        d.foo()   // call the extension function
+    }
+}
+
+class C1 : C() {
+    override fun D.foo() {
+        println("D.foo in C1")
+    }
+
+    override fun D1.foo() {
+        println("D1.foo in C1")
+    }
+}
+
+C().caller(D())   // prints "D.foo in C"
+C1().caller(D())  // prints "D.foo in C1" - dispatch receiver is resolved virtually
+C().caller(D1())  // prints "D.foo in C" - extension receiver is resolved statically
+```
+
  
 ## Motivation
 
