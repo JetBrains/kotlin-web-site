@@ -42,3 +42,4 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
 * [Smart casts](typecasts.html)
 * [Kotlin's Inline functions facilitate Nonlocal jumps](inline-functions.html#inline-functions)
 * [First-class delegation](delegation.html). Also implemented via 3rd party plugin: Autoproxy
+* [Class member references](reflection.html). Also supported in Java 8, but not in Scala
