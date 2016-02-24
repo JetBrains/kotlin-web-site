@@ -43,6 +43,9 @@ It is hosted on GitHub and we happily accept contributors
 
 Yes. The compiler emits Java byte-code. Kotlin can call Java, and Java can call Kotlin. See [Java interoperability](java-interop.html).
 
+### Which minimum Java version is required for running Kotlin code?
+
+Kotlin generates bytecode which is compatible with Java 6 or newer. This ensures that Kotlin can be used in environments such as Android, where Java 6 is the latest supported version.
 
 ### Is there tooling support?
 
