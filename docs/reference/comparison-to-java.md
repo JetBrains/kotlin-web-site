@@ -42,3 +42,5 @@ Kotlin fixes a series of issues that Java suffers from
 * [Range expressions](ranges.html)
 * [Operator overloading](operator-overloading.html)
 * [Companion objects](classes.html#companion-objects)
+* [Data classes](data-classes.html)
+* [Separate interfaces for read-only and mutable collections](collections.html)
