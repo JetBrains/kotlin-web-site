@@ -20,7 +20,10 @@ task :build do
       Rake::Task['generate_version_file'].invoke
   end
 
-  system command
+  unless system command
+    $stderr.puts 'Error running jekyll, see build log for details'
+    exit 1
+  end
 
   case env
     when 'prod'
