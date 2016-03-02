@@ -18,7 +18,7 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
 * Overridable type members
 * Macros
 * Existential types
-    * [Type projections](generics.html#type-projections) are a very similar feature
+    * [Type projections](generics.html#type-projections) are a very special case
 * Complicated logic for initialization of traits
     * See [Classes and Inheritance](classes.html)
 * Custom symbolic operations
