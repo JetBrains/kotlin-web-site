@@ -16,6 +16,7 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
     * In Scala, sometimes it's very hard to tell what's happening in your code, because too many implicits get into the picture
     * To enrich your types with functions in Kotlin use [Extension functions](extensions.html).
 * Overridable type members
+* Path-dependent types
 * Macros
 * Existential types
     * [Type projections](generics.html#type-projections) are a very special case
