@@ -45,7 +45,7 @@ Working with site
 
 ## Rake tasks
 
-Site uses [rake](https://github.com/jimweirich/rake) for build management.
+Site uses [rake](https://github.com/ruby/rake) for build management.
 To list available commands, run `rake` from project folder with no arguments.
 
 - `rake build` generates site in the `_site` folder. Use `dest` parameter to specify another location: `rake build dest=/path`.

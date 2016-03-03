@@ -17,6 +17,7 @@ would be the equivalent of a `NullPointerException` or NPE for short.
 Kotlin's type system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE's may be
 
 * An explicit call to `throw NullPointerException()`
+* Usage of the `!!` operator that is described below
 * External Java code has caused it
 * There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere)
 

@@ -169,3 +169,8 @@
 - company: Vinted
   url: https://www.vinted.com
   description: A marketplace to sell, buy and swap second-hand clothes. Using Kotlin for the Android app.
+
+- company: 99
+  url: http://www.99taxis.com
+  description: The largest app to request taxis in Brazil! Rewriting our Android apps in Kotlin.
+  
