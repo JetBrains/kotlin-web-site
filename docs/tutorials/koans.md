@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Kotlin Koans"
 authors: Svetlana Isakova
 showAuthorInfo: true
-description: "This tutorials walks you through a series of exercises to get familiar with Kotlin."
+description: "This tutorial walks you through a series of exercises to get familiar with Kotlin."
 ---
 Kotlin Koans are a series of exercises to get you familiar with the Kotlin Syntax.
 Each exercise is created as a failing unit test and your job is to make it pass.
