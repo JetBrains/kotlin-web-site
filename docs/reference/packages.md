@@ -27,7 +27,7 @@ If the package is not specified, the contents of such a file belong to "default"
 ## Imports
 
 Apart from the default imports, each file may contain its own import directives.
-Syntax for imports is described in the [grammar](grammar.html#imports).
+Syntax for imports is described in the [grammar](grammar.html#import).
 
 We can import either a single name, e.g.
 
