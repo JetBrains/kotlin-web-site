@@ -226,7 +226,7 @@ javaObj.removeIndices(array)  // passes int[] to method
 When compiling to JVM byte codes, the compiler optimizes access to arrays so that there's no overhead introduced:
 
 ``` kotlin
-val array = array(1, 2, 3, 4)
+val array = arrayOf(1, 2, 3, 4)
 array[x] = array[x] * 2 // no actual calls to get() and set() generated
 for (x in array) // no iterator created
   print(x)
