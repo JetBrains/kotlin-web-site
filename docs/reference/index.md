@@ -12,6 +12,16 @@ Provides a complete reference to Kotlin
 * *Interop*: What you need to know about interoperability with Java and JavaScript.
 * *FAQ*: Every question you could possibly think of, might be answered.
 
+### Kotlin tour
+This refference is designed for you to easily learn Kotlin in a matter of hours.
+Start with [basic syntax](basic-syntax.html), then proceed to more advanced topics. 
+Combine the reading with some first-hand experience in the [online IDE](http://try.kotlinlang.org/). 
+
+After you grasp a fealing of what Kotlin is, try yourself in solving [some Kotlin Koans](/docs/tutorials/koans.html). 
+If you are not sure how to solve a Koan, or you seek a more elegant solution, check out [Kotlin idioms](idioms.html).
+
+Have a question, or just want to say "Hi"? Join our [Kotlin community](/community.html)!
+
 ### Browse offline
 You can download the entire reference documentation as a single [PDF file]({{ site.pdf_url }}).
 
