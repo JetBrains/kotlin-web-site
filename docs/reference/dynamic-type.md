@@ -28,7 +28,7 @@ on a `dynamic` variable:
 
 ``` kotlin
 dyn.whatever(1, "foo", dyn) // 'whatever' is not defined anywhere
-dyn.whatever(*array(1, 2, 3))
+dyn.whatever(*arrayOf(1, 2, 3))
 ```
 
 On the JavaScript platform this code will be compiled "as is": `dyn.whatever(1)` in Kotlin becomes `dyn.whatever(1)` in
