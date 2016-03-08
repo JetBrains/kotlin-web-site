@@ -67,8 +67,8 @@ We will create a simple Kotlin/JavaScript library.
 import org.sample.factorial
   
 fun binom(m: Int, n: Int): Long =
-        if (m < n) factorial(n) / factorial(m) / factorial(n-m) else 1
-        
+    if (m < n) factorial(n) / factorial(m) / factorial(n-m) else 1
+    
 fun odd_factorial(n: Int): Long {
     var result: Long = 1L
     (1..n).forOdd { result = result * it }
