@@ -23,7 +23,6 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
 * Custom symbolic operators
     * See [Operator overloading](operator-overloading.html)
 * Built-in XML
-    * See [Type-safe Groovy-style builders](type-safe-builders.html)
 * Structural types
 * Value types
 * Parallel collections
