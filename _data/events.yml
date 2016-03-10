@@ -1436,14 +1436,6 @@
   
 - title: "Tallin DevClub"
   url: "http://www.devclub.eu/"
-  subject: "Про Котлин"
-  speaker: Илья Рыженков
-  date: 2016-03-29
-  location: Tallin, Estonia
-  lang: ru
-  
-- title: "Tallin DevClub"
-  url: "http://www.devclub.eu/"
   subject: "About Kotlin"
   speaker: Ilya Ryzhenkov
   date: 2016-03-29
