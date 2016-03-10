@@ -1,9 +1,14 @@
-define(['com/events-table'], function (EventsTable) {
-
-    return function (elem, data) {
+define([
+    'jquery',
+    'com/events-table',
+    'com/google-map'
+], function ($, EventsTable, EventMap) {
+    return function (elem) {
         $(document).ready(function () {
-            new EventsTable(elem, data);
+            $.getJSON("/docs/events.json", function (data) {
+                new EventsTable(elem, data);
+                new EventMap(data)
+            });
         });
     };
-
 });

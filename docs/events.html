@@ -8,10 +8,12 @@ docs_nav_id: events
 
 <br>
 
+<div id="map" class="map"></div>
+
 <div id="events"></div>
 
 <script>
 require(['page/events'], function(page) {
-    page(document.getElementById('events'), {{ site.data.events | json }});
+    page(document.getElementById('events'));
 });
 </script>
