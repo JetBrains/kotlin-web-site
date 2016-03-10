@@ -1067,12 +1067,14 @@
     slides: http://slides.com/antonrutkevich/kotlin-intro-voxxed#/
 
 - title: JavaLand 2016
-  url: http://dukecon.org/javaland/talk.html#talk?talkId=509354
-  subject: "Kotlin in Action"
-  speaker: Justin Lee
+  url: "https://dukecon.org/javaland/talk.html#talk?talkId=509710"
+  subject: "Kotlin für Android-Entwickler"
+  speaker: Benedict Pregler
   date: [2016-03-08, 2016-03-10]
   location: Brühl, Germany
-  lang: en
+  lang: de
+  content:
+    slides: https://speakerdeck.com/benedict_p/kotlin-fur-android-entwickler
 
 - title: Mobilization 2015
   url: http://2015.mobilization.pl/
@@ -1294,7 +1296,9 @@
   speaker: Benedict Pregler
   date: [2016-03-14, 2016-03-16]
   location: München, Germany
-  lang: en
+  lang: de
+  content:
+    slides: https://speakerdeck.com/benedict_p/kotlin-fur-android-entwickler
 
 - title: "CraftCon"
   url: http://craft-conf.com
@@ -1390,7 +1394,7 @@
   url: "http://winter.ulcamp.ru/program/#kotlin"
   subject: "Kotlin Language"
   speaker: Vasily Vasilkov
-  date: 2015-02-13
+  date: 2016-02-13
   location: Uljanovsk, Russia
   lang: ru
 
@@ -1398,7 +1402,68 @@
   url: "https://www.railsschool.org/l/kotlin-tour"
   subject: "Kotlin Tour"
   speaker: ADRIEN CADET
-  date: 2015-02-23
+  date: 2016-02-23
   location: San Francisco, USA
   lang: en
 
+- title: "Seoul Kotlin Meetup #1"
+  url: "http://www.meetup.com/kotlinkr/events/229274004/"
+  date: 2016-03-09
+  location: Seoul, Korea 
+  lang: ko
+  
+- title: "第2回Kotlin勉強会"
+  url: "http://connpass.com/event/27583/"
+  date: 2016-03-24
+  location: Seoul, Korea 
+  lang: jp
+
+- title: "Bash Kotlin"
+  url: "http://www.meetup.com/devbash/events/229123685/"
+  subject: "Methods are no fun - An introduction to Kotlin"
+  speaker: Gareth Fleming
+  date: 2016-04-05
+  location: Belfast, United Kingdom
+  lang: en
+  
+- title: "VI Codemotion Meetup"
+  url: "http://www.meetup.com/es-ES/Codemotion-Meetups/events/229413565/"
+  subject: "Kotlin for Android Developers impartida"
+  speaker: Antonio Leiva Gordillo
+  date: 2016-03-17
+  location: Madrid, España
+  lang: es
+  
+- title: "Tallin DevClub"
+  url: "http://www.devclub.eu/"
+  subject: "Про Котлин"
+  speaker: Илья Рыженков
+  date: 2016-03-29
+  location: Tallin, Estonia
+  lang: ru
+  
+- title: "Tallin DevClub"
+  url: "http://www.devclub.eu/"
+  subject: "About Kotlin"
+  speaker: Ilya Ryzhenkov
+  date: 2016-03-29
+  location: Tallin, Estonia
+  lang: ru
+  
+- title: "Saint-Petersburg JUG"
+  url: "https://jugru.timepad.ru/event/296642/"
+  subject: "Kotlin 1.0"
+  speaker: Andrey Breslav, Dmitry Jemerov
+  date: 2016-02-26
+  location: Saint-Petersburg, Russia
+  lang: ru
+  
+- title: "Avito TechTalks"
+  url: "https://avitotech.timepad.ru/event/292911/"
+  subject: "Android Development with Kotlin"
+  speaker: Dmitry Jemerov, Dmitry Voronon, Vladimir Mironov
+  date: 2016-02-26
+  location: Saint-Petersburg, Russia
+  lang: ru
+  content:
+    video: https://youtu.be/8u4fZ1z4X-w
