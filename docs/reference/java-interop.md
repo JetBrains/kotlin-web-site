@@ -113,6 +113,8 @@ Java types which have nullability annotations are represented not as platform ty
 Kotlin types. Currently, the compiler supports the [JetBrains flavor of the nullability annotations](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package).
 
+[//]: # (TODO ATM there're plenty of annotations supported. This section should be updated accordingly.)
+
 ## Mapped types
 
 Kotlin treats some Java types specially. Such types are not loaded from Java "as is", but are _mapped_ to corresponding Kotlin types.
