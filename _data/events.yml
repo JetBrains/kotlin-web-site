@@ -1477,3 +1477,11 @@
   date: 2016-04-07
   location: Marseille, France
   lang: fr
+
+- title: GDG Hamburd Android
+  url: http://www.meetup.com/GDG-Hamburg-Android/events/229433532/
+  subject: "Succumb to the Kotlin side"
+  speaker: Alberto Ballano
+  date: 2016-03-16
+  location: Hamburg, Germany
+  lang: en
