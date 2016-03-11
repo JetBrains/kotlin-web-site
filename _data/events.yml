@@ -1228,6 +1228,8 @@
   date: 2016-03-03
   location: Zürich, CH
   lang: en
+  content:
+    video: https://youtu.be/mSg9kSYfeX0
 
 - title: "Kotlin Developers in Manchester Meetup"
   url: http://www.meetup.com/Kotlin-Manchester/events/rkrdmlyvdblb/
