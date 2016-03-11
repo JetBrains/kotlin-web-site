@@ -256,3 +256,11 @@ stream.buffered().reader().use { reader ->
     println(reader.readText())
 }
 ```
+
+### Benchmarking
+
+``` kotlin
+val benchmark = measureNanoTime {
+    // some slow code
+}
+```
