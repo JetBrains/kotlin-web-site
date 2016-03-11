@@ -1459,3 +1459,11 @@
   lang: ru
   content:
     video: https://youtu.be/8u4fZ1z4X-w
+
+- title: "JUG Moscow"
+  url: "https://jugmsk.timepad.ru/event/303219/"
+  subject: "Kotlin 1.0"
+  speaker: Andrey Breslav, Dmitry Jemerov
+  date: 2016-03-17
+  location: Moscow, Russia
+  lang: ru
