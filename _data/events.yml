@@ -1467,3 +1467,11 @@
   date: 2016-03-17
   location: Moscow, Russia
   lang: ru
+
+- title: "JUG Marseille"
+  url: "http://marsjug.org/#reunions"
+  subject: "Kotlin 1.0: pragmatic mais fun"
+  speaker: Gaetan Zoritchak
+  date: 2016-04-07
+  location: Marseille, France
+  lang: fr
