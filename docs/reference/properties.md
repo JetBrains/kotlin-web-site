@@ -86,7 +86,7 @@ you can define the accessor without defining its body:
 var setterVisibility: String = "abc" // Initializer required, not a nullable type
   private set // the setter is private and has the default implementation
 
-var setterWithAnnotation: Any?
+var setterWithAnnotation: Any? = null
   @Inject set // annotate the setter with Inject
 ```
 
