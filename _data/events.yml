@@ -1487,3 +1487,11 @@
   date: 2016-03-16
   location: Hamburg, Germany
   lang: en
+  
+- title: DroidCon SF
+  url: "http://sf.droidcon.com/#home"
+  subject: "Better Android Development with Kotlin and Gradle"
+  speaker: Ty Smith
+  date: [2016-03-17, 2016-03-18]
+  location: San Francisco, CA, US
+  lang: en
