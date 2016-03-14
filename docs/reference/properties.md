@@ -83,10 +83,10 @@ If you need to change the visibility of an accessor or to annotate it, but don't
 you can define the accessor without defining its body:
 
 ``` kotlin
-var setterVisibility: String = "abc" // Initializer required, not a nullable type
+var setterVisibility: String = "abc"
   private set // the setter is private and has the default implementation
 
-var setterWithAnnotation: Any?
+var setterWithAnnotation: Any? = null
   @Inject set // annotate the setter with Inject
 ```
 
