@@ -172,3 +172,8 @@
   description: A handy database access library in Kotlin
   type: Library
   link: https://github.com/seratch/kotliquery
+
+- name: Zipangu
+  description: Easy to handle the information in the prefectures of Japan in Kotlin
+  type: Library
+  link: https://github.com/sakebook/Zipangu
