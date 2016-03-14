@@ -190,6 +190,5 @@ On the other hand, with custom getters and setters one can implement any behavio
 Somewhere in between, there are certain common patterns of how a property may work. A few examples: lazy values,
 reading from a map by a given key, accessing a database, notifying listener on access, etc.
 
-Such common behaviours can be implemented as libraries using _delegated properties_.
-For more information, look [here](delegated-properties.html).
+Such common behaviours can be implemented as libraries using [_delegated properties_](delegated-properties.html).
 
