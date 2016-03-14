@@ -1480,7 +1480,7 @@
   location: Marseille, France
   lang: fr
 
-- title: GDG Hamburd Android
+- title: GDG Hamburg Android
   url: http://www.meetup.com/GDG-Hamburg-Android/events/229433532/
   subject: "Succumb to the Kotlin side"
   speaker: Alberto Ballano
@@ -1494,4 +1494,20 @@
   speaker: Ty Smith
   date: [2016-03-17, 2016-03-18]
   location: San Francisco, CA, US
+  lang: en
+
+- title: JPoint
+  url: http://javapoint.ru/talks/
+  subject: Ой, котик побежал: Компиляция и производительность кода на Kotlin
+  speaker: Dmitry Jemerov
+  date: [2016-04-22, 2016-04-23]
+  location: Moscow, Russia
+  lang: ru
+
+- title: JET Conference
+  url: http://jetconf.by/#/program
+  subject: Kotlin: Making JVM Development Fun Again; Caught in the Act: Kotlin Bytecode Generation and Runtime Performance
+  speaker: Dmitry Jemerov
+  date: [2016-04-25]
+  location: Minsk, Belarus
   lang: en
