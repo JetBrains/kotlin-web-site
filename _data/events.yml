@@ -47,7 +47,7 @@
   url: https://thestrangeloop.com/sessions/the-kotlin-programming-language
   speaker: Andrey Breslav
   date: 2011-09-19
-  location: St Louis, MO, USA
+  location: St. Louis, MO, USA
   geo:
     lat: 38.626263
     lng: -90.197115
@@ -60,10 +60,7 @@
   url: http://logic.pdmi.ras.ru/csclub/en/node/1480
   speaker: Andrey Breslav
   date: 2011-10-02
-  location: Saint Petersburg, Russia
-  geo:
-    lat: 59.942608
-    lng: 30.307186
+  location: St.Petersburg, Russia
   content:
     slides: http://www.slideshare.net/abreslav/kotlin-csclub-yandex
     video: http://www.lektorium.tv/lecture/?id=13381
@@ -73,7 +70,6 @@
   url: http://www.rivieradev.fr/application/talk?id=140
   date: [2011-10-20, 2011-10-20]
   speaker: Dmitry Jemerov
-  location: France
   content:
     slides: http://www.slideshare.net/intelliyole/kotlin-riviera-dev/
     article: http://www.rivieradev.fr/application/talk?id=140
@@ -97,6 +93,9 @@
   speaker: Andrey Breslav
   date: 2011-12-21
   location: Tallinn, Estonia
+  geo:
+    lat: 59.437032
+    lng: 24.753432
   content:
     video: http://vimeo.com/34176209
 
@@ -108,7 +107,7 @@
   url: http://oracle.timepad.ru/event/17633
   speaker: Andrey Breslav
   date: 2012-02-10
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   content:
     slides: http://prezi.com/4dr1n3uy3dgh/kotlin-javaday-spb/
 
@@ -126,7 +125,7 @@
   url: http://2012.33degree.org/talk/show/7
   speaker: Andrey Breslav
   date: [2012-03-19, 2012-03-21]
-  location: Krakow, Poland
+  location: Kraków, Poland
   content:
     slides: http://prezi.com/-xdrdpul_lsg/kotlin-jfokus/
 
@@ -161,7 +160,7 @@
   url: http://jugru.timepad.ru/event/23921
   speaker: Andrey Breslav
   date: 2012-04-26
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   content:
     slides: http://prezi.com/-xdrdpul_lsg/kotlin-jfokus/
     video: ['http://vimeo.com/41319179', 'http://vimeo.com/41319180']
@@ -199,7 +198,7 @@
   url: http://scaladev.ru
   speaker: Svetlana Isakova
   date: 2012-05-19
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   content:
     slides: http://www.slideshare.net/remeniuk/the-kotlin-programming-language-svetlana-isakove
     video: http://www.youtube.com/watch?v=mTr8TWj9MUU&feature=player_embedded
@@ -219,7 +218,7 @@
   url: http://dump-it.ru/sections/zapovednik-goblinov
   speaker: Stepan Koltsov
   date: [2012-05-25, 2012-05-26]
-  location: Ekaterinburg, Russia
+  location: Yekaterinburg, Russia
   content:
     video: http://www.youtube.com/watch?v=RuDyWNhPhYI
 
@@ -312,7 +311,7 @@
   url: http://gotocon.com/aarhus-2012/presentation/Kotlin:%20A%20new%20language%20-%20Because%20we've%20lived%20through%20a%20lot
   speaker: Hadi Hariri
   date: 2012-10-03
-  location: Aarhus, Danmark
+  location: Aarhus, Denmark
 
 
 - title: JavaOne'12
@@ -405,7 +404,7 @@
   url: http://lanyrd.com/2012/fprog-12/scbgcz/
   speaker: Andrey Breslav
   date: 2012-12-12
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   lang: ru
   content:
     video: http://lanyrd.com/2012/fprog-12/scbgcz/
@@ -439,7 +438,7 @@
   subject: Type-safe Web with Kotlin
   speaker: Andrey Breslav
   date: 2013-04-05
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   content:
     slides: https://prezi.com/hndtabwcfy5h/kara-talk-jpoint
     pdf: http://confluence.jetbrains.com/download/attachments/40706137/typesafeweb.pdf?version=1&modificationDate=1365597837000
@@ -488,7 +487,7 @@
   subject: Kotlin, programming language for JVM
   speaker: Evgeny Gerashchenko
   date: 2013-05-23
-  location: Minsk, Belorus
+  location: Minsk, Belarus
   lang: ru
   content:
     video: http://it.tut.by/349692
@@ -571,7 +570,7 @@
   subject: Moving the Web to the Client
   speaker: Hadi Hariri
   date: 2013-09-19
-  location: Krakow, Poland
+  location: Kraków, Poland
 
 
 - title: JavaOne'13
@@ -601,7 +600,7 @@
   subject: Language Design Tradeoffs
   speaker: Andrey Brelsav
   date: 2013-10-15
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   content:
     slides: http://www.slideshare.net/abreslav/trade-offs-22989326
     video: https://www.youtube.com/watch?v=CX_K1r0Vklg
@@ -655,7 +654,7 @@
   subject: Kotlin for Android
   speaker: Andrey Breslav
   date: 2014-03-14
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   content:
     slides: http://www.slideshare.net/abreslav/kotlin-for-android-brief-and-clear
     video: http://www.youtube.com/watch?v=VU_L2_XGQ9s
@@ -747,7 +746,7 @@
   subject: "Kotlin with Android"
   speaker: Ragunath Jawahar
   date: 2015-01-31
-  location: Madras, India
+  location: Chennai, India
   lang: en
 
 - title: MCE'15
@@ -944,7 +943,7 @@
   subject: "Kotlin on Android"
   speaker: Svetlana Isakova
   date: [2015-10-01, 2015-10-02]
-  location: Krakow, Poland
+  location: Kraków, Poland
   lang: en    
   content:
     slides: https://prezi.com/5krzwy15ixea/kotlin-on-android-mobiconf-2015/
@@ -994,7 +993,7 @@
   subject: "The Experience of Using Kotlin in JetBrains"
   speaker: Dmitry Jemerov
   date: [2015-10-16, 2015-10-17]
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   lang: ru
   
 - title: JOKER University Day
@@ -1002,7 +1001,7 @@
   subject: "Kotlin: what do we mean by a modern language"
   speaker: Svetlana Isakova
   date: 2015-10-18
-  location: Saint Petersburg, Russia
+  location: St.Petersburg, Russia
   lang: ru
   content:
     video: https://youtu.be/IXFIUF_KW_o
@@ -1065,7 +1064,7 @@
   subject: "Kotlin in Production. Why? How?"
   speaker: Kirill Bubochkin
   date: 2015-10-31
-  location: Chelyabinsk, RU
+  location: Chelyabinsk, Russia
   lang: ru
   content:
     slides: http://www.slideshare.net/dotnetconf/kotlin-production
@@ -1076,7 +1075,7 @@
   subject: "Intro to Kotlin"
   speaker: Anton Rutkevich
   date: 2015-09-18
-  location: Vilnus, LT
+  location: Vilnus, Lithuania
   lang: en
   content:
     slides: http://slides.com/antonrutkevich/kotlin-intro-voxxed#/
@@ -1156,7 +1155,7 @@
   subject: "Introducing Kotlin for Android Development"
   speaker: ChongLim Kim
   date: [2015-12-01,2015-12-03]
-  location: Santa Clara, CA, US
+  location: Santa Clara, CA, USA
   lang: en
   content:
     examples: https://github.com/clkim/demoKotlinAndroidDev2015
@@ -1231,7 +1230,7 @@
   subject: "Better Android Development with Kotlin and Gradle"
   speaker: Ty Smith and Yohan Hartanto
   date: 2015-12-18
-  location: San Francisco, CA, US
+  location: San Francisco, CA, USA
   lang: en
   
 - title: Voxxed Days Zürich 2016
@@ -1239,7 +1238,7 @@
   subject: "Kotlin - Ready for Production"
   speaker: Hadi Hariri
   date: 2016-03-03
-  location: Zürich, CH
+  location: Zurich, Switzerland
   lang: en
 
 - title: "Kotlin Developers in Manchester Meetup"
@@ -1273,7 +1272,7 @@
   subject: "Kotlin: The future of Android development?"
   speaker: Jacob Moncur
   date: 2016-01-14
-  location: Lehi, UT, US
+  location: Lehi, UT, USA
   lang: en
 
 - title: "DevNexus"
@@ -1281,7 +1280,7 @@
   subject: "Kotlin - Ready for Production"
   speaker: Hadi Hariri
   date: [2016-02-15, 2016-02-17]
-  location: Atlanta, US
+  location: Atlanta, USA
   lang: en
   
 - title: "Voxxed Days Vienna"
@@ -1308,7 +1307,7 @@
   subject: "Kotlin für Android-Entwickler"
   speaker: Benedict Pregler
   date: [2016-03-14, 2016-03-16]
-  location: München, Germany
+  location: Munich, Germany
   lang: en
 
 - title: "CraftCon"
@@ -1414,6 +1413,6 @@
   subject: "Kotlin Tour"
   speaker: ADRIEN CADET
   date: 2015-02-23
-  location: San Francisco, USA
+  location: San Francisco, CA, USA
   lang: en
 
