@@ -1,19 +1,27 @@
 ---
-layout: docs-page
+layout: docs-page-new
 title: Events
 docs_nav_id: events
+entry-point: events
 ---
 
 <p>If you'd like us to come and speak at your event or are giving a talk on Kotlin and would like it published here, <a href="mailto:hadi@jetbrains.com">please contact us</a>.</p>
 
 <br>
 
+<div class="js-filter-panel"></div>
+
 <div id="map" class="map"></div>
 
-<div id="events"></div>
-
-<script>
-require(['page/events'], function(page) {
-    page(document.getElementById('events'));
-});
-</script>
+<div id="events">
+    <div class="events-table">
+        <div class="events-table-row">
+            <div class="events-table-row-title">Upcoming events</div>
+            <div class="events-list js-upcoming-events"></div>
+        </div>
+        <div class="events-table-row">
+            <div class="events-table-row-title">Past events</div>
+            <div class="events-list js-past-events"></div>
+        </div>
+    </div>
+</div>

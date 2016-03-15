@@ -1,0 +1,36 @@
+<div class="event">
+    <div class="event-date-col">
+        <div class="event-date">{{ event.formattedDate }}</div>
+    </div>
+    <div class="event-title-col">
+        <div class="event-title">
+            {% if event.url %}
+                <a class="event-url" href="{{ event.url }}" target="_blank">{{ event.title }}</a>
+            {% else %}
+                {{ event.title }}
+            {% endif %}
+        </div>
+        {% if event.location %}
+            <div class="event-location">{{ event.location }}</div>
+        {% endif %}
+    </div>
+    <div class="event-info-col">
+        <div class="event-subject">
+            <span class="text">{{ event.subject }}</span>
+            <div class="event-info-indicators">
+                {% if event.lang %}
+                    <div class="event-lang">{{ event.lang }}</div>
+                {% endif %}
+                {% if event.content %}
+                    {% for type, href in event.content %}
+                        <a class="event-content-item _{{ type }}" href="{{ href }}" target="_blank"
+                           title="{{ type | capitalize }}"></a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="event-speaker">
+            {{ event.speaker }}
+        </div>
+    </div>
+</div>

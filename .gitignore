@@ -25,5 +25,4 @@ workspace.xml
 uiDesigner.xml
 *.css.map
 api/
-.idea
 *.iml

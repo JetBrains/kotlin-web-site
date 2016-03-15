@@ -1,0 +1,42 @@
+<div class="filter-panel">
+
+    <div class="filter-panel__header">
+        <div class="filter-panel__title">{{ title if title else "Filters" }}</div>
+
+        <div class="filter-panel__reset-button js-reset-button">
+            <div class="filter-panel__reset-button-text">Reset</div>
+            {#<svg class="sprite-img _close filter-panel__reset-button-close">#}
+                {#<use xlink:href="#close" />#}
+            {#</svg>#}
+        </div>
+    </div>
+
+    {% for filter in filters %}
+        <div class="filter-panel__group js-filter-group {% if filter.opened %}_is-opened{% endif %}">
+
+            <div class="filter-panel__group-title js-group-title">
+                {{ filter.title }}
+                {#<svg class="sprite-img _arrow filter-panel__group-expander">#}
+                    {#<use xlink:href="#arrow" />#}
+                {#</svg>#}
+            </div>
+
+            <ul class="filter__values-list">
+                {% for value in filter.values %}
+                    <li class="filter__values-list-item">
+                        <label class="checkbox filter__label js-filter-switch">
+                            <input type="checkbox"
+                                   data-filter-name="{{ filter.id }}"
+                                   data-filter-value="{{ value.id }}"
+                                   {% if value.checked %}checked{% endif %}
+                            />
+                            <span class="checkbox__icon" />
+                            <span class="checkbox__label">{{ value.title }}</span>
+                        </label>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% endfor %}
+</div>

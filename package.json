@@ -1,0 +1,39 @@
+{
+  "name": "kotlinlang.org",
+  "version": "0.0.1",
+  "description": "kotlinlang.org site",
+  "dependencies": {
+    "advanced-url-loader": "0.0.3",
+    "autoprefixer": "6.3.1",
+    "css-loader": "0.21.0",
+    "extend": "2.0.1",
+    "extract-text-webpack-plugin": "0.8.2",
+    "jcarousel": "0.3.4",
+    "jquery": "2.1.4",
+    "node-sass": "3.4.1",
+    "nunjucks-loader": "2.1.0-jb5",
+    "postcss-loader": "0.8.0",
+    "query-string": "3.0.0",
+    "sass-loader": "3.1.1",
+    "style-loader": "0.13.0",
+    "webpack": "1.12.2"
+  },
+  "devDependencies": {
+    "dev-tools": "0.1.6",
+    "webpack-dev-server": "1.12.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JetBrains/kotlin-web-site"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack"
+  },
+  "config": {
+    "devServer": {
+      "host": "0.0.0.0",
+      "port": 8000
+    }
+  }
+}

@@ -19,6 +19,7 @@ exclude:
   - notes.txt
   - LICENSE
   - node_modules
+  - webpack.config.js
 
 include:
   - js
