@@ -1498,7 +1498,7 @@
 
 - title: JPoint
   url: http://javapoint.ru/talks/
-  subject: Ой, котик побежал: Компиляция и производительность кода на Kotlin
+  subject: "Ой, котик побежал: Компиляция и производительность кода на Kotlin"
   speaker: Dmitry Jemerov
   date: [2016-04-22, 2016-04-23]
   location: Moscow, Russia
@@ -1506,8 +1506,8 @@
 
 - title: JET Conference
   url: http://jetconf.by/#/program
-  subject: Kotlin: Making JVM Development Fun Again; Caught in the Act: Kotlin Bytecode Generation and Runtime Performance
+  subject: "Kotlin: Making JVM Development Fun Again; Caught in the Act: Kotlin Bytecode Generation and Runtime Performance"
   speaker: Dmitry Jemerov
-  date: [2016-04-25]
+  date: 2016-04-25
   location: Minsk, Belarus
   lang: en
