@@ -13,6 +13,10 @@ main:
     url: http://try.kotlinlang.org
     title: Try Online
 
+  stdlib:
+    url: /api/latest/jvm/stdlib/index.html
+    title: API
+
   download:
     url: /#get-kotlin
     title: Download
