@@ -3,6 +3,11 @@ layout: resources
 title: More Resources
 ---
 
+## Kotlin Community
+
+Welcome to our friendly and actively growing [community](/community.html)!
+Ask questions, receive help, give your feedback, contribute to the language and its infrastructure!
+
 ## Community-Maintained Links
 
 You can find a community-maintained list of links to Kotlin projects, libraries and other resources at [Awesome Kotlin](https://javaby.github.io/awesome-kotlin/).
