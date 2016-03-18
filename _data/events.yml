@@ -1511,3 +1511,11 @@
   date: 2016-04-25
   location: Minsk, Belarus
   lang: en
+
+- title: "MIX-IT 2016"
+  url: "https://www.mix-it.fr/session/3202/"
+  subject: "https://www.mix-it.fr/session/3202/"
+  speaker: Gaetan Zoritchak
+  date: [2016-04-21, 2016-04-22]
+  location: Lyon, France
+  lang: fr
