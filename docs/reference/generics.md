@@ -49,8 +49,8 @@ interface. What's the signature of this method? Intuitively, we'd put it this wa
 
 ``` java
 // Java
-interface Collection<E> ... {
-  void addAll(Collection<E> items);
+interface Collection<T> ... {
+  void addAll(Collection<T> items);
 }
 ```
 
@@ -71,8 +71,8 @@ That's why the actual signature of `addAll()` is the following:
 
 ``` java
 // Java
-interface Collection<E> ... {
-  void addAll(Collection<? extends E> items);
+interface Collection<T> ... {
+  void addAll(Collection<? extends T> items);
 }
 ```
 
