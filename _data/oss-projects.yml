@@ -177,3 +177,8 @@
   description: Easy to handle the information in the prefectures of Japan in Kotlin
   type: Library
   link: https://github.com/sakebook/Zipangu
+
+- name: knit
+  description: JUnit API set for Kotlin
+  type: Library
+  link: https://github.com/ntaro/knit
