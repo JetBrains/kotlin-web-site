@@ -182,3 +182,8 @@
   description: JUnit API set for Kotlin
   type: Library
   link: https://github.com/ntaro/knit
+
+- name: khronos
+  description: An intuitive Date extensions in Kotlin
+  type: Library
+  link: https://github.com/hotchemi/khronos
