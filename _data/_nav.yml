@@ -51,6 +51,7 @@ reference:
     content:
       - /docs/reference/basic-syntax.html: Basic Syntax
       - /docs/reference/idioms.html: Idioms
+      - /docs/reference/design-patterns.html: Design Patterns
       - /docs/reference/coding-conventions.html: Coding Conventions
 
   - title: Basics
