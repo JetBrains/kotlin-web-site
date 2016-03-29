@@ -19,7 +19,7 @@ Patterns that have dedicated Kotlin syntax for their support.
 
 ``` java
 public class Singleton {
-    String info = "any usefull shared information";
+    String data = "some usefull shared data";
 
     private Singleton() {}
 
@@ -33,7 +33,7 @@ public class Singleton {
 }
 
 // Usage:
-String info = Singleton.getInstance().info;
+String data = Singleton.getInstance().data;
 ```
 
 Java code above provides you with a lazy-initialised thread-safe [singleton instance](https://en.wikipedia.org/wiki/Singleton_pattern).
@@ -41,11 +41,11 @@ Kotlin [`object`](object-declarations.html#object-declarations) has the same sem
 
 ``` kotlin
 public object Singleton {
-    val info = "any usefull shared information"
+    val data = "any usefull shared information"
 }
 
 // Usage:
-val info = Singleton.info
+val data = Singleton.data
 ```
 
 
