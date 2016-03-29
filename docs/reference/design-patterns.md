@@ -15,6 +15,39 @@ Design patterns that are the same for Kotlin and Java are not listed here.
 
 Patterns that have dedicated Kotlin syntax for their support.
 
+### Singleton
+
+``` java
+public class Singleton {
+    String info = "any usefull shared information";
+
+    private Singleton() {}
+
+    private static class LazyHolder {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return LazyHolder.INSTANCE;
+    }
+}
+
+// Usage:
+String info = Singleton.getInstance().info;
+```
+
+Java code above provides you with a lazy-initialised thread-safe [singleton instance](https://en.wikipedia.org/wiki/Singleton_pattern).
+Kotlin [`object`](object-declarations.html#object-declarations) has the same semantics:
+
+``` kotlin
+public object Singleton {
+    val info = "any usefull shared information"
+}
+
+// Usage:
+val info = Singleton.info
+```
+
 
 ## Obsolete patterns
 
@@ -23,7 +56,7 @@ Java patterns that are unnecessary in Kotlin since they can be replaced with cor
 
 ## Enhanced patterns
 
-Patterns that may be partly improved with Kotlin features.
+Patterns that may be improved with Kotlin features.
 
 ### Factory
 
@@ -37,7 +70,7 @@ ShapeFactory shapeFactory = new ShapeFactory();
 Shape shape1 = shapeFactory.getShape("CIRCLE");
 ```
 
-Instead of a factory class use a top-level factory function named the same as the interface it produces:
+Instead of a [factory class](https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)) use a top-level factory function named the same as the interface it produces:
 
 ``` kotlin
 public fun Shape(String shapeType): Shape {...}
