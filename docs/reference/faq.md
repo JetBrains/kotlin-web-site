@@ -79,10 +79,10 @@ Yes.
 
 ### Why have type declarations on the right?
 
-We believe it makes the code more readable. Besides, it enables some nice syntactic features, for instance, it is easy to leave type annotations out. Scala has also
+We believe it makes the code more readable. Besides, it enables some nice syntactic features. For instance, it is easy to leave type annotations out. Scala has also
 proven pretty well this is not a problem.
 
-### Will right-handed type declarations effect tooling?
+### Will right-handed type declarations affect tooling?
 
 No. It won't. We can still implement suggestions for variable names, etc.
 
