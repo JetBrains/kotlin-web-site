@@ -48,6 +48,60 @@ public object Singleton {
 val data = Singleton.data
 ```
 
+### Delegate (Decorator)
+
+``` java
+interface Printer {
+    void print(String msg);
+}
+
+final class HP3000 implements Printer {
+    void print(String msg) {
+        System.out.println(msg);
+    }
+}
+
+class MyPrinter implements Printer {
+    Printer p = new HP3000();
+
+    void print(String msg) {
+        p.print(msg);
+    }
+}
+
+// Usage:
+MyPrinter mp = new MyPrinter();
+mp.print("Hello!");
+```
+
+[Delegation pattern](https://en.wikipedia.org/wiki/Delegation_pattern) allows inheriting behaviour of a class without extending it.
+This is invaluable when the class, implementing the behaviour, is final.
+Also this technique has no limitation on the number of delegated interfaces, thus providing a mean for [multiple inheritance](https://en.wikipedia.org/wiki/Multiple_inheritance).
+Kotlin cuts the boilerplate here with its [class delegation](https://kotlinlang.org/docs/reference/delegation.html#class-delegation) syntax:
+
+``` kotlin
+// --- interface `Printer` and class `HP3000` are defined in the Java snipet above ---
+
+class MyPrinter : Printer by HP3000()
+
+// Usage:
+val mp = MyPrinter()
+mp.print("Hello!")
+```
+
+The delegate object can be a constructor parameter, allowing runtime behaviour configuration, or acting as *dependency injection*:
+
+``` kotlin
+class ConfigurablePrinter(printer: Printer = HP3000()) : Printer by printer
+
+// Usage:
+val workPrinter = ConfigurablePrinter()
+workPrinter.print("Hello!")
+
+val testPrinter = ConfigurablePrinter(printer = HP555())
+testPrinter.print("test page")
+```
+
 
 ## Obsolete patterns
 
