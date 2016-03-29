@@ -25,6 +25,28 @@ Java patterns that are unnecessary in Kotlin since they can be replaced with cor
 
 Patterns that may be partly improved with Kotlin features.
 
+### Factory
+
+``` java
+public class ShapeFactory {
+   public Shape getShape(String shapeType){...}
+}
+
+// Usage:
+ShapeFactory shapeFactory = new ShapeFactory();
+Shape shape1 = shapeFactory.getShape("CIRCLE");
+```
+
+Instead of a factory class use a top-level factory function named the same as the interface it produces:
+
+``` kotlin
+public fun Shape(String shapeType): Shape {...}
+
+// Usage:
+val shape = Shape("CIRCLE")
+```
+
+
 
 ## Kotlin patterns
 
