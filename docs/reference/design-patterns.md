@@ -53,6 +53,53 @@ val info = Singleton.info
 
 Java patterns that are unnecessary in Kotlin since they can be replaced with core Kotlin features.
 
+### Builder
+
+``` java
+class Car {
+    final int year;
+    final String model;
+
+    Car(CarBuilder builder) {
+        year = builder.year;
+        model = builder.model;
+    }
+}
+
+class CarBuilder {
+    int year;
+    String model = "default-model";
+
+    void setYear(int year) {
+        this.year = year;
+    }
+
+    void setModel(String model) {
+        this.model = model;
+    }
+}
+
+// Usage:
+CarBuilder cb = new CarBuilder();
+cb.setYear(1908);
+cb.setModel("Model T");
+
+Car car = new Car(cb);
+```
+
+The [builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) is used to create objects with `final` fields without providing a constructor with a massive list of arguments.
+Also it allows having default values for `final` fields that are optional to specify.
+All of this is easily achieved in Kotlin with the [primary constructor](classes.html#constructors) syntax.
+Note how using [named arguments](functions.html#named-arguments) makes the syntax well-readable even for long parameter lists:
+
+``` kotlin
+class Car(val year: Int,
+          val model: String = "default-model")
+
+// Usage:
+val car = Car(year = 1908,
+              model = "Model T")
+```
 
 ## Enhanced patterns
 
@@ -62,7 +109,7 @@ Patterns that may be improved with Kotlin features.
 
 ``` java
 public class ShapeFactory {
-   public Shape getShape(String shapeType){...}
+   public static Shape getShape(String shapeType) {...}
 }
 
 // Usage:
