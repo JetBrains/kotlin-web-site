@@ -234,6 +234,51 @@ public fun Shape(String shapeType): Shape {...}
 val shape = Shape("CIRCLE")
 ```
 
+## Value Object (POJO)
+
+``` java
+public class StudentVO {
+   private String name;
+   private int rollNo;
+
+   StudentVO(String name, int rollNo){
+      this.name = name;
+      this.rollNo = rollNo;
+   }
+
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public int getRollNo() {
+      return rollNo;
+   }
+
+   public void setRollNo(int rollNo) {
+      this.rollNo = rollNo;
+   }
+}
+```
+
+[Value objects](https://en.wikipedia.org/wiki/Value_object) are used to transfer data between parts of a system.
+This Kotlin class is *identical* to the Java class above:
+
+``` kotlin
+class StudentVO(var name: String?,
+                var rollNo: Int)
+```
+
+The pattern might be improoved by requaring field immutability and prohibiting nullable values.
+Here is the same class with removed setters, added nullable checks for `name` and generated [data](https://kotlinlang.org/docs/reference/data-classes.html) methods such as `toString`, `equals`, `hashCode` and some other.
+
+``` kotlin
+data class StudentVO(val name: String,
+                     val rollNo: Int)
+```
 
 ## Kotlin patterns
 
