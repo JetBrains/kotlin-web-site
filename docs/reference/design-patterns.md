@@ -280,6 +280,55 @@ data class StudentVO(val name: String,
                      val rollNo: Int)
 ```
 
+### Algebraic Type
+
+``` java
+public class ResultMsg {
+    private ResultMsg() {}
+
+    class OkMsg extends ResultMsg {
+        String data;
+    }
+
+    class ErrorMsg extends ResultMsg {
+        int errorCode;
+    }
+}
+
+// Usage:
+String resiveMsg(ResultMsg msg) {
+    if(msg instanceof ResultMsg.OkMsg) {
+        ResultMsg.OkMsg ok = (ResultMsg.OkMsg) msg;
+        return "Data have been received: " + ok.data;
+    } else if(msg instanceof ResultMsg.ErrorMsg) {
+        ResultMsg.ErrorMsg err = (ResultMsg.ErrorMsg) msg;
+        return "An error occurred: " + err.errorCode;
+    } else {
+        throw new IllegalArgumentException();
+    }
+}
+```
+
+[Algebraic types](https://en.wikipedia.org/wiki/Algebraic_data_type) are used to represent a value that can be implemented in a fixed number of ways.
+Kotlin provides a much shorter sintax for it, making the pattern much more useful.
+The [`sealed`](https://kotlinlang.org/docs/reference/classes.html#sealed-classes) keyword used here instead of `open` to garantee that all inheritors of `ResultMsg` are listed inside its declaration.
+This allows kotlin compiler to emit an error if some possible options are missed from a `when` expression.
+
+``` kotlin
+sealed class ResultMsg {
+    class OkMsg(val data: String) : ResultMsg
+    class ErrorMsg(val errorCode: Int): ResultMsg
+}
+
+// Usage:
+fun resiveMsg(msg: ResultMsg): String {
+    return when(msg) {
+        is ResultMsg.OkMsg -> "Data have been received: " + msg.data
+        is ResultMsg.ErrorMsg -> "An error occurred: " + msg.errorCode
+    }  // compile-time check here!
+}
+```
+
 ## Kotlin patterns
 
 Kotlin patterns that do not have analogues in Java.
