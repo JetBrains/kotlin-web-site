@@ -144,7 +144,7 @@ Car car = new Car(cb);
 The [builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) is used to create objects with `final` fields without providing a constructor with a massive list of arguments.
 Also it allows having default values for `final` fields that are optional to specify.
 All of this is easily achieved in Kotlin with the [primary constructor](classes.html#constructors) syntax.
-Note how using [named arguments](functions.html#named-arguments) makes the syntax well-readable even for long parameter lists:
+Note how using [named arguments](functions.html#named-arguments) makes the syntax well-readable even for longer parameter lists:
 
 ``` kotlin
 class Car(val year: Int,
@@ -153,6 +153,20 @@ class Car(val year: Int,
 // Usage:
 val car = Car(year = 1908,
               model = "Model T")
+```
+
+If you still want a classic builder pattern, use it with scoping helper methods like `apply`.
+This technique is common in DSL frameworks, allowing for Groovy-like code style:
+
+``` kotlin
+class Car(var year: Int) {
+    var model: String = "default-model"
+}
+
+// Usage:
+val car = Car(year = 1908).apply {
+    model = "Model T"
+}
 ```
 
 ### Strategy
