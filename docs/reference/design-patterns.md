@@ -234,7 +234,7 @@ public fun Shape(String shapeType): Shape {...}
 val shape = Shape("CIRCLE")
 ```
 
-## Value Object (POJO)
+### Value Object (POJO)
 
 ``` java
 public class StudentVO {
@@ -283,3 +283,32 @@ data class StudentVO(val name: String,
 ## Kotlin patterns
 
 Kotlin patterns that do not have analogues in Java.
+
+### Hierarchical DSL Builder
+
+``` kotlin
+val pageSource =
+  html {
+    head {
+      title {+"XML encoding with Kotlin"}
+    }
+    body {
+      h1 {+"XML encoding with Kotlin"}
+      p  {+"this format can be used as an alternative markup to XML"}
+
+      a(href = "http://kotlinlang.org") {+"Kotlin"}
+
+      p {
+        +"This is some"
+        b {+"mixed"}
+        +"text. For more see the"
+        a(href = "http://kotlinlang.org") {+"Kotlin"}
+        +"project"
+      }
+    }
+  }
+```
+
+Kotlin [type-self builders](https://kotlinlang.org/docs/reference/type-safe-builders.html) provide a way to form tree-like hierarchical stuctures right in the code.
+Kotlin builders benefit from static type-checking, IDE support, code reuse and avaliability of common language constructs such as if-expressins and for-loops.
+This approache is used by library writers to create DSLs for HTML, XML, JSON, build scripts, database access and many more.
