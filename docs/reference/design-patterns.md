@@ -103,9 +103,9 @@ testPrinter.print("test page")
 ```
 
 
-## Obsolete patterns
+## Enhanced patterns
 
-Java patterns that are unnecessary in Kotlin since they can be replaced with core Kotlin features.
+Patterns that may be improved with Kotlin features.
 
 ### Builder
 
@@ -188,7 +188,7 @@ class HolidayStrategy implements PriceStrategy {
 
 // Usage:
 Item tvset = Item(100.0);
-double price = tvset.getTodaysPrice(HolidayStrategy);
+double price = tvset.getTodaysPrice(new HolidayStrategy());
 ```
 
 [Strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern) is widly used to alter behaviour of a system.
@@ -207,11 +207,6 @@ val tvset = Item(100.0)
 val price = tvset.getTodaysPrice(HolidayStrategy)
 val specialCustomerPrice = tvset.getTodaysPrice { it * 0.5 }
 ```
-
-
-## Enhanced patterns
-
-Patterns that may be improved with Kotlin features.
 
 ### Factory
 
@@ -272,7 +267,7 @@ class StudentVO(var name: String?,
                 var rollNo: Int)
 ```
 
-The pattern might be improoved by requaring field immutability and prohibiting nullable values.
+The pattern might be improved by requiring field immutability and prohibiting nullable values.
 Here is the same class with removed setters, added nullable checks for `name` and generated [data](https://kotlinlang.org/docs/reference/data-classes.html) methods such as `toString`, `equals`, `hashCode` and some other.
 
 ``` kotlin
