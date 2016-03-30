@@ -41,7 +41,7 @@ Kotlin [`object`](object-declarations.html#object-declarations) has the same sem
 
 ``` kotlin
 public object Singleton {
-    val data = "any usefull shared information"
+    val data = "any useful shared information"
 }
 
 // Usage:
@@ -155,6 +155,60 @@ val car = Car(year = 1908,
               model = "Model T")
 ```
 
+### Strategy
+
+``` java
+interface PriceStrategy {
+    double convertPrice(double price);
+}
+
+class Item {
+    double price;
+
+    Item(double price) {
+        this.price = price;
+    }
+
+    double getTodaysPrice(PriceStrategy strategy) {
+        return strategy.convertPrice(this.price);
+    }
+}
+
+class SaleStrategy implements PriceStrategy {
+    double convertPrice(double price) {
+        return price * 0.8;
+    }
+}
+
+class HolidayStrategy implements PriceStrategy {
+    double convertPrice(double price) {
+        return price * 1.1;
+    }
+}
+
+// Usage:
+Item tvset = Item(100.0);
+double price = tvset.getTodaysPrice(HolidayStrategy);
+```
+
+[Strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern) is widly used to alter behaviour of a system.
+Since functions are first-class citisent in Kotlin, [functional types](https://kotlinlang.org/docs/reference/lambdas.html) can be stored and passed as values:
+
+``` kotlin
+class Item(val price: Double) {
+    fun getTodaysPrice(strategy: (Double) -> Double) = strategy(price)
+}
+
+val SaleStrategy = {x -> x * 0.8}
+val HolidayStrategy = {x -> x * 1.1}
+
+// Usage:
+val tvset = Item(100.0)
+val price = tvset.getTodaysPrice(HolidayStrategy)
+val specialCustomerPrice = tvset.getTodaysPrice { it * 0.5 }
+```
+
+
 ## Enhanced patterns
 
 Patterns that may be improved with Kotlin features.
@@ -179,7 +233,6 @@ public fun Shape(String shapeType): Shape {...}
 // Usage:
 val shape = Shape("CIRCLE")
 ```
-
 
 
 ## Kotlin patterns
