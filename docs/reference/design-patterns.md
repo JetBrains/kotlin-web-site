@@ -41,7 +41,7 @@ Kotlin [`object`](object-declarations.html#object-declarations) has the same sem
 
 ``` kotlin
 public object Singleton {
-    val data = "any useful shared information"
+    var data = "any useful shared information"
 }
 
 // Usage:
