@@ -1023,7 +1023,7 @@
   speaker: "@yy_yankさん"
   date: 2015-09-19
   location: 兵庫県芦屋市業平町8番24号
-  lang: jp
+  lang: ja
 
 - title: JavaOne 2015
   url: https://www.oracle.com/javaone/index.html
@@ -1105,7 +1105,7 @@
   speaker: Antonio Leiva Gordillo
   date: [2015-11-27, 2015-11-28]
   location: Madrid, Spain
-  lang: sp
+  lang: es
   content:
     video: https://youtu.be/NRJl_942r08
     slides: https://speakerdeck.com/antoniolg/kotlin-for-android-developers-v2
@@ -1116,7 +1116,7 @@
   speaker: Javi Pacheco and Antonio Leiva
   date: 2015-12-09
   location: Madrid, Spain
-  lang: sp
+  lang: es
   content:
     slides: https://speakerdeck.com/antoniolg/scala-vs-kotlin
 
