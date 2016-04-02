@@ -26,25 +26,21 @@
 @-webkit-keyframes header-highlighting {
   0% {
     background-color: #FFFFCC; }
-
   100% {
     background-color: #fff; } }
 @-moz-keyframes header-highlighting {
   0% {
     background-color: #FFFFCC; }
-
   100% {
     background-color: #fff; } }
 @-o-keyframes header-highlighting {
   0% {
     background-color: #FFFFCC; }
-
   100% {
     background-color: #fff; } }
 @keyframes header-highlighting {
   0% {
     background-color: #FFFFCC; }
-
   100% {
     background-color: #fff; } }
   .page-content h1:target, .page-content h2:target, .page-content h3:target, .page-content h4:target, .page-content h5:target, .page-content h1.highlighted, .page-content h2.highlighted, .page-content h3.highlighted, .page-content h4.highlighted, .page-content h5.highlighted {
@@ -227,31 +223,27 @@
     top: 4px; }
   @media print {
     .page-content a {
-      color: #497bb7 !important; } }
+      color: #497BB7 !important; } }
   .page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5 {
     position: relative; }
 @-webkit-keyframes header-highlighting {
   0% {
     background-color: #FFFFCC; }
-
   100% {
     background-color: #fff; } }
 @-moz-keyframes header-highlighting {
   0% {
     background-color: #FFFFCC; }
-
   100% {
     background-color: #fff; } }
 @-o-keyframes header-highlighting {
   0% {
     background-color: #FFFFCC; }
-
   100% {
     background-color: #fff; } }
 @keyframes header-highlighting {
   0% {
     background-color: #FFFFCC; }
-
   100% {
     background-color: #fff; } }
     .page-content h1:target, .page-content h2:target, .page-content h3:target, .page-content h4:target, .page-content h5:target, .page-content h1.highlighted, .page-content h2.highlighted, .page-content h3.highlighted, .page-content h4.highlighted, .page-content h5.highlighted {
@@ -643,6 +635,22 @@
     font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
     font-style: normal;
     color: #0000C0; }
+  .page-content .keyword {
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
+    font-style: normal;
+    color: #0000C0; }
+  .page-content .summarizedTypeName {
+    background-color: lightcyan;
+    font-style: italic; }
+  .page-content .parameterName {
+    font-weight: bold; }
+  .page-content .signature {
+    background-color: #efefef;
+    padding: 4px; }
+  .page-content .signature :target {
+    background-color: #FFFFCC; }
+  .page-content .overload-group {
+    padding-bottom: 50px; }
   .page-content .error {
     color: #ff0000;
     padding: 0 4px; }

@@ -11,7 +11,7 @@ Using [higher-order functions](lambdas.html) imposes certain runtime penalties: 
 i.e. those variables that are accessed in the body of the function.
 Memory allocations (both for function objects and classes) and virtual calls introduce runtime overhead.
 
-But it appears that in many cases this kind of overhead can be eliminated by inlining the function literals.
+But it appears that in many cases this kind of overhead can be eliminated by inlining the lambda expressions.
 The functions shown above are good examples of this situation. I.e., the `lock()` function could be easily inlined at call-sites.
 Consider the following case:
 
@@ -22,12 +22,12 @@ lock(l) { foo() }
 Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code
 
 ``` kotlin
-lock.lock()
+l.lock()
 try {
   foo()
 }
 finally {
-  lock.unlock()
+  l.unlock()
 }
 ```
 
@@ -67,7 +67,7 @@ Note that if an inline function has no inlinable function parameters and no
 
 ## Non-local returns
 
-In Kotlin, we can only use a normal, unqualified `return` to exit a named function or a function expression.
+In Kotlin, we can only use a normal, unqualified `return` to exit a named function or an anonymous function.
 This means that to exit a lambda, we have to use a [label](returns.html#return-at-labels), and a bare `return` is forbidden
 inside a lambda, because a lambda can not make the enclosing function return:
 
@@ -165,7 +165,7 @@ and `as` are working now. Also, we can call it as mentioned above: `myTree.findP
 Though reflection may not be needed in many cases, we can still use it with a reified type parameter:
 
 ``` kotlin
-inline fun membersOf<reified T>() = T::class.members
+inline fun <reified T> membersOf() = T::class.members
 
 fun main(s: Array<String>) {
   println(membersOf<StringBuilder>().joinToString("\n"))

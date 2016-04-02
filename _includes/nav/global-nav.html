@@ -1,30 +1,32 @@
 <nav role="navigation" class="global-nav">
     {% assign nav = site.data._nav.main %}
 
-    {% for i in nav %}
-        {% assign item_id = i[0] %}
-        {% assign item = i[1] %}
-        {% assign is_active = false %}
-        {% assign is_external = false %}
+    <div class="nav-links">
+        {% for i in nav %}
+            {% assign item_id = i[0] %}
+            {% assign item = i[1] %}
+            {% assign is_active = false %}
+            {% assign is_external = false %}
 
-        {% if item.show != null and item.show == false %}
-            {% break %}
-        {% endif %}
+            {% if item.show != null and item.show == false %}
+                {% break %}
+            {% endif %}
 
-        {% if include.active and include.active == item_id %}
-            {% assign is_active = true %}
-        {% endif %}
+            {% if include.active and include.active == item_id %}
+                {% assign is_active = true %}
+            {% endif %}
 
-        {% if item.url contains 'http://' %}
-            {% assign is_external = true %}
-        {% endif %}
+            {% if item.url contains 'http://' %}
+                {% assign is_external = true %}
+            {% endif %}
 
-        <a href="{% if is_external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"
-           class="nav-item {% if is_active %}is_active{% endif %}"
-        >
-            {{ item.title }}
-        </a>
-    {% endfor %}
+            <a href="{% if is_external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"
+               class="nav-item {% if is_active %}is_active{% endif %}"
+            >
+                {{ item.title }}
+            </a>
+        {% endfor %}
+    </div>
 
     {% if page.layout == 'index' %}
         <div class="extra-nav social-links">
@@ -39,13 +41,6 @@
 
             <a href="community.html" class="link link-forum" title="Kotlin Forum">
                 <i class="link-icon icon-forum"></i>
-            </a>
-        </div>
-    {% else %}
-        <div class="extra-nav download-button">
-            <a href="{{ site.baseurl }}{{ nav.download.url }}" class="get-kotlin-button">
-                Get Kotlin
-                <span class="version">({{ site.data.releases.latest.version }})</span>
             </a>
         </div>
     {% endif %}

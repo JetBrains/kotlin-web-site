@@ -7,19 +7,18 @@ title: "Data Classes"
 
 # Data Classes
 
-We frequently create classes that do nothing but hold data. In such classes some functionality is often mechanically
-derivable from the data they hold. In Kotlin a class can be marked as `data`:
+We frequently create a class to do nothing but hold data. In such a class some standard functionality is often mechanically
+derivable from the data. In Kotlin, this is called a _data class_ and is marked as `data`:
  
 ``` kotlin
 data class User(val name: String, val age: Int)
 ```
 
-This is called a _data class_. The compiler automatically derives the following members from all properties declared in
-the primary constructor:
+The compiler automatically derives the following members from all properties declared in the primary constructor:
   
   * `equals()`/`hashCode()` pair, 
   * `toString()` of the form `"User(name=John, age=42)"`,
-  * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order or declaration,
+  * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order of declaration,
   * `copy()` function (see below).
   
 If any of these functions is explicitly defined in the class body or inherited from the base types, it will not be generated.
@@ -54,9 +53,9 @@ val jack = User(name = "Jack", age = 1)
 val olderJack = jack.copy(age = 2)
 ```
 
-## Data Classes and Multi-Declarations
+## Data Classes and Destructuring Declarations
 
-_Component functions_ generated for data classes enable their use in [multi-declarations](multi-declarations.html):
+_Component functions_ generated for data classes enable their use in [destructuring declarations](multi-declarations.html):
 
 ``` kotlin
 val jane = User("Jane", 35) 

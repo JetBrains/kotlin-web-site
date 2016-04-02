@@ -12,23 +12,25 @@
     font-size: 0;
     margin-top: 2px;
 
-    .nav-item {
-        display: inline-block;
-        margin-right: $unit*4;
-        color: #d1d1d1;
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 43px;
-        letter-spacing: 0.02em;
-        text-decoration: none;
-        text-transform: uppercase;
+    .nav-links {
+        .nav-item {
+            display: inline-block;
+            margin-right: $unit*4;
+            color: #d1d1d1;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 43px;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            text-transform: uppercase;
 
-        &:hover {
-            color: #fff;
-        }
+            &:hover {
+                color: #fff;
+            }
 
-        &.is_active {
-            color: #7d838b;
+            &.is_active {
+                color: #7d838b;
+            }
         }
     }
 
@@ -48,21 +50,17 @@
         &.social-links {
             position: relative;
             line-height: 31px;
+            margin-right: 20px;
 
             @media (max-width: 1205px) {
                 top: auto;
             }
         }
 
-        &.download-button {
-            line-height: 36px;
-            margin-right: 20px;
-        }
-
         .link {
             position: relative;
             display: inline-block;
-            margin-right: 4px;
+            margin-right: 6px;
             padding: 4px;
             font-size: 0;
             line-height: 0;
@@ -71,6 +69,7 @@
         }
 
         .link-github {
+            margin-right: 10px;
         }
 
         .link-twitter {
@@ -78,7 +77,7 @@
         }
 
         .link-forum {
-            top: 3px;
+            top: 1px;
         }
 
         .link-icon {
@@ -97,27 +96,23 @@
         }
 
         .icon-github {
-            width: 20px;
-            height: 20px;
-            background-position: -100px 0;
+            width: 24px;
+            height: 24px;
+            background-position: -100px -600px;
         }
 
         .icon-twitter {
-            width: 20px;
-            height: 17px;
-            background-position: -100px -50px;
+            width: 26px;
+            height: 21px;
+            background-position: -100px -650px;
         }
 
         .icon-forum {
-            width: 26px;
-            height: 17px;
-            background-position: -100px -400px;
+            width: 30px;
+            height: 24px;
+            background-position: -100px -700px;
         }
     }
 
 
-}
-
-.page_index .global-nav {
-    margin-top: 0;
 }

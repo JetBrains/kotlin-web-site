@@ -2,18 +2,18 @@
 type: doc
 layout: reference
 category: "Other"
-title: "Multi-Declarations"
+title: "Destructuring Declarations"
 ---
 
-# Multi-Declarations
+# Destructuring Declarations
 
-Sometimes it is convenient to _decompose_ an object into a number of variables, for example:
+Sometimes it is convenient to _destructure_ an object into a number of variables, for example:
 
 ``` kotlin
 val (name, age) = person 
 ```
 
-This syntax is called a _multi-declaration_. A multi-declaration creates multiple variables at once.
+This syntax is called a _destructuring declaration_. A destructuring declaration creates multiple variables at once.
 We have declared two new variables: `name` and `age`, and can use them independently:
  
 ``` kotlin
@@ -21,7 +21,7 @@ println(name)
 println(age)
 ```
 
-A multi-declaration is compiled down to the following code:
+A destructuring declaration is compiled down to the following code:
 
 ``` kotlin
 val name = person.component1()
@@ -30,12 +30,12 @@ val age = person.component2()
 
 The `component1()` and `component2()` functions are another example of the _principle of conventions_ widely used in Kotlin 
 (see operators like `+` and `*`, *for*{: .keyword }-loops etc.). 
-Anything can be on the right-hand side of a multi-assignment, as long as the required number of component functions can be called on it. 
+Anything can be on the right-hand side of a destructuring declaration, as long as the required number of component functions can be called on it.
 And, of course, there can be `component3()` and `component4()` and so on.
 
-Note that the `componentN()` functions need to be marked with the `operator` keyword to allow using them in a multi-declaration.
+Note that the `componentN()` functions need to be marked with the `operator` keyword to allow using them in a destructuring declaration.
 
-Multi-declarations also work in *for*{: .keyword }-loops: when you say
+Destructuring declarations also work in *for*{: .keyword }-loops: when you say
 
 ``` kotlin
 for ((a, b) in collection) { ... }
@@ -60,12 +60,12 @@ fun function(...): Result {
 val (result, status) = function(...)
 ```
 
-Since data classes automatically declare `componentN()` functions, multi-declarations work here.
+Since data classes automatically declare `componentN()` functions, destructuring declarations work here.
 
 **NOTE**: we could also use the standard class `Pair` and have `function()` return `Pair<Int, Status>`, 
 but it's often better to have your data named properly.  
 
-## Example: Multi-Declarations and Maps
+## Example: Destructuring Declarations and Maps
 
 Probably the nicest way to traverse a map is this:
 
@@ -77,7 +77,7 @@ for ((key, value) in map) {
 
 To make this work, we should 
 
-* present the map as sequence of values by providing an `iterator()` function,
+* present the map as a sequence of values by providing an `iterator()` function,
 * present each of the elements as a pair by providing functions `component1()` and `component2()`.
   
 And indeed, the standard library provides such extensions:
@@ -89,4 +89,4 @@ operator fun <K, V> Map.Entry<K, V>.component2() = getValue()
   
 ```  
   
-So you can freely use multi-declarations in *for*{: .keyword }-loops with maps (as well as collections of data class instances etc).
+So you can freely use destructuring declarations in *for*{: .keyword }-loops with maps (as well as collections of data class instances etc).

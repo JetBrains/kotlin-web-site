@@ -5,9 +5,9 @@ category: "Syntax"
 title: "Packages"
 ---
 
-# パッケージ
+# Packages
 
-ソースファイルはパッケージ宣言から始めることができる。
+A source file may start with a package declaration:
 
 ``` kotlin
 package foo.bar
@@ -19,42 +19,43 @@ class Goo {}
 // ...
 ```
 
-ソースファイル中のクラスや関数のような全ての内容は宣言パッケージに含まれる。
-従って、次の例で示すとおり、 `baz()` の完全名は `foo.bar.baz` であり、 `Goo` の完全名は `foo.bar.Goo` である。
-もしパッケージが指定されない場合は、ファイルの内容は名前を持たない"default"パッケージの属することになる。
+All the contents (such as classes and functions) of the source file are contained by the package declared.
+So, in the example above, the full name of `baz()` is `foo.bar.baz`, and the full name of `Goo` is `foo.bar.Goo`. 
+ 
+If the package is not specified, the contents of such a file belong to "default" package that has no name.
 
-## インポート（Imports）
+## Imports
 
-標準のインポートとは違い、それぞれのファイルは独自のインポートディレクティブを含んで良い。
-インポートの文法は、 [grammar](grammar.html#imports) に記載されている。
+Apart from the default imports, each file may contain its own import directives.
+Syntax for imports is described in the [grammar](grammar.html#import).
 
-単一の名前を指定してインポートできる。例：
-
-``` kotlin
-import foo.Bar // Barには許可無しで利用可能になる
-```
-
-または、あるスコープ（パッケージ、クラス、オブジェクト等）内の全てのアクセス可能なコンテンツの場合：
+We can import either a single name, e.g.
 
 ``` kotlin
-import foo.* // 'foo'内の全てが利用可能になる
+import foo.Bar // Bar is now accessible without qualification
 ```
 
-もし名前空間が衝突したら、 *as*{: .keyword } キーワードを使用して衝突するエンティティを局所的にリネームすることで明確にできる：
+or all the accessible contents of a scope (package, class, object etc):
 
 ``` kotlin
-import foo.Bar // Barは利用可能
-import bar.Bar as bBar // bBarは'bar.Bar'を意味する
+import foo.* // everything in 'foo' becomes accessible
 ```
 
-`import` キーワードわクラスをインポートするために限定されるわけではない。他の宣言をインポートするために使用することができる：
+If there is a name clash, we can disambiguate by using *as*{: .keyword } keyword to locally rename the clashing entity:
 
-  * トップレベルの関数やプロパティ
-  * [object declarations](object-declarations.html#object-declarations) で宣言された関数やプロパティ
-  * [enum定数](enum-classes.html)
+``` kotlin
+import foo.Bar // Bar is accessible
+import bar.Bar as bBar // bBar stands for 'bar.Bar'
+```
 
-Javaとは違って、Kotlinは別の"import static"構文を持っていない。全ての宣言は普通の `import` キーワードによってインポートされる。
+The `import` keyword is not restricted to importing classes; you can also use it to import other declarations:
 
-## トップレベル宣言の可視性
+  * top-level functions and properties;
+  * functions and properties declared in [object declarations](object-declarations.html#object-declarations);
+  * [enum constants](enum-classes.html)
 
-もしトップレベルの宣言に *private*{: .keyword } マークがついていれば、それが宣言されたファイル内に対しprivateである。  [Visibility Modifiers](visibility-modifiers.html) を参照のこと。
+Unlike Java, Kotlin does not have a separate "import static" syntax; all of these declarations are imported using the regular `import` keyword.
+
+## Visibility of Top-level Declarations
+
+If a top-level declaration is marked *private*{: .keyword }, it is private to the file it's declared in (see [Visibility Modifiers](visibility-modifiers.html)).

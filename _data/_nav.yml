@@ -2,7 +2,7 @@
 # ====================
 main:
   docs:
-    url: /
+    url: /docs/reference/
     title: Learn
 
   contribute:
@@ -23,7 +23,7 @@ main:
 # =======================
 docs:
   reference:
-    url: /
+    url: /docs/reference/
     title: Reference
 
   tutorials:
@@ -49,56 +49,57 @@ reference:
   - title: Getting Started
     description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
     content:
-      - /basic-syntax.html: Basic Syntax
-      - /idioms.html: Idioms
-      - /coding-conventions.html: Coding Conventions
+      - /docs/reference/basic-syntax.html: Basic Syntax
+      - /docs/reference/idioms.html: Idioms
+      - /docs/reference/coding-conventions.html: Coding Conventions
 
   - title: Basics
     description: The Basics
     content:
-      - /basic-types.html: Basic Types
-      - /packages.html: Packages
-      - /control-flow.html: Control Flow
-      - /returns.html: Returns and Jumps
+      - /docs/reference/basic-types.html: Basic Types
+      - /docs/reference/packages.html: Packages
+      - /docs/reference/control-flow.html: Control Flow
+      - /docs/reference/returns.html: Returns and Jumps
 
   - title: Classes and Objects
     description: All about objects
     content:
-      - /classes.html: Classes and Inheritance
-      - /properties.html: Properties and Fields
-      - /interfaces.html: Interfaces
-      - /visibility-modifiers.html: Visibility Modifiers
-      - /extensions.html: Extensions
-      - /data-classes.html: Data Classes
-      - /generics.html: Generics
-      - /nested-classes.html: Nested Classes
-      - /enum-classes.html: Enum Classes
-      - /object-declarations.html: Objects
-      - /delegation.html: Delegation
-      - /delegated-properties.html: Delegated Properties
+      - /docs/reference/classes.html: Classes and Inheritance
+      - /docs/reference/properties.html: Properties and Fields
+      - /docs/reference/interfaces.html: Interfaces
+      - /docs/reference/visibility-modifiers.html: Visibility Modifiers
+      - /docs/reference/extensions.html: Extensions
+      - /docs/reference/data-classes.html: Data Classes
+      - /docs/reference/generics.html: Generics
+      - /docs/reference/nested-classes.html: Nested Classes
+      - /docs/reference/enum-classes.html: Enum Classes
+      - /docs/reference/object-declarations.html: Objects
+      - /docs/reference/delegation.html: Delegation
+      - /docs/reference/delegated-properties.html: Delegated Properties
 
   - title: Functions and Lambdas
     description: All about functions
     content:
-      - /functions.html: Functions
-      - /lambdas.html: Lambdas
-      - /inline-functions.html: Inline Functions
+      - /docs/reference/functions.html: Functions
+      - /docs/reference/lambdas.html: Lambdas
+      - /docs/reference/inline-functions.html: Inline Functions
 
   - title: Other
     description: Various bits and bobs
     content:
-      - /multi-declarations.html: Multi-Declarations
-      - /ranges.html: Ranges
-      - /typecasts.html: Type Checks and Casts
-      - /this-expressions.html: This expressions
-      - /equality.html: Equality
-      - /operator-overloading.html: Operator overloading
-      - /null-safety.html: Null Safety
-      - /exceptions.html: Exceptions
-      - /annotations.html: Annotations
-      - /reflection.html: Reflection
-      - /type-safe-builders.html: Type-Safe Builders
-      - /dynamic-type.html: Dynamic Type
+      - /docs/reference/multi-declarations.html: Destructuring Declarations
+      - /docs/reference/collections.html: Collections
+      - /docs/reference/ranges.html: Ranges
+      - /docs/reference/typecasts.html: Type Checks and Casts
+      - /docs/reference/this-expressions.html: This expressions
+      - /docs/reference/equality.html: Equality
+      - /docs/reference/operator-overloading.html: Operator overloading
+      - /docs/reference/null-safety.html: Null Safety
+      - /docs/reference/exceptions.html: Exceptions
+      - /docs/reference/annotations.html: Annotations
+      - /docs/reference/reflection.html: Reflection
+      - /docs/reference/type-safe-builders.html: Type-Safe Builders
+      - /docs/reference/dynamic-type.html: Dynamic Type
 
 
 
@@ -106,30 +107,31 @@ reference:
     description: API and Grammar
     content:
       - /api/latest/jvm/stdlib/index.html: API Reference
-      - /grammar.html: Grammar
+      - /docs/reference/grammar.html: Grammar
 
 
   - title: Interop
     description: What you need to know about interoperability with Java and JavaScript.
     content:
-      - /java-interop.html: Java Interop
+      - /docs/reference/java-interop.html: Calling Java from Kotlin
+      - /docs/reference/java-to-kotlin-interop.html: Calling Kotlin from Java
 
   - title: Tools
     description:
     content:
-#      - /kotlin-build-tools.html: Kotlin Build Tools
-      - /kotlin-doc.html: Documenting Kotlin Code
-      - /using-maven.html: Using Maven
-      - /using-ant.html: Using Ant
-      - /using-gradle.html: Using Gradle
-      - /kotlin-osgi.html: Kotlin and OSGi
+#      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
+      - /docs/reference/kotlin-doc.html: Documenting Kotlin Code
+      - /docs/reference/using-maven.html: Using Maven
+      - /docs/reference/using-ant.html: Using Ant
+      - /docs/reference/using-gradle.html: Using Gradle
+      - /docs/reference/kotlin-osgi.html: Kotlin and OSGi
 
   - title: FAQ
     description: Every question you could possibly think of, might be answered.
     content:
-      - /faq.html: FAQ
-      - /comparison-to-java.html: Comparison to Java
-      - /comparison-to-scala.html: Comparison to Scala
+      - /docs/reference/faq.html: FAQ
+      - /docs/reference/comparison-to-java.html: Comparison to Java
+      - /docs/reference/comparison-to-scala.html: Comparison to Scala
 
 
 

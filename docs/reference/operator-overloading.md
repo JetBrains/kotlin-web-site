@@ -98,6 +98,7 @@ Square brackets are translated to calls to `get` and `set` with appropriate numb
 
 | Symbol | Translated to |
 |--------|---------------|
+| `a()`  | `a.invoke()` |
 | `a(i)`  | `a.invoke(i)` |
 | `a(i, j)`  | `a.invoke(i, j)` |
 | `a(i_1, ...,  i_n)`  | `a.invoke(i_1, ...,  i_n)` |
@@ -131,16 +132,7 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 
 *Note*: `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them
 
-The `==` operation is special in two ways:
-
-* It is translated to a complex expression that screens for `null`'s, and `null == null` is `true`.
-* It looks up a function with a specific _signature_, not just a specific _name_. The function must be declared as
-
-``` kotlin
-fun equals(other: Any?): Boolean
-```
-
-Or an extension function with the same parameter list and return type.
+The `==` operation is special: it is translated to a complex expression that screens for `null`'s, and `null == null` is `true`.
 
 | Symbol | Translated to |
 |--------|---------------|

@@ -11,16 +11,7 @@ description: "This tutorials walks you through different scenarios when using Ma
 
 The *kotlin-maven-plugin* compiles Kotlin sources and modules. Currently only Maven v3 is supported.
 
-Define the version of Kotlin you want to use via *kotlin.version*. The possible values are:
-
-* X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
-only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, you need to [configure a snapshot repository
-in the pom file](#configuring-snapshot-repositories).
-
-* X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
-is needed in your pom file.
-
-The correspondence between milestones and versions is displayed below:
+Define the version of Kotlin you want to use via *kotlin.version*. The correspondence between Kotlin releases and versions is displayed below:
 
 <table>
 <thead>
@@ -39,40 +30,6 @@ The correspondence between milestones and versions is displayed below:
 </tbody>
 </table>
 
-
-## Configuring Snapshot Repositories
-
-To use a snapshot version of Kotlin, include the following repository definitions to the pom
-
-``` xml
-<repositories>
-  <repository>
-    <id>sonatype.oss.snapshots</id>
-    <name>Sonatype OSS Snapshot Repository</name>
-    <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-    <releases>
-      <enabled>false</enabled>
-    </releases>
-    <snapshots>
-      <enabled>true</enabled>
-    </snapshots>
-  </repository>
-</repositories>
-
-<pluginRepositories>
-  <pluginRepository>
-    <id>sonatype.oss.snapshots</id>
-    <name>Sonatype OSS Snapshot Repository</name>
-    <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-    <releases>
-      <enabled>false</enabled>
-    </releases>
-    <snapshots>
-      <enabled>true</enabled>
-    </snapshots>
-  </pluginRepository>
-</pluginRepositories>
-```
 
 ## Dependencies
 
@@ -109,13 +66,11 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
     <executions>
         <execution>
             <id>compile</id>
-            <phase>compile</phase>
             <goals> <goal>compile</goal> </goals>
         </execution>
 
         <execution>
             <id>test-compile</id>
-            <phase>test-compile</phase>
             <goals> <goal>test-compile</goal> </goals>
         </execution>
     </executions>

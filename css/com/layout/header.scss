@@ -35,6 +35,26 @@
         text-align: left;
     }
 
+    .release-banner {
+        display: inline-block;
+        color: white;
+        background: rgba(103, 133, 163, 0.4);
+        opacity: 0.9;
+        height: 54px;
+        line-height: 52px;
+        padding: 0 50px;
+        margin-left: 250px;
+        font-family: $font-family-serif;
+        font-size: 28px;
+        border-radius: 3px;
+    }
+
+    .release-banner__link {
+        color: white;
+        margin-left: 15px;
+        font-size: 18px;
+    }
+
     .kotlin-info-description {
         margin-bottom: $unit*3;
         color: #fff;
@@ -91,21 +111,16 @@
 .global-header-logo {
     @include transition(0.3s all);
     position: relative;
-    opacity: 0.8;
-    top: 0;
+    top: 12px;
     float: left;
-    width: 129px;
-    height: 43px;
+    width: 103px;
+    height: 22px;
     background: url('images/logos-sprite.png') no-repeat;
     font-size: 0;
     text-decoration: none;
 
     @include adapt_retina {
         background-image: url('images/logos-sprite@2x.png');
-        background-size: 150px 100px;
-    }
-
-    &:hover {
-        opacity: 1;
+        background-size: 200px 100px;
     }
 }

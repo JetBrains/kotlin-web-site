@@ -53,6 +53,11 @@
   type: Android App
   link: https://github.com/dodyg/AndroidRivers
 
+- name: Stew
+  description: A simple Android app for soup.io
+  type: Android App
+  url: https://github.com/exviva/stew
+
 - name: RxKotlin 
   description: Kotlin Bindings for RxJava
   type: Library
@@ -131,10 +136,54 @@
 - name: Kobalt
   description: A build system written in Kotlin
   type: Build system
-  link: https://beust.com/kobalt
+  link: http://beust.com/kobalt
 
 - name: Klaxon
   description: A JSON library written in Kotlin
   type: Library
-  link: https://beust.com/klaxon
+  link: http://beust.com/klaxon
 
+- name: Result
+  description: The modelling for success/failure of operations in Kotlin
+  type: Library
+  link: https://github.com/kittinunf/Result
+
+- name: ext4klaxon
+  description: Type Extensions (Long, Int, Enum, Date) for Klaxon
+  type: Library
+  link: https://github.com/fboldog/ext4klaxon
+  
+- name: Bubble
+  description: Library for obtaining screen orientation when orientation is blocked in AndroidManifest
+  type: Library
+  link: https://github.com/TouK/bubble
+
+- name: HamKrest
+  description: Self-describing matchers for testing and validation (a port of Java's Hamcrest to Kotlin)
+  type: Library
+  link: https://github.com/npryce/hamkrest
+
+- name: Kotpref
+  description: Android SharedPreference delegation for Kotlin
+  type: Library
+  link: https://github.com/chibatching/Kotpref
+
+- name: KotliQuery
+  description: A handy database access library in Kotlin
+  type: Library
+  link: https://github.com/seratch/kotliquery
+
+- name: Zipangu
+  description: Easy to handle the information in the prefectures of Japan in Kotlin
+  type: Library
+  link: https://github.com/sakebook/Zipangu
+
+- name: knit
+  description: JUnit API set for Kotlin
+  type: Library
+  link: https://github.com/ntaro/knit
+
+- name: khronos
+  description: An intuitive Date extensions in Kotlin
+  type: Library
+  link: https://github.com/hotchemi/khronos

@@ -4,7 +4,6 @@
 @import '../_bits/_button';
 @import '_lib';
 
-
 .kotlin-overview-section {
     padding-top: $unit*4;
     padding-bottom: $unit*4;
@@ -116,12 +115,18 @@
                 cursor: pointer;
             }
 
-            &._tooling {}
-            &._concise {}
-            &._expressive {}
-            &._safe {}
-            &._versatile {}
-            &._interoperable {}
+            &._tooling {
+            }
+            &._concise {
+            }
+            &._expressive {
+            }
+            &._safe {
+            }
+            &._versatile {
+            }
+            &._interoperable {
+            }
         }
 
         .feature-image {
@@ -135,7 +140,7 @@
             margin: 0 0 $unit*3;
 
             &:after {
-                @include linear-gradient($from: rgba(255,255,255,1), $to: rgba(255,255,255,0));
+                @include linear-gradient($from: rgba(255, 255, 255, 1), $to: rgba(255, 255, 255, 0));
                 position: absolute;
                 opacity: 0.3;
                 top: 0;
@@ -161,12 +166,36 @@
                 background-size: 100px 600px;
             }
 
-            &._tooling {width: 47px; height: 47px; background-position: 0 0;}
-            &._concise {width: 31px; height: 56px; background-position: 0 -100px;}
-            &._expressive {width: 79px; height: 55px; background-position: 0 -200px;}
-            &._safe {width: 39px; height: 59px; background-position: 0 -300px;}
-            &._versatile {width: 58px; height: 57px; background-position: 0 -400px;}
-            &._interoperable {width: 55px; height: 72px; background-position: 0 -500px;}
+            &._tooling {
+                width: 47px;
+                height: 47px;
+                background-position: 0 0;
+            }
+            &._concise {
+                width: 31px;
+                height: 56px;
+                background-position: 0 -100px;
+            }
+            &._expressive {
+                width: 79px;
+                height: 55px;
+                background-position: 0 -200px;
+            }
+            &._safe {
+                width: 39px;
+                height: 59px;
+                background-position: 0 -300px;
+            }
+            &._versatile {
+                width: 58px;
+                height: 57px;
+                background-position: 0 -400px;
+            }
+            &._interoperable {
+                width: 55px;
+                height: 72px;
+                background-position: 0 -500px;
+            }
         }
 
         .feature-title-pre-text {
@@ -346,15 +375,35 @@
         color: #9ebdd9;
         white-space: pre;
 
-        .generic-code {color: #9ebdd9;}
-        .keyword {color: #ff8b17;}
-        .class-name {color: #9ebdd9;}
-        .func-name {color: #ffcf7f;}
-        .buildin-func-name {color: #b1c4d8; font-weight: bold; font-style: italic;}
-        .string-literal {color: #78a35f;}
-        .var-name {color: #a165cb;}
-        .number {color: #3489ca;}
-        .string-literal-var-substitution {color: #ff8b17;}
+        .generic-code {
+            color: #9ebdd9;
+        }
+        .keyword {
+            color: #ff8b17;
+        }
+        .class-name {
+            color: #9ebdd9;
+        }
+        .func-name {
+            color: #ffcf7f;
+        }
+        .buildin-func-name {
+            color: #b1c4d8;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .string-literal {
+            color: #78a35f;
+        }
+        .var-name {
+            color: #a165cb;
+        }
+        .number {
+            color: #3489ca;
+        }
+        .string-literal-var-substitution {
+            color: #ff8b17;
+        }
     }
 
     .code-legend {
@@ -450,10 +499,9 @@
     border-top: 1px solid #343537;
     border-bottom: 3px solid #4f4f4e;
     padding-bottom: 2px;
-    box-shadow:
-        inset 0 1px 0 0 #5e5f60,
-        inset 0 -3px 10px 0px rgba(0,0,0, 0.4),
-        0 1px 0 0 #444548;
+    box-shadow: inset 0 1px 0 0 #5e5f60,
+    inset 0 -3px 10px 0px rgba(0, 0, 0, 0.4),
+    0 1px 0 0 #444548;
     font-size: 0;
 
     &:before {
@@ -481,9 +529,8 @@
         border: 1px solid #343537;
         margin: -1px 0 0 -1px;
         background-color: #4c5052;
-        box-shadow:
-            inset 1px 1px 0 #494d4f,
-            inset -1px -1px 0 #494d4f;
+        box-shadow: inset 1px 1px 0 #494d4f,
+        inset -1px -1px 0 #494d4f;
         font-size: $base-font-size;
         color: #d3d3d3;
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
@@ -496,9 +543,8 @@
         &.is_active {
             @include linear-gradient($from: #646464, $to: #4f4f4e);
             cursor: default;
-            box-shadow:
-                inset 1px 1px 1px 0 rgba(255,255,255, 0.2),
-                inset -4px 0 1px -2px rgba(255,255,255, 0.2);
+            box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2),
+            inset -4px 0 1px -2px rgba(255, 255, 255, 0.2);
             background-color: #4F4F4E;
             border-width: 0;
             margin: 0;
@@ -518,9 +564,8 @@
 
             &:last-child {
                 border-right-width: 1px;
-                box-shadow:
-                    inset 1px 1px 1px 0 rgba(255,255,255, 0.2),
-                    inset -3px 0 1px -2px rgba(255,255,255, 0.2);
+                box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2),
+                inset -3px 0 1px -2px rgba(255, 255, 255, 0.2);
             }
         }
     }
@@ -583,7 +628,7 @@
             margin-bottom: 40px;
             color: #fff;
             text-align: center;
-            text-shadow: 0 1px 1px rgba(0,0,0, 0.5);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 
             .title {
                 display: block;
@@ -608,10 +653,10 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background-color: rgba(0,0,0, 0.15);
+            background-color: rgba(0, 0, 0, 0.15);
         }
         .video-thumb-link:hover .video-thumb-cover {
-            background-color: rgba(0,0,0, 0.001);
+            background-color: rgba(0, 0, 0, 0.001);
         }
 
         .video-player-play-button {
@@ -689,8 +734,10 @@
                 box-shadow: 0px 0px 9px 3px #84b5e6;
             }
 
-            &._standalone-compiler {}
-            &._intellij-idea {}
+            &._standalone-compiler {
+            }
+            &._intellij-idea {
+            }
         }
 
         .option-image {
@@ -701,6 +748,10 @@
             height: 104px;
             background-color: #F2F2F2;
             border-radius: 50px;
+
+            .jetbrains-logo._logo-intellij-idea._size-2 {
+                margin: 22px;
+            }
         }
 
         .option-image:after {
@@ -725,11 +776,7 @@
             height: 58px;
             background-position: 0 0;
         }
-        .option-image._intellij-idea:after {
-            width: 50px;
-            height: 50px;
-            background-position: 0 -100px;
-        }
+
         .option-image._source-code:after {
             width: 50px;
             height: 47px;
@@ -742,10 +789,9 @@
             background-position: 0 -200px;
         }
 
-      .option-title-pre-text {
+        .option-title-pre-text {
             @extend %kotlin-overview-pre-text;
         }
-
 
         .option-title {
             font-size: 21px;
@@ -828,7 +874,7 @@
                 @include adapt_retina {
                     background-image: url('images/kotlin-community-sprite@2x.png');
                     background-size: 100px 200px;
-                };
+                }
             }
             &._blog:after {
                 width: 48px;
@@ -851,9 +897,11 @@
             }
 
             &._issue-tracker:after {
-                width: 48px;
-                height: 48px;
-                background-position: 0 -150px;
+                display: none;
+            }
+
+            .jetbrains-logo._logo-youtrack._size-2 {
+                margin: 22px;
             }
         }
 

@@ -7,9 +7,9 @@ title: "Type-Safe Groovy-Style Builders"
 
 # Type-Safe Builders
 
-The concept of [builders](http://groovy.codehaus.org/Builders) is rather popular in the *Groovy* community. 
-Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://groovy.codehaus.org/GroovyMarkup), 
-[laying out UI components](http://groovy.codehaus.org/GroovySWT), 
+The concept of [builders](http://www.groovy-lang.org/dsls.html#_nodebuilder) is rather popular in the *Groovy* community.
+Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://www.groovy-lang.org/processing-xml.html#_creating_xml), 
+[laying out UI components](http://www.groovy-lang.org/swing.html), 
 [describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081) and more...
 
 For many use cases, Kotlin allows to *type-check* builders, which makes them even more attractive than the 
@@ -19,7 +19,7 @@ For the rest of the cases, Kotlin supports Dynamic types builders.
 
 ## A type-safe builder example
 
-Consider the following code that is taken from [here](http://groovy.codehaus.org/Builders) and slightly adapted:
+Consider the following code:
 
 ``` kotlin
 import com.example.html.* // see declarations below
@@ -55,7 +55,7 @@ fun result(args: Array<String>) =
   }
 ```
 
-This is a completely legitimate Kotlin code. 
+This is completely legitimate Kotlin code.
 You can play with this code online (modify it and run in the browser) [here](http://try.kotlinlang.org/#/Examples/Longer examples/HTML Builder/HTML Builder.kt).
 
 ## How it works
@@ -74,8 +74,8 @@ html {
 }
 ```
 
-This is actually a function call that takes a [function literal](lambdas.html) as an argument
-(see [this page](lambdas.html#higher-order-functions) for details). Actually, this function is defined as follows:
+`html` is actually a function call that takes a [lambda expression](lambdas.html) as an argument
+This function is defined as follows:
 
 ``` kotlin
 fun html(init: HTML.() -> Unit): HTML {
@@ -86,9 +86,10 @@ fun html(init: HTML.() -> Unit): HTML {
 ```
 
 This function takes one parameter named `init`, which is itself a function.
-Actually, it is an [extension function](extensions.html) that has a receiver of type `HTML` (and returns nothing interesting, i.e. `Unit`).
-So, when we pass a function literal as an argument to `html`, it is typed as an extension function literal,
-and there's a *this*{: .keyword } reference available:
+The type of the function is `HTML.() -> Unit`, which is a _function type with receiver_.
+This means that we need to pass an instance of type `HTML` (a _receiver_) to the function,
+and we can call members of that instance inside the function.
+The receiver can be accessed through the *this*{: .keyword } keyword:
 
 ``` kotlin
 html {
@@ -135,7 +136,7 @@ fun body(init: Body.() -> Unit) : Body {
 Actually these two functions do just the same thing, so we can have a generic version, `initTag`:
 
 ``` kotlin
-  protected fun initTag<T : Element>(tag: T, init: T.() -> Unit): T {
+  protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
     tag.init()
     children.add(tag)
     return tag
@@ -165,11 +166,11 @@ html {
 ```
 
 So basically, we just put a string inside a tag body, but there is this little `+` in front of it,
-so it is a function call that invokes a prefix `plus()` operation. 
-That operation is actually defined by an extension function `plus()` that is a member of the `TagWithText` abstract class (a parent of `Title`):
+so it is a function call that invokes a prefix `unaryPlus()` operation.
+That operation is actually defined by an extension function `unaryPlus()` that is a member of the `TagWithText` abstract class (a parent of `Title`):
 
 ``` kotlin
-fun String.plus() {
+fun String.unaryPlus() {
   children.add(TextElement(this))
 }
 ```
@@ -183,8 +184,8 @@ In the next section you can read through the full definition of this package.
 ## Full definition of the `com.example.html` package
 
 This is how the package `com.example.html` is defined (only the elements used in the example above).
-It builds an HTML tree. It makes heavy use of [Extension functions](extensions.html) and
-[Extension function literals](lambdas.html#extension-function-expressions).
+It builds an HTML tree. It makes heavy use of [extension functions](extensions.html) and
+[lambdas with receiver](lambdas.html#function-literals-with-receiver).
 
 <a name='declarations'></a>
 
@@ -193,25 +194,19 @@ package com.example.html
 
 interface Element {
     fun render(builder: StringBuilder, indent: String)
-
-    override fun toString(): String {
-        val builder = StringBuilder()
-        render(builder, "")
-        return builder.toString()
-    }
 }
 
-class TextElement(val text: String): Element {
+class TextElement(val text: String) : Element {
     override fun render(builder: StringBuilder, indent: String) {
         builder.append("$indent$text\n")
     }
 }
 
-abstract class Tag(val name: String): Element {
+abstract class Tag(val name: String) : Element {
     val children = arrayListOf<Element>()
     val attributes = hashMapOf<String, String>()
 
-    protected fun initTag<T: Element>(tag: T, init: T.() -> Unit): T {
+    protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
         tag.init()
         children.add(tag)
         return tag
@@ -227,32 +222,39 @@ abstract class Tag(val name: String): Element {
 
     private fun renderAttributes(): String? {
         val builder = StringBuilder()
-        for (a in attributes.keySet()) {
+        for (a in attributes.keys) {
             builder.append(" $a=\"${attributes[a]}\"")
         }
         return builder.toString()
     }
+
+
+    override fun toString(): String {
+        val builder = StringBuilder()
+        render(builder, "")
+        return builder.toString()
+    }
 }
 
-abstract class TagWithText(name: String): Tag(name) {
-    operator fun String.plus() {
+abstract class TagWithText(name: String) : Tag(name) {
+    operator fun String.unaryPlus() {
         children.add(TextElement(this))
     }
 }
 
-class HTML(): TagWithText("html") {
+class HTML() : TagWithText("html") {
     fun head(init: Head.() -> Unit) = initTag(Head(), init)
 
     fun body(init: Body.() -> Unit) = initTag(Body(), init)
 }
 
-class Head(): TagWithText("head") {
+class Head() : TagWithText("head") {
     fun title(init: Title.() -> Unit) = initTag(Title(), init)
 }
 
-class Title(): TagWithText("title")
+class Title() : TagWithText("title")
 
-abstract class BodyTag(name: String): TagWithText(name) {
+abstract class BodyTag(name: String) : TagWithText(name) {
     fun b(init: B.() -> Unit) = initTag(B(), init)
     fun p(init: P.() -> Unit) = initTag(P(), init)
     fun h1(init: H1.() -> Unit) = initTag(H1(), init)
@@ -262,12 +264,12 @@ abstract class BodyTag(name: String): TagWithText(name) {
     }
 }
 
-class Body(): BodyTag("body")
+class Body() : BodyTag("body")
+class B() : BodyTag("b")
+class P() : BodyTag("p")
+class H1() : BodyTag("h1")
 
-class B(): BodyTag("b")
-class P(): BodyTag("p")
-class H1(): BodyTag("h1")
-class A(): BodyTag("a") {
+class A() : BodyTag("a") {
     public var href: String
         get() = attributes["href"]!!
         set(value) {

@@ -97,10 +97,10 @@
     background-color: #FFB62D; }
 
 .global-header {
-  background-image: -moz-linear-gradient(#6481a1, #4e7196);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6481a1), to(#4e7196));
-  background-image: -webkit-linear-gradient(#6481a1, #4e7196);
-  background-image: -o-linear-gradient(#6481a1, #4e7196);
+  background-image: -moz-linear-gradient(#6481A1, #4E7196);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6481A1), to(#4E7196));
+  background-image: -webkit-linear-gradient(#6481A1, #4E7196);
+  background-image: -o-linear-gradient(#6481A1, #4E7196);
   background-color: #6481A1;
   background-position: center top;
   background-repeat: no-repeat;
@@ -121,6 +121,22 @@
   .global-header .kotlin-info {
     padding-top: 120px;
     text-align: left; }
+  .global-header .release-banner {
+    display: inline-block;
+    color: white;
+    background: rgba(103, 133, 163, 0.4);
+    opacity: 0.9;
+    height: 54px;
+    line-height: 52px;
+    padding: 0 50px;
+    margin-left: 250px;
+    font-family: "GraublauSlab Regular", Georgia, serif;
+    font-size: 28px;
+    border-radius: 3px; }
+  .global-header .release-banner__link {
+    color: white;
+    margin-left: 15px;
+    font-size: 18px; }
   .global-header .kotlin-info-description {
     margin-bottom: 24px;
     color: #fff;
@@ -167,17 +183,16 @@
   -o-transition: 0.3s all;
   transition: 0.3s all;
   position: relative;
-  opacity: 0.8;
-  top: 0;
+  top: 12px;
   float: left;
-  width: 129px;
-  height: 43px;
+  width: 103px;
+  height: 22px;
   background: url("images/logos-sprite.png") no-repeat;
   font-size: 0;
   text-decoration: none; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .global-header-logo {
       background-image: url("images/logos-sprite@2x.png");
-      background-size: 150px 100px; } }
-  .global-header-logo:hover {
-    opacity: 1; }
+      background-size: 200px 100px; } }
+
+/*# sourceMappingURL=header.css.map */

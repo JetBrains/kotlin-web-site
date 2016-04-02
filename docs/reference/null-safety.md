@@ -9,7 +9,7 @@ title: "Null Safety"
 
 ## Nullable types and Non-Null Types
 
-Kotlin's type system is aimed at eliminating null references from code, also known as the [The Billion Dollar Mistake](http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions)
+Kotlin's type system is aimed at eliminating the danger of null references from code, also known as the [The Billion Dollar Mistake](http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions).
 
 One of the most common pitfalls in many programming languages, including Java is that of accessing a member of a null references, resulting in null reference exceptions. In Java this
 would be the equivalent of a `NullPointerException` or NPE for short.
@@ -17,10 +17,11 @@ would be the equivalent of a `NullPointerException` or NPE for short.
 Kotlin's type system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE's may be
 
 * An explicit call to `throw NullPointerException()`
+* Usage of the `!!` operator that is described below
 * External Java code has caused it
 * There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere)
 
-In Kotlin the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that can not (non-null references).
+In Kotlin, the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that can not (non-null references).
 For example, a regular variable of type `String` can not hold *null*{: .keyword }:
 
 ``` kotlin

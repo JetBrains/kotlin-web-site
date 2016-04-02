@@ -60,8 +60,8 @@ e.g. `String::toCharArray` gives us an extension function for type `String`: `St
 Consider the following function:
 
 ``` kotlin
-fun compose<A, B, C>(f: (B) -> C, g: (A) -> B): (A) -> C {
-    return {x -> f(g(x))}
+fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
+    return { x -> f(g(x)) }
 }
 ```
 
@@ -94,10 +94,17 @@ fun main(args: Array<String>) {
 
 The expression `::x` evaluates to a property object of type `KProperty<Int>`, which allows us to read its
 value using `get()` or retrieve the property name using the `name` property. For more information, please refer to
-the [docs on the `KProperty` class](/api/latest/jvm/stdlib/kotlin.reflect/-k-property.html).
+the [docs on the `KProperty` class](/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html).
 
-For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property.html),
-which has a `set()` method.
+For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html),
+which has a `set()` method.                     
+
+A property reference can be used where a function with no parameters is expected:
+ 
+``` kotlin
+val strs = listOf("a", "bc", "def")
+println(strs.map(String::length)) // prints [1, 2, 3]
+```
 
 To access a property that is a member of a class, we qualify it:
 

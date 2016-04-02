@@ -73,6 +73,16 @@ recommended to use *withKotlin* task
 </project>
 ```
 
+To specify additional command line arguments for `<withKotlin>`, you can use a nested `<compilerArg>` parameter.
+The full list of arguments that can be used is shown when you run `kotlinc -help`.
+You can also specify the name of the module being compiled as the `moduleName` attribute:
+
+``` xml
+<withKotlin moduleName="myModule">
+    <compilerarg value="-no-stdlib"/>
+</withKotlin>
+```
+
 
 ## Targeting JavaScript with single source folder
 
@@ -120,24 +130,30 @@ result of translation.
 
 Complete list of elements and attributes are listed below
 
-### kotlinc Attributes
+### Attributes common for kotlinc and kotlin2js
 
 | Name | Description | Required | Default Value |
 |------|-------------|----------|---------------|
 | `src`  | Kotlin source file or directory to compile | Yes |  |
+| `nowarn` | Suppresses all compilation warnings | No | false |
+| `noStdlib` | Does not include the Kotlin standard library into the classpath | No | false |
+| `failOnError` | Fails the build if errors are detected during the compilation | No | true |
+
+### kotlinc Attributes
+
+| Name | Description | Required | Default Value |
+|------|-------------|----------|---------------|
 | `output`  | Destination directory or .jar file name | Yes |  |
 | `classpath`  | Compilation class path | No |  |
 | `classpathref`  | Compilation class path reference | No |  |
-| `stdlib`  | Path to "kotlin-runtime.jar" | No | ""  |
 | `includeRuntime`  | If `output` is a .jar file, whether Kotlin runtime library is included in the jar | No | true  |
-
+| `moduleName` | Name of the module being compiled | No | The name of the target (if specified) or the project |
 
 
 ### kotlin2js Attributes
 
 | Name | Description | Required |
 |------|-------------|----------|
-| `src`  | Kotlin source file or directory to compile | Yes |
 | `output`  | Destination file | Yes |
 | `library`  | Library files (kt, dir, jar) | No |
 | `outputPrefix`  | Prefix to use for generated JavaScript files | No |

@@ -20,19 +20,19 @@ The Kotlin Android Extensions plugin allows us to obtain the same experience we 
 In essence, this would allow for the following code:
 
 ``` kotlin
-// Using R.layout.main
-import kotlinx.android.synthetic.main.*
+// Using R.layout.activity_main from the main source set
+import kotlinx.android.synthetic.main.activity_main.*
 
 public class MyActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main)
+        setContentView(R.layout.activity_main)
         textView.setText("Hello, world!") // Instead of findView(R.id.textView) as TextView
     }
 }
 ```
 
-`textView` is an extension property for `Activity`, and it has the same type as declared in `main.xml`.
+`textView` is an extension property for `Activity`, and it has the same type as declared in `activity_main.xml`.
 
 ### Using Kotlin Android Extensions
 
@@ -40,31 +40,25 @@ public class MyActivity : Activity() {
 
 {{ site.text_using_gradle }}
 
-The IDE [plugin](https://plugins.jetbrains.com/plugin?pluginId=7717) is available for both IntelliJ IDEA (Ultimate and Community Editions) as well as Android Studio.
+Android Extensions is a part of the Kotlin IDEA plugin. You do not need to install additional plugins.
 
-Also, we need to add a buildscript dependency called `kotlin-android-extensions` to the application build file (usually `app/build.gradle`):
+All you need is to enable the Android Extensions Gradle plugin in your project-local `build.gradle` file:
 
 ``` groovy
-buildscript {
-    dependencies {
-        classpath 'org.jetbrains.kotlin:kotlin-android-extensions:<version>'
-    }
-}
+apply plugin: 'kotlin-android-extensions'
 ```
-
-A plugin for Gradle is available on Maven Central.
 
 #### Importing synthetic properties
 
 It is convenient to import all widget properties for a specific layout in one go:
 
 ``` kotlin
-import kotlinx.android.synthetic.<layout>.*
+import kotlinx.android.synthetic.main.<layout>.*
 ```
 
-Thus if the layout filename is `main.xml`, we'd import `kotlinx.android.synthetic.main.*`.
+Thus if the layout filename is `activity_main.xml`, we'd import `kotlinx.android.synthetic.main.activity_main.*`.
 
-If we want to call the synthetic properties on `View` (useful in adapter classes), we should also import `kotlinx.android.synthetic.main.view.*`.
+If we want to call the synthetic properties on `View` (useful in adapter classes), we should also import `kotlinx.android.synthetic.main.activity_main.view.*`.
 
 Once we do that, we can then invoke the corresponding extensions, which are properties named after the views in the XML file. 
 For example, for this view:
@@ -84,7 +78,25 @@ There will be property named `hello`:
 activity.hello.setText("Hi!")
 ```
 
+### Android Flavors
 
+Android Extensions plugin supports Android flavors. Suppose you have a flavor named `free` in your `build.gradle` file:
+
+```
+android {
+    productFlavors {
+        free {
+            versionName "1.0-free"
+        }
+    }
+}
+```
+
+So you can import all synthetic properties for the `free/res/layout/activity_free.xml` layout by adding this import:
+
+```kotlin
+import kotlinx.android.synthetic.free.activity_free.*
+```
 
 ### Under the hood
 

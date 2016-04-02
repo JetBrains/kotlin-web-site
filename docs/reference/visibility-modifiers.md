@@ -5,105 +5,108 @@ category: "Classes and Objects"
 title: "Visibility Modifiers"
 ---
 
-# 可視性修飾子
+# Visibility Modifiers
 
-クラス、オブジェクト、インタフェース、コンストラクタ、関数、プロパティ、そしてセッターは _可視性修飾子 (visibility modifiers)_ を持つ。
-（ゲッターは常にプロパティと同じ可視性を持つ。）
-Kotlinには4つの可視性修飾子がある： `private` 、 `protected` 、 `internal` 、 `public` である。
-デフォルトの可視性は明示的修飾子が無い場合に使われる `public` である。
+Classes, objects, interfaces, constructors, functions, properties and their setters can have _visibility modifiers_.
+(Getters always have the same visibility as the property.) 
+There are four visibility modifiers in Kotlin: `private`, `protected`, `internal` and `public`.
+The default visibility, used if there is no explicit modifier, is `public`.
 
-これらの型宣言のスコープの違いは、後述する。
-
-## パッケージ
-
-関数、プロパティ、クラス、オブジェクトそしてインタフェースは"トップレベル"で宣言することができる。すなわち、パッケージの中に直接宣言することができる：
-
+Below please find explanations of these for different type of declaring scopes.
+  
+## Packages
+  
+Functions, properties and classes, objects and interfaces can be declared on the "top-level", i.e. directly inside a package:
+  
 ``` kotlin
-// ファイル名： example.kt
+// file name: example.kt
 package foo
 
 fun baz() {}
 class Bar {}
 ```
 
-* 可視性修飾子を指定しなければ、宣言がどこからでも見える `public` がデフォルトとして使用される。
-* `private` として宣言すれば、その宣言を含むファイル中でのみ見える
-* `internal` として宣言すれば、同じモジュールのどこからでも見える
-* `protected` はトップレベル宣言では有効ではない
+* If you do not specify any visibility modifier, `public` is used by default, which means that your declarations will be
+visible everywhere;
+* If you mark a declaration `private`, it will only be visible inside the file containing the declaration;
+* If you mark it `internal`, it is visible everywhere in the same module;
+* `protected` is not available for top-level declarations.
 
-例：
+Examples:
 
 ``` kotlin
-// ファイル名： example.kt
+// file name: example.kt
 package foo
 
-private fun foo() {} // example.ktの中で見える
+private fun foo() {} // visible inside example.kt
 
-public var bar: Int = 5 // プロパティはどこからでも見える
-    private set         // セッターはexample.ktの中でのみ見える
-
-internal val baz = 6    // 同じモジュール内で見える
+public var bar: Int = 5 // property is visible everywhere
+    private set         // setter is visible only in example.kt
+    
+internal val baz = 6    // visible inside the same module
 ```
 
-## クラスと継承
+## Classes and Interfaces
 
 When declared inside a class:
-クラスの中で宣言した場合：
 
-* `private` --- そのクラス内（全てのメンバを含む）でのみ見える
-* `protected` --- `private` と同じ + サブクラスでも見える
-* `internal` ---  その宣言したクラスを見る *そのモジュール内の* 任意のクライアントはその内部メンバが見える
-* `public` --- その宣言クラスを見る任意のクライアントは `public` のメンバが見える
+* `private` means visible inside this class only (including all its members);
+* `protected` --- same as `private` + visible in subclasses too;
+* `internal` --- any client *inside this module* who sees the declaring class sees its `internal` members;
+* `public` --- any client who sees the declaring class sees its `public` members.
 
-*注意* Javaユーザへ：Kotlinでは、外部クラス (outer class) はその内部クラス (inner class) のprivateメンバが見えない。
-
-例：
+*NOTE* for Java users: outer class does not see private members of its inner classes in Kotlin.
+ 
+Examples:
 
 ``` kotlin
 open class Outer {
     private val a = 1
     protected val b = 2
     internal val c = 3
-    val d = 4  // デフォルトでpublic
-
+    val d = 4  // public by default
+    
     protected class Nested {
         public val e: Int = 5
     }
 }
 
 class Subclass : Outer() {
-    // aは見えない
-    // b, c, dは見える
-    // Nestedとeは見える
+    // a is not visible
+    // b, c and d are visible
+    // Nested and e are visible
 }
 
 class Unrelated(o: Outer) {
-    // o.a, o.b は見えない
-    // o.c と o.d は見える（同じモジュール）
-    // Outer.Nested は見えないし、 Nested::e も見えない
+    // o.a, o.b are not visible
+    // o.c and o.d are visible (same module)
+    // Outer.Nested is not visible, and Nested::e is not visible either 
 }
 ```
 
-### コンストラクタ
+### Constructors
 
-クラスの主コンストラクタの可視性を指定したい場合は、次の構文を使うと良い（明示的に *constructor*{: .keyword } キーワードを付加しなければならないことに注意）：
+To specify a visibility of the primary constructor of a class, use the following syntax (note that you need to add an
+explicit *constructor*{: .keyword } keyword):
 
 ``` kotlin
 class C private constructor(a: Int) { ... }
 ```
 
-このコンストラクタはprivateである。デフォルトでは、全てのコンストラクタは `public` である。クラスが見える場所全てから可観測であることは有効的である（すなわち、 `internal` クラスのコンストラクタはそのモジュール内でのみ見える）。
+Here the constructor is private. By default, all constructors are `public`, which effectively
+amounts to them being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only 
+visible within the same module).
+     
+### Local declarations
+     
+Local variables, functions and classes can not have visibility modifiers.
 
-### 局所的宣言（Local declarations）
 
-ローカル変数、ローカル関数、ローカルクラスは可視性修飾子を持てない。
+## Modules
 
+The `internal` visibility modifier means that the member is visible with the same module. More specifically,
+a module is a set of Kotlin files compiled together:
 
-## モジュール
-
-`internal` 可視性修飾子はメンバが同じモジュールで見えることを意味する。
-具体的には、複数のKotlinファイルで構成される1つのモジュールは一緒にコンパイルされる：
-
-  * IntelliJ IDEAのモジュール
-  * Maven や Gradle のプロジェクト
-  * Antタスクの1つの呼び出しで複数のファイルがコンパイルされる
+  * an IntelliJ IDEA module;
+  * a Maven or Gradle project;
+  * a set of files compiled with one invocation of the <kotlinc> Ant task.

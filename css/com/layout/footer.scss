@@ -48,14 +48,14 @@
             display: inline-block;
             vertical-align: middle;
             margin-left: 3px;
-            width: 75px;
-            height: 27px;
+            width: 48px;
+            height: 48px;
             background: url('images/logos-sprite.png') no-repeat 0 -50px;
             font-size: 0;
 
             @include adapt_retina {
                 background-image: url('images/logos-sprite@2x.png');
-                background-size: 150px 100px;
+                background-size: 200px 100px;
             }
 
             &:hover {

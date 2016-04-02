@@ -18,27 +18,28 @@ exclude:
   - README.md
   - notes.txt
   - LICENSE
+  - node_modules
 
 include:
   - js
 
 # Site Settings
-baseurl: /kotlin-web-site-ja
-code_baseurl: https://github.com/dogwood008/kotlin-web-site-ja/tree/master/code
+baseurl:
+code_baseurl: https://github.com/JetBrains/kotlin-web-site/tree/master/code
 
 # Custom Settings
 github_url: https://github.com/JetBrains/kotlin
-twitter_url: https://twitter.com/dogwood008
+twitter_url: https://twitter.com/kotlin
 forum_url: http://devnet.jetbrains.com/community/kotlin
-site_github_url: http://github.com/dogwood008/kotlin-web-site-ja
-edit_on_github_url: https://github.com/dogwood008/kotlin-web-site-ja/edit/master/%path%
-pdf_url: /kotlin-web-site-ja/kotlin-docs.pdf
+site_github_url: http://github.com/JetBrains/kotlin-web-site
+edit_on_github_url: https://github.com/JetBrains/kotlin-web-site/edit/master/%path%
+pdf_url: /docs/kotlin-docs.pdf
 img_tutorial_root: assets/images/tutorials
 
 grammar_file_path: grammar.xml
 
 # Analytics and webmaster tools stuff goes here
-google_analytics: UA-68403381-2
+google_analytics: UA-940435-32
 google_verify:
 
 

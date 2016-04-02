@@ -6,20 +6,29 @@ title: "Using Gradle"
 
 # Using Gradle
 
+In order to build Kotlin with Gradle you should [set up the *kotlin-gradle* plugin](#plugin-and-versions), [apply it](#targeting-the-jvm) to your project and [add *kotlin-stdlib* dependencies](#configuring-dependencies). Those actions may also be performed automatically in IntelliJ IDEA by invoking the Tools | Kotlin | Configure Kotlin in Project action.
+
 ## Plugin and Versions
 
 The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
 
-Define the version of Kotlin we want to use via *kotlin.version*. The possible values are:
+The version of Kotlin to use is usually defined as the *kotlin_version* property:
 
-* X.Y-SNAPSHOT: Correspond to snapshot version for X.Y releases, updated with every successful build on the CI server. These versions are not really stable and are
-only recommended for testing new compiler features. Currently all builds are published as 0.1-SNAPSHOT. To use a snapshot, we need to [configure a snapshot repository
-in the build.gradle file](#using-snapshot-versions).
+``` groovy
+buildscript {
+   ext.kotlin_version = '<version to use>'
 
-* X.Y.Z: Correspond to release or milestone versions X.Y.Z, updated manually. These are stable builds. Release versions are published to Maven Central Repository. No extra configuration
-is needed in the build.gradle file.
+   repositories {
+     mavenCentral()
+   }
 
-The correspondence between milestones and versions is displayed below:
+   dependencies {
+     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+   }
+}
+```
+
+The correspondence between Kotlin releases and versions is displayed below:
 
 <table>
 <thead>
@@ -125,15 +134,16 @@ This lets Android Studio know that the kotlin directory is a source root, so whe
 
 ## Configuring Dependencies
 
-We need to add dependencies on kotlin-gradle-plugin and the Kotlin standard library:
+In addition to the kotlin-gradle-plugin dependency shown above, you need to add a dependency on the Kotlin standard library:
 
 ``` groovy
 buildscript {
+   ext.kotlin_version = '<version to use>'
   repositories {
     mavenCentral()
   }
   dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:<version>'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
 }
 
@@ -144,39 +154,15 @@ repositories {
 }
 
 dependencies {
-  compile 'org.jetbrains.kotlin:kotlin-stdlib:<version>'
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 ```
 
-## Using Snapshot versions
-
-If we want to use a snapshot version (nightly build), we need to add the snapshot repository and change the version to 0.1-SNAPSHOT:
+If your project uses Kotlin reflection or testing facilities, you need to add the corresponding dependencies as well:
 
 ``` groovy
-buildscript {
-  repositories {
-    mavenCentral()
-    maven {
-      url 'http://oss.sonatype.org/content/repositories/snapshots'
-    }
-  }
-  dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:0.1-SNAPSHOT'
-  }
-}
-
-apply plugin: "kotlin" // or apply plugin: "kotlin2js" if targeting JavaScript
-
-repositories {
-  mavenCentral()
-  maven {
-    url 'http://oss.sonatype.org/content/repositories/snapshots'
-  }
-}
-
-dependencies {
-  compile 'org.jetbrains.kotlin:kotlin-stdlib:0.1-SNAPSHOT'
-}
+compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
 ```
 
 

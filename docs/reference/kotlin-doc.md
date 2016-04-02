@@ -11,6 +11,15 @@ The language used to document Kotlin code (the equivalent of Java's JavaDoc) is 
 combines JavaDoc's syntax for block tags (extended to support Kotlin's specific constructs) and Markdown for
 inline markup.
 
+## Generating the Documentation
+
+Kotlin's documentation generation tool is called [Dokka](https://github.com/Kotlin/dokka). See the
+[Dokka README](https://github.com/Kotlin/dokka/blob/master/README.md) for usage instructions.
+
+Dokka has plugins for Gradle, Maven and Ant, so you can integrate documentation generation into your build process.
+
+## KDoc Syntax
+
 Just like with JavaDoc, KDoc comments start with `/**` and end with `*/`. Every line of the comment may begin with
 an asterisk, which is not considered part of the contents of the comment.
 

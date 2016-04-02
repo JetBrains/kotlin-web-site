@@ -48,7 +48,7 @@
     .global-footer-terms .terms-copyright a {
       color: #fff; }
       .global-footer-terms .terms-copyright a:hover {
-        color: #f47810; }
+        color: #F47810; }
   .global-footer-terms .terms-sponsor {
     position: relative;
     float: right;
@@ -60,13 +60,15 @@
       display: inline-block;
       vertical-align: middle;
       margin-left: 3px;
-      width: 75px;
-      height: 27px;
+      width: 48px;
+      height: 48px;
       background: url("images/logos-sprite.png") no-repeat 0 -50px;
       font-size: 0; }
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .global-footer-terms .terms-sponsor .sponsor_jetbrains {
           background-image: url("images/logos-sprite@2x.png");
-          background-size: 150px 100px; } }
+          background-size: 200px 100px; } }
       .global-footer-terms .terms-sponsor .sponsor_jetbrains:hover {
         opacity: 0.9; }
+
+/*# sourceMappingURL=footer.css.map */

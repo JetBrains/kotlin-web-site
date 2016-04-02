@@ -35,7 +35,7 @@ And Kotlin doesn't have any. Instead, it has two other things: declaration-site 
 First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
 First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`. 
 Why so? If List was not **invariant**, it would have been no 
-better than Java's arrays, cause the following code would have compiled and cause an exception at runtime:
+better than Java's arrays, since the following code would have compiled and caused an exception at runtime:
 
 ``` java
 // Java
@@ -126,7 +126,7 @@ To do this we provide the **out** modifier:
 
 ``` kotlin
 abstract class Source<out T> {
-  fun nextT(): T
+  abstract fun nextT(): T
 }
 
 fun demo(strs: Source<String>) {
@@ -149,7 +149,7 @@ produced. A good example of a contravariant class is `Comparable`:
 
 ``` kotlin
 abstract class Comparable<in T> {
-  fun compareTo(other: T): Int
+  abstract fun compareTo(other: T): Int
 }
 
 fun demo(x: Comparable<Number>) {
@@ -191,7 +191,7 @@ fun copy(from: Array<Any>, to: Array<Any>) {
 This function is supposed to copy items from one array to another. Let's try to apply it in practice:
 
 ``` kotlin
-val ints: Array<Int> = array(1, 2, 3)
+val ints: Array<Int> = arrayOf(1, 2, 3)
 val any = Array<Any>(3)
 copy(ints, any) // Error: expects (Array<Any>, Array<Any>)
 ```
@@ -224,11 +224,21 @@ fun fill(dest: Array<in String>, value: String) {
 
 ### Star-projections
 
-Sometimes you want to say that you know nothing about the type argument, but still want to use it in a safe way. 
-The safe way here is to say that we are dealing with an *out*\-projection 
-(the object does not consume any values of unknown types), and that this projection is with the upper bound of the corresponding parameter, i.e. `out Any?` 
-for most cases. Kotlin provides a shorthand syntax for this, that we call a **star-projection**: `Foo<*>` means `Foo<out Bar>` where `Bar`
- is the upper bound for `Foo`'s type parameter.
+Sometimes you want to say that you know nothing about the type argument, but still want to use it in a safe way.
+The safe way here is to define such a projection of the generic type, that every concrete instantiation of that generic type would be a subtype of that projection.
+
+Kotlin provides so called **star-projection** syntax for this:
+
+ - For `Foo<out T>`, where `T` is a covariant type parameter with the upper bound `TUpper`, `Foo<*>` is equivalent to `Foo<out TUpper>`. It means that when the `T` is unknown you can safely *read* values of `TUpper` from `Foo<*>`.
+ - For `Foo<in T>`, where `T` is a contravariant type parameter, `Foo<*>` is equivalent to `Foo<in Nothing>`. It means there is nothing you can *write* to `Foo<*>` in a safe way when `T` is unknown.
+ - For `Foo<T>`, where `T` is an invariant type parameter with the upper bound `TUpper`, `Foo<*>` is equivalent to `Foo<out TUpper>` for reading values and to `Foo<in Nothing>` for writing values.
+
+If a generic type has several type parameters each of them can be projected independently.
+For example, if the type is declared as `interface Function<in T, out U>` we can imagine the following star-projections:
+
+ - `Function<*, String>` means `Function<in Nothing, String>`;
+ - `Function<Int, *>` means `Function<Int, out Any?>`;
+ - `Function<*, *>` means `Function<in Nothing, out Any?>`.
 
 *Note*: star-projections are very much like Java's raw types, but safe.
 

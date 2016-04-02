@@ -4,7 +4,7 @@ layout: tutorial
 title: "Working with the Command Line Compiler"
 description: "This tutorial walks us through creating a Hello World application using the command line compiler."
 authors: Hadi Hariri
-showAuthorInfo: true
+showAuthorInfo: false
 related:
     - getting-started.md
 ---
@@ -12,8 +12,24 @@ related:
 
 Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{ site.data.releases.latest.url }}). The latest release is {{ site.data.releases.latest.version }}.
 
+#### Manual Install
 Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path. The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, OS X and Linux.
 
+#### SDKMAN!
+An easier way to install Kotlin on UNIX based systems such as OS X, Linux, Cygwin, FreeBSD and Solaris is by using [SDKMAN!](http://sdkman.io).
+Simply run the following in a terminal and follow any instructions:
+
+```
+   $ curl -s get.sdkman.io | bash
+```
+
+Next open a new terminal and install Kotlin with:
+
+```
+   $ sdk install kotlin
+```
+
+#### Homebrew
 Alternatively, on OS X you can install the compiler via [Homebrew](http://brew.sh/).
 
 ```

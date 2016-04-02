@@ -115,7 +115,7 @@ By default, the evaluation of lazy properties is **synchronized**: the value is 
 will see the same value. If the synchronization of initialization delegate is not required, so that multiple threads
 can execute it simultaneously, pass `LazyThreadSafetyMode.PUBLICATION` as a parameter to the `lazy()` function. 
 And if you're sure that the initialization will always happen on a single thread, you can use `LazyThreadSafetyMode.NONE` mode, 
-which doesn't incur any thread-safety guaratees and the related overhead.
+which doesn't incur any thread-safety guarantees and the related overhead.
 
 
 ### Observable
@@ -156,12 +156,8 @@ The handler passed to the `vetoable` is called _before_ the assignment of a new 
 One common use case is storing the values of properties in a map.
 This comes up often in applications like parsing JSON or doing other “dynamic” things.
 In this case, you can use the map instance itself as the delegate for a delegated property.
-In order for this to work, you need to import an extension accessor function `getValue()` that adapts maps to the
-delegated property API: it reads property values from the map, using property name as a key.
 
 ``` kotlin
-import kotlin.properties.getValue
-
 class User(val map: Map<String, Any?>) {
     val name: String by map
     val age: Int     by map
@@ -185,13 +181,9 @@ println(user.name) // Prints "John Doe"
 println(user.age)  // Prints 25
 ```
 
-This works also for *var*{:.keyword}’s properties if you use a `MutableMap` instead of read-only `Map`
-and import an additional extension function: `kotlin.properties.setValue`
+This works also for *var*{:.keyword}’s properties if you use a `MutableMap` instead of read-only `Map`:
 
 ``` kotlin
-import kotlin.properties.getValue
-import kotlin.properties.setValue
-
 class MutableUser(val map: MutableMap<String, Any?>) {
     var name: String by map
     var age: Int     by map

@@ -10,7 +10,7 @@ The Kotlin community is growing day by day. Join in. Take part!
 
 You can post technical questions on
 
-- [Kotlin forum on JetBrains DevNet](http://devnet.jetbrains.com/community/kotlin)
+- [Kotlin forum](https://discuss.kotlinlang.org/)
 - [Slack](http://kotlinlang.slack.com): [*get invite here*](http://kotlinslackin.herokuapp.com)
 - [StackOverflow](http://stackoverflow.com/questions/tagged/kotlin). Make sure you tag questions with **kotlin**
 - [Reddit](http://www.reddit.com/r/Kotlin/)

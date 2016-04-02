@@ -43,6 +43,9 @@ It is hosted on GitHub and we happily accept contributors
 
 Yes. The compiler emits Java byte-code. Kotlin can call Java, and Java can call Kotlin. See [Java interoperability](java-interop.html).
 
+### Which minimum Java version is required for running Kotlin code?
+
+Kotlin generates bytecode which is compatible with Java 6 or newer. This ensures that Kotlin can be used in environments such as Android, where Java 6 is the latest supported version.
 
 ### Is there tooling support?
 
@@ -59,7 +62,7 @@ Yes. You can download the standalone compiler and other builds tools from the [r
 
 ### Is Kotlin a Functional Language?
 
-Kotlin is an Object-Orientated language. However it has support for higher-order functions as well as function literals and top-level functions. In addition, there are
+Kotlin is an Object-Orientated language. However it has support for higher-order functions as well as lambda expressions and top-level functions. In addition, there are
 a good number of common functional language constructs in the standard Kotlin library (such as map, flatMap, reduce, etc.). Also, there's no clear definition on what a Functional Language is so we couldn't say Kotlin is one.
 
 ### Does Kotlin support generics?
@@ -76,10 +79,10 @@ Yes.
 
 ### Why have type declarations on the right?
 
-We believe it makes the code more readable. Besides, it enables some nice syntactic features, for instance, it is easy to leave type annotations out. Scala has also
+We believe it makes the code more readable. Besides, it enables some nice syntactic features. For instance, it is easy to leave type annotations out. Scala has also
 proven pretty well this is not a problem.
 
-### Will right-handed type declarations effect tooling?
+### Will right-handed type declarations affect tooling?
 
 No. It won't. We can still implement suggestions for variable names, etc.
 

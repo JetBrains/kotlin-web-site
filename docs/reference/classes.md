@@ -9,43 +9,46 @@ related:
     - interfaces.md
 ---
 
-# クラスと継承
+# Classes and Inheritance
 
-## クラス
+## Classes
 
-Kotlinでのクラスは *class*{: .keyword } キーワードを使用して宣言される。
+Classes in Kotlin are declared using the keyword *class*{: .keyword }:
 
 ``` kotlin
 class Invoice {
 }
 ```
 
-クラス宣言はクラス名、クラスヘッダ（その型パラメータ、主コンストラクタ等）、そしてクラス本体で構成され、波括弧で括られる。
-ヘッダと本体はどちらも必須ではない。もしクラスが本体を持たないならば、波括弧は省略できる。
+The class declaration consists of the class name, the class header (specifying its type parameters, the primary
+constructor etc.) and the class body, surrounded by curly braces. Both the header and the body are optional;
+if the class has no body, curly braces can be omitted.
 
 ``` kotlin
 class Empty
 ```
 
 
-### コンストラクタ
+### Constructors
 
-Kotlinのクラスは **主コンストラクタ（プライマリコンストラクタ）** と **従コンストラクタ（セカンダリコンストラクタ）** を持つことができる。
-主コンストラクタはクラスヘッダの一部であり、クラス名の後に続く（型引数は必須ではない）。
+A class in Kotlin can have a **primary constructor** and one or more **secondary constructors**. The primary
+constructor is part of the class header: it goes after the class name (and optional type parameters).
 
 ``` kotlin
 class Person constructor(firstName: String) {
 }
 ```
 
-もし主コンストラクタがアノテーションや可視性修飾子を何も持たなければ、 *constructor*{: .keyword } キーワードは省略できる：
+If the primary constructor does not have any annotations or visibility modifiers, the *constructor*{: .keyword }
+keyword can be omitted:
 
 ``` kotlin
 class Person(firstName: String) {
 }
 ```
 
-主コンストラクタはどんなコードも含むことはできない。初期化コードは *init*{: .keyword } キーワードと共に **初期化ブロック（イニシャライザブロック）** の中に書くことができる：
+The primary constructor cannot contain any code. Initialization code can be placed
+in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword:
 
 ``` kotlin
 class Customer(name: String) {
@@ -55,8 +58,8 @@ class Customer(name: String) {
 }
 ```
 
-主コンストラクタの引数を初期化ブロック内で使用できることに注意すること。
-クラス本体内で宣言されるプロパティの初期化処理の中でそれらを使うことができる：
+Note that parameters of the primary constructor can be used in the initializer blocks. They can also be used in
+property initializers declared in the class body:
 
 ``` kotlin
 class Customer(name: String) {
@@ -64,7 +67,7 @@ class Customer(name: String) {
 }
 ```
 
-実際には、プロパティの宣言と初期化を主コンストラクタから行うために、Kotlinは簡潔な構文がある：
+In fact, for declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:
 
 
 ``` kotlin
@@ -73,20 +76,22 @@ class Person(val firstName: String, val lastName: String, var age: Int) {
 }
 ```
 
-通常のプロパティとほとんど同じ方法のように、プロパティは主コンストラクタの中で可変値（ミュータブル） (*var*{: .keyword }) または読み取り専用 (*val*{: .keyword }) で宣言することができる。
+Much the same way as regular properties, the properties declared in the primary constructor can be
+mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 
-もしコンストラクタがアノテーションや可視性修飾子を持つ場合は、 *constructor*{: .keyword } キーワードが必要で修飾子はその前に置かれる：
+If the constructor has annotations or visibility modifiers, the *constructor*{: .keyword } keyword is required, and
+the modifiers go before it:
 
 ``` kotlin
 class Customer public @Inject constructor(name: String) { ... }
 ```
 
-詳細については、 [Visibility Modifiers](visibility-modifiers.html#constructors) を参照のこと。
+For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
 
 
-#### 従コンストラクタ（セカンダリコンストラクタ）
+#### Secondary Constructors
 
-クラスは **従コンストラクタ（セカンダリコンストラクタ）** として *constructor*{: .keyword } と共に宣言することができる：
+The class can also declare **secondary constructors**, which are prefixed with *constructor*{: .keyword }:
 
 ``` kotlin
 class Person {
@@ -96,8 +101,9 @@ class Person {
 }
 ```
 
-もしクラスが主コンストラクタを持つなら、それぞれの従コンストラクタは直接的であろうとなかろうと他の従コンストラクタを介して主コンストラクタへ委譲する必要がある。
-同クラスの他コンストラクタへの委譲は *this*{: .keyword } キーワードを用いて行う：
+If the class has a primary constructor, each secondary constructor needs to delegate to the primary constructor, either
+directly or indirectly through another secondary constructor(s). Delegation to another constructor of the same class
+is done using the *this*{: .keyword } keyword:
 
 ``` kotlin
 class Person(val name: String) {
@@ -107,27 +113,27 @@ class Person(val name: String) {
 }
 ```
 
-もし非抽象クラスが何もコンストラクタ（主従共に）を宣言しなければ、主コンストラクタが引数無しで生成される。
-コンストラクタの可視性はpublicになる。
-もしpublicなコンストラクタを望まないならば、空の主コンストラクタをデフォルトでない可視性で宣言しなければならない。
+If a non-abstract class does not declare any constructors (primary or secondary), it will have a generated primary
+constructor with no arguments. The visibility of the constructor will be public. If you do not want your class
+to have a public constructor, you need to declare an empty primary constructor with non-default visibility:
 
 ``` kotlin
 class DontCreateMe private constructor () {
 }
 ```
 
-
-> **注意**: JVMでは、全ての主コンストラクタの全ての引数がデフォルト値を持つなら、コンパイラは追加の引数無しコンストラクタを生成し、デフォルト値として使用される。
-> これはクラスインスタンスを引数無しコンストラクタとして生成するJacksonやJPAのようなライブラリをKotlinで使用することを容易にする。
+> **NOTE**: On the JVM, if all of the parameters of the primary constructor have default values, the compiler will
+> generate an additional parameterless constructor which will use the default values. This makes it easier to use
+> Kotlin with libraries such as Jackson or JPA that create class instances through parameterless constructors.
 >
 > ``` kotlin
 > class Customer(val customerName: String = "")
 > ```
 {:.info}
 
-### クラスのインスタンス生成
+### Creating instances of classes
 
-クラスのインスタンスを生成するには、コンストラクタを普通の関数のように呼び出せば良い：
+To create an instance of a class, we call the constructor as if it were a regular function:
 
 ``` kotlin
 val invoice = Invoice()
@@ -135,33 +141,32 @@ val invoice = Invoice()
 val customer = Customer("Joe Smith")
 ```
 
-Kotlinは *new*{: .keyword } キーワードを持たないことに注意すること。
+Note that Kotlin does not have a *new*{: .keyword } keyword.
 
 
-### クラスメンバ
+### Class Members
 
-クラスは以下を含むことができる：
+Classes can contain
 
-* コンストラクタと初期化ブロック
-* [関数](functions.html)
-* [プロパティ](properties.html)
-* [ネストされたインナークラス](nested-classes.html)
-* [オブジェクト宣言](object-declarations.html)
+* Constructors and initializer blocks
+* [Functions](functions.html)
+* [Properties](properties.html)
+* [Nested and Inner Classes](nested-classes.html)
+* [Object Declarations](object-declarations.html)
 
 
-## 継承
+## Inheritance
 
-Kotlinの全てのクラスは共通の `Any` スーパークラスをもつ。これはデフォルトのクラスで、スーパータイプの宣言がない。
+All classes in Kotlin have a common superclass `Any`, that is a default super for a class with no supertypes declared:
 
 ``` kotlin
-class Example // Anyからの暗黙的継承
+class Example // Implicitly inherits from Any
 ```
 
-`Any` は `java.lang.Object` ではない。特に、 `equals()` 、 `hashCode()` 、 `toString()` 以外のメンバを持たない。
-詳細については [Java interoperability](java-interop.html#object-methods) を参照のこと。
+`Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
+Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
 
-
-明示的にスーパータイプを宣言するには、クラスヘッダ内のコロンの後に型を書けば良い：
+To declare an explicit supertype, we place the type after a colon in the class header:
 
 ``` kotlin
 open class Base(p: Int)
@@ -169,10 +174,12 @@ open class Base(p: Int)
 class Derived(p: Int) : Base(p)
 ```
 
-もし明示的にスーパータイプを宣言するクラスが主コンストラクタを持つなら、主コンストラクタの引数を使用して基本型をここで初期化できる（そして、しなければならない）。
+If the class has a primary constructor, the base type can (and must) be initialized right there,
+using the parameters of the primary constructor.
 
-もし明示的にスーパータイプを宣言するクラスが主コンストラクタを持たないならば、従コンストラクタはそれぞれ基本型を *super*{: .keyword } キーワードを使って初期化するか、他の初期化してくれるコンストラクタに委譲しなければならない
-この事例では異なる従コンストラクタが異なる基本型を持つコンストラクタを呼び出していることに注意すること：
+If the class has no primary constructor, then each secondary constructor has to initialize the base type
+using the *super*{: .keyword } keyword, or to delegate to another constructor which does that.
+Note that in this case different secondary constructors can call different constructors of the base type:
 
 ``` kotlin
 class MyView : View {
@@ -189,12 +196,10 @@ to inherit from this class. By default, all classes in Kotlin are final, which
 corresponds to [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
 Item 17: *Design and document for inheritance or else prohibit it*.
 
-クラスにおける *open*{: .keyword } アノテーションはJavaの *final*{: .keyword } と対照的であり、他者に自身のクラスを継承することを許可する。
+### Overriding Members
 
-### メンバのオーバライド
-
-前述の通り、Kotlinでは明示的に作るということにこだわる。
-そしてJavaとは異なり、Kotlinではオーバライドできるメンバとオーバライドには明示的アノテーションが必要である。
+As we mentioned before, we stick to making things explicit in Kotlin. And unlike Java, Kotlin requires explicit
+annotations for overridable members (we call them *open*) and for overrides:
 
 ``` kotlin
 open class Base {
@@ -206,12 +211,11 @@ class Derived() : Base() {
 }
 ```
 
-*override*{: .keyword } アノテーションは `Derived.v()` の為に必要である。もし無ければ、コンパイラはエラーを発する。
-もし *open*{: .keyword } アノテーションが `Base.nv()` のように関数になければ、メソッドをサブクラス内で同じ識別子で宣言することは *override*{: .keyword } の有無にかかわらず文法違反である。
-ファイナルクラス（例えば、 *open*{: .keyword } アノテーションを持たないクラス）の中では、openメンバは禁止されている。
+The *override*{: .keyword } annotation is required for `Derived.v()`. If it were missing, the compiler would complain.
+If there is no *open*{: .keyword } annotation on a function, like `Base.nv()`, declaring a method with the same signature in a subclass is illegal,
+either with *override*{: .keyword } or without it. In a final class (e.g. a class with no *open*{: .keyword } annotation), open members are prohibited.
 
-*override*{: .keyword } としてマークされているメンバは、それ自身がopenである。すなわち、サブクラス内でオーバライドされうる。
-もしあなたが再オーバライドを禁止したければ、 *final*{: .keyword } キーワードを使うこと：
+A member marked *override*{: .keyword } is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use *final*{: .keyword }:
 
 ``` kotlin
 open class AnotherDerived() : Base() {
@@ -219,24 +223,21 @@ open class AnotherDerived() : Base() {
 }
 ```
 
-#### 待って！じゃあどうやって自分のライブラリをハックすれば良いの？！
+#### Wait! How will I hack my libraries now?!
 
-オーバライドのKotlinでの方法（クラスやメンバはデフォルトでfinal）には1つ問題がある。
-あなたが使用しているライブラリ内の何かをサブクラス化し、
-いくつかのメソッドをオーバライドして（ライブラリの設計者はそれを意図していない）
-そこにいくつかの厄介なハックを導入するのが難しくなる。
+One issue with our approach to overriding (classes and members final by default) is that it would be difficult to subclass something inside the libraries you use to override some method that was not intended for overriding by the library designer, and introduce some nasty hack there.
 
-我々はこれが次の理由から欠点ではないと考えている：
+We think that this is not a disadvantage, for the following reasons:
 
-* ベストプラクティスは「とにかくこれらのハックを許可すべきではない」ということである
-* 同様のアプローチを取っている他の言語 (C++, C#) はうまくいっている
-* もし本当にこのハックが必要ならば、それでも方法は残っている：いつでもハックをJavaで書き、Kotlinから呼ぶことができる（ *[Java Interop](java-interop.html)を参照のこと* ）し、Aspectフレームワークはいつもこれらの目的にかなう
+* Best practices say that you should not allow these hacks anyway
+* People successfully use other languages (C++, C#) that have similar approach
+* If people really want to hack, there still are ways: you can always write your hack in Java and call it from Kotlin (*see [Java Interop](java-interop.html)*), and Aspect frameworks always work for these purposes
 
-### ルールのオーバライド
+### Overriding Rules
 
-Kotlinでは、継承の実装は次のルールで定められている：もしクラスが直接のスーパークラスから同じメンバの多くの実装を継承する場合、クラスはこのメンバを継承し、その独自の実装（おそらく、継承されたものの一つを使用して）を提供しなければならない。
-継承された実装のスーパータイプであることを示すために、スーパータイプの名前を角括弧で記述し、 *super*{: .keyword } キーワードを使用する。
-例： `super<Base>`
+In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses,
+it must override this member and provide its own implementation (perhaps, using one of the inherited ones).
+To denote the supertype from which the inherited implementation is taken, we use *super*{: .keyword } qualified by the supertype name in angle brackets, e.g. `super<Base>`:
 
 ``` kotlin
 open class A {
@@ -245,45 +246,30 @@ open class A {
 }
 
 interface B {
-  fun f() { print("B") } // インタフェースメンバはデフォルトで'open'
+  fun f() { print("B") } // interface members are 'open' by default
   fun b() { print("b") }
 }
 
 class C() : A(), B {
-  // コンパイラはf()をオーバライドするために必要とする：
+  // The compiler requires f() to be overridden:
   override fun f() {
-    super<A>.f() // A.f() を呼ぶ
-    super<B>.f() // B.f() を呼ぶ
+    super<A>.f() // call to A.f()
+    super<B>.f() // call to B.f()
   }
 }
 ```
 
-`A` と `B` の両方から継承するのは問題なく、  `C` はそれらの関数の唯一の実装であるため `a()` と `b()` も同様である。
-しかし `f()` については、2つの実装が `C` に継承されているため、 `C` の `f()` をオーバライドし、曖昧さを排除するため独自の実装を提供する必要がある。
+It's fine to inherit from both `A` and `B`, and we have no problems with `a()` and `b()` since `C` inherits only one implementation of each of these functions.
+But for `f()` we have two implementations inherited by `C`, and thus we have to override `f()` in `C`
+and provide our own implementation that eliminates the ambiguity.
 
-## 抽象クラス
+## Abstract Classes
 
-クラスとそのメンバは *abstract*{: .keyword } を使用してabstractとして宣言することができる。
-抽象メンバはそのクラス内に実装を持たない。
-それ故、いくつかの子孫が抽象メンバを継承すれば、それは実装としてカウントされない：
+A class and some of its members may be declared *abstract*{: .keyword }.
+An abstract member does not have an implementation in its class.
+Note that we do not need to annotate an abstract class or function with open – it goes without saying.
 
-``` kotlin
-abstract class A {
-  abstract fun f()
-}
-
-interface B {
-  fun f() { print("B") }
-}
-
-class C() : A(), B {
-  // f()をオーバライドする必要はない
-}
-```
-
-抽象クラスや抽象関数をopenアノテーションを付ける必要はないことに注意すること。言うまでもないが。
-
-非抽象openメンバを抽象メンバとしてオーバライドすることもできる：
+We can override a non-abstract open member with an abstract one
 
 ``` kotlin
 open class Base {
@@ -295,23 +281,29 @@ abstract class Derived : Base() {
 }
 ```
 
-## コンパニオンオブジェクト（Companion Objects）
+## Companion Objects
 
-Kotlinでは、JavaやC#とは異なり、staticメソッドを持たない。ほとんどの場合、パッケージレベルの関数を使用することが推奨される。
+In Kotlin, unlike Java or C#, classes do not have static methods. In most cases, it's recommended to simply use
+package-level functions instead.
 
-もしクラスインスタンスを持たずに呼べるがクラス内部（例えばファクトリメソッド）へアクセスする必要のある関数を書く必要があれば、そのクラスの中で [object declaration](object-declarations.html) のメンバとして書くことができる。
+If you need to write a function that can be called without having a class instance but needs access to the internals
+of a class (for example, a factory method), you can write it as a member of an [object declaration](object-declarations.html)
+inside that class.
 
-もし [companion object](object-declarations.html#companion-objects) をクラス内で宣言した場合であっても、クラス名を識別子として、static関数をJava/C# で呼ぶのと同じ構文でそのメンバを呼ぶことができる。
-
-
-## シールクラス（Sealed Classes）
-
-値が制限されたセットの1つの型を持つが、他の型を持てない場合、シールクラスが制限されたクラス階層を表現する際に用いられる。
-それらはある意味、enum（列挙型）クラスの拡張である。
-enum型の値のセットも同じく制限されているが、それぞれのenum定数はシングルインスタンスとしてのみ存在し、シールクラスのサブクラスは状態を保持できる複数のインスタンスをもつことができる。
+Even more specifically, if you declare a [companion object](object-declarations.html#companion-objects) inside your class,
+you'll be able to call its members with the same syntax as calling static methods in Java/C#, using only the class name
+as a qualifier.
 
 
-シールクラスを宣言するには、 `sealed` 修飾子をクラス名の前に置けば良い。シールクラスはサブクラスを持つことができるが、それらは全てシールクラス自身の宣言の中にネストされていなければならない。
+## Sealed Classes
+
+Sealed classes are used for representing restricted class hierarchies, when a value can have one of the types from a
+limited set, but cannot have any other type. They are, in a sense, an extension of enum classes: the set of values
+for an enum type is also restricted, but each enum constant exists only as a single instance, whereas a subclass
+of a sealed class can have multiple instances which can contain state.
+
+To declare a sealed class, you put the `sealed` modifier before the name of the class. A sealed class can have
+subclasses, but all of them must be nested inside the declaration of the sealed class itself.
 
 ``` kotlin
 sealed class Expr {
@@ -321,17 +313,17 @@ sealed class Expr {
 }
 ```
 
-シールクラスのサブクラス（間接的な継承）を拡張するクラスはどこにでも置くことができ、シールクラスの中に書く必要はないことに注意すること。
+Note that classes which extend subclasses of a sealed class (indirect inheritors) can be placed anywhere, not necessarily inside
+the declaration of the sealed class.
 
-
-シールクラスを使うことの主な利点は [`when` expression](control-flow.html#when-expression) の中で使用されたときに発揮される。
-もし文が全てのcaseをカバーすることを確認できれば、 `else` 句を追加する必要はない。
+The key benefit of using sealed classes comes into play when you use them in a [`when` expression](control-flow.html#when-expression). If it's possible
+to verify that the statement covers all cases, you don't need to add an `else` clause to the statement.
 
 ``` kotlin
 fun eval(expr: Expr): Double = when(expr) {
     is Const -> expr.number
     is Sum -> eval(expr.e1) + eval(expr.e2)
     NotANumber -> Double.NaN
-    // 全てのcaseがカバーされているため、`else` 句は必要ではない
+    // the `else` clause is not required because we've covered all the cases
 }
 ```

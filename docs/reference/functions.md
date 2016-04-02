@@ -110,7 +110,7 @@ With named arguments we can make the code much more readable
 ``` kotlin
 reformat(str,
     normalizeCase = true,
-    uppercaseFirstLetter = true,
+    upperCaseFirstLetter = true,
     divideByCamelHumps = false,
     wordSeparator = '_'
   )
@@ -175,7 +175,7 @@ type will be non-obvious to the reader (and sometimes even for the compiler).
 A parameter of a function (normally the last one) may be marked with `vararg` modifier:
 
 ``` kotlin
-fun asList<T>(vararg ts: T): List<T> {
+fun <T> asList(vararg ts: T): List<T> {
   val result = ArrayList<T>()
   for (t in ts) // ts is an Array
     result.add(t)
@@ -199,7 +199,7 @@ When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList
  and want to pass its contents to the function, we use the **spread** operator (prefix the array with `*`):
 
 ```kotlin
-val a = array(1, 2, 3)
+val a = arrayOf(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
 ```
 
@@ -236,25 +236,6 @@ fun dfs(graph: Graph) {
   }
 
   dfs(graph.vertices[0])
-}
-```
-
-Local functions can even return from outer functions using [qualified return expressions](returns.html)
-
-``` kotlin
-fun reachable(from: Vertex, to: Vertex): Boolean {
-  val visited = HashSet<Vertex>()
-  fun dfs(current: Vertex) {
-    // here we return from the outer function:
-    if (current == to) return@reachable true
-    // And here -- from local function:
-    if (!visited.add(current)) return
-    for (v in current.neighbors)
-      dfs(v)
-  }
-
-  dfs(from)
-  return false // if dfs() did not return true already
 }
 ```
 

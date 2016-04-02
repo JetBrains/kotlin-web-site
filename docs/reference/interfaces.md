@@ -5,42 +5,47 @@ category: "Syntax"
 title: "Interfaces"
 ---
 
-# インタフェース
+# Interfaces
 
-KotlinでのインタフェースはJava 8と非常に似ている。メソッドの実装と同じように抽象メソッドの宣言を含むことができる。
-抽象クラスとの違いはインタフェースは状態を持てないことである。プロパティは状態を持てるが、抽象である必要がある。
+Interfaces in Kotlin are very similar to Java 8. They can contain declarations of abstract methods, as well as method
+implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have
+properties but these need to be abstract or to provide accessor implementations.
 
-インタフェースは *interface*{: .keyword } キーワードを用いて宣言される。
+An interface is defined using the keyword *interface*{: .keyword }
 
 ``` kotlin
 interface MyInterface {
     fun bar()
     fun foo() {
-      // 本体は必須ではない
+      // optional body
     }
 }
 ```
 
-## インタフェースの実装
+## Implementing Interfaces
 
-クラスやオブジェクトは1つまたは複数のインタフェースを実装できる：
+A class or object can implement one or more interfaces
 
 ``` kotlin
 class Child : MyInterface {
-   fun bar() {
-      // 本体
+   override fun bar() {
+      // body
    }
 }
 ```
 
-## インタフェース内のプロパティ
+## Properties in Interfaces
 
-インタフェースはプロパティがステートレスである限り許容する。これはインタフェースが状態を持つことを許可しないためである。
-（訳注：最新版は以下の通り：プロパティをインタフェース内に宣言することができる。インタフェースの中で宣言されたプロパティは抽象にも慣れるし、アクセサの実装を提供することもできる。インタフェース内で宣言されたプロパティはバッキングフィールドを持つことはできず、それ故にインタフェース内で宣言されたアクセサはそれらを参照できない。）
+You can declare properties in interfaces. A property declared in an interface can either be abstract, or it can provide
+implementations for accessors. Properties declared in interfaces can't have backing fields, and therefore accessors
+declared in interfaces can't reference them.
 
 ``` kotlin
 interface MyInterface {
     val property: Int // abstract
+
+    val propertyWithImplementation: String
+        get() = "foo"
 
     fun foo() {
         print(property)
@@ -52,9 +57,9 @@ class Child : MyInterface {
 }
 ```
 
-## オーバライドの衝突解決
+## Resolving overriding conflicts
 
-スーパータイプのリストで沢山の型を宣言すると同メソッドの複数の実装を継承するように見えることがある。例えば：
+When we declare many types in our supertype list, it may appear that we inherit more than one implementation of the same method. For example
 
 ``` kotlin
 interface A {
@@ -79,9 +84,7 @@ class D : A, B {
 }
 ```
 
-インタフェース *A* と *B* は、両方とも関数 *foo()* と *bar()* を宣言している。
-両方とも *foo()* を実装しているが、 *B* のみが *bar()* を実装している。（ *bar()* は *A* ではabstractとしてマークされていない。これは関数が本体を持たない際のインタフェースのデフォルトであるためだ。）
-さて、もし具体クラス *C* を *A* から得れば、 *bar()* をオーバライドし、実装を提供しなければならないことは明らかである。
-そしてもし *D* を *A* と *B* から得れば、 *bar()* をオーバライドする必要はない。なぜなら1つの実装を継承したからである。
-
-しかし *foo()* の実装を2つ継承してしまったため、コンパイラはどっちを選んだら良いかわからない。従って *foo()* のオーバライドが強制され、何が欲しいのかを明示する必要がある。
+Interfaces *A* and *B* both declare functions *foo()* and *bar()*. Both of them implement *foo()*, but only *B* implements *bar()* (*bar()* is not marked abstract in *A*,
+because this is the default for interfaces, if the function has no body). Now, if we derive a concrete class *C* from *A*, we, obviously, have to override *bar()* and provide
+an implementation. And if we derive *D* from *A* and *B*, we don’t have to override *bar()*, because we have inherited only one implementation of it.
+But we have inherited two implementations of *foo()*, so the compiler does not know which one to choose, and forces us to override *foo()* and say what we want explicitly.

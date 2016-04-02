@@ -82,3 +82,95 @@
   url: http://www.dfstudio.com
   description: Cloud-based enterprise and professional photography acquisition and workflow. Using Kotlin for server-side code and a desktop Download application.
 
+- company: 3D Robotics
+  url: https://3drobotics.com/
+  description: Using Kotlin in the 3DR Tower Android app, the best open source drone flight control app.
+
+- company: Trapit
+  url: https://trap.it
+  description: Built an Android app in the social selling space for Fortune 500 companies.
+
+- company: Wizbii
+  url: https://play.google.com/store/apps/details?id=com.wizbii.android
+  description: Android app for Wizbii, a professional social network for students and young graduates.
+
+- company: Roger
+  url: https://rogertalk.com
+  description: Kotlin allows us to focus on building a robust and beautiful Android voice communication app
+
+- company: Catapush
+  url: http://www.catapush.com
+  description: Kotlin is gaining more and more lines of code in our Android SDK and internal libraries, shared between Android and Java8 backend.
+
+- company: Uprizer Labs
+  url: http://uprizer.com/
+  description: We have found that Kotlin dramatically speeds up development time on Uprizer's diverse projects
+
+- company: ZDV
+  url: https://play.google.com/store/apps/details?id=com.zdvdev.sef
+  description: SeFix, a lagfix for Root users (100% migrated to Kotlin).
+
+- company: BQ
+  url: http://www.bq.com
+  description: Android apps related to robotics, 3D printing, IoT and much more.
+
+- company: FarmLogs
+  url: https://farmlogs.com/
+  description: Using data science to improve agriculture. Most new Android code written in Kotlin.
+
+- company: StyleShare
+  url: https://www.stylesha.re/
+  description: Millions of fashion people is using StyleShare for Android. Most new code written in Kotlin.
+
+- company: EL Passion
+  url: http://www.elpassion.com/
+  description: Software House from Warsaw. All new Android apps written in Kotlin.
+  
+- company: Meizu
+  url: http://www.meizu.com/
+  description: Using Kotlin in some new apps such as dayu(dayu.com),  Using Kotlin in some new internal apps in Innovation Product Department.
+   
+- company: Diverse, inc.
+  url: http://diverse-inc.co.jp/
+  description: We provides dating apps in Japan. Using Kotlin in new Android apps.
+
+- company: Nulab Inc.
+  url: http://nulab-inc.com/
+  description: Collaborative tools maker. Use Kotlin in Android App for task management.
+  
+- company: Allegro Group.
+  url: http://allegro.tech
+  description: Backend microservices based on Spring Boot.
+
+- company: TinyOwl Technology Pvt. Ltd.
+  url: http://tinyowl.com/
+  description: Using Kotlin to write cleaner ViewModels with Rx in our Android app
+
+- company: NBC News Digital, LLC
+  url: https://play.google.com/store/apps/developer?id=NBC+News+Digital+LLC
+  description: NBC News, TODAY and Nightly News Android apps using Kotlin.
+
+- company: Moshbit GmbH
+  url: http://moshbit.com
+  description: Kotlift transpiler lets us write business logic in Kotlin for Android and iOS.
+
+- company: freee K.K.
+  url: https://www.freee.co.jp/
+  description: With Android app based on Kotlin, we make all back-office tasks more efficient.
+
+- company: Taskworld
+  url: http://taskworld.com
+  description: Empowers your enterprise to finish projects on time. All Android apps are written in Kotlin.
+
+- company: Luxoft
+  url: https://luxoft.com
+  description: Global IT service provider. We use Kotlin in several customer and internal automation projects.
+
+- company: Vinted
+  url: https://www.vinted.com
+  description: A marketplace to sell, buy and swap second-hand clothes. Using Kotlin for the Android app.
+
+- company: 99
+  url: http://www.99taxis.com
+  description: The largest app to request taxis in Brazil! Rewriting our Android apps in Kotlin.
+  

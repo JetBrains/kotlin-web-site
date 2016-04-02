@@ -5,75 +5,51 @@ category: "Basics"
 title: "Idioms"
 ---
 
-<!--- # Idioms -->
+# Idioms
 
-# 慣用句
+A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it. Do a pull request.
 
-<!--- A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it. Do a pull request. -->
-Kotlinでよく使用される慣用句を集めた。もし好みの慣用句があるならプルリクエストを投げて貢献して欲しい。
-
-<!--- ### Creating DTO's (POJO's/POCO's) -->
-
-### DTOを作成する (POJO/POCO)
+### Creating DTO's (POJO's/POCO's)
 
 ``` kotlin
 data class Customer(val name: String, val email: String)
 ```
 
-<!--- provides a `Customer` class with the following functionality: -->
-`Customer`クラスは次の機能を提供する：
+provides a `Customer` class with the following functionality:
 
-<!---
 * getters (and setters in case of *var*{: .keyword }'s) for all properties
 * `equals()`
 * `hashCode()`
 * `toString()`
 * `copy()`
 * `component1()`, `component2()`, ..., for all properties (see [Data classes](data-classes.html))
--->
-
-* 全てのプロパティに対するゲッター (そして*var*{: .keyword }キーワードが使用されたときはセッターも )
-* `equals()`
-* `hashCode()`
-* `toString()`
-* `copy()`
-* すべてのプロパティに対して、`component1()`, `component2()`, ..., ([Data classes](data-classes.html)を参照のこと。)
 
 
-<!--- ### Default values for function parameters -->
-
-### 関数の引数に対するデフォルト値
+### Default values for function parameters
 
 ``` kotlin
 fun foo(a: Int = 0, b: String = "") { ... }
 ```
 
-<!--- ### Filtering a list -->
-
-### リストのフィルタ
+### Filtering a list
 
 ``` kotlin
 val positives = list.filter { x -> x > 0 }
 ```
 
-<!--- Or alternatively, even shorter: -->
-または、こう短くも書ける：
+Or alternatively, even shorter:
 
 ``` kotlin
 val positives = list.filter { it > 0 }
 ```
 
-<!--- ### String Interpolation -->
-
-### Stringの補完
+### String Interpolation
 
 ``` kotlin
 println("Name $name")
 ```
 
-<!--- ### Instance Checks -->
-
-### インスタンスのチェック
+### Instance Checks
 
 ``` kotlin
 when (x) {
@@ -83,9 +59,7 @@ when (x) {
 }
 ```
 
-<!--- ### Traversing a map/list of pairs -->
-
-### mapやlistのペアを書き下す
+### Traversing a map/list of pairs
 
 ``` kotlin
 for ((k, v) in map) {
@@ -93,64 +67,43 @@ for ((k, v) in map) {
 }
 ```
 
-<!--- `k`, `v` can be called anything. -->
-`k`, `v`の名前は特に定まっていない。
+`k`, `v` can be called anything.
 
-<!--- ### Using ranges -->
-
-### 範囲の使用
+### Using ranges
 
 ``` kotlin
 for (i in 1..100) { ... }
 for (x in 2..10) { ... }
 ```
 
-<!--- ### Read-only list -->
-
-### 読み取り専用のlist
+### Read-only list
 
 ``` kotlin
 val list = listOf("a", "b", "c")
 ```
 
-<!--- ### Read-only map -->
-
-### 読み取り専用のmap
+### Read-only map
 
 ``` kotlin
 val map = mapOf("a" to 1, "b" to 2, "c" to 3)
 ```
 
-<!--- ### Accessing a map -->
-
-### mapにアクセスする
+### Accessing a map
 
 ``` kotlin
 println(map["key"])
 map["key"] = value
 ```
 
-<!--- ### Lazy property -->
+### Lazy property
 
-### 遅延評価プロパティ
-
-<!---
 ``` kotlin
 val p: String by lazy {
     // compute the string
 }
 ```
--->
 
-``` kotlin
-val p: String by lazy {
-    // 文字列を計算する
-}
-```
-
-<!--- ### Extension Functions -->
-
-### 拡張関数
+### Extension Functions
 
 ``` kotlin
 fun String.spaceToCamelCase() { ... }
@@ -158,9 +111,7 @@ fun String.spaceToCamelCase() { ... }
 "Convert this to camelcase".spaceToCamelCase()
 ```
 
-<!--- ### Creating a singleton -->
-
-### シングルトンの作成
+### Creating a singleton
 
 ``` kotlin
 object Resource {
@@ -168,9 +119,7 @@ object Resource {
 }
 ```
 
-<!--- ### If not null shorthand -->
-
-### if not nullの速記法
+### If not null shorthand
 
 ``` kotlin
 val files = File("Test").listFiles()
@@ -178,9 +127,7 @@ val files = File("Test").listFiles()
 println(files?.size)
 ```
 
-<!--- ### If not null and else shorthand -->
-
-### if not null and elseの速記法
+### If not null and else shorthand
 
 ``` kotlin
 val files = File("Test").listFiles()
@@ -188,20 +135,15 @@ val files = File("Test").listFiles()
 println(files?.size ?: "empty")
 ```
 
-<!--- ### Executing a statement if null -->
-
-### if null文の実行
+### Executing a statement if null
 
 ``` kotlin
 val data = ...
 val email = data["email"] ?: throw IllegalStateException("Email is missing!")
 ```
 
-<!--- ### Execute if not null -->
+### Execute if not null
 
-### if not nullの実行
-
-<!---
 ``` kotlin
 val data = ...
 
@@ -209,19 +151,8 @@ data?.let {
     ... // execute this block if not null
 }
 ```
--->
 
-``` kotlin
-val data = ...
-
-data?.let {
-    ... // nullでなければこのブロックが実行される
-}
-```
-
-<!--- ### Return on when statement -->
-
-### when文でreturnする
+### Return on when statement
 
 ``` kotlin
 fun transform(color: String): Int {
@@ -234,11 +165,8 @@ fun transform(color: String): Int {
 }
 ```
 
-<!--- ### 'try/catch' expression -->
+### 'try/catch' expression
 
-### 'try/catch'式
-
-<!---
 ``` kotlin
 fun test() {
     val result = try {
@@ -250,23 +178,8 @@ fun test() {
     // Working with result
 }
 ```
--->
 
-``` kotlin
-fun test() {
-    val result = try {
-        count()
-    } catch (e: ArithmeticException) {
-        throw IllegalStateException(e)
-    }
-
-    // resultを使用する
-}
-```
-
-<!--- ### 'if' expression -->
-
-### 'if'式
+### 'if' expression
 
 ``` kotlin
 fun foo(param: Int) {
@@ -280,27 +193,22 @@ fun foo(param: Int) {
 }
 ```
 
-<!--- ### Builder-style usage of methods that return `Unit` -->
-
-### `Unit`を返すビルダースタイルの使用
+### Builder-style usage of methods that return `Unit`
 
 ``` kotlin
-fun arrayOfMinusOnes(size: Int) {
+fun arrayOfMinusOnes(size: Int): IntArray {
     return IntArray(size).apply { fill(-1) }
 }
 ```
 
 
-<!--- ### Single-expression functions -->
-
-### 単一行関数
+### Single-expression functions
 
 ``` kotlin
 fun theAnswer() = 42
 ```
 
-<!--- This is equivalent to -->
-これは次と同等である：
+This is equivalent to
 
 ``` kotlin
 fun theAnswer(): Int {
@@ -308,8 +216,7 @@ fun theAnswer(): Int {
 }
 ```
 
-<!--- This can be effectively combined with other idioms, leading to shorter code. E.g. with the *when*{: .keyword }-expression: -->
-これは他の慣用句と組み合わせることができ、コードを短くすることにつながる。例） *when*{: .keyword }-式:
+This can be effectively combined with other idioms, leading to shorter code. E.g. with the *when*{: .keyword }-expression:
 
 ``` kotlin
 fun transform(color: String): Int = when (color) {
@@ -320,11 +227,9 @@ fun transform(color: String): Int = when (color) {
 }
 ```
 
-<!--- ### Calling multiple methods on an object instance ('with') -->
+### Calling multiple methods on an object instance ('with')
 
-### あるオブジェクトのインスタンスで 'with' を使って複数の関数を呼ぶ
-
-<!---``` kotlin
+``` kotlin
 class Turtle {
     fun penDown()
     fun penUp()
@@ -341,30 +246,9 @@ with(myTurtle) { //draw a 100 pix square
     }
     penUp()
 }
-```-->
-
-``` kotlin
-class Turtle {
-    fun penDown()
-    fun penUp()
-    fun turn(degrees: Double)
-    fun forward(pixels: Double)
-}
-
-val myTurtle = Turtle()
-with(myTurtle) { // 100ピクセル四方の四角形を描く
-    penDown()
-    for(i in 1..4) {
-        forward(100.0)
-        turn(90.0)
-    }
-    penUp()
-}
 ```
 
-<!--- ### Java 7's try with resources -->
-
-### Java 7のtry-with-resources
+### Java 7's try with resources
 
 ``` kotlin
 val stream = Files.newInputStream(Paths.get("/some/file.txt"))

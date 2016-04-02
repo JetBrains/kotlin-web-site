@@ -15,15 +15,8 @@ task :build do
     command += " --config _config.yml,#{env_filename}"
   end
 
-  case env
-    when 'prod'
-      Rake::Task['generate_version_file'].invoke
-  end
-
-  system command
-
-  case env
-    when 'prod'
-      system 'rake build_pdf dest=_site/docs/kotlin-docs.pdf'
+  unless system command
+    $stderr.puts 'Error running jekyll, see build log for details'
+    exit 1
   end
 end
