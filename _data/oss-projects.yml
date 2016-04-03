@@ -187,3 +187,8 @@
   description: An intuitive Date extensions in Kotlin
   type: Library
   link: https://github.com/hotchemi/khronos
+
+- name: TornadoFX
+  description: Lightweight JavaFX Framework for Kotlin
+  type: Library
+  link: https://github.com/edvin/tornadofx
