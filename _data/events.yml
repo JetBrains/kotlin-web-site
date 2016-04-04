@@ -1547,5 +1547,11 @@
   location: Rennes, France
   lang: fr
   
-  
+- title: "TMPA 2015"
+  url: "http://tmpaconf.org/thesesen-ru/kotlin-from-null-dereference-to-smart-casts-ru"
+  subject: "Язык Котлин: от разадресации нуля до умных преобразований типов"
+  speaker: Mikhail Glukhikh
+  date: [2015-11-12]
+  location: Saint Petersburg, Russia
+  lang: ru
   
