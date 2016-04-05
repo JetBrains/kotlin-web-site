@@ -1583,7 +1583,7 @@
   url: https://www.facebook.com/events/199872703726759/
   subject: "Kotlin for Android developers"
   speaker: Bartosz Kosarzycki
-  date: [2016-04-07]
+  date: 2016-04-07
   location: Poznan, Poland
   lang: pl
 
@@ -1591,6 +1591,6 @@
   url: http://www.meetup.com/Austin-Android/events/229998925/
   subject: "Kotlin for Android"
   speaker: Jim Baca
-  date: [2016-04-14]
+  date: 2016-04-14
   location: Austin, USA
   lang: en
