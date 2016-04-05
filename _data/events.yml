@@ -1574,7 +1574,7 @@
 - title: DroidCon Italy 2016
   url: http://it.droidcon.com/2016/sessions/fun-thingsyou-cando/
   subject: "fun things (you: CanDo <in Kotlin> ) = …"
-  speaker:  Maciej Górski
+  speaker: Maciej Górski
   date: [2016-04-07, 2016-04-08]
   location: Turin, Italy
   lang: en 
@@ -1582,7 +1582,15 @@
 - title: "Poznań Android Developer Group Meetup #11"
   url: https://www.facebook.com/events/199872703726759/
   subject: "Kotlin for Android developers"
-  speaker:  Bartosz Kosarzycki
+  speaker: Bartosz Kosarzycki
   date: [2016-04-07]
   location: Poznan, Poland
   lang: pl
+
+- title: "Austin Droids Meetup"
+  url: http://www.meetup.com/Austin-Android/events/229998925/
+  subject: "Kotlin for Android"
+  speaker: Jim Baca
+  date: [2016-04-14]
+  location: Austin, USA
+  lang: en
