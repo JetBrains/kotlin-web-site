@@ -1546,7 +1546,23 @@
   date: [2016-03-23, 2016-03-25]
   location: Rennes, France
   lang: fr
-  
+
+- title: "GeeCON 2016"
+  url: http://2016.geecon.org/speakers/info.html?id=114
+  subject: "Caught in the Act: Kotlin Bytecode Generation and Runtime Performance"
+  speaker: Dmitry Jemerov
+  date: [2016-05-11, 2016-05-13]
+  location: Kraków, Poland
+  lang: en
+
+- title: "JEEConf 2016"
+  url: http://jeeconf.com/program/caught-in-the-act-kotlin-bytecode-generation-and-runtime-performance/
+  subject: "Caught in the Act: Kotlin Bytecode Generation and Runtime Performance"
+  speaker: Dmitry Jemerov
+  date: [2016-05-20, 2016-05-21]
+  location: Kyiv, Ukraine
+  lang: en
+
 - title: "TMPA 2015"
   url: "http://tmpaconf.org/thesesen-ru/kotlin-from-null-dereference-to-smart-casts-ru"
   subject: "Язык Котлин: от разадресации нуля до умных преобразований типов"
