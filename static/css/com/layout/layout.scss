@@ -1,0 +1,53 @@
+@import '../../_config';
+@import '../../_utils';
+@import '../_icon/_icon';
+@import '../grid/grid';
+
+
+.global-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.global-layout {
+    min-height: 100%;
+    margin-bottom: -$footer-height;
+
+    &:after {
+        display: block;
+        height: $footer-height;
+        content: '';
+    }
+}
+
+.reference-pdf-link {
+    position: relative;
+    text-decoration: none;
+    padding-left: 33px;
+
+    .side-tree-nav + & {
+        display: inline-block;
+        margin-top: 23px;
+    }
+
+    .icon {
+        position: absolute;
+        left: 0;
+        width: 23px;
+        height: 19px;
+        background: url('images/main-sprite.png') no-repeat 0 -450px;
+
+        @include adapt_retina {
+            background-image: url('images/main-sprite@2x.png');
+            background-size: 150px auto;
+        }
+    }
+
+    &:hover .icon {
+        background-position: -50px -450px;
+    }
+
+    .text {
+        text-decoration: underline;
+    }
+}
