@@ -1,5 +1,5 @@
 class NavItem:
-    def __init__(self, config, page):
+    def __init__(self, config, path):
         if 'url' in config:
             self.url = config['url']
         else:
@@ -7,9 +7,9 @@ class NavItem:
         self.title = config['title']
         self.items = []
         if 'items' in config:
-            self.items = [NavItem(item_config, page) for item_config in config['items']]
+            self.items = [NavItem(item_config, path) for item_config in config['items']]
         self._config = config
-        self._current_url = page.path
+        self._current_url = path
 
     def is_active(self):
         for item in self.items:
@@ -36,10 +36,10 @@ class NavItem:
 
 
 class Nav:
-    def __init__(self, config, page):
+    def __init__(self, config, path):
         self._nav = {}
         for nav_id in config:
-            self._nav[nav_id] = [NavItem(nav_item_config, page) for nav_item_config in config[nav_id]]
+            self._nav[nav_id] = [NavItem(nav_item_config, path) for nav_item_config in config[nav_id]]
 
     def __getitem__(self, item):
         return self._nav[item]

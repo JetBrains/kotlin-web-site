@@ -145,12 +145,12 @@ $overview-section-width: 840px;
             margin-bottom: $unit*2;
         }
 
-        pre code {
+        .code pre {
             @extend %code-block;
+        }
 
-            &._highlighted {
-                @extend %syntax-highlight_dark;
-            }
+        .code._highlighted pre {
+            @extend %syntax-highlight_dark;
         }
 
         .image-block {

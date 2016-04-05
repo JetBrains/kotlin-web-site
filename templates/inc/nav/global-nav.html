@@ -1,41 +1,24 @@
 <nav role="navigation" class="global-nav">
-    {% assign nav = site.data._nav.main %}
 
     <div class="nav-links">
-        {% for i in nav %}
-            {% assign item_id = i[0] %}
-            {% assign item = i[1] %}
-            {% assign is_active = false %}
-            {% assign is_external = false %}
+        {% for item in nav.main %}
 
-            {% if item.show != null and item.show == false %}
-                {% break %}
-            {% endif %}
-
-            {% if include.active and include.active == item_id %}
-                {% assign is_active = true %}
-            {% endif %}
-
-            {% if item.url contains 'http://' %}
-                {% assign is_external = true %}
-            {% endif %}
-
-            <a href="{% if is_external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"
-               class="nav-item {% if is_active %}is_active{% endif %}"
+            <a href="{% if item.is_external() %}{{ item.url }}{% else %}{{ baseurl }}{{ item.url }}{% endif %}"
+               class="nav-item {% if item.is_active() %}is_active{% endif %}"
             >
                 {{ item.title }}
             </a>
         {% endfor %}
     </div>
 
-    {% if page.layout == 'index' %}
+    {% if is_index_page %}
         <div class="extra-nav social-links">
-            <a href="{{ site.github_url }}" class="link link-github" title="Source Code on GitHub" target="_blank">
+            <a href="{{ config.GITHUB_URL }}" class="link link-github" title="Source Code on GitHub" target="_blank">
                 <i class="link-icon icon-github"></i>
             </a>
 
 
-            <a href="{{ site.twitter_url }}" class="link link-twitter" title="Kotlin on Twitter" target="_blank">
+            <a href="{{ config.TWITTER_URL }}" class="link link-twitter" title="Kotlin on Twitter" target="_blank">
                 <i class="link-icon icon-twitter"></i>
             </a>
 
@@ -45,5 +28,5 @@
         </div>
     {% endif %}
 
-    {% include nav/search.html %}
+    {% include 'inc/nav/search.html' %}
 </nav>

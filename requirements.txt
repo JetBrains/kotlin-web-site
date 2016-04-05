@@ -1,3 +1,4 @@
 flask = 0.10.1
 flask-flatpages = 0.6
 Pygments = 2.1.1
+python-frontmatter == 0.2.1

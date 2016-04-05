@@ -129,12 +129,12 @@
   font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
   line-height: 22px; }
 
-.kotlin-overview-section .overview-popup .popup-content pre code {
+.kotlin-overview-section .overview-popup .popup-content .code pre {
   display: block;
   padding: 15px 20px;
   font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
 
-.kotlin-overview-section .overview-popup .popup-content pre code._highlighted {
+.kotlin-overview-section .overview-popup .popup-content .code._highlighted pre {
   color: #A9B7C6;
   background-color: #2B2B2B;
   /* Common */
@@ -192,127 +192,127 @@
   /* Comment.Special */
   /* Error */
   /* Error */ }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .lineno {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .lineno {
     color: #586e75; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .o {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .o {
     color: #A9B7C6; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .p {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .p {
     color: #A9B7C6; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .ow {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .ow {
     color: #859900; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .w {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .w {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .g {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .g {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .gd {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .gd {
     color: #2aa198; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .ge {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .ge {
     color: #93a1a1;
     font-style: italic; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .gr {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .gr {
     color: #dc322f; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .gh {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .gh {
     color: #cb4b16; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .gi {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .gi {
     color: #859900; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .go {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .go {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .gp {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .gp {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .gs {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .gs {
     color: #93a1a1;
     font-weight: bold; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .gu {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .gu {
     color: #cb4b16; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .gt {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .gt {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .k,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .kc,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .kt,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .kd,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .kn,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .kr {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .k,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .kc,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .kt,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .kd,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .kn,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .kr {
     color: #CC7832;
     font-weight: bold; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .l {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .l {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .ld {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .ld {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .m,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .mf,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .mh,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .mi,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .il {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .m,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .mf,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .mh,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .mi,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .il {
     color: #6897BB; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .s,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .sc,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .sd,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .s1,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .ss {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .s,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .sc,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .sd,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .s1,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .ss {
     color: #A5C261; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .mo {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .mo {
     color: #2aa198; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .sb {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .sb {
     color: #586e75; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .s2 {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .s2 {
     color: #2aa198; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .se {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .se {
     color: #cb4b16; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .sh {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .sh {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .si {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .si {
     color: #2aa198; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .sx {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .sx {
     color: #2aa198; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .sr {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .sr {
     color: #dc322f; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .n {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .n {
     color: #A9B7C6; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .na {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .na {
     color: #BABABA; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nb {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nb {
     color: #0037B3; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nc {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nc {
     color: #A9B7C6; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .no {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .no {
     color: #660E7A; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nd {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nd {
     color: #808000; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .ni {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .ni {
     color: #cb4b16; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .ne {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .ne {
     color: #cb4b16; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nf {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nf {
     color: #A9B7C6; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nl {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nl {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nn {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nn {
     color: #000; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nx {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nx {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .py {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .py {
     color: #93a1a1; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nt {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nt {
     color: #E8BF6A; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .nv {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .nv {
     color: #000; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .bp {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .bp {
     color: #000; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .vc {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .vc {
     color: #660E7A; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .vg {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .vg {
     color: #660E7A; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .vi {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .vi {
     color: #660E7A; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .c,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .cm,
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .c1 {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .c,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .cm,
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .c1 {
     color: #808080; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .cp {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .cp {
     color: #859900; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .cs {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .cs {
     color: #859900; }
-  .kotlin-overview-section .overview-popup .popup-content pre code._highlighted .err {
+  .kotlin-overview-section .overview-popup .popup-content .code._highlighted pre .err {
     color: #93a1a1; }
 
 .kotlin-overview-section._features .kotlin-features-list .feature-title-pre-text, .kotlin-overview-section._get-kotlin .get-kotlin-options-list .option-title-pre-text {

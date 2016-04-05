@@ -1,45 +1,32 @@
 # Header navigation
 # ====================
 main:
-  docs:
-    url: /docs/reference/
+  - url: /docs/reference/
     title: Learn
 
-  contribute:
-    url: /contribute.html
+  - url: /contribute.html
     title: Contribute
 
-  try:
-    url: http://try.kotlinlang.org
+  - url: http://try.kotlinlang.org
     title: Try Online
-
-  download:
-    url: /#get-kotlin
-    title: Download
-    show: false
 
 
 # Docs section navigation
 # =======================
 docs:
-  reference:
-    url: /docs/reference/
+  - url: /docs/reference/
     title: Reference
 
-  tutorials:
-    url: /docs/tutorials/
+  - url: /docs/tutorials/
     title: Tutorials
 
-  videos:
-    url: /docs/videos.html
+  - url: /docs/videos.html
     title: Videos
 
-  events:
-    url: /docs/events.html
+  - url: /docs/events.html
     title: Events
 
-  resources:
-    url: /docs/resources.html
+  - url: /docs/resources.html
     title: More resources
 
 
@@ -48,90 +35,137 @@ docs:
 reference:
   - title: Getting Started
     description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
-    content:
-      - /docs/reference/basic-syntax.html: Basic Syntax
-      - /docs/reference/idioms.html: Idioms
-      - /docs/reference/coding-conventions.html: Coding Conventions
+    items:
+      - url: /docs/reference/basic-syntax.html
+        title: Basic Syntax
+      - url: /docs/reference/idioms.html
+        title: Idioms
+      - url: /docs/reference/coding-conventions.html
+        title: Coding Conventions
 
   - title: Basics
     description: The Basics
-    content:
-      - /docs/reference/basic-types.html: Basic Types
-      - /docs/reference/packages.html: Packages
-      - /docs/reference/control-flow.html: Control Flow
-      - /docs/reference/returns.html: Returns and Jumps
+    items:
+      - url: /docs/reference/basic-types.html
+        title: Basic Types
+      - url: /docs/reference/packages.html
+        title: Packages
+      - url: /docs/reference/control-flow.html
+        title: Control Flow
+      - url: /docs/reference/returns.html
+        title: Returns and Jumps
 
   - title: Classes and Objects
     description: All about objects
-    content:
-      - /docs/reference/classes.html: Classes and Inheritance
-      - /docs/reference/properties.html: Properties and Fields
-      - /docs/reference/interfaces.html: Interfaces
-      - /docs/reference/visibility-modifiers.html: Visibility Modifiers
-      - /docs/reference/extensions.html: Extensions
-      - /docs/reference/data-classes.html: Data Classes
-      - /docs/reference/generics.html: Generics
-      - /docs/reference/nested-classes.html: Nested Classes
-      - /docs/reference/enum-classes.html: Enum Classes
-      - /docs/reference/object-declarations.html: Objects
-      - /docs/reference/delegation.html: Delegation
-      - /docs/reference/delegated-properties.html: Delegated Properties
+    items:
+      - url: /docs/reference/classes.html
+        title: Classes and Inheritance
+      - url: /docs/reference/properties.html
+        title: Properties and Fields
+      - url: /docs/reference/interfaces.html
+        title: Interfaces
+      - url: /docs/reference/visibility-modifiers.html
+        title: Visibility Modifiers
+      - url: /docs/reference/extensions.html
+        title: Extensions
+      - url: /docs/reference/data-classes.html
+        title: Data Classes
+      - url: /docs/reference/generics.html
+        title: Generics
+      - url: /docs/reference/nested-classes.html
+        title: Nested Classes
+      - url: /docs/reference/enum-classes.html
+        title: Enum Classes
+      - url: /docs/reference/object-declarations.html
+        title: Objects
+      - url: /docs/reference/delegation.html
+        title: Delegation
+      - url: /docs/reference/delegated-properties.html
+        title: Delegated Properties
 
   - title: Functions and Lambdas
     description: All about functions
-    content:
-      - /docs/reference/functions.html: Functions
-      - /docs/reference/lambdas.html: Lambdas
-      - /docs/reference/inline-functions.html: Inline Functions
+    items:
+      - url: /docs/reference/functions.html
+        title: Functions
+      - url: /docs/reference/lambdas.html
+        title: Lambdas
+      - url: /docs/reference/inline-functions.html
+        title: Inline Functions
 
   - title: Other
     description: Various bits and bobs
-    content:
-      - /docs/reference/multi-declarations.html: Destructuring Declarations
-      - /docs/reference/collections.html: Collections
-      - /docs/reference/ranges.html: Ranges
-      - /docs/reference/typecasts.html: Type Checks and Casts
-      - /docs/reference/this-expressions.html: This expressions
-      - /docs/reference/equality.html: Equality
-      - /docs/reference/operator-overloading.html: Operator overloading
-      - /docs/reference/null-safety.html: Null Safety
-      - /docs/reference/exceptions.html: Exceptions
-      - /docs/reference/annotations.html: Annotations
-      - /docs/reference/reflection.html: Reflection
-      - /docs/reference/type-safe-builders.html: Type-Safe Builders
-      - /docs/reference/dynamic-type.html: Dynamic Type
+    items:
+      - url: /docs/reference/multi-declarations.html
+        title: Destructuring Declarations
+      - url: /docs/reference/collections.html
+        title: Collections
+      - url: /docs/reference/ranges.html
+        title: Ranges
+      - url: /docs/reference/typecasts.html
+        title: Type Checks and Casts
+      - url: /docs/reference/this-expressions.html
+        title: This expressions
+      - url: /docs/reference/equality.html
+        title: Equality
+      - url: /docs/reference/operator-overloading.html
+        title: Operator overloading
+      - url: /docs/reference/null-safety.html
+        title: Null Safety
+      - url: /docs/reference/exceptions.html
+        title: Exceptions
+      - url: /docs/reference/annotations.html
+        title: Annotations
+      - url: /docs/reference/reflection.html
+        title: Reflection
+      - url: /docs/reference/type-safe-builders.html
+        title: Type-Safe Builders
+      - url: /docs/reference/dynamic-type.html
+        title: Dynamic Type
 
 
 
   - title: Reference
     description: API and Grammar
-    content:
-      - /api/latest/jvm/stdlib/index.html: API Reference
-      - /docs/reference/grammar.html: Grammar
+    items:
+      - url: /api/latest/jvm/stdlib/index.html
+        title: API Reference
+      - url: /docs/reference/grammar.html
+        title: Grammar
 
 
   - title: Interop
     description: What you need to know about interoperability with Java and JavaScript.
-    content:
-      - /docs/reference/java-interop.html: Calling Java from Kotlin
-      - /docs/reference/java-to-kotlin-interop.html: Calling Kotlin from Java
+    items:
+      - url: /docs/reference/java-interop.html
+        title: Calling Java from Kotlin
+      - url: /docs/reference/java-to-kotlin-interop.html
+        title: Calling Kotlin from Java
 
   - title: Tools
     description:
-    content:
+    items:
 #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
-      - /docs/reference/kotlin-doc.html: Documenting Kotlin Code
-      - /docs/reference/using-maven.html: Using Maven
-      - /docs/reference/using-ant.html: Using Ant
-      - /docs/reference/using-gradle.html: Using Gradle
-      - /docs/reference/kotlin-osgi.html: Kotlin and OSGi
+      - url: /docs/reference/kotlin-doc.html
+        title: Documenting Kotlin Code
+      - url: /docs/reference/using-maven.html
+        title: Using Maven
+      - url: /docs/reference/using-ant.html
+        title: Using Ant
+      - url: /docs/reference/using-gradle.html
+        title: Using Gradle
+      - url: /docs/reference/kotlin-osgi.html
+        title: Kotlin and OSGi
 
   - title: FAQ
     description: Every question you could possibly think of, might be answered.
-    content:
-      - /docs/reference/faq.html: FAQ
-      - /docs/reference/comparison-to-java.html: Comparison to Java
-      - /docs/reference/comparison-to-scala.html: Comparison to Scala
+    items:
+      - url: /docs/reference/faq.html
+        title: FAQ
+      - url: /docs/reference/comparison-to-java.html
+        title: Comparison to Java
+      - url: /docs/reference/comparison-to-scala.html
+        title: Comparison to Scala
 
 
 
@@ -139,28 +173,41 @@ reference:
 # ====================
 tutorials:
   - title: Getting Started
-    content:
-      - /docs/tutorials/getting-started.html: Getting Started with IntelliJ IDEA
-      - /docs/tutorials/getting-started-eclipse.html: Getting Started with Eclipse
-      - /docs/tutorials/command-line.html: Working with the Command Line Compiler
-      - /docs/tutorials/build-tools.html: Working with Build Tools
-      - /docs/tutorials/koans.html: Koans
+    items:
+      - url: /docs/tutorials/getting-started.html
+        title: Getting Started with IntelliJ IDEA
+      - url: /docs/tutorials/getting-started-eclipse.html
+        title: Getting Started with Eclipse
+      - url: /docs/tutorials/command-line.html
+        title: Working with the Command Line Compiler
+      - url: /docs/tutorials/build-tools.html
+        title: Working with Build Tools
+      - url: /docs/tutorials/koans.html
+        title: Koans
   - title: JavaScript
-    content:
-      - /docs/tutorials/create-library-js.html: Creating Kotlin/JavaScript library with IntelliJ IDEA
-      - /docs/tutorials/command-line-library-js.html: Creating Kotlin/JavaScript library with the Command Line Compiler       
+    items:
+      - url: /docs/tutorials/create-library-js.html
+        title: Creating Kotlin/JavaScript library with IntelliJ IDEA
+      - url: /docs/tutorials/command-line-library-js.html
+        title: Creating Kotlin/JavaScript library with the Command Line Compiler
   - title: Interop
-    content:
-      - /docs/tutorials/mixing-java-kotlin-intellij.html: Mixing Java and Kotlin in one project
+    items:
+      - url: /docs/tutorials/mixing-java-kotlin-intellij.html
+        title: Mixing Java and Kotlin in one project
   - title: Web Development
-    content:
-      - /docs/tutorials/httpservlets.html: Creating Web Applications with Http Servlets
-      - /docs/tutorials/spring-boot-restful.html: Creating a RESTful Web Service with Spring Boot
+    items:
+      - url: /docs/tutorials/httpservlets.html
+        title: Creating Web Applications with Http Servlets
+      - url: /docs/tutorials/spring-boot-restful.html
+        title: Creating a RESTful Web Service with Spring Boot
 
   - title: Mobile
-    content:
-      - /docs/tutorials/kotlin-android.html: Getting Started With Android Development
-      - /docs/tutorials/android-plugin.html: Kotlin Android Extensions
+    items:
+      - url: /docs/tutorials/kotlin-android.html
+        title: Getting Started With Android Development
+      - url: /docs/tutorials/android-plugin.html
+        title: Kotlin Android Extensions
   - title: Tools
-    content:
-      - /docs/tutorials/kotlin-and-ci.html: Setting up Kotlin on TeamCity
+    items:
+      - url: /docs/tutorials/kotlin-and-ci.html
+        title: Setting up Kotlin on TeamCity

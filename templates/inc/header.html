@@ -2,38 +2,31 @@
 
     <div class="global-header-panel">
         <div class="g-layout">
-            <a class="global-header-logo" href="{{ site.baseurl }}/">Kotlin</a>
-
-            {% if include.active %}
-            {% assign active = include.active %}
-            {% else %}
-            {% assign active = page.main_nav_id %}
-            {% endif %}
-
-            {% include nav/global-nav.html active=active %}
+            <a class="global-header-logo" href="{{ baseurl }}/">Kotlin</a>
+            {% include 'inc/nav/global-nav.html' %}
         </div>
     </div>
 
     <div class="g-layout">
-        {% if page.layout == 'index' %}
-        <div class="kotlin-info">
-            <div class="kotlin-info-description">
-                Statically typed programming language<br>
-                for the JVM, Android and the browser
-            </div>
-            <div class="kotlin-info-description-extra">
-                100% interoperable with Java™
-            </div>
-            <a href="http://try.kotlinlang.org" class="get-kotlin-button">
-                Try Kotlin
-            </a>
+        {% if is_index_page %}
+            <div class="kotlin-info">
+                <div class="kotlin-info-description">
+                    Statically typed programming language<br>
+                    for the JVM, Android and the browser
+                </div>
+                <div class="kotlin-info-description-extra">
+                    100% interoperable with Java™
+                </div>
+                <a href="http://try.kotlinlang.org" class="get-kotlin-button">
+                    Try Kotlin
+                </a>
             <span class="release-banner">
                 Kotlin 1.0 is out
                 <a class="release-banner__link"
                    href="http://blog.jetbrains.com/kotlin/2016/02/kotlin-1-0-released-pragmatic-language-for-jvm-and-android/">
                     read more</a>
             </span>
-        </div>
+            </div>
         {% endif %}
     </div>
 </header>
