@@ -1567,9 +1567,11 @@
   url: "http://tmpaconf.org/thesesen-ru/kotlin-from-null-dereference-to-smart-casts-ru"
   subject: "Язык Котлин: от разадресации нуля до умных преобразований типов"
   speaker: Mikhail Glukhikh
-  date: [2015-11-12]
+  date: 2015-11-12
   location: Saint Petersburg, Russia
   lang: ru
+  content:
+    video: https://youtu.be/CUS698jQXYE
   
 - title: DroidCon Italy 2016
   url: http://it.droidcon.com/2016/sessions/fun-thingsyou-cando/
