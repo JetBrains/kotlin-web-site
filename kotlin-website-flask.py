@@ -3,23 +3,35 @@ import os
 from os import path
 
 import frontmatter
+import jinja2
 import yaml
 from flask import Flask, render_template, request
 
 from src.Feature import Feature
 from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
+from src.loader import PageLoader
 from src.markdown.makrdown import customized_markdown
 
 app = Flask(__name__)
 app.config.from_pyfile('mysettings.py')
 pages = MyFlatPages(app)
+
+my_loader = jinja2.ChoiceLoader([
+    app.jinja_loader,
+    PageLoader(pages)
+])
+app.jinja_loader = my_loader
+
 data_folder = path.join(os.path.dirname(__file__), "data")
 
 
-def get_data():
+@app.context_processor
+def load_data():
     data = {}
     for data_file in os.listdir(data_folder):
+        if data_file.startswith('_'):
+            continue
         data_file_path = path.join(data_folder, data_file)
         with open(data_file_path) as stream:
             try:
@@ -31,10 +43,14 @@ def get_data():
             except IOError as exc:
                 print 'Cant open data file ' + data_file
                 print exc.message
-    return data
+    return {'data': data}
 
 
-site_data = get_data()
+@app.context_processor
+def init_nav():
+    with open(path.join(data_folder, "_nav.yml")) as stream:
+        nav = Nav(yaml.load(stream))
+        return {'nav': nav}
 
 
 def get_kotlin_features():
@@ -55,10 +71,7 @@ def get_kotlin_features():
 @app.route('/')
 def hello_world():
     features = get_kotlin_features()
-    nav = Nav(site_data['_nav'], request.path)
     return render_template('pages/index.html',
-                           data=site_data,
-                           nav=nav,
                            is_index_page=True,
                            features=features,
                            year=datetime.datetime.now().year)
@@ -72,16 +85,20 @@ def page(path):
     if page is None:
         path += 'index'
         page = pages.get_or_404(path)
-    edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + path + app.config['FLATPAGES_EXTENSION']
-    nav = Nav(site_data['_nav'], request.path)
+
+    if 'date' in page.meta:
+        page.meta['formatted_date'] = page.meta['date'].strftime('%d %B %Y')
+        if page.meta['formatted_date'].startswith('0'):
+            page.meta['formatted_date'] = page.meta['formatted_date'][1:]
+
+    edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + path + app.config[
+        'FLATPAGES_EXTENSION']
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):
         template += ".html"
     return render_template(
-        template,
+        path,
         page=page,
-        data=site_data,
-        nav=nav,
         baseurl="",
         edit_on_github_url=edit_on_github_url,
         year=datetime.datetime.now().year

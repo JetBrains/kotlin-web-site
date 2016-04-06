@@ -1,5 +1,8 @@
+from flask import request
+
+
 class NavItem:
-    def __init__(self, config, path):
+    def __init__(self, config):
         if 'url' in config:
             self.url = config['url']
             if not self.url.startswith('/'):
@@ -9,16 +12,15 @@ class NavItem:
         self.title = config['title']
         self.items = []
         if 'items' in config:
-            self.items = [NavItem(item_config, path) for item_config in config['items']]
+            self.items = [NavItem(item_config) for item_config in config['items']]
         self._config = config
-        self._current_url = path
 
     def is_active(self):
         for item in self.items:
             if item.is_active():
                 return True
         if self.url is not None:
-            return self._current_url.startswith(self.url)
+            return request.path.startswith(self.url)
         else:
             return False
 
@@ -33,10 +35,10 @@ class NavItem:
 
 
 class Nav:
-    def __init__(self, config, path):
+    def __init__(self, config):
         self._nav = {}
         for nav_id in config:
-            self._nav[nav_id] = [NavItem(nav_item_config, path) for nav_item_config in config[nav_id]]
+            self._nav[nav_id] = [NavItem(nav_item_config) for nav_item_config in config[nav_id]]
 
     def __getitem__(self, item):
         return self._nav[item]
