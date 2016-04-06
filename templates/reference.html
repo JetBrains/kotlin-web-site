@@ -1,34 +1,35 @@
----
-layout: base
-main_nav_id: docs
----
+{% extends 'base.html' %}
 
-<div class="g-grid">
+{% from 'inc/nav/side-tree-nav.html' import side_tree_nav%}
 
-    <div class="g-12">
-        {% include nav/docs-nav.html active='reference' %}
+{% block content %}
+    <div class="g-grid">
+
+        <div class="g-12">
+            {% include 'inc/nav/docs-nav.html' %}
+        </div>
+
+        <aside class="g-3">
+            <div id="reference-nav">
+                {{ side_tree_nav(nav.reference) }}
+
+                <a href="{{ config.PDF_URL }}" class="reference-pdf-link">
+                    <span class="icon"></span>
+                    <span class="text">Full Kotlin Reference</span>
+                </a>
+            </div>
+        </aside>
+
+        <article role="main" class="page-content g-9">
+            {% include 'inc/edit-on-github-link.html' %}
+
+            {{ page.html | safe }}
+        </article>
     </div>
 
-    <aside class="g-3">
-        <div id="reference-nav">
-            {% include nav/side-tree-nav.html nav='reference' %}
-
-            <a href="{{ site.pdf_url }}" class="reference-pdf-link">
-                <span class="icon"></span>
-                <span class="text">Full Kotlin Reference</span>
-            </a>
-        </div>
-    </aside>
-
-    <article role="main" class="page-content g-9">
-        {% include edit-on-github-link.html %}
-
-        {{ content }}
-    </article>
-</div>
-
-<script>
-require(['page/reference'], function(page) {
-    page();
-});
-</script>
+    <script>
+        require(['page/reference'], function (page) {
+            page();
+        });
+    </script>
+{% endblock %}

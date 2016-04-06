@@ -1,7 +1,7 @@
----
-layout: base
----
+{% extends 'base.html' %}
 
-<article role="main" class="page-content">
-    {{ content }}
-</article>
+{% block content %}
+    <article role="main" class="page-content">
+        {{ page.html | safe }}
+    </article>
+{% endblock %}

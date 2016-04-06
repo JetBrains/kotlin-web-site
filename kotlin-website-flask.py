@@ -5,15 +5,15 @@ from os import path
 import frontmatter
 import yaml
 from flask import Flask, render_template, request
-from flask.ext.flatpages import FlatPages
 
 from src.Feature import Feature
+from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
-from src.makrdown import customized_markdown
+from src.markdown.makrdown import customized_markdown
 
 app = Flask(__name__)
 app.config.from_pyfile('mysettings.py')
-pages = FlatPages(app)
+pages = MyFlatPages(app)
 data_folder = path.join(os.path.dirname(__file__), "data")
 
 
@@ -64,14 +64,28 @@ def hello_world():
                            year=datetime.datetime.now().year)
 
 
-# @app.route('/<path:path>/')
-# def page(path):
-#     page = pages.get_or_404(path)
-#     nav = Nav(site_data['_nav'], page)
-#     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
-#     if not template.endswith(".html"):
-#         template += ".html"
-#     return render_template(template, page=page, data=site_data, nav=nav, baseurl="")
+@app.route('/<path:path>')
+def page(path):
+    if path.endswith(".html"):
+        path = path[:-5]
+    page = pages.get(path)
+    if page is None:
+        path += 'index'
+        page = pages.get_or_404(path)
+    edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + path + app.config['FLATPAGES_EXTENSION']
+    nav = Nav(site_data['_nav'], request.path)
+    template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
+    if not template.endswith(".html"):
+        template += ".html"
+    return render_template(
+        template,
+        page=page,
+        data=site_data,
+        nav=nav,
+        baseurl="",
+        edit_on_github_url=edit_on_github_url,
+        year=datetime.datetime.now().year
+    )
 
 
 if __name__ == '__main__':

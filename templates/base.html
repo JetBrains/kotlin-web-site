@@ -1,27 +1,24 @@
-<!DOCTYPE html>
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js ie ie7" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js ie ie8" lang="en"><![endif]-->
-<!--[if (IE 9)&!(IEMobile)]><html class="no-js ie ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <html>
 <head>
-{% include head.html %}
-{% include js-bootstrap.html %}
+    {% include 'inc/head.html' %}
+    {% include 'inc/js-bootstrap.html' %}
 </head>
 <body>
-{% include analytics.html %}
+{% include 'inc/analytics.html' %}
 
 <div class="global-layout">
 
-    {% include header.html active=page.main_nav_id %}
+    {% include 'inc/header.html' %}
 
     <div class="g-layout global-content">
-        {{ content }}
+        {% block content %}
+            {{ page.html | safe }}
+        {% endblock %}
     </div>
 
 </div>
 
-{% include footer.html %}
+{% include 'inc/footer.html' %}
 <script>require(['com/search', 'com/cookie-banner']);</script>
 </body>
 </html>

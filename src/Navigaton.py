@@ -2,6 +2,8 @@ class NavItem:
     def __init__(self, config, path):
         if 'url' in config:
             self.url = config['url']
+            if not self.url.startswith('/'):
+                self.url = '/' + self.url
         else:
             self.url = None
         self.title = config['title']
@@ -16,12 +18,7 @@ class NavItem:
             if item.is_active():
                 return True
         if self.url is not None:
-            url = self.url
-            if url.startswith("/"):
-                url = url[1:]
-            if url.endswith(".html"):
-                url = url[:-5]
-            return self._current_url.startswith(url)
+            return self._current_url.startswith(self.url)
         else:
             return False
 
