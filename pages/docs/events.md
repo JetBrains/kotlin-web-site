@@ -12,6 +12,8 @@ docs_nav_id: events
 
 <script>
 require(['page/events'], function(page) {
-    page(document.getElementById('events'), {{ site.data.events | json }});
+    $.getJSON("/data/events.json", function(data){
+        page(document.getElementById('events'), data);
+    })
 });
 </script>

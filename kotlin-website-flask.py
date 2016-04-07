@@ -1,4 +1,5 @@
 import datetime
+import json
 import os
 from os import path
 
@@ -9,6 +10,7 @@ from flask import Flask, render_template, g
 from src.Feature import Feature
 from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
+from src.encoder import DateAwareEncoder
 from src.markdown.makrdown import customized_markdown
 
 app = Flask(__name__)
@@ -81,8 +83,13 @@ def add_data_to_context():
     }
 
 
+@app.route('/data/events.json')
+def get_events():
+    return json.dumps(site_data['events'], cls=DateAwareEncoder)
+
+
 @app.route('/')
-def hello_world():
+def index_page():
     features = get_kotlin_features()
     return render_template('pages/index.html',
                            is_index_page=True,
