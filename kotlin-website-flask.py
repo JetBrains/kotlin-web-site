@@ -4,8 +4,10 @@ import os
 from os import path
 
 import frontmatter
+import sys
 import yaml
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, Response
+from flask.ext.frozen import Freezer
 
 from src.Feature import Feature
 from src.MyFlatPages import MyFlatPages
@@ -16,6 +18,7 @@ from src.markdown.makrdown import customized_markdown
 app = Flask(__name__)
 app.config.from_pyfile('mysettings.py')
 pages = MyFlatPages(app)
+freezer = Freezer(app)
 
 data_folder = path.join(os.path.dirname(__file__), "data")
 
@@ -85,12 +88,12 @@ def add_data_to_context():
 
 @app.route('/data/events.json')
 def get_events():
-    return json.dumps(site_data['events'], cls=DateAwareEncoder)
+    return Response(json.dumps(site_data['events'], cls=DateAwareEncoder), mimetype='application/json')
 
 
 @app.route('/data/videos.json')
 def get_videos():
-    return json.dumps(site_data['videos'], cls=DateAwareEncoder)
+    return Response(json.dumps(site_data['videos'], cls=DateAwareEncoder), mimetype='application/json')
 
 
 @app.route('/')
@@ -102,21 +105,15 @@ def index_page():
                            year=datetime.datetime.now().year)
 
 
-@app.route('/<path:path>')
-def page(path):
-    if path.endswith(".html"):
-        path = path[:-5]
-    page = pages.get(path)
-    if page is None:
-        path += 'index'
-        page = pages.get_or_404(path)
+def process_page(page_path):
+    page = pages.get_or_404(page_path)
 
     if 'date' in page.meta:
         page.meta['formatted_date'] = page.meta['date'].strftime('%d %B %Y')
         if page.meta['formatted_date'].startswith('0'):
             page.meta['formatted_date'] = page.meta['formatted_date'][1:]
 
-    edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + path + app.config[
+    edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + app.config[
         'FLATPAGES_EXTENSION']
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):
@@ -130,5 +127,35 @@ def page(path):
     )
 
 
+@freezer.register_generator
+def get_page():
+    for page in pages:
+        yield {'page_path': page.path}
+
+
+@app.route('/<path:page_path>.html')
+def get_page(page_path):
+    return process_page(page_path)
+
+
+@app.route('/<path:page_path>')
+def get_index_page(page_path):
+    """
+    Handle requests which urls don't end with '.html' (for example, '/doc/')
+
+    We don't need any generator here, because such urls are equivalent to the same urls
+    with 'index.html' at the end.
+
+    :param page_path: str
+    :return: str
+    """
+    if not page_path.endswith('/'):
+        page_path += '/'
+    return process_page(page_path + 'index')
+
+
 if __name__ == '__main__':
-    app.run()
+    if len(sys.argv) > 1 and sys.argv[1] == "build":
+        freezer.freeze()
+    else:
+        app.run()
