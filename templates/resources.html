@@ -1,24 +1,23 @@
----
-layout: base
-main_nav_id: docs
----
+{% extends 'base.html' %}
 
-<div class="g-grid">
+{% block content %}
+    <div class="g-grid">
 
-    <div class="g-12">
-        {% include nav/docs-nav.html active='resources' %}
+        <div class="g-12">
+            {% include 'inc/nav/docs-nav.html' %}
+        </div>
+
+        <article role="main" class="page-content g-9">
+            <p>There are over <a href="https://github.com/search?q=language:Kotlin&ref=cmdform"> 2000 repositories on
+                GitHub</a> alone with Kotlin projects. These are just a few of them.
+                If you have an OSS project in Kotlin or know of one, please <a
+                        href="https://github.com/JetBrains/kotlin-web-site/edit/master/_data/oss-projects.yml">
+                    add it</a>.</p>
+            <br/>
+            <br/>
+            {{ page.html | safe }}
+        </article>
     </div>
-
-    <article role="main" class="page-content g-9">
-        <p>There are over <a href="https://github.com/search?q=language:Kotlin&ref=cmdform"> 2000 repositories on GitHub</a> alone with Kotlin projects. These are just a few of them.
-        If you have an OSS project in Kotlin or know of one, please   <a href="https://github.com/JetBrains/kotlin-web-site/edit/master/_data/oss-projects.yml">
-            add it</a>.</p>
-        <br/>
-        <br/>
-        {{ content }}
-    </article>
-</div>
-
-
+{% endblock %}
 
 <script>require(['page/resources']);</script>

@@ -88,6 +88,11 @@ def get_events():
     return json.dumps(site_data['events'], cls=DateAwareEncoder)
 
 
+@app.route('/data/videos.json')
+def get_videos():
+    return json.dumps(site_data['videos'], cls=DateAwareEncoder)
+
+
 @app.route('/')
 def index_page():
     features = get_kotlin_features()

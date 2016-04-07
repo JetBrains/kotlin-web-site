@@ -18,7 +18,7 @@ You can find a community-maintained list of links to Kotlin projects, libraries 
 </tr>
 </thead>
 <tbody>
-{% for project in site.data.oss-projects %}
+{% for project in site.data['oss-projects'] %}
 <tr>
   <td><a href="{{ project.link }}">{{ project.name }}</a></td>
   <td>{{ project.description }}</td>
