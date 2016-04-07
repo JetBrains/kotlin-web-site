@@ -1,8 +1,6 @@
----
-layout: base
-main_nav_id: docs
----
+{% extends 'base.html' %}
 
-{% include nav/docs-nav.html active=page.docs_nav_id %}
-
-{{ content }}
+{% block content %}
+    {% include 'inc/nav/docs-nav.html' %}
+    {{ page.html | safe }}
+{% endblock %}
