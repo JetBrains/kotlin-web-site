@@ -12,8 +12,7 @@
 
     <div class="g-layout global-content">
         {% block content %}
-            {% block page_content %}
-            {% endblock %}
+            {{ page.html | safe }}
         {% endblock %}
     </div>
 

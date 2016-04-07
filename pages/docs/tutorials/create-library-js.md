@@ -3,8 +3,7 @@ type: tutorial
 layout: tutorial
 title:  "Creating Kotlin/JavaScript library with IntelliJ IDEA"
 description: "This tutorials walks us through creating a simple Kotlin/JavaScript library using IntelliJ IDEA."
-authors: 
-date: 
+authors:
 showAuthorInfo: false
 ---
 ### Setting up the environment

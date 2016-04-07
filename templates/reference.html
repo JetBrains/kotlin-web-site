@@ -23,8 +23,7 @@
         <article role="main" class="page-content g-9">
             {% include 'inc/edit-on-github-link.html' %}
 
-            {% block page_content %}
-            {% endblock %}
+            {{ page.html | safe }}
         </article>
     </div>
 

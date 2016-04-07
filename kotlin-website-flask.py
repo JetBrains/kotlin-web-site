@@ -3,31 +3,22 @@ import os
 from os import path
 
 import frontmatter
-import jinja2
 import yaml
-from flask import Flask, render_template, request
+from flask import Flask, render_template, g
 
 from src.Feature import Feature
 from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
-from src.loader import PageLoader
 from src.markdown.makrdown import customized_markdown
 
 app = Flask(__name__)
 app.config.from_pyfile('mysettings.py')
 pages = MyFlatPages(app)
 
-my_loader = jinja2.ChoiceLoader([
-    app.jinja_loader,
-    PageLoader(pages)
-])
-app.jinja_loader = my_loader
-
 data_folder = path.join(os.path.dirname(__file__), "data")
 
 
-@app.context_processor
-def load_data():
+def get_site_data():
     data = {}
     for data_file in os.listdir(data_folder):
         if data_file.startswith('_'):
@@ -43,14 +34,19 @@ def load_data():
             except IOError as exc:
                 print 'Cant open data file ' + data_file
                 print exc.message
-    return {'data': data}
+    return data
 
 
-@app.context_processor
-def init_nav():
+site_data = get_site_data()
+
+
+def get_nav():
     with open(path.join(data_folder, "_nav.yml")) as stream:
         nav = Nav(yaml.load(stream))
-        return {'nav': nav}
+        return nav
+
+
+nav = get_nav()
 
 
 def get_kotlin_features():
@@ -66,6 +62,23 @@ def get_kotlin_features():
                 feature.content = customized_markdown(feature.content)
             features.append(feature)
     return [Feature(elem.content, elem.metadata) for elem in features]
+
+
+@app.context_processor
+def add_data_to_context():
+    return {
+        'nav': nav,
+        'data': site_data,
+        'site': {
+            'pdf_url': app.config['PDF_URL'],
+            'baseurl': app.config['BASEURL'],
+            'img_tutorial_root': app.config['IMG_TUTORIAL_ROOT'],
+            'forum_url': app.config['FORUM_URL'],
+            'site_github_url': app.config['SITE_GITHUB_URL'],
+            'data': site_data,
+            'text_using_gradle': app.config['TEXT_USING_GRADLE']
+        }
+    }
 
 
 @app.route('/')
@@ -97,7 +110,7 @@ def page(path):
     if not template.endswith(".html"):
         template += ".html"
     return render_template(
-        path,
+        template,
         page=page,
         baseurl="",
         edit_on_github_url=edit_on_github_url,
