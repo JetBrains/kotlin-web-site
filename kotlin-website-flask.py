@@ -14,9 +14,12 @@ from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
 from src.encoder import DateAwareEncoder
 from src.markdown.makrdown import customized_markdown
+from src.grammar import get_grammar
 
 app = Flask(__name__)
 app.config.from_pyfile('mysettings.py')
+app.jinja_env.trim_blocks = True
+app.jinja_env.lstrip_blocks = True
 pages = MyFlatPages(app)
 freezer = Freezer(app)
 
@@ -94,6 +97,14 @@ def get_events():
 @app.route('/data/videos.json')
 def get_videos():
     return Response(json.dumps(site_data['videos'], cls=DateAwareEncoder), mimetype='application/json')
+
+
+@app.route('/docs/reference/grammar.html')
+def grammar():
+    grammar = get_grammar()
+    if grammar is None:
+        return "Grammar file not found", 404
+    return render_template('pages/grammar.html', kotlinGrammar=grammar)
 
 
 @app.route('/')

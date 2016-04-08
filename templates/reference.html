@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% from 'inc/nav/side-tree-nav.html' import side_tree_nav%}
+{% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
 {% block content %}
     <div class="g-grid">
@@ -23,7 +23,9 @@
         <article role="main" class="page-content g-9">
             {% include 'inc/edit-on-github-link.html' %}
 
-            {{ page.html | safe }}
+            {% block page_content %}
+                {{ page.html | safe }}
+            {% endblock %}
         </article>
     </div>
 
