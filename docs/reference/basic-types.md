@@ -247,7 +247,7 @@ val text = """
 
 You can remove leading whitespace with [`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function:
 
-```
+``` kotlin
 val text = """
     |Tell me and I forget. 
     |Teach me and I remember. 
