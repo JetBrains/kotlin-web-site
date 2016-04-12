@@ -1596,3 +1596,11 @@
   date: 2016-04-14
   location: Austin, USA
   lang: en
+
+- title: "DutchAUG Meetup"
+  url: http://www.meetup.com/dutch-aug/events/229816059/
+  subject: "Kotlin for Android"
+  speaker: Svetlana Isakova
+  date: 2016-04-25
+  location: Amsterdam, Netherlands
+  lang: en
