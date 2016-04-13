@@ -256,3 +256,14 @@ stream.buffered().reader().use { reader ->
     println(reader.readText())
 }
 ```
+
+### Convenient form for a generic function that requires the generic type information
+
+``` kotlin
+//  public final class Gson {
+//     ...
+//     public <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
+//     ...
+
+inline fun <reified T: Any> Gson.fromJson(json): T = this.fromJson(json, T::class.java)
+```
