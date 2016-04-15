@@ -19,7 +19,7 @@ The Kotlin Android Extensions plugin allows us to obtain the same experience we 
 
 In essence, this would allow for the following code:
 
-``` kotlin
+```
 // Using R.layout.activity_main from the main source set
 import kotlinx.android.synthetic.main.activity_main.*
 
