@@ -9,7 +9,7 @@ title: "Idioms"
 
 A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it. Do a pull request.
 
-### Creating DTO's (POJO's/POCO's)
+### Creating DTOs (POJOs/POCOs)
 
 ``` kotlin
 data class Customer(val name: String, val email: String)
@@ -17,7 +17,7 @@ data class Customer(val name: String, val email: String)
 
 provides a `Customer` class with the following functionality:
 
-* getters (and setters in case of *var*{: .keyword }'s) for all properties
+* getters (and setters in case of *var*{: .keyword }s) for all properties
 * `equals()`
 * `hashCode()`
 * `toString()`
