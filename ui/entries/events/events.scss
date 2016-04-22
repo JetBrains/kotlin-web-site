@@ -3,43 +3,35 @@
 @import '../../../css/com/_bits/_header';
 @import '../../../css/com/_bits/_table';
 
-.map {
-    width: 100%;
-    height: 500px;
+.events {
+    display: flex;
+    flex-direction: row;
 }
 
 .events-table {
-    .event-title-col {
-        width: 190px;
-        padding-right: 15px;
-        float: left;
-    }
+    flex-basis: 50%;
+    flex-grow: 0;
+    flex-shrink: 0;
 
-    .event-date-col {
-        width: 150px;
-        padding-top: 6px;
-        padding-right: 15px;
-        float: left;
-    }
-
-    .event-info-col {
-        overflow: hidden;
-    }
-
-    .events-list {
-        margin-left: 160px;
+    .events-table-row {
+        padding-top: 50px;
     }
 }
 
-.events-table-row {
-    border-top: 1px solid #ECEFF3;
+.events-map {
+    flex-basis: 80%;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    .map {
+        height: 700px;
+        width: 100%;
+    }
 }
 
 .events-table-row-title {
-    float: left;
-    padding-top: 10px;
-    font-size: 18px;
-    line-height: 22px;
+    padding-bottom: 10px;
+    font-size: 30px;
 }
 
 .events-list {
@@ -49,40 +41,35 @@
 }
 
 .event {
-    @include clearfix;
-    padding: 8px 0 8px 10px;
-    border-bottom: 1px solid #eceff3;
+    padding: 20px;
+    margin-left: -20px;
 
     &.hidden {
         display: none;
     }
 
     &:hover {
-        background-color: #F7FCFF;
+        background-color: rgb(229, 246, 255);
     }
 }
 
 .event-date {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
     color: #666;
     white-space: nowrap;
 }
 
 .event-title {
-    font-size: 18px;
-    line-height: 22px;
-}
-
-.event-location {
-    font-size: 12px;
-    line-height: 22px;
+    font-size: 14px;
+    padding-top: 11px;
 }
 
 .event-subject {
     display: inline-block;
     font-size: 18px;
     line-height: 22px;
+    padding-top: 16px;
     font-weight: bold;
     color: #4c4c4c;
 
@@ -183,7 +170,7 @@
 }
 
 .event-speaker {
-    font-size: 12px;
-    line-height: 22px;
+    font-size: 14px;
+    padding-top: 11px;
     color: #666;
 }
