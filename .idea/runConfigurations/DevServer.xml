@@ -1,8 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="DevServer" type="js.build_tools.npm" factoryName="npm">
-    <package-json value="$PROJECT_DIR$/package.json" />
-    <command value="start" />
-    <envs />
-    <method />
-  </configuration>
-</component>
