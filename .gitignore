@@ -11,7 +11,9 @@ out/
 *.dotsettings.*
 ~$*
 .DS_Store/
-.idea/
+.idea/*
+!.idea/kotlin-web-site.iml
+!.idea/modules.xml
 ~$*
 lib/kotlin-runtime.jar
 _site/
@@ -24,5 +26,4 @@ workspace.xml
 uiDesigner.xml
 *.css.map
 api/
-*.iml
 node_modules
