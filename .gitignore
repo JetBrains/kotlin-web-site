@@ -26,3 +26,4 @@ uiDesigner.xml
 *.css.map
 api/
 *.iml
+node_modules
