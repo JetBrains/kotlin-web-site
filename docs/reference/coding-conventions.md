@@ -59,5 +59,5 @@ Prefer a property over a function when the underlying algorithm:
 
 * does not throw
 * has a `O(1)` complexity
-* is cheap to calculate (or cashed on the first run)
+* is cheap to calculate (or caсhed on the first run)
 * returns the same result over invocations 
