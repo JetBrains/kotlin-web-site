@@ -70,6 +70,6 @@ Maps follow the same pattern. They can be easily instantiated and accessed like 
 
 ``` kotlin
 val readWriteMap = hashMapOf("foo" to 1, "bar" to 2)
-println(map["foo"])
+println(readWriteMap["foo"])
 val snapshot: Map<String, Int> = HashMap(readWriteMap)
 ```
