@@ -276,10 +276,14 @@ val str = "$s.length is ${s.length}" // evaluates to "abc.length is 3"
 ```
 
 Templates are supported both inside raw strings and inside escaped strings.
-If you need to represent a literal `$` character in a raw string (which doesn't support backslash escaping), you can use the following syntax:
+If you need to represent a literal `$` character in a raw string (which doesn't support backslash escaping), you can use one of the following syntax:
 
 ``` kotlin
+val s = 9.99
 val price = """
+$9.99
 ${'$'}9.99
+${'$'}$s
+$$s
 """
 ```
