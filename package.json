@@ -33,7 +33,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "npm run clean && webpack -p",
-    "clean": "rimraf ./_site/_assets/**"
+    "clean": "rimraf ./_site/_assets"
   },
   "config": {
     "devServer": {
