@@ -1508,7 +1508,7 @@
   lang: ru
 
 - title: JET Conference
-  url: http://jetconf.by/#/program
+  url: "http://jetconf.by/#/dmitry_jemerov"
   subject: "Kotlin: Making JVM Development Fun Again; Caught in the Act: Kotlin Bytecode Generation and Runtime Performance"
   speaker: Dmitry Jemerov
   date: 2016-04-25
@@ -1621,5 +1621,32 @@
   speaker: Svetlana Isakova
   date: 2016-04-25
   location: Utrecht, Netherlands
-  lang: en   
+  lang: en
+  
+- title: JET Conference
+  url: "http://jetconf.by/#/nicolas_frankel"
+  subject: "Spring Boot and Kotlin, a match made in Heaven"
+  speaker: Nicolas Frankel
+  date: 2016-04-25
+  location: Minsk, Belarus
+  lang: en
+
+- title: JET Conference
+  url: "http://jetconf.by/#/anton_keks"
+  subject: "Kotlin in real projects: pragmatic opinion on pragmatic language"
+  speaker: Anton Keks
+  date: 2016-04-25
+  location: Minsk, Belarus
+  lang: en
+  content:
+    slides: https://docs.google.com/presentation/d/1rxHoxvBRHdIWS2N7pLaVWkdzVKnMn316MkYT9Q8BGuA
+
+- title: JET Conference
+  url: "http://jetconf.by/#/ruslan_ibragimov"
+  subject: "The Darkside of Kotlin"
+  speaker: Ruslan Ibragimov
+  date: 2016-04-25
+  location: Minsk, Belarus
+  lang: en
+
 
