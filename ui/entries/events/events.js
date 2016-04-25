@@ -1,6 +1,6 @@
 var FilterPanel = require('../../components/filter-panel/index');
 var util = require('util/common');
-var eventTempalte = require('./event-item.nunj');
+var eventTempalte = require('./event-item.twig');
 var $ = require('jquery');
 var langApi = require('./lang');
 

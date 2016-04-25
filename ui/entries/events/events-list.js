@@ -1,4 +1,4 @@
-var eventTemplate = require('./event-item.nunj');
+var eventTemplate = require('./event-item.twig');
 var $ = require('jquery');
 
 function KotlinEvent(title) {

@@ -46,7 +46,7 @@ var webpackConfig = {
         ].join('!'))
       },
       {
-        test: /\.nunj$/,
+        test: /\.twig$/,
         loader: 'nunjucks-loader'
       },
       {
