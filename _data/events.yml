@@ -1604,3 +1604,13 @@
   date: 2016-04-25
   location: Amsterdam, Netherlands
   lang: en
+
+- title: "Android spring barcamp 2016"
+  url: http://lviv.gdg.org.ua/2016/04/11/android-spring-barcamp-2016/
+  subject: "Kotlin + Android"
+  speaker: Dmytro Danylyk
+  date: 2016-04-21
+  location: Lviv, Ukraine
+  lang: uk
+  content:
+    slides: https://speakerdeck.com/dmytrodanylyk/kotlin-plus-android
