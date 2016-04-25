@@ -1614,14 +1614,6 @@
   lang: uk
   content:
     slides: https://speakerdeck.com/dmytrodanylyk/kotlin-plus-android
-
-- title: "Dutch Android User Group"
-  url: http://www.meetup.com/dutch-aug/events/229816059/
-  subject: "You can do better with Kotlin"
-  speaker: Svetlana Isakova
-  date: 2016-04-25
-  location: Utrecht, Netherlands
-  lang: en
   
 - title: JET Conference
   url: "http://jetconf.by/#/nicolas_frankel"
