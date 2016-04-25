@@ -19,7 +19,9 @@ exclude:
   - notes.txt
   - LICENSE
   - node_modules
+  - Vagrantfile*
   - webpack.config.js
+  - package.json
 
 include:
   - js
