@@ -8,7 +8,7 @@ var emitter = require('../../../utils/emitter');
  * @param {Object} map Google Map instance
  * @constructor
  */
-function Marker(event, map, i) {
+function Marker(event, map) {
   var marker = this;
   this.event = event;
   event.marker = this;
@@ -17,7 +17,7 @@ function Marker(event, map, i) {
 
   // Marker instance
   var markerInstance = new google.maps.Marker({
-    title: event.title + ' [' + i + ']',
+    title: event.title,
     position: event.city.position,
     draggable: false,
     visible: true,
@@ -77,6 +77,14 @@ Marker.prototype.deactivate = function () {
   this.marker.setIcon(this.getIcon());
   this.marker.setZIndex(1);
   this.closeWindow();
+};
+
+Marker.prototype.show = function () {
+  this.marker.setVisible(true);
+};
+
+Marker.prototype.hide = function () {
+  this.marker.setVisible(false);
 };
 
 module.exports = Marker;

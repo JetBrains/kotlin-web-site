@@ -60,8 +60,8 @@ Map.prototype._createMarkers = function (events) {
   var map = this;
   var markers = [];
 
-  events.forEach(function (event, i) {
-    markers.push(new Marker(event, map, i));
+  events.forEach(function (event) {
+    markers.push(new Marker(event, map));
   });
 
   this.markers = markers;
