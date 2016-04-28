@@ -22,6 +22,7 @@ exclude:
   - Vagrantfile*
   - webpack.config.js
   - package.json
+  - ui
 
 include:
   - js
