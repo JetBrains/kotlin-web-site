@@ -1,0 +1,13 @@
+.list-group {}
+
+.list-group-title {
+  padding-bottom: 10px;
+  font-size: 30px;
+}
+
+.events-list {
+  .event:last-child {
+    border-bottom: none;
+  }
+}
+
