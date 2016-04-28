@@ -1,3 +1,6 @@
+require('./styles.scss');
+var template = require('./view.twig');
+
 var DEFAULT_LANG = 'en';
 
 /**
@@ -53,14 +56,15 @@ Event.prototype.lang = null;
 /** @type {Object} */
 Event.prototype.content = null;
 
-/** @type {EventView} */
-Event.prototype.view = null;
-
 Event.prototype.isUpcoming = function () {
   var date = this.date;
   var now = new Date();
 
   return Array.isArray(date) ?  date[1] >= now : date >= now;
+};
+
+Event.prototype.render = function () {
+  return template.render({event: this});
 };
 
 
