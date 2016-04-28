@@ -24,6 +24,8 @@ function EventsStore(eventsData, citiesData) {
 
     event.city = eventCity;
   });
+
+  this.sort();
 }
 
 /**
@@ -70,6 +72,23 @@ EventsStore.filters = {
   fitBounds: function (bounds, event) {
     return bounds.contains(event.getBounds());
   }
+};
+
+EventsStore.prototype.sort = function () {
+  this.events.sort(function (a, b) {
+    var dateA = a.date;
+    var dateB = b.date;
+    var isADateIsRange = Array.isArray(dateA);
+    var isBDateIsRange = Array.isArray(dateB);
+    var compareA = isADateIsRange ? dateA[1] : dateA;
+    var compareB = isBDateIsRange ? dateB[1] : dateB;
+
+    if (compareA === compareB) {
+      return 0;
+    }
+
+    return (compareA < compareB) ? 1 : -1;
+  });
 };
 
 /**
