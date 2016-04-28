@@ -23,9 +23,6 @@
   speaker: Andrey Breslav, Dmitry Jemerov
   date: 2011-06-15
   location: Santa Clara, CA, USA
-  geo:
-    lat: 37.353285
-    lng: -121.955708
   content:
     slides: http://confluence.jetbrains.com/download/attachments/40702623/JVMLS_workshop_2011.pdf?version=1&modificationDate=1311201781000
     article: http://drdobbs.com/231500204
@@ -36,9 +33,6 @@
   speaker: Andrey Breslav, Dmitry Jemerov
   date: 2011-09-17
   location: Portland, OR, USA
-  geo:
-    lat: 45.523175
-    lng: -122.677083
   content:
     slides: http://confluence.jetbrains.com/download/attachments/40702623/OSCON_Kotlin.pdf?version=8&modificationDate=1311959200000
 
@@ -48,9 +42,6 @@
   speaker: Andrey Breslav
   date: 2011-09-19
   location: St. Louis, MO, USA
-  geo:
-    lat: 38.626263
-    lng: -90.197115
   content:
     slides: http://www.slideshare.net/abreslav/kotlin-strangeloop-2011
     video: http://www.infoq.com/presentations/The-Kotlin-Programming-Language
@@ -80,9 +71,6 @@
   speaker: Andrey Breslav
   date: 2011-11-16
   location: Antwerp, Belgium
-  geo:
-    lat: 51.219893
-    lng: 4.412646
   content:
     slides: http://www.slideshare.net/abreslav/kotlin-devoxx-2011
     article: http://www.parleys.com/#st=5&id=2908&sl=52
@@ -93,9 +81,6 @@
   speaker: Andrey Breslav
   date: 2011-12-21
   location: Tallinn, Estonia
-  geo:
-    lat: 59.437032
-    lng: 24.753432
   content:
     video: http://vimeo.com/34176209
 
