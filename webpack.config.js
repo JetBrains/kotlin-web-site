@@ -14,7 +14,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 var webpackConfig = {
   entry: {
     'common': 'entries/common.js',
-    'events': 'entries/events/events.js'
+    'events': 'entries/events/index.js'
   },
   output: {
     path: path.join(__dirname, '_site/_assets'),
@@ -25,7 +25,6 @@ var webpackConfig = {
     modulesDirectories: ['node_modules', './js', './css', './ui']
   },
 
-  debug: isProduction,
   devtool: !isProduction ? 'sourcemap' : false,
 
   module: {
@@ -63,7 +62,8 @@ var webpackConfig = {
   devServer: {
     host: config.devServer.host,
     port: config.devServer.port,
-    contentBase: path.resolve(__dirname, '_site')
+    contentBase: path.resolve(__dirname, '_site'),
+    inline: true
   },
 
   plugins: [
