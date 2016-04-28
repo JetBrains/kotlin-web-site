@@ -43,4 +43,78 @@ EventsStore.create = function (eventsUrl, citiesUrl) {
     .then(function () { return new EventsStore(events, cities) })
 };
 
+/**
+ * @static
+ */
+EventsStore.filters = {
+  time: function (time, event) {
+    var isMatch = false;
+    if (time == 'upcoming')
+      isMatch = event.isUpcoming();
+    else if (time == 'past')
+      isMatch = !event.isUpcoming();
+    else
+      isMatch = true;
+
+    return isMatch;
+  },
+
+  lang: function (lang, event) {
+    return event.lang == lang;
+  },
+
+  materials: function (materialType, event) {
+    return event.content && event.content.hasOwnProperty(materialType);
+  },
+
+  fitBounds: function (bounds, event) {
+    return bounds.contains(event.getBounds());
+  }
+};
+
+/**
+ * @returns {Array<Event>}
+ */
+EventsStore.prototype.getUpcoming = function () {
+  return this.events.filter(function (event) {
+    return event.isUpcoming();
+  });
+};
+
+/**
+ * @returns {Array<Event>}
+ */
+EventsStore.prototype.getPast = function () {
+  return this.events.filter(function (event) {
+    return !event.isUpcoming();
+  });
+};
+
+/**
+ * @returns {Array<Event>}
+ */
+EventsStore.prototype.filter = function (constraints) {
+  var events = this.events;
+  var filtered = [];
+  var constraintNames = Object.keys(constraints);
+
+  events.forEach(function (event) {
+    //var isMatched = false;
+    var performedConstraintsCount = 0;
+
+    constraintNames.forEach(function (name) {
+      var constraint = constraints[name];
+      var filter = EventsStore.filters[name];
+      if (filter(constraint, event)) {
+        performedConstraintsCount++;
+      }
+    });
+
+    if (performedConstraintsCount == constraintNames.length)
+      filtered.push(event);
+  });
+
+  return filtered;
+};
+
 module.exports = EventsStore;
