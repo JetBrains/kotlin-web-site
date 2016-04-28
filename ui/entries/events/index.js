@@ -1,11 +1,10 @@
-var FilterPanel = require('../../components/filter-panel/index');
 var util = require('util/common');
-var eventTempalte = require('./event-item.twig');
+var eventTempalte = require('./event/view.twig');
 var $ = require('jquery');
 var langApi = require('./lang');
 
 require('scrolltofixed/jquery-scrolltofixed.js');
-require('./events.scss');
+require('./index.scss');
 
 var eventGroups = {};
 var mapElement;
@@ -319,6 +318,7 @@ window.initMap = function () {
 };
 
 $(document).ready(function () {
+  return;
   mapElement = document.getElementById("map");
   $(mapElement).scrollToFixed();
 
@@ -368,13 +368,13 @@ $(document).ready(function () {
     var $upcomingEventsElement = $('.js-upcoming-events');
     events.forEach(function (event) {
       if (!event.isUpcoming) return;
-      event.render($upcomingEventsElement)
+      //event.render($upcomingEventsElement)
     });
 
     var $pastEventsElement = $('.js-past-events');
     events.forEach(function (event) {
       if (event.isUpcoming) return;
-      event.render($pastEventsElement)
+      //event.render($pastEventsElement)
     });
 
     langFilter.values = $.map($.unique(allLanguages), function (languageCode) {
@@ -387,86 +387,26 @@ $(document).ready(function () {
       }
     });
 
-    filter = new FilterPanel({
-      mountNode: '.js-filter-panel',
-      objectsToFilter: events,
-      filters: [
-        {
-          id: 'status',
-          title: 'Status',
-          opened: true,
-          values: [
-            {
-              id: "upcoming",
-              test: function (object) {
-                return object.isUpcoming
-              },
-              title: "Upcoming"
-            },
-            {
-              id: "past",
-              test: function (object) {
-                return !object.isUpcoming
-              },
-              title: "Past"
-            }
-          ]
-        },
-        {
-          id: 'content',
-          title: 'Content',
-          opened: true,
-          values: [
-            {
-              id: "video",
-              test: function (object) {
-                return object.content.video !== undefined;
-              },
-              title: "Video"
-            },
-            {
-              id: "slides",
-              test: function (object) {
-                return object.content.slides !== undefined;
-              },
-              title: "Sides"
-            },
-            {
-              id: "examples",
-              test: function (object) {
-                return object.content.examples !== undefined;
-              },
-              title: "examples"
-            },
-            {
-              id: "pdf",
-              test: function (object) {
-                return object.content.pdf !== undefined;
-              },
-              title: "PDF"
-            },
-            {
-              id: "article",
-              test: function (object) {
-                return object.content.article !== undefined;
-              },
-              title: "Article"
-            }
-          ]
-        },
-        langFilter
-      ]
-    });
 
-    filter.onFilter(function () {
-      Object.keys(eventGroups).forEach(function (city) {
-        eventGroups[city].checkHiddenStatus()
-      });
-    });
     Object.keys(eventGroups).forEach(function (city) {
       eventGroups[city].checkHiddenStatus()
     });
 
     $.getScript("https://maps.googleapis.com/maps/api/js?callback=initMap")
   });
+});
+
+$(document).ready(function () {
+
+  var Map = require('./map/Map');
+  var EventsStore = require('./event/EventsStore');
+
+  var eventsStorePromise = EventsStore.create('/docs/events.json', '/docs/cities.json');
+
+  eventsStorePromise.then(function (eventsStore) {
+    return Map.create(document.getElementById('map'), eventsStore.events)
+  }).then(function (map) {
+    window.map = map;
+  });
+
 });
