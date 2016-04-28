@@ -56,6 +56,12 @@ EventsList.prototype.render = function () {
     event.render($past.get(0));
   });
 
+  this.store.events.forEach(function (event) {
+    $(event.node).on('click', function () {
+      emitter.emit(EVENTS.EVENT_SELECTED, event);
+    });
+  });
+
   $('.js-events-list-col').html($content);
 };
 
@@ -79,18 +85,25 @@ EventsList.prototype.applyFilteredResults = function (filteredEvents) {
     : this.$pastGroup.hide();
 };
 
-// TODO
 EventsList.prototype.showEventDetails = function (event) {
-  this.$content.find('.js-event-details')
-    .html(event.renderDetailed())
-    .show();
+  function backHandler() {
+    emitter.emit(EVENTS.EVENT_DESELECTED);
+  }
+
+  var $detailed = this.$content.find('.js-event-details').html(event.renderDetailed());
+  $detailed.find('.js-back').on('click', backHandler);
+  $detailed.show();
+
   this.$content.find('.js-list').hide();
 };
 
 // TODO
 EventsList.prototype.hideEventDetails = function () {
+  var $detailed = this.$content.find('.js-event-details');
+  $detailed.find('.js-back').off('click');
+  $detailed.hide();
+
   this.$content.find('.js-list').show();
-  this.$content.find('.js-event-details').hide();
 };
 
 module.exports = EventsList;

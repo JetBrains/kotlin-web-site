@@ -29,7 +29,6 @@ function Marker(event, map) {
 
   markerInstance.addListener('click', function () {
     emitter.emit(EVENTS.EVENT_SELECTED, event);
-    marker.openWindow();
   });
 
   // Info window
@@ -78,7 +77,6 @@ Marker.prototype.deactivate = function () {
   this.isActive = false;
   this.marker.setIcon(this.getIcon());
   this.marker.setZIndex(1);
-  this.closeWindow();
 };
 
 Marker.prototype.show = function () {

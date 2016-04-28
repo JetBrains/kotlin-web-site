@@ -29,9 +29,6 @@ function Map(node, store) {
   var instance = new google.maps.Map(node, mapOptions);
   this.instance = instance;
 
-  this._createMarkers(store.events);
-  this._handleMarkers();
-
   // Restore state after user clicks anywhere except of event marker
   instance.addListener('click', function () {
     that.reset.bind(this);
@@ -57,6 +54,25 @@ function Map(node, store) {
   // Filter markers when filtering event fired
   emitter.on(EVENTS.EVENTS_FILTERED, function (filteredEvents) {
     that.applyFilteredResults(filteredEvents);
+  });
+
+
+  // MARKERS
+  this._createMarkers(store.events);
+  var markers = this.markers;
+
+  emitter.on(EVENTS.EVENT_SELECTED, function (event) {
+    var currentMarker = event.marker;
+
+    markers.forEach(function (marker) {
+      if (marker === currentMarker) {
+        marker.activate();
+        marker.openWindow();
+      } else {
+        marker.deactivate();
+        marker.closeWindow();
+      }
+    });
   });
 }
 
@@ -92,25 +108,10 @@ Map.prototype._createMarkers = function (events) {
   this.markers = markers;
 };
 
-Map.prototype._handleMarkers = function () {
-  var markers = this.markers;
-
-  emitter.on(EVENTS.EVENT_SELECTED, function (event) {
-    var currentMarker = event.marker;
-    markers.forEach(function (marker) {
-      if (marker === currentMarker) {
-        currentMarker.activate();
-      } else {
-        marker.deactivate();
-      }
-    });
-  });
-};
-
 Map.prototype.reset = function () {
   this.markers.forEach(function (marker) {
-    marker.closeWindow();
     marker.activate();
+    marker.closeWindow();
   });
 };
 
