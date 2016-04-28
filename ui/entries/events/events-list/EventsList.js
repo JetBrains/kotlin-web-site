@@ -37,40 +37,60 @@ function EventsList(store) {
 
 EventsList.prototype.render = function () {
   var $content = $(template.render());
+  this.$content = $content;
 
   var upcoming = this.store.getUpcoming();
   var past = this.store.getPast();
   var $upcoming = $content.find('.js-upcoming-events');
   var $past = $content.find('.js-past-events');
+  this.$upcoming = $upcoming;
+  this.$past = $past;
+  this.$upcomingGroup = $content.find('.js-upcoming-events-group');
+  this.$pastGroup = $content.find('.js-past-events-group');
 
-  if (upcoming.length > 0) {
-    $upcoming.append(upcoming.map(function (event) {
-      return event.render();
-    }));
-  } else {
-    $content.find('.js-upcoming-events-group').hide();
-  }
+  upcoming.forEach(function (event) {
+    event.render($upcoming.get(0));
+  });
 
-  $past.append(past.map(function (event) {
-    return event.render();
-  }));
+  past.forEach(function (event) {
+    event.render($past.get(0));
+  });
 
   $('.js-events-list-col').html($content);
 };
 
-// TODO
-EventsList.prototype.applyFilteredResults = function (results) {
-  //this.currentFilters;
+EventsList.prototype.applyFilteredResults = function (filteredEvents) {
+  var store = this.store;
+  var upcomingEventsInResults = store.getUpcoming(filteredEvents);
+  var pastEventsInResults = store.getPast(filteredEvents);
+
+  store.events.forEach(function (event) {
+    (filteredEvents.indexOf(event) > -1)
+      ? event.show()
+      : event.hide();
+  });
+
+  upcomingEventsInResults.length > 0
+    ? this.$upcomingGroup.show()
+    : this.$upcomingGroup.hide();
+
+  pastEventsInResults.length > 0
+    ? this.$pastGroup.show()
+    : this.$pastGroup.hide();
 };
 
 // TODO
 EventsList.prototype.showEventDetails = function (event) {
-
+  this.$content.find('.js-event-details')
+    .html(event.renderDetailed())
+    .show();
+  this.$content.find('.js-list').hide();
 };
 
 // TODO
 EventsList.prototype.hideEventDetails = function () {
-
+  this.$content.find('.js-list').show();
+  this.$content.find('.js-event-details').hide();
 };
 
 module.exports = EventsList;

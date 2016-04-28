@@ -11,7 +11,7 @@ module.exports = {
   EVENT_SELECTED: 'event_selected',
 
   /**
-   * @param {Event}
+   * No params
    */
   EVENT_DESELECTED: 'event_deselected',
 

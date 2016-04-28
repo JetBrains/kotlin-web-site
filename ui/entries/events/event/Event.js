@@ -1,5 +1,8 @@
 require('./styles.scss');
 var template = require('./view.twig');
+var templateDetailed = require('./view-detailed.twig');
+
+var $ = require('jquery');
 
 var DEFAULT_LANG = 'en';
 
@@ -63,15 +66,37 @@ Event.prototype.isUpcoming = function () {
   var date = this.date;
   var now = new Date();
 
-  return Array.isArray(date) ?  date[1] >= now : date >= now;
-};
-
-Event.prototype.render = function () {
-  return template.render({event: this});
+  return Array.isArray(date) ? date[1] >= now : date >= now;
 };
 
 Event.prototype.getBounds = function () {
   return this.city.getBounds();
+};
+
+Event.prototype.render = function (mountNode) {
+  var rendered = template.render({event: this});
+
+  if (mountNode) {
+    var tempElement = document.createElement('div');
+    tempElement.innerHTML = rendered;
+    var node = tempElement.childNodes[0];
+    this.node = node;
+    mountNode.appendChild(node);
+  }
+
+  return rendered;
+};
+
+Event.prototype.renderDetailed = function () {
+  return templateDetailed.render({event: this});
+};
+
+Event.prototype.show = function () {
+  $(this.node).show();
+};
+
+Event.prototype.hide = function () {
+  $(this.node).hide();
 };
 
 

@@ -33,15 +33,26 @@ function Map(node, store) {
   this._handleMarkers();
 
   // Restore state after user clicks anywhere except of event marker
-  instance.addListener('click', this.reset.bind(this));
+  instance.addListener('click', function () {
+    that.reset.bind(this);
+    emitter.emit(EVENTS.EVENT_DESELECTED);
+  });
+
+  // Emit bounds change event
+  var isFirstBoundsChangedEvent = true;
+  instance.addListener('bounds_changed', function () {
+    if (isFirstBoundsChangedEvent) {
+      isFirstBoundsChangedEvent = false;
+      return;
+    }
+
+    setTimeout(function () {
+      emitter.emit(EVENTS.MAP_BOUNDS_CHANGED, instance.getBounds());
+    }, 200);
+  });
 
   // Restore state when marker deselected
   emitter.on(EVENTS.EVENT_DESELECTED, this.reset.bind(this));
-
-  // Emit bounds change event
-  instance.addListener('bounds_changed', function () {
-    emitter.emit(EVENTS.MAP_BOUNDS_CHANGED, instance.getBounds());
-  });
 
   // Filter markers when filtering event fired
   emitter.on(EVENTS.EVENTS_FILTERED, function (filteredEvents) {
@@ -103,9 +114,12 @@ Map.prototype.reset = function () {
   });
 };
 
-// TODO
-Map.prototype.applyFilteredResults = function (events) {
-
+Map.prototype.applyFilteredResults = function (filteredEvents) {
+  this.store.events.forEach(function (event) {
+    filteredEvents.indexOf(event) > -1
+      ? event.marker.show()
+      : event.marker.hide();
+  })
 };
 
 

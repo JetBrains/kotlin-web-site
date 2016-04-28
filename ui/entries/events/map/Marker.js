@@ -38,7 +38,7 @@ function Marker(event, map) {
   });
 
   infoWindow.addListener('closeclick', function () {
-    emitter.emit(EVENTS.EVENT_DESELECTED, event);
+    emitter.emit(EVENTS.EVENT_DESELECTED);
   });
 
   this.infoWindow = infoWindow;
@@ -50,8 +50,10 @@ Marker.prototype.getIcon = function () {
 
   return {
     scaledSize: {
-      width: mapZoom <= 5 ? 16 : 32,
-      height: mapZoom <= 5 ? 16 : 32
+      //width: mapZoom <= 5 ? 16 : 32,
+      //height: mapZoom <= 5 ? 16 : 32
+      width: 16,
+      height: 16
     },
     opacity: 1,
     url: isActive ? icon : inactiveIcon

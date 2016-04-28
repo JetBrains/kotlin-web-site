@@ -2,6 +2,11 @@ var $ = require('jquery');
 var Event = require('./Event');
 var City = require('./City');
 
+/**
+ * @param {Object} eventsData Raw events data
+ * @param {Object} citiesData Raw cities data
+ * @constructor
+ */
 function EventsStore(eventsData, citiesData) {
   var store = this;
   this.events = [];
@@ -92,19 +97,23 @@ EventsStore.prototype.sort = function () {
 };
 
 /**
+ * @param {Array<Event>} [events]
  * @returns {Array<Event>}
  */
-EventsStore.prototype.getUpcoming = function () {
-  return this.events.filter(function (event) {
+EventsStore.prototype.getUpcoming = function (events) {
+  var events = events || this.events;
+  return events.filter(function (event) {
     return event.isUpcoming();
   });
 };
 
 /**
+ * @param {Array<Event>} [events]
  * @returns {Array<Event>}
  */
-EventsStore.prototype.getPast = function () {
-  return this.events.filter(function (event) {
+EventsStore.prototype.getPast = function (events) {
+  var events = events || this.events;
+  return events.filter(function (event) {
     return !event.isUpcoming();
   });
 };
@@ -115,10 +124,11 @@ EventsStore.prototype.getPast = function () {
  * @param {string} constraints.lang
  * @param {string} constraints.materials
  * @param {google.maps.LatLng} constraints.bounds
+ * @param {Array<Event>} [events]
  * @returns {Array<Event>}
  */
-EventsStore.prototype.filter = function (constraints) {
-  var events = this.events;
+EventsStore.prototype.filter = function (constraints, events) {
+  var events = events || this.events;
   var filtered = [];
   var constraintNames = Object.keys(constraints);
 
