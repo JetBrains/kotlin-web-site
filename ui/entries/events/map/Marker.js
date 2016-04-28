@@ -1,6 +1,6 @@
 var icon = require('./marker-icon.png');
 var inactiveIcon = require('./marker-icon-inactive.png');
-var EVENTS = require('./events');
+var EVENTS = require('./../events');
 var emitter = require('../../../utils/emitter');
 
 /**
@@ -38,7 +38,7 @@ function Marker(event, map) {
   });
 
   infoWindow.addListener('closeclick', function () {
-    emitter.emit(EVENTS.EVENT_DESELECTED);
+    emitter.emit(EVENTS.EVENT_DESELECTED, event);
   });
 
   this.infoWindow = infoWindow;

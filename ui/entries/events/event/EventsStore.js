@@ -69,7 +69,7 @@ EventsStore.filters = {
     return event.content && event.content.hasOwnProperty(materialType);
   },
 
-  fitBounds: function (bounds, event) {
+  bounds: function (bounds, event) {
     return bounds.contains(event.getBounds());
   }
 };
@@ -110,6 +110,11 @@ EventsStore.prototype.getPast = function () {
 };
 
 /**
+ * @param {Object} constraints
+ * @param {string} constraints.time
+ * @param {string} constraints.lang
+ * @param {string} constraints.materials
+ * @param {google.maps.LatLng} constraints.bounds
  * @returns {Array<Event>}
  */
 EventsStore.prototype.filter = function (constraints) {
@@ -118,7 +123,6 @@ EventsStore.prototype.filter = function (constraints) {
   var constraintNames = Object.keys(constraints);
 
   events.forEach(function (event) {
-    //var isMatched = false;
     var performedConstraintsCount = 0;
 
     constraintNames.forEach(function (name) {
