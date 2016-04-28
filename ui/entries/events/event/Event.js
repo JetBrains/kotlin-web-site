@@ -53,8 +53,11 @@ Event.prototype.formattedDate = null;
 /** @type {string} */
 Event.prototype.lang = null;
 
-/** @type {Object} */
+/** @type {Object} Materials */
 Event.prototype.content = null;
+
+/** @type {Marker} */
+Event.prototype.marker = null;
 
 Event.prototype.isUpcoming = function () {
   var date = this.date;
@@ -65,6 +68,10 @@ Event.prototype.isUpcoming = function () {
 
 Event.prototype.render = function () {
   return template.render({event: this});
+};
+
+Event.prototype.getBounds = function () {
+  return this.city.getBounds();
 };
 
 
