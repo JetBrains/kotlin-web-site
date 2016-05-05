@@ -192,3 +192,8 @@
   description: Lightweight JavaFX Framework for Kotlin
   type: Library
   link: https://github.com/edvin/tornadofx
+
+- name: Hexagon
+  description: A microservices framework in Kotlin
+  type: Framework
+  link: https://github.com/jamming/hexagon
