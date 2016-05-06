@@ -1641,4 +1641,35 @@
   location: Minsk, Belarus
   lang: en
 
-
+- title: Kotlin Night in San Francisco
+  url: "http://info.jetbrains.com/Kotlin-Night-2016.html"
+  subject: "Where We Stand and What's Next"
+  speaker: Andrey Breslav
+  date: 2016-05-17
+  location: San Fransisco, CA, US
+  lang: en
+  
+- title: Kotlin Night in San Francisco
+  url: "http://info.jetbrains.com/Kotlin-Night-2016.html"
+  subject: "Instrumentation Testing Robots"
+  speaker: Jake Wharton
+  date: 2016-05-17
+  location: San Fransisco, CA, US
+  lang: en
+  
+- title: Kotlin Night in San Francisco
+  url: "http://info.jetbrains.com/Kotlin-Night-2016.html"
+  subject: "Kotlin Testing"
+  speaker: Laura Kogler and Rob Fletcher
+  date: 2016-05-17
+  location: San Fransisco, CA, US
+  lang: en
+  
+- title: Kotlin London Meetup
+  url: "http://www.meetup.com/kotlin-london/events/230517042/"
+  subject: "Kotlin’s Dark Corners"
+  speaker: Nat Pryce
+  date: 2016-05-11
+  location: London, UK
+  lang: en
+  
