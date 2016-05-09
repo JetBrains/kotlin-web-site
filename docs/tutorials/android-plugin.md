@@ -19,7 +19,7 @@ The Kotlin Android Extensions plugin allows us to obtain the same experience we 
 
 In essence, this would allow for the following code:
 
-```
+``` kotlin
 // Using R.layout.activity_main from the main source set
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -44,7 +44,7 @@ Android Extensions is a part of the Kotlin IDEA plugin. You do not need to insta
 
 All you need is to enable the Android Extensions Gradle plugin in your project-local `build.gradle` file:
 
-``` groovy
+```
 apply plugin: 'kotlin-android-extensions'
 ```
 
