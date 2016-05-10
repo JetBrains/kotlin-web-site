@@ -1673,3 +1673,11 @@
   location: London, UK
   lang: en
   
+- title: BSC Meetup
+  url: "https://www.eventbrite.co.uk/e/spa-300-introduction-to-the-kotlin-language-tickets-25313932654"
+  subject: "Introduction to the Kotlin language"
+  speaker: Nat Pryce
+  date: 2016-06-01
+  location: London, UK
+  lang: en
+  
