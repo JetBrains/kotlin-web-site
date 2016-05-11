@@ -1681,3 +1681,10 @@
   location: London, UK
   lang: en
   
+- title: mDevCamp 2016
+  url: "http://www.mdevcamp.cz/"
+  subject: "Firebase + Kotlin + RxJava + MVP"
+  speaker: David Vávra
+  date: 2016-06-17
+  location: Prague, Czechia
+  lang: cs
