@@ -84,48 +84,46 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
 
 ``` xml
 <plugin>
-	<artifactId>kotlin-maven-plugin</artifactId>
-	<groupId>org.jetbrains.kotlin</groupId>
-	<version>${kotlin.version}</version>
-	<executions>
-		<execution>
-			<id>compile</id>
-			<goals>	<goal>compile</goal> </goals>
-		</execution>
-		<execution>
-			<id>test-compile</id>
-			<goals>
-				<goal>test-compile</goal>
-			</goals>
-		</execution>
-	</executions>
+    <artifactId>kotlin-maven-plugin</artifactId>
+    <groupId>org.jetbrains.kotlin</groupId>
+    <version>${kotlin.version}</version>
+    <executions>
+        <execution>
+            <id>compile</id>
+                <goals> <goal>compile</goal> </goals>
+        </execution>
+        <execution>
+            <id>test-compile</id>
+            <goals> <goal>test-compile</goal> </goals>
+        </execution>
+    </executions>
 </plugin>
 <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-compiler-plugin</artifactId>
-	<version>3.5.1</version>
-	<executions>
-		<!-- Replacing default-compile as it is treated specially by maven -->
-		<execution>
-			<id>default-compile</id>
-			<phase>none</phase>
-		</execution>
-		<!-- Replacing default-testCompile as it is treated specially by maven -->
-		<execution>
-			<id>default-testCompile</id>
-			<phase>none</phase>
-		</execution>
-		<execution>
-			<id>java-compile</id>
-			<phase>compile</phase>
-			<goals> <goal>compile</goal> </goals>
-		</execution>
-		<execution>
-			<id>java-test-compile</id>
-			<phase>test-compile</phase>
-			<goals> <goal>testCompile</goal> </goals>
-		</execution>
-	</executions>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.5.1</version>
+    <executions>
+        <!-- Replacing default-compile as it is treated specially by maven -->
+        <execution>
+            <id>default-compile</id>
+            <phase>none</phase>
+        </execution>
+        <!-- Replacing default-testCompile as it is treated specially by maven -->
+        <execution>
+            <id>default-testCompile</id>
+            <phase>none</phase>
+        </execution>
+        <execution>
+            <id>java-compile</id>
+            <phase>compile</phase>
+            <goals> <goal>compile</goal> </goals>
+        </execution>
+        <execution>
+            <id>java-test-compile</id>
+            <phase>test-compile</phase>
+            <goals> <goal>testCompile</goal> </goals>
+        </execution>
+    </executions>
 </plugin>
 ```
 
@@ -135,17 +133,17 @@ To create a small Jar file containing just the code from your module, include th
 
 ``` xml
 <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-jar-plugin</artifactId>
-	<version>2.6</version>
-	<configuration>
-		<archive>
-			<manifest>
-				<addClasspath>true</addClasspath>
-				<mainClass>${main.class}</mainClass>
-			</manifest>
-		</archive>
-	</configuration>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>2.6</version>
+    <configuration>
+        <archive>
+            <manifest>
+                <addClasspath>true</addClasspath>
+                <mainClass>${main.class}</mainClass>
+            </manifest>
+        </archive>
+    </configuration>
 </plugin>
 ```
 
@@ -155,26 +153,26 @@ To create a self-contained Jar file containing the code from your module along w
 
 ``` xml
 <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-assembly-plugin</artifactId>
-	<version>2.6</version>
-	<executions>
-		<execution>
-			<id>make-assembly</id>
-			<phase>package</phase>
-			<goals> <goal>single</goal>	</goals>
-			<configuration>
-				<archive>
-					<manifest>
-						<mainClass>${main.class}</mainClass>
-					</manifest>
-				</archive>
-				<descriptorRefs>
-					<descriptorRef>jar-with-dependencies</descriptorRef>
-				</descriptorRefs>
-			</configuration>
-		</execution>
-	</executions>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <version>2.6</version>
+    <executions>
+        <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals> <goal>single</goal>	</goals>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>${main.class}</mainClass>
+                    </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+        </execution>
+    </executions>
 </plugin>
 ```
 
