@@ -1688,3 +1688,11 @@
   date: 2016-06-17
   location: Prague, Czechia
   lang: cs
+
+- title: "GeeCON 2016"
+  url: http://2016.geecon.org/speakers/info.html?id=63
+  subject: "Supercharge your Android-Fu with Kotlin"
+  speaker: Nicolas Fränkel
+  date: [2016-05-11, 2016-05-13]
+  location: Kraków, Poland
+  lang: en
