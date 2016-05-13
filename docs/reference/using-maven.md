@@ -90,11 +90,23 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
     <executions>
         <execution>
             <id>compile</id>
-                <goals> <goal>compile</goal> </goals>
+            <goals> <goal>compile</goal> </goals>
+            <configuration>
+                <sourceDirs>
+                    <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                    <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                </sourceDirs>
+            </configuration>
         </execution>
         <execution>
             <id>test-compile</id>
             <goals> <goal>test-compile</goal> </goals>
+            <configuration>
+                <sourceDirs>
+                    <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                    <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                </sourceDirs>
+            </configuration>
         </execution>
     </executions>
 </plugin>
