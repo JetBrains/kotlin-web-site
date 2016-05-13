@@ -172,7 +172,7 @@ To create a self-contained Jar file containing the code from your module along w
         <execution>
             <id>make-assembly</id>
             <phase>package</phase>
-            <goals> <goal>single</goal>	</goals>
+            <goals> <goal>single</goal> </goals>
             <configuration>
                 <archive>
                     <manifest>
