@@ -1696,3 +1696,11 @@
   date: [2016-05-11, 2016-05-13]
   location: Kraków, Poland
   lang: en
+
+- title: "Java Forum Nord 2016"
+  url: "http://javaforumnord.de/site/2016/#programme"
+  subject: "Kotlin - der neue Stern am Java Himmel?"
+  speaker: Dirk Dittert
+  date: 2016-10-20
+  location: Hannover, Germany
+  lang: de
