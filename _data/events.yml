@@ -1704,4 +1704,12 @@
   date: 2016-10-20
   location: Hannover, Germany
   lang: de
-  
+
+- title: "GDG Chicago West Meetup"
+  url: "http://www.meetup.com/GDG-Chicago-West/events/231110079/"
+  subject: "Using Kotlin for Android Development"
+  speaker: Jay Ohms
+  date: 2016-06-08
+  location: Schaumburg, IL, US
+  lang: en
+    
