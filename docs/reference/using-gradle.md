@@ -180,6 +180,7 @@ After incremental compilation is enabled, you should see the following warning m
 ```
 Using experimental kotlin incremental compilation
 ```
+
 Note, that the first build won't be incremental.
 
 ## OSGi
