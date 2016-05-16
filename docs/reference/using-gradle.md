@@ -8,6 +8,8 @@ title: "Using Gradle"
 
 In order to build Kotlin with Gradle you should [set up the *kotlin-gradle* plugin](#plugin-and-versions), [apply it](#targeting-the-jvm) to your project and [add *kotlin-stdlib* dependencies](#configuring-dependencies). Those actions may also be performed automatically in IntelliJ IDEA by invoking the Tools | Kotlin | Configure Kotlin in Project action.
 
+You can also enable [incremental compilation](#incremental-compilation) to make your builds faster. 
+
 ## Plugin and Versions
 
 The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
@@ -165,6 +167,20 @@ compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
 ```
 
+## Incremental compilation
+
+Kotlin 1.0.2 introduced new experimental incremental compilation mode in Gradle. 
+Incremental compilation tracks changes of source files between builds so only files affected by these changes would be compiled.
+
+There are several ways to enable it:
+1. add `kotlin.incremental=true` line either to a `gradle.properties` or a `local.properties` file;
+2. add `-Pkotlin.incremental=true` to gradle command line parameters. Note that in this case the parameter should be added to each subsequent build (any build without this parameter invalidates incremental caches).
+
+After incremental compilation is enabled, you should see the following warning message in your build log:
+```
+Using experimental kotlin incremental compilation
+```
+Note, that the first build won't be incremental.
 
 ## OSGi
 
