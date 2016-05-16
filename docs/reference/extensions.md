@@ -44,6 +44,18 @@ fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
 We declare the generic type parameter before the function name for it to be available in the receiver type expression. 
 See [Generic functions](generics.html).
 
+Extension functions can also overload other functions (including Java functions):
+
+``` kotlin
+
+class Foo {
+    fun bar(first: Int) {...}
+}
+
+fun Foo.bar(first: Int, second: Int) {...}
+```
+
+
 ## Extensions are resolved **statically**
 
 Extensions do not actually modify classes they extend. By defining an extension, you do not insert new members into a class,
@@ -73,7 +85,7 @@ This example will print "c", because the extension function being called depends
 parameter `c`, which is the `C` class.
 
 If a class has a member function, and an extension function is defined which has the same receiver type, the same name
-and is applicable to given arguments, the **member always wins**.
+and same arguments, the **member always wins**.
 For example:
 
 ``` kotlin
