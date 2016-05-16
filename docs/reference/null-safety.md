@@ -138,3 +138,11 @@ Another option is to use safe casts that return *null*{: .keyword } if the attem
 val aInt: Int? = a as? Int
 ```
 
+## Collections of Nullable Type
+
+If you have a collection of elements of a nullable type and want to filter non-null elements, you can do so by using `filterNotNull`.
+
+``` kotlin
+val nullableList: List<Int?> = listOf(1, 2, null, 4)
+val intList: List<Int> = nullableList.filterNotNull()
+```
