@@ -1,0 +1,44 @@
+@mixin selector-label {
+  display: inline-block;
+  font-weight: bold;
+}
+
+@mixin selector-selector {
+  display: inline-block;
+}
+
+
+.filter-panel {
+  box-sizing: border-box;
+
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  padding: 10px;
+
+  background-color: #fff;
+}
+
+.filter-panel .dropdown-selected-value {
+  background-color: transparent;
+
+}
+
+.filter-panel-time-selector {
+  margin-bottom: 25px;
+}
+
+.filter-panel-language-selector {
+  display: inline-block;
+
+  width: 50%;
+
+  .label {@include selector-label;}
+  .selector {@include selector-selector;}
+}
+
+.filter-panel-material-selector {
+  display: inline-block;
+
+  .label {@include selector-label;}
+  .selector {@include selector-selector;}
+}

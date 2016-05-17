@@ -729,17 +729,4 @@ var isoLangs = {
   }
 };
 
-var langApi = {
-  getLanguageName: function (key) {
-    key = key.slice(0, 2);
-    var lang = isoLangs[key];
-    return lang ? lang.name : undefined;
-  },
-  getLanguageNativeName: function (key) {
-    key = key.slice(0, 2);
-    var lang = isoLangs[key];
-    return lang ? lang.nativeName : undefined;
-  }
-};
-
-module.exports = langApi;
+module.exports = isoLangs;

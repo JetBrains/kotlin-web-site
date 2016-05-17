@@ -1,6 +1,5 @@
 module.exports = {
   /**
-   * @param {Array<Event>} Filtered events
    * @param {Object} Filters request
    */
   EVENTS_FILTERED: 'events_filtered',

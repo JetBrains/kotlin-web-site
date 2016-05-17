@@ -1,6 +1,5 @@
 require('./styles.scss');
 var template = require('./view.twig');
-var templateDetailed = require('./view-detailed.twig');
 
 var $ = require('jquery');
 
@@ -15,6 +14,7 @@ function Event(data) {
   this.url = data.url;
   this.subject = data.subject;
   this.speaker = data.speaker;
+  this.description = data.description;
 
   if (!data.location)
     console.warn(data.title + ' has no location');
@@ -59,6 +59,9 @@ Event.prototype.lang = null;
 /** @type {Object} Materials */
 Event.prototype.content = null;
 
+/** @type {string} */
+Event.prototype.description = null;
+
 /** @type {Marker} */
 Event.prototype.marker = null;
 
@@ -74,7 +77,7 @@ Event.prototype.getBounds = function () {
 };
 
 Event.prototype.render = function (mountNode) {
-  var rendered = template.render({event: this});
+  var rendered = template.render({event: this, mode: 'normal'});
 
   if (mountNode) {
     var tempElement = document.createElement('div');
@@ -88,7 +91,7 @@ Event.prototype.render = function (mountNode) {
 };
 
 Event.prototype.renderDetailed = function () {
-  return templateDetailed.render({event: this});
+  return template.render({event: this, mode: 'detailed'});
 };
 
 Event.prototype.show = function () {

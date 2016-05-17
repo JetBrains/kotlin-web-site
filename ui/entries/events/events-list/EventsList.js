@@ -6,53 +6,62 @@ var emitter = require('../../../utils/emitter');
 var EVENTS = require('../events');
 
 /**
+ * @param {HTMLElement|string} node
  * @param {EventsStore} store
  * @constructor
  */
-function EventsList(store) {
+function EventsList(node, store) {
   var that = this;
   this.store = store;
   this.currentFilters = {};
+  this.$node = $(node);
+  this.mode = 'list';
 
-  emitter.on(EVENTS.EVENTS_FILTERED, function (events, filters) {
+  emitter.on(EVENTS.EVENTS_FILTERED, function (filters) {
+    var filteredEvents = store.filter(filters);
     that.currentFilters = filters;
-    that.applyFilteredResults(events);
+    that.applyFilteredResults(filteredEvents);
   });
 
   emitter.on(EVENTS.EVENT_SELECTED, function (event) {
     that.showEventDetails(event);
+    that.mode = 'detailed';
   });
 
   emitter.on(EVENTS.EVENT_DESELECTED, function () {
     that.hideEventDetails();
+    that.mode = 'list';
   });
 
+  // Disable events filtering on map zoom
   emitter.on(EVENTS.MAP_BOUNDS_CHANGED, function (bounds) {
+    return;
     var request = $.extend({}, that.currentFilters, {bounds: bounds});
+    that.currentFilters = request;
     var filteredEvents = store.filter(request);
     that.applyFilteredResults(filteredEvents);
-    that.currentFilters = request;
   });
+
+  this.render();
 }
 
 EventsList.prototype.render = function () {
   var $content = $(template.render());
   this.$content = $content;
 
-  var upcoming = this.store.getUpcoming();
-  var past = this.store.getPast();
+  var upcomingEvents = this.store.getUpcomingEvents();
+  var pastEvents = this.store.getPastEvents();
+
   var $upcoming = $content.find('.js-upcoming-events');
   var $past = $content.find('.js-past-events');
-  this.$upcoming = $upcoming;
-  this.$past = $past;
   this.$upcomingGroup = $content.find('.js-upcoming-events-group');
   this.$pastGroup = $content.find('.js-past-events-group');
 
-  upcoming.forEach(function (event) {
+  upcomingEvents.forEach(function (event) {
     event.render($upcoming.get(0));
   });
 
-  past.forEach(function (event) {
+  pastEvents.forEach(function (event) {
     event.render($past.get(0));
   });
 
@@ -62,13 +71,16 @@ EventsList.prototype.render = function () {
     });
   });
 
-  $('.js-events-list-col').html($content);
+  this.$node.append($content);
 };
 
+/**
+ * @param {Array<Event>} filteredEvents
+ */
 EventsList.prototype.applyFilteredResults = function (filteredEvents) {
   var store = this.store;
-  var upcomingEventsInResults = store.getUpcoming(filteredEvents);
-  var pastEventsInResults = store.getPast(filteredEvents);
+  var upcomingEventsInResults = store.getUpcomingEvents(filteredEvents);
+  var pastEventsInResults = store.getPastEvents(filteredEvents);
 
   store.events.forEach(function (event) {
     (filteredEvents.indexOf(event) > -1)
@@ -85,6 +97,9 @@ EventsList.prototype.applyFilteredResults = function (filteredEvents) {
     : this.$pastGroup.hide();
 };
 
+/**
+ * @param {Event} event
+ */
 EventsList.prototype.showEventDetails = function (event) {
   function backHandler() {
     emitter.emit(EVENTS.EVENT_DESELECTED);
@@ -97,7 +112,6 @@ EventsList.prototype.showEventDetails = function (event) {
   this.$content.find('.js-list').hide();
 };
 
-// TODO
 EventsList.prototype.hideEventDetails = function () {
   var $detailed = this.$content.find('.js-event-details');
   $detailed.find('.js-back').off('click');

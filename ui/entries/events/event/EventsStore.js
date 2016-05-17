@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var Event = require('./Event');
 var City = require('./City');
+var languages = require('./lang');
 
 /**
  * @param {Object} eventsData Raw events data
@@ -79,6 +80,17 @@ EventsStore.filters = {
   }
 };
 
+/**
+ * @static
+ */
+EventsStore.materialsDict = {
+  examples: 'Examples',
+  slides: 'Slides',
+  video: 'Video',
+  pdf: 'PDF',
+  article: 'Article'
+};
+
 EventsStore.prototype.sort = function () {
   this.events.sort(function (a, b) {
     var dateA = a.date;
@@ -100,7 +112,7 @@ EventsStore.prototype.sort = function () {
  * @param {Array<Event>} [events]
  * @returns {Array<Event>}
  */
-EventsStore.prototype.getUpcoming = function (events) {
+EventsStore.prototype.getUpcomingEvents = function (events) {
   var events = events || this.events;
   return events.filter(function (event) {
     return event.isUpcoming();
@@ -111,7 +123,7 @@ EventsStore.prototype.getUpcoming = function (events) {
  * @param {Array<Event>} [events]
  * @returns {Array<Event>}
  */
-EventsStore.prototype.getPast = function (events) {
+EventsStore.prototype.getPastEvents = function (events) {
   var events = events || this.events;
   return events.filter(function (event) {
     return !event.isUpcoming();
@@ -148,6 +160,44 @@ EventsStore.prototype.filter = function (constraints, events) {
   });
 
   return filtered;
+};
+
+/**
+ * @returns {Object<string, string>}
+ */
+EventsStore.prototype.getLanguages = function () {
+  var idsList = $.unique( this.events.map(function(event){ return event.lang }) );
+  var map = {};
+
+  idsList.forEach(function (langId) {
+    if (langId in languages) {
+      map[langId] = languages[langId].name;
+    }
+  });
+
+  return map;
+};
+
+/**
+ * @see EventsStore.materialsDict
+ * @returns {Object<string, string>}
+ */
+EventsStore.prototype.getMaterials = function () {
+  var list = [];
+
+  this.events.forEach(function (event) {
+    if (event.content) {
+      list = list.concat(Object.keys(event.content));
+    }
+  });
+
+  var listMap = {};
+  list = $.unique(list);
+  list.forEach(function (materialId) {
+    listMap[materialId] = EventsStore.materialsDict[materialId];
+  });
+
+  return listMap;
 };
 
 module.exports = EventsStore;

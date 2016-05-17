@@ -5,12 +5,12 @@
   padding: 20px;
   margin-left: -20px;
 
-  &.hidden {
-    display: none;
-  }
+  &._normal {
+    cursor: pointer;
 
-  &:hover {
-    background-color: rgb(229, 246, 255);
+    &:hover {
+      background-color: rgb(229, 246, 255);
+    }
   }
 }
 
@@ -19,6 +19,10 @@
   line-height: 15px;
   color: #666;
   white-space: nowrap;
+
+  &._detailed {
+    margin-top: 30px;
+  }
 }
 
 .event-title {
@@ -33,6 +37,12 @@
   padding-top: 16px;
   font-weight: bold;
   color: #4c4c4c;
+
+  &._detailed {
+    //font-size: 22px;
+    //line-height: 25px;
+    //font-weight: normal;
+  }
 
   .text {
     padding-right: 8px;
@@ -132,14 +142,27 @@
 
 .event-speaker {
   font-size: 14px;
-  padding-top: 11px;
+  padding-top: 10px;
   color: #666;
+
+  &._detailed {
+    padding-top: 0;
+  }
 }
 
-.event-detailed {
-
+.event-description {
+  padding-top: 20px;
 }
 
-.event-detailed-back {
+.event-back-link {
   color: $base-link-color;
+  cursor: pointer;
+
+  &:hover {
+    color: $base-link-hover-color;
+  }
+
+  .text {
+    text-decoration: underline;
+  }
 }

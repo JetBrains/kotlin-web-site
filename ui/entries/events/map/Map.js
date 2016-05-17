@@ -22,11 +22,13 @@ var mapOptions = {
  * @constructor
  */
 function Map(node, store) {
+  var $mapNode = $(node);
   var that = this;
+  this.node = $mapNode.get(0);
   this.store = store;
   this.markers = [];
 
-  var instance = new google.maps.Map(node, mapOptions);
+  var instance = new google.maps.Map($mapNode.get(0), mapOptions);
   this.instance = instance;
 
   // Restore state after user clicks anywhere except of event marker
@@ -52,7 +54,8 @@ function Map(node, store) {
   emitter.on(EVENTS.EVENT_DESELECTED, this.reset.bind(this));
 
   // Filter markers when filtering event fired
-  emitter.on(EVENTS.EVENTS_FILTERED, function (filteredEvents) {
+  emitter.on(EVENTS.EVENTS_FILTERED, function (filters) {
+    var filteredEvents = store.filter(filters);
     that.applyFilteredResults(filteredEvents);
   });
 
@@ -63,6 +66,8 @@ function Map(node, store) {
 
   emitter.on(EVENTS.EVENT_SELECTED, function (event) {
     var currentMarker = event.marker;
+
+    //instance.setCenter(event.getBounds());
 
     markers.forEach(function (marker) {
       if (marker === currentMarker) {
@@ -86,6 +91,10 @@ Map.create = function (node, store) {
   return $.getScript(MAP_API_URL).then(function () {
     return new Map(node, store);
   });
+};
+
+Map.prototype.refreshSize = function () {
+
 };
 
 /**
@@ -120,7 +129,15 @@ Map.prototype.applyFilteredResults = function (filteredEvents) {
     filteredEvents.indexOf(event) > -1
       ? event.marker.show()
       : event.marker.hide();
-  })
+  });
+
+  var eventsBounds = new google.maps.LatLngBounds();
+
+  filteredEvents.forEach(function (event) {
+    eventsBounds.extend(event.getBounds());
+  });
+
+  //this.instance.setCenter(eventsBounds.getCenter());
 };
 
 
