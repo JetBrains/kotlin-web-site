@@ -1712,4 +1712,11 @@
   date: 2016-06-08
   location: Schaumburg, IL, US
   lang: en
-    
+  
+- title: "TriDroid - NC Triangle Android Meetup"
+  url: "http://www.meetup.com/TriDroid/events/230742949/"
+  subject: "Kotlin: Why Android Doesn't Need Java 8"
+  speaker: Chris Pierick
+  date: 2016-05-26
+  location: Raleigh, NC, US
+  lang: en
