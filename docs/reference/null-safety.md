@@ -90,12 +90,12 @@ bob?.department?.head?.name
 
 Such a chain returns *null*{: .keyword } if any of the properties in it is null.
 
-To perform a certain operation only for non-null values, you can use the safe call operator together wit [`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html):
+To perform a certain operation only for non-null values, you can use the safe call operator together wit [`let`](/api/latest/jvm/stdlib/kotlin/let.html):
 
 ``` kotlin
 val listWithNulls: List<String?> = listOf("A", null)
 for (item in listWithNulls) {
-     item?.let { println (it) } // prints A and ignores null
+     item?.let { println(it) } // prints A and ignores null
 }
 ```
 
