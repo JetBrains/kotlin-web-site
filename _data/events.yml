@@ -1720,3 +1720,11 @@
   date: 2016-05-26
   location: Raleigh, NC, US
   lang: en
+  
+- title: "JUG Nürnberg Meetup"
+  url: " http://www.meetup.com/de-DE/JUG-Nurnberg/events/229659134/"
+  subject: "Kotlin - der neue Stern am Java Himmel?"
+  speaker: Dirk Dittert
+  date: 2016-05-25
+  location: Nürnberg, Germany
+  lang: de
