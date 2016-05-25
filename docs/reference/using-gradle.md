@@ -130,7 +130,7 @@ android {
 }
 ```
 
-This lets Android Studio know that the kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized.
+This lets Android Studio know that the kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized. Alternatively, you can put Kotlin classes in the Java source directory, typically located in `src/main/java`.
 
 
 
@@ -165,7 +165,31 @@ If your project uses Kotlin reflection or testing facilities, you need to add th
 ``` groovy
 compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 ```
+
+## Annotation processing
+
+The Kotlin plugin supports annotation processors like _Dagger_ or _DBFlow_. In order for them to work with Kotlin classes, add the respective dependencies using the `kapt` configuration in your `dependencies` block:
+``` groovy
+dependencies {
+  kapt 'groupId:artifactId:version'
+}
+```
+
+If you previously used the [android-apt](https://bitbucket.org/hvisser/android-apt) plugin, remove it from your `build.gradle` file and replace usages of the `apt` configuration with `kapt`. If your project contains Java classes, `kapt` will also take care of them. If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named `kaptAndroidTest` and `kaptTest`.
+
+Some annotation processing libraries require you to reference generated classes from within your code. For this to work, you'll need to add an additional flag to enable the _generation of stubs_ to your build file:
+
+``` groovy
+kapt {
+    generateStubs = true
+}
+```
+
+Note, that generation of stubs slows down your build somewhat, which is why it's disabled by default. If generated classes are referenced only in a few places in your code, you can alternatively revert to using a helper class written in Java which can be [seamlessly called](java-interop.html) from your Kotlin code.
+
+For more information on `kapt` refer to the [official blogpost](http://blog.jetbrains.com/kotlin/2015/06/better-annotation-processing-supporting-stubs-in-kapt/).
 
 ## Incremental compilation
 
