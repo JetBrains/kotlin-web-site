@@ -171,6 +171,7 @@ testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 ## Annotation processing
 
 The Kotlin plugin supports annotation processors like _Dagger_ or _DBFlow_. In order for them to work with Kotlin classes, add the respective dependencies using the `kapt` configuration in your `dependencies` block:
+
 ``` groovy
 dependencies {
   kapt 'groupId:artifactId:version'
