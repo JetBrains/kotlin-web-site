@@ -19,9 +19,9 @@ The Kotlin Android Extensions plugin allows us to obtain the same experience we 
 
 In essence, this would allow for the following code:
 
-``` kotlin
-import kotlinx.android.synthetic.main.activity_main.*
+~~~kotlin
 // Using R.layout.activity_main from the main source set
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MyActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class MyActivity : Activity() {
         // Instead of findView(R.id.textView) as TextView
     }
 }
-```
+~~~
 
 `textView` is an extension property for `Activity`, and it has the same type as declared in `activity_main.xml`.
 
