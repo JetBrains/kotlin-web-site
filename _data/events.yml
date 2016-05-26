@@ -1722,9 +1722,17 @@
   lang: en
   
 - title: "JUG Nürnberg Meetup"
-  url: " http://www.meetup.com/de-DE/JUG-Nurnberg/events/229659134/"
+  url: "http://www.meetup.com/de-DE/JUG-Nurnberg/events/229659134/"
   subject: "Kotlin - der neue Stern am Java Himmel?"
   speaker: Dirk Dittert
   date: 2016-05-25
   location: Nürnberg, Germany
   lang: de
+  
+- title: "JPrime 2016"
+  url: "http://jprime.io/nav/article/52"
+  subject: "Kotlin - Ready for production"
+  speaker: Hadi Hariri
+  date: 2016-05-26
+  location: Sofia, Bulgaria
+  lang: en
