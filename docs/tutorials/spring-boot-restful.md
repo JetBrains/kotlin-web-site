@@ -24,54 +24,40 @@ The Gradle file is pretty much standard for Spring Boot. The only difference is 
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '1.0.0-beta-1038'  // New
-	ext.spring_boot_version = '1.2.7.RELEASE'
+    ext.kotlin_version = '1.0.0' // Required for Kotlin integration
+    ext.spring_boot_version = '1.3.0.RELEASE'
     repositories {
         jcenter()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"  // New
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Required for Kotlin integration
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
     }
 }
 
-apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'kotlin' // New
+apply plugin: 'kotlin' // Required for Kotlin integration
 apply plugin: 'spring-boot'
+apply plugin: 'application'
 
 jar {
     baseName = 'gs-rest-service'
-    version =  '0.1.0'
+    version = '0.1.0'
 }
 
 repositories {
-	jcenter()
-}
-
-// New entire sourceSets
-sourceSets {
-    main {
-        kotlin {
-            srcDir "src/main/kotlin"
-        }
-    }
-    test {
-        kotlin {
-            srcDir "test/main/kotlin"
-        }
-    }
+    jcenter()
 }
 
 dependencies {
-    compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version") // New
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("junit:junit")
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Required for Kotlin integration
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    testCompile 'junit:junit'
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+    gradleVersion = '2.9'
 }
 ```
 
@@ -113,7 +99,7 @@ The other change needed for Spring Boot is to mark the class as open. Spring boo
 @SpringBootApplication
 open class Application {
     companion object {
-        @JvmStatic public fun main(args: Array<String>) {
+        @JvmStatic fun main(args: Array<String>) {
             SpringApplication.run(Application::class.java, *args)
         }
     }
