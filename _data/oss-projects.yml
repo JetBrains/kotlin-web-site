@@ -197,3 +197,8 @@
   description: A microservices framework in Kotlin
   type: Framework
   link: https://github.com/jamming/hexagon
+
+- name: Fuse
+  description: The simple generic LRU memory/disk cache for Android written in Kotlin
+  type: Library
+  link: https://github.com/kittinunf/Fuse
