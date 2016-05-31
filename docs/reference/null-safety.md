@@ -133,7 +133,7 @@ The third option is for NPE-lovers. We can write `b!!`, and this will return a n
 (e.g., a `String` in our example) or throw an NPE if `b` is null:
 
 ``` kotlin
-val l = b!!.length()
+val l = b!!.length
 ```
 
 Thus, if you want an NPE, you can have it, but you have to ask for it explicitly, and it does not appear out of the blue.
