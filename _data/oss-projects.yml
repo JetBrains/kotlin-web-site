@@ -1,3 +1,8 @@
+- name: Discovery
+  description: Eventually consistent service discovery server
+  type: Application
+  link: https://github.com/datawire/discovery
+
 - name: Spek
   description: A Specification Framework
   type: Library
