@@ -38,6 +38,10 @@ Kotlin is an OSS language and is licensed under the Apache 2 OSS License. The In
 
 It is hosted on GitHub and we happily accept contributors
 
+### Where can I get an HD Kotlin logo?
+
+Logos can be downloaded here: https://resources.jetbrains.com/assets/products/kotlin/kotlin_logos.zip. Please follow simple rules in the `readme.txt` inside the archive.
+
 
 ### Is it Java Compatible?
 
