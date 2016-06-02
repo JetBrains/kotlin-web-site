@@ -1,7 +1,11 @@
 - company: JetBrains
   url: http://www.jetbrains.com/
   description: IntelliJ IDEA plugins, YouTrack vNext, CRM apps, new products etc.
-
+  
+- company: Datawire
+  url: https://datawire.io/
+  description: Using Kotlin for Datawire Discovery and other back end services.
+  
 - company: Industrial Geodetic Systems
   url: http://hive.geosystems.aero/?locale=en
   description: Using Kotlin for the Front-End Web
