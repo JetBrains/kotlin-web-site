@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Kotlin Android Extensions"
-description: "This tutorial describes how to use Kotlin Android Extensions to improve support for Android development"
+description: "This tutorial describes how to use Kotlin Android Extensions to improve support for Android development."
 authors: Yan Zhulanow
 showAuthorInfo: true
 date: 2015-03-18
