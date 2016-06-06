@@ -1736,3 +1736,11 @@
   date: 2016-05-26
   location: Sofia, Bulgaria
   lang: en
+
+- title: Java Day Minsk
+  url: http://javaday.by/
+  subject: Kotlin in examples
+  speaker: Boris Vanin
+  date: 2016-07-11
+  location: Minsk, Belorus
+  lang: ru
