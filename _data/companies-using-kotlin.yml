@@ -181,4 +181,7 @@
 - company: Infinum
   url: https://infinum.co/
   description: Using Kotlin to build expressive, less verbose Android apps for startups and businesses.
-
+  
+- company: Hootsuite
+  url: https://hootsuite.com/products/mobile-apps
+  description: Hootsuite's mobile apps schedule, publish, and monitor conversations on Twitter, Facebook, Instagram, YouTube, and more. Using Kotlin in our Android app.
