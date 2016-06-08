@@ -75,7 +75,7 @@ fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size()) {
 }
 ```
 
-Default values are defined using the **=** after type along with the value. Default values can not be changed in an overriging method.
+Default values are defined using the **=** after type along with the value. Default values can not be changed in an overriding method.
 
 ### Named Arguments
 
