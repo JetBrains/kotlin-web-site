@@ -202,3 +202,8 @@
   description: The simple generic LRU memory/disk cache for Android written in Kotlin
   type: Library
   link: https://github.com/kittinunf/Fuse
+
+- name: Discovery
+  description: Eventually consistent service discovery server
+  type: Application
+  link: https://github.com/datawire/discovery
