@@ -74,6 +74,7 @@ for ((k, v) in map) {
 ``` kotlin
 for (i in 1..100) { ... }
 for (x in 2..10) { ... }
+if (z in 2..10 step 2) { ... }
 ```
 
 ### Read-only list
