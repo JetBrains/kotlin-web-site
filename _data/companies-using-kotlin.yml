@@ -185,3 +185,8 @@
 - company: Hootsuite
   url: https://hootsuite.com/products/mobile-apps
   description: Hootsuite's mobile apps schedule, publish, and monitor conversations on Twitter, Facebook, Instagram, YouTube, and more. Using Kotlin in our Android app.
+
+- company: Lunar Labs
+  url: https://joinlunar.com
+  description: All of Lunar OS's pre installed mobile apps are written in Kotlin.
+    
