@@ -143,6 +143,7 @@ val customer = Customer("Joe Smith")
 
 Note that Kotlin does not have a *new*{: .keyword } keyword.
 
+Creating instances of nested, inner and anonymous inner classes is described in [Nested classes](nested-classes.html).
 
 ### Class Members
 
