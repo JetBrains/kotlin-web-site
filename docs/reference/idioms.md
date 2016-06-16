@@ -270,3 +270,14 @@ stream.buffered().reader().use { reader ->
 
 inline fun <reified T: Any> Gson.fromJson(json): T = this.fromJson(json, T::class.java)
 ```
+
+### Consuming a nullable Boolean
+
+```
+val b: Boolean? = ...
+if (b == true) {
+    ...
+} else {
+    // `b` is false or null
+}
+```
