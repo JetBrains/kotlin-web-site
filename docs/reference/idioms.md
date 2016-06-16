@@ -273,7 +273,7 @@ inline fun <reified T: Any> Gson.fromJson(json): T = this.fromJson(json, T::clas
 
 ### Consuming a nullable Boolean
 
-```
+``` kotlin
 val b: Boolean? = ...
 if (b == true) {
     ...
