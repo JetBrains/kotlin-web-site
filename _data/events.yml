@@ -1744,3 +1744,11 @@
   date: 2016-07-11
   location: Minsk, Belorus
   lang: ru
+  
+- title: "confitura 2016"
+  url: "http://2016.confitura.pl/"
+  subject: "Kotlin, why?"
+  speaker: Paweł Byszewski
+  date: 2016-07-02
+  location: Warsaw, Poland
+  lang: pl
