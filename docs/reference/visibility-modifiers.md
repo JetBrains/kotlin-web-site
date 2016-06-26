@@ -56,6 +56,8 @@ When declared inside a class:
 * `public` --- any client who sees the declaring class sees its `public` members.
 
 *NOTE* for Java users: outer class does not see private members of its inner classes in Kotlin.
+
+When overriding a `protected` method leaving blank modifier the actual one will be `protected`.
  
 Examples:
 
