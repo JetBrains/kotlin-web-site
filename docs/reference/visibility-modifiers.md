@@ -56,13 +56,15 @@ When declared inside a class:
 * `public` --- any client who sees the declaring class sees its `public` members.
 
 *NOTE* for Java users: outer class does not see private members of its inner classes in Kotlin.
+
+If you override a `protected` member and do not specify the visibility explicitly, the overriding member will also have `protected` visibility.
  
 Examples:
 
 ``` kotlin
 open class Outer {
     private val a = 1
-    protected val b = 2
+    protected open val b = 2
     internal val c = 3
     val d = 4  // public by default
     
@@ -75,6 +77,8 @@ class Subclass : Outer() {
     // a is not visible
     // b, c and d are visible
     // Nested and e are visible
+
+    override val b = 5   // 'b' is protected
 }
 
 class Unrelated(o: Outer) {
