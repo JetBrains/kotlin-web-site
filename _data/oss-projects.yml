@@ -207,3 +207,8 @@
   description: Eventually consistent service discovery server
   type: Application
   link: https://github.com/datawire/discovery
+
+- name: KotlinTest
+  description: Kotlin port of the famous ScalaTest
+  type: Library
+  link: https://github.com/kotlintest/kotlintest
