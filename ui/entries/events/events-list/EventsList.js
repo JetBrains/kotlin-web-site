@@ -35,7 +35,6 @@ function EventsList(node, store) {
 
   // Disable events filtering on map zoom
   emitter.on(EVENTS.MAP_BOUNDS_CHANGED, function (bounds) {
-    return;
     var request = $.extend({}, that.currentFilters, {bounds: bounds});
     that.currentFilters = request;
     var filteredEvents = store.filter(request);
