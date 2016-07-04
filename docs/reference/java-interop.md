@@ -110,8 +110,17 @@ mnemonic notation for them:
 ### Nullability annotations
 
 Java types which have nullability annotations are represented not as platform types, but as actual nullable or non-null
-Kotlin types. Currently, the compiler supports the [JetBrains flavor of the nullability annotations](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
-(`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package).
+Kotlin types. The compiler supports several flavors of nullability annotations, including:
+
+  * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
+(`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
+  * Android (`com.android.annotations` and `android.support.annotations`)
+  * JSR-305 (`javax.annotation`)
+  * FindBugs (`edu.umd.cs.findbugs.annotations`)
+  * Eclipse (`org.eclipse.jdt.annotation`)
+  * Lombok (`lombok.NonNull`).
+
+You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptor.loader.java/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
 ## Mapped types
 
