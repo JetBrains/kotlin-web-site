@@ -122,6 +122,8 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
 You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptor.loader.java/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
+[//]: # (TODO ATM there're plenty of annotations supported. This section should be updated accordingly.)
+
 ## Mapped types
 
 Kotlin treats some Java types specially. Such types are not loaded from Java "as is", but are _mapped_ to corresponding Kotlin types.
