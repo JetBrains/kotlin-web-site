@@ -23,14 +23,12 @@ or very hard to fix due to backward-compatibility issues. We know that Java is g
 but we believe that the community can benefit from a new statically typed JVM-targeted language free of the
 legacy trouble and having the features so desperately wanted by the developers.
 
+The core values behing the design of Kotlin make it
 
-The main design goals behind this project are
-
-* To create a Java-compatible language,
-* That compiles at least as fast as Java,
-* Make it safer than Java, i.e. statically check for common pitfalls such as null pointer dereference,
-* Make it more concise than Java by supporting variable type inference, higher-order functions (closures), extension functions, mixins and first-class delegation, etc;
-* And, keeping the useful level of expressiveness (see above), make it way simpler than the most mature competitor – Scala.
+* Interoperable: we want a language that can be freely mixed with Java,
+* Safe: statically check for common pitfalls (e.g., null pointer dereference) to catch errors at compile time,
+* Toolable: enable presice and performant tools such as IDEs and build systems,
+* "Democratic": make all parts of the langauge available to all developers (no policies are needed to restrict the use of some features to library writers or other groups of developers).
 
 ### How is it licensed?
 
