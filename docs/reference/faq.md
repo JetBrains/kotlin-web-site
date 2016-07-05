@@ -65,19 +65,15 @@ Yes. You can download the standalone compiler and other builds tools from the [r
 ### Is Kotlin a Functional Language?
 
 Kotlin is an Object-Orientated language. However it has support for higher-order functions as well as lambda expressions and top-level functions. In addition, there are
-a good number of common functional language constructs in the standard Kotlin library (such as map, flatMap, reduce, etc.). Also, there's no clear definition on what a Functional Language is so we couldn't say Kotlin is one.
+a good number of common functional language constructs in the Kotlin Standard Library (such as map, flatMap, reduce, etc.). Also, there's no clear definition on what a Functional Language is so we couldn't say Kotlin is one.
 
 ### Does Kotlin support generics?
 
-Kotlin supports generics. It also supports declaration-site variance and usage-site variance. Kotlin also does not have wildcard types. Inline functions support reified type parameters.
+Kotlin supports generics. It also supports declaration-site variance and usage-site variance. Kotlin does not have wildcard types. Inline functions support reified type parameters.
 
 ### Are semicolons required?
 
 No. They are optional.
-
-### Are curly braces required?
-
-Yes.
 
 ### Why have type declarations on the right?
 
@@ -86,7 +82,7 @@ proven pretty well this is not a problem.
 
 ### Will right-handed type declarations affect tooling?
 
-No. It won't. We can still implement suggestions for variable names, etc.
+No, they won't. We can still implement suggestions for variable names, etc.
 
 ### Is Kotlin extensible?
 
@@ -94,15 +90,12 @@ We are planning on making it extensible in a few ways: from inline functions to 
 
 ### Can I embed my DSL into the language?
 
-Yes. Kotlin provides a few features that help: Operator overloading, Custom Control Structures via inline functions, Infix function calls, Extension Functions, Annotations and
-language quotations.
+Yes. Kotlin provides a few features that help along: Operator overloading, Custom Control Structures via inline functions, Infix function calls, Extension Functions, Annotations.
 
-### What ECMAScript level does the JavaScript support?
+### What ECMAScript level does Kotlin for JavaScript support?
 
 Currently at 5.
 
 ### Does the JavaScript back-end support module systems?
 
-Yes. There are plans to provide CommonJS and AMD support.
-
-
+Yes. There are plans to provide at least CommonJS and AMD support.
