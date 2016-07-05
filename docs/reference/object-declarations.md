@@ -38,7 +38,7 @@ open class A(x: Int) {
 
 interface B {...}
 
-val ab = object : A(1), B {
+val ab: A = object : A(1), B {
   override val y = 15
 }
 ```
