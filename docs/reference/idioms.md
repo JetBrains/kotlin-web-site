@@ -271,6 +271,27 @@ stream.buffered().reader().use { reader ->
 inline fun <reified T: Any> Gson.fromJson(json): T = this.fromJson(json, T::class.java)
 ```
 
+### Convenient form for a generic "constructor" that requires the generic type information
+
+``` kotlin
+class Foo<T : Any>(val clazz: Class<T>) {
+
+    companion object Factory {
+
+        inline operator fun <reified T : Any> invoke(): Foo<T> {
+            return Foo(T::class.java)
+        }
+
+    }
+
+}
+```
+
+Can be called just like a regular constructor:
+``` kotlin
+val foo = Foo<String>()
+```
+
 ### Consuming a nullable Boolean
 
 ``` kotlin
