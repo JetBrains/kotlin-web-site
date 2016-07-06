@@ -50,31 +50,36 @@ Kotlin has an extensive standard library that can be used in your applications. 
 To compile source code, specify the source directories in the <build> tag:
 
 ``` xml
-<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+<build>
+    <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+</build>
 ```
 
 The Kotlin Maven Plugin needs to be referenced to compile the sources:
 
 ``` xml
+<build>
+    <plugins>
+        <plugin>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <version>${kotlin.version}</version>
 
-<plugin>
-    <artifactId>kotlin-maven-plugin</artifactId>
-    <groupId>org.jetbrains.kotlin</groupId>
-    <version>${kotlin.version}</version>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <goals> <goal>compile</goal> </goals>
+                </execution>
 
-    <executions>
-        <execution>
-            <id>compile</id>
-            <goals> <goal>compile</goal> </goals>
-        </execution>
-
-        <execution>
-            <id>test-compile</id>
-            <goals> <goal>test-compile</goal> </goals>
-        </execution>
-    </executions>
-</plugin>
+                <execution>
+                    <id>test-compile</id>
+                    <goals> <goal>test-compile</goal> </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 ## Compiling Kotlin and Java sources
@@ -85,25 +90,29 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
 It could be done by moving Kotlin compilation to previous phase, process-sources (feel free to suggest a better solution if you have one):
 
 ``` xml
-<plugin>
-    <artifactId>kotlin-maven-plugin</artifactId>
-    <groupId>org.jetbrains.kotlin</groupId>
-    <version>${kotlin.version}</version>
+<build>
+    <plugins>
+        <plugin>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <version>${kotlin.version}</version>
 
-    <executions>
-        <execution>
-            <id>compile</id>
-            <phase>process-sources</phase>
-            <goals> <goal>compile</goal> </goals>
-        </execution>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <phase>process-sources</phase>
+                    <goals> <goal>compile</goal> </goals>
+                </execution>
 
-        <execution>
-            <id>test-compile</id>
-            <phase>process-test-sources</phase>
-            <goals> <goal>test-compile</goal> </goals>
-        </execution>
-    </executions>
-</plugin>
+                <execution>
+                    <id>test-compile</id>
+                    <phase>process-test-sources</phase>
+                    <goals> <goal>test-compile</goal> </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 ## OSGi
@@ -112,4 +121,4 @@ For OSGi support see the [Kotlin OSGi page](kotlin-osgi.html).
 
 ## Examples
 
-An example Maven project can be [downloaded directly from the GitHub repository](https://github.com/JetBrains/kotlin-examples/archive/master/maven.zip)
+An example Maven project can be [downloaded directly from the GitHub repository](https://github.com/JetBrains/kotlin-examples/)
