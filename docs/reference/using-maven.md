@@ -121,4 +121,4 @@ For OSGi support see the [Kotlin OSGi page](kotlin-osgi.html).
 
 ## Examples
 
-An example Maven project can be [downloaded directly from the GitHub repository](https://github.com/JetBrains/kotlin-examples/)
+An example Maven project can be [downloaded directly from the GitHub repository](https://github.com/JetBrains/kotlin-examples/archive/master/maven.zip)
