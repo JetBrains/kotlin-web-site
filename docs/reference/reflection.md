@@ -84,7 +84,7 @@ Now, you can apply it to callable references:
 
 
 ``` kotlin
-fun length(s: String) = s.size
+fun length(s: String) = s.length
 
 val oddLength = compose(::isOdd, ::length)
 val strings = listOf("a", "ab", "abc")
@@ -136,7 +136,7 @@ For an extension property:
 
 ``` kotlin
 val String.lastChar: Char
-  get() = this[size - 1]
+  get() = this[length - 1]
 
 fun main(args: Array<String>) {
   println(String::lastChar.get("abc")) // prints "c"
