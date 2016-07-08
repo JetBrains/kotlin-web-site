@@ -1687,7 +1687,9 @@
   speaker: David Vávra
   date: 2016-06-17
   location: Prague, Czechia
-  lang: cs
+  lang: en
+  content:
+    video: https://slideslive.com/38897392/firebase-kotlin-rxjava-practical-tips-en
   
 - title: "GeeCON 2016"
   url: http://2016.geecon.org/speakers/info.html?id=63
