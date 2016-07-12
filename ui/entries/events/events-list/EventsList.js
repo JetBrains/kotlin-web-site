@@ -3,7 +3,7 @@ require('./styles.scss');
 var $ = require('jquery');
 var template = require('./view.twig');
 var emitter = require('../../../utils/emitter');
-var EVENTS = require('../events');
+var EVENTS = require('../events-list');
 
 /**
  * @param {HTMLElement|string} node

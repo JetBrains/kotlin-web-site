@@ -1,6 +1,6 @@
 var $ = require('jquery');
 var emitter = require('../../../utils/emitter');
-var EVENTS = require('./../events');
+var EVENTS = require('./../events-list');
 var Marker = require('./Marker');
 
 var MAP_API_URL = 'https://maps.googleapis.com/maps/api/js';

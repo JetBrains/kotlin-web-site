@@ -4,7 +4,7 @@ var Map = require('./map/Map');
 var EventsStore = require('./event/EventsStore');
 var EventsList = require('./events-list/EventsList');
 var emitter = require('../../utils/emitter');
-var EVENTS = require('./events');
+var EVENTS = require('./events-list');
 var FilterPanel = require('./filter-panel');
 
 require('scrolltofixed/jquery-scrolltofixed.js');

@@ -1,6 +1,6 @@
 var icon = require('./marker-icon.png');
 var inactiveIcon = require('./marker-icon-inactive.png');
-var EVENTS = require('./../events');
+var EVENTS = require('./../events-list');
 var emitter = require('../../../utils/emitter');
 
 /**
