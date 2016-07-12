@@ -135,13 +135,13 @@ Map.prototype.applyFilteredResults = function (filteredEvents) {
       : event.marker.hide();
   });
 
-  var eventsBounds = new google.maps.LatLngBounds();
+  var eventsBounds = new google.maps.LatLngBounds(null);
 
   filteredEvents.forEach(function (event) {
     eventsBounds.extend(event.getBounds());
   });
 
-  //this.instance.setCenter(eventsBounds.getCenter());
+  this.instance.fitBounds(eventsBounds);
 };
 
 

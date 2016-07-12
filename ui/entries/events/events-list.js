@@ -9,6 +9,9 @@ var events = {
    */
   EVENT_HIGHLIGHTED: 'event_highlighted',
 
+  /**
+   * @param {Event}
+   */
   EVENT_UNHIGHLIGHTED: 'event_unhighlighted',
 
   /**
