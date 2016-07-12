@@ -11,9 +11,7 @@
 .filter-panel {
   box-sizing: border-box;
 
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
-  width: 400px;
-  padding: 10px;
+  padding: 20px 0 0;
 
   background-color: #fff;
 }
@@ -30,7 +28,8 @@
 .filter-panel-language-selector {
   display: inline-block;
 
-  width: 50%;
+  max-width: 180px;
+  margin-right: 10px;
 
   .label {@include selector-label;}
   .selector {@include selector-selector;}

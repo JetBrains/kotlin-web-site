@@ -1,4 +1,4 @@
-module.exports = {
+var events = {
   /**
    * @param {Object} Filters request
    */
@@ -19,3 +19,5 @@ module.exports = {
    */
   MAP_BOUNDS_CHANGED: 'map_bounds_changed'
 };
+
+module.exports = events;

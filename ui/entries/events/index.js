@@ -55,7 +55,9 @@ $(document).ready(function () {
 
     var list = new EventsList('.js-events-list', store);
 
-    var panel = new FilterPanel('.js-events-map-panel', {
+    list.applyFilteredResults(store.events);
+
+    var panel = new FilterPanel('.js-filter-panel-wrap', {
       languages: store.getLanguages(),
       materials: store.getMaterials(),
       store: store
