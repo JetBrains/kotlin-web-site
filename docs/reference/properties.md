@@ -105,7 +105,7 @@ var counter = 0 // the initializer value is written directly to the backing fiel
 
 The `field` identifier can only be used in the accessors of the property.
 
-The compiler looks at the accessors' bodies, and if they use the backing field (or the accessor implementation is left by default), a backing field is generated, otherwise it is not.
+A backing field will be generated for a property if it uses the default implementation of at least one of the accessors, or if a custom accessor references it through the `field` identifier.
 
 For example, in the following case there will be no backing field:
 
