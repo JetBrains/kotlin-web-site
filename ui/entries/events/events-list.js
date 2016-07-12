@@ -7,6 +7,13 @@ var events = {
   /**
    * @param {Event}
    */
+  EVENT_HIGHLIGHTED: 'event_highlighted',
+
+  EVENT_UNHIGHLIGHTED: 'event_unhighlighted',
+
+  /**
+   * @param {Event}
+   */
   EVENT_SELECTED: 'event_selected',
 
   /**

@@ -51,7 +51,9 @@ function Map(node, store) {
   });
 
   // Restore state when marker deselected
-  emitter.on(EVENTS.EVENT_DESELECTED, this.reset.bind(this));
+  emitter.on(EVENTS.EVENT_DESELECTED, function () {
+    that.reset();
+  });
 
   // Filter markers when filtering event fired
   emitter.on(EVENTS.EVENTS_FILTERED, function (filters) {
@@ -59,6 +61,13 @@ function Map(node, store) {
     that.applyFilteredResults(filteredEvents);
   });
 
+  emitter.on(EVENTS.EVENT_HIGHLIGHTED, function (event) {
+    event.marker.highlight();
+  });
+
+  emitter.on(EVENTS.EVENT_UNHIGHLIGHTED, function (event) {
+    event.marker.unhighlight();
+  });
 
   // MARKERS
   this._createMarkers(store.events);
@@ -93,15 +102,10 @@ Map.create = function (node, store) {
   });
 };
 
-Map.prototype.refreshSize = function () {
-
-};
-
 /**
  * @type {Array<Marker>}
  */
 Map.prototype.markers = null;
-
 
 /**
  * @param {Array<Event>} events

@@ -23,14 +23,22 @@ function EventsList(node, store) {
     that.applyFilteredResults(filteredEvents);
   });
 
-  emitter.on(EVENTS.EVENT_SELECTED, function (event) {
-    that.showEventDetails(event);
+  emitter.on(EVENTS.EVENT_SELECTED, function (selectedEvent) {
+    that.showEventDetails(selectedEvent);
     that.mode = 'detailed';
   });
 
   emitter.on(EVENTS.EVENT_DESELECTED, function () {
     that.hideEventDetails();
     that.mode = 'list';
+  });
+
+  emitter.on(EVENTS.EVENT_HIGHLIGHTED, function (event) {
+    event.highlight();
+  });
+
+  emitter.on(EVENTS.EVENT_UNHIGHLIGHTED, function (event) {
+    event.unhighlight();
   });
 
   // Disable events filtering on map zoom
@@ -65,8 +73,19 @@ EventsList.prototype.render = function () {
   });
 
   this.store.events.forEach(function (event) {
-    $(event.node).on('click', function () {
+    var $node = $(event.node);
+    $node.on('click', function () {
       emitter.emit(EVENTS.EVENT_SELECTED, event);
+    });
+
+    $node.on('mouseenter', function (e) {
+      e.stopPropagation();
+      emitter.emit(EVENTS.EVENT_HIGHLIGHTED, event);
+    });
+
+    $node.on('mouseleave', function (e) {
+      e.stopPropagation();
+      emitter.emit(EVENTS.EVENT_UNHIGHLIGHTED, event);
     });
   });
 

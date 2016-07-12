@@ -16,8 +16,9 @@ function Event(data) {
   this.speaker = data.speaker;
   this.description = data.description;
 
-  if (!data.location)
+  if (!data.location) {
     console.warn(data.title + ' has no location');
+  }
 
   this.city = data.location;
   this.lang = data.lang || DEFAULT_LANG;
@@ -92,6 +93,15 @@ Event.prototype.render = function (mountNode) {
 
 Event.prototype.renderDetailed = function () {
   return template.render({event: this, mode: 'detailed'});
+};
+
+
+Event.prototype.highlight = function () {
+  $(this.node).addClass('_highlighted');
+};
+
+Event.prototype.unhighlight = function () {
+  $(this.node).removeClass('_highlighted');
 };
 
 Event.prototype.show = function () {

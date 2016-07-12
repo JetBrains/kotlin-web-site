@@ -1,5 +1,6 @@
 var icon = require('./marker-icon.png');
 var inactiveIcon = require('./marker-icon-inactive.png');
+var highlightedIcon = require('./marker-icon-highlighted.png');
 var EVENTS = require('./../events-list');
 var emitter = require('../../../utils/emitter');
 
@@ -14,6 +15,7 @@ function Marker(event, map) {
   event.marker = this;
   this.map = map;
   this.isActive = true;
+  this.isHighlighted = false;
 
   // Marker instance
   var markerInstance = new google.maps.Marker({
@@ -31,6 +33,17 @@ function Marker(event, map) {
     emitter.emit(EVENTS.EVENT_SELECTED, event);
   });
 
+  markerInstance.addListener('mouseover', function () {
+    marker.highlight();
+    emitter.emit(EVENTS.EVENT_HIGHLIGHTED, event);
+  });
+
+  markerInstance.addListener('mouseout', function () {
+    //marker.isActive ? marker.activate() : marker.deactivate();
+    marker.unhighlight();
+    emitter.emit(EVENTS.EVENT_UNHIGHLIGHTED, event);
+  });
+
   // Info window
   var infoWindow = new google.maps.InfoWindow({
     content: event.title
@@ -46,16 +59,20 @@ function Marker(event, map) {
 Marker.prototype.getIcon = function () {
   var mapZoom = this.map.instance.getZoom();
   var isActive = this.isActive;
+  var isHighlighted = this.isHighlighted;
+  var iconUrl = isActive ? icon : inactiveIcon;
+
+  if (isHighlighted) {
+    iconUrl = highlightedIcon;
+  }
 
   return {
     scaledSize: {
-      //width: mapZoom <= 5 ? 16 : 32,
-      //height: mapZoom <= 5 ? 16 : 32
       width: 16,
       height: 16
     },
     opacity: 1,
-    url: isActive ? icon : inactiveIcon
+    url: iconUrl
   };
 };
 
@@ -67,14 +84,28 @@ Marker.prototype.closeWindow = function () {
   this.infoWindow.close();
 };
 
+Marker.prototype.highlight = function () {
+  this.isHighlighted = true;
+  this.marker.setIcon(this.getIcon());
+  this.marker.setZIndex(30);
+};
+
+Marker.prototype.unhighlight = function () {
+  this.isHighlighted = false;
+  this.marker.setIcon(this.getIcon());
+  this.marker.setZIndex(this.isActive ? 2 : 1);
+};
+
 Marker.prototype.activate = function () {
   this.isActive = true;
+  this.isHighlighted = false;
   this.marker.setIcon(this.getIcon());
   this.marker.setZIndex(2);
 };
 
 Marker.prototype.deactivate = function () {
   this.isActive = false;
+  this.isHighlighted = false;
   this.marker.setIcon(this.getIcon());
   this.marker.setZIndex(1);
 };

@@ -7,10 +7,10 @@
 
   &._normal {
     cursor: pointer;
+  }
 
-    &:hover {
-      background-color: rgb(229, 246, 255);
-    }
+  &._highlighted {
+    background-color: rgb(229, 246, 255);
   }
 }
 
