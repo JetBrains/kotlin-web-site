@@ -20,11 +20,18 @@ function refreshMapSize(map, list) {
   var mapTopPosition = $mapCol.offset().top;
   var isMapOverTheViewport = scrollTop > mapTopPosition;
   var isNeedToBeFixed = isMapOverTheViewport;
+  var footerOffsetTop = $('.global-footer').offset().top;
+  var isFooterInViewport = (scrollTop + viewportHeight) > footerOffsetTop;
+  var footerInViewportAmountPx = isFooterInViewport ? (scrollTop + viewportHeight) - footerOffsetTop : 0;
 
   var width = Math.floor( $(window).width() / 2 );
   var height = isMapOverTheViewport
     ? viewportHeight
     : ( viewportHeight - (mapTopPosition - scrollTop) );
+
+  if (isFooterInViewport) {
+    height -= footerInViewportAmountPx;
+  }
 
   var styles = {
     width: width,
