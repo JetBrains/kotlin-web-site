@@ -29,6 +29,7 @@ include:
 
 # Site Settings
 baseurl:
+assets_url: /_assets/
 code_baseurl: https://github.com/JetBrains/kotlin-web-site/tree/master/code
 
 # Custom Settings
