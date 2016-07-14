@@ -41,8 +41,8 @@ function EventsList(node, store) {
     event.unhighlight();
   });
 
-  // Disable events filtering on map zoom
-  emitter.on(EVENTS.MAP_BOUNDS_CHANGED, function (bounds) {
+  // Filter events when map zoomed
+  emitter.on(EVENTS.MAP_BOUNDS_CHANGED, function (bounds, map) {
     var request = $.extend({}, that.currentFilters, {bounds: bounds});
     that.currentFilters = request;
     var filteredEvents = store.filter(request);

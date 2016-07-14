@@ -45,6 +45,7 @@ $color-blue: #416ea4;
 
 .dropdown-items {
   position: absolute;
+  z-index: 1;
   top: 100%;
   left: 0;
 

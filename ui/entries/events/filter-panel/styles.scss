@@ -1,3 +1,5 @@
+@import '../config';
+
 @mixin selector-label {
   display: inline-block;
   font-weight: bold;
@@ -11,9 +13,11 @@
 .filter-panel {
   box-sizing: border-box;
 
-  padding: 20px 0 0;
+  margin-right: -20px;
+  padding: 15px 0;
 
   background-color: #fff;
+  border-bottom: 1px solid $panel-border-color;
 }
 
 .filter-panel .dropdown-selected-value {

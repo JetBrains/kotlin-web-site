@@ -1,3 +1,4 @@
+@import 'config';
 @import '../../../css/_config';
 @import '../../../css/_utils';
 @import '../../../css/com/_bits/_header';
@@ -12,7 +13,7 @@ body {
   display: flex;
   flex-direction: row;
 
-  border-top: 1px solid #d1dbe1;
+  border-top: 1px solid $panel-border-color;
 }
 
 .events-list-col {
@@ -39,12 +40,6 @@ body {
 .events-map-panel {
   position: relative;
 
-  //right: 0;
-  //position: fixed;
-  //right: 0;
-  //width: 400px;
-  //height: 700px;
-
   width: 100%;
   height: 700px;
   box-sizing: border-box;
@@ -53,8 +48,6 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-
-    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .map {

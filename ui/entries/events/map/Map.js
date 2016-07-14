@@ -13,6 +13,8 @@ var mapOptions = {
   zoom: 2,
   disableDefaultUI: true,
   zoomControl: true,
+  maxZoom: 12,
+  minZoom: 2,
   styles: require('./styles')
 };
 
@@ -46,7 +48,7 @@ function Map(node, store) {
     }
 
     setTimeout(function () {
-      emitter.emit(EVENTS.MAP_BOUNDS_CHANGED, instance.getBounds());
+      emitter.emit(EVENTS.MAP_BOUNDS_CHANGED, instance.getBounds(), instance);
     }, 200);
   });
 
@@ -129,6 +131,8 @@ Map.prototype.reset = function () {
 };
 
 Map.prototype.applyFilteredResults = function (filteredEvents) {
+  var map = this.instance;
+
   this.store.events.forEach(function (event) {
     filteredEvents.indexOf(event) > -1
       ? event.marker.show()
@@ -141,7 +145,7 @@ Map.prototype.applyFilteredResults = function (filteredEvents) {
     eventsBounds.extend(event.getBounds());
   });
 
-  this.instance.fitBounds(eventsBounds);
+  map.fitBounds(eventsBounds);
 };
 
 
