@@ -1781,3 +1781,15 @@
   date: [2016-09-16, 2016-09-17]
   location: Vienna, Austria
   lang: en   
+  
+- title: New York Android Developers Meetup
+  url: http://www.meetup.com/android-developers-nyc/events/230899062/
+  subject: "Kotlin 101"
+  speaker: Daniel Nizr
+  date: [2016-06-14]
+  location: New York, NY, US
+  lang: en
+  content:
+    slides: https://docs.google.com/presentation/d/1RONjTABiAWTrDNcAOWB12GEKr1LbJy8PAqwGDhpJ8_Q
+    video: https://www.youtube.com/watch?v=ThSYQOVeoqg&authuser=1
+    examples: https://github.com/yodle/android-kotlin-demo
