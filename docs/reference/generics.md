@@ -256,7 +256,7 @@ fun <T> T.basicToString() : String {  // extension function
 }
 ```
 
-If type parameters are passed explicitly at the call site, they are specified **after** the name of the function:
+To call a generic function, specify the type arguments at the call site **after** the name of the function:
 
 ``` kotlin
 val l = singletonList<Int>(1)
