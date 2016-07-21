@@ -1793,3 +1793,26 @@
     slides: https://docs.google.com/presentation/d/1RONjTABiAWTrDNcAOWB12GEKr1LbJy8PAqwGDhpJ8_Q
     video: https://www.youtube.com/watch?v=ThSYQOVeoqg&authuser=1
     examples: https://github.com/yodle/android-kotlin-demo
+
+- title: Droidcon Vienna
+  url: https://droidcon.at/
+  subject: "The Blessings of Kotlin for Android"
+  speaker: Daniel Niedermühlbichler
+  date: [2016-09-16, 2016-09-17]
+  location: Vienna, Austria
+  lang: en
+  
+- title: I CODE JAVA 2016
+  url: http://j-sa.co/sessions/kotlin-the-future-of-the-jvm/
+  subject: "Kotlin – The Future Of The JVM?"
+  speaker: Rory Preddy
+  date: [2016-07-21, 2016-07-22]
+  location: Johannesburg, South Africa
+  lang: en
+  
+- title: Polyglot.Tech
+  url: https://eventil.com/events/java-vs-scala-vs-kotlin
+  subject: "Java vs Scala vs Kotlin"
+  date: 2016-09-08
+  location: Warszawa, Poland
+  lang: pl
