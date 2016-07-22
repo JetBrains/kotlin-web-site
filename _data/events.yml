@@ -1818,3 +1818,10 @@
   date: 2016-09-08
   location: Warszawa, Poland
   lang: pl
+  
+- title: Big Android BBQ Europe 2016
+  url: http://www.babbq.nl/sessions/no-excuses-switch-to-kotlin/
+  subject: "No Excuses: Switch To Kotlin"
+  date: [2016-08-14, 2016-08-16]
+  location: Amsterdam, Netherlands
+  lang: en
