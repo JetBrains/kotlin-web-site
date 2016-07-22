@@ -1809,6 +1809,8 @@
   date: [2016-07-21, 2016-07-22]
   location: Johannesburg, South Africa
   lang: en
+  content:
+    slides: http://www.slideshare.net/rorypreddy/kotlin-64276009
   
 - title: Polyglot.Tech
   url: https://eventil.com/events/java-vs-scala-vs-kotlin
