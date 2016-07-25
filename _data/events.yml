@@ -1822,6 +1822,14 @@
 - title: Big Android BBQ Europe 2016
   url: http://www.babbq.nl/sessions/no-excuses-switch-to-kotlin/
   subject: "No Excuses: Switch To Kotlin"
+  speaker: Thijs Suijten
   date: [2016-08-14, 2016-08-16]
   location: Amsterdam, Netherlands
+  lang: en
+
+- title: majug.de
+  url: http://www.majug.de/2016/10/27/kotlin-putting-the-fun-in-your-code/
+  subject: "hello.kt - putting the fun in your code"
+  date: 2016-10-27
+  location: Mannheim, Germany
   lang: en
