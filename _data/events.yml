@@ -1830,6 +1830,15 @@
 - title: majug.de
   url: http://www.majug.de/2016/10/27/kotlin-putting-the-fun-in-your-code/
   subject: "hello.kt - putting the fun in your code"
+  speaker: Alexander Hanschke
   date: 2016-10-27
   location: Mannheim, Germany
+  lang: en
+
+- title: GDG Berlin Android Developer Meetup
+  url: https://www.meetup.com/GDG-Berlin-Android/events/230697455/?eventId=230697455
+  subject: "Kotlin brings the fun to Android "
+  speaker: Hendrik Kokocinski
+  date: 2016-07-27
+  location: Berlin, Germany
   lang: en
