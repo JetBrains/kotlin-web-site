@@ -24,7 +24,7 @@ class BaseImpl(val x: Int) : Base {
 
 class Derived(b: Base) : Base by b
 
-fun main() {
+fun main(args: Array<String>) {
   val b = BaseImpl(10)
   Derived(b).print() // prints 10
 }
