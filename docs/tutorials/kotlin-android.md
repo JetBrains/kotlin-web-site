@@ -43,7 +43,7 @@ you can write it in Java, then copy-paste Java code into Kotlin file, and Intell
 #### Converting Java code to Kotlin
 
 Open MainActivity.java file. Then invoke action **Convert Java File to Kotlin File**. You can do it by several ways.
-The most easiest one is to invoke [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html) and start typing an action name (like in a screencast below). 
+The easiest one is to invoke [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html) and start typing an action name (like in a screencast below). 
 Alternatively we can call this option via the _Code \| Convert Java File to Kotlin File_  menu entry or by using the corresponding shortcut (we can find it at the menu entry).
  
 ![Convert]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/convert-java-to-kotlin.png)
