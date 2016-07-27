@@ -14,7 +14,7 @@ It’s extremely easy to start using Kotlin for Android development! In this tut
 If using Intellij IDEA with Android, the process is almost the same.
 
 First let's create a new project. We choose **Start a new Android Studio project** or **File | New project**.
-The following dialogs walk us through the process of new project creation. 
+The following dialogs walk us through the process of creating a new project. 
 We need to name the project and choose which Android SDK version we have installed. Most options can be left with their default values, so we can press 'Enter' several
 times.
 
@@ -25,7 +25,7 @@ Choose the Android version:
 
 ![Dialog 2]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/1-create-new-project.png)
 
-Choose creating an activity that will be generated for you:
+Choose the type of Android activity that you want to be generated for you:
 
 ![Dialog 3]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/2-create-new-project.png)
 
@@ -35,16 +35,16 @@ Name the activity:
 
 We've created a new project with one Java activity that was generated for us.
 
-But now we'd like to add some code in Kotlin. The easiest way to start using Kotlin is to convert automatically Java activity into Kotlin one.
-Please note that anytime instead of looking through documentation for a new way to express an old pattern, 
-you can write it in Java, then copy-paste Java code into Kotlin file, and Intellij (or Android Studio) will suggest to convert it. 
+But now we'd like to add some code in Kotlin. The easiest way to start using Kotlin is to automatically convert a Java activity into a Kotlin one.
+Please note that, at any point in time, instead of looking through documentation for a new way to express an old pattern, 
+you can write it in Java, then copy-paste the Java code into a Kotlin file, and Intellij (or Android Studio) will suggest to you to convert it. 
 
 
 #### Converting Java code to Kotlin
 
 Open MainActivity.java file. Then invoke action **Convert Java File to Kotlin File**. You can do it by several ways.
-The most easiest one is to invoke [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html) and start typing an action name (like in a screencast below). 
-Alternatively we can call this option via the _Code \| Convert Java File to Kotlin File_  menu entry or by using the corresponding shortcut (we can find it at the menu entry).
+The easiest one is to invoke [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html) and start typing an action name (like in the screencast below). 
+Alternatively we can call this option via the _Code \| Convert Java File to Kotlin File_  menu entry or by using the corresponding shortcut ("Control + Shift + A" on Windows/Linux and "Command + Shift + A" on Mac, as we can find it at the menu entry below).
  
 ![Convert]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/convert-java-to-kotlin.png)
 
@@ -54,8 +54,8 @@ After the conversion we should have an activity written in Kotlin.
 
 #### Configuring Kotlin in the project
 
-When adding a new Kotlin file, IntelliJ IDEA (and Android Studio) automatically prompts us as to whether we'd like to configure the Kotlin runtime for the project. However, currently, converting existing Java
-file does not prompt this action. Therefore we have to invoke it manually (via [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html)):
+When adding a new Kotlin file, IntelliJ IDEA (and Android Studio) automatically prompts us as to whether we'd like to configure the Kotlin runtime for the project. However, currently, converting an existing Java
+file does not prompt us to make this choice. Therefore we have to invoke it manually (via [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html)):
 
 ![Config-Kotlin]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/configure-kotlin-in-project.png)
 
@@ -63,7 +63,7 @@ We are then prompted for the version of Kotlin. Choose the latest available from
 
 ![Config-Kotlin-Details]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/configure-kotlin-in-project-details.png)
 
-After we configure Kotlin, build.gradle file for the application should be updated. 
+After we configure Kotlin, the build.gradle file for the application should be updated. 
 Now we can see that _apply plugin: 'kotlin-android'_ and the dependencies were added. 
 
 *(For more details how to set up gradle for your project, please check [Using Gradle](/docs/reference/using-gradle.html))*
@@ -85,12 +85,12 @@ While using layout designer in IntelliJ IDEA, note there are two tabs in the des
 
 Kotlin has a rather small runtime file size: the library is approximately {{ site.data.releases.latest.runtime_size }} (as of {{ site.data.releases.latest.version }}). This means Kotlin adds just a little to .apk file size.
 
-We are now ready to build the application in debug mode (**\<Shift+F9\>**), run it on an emulator or device (**\<Shift+F10\>**), or build signed release of the application to upload it to Google Play or another application store.
+We are now ready to build the application in debug mode (**\<Shift+F9\>**), run it on an emulator or device (**\<Shift+F10\>**), or build signed release of the application to upload it to Google Play or any other application store(s).
 
-We can make a release of the application and sign it similarly to what we do for an Android application written in Java. 
+We can make a release of the application and sign it, similar to what we do for an Android application written in Java. 
 
 Kotlin compiler produces byte-code, thus there really is no difference in terms of look and feel of Kotlin applications versus those written in Java.
 
 ### What's next?
 
-Read about [Kotlin Android Extensions plugin](android-plugin.html). If you want to learn different Kotlin features, try [Kotlin Koans](koans.html).
+The next step is to add features to your app. To learn about different Kotlin features, try [Kotlin Koans](koans.html).
