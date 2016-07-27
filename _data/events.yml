@@ -1837,8 +1837,16 @@
 
 - title: GDG Berlin Android Developer Meetup
   url: https://www.meetup.com/GDG-Berlin-Android/events/230697455/?eventId=230697455
-  subject: "Kotlin brings the fun to Android "
+  subject: "Kotlin brings the fun to Android"
   speaker: Hendrik Kokocinski
   date: 2016-07-27
   location: Berlin, Germany
+  lang: en
+
+- title: GOTO London 2016
+  url: https://gotocon.com/london-2016/presentations/show_presentation.jsp?oid=7892
+  subject: "Hands-on with Kotlin"
+  speaker: Hadi Hariri
+  date: [2016-10-12, 2016-10-14]
+  location: London, UK
   lang: en
