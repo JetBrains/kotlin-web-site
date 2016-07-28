@@ -1850,3 +1850,14 @@
   date: [2016-10-12, 2016-10-14]
   location: London, UK
   lang: en
+
+- title: Kotlin Rio Meetup
+  url: http://www.meetup.com/Kotlin-Rio/events/232059388/?eventId=232059388
+  subject: "Getting started with Kotlin and Android"
+  speaker: Lucas Albuquerque
+  date: 2016-07-27
+  location: Rio de Janeiro, Brazil
+  lang: en
+  content:
+    slides: https://speakerdeck.com/lalbuquerque/getting-started-with-kotlin-and-android
+    examples: https://github.com/lalbuquerque/getting-started-w-kotlin-android
