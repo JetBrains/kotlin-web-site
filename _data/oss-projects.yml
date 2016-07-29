@@ -8,6 +8,11 @@
   type: Framework
   link: https://github.com/hhariri/wasabi
 
+- name: Ktor
+  description: Web application framework
+  type: Framework
+  link: https://github.com/Kotlin/ktor
+
 - name: Kara
   description: An MVC Framework
   type: Framework
