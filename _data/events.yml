@@ -1861,3 +1861,11 @@
   content:
     slides: https://speakerdeck.com/lalbuquerque/getting-started-with-kotlin-and-android
     examples: https://github.com/lalbuquerque/getting-started-w-kotlin-android
+
+- title: devICT Meetup
+  url: http://www.meetup.com/devict/events/232814232/
+  subject: "Java Talks: Kotlin - How and Why"
+  speaker: Jacob Moore
+  date: 2016-08-16
+  location: Wichita, KS, US
+  lang: en
