@@ -1869,3 +1869,11 @@
   date: 2016-08-16
   location: Wichita, KS, US
   lang: en
+  
+- title: GDG New Delhi Meetup
+  url: https://www.facebook.com/events/496598107201906/
+  subject: "Android App Using Kotlin"
+  speaker: Vatsal Bajpai
+  date: 2016-07-31
+  location: New Delhi, India
+  lang: en
