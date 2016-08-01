@@ -93,4 +93,4 @@ Kotlin compiler produces byte-code, thus there really is no difference in terms 
 
 ### What's next?
 
-The next step is to add features to your app. To learn about different Kotlin features, try [Kotlin Koans](koans.html).
+Read more about using the [Kotlin plugin](kotlin-android.html) for Android development. To learn about different Kotlin features, try [Kotlin Koans](koans.html).
