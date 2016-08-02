@@ -1894,4 +1894,10 @@
   location: Sydney, Australia
   lang: en
   
-  
+- title: AnDevCon
+  url: "http://www.andevcon.com/boston2016/sessions#KotlinandAndroidBetterTogetherPartI"
+  subject: "Kotlin and Android: Better Together"
+  speaker: C.L. Kim
+  date: [2016-08-01, 2016-08-04]
+  location: Boston, MA, USA
+  lang: en
