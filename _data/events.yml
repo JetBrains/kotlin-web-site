@@ -1877,3 +1877,21 @@
   date: 2016-07-31
   location: New Delhi, India
   lang: en
+
+- title: Android Australia User Group
+  url: https://www.meetup.com/Android-Australia-User-Group-Sydney/events/232408253/
+  subject: "A Deeper Dive into Kotlin"
+  speaker: Hadi Hariri
+  date: 2016-08-04
+  location: Sydney, Australia
+  lang: en
+  
+- title: Android Australia User Group
+  url: https://www.meetup.com/Android-Australia-User-Group-Sydney/events/232408253/
+  subject: "Asynchronous Vert.x Applications in Kotlin"
+  speaker: Mike Gouline
+  date: 2016-08-04
+  location: Sydney, Australia
+  lang: en
+  
+  
