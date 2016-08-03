@@ -1444,6 +1444,16 @@
   location: Belfast, United Kingdom
   lang: en
   
+- title: "Luminis DevCon 2016"
+  url: "https://devcon.luminis.eu/methods-are-no-fun-an-introduction-to-kotlin/"
+  subject: "Methods are no fun - An introduction to Kotlin"
+  speaker: Gareth Fleming
+  date: 2016-04-19
+  location: Ede, Netherlands
+  lang: en
+  content:
+    video: https://youtu.be/sjuAhrDSdoI
+  
 - title: "VI Codemotion Meetup"
   url: "http://www.meetup.com/es-ES/Codemotion-Meetups/events/229413565/"
   subject: "Kotlin for Android Developers impartida"
