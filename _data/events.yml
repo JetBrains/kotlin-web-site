@@ -1921,3 +1921,11 @@
   lang: en
   content:
     video: https://youtu.be/4W3ruTWUhpw
+
+- title: "SpringOne Platform"
+  url: "https://2016.event.springoneplatform.io/schedule/sessions/developing_a_geospatial_webservice_with_kotlin_and_spring_boot.html"
+  subject: "Developing a Geospatial Webservice with Kotlin and Spring Boot"
+  speaker: Sébastien Deleuze
+  date: [2016-08-01, 2016-08-04]
+  location: ARIA, LAS VEGAS
+  lang: en
