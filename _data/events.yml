@@ -1911,3 +1911,13 @@
   date: [2016-08-01, 2016-08-04]
   location: Boston, MA, USA
   lang: en
+  
+- title: JVM Language Summit
+  url: "JVM Language Summit"
+  subject: "Kotlin Coroutines"
+  speaker: Andrey Breslav
+  date: [2016-08-01, 2016-08-03]
+  location: Santa Clara, CA, USA
+  lang: en
+  content:
+    video: https://youtu.be/4W3ruTWUhpw
