@@ -1927,5 +1927,21 @@
   subject: "Developing a Geospatial Webservice with Kotlin and Spring Boot"
   speaker: Sébastien Deleuze
   date: [2016-08-01, 2016-08-04]
-  location: ARIA, LAS VEGAS
+  location: LAS VEGAS, CA, USA
+  lang: en
+
+- title: "GDG DevFest Ukraine 2016"
+  url: "https://devfest.gdg.org.ua/speakers/16"
+  subject: "Kotlin + Android"
+  speaker: Dmytro Danylyk
+  date: [2016-09-09, 2016-09-10]
+  location: Lviv, Ukraine
+  lang: en
+  
+- title: "GDG DevFest Ukraine 2016"
+  url: "https://devfest.gdg.org.ua/speakers/16"
+  subject: "Firebase + Kotlin + RxJava + MVP: Practical Tips"
+  speaker: David Vávra
+  date: [2016-09-09, 2016-09-10]
+  location: Lviv, Ukraine
   lang: en
