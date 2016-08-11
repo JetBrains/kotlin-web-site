@@ -76,9 +76,9 @@ interface Collection<E> ... {
 }
 ```
 
-The **wildcard type argument** `? extends T` indicates that this method accepts a collection of objects of *some subtype of* `T`, not `T` itself. 
-This means that we can safely **read** `T`'s from items (elements of this collection are instances of a subclass of T), but **cannot write** to 
-it since we do not know what objects comply to that unknown subtype of `T`. 
+The **wildcard type argument** `? extends E` indicates that this method accepts a collection of objects of *some subtype of* `E`, not `E` itself. 
+This means that we can safely **read** `E`'s from items (elements of this collection are instances of a subclass of E), but **cannot write** to 
+it since we do not know what objects comply to that unknown subtype of `E`. 
 In return for this limitation, we have the desired behaviour: `Collection<String>` *is* a subtype of `Collection<? extends Object>`. 
 In "clever words", the wildcard with an **extends**\-bound (**upper** bound) makes the type **covariant**.
 
@@ -88,7 +88,7 @@ and reading `Object`s from it is fine. Conversely, if you can only _put_ items i
  
 The latter is called **contravariance**, and you can only call methods that take String as an argument on `List<? super String>` 
 (e.g., you can call `add(String)` or `set(int, String)`), while 
-if you call something that returns `T` in `List<T>`, you don't get a `String`, but an `Object`.
+if you call something that returns `E` in `List<E>`, you don'E get a `String`, but an `Object`.
 
 Joshua Bloch calls those objects you only **read** from **Producers**, and those you only **write** to **Consumers**. He recommends: "*For maximum flexibility, use wildcard types on input parameters that represent producers or consumers*", and proposes the following mnemonic:
 
