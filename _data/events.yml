@@ -1945,3 +1945,11 @@
   date: [2016-09-09, 2016-09-10]
   location: Lviv, Ukraine
   lang: en
+
+- title: "YOW! Connected 2016"
+  url: "http://connected.yowconference.com.au/content/?url=https%3A%2F%2Fa.confui.com%2Fpublic%2Fconferences%2F57200a19f572215d1f000082%2Flocations%2F57200a1af572215d1f000083%2Fspeakers%2F57b0106088c808e04b00015a%3Fframehost%3Dhttp%3A%2F%2Fconnected.yowconference.com.au%2F"
+  subject: "Kotlin, The Pragmatic Language For Android"
+  speaker: Mike Gouline
+  date: [2016-10-05, 2016-10-06]
+  location: Melbourne, Australia
+  lang: en
