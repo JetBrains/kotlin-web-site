@@ -1874,11 +1874,13 @@
 
 - title: devICT Meetup
   url: http://www.meetup.com/devict/events/232814232/
-  subject: "Java Talks: Kotlin - How and Why"
+  subject: "Java Talks: Kotlin: From Russia With Love...ly Syntax"
   speaker: Jacob Moore
   date: 2016-08-16
   location: Wichita, KS, US
   lang: en
+  conntent:
+    video: https://youtu.be/AX0Xxg7KDck
   
 - title: GDG New Delhi Meetup
   url: https://www.facebook.com/events/496598107201906/
@@ -1968,4 +1970,12 @@
   speaker: Monika Kumar Jethani
   date: [2016-10-13, 2016-10-16]
   location: Bangalore, India
+  lang: en
+  
+- title: "Denver Droids Meetup"
+  url: "http://www.meetup.com/DenverDroids/events/232743206/"
+  subject: "Catching Kotlin"
+  speaker: Brandon Davis
+  date: 2016-08-17
+  location: Denver, CO, US
   lang: en
