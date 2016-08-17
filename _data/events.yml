@@ -981,6 +981,8 @@
   date: [2015-10-16, 2015-10-17]
   location: Saint Petersburg, Russia
   lang: ru
+  content:
+    video: https://www.youtube.com/watch?v=c1tf_zLGMKM
   
 - title: JOKER University Day
   url: http://university.jokerconf.com/
