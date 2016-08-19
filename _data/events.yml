@@ -1532,11 +1532,23 @@
 
 - title: JET Conference
   url: "http://jetconf.by/#/dmitry_jemerov"
-  subject: "Kotlin: Making JVM Development Fun Again; Caught in the Act: Kotlin Bytecode Generation and Runtime Performance"
+  subject: "Kotlin: Making JVM Development Fun Again"
   speaker: Dmitry Jemerov
   date: 2016-04-25
   location: Minsk, Belarus
-  lang: en
+  lang: ru
+  content:
+    video: https://www.youtube.com/watch?v=R0zv0vi7_wQ
+
+- title: JET Conference
+  url: "http://jetconf.by/#/dmitry_jemerov"
+  subject: "Caught in the Act: Kotlin Bytecode Generation and Runtime Performance"
+  speaker: Dmitry Jemerov
+  date: 2016-04-25
+  location: Minsk, Belarus
+  lang: ru
+  content:
+    video: https://www.youtube.com/watch?v=eQ4YHpAXdp4
 
 - title: "MIX-IT 2016"
   url: "https://www.mix-it.fr/session/3202/"
@@ -1577,6 +1589,8 @@
   date: [2016-05-11, 2016-05-13]
   location: Kraków, Poland
   lang: en
+  content:
+    video: https://vimeo.com/171765019
 
 - title: "JEEConf 2016"
   url: http://jeeconf.com/program/caught-in-the-act-kotlin-bytecode-generation-and-runtime-performance/
@@ -1584,7 +1598,7 @@
   speaker: Dmitry Jemerov
   date: [2016-05-20, 2016-05-21]
   location: Kyiv, Ukraine
-  lang: en
+  lang: ru
 
 - title: "TMPA 2015"
   url: "http://tmpaconf.org/thesesen-ru/kotlin-from-null-dereference-to-smart-casts-ru"
@@ -1652,9 +1666,10 @@
   speaker: Anton Keks
   date: 2016-04-25
   location: Minsk, Belarus
-  lang: en
+  lang: ru
   content:
     slides: https://docs.google.com/presentation/d/1rxHoxvBRHdIWS2N7pLaVWkdzVKnMn316MkYT9Q8BGuA
+    video: https://www.youtube.com/watch?v=CABN2r4GPpQ
 
 - title: JET Conference
   url: "http://jetconf.by/#/ruslan_ibragimov"
@@ -1662,7 +1677,9 @@
   speaker: Ruslan Ibragimov
   date: 2016-04-25
   location: Minsk, Belarus
-  lang: en
+  lang: ru
+  content:
+    video: https://www.youtube.com/watch?v=fZXQjy8sdok
 
 - title: Kotlin Night in San Francisco
   url: "http://info.jetbrains.com/Kotlin-Night-2016.html"
