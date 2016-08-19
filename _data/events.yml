@@ -1981,3 +1981,11 @@
   date: 2016-08-17
   location: Denver, CO, US
   lang: en
+
+- title: "KotlinMAD User Group"
+  url: "https://www.meetup.com/KotlinMAD/events/233457727/"
+  subject: "De cero a cien con Kotlin"
+  speaker: Juanjo Aguililla
+  date: 2016-09-15
+  location: Madrid, Spain
+  lang: es
