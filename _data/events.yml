@@ -2014,3 +2014,11 @@
   date: 2016-08-31
   location: Melbourne, Australia
   lang: en
+
+- title: "YOW! Connected 2016"
+  url: "http://uk.droidcon.com/#program"
+  subject: "Coding for Android on steroids with Kotlin"
+  speaker: Kai Koenig
+  date: [2016-10-27, 2016-10-28]
+  location: London, UK
+  lang: en
