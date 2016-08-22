@@ -2006,3 +2006,11 @@
   date: 2016-09-15
   location: Madrid, Spain
   lang: es
+
+- title: "GDG Melbourne Meetup"
+  url: "https://plus.google.com/u/0/events/c21te9u0vkon1fd07el2oqrvm3o"
+  subject: "Kotlin in the real world"
+  speaker: Thomas Ruffie
+  date: 2016-08-31
+  location: Melbourne, Australia
+  lang: en
