@@ -193,3 +193,7 @@
 - company: Datawire
   url: https://datawire.io/
   description: Using Kotlin for Datawire Discovery and other back end services.
+
+- company: T-Pro
+  url: http://tpro.ie/
+  description: Using only Kotlin on the Android app.
