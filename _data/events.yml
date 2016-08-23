@@ -2030,3 +2030,27 @@
   date: 2016-09-22
   location: Degerloch, Germany
   lang: de
+  
+- title: "AndroidSummit"
+  url: "http://androidsummit.org/"
+  subject: "Kotlin for Android Developers"
+  speaker: Mike Evans
+  date: [2016-08-26, 2016-08-27]
+  location: McLean, VA, US
+  lang: en
+  
+- title: "DevFestDC 2016"
+  url: "http://www.devfestdc.org/sessions/#mike-livingsocial"
+  subject: "Kotlin for Android Developers"
+  speaker: Mike Evans
+  date: [2016-09-23, 2016-09-24]
+  location: McLean, VA, US
+  lang: en  
+
+- title: "Windcity DevCon"
+  url: "http://windycity.io/"
+  subject: "Kotlin for Android Developers"
+  speaker: Mike Evans
+  date: 2016-09-16
+  location: Chicago, IL, US
+  lang: en
