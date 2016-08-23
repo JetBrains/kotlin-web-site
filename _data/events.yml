@@ -2015,10 +2015,18 @@
   location: Melbourne, Australia
   lang: en
 
-- title: "YOW! Connected 2016"
+- title: "Droidcon London 2016"
   url: "http://uk.droidcon.com/#program"
   subject: "Coding for Android on steroids with Kotlin"
   speaker: Kai Koenig
   date: [2016-10-27, 2016-10-28]
   location: London, UK
   lang: en
+
+- title: "JUG Stuttgart Meetup"
+  url: "http://www.jugs.org/va2016/09-22.html"
+  subject: "Einführung in Kotlin"
+  speaker: Alexander Hanschke
+  date: 2016-09-22
+  location: Degerloch, Germany
+  lang: de
