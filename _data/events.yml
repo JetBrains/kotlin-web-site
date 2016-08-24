@@ -2054,3 +2054,11 @@
   date: 2016-09-16
   location: Chicago, IL, US
   lang: en
+
+- title: "Sydney JVM Community Meetup"
+  url: "https://www.meetup.com/Sydney-JVM-Community/events/233465115/?eventId=233465115"
+  subject: "Practical Guide to Gradle with Kotlin"
+  speaker: Mike Gouline
+  date: 2016-09-14
+  location: Sydney, Australia
+  lang: en
