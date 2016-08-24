@@ -222,3 +222,8 @@
   description: A library of algorithms for the Black-and-White tree coloring
   type: Library
   link: https://github.com/devromik/black-and-white
+
+- name: kottpd
+  description: REST framework in pure Kotlin
+  type: Library
+  link: https://github.com/gimlet2/kottpd
