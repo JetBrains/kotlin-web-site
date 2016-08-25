@@ -1,8 +1,3 @@
----
-title: Tooling
-description: Command Line Compiler or First Class IDE Support. Freedom to choose.
----
-
 ### Tooling
 
 A language needs tooling and at JetBrains, it's what we do best!

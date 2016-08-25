@@ -1,6 +1,6 @@
 import re
-from flask.ext.flatpages import Page
-from flask.ext.flatpages.flatpages import FlatPages
+from flask_flatpages import Page
+from flask_flatpages.flatpages import FlatPages
 from werkzeug.utils import import_string
 
 

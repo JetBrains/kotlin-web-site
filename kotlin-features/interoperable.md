@@ -1,7 +1,3 @@
----
-title: Interoperable
-description: Leverage existing frameworks and libraries of the JVM with 100% Java Interoperability.
----
 
 ### Interoperable
 

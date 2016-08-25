@@ -1,20 +1,20 @@
 import datetime
 import json
 import os
+import runpy
+import sys
 from os import path
 
-import frontmatter
-import sys
 import yaml
-from flask import Flask, render_template, g, Response
-from flask.ext.frozen import Freezer
+from flask import Flask, render_template, Response
+from flask_frozen import Freezer
 
 from src.Feature import Feature
 from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
 from src.encoder import DateAwareEncoder
-from src.markdown.makrdown import customized_markdown
 from src.grammar import get_grammar
+from src.markdown.makrdown import customized_markdown
 
 app = Flask(__name__)
 app.config.from_pyfile('mysettings.py')
@@ -58,18 +58,17 @@ nav = get_nav()
 
 
 def get_kotlin_features():
-    features = []
     features_dir = path.join(os.path.dirname(__file__), "kotlin-features")
-    for feature_file in os.listdir(features_dir):
-        file_path = path.join(features_dir, feature_file)
+    features = []
+    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml"))):
+        file_path = path.join(features_dir, feature_meta['content_file'])
         with open(file_path) as f:
-            content = f.read()
+            content = f.read().decode('utf-8')
             content = content.replace("\r\n", "\n")
-            feature = frontmatter.loads(content)
-            if feature_file.endswith(".md"):
-                feature.content = customized_markdown(feature.content)
-            features.append(feature)
-    return [Feature(elem.content, elem.metadata) for elem in features]
+            if file_path.endswith(".md"):
+                content = customized_markdown(content)
+            features.append(Feature(content, feature_meta))
+    return features
 
 
 @app.context_processor
@@ -169,4 +168,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         freezer.freeze()
     else:
-        app.run()
+        module_path = os.path.dirname(sys.modules[__name__].__file__)
+        path = os.path.join(module_path, '..')
+        sys.path.insert(0, path)
+        runpy.run_module('flask', run_name="__main__",alter_sys=True)

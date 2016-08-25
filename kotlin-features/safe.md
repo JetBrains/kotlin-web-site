@@ -1,8 +1,3 @@
----
-title: Safe
-description: Avoid entire classes of errors such as null pointer exceptions.
----
-
 ### Safe
 
 Get rid of those pesky NullPointerExceptions, you know, The Billion Dollar Mistake

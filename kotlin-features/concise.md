@@ -1,8 +1,3 @@
----
-title: Concise
-description: Drastically reduce the amount of boilerplate code you need to write.
----
-
 ### Concise
 
 Create a POJO with getters, setters, `equals()`, `hashCode()`, `toString()` and `copy()` in a single line:

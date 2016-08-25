@@ -1,6 +1,5 @@
 from src.markdown.makrdown import jinja_aware_markdown
 
-DEBUG = True
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_HTML_RENDERER = jinja_aware_markdown
 FREEZER_IGNORE_404_NOT_FOUND = True
