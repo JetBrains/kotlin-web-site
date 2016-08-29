@@ -150,7 +150,8 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
 
 ## Jar file
 
-To create a small Jar file containing just the code from your module, include the following under build->plugins in your Maven pom.xml file, where main.class is defined as a property and points to the main Kotlin or Java class.
+To create a small Jar file containing just the code from your module, include the following under `build->plugins` in your Maven pom.xml file,
+where `main.class` is defined as a property and points to the main Kotlin or Java class.
 
 ``` xml
 <plugin>
@@ -170,7 +171,8 @@ To create a small Jar file containing just the code from your module, include th
 
 ## Self-contained Jar file
 
-To create a self-contained Jar file containing the code from your module along with dependencies, include the following under build->plugins in your Maven pom.xml file, where main.class is defined as a property and points to the main Kotlin or Java class.
+To create a self-contained Jar file containing the code from your module along with dependencies, include the following under `build->plugins` in your Maven pom.xml file,
+where `main.class` is defined as a property and points to the main Kotlin or Java class.
 
 ``` xml
 <plugin>
@@ -200,7 +202,7 @@ To create a self-contained Jar file containing the code from your module along w
 This self-contained jar file can be passed directly to a JRE to run your application:
 
 ``` bash
-java -jar target\mymodule-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+java -jar target/mymodule-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 ## OSGi
