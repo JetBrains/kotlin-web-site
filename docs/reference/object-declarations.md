@@ -161,7 +161,7 @@ class MyClass {
 ```
 
 However, on the JVM you can have members of companion objects generated as real static methods and fields, if you use
-the `@JvmStatic` annotation. See the [Java interoperability](java-interop.html#static-methods-and-fields) section
+the `@JvmStatic` annotation. See the [Java interoperability](java-to-kotlin-interop.html#static-fields) section
 for more details.
 
 
