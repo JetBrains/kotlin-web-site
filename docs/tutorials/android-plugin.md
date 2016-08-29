@@ -45,7 +45,7 @@ Android Extensions is a part of the Kotlin IDEA plugin. You do not need to insta
 
 All you need is to enable the Android Extensions Gradle plugin in your project-local `build.gradle` file:
 
-```
+``` groovy
 apply plugin: 'kotlin-android-extensions'
 ```
 
