@@ -2038,14 +2038,6 @@
   date: [2016-08-26, 2016-08-27]
   location: McLean, VA, US
   lang: en
-  
-- title: "DevFestDC 2016"
-  url: "http://www.devfestdc.org/sessions/#mike-livingsocial"
-  subject: "Kotlin for Android Developers"
-  speaker: Mike Evans
-  date: [2016-09-23, 2016-09-24]
-  location: McLean, VA, US
-  lang: en  
 
 - title: "Windcity DevCon"
   url: "http://windycity.io/"
@@ -2062,3 +2054,28 @@
   date: 2016-09-14
   location: Sydney, Australia
   lang: en
+
+- title: "JavaOne 2016"
+  url: "https://www.oracle.com/javaone"
+  subject: "Kotlin for JavaScript", "Creating small DSL's with idiomatic Kotlin"
+  speaker: Hadi Hariri
+  date: [2016-09-20, 2016-09-22]
+  location: San Francisco, US
+  lang: en
+
+- title: "Houston TechFest"
+  url: "houstontechfest-public.sharepoint.com"
+  subject: "Kotlin for JavaScript"
+  speaker: Hadi Hariri
+  date: 2016-09-23
+  location: Houston, US
+  lang: en
+  
+- title: "DevFestDC 2016"
+  url: "http://www.devfestdc.org/sessions/#mike-livingsocial"
+  subject: "Kotlin for Android Developers"
+  speaker: Mike Evans
+  date: [2016-09-23, 2016-09-24]
+  location: McLean, VA, US
+  lang: en  
+
