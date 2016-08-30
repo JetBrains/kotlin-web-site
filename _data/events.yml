@@ -2079,3 +2079,34 @@
   location: McLean, VA, US
   lang: en  
 
+- title: "Chicago KUG Meetup"
+  url: "https://www.meetup.com/Chicago-Kotlin-Users-Group/events/233247796/"
+  subject: "Algebraic Data Types in Kotlin: A Pragmatist's Guide"
+  speaker: David Julia
+  date: 2016-08-30
+  location: Chicago, IL, US
+  lang: en
+  
+- title: "Boulder GDG Meetup"
+  url: "http://www.meetup.com/Google-Developer-Group-Boulder/events/233296638/"
+  subject: "Kotlin for Android"
+  date: 2016-08-30
+  location: Boulder, CO, US
+  lang: en
+
+
+- title: "DROIDCON NYC 2016"
+  url: "http://sched.droidcon.nyc/showTopicSquarespace/66150"
+  subject: "Better Android Development with Kotlin and Gradle"
+  speaker: Ty Smith
+  date: [2016-09-29, 2016-09-30]
+  location: New York, NY, US
+  lang: en
+  
+- title: "DROIDCON NYC 2016"
+  url: "http://sched.droidcon.nyc/showTopicSquarespace/63750"
+  subject: "Kotlin in Production"
+  speaker: Christina Lee
+  date: [2016-09-29, 2016-09-30]
+  location: New York, NY, US
+  lang: en
