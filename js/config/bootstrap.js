@@ -2,7 +2,7 @@ require._config({
     baseUrl: '/js',
 
     paths: {
-        'jquery': 'vendor/jquery/jquery-1.11.0.min',
+        'jquery': 'vendor/jquery/jquery-1.12.4.min',
         'jcarousel': 'vendor/jcarousel/jquery.jcarousel.min'
     },
 
