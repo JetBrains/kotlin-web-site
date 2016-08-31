@@ -2110,3 +2110,11 @@
   date: [2016-09-29, 2016-09-30]
   location: New York, NY, US
   lang: en
+  
+- title: "Mobile Notts Meetup"
+  url: "http://www.meetup.com/Mobile-Notts/events/233465539/"
+  subject: "Kotlin for Java developers"
+  speaker: Christian Göllner
+  date: 2016-08-31
+  location: Nottingham, UK
+  lang: en
