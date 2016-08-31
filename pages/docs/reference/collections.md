@@ -56,11 +56,13 @@ There are various useful extension methods on lists and sets that are worth bein
 
 ``` kotlin
 val items = listOf(1, 2, 3, 4)
-items.first == 1
-items.last == 4
-items.filter { it % 2 == 0 }   // Returns [2, 4]
-rwList.requireNoNulls()
-if (rwList.none { it > 6 }) println("No items above 6")
+items.first() == 1
+items.last() == 4
+items.filter { it % 2 == 0 }   // returns [2, 4]
+
+val rwList = mutableListOf(1, 2, 3)
+rwList.requireNoNulls()        // returns [1, 2, 3]
+if (rwList.none { it > 6 }) println("No items above 6")  // prints "No items above 6"
 val item = rwList.firstOrNull()
 ```
 
@@ -70,6 +72,6 @@ Maps follow the same pattern. They can be easily instantiated and accessed like 
 
 ``` kotlin
 val readWriteMap = hashMapOf("foo" to 1, "bar" to 2)
-println(map["foo"])
+println(readWriteMap["foo"])  // prints "1"
 val snapshot: Map<String, Int> = HashMap(readWriteMap)
 ```

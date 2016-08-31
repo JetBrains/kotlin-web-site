@@ -86,6 +86,19 @@ fun C.foo() { println("extension") }
 
 If we call `c.foo()` of any `c` of type `C`, it will print "member", not "extension".
 
+However, it's perfectly OK for extension functions to overload member functions which have the same name but a different signature:
+
+``` kotlin
+class C {
+    fun foo() { println("member") }
+}
+
+fun C.foo(i: Int) { println("extension") }
+```
+
+The call to `C().foo(1)` will print "extension".
+
+
 ## Nullable Receiver
 
 Note that extensions can be defined with a nullable receiver type. Such extensions can be called on an object variable

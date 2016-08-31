@@ -77,6 +77,19 @@ fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size()) {
 
 Default values are defined using the **=** after type along with the value.
 
+Overriding methods always use the same default parameter values as the base method.
+When overriding a method with default parameters values, the default parameter values must be omitted from the signature:
+
+``` kotlin
+open class A {
+    open fun foo(i: Int = 10) { ... }
+}
+
+class B : A() {
+    override fun foo(i: Int) { ... }  // no default value allowed
+}
+```
+
 ### Named Arguments
 
 Function parameters can be named when calling functions. This is very convenient when a function has a high number of parameters or default ones.

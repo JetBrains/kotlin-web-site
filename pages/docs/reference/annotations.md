@@ -95,6 +95,20 @@ public annotation class Deprecated(
 @Deprecated("This function is deprecated, use === instead", ReplaceWith("this === other"))
 ```
 
+If you need to specify a class as an argument of an annotation, use a Kotlin class
+([KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)). The Kotlin compiler will
+automatically convert it to a Java class, so that the Java code will be able to see the annotations and arguments
+normally.
+
+``` kotlin
+
+import kotlin.reflect.KClass
+
+annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any?>)
+
+@Ann(String::class, Int::class) class MyClass
+```
+
 ### Lambdas
 
 Annotations can also be used on lambdas. They will be applied to the `invoke()` method into which the body
@@ -171,9 +185,15 @@ Java annotations are 100% compatible with Kotlin:
 ``` kotlin
 import org.junit.Test
 import org.junit.Assert.*
+import org.junit.Rule
+import org.junit.rules.*
 
 class Tests {
+  // apply @Rule annotation to property getter
+  @get:Rule val tempFolder = TemporaryFolder()
+
   @Test fun simple() {
+    val f = tempFolder.newFile()
     assertEquals(42, getTheAnswer())
   }
 }
@@ -223,18 +243,18 @@ public @interface AnnWithArrayValue {
 @AnnWithArrayValue("abc", "foo", "bar") class C
 ```
 
-If you need to specify a class as an argument of an annotation, use a Kotlin class
-([KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)). The Kotlin compiler will
-automatically convert it to a Java class, so that the Java code will be able to see the annotations and arguments
-normally.
+For other arguments that have an array type, you need to use `arrayOf` explicitly:
+
+``` java
+// Java
+public @interface AnnWithArrayMethod {
+    String[] names();
+}
+```
 
 ``` kotlin
-
-import kotlin.reflect.KClass
-
-annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any?>)
-
-@Ann(String::class, Int::class) class MyClass
+// Kotlin
+@AnnWithArrayMethod(names = arrayOf("abc", "foo", "bar")) class C
 ```
 
 Values of an annotation instance are exposed as properties to Kotlin code.

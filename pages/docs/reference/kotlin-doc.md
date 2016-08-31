@@ -55,7 +55,7 @@ KDoc currently supports the following block tags:
 
 #### `@param <name>`
 
-Documents a value parameter of a function or a type parameter of a class.
+Documents a value parameter of a function or a type parameter of a class, property or function.
 To better separate the parameter name from the description, if you prefer, you can enclose the name of the
 parameter in brackets. The following two syntaxes are therefore equivalent:
 
@@ -71,6 +71,10 @@ Documents the return value of a function.
 #### `@constructor`
 
 Documents the primary constructor of a class.
+
+#### `@receiver`
+
+Documents the receiver of an extension function.
 
 #### `@property <name>`
 
@@ -143,3 +147,35 @@ when you use it in a KDoc comment.
 Note that KDoc does not have any syntax for resolving overloaded members in links. Since the Kotlin documentation generation
 tool puts the documentation for all overloads of a function on the same page, identifying a specific overloaded function
 is not required for the link to work.
+
+
+## Module and Package Documentation
+
+Documentation for a module as a whole, as well as packages in that module, is provided as a separate Markdown file,
+and the paths to that file is passed to Dokka using the `-include` command line parameter or the corresponding parameters
+in Ant, Maven and Gradle plugins.
+
+Inside the file, the documentation for the module as a whole and for individual packages is introduced by the corresponding first-level
+headings. The text of the heading must be "Module `<module name>`" for the module, and "Package `<package qualified name>`" for a package.
+
+Here's an example content of the file:
+
+```
+# Module kotlin-demo
+
+The module shows the Dokka syntax usage.
+
+# Package org.jetbrains.kotlin.demo
+
+Contains assorted useful stuff.
+
+## Level 2 heading
+
+Text after this heading is also part of documentation for `org.jetbrains.kotlin.demo`
+
+# Package org.jetbrains.kotlin.demo2
+
+Useful stuff in another package.
+```
+
+

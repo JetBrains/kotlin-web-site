@@ -20,7 +20,7 @@ An easier way to install Kotlin on UNIX based systems such as OS X, Linux, Cygwi
 Simply run the following in a terminal and follow any instructions:
 
 ```
-   $ curl -s get.sdkman.io | bash
+   $ curl -s https://get.sdkman.io | bash
 ```
 
 Next open a new terminal and install Kotlin with:

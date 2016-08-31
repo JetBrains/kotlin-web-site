@@ -143,6 +143,7 @@ val customer = Customer("Joe Smith")
 
 Note that Kotlin does not have a *new*{: .keyword } keyword.
 
+Creating instances of nested, inner and anonymous inner classes is described in [Nested classes](nested-classes.html).
 
 ### Class Members
 
@@ -222,6 +223,23 @@ open class AnotherDerived() : Base() {
   final override fun v() {}
 }
 ```
+
+Overriding properties works in a similar way to overriding methods.
+Note that you can use the `override` keyword as part of the property declaration in a primary constructor:
+
+``` kotlin
+open class Foo {
+    open val x: Int get { ... }
+}
+
+class Bar1(override val x: Int) : Foo() {
+
+}
+```
+
+You can also override a `val` property with a `var` property, but not vice versa.
+This is allowed because a `val` property essentially declares a getter method, and overriding it as a `var` additionally declares a setter method in the derived class.
+
 
 #### Wait! How will I hack my libraries now?!
 
@@ -321,9 +339,9 @@ to verify that the statement covers all cases, you don't need to add an `else` c
 
 ``` kotlin
 fun eval(expr: Expr): Double = when(expr) {
-    is Const -> expr.number
-    is Sum -> eval(expr.e1) + eval(expr.e2)
-    NotANumber -> Double.NaN
+    is Expr.Const -> expr.number
+    is Expr.Sum -> eval(expr.e1) + eval(expr.e2)
+    Expr.NotANumber -> Double.NaN
     // the `else` clause is not required because we've covered all the cases
 }
 ```

@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Kotlin Android Extensions"
-description: "This tutorial describes how to use Kotlin Android Extensions to improve support for Android development"
+description: "This tutorial describes how to use Kotlin Android Extensions to improve support for Android development."
 authors: Yan Zhulanow
 showAuthorInfo: true
 date: 2015-03-18
@@ -19,18 +19,19 @@ The Kotlin Android Extensions plugin allows us to obtain the same experience we 
 
 In essence, this would allow for the following code:
 
-``` kotlin
+~~~kotlin
 // Using R.layout.activity_main from the main source set
 import kotlinx.android.synthetic.main.activity_main.*
 
-public class MyActivity : Activity() {
+class MyActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        textView.setText("Hello, world!") // Instead of findView(R.id.textView) as TextView
+        textView.setText("Hello, world!")
+        // Instead of findView(R.id.textView) as TextView
     }
 }
-```
+~~~
 
 `textView` is an extension property for `Activity`, and it has the same type as declared in `activity_main.xml`.
 

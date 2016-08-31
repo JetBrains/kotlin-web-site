@@ -49,3 +49,15 @@ fun foo() { // ": Unit" is omitted here
 
 }
 ```
+
+## Functions vs Properties
+
+In some cases functions with no arguments might be interchangeable with read-only properties. 
+Although the semantics are similar, there are some stylistic conventions on when to prefer one to another.
+
+Prefer a property over a function when the underlying algorithm:
+
+* does not throw
+* has a `O(1)` complexity
+* is cheap to calculate (or caсhed on the first run)
+* returns the same result over invocations 

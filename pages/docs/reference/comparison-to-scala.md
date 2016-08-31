@@ -24,8 +24,6 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
     * See [Classes and Inheritance](classes.html)
 * Custom symbolic operations
     * See [Operator overloading](operator-overloading.html)
-* Built-in XML
-    * See [Type-safe Groovy-style builders](type-safe-builders.html)
 * Structural types
 * Value types
     * We plan to support [Project Valhalla](http://openjdk.java.net/projects/valhalla/) once it is released as part of the JDK
@@ -42,4 +40,3 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
 * [Smart casts](typecasts.html)
 * [Kotlin's Inline functions facilitate Nonlocal jumps](inline-functions.html#inline-functions)
 * [First-class delegation](delegation.html). Also implemented via 3rd party plugin: Autoproxy
-* [Member references](reflection.html#function-references) (also supported in Java 8).

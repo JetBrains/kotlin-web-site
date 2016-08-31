@@ -38,7 +38,7 @@ open class A(x: Int) {
 
 interface B {...}
 
-val ab = object : A(1), B {
+val ab: A = object : A(1), B {
   override val y = 15
 }
 ```
@@ -88,9 +88,17 @@ object DataProviderManager {
     get() = // ...
 }
 ```
+-
+This is called an *object declaration*, and it always has a name following the *object*{: .keyword } keyword.
+Just like a variable declaration, an object declaration is not an expression, and cannot be used on the right hand side of an assignment statement.
 
-This is called an *object declaration*. If there's a name following the *object*{: .keyword } keyword, we are not talking about an _expression_ anymore.
-We cannot assign such a thing to a variable, but we can refer to it by its name. Such objects can have supertypes:
+To refer to the object, we use its name directly:
+
+``` kotlin
+DataProviderManager.registerDataProvider(...)
+```
+
+Such objects can have supertypes:
 
 ``` kotlin
 object DefaultListener : MouseAdapter() {
@@ -153,7 +161,7 @@ class MyClass {
 ```
 
 However, on the JVM you can have members of companion objects generated as real static methods and fields, if you use
-the `@JvmStatic` annotation. See the [Java interoperability](java-interop.html#static-methods-and-fields) section
+the `@JvmStatic` annotation. See the [Java interoperability](java-to-kotlin-interop.html#static-fields) section
 for more details.
 
 
@@ -161,7 +169,8 @@ for more details.
 
 There is one important semantic difference between object expressions and object declarations:
 
-* object declarations are initialized **lazily**, when accessed for the first time
 * object expressions are executed (and initialized) **immediately**, where they are used
+* object declarations are initialized **lazily**, when accessed for the first time
+* a companion object is initialized when the corresponding class is loaded (resolved), matching the semantics of a Java static initializer
 
 
