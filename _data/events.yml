@@ -2057,7 +2057,7 @@
 
 - title: "JavaOne 2016"
   url: "https://www.oracle.com/javaone"
-  subject: "Kotlin for JavaScript", "Creating small DSL's with idiomatic Kotlin"
+  subject: "Kotlin for JavaScript\", \"Creating small DSL's with idiomatic Kotlin"
   speaker: Hadi Hariri
   date: [2016-09-20, 2016-09-22]
   location: San Francisco, US
