@@ -2090,9 +2090,12 @@
 - title: "Boulder GDG Meetup"
   url: "http://www.meetup.com/Google-Developer-Group-Boulder/events/233296638/"
   subject: "Kotlin for Android"
+  speaker: Andy Fox
   date: 2016-08-30
   location: Boulder, CO, US
   lang: en
+  content:
+    video: https://youtu.be/KE2ahyAMvpc
 
 
 - title: "DROIDCON NYC 2016"
