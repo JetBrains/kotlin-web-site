@@ -64,7 +64,7 @@ Yes. You can download the standalone compiler and other builds tools from the [r
 
 ### Is Kotlin a Functional Language?
 
-Kotlin is an Object-Orientated language. However it has support for higher-order functions as well as lambda expressions and top-level functions. In addition, there are
+Kotlin is an Object-Oriented language. However it has support for higher-order functions as well as lambda expressions and top-level functions. In addition, there are
 a good number of common functional language constructs in the Kotlin Standard Library (such as map, flatMap, reduce, etc.). Also, there's no clear definition on what a Functional Language is so we couldn't say Kotlin is one.
 
 ### Does Kotlin support generics?
