@@ -1966,6 +1966,8 @@
   date: [2016-09-09, 2016-09-10]
   location: Lviv, Ukraine
   lang: en
+  content:
+    slides: https://docs.google.com/presentation/d/1RM3mW5HAWvdH0bPNrkGMaU_6SCqJg49xg854h38sKGk/edit
 
 - title: "YOW! Connected 2016"
   url: "https://a.confui.com/public/conferences/57200a19f572215d1f000082/locations/57200a1af572215d1f000083/topics/57b0125135ea062b620001a4"
