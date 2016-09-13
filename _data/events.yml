@@ -2139,3 +2139,11 @@
   date: 2016-09-15
   location: Vitebsk, Belarus
   lang: ru
+
+- title: "JFall 2016"
+  url: "http://www.nljug.org/jfall/session/no-excuses-switch-to-kotlin/206/"
+  subject: "No excuses: switch to Kotlin"
+  speaker: Thijs Suijten
+  date: 2016-10-03
+  location: Ede, The Netherlands
+  lang: en
