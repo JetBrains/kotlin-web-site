@@ -4,11 +4,15 @@ from flask import request
 class NavItem:
     def __init__(self, config):
         if 'url' in config:
-            self.url = config['url']
-            if not self.url.startswith('/'):
-                self.url = '/' + self.url
+            url = config['url']
+            if not url.startswith('/'):
+                url = '/' + url
+            self.urls = [url]
+        elif 'urls' in config:
+            self.urls = config['urls']
         else:
-            self.url = None
+            self.urls = None
+
         self.title = config['title']
         self.items = []
         if 'items' in config:
@@ -19,8 +23,12 @@ class NavItem:
         for item in self.items:
             if item.is_active():
                 return True
-        if self.url is not None:
-            return request.path.startswith(self.url)
+        if self.urls is not None:
+            for url in self.urls:
+                if request.path.startswith(url):
+                    return True
+            else:
+                return False
         else:
             return False
 
