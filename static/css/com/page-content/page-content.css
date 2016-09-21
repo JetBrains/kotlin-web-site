@@ -366,7 +366,7 @@
     display: block;
     padding: 15px 20px;
     font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
-  .page-content .code {
+  .page-content code {
     font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
     .page-content p > code,
     .page-content li > code {
