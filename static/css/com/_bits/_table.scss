@@ -2,6 +2,8 @@
 
 %table {
     margin-bottom: $vertical-rhythm-unit*2;
+    line-height: inherit;
+    font-size: inherit;
 
     &.zebra {
         tbody tr:nth-child(odd) {
