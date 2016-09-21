@@ -366,7 +366,7 @@
     display: block;
     padding: 15px 20px;
     font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
-  .page-content code {
+  .page-content .code {
     font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace; }
     .page-content p > code,
     .page-content li > code {
@@ -377,7 +377,9 @@
     font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
     line-height: 22px; }
   .page-content table {
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    line-height: inherit;
+    font-size: inherit; }
     .page-content table.zebra tbody tr:nth-child(odd) {
       background-color: #f5f5f5; }
     .page-content table.wide {
@@ -411,7 +413,7 @@
     background-color: #F7F7F7; }
     .page-content blockquote p:last-child {
       margin-bottom: 0; }
-    .page-content blockquote code {
+    .page-content blockquote .code {
       padding: 0;
       background-color: transparent; }
     .page-content blockquote.note {
@@ -612,7 +614,8 @@
       .page-content p {
         page-break-inside: avoid; } }
   .page-content img {
-    max-width: 100%; }
+    max-width: 100%;
+    display: block; }
   .page-content pre {
     margin-bottom: 15px;
     page-break-inside: avoid; }

@@ -9,7 +9,6 @@
 @import '../_syntax-highlight/_syntax-highlight_light';
 @import '../_syntax-highlight/_syntax-highlight_dark';
 
-
 // header
 h1 {
     @extend %header;
@@ -36,7 +35,6 @@ h5 {
     @extend %h5;
 }
 
-
 // list
 ul {
     @extend %list%ul;
@@ -48,7 +46,6 @@ ol {
     line-height: 24px;
 }
 
-
 // paragraph
 p {
     margin-bottom: $vertical-rhythm-unit;
@@ -59,13 +56,11 @@ p {
     }
 }
 
-
 // images
 img {
     max-width: 100%;
     display: block;
 }
-
 
 // pre
 pre {
@@ -74,9 +69,8 @@ pre {
     page-break-inside: avoid;
 }
 
-
 // code
-code {
+.code {
     @extend %code-span;
 }
 
@@ -85,14 +79,17 @@ li > code {
     @extend %code-span%_decorated;
 }
 
-pre code {
-    @extend %code-block;
+.code {
+    pre {
+        @extend %code-block;
+    }
 
     &._highlighted {
-        @extend %syntax-highlight_light;
+        pre {
+            @extend %syntax-highlight_light;
+        }
     }
 }
-
 
 // blockquote
 blockquote {
@@ -101,12 +98,10 @@ blockquote {
     page-break-inside: avoid;
 }
 
-
 // table
 table {
     @extend %table;
 }
-
 
 // misc
 hr {
@@ -125,14 +120,12 @@ kbd {
     color: #828282;
 }
 
-
 // user defined
 .keyword {
     font-family: $font-family-mono;
     font-style: normal;
     color: #0000C0;
 }
-
 
 .keyword {
     font-family: $font-family-mono;
@@ -146,20 +139,20 @@ kbd {
 }
 
 .parameterName {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .signature {
-  background-color: #efefef;
-  padding: 4px;
+    background-color: #efefef;
+    padding: 4px;
 }
 
 .signature :target {
-   background-color: #FFFFCC;
+    background-color: #FFFFCC;
 }
 
 .overload-group {
-  padding-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 .error {
