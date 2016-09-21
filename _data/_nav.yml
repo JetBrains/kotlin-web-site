@@ -99,7 +99,6 @@ reference:
       - /docs/reference/annotations.html: Annotations
       - /docs/reference/reflection.html: Reflection
       - /docs/reference/type-safe-builders.html: Type-Safe Builders
-      - /docs/reference/dynamic-type.html: Dynamic Type
 
 
 
@@ -110,11 +109,18 @@ reference:
       - /docs/reference/grammar.html: Grammar
 
 
-  - title: Interop
-    description: What you need to know about interoperability with Java and JavaScript.
+  - title: Java Interop
+    description: What you need to know about interoperability with Java
     content:
       - /docs/reference/java-interop.html: Calling Java from Kotlin
       - /docs/reference/java-to-kotlin-interop.html: Calling Kotlin from Java
+
+  - title: JavaScript
+    description: Using Kotlin with JavaScript
+    content:
+     - /docs/reference/dynamic-type.html: Dynamic Type
+     - /docs/reference/js-modules.html: JavaScript Modules
+     - /docs/reference/js-reflection.html: JavaScript Reflection
 
   - title: Tools
     description:

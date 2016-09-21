@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: reference
-category: "Interop"
+category: "Java Interop"
 title: "Calling Java from Kotlin"
 ---
 
