@@ -1,16 +1,46 @@
-from markdown import markdown
-from markdown.extensions.tables import TableExtension
+import subprocess
+from xml.etree import ElementTree
 
-from .my_codehilite import CodeHiliteExtension
-from .my_fenced_code import FencedCodeExtension
-from .my_headerid import HeaderIdExtension
+import pygments
+from bs4 import BeautifulSoup
+from pygments.formatters import get_formatter_by_name
+from pygments.lexers import get_lexer_by_name
 
 
 def customized_markdown(text):
-    return markdown(text, extensions=[FencedCodeExtension(),
-                                      CodeHiliteExtension(css_class="code", guess_lang=False),
-                                      HeaderIdExtension(),
-                                      TableExtension()])
+    kramdown = subprocess.Popen(
+        ["kramdown",
+         "--input", "GFM",
+         "--no-hard-wrap",
+         "--smart-quotes", "apos,apos,quot,quot",
+         "--no-enable-coderay"
+         ], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    stdout_data, stderr_data = kramdown.communicate(input=text.encode("utf8"))
+    return stdout_data.decode("utf8")
+
+
+def highlight_code(text):
+    tree = BeautifulSoup(text, 'html.parser')
+    code_elements = tree.select('pre > code')
+    for element in code_elements:
+        class_names = element.get("class")
+        lang = None
+        if class_names is not None:
+            for class_name in class_names:
+                if class_name.startswith("language-"):
+                    lang = class_name[len("language-"):]
+        if lang is not None:
+            lexer = get_lexer_by_name(lang)
+            formatter = get_formatter_by_name('html',
+                                              # linenos=self.linenums,
+                                              cssclass="code _highlighted",
+                                              # style=self.style,
+                                              # noclasses=self.noclasses,
+                                              # hl_lines=self.hl_lines
+                                              )
+            highlighted = pygments.highlight(element.text, lexer, formatter)
+            element.parent.replaceWith(BeautifulSoup(highlighted))
+    return unicode(str(tree.prettify(encoding="utf8")), "utf8")
 
 
 def jinja_aware_markdown(text, flatPages):
@@ -20,4 +50,5 @@ def jinja_aware_markdown(text, flatPages):
 
     env = app.jinja_env
     template = env.from_string(text)
-    return customized_markdown(template.render(template_context))
+    page_html = customized_markdown(template.render(template_context))
+    return highlight_code(page_html)
