@@ -6,7 +6,7 @@ import sys
 from os import path
 
 import yaml
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, send_from_directory
 from flask_frozen import Freezer
 
 from src.Feature import Feature
@@ -118,7 +118,7 @@ def index_page():
 def process_page(page_path):
     page = pages.get_or_404(page_path)
 
-    if 'date' in page.meta:
+    if 'date' in page.meta and page['date'] is not None:
         page.meta['formatted_date'] = page.meta['date'].strftime('%d %B %Y')
         if page.meta['formatted_date'].startswith('0'):
             page.meta['formatted_date'] = page.meta['formatted_date'][1:]
@@ -148,6 +148,11 @@ def get_page(page_path):
     return process_page(page_path)
 
 
+@app.route('/assets/<path:path>')
+def asset(path):
+    return send_from_directory('assets', path)
+
+
 @app.route('/<path:page_path>')
 def get_index_page(page_path):
     """
@@ -168,7 +173,4 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         freezer.freeze()
     else:
-        module_path = os.path.dirname(sys.modules[__name__].__file__)
-        path = os.path.join(module_path, '..')
-        sys.path.insert(0, path)
-        runpy.run_module('flask', run_name="__main__",alter_sys=True)
+        app.run(host="0.0.0.0", debug=False, threaded=True)

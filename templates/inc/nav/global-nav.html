@@ -4,7 +4,7 @@
         {% for item in nav.main %}
 
             <a href="{% if item.is_external() %}{{ item.url }}{% else %}{{ baseurl }}{{ item.url }}{% endif %}"
-               class="nav-item {% if item.is_active() %}is_active{% endif %}"
+               class="nav-item {% if request.path == "/contribute.html" and item.url == "/contribute.html" %}is_active{% endif %}"
             >
                 {{ item.title }}
             </a>

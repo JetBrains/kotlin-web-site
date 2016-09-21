@@ -1,27 +1,27 @@
----
-layout: base
-main_nav_id: docs
----
-<div class="g-grid">
+{% extends 'base.html' %}
+{% from 'inc/nav/side-tree-nav.html' import side_tree_nav%}
 
-    <div class="g-12">
-        {% include nav/docs-nav.html active='reference' %}
+{% block content %}
+    <div class="g-grid">
+
+        <div class="g-12">
+            {% include 'inc/nav/docs-nav.html' %}
+        </div>
+
+        <aside class="g-3">
+            <div id="reference-nav">
+                {{ side_tree_nav(nav.reference) }}
+            </div>
+        </aside>
+
+        <article role="main" class="page-content g-9">
+            {{ page.html | safe }}
+        </article>
     </div>
 
-    <aside class="g-3">
-        <div id="reference-nav">
-            {% include nav/side-tree-nav.html nav='reference' %}
-
-        </div>
-    </aside>
-
-    <article role="main" class="page-content g-9">
-        {{ content }}
-    </article>
-</div>
-
-<script>
-    require(['page/reference'], function(page) {
-        page();
-    });
-</script>
+    <script>
+        require(['page/reference'], function (page) {
+            page();
+        });
+    </script>
+{% endblock %}
