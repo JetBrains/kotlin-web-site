@@ -248,8 +248,6 @@ textarea {
   margin: 0;
   /* 2 */
   vertical-align: baseline;
-  /* 3 */
-  *vertical-align: middle;
   /* 3 */ }
 
 /*
@@ -271,11 +269,7 @@ input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
-  /* 2 */
-  *height: 13px;
-  /* 3 */
-  *width: 13px;
-  /* 3 */ }
+  /* 2 */ }
 
 /*
  * 1. Removes default vertical scrollbar in IE6/7/8/9
@@ -286,3 +280,5 @@ textarea {
   /* 1 */
   vertical-align: top;
   /* 2 */ }
+
+/*# sourceMappingURL=reset.css.map */
