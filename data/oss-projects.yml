@@ -8,6 +8,11 @@
   type: Framework
   link: https://github.com/hhariri/wasabi
 
+- name: Ktor
+  description: Web application framework
+  type: Framework
+  link: https://github.com/Kotlin/ktor
+
 - name: Kara
   description: An MVC Framework
   type: Framework
@@ -187,3 +192,43 @@
   description: An intuitive Date extensions in Kotlin
   type: Library
   link: https://github.com/hotchemi/khronos
+
+- name: TornadoFX
+  description: Lightweight JavaFX Framework for Kotlin
+  type: Library
+  link: https://github.com/edvin/tornadofx
+
+- name: Hexagon
+  description: A microservices framework in Kotlin
+  type: Framework
+  link: https://github.com/jamming/hexagon
+
+- name: Fuse
+  description: The simple generic LRU memory/disk cache for Android written in Kotlin
+  type: Library
+  link: https://github.com/kittinunf/Fuse
+
+- name: Discovery
+  description: Eventually consistent service discovery server
+  type: Application
+  link: https://github.com/datawire/discovery
+
+- name: KotlinTest
+  description: Kotlin port of the famous ScalaTest
+  type: Library
+  link: https://github.com/kotlintest/kotlintest
+  
+- name: Black-and-White
+  description: A library of algorithms for the Black-and-White tree coloring
+  type: Library
+  link: https://github.com/devromik/black-and-white
+
+- name: kottpd
+  description: REST framework in pure Kotlin
+  type: Library
+  link: https://github.com/gimlet2/kottpd
+
+- name: Glimpse Framework
+  description: An OpenGL framework written in Kotlin
+  type: Framework
+  link: https://github.com/GlimpseFramework/glimpse-framework

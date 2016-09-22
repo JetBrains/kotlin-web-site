@@ -75,6 +75,8 @@ val doubled = ints.map { it -> it * 2 }
 
 Note that the parentheses in a call can be omitted entirely if the lambda is the only argument to that call.
 
+### `it`: implicit name of a single parameter
+
 One other helpful convention is that if a function literal has only one parameter,
 its declaration may be omitted (along with the `->`), and its name will be `it`:
 

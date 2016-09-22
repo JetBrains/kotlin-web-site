@@ -1966,6 +1966,8 @@
   date: [2016-09-09, 2016-09-10]
   location: Lviv, Ukraine
   lang: en
+  content:
+    slides: https://docs.google.com/presentation/d/1RM3mW5HAWvdH0bPNrkGMaU_6SCqJg49xg854h38sKGk/edit
 
 - title: "YOW! Connected 2016"
   url: "https://a.confui.com/public/conferences/57200a19f572215d1f000082/locations/57200a1af572215d1f000083/topics/57b0125135ea062b620001a4"
@@ -2090,9 +2092,12 @@
 - title: "Boulder GDG Meetup"
   url: "http://www.meetup.com/Google-Developer-Group-Boulder/events/233296638/"
   subject: "Kotlin for Android"
+  speaker: Andy Fox
   date: 2016-08-30
   location: Boulder, CO, US
   lang: en
+  content:
+    video: https://youtu.be/KE2ahyAMvpc
 
 
 - title: "DROIDCON NYC 2016"
@@ -2117,4 +2122,28 @@
   speaker: Christian Göllner
   date: 2016-08-31
   location: Nottingham, UK
+  lang: en
+
+- title: "Meetup at peter-service.ru"
+  url: "https://billing.timepad.ru/event/369729/"
+  subject: "Kotlin: JVM Development with Pleasure"
+  speaker: Dmitry Jemerov
+  date: 2016-09-15
+  location: St.Petersburg, Russia
+  lang: ru
+
+- title: "Dev Day MiniQ"
+  url: "https://events.dev.by/dev-day-miniq"
+  subject: "Why Kotlin is your next language?!"
+  speaker: Aliaksei Jingerovsky
+  date: 2016-09-15
+  location: Vitebsk, Belarus
+  lang: ru
+
+- title: "JFall 2016"
+  url: "http://www.nljug.org/jfall/session/no-excuses-switch-to-kotlin/206/"
+  subject: "No excuses: switch to Kotlin"
+  speaker: Thijs Suijten
+  date: 2016-11-03
+  location: Ede, The Netherlands
   lang: en
