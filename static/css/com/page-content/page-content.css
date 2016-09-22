@@ -413,7 +413,7 @@
     background-color: #F7F7F7; }
     .page-content blockquote p:last-child {
       margin-bottom: 0; }
-    .page-content blockquote .code {
+    .page-content blockquote code, .page-content blockquote .code pre {
       padding: 0;
       background-color: transparent; }
     .page-content blockquote.note {
