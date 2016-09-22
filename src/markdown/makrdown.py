@@ -16,7 +16,7 @@ def customized_markdown(text):
          "--no-enable-coderay"
          ], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     stdout_data, stderr_data = kramdown.communicate(input=text.encode("utf8"))
-    return stdout_data.decode("utf8")
+    return stdout_data.decode("utf8", errors='ignore')
 
 
 def highlight_code(text):
@@ -40,7 +40,7 @@ def highlight_code(text):
                                               )
             highlighted = pygments.highlight(element.text, lexer, formatter)
             element.parent.replaceWith(BeautifulSoup(highlighted))
-    return unicode(str(tree.prettify(encoding="utf8")), "utf8")
+    return unicode(str(tree), "utf8")
 
 
 def jinja_aware_markdown(text, flatPages):
