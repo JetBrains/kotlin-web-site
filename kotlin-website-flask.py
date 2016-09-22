@@ -72,6 +72,13 @@ def get_kotlin_features():
 
 
 @app.context_processor
+def add_year_to_context():
+    return {
+        'year': datetime.datetime.now().year
+    }
+
+
+@app.context_processor
 def add_data_to_context():
     return {
         'nav': nav,
@@ -106,13 +113,18 @@ def grammar():
     return render_template('pages/grammar.html', kotlinGrammar=grammar)
 
 
+@app.route('/docs/videos.html')
+def videos_page():
+    return render_template('pages/videos.html')
+
+
 @app.route('/')
 def index_page():
     features = get_kotlin_features()
     return render_template('pages/index.html',
                            is_index_page=True,
-                           features=features,
-                           year=datetime.datetime.now().year)
+                           features=features
+                           )
 
 
 def process_page(page_path):
@@ -133,7 +145,7 @@ def process_page(page_path):
         page=page,
         baseurl="",
         edit_on_github_url=edit_on_github_url,
-        year=datetime.datetime.now().year
+
     )
 
 
