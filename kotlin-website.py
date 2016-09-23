@@ -122,12 +122,7 @@ def videos_page():
 
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
-    return send_file(generate_pdf())
-
-
-@app.route('/docs/kotlin-docs.html')
-def pdf_content():
-    return get_pdf_content(pages, nav['reference'])
+    return send_file(generate_pdf(pages, nav['reference']))
 
 
 @app.route('/')

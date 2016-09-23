@@ -1,3 +1,4 @@
+import codecs
 import re
 import subprocess
 from os import path
@@ -32,25 +33,27 @@ PDF_TOC_CONFIG = {
 }
 
 
-def generate_pdf():
-    output_file_path = path.join(pdf_folder_path, 'kotlin-docs.pdf')
-    arguments = ["wkhtmltopdf"]
-    for name, value in PDF_CONFIG.iteritems():
-        arguments.append("--" + name)
-        if value != '':
+def generate_pdf(pages, toc):
+    tmp_file_path = path.join(pdf_folder_path, "tmp.html")
+    with codecs.open(tmp_file_path, 'w', "utf8") as tmp_file:
+        tmp_file.write(get_pdf_content(pages, toc))
+        output_file_path = path.join(pdf_folder_path, 'kotlin-docs.pdf')
+        arguments = ["wkhtmltopdf"]
+        for name, value in PDF_CONFIG.iteritems():
+            arguments.append("--" + name)
+            if value != '':
+                arguments.append(value)
+        arguments.append('cover')
+        arguments.append(path.join(pdf_folder_path, 'book-cover.html'))
+        arguments.append('toc')
+        for name, value in PDF_TOC_CONFIG.iteritems():
+            arguments.append("--" + name)
             arguments.append(value)
-    arguments.append('cover')
-    arguments.append(path.join(pdf_folder_path, 'book-cover.html'))
-    arguments.append('toc')
-    for name, value in PDF_TOC_CONFIG.iteritems():
-        arguments.append("--" + name)
-        arguments.append(value)
-    arguments.append(url_for('pdf_content', _external=True))
-    arguments.append(output_file_path)
+        arguments.append(tmp_file_path)
+        arguments.append(output_file_path)
 
-    subprocess.check_call(arguments, cwd=pdf_folder_path, shell=True)
-    return output_file_path
-
+        subprocess.check_call(arguments, cwd=pdf_folder_path, shell=True)
+        return output_file_path
 
 
 def get_pdf_content(pages, toc):
@@ -113,5 +116,6 @@ def get_pdf_content(pages, toc):
                 'content': document.decode()
             })
         content.append(section)
-    page_html = render_template('pdf.html', content=content, static_folder=path.join(path.dirname(__file__), "static"))
+    drive, static_folder_path = path.splitdrive(path.join(root_folder_path, "static"))
+    page_html = render_template('pdf.html', content=content, static_folder=drive + static_folder_path)
     return page_html
