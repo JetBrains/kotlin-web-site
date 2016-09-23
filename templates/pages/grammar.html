@@ -6,7 +6,6 @@
 {#---#}
 
 {% block page_content %}
-    <div class="page-title">Grammar</div>
     <script>
         require(['jquery', 'com/toc'], function ($, Toc) {
             var toc = new Toc();
@@ -19,7 +18,9 @@
 
     <div id="js-toc"></div>
 
-    <div class="grammar" markdown="0">
+    <div class="grammar">
+        <h1 id="grammar">Grammar</h1>
+
         {% for set in kotlinGrammar %}
             <div class="grammar-items-set" data-file-name="{{ set['file-name'] }}">
                 {% for item in set.content %}

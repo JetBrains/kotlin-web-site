@@ -7,6 +7,7 @@ from os import path
 
 import yaml
 from flask import Flask, render_template, Response, send_from_directory
+from flask.helpers import send_file
 from flask_frozen import Freezer
 
 from src.Feature import Feature
@@ -15,6 +16,7 @@ from src.Navigaton import Nav
 from src.encoder import DateAwareEncoder
 from src.grammar import get_grammar
 from src.markdown.makrdown import customized_markdown
+from src.pdf import get_pdf_content, generate_pdf
 
 app = Flask(__name__)
 app.config.from_pyfile('mysettings.py')
@@ -116,6 +118,16 @@ def grammar():
 @app.route('/docs/videos.html')
 def videos_page():
     return render_template('pages/videos.html')
+
+
+@app.route('/docs/kotlin-docs.pdf')
+def pdf():
+    return send_file(generate_pdf())
+
+
+@app.route('/docs/kotlin-docs.html')
+def pdf_content():
+    return get_pdf_content(pages, nav['reference'])
 
 
 @app.route('/')

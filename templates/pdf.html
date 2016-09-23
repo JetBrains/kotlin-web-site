@@ -1,6 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/com/page-content/page-content.css') }}"/>
+</head>
 <body>
-{{ content }}
+
+{% for section in content %}
+    {% if section.content %}
+        <section>
+            <h1 id="{{ section.id | lower }}" class="section-title">
+                {{ section['title'] }}
+            </h1>
+
+            {% for page in section.content %}
+                <article id="{{ page.id | lower }}" class="page-content">
+                    {{ page['content'] | safe }}
+                </article>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endfor %}
+
 </body>
 </html>

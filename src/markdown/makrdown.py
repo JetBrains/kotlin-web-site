@@ -39,8 +39,8 @@ def highlight_code(text):
                                               # hl_lines=self.hl_lines
                                               )
             highlighted = pygments.highlight(element.text, lexer, formatter)
-            element.parent.replaceWith(BeautifulSoup(highlighted))
-    return unicode(str(tree), "utf8")
+            element.parent.replaceWith(BeautifulSoup(highlighted, 'html.parser'))
+    return unicode(str(tree), "utf8").replace("<br>", "<br/>")
 
 
 def jinja_aware_markdown(text, flatPages):
