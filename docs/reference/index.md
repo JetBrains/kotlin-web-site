@@ -38,3 +38,9 @@ Use the coupon code '39jemerov' to get a 39% discount code on the book.
 
 [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers) is a book by Antonio Leiva showing
 how Kotlin can be used for creating an Android application from scratch.
+
+<h2 style="clear: left">Modern Web Development with Kotlin</h2>
+
+  <a href="https://leanpub.com/modern-web-development-with-kotlin"><img src="{{ site.baseurl }}/assets/images/mwdwk.jpg" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
+
+[Modern Web Development with Kotlin](https://leanpub.com/modern-web-development-with-kotlin) is a book by Denis Kalinin about Web development with Kotlin. It covers just enough basics to get started but mostly concentrates on the practical aspect of using the language. In particular, it guides you through the process of building a technology-packed Web application while using popular backend and frontend technologies.
