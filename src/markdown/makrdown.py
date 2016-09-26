@@ -14,7 +14,10 @@ def customized_markdown(text):
          "--no-hard-wrap",
          # "--smart-quotes", "apos,apos,quot,quot",
          "--no-enable-coderay"
-         ], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+         ],
+        # shell=True,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE)
     stdout_data, stderr_data = kramdown.communicate(input=text.encode("utf8"))
     return stdout_data.decode("utf8", errors='ignore')
 
