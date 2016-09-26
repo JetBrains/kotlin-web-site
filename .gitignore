@@ -17,7 +17,6 @@ out/
 lib/kotlin-runtime.jar
 _site/
 Gemfile.lock
-vendor
 .bundle
 build
 .gradle
