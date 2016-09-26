@@ -52,7 +52,7 @@ def generate_pdf(pages, toc):
         arguments.append(tmp_file_path)
         arguments.append(output_file_path)
 
-        subprocess.check_call(arguments, cwd=pdf_folder_path, shell=True)
+        subprocess.check_call(" ".join(arguments), shell=True, cwd=pdf_folder_path)
         return output_file_path
 
 

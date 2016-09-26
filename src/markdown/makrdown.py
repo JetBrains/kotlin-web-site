@@ -9,7 +9,7 @@ from pygments.lexers import get_lexer_by_name
 
 def customized_markdown(text):
     kramdown = subprocess.Popen(
-        ["kramdown --input GFM --no-hard-wrap --smart-quotes apos,apos,quot,quot --no-enable-coderay"],
+        "kramdown --input GFM --no-hard-wrap --smart-quotes apos,apos,quot,quot --no-enable-coderay",
         shell=True,
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE)
