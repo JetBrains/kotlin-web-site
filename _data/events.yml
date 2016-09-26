@@ -2147,3 +2147,11 @@
   date: 2016-11-03
   location: Ede, The Netherlands
   lang: en
+  
+- title: "GDG DevFest 2016"
+  url: "https://devfest.nl/"
+  subject: "No excuses: switch to Kotlin"
+  speaker: Thijs Suijten
+  date: 2016-10-08
+  location: Amsterdam, The Netherlands
+  lang: en
