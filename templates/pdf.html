@@ -2,9 +2,28 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="file:///{{ static_folder }}/css/reset.css"/>
-    <link rel="stylesheet" href="file:///{{ static_folder }}/css/fonts.css"/>
-    <link rel="stylesheet" href="file:///{{ static_folder }}/css/com/page-content/page-content.css"/>
+    <link rel="stylesheet" href="file:///{{ root_folder }}/static/css/reset.css"/>
+    <link rel="stylesheet" href="file:///{{ root_folder }}/static/css/com/page-content/page-content.css"/>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400italic,700italic,400,700'
+          rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <style>
+        @font-face {
+            font-family: 'GraublauSans Bold';
+            src: url('file:///{{ root_folder }}/assets/fonts/GraublauSans-Bold-webfont.woff');
+        }
+
+        @font-face {
+            font-family: 'GraublauSlab Regular';
+            src: url('file:///{{ root_folder }}/assets/fonts/GraublauSlab-Regular-webfont.woff');
+        }
+
+        @font-face {
+            font-family: 'GraublauSlab Semibold';
+            src: url('file:///{{ root_folder }}/assets/fonts/GraublauSlab-Semibold-webfont.woff');
+        }
+    </style>
 </head>
 <body>
 

@@ -116,6 +116,6 @@ def get_pdf_content(pages, toc):
                 'content': document.decode()
             })
         content.append(section)
-    drive, static_folder_path = path.splitdrive(path.join(root_folder_path, "static"))
-    page_html = render_template('pdf.html', content=content, static_folder=drive + static_folder_path)
+    drive, root_folder_path_rest = path.splitdrive(root_folder_path)
+    page_html = render_template('pdf.html', content=content, root_folder=drive + root_folder_path_rest)
     return page_html
