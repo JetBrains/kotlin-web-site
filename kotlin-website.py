@@ -7,6 +7,7 @@ from os import path
 
 import yaml
 from flask import Flask, render_template, Response, send_from_directory
+from flask import request
 from flask.helpers import send_file
 from flask_frozen import Freezer
 
@@ -17,6 +18,7 @@ from src.encoder import DateAwareEncoder
 from src.grammar import get_grammar
 from src.markdown.makrdown import customized_markdown
 from src.pdf import get_pdf_content, generate_pdf
+from src.sitemap import generate_sitemap
 
 app = Flask(__name__)
 app.config.from_pyfile('mysettings.py')
@@ -120,9 +122,9 @@ def videos_page():
     return render_template('pages/videos.html')
 
 
-@app.route('/docs/kotlin-docs.pdf')
-def pdf():
-    return send_file(generate_pdf(pages, nav['reference']))
+# @app.route('/docs/kotlin-docs.pdf')
+# def pdf():
+#     return send_file(generate_pdf(pages, nav['reference']))
 
 
 @app.route('/')
@@ -190,6 +192,7 @@ def get_index_page(page_path):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
-        freezer.freeze()
+        urls = freezer.freeze()
+        generate_sitemap(urls)
     else:
         app.run(host="0.0.0.0", debug=False, threaded=True)
