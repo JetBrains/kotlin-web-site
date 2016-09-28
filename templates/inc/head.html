@@ -25,7 +25,7 @@
 <meta property="og:title" content="{{ title }}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://kotlinlang.org{{ request.path }}"/>
-<meta property="og:image" content="https://kotlinlang.org/{{ url_for('asset', path='images/open-graph/kotlin_250x250.png') }}"/>
+<meta property="og:image" content="https://kotlinlang.org{{ url_for('asset', path='images/open-graph/kotlin_250x250.png') }}"/>
 {% if page and page.description %}
     <meta property="og:description" content="{{ page.description }}">
 {% else %}
@@ -44,5 +44,5 @@
     <meta name="twitter:description"
           content="Kotlin is a statically typed programming language for the JVM, Android and the browser, 100% interoperable with Java">
 {% endif %}
-<meta name="twitter:image:src" content="https://kotlinlang.org/{{ url_for('asset', path='images/twitter-card/kotlin_800x320.png ') }}">
+<meta name="twitter:image:src" content="https://kotlinlang.org{{ url_for('asset', path='images/twitter-card/kotlin_800x320.png ') }}">
 <!-- Social Media tag Ends -->
