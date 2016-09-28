@@ -26,6 +26,7 @@ app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 pages = MyFlatPages(app)
 freezer = Freezer(app)
+ignore_stdlib = "--ignore-stdlib" in sys.argv
 
 data_folder = path.join(os.path.dirname(__file__), "data")
 
@@ -161,6 +162,8 @@ def process_page(page_path):
 @freezer.register_generator
 def get_page():
     for page in pages:
+        if ignore_stdlib and page.path.startswith("api"):
+            continue
         yield {'page_path': page.path}
 
 
@@ -193,6 +196,7 @@ def get_index_page(page_path):
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         urls = freezer.freeze()
-        generate_sitemap(urls)
+        if not ignore_stdlib:
+            generate_sitemap(urls)
     else:
         app.run(host="0.0.0.0", debug=False, threaded=True)
