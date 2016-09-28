@@ -5,7 +5,7 @@ class NavItem:
     def __init__(self, config):
         if 'url' in config:
             url = config['url']
-            if not url.startswith('/'):
+            if not url.startswith("http") and not url.startswith('/'):
                 url = '/' + url
             self.url = url
         else:
