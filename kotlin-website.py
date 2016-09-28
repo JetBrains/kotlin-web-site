@@ -16,7 +16,7 @@ from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
 from src.encoder import DateAwareEncoder
 from src.grammar import get_grammar
-from src.markdown.makrdown import customized_markdown
+from src.markdown.makrdown import customized_markdown, jinja_aware_markdown
 from src.pdf import get_pdf_content, generate_pdf
 from src.sitemap import generate_sitemap
 
@@ -71,7 +71,7 @@ def get_kotlin_features():
             content = f.read().decode('utf-8')
             content = content.replace("\r\n", "\n")
             if file_path.endswith(".md"):
-                content = customized_markdown(content)
+                content = jinja_aware_markdown(content, pages)
             features.append(Feature(content, feature_meta))
     return features
 
@@ -122,9 +122,9 @@ def videos_page():
     return render_template('pages/videos.html')
 
 
-# @app.route('/docs/kotlin-docs.pdf')
-# def pdf():
-#     return send_file(generate_pdf(pages, nav['reference']))
+@app.route('/docs/kotlin-docs.pdf')
+def pdf():
+    return send_file(generate_pdf(pages, nav['reference']))
 
 
 @app.route('/')
