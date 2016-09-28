@@ -9,7 +9,7 @@ import yaml
 from flask import Flask, render_template, Response, send_from_directory
 from flask import request
 from flask.helpers import send_file
-from flask_frozen import Freezer
+from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
 from src.MyFlatPages import MyFlatPages
@@ -28,6 +28,7 @@ pages = MyFlatPages(app)
 freezer = Freezer(app)
 ignore_stdlib = "--ignore-stdlib" in sys.argv
 
+root_folder = path.join(os.path.dirname(__file__))
 data_folder = path.join(os.path.dirname(__file__), "data")
 
 
@@ -174,6 +175,12 @@ def get_page(page_path):
 @app.route('/assets/<path:path>')
 def asset(path):
     return send_from_directory('assets', path)
+
+
+@freezer.register_generator
+def asset():
+    for filename in walk_directory(path.join(root_folder, "assets")):
+        yield {'path': filename}
 
 
 @app.route('/<path:page_path>')
