@@ -7,12 +7,9 @@ class NavItem:
             url = config['url']
             if not url.startswith('/'):
                 url = '/' + url
-            self.urls = [url]
-        elif 'urls' in config:
-            self.urls = config['urls']
+            self.url = url
         else:
-            self.urls = None
-
+            self.url = None
         self.title = config['title']
         self.items = []
         if 'items' in config:
@@ -23,12 +20,8 @@ class NavItem:
         for item in self.items:
             if item.is_active():
                 return True
-        if self.urls is not None:
-            for url in self.urls:
-                if request.path.startswith(url):
-                    return True
-            else:
-                return False
+        if self.url is not None:
+            return request.path.startswith(self.url)
         else:
             return False
 

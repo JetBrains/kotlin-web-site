@@ -14,9 +14,7 @@ main:
 # Docs section navigation
 # =======================
 docs:
-  - urls:
-      - /docs/reference/
-      - /api
+  - url: /docs/reference/
     title: Reference
 
   - url: /docs/tutorials/
