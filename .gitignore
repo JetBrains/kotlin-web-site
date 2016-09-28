@@ -27,3 +27,4 @@ api/
 .idea
 *.iml
 grammar.xml
+/build/
