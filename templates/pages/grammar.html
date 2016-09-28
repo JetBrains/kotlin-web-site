@@ -31,7 +31,7 @@
                     {% elif item.type == 'item' %}
                         <div class="grammar-item">
                             {% for item in item.content %}
-                                {% if item.type  == 'anntoation' %}
+                                {% if item.type  == 'annotation' %}
                                     <div class="grammar-annotation">{{ item.content | safe }}</div>
                                 {% elif item.type == 'declaration' %}
                                     <div class="grammar-declaration">

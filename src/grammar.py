@@ -56,7 +56,7 @@ def _get_item_content(node):
         if children.tag == 'annotation':
             item['content'].append({
                 'type': 'annotation',
-                'content': node.text
+                'content': children.text
             })
         elif children.tag == 'declaration':
             item['content'].append(_get_declaration(children))
