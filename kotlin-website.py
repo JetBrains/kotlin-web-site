@@ -91,7 +91,6 @@ def add_data_to_context():
         'site': {
             'pdf_url': app.config['PDF_URL'],
             'baseurl': app.config['BASEURL'],
-            'img_tutorial_root': app.config['IMG_TUTORIAL_ROOT'],
             'forum_url': app.config['FORUM_URL'],
             'site_github_url': app.config['SITE_GITHUB_URL'],
             'data': site_data,
