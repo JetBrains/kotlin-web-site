@@ -40,7 +40,7 @@ The following scenarios can be used when target JavaScript
 * Using Kotlin as a wrapper for third-party libraries or frameworks
 
     * **Statically typed wrapper around common libraries such as jQuery or ReactJS**. We ship a series of statically-typed wrappers common libraries such as jQuery, but there are also
-     third-party projects that do the same with frameworks such as AngularJS or ReactJS. Kotlin can use the [Definitely Typed TypeScript](http://definitelytyped.org/) type definitions repository.
+     third-party projects that do the same with frameworks such as AngularJS or ReactJS. Kotlin will eventually be able to use the [Definitely Typed TypeScript](http://definitelytyped.org/) type definitions repository.
 
 ## Kotlin to JavaScript in Action
 
@@ -54,7 +54,7 @@ When compiling (we'll use this term interchangeably with transpiling) to JavaScr
 
 In addition, each of these also have a corresponding {file}.meta.js meta file which will be used for reflection and other functionality. 
 
-Taking the above into account, given the following code (module name is OutputConsole)
+Taking the above into account, given the following code (module name is ConsoleOutput)
 
 
 ```kotlin
