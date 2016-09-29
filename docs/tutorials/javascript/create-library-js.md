@@ -2,15 +2,11 @@
 type: tutorial
 layout: tutorial
 title:  "Creating Kotlin/JavaScript library with IntelliJ IDEA"
-description: "This tutorials walks us through creating a simple Kotlin/JavaScript library using IntelliJ IDEA."
-authors: 
-date: 
+description: "This tutorials walks through creating a simple Kotlin/JavaScript library using IntelliJ IDEA."
+authors: Hadi Hariri 
+date: 29/09/2016
 showAuthorInfo: false
 ---
-### Setting up the environment
-The tutorial works with IntelliJ IDEA Community Edition as well as IntelliJ IDEA Ultimate.
-For best experience developing Kotlin/JavaScript applications, we recommend using IntelliJ IDEA Ultimate,
-which includes the JavaScript debugger and other JavaScript support features.
 
 1. Create a New Kotlin/JavaScript Project.
 
