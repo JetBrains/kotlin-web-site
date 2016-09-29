@@ -127,7 +127,10 @@ The output of this is a blank page that prints `Hello JavaScript` to the console
 
 ## Summary
 
-As can be seen, Kotlin aims to create very concise and readable JavaScript allowing us to interact with it as needed. 
+As can be seen, Kotlin aims to create very concise and readable JavaScript allowing us to interact with it as needed. One question of course is why go to 
+all this trouble to as opposed to just use `console.log()`. Obviously this is a very simple example that shows the basics of how it works and we've focused on analysing the output. As application complexity grows, the benefits 
+of using Kotlin and static-typing start to become more apparent. 
+
 In subsequent tutorials we'll see how we can influence the files generated, such as location, prefix and suffixes, as well as working with modules.
 
 
