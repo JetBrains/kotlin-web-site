@@ -50,11 +50,11 @@ The following scenarios can be used when target JavaScript
 When compiling (we'll use this term interchangeably with transpiling) to JavaScript, Kotlin outputs two main files:
 
 * kotlin.js. The runtime and standard library. This doesn't change between applications. It's about to the version of Kotlin.
-* {application}.js. The actual code from the application. All files are compiled into a single JavaScript file which has the same name as the module.
+* {module}.js. The actual code from the application. All files are compiled into a single JavaScript file which has the same name as the module.
 
 In addition, each of these also have a corresponding {file}.meta.js meta file which will be used for reflection and other functionality. 
 
-Taking the above into account, given the following code (application name is OutputConsole)
+Taking the above into account, given the following code (module name is OutputConsole)
 
 
     ```kotlin

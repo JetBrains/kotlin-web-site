@@ -153,7 +153,7 @@ tutorials:
       - /docs/tutorials/koans.html: Koans
   - title: JavaScript
     content:
-      - /docs/tutorials/javascript/kotlin-to-javascript.html: Kotlin to JavaScript
+      - /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html: Kotlin to JavaScript
       - /docs/tutorials/javascript/getting-started-intellij-idea.html: Creating Kotlin/JavaScript library with IntelliJ IDEA
       - /docs/tutorials/javascript/command-line-library-js.html: Creating Kotlin/JavaScript library with the Command Line Compiler
   - title: Interop
