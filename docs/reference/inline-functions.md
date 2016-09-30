@@ -12,7 +12,7 @@ i.e. those variables that are accessed in the body of the function.
 Memory allocations (both for function objects and classes) and virtual calls introduce runtime overhead.
 
 But it appears that in many cases this kind of overhead can be eliminated by inlining the lambda expressions.
-The functions shown above are good examples of this situation. I.e., the `lock()` function could be easily inlined at call-sites.
+The functions shown below are good examples of this situation. I.e., the `lock()` function could be easily inlined at call-sites.
 Consider the following case:
 
 ``` kotlin
