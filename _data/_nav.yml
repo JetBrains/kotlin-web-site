@@ -154,7 +154,8 @@ tutorials:
   - title: JavaScript
     content:
       - /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html: Kotlin to JavaScript
-      - /docs/tutorials/javascript/getting-started-intellij-idea.html: Creating Kotlin/JavaScript library with IntelliJ IDEA
+      - /docs/tutorials/javascript/getting-started-idea/getting-started-with-intellij-idea.html: Getting Started with Kotlin and JavaScript with IntelliJ IDEA
+      - /docs/tutorials/javascript/working-with-modules/working-with-modules.html: Working with Kotlin and JavaScript Modules
       - /docs/tutorials/javascript/command-line-library-js.html: Creating Kotlin/JavaScript library with the Command Line Compiler
   - title: Interop
     content:

@@ -1,7 +1,7 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Getting Started with IntelliJ IDEA"
+title:  "Getting Started with Kotlin and JavaScript with IntelliJ IDEA"
 description: "A look at how to use IntelliJ IDEA to target JavaScript"
 authors: Hadi Hariri 
 date: 30/09/2016
