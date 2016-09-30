@@ -54,7 +54,7 @@ When compiling (we'll use this term interchangeably with transpiling) to JavaScr
 
 In addition, each of these also have a corresponding `{file}.meta.js` meta file which will be used for reflection and other functionality. 
 
-Taking the above into account, given the following code (module name is ConsoleOutput)
+Taking the above into account, given the following code (module name is `ConsoleOutput`)
 
 
 ```kotlin
@@ -69,7 +69,7 @@ Kotlin compiler would generate the following output
    ![Compiler Output](compiler-output.png)
 
 
-The file we're mostly interested in is ConsoleOutput.js
+The file we're mostly interested in is `ConsoleOutput.js`
 
 
 ```javascript
