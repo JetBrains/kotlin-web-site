@@ -14,7 +14,7 @@ Kotlin provides the ability to target JavaScript. It does so by transpiling Kotl
  target ECMAScript 6 also. 
  
 Any Kotlin code that is part of the project as well as the standard library that ships with Kotlin is transpiled to JavaScript. 
-However, this excludes any JVM or Java framework or library used.
+However, this excludes any JVM or Java framework or library used. Any file that is not Kotlin will be ignored during compilation.
 
 The Kotlin compiler tries to comply with the following goals or principles:
 
@@ -25,7 +25,7 @@ The Kotlin compiler tries to comply with the following goals or principles:
 
 ## How can it be used
 
-The following scenarios can be used when target JavaScript
+The following scenarios can be used when targeting JavaScript
 
 * Creating Kotlin code that targets client-side JavaScript
     
@@ -91,7 +91,7 @@ Next, uses the passed in parameter `Kotlin` to call the function `defineRootPack
 use a package name, it is using the default root package. If we'd have declared our code in a package, then the call would be `definePackage`. These functions are all part of the Kotlin standard library which ships as part of `kotlin.js`.
  
 The only function we have is the `main` function. Here we can see that the compiler is suffixing it with a a scrambled word. The reason for this is due to the possibility to have overloaded functions in `Kotlin` and there needs to be a way to
-translate these to their corresponding JavaScript ones. While we cannot currently influence the name of these functions, an annotation (@JsName) will be introduced to allow this option. 
+translate these to their corresponding JavaScript ones. While we cannot currently influence the name of these functions, an annotation (`@JsName`) will be introduced to allow this option. 
 
 Finally the code defines the module. 
 
