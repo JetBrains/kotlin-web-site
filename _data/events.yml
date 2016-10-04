@@ -2107,6 +2107,8 @@
   date: [2016-09-29, 2016-09-30]
   location: New York, NY, US
   lang: en
+  content:
+    slides: https://speakerdeck.com/tysmith/better-android-development-with-kotlin-and-gradle-1
   
 - title: "DROIDCON NYC 2016"
   url: "http://sched.droidcon.nyc/showTopicSquarespace/63750"
