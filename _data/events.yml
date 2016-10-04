@@ -2079,7 +2079,9 @@
   speaker: Mike Evans
   date: [2016-09-23, 2016-09-24]
   location: McLean, VA, US
-  lang: en  
+  lang: en
+  content:
+    video: https://youtu.be/Igdn9Tj5bts
 
 - title: "Chicago KUG Meetup"
   url: "https://www.meetup.com/Chicago-Kotlin-Users-Group/events/233247796/"
