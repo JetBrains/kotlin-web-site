@@ -2202,8 +2202,8 @@
     slides: https://speakerdeck.com/marioariasc/functional-programming-in-kotlin-with-funktionale-1
 
 - title: Mobile Era 2016
-  url: http://droidcon.hr/en/
-  subject: "http://mobileera.rocks/schedule/#session-103"
+  url: "http://mobileera.rocks/schedule/#session-103"
+  subject: "You can do better with Kotlin"
   speaker: Svetlana Isakova
   date: [2016-11-03, 2016-11-04]
   location: Oslo, Norway
