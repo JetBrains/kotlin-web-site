@@ -11,6 +11,17 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Target Modules with  targeting JavaScript](#Creatingantargetingjavascript)
-* [Debugging the application](#debuggingtheapplication)
-* [Configuring Compiler Options](#configuringcompileroptions)
+* [Configure Kotlin to work with JavaScript Module](#ConfiguringModules)
+* [Use Kotlin in the browser with AMD](#UsingAMD)
+* [Use Kotlin from node.js with CommonJS](#UsingCommonJS)
+
+
+## Configuring Modules
+
+
+
+## Using AMD
+
+
+## Using CommonJS
+
