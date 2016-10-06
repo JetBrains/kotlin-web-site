@@ -35,12 +35,15 @@ The following scenarios can be used when targeting JavaScript
 
 * Creating Kotlin code that targets server-side JavaScript
 
-    * **Working with node.js or other server-side technology**. Kotlin is compatible with CommonJS, AMD and UMD, allowing for easy interaction with node.js.
+    * **Working with server-side technology**. You can use Kotlin to interact with server-side JavaScript such as node.js
     
 * Using Kotlin as a wrapper for third-party libraries or frameworks
 
     * **Statically typed wrapper around common libraries such as jQuery or ReactJS**. We ship a series of statically-typed wrappers common libraries such as jQuery, but there are also
      third-party projects that do the same with frameworks such as AngularJS or ReactJS. Kotlin will eventually be able to use the [Definitely Typed TypeScript](http://definitelytyped.org/) type definitions repository.
+
+
+Kotlin is also compatible with CommonJS, AMD and UMD, [making interaction with different](../working-with-modules/working-with-modules.html) module systems straightforward
 
 ## Kotlin to JavaScript in Action
 
