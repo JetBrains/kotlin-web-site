@@ -48,11 +48,11 @@ Kotlin is also compatible with CommonJS, AMD and UMD, [making interaction with d
 ## Kotlin to JavaScript in Action
 
 
-### Examining the output
+### Compiling to JavaScript
 
 When compiling (we'll use this term interchangeably with transpiling) to JavaScript, Kotlin outputs two main files:
 
-* `kotlin.js`. The runtime and standard library. This doesn't change between applications. It's about to the version of Kotlin.
+* `kotlin.js`. The runtime and standard library. This doesn't change between applications. It's tied to the version of Kotlin being used.
 * `{module}.js`. The actual code from the application. All files are compiled into a single JavaScript file which has the same name as the module.
 
 In addition, each of these also have a corresponding `{file}.meta.js` meta file which will be used for reflection and other functionality. 
