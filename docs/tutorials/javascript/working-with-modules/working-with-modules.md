@@ -149,7 +149,7 @@ The last line is invoking the function itself and passing as argument `kotlin`. 
 
 *Local reference* 
 
-When compiling, the compiler always ouputs the kotlin.js file. The easiest way to reference this without having to refer to paths, is to set the output library folder for the compiler options 
+When compiling, the compiler always outputs the kotlin.js file. The easiest way to reference this without having to refer to paths, is to set the output library folder for the compiler options 
 to `node_modules`. This way, Node will automatically pick it up as it does an exhaustive search for files under these folders
 
 ![Node Modules](node-modules.png)
