@@ -121,7 +121,6 @@ var workingWithJavaScript = function (Kotlin) {
 }(kotlin);
 ```
 
-
 ## Creating mappings with Native
 
 In the above scenario, `DataTable()` was transpiled to the same member name in JavaScript. What happens however when we want to map to something different? In fact, we're doing this with `jq` itself. 
