@@ -40,7 +40,8 @@ fun main(args: Array<String>) {
 }
 ```
 
-The code above would emit a JavaScript message dialog as soon as the main function is executed.
+The code above would emit a JavaScript message dialog as soon as the main function is executed. It's important to note that this is not merely an `eval`. The JavaScript 
+code is verified to be valid and injected into the generated code. 
 
 ## Working with Strongly-Typed Libraries
 
