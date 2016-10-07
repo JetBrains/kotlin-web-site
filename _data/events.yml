@@ -2266,3 +2266,11 @@
   date: 2016-09-30
   location: Dresden, Germany
   lang: de
+  
+- title: "Pixels Camp"
+  url: "https://github.com/PixelsCamp/talks/blob/master/100percent-kotlin-and-anko_goncalo-silva.md"
+  subject: "100% Kotlin and Anko"
+  speaker: Gonçalo Silva
+  date: [2016-10-06, 2016-10-08]
+  location: Lisbon, Portugal
+  lang: en
