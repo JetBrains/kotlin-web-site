@@ -170,7 +170,7 @@ The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we
 ```
 
 
-We can simply refer to any class or member function inside our node.js code by simplying importing the module using `require`
+We can simply refer to any class or member function inside our node.js code by simply importing the module using `require`
 
 ```javascript
 
