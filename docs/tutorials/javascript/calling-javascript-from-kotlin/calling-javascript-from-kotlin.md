@@ -92,7 +92,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-and wed get an unresolved reference 
+and we'd get an unresolved reference 
 
 ![Unresolved Reference](unresolved-reference.png)
 
