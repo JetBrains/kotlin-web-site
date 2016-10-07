@@ -92,11 +92,12 @@ The contents of our `main.js` would be
 ```javascript
 requirejs.config({
     paths: {
-        kotlin: 'out/lib/kotlin.js'
+        kotlin: 'out/lib/kotlin.js',
+        customerBL: 'out/customerBL'
     }
 });
 
-requirejs(["out/customerBL"], function (customerBL) {
+requirejs(["customerBL"], function (customerBL) {
     console.log(customerBL)
 });
 ```
