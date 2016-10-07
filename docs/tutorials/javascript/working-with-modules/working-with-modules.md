@@ -18,10 +18,99 @@ In this tutorial we'll see how to
 
 ## Configuring Modules
 
+Kotlin generate JavaScript code that is compatible with Asynchronous Module Definition (AMD), CommonJS and Universal Model Definition (UMD). 
+
+* **AMD**. Is usually used on the client-side in the browser. The idea behind AMD is to load modules asynchronously and improve usability and performance.
+* **CommonJS**. Is the module system used on the server-side, and in particular with node.js. Node modules all abide by this definition. CommonJS modules can also be used in the browser via [Browserify](http://browserify.org/).
+* **UMD**. Tries to unify both models allowing these to be used either on the client or server.
+
+We can configure the Kotlin Compiler option to use any of these. The last option (UMD), will generate UMD and fallback to the other options if one is not available.
+Currently Kotlin Compiler Options are per IntelliJ IDEA project as opposed to a Kotlin Module.
+ 
+![Kotlin Compiler Options](kotlin-compiler.png)
 
 
 ## Using AMD
 
+When using AMD, 
 
 ## Using CommonJS
+
+In order to use Kotlin with node.js, we need to set the compiler option to use CommonJS. Once we do that, the output of the application
+should be accessible using the node module system. 
+
+For instance, given 
+
+```kotlin
+class Customer(val id: Int, val name: String, val email: String) {
+    var isPreferred = false
+    fun makePreferred() {
+        isPreferred = true
+    }
+}
+```
+
+it should generate the following JavaScript code
+ 
+```javascript
+module.exports = function (Kotlin) {
+  'use strict';
+  var _ = Kotlin.defineRootPackage(null, /** @lends _ */ {
+    Customer: Kotlin.createClass(null, function Customer(id, name, email) {
+      this.id = id;
+      this.name = name;
+      this.email = email;
+      this.isPreferred = false;
+    }, /** @lends _.Customer.prototype */ {
+      makePreferred: function () {
+        this.isPreferred = true;
+      }
+    })
+  });
+  Kotlin.defineModule('customerBL', _);
+  return _;
+}(require('kotlin'));
+
+``` 
+
+The last line is invoking the function itself and passing as argument `kotlin`. Kotlin refers to the standard library which can be obtained in one of two ways:
+
+*Local reference* 
+
+When compiling, the compiler always ouputs the kotlin.js file. The easiest way to reference this without having to refer to paths, is to set the output library folder for the compiler options 
+to `node_modules`. This way, Node will automatically pick it up as it does an exhaustive search for files under these folders
+
+![Node Modules](node-modules.png)
+
+*NPM Directory*
+ 
+The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we can simply include it in our `package.json` as a dependency. 
+
+```json
+{
+  "name": "node-demo",
+  "description": "A sample of using Kotlin with node.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "kotlin": ">=1.0.4-eap-111"
+  }
+}
+```
+
+
+We can simply refer to any class or member function inside our node.js code by simplying importing the module using `require`
+
+```javascript
+
+
+var customerBL = require('./scripts/customerBL')
+
+var customer = new customerBL.Customer(1, "Jane Smith", "jane.smith@company.com")
+
+console.dir(customer)
+customer.makePreferred()
+console.dir(customer)
+```
+
+In this case, we've set the output of our compilation to the folder `scripts`. 
 
