@@ -11,12 +11,14 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Configure Kotlin to work with JavaScript Module](#ConfiguringModules)
+* [Configuring Modules when using IntelliJ IDEA](#ConfiguringModulesWithIntelliJIDEA)
+* [Configuring Modules when using Maven or Gradle](#ConfiguringModulesWithMavenOrGradle)
 * [Use Kotlin in the browser with AMD](#UsingAMD)
 * [Use Kotlin from node.js with CommonJS](#UsingCommonJS)
 
 
-## Configuring Modules
+
+## Configuring Modules with IntelliJ IDEA
 
 Kotlin generate JavaScript code that is compatible with Asynchronous Module Definition (AMD), CommonJS and Universal Model Definition (UMD). 
 
@@ -29,6 +31,9 @@ Currently Kotlin Compiler Options are per IntelliJ IDEA project as opposed to a 
  
 ![Kotlin Compiler Options](kotlin-compiler.png)
 
+## Configuring Modules when using Maven Or Gradle
+
+If using Maven or Gradle, we can also configure the module output format. For more information [JavaScript Modules](http://kotlinlang.org/docs/reference/js-modules.html).
 
 ## Using AMD
 
