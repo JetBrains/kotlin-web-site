@@ -113,5 +113,7 @@ customer.makePreferred()
 console.dir(customer)
 ```
 
-In this case, we've set the output of our compilation to the folder `scripts`. 
+In this case, we've set the output of our compilation to the `scripts` folder. On running the application we should see the following output
+
+![Output CommonJS](output-commonjs.png)
 
