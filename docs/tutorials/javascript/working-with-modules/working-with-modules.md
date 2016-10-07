@@ -145,7 +145,7 @@ module.exports = function (Kotlin) {
 
 ``` 
 
-The last line is invoking the function itself and passing as argument `kotlin`. Kotlin refers to the standard library which can be obtained in one of two ways:
+The last line is invoking the function itself and passing as argument `kotlin`, which refers to the standard library. This can be obtained in one of two ways:
 
 *Local reference* 
 
