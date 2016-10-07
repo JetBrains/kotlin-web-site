@@ -47,8 +47,17 @@ Kotlin is also compatible with CommonJS, AMD and UMD, [making interaction with d
 
 ## Kotlin to JavaScript in Action
 
+There are multiple ways to compile Kotlin to JavaScript. If using IntelliJ IDEA, we can invoke the `Build Project` action to compile. If using Maven or Gradle, we need to target 
+JavaScript. To learn more about how to compile to JavaScript please see the corresponding tutorials
+ 
+* [Getting Started with the Command Line](../getting-started-command-line/command-line-library-js.html)
+* [Getting Started with IntelliJ IDEA](../getting-started-idea/getting-started-with-intellij-idea.html)
+* [Getting Started with Maven](../getting-started-maven/getting-started-with-maven.html)
+* [Getting Started with Gradle](../getting-started-maven/getting-started-with-gradle.html)
 
-### Compiling to JavaScript
+ 
+
+### Examining the Compilation Output
 
 When compiling (we'll use this term interchangeably with transpiling) to JavaScript, Kotlin outputs two main files:
 
