@@ -2274,3 +2274,11 @@
   date: [2016-10-06, 2016-10-08]
   location: Lisbon, Portugal
   lang: en
+
+- title: "Infinum Android Talks #20"
+  url: "https://infinum.co/our-stuff/android-talks"
+  subject: "Benefits of using Kotlin"
+  speaker: Dino Kovač
+  date: 2016-10-06
+  location: Zagreb, Croatia
+  lang: en
