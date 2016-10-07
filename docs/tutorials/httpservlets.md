@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Creating Web Applications with Http Servlets"
 description: "This tutorial walks us through the process of creating a simple controller using HttpServlet to display Hello World."
 authors: Hadi Hariri
-showAuthorInfo: true
+showAuthorInfo: false
 date: 2015-11-01
 source: servlet-web-applications
 ---

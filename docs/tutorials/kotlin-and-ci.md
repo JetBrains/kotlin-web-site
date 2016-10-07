@@ -5,7 +5,7 @@ title:  "Kotlin and Continuous Integration with TeamCity"
 description:
 authors: Hadi Hariri
 date: 2015-02-02
-showAuthorInfo: true
+showAuthorInfo: false
 ---
 We're going to see how to set up TeamCity to build our Kotlin project. For more information and basics of TeamCity please check the [Documentation page](https://www.jetbrains.com/teamcity/documentation/)
 which contains information about installation, basic configuration, etc.
