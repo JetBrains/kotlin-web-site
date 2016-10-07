@@ -32,7 +32,8 @@ Currently Kotlin Compiler Options are per IntelliJ IDEA project as opposed to a 
 
 ## Using AMD
 
-When using AMD, 
+When using AMD,
+ 
 
 ## Using CommonJS
 
