@@ -32,8 +32,72 @@ Currently Kotlin Compiler Options are per IntelliJ IDEA project as opposed to a 
 
 ## Using AMD
 
-When using AMD,
+When using AMD, we set the compiler option to use AMD. Once we do that, we can then reference any modules that we've defined as if they were regular AMD ones.
+
+For instance, given
  
+```kotlin
+class Customer(val id: Int, val name: String, val email: String) {
+    var isPreferred = false
+    fun makePreferred() {
+        isPreferred = true
+    }
+}
+```
+ 
+the following JavaScript code will be generated
+
+```javascript
+define('customerBL', ['kotlin'], function (Kotlin) {
+  'use strict';
+  var _ = Kotlin.defineRootPackage(null, /** @lends _ */ {
+    Customer: Kotlin.createClass(null, function Customer(id, name, email) {
+      this.id = id;
+      this.name = name;
+      this.email = email;
+      this.isPreferred = false;
+    }, /** @lends _.Customer.prototype */ {
+      makePreferred: function () {
+        this.isPreferred = true;
+      }
+    })
+  });
+  Kotlin.defineModule('customerBL', _);
+  return _;
+});
+``` 
+
+Assuming we have the following project layout
+
+![Project Structure AMD](project-structure-amd.png)
+
+
+we could define our `index.html` to load `require.js` along with `main.js` as the value of the `data-main` attribute
+
+```html
+<head>
+    <meta charset="UTF-8">
+    <title>Sample AMD</title>
+    <script data-main="scripts/main"  src="scripts/require.js"></script>
+</head>
+```
+
+The contents of our `main.js` would be
+
+```javascript
+requirejs.config({
+    paths: {
+        kotlin: 'out/lib/kotlin.js'
+    }
+});
+
+requirejs(["out/customerBL"], function (customerBL) {
+    console.log(customerBL)
+});
+```
+
+With this, we can then access any of the functionality defined inside `customerBL`
+
 
 ## Using CommonJS
 
@@ -51,7 +115,8 @@ class Customer(val id: Int, val name: String, val email: String) {
 }
 ```
 
-it should generate the following JavaScript code
+the following JavaScript code will be generated
+
  
 ```javascript
 module.exports = function (Kotlin) {
