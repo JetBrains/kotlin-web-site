@@ -33,7 +33,7 @@ Currently Kotlin Compiler Options are per IntelliJ IDEA project as opposed to a 
 
 ## Configuring Modules when using Maven Or Gradle
 
-If using Maven or Gradle, we can also configure the module output format. For more information [JavaScript Modules](http://kotlinlang.org/docs/reference/js-modules.html).
+If using Maven or Gradle, we can also configure the module output format. For more information see [JavaScript Modules](http://kotlinlang.org/docs/reference/js-modules.html).
 
 ## Using AMD
 
