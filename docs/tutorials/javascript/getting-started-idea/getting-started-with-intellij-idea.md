@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Getting Started with Kotlin and JavaScript with IntelliJ IDEA"
-description: "A look at how to use IntelliJ IDEA to target JavaScript"
+description: "A look at how to use IntelliJ IDEA to target JavaScript."
 authors: Hadi Hariri 
 date: 30/09/2016
 showAuthorInfo: false
@@ -11,8 +11,8 @@ showAuthorInfo: false
 In this tutorial we'll see how to
 
 * [Create an application targeting JavaScript](#Creatingantargetingjavascript)
-* [Debugging the application](#debuggingtheapplication)
-* [Configuring Compiler Options](#configuringcompileroptions)
+* [Debug the application](#debuggingtheapplication)
+* [Configure compiler options](#configuringcompileroptions)
 
 
 ## Create an application targeting JavaScript
@@ -22,9 +22,9 @@ When creating a new application or module that targets JavaScript, we need to se
  
  ![First Step of Wizard](first-step-wizard.png)
  
-The next step is going to prompt us on the Kotlin runtime library. By default the one that is associated to the currently installed
-version of the Kotlin plugin is selected. Unless we want to create a different one, we can click Finish at this point after 
-entering the Project name and location. 
+The next step is going to prompt us on the Kotlin runtime library. By default the plugin selects the one that is associated to the currently installed
+version. Unless we want to create a different one, we can click Finish at this point after
+entering the project name and location.
  
 ![Selecting Runtime](second-step-wizard.png)
  
@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-We now need an HTML page to load the code which we'll create as `index.html`. If you want more information on how Kotlin compiles to JavaScript and the output generated, check out the 
+We now need an HTML page to load the code, so we'll create a file called `index.html`. If you want more information on how Kotlin compiles to JavaScript and the output generated, check out the
 [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html) tutorial. 
 
 ```html 
@@ -65,7 +65,7 @@ A couple of important points:
 * The `kotlin.js` file should be referenced first as it is used by our application
 * The path refers to the default output location that IntelliJ IDEA uses when we compile the application. Below we'll see how to change this.
 
-The only thing left to do is compile our application (Build|Build Project)and once the JavaScript files have been generated, we can open the `index.html` file in the browser and see the result
+The only thing left to do is compile our application (Build|Build Project), and once the JavaScript files have been generated, we can open the `index.html` file in the browser and see the result
 in the console debug window.
 
 ## Debugging the application
@@ -73,7 +73,7 @@ in the console debug window.
 In order to debug the application using IntelliJ IDEA, we need to perform two steps:
 
 1. Install the [JetBrains Chrome Extension](https://chrome.google.com/webstore/detail/jetbrains-ide-support/hmhgeddbohgjknpmjagkdomcpobmllji?hl=en) which allows debugging inside IntelliJ IDEA via Chrome. This is useful for any type
-of web application developed with IntelliJ IDEA, not sure Kotlin. 
+of web application developed with IntelliJ IDEA, not just Kotlin.
 
 2. Configure the Kotlin Compiler to generate source maps, accessible via `Preferences|Kotlin Compiler`
 
@@ -91,11 +91,10 @@ It is also possible to debug Kotlin applications using the standard Chrome debug
 Kotlin provides a series of compiler options that are accessible in IntelliJ IDEA also. In addition to the one we've just seen for
 generating source maps, we also have the ability to set
 
-* **Generate source maps**. Generates source maps for debugging via IntelliJ IDEA, Chrome or other JavaScript debuggers.
 * **Output file prefix**. We can prefix the output the compiler generates with additional JavaScript. In order to do so, we indicate the name of the file that contains the JavaScript we want in this box.
-* **Output file postfix**. Same as above, but in this case it will append it to the output. 
+* **Output file postfix**. Same as above, but in this case the compiler will append the contents of the selected file to the output.
 * **Copy runtime library files**. Indicates in what subfolder we want the `kotlin.js` library to be output to. By default it is `lib` which is why in the HTML we are referencing this path. 
-* **Module Kind**. Indicates what module standard to follow. This is covered in the [Working with Modules](../working-with-modules/working-with-modules.html) tutorial in more depth
+* **Module Kind**. Indicates what module standard to follow. This is covered in the [Working with Modules](../working-with-modules/working-with-modules.html) tutorial in more depth.
 
 ## Summary
 

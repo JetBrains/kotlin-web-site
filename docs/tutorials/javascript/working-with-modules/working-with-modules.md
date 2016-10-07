@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Working with Kotlin and JavaScript Modules"
-description: "A look at how to use Kotlin to interact with JavaScript modules"
+description: "A look at how to use Kotlin to interact with JavaScript modules."
 authors: Hadi Hariri 
 date: 30/09/2016
 showAuthorInfo: false
@@ -11,8 +11,8 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Configuring Modules when using IntelliJ IDEA](#ConfiguringModulesWithIntelliJIDEA)
-* [Configuring Modules when using Maven or Gradle](#ConfiguringModulesWithMavenOrGradle)
+* [Configure modules when using IntelliJ IDEA](#ConfiguringModulesWithIntelliJIDEA)
+* [Configure modules when using Maven or Gradle](#ConfiguringModulesWithMavenOrGradle)
 * [Use Kotlin in the browser with AMD](#UsingAMD)
 * [Use Kotlin from node.js with CommonJS](#UsingCommonJS)
 
@@ -22,16 +22,16 @@ In this tutorial we'll see how to
 
 Kotlin generate JavaScript code that is compatible with Asynchronous Module Definition (AMD), CommonJS and Universal Model Definition (UMD). 
 
-* **AMD**. Is usually used on the client-side in the browser. The idea behind AMD is to load modules asynchronously and improve usability and performance.
-* **CommonJS**. Is the module system used on the server-side, and in particular with node.js. Node modules all abide by this definition. CommonJS modules can also be used in the browser via [Browserify](http://browserify.org/).
-* **UMD**. Tries to unify both models allowing these to be used either on the client or server.
+* **AMD** is usually used on the client-side in the browser. The idea behind AMD is to load modules asynchronously, thus improving usability and performance.
+* **CommonJS** is the module system used on the server-side, and in particular with node.js. Node modules all abide by this definition. CommonJS modules can also be used in the browser via [Browserify](http://browserify.org/).
+* **UMD** tries to unify both models allowing these to be used either on the client or server.
 
-We can configure the Kotlin Compiler option to use any of these. The last option (UMD), will generate UMD and fallback to the other options if one is not available.
-Currently Kotlin Compiler Options are per IntelliJ IDEA project as opposed to a Kotlin Module.
+We can configure the Kotlin compiler option to use any of these. The last option (UMD) will generate UMD and fallback to the other options if one is not available.
+Currently Kotlin compiler options are per IntelliJ IDEA project as opposed to a Kotlin module.
  
 ![Kotlin Compiler Options](kotlin-compiler.png)
 
-## Configuring Modules when using Maven Or Gradle
+## Configuring Modules when using Maven or Gradle
 
 If using Maven or Gradle, we can also configure the module output format. For more information see [JavaScript Modules](http://kotlinlang.org/docs/reference/js-modules.html).
 
@@ -87,7 +87,7 @@ we could define our `index.html` to load `require.js` along with `main.js` as th
 </head>
 ```
 
-The contents of our `main.js` would be
+The contents of our `main.js` would be:
 
 ```javascript
 requirejs.config({
@@ -102,7 +102,7 @@ requirejs(["customerBL"], function (customerBL) {
 });
 ```
 
-With this, we can then access any of the functionality defined inside `customerBL`
+With this, we can then access any of the functionality defined inside `customerBL`.
 
 
 ## Using CommonJS
@@ -170,7 +170,7 @@ The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we
 ```
 
 
-We can simply refer to any class or member function inside our node.js code by simply importing the module using `require`
+We can simply refer to any class or member function inside our node.js code by simply importing the module using `require`:
 
 ```javascript
 
@@ -184,7 +184,7 @@ customer.makePreferred()
 console.dir(customer)
 ```
 
-In this case, we've set the output of our compilation to the `scripts` folder. On running the application we should see the following output
+In this case, we've set the output of our compilation to the `scripts` folder. On running the application we should see the following output:
 
 ![Output CommonJS](output-commonjs.png)
 
