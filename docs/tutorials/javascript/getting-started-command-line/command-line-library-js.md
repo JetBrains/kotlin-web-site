@@ -1,8 +1,8 @@
 ---
 type: tutorial
 layout: tutorial
-title: "Creating Kotlin/JavaScript library with the Command Line Compiler"
-description: "This tutorial walks us through creating a Kotlin/JavaScript library using the command line compiler."
+title: "Creating a Kotlin JavaScript library with the Command Line Compiler"
+description: "This tutorial walks us through creating a Kotlin JavaScript library using the command line compiler."
 authors:
 showAuthorInfo: false
 related:
