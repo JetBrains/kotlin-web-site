@@ -113,7 +113,7 @@ var workingWithJavaScript = function (Kotlin) {
   'use strict';
   var _ = Kotlin.defineRootPackage(null, /** @lends _ */ {
     main_kand9s$: function (args) {
-      $('#table').DataTable();
+      $('#table').DataTable(); // <-- LITERAL TRANSLATION  
     }
   });
   Kotlin.defineModule('workingWithJavaScript', _);
