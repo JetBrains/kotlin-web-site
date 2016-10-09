@@ -32,7 +32,7 @@ Additional attributes of the annotation can be specified by annotating the annot
         AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION)
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
-public annotation class Fancy
+annotation class Fancy
 ```
 
 ### Usage
@@ -86,9 +86,9 @@ Allowed parameter types are:
 If an annotation is used as a parameter of another annotation, its name is not prefixed with the @ character:
 
 ``` kotlin
-public annotation class ReplaceWith(val expression: String)
+annotation class ReplaceWith(val expression: String)
 
-public annotation class Deprecated(
+annotation class Deprecated(
         val message: String,
         val replaceWith: ReplaceWith = ReplaceWith(""))
 
@@ -148,7 +148,7 @@ target and putting all the annotations inside the brackets:
 ``` kotlin
 class Example {
      @set:[Inject VisibleForTesting]
-     public var collaborator: Collaborator
+     var collaborator: Collaborator
 }
 ```
 
