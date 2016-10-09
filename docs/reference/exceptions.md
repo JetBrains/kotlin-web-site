@@ -47,6 +47,17 @@ The returned value of a *try*{: .keyword }-expression is either the last express
 last expression in the *catch*{: .keyword } block (or blocks).
 Contents of the *finally*{: .keyword } block do not affect the result of the expression.
 
+## Try with resources
+
+In Java 7 and up, we can use the try-with-resources statement to ensure that an object implementing `Closeable` is properly closed at the end of the block regardless of whether an exception is thrown or not. It's more convenient than manually using a finally block. Kotlin does not have special syntax for try-with-resources, instead there is an extension to the `Closeable` interface called `use` that achieves the same thing:
+
+``` kotlin
+val stream = Files.newInputStream(Paths.get("/some/file.txt"))
+stream.buffered().reader().use { reader ->
+  println(reader.readText())
+}
+```
+
 ## Checked Exceptions
 
 Kotlin does not have checked exceptions. There are many reasons for this, but we will provide a simple example.
