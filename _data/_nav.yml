@@ -161,7 +161,7 @@ tutorials:
       - /docs/tutorials/javascript/working-with-modules/working-with-modules.html: Working with Kotlin and JavaScript Modules
       - /docs/tutorials/javascript/getting-started-command-line/command-line-library-js.html: Creating a Kotlin JavaScript library with the Command Line Compiler
       - /docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html: Getting Started with Kotlin and JavaScript with Maven
-      - /docs/tutorials/javascript/getting-started-maven/getting-started-with-gradle.html: Getting Started with Kotlin and JavaScript with Gradle
+      - /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html: Getting Started with Kotlin and JavaScript with Gradle
   - title: Web Development
     content:
       - /docs/tutorials/httpservlets.html: Creating Web Applications with Http Servlets
