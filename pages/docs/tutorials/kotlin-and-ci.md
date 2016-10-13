@@ -5,7 +5,7 @@ title:  "Kotlin and Continuous Integration with TeamCity"
 description:
 authors: Hadi Hariri
 date: 2015-02-02
-showAuthorInfo: true
+showAuthorInfo: false
 ---
 We're going to see how to set up TeamCity to build our Kotlin project. For more information and basics of TeamCity please check the [Documentation page](https://www.jetbrains.com/teamcity/documentation/)
 which contains information about installation, basic configuration, etc.
@@ -19,7 +19,7 @@ If using Ant, Maven or Gradle, the setup process is straightforward. All that is
 we'd simply define the required parameters such as the Step Name and Gradle tasks that need executing for the Runner Type.
 
 <br/>
-![Gradle Build Step]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-and-ci/teamcity-gradle.png)
+![Gradle Build Step]({{ url_for('tutorial_img', filename='kotlin-and-ci/teamcity-gradle.png') }})
 <br/>
 
 Since all the dependencies required for Kotlin are defined in the Gradle file, nothing else needs to be configured specifically for Kotlin to run correctly.
@@ -39,7 +39,7 @@ The meta-runner for Kotlin is available on [GitHub](https://github.com/jonnyzzz/
 from the TeamCity user interface
 
 <br/>
-![Meta-runner]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-and-ci/teamcity-metarunner.png)
+![Meta-runner]({{ url_for('tutorial_img', filename='kotlin-and-ci/teamcity-metarunner.png') }})
 <br/>
 
 If using a previous version, refer to the [documentation on how to add meta-runners](https://confluence.jetbrains.com/display/TCD9/Working+with+Meta-Runner).
@@ -48,7 +48,7 @@ If using a previous version, refer to the [documentation on how to add meta-runn
 Basically this step is limited to defining the Step Name and the version of Kotlin we need. Tags can be used.
 
 <br/>
-![Setup Kotlin Compiler]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-and-ci/teamcity-setupkotlin.png)
+![Setup Kotlin Compiler]({{ url_for('tutorial_img', filename='kotlin-and-ci/teamcity-setupkotlin.png') }})
 <br/>
 
 The runner will set the value for the property system.path.macro.KOTLIN.BUNDLED to the correct one based on the path settings from the IntelliJ IDEA project. However
@@ -58,7 +58,7 @@ this value needs to be defined in TeamCity (and can be set to any value). Theref
 The final step is to define the actual compilation of the project, which uses the standard IntelliJ IDEA Runner Type
 
 <br/>
-![IntelliJ IDEA Runner]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-and-ci/teamcity-idearunner.png)
+![IntelliJ IDEA Runner]({{ url_for('tutorial_img', filename='kotlin-and-ci/teamcity-idearunner.png') }})
 <br/>
 
 

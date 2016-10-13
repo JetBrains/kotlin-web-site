@@ -225,13 +225,7 @@
                                            class="testimonial-company-link"
                                            target="_blank"
                                            rel="nofollow">
-                                            {% if testimonial.logo %}
-                                                <img src="{{ site.baseurl }}{{ testimonial.logo }}"
-                                                     alt="{{ testimonial.company }}"
-                                                     title="{{ testimonial.company }}">
-                                            {% else %}
-                                                {{ testimonial.company }}
-                                            {% endif %}
+                                            {{ testimonial.company }}
                                         </a>
                                     {% else %}
                                         {{ testimonial.company }}

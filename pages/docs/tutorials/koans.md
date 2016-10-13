@@ -20,7 +20,7 @@ You can play with [Koans online](http://try.kotlinlang.org/koans) or offline by 
 
 3. Run a test. Make it pass
 
-    ![Tests]({{ site.baseurl }}/{{ site.img_tutorial_root }}/koans/all-tests.png)
+    ![Tests]({{ url_for('tutorial_img', filename='koans/all-tests.png') }})
 
 4. Repeat for all tests!
 

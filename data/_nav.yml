@@ -120,8 +120,6 @@ reference:
         title: Reflection
       - url: /docs/reference/type-safe-builders.html
         title: Type-Safe Builders
-      - url: /docs/reference/dynamic-type.html
-        title: Dynamic Type
 
 
 
@@ -134,13 +132,23 @@ reference:
         title: Grammar
 
 
-  - title: Interop
-    description: What you need to know about interoperability with Java and JavaScript.
+  - title: Java Interop
+    description: What you need to know about interoperability with Java.
     items:
       - url: /docs/reference/java-interop.html
         title: Calling Java from Kotlin
       - url: /docs/reference/java-to-kotlin-interop.html
         title: Calling Kotlin from Java
+
+  - title: JavaScript
+    description: Using Kotlin with JavaScript
+    items:
+     - url: /docs/reference/dynamic-type.html
+       title: Dynamic Type
+     - url: /docs/reference/js-modules.html
+       title: JavaScript Modules
+     - url: /docs/reference/js-reflection.html
+       title: JavaScript Reflection
 
   - title: Tools
     description:
@@ -184,16 +192,25 @@ tutorials:
         title: Working with Build Tools
       - url: /docs/tutorials/koans.html
         title: Koans
-  - title: JavaScript
-    items:
-      - url: /docs/tutorials/create-library-js.html
-        title: Creating Kotlin/JavaScript library with IntelliJ IDEA
-      - url: /docs/tutorials/command-line-library-js.html
-        title: Creating Kotlin/JavaScript library with the Command Line Compiler
-  - title: Interop
+  - title: Java Interop
     items:
       - url: /docs/tutorials/mixing-java-kotlin-intellij.html
         title: Mixing Java and Kotlin in one project
+  - title: JavaScript
+    items:
+      - url: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
+        title: Kotlin to JavaScript
+      - url: /docs/tutorials/javascript/getting-started-idea/getting-started-with-intellij-idea.html
+        title: Getting Started with Kotlin and JavaScript with IntelliJ IDEA
+      - url: /docs/tutorials/javascript/working-with-modules/working-with-modules.html
+        title: Working with Kotlin and JavaScript Modules
+      - url: /docs/tutorials/javascript/getting-started-command-line/command-line-library-js.html
+        title: Creating a Kotlin JavaScript library with the Command Line Compiler
+      - url: /docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html
+        title: Getting Started with Kotlin and JavaScript with Maven
+      - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
+        title: Getting Started with Kotlin and JavaScript with Gradle
+
   - title: Web Development
     items:
       - url: /docs/tutorials/httpservlets.html

@@ -240,17 +240,6 @@ class Bar1(override val x: Int) : Foo() {
 You can also override a `val` property with a `var` property, but not vice versa.
 This is allowed because a `val` property essentially declares a getter method, and overriding it as a `var` additionally declares a setter method in the derived class.
 
-
-#### Wait! How will I hack my libraries now?!
-
-One issue with our approach to overriding (classes and members final by default) is that it would be difficult to subclass something inside the libraries you use to override some method that was not intended for overriding by the library designer, and introduce some nasty hack there.
-
-We think that this is not a disadvantage, for the following reasons:
-
-* Best practices say that you should not allow these hacks anyway
-* People successfully use other languages (C++, C#) that have similar approach
-* If people really want to hack, there still are ways: you can always write your hack in Java and call it from Kotlin (*see [Java Interop](java-interop.html)*), and Aspect frameworks always work for these purposes
-
 ### Overriding Rules
 
 In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses,

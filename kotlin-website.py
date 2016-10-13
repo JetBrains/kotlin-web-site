@@ -91,7 +91,6 @@ def add_data_to_context():
         'data': site_data,
         'site': {
             'pdf_url': app.config['PDF_URL'],
-            'baseurl': app.config['BASEURL'],
             'forum_url': app.config['FORUM_URL'],
             'site_github_url': app.config['SITE_GITHUB_URL'],
             'data': site_data,
@@ -160,7 +159,7 @@ def process_page(page_path):
 
 
 @freezer.register_generator
-def get_page():
+def page():
     for page in pages:
         if ignore_stdlib and page.path.startswith("api"):
             continue
@@ -168,13 +167,18 @@ def get_page():
 
 
 @app.route('/<path:page_path>.html')
-def get_page(page_path):
+def page(page_path):
     return process_page(page_path)
 
 
 @app.route('/assets/<path:path>')
 def asset(path):
     return send_from_directory('assets', path)
+
+
+@app.route('/assets/images/tutorials/<path:filename>')
+def tutorial_img(filename):
+    return send_from_directory(path.join('assets', 'images', 'tutorials'), filename)
 
 
 @freezer.register_generator

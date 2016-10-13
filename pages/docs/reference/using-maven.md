@@ -47,7 +47,7 @@ Kotlin has an extensive standard library that can be used in your applications. 
 
 ## Compiling Kotlin only source code
 
-To compile source code, specify the source directories in the `<build>` tag:
+To compile source code, specify the source directories in the <build> tag:
 
 ``` xml
 <build>

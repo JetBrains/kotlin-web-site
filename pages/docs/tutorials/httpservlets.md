@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Creating Web Applications with Http Servlets"
 description: "This tutorial walks us through the process of creating a simple controller using HttpServlet to display Hello World."
 authors: Hadi Hariri
-showAuthorInfo: true
+showAuthorInfo: false
 date: 2015-11-01
 source: servlet-web-applications
 ---
@@ -52,7 +52,7 @@ which has previously [been defined as an application server in IntelliJ IDEA](ht
 In order to run, we need the corresponding WAR(s) for deploying. We can generate these using the *war* task in Gradle which can easily be executed via the Gradle tool window in IntelliJ IDEA.
 
 
-![Gradle Tasks]({{ site.baseurl }}/{{ site.img_tutorial_root }}/httpservlets/gradle-tasks.png)
+![Gradle Tasks]({{ url_for('tutorial_img', filename='httpservlets/gradle-tasks.png') }})
 
 Alternatively, we can build it using the command line:
 
@@ -60,11 +60,11 @@ Alternatively, we can build it using the command line:
 
 The next step is to create a Run Configuration in IntelliJ IDEA under Tomcat / Local which deploys the WAR and starts up Tomcat.
 
-![Run Config]({{ site.baseurl }}/{{ site.img_tutorial_root }}/httpservlets/tomcat-config.png)
+![Run Config]({{ url_for('tutorial_img', filename='httpservlets/tomcat-config.png') }})
 
 Once we run the application (using this previous run configuration), and on successful deployment, we should be able to navigate to the browser with the correct url and see the response:
 
-![Browser Run]({{ site.baseurl }}/{{ site.img_tutorial_root }}/httpservlets/browser.png)
+![Browser Run]({{ url_for('tutorial_img', filename='httpservlets/browser.png') }})
 
 
 

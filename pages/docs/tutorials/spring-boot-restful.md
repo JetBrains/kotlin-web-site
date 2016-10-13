@@ -109,7 +109,7 @@ open class Application {
 ### Alternative Application class definition
 
 In Java, the `main()` method of a Spring Boot application is conventionally defined within the annotated application class. This is because Java *does not* support top-level methods.
-In Kotlin, however, we *do* have [top-level functions]({{ site.baseurl }}/docs/reference/functions.html). Thus, we can make the Spring main entry point much simpler:
+In Kotlin, however, we *do* have [top-level functions]({{ url_for('page', page_path="docs/reference/functions.html") }}). Thus, we can make the Spring main entry point much simpler:
 
 ```kotlin
 @SpringBootApplication
@@ -144,6 +144,6 @@ We can now use the any of the standard Gradle tasks for Spring Boot to run the a
 
 the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
 
-![Running App]({{ site.baseurl }}/{{ site.img_tutorial_root }}/spring-boot-restful/running-app.png)
+![Running App]({{ url_for('tutorial_img', path='spring-boot-restful/running-app.png')}})
 
 

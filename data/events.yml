@@ -1844,7 +1844,7 @@
 - title: Polyglot.Tech
   url: https://eventil.com/events/java-vs-scala-vs-kotlin
   subject: "Java vs Scala vs Kotlin"
-  date: 2016-09-08
+  date: 2016-09-28
   location: Warszawa, Poland
   lang: pl
   
@@ -1976,6 +1976,8 @@
   date: [2016-10-05, 2016-10-06]
   location: Melbourne, Australia
   lang: en
+  content:
+    slides: https://docs.google.com/presentation/d/19CE4n98sSFHqP10BotbNL55LKpVoS3v5gbd0tj6sx2E/edit#slide=id.p
 
 - title: "YOW! Connected 2016"
   url: "https://a.confui.com/public/conferences/57200a19f572215d1f000082/locations/57200a1af572215d1f000083/topics/57b0141988c80810a000015f"
@@ -2059,7 +2061,7 @@
 
 - title: "JavaOne 2016"
   url: "https://www.oracle.com/javaone"
-  subject: "Kotlin for JavaScript\", \"Creating small DSL's with idiomatic Kotlin"
+  subject: "\"Kotlin for JavaScript\", \"Creating small DSL's with idiomatic Kotlin\""
   speaker: Hadi Hariri
   date: [2016-09-20, 2016-09-22]
   location: San Francisco, US
@@ -2079,7 +2081,9 @@
   speaker: Mike Evans
   date: [2016-09-23, 2016-09-24]
   location: McLean, VA, US
-  lang: en  
+  lang: en
+  content:
+    video: https://youtu.be/Igdn9Tj5bts
 
 - title: "Chicago KUG Meetup"
   url: "https://www.meetup.com/Chicago-Kotlin-Users-Group/events/233247796/"
@@ -2107,6 +2111,8 @@
   date: [2016-09-29, 2016-09-30]
   location: New York, NY, US
   lang: en
+  content:
+    slides: https://speakerdeck.com/tysmith/better-android-development-with-kotlin-and-gradle-1
   
 - title: "DROIDCON NYC 2016"
   url: "http://sched.droidcon.nyc/showTopicSquarespace/63750"
@@ -2146,4 +2152,133 @@
   speaker: Thijs Suijten
   date: 2016-11-03
   location: Ede, The Netherlands
+  lang: en
+  
+- title: "GDG DevFest 2016"
+  url: "https://devfest.nl/schedule/sessions?sessionId=android_4"
+  subject: "No excuses: switch to Kotlin"
+  speaker: Thijs Suijten
+  date: 2016-10-08
+  location: Amsterdam, The Netherlands
+  lang: en
+
+- title: "DevFest Toulouse 2016"
+  url: "https://devfesttoulouse.fr/speakers/11"
+  subject: "Develop a reactive android app with Kotlin"
+  speaker: Arnaud Giuliani
+  date: 2016-11-03
+  location: Toulouse, France
+  lang: fr
+  
+- title: "code.talks"
+  url: "https://www.codetalks.de/2016/programm/kotlin-ist-auch-eine-insel"
+  subject: "Kotlin ist auch eine Insel"
+  speaker: Lovis Möller
+  date: [2016-09-29, 2016-09-30] 
+  location: Hamburg, Germany
+  lang: de
+  content:
+    slides: https://speakerdeck.com/lmller/kotlin-ist-auch-eine-insel
+    
+- title: "Voxxed Days Belgrade 2016"
+  url: "https://belgrade.voxxeddays.com/talk/125/"
+  subject: "Spring Boot and Kotlin, a match made in Heaven"
+  speaker: Nicolas Fränkel
+  date: [2016-09-28, 2016-09-30] 
+  location: Belgrade, Serbia
+  lang: en
+  content:
+    slides: http://www.slideshare.net/nfrankel/voxxed-days-belgrade-spring-boot-kotlin-a-match-made-in-heaven
+
+    
+- title: "Manchester Java Community Meetup"
+  url: "http://www.meetup.com/ManchesterUK-Java-Community/events/233059886/"
+  subject: "Functional Programming in Kotlin with funKTionale"
+  speaker: Mario Arias
+  date: 2016-09-28
+  location: Manchester, UK
+  lang: en
+  content:
+    slides: https://speakerdeck.com/marioariasc/functional-programming-in-kotlin-with-funktionale-1
+
+- title: Mobile Era 2016
+  url: "http://mobileera.rocks/schedule/#session-103"
+  subject: "You can do better with Kotlin"
+  speaker: Svetlana Isakova
+  date: [2016-11-03, 2016-11-04]
+  location: Oslo, Norway
+  lang: en
+  
+- title: "mobile.cologne"
+  url: "http://mobile.cologne/2016-10-06-vortragsabend.html"
+  subject: "iOS hat Swift, Android hat Kotlin"
+  speaker: Sven Jacobs
+  date: 2016-10-06
+  location: Köln, Germany
+  lang: de
+  
+- title: "JavaOne 2016"
+  url: "https://www.oracle.com/javaone"
+  subject: "Generating Kotlin Code for Better Refactorings, Tests, and IDE Support"
+  speaker: Eugene Petrenko
+  date: [2016-09-20, 2016-09-22]
+  location: San Francisco, US
+  lang: en
+  content:
+    slides: https://docs.google.com/presentation/d/1pgzNnA4R3LU4hPnx0KTvQ0NFj23rPyq-ROr8kOiaxlM/edit
+    
+- title: "JavaOne 2016"
+  url: "https://www.oracle.com/javaone"
+  subject: "Kotlin in a Mildly Elevated State of Agitation"
+  speaker: Jason Lee
+  date: [2016-09-20, 2016-09-22]
+  location: San Francisco, US
+  lang: en
+
+- title: "GDG DevFest Lisbon 2016"
+  url: "https://www.gdglisbon.xyz/speakers/4/"
+  subject: "Create your Gradle plugin using Kotlin"
+  speaker: Bruno Oliveira
+  date: 2016-09-24
+  location: Lisbon, Portugal
+  lang: en
+
+- title: "Lyon KUG Meetup"
+  url: "http://www.meetup.com/Lyon-Kotlin-User-Group/events/232075482/"
+  subject: "Développer un Web Service Géospatial avec Kotlin et Spring Boot"
+  speaker: Sébastien Deleuze
+  date: 2016-09-20
+  location: Lyon, France
+  lang: fr
+
+- title: "JUG Karlsruhe Meetup"
+  url: "http://jug-ka.de/content/einfuehrung-kotlin/"
+  subject: "Einführung in Kotlin"
+  speaker: Alexander Hanschke
+  date: 2016-11-16
+  location: Karlsruhe, Germany
+  lang: de
+  
+- title: "JUG Saxony Day"
+  url: "http://www.jug-saxony-day.org/programm/#/V67"
+  subject: "Kotlin - das bessere Java?"
+  speaker: Paul Fritsche
+  date: 2016-09-30
+  location: Dresden, Germany
+  lang: de
+  
+- title: "Pixels Camp"
+  url: "https://github.com/PixelsCamp/talks/blob/master/100percent-kotlin-and-anko_goncalo-silva.md"
+  subject: "100% Kotlin and Anko"
+  speaker: Gonçalo Silva
+  date: [2016-10-06, 2016-10-08]
+  location: Lisbon, Portugal
+  lang: en
+
+- title: "Infinum Android Talks #20"
+  url: "https://infinum.co/our-stuff/android-talks"
+  subject: "Benefits of using Kotlin"
+  speaker: Dino Kovač
+  date: 2016-10-06
+  location: Zagreb, Croatia
   lang: en

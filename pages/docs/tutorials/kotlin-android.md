@@ -19,19 +19,19 @@ We need to name the project and choose which Android SDK version we have install
 times.
 
 Name the project:
-![Dialog 1]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/0-create-new-project.png)
+![Dialog 1]({{ url_for('tutorial_img', filename='kotlin-android/0-create-new-project.png') }})
 
 Choose the Android version:
 
-![Dialog 2]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/1-create-new-project.png)
+![Dialog 2]({{ url_for('tutorial_img', filename='kotlin-android/1-create-new-project.png') }})
 
 Choose creating an activity that will be generated for you:
 
-![Dialog 3]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/2-create-new-project.png)
+![Dialog 3]({{ url_for('tutorial_img', filename='kotlin-android/2-create-new-project.png') }})
 
 Name the activity:
 
-![Dialog 4]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/3-create-new-project.png)
+![Dialog 4]({{ url_for('tutorial_img', filename='kotlin-android/3-create-new-project.png') }})
 
 We've created a new project with one Java activity that was generated for us.
 
@@ -46,22 +46,22 @@ Open MainActivity.java file. Then invoke action **Convert Java File to Kotlin Fi
 The easiest one is to invoke [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html) and start typing an action name (like in a screencast below). 
 Alternatively we can call this option via the _Code \| Convert Java File to Kotlin File_  menu entry or by using the corresponding shortcut (we can find it at the menu entry).
  
-![Convert]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/convert-java-to-kotlin.png)
+![Convert]({{ url_for('tutorial_img', filename='kotlin-android/convert-java-to-kotlin.png') }})
 
 After the conversion we should have an activity written in Kotlin.
 
-![Koltin-Activity]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/converted-code.png)
+![Koltin-Activity]({{ url_for('tutorial_img', filename='kotlin-android/converted-code.png') }})
 
 #### Configuring Kotlin in the project
 
 When adding a new Kotlin file, IntelliJ IDEA (and Android Studio) automatically prompts us as to whether we'd like to configure the Kotlin runtime for the project. However, currently, converting existing Java
 file does not prompt this action. Therefore we have to invoke it manually (via [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html)):
 
-![Config-Kotlin]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/configure-kotlin-in-project.png)
+![Config-Kotlin]({{ url_for('tutorial_img', filename='kotlin-android/configure-kotlin-in-project.png') }})
 
 We are then prompted for the version of Kotlin. Choose the latest available from the list of installed versions.
 
-![Config-Kotlin-Details]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/configure-kotlin-in-project-details.png)
+![Config-Kotlin-Details]({{ url_for('tutorial_img', filename='kotlin-android/configure-kotlin-in-project-details.png') }})
 
 After we configure Kotlin, build.gradle file for the application should be updated. 
 Now we can see that _apply plugin: 'kotlin-android'_ and the dependencies were added. 
@@ -71,7 +71,7 @@ Now we can see that _apply plugin: 'kotlin-android'_ and the dependencies were a
 
 The last thing to do is to sync the project. We can press 'Sync Now' in a prompt or invoke an action **Sync Project with Gradle Files**.
  
-![Sync-Project-With-Gradle]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/sync-project-with-gradle.png)
+![Sync-Project-With-Gradle]({{ url_for('tutorial_img', filename='kotlin-android/sync-project-with-gradle.png') }})
 
 ### Making user interface changes
 
@@ -79,7 +79,7 @@ Now that the project has been set up, we can work with the layout using IntelliJ
 There is nothing different in terms of layout when working with Kotlin, thus this is similar to regular Android Java development.
 While using layout designer in IntelliJ IDEA, note there are two tabs in the designer: **Text** and **Design**. The latter shows how the layout looks, while the former allows fine tuning with XML editing.
 
-![Layout Editor]({{ site.baseurl }}/{{ site.img_tutorial_root }}/kotlin-android/layout-editor.png)
+![Layout Editor]({{ url_for('tutorial_img', filename='kotlin-android/layout-editor.png') }})
 
 ### Building and publishing the Kotlin application for Android
 
