@@ -89,7 +89,7 @@ Alternatively, on OS X you can install the compiler via [Homebrew](http://brew.s
 
 We can run the compiler without parameters to have an interactive shell. We can type any valid Kotlin code and see the results.
 
-![Shell]({{ url_for('tutorials_img', path='command-line/kotlin_shell.png')}})
+![Shell]({{ url_for('tutorial_img', filename='command-line/kotlin_shell.png')}})
 
 ### Using the command line to run scripts
 

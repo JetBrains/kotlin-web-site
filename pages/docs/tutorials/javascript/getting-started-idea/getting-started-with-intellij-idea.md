@@ -20,17 +20,17 @@ In this tutorial we'll see how to
 When creating a new application or module that targets JavaScript, we need to select `Kotlin - JavaScript` as the target
 
  
- ![First Step of Wizard]({{ url_for('tutorial_img', path='javascript/getting-started-idea/first-step-wizard.png')}})
+ ![First Step of Wizard]({{ url_for('tutorial_img', filename='javascript/getting-started-idea/first-step-wizard.png')}})
  
 The next step is going to prompt us on the Kotlin runtime library. By default the plugin selects the one that is associated to the currently installed
 version. Unless we want to create a different one, we can click Finish at this point after
 entering the project name and location.
  
-![Selecting Runtime]({{ url_for('tutorial_img', path='javascript/getting-started-idea/second-step-wizard.png')}})
+![Selecting Runtime]({{ url_for('tutorial_img', filename='javascript/getting-started-idea/second-step-wizard.png')}})
  
 Once the IDE has finished creating the new project, we should be left with the following layout
  
-![Project Structure]({{ url_for('tutorial_img', path='javascript/getting-started-idea/project-structure.png')}})
+![Project Structure]({{ url_for('tutorial_img', filename='javascript/getting-started-idea/project-structure.png')}})
 
 At this point we can start writing Kotlin code. For this sample, we're going to write some code that will print a string
 out to the console window.
@@ -77,12 +77,12 @@ of web application developed with IntelliJ IDEA, not just Kotlin.
 
 2. Configure the Kotlin Compiler to generate source maps, accessible via `Preferences|Kotlin Compiler`
 
-![SourceMaps]({{ url_for('tutorial_img', path='javascript/getting-started-idea/compiler-options-sourcemaps.png')}})
+![SourceMaps]({{ url_for('tutorial_img', filename='javascript/getting-started-idea/compiler-options-sourcemaps.png')}})
 
 Once that's done, we simply right-click on our `index.html` file and select the Debug option. This launches Chrome and then stops at the breakpoint defined in our code inside IntelliJ IDEA, from where
 we can evaluate expressions, step through code, etc.
 
-![Debugger]({{ url_for('tutorial_img', path='javascript/getting-started-idea/debugger.png')}})
+![Debugger]({{ url_for('tutorial_img', filename='javascript/getting-started-idea/debugger.png')}})
 
 It is also possible to debug Kotlin applications using the standard Chrome debugger. Just make sure that you do generate source maps.
 

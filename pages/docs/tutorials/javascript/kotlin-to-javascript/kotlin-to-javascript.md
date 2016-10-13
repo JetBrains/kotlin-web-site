@@ -133,7 +133,7 @@ Note that we're loading the `kotlin.js` runtime first and then loading our appli
 
 The output of this is a blank page that prints `Hello JavaScript` to the console.
 
-   ![Application Output]({{ url_for('tutorial_img', path='javascript/kotlin-to-javascript/app-output.png')}})
+   ![Application Output]({{ url_for('tutorial_img', filename='javascript/kotlin-to-javascript/app-output.png')}})
 
 
 

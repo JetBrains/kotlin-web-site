@@ -29,7 +29,7 @@ Kotlin generate JavaScript code that is compatible with Asynchronous Module Defi
 We can configure the Kotlin compiler option to use any of these. The last option (UMD) will generate UMD and fallback to the other options if one is not available.
 Currently Kotlin compiler options are per IntelliJ IDEA project as opposed to a Kotlin module.
  
-![Kotlin Compiler Options]({{ url_for('tutorial_img', path='javascript/working-with-modules/kotlin-compiler.png')}})
+![Kotlin Compiler Options]({{ url_for('tutorial_img', filename='javascript/working-with-modules/kotlin-compiler.png')}})
 
 ## Configuring Modules when using Maven or Gradle
 
@@ -74,7 +74,7 @@ define('customerBL', ['kotlin'], function (Kotlin) {
 
 Assuming we have the following project layout
 
-![Project Structure AMD]({{ url_for('tutorial_img', path='javascript/working-with-modules/project-structure-amd.png')}})
+![Project Structure AMD]({{ url_for('tutorial_img', filename='javascript/working-with-modules/project-structure-amd.png')}})
 
 
 we could define our `index.html` to load `require.js` along with `main.js` as the value of the `data-main` attribute
@@ -152,7 +152,7 @@ The last line is invoking the function itself and passing as argument `kotlin`, 
 When compiling, the compiler always outputs the kotlin.js file. The easiest way to reference this without having to refer to paths, is to set the output library folder for the compiler options 
 to `node_modules`. This way, Node will automatically pick it up as it does an exhaustive search for files under these folders
 
-![Node Modules]({{ url_for('tutorial_img', path='javascript/working-with-modules/node-modules.png')}})
+![Node Modules]({{ url_for('tutorial_img', filename='javascript/working-with-modules/node-modules.png')}})
 
 *NPM Directory*
  
@@ -186,5 +186,5 @@ console.dir(customer)
 
 In this case, we've set the output of our compilation to the `scripts` folder. On running the application we should see the following output:
 
-![Output CommonJS]({{ url_for('tutorial_img', path='javascript/working-with-modules/output-commonjs.png')}})
+![Output CommonJS]({{ url_for('tutorial_img', filename='javascript/working-with-modules/output-commonjs.png')}})
 

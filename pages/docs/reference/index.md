@@ -41,6 +41,6 @@ how Kotlin can be used for creating an Android application from scratch.
 
 <h2 style="clear: left">Modern Web Development with Kotlin</h2>
 
-  <a href="https://leanpub.com/modern-web-development-with-kotlin"><img src="{{ url_for("asset", filename="assets/images/mwdwk.jpg") }}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
+  <a href="https://leanpub.com/modern-web-development-with-kotlin"><img src="{{ url_for("asset", path="images/mwdwk.jpg") }}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 
 [Modern Web Development with Kotlin](https://leanpub.com/modern-web-development-with-kotlin) is a book by Denis Kalinin about Web development with Kotlin. It covers just enough basics to get started but mostly concentrates on the practical aspect of using the language. In particular, it guides you through the process of building a technology-packed Web application while using popular backend and frontend technologies.
