@@ -127,6 +127,11 @@ def pdf():
     return send_file(generate_pdf(pages, nav['reference']))
 
 
+@app.route('/docs/resources.html')
+def resources():
+    return render_template('resources.html')
+
+
 @app.route('/')
 def index_page():
     features = get_kotlin_features()

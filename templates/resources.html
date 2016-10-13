@@ -15,7 +15,32 @@
                     add it</a>.</p>
             <br/>
             <br/>
-            {{ page.html | safe }}
+
+            <h2>Community-Maintained Links</h2>
+
+            You can find a community-maintained list of links to Kotlin projects, libraries and other resources at
+            <a href="http://kotlin.link/">Awesome Kotlin</a>.
+
+            <h2>Open Source Projects and Libraries</h2>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for project in site.data["oss-projects"] %}
+                    <tr>
+                        <td><a href="{{ project.link }}">{{ project.name }}</a></td>
+                        <td>{{ project.description }}</td>
+                        <td>{{ project.type }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </article>
     </div>
 {% endblock %}
