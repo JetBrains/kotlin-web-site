@@ -225,6 +225,14 @@ Obj.INSTANCE.foo(); // works too
 making its getter and setter methods be static members in that object or the class containing the companion object.
 
 
+## KClass
+
+Sometimes you need to call a Kotlin method with a parameter of type `KClass`. Unfortunatly there is no automatic conversion from `Class` to `KClass`, so you have to do in manually via the `Class<T>.kotlin` extension property:
+
+```kotlin
+kotlin.jvm.JvmClassMappingKt.getKotlinClass(MainView.class)
+```
+
 ## Handling signature clashes with @JvmName
 
 Sometimes we have a named function in Kotlin, for which we need a different JVM name the byte code.
