@@ -36,7 +36,6 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
 ## What Kotlin has that Scala does not
 
 * [Zero-overhead null-safety](null-safety.html)
-    * Scala has Option, which is a syntactic and run-time wrapper
 * [Smart casts](typecasts.html)
 * [Kotlin's Inline functions facilitate Nonlocal jumps](inline-functions.html#inline-functions)
 * [First-class delegation](delegation.html). Also implemented via 3rd party plugin: Autoproxy
