@@ -98,7 +98,7 @@ html {
 }
 ```
 
-(`head` and `body` are member functions of `html`.)
+(`head` and `body` are member functions of `HTML`.)
 
 Now, *this*{: .keyword } can be omitted, as usual, and we get something that looks very much like a builder already:
 
