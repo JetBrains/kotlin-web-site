@@ -67,7 +67,7 @@ dependencies {
 #### Why not just add required manifest options to all Kotlin libraries
 
 Even though it is the most preferred way to provide OSGi support, unfortunately it couldn't be done for now due to so called
-["package split" issue](http://wiki.osgi.org/wiki/Split_Packages) that could't be easily eliminated and such a big change is
+["package split" issue](http://wiki.osgi.org/wiki/Split_Packages) that couldn't be easily eliminated and such a big change is
 not planned for now. There is `Require-Bundle` feature but it is not the best option too and not recommended to use.
 So it was decided to make a separate artifact for OSGi.
 
