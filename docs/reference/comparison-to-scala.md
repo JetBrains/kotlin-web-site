@@ -30,8 +30,14 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
 * Yield operator
 * Actors
     * Kotlin supports [Quasar](http://www.paralleluniverse.co/quasar/), a third-party framework for actor support on the JVM
-* Parallel collections
-    * Kotlin supports Java 8 streams, which provide similar functionality
+* Collections
+    * Scala has its own unique collections library, while Koltin relies on Java collections with some extensions
+        * Scala's basic list type is an immutable linked-list similar to LISP, while Kotlin is based on Java ArrayList
+        * Scala has Traversable and Iterable, while Kotlin just supports Iterable.
+    * Parallel collections
+        * Kotlin supports Java 8 streams, which provide similar functionality
+* Pattern Matching
+    * Scala's match is (currently) more powerful than Kotlin's when, but this may change in the future.
 
 ## What Kotlin has that Scala does not
 
