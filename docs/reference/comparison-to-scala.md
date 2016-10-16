@@ -30,8 +30,8 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
 * Yield operator
 * Actors
     * Kotlin supports [Quasar](http://www.paralleluniverse.co/quasar/), a third-party framework for actor support on the JVM
-* Parallel collections
-    * Kotlin supports Java 8 streams, which provide similar functionality
+* Immutable, persistent and parallel collections
+    * We are currently considering adding immutable collections
 
 ## What Kotlin has that Scala does not
 
