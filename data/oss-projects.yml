@@ -232,3 +232,8 @@
   description: An OpenGL framework written in Kotlin
   type: Framework
   link: https://github.com/GlimpseFramework/glimpse-framework
+
+- name: Pair Adjacent Violators
+  description: An implementation of the PAV algorithm for isotonic regression (machine learning) in Kotlin
+  type: Library
+  link: https://github.com/sanity/pairAdjacentViolators

@@ -2282,3 +2282,11 @@
   date: 2016-10-06
   location: Zagreb, Croatia
   lang: en
+
+- title: "Lyon Kotlin User Group"
+  url: "https://www.meetup.com/fr-FR/Lyon-Kotlin-User-Group/events/234673830/"
+  subject: "DSL in Kotlin"
+  speaker: Gaetan Zoritchak
+  date: 2016-10-18
+  location: Lyon, France
+  lang: fr
