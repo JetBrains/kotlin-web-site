@@ -13,6 +13,11 @@
   type: Framework
   link: https://github.com/Kotlin/ktor
 
+- name: Anko
+  description: Anko is a library which makes Android application development faster and easier
+  type: Library
+  link: https://github.com/Kotlin/anko
+
 - name: Kara
   description: An MVC Framework
   type: Framework
