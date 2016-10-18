@@ -132,6 +132,11 @@ def resources():
     return render_template('resources.html')
 
 
+@app.route('/search.html')
+def search_page():
+    return render_template('pages/search.html')
+
+
 @app.route('/')
 def index_page():
     features = get_kotlin_features()
