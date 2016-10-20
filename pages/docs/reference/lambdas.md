@@ -14,13 +14,13 @@ A good example of such a function is `lock()` that takes a lock object and a fun
 
 ``` kotlin
 fun <T> lock(lock: Lock, body: () -> T): T {
-  lock.lock()
-  try {
-    return body()
-  }
-  finally {
-    lock.unlock()
-  }
+    lock.lock()
+    try {
+        return body()
+    }
+    finally {
+        lock.unlock()
+    }
 }
 ```
 
@@ -52,7 +52,7 @@ In Kotlin, there is a convention that if the last parameter to a function is a f
 
 ``` kotlin
 lock (lock) {
-  sharedResource.operation()
+    sharedResource.operation()
 }
 ```
 
@@ -60,10 +60,10 @@ Another example of a higher-order function would be `map()`:
 
 ``` kotlin
 fun <T, R> List<T>.map(transform: (T) -> R): List<R> {
-  val result = arrayListOf<R>()
-  for (item in this)
-    result.add(transform(item))
-  return result
+    val result = arrayListOf<R>()
+    for (item in this)
+        result.add(transform(item))
+    return result
 }
 ```
 
@@ -117,11 +117,11 @@ For example the abovementioned function `max` is defined as follows:
 
 ``` kotlin
 fun <T> max(collection: Collection<T>, less: (T, T) -> Boolean): T? {
-  var max: T? = null
-  for (it in collection)
-    if (max == null || less(max, it))
-      max = it
-  return max
+    var max: T? = null
+    for (it in collection)
+        if (max == null || less(max, it))
+            max = it
+    return max
 }
 ```
 
@@ -180,7 +180,7 @@ can be either an expression (as shown above) or a block:
 
 ``` kotlin
 fun(x: Int, y: Int): Int {
-  return x + y
+    return x + y
 }
 ```
 
@@ -212,7 +212,7 @@ can access its _closure_, i.e. the variables declared in the outer scope. Unlike
 ``` kotlin
 var sum = 0
 ints.filter { it > 0 }.forEach {
-  sum += it
+    sum += it
 }
 print(sum)
 ```
@@ -252,9 +252,9 @@ class HTML {
 }
 
 fun html(init: HTML.() -> Unit): HTML {
-  val html = HTML()  // create the receiver object
-  html.init()        // pass the receiver object to the lambda
-  return html
+    val html = HTML()  // create the receiver object
+    html.init()        // pass the receiver object to the lambda
+    return html
 }
 
 

@@ -21,7 +21,7 @@ To label an expression, we just put a label in front of it
 
 ``` kotlin
 loop@ for (i in 1..100) {
-  // ...
+    // ...
 }
 ```
 
@@ -29,10 +29,9 @@ Now, we can qualify a *break*{: .keyword } or a *continue*{: .keyword } with a l
 
 ``` kotlin
 loop@ for (i in 1..100) {
-  for (j in 1..100) {
-    if (...)
-      break@loop
-  }
+    for (j in 1..100) {
+        if (...) break@loop
+    }
 }
 ```
 
@@ -48,10 +47,10 @@ The most important use case is returning from a lambda expression. Recall that w
 
 ``` kotlin
 fun foo() {
-  ints.forEach {
-    if (it == 0) return
-    print(it)
-  }
+    ints.forEach {
+        if (it == 0) return
+        print(it)
+    }
 }
 ```
 
@@ -61,10 +60,10 @@ If we need to return from a lambda expression, we have to label it and qualify t
 
 ``` kotlin
 fun foo() {
-  ints.forEach lit@ {
-    if (it == 0) return@lit
-    print(it)
-  }
+    ints.forEach lit@ {
+        if (it == 0) return@lit
+        print(it)
+    }
 }
 ```
 
@@ -73,10 +72,10 @@ such a label has the same name as the function to which the lambda is passed.
 
 ``` kotlin
 fun foo() {
-  ints.forEach {
-    if (it == 0) return@forEach
-    print(it)
-  }
+    ints.forEach {
+        if (it == 0) return@forEach
+        print(it)
+    }
 }
 ```
 
@@ -85,10 +84,10 @@ A *return*{: .keyword } statement in an anomymous function will return from the 
 
 ``` kotlin
 fun foo() {
-  ints.forEach(fun(value: Int) {
-    if (value == 0) return
-    print(value)
-  })
+    ints.forEach(fun(value: Int) {
+        if (value == 0) return
+        print(value)
+    })
 }
 ```
 

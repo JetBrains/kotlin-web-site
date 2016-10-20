@@ -11,7 +11,7 @@ As in Java, classes in Kotlin may have type parameters:
 
 ``` kotlin
 class Box<T>(t: T) {
-  var value = t
+    var value = t
 }
 ```
 
@@ -126,12 +126,12 @@ To do this we provide the **out** modifier:
 
 ``` kotlin
 abstract class Source<out T> {
-  abstract fun nextT(): T
+    abstract fun nextT(): T
 }
 
 fun demo(strs: Source<String>) {
-  val objects: Source<Any> = strs // This is OK, since T is an out-parameter
-  // ...
+    val objects: Source<Any> = strs // This is OK, since T is an out-parameter
+    // ...
 }
 ```
 
@@ -149,13 +149,13 @@ produced. A good example of a contravariant class is `Comparable`:
 
 ``` kotlin
 abstract class Comparable<in T> {
-  abstract fun compareTo(other: T): Int
+    abstract fun compareTo(other: T): Int
 }
 
 fun demo(x: Comparable<Number>) {
-  x.compareTo(1.0) // 1.0 has type Double, which is a subtype of Number
-  // Thus, we can assign x to a variable of type Comparable<Double>
-  val y: Comparable<Double> = x // OK!
+    x.compareTo(1.0) // 1.0 has type Double, which is a subtype of Number
+    // Thus, we can assign x to a variable of type Comparable<Double>
+    val y: Comparable<Double> = x // OK!
 }
 ```
 
@@ -173,8 +173,8 @@ A good example of this is Array:
 
 ``` kotlin
 class Array<T>(val size: Int) {
-  fun get(index: Int): T { /* ... */ }
-  fun set(index: Int, value: T) { /* ... */ }
+    fun get(index: Int): T { /* ... */ }
+    fun set(index: Int, value: T) { /* ... */ }
 }
 ```
 
@@ -182,9 +182,9 @@ This class cannot be either co\- or contravariant in `T`. And this imposes certa
 
 ``` kotlin
 fun copy(from: Array<Any>, to: Array<Any>) {
-  assert(from.size == to.size)
-  for (i in from.indices)
-    to[i] = from[i]
+    assert(from.size == to.size)
+    for (i in from.indices)
+        to[i] = from[i]
 }
 ```
 
@@ -216,7 +216,7 @@ You can project a type with **in** as well:
 
 ``` kotlin
 fun fill(dest: Array<in String>, value: String) {
-  // ...
+    // ...
 }
 ```
 
@@ -248,11 +248,11 @@ Not only classes can have type parameters. Functions can, too. Type parameters a
 
 ``` kotlin
 fun <T> singletonList(item: T): List<T> {
-  // ...
+    // ...
 }
 
 fun <T> T.basicToString() : String {  // extension function
-  // ...
+    // ...
 }
 ```
 
@@ -272,7 +272,7 @@ The most common type of constraint is an **upper bound** that corresponds to Jav
 
 ``` kotlin
 fun <T : Comparable<T>> sort(list: List<T>) {
-  // ...
+    // ...
 }
 ```
 

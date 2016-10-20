@@ -43,10 +43,10 @@ For instance, given
  
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
-    var isPreferred = false
-    fun makePreferred() {
-        isPreferred = true
-    }
+        var isPreferred = false
+        fun makePreferred() {
+                isPreferred = true
+        }
 }
 ```
  
@@ -114,10 +114,10 @@ For instance, given
 
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
-    var isPreferred = false
-    fun makePreferred() {
-        isPreferred = true
-    }
+        var isPreferred = false
+        fun makePreferred() {
+                isPreferred = true
+        }
 }
 ```
 
@@ -187,4 +187,3 @@ console.dir(customer)
 In this case, we've set the output of our compilation to the `scripts` folder. On running the application we should see the following output:
 
 ![Output CommonJS]({{ url_for('tutorial_img', filename='javascript/working-with-modules/output-commonjs.png')}})
-

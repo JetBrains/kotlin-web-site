@@ -112,7 +112,7 @@ For instance, given
 ``` kotlin
 class MyActivity: Activity()
 fun MyActivity.a() { 
-    this.textView.setText(“”) 
+        this.textView.setText(“”) 
 }
 ```
 
@@ -122,7 +122,7 @@ However in the following case:
 
 ``` kotlin
 fun Activity.b() { 
-    this.textView.setText(“”)     
+        this.textView.setText(“”)     
 }
 ```
 

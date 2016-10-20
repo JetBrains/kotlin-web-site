@@ -126,7 +126,7 @@ reformat(str,
     upperCaseFirstLetter = true,
     divideByCamelHumps = false,
     wordSeparator = '_'
-  )
+)
 ```
 
 and if we do not need all arguments
@@ -189,17 +189,17 @@ A parameter of a function (normally the last one) may be marked with `vararg` mo
 
 ``` kotlin
 fun <T> asList(vararg ts: T): List<T> {
-  val result = ArrayList<T>()
-  for (t in ts) // ts is an Array
-    result.add(t)
-  return result
+    val result = ArrayList<T>()
+    for (t in ts) // ts is an Array
+        result.add(t)
+    return result
 }
 ```
 
 allowing a variable number of arguments to be passed to the function:
 
-```kotlin
-  val list = asList(1, 2, 3)
+``` kotlin
+val list = asList(1, 2, 3)
 ```
 
 Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<out T>`.
@@ -227,13 +227,13 @@ Kotlin supports local functions, i.e. a function inside another function
 
 ``` kotlin
 fun dfs(graph: Graph) {
-  fun dfs(current: Vertex, visited: Set<Vertex>) {
-    if (!visited.add(current)) return
-    for (v in current.neighbors)
-      dfs(v, visited)
-  }
+    fun dfs(current: Vertex, visited: Set<Vertex>) {
+        if (!visited.add(current)) return
+        for (v in current.neighbors)
+            dfs(v, visited)
+    }
 
-  dfs(graph.vertices[0], HashSet())
+    dfs(graph.vertices[0], HashSet())
 }
 ```
 
@@ -241,14 +241,14 @@ Local function can access local variables of outer functions (i.e. the closure),
 
 ``` kotlin
 fun dfs(graph: Graph) {
-  val visited = HashSet<Vertex>()
-  fun dfs(current: Vertex) {
-    if (!visited.add(current)) return
-    for (v in current.neighbors)
-      dfs(v)
-  }
+    val visited = HashSet<Vertex>()
+    fun dfs(current: Vertex) {
+        if (!visited.add(current)) return
+        for (v in current.neighbors)
+            dfs(v)
+    }
 
-  dfs(graph.vertices[0])
+    dfs(graph.vertices[0])
 }
 ```
 
@@ -258,7 +258,7 @@ A member function is a function that is defined inside a class or object
 
 ``` kotlin
 class Sample() {
-  fun foo() { print("Foo") }
+    fun foo() { print("Foo") }
 }
 ```
 
@@ -276,7 +276,7 @@ Functions can have generic parameters which are specified using angle brackets b
 
 ``` kotlin
 fun <T> singletonList(item: T): List<T> {
-  // ...
+    // ...
 }
 ```
 
@@ -319,4 +319,3 @@ private fun findFixPoint(): Double {
 ```
 
 To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call, and you cannot use it within try/catch/finally blocks. Currently tail recursion is only supported in the JVM backend.
-

@@ -86,7 +86,6 @@ And indeed, the standard library provides such extensions:
 operator fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V>> = entrySet().iterator()
 operator fun <K, V> Map.Entry<K, V>.component1() = getKey()
 operator fun <K, V> Map.Entry<K, V>.component2() = getValue()
-  
 ```  
   
 So you can freely use destructuring declarations in *for*{: .keyword }-loops with maps (as well as collections of data class instances etc).

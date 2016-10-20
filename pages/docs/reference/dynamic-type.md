@@ -44,7 +44,7 @@ When we pass a lambda to a dynamic call, all of its parameters by default have t
 
 ``` kotlin
 dyn.foo {
-  x -> x.bar() // x is dynamic
+    x -> x.bar() // x is dynamic
 }
 ```
 

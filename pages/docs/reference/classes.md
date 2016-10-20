@@ -72,7 +72,7 @@ In fact, for declaring properties and initializing them from the primary constru
 
 ``` kotlin
 class Person(val firstName: String, val lastName: String, var age: Int) {
-  // ...
+    // ...
 }
 ```
 
@@ -184,11 +184,9 @@ Note that in this case different secondary constructors can call different const
 
 ``` kotlin
 class MyView : View {
-    constructor(ctx: Context) : super(ctx) {
-    }
+    constructor(ctx: Context) : super(ctx)
 
-    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs) {
-    }
+    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 }
 ```
 
@@ -204,11 +202,11 @@ annotations for overridable members (we call them *open*) and for overrides:
 
 ``` kotlin
 open class Base {
-  open fun v() {}
-  fun nv() {}
+    open fun v() {}
+    fun nv() {}
 }
 class Derived() : Base() {
-  override fun v() {}
+    override fun v() {}
 }
 ```
 
@@ -220,7 +218,7 @@ A member marked *override*{: .keyword } is itself open, i.e. it may be overridde
 
 ``` kotlin
 open class AnotherDerived() : Base() {
-  final override fun v() {}
+    final override fun v() {}
 }
 ```
 
@@ -248,21 +246,21 @@ To denote the supertype from which the inherited implementation is taken, we use
 
 ``` kotlin
 open class A {
-  open fun f() { print("A") }
-  fun a() { print("a") }
+    open fun f() { print("A") }
+    fun a() { print("a") }
 }
 
 interface B {
-  fun f() { print("B") } // interface members are 'open' by default
-  fun b() { print("b") }
+    fun f() { print("B") } // interface members are 'open' by default
+    fun b() { print("b") }
 }
 
 class C() : A(), B {
-  // The compiler requires f() to be overridden:
-  override fun f() {
-    super<A>.f() // call to A.f()
-    super<B>.f() // call to B.f()
-  }
+    // The compiler requires f() to be overridden:
+    override fun f() {
+        super<A>.f() // call to A.f()
+        super<B>.f() // call to B.f()
+    }
 }
 ```
 
@@ -280,11 +278,11 @@ We can override a non-abstract open member with an abstract one
 
 ``` kotlin
 open class Base {
-  open fun f() {}
+    open fun f() {}
 }
 
 abstract class Derived : Base() {
-  override abstract fun f()
+    override abstract fun f()
 }
 ```
 

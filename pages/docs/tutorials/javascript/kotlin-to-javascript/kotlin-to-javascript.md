@@ -71,7 +71,7 @@ Taking the above into account, given the following code (module name is `Console
 
 ```kotlin
 fun main(args: Array<String>) {
-    println("Hello JavaScript!")
+        println("Hello JavaScript!")
 }
 ```
 

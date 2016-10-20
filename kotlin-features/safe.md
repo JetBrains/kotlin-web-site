@@ -18,8 +18,8 @@ And if you check a type is right, the compiler will auto-cast it for you
 
 ``` kotlin
 fun calculateTotal(obj: Any) {
-  if (obj is Invoice) {
-    obj.calculateTotal()
-  }
+    if (obj is Invoice) {
+        obj.calculateTotal()
+    }
 }
 ```
