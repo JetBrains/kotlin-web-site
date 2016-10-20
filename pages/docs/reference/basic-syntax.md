@@ -109,10 +109,11 @@ See [String templates](basic-types.html#string-templates).
 
 ``` kotlin
 fun max(a: Int, b: Int): Int {
-  if (a > b)
+  if (a > b) {
     return a
-  else
+  } else {
     return b
+  }
 }
 ```
 
@@ -196,8 +197,7 @@ or
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
-  if (obj !is String)
-    return null
+  if (obj !is String) return null
 
   // `obj` is automatically cast to `String` in this branch
   return obj.length
@@ -209,8 +209,9 @@ or even
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
   // `obj` is automatically cast to `String` on the right-hand side of `&&`
-  if (obj is String && obj.length > 0)
+  if (obj is String && obj.length > 0) {
     return obj.length
+  }
 
   return null
 }
@@ -222,16 +223,18 @@ See [Classes](classes.html) and [Type casts](typecasts.html).
 
 ``` kotlin
 fun main(args: Array<String>) {
-  for (arg in args)
+  for (arg in args) {
     print(arg)
+  } 
 }
 ```
 
 or
 
 ``` kotlin
-for (i in args.indices)
+for (i in args.indices) {
   print(args[i])
+} 
 ```
 
 See [for loop](control-flow.html#for-loops).
@@ -241,8 +244,9 @@ See [for loop](control-flow.html#for-loops).
 ``` kotlin
 fun main(args: Array<String>) {
   var i = 0
-  while (i < args.size)
+  while (i < args.size) {
     print(args[i++])
+  }  
 }
 ```
 
@@ -269,22 +273,25 @@ See [when expression](control-flow.html#when-expression).
 Check if a number is within a range using *in*{: .keyword } operator:
 
 ``` kotlin
-if (x in 1..y-1)
+if (x in 1..y-1) {
   print("OK")
+}
 ```
 
 Check if a number is out of range:
 
 ``` kotlin
-if (x !in 0..array.lastIndex)
+if (x !in 0..array.lastIndex) {
   print("Out")
+}
 ```
 
 Iterating over a range:
 
 ``` kotlin
-for (x in 1..5)
+for (x in 1..5) {
   print(x)
+}
 ```
 
 See [Ranges](ranges.html).
@@ -294,15 +301,17 @@ See [Ranges](ranges.html).
 Iterating over a collection:
 
 ``` kotlin
-for (name in names)
+for (name in names) {
   println(name)
+}
 ```
 
 Checking if a collection contains an object using *in*{: .keyword } operator:
 
 ``` kotlin
-if (text in names) // names.contains(text) is called
+if (text in names) { // names.contains(text) is called
   print("Yes")
+}
 ```
 
 Using lambda expressions to filter and map collections:
