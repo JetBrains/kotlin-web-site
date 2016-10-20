@@ -237,3 +237,8 @@
   description: An implementation of the PAV algorithm for isotonic regression (machine learning) in Kotlin
   type: Library
   link: https://github.com/sanity/pairAdjacentViolators
+  
+- name: Async Under 8
+  description: Kotlin coroutine async implementation without java 8 requirement
+  type: Framework
+  link: https://github.com/fboldog/async-under8
