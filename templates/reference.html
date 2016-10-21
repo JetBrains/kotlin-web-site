@@ -29,9 +29,5 @@
         </article>
     </div>
 
-    <script>
-        require(['page/reference'], function (page) {
-            page();
-        });
-    </script>
+    <script src="{{ url_for('static', filename='reference.js') }}"></script>
 {% endblock %}

@@ -6,15 +6,7 @@
 {#---#}
 
 {% block page_content %}
-    <script>
-        require(['jquery', 'com/toc'], function ($, Toc) {
-            var toc = new Toc();
-
-            toc.render({
-                target: document.getElementById('js-toc')
-            });
-        });
-    </script>
+    <script src="{{ url_for('static', filename='grammar.js') }}"></script>
 
     <div id="js-toc"></div>
 

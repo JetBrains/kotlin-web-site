@@ -1,13 +1,11 @@
 import datetime
 import json
 import os
-import runpy
 import sys
 from os import path
 
 import yaml
 from flask import Flask, render_template, Response, send_from_directory
-from flask import request
 from flask.helpers import send_file
 from flask_frozen import Freezer, walk_directory
 
@@ -16,11 +14,11 @@ from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
 from src.encoder import DateAwareEncoder
 from src.grammar import get_grammar
-from src.markdown.makrdown import customized_markdown, jinja_aware_markdown
-from src.pdf import get_pdf_content, generate_pdf
+from src.markdown.makrdown import jinja_aware_markdown
+from src.pdf import generate_pdf
 from src.sitemap import generate_sitemap
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='_assets')
 app.config.from_pyfile('mysettings.py')
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True

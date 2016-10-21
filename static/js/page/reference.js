@@ -1,8 +1,8 @@
-define(['com/nav-tree'], function (NavTree) {
+var NavTree = require('../com/nav-tree');
+var $ = require('jquery');
 
-    return (function () {
-        $(document).ready(function () {
-            $(':header').each(function (ind, element) {
+$(document).ready(function () {
+  $(':header').each(function (ind, element) {
                 var id = element.getAttribute("id");
                 var tagName = element.tagName.toLowerCase();
                 if( id == null) return;
@@ -11,10 +11,7 @@ define(['com/nav-tree'], function (NavTree) {
                 referenceElement.className = "anchor";
                 referenceElement.href = "#" + id;
                 element.appendChild(referenceElement)
-            });
+  });
 
-            new NavTree(document.getElementById('reference-nav'));
-        });
-    });
-
+  new NavTree(document.getElementById('reference-nav'));
 });

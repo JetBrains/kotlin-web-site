@@ -1,151 +1,146 @@
-define([
-    'jquery',
-    'com/carousel',
-    'com/video-player'
-], function ($, Carousel, Player) {
+var $ = require('jquery');
+var Carousel = require('../com/carousel');
+var Player = require('../com/video-player');
 
-    var initTabs = function () {
-        var $tabs = $('.js-tab');
 
-        $tabs.on('click', function () {
-            var $tab = $(this),
-                tabId = $tab.attr('data-tab-id');
+var initTabs = function () {
+  var $tabs = $('.js-tab');
 
-            if ($tab.hasClass('is_active')) {
-                return;
-            }
+  $tabs.on('click', function () {
+    var $tab = $(this),
+      tabId = $tab.attr('data-tab-id');
 
-            $tabs.each(function () {
-                var $currentTab = $(this),
-                    currentTabId = $currentTab.attr('data-tab-id'),
-                    $tabContentNode = $('#' + currentTabId);
+    if ($tab.hasClass('is_active')) {
+      return;
+    }
 
-                if (tabId === currentTabId) {
-                    $currentTab.addClass('is_active');
-                    $tabContentNode.removeClass('is_hidden');
-                } else {
-                    $currentTab.removeClass('is_active');
-                    $tabContentNode.addClass('is_hidden');
-                }
-            });
+    $tabs.each(function () {
+      var $currentTab = $(this),
+        currentTabId = $currentTab.attr('data-tab-id'),
+        $tabContentNode = $('#' + currentTabId);
+
+      if (tabId === currentTabId) {
+        $currentTab.addClass('is_active');
+        $tabContentNode.removeClass('is_hidden');
+      } else {
+        $currentTab.removeClass('is_active');
+        $tabContentNode.addClass('is_hidden');
+      }
+    });
+  });
+};
+
+var initPopups = function () {
+  var popups =
+  {
+    init: function () {
+      var that = this,
+        $popups = $('.js-popup'),
+        $popupShowButtons = $('.js-popup-open-button'),
+        $popupHideButtons = $('.js-popup-close-button');
+
+      $popupShowButtons.on('click', function (e) {
+        var popupId = this.getAttribute('data-popup-id');
+
+        e.stopPropagation();
+        that.showPopup(popupId);
+      });
+
+      $popupHideButtons.on('click', function (e) {
+        var popupId = this.getAttribute('data-popup-id');
+
+        e.stopPropagation();
+        that.hidePopup(popupId);
+      });
+
+      $(document.body).on('click', function () {
+        $popups.each(function () {
+          var $popup = $(this),
+            popupId = this.id;
+
+          if (!$popup.hasClass('_hidden')) {
+            that.hidePopup(popupId);
+          }
         });
-    };
+      });
 
-    var initPopups = function () {
-        var popups =
-        {
-            init: function () {
-                var that = this,
-                    $popups = $('.js-popup'),
-                    $popupShowButtons = $('.js-popup-open-button'),
-                    $popupHideButtons = $('.js-popup-close-button');
+      $popups.on('click', function (e) {
+        e.stopPropagation();
+      })
+    },
 
-                $popupShowButtons.on('click', function (e) {
-                    var popupId = this.getAttribute('data-popup-id');
+    togglePopup: function (id) {
+      var that = this,
+        $popupNode = $('#' + id);
 
-                    e.stopPropagation();
-                    that.showPopup(popupId);
-                });
+      if ($popupNode.hasClass('_hidden')) {
+        that.showPopup(id);
+      } else {
+        that.hidePopup(id);
+      }
+    },
 
-                $popupHideButtons.on('click', function (e) {
-                    var popupId = this.getAttribute('data-popup-id');
+    showPopup: function (id) {
+      var $popupNode = $('#' + id);
 
-                    e.stopPropagation();
-                    that.hidePopup(popupId);
-                });
+      $popupNode.removeClass('_hidden');
+    },
 
-                $(document.body).on('click', function () {
-                    $popups.each(function () {
-                        var $popup = $(this),
-                            popupId = this.id;
+    hidePopup: function (id) {
+      var $popupNode = $('#' + id);
 
-                        if (!$popup.hasClass('_hidden')) {
-                            that.hidePopup(popupId);
-                        }
-                    });
-                });
+      $popupNode.addClass('_hidden');
+    }
+  };
 
-                $popups.on('click', function (e) {
-                    e.stopPropagation();
-                })
-            },
+  popups.init();
+};
 
-            togglePopup: function (id) {
-                var that = this,
-                    $popupNode = $('#' + id);
+var initPlayer = function () {
+  var $playerBlock = $('.js-video-player-wrap'),
+    $playerPlaceholder = $playerBlock.find('.js-video-player'),
+    $thumbLink = $playerBlock.find('.js-video-thumb-link'),
+    playerHeight = $playerBlock.get(0).offsetHeight;
 
-                if ($popupNode.hasClass('_hidden')) {
-                    that.showPopup(id);
-                } else {
-                    that.hidePopup(id);
-                }
-            },
+  $playerBlock.css('height', playerHeight);
 
-            showPopup: function (id) {
-                var $popupNode = $('#' + id);
+  $thumbLink.on('click', function (e) {
+    var $thumbLink = $(this),
+      videoId = Player.getVideoIdFromUrl(this.href);
 
-                $popupNode.removeClass('_hidden');
-            },
+    if (!videoId) {
+      return;
+    }
 
-            hidePopup: function (id) {
-                var $popupNode = $('#' + id);
+    $playerBlock.addClass('is_showing-video');
 
-                $popupNode.addClass('_hidden');
-            }
-        };
+    setTimeout(function () {
+      $thumbLink.remove();
+      new Player($playerPlaceholder.get(0), {
+        width: '100%',
+        height: playerHeight,
+        videoId: videoId,
+        autoPlay: true
+      });
 
-        popups.init();
-    };
+    }, 400);
 
-    var initPlayer = function () {
-        var $playerBlock = $('.js-video-player-wrap'),
-            $playerPlaceholder = $playerBlock.find('.js-video-player'),
-            $thumbLink = $playerBlock.find('.js-video-thumb-link'),
-            playerHeight = $playerBlock.get(0).offsetHeight;
+    e.preventDefault();
+  });
+};
 
-        $playerBlock.css('height', playerHeight);
+$(document).ready(function () {
+  // Features carousel
+  new Carousel({
+    elem: document.getElementById('features-carousel-wrap')
+  });
 
-        $thumbLink.on('click', function (e) {
-            var $thumbLink = $(this),
-                videoId = Player.getVideoIdFromUrl(this.href);
+  // Testimonials carousel
+  new Carousel({
+    elem: document.getElementById('testimonials-carousel-wrap')
+  });
 
-            if (!videoId) {
-                return;
-            }
-
-            $playerBlock.addClass('is_showing-video');
-
-            setTimeout(function () {
-                $thumbLink.remove();
-                new Player($playerPlaceholder.get(0), {
-                    width: '100%',
-                    height: playerHeight,
-                    videoId: videoId,
-                    autoPlay: true
-                });
-
-            }, 400);
-
-            e.preventDefault();
-        });
-    };
-
-    return (function () {
-        $(document).ready(function () {
-            // Features carousel
-            new Carousel({
-                elem: document.getElementById('features-carousel-wrap')
-            });
-
-            // Testimonials carousel
-            new Carousel({
-                elem: document.getElementById('testimonials-carousel-wrap')
-            });
-
-            initPlayer();
-            initPopups();
-            initTabs();
-        });
-    })();
-
+  initPlayer();
+  initPopups();
+  initTabs();
 });

@@ -1,9 +1,8 @@
-define(['com/events-table'], function (EventsTable) {
+var EventsTable = require('../com/events-table');
+var $ = require('jquery');
 
-    return function (elem, data) {
-        $(document).ready(function () {
-            new EventsTable(elem, data);
-        });
-    };
-
+$(document).ready(function () {
+  $.getJSON("/data/events.json", function (data) {
+    new EventsTable(document.getElementById('events'), data);
+  });
 });

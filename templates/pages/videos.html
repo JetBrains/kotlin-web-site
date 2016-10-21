@@ -14,14 +14,5 @@
         </article>
     </div>
 
-    <script>
-        require(['page/videos'], function (page) {
-            page({
-                elem: document.getElementById('video-gallery'),
-                playerElem: document.getElementById('video-player'),
-                descriptionElem: document.getElementById('video-description'),
-                videos: {{ site.data.videos | tojson }}
-            });
-        });
-    </script>
+    <script src="{{ url_for('static', filename='videos.js') }}"></script>
 {% endblock %}

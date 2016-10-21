@@ -10,10 +10,4 @@ docs_nav_id: events
 
 <div id="events"></div>
 
-<script>
-require(['page/events'], function(page) {
-    $.getJSON("/data/events.json", function(data){
-        page(document.getElementById('events'), data);
-    })
-});
-</script>
+<script src="{{ url_for('static', filename='events.js') }}"></script>

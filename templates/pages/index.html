@@ -2,7 +2,6 @@
 <html>
 <head>
     {% include 'inc/head.html' %}
-    {% include 'inc/js-bootstrap.html' %}
 </head>
 <body class="page_index">
 {% include 'inc/analytics.html' %}
@@ -283,8 +282,8 @@
 
 {% include 'inc/footer.html' %}
 
-<script>
-    require(['page/index', 'com/search', 'com/cookie-banner']);
-</script>
+<script src="{{ url_for('static', filename='common.js') }}"></script>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+
 </body>
 </html>

@@ -1,6 +1,8 @@
-define(['com/nav-tree'], function (NavTree) {
+var NavTree = require('../com/nav-tree');
+var $ = require('jquery');
 
-    $(':header').each(function (ind, element) {
+$(document).ready(function () {
+  $(':header').each(function (ind, element) {
         var id = element.getAttribute("id");
         var tagName = element.tagName.toLowerCase();
         if( id == null) return;
@@ -11,10 +13,5 @@ define(['com/nav-tree'], function (NavTree) {
         element.appendChild(referenceElement)
     });
 
-    return (function () {
-        $(document).ready(function () {
-            new NavTree(document.getElementById('tutorials-nav'));
-        });
-    })();
-
+  new NavTree(document.getElementById('tutorials-nav'));
 });

@@ -1,7 +1,7 @@
 <html>
 <head>
     {% include 'inc/head.html' %}
-    {% include 'inc/js-bootstrap.html' %}
+    <script src="{{ url_for('static', filename='common.js') }}"></script>
 </head>
 <body>
 {% include 'inc/analytics.html' %}
@@ -19,6 +19,5 @@
 </div>
 
 {% include 'inc/footer.html' %}
-<script>require(['com/search', 'com/cookie-banner']);</script>
 </body>
 </html>

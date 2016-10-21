@@ -1,11 +1,12 @@
-define(['com/video-gallery'], function(VideoGallery) {
+var VideoGallery = require('../com/video-gallery');
+var $ = require('jquery');
 
-    return function(data) {
-        new VideoGallery(data.elem, {
-            playerElem: data.playerElem,
-            descriptionElem: data.descriptionElem,
-            data: data.videos
-        });
-    };
-
+$(document).ready(function () {
+  $.getJSON("/data/videos.json", function (videos) {
+    new VideoGallery(document.getElementById('video-gallery'), {
+      playerElem: document.getElementById('video-player'),
+      descriptionElem: document.getElementById('video-description'),
+      data: videos
+    });
+  });
 });
