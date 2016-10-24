@@ -2290,3 +2290,11 @@
   date: 2016-10-18
   location: Lyon, France
   lang: fr
+
+- title: "Devoxx"
+  url: "http://cfp.devoxx.be/2016/talk/STH-6071/Gradle_meets_Kotlin"
+  subject: "Gradle meets Kotlin"
+  speaker: Rene Groeschke
+  date: 2016-11-07
+  location: Antwerp, Belgium
+  lang: en
