@@ -75,12 +75,12 @@ representing an instance of *Greeting*
 @RestController
 class GreetingController {
 
-    val counter = AtomicLong()
+        val counter = AtomicLong()
 
-    @RequestMapping("/greeting")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
-        return Greeting(counter.incrementAndGet(), "Hello, $name")
-    }
+        @RequestMapping("/greeting")
+        fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
+                return Greeting(counter.incrementAndGet(), "Hello, $name")
+        }
 }
 ```
 
@@ -98,11 +98,11 @@ The other change needed for Spring Boot is to mark the class as open. Spring boo
 ``` kotlin
 @SpringBootApplication
 open class Application {
-    companion object {
-        @JvmStatic fun main(args: Array<String>) {
-            SpringApplication.run(Application::class.java, *args)
+        companion object {
+                @JvmStatic fun main(args: Array<String>) {
+                        SpringApplication.run(Application::class.java, *args)
+                }
         }
-    }
 }
 ```
 
@@ -145,5 +145,4 @@ We can now use the any of the standard Gradle tasks for Spring Boot to run the a
 the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
 
 ![Running App]({{ url_for('tutorial_img', filename='spring-boot-restful/running-app.png')}})
-
 

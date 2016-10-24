@@ -138,9 +138,9 @@ Characters are represented by the type `Char`. They can not be treated directly 
 
 ``` kotlin
 fun check(c: Char) {
-  if (c == 1) { // ERROR: incompatible types
-    // ...
-  }
+    if (c == 1) { // ERROR: incompatible types
+        // ...
+    }
 }
 ```
 
@@ -153,9 +153,9 @@ We can explicitly convert a character to an `Int` number:
 
 ``` kotlin
 fun decimalDigitValue(c: Char): Int {
-  if (c !in '0'..'9')
-    throw IllegalArgumentException("Out of range")
-  return c.toInt() - '0'.toInt() // Explicit conversions to numbers
+    if (c !in '0'..'9')
+        throw IllegalArgumentException("Out of range")
+    return c.toInt() - '0'.toInt() // Explicit conversions to numbers
 }
 ```
 
@@ -179,12 +179,12 @@ Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` 
 
 ``` kotlin
 class Array<T> private constructor() {
-  val size: Int
-  fun get(index: Int): T
-  fun set(index: Int, value: T): Unit
+    val size: Int
+    fun get(index: Int): T
+    fun set(index: Int, value: T): Unit
 
-  fun iterator(): Iterator<T>
-  // ...
+    fun iterator(): Iterator<T>
+    // ...
 }
 ```
 
@@ -222,7 +222,7 @@ A string can be iterated over with a *for*{: .keyword }-loop:
 
 ``` kotlin
 for (c in str) {
-  println(c)
+    println(c)
 }
 ```
 
@@ -240,8 +240,8 @@ A raw string is delimited by a triple quote (`"""`), contains no escaping and ca
 
 ``` kotlin
 val text = """
-  for (c in "foo")
-    print(c)
+    for (c in "foo")
+        print(c)
 """
 ```
 
@@ -249,8 +249,8 @@ You can remove leading whitespace with [`trimMargin()`](https://kotlinlang.org/a
 
 ``` kotlin
 val text = """
-    |Tell me and I forget. 
-    |Teach me and I remember. 
+    |Tell me and I forget.
+    |Teach me and I remember.
     |Involve me and I learn.
     |(Benjamin Franklin)
     """.trimMargin()

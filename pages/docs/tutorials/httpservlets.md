@@ -38,9 +38,9 @@ Once we have the build script defined with the correct dependencies, we can now 
 ``` kotlin
 @WebServlet(name = "Hello", value = "/hello")
 class HomeController : HttpServlet() {
-    override fun doGet(req: HttpServletRequest, res: HttpServletResponse) {
-        res.writer.write("Hello, World!")
-    }
+        override fun doGet(req: HttpServletRequest, res: HttpServletResponse) {
+                res.writer.write("Hello, World!")
+        }
 }
 ```
 
@@ -65,7 +65,6 @@ The next step is to create a Run Configuration in IntelliJ IDEA under Tomcat / L
 Once we run the application (using this previous run configuration), and on successful deployment, we should be able to navigate to the browser with the correct url and see the response:
 
 ![Browser Run]({{ url_for('tutorial_img', filename='httpservlets/browser.png') }})
-
 
 
 

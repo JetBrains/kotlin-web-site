@@ -22,13 +22,13 @@ To catch an exception, use the *try*{: .keyword }-expression
 
 ``` kotlin
 try {
-  // some code
+    // some code
 }
 catch (e: SomeException) {
-  // handler
+    // handler
 }
 finally {
-  // optional finally block
+    // optional finally block
 }
 ```
 
@@ -63,10 +63,10 @@ So it results into this kind of code all over the place:
 
 ``` kotlin
 try {
-  log.append(message)
+    log.append(message)
 }
 catch (IOException e) {
-  // Must be safe
+    // Must be safe
 }
 ```
 
@@ -84,4 +84,3 @@ Other citations of this sort:
 ## Java Interoperability
 
 Please see the section on exceptions in the [Java Interoperability section](java-interop.html) for information about Java interoperability.
-

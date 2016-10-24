@@ -12,7 +12,7 @@ Range is defined for any comparable type, but for integral primitive types it ha
 
 ``` kotlin
 if (i in 1..10) { // equivalent of 1 <= i && i <= 10
-  println(i)
+    println(i)
 }
 ```
 
@@ -68,7 +68,7 @@ The result of the `downTo()` and `step()` functions is always a `*Progression`.
 Progressions are constructed with the `fromClosedRange` function defined in their companion objects:
 
 ``` kotlin
-  IntProgression.fromClosedRange(start, end, increment)
+    IntProgression.fromClosedRange(start, end, increment)
 ```
 
 The `last` element of the progression is calculated to find maximum value not greater than the `end` value for positive `increment` or minimum value not less than the `end` value for negative `increment` such that `(last - first) % increment == 0`.
@@ -83,18 +83,18 @@ The `rangeTo()` operators on integral types simply call the constructors of `*Ra
 
 ``` kotlin
 class Int {
-  //...
-  operator fun rangeTo(other: Long): LongRange = LongRange(this, other)
-  //...
-  operator fun rangeTo(other: Int): IntRange = IntRange(this, other)
-  //...
+    //...
+    operator fun rangeTo(other: Long): LongRange = LongRange(this, other)
+    //...
+    operator fun rangeTo(other: Int): IntRange = IntRange(this, other)
+    //...
 }
 ```
 
 Floating point numbers (`Double`, `Float`) do not define their `rangeTo` operator, and the one provided by the standard library for generic `Comparable` types is used instead:
 
 ``` kotlin
-  public operator fun <T: Comparable<T>> T.rangeTo(that: T): ClosedRange<T>
+    public operator fun <T: Comparable<T>> T.rangeTo(that: T): ClosedRange<T>
 ```
 
 The range returned by this function cannot be used for iteration.
@@ -105,11 +105,11 @@ The `downTo()` extension function is defined for any pair of integral types, her
 
 ``` kotlin
 fun Long.downTo(other: Int): LongProgression {
-  return LongProgression.fromClosedRange(this, other, -1.0)
+    return LongProgression.fromClosedRange(this, other, -1.0)
 }
 
 fun Byte.downTo(other: Int): IntProgression {
-  return IntProgression.fromClosedRange(this, other, -1)
+    return IntProgression.fromClosedRange(this, other, -1)
 }
 ```
 
@@ -119,7 +119,7 @@ The `reversed()` extension functions are defined for each `*Progression` classes
 
 ``` kotlin
 fun IntProgression.reversed(): IntProgression {
-  return IntProgression.fromClosedRange(last, first, -increment)
+    return IntProgression.fromClosedRange(last, first, -increment)
 }
 ```
 
@@ -131,20 +131,20 @@ The step value is required to be always positive, therefore this function never 
 
 ``` kotlin
 fun IntProgression.step(step: Int): IntProgression {
-  if (step <= 0) throw IllegalArgumentException("Step must be positive, was: $step")
-  return IntProgression.fromClosedRange(first, last, if (increment > 0) step else -step)
+    if (step <= 0) throw IllegalArgumentException("Step must be positive, was: $step")
+    return IntProgression.fromClosedRange(first, last, if (increment > 0) step else -step)
 }
 
 fun CharProgression.step(step: Int): CharProgression {
-  if (step <= 0) throw IllegalArgumentException("Step must be positive, was: $step")
-  return CharProgression.fromClosedRange(first, last, step)
+    if (step <= 0) throw IllegalArgumentException("Step must be positive, was: $step")
+    return CharProgression.fromClosedRange(first, last, step)
 }
 ```
 
 Note that the `last` value of the returned progression may become different from the `last` value of the original progression in order to preserve the invariant `(last - first) % increment == 0`. Here is an example:
 
 ``` kotlin
-  (1..12 step 2).last == 11  // progression with values [1, 3, 5, 7, 9, 11]
-  (1..12 step 3).last == 10  // progression with values [1, 4, 7, 10]
-  (1..12 step 4).last == 9   // progression with values [1, 5, 9]
+    (1..12 step 2).last == 11  // progression with values [1, 3, 5, 7, 9, 11]
+    (1..12 step 3).last == 10  // progression with values [1, 4, 7, 10]
+    (1..12 step 4).last == 9   // progression with values [1, 5, 9]
 ```

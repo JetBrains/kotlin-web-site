@@ -17,13 +17,13 @@ To create an object of an anonymous class that inherits from some type (or types
 
 ``` kotlin
 window.addMouseListener(object : MouseAdapter() {
-  override fun mouseClicked(e: MouseEvent) {
-    // ...
-  }
+    override fun mouseClicked(e: MouseEvent) {
+        // ...
+    }
 
-  override fun mouseEntered(e: MouseEvent) {
-    // ...
-  }
+    override fun mouseEntered(e: MouseEvent) {
+        // ...
+    }
 })
 ```
 
@@ -33,13 +33,13 @@ Many supertypes may be specified as a comma-separated list after the colon:
 
 ``` kotlin
 open class A(x: Int) {
-  public open val y: Int = x
+    public open val y: Int = x
 }
 
 interface B {...}
 
 val ab: A = object : A(1), B {
-  override val y = 15
+    override val y = 15
 }
 ```
 
@@ -47,8 +47,8 @@ If, by any chance, we need "just an object", with no nontrivial supertypes, we c
 
 ``` kotlin
 val adHoc = object {
-  var x: Int = 0
-  var y: Int = 0
+    var x: Int = 0
+    var y: Int = 0
 }
 print(adHoc.x + adHoc.y)
 ```
@@ -58,19 +58,19 @@ Just like Java's anonymous inner classes, code in object expressions can access 
 
 ``` kotlin
 fun countClicks(window: JComponent) {
-  var clickCount = 0
-  var enterCount = 0
+    var clickCount = 0
+    var enterCount = 0
 
-  window.addMouseListener(object : MouseAdapter() {
-    override fun mouseClicked(e: MouseEvent) {
-      clickCount++
-    }
+    window.addMouseListener(object : MouseAdapter() {
+        override fun mouseClicked(e: MouseEvent) {
+            clickCount++
+        }
 
-    override fun mouseEntered(e: MouseEvent) {
-      enterCount++
-    }
-  })
-  // ...
+        override fun mouseEntered(e: MouseEvent) {
+            enterCount++
+        }
+    })
+    // ...
 }
 ```
 
@@ -80,12 +80,12 @@ fun countClicks(window: JComponent) {
 
 ``` kotlin
 object DataProviderManager {
-  fun registerDataProvider(provider: DataProvider) {
-    // ...
-  }
+    fun registerDataProvider(provider: DataProvider) {
+        // ...
+    }
 
-  val allDataProviders: Collection<DataProvider>
-    get() = // ...
+    val allDataProviders: Collection<DataProvider>
+        get() = // ...
 }
 ```
 -
@@ -102,13 +102,13 @@ Such objects can have supertypes:
 
 ``` kotlin
 object DefaultListener : MouseAdapter() {
-  override fun mouseClicked(e: MouseEvent) {
-    // ...
-  }
+    override fun mouseClicked(e: MouseEvent) {
+        // ...
+    }
 
-  override fun mouseEntered(e: MouseEvent) {
-    // ...
-  }
+    override fun mouseEntered(e: MouseEvent) {
+        // ...
+    }
 }
 ```
 
@@ -121,9 +121,9 @@ An object declaration inside a class can be marked with the *companion*{: .keywo
 
 ``` kotlin
 class MyClass {
-  companion object Factory {
-    fun create(): MyClass = MyClass()
-  }
+    companion object Factory {
+        fun create(): MyClass = MyClass()
+    }
 }
 ```
 
@@ -137,8 +137,8 @@ The name of the companion object can be omitted, in which case the name `Compani
 
 ``` kotlin
 class MyClass {
-  companion object {
-  }
+    companion object {
+    }
 }
 
 val x = MyClass.Companion
@@ -149,14 +149,14 @@ are still instance members of real objects, and can, for example, implement inte
 
 ``` kotlin
 interface Factory<T> {
-  fun create(): T
+    fun create(): T
 }
 
 
 class MyClass {
-  companion object : Factory<MyClass> {
-    override fun create(): MyClass = MyClass()
-  }
+    companion object : Factory<MyClass> {
+        override fun create(): MyClass = MyClass()
+    }
 }
 ```
 
@@ -172,5 +172,4 @@ There is one important semantic difference between object expressions and object
 * object expressions are executed (and initialized) **immediately**, where they are used
 * object declarations are initialized **lazily**, when accessed for the first time
 * a companion object is initialized when the corresponding class is loaded (resolved), matching the semantics of a Java static initializer
-
 

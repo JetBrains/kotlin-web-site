@@ -107,4 +107,3 @@ To run a script, we just pass the `-script` option to the compiler with the corr
 ```
    $ kotlinc -script list_folders.kts <path_to_folder_to_inspect>
 ```
-

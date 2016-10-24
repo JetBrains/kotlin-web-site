@@ -24,10 +24,10 @@ Instead of creating a function object for the parameter and generating a call, t
 ``` kotlin
 l.lock()
 try {
-  foo()
+    foo()
 }
 finally {
-  l.unlock()
+    l.unlock()
 }
 ```
 
@@ -37,7 +37,7 @@ To make the compiler do this, we need to mark the `lock()` function with the `in
 
 ``` kotlin
 inline fun lock<T>(lock: Lock, body: () -> T): T {
-  // ...
+    // ...
 }
 ```
 
@@ -54,7 +54,7 @@ parameters with the `noinline` modifier:
 
 ``` kotlin
 inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) {
-  // ...
+    // ...
 }
 ```
 
@@ -73,9 +73,9 @@ inside a lambda, because a lambda can not make the enclosing function return:
 
 ``` kotlin
 fun foo() {
-  ordinaryFunction {
+    ordinaryFunction {
      return // ERROR: can not make `foo` return here
-  }
+    }
 }
 ```
 
@@ -83,9 +83,9 @@ But if the function the lambda is passed to is inlined, the return can be inline
 
 ``` kotlin
 fun foo() {
-  inlineFunction {
-    return // OK: the lambda is inlined
-  }
+    inlineFunction {
+        return // OK: the lambda is inlined
+    }
 }
 ```
 
@@ -94,10 +94,10 @@ this sort of constructs in loops, which inline functions often enclose:
 
 ``` kotlin
 fun hasZeros(ints: List<Int>): Boolean {
-  ints.forEach {
-    if (it == 0) return true // returns from hasZeros
-  }
-  return false
+    ints.forEach {
+        if (it == 0) return true // returns from hasZeros
+    }
+    return false
 }
 ```
 
@@ -168,7 +168,7 @@ Though reflection may not be needed in many cases, we can still use it with a re
 inline fun <reified T> membersOf() = T::class.members
 
 fun main(s: Array<String>) {
-  println(membersOf<StringBuilder>().joinToString("\n"))
+    println(membersOf<StringBuilder>().joinToString("\n"))
 }
 ```
 

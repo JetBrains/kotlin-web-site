@@ -44,9 +44,9 @@ public class Customer {
 allows us to call it from Kotlin like any other type in Kotlin.
 
 ``` kotlin
-    val customer = Customer("Phase")
+        val customer = Customer("Phase")
 
-    println(customer.getName())
+        println(customer.getName())
 ```
 
 

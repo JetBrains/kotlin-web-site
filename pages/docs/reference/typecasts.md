@@ -13,14 +13,14 @@ We can check whether an object conforms to a given type at runtime by using the 
 
 ``` kotlin
 if (obj is String) {
-  print(obj.length)
+    print(obj.length)
 }
 
 if (obj !is String) { // same as !(obj is String)
-  print("Not a String")
+    print("Not a String")
 }
 else {
-  print(obj.length)
+    print(obj.length)
 }
 ```
 
@@ -31,28 +31,29 @@ In many cases, one does not need to use explicit cast operators in Kotlin, becau
 
 ``` kotlin
 fun demo(x: Any) {
-  if (x is String) {
-    print(x.length) // x is automatically cast to String
-  }
+    if (x is String) {
+        print(x.length) // x is automatically cast to String
+    }
 }
 ```
 
 The compiler is smart enough to know a cast to be safe if a negative check leads to a return:
 
 ``` kotlin
-  if (x !is String) return
-  print(x.length) // x is automatically cast to String
+    if (x !is String) return
+    print(x.length) // x is automatically cast to String
 ```
 
 or in the right-hand side of `&&` and `||`:
 
 ``` kotlin
-  // x is automatically cast to string on the right-hand side of `||`
-  if (x !is String || x.length == 0) return
+    // x is automatically cast to string on the right-hand side of `||`
+    if (x !is String || x.length == 0) return
 
-  // x is automatically cast to string on the right-hand side of `&&`
-  if (x is String && x.length > 0)
-      print(x.length) // x is automatically cast to String
+    // x is automatically cast to string on the right-hand side of `&&`
+    if (x is String && x.length > 0) {
+        print(x.length) // x is automatically cast to String
+    }
 ```
 
 
@@ -61,9 +62,9 @@ and [*while*{: .keyword }-loops](control-flow.html#while-loops) as well:
 
 ``` kotlin
 when (x) {
-  is Int -> print(x + 1)
-  is String -> print(x.length + 1)
-  is IntArray -> print(x.sum())
+    is Int -> print(x + 1)
+    is String -> print(x.length + 1)
+    is IntArray -> print(x.sum())
 }
 ```
 
@@ -102,4 +103,3 @@ val x: String? = y as? String
 ```
 
 Note that despite the fact that the right-hand side of *as?*{: .keyword } is a non-null type `String` the result of the cast is nullable.
-

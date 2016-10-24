@@ -161,7 +161,7 @@ Properties annotated with `const` (in classes as well as at the top level) are t
 // file example.kt
 
 object Obj {
-  const val CONST = 1
+    const val CONST = 1
 }
 
 class C {
@@ -189,10 +189,10 @@ For example:
 
 ``` kotlin
 class C {
-  companion object {
-    @JvmStatic fun foo() {}
-    fun bar() {}
-  }
+    companion object {
+        @JvmStatic fun foo() {}
+        fun bar() {}
+    }
 }
 ```
 
@@ -260,8 +260,8 @@ The same trick applies when we need to have a property `x` alongside with a func
 
 ``` kotlin
 val x: Int
-  @JvmName("getX_prop")
-  get() = 15
+    @JvmName("getX_prop")
+    get() = 15
 
 fun getX() = 10
 ```
@@ -309,7 +309,7 @@ Thus if we have a function in Kotlin like this:
 package demo
 
 fun foo() {
-  throw IOException()
+    throw IOException()
 }
 ```
 

@@ -17,9 +17,9 @@ The following adds a `swap` function to `MutableList<Int>`:
 
 ``` kotlin
 fun MutableList<Int>.swap(index1: Int, index2: Int) {
-  val tmp = this[index1] // 'this' corresponds to the list
-  this[index1] = this[index2]
-  this[index2] = tmp
+    val tmp = this[index1] // 'this' corresponds to the list
+    this[index1] = this[index2]
+    this[index2] = tmp
 }
 ```
 
@@ -35,9 +35,9 @@ Of course, this function makes sense for any `MutableList<T>`, and we can make i
 
 ``` kotlin
 fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
-  val tmp = this[index1] // 'this' corresponds to the list
-  this[index1] = this[index2]
-  this[index2] = tmp
+    val tmp = this[index1] // 'this' corresponds to the list
+    this[index1] = this[index2]
+    this[index2] = tmp
 }
 ```
 
@@ -120,7 +120,7 @@ Similarly to functions, Kotlin supports extension properties:
 
 ``` kotlin
 val <T> List<T>.lastIndex: Int
-  get() = size - 1
+    get() = size - 1
 ```
 
 Note that, since extensions do not actually insert members into classes, there's no efficient way for an extension 
@@ -141,11 +141,11 @@ functions and properties for the companion object:
 
 ``` kotlin
 class MyClass {
-  companion object { }  // will be called "Companion"
+    companion object { }  // will be called "Companion"
 }
 
 fun MyClass.Companion.foo() {
-  // ...
+    // ...
 }
 ```
 
@@ -176,7 +176,7 @@ import foo.bar.goo // importing all extensions by name "goo"
 import foo.bar.*   // importing everything from "foo.bar"
 
 fun usage(baz: Baz) {
-  baz.goo()
+    baz.goo()
 )
 
 ```

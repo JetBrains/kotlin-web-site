@@ -37,8 +37,8 @@ out to the console window.
 
 ```kotlin
 fun main(args: Array<String>) {
-    val message = "Hello JavaScript!"
-    println(message)
+        val message = "Hello JavaScript!"
+        println(message)
 }
 ```
 
@@ -99,7 +99,6 @@ generating source maps, we also have the ability to set
 ## Summary
 
 In this tutorial we've seen how to create a Kotlin application that targets JavaScript, debug it as well as set compiler options. In other tutorials we'll cover more in-depth topics such as interacting with the DOM, etc.
-
 
 
 

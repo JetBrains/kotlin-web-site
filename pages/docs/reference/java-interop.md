@@ -16,13 +16,15 @@ Pretty much all Java code can be used without any issues
 import java.util.*
 
 fun demo(source: List<Int>) {
-  val list = ArrayList<Int>()
-  // 'for'-loops work for Java collections:
-  for (item in source)
-    list.add(item)
-  // Operator conventions work as well:
-  for (i in 0..source.size() - 1)
-    list[i] = source[i] // get and set are called
+    val list = ArrayList<Int>()
+    // 'for'-loops work for Java collections:
+    for (item in source) {
+        list.add(item)
+    }
+    // Operator conventions work as well:
+    for (i in 0..source.size() - 1) {
+        list[i] = source[i] // get and set are called
+    }
 }
 ```
 
@@ -237,22 +239,24 @@ When compiling to JVM byte codes, the compiler optimizes access to arrays so tha
 ``` kotlin
 val array = arrayOf(1, 2, 3, 4)
 array[x] = array[x] * 2 // no actual calls to get() and set() generated
-for (x in array) // no iterator created
-  print(x)
+for (x in array) { // no iterator created
+    print(x)
+}
 ```
 
 Even when we navigate with an index, it does not introduce any overhead
 
 ``` kotlin
-for (i in array.indices) // no iterator created
-  array[i] += 2
+for (i in array.indices) { // no iterator created
+    array[i] += 2
+}
 ```
 
 Finally, *in*{: .keyword }-checks have no overhead either
 
 ``` kotlin
 if (i in array.indices) { // same as (i >= 0 && i < array.size)
-  print(array[i])
+    print(array[i])
 }
 ```
 
@@ -293,8 +297,9 @@ So, when you call a Java method that declares a checked exception, Kotlin does n
 
 ``` kotlin
 fun render(list: List<*>, to: Appendable) {
-  for (item in list)
-    to.append(item.toString()) // Java would require us to catch IOException here
+    for (item in list) {
+        to.append(item.toString()) // Java would require us to catch IOException here
+    }
 }
 ```
 
@@ -336,7 +341,7 @@ To override `clone()`, your class needs to extend `kotlin.Cloneable`:
 ```kotlin
 
 class Example : Cloneable {
-  override fun clone(): Any { ... }
+    override fun clone(): Any { ... }
 }
 ```
 
@@ -348,9 +353,9 @@ To override `finalize()`, all you need to do is simply declare it, without using
 
 ```kotlin
 class C {
-  protected fun finalize() {
-    // finalization logic
-  }
+    protected fun finalize() {
+        // finalization logic
+    }
 }
 ```
 
@@ -367,7 +372,7 @@ but can access the members explicitly, for example
 
 ``` kotlin
 if (Character.isLetter(a)) {
-  // ...
+    // ...
 }
 ```
 

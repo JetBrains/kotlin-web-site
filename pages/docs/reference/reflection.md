@@ -136,10 +136,10 @@ For an extension property:
 
 ``` kotlin
 val String.lastChar: Char
-  get() = this[length - 1]
+    get() = this[length - 1]
 
 fun main(args: Array<String>) {
-  println(String::lastChar.get("abc")) // prints "c"
+    println(String::lastChar.get("abc")) // prints "c"
 }
 ```
 

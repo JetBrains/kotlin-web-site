@@ -14,11 +14,11 @@ These can be declared as mutable, using the *var*{: .keyword } keyword or read-o
 
 ``` kotlin
 public class Address { 
-  public var name: String = ...
-  public var street: String = ...
-  public var city: String = ...
-  public var state: String? = ...
-  public var zip: String = ...
+    public var name: String = ...
+    public var street: String = ...
+    public var city: String = ...
+    public var state: String? = ...
+    public var zip: String = ...
 }
 ```
 
@@ -26,11 +26,11 @@ To use a property, we simply refer to it by name, as if it were a field in Java:
 
 ``` kotlin
 fun copyAddress(address: Address): Address {
-  val result = Address() // there's no 'new' keyword in Kotlin
-  result.name = address.name // accessors are called
-  result.street = address.street
-  // ...
-  return result
+    val result = Address() // there's no 'new' keyword in Kotlin
+    result.name = address.name // accessors are called
+    result.street = address.street
+    // ...
+    return result
 }
 ```
 
@@ -40,8 +40,8 @@ The full syntax for declaring a property is
 
 ``` kotlin
 var <propertyName>: <PropertyType> [= <property_initializer>]
-  [<getter>]
-  [<setter>]
+    [<getter>]
+    [<setter>]
 ```
 
 The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer or from the base class member being overridden.
@@ -64,17 +64,17 @@ We can write custom accessors, very much like ordinary functions, right inside a
 
 ``` kotlin
 val isEmpty: Boolean
-  get() = this.size == 0
+    get() = this.size == 0
 ```
 
 A custom setter looks like this:
 
 ``` kotlin
 var stringRepresentation: String
-  get() = this.toString()
-  set(value) {
-    setDataFromString(value) // parses the string and assigns values to other properties
-  }
+    get() = this.toString()
+    set(value) {
+        setDataFromString(value) // parses the string and assigns values to other properties
+    }
 ```
 
 By convention, the name of the setter parameter is `value`, but you can choose a different name if you prefer.
@@ -84,10 +84,10 @@ you can define the accessor without defining its body:
 
 ``` kotlin
 var setterVisibility: String = "abc"
-  private set // the setter is private and has the default implementation
+    private set // the setter is private and has the default implementation
 
 var setterWithAnnotation: Any? = null
-  @Inject set // annotate the setter with Inject
+    @Inject set // annotate the setter with Inject
 ```
 
 ### Backing Fields
@@ -97,10 +97,9 @@ an automatic backing field which can be accessed using the `field` identifier:
 
 ``` kotlin
 var counter = 0 // the initializer value is written directly to the backing field
-  set(value) {
-    if (value >= 0)
-      field = value
-  }
+    set(value) {
+        if (value >= 0) field = value
+    }
 ```
 
 The `field` identifier can only be used in the accessors of the property.
@@ -111,7 +110,7 @@ For example, in the following case there will be no backing field:
 
 ``` kotlin
 val isEmpty: Boolean
-  get() = this.size == 0
+    get() = this.size == 0
 ```
 
 ### Backing Properties
@@ -121,11 +120,12 @@ If you want to do something that does not fit into this "implicit backing field"
 ``` kotlin
 private var _table: Map<String, Int>? = null
 public val table: Map<String, Int>
-  get() {
-    if (_table == null)
-      _table = HashMap() // Type parameters are inferred
-    return _table ?: throw AssertionError("Set to null by another thread")
-  }
+    get() {
+        if (_table == null) {
+            _table = HashMap() // Type parameters are inferred
+        }
+        return _table ?: throw AssertionError("Set to null by another thread")
+    }
 ```
 
 In all respects, this is just the same as in Java since access to private properties with default getters and setters is optimized so that no function call overhead is introduced.
@@ -191,4 +191,3 @@ Somewhere in between, there are certain common patterns of how a property may wo
 reading from a map by a given key, accessing a database, notifying listener on access, etc.
 
 Such common behaviours can be implemented as libraries using [_delegated properties_](delegated-properties.html).
-

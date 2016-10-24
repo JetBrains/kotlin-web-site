@@ -8,9 +8,9 @@ import io.netty.channel.ChannelInboundMessageHandlerAdapter
 import io.netty.channel.ChannelHandlerContext
 
 public class NettyHandler: ChannelInboundMessageHandlerAdapter<Any>() {
-  public override fun messageReceived(p0: ChannelHandlerContext?, p1: Any?) {
-    throw UnsupportedOperationException()
-  }
+    public override fun messageReceived(p0: ChannelHandlerContext?, p1: Any?) {
+        throw UnsupportedOperationException()
+    }
 }
 ```
 
@@ -22,6 +22,6 @@ Target either the JVM or JavaScript. Write code in Kotlin and decide where you w
 import js.dom.html.*
 
 fun onLoad() {
-  window.document.body.innerHTML += "<br/>Hello, Kotlin!"
+    window.document.body.innerHTML += "<br/>Hello, Kotlin!"
 }
 ```

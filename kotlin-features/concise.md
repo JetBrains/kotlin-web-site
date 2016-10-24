@@ -16,6 +16,6 @@ Want a singleton? Create an object:
 
 ``` kotlin
 object ThisIsASingleton {
-  val companyName: String = "JetBrains"
+    val companyName: String = "JetBrains"
 }
 ```

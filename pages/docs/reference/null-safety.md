@@ -62,10 +62,11 @@ The compiler tracks the information about the check you performed, and allows th
 More complex conditions are supported as well:
 
 ``` kotlin
-if (b != null && b.length > 0)
-  print("String of length ${b.length}")
-else
-  print("Empty string")
+if (b != null && b.length > 0) {
+    print("String of length ${b.length}")
+} else {
+    print("Empty string")
+}
 ```
 
 Note that this only works where `b` is immutable (i.e. a local variable which is not modified between the check and the
@@ -121,9 +122,9 @@ the right hand side of the elvis operator. This can be very handy, for example, 
 
 ``` kotlin
 fun foo(node: Node): String? {
-  val parent = node.getParent() ?: return null
-  val name = node.getName() ?: throw IllegalArgumentException("name expected")
-  // ...
+    val parent = node.getParent() ?: return null
+    val name = node.getName() ?: throw IllegalArgumentException("name expected")
+    // ...
 }
 ```
 
