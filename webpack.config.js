@@ -8,7 +8,6 @@ var WebpackExtractTextPlugin = require('extract-text-webpack-plugin');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 var extend = require('extend');
 var autoprefixer = require('autoprefixer');
-var config = require('./package.json').config;
 
 var isProduction = process.env.NODE_ENV === 'production';
 
@@ -71,13 +70,6 @@ var webpackConfig = {
     autoprefixer({browsers: ['last 2 versions']})
   ],
 
-  devServer: {
-    host: config.devServer.host,
-    port: config.devServer.port,
-    contentBase: path.resolve(__dirname, 'build'),
-    inline: true
-  },
-
   plugins: [
     new Webpack.optimize.CommonsChunkPlugin({
       name: 'common',
@@ -88,17 +80,6 @@ var webpackConfig = {
 
     new LiveReloadPlugin({
       appendScriptTag: false
-    }),
-
-    new Webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    }),
-
-    new Webpack.DefinePlugin({
-      __DEV__: !isProduction,
-      __PROD__: isProduction
     })
   ]
 };

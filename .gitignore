@@ -29,3 +29,7 @@ api/
 *.iml
 grammar.xml
 /build/
+/node_modules/
+pdf/kotlin-docs.pdf
+pdf/tmp.html
+*.pyc

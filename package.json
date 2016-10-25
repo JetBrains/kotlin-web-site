@@ -27,8 +27,6 @@
     "webpack": "1.12.2"
   },
   "devDependencies": {
-    "dev-tools": "0.1.6",
-    "webpack-dev-server": "1.12.1",
     "webpack-livereload-plugin": "0.4.0"
   },
   "repository": {
@@ -39,11 +37,5 @@
     "start": "rimraf ./web-app/_assets/* && cross-env NODE_ENV=development webpack --watch",
     "build": "rimraf ./web-app/_assets/* && cross-env NODE_ENV=production webpack",
     "clean": "rimraf ./_site/_assets"
-  },
-  "config": {
-    "devServer": {
-      "host": "0.0.0.0",
-      "port": 9000
-    }
   }
 }
