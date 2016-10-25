@@ -48,7 +48,8 @@ var webpackConfig = {
         loader: WebpackExtractTextPlugin.extract([
           'css',
           'postcss',
-          'sass'
+          'resolve-url',
+          'sass?sourceMap'
         ].join('!'))
       },
       {

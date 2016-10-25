@@ -1,20 +1,20 @@
-@import 'reset.css';
-@import 'fonts.css';
-@import 'base.css';
-@import 'com/grid/grid.css';
+@import 'reset.scss';
+@import 'fonts.scss';
+@import 'base.scss';
+@import 'com/grid/grid.scss';
 
-@import 'com/layout/header.css';
-@import 'com/layout/footer.css';
-@import 'com/layout/layout.css';
+@import 'com/layout/header.scss';
+@import 'com/layout/footer.scss';
+@import 'com/layout/layout.scss';
 
 @import 'com/banners/banner-rotator.css';
-@import 'com/nav/nav.css';
-@import 'com/page-content/page-content.css';
-@import 'com/video-gallery/video-gallery.css';
-@import 'com/events-table/events-table.css';
-@import 'com/kotlin-overview/kotlin-overview.css';
-@import 'com/grammar/grammar.css';
-@import 'com/toc/toc.css';
-@import 'com/search/search-results.css';
+@import 'com/nav/nav.scss';
+@import 'com/page-content/page-content.scss';
+@import 'com/video-gallery/video-gallery.scss';
+@import 'com/events-table/events-table.scss';
+@import 'com/kotlin-overview/kotlin-overview.scss';
+@import 'com/grammar/grammar.scss';
+@import 'com/toc/toc.scss';
+@import 'com/search/search-results.scss';
 
-@import url("//jetbrains.com/_assets/shared/logos.css");
+@import url("//jetbrains.com/_assets/shared/logos.scss");
