@@ -2306,3 +2306,67 @@
   date: 2016-10-25
   location: Grauz, Austria
   lang: en
+
+- title: “GOTO Copenhagen 2016”
+  url: "https://gotocon.com/cph-2016/presentations/show_talk.jsp?oid=7750"
+  subject: “Kotlin - Ready for Production”
+  speaker: Hadi Hariri
+  date: 2016-10-03
+  location: Copenhagen, Denmark
+  lang: en
+
+- title: “DevCongress Meetup”
+  url: "https://egotickets.com/events/devcongress-meetup"
+  subject: “Kotlin for Android Development”
+  speaker: Kirk Agbenyegah
+  date: 2016-09-17
+  location: Accra, Ghana
+  lang: en
+
+- title: “Mobius 2016”
+  url: "http://2016.mobiusconf.com/talks/zhulanov/"
+  subject: “Android-приложения на Kotlin, почему это хорошо”
+  speaker: Yan Zhulanov
+  date: 2016-06-04
+  location: Saint Petersburg, Russia
+  lang: ru
+
+- title: “Droidcon Berlin”
+  url: "http://de.droidcon.com/en/sessions/little-helpers-android-development-kotlin"
+  subject: “Little Helpers for Android Development with Kotlin”
+  speaker: Kai Koenig
+  date: 2016-06-17
+  location: Berlin, Germany
+  lang: en
+
+- title: “Tech Shock”
+  url: "http://www.meetup.com/TechShock/events/234750703/"
+  subject: “A native Android app written 100% in Kotlin”
+  speaker: Damian Petla
+  date: 2016-11-01
+  location: Oslo, Norway
+  lang: en
+
+- title: “TopConf Tallinn”
+  url: "http://topconf.com/tallinn-2016/trackevent/kotlin-puzzlers/"
+  subject: “Kotlin Puzzlers”
+  speaker: Anton Keks, Andrei Solntsev
+  date: 2016-11-16
+  location: Tallinn, Estonia
+  lang: en
+
+- title: “BelarusKUG Meetup 2”
+  url: "https://bkug.by/2016/09/19/anons-bkug-2/"
+  subject: “Compact and safely. Static DSL on Kotlin”
+  speaker: Dmitry Pranchuk
+  date: 2016-09-29
+  location: Minsk, Belarus
+  lang: ru
+
+- title: “BelarusKUG Meetup 2”
+  url: "https://bkug.by/2016/09/19/anons-bkug-2/"
+  subject: “Introduction in Asynchronous Computations”
+  speaker: Ruslan Ibragimov
+  date: 2016-09-29
+  location: Minsk, Belarus
+  lang: ru
