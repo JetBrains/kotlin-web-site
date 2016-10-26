@@ -2298,3 +2298,11 @@
   date: 2016-11-07
   location: Antwerp, Belgium
   lang: en
+
+- title: “Java User Group Graz”
+  url: "http://www.meetup.com/Java-User-Group-Graz/events/232786562/"
+  subject: "Gradle meets Kotlin"
+  speaker: Bernd Haug
+  date: 2016-10-25
+  location: Grauz, Austria
+  lang: en
