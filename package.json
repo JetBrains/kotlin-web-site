@@ -34,8 +34,8 @@
     "url": "https://github.com/JetBrains/kotlin-web-site"
   },
   "scripts": {
-    "start": "rimraf ./web-app/_assets/* && cross-env NODE_ENV=development webpack --watch",
-    "build": "rimraf ./web-app/_assets/* && cross-env NODE_ENV=production webpack",
-    "clean": "rimraf ./_site/_assets"
+    "start": "rimraf ./_assets/* && cross-env NODE_ENV=development webpack --watch",
+    "build": "rimraf ./_assets/* && cross-env NODE_ENV=production webpack",
+    "clean": "rimraf ./_assets"
   }
 }
