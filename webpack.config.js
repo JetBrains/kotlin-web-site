@@ -76,6 +76,12 @@ var webpackConfig = {
       minChunks: 3
     }),
 
+    new Webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
+
     new WebpackExtractTextPlugin('[name].css'),
 
     new LiveReloadPlugin({
