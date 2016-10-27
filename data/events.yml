@@ -2301,7 +2301,7 @@
 
 - title: "Java User Group Graz"
   url: "http://www.meetup.com/Java-User-Group-Graz/events/232786562/"
-  subject: "Gradle meets Kotlin"
+  subject: "Applied Kotlin a guided tour around a thing I built with it"
   speaker: Bernd Haug
   date: 2016-10-25
   location: Grauz, Austria
@@ -2370,3 +2370,35 @@
   date: 2016-09-29
   location: Minsk, Belarus
   lang: ru
+
+- title: "Build Stuff 2016"
+  url: "https://buildstuff16lithuania.sched.org/event/8jQ2/hadi-hariri-hhariri-creating-dsls-in-idiomatic-kotlin"
+  subject: "Creating DSL's in idiomatic Kotlin"
+  speaker: Hadi Hariri
+  date: 2016-11-16
+  location: Vilnius, Lithuania
+  lang: en
+
+- title: "AnDevCon"
+  url: "http://bit.ly/2f871Qh"
+  subject: "Kotlin and Android, Better Together, Part I"
+  speaker: C.L. Kim 
+  date: 2016-11-30
+  location: San Francisco, USA
+  lang: en
+
+- title: "Curso Presencial"
+  url: "https://devexperto.com/kotlin-desarrolladores-android-presencial/"
+  subject: "Kotlin para desarrolladores Android"
+  speaker: Antonio Leiva 
+  date: 2016-11-05
+  location: Madrid, Spain
+  lang: es
+
+- title: "Training"
+  url: "http://training.xebia.fr/formation/kotlin/"
+  subject: "Le langage de Jetbrain pour développer des applications Android: pourquoi et comment passer à Kotlin?"
+  speaker: Benjamin Lacroix, Arnaud Piroelle
+  date: 2017-02-23
+  location: Paris, France
+  lang: fr
