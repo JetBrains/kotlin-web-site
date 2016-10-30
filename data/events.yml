@@ -2556,4 +2556,11 @@
   lang: en
   content:
     video: https://www.youtube.com/watch?v=4gmanjWNZ8E&index=9&list=PLEDlMyo0X5hc_bsKfybav3VeCbKPpU0JF
- 
+
+- title: "Trondheim Developer Conference (TDC) 2016"
+  url: "http://2016.trondheimdc.no/program"
+  subject: "Kotlin — Ready for Production "
+  speaker: Hadi Hariri
+  date: 2016-10-31
+  location: Trondheim, Norway
+  lang: en
