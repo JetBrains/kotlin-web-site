@@ -5,7 +5,7 @@ This is the source for the [Kotlin Web Site](http://kotlinlang.org)
 - [Filing bugs](#filing-bugs)
 - [Installation](#installation)
 - [Working with site](#working-with-site)
-    - [Rake tasks](#rake-tasks)
+    - [Run](#run-site)
     - [Data](#data)
     - [Templates](#templates)
     - [Page metadata](#page-metadata)
@@ -19,39 +19,23 @@ We use [YouTrack](http://youtrack.jetbrains.com/issues/KT#) for bug reports and 
 Installation
 ============
 
-Site is based on [Jekyll](http://jekyllrb.com), so you will need ruby (>= 1.9.3) and rubygems to get it working.
+## Prerequisites
 
-- *Mac OS X*. Make sure that you have [Command Line Developer Tools](http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-command-line-tools/9329325#9329325).
-- *Windows*. Step-by-step Jekyll installation can be found [here](https://github.com/juthilo/run-jekyll-on-windows).
-  We recommend to use [Cygwin](https://www.cygwin.com) or [Git Bash](http://git-scm.com) as command line interface.
+- Python. Kotlinlang is [Flask](http://flask.pocoo.org/)-based site, so you'll need python 2 to get it working.
+- ruby + [kramdown](http://kramdown.gettalong.org/installation.html). Python has a very poor support for markdown, so kramdown is used as markdown to html converter
+- [nodejs](https://nodejs.org/en/) + npm to build frontend assets
 
-Run `./INSTALL.sh` to install.
+## Installation
 
-## PDF building
-
-To build PDF you will also need [wkhtmltopdf](http://wkhtmltopdf.org/downloads.html):
-
-- *Mac OS*. 0.12.1 testing build *10.6+ (Carbon)*.
-- *Windows*. 0.12.1 testing build *Windows (MSVC 2013)*.
-- *Linux*. Stable 0.12.0.
-
-## Troubleshooting
-
-- [Jekyll troubleshooting](http://jekyllrb.com/docs/troubleshooting)
-
+After installation of required tools run `npm i` to download all frontend dependencies and `pip install -r requirements.txt` to download backend dependencies.
 
 Working with site
 =================
 
-## Rake tasks
+## Run site
 
-Site uses [rake](https://github.com/ruby/rake) for build management.
-To list available commands, run `rake` from project folder with no arguments.
-
-- `rake build` generates site in the `_site` folder. Use `dest` parameter to specify another location: `rake build dest=/path`.
-- `rake preview` runs built-in development server that will allow you to preview what the generated site will look like in your browser locally.
-  Changed files are rebuilt automatically. Host address and port can be changed by passing the following parameters: `rake preview host=172.20.209.23 port=3000`
-- `rake build_pdf` builds a PDF from documentation pages and stores it in the default folder. To change location, specify `file`: `rake build_pdf file=book.pdf`.
+- Use `npm run build` command to build assets. If you are going to modify js/scss files use `npm start` instead.
+- To run site use `pyhton kotlin-website.py` command 
 
 ## Data
 
@@ -65,17 +49,8 @@ All data is stored in the \*.yml files in folder `_data`:
 
 ## Templates
 
-Jekyll uses [Liquid](http://liquidmarkup.org) template engine.
-You can use variables, loops, conditions and filters to define content of pages. More information can be found
-[here](http://jekyllrb.com/docs/templates/) and [here](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).
-
-### Variables
-
-The list of global variables accessible from each page can be found [here](http://jekyllrb.com/docs/variables/).
-To access the folder data from `_data`, use the following syntax: `{{ site.data.%filename%.%key% }}`. E.g.:
-
-- `{{ site.data._nav.main.try.url }}` - gets address for Try Kotlin page.
-- `{{ site.data.releases.latest.version }}` - gets the latest Kotlin version.
+Kotlinlang uses [Jinja2](http://jinja.pocoo.org/docs/dev/) templates that can be found in templates folder.
+Note, that before converting to html all markdown files are processed as jinja templates. This allows you to use all jinja power inside markdown (for example, build urls with url_for function)
 
 ## Page metadata
 
@@ -89,10 +64,6 @@ The most important of them are the page template (e.g. `layout: reference`) and 
 
 Kramdown with some additions (like GitHub fenced code blocks) is used as markdown parser.
 See the complete syntax reference at [Kramdown site](http://kramdown.gettalong.org/syntax.html).
-
-#### Markdown cheatsheet
-
-In progress, see [this reference](http://kramdown.gettalong.org/syntax.html) instead.
 
 ### Specifying page element attributes
 
