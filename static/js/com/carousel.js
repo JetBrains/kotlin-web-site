@@ -1,46 +1,43 @@
-define([
-    'jquery',
-    'jcarousel'
-], function($)
-{
-    function Carousel(config) {
-        var that = this,
-            $wrapElem,
-            $carousel;
+var $ = require('jquery');
+require('jcarousel');
 
-        that._elem = config.elem;
+function Carousel(config) {
+  var that = this,
+    $wrapElem,
+    $carousel;
 
-        $wrapElem = $(that._elem);
-        $carousel = $wrapElem.find('.js-carousel');
+  that._elem = config.elem;
 
-        $carousel.jcarousel({
-            list: '.js-carousel-list'
-        });
+  $wrapElem = $(that._elem);
+  $carousel = $wrapElem.find('.js-carousel');
 
-        $wrapElem.find('.js-carousel-nav-prev')
-            .jcarouselControl({
-                target: '-=1'
-            })
-            .on('jcarouselcontrol:active', function () {
-                $(this).removeClass('is_disabled');
-            })
-            .on('jcarouselcontrol:inactive', function () {
-                $(this).addClass('is_disabled');
-            });
+  $carousel.jcarousel({
+    list: '.js-carousel-list'
+  });
 
-        $wrapElem.find('.js-carousel-nav-next')
-            .jcarouselControl({
-                target: '+=1'
-            })
-            .on('jcarouselcontrol:active', function () {
-                $(this).removeClass('is_disabled');
-            })
-            .on('jcarouselcontrol:inactive', function () {
-                $(this).addClass('is_disabled');
-            });
-    }
+  $wrapElem.find('.js-carousel-nav-prev')
+    .jcarouselControl({
+      target: '-=1'
+    })
+    .on('jcarouselcontrol:active', function () {
+      $(this).removeClass('is_disabled');
+    })
+    .on('jcarouselcontrol:inactive', function () {
+      $(this).addClass('is_disabled');
+    });
 
-    Carousel.prototype._elem = null;
+  $wrapElem.find('.js-carousel-nav-next')
+    .jcarouselControl({
+      target: '+=1'
+    })
+    .on('jcarouselcontrol:active', function () {
+      $(this).removeClass('is_disabled');
+    })
+    .on('jcarouselcontrol:inactive', function () {
+      $(this).addClass('is_disabled');
+    });
+}
 
-    return Carousel;
-});
+Carousel.prototype._elem = null;
+
+module.exports = Carousel;
