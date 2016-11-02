@@ -2627,3 +2627,11 @@
   lang: ua
   content:
     video: https://www.youtube.com/watch?v=wMLZT26gERg
+
+- title: "An evening with Industry Engineers @Square NYC"
+  url: "https://www.eventbrite.com/e/an-evening-with-industry-engineers-square-nyc-tickets-28371453782"
+  subject: "10 Kotlin Tricks in 10 Minutes"
+  speaker: Jake Wharton
+  date: 2016-11-02
+  location: New York, USA
+  lang: en
