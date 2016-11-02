@@ -2298,6 +2298,9 @@
   date: [2016-10-06, 2016-10-08]
   location: Lisbon, Portugal
   lang: en
+  content:
+    slides: https://speakerdeck.com/goncalossilva/100-percent-kotlin-and-anko/
+    video: https://www.youtube.com/watch?v=bYcFjIXDDJU&feature=youtu.be
 
 - title: "Infinum Android Talks #20"
   url: "https://infinum.co/our-stuff/android-talks"
@@ -2564,3 +2567,63 @@
   date: 2016-10-31
   location: Trondheim, Norway
   lang: en
+
+- title: "GDG DevFest Siberia 2016"
+  url: "http://devfest.gdg.org.ru/schedule/#session-169"
+  subject: "Готовим UI на Kotlin"
+  speaker: Alex Korovyansky
+  date: 2016-11-20
+  location: Novosibirsk, Russia
+  lang: ru
+
+- title: "GDG DevFest Pilsen 2016"
+  url: "https://devfest.cz/schedule/day1?sessionId=100"
+  subject: "Firebase + Kotlin + MVP + Rx: Practical Tips"
+  speaker: David Vavra
+  date: 2016-11-05
+  location: Pilsen, Czech
+  lang: en
+
+- title: "F(by) 2016"
+  url: "http://fby.by/en/"
+  subject: "Functional Programming in Kotlin with funKTionale"
+  speaker: Mario Arias
+  date: 2016-12-10
+  location: Minsk, Belarus
+  lang: en
+
+- title: "F(by) 2016"
+  url: "http://fby.by/en/"
+  subject: "FullStack Web with Kotlin"
+  speaker: Ruslan Ibragimov
+  date: 2016-12-10
+  location: Minsk, Belarus
+  lang: en
+
+- title: "NoSlidesConf 2016"
+  url: "http://www.noslidesconf.net/#schedule"
+  subject: "Kotlin social graph"
+  speaker: Roberto Franchini
+  date: 2016-12-03
+  location: Bologna, Italy
+  lang: en
+
+- title: "Advanced Java Estonia"
+  url: "http://www.meetup.com/Advanced-Java-Estonia/events/230994573/"
+  subject: "Kotlin in Real Projects: Pragmatic Opinion on Pragmatic Language"
+  speaker: Anton Keks
+  date: 2016-05-26
+  location: Tallinn, Estonia
+  lang: en
+  content:
+    video: https://www.youtube.com/watch?v=lpPbCWpBM3I
+
+- title: "GDG KPI"
+  url: "https://dou.ua/calendar/12772/"
+  subject: "Android for Beginners and Kotlin"
+  speaker: Dmytro Danylyk
+  date: 2016-10-18
+  location: Kiev, Ukraine
+  lang: ua
+  content:
+    video: https://www.youtube.com/watch?v=wMLZT26gERg
