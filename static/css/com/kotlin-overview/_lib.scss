@@ -145,11 +145,11 @@ $overview-section-width: 840px;
             margin-bottom: $unit*2;
         }
 
-        .code pre {
+        pre .code {
             @extend %code-block;
         }
 
-        .code._highlighted pre {
+        pre .code._highlighted {
             @extend %syntax-highlight_dark;
         }
 
@@ -192,6 +192,7 @@ $overview-section-width: 840px;
         }
     }
 }
+
 .ie9 %kotlin-overview-popup .popup-close-button {
     &:after {
         line-height: 64px;

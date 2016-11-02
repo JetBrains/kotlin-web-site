@@ -20,7 +20,8 @@ var webpackConfig = {
     'tutorials': 'page/tutorials.js',
     'videos': 'page/videos.js',
     'grammar': 'page/grammar.js',
-    'styles': 'styles.scss'
+    'styles': 'styles.scss',
+    'pdf': 'page/pdf.js'
   },
   output: {
     path: path.join(__dirname, '_assets'),
@@ -72,7 +73,7 @@ var webpackConfig = {
 
   plugins: [
     new Webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
+      name: 'default',
       minChunks: 3
     }),
 

@@ -6,6 +6,16 @@ from bs4 import BeautifulSoup
 from pygments.formatters import get_formatter_by_name
 from pygments.lexers import get_lexer_by_name
 
+languageMimeTypeMap = {
+  "kotlin": "text/x-kotlin",
+  "java": "text/x-java",
+  "groovy": "text/x-groovy",
+  "xml": "application/xml",
+  "bash": "text/x-sh",
+  "html": "application/xml",
+  "javascript": "text/javascript",
+  "json": "application/json"
+}
 
 def customized_markdown(text):
     kramdown = subprocess.Popen(
@@ -28,16 +38,8 @@ def highlight_code(text):
                 if class_name.startswith("language-"):
                     lang = class_name[len("language-"):]
         if lang is not None:
-            lexer = get_lexer_by_name(lang)
-            formatter = get_formatter_by_name('html',
-                                              # linenos=self.linenums,
-                                              cssclass="code _highlighted",
-                                              # style=self.style,
-                                              # noclasses=self.noclasses,
-                                              # hl_lines=self.hl_lines
-                                              )
-            highlighted = pygments.highlight(element.text, lexer, formatter)
-            element.parent.replaceWith(BeautifulSoup(highlighted, 'html.parser'))
+            element['data-lang'] = languageMimeTypeMap[lang]
+            element['class'] = "code _highlighted"
     return unicode(str(tree), "utf8").replace("<br>", "<br/>")
 
 

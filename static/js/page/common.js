@@ -1,5 +1,6 @@
 require('../com/search');
 require('../com/cookie-banner');
+require('../com/colorize');
 
 var $ = require('jquery');
 
@@ -19,6 +20,5 @@ $(document).ready(function () {
     html.className += ' ua_firefox';
 
   // hack to force :active support in mobile Safari
-  document.addEventListener("touchstart", function () {
-  }, false);
+  document.addEventListener("touchstart", function () {}, false);
 });
