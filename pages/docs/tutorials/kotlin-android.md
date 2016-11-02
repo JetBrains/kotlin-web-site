@@ -9,6 +9,11 @@ date: 2015-07-25
 related:
     - getting-started.md
 ---
+### Installing the Kotlin plugin
+First, if using Android Studio, you'll need to install the Kotlin plugin.
+Go to _File \| Settings \| Plugins \| Install JetBrains plugin..._ and then search for and install *Kotlin*.
+You'll need to restart the IDE after this completes.
+
 ### Creating a project
 It’s extremely easy to start using Kotlin for Android development! In this tutorial we’ll follow the warming up process with Android Studio.
 If using Intellij IDEA with Android, the process is almost the same.

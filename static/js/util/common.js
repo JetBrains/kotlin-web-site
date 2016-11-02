@@ -1,4 +1,4 @@
-define({
+module.exports = {
     isArray: function(variable) {
         return variable instanceof Array;
     },
@@ -10,4 +10,4 @@ define({
     isDate: function(variable) {
         return variable instanceof Date;
     }
-});
+};

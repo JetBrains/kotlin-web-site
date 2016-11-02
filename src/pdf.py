@@ -117,5 +117,6 @@ def get_pdf_content(pages, toc):
             })
         content.append(section)
     drive, root_folder_path_rest = path.splitdrive(root_folder_path)
-    page_html = render_template('pdf.html', content=content, root_folder=drive + root_folder_path_rest)
+    page_html = render_template('pdf.html', content=content, root_folder=(drive + root_folder_path_rest)
+                                .replace('\\', '/'))
     return page_html

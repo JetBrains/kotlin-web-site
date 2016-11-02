@@ -79,11 +79,17 @@ li > code {
     @extend %code-span%_decorated;
 }
 
-.code {
-    pre {
+.code._highlighted {
+    @extend %syntax-highlight_light;
+}
+
+pre {
+    .code {
         @extend %code-block;
     }
+}
 
+.code {
     &._highlighted {
         pre {
             @extend %syntax-highlight_light;

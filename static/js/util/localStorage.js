@@ -1,4 +1,4 @@
-define({
+module.exports = {
     /**
      * @param {string} key
      * @param {*} value
@@ -68,4 +68,4 @@ define({
     clear: function () {
         localStorage.clear();
     }
-});
+};
