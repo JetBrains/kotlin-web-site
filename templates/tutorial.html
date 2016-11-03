@@ -2,6 +2,10 @@
 
 {% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='tutorials.css') }}">
+{% endblock %}
+
 {% block content %}
     <div class="g-grid">
         <aside class="g-3">

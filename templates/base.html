@@ -1,6 +1,9 @@
 <html>
 <head>
     {% include 'inc/head.html' %}
+    {% block styles %}
+    {% endblock %}
+
     <script src="{{ url_for('static', filename='default.js') }}"></script>
     <script src="{{ url_for('static', filename='common.js') }}"></script>
 </head>

@@ -37,9 +37,13 @@ def highlight_code(text):
             for class_name in class_names:
                 if class_name.startswith("language-"):
                     lang = class_name[len("language-"):]
+
         if lang is not None:
-            element['data-lang'] = languageMimeTypeMap[lang]
-            element['class'] = "code _highlighted"
+            if lang == "kotlin-executable":
+                element.parent['class'] = "js-executable-code"
+            else:
+                element['data-lang'] = languageMimeTypeMap[lang]
+                element['class'] = "code _highlighted"
     return unicode(str(tree), "utf8").replace("<br>", "<br/>")
 
 

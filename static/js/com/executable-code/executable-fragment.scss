@@ -1,0 +1,30 @@
+.executable-fragment {
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.CodeMirror {
+    height: auto;
+}
+
+.CodeMirror-scroll {
+    height: auto;
+}
+
+.CodeMirror-gutter {
+    height: auto;
+}
+
+.command-panel {
+    background-color: #f7f7f7;
+    padding: 5px 30px;
+}
+
+.run-button {
+    height: 20px;
+    width: 16px;
+    cursor: pointer;
+    background: url("./icons/run_icon.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

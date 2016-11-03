@@ -1,0 +1,11 @@
+<div class="executable-fragment">
+    <textarea>
+        {{ code }}
+    </textarea>
+    <div class="command-panel">
+        <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
+    </div>
+    {% if output %}
+        <div class="code-output js-code-output">{{ output }}</div>
+    {% endif %}
+</div>

@@ -36,6 +36,17 @@ var webpackConfig = {
   module: {
     loaders: [
       {
+        test: /\.monk$/,
+        loader: 'monkberry-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'buble-loader',
+        include: [
+          './static/js'
+        ]
+      },
+      {
         test: /\.css$/,
         loader: WebpackExtractTextPlugin.extract([
           'css',
