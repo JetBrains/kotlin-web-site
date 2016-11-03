@@ -913,7 +913,8 @@
     slides: https://prezi.com/dxavcfi0l_-b/droidcon-greece-2015/
     video: http://www.youtube.com/watch?v=vNrkXU6QebA
 
-- title: Droidcon NYC 2015
+- title: 
+2015
   url: http://droidcon.nyc/2015/dcnyc/53/
   subject: "Kotlin: New Hope in a Java 6 Wasteland"
   speaker: Michael Pardo
@@ -2131,6 +2132,7 @@
   lang: en
   content:
     slides: https://speakerdeck.com/tysmith/better-android-development-with-kotlin-and-gradle-1
+    video: https://www.youtube.com/watch?v=5gxC3fVq-Do&list=PLnVy79PaFHMXpPlgs1uUny8eb-PEfEQNn&index=42
   
 - title: "DROIDCON NYC 2016"
   url: "http://sched.droidcon.nyc/showTopicSquarespace/63750"
@@ -2141,6 +2143,7 @@
   lang: en
   content:
     slides: https://christinalee.github.io/Slides/slides-master/kotlin/#/1
+    video: https://www.youtube.com/watch?v=mDpnc45WwlI
   
 - title: "Mobile Notts Meetup"
   url: "http://www.meetup.com/Mobile-Notts/events/233465539/"
@@ -2635,3 +2638,5 @@
   date: 2016-11-02
   location: New York, USA
   lang: en
+  content:
+    slides: https://speakerdeck.com/jakewharton/10-kotlin-tricks-in-10ish-minutes-square-nyc-november-2016
