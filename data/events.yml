@@ -913,8 +913,7 @@
     slides: https://prezi.com/dxavcfi0l_-b/droidcon-greece-2015/
     video: http://www.youtube.com/watch?v=vNrkXU6QebA
 
-- title: 
-2015
+- title: Droidcon NYC 2015
   url: http://droidcon.nyc/2015/dcnyc/53/
   subject: "Kotlin: New Hope in a Java 6 Wasteland"
   speaker: Michael Pardo
@@ -2640,3 +2639,13 @@
   lang: en
   content:
     slides: https://speakerdeck.com/jakewharton/10-kotlin-tricks-in-10ish-minutes-square-nyc-november-2016
+
+- title: "DevFest Toulouse 2016"
+  url: "https://devfesttoulouse.firebaseapp.com/schedule/111"
+  subject: "Develop a reactive Android app with Kotlin"
+  speaker: Arnaud Giuliani
+  date: 2016-11-03
+  location: Toulouse, France
+  lang: fr
+  content:
+    slides: https://speakerdeck.com/agiuliani/making-android-reactive-app-with-kotlin
