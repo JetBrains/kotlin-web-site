@@ -88,7 +88,13 @@ On compiling, Maven will produce the following output
 
 ![Maven Output]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/maven-output.png')}})
 
-where we can see the Kotlin standard library (under the folder `koltinjs-maven`) and the output of our application, which is the `kotlinjs-maven.js` file. For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
+where we can see the output of our application, which is the `kotlinjs-maven.js` file. 
+
+In order to use this, we also need to include the Kotlin standard library in our application, i.e. `kotlin.js`, which was included as a dependency. By default,
+Maven does not expand the JAR as part of the build process, so we would need to add an additional step in our build to do so.
+
+
+For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
 ## Configuring Compiler Options
 

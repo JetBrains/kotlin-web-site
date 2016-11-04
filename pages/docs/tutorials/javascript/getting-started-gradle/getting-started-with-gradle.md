@@ -56,14 +56,12 @@ if we're using an EAP build, we need to have the corresponding repository refere
 
 The compiler option is defined under `compileKotlin2JS` and in particular `kotlinOptions.outputFile` is required to indicate the output of our compiled application. We can also use these options to [define module kinds](#configuringcompileroptions).
 
-On compiling, Gradle will produce the following output
+On compiling, Gradle will produce the output of our application, which is the `{appname}.js` file. 
 
-==================================== FIX FIX FIX 
-![Gradle Output]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/maven-output.png')}})
+In order to use this, we also need to include the Kotlin standard library in our application, i.e. `kotlin.js`, which was included as a dependency. By default,
+Gradle does not expand the JAR as part of the build process, so we would need to add an additional step in our build to do so.
 
-===> where we can see the Kotlin standard library (under the folder `koltinjs-maven`) and the output of our application, which is the `kotlinjs-maven.js` file. For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
-==================================== FIX FIX FIX
 For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
 ## Configuring Compiler Options
