@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Getting Started with Kotlin and JavaScript with Maven"
 description: "A look at how to use Maven to target JavaScript."
 authors: Hadi Hariri 
-date: 
+date: 04/11/2016
 showAuthorInfo: false
 ---
 
@@ -20,8 +20,8 @@ In this tutorial we'll see how to
 ### Automatic Configuration
 
 The easiest way to create a new application targeting JavaScript with Maven is to allow IntelliJ IDEA
-to configure the Maven project for ys. Simply create a new Maven project in IntelliJ IDEA. Once the project is created, add a new 
-folder to host your Kotlin source code, removing the default Java one created. The project should end up with the following structure
+to configure the Maven project for us. Simply create a new Maven project in IntelliJ IDEA and once the project is created, add a new 
+folder to host the Kotlin source code, removing the default Java one. The project should end up with the following structure
  
 ![Project Structure]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/project-structure.png')}})
 
@@ -32,7 +32,7 @@ JavaScript
 ![Configure Kotlin]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/configure-kotlin.png')}})
 
 
-IntelliJ IDEA will add the corresponding entries `pom.xml` for us in the [Maven configuration](#mavenconfiguration). 
+IntelliJ IDEA will add the corresponding entries for us in the [Maven configuration](#mavenconfiguration). 
 
 
 ### Manual Configuration
@@ -84,9 +84,15 @@ If we're not using IntelliJ IDEA, we can configure the `pom.xml` file manually t
 
 ```
 
+On compiling, Maven will produce the following output
+
+![Maven Output]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/maven-output.png')}})
+
+where we can see the Kotlin standard library (under the folder `koltinjs-maven`) and the output of our application, which is the `kotlinjs-maven.js` file. For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
+
 ## Configuring Compiler Options
 
-Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea/getting-started-with-intellij-idea.md) or the command line, we can have the compiler output JavaScript to comply with a specific module system such as AMD, CommonJS or UMD. 
+Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea/getting-started-with-intellij-idea.html) or the command line, we can have the compiler output JavaScript to comply with a specific module system such as AMD, CommonJS or UMD. 
 
 In order to specify the module kind, we can add a configuration to our plugin as below
 
@@ -95,6 +101,7 @@ In order to specify the module kind, we can add a configuration to our plugin as
  ...
  <configuration>
         <moduleKind>commonjs</moduleKind>
+        <sourceMap>true</sourceMap>
  </configuration>
 
 ```
@@ -106,5 +113,8 @@ where `moduleKind` can be
 * commonjs
 * umd
 
-For more information about the different types of module outputs, please see [Working with Modules](../working-with-modules/working-with-modules.md)
+For more information about the different types of module outputs, please see [Working with Modules](../working-with-modules/working-with-modules.html)
+
+We can also see how we can define whether we want the compiler to generate sourcemaps for us by indicating this via the `sourceMap` parameter.
+
 
