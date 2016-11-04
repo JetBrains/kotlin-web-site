@@ -43,44 +43,44 @@ If we're not using IntelliJ IDEA, we can configure the `pom.xml` file manually t
 #### Maven configuration
 
 ```xml
-    <properties>
-        <kotlin.version>1.0.4</kotlin.version> 
-    </properties>
+<properties>
+    <kotlin.version>1.0.4</kotlin.version> 
+</properties>
 
-    <dependencies>
-        <dependency>
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-js-library</artifactId>
+        <version>${kotlin.version}</version>
+    </dependency>
+</dependencies>
+
+<build>
+    <sourceDirectory>src/main/kotlin</sourceDirectory>
+    <plugins>
+        <plugin>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-js-library</artifactId>
+            <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <sourceDirectory>src/main/kotlin</sourceDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-maven-plugin</artifactId>
-                <version>${kotlin.version}</version>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>js</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>test-compile</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>test-js</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>js</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>test-compile</id>
+                    <phase>test-compile</phase>
+                    <goals>
+                        <goal>test-js</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
 
 ```
 
@@ -93,6 +93,39 @@ where we can see the output of our application, which is the `kotlinjs-maven.js`
 In order to use this, we also need to include the Kotlin standard library in our application, i.e. `kotlin.js`, which was included as a dependency. By default,
 Maven does not expand the JAR as part of the build process, so we would need to add an additional step in our build to do so.
 
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>unpack</id>
+            <phase>compile</phase>
+            <goals>
+                <goal>unpack</goal>
+            </goals>
+            <configuration>
+                <artifactItems>
+                    <artifactItem>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-js-library</artifactId>
+                        <version>${project.version}</version>
+                        <outputDirectory>${project.build.directory}/js/lib</outputDirectory>
+                        <includes>*.js</includes>
+                    </artifactItem>
+                    <artifactItem>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-js-library-example</artifactId>
+                        <version>${project.version}</version>
+                        <outputDirectory>${project.build.directory}/js/lib</outputDirectory>
+                        <includes>*.js</includes>
+                    </artifactItem>
+                </artifactItems>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+```
 
 For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
