@@ -64,7 +64,6 @@ On compiling, Gradle will produce the following output
 ===> where we can see the Kotlin standard library (under the folder `koltinjs-maven`) and the output of our application, which is the `kotlinjs-maven.js` file. For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
 ==================================== FIX FIX FIX
-
 For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
 ## Configuring Compiler Options
