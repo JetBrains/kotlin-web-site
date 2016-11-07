@@ -2632,7 +2632,6 @@
   content:
     slides: https://speakerdeck.com/jakewharton/10-kotlin-tricks-in-10ish-minutes-square-nyc-november-2016
 
-<<<<<<< HEAD
 - title: "DevFest Toulouse 2016"
   url: "https://devfesttoulouse.firebaseapp.com/schedule/111"
   subject: "Develop a reactive Android app with Kotlin"
@@ -2642,7 +2641,7 @@
   lang: fr
   content:
     slides: https://speakerdeck.com/agiuliani/making-android-reactive-app-with-kotlin
-=======
+
 - title: "Kansai.kt #2"
   url: "http://kansai-kt.connpass.com/event/42500/"
   subject: "Kotlin Workshop"
@@ -2650,4 +2649,3 @@
   date: 2016-11-26
   location: Kyoto, Japan
   lang: ja
->>>>>>> pr/546
