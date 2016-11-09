@@ -1,11 +1,22 @@
+{% import Exception from './exception.monk' %}
+
 <div class="executable-fragment">
+    <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
+
     <textarea>
         {{ code }}
     </textarea>
-    <div class="command-panel">
-        <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
-    </div>
-    {% if output %}
-        <div class="code-output js-code-output">{{ output }}</div>
+
+    {% if (output && output != "") || exception %}
+        <div class="code-output">
+            {% unsafe output %}
+
+            {% if exception %}
+                <Exception {{...exception}} originalException={{ true }}/>
+            {% endif %}
+
+        </div>
     {% endif %}
+
+
 </div>

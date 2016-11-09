@@ -1,6 +1,7 @@
 .executable-fragment {
     margin-bottom: 20px;
     border: 1px solid #eee;
+    position: relative;
 }
 
 .CodeMirror {
@@ -15,16 +16,104 @@
     height: auto;
 }
 
+.CodeMirror {
+    line-height: 1.4;
+    font-family: menlo, consolas, monospace;
+    font-size: 12px;
+}
+
+.CodeMirror-linenumber {
+    min-width: 0;
+    text-align: center;
+}
+
 .command-panel {
     background-color: #f7f7f7;
     padding: 5px 30px;
 }
 
 .run-button {
+    position: absolute;
+    z-index: 10;
+    right: 5px;
+    top: 5px;
     height: 20px;
     width: 16px;
     cursor: pointer;
     background: url("./icons/run_icon.svg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.ERROR {
+    color: #ff0000 !important;
+}
+
+.errors-and-warnings-gutter {
+    width: 16px;
+}
+
+.ERRORgutter {
+    height: 13px;
+    width: 13px;
+    margin-top: 2px;
+    margin-left: 2px;
+    background: url("http://localhost:8080/static/images/icons_all_sprite.png") no-repeat -150px -500px;
+}
+
+.WARNINGgutter {
+    height: 13px;
+    width: 13px;
+    margin-top: 2px;
+    margin-left: 2px;
+    background: url("http://localhost:8080/static/images/icons_all_sprite.png") no-repeat -150px -600px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .ERRORgutter {
+        background-image: url("http://localhost:8080/static/images/icons_all_sprite@2x.png");
+        background-size: 250px 900px;
+    }
+
+    .WARNINGgutter {
+        background-image: url("http://localhost:8080/static/images/icons_all_sprite@2x.png");
+        background-size: 250px 900px;
+    }
+}
+
+.red_wavy_line {
+    background: url(http://localhost:8080/static/images/wavyline-red.gif) repeat-x 100% 100% !important;
+    padding-bottom: 2px;
+}
+
+.green_wavy_line {
+    background: url(http://localhost:8080/static/images/wavyline-green.gif) repeat-x 100% 100% !important;
+    padding-bottom: 2px;
+}
+
+.code-output {
+    border-top: 1px solid #eee;
+    overflow: auto;
+    padding-left: 5px;
+    flex-grow: 1;
+}
+
+.error-output {
+    white-space: pre;
+    color: #ff0000 !important;
+    min-height: 1.4em;
+    margin: 0;
+    vertical-align: top;
+}
+
+.standard-output {
+    white-space: pre;
+    color: #000 !important;
+    min-height: 1.4em;
+    margin: 0;
+    vertical-align: top;
+}
+
+.stacktrace-element {
+    margin-left: 20px;
 }
