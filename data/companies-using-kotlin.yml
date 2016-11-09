@@ -173,4 +173,8 @@
 - company: 99
   url: http://www.99taxis.com
   description: The largest app to request taxis in Brazil! Rewriting our Android apps in Kotlin.
-  
+
+- company: Connehito Inc.
+  url: http://connehito.com/
+  description: Increasing productivity by using Kotlin for our Android app.
+
