@@ -10,7 +10,7 @@ class MyFlatPages(FlatPages):
 
         :return: initialized :class:`Page` instance.
         """
-        content.replace("\r\n", "\n")
+        content = content.replace("\r\n", "\n")
         _, meta, content = re.compile(r'^-{3,}$', re.MULTILINE).split(content)
 
         # Now we ready to get HTML renderer function
