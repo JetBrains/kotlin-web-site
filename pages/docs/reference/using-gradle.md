@@ -30,25 +30,6 @@ buildscript {
 }
 ```
 
-The correspondence between Kotlin releases and versions is displayed below:
-
-<table>
-<thead>
-<tr>
-  <th>Milestone</th>
-  <th>Version</th>
-</tr>
-</thead>
-<tbody>
-{% for entry in site.data.releases.list %}
-<tr>
-  <td>{{ entry.milestone }}</td>
-  <td>{{ entry.version }}</td>
-</tr>
-{% endfor %}
-</tbody>
-</table>
-
 ## Targeting the JVM
 
 To target the JVM, the Kotlin plugin needs to be applied
