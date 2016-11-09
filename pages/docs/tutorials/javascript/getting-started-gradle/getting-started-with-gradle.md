@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Getting Started with Kotlin and JavaScript with Gradle"
 description: "A look at how to use Gradle to target JavaScript."
 authors: Hadi Hariri 
-date: 04/11/2016
+date: 2016-11-04
 showAuthorInfo: false
 ---
 

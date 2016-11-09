@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Getting Started with Kotlin and JavaScript with Maven"
 description: "A look at how to use Maven to target JavaScript."
 authors: Hadi Hariri 
-date: 04/11/2016
+date: 2016-11-04
 showAuthorInfo: false
 ---
 
