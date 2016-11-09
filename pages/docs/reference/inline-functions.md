@@ -74,7 +74,7 @@ inside a lambda, because a lambda can not make the enclosing function return:
 ``` kotlin
 fun foo() {
     ordinaryFunction {
-     return // ERROR: can not make `foo` return here
+        return // ERROR: can not make `foo` return here
     }
 }
 ```
