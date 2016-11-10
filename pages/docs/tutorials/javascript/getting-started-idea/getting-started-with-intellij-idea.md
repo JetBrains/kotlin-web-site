@@ -37,8 +37,8 @@ out to the console window.
 
 ```kotlin
 fun main(args: Array<String>) {
-        val message = "Hello JavaScript!"
-        println(message)
+    val message = "Hello JavaScript!"
+    println(message)
 }
 ```
 
