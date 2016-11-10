@@ -97,7 +97,7 @@ class Person(val name: String) {
 
 Now you can use this class from JavaScript in the following way:
 
-``` kotlin
+``` javascript
 var person = new kjs.Person("Dmitry");
 person.hello();                        // prints "Hello Dmitry!"
 person.helloWithGreeting("Servus");    // prints "Servus Dmitry!"
