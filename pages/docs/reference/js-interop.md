@@ -105,4 +105,5 @@ person.hello();                          // prints "Hello Dmitry!"
 person.helloWithGreeting("Servus");      // prints "Servus Dmitry!"
 ```
 
-If we didn't specify the `@JsName` annotation, the name of the corresponding function would contain a random suffix, for example `hello_61zpoe$`.
+If we didn't specify the `@JsName` annotation, the name of the corresponding function would contain a suffix
+calculated from the function signature, for example `hello_61zpoe$`.
