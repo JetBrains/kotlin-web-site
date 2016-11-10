@@ -1799,7 +1799,7 @@
   subject: Kotlin in examples
   speaker: Boris Vanin
   date: 2016-07-11
-  location: Minsk, Belorus
+  location: Minsk, Belarus
   lang: ru
   
 - title: "confitura 2016"
@@ -2562,11 +2562,11 @@
   location: Trondheim, Norway
   lang: en
 
-- title: "GDG DevFest Siberia 2016"
-  url: "http://devfest.gdg.org.ru/schedule/#session-169"
-  subject: "Готовим UI на Kotlin"
-  speaker: Alex Korovyansky
-  date: 2016-11-20
+- title: "GDG DevFest Siberia"
+  url: "http://devfest.gdg.org.ru/schedule/#session-048"
+  subject: "New features in Kotlin 1.1 and what's next"
+  speaker: Stanislav Erokhin
+  date: 2016-11-19
   location: Novosibirsk, Russia
   lang: ru
 
@@ -2649,3 +2649,72 @@
   date: 2016-11-26
   location: Kyoto, Japan
   lang: ja
+
+- title: "学生＆若手エンジニア向け勉強会"
+  url: "http://supporterz-seminar.connpass.com/event/43681/"
+  subject: "androidでRxとkotlin 	~fluxで複雑な状態管理を解決した話~"
+  speaker: 荒谷　光（あらたに　あきら）
+  date: 2016-11-10
+  location: Osaka, Japan
+  lang: ja
+
+- title: "MBLTDev 2016"
+  url: "http://mbltdev.ru/en#schedule"
+  subject: "Practicing Kotlin. Writing DSL"
+  speaker: Sergei Gvozdov
+  date: 2016-11-17
+  location: Moscow, Russia
+  lang: ru
+
+- title: "GDG DevFest Minsk 2016"
+  url: "http://devfest.by/"
+  subject: "Workshop. Implementing MVP architecture with Kotlin and Rx"
+  speaker: Filip Procházka
+  date: 2016-11-25
+  location: Minsk, Belarus
+  lang: en
+
+- title: "Øredev"
+  url: "http://oredev.org/2016/sessions/creating-small-dsls-with-idiomatic-kotlin"
+  subject: "Creating Small DSLs with Idiomatic Kotlin"
+  speaker: Hadi Hariri
+  date: 2016-11-11
+  location: Malmö, Sweden
+  lang: en
+
+- title: "Øredev"
+  url: "http://oredev.org/2016/sessions/getting-kotlin-in-your-codebase"
+  subject: "Getting Kotlin in Your Codebase"
+  speaker: Eric Cochran
+  date: 2016-11-11
+  location: Malmö, Sweden
+  lang: en
+  
+- title: "DroidKaigi 2016"
+  url: "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-b"
+  subject: "Advanced Kotlin for Android"
+  speaker: 長澤 太郎
+  date: 2016-02-19
+  location: Tokyo, Japan
+  lang: ja
+  content:
+    slides: https://speakerdeck.com/ntaro/advanced-kotlin-for-android-number-droidkaigi-number-droidkaigib
+    video: https://www.youtube.com/watch?v=9NCryjyLKtA
+
+- title: "JetBrains Night"
+  url: "https://habrahabr.ru/company/JetBrains/blog/309830/"
+  subject: "Kotlin как первый шаг к JVM"
+  speaker: Dmitry Jemerov
+  date: 2016-09-29
+  location: Moscow, Russia
+  lang: ru
+  content:
+    video: https://habrahabr.ru/company/JetBrains/blog/314826/
+
+- title: "Meetup Mobile Grenoble"
+  url: "http://www.meetup.com/fr-FR/Meetup-Mobile-Grenoble/events/234593729/"
+  subject: "Présentation de Kotlin, nouveau langage pour Android et la JVM"
+  speaker: Clément Plantier
+  date: 2016-11-15
+  location: Grenoble, France
+  lang: fr
