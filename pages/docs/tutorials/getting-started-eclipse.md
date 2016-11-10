@@ -1,16 +1,16 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Getting Started with Eclipse Luna"
-description: "This tutorials walks us through creating a simple Hello World application using Eclipse Luna"
+title:  "Getting Started with Eclipse Neon"
+description: "This tutorials walks us through creating a simple Hello World application using Eclipse Neon"
 authors: Nikolay Krasko
-date: 2015-03-28
+date: 2016-11-10
 showAuthorInfo: true
 ---
 
 ### Setting up the environment
 We're assuming Eclipse is installed. If not, it can be
-download from the [download page](https://www.eclipse.org/downloads/). The "Eclipse IDE for Java Developers" bundle is recommended. For correct functioning, Eclipse Luna S22 (4.4.2) or later is required.
+download from the [download page](https://www.eclipse.org/downloads/). The "Eclipse IDE for Java Developers" bundle is recommended. For correct functioning, Eclipse Neon (4.6) or later is required.
 
 We recommend installing Kotlin plugin from [Eclipse Marketplace](http://marketplace.eclipse.org/content/kotlin-plugin-eclipse). 
 One option is to drag-and-drop this button into a running Eclipse window:
