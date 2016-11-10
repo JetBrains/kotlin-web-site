@@ -83,6 +83,8 @@ In some cases (for example, to support overloads), the Kotlin compiler mangles t
 in JavaScript code. To control the generated names, you can use the `@JsName` annotation:
 
 ``` kotlin
+// Module 'kjs'
+
 class Person(val name: String) {
     fun hello() {
         println("Hello $name!")
@@ -98,7 +100,9 @@ class Person(val name: String) {
 Now you can use this class from JavaScript in the following way:
 
 ``` javascript
-var person = new kjs.Person("Dmitry");
-person.hello();                        // prints "Hello Dmitry!"
-person.helloWithGreeting("Servus");    // prints "Servus Dmitry!"
+var person = new kjs.Person("Dmitry");   // refers to module 'kjs'
+person.hello();                          // prints "Hello Dmitry!"
+person.helloWithGreeting("Servus");      // prints "Servus Dmitry!"
 ```
+
+If we didn't specify the `@JsName` annotation, the name of the corresponding function would contain a random suffix, for example `hello_61zpoe$`.
