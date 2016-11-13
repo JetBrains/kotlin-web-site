@@ -37,6 +37,13 @@ Alternatively, on OS X you can install the compiler via [Homebrew](http://brew.s
    $ brew install kotlin
 ```
 
+#### MacPorts
+If you're a [MacPorts](https://www.macports.org/) user, you can install the compiler with:
+
+```
+   $ sudo port install kotlin
+```
+
 ### Creating and running a first application
 
 1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following:
