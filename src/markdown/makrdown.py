@@ -40,7 +40,7 @@ def highlight_code(text):
 
         if lang is not None:
             if lang == "kotlin-executable":
-                element.parent['class'] = "js-executable-code"
+                element.parent['class'] = "sample"
             else:
                 element['data-lang'] = languageMimeTypeMap[lang]
                 element['class'] = "code _highlighted"
