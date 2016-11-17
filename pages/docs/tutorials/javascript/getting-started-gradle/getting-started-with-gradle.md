@@ -13,7 +13,7 @@ In this tutorial we'll see how to
 * [Create an application targeting JavaScript with Gradle](#Creatinganapplicationtargetingjavascript)
 * [Configure compiler options](#configuringcompileroptions)
 
-In order to use Gradle to target JavaScript, we need to use the `kotlin2JS` plugin as opposed to the `kotlin` plugin. 
+In order to use Gradle to target JavaScript, we need to use the `kotlin2js` plugin as opposed to the `kotlin` plugin.
 
 Our `build.gradle` file should look like the following
 
@@ -51,10 +51,10 @@ dependencies {
 
 ```
 
-where `${kotlinVersion}` is the version of [Kotlin we want to use](https://kotlinlang.org/docs/reference/using-gradle.html#plugin-and-versions). It's important to note that
+where `${kotlinVersion}` is the version of Kotlin we want to use. It's important to note that
 if we're using an EAP build, we need to have the corresponding repository referenced in the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
 
-The compiler option is defined under `compileKotlin2JS` and in particular `kotlinOptions.outputFile` is required to indicate the output of our compiled application. We can also use these options to [define module kinds](#configuringcompileroptions).
+The compiler option is defined under `compileKotlin2Js` and in particular `kotlinOptions.outputFile` is required to indicate the output of our compiled application. We can also use these options to [define module kinds](#configuringcompileroptions).
 
 On compiling, Gradle will produce the output of our application, which is the `{appname}.js` file. 
 

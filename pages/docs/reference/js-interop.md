@@ -2,10 +2,12 @@
 type: doc
 layout: reference
 category: "JavaScript"
-title: "JavaScript Modules"
+title: "JavaScript Interoperability"
 ---
 
-# JavaScript Modules
+# JavaScript Interoperability
+
+## JavaScript Modules
 
 Since Kotlin version 1.0.4 you can compile your Kotlin projects to JS modules for popular module systems. Here is
 the list of available options:
@@ -22,13 +24,13 @@ the list of available options:
 
 Choosing the target module system depends on your build environment:
 
-## From IDEA
+### From IDEA
 
 Open File -> Settings, select "Build, Execution, Deployment" -> "Compiler" -> "Kotlin compiler". Choose appropriate
 module system in "Module kind" field.
 
 
-## From Maven
+### From Maven
 
 To select module system when compiling via Maven, you should set `moduleKind` configuration property, i.e. your
 `pom.xml` should look like this:
@@ -57,7 +59,7 @@ To select module system when compiling via Maven, you should set `moduleKind` co
 Available values are: `plain`, `amd`, `commonjs`, `umd`.
 
 
-## From Gradle
+### From Gradle
 
 To select module system when compiling via Gradle, you should set `moduleKind` property, i.e.
 
@@ -66,10 +68,42 @@ To select module system when compiling via Gradle, you should set `moduleKind` p
 Available values are similar to Maven
 
 
-## Notes
+### Notes
 
 We ship `kotlin.js` standard library as a single file, which is itself compiled as an UMD module, so
 you can use it with any module system described above.
 
 Although for now we don't support WebPack and Browserify directly, we tested `.js` files produced by Kotlin
 compiler with WebPack and Browserify, so Kotlin should work with these tools properly.
+
+
+## @JsName Annotation
+
+In some cases (for example, to support overloads), the Kotlin compiler mangles the names of generated functions and attributes
+in JavaScript code. To control the generated names, you can use the `@JsName` annotation:
+
+``` kotlin
+// Module 'kjs'
+
+class Person(val name: String) {
+    fun hello() {
+        println("Hello $name!")
+    }
+
+    @JsName("helloWithGreeting")
+    fun hello(greeting: String) {
+        println("$greeting $name!")
+    }
+}
+```
+
+Now you can use this class from JavaScript in the following way:
+
+``` javascript
+var person = new kjs.Person("Dmitry");   // refers to module 'kjs'
+person.hello();                          // prints "Hello Dmitry!"
+person.helloWithGreeting("Servus");      // prints "Servus Dmitry!"
+```
+
+If we didn't specify the `@JsName` annotation, the name of the corresponding function would contain a suffix
+calculated from the function signature, for example `hello_61zpoe$`.

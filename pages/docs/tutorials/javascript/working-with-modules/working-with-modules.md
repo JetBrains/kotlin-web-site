@@ -43,10 +43,10 @@ For instance, given
  
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
-        var isPreferred = false
-        fun makePreferred() {
-                isPreferred = true
-        }
+    var isPreferred = false
+    fun makePreferred() {
+        isPreferred = true
+    }
 }
 ```
  
@@ -114,10 +114,10 @@ For instance, given
 
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
-        var isPreferred = false
-        fun makePreferred() {
-                isPreferred = true
-        }
+    var isPreferred = false
+    fun makePreferred() {
+        isPreferred = true
+    }
 }
 ```
 

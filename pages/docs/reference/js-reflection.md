@@ -12,8 +12,9 @@ on any object called `jsClass` which returns a `JsClass` instance. `JsClass` cur
 a (non-qualified) name of the class. However, the `JsClass` instance itself is a reference to the constructor function.
 This can be used to interoperate with JS functions that expect a reference to a constructor.
 
-Additionally, there's a function similar to class references, which are currently unsupported in JS compiler:
-`jsClass<ClassName>()`. This function returns `JsClass` as well.
+To get a reference to a class, you can use the `::class` syntax. Full reflection API is currently not supported
+in Kotlin for JavaScript; the only available properties are `.simpleName` which returns the name of the class
+and `.js` which returns the corresponding `JsClass`.
 
 Examples:
 
@@ -26,7 +27,8 @@ inline fun <reified T> foo() {
     println(jsClass<T>().name)
 }
 
-println(A().jsClass.name)   // prints "A"
-println(jsClass<B>().name)  // prints "B"
-foo<C>()                    // prints "C"
+println(A().jsClass.name)     // prints "A"
+println(B::class.simpleName)  // prints "B"
+println(B::class.js.name)     // prints "B"
+foo<C>()                      // prints "C"
 ```
