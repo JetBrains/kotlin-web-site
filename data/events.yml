@@ -2437,6 +2437,9 @@
   date: 2016-10-12
   location: London, Great Britain
   lang: en
+  content:
+    video: https://www.youtube.com/watch?v=cjoalATmuAg
+
 
 - title: "Kotlin Night in London"
   url: "https://blog.jetbrains.com/kotlin/2016/09/kotlin-night-in-london/"
@@ -2447,6 +2450,7 @@
   lang: en
   content:
     slides: https://speakerdeck.com/npryce/expressive-kotlin-at-london-kotlin-night
+    video: https://www.youtube.com/watch?v=p-AOjgobGR8
 
 - title: "Kotlin Night in London"
   url: "https://blog.jetbrains.com/kotlin/2016/09/kotlin-night-in-london/"
@@ -2455,6 +2459,8 @@
   date: 2016-10-12
   location: London, Great Britain
   lang: en
+    content:
+    video: https://www.youtube.com/watch?v=fTcTHSc5v2c
 
 - title: "NY JavaSIG"
   url: "https://www.eventbrite.com/e/nyjavasig-eclipse-collections-80-why-kotlin-java-streams-hardware-tickets-28897884350"
@@ -2631,6 +2637,7 @@
   lang: en
   content:
     slides: https://speakerdeck.com/jakewharton/10-kotlin-tricks-in-10ish-minutes-square-nyc-november-2016
+    video: http://jakewharton.com/10-kotlin-tricks-in-10ish-minutes/ 
 
 - title: "DevFest Toulouse 2016"
   url: "https://devfesttoulouse.firebaseapp.com/schedule/111"
@@ -2681,6 +2688,8 @@
   date: 2016-11-11
   location: Malmö, Sweden
   lang: en
+  content:
+   video: http://oredev.org/2016/sessions/creating-small-dsls-with-idiomatic-kotlin
 
 - title: "Øredev"
   url: "http://oredev.org/2016/sessions/getting-kotlin-in-your-codebase"
@@ -2689,6 +2698,9 @@
   date: 2016-11-11
   location: Malmö, Sweden
   lang: en
+  content:
+   slides: https://speakerdeck.com/nightlynexus/getting-kotlin-in-your-codebase
+   video: http://oredev.org/2016/sessions/getting-kotlin-in-your-codebase
   
 - title: "DroidKaigi 2016"
   url: "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-b"
@@ -2717,4 +2729,61 @@
   speaker: Clément Plantier
   date: 2016-11-15
   location: Grenoble, France
+  lang: fr
+  content:
+    slides: https://speakerdeck.com/clemp6r/introduction-a-kotlin
+
+- title: "第4回Kotlin勉強会 ＠Sansan"
+  url: "hhttp://connpass.com/event/44710/"
+  subject: "Kotlin LT"
+  speaker: 長澤 太郎 and others
+  date: 2016-12-13
+  location: Tokyo, Japan
+  lang: ja
+
+- title: "Java.IL"
+  url: "https://www.meetup.com/JavaIL/events/235530964/?rv=ea1&_af=event&_af_eid=235530964&https=on"
+  subject: "Taking Kotlin to production, Seriously"
+  speaker: Haim Yadid
+  date: 2016-11-28
+  location: Tel Aviv-Yafo, Israel
+  lang: en
+
+- title: "Thailand Developer Konference #1"
+  url: "https://www.eventpop.me/e/790"
+  subject: "Introduction to Kotlin for Android Development"
+  speaker: Kittinun Vantasin
+  date: 2016-08-06
+  location: Bangkok, Thailand
+  lang: th
+  content:
+    slides: http://slides.com/kittinunvantasin/introduction-to-kotlin-for-android-development#/
+    video: https://www.youtube.com/watch?v=FjJzqLktZr4
+
+- title: "Jinkubator"
+  url: "http://jinkubator.pl/#/meeting/41"
+  subject: "Kotlin"
+  speaker: Paweł Byszewski
+  date: 2016-02-09
+  location: Warsaw, Poland
+  lang: pl
+  content:
+    video: https://www.youtube.com/watch?v=UhG8rg_kyDE
+
+- title: "Jacksonville JUG"
+  url: "https://www.meetup.com/Jacksonville-JAVA-User-Group-JaxJUG/events/235504056/"
+  subject: "Kotlin, not just for Android!"
+  speaker: Shaun Hubbard
+  date: 2016-11-16
+  location: Jacksonville, USA
+  lang: en
+  content:
+    slides: https://www.icloud.com/keynote/0nYcSvn_d41c7QYb0fGfcl-1Q#Splife_Kotlin_Presentation
+
+- title: "Geek Breakfast #3"
+  url: "https://www.weezevent.com/evenement.php?id_evenement=206643&lg_billetterie=2"
+  subject: "Kotlin"
+  speaker: Arnaud Giuliani
+  date: 2016-12-02
+  location: Toulouse, France
   lang: fr
