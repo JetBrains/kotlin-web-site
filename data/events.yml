@@ -2689,7 +2689,7 @@
   location: Malmö, Sweden
   lang: en
   content:
-   video: http://oredev.org/2016/sessions/creating-small-dsls-with-idiomatic-kotlin
+    video: http://oredev.org/2016/sessions/creating-small-dsls-with-idiomatic-kotlin
 
 - title: "Øredev"
   url: "http://oredev.org/2016/sessions/getting-kotlin-in-your-codebase"
@@ -2699,8 +2699,8 @@
   location: Malmö, Sweden
   lang: en
   content:
-   slides: https://speakerdeck.com/nightlynexus/getting-kotlin-in-your-codebase
-   video: http://oredev.org/2016/sessions/getting-kotlin-in-your-codebase
+    slides: https://speakerdeck.com/nightlynexus/getting-kotlin-in-your-codebase
+    video: http://oredev.org/2016/sessions/getting-kotlin-in-your-codebase
   
 - title: "DroidKaigi 2016"
   url: "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-b"
