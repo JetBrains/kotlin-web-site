@@ -11,10 +11,10 @@ Range expressions are formed with `rangeTo` functions that have the operator for
 Range is defined for any comparable type, but for integral primitive types it has an optimized implementation. Here are some examples of using ranges
 
 ``` kotlin
-if (i in 1..10) {  // equivalent of i in [1, 10], 10 is included
+if (i in 1..10) {  // i in [1, 10], 10 is included
     println(i)
 }
-if (i in 1 until 10) { // equivalent of i in [1, 10), 10 is excluded
+if (i in 1 until 10) { // i in [1, 10), 10 is excluded
     println(i)
 }
 ```
