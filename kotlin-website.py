@@ -41,11 +41,13 @@ def get_site_data():
                 file_name_without_extension = data_file[:-4] if data_file.endswith(".yml") else data_file
                 data[file_name_without_extension] = yaml.load(stream)
             except yaml.YAMLError as exc:
-                print 'Cant parse data file ' + data_file
-                print exc.message
+                sys.stderr.write('Cant parse data file ' + data_file + ': ')
+                sys.stderr.write(str(exc))
+                sys.exit(-1)
             except IOError as exc:
-                print 'Cant open data file ' + data_file
-                print exc.message
+                sys.stderr.write('Cant read data file ' + data_file + ': ')
+                sys.stderr.write(str(exc))
+                sys.exit(-1)
     return data
 
 
