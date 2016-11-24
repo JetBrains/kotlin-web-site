@@ -53,7 +53,7 @@ JavaScript. To learn more about how to compile to JavaScript please see the corr
 * [Getting Started with the Command Line](../getting-started-command-line/command-line-library-js.html)
 * [Getting Started with IntelliJ IDEA](../getting-started-idea/getting-started-with-intellij-idea.html)
 * [Getting Started with Maven](../getting-started-maven/getting-started-with-maven.html)
-* [Getting Started with Gradle](../getting-started-maven/getting-started-with-gradle.html)
+* [Getting Started with Gradle](../getting-started-gradle/getting-started-with-gradle.html)
 
  
 

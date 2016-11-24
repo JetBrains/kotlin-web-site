@@ -56,7 +56,7 @@
   
 - company: Busradar (Busliniensuche)
   url: https://play.google.com/store/apps/details?id=de.raumobil.android.busliniensuche
-  description: Android app for searching bus trips with new features written in Kotlin since M9
+  description: Android app for searching bus trips with 99% of code written in Kotlin
 
 - company: AzaGroup
   url: https://play.google.com/store/apps/details?id=azagroup.reedy
@@ -178,3 +178,6 @@
   url: http://connehito.com/
   description: Increasing productivity by using Kotlin for our Android app.
 
+- company: Avito
+  url: https://play.google.com/store/apps/dev?id=6750101820856332864
+  description: Kotlin is a primary language for Android projects
