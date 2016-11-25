@@ -2787,3 +2787,90 @@
   date: 2016-12-02
   location: Toulouse, France
   lang: fr
+
+- title: "JetBrains Night Tokyo"
+  url: "https://www.jetbrains.com/languages/jp/jetbrains-night-2016/"
+  subject: "慣用的なKotlinで小規模なDSLを作成"
+  speaker: Hadi Hariri
+  date: 2016-11-22
+  location: Tokyo, Japan
+  lang: ja
+
+- title: "JetBrains Night Tokyo"
+  url: "https://www.jetbrains.com/languages/jp/jetbrains-night-2016/"
+  subject: "Kotlin adoption at Yahoo! Japan"
+  speaker: Matsuda Shoichi
+  date: 2016-11-22
+  location: Tokyo, Japan
+  lang: ja
+  content:
+    slides: http://slides.com/kittinunvantasin/introduction-to-kotlin-for-android-development#/
+
+- title: "JavaScript MN"
+  url: "https://www.meetup.com/JavaScriptMN/events/231106412/"
+  subject: "Kotlin"
+  speaker: Nicholas Bilyk
+  date: 2016-06-29
+  location: Minneapolis, USA
+  lang: en
+
+- title: "Kotlin User Group New Delhi"
+  url: "https://www.facebook.com/events/219740261794766/"
+  subject: "Learning what is Kotlin and how to make Android apps using it"
+  speaker: Vatsal Bajpai
+  date: 2016-11-26
+  location: New Delhi, India
+  lang: en
+
+- title: "Kotlin User Group Lyon"
+  url: "https://www.meetup.com/fr-FR/Lyon-Kotlin-User-Group/events/235651156/"
+  subject: "Kotlin & Android"
+  speaker: Benedict Letondor 
+  date: 2016-12-01
+  location: Lyon, France
+  lang: fr
+
+- title: "Devoxx US 2017"
+  url: "http://cfp.devoxx.us/2017/talk/VSU-8919/Kotlin_102__-_Beyond_the_basics"
+  subject: "Kotlin 102-Beyond the basics"
+  speaker: Hadi Hariri
+  date: 2017-03-22
+  location: San Jose, USA
+  lang: en
+
+- title: "Devoxx US 2017"
+  url: "http://cfp.devoxx.us/2017/talk/WXR-6769/Typing_in_Java,_Kotlin_and_Scala:_A_quick_comparison"
+  subject: "Typing in Java, Kotlin and Scala: A quick comparison"
+  speaker: Hanneli Tavante, Breandan Considine
+  date: 2017-03-22
+  location: San Jose, USA
+  lang: en
+
+- title: "JUG Milano Meeting #86"
+  url: "http://www.jugmilano.it/meeting-86.html"
+  subject: "Costruiamo un treno in Kotlin"
+  speaker: Francesco Vasco
+  date: 2016-12-14
+  location: Milano, Italy
+  lang: it
+
+- title: "London Software Craftsmanship Community"
+  url: "https://skillsmatter.com/skillscasts/8823-lscc-talks-september-2016#about"
+  subject: "A domain driven approach to Kotlin's new types"
+  speaker: Paco Estevez
+  date: 2016-09-22
+  location: London, Great Britain
+  lang: en
+  content:
+    video: https://skillsmatter.com/skillscasts/8823-lscc-talks-september-2016#video
+
+- title: "Youdle Tech"
+  url: "http://www.yodletechblog.com/2016/06/27/yodle-android-developer-talks-kotlin/"
+  subject: "Introduction to Kotlin on Android"
+  speaker: Dan Nizri
+  date: 2016-06-24
+  location: New Yourk, USA
+  lang: en
+  content:
+    slides: https://docs.google.com/presentation/d/1RONjTABiAWTrDNcAOWB12GEKr1LbJy8PAqwGDhpJ8_Q/edit#slide=id.g11418dcecc_3_6 
+    video: https://www.youtube.com/watch?v=ThSYQOVeoqg
