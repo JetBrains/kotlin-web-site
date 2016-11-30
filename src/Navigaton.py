@@ -10,11 +10,17 @@ class NavItem:
             self.url = url
         else:
             self.url = None
-        self.title = config['title']
         self.items = []
         if 'items' in config:
             self.items = [NavItem(item_config) for item_config in config['items']]
         self._config = config
+
+    def get_active_item(self):
+        for item in self.items:
+            if item.is_active():
+                return item
+        else:
+            return None
 
     def is_active(self):
         for item in self.items:
@@ -31,6 +37,9 @@ class NavItem:
         else:
             return False
 
+    def __iter__(self):
+        return iter(self.items)
+
     def __getitem__(self, item):
         return self._config[item]
 
@@ -39,7 +48,7 @@ class Nav:
     def __init__(self, config):
         self._nav = {}
         for nav_id in config:
-            self._nav[nav_id] = [NavItem(nav_item_config) for nav_item_config in config[nav_id]]
+            self._nav[nav_id] = NavItem(config[nav_id])
 
     def __getitem__(self, item):
         return self._nav[item]
