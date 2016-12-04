@@ -1,0 +1,1298 @@
+<html>
+<head>
+<meta charset="utf-8">
+
+
+<title>関数 - Kotlin Programming Language</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="Shortcut Icon" href="/kotlin-web-site-ja/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/kotlin-web-site-ja/assets/images/apple-touch-icon.png"/>
+<link rel="apple-touch-icon" sizes="72x72"
+      href="/kotlin-web-site-ja/assets/images/apple-touch-icon-72x72.png"/>
+<link rel="apple-touch-icon" sizes="114x114"
+      href="/kotlin-web-site-ja/assets/images/apple-touch-icon-114x114.png"/>
+<link rel="apple-touch-icon" sizes="144x144"
+      href="/kotlin-web-site-ja/assets/images/apple-touch-icon-144x144.png"/>
+<link rel="stylesheet" href="/kotlin-web-site-ja/_assets/styles.css">
+
+
+<!-- Social Media tag Starts -->
+<!-- Place this data between the <head> tags of your website -->
+<!-- Open Graph data -->
+<meta property="og:title" content="関数 - Kotlin Programming Language"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://kotlinlang.org/docs/reference/functions.html"/>
+<meta property="og:image" content="https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png"/>
+    <meta property="og:description"
+          content="Kotlin is a statically typed programming language for the JVM, Android and the browser, 100% interoperable with Java">
+<meta property="og:site_name" content="Kotlin"/>
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kotlin">
+<meta name="twitter:title" content="関数 - Kotlin Programming Language">
+    <meta name="twitter:description"
+          content="Kotlin is a statically typed programming language for the JVM, Android and the browser, 100% interoperable with Java">
+<meta name="twitter:image:src" content="https://kotlinlang.org/assets/images/twitter-card/kotlin_800x320.png">
+<!-- Social Media tag Ends -->    <script src="/kotlin-web-site-ja/_assets/default.js"></script>
+    <script src="/kotlin-web-site-ja/_assets/common.js"></script>
+</head>
+<body>
+<!--Google Analytics-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-88424767-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--/Google Analytics-->
+<div class="global-layout">
+
+<header class="global-header">
+
+    <div class="global-header-panel">
+        <div class="g-layout">
+            <a class="global-header-logo" href="/kotlin-web-site-ja/">Kotlin</a>
+<nav role="navigation" class="global-nav">
+
+    <div class="nav-links">
+
+            <a href="/kotlin-web-site-ja/docs/reference/"
+               class="nav-item "
+            >
+                Learn
+            </a>
+
+            <a href="/kotlin-web-site-ja/contribute.html"
+               class="nav-item "
+            >
+                Contribute
+            </a>
+
+            <a href="http://try.kotlinlang.org"
+               class="nav-item "
+            >
+                Try Online
+            </a>
+    </div>
+
+
+<div id="global-search" class=" global-search" title="Search">
+    <div class="search-button">
+        <div class="icon"></div>
+    </div>
+    <div class="search-box">
+        <div class="gcse-searchbox-only"
+             data-resultsUrl="/search.html"
+             data-newWindow="false"
+        ></div>
+    </div>
+</div></nav>        </div>
+    </div>
+
+    <div class="g-layout">
+    </div>
+</header>
+    <div class="g-layout global-content">
+    <div class="g-grid">
+
+        <div class="g-12">
+<nav role="navigation" class="docs-nav">
+        <div class="nav-item-wrap">
+                <a href="/kotlin-web-site-ja/docs/reference/" class="nav-item is_active">
+                        <span class="nav-item-text">
+                            リファレンス
+                        </span>
+                </a>
+        </div>
+        <div class="nav-item-wrap">
+                <a href="/kotlin-web-site-ja/docs/tutorials/" class="nav-item">
+                    <span class="nav-item-text">
+                        Tutorials
+                    </span>
+                </a>
+
+        </div>
+        <div class="nav-item-wrap">
+                <a href="/kotlin-web-site-ja/docs/videos.html" class="nav-item">
+                    <span class="nav-item-text">
+                        Videos
+                    </span>
+                </a>
+
+        </div>
+        <div class="nav-item-wrap">
+                <a href="/kotlin-web-site-ja/docs/events.html" class="nav-item">
+                    <span class="nav-item-text">
+                        Events
+                    </span>
+                </a>
+
+        </div>
+        <div class="nav-item-wrap">
+                <a href="/kotlin-web-site-ja/docs/resources.html" class="nav-item">
+                    <span class="nav-item-text">
+                        More resources
+                    </span>
+                </a>
+
+        </div>
+</nav>        </div>
+
+        <aside class="g-3">
+            <div id="reference-nav">
+                    <nav role="navigation" class="side-tree-nav">
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="入門">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">入門</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/basic-syntax.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">基本的な構文</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/idioms.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">イディオム</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/coding-conventions.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">コーディング規約</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="基本">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">基本</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/basic-types.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">基本の型</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/packages.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">パッケージ</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/control-flow.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">制御フロー</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/returns.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">returnとジャンプ</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="クラスとオブジェクト">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">クラスとオブジェクト</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/classes.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">クラスと継承</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/properties.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">プロパティとフィールド</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/interfaces.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">継承</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/visibility-modifiers.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">可視性修飾子</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/extensions.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">拡張</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/data-classes.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">データクラス</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/generics.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">ジェネリクス</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/nested-classes.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">ネストされたクラス</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/enum-classes.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">列挙型クラス</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/object-declarations.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">オブジェクト</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/delegation.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">委譲</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/delegated-properties.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">委譲プロパティ</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _opened"
+                 data-id="関数とラムダ">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">関数とラムダ</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <div class="tree-item-title tree-leaf-title js-item-title js-leaf-title is_active">
+                                <div class="marker"></div>
+                                <div class="text">関数</div>
+                            </div>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/lambdas.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">ラムダ</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/inline-functions.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">インライン関数</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="Other">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">Other</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/multi-declarations.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Destructuring Declarations</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/collections.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Collections</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/ranges.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Ranges</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/typecasts.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Type Checks and Casts</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/this-expressions.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">This expressions</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/equality.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Equality</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/operator-overloading.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Operator overloading</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/null-safety.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Null Safety</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/exceptions.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Exceptions</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/annotations.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Annotations</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/reflection.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Reflection</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/type-safe-builders.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Type-Safe Builders</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="Reference">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">Reference</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/api/latest/jvm/stdlib/index.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">API Reference</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/grammar.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Grammar</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="Java Interop">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">Java Interop</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/java-interop.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Calling Java from Kotlin</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/java-to-kotlin-interop.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Calling Kotlin from Java</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="JavaScript">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">JavaScript</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/dynamic-type.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Dynamic Type</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/js-interop.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">JavaScript Interoperability</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/js-reflection.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">JavaScript Reflection</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="Tools">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">Tools</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/kotlin-doc.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Documenting Kotlin Code</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/using-maven.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Using Maven</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/using-ant.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Using Ant</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/using-gradle.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Using Gradle</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/kotlin-osgi.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Kotlin and OSGi</span>
+                            </a>
+                    </div>
+
+            </div>
+            <div class="tree-item tree-branch js-item js-branch _closed"
+                 data-id="FAQ">
+
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                    <div class="marker"></div>
+                    <div class="text">FAQ</div>
+                </div>
+
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/faq.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">FAQ</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/comparison-to-java.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Comparison to Java</span>
+                            </a>
+                    </div>
+                    <div class="tree-item tree-leaf js-item js-leaf">
+                            <a href="/kotlin-web-site-ja/docs/reference/comparison-to-scala.html"
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                            >
+                                <span class="marker"></span>
+                                <span class="text">Comparison to Scala</span>
+                            </a>
+                    </div>
+
+            </div>
+    </nav>
+
+
+                <a href="/kotlin-web-site-ja/docs/kotlin-docs.pdf" class="reference-pdf-link">
+                    <span class="icon"></span>
+                    <span class="text">Full Kotlin Reference</span>
+                </a>
+            </div>
+        </aside>
+
+        <article role="main" class="page-content g-9">
+<a href="https://github.com/dogwood008/kotlin-web-site-ja/edit/master/pages/docs/reference/functions.md"
+   class="page-link-to-github"
+   target="_blank"
+   title="Edit this page on GitHub">
+        <i class="github-icon"></i>
+        <span class="text">Edit Page</span>
+</a>
+                
+<!--original
+- --
+type: doc
+layout: reference
+category: "Syntax"
+title: "Functions"
+- --
+-->
+<h1 id="関数">関数</h1>
+<!--original
+# Functions
+-->
+<h2 id="関数の宣言">関数の宣言</h2>
+<!--original
+## Function Declarations
+-->
+<p>Kotlinの関数は <em class="keyword">fun</em> キーワードを使用して宣言されています。</p>
+<!--original
+Functions in Kotlin are declared using the *fun*{: .keyword } keyword
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun double(x: Int): Int {
+}
+</code></pre>
+<!--original
+``` kotlin
+fun double(x: Int): Int {
+}
+```
+-->
+<h2 id="関数の使い方">関数の使い方</h2>
+<!--original
+## Function Usage
+-->
+<p>関数の呼び出しは、伝統的なアプローチを採用しています。</p>
+<!--original
+Calling functions uses the traditional approach
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val result = double(2)
+</code></pre>
+<!--original
+``` kotlin
+val result = double(2)
+```
+
+-->
+<p>メンバ関数の呼び出しは、ドット表記を使用します。</p>
+<!--original
+Calling member functions uses the dot notation
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">Sample().foo() // Sampleクラスのインスタンスを作ってfooを呼ぶ
+</code></pre>
+<!--original
+``` kotlin
+Sample().foo() // create instance of class Sample and calls foo
+```
+-->
+<h3 id="中置記法">中置記法</h3>
+<!--original
+### Infix notation
+-->
+<p>次のようなとき、中置表記法 (infix notations) を使用して関数を呼び出すことができます：</p>
+<!--original
+Functions can also be called using infix notations when
+-->
+<ul>
+<li>メンバ関数や<a href="extensions.html">拡張関数</a>であるとき</li>
+<li>単一のパラメータを持っているとき</li>
+<li><code>infix</code> キーワードでマークされているとき</li>
+</ul>
+<!--original
+* They are member functions or [extension functions](extensions.html)
+* They have a single parameter
+* They are marked with the `infix` keyword
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Intにエクステンションを定義
+infix fun Int.shl(x: Int): Int {
+...
+}
+
+// 拡張関数を infix ノーテーションを使用して呼ぶ
+
+1 shl 2
+
+// これは次と同じ
+
+1.shl(2)
+</code></pre>
+<!--original
+``` kotlin
+// Define extension to Int
+infix fun Int.shl(x: Int): Int {
+...
+}
+
+// call extension function using infix notation
+
+1 shl 2
+
+// is the same as
+
+1.shl(2)
+```
+-->
+<h3 id="パラメーター">パラメーター</h3>
+<!--original
+### Parameters
+-->
+<p>関数のパラメータはパスカル記法、すなわち <em>名前</em>: <em>タイプ</em> を使用して定義されています。パラメータはカンマを使用して分離されます。各パラメータは、明示的に入力する必要があります。</p>
+<!--original
+Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed.
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun powerOf(number: Int, exponent: Int) {
+...
+}
+</code></pre>
+<!--original
+``` kotlin
+fun powerOf(number: Int, exponent: Int) {
+...
+}
+```
+-->
+<h3 id="デフォルトの引数">デフォルトの引数</h3>
+<!--original
+### Default Arguments
+-->
+<p>関数パラメータは、対応する引数が省略されているときに使用されるデフォルト値をもつことができます。これにより、他言語に比べてオーバーロード数を減らすことができます。</p>
+<!--original
+Function parameters can have default values, which are used when a corresponding argument is omitted. This allows for a reduced number of overloads compared to
+other languages.
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun read(b: Array&lt;Byte&gt;, off: Int = 0, len: Int = b.size()) {
+...
+}
+</code></pre>
+<!--original
+``` kotlin
+fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size()) {
+...
+}
+```
+-->
+<p>デフォルト値は値と共に記述した後に <strong>=</strong> を使用して定義されます。</p>
+<!--original
+Default values are defined using the **=** after type along with the value.
+-->
+<p>オーバーライドメソッドは、常にベースメソッドと同じデフォルトのパラメータ値を使用します。デフォルトのパラメータ値を持つメソッドをオーバーライドする場合は、デフォルトのパラメータ値は、シグネチャから省略されている必要があります。</p>
+<!--original
+Overriding methods always use the same default parameter values as the base method.
+When overriding a method with default parameters values, the default parameter values must be omitted from the signature:
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">open class A {
+    open fun foo(i: Int = 10) { ... }
+}
+
+class B : A() {
+    override fun foo(i: Int) { ... }  // デフォルト値は使用できない
+}
+</code></pre>
+<!--original
+``` kotlin
+open class A {
+    open fun foo(i: Int = 10) { ... }
+}
+
+class B : A() {
+    override fun foo(i: Int) { ... }  // no default value allowed
+}
+```
+-->
+<h3 id="名前付き引数">名前付き引数</h3>
+<!--original
+### Named Arguments
+-->
+<p>関数を呼び出すとき、関数のパラメータに名前を付けることができます。これは関数が沢山のパラメータやデフォルトのパラメータを持つ場合に非常に便利です。</p>
+<!--original
+Function parameters can be named when calling functions. This is very convenient when a function has a high number of parameters or default ones.
+-->
+<p>次の関数を考えます：</p>
+<!--original
+Given the following function
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun reformat(str: String,
+             normalizeCase: Boolean = true,
+             upperCaseFirstLetter: Boolean = true,
+             divideByCamelHumps: Boolean = false,
+             wordSeparator: Char = ' ') {
+...
+}
+</code></pre>
+<!--original
+``` kotlin
+fun reformat(str: String,
+             normalizeCase: Boolean = true,
+             upperCaseFirstLetter: Boolean = true,
+             divideByCamelHumps: Boolean = false,
+             wordSeparator: Char = ' ') {
+...
+}
+```
+-->
+<p>私たちは、デフォルト引数を使用して、これを呼び出すことができます：</p>
+<!--original
+we could call this using default arguments
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">reformat(str)
+</code></pre>
+<!--original
+``` kotlin
+reformat(str)
+```
+-->
+<p>しかし、デフォルト値が無い場合はそれの呼び出しは次のようになります：</p>
+<!--original
+However, when calling it with non-default, the call would look something like
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">reformat(str, true, true, false, '_')
+</code></pre>
+<!--original
+``` kotlin
+reformat(str, true, true, false, '_')
+```
+-->
+<p>名前付き引数で、コードをはるかに読みやすくすることができます：</p>
+<!--original
+With named arguments we can make the code much more readable
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">reformat(str,
+    normalizeCase = true,
+    upperCaseFirstLetter = true,
+    divideByCamelHumps = false,
+    wordSeparator = '_'
+  )
+</code></pre>
+<!--original
+``` kotlin
+reformat(str,
+    normalizeCase = true,
+    upperCaseFirstLetter = true,
+    divideByCamelHumps = false,
+    wordSeparator = '_'
+  )
+```
+-->
+<p>すべての引数を必要としない場合：</p>
+<!--original
+and if we do not need all arguments
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">reformat(str, wordSeparator = '_')
+</code></pre>
+<!--original
+``` kotlin
+reformat(str, wordSeparator = '_')
+```
+-->
+<p>Javaバイトコードは常に関数パラメータの名を保存しないため、Java関数を呼び出すときに名前付き引数構文を使用できないことに注意してください。</p>
+<!--original
+Note that the named argument syntax cannot be used when calling Java functions, because Java bytecode does not
+always preserve names of function parameters.
+
+-->
+<h3 id="unit-を返す関数">Unit を返す関数</h3>
+<!--original
+### Unit-returning functions
+-->
+<p>関数が任意の有用な値を返さない場合、その戻り値の型は <code>Unit</code> です。 <code>Unit</code> は、唯一の値 ( <code>Unit</code> ) だけを持つ型です。
+この値は、明示的に return されなくてもかまいません：</p>
+<!--original
+If a function does not return any useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`. This
+value does not have to be returned explicitly
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun printHello(name: String?): Unit {
+    if (name != null)
+        println("Hello ${name}")
+    else
+        println("Hi there!")
+    // `return Unit` または `return` は必須ではない
+}
+</code></pre>
+<!--original
+``` kotlin
+fun printHello(name: String?): Unit {
+    if (name != null)
+        println("Hello ${name}")
+    else
+        println("Hi there!")
+    // `return Unit` or `return` is optional
+}
+```
+-->
+<p><code>Unit</code> の戻り型の宣言も任意です。上記のコードは次と等価です：</p>
+<!--original
+The `Unit` return type declaration is also optional. The above code is equivalent to
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun printHello(name: String?) {
+    ...
+}
+</code></pre>
+<!--original
+``` kotlin
+fun printHello(name: String?) {
+    ...
+}
+```
+-->
+<h3 id="単一式関数">単一式関数</h3>
+<!--original
+### Single-Expression functions
+-->
+<p>関数は、単一の式を返すと中括弧を省略することができ、本体は <strong>=</strong> 記号の後に指定されています：</p>
+<!--original
+When a function returns a single expression, the curly braces can be omitted and the body is specified after a **=** symbol
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun double(x: Int): Int = x * 2
+</code></pre>
+<!--original
+``` kotlin
+fun double(x: Int): Int = x * 2
+```
+-->
+<p>コンパイラによって戻り値の型を推論することができる時には、明示的な戻り値の型の宣言は任意です：</p>
+<!--original
+Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun double(x: Int) = x * 2
+</code></pre>
+<!--original
+``` kotlin
+fun double(x: Int) = x * 2
+```
+-->
+<h3 id="明示的な戻り値の型">明示的な戻り値の型</h3>
+<!--original
+### Explicit return types
+-->
+<p><code>Unit</code> を返すことを意図していない限り、ブロック本体を持つ関数は、それが任意である場合には、常に明示的に戻り値の型を指定しなければなりません。Kotlinはブロック本体と関数の戻り値の型を推論することはありません。なぜならこのような機能は本体内に複雑な制御フローをもつことがあり、戻り値の型が読み手（時にはコンパイラ）に自明ではないからです。</p>
+<!--original
+Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`, [in which case it is optional](#unit-returning-functions).
+Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow in the body, and the return
+type will be non-obvious to the reader (and sometimes even for the compiler). 
+
+-->
+<h3 id="可変長引数可変引数-varargs">可変長引数（可変引数, Varargs）</h3>
+<!--original
+### Variable number of arguments (Varargs)
+-->
+<p>関数（通常は最後のひとつ）のパラメータは、 <code>vararg</code> 修飾子でマークされることがあります：</p>
+<!--original
+A parameter of a function (normally the last one) may be marked with `vararg` modifier:
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun &lt;T&gt; asList(vararg ts: T): List&lt;T&gt; {
+  val result = ArrayList&lt;T&gt;()
+  for (t in ts) // ts は配列
+    result.add(t)
+  return result
+}
+</code></pre>
+<!--original
+``` kotlin
+fun <T> asList(vararg ts: T): List<T> {
+  val result = ArrayList<T>()
+  for (t in ts) // ts is an Array
+    result.add(t)
+  return result
+}
+```
+-->
+<p>関数に渡される引数を可変数にすることができます：</p>
+<!--original
+allowing a variable number of arguments to be passed to the function:
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">  val list = asList(1, 2, 3)
+</code></pre>
+<!--original
+```kotlin
+  val list = asList(1, 2, 3)
+```
+-->
+<p>関数の中では、 <code>T</code> 型の <code>vararg</code> をつけたパラメータは <code>T</code> の配列として見えます。すなわち、前述例での <code>ts</code> 変数は <code>Array&lt;out T&gt;</code> 型を持ちます。</p>
+<!--original
+Inside a function a `vararg`-parameter of type `T` is visible as an array of `T`, i.e. the `ts` variable in the example above has type `Array<out T>`.
+-->
+<p>唯一のパラメータが <code>vararg</code> としてマークされることがあります。 <code>vararg</code> パラメータが変数リストの最後のひとつでない場合には、名前付き引数の構文を使用して、またはパラメータが関数型をもっている場合、括弧の外でラムダを渡すことによって、リストにおける次のパラメータの値を渡すことができます。</p>
+<!--original
+Only one parameter may be marked as `vararg`. If a `vararg` parameter is not the last one in the list, values for the
+following parameters can be passed using the named argument syntax, or, if the parameter has a function type, by passing
+a lambda outside parentheses.
+-->
+<p><code>vararg</code> をもつ関数を呼び出すとき、例えば <code>asList(1, 2, 3)</code> のように、一つずつ引数を渡すことができます。または、すでに配列を持っており、関数にその内容を渡したい場合は、（ * を配列名の接頭辞にする） <strong>spread</strong> 演算子を使用します：</p>
+<!--original
+When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList(1, 2, 3)`, or, if we already have an array
+ and want to pass its contents to the function, we use the **spread** operator (prefix the array with `*`):
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val a = arrayOf(1, 2, 3)
+val list = asList(-1, 0, *a, 4)
+</code></pre>
+<!--original
+```kotlin
+val a = arrayOf(1, 2, 3)
+val list = asList(-1, 0, *a, 4)
+```
+-->
+<h2 id="関数のスコープ">関数のスコープ</h2>
+<!--original
+## Function Scope
+-->
+<p>Kotlinでは、関数はファイルのトップレベルで宣言することができます。これは、関数を保持するためのクラスを作成する必要がないことを意味します。JavaやC#, Scalaなどの言語と同じように。トップレベルの関数に加えて、Kotlinの関数はメンバ関数や拡張機能として、ローカルに宣言することもできます。</p>
+<!--original
+In Kotlin functions can be declared at top level in a file, meaning you do not need to create a class to hold a function, like languages such as Java, C# or Scala. In addition
+to top level functions, Kotlin functions can also be declared local, as member functions and extension functions.
+-->
+<h3 id="ローカル関数">ローカル関数</h3>
+<!--original
+### Local Functions
+-->
+<p>Kotlinはローカル関数、すなわち、ある関数内の別の関数をサポートしています。</p>
+<!--original
+Kotlin supports local functions, i.e. a function inside another function
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun dfs(graph: Graph) {
+  fun dfs(current: Vertex, visited: Set&lt;Vertex&gt;) {
+    if (!visited.add(current)) return
+    for (v in current.neighbors)
+      dfs(v, visited)
+  }
+
+  dfs(graph.vertices[0], HashSet())
+}
+</code></pre>
+<!--original
+``` kotlin
+fun dfs(graph: Graph) {
+  fun dfs(current: Vertex, visited: Set<Vertex>) {
+    if (!visited.add(current)) return
+    for (v in current.neighbors)
+      dfs(v, visited)
+  }
+
+  dfs(graph.vertices[0], HashSet())
+}
+```
+-->
+<p>ローカル関数は、外側の関数（すなわちクロージャ）のローカル変数にアクセスすることができます。これにより、上記の場合には、 visited をローカル変数にすることができます。</p>
+<!--original
+Local function can access local variables of outer functions (i.e. the closure), so in the case above, the *visited* can be a local variable
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun dfs(graph: Graph) {
+  val visited = HashSet&lt;Vertex&gt;()
+  fun dfs(current: Vertex) {
+    if (!visited.add(current)) return
+    for (v in current.neighbors)
+      dfs(v)
+  }
+
+  dfs(graph.vertices[0])
+}
+</code></pre>
+<!--original
+``` kotlin
+fun dfs(graph: Graph) {
+  val visited = HashSet<Vertex>()
+  fun dfs(current: Vertex) {
+    if (!visited.add(current)) return
+    for (v in current.neighbors)
+      dfs(v)
+  }
+
+  dfs(graph.vertices[0])
+}
+```
+-->
+<h3 id="メンバ関数">メンバ関数</h3>
+<!--original
+### Member Functions
+-->
+<p>メンバ関数は、クラスやオブジェクトの内部で定義される関数です。</p>
+<!--original
+A member function is a function that is defined inside a class or object
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Sample() {
+  fun foo() { print("Foo") }
+}
+</code></pre>
+<!--original
+``` kotlin
+class Sample() {
+  fun foo() { print("Foo") }
+}
+```
+-->
+<p>メンバ関数は、ドット表記と呼ばれています。</p>
+<!--original
+Member functions are called with dot notation
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">Sample().foo() // Sampleクラスのインスタンスを作り、 foo を呼ぶ
+</code></pre>
+<!--original
+``` kotlin
+Sample().foo() // creates instance of class Sample and calls foo
+```
+-->
+<p>クラスおよびオーバーライドするメンバの詳細については クラスと継承 を参照してください。</p>
+<!--original
+For more information on classes and overriding members see [Classes](classes.html) and [Inheritance](classes.html#inheritance)
+-->
+<h2 id="ジェネリック関数">ジェネリック関数</h2>
+<!--original
+## Generic Functions
+-->
+<p>関数は、関数名の前に山括弧（訳注：＜＞のことです）を使用して、ジェネリックパラメータを持つことができます。</p>
+<!--original
+Functions can have generic parameters which are specified using angle brackets before the function name
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun &lt;T&gt; singletonList(item: T): List&lt;T&gt; {
+  // ...
+}
+</code></pre>
+<!--original
+``` kotlin
+fun <T> singletonList(item: T): List<T> {
+  // ...
+}
+```
+-->
+<p>ジェネリック関数の詳細については、<a href="generics.html">ジェネリクス</a> を参照してください。</p>
+<!--original
+For more information on generic functions see [Generics](generics.html)
+-->
+<h2 id="インライン関数">インライン関数</h2>
+<!--original
+## Inline Functions
+-->
+<p>インライン関数は、 <a href="inline-functions.html">ここ</a> で説明されています。</p>
+<!--original
+Inline functions are explained [here](inline-functions.html)
+-->
+<h2 id="拡張関数">拡張関数</h2>
+<!--original
+## Extension Functions
+-->
+<p>拡張機能は、 <a href="extensions.html">拡張関数</a> で説明されています。</p>
+<!--original
+Extension functions are explained in [their own section](extensions.html)
+-->
+<h2 id="高階関数とラムダ">高階関数とラムダ</h2>
+<!--original
+## Higher-Order Functions and Lambdas
+-->
+<p>高階関数とラムダは、 <a href="lambdas.html">高階関数とラムダ</a> で説明されています。</p>
+<!--original
+Higher-Order functions and Lambdas are explained in [their own section](lambdas.html)
+-->
+<h2 id="末尾再帰関数">末尾再帰関数</h2>
+<!--original
+## Tail recursive functions
+-->
+<p>Kotlinは<a href="https://en.wikipedia.org/wiki/Tail_call">末尾再帰</a>として知られている関数型プログラミングのスタイルをサポートしています。これは通常ループを使用して書かれるいくつかのアルゴリズムを代わりに再帰で、しかし、普通の再帰と違ってスタックオーバーフローのリスクがないように書くことです。ある関数が <code>tailrec</code> 修飾子でマークされ、必要な形式を満たしている場合、コンパイラは高速かつ効率的なループベースのバージョンを残して、再帰を最適化します。</p>
+<!--original
+Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call).
+This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow.
+When a function is marked with the `tailrec` modifier and meets the required form the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">tailrec fun findFixPoint(x: Double = 1.0): Double
+        = if (x == Math.cos(x)) x else findFixPoint(Math.cos(x))
+</code></pre>
+<!--original
+``` kotlin
+tailrec fun findFixPoint(x: Double = 1.0): Double
+        = if (x == Math.cos(x)) x else findFixPoint(Math.cos(x))
+```
+-->
+<p>このコードは、数学定数であるコサインの不動点（固定点, fixpoint）を算出します。それは Math.cos を 1.0 から始めて結果に0.7390851332151607の結果を得、それ以上変化しなくなるまで単に繰り返し呼び出します。その結果生成されたコードは、このより伝統的なスタイルに相当します。</p>
+<!--original
+This code calculates the fixpoint of cosine, which is a mathematical constant. It simply calls Math.cos repeatedly starting at 1.0 until the result doesn't change any more, yielding a result of 0.7390851332151607. The resulting code is equivalent to this more traditional style:
+-->
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">private fun findFixPoint(): Double {
+    var x = 1.0
+    while (true) {
+        val y = Math.cos(x)
+        if (x == y) return y
+        x = y
+    }
+}
+</code></pre>
+<!--original
+``` kotlin
+private fun findFixPoint(): Double {
+    var x = 1.0
+    while (true) {
+        val y = Math.cos(x)
+        if (x == y) return y
+        x = y
+    }
+}
+```
+-->
+<p><code>tailrec</code> 修飾子の対象となるためには、関数は実行する最後の操作として自身を呼び出す必要があります。再帰呼び出しの後に多くのコードがあるときは、末尾再帰を使用することはできません。 try / catch / finally ブロック内で使用することもできません。現在、末尾再帰はJVMのバックエンドでのみサポートされています。</p>
+<!--original
+To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use tail recursion when there is more code after the recursive call, and you cannot use it within try/catch/finally blocks. Currently tail recursion is only supported in the JVM backend.
+
+-->
+
+        </article>
+    </div>
+
+    <script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+    <script type="text/javascript">
+    <!--
+    $(function() {
+      $("*").contents().filter(function() {
+        return this.nodeType==8 && this.nodeValue.match(/^original/);
+      }).each(function(i, e) {
+        var tooltips = e.nodeValue.replace(/^original *[\n\r]|[\n\r]$/g, '');
+        $(this).prev().attr('title', tooltips);
+      });
+    });
+    -->
+    </script>
+
+    <script src="/kotlin-web-site-ja/_assets/reference.js"></script>
+    </div>
+
+</div>
+
+<footer role="contentinfo" class="global-footer">
+
+    <div class="global-footer-terms">
+        <div class="g-layout">
+
+            <div class="terms-copyright">
+                &copy; 2000&ndash;2016 JetBrains. All rights reserved
+            </div>
+
+            <div class="terms-sponsor">
+                Sponsored and developed by <a href="http://jetbrains.com" class="sponsor sponsor_jetbrains" target="_blank">JetBrains</a>
+            </div>
+        </div>
+    </div>
+
+</footer></body>
+</html>
