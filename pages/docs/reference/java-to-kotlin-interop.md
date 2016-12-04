@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: reference
-category: "Java Interop"
+category: "Interop"
 title: "Calling Kotlin from Java"
 ---
 
@@ -161,7 +161,7 @@ Properties annotated with `const` (in classes as well as at the top level) are t
 // file example.kt
 
 object Obj {
-    const val CONST = 1
+  const val CONST = 1
 }
 
 class C {
@@ -189,10 +189,10 @@ For example:
 
 ``` kotlin
 class C {
-    companion object {
-        @JvmStatic fun foo() {}
-        fun bar() {}
-    }
+  companion object {
+    @JvmStatic fun foo() {}
+    fun bar() {}
+  }
 }
 ```
 
@@ -224,15 +224,6 @@ Obj.INSTANCE.foo(); // works too
 `@JvmStatic` annotation can also be applied on a property of an object or a companion object
 making its getter and setter methods be static members in that object or the class containing the companion object.
 
-## KClass
-
-Sometimes you need to call a Kotlin method with a parameter of type `KClass`.
-There is no automatic conversion from `Class` to `KClass`, so you have to do it manually by invoking the equivalent of
-the `Class<T>.kotlin` extension property:
-
-```kotlin
-kotlin.jvm.JvmClassMappingKt.getKotlinClass(MainView.class)
-```
 
 ## Handling signature clashes with @JvmName
 
@@ -260,8 +251,8 @@ The same trick applies when we need to have a property `x` alongside with a func
 
 ``` kotlin
 val x: Int
-    @JvmName("getX_prop")
-    get() = 15
+  @JvmName("getX_prop")
+  get() = 15
 
 fun getX() = 10
 ```
@@ -309,7 +300,7 @@ Thus if we have a function in Kotlin like this:
 package demo
 
 fun foo() {
-    throw IOException()
+  throw IOException()
 }
 ```
 

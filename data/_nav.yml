@@ -15,7 +15,7 @@ main:
 # =======================
 docs:
   - url: /docs/reference/
-    title: Reference
+    title: リファレンス
 
   - url: /docs/tutorials/
     title: Tutorials
@@ -33,65 +33,65 @@ docs:
 # Reference navigation
 # ====================
 reference:
-  - title: Getting Started
+  - title: 入門
     description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
     items:
       - url: /docs/reference/basic-syntax.html
-        title: Basic Syntax
+        title: 基本的な構文
       - url: /docs/reference/idioms.html
-        title: Idioms
+        title: イディオム
       - url: /docs/reference/coding-conventions.html
-        title: Coding Conventions
+        title: コーディング規約
 
-  - title: Basics
+  - title: 基本
     description: The Basics
     items:
       - url: /docs/reference/basic-types.html
-        title: Basic Types
+        title: 基本の型
       - url: /docs/reference/packages.html
-        title: Packages
+        title: パッケージ
       - url: /docs/reference/control-flow.html
-        title: Control Flow
+        title: 制御フロー
       - url: /docs/reference/returns.html
-        title: Returns and Jumps
+        title: returnとジャンプ
 
-  - title: Classes and Objects
+  - title: クラスとオブジェクト
     description: All about objects
     items:
       - url: /docs/reference/classes.html
-        title: Classes and Inheritance
+        title: クラスと継承
       - url: /docs/reference/properties.html
-        title: Properties and Fields
+        title: プロパティとフィールド
       - url: /docs/reference/interfaces.html
-        title: Interfaces
+        title: 継承
       - url: /docs/reference/visibility-modifiers.html
-        title: Visibility Modifiers
+        title: 可視性修飾子
       - url: /docs/reference/extensions.html
-        title: Extensions
+        title: 拡張
       - url: /docs/reference/data-classes.html
-        title: Data Classes
+        title: データクラス
       - url: /docs/reference/generics.html
-        title: Generics
+        title: ジェネリクス
       - url: /docs/reference/nested-classes.html
-        title: Nested Classes
+        title: ネストされたクラス
       - url: /docs/reference/enum-classes.html
-        title: Enum Classes
+        title: 列挙型クラス
       - url: /docs/reference/object-declarations.html
-        title: Objects
+        title: オブジェクト
       - url: /docs/reference/delegation.html
-        title: Delegation
+        title: 委譲
       - url: /docs/reference/delegated-properties.html
-        title: Delegated Properties
+        title: 委譲プロパティ
 
-  - title: Functions and Lambdas
+  - title: 関数とラムダ
     description: All about functions
     items:
       - url: /docs/reference/functions.html
-        title: Functions
+        title: 関数
       - url: /docs/reference/lambdas.html
-        title: Lambdas
+        title: ラムダ
       - url: /docs/reference/inline-functions.html
-        title: Inline Functions
+        title: インライン関数
 
   - title: Other
     description: Various bits and bobs

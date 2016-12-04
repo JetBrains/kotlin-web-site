@@ -62,11 +62,10 @@ The compiler tracks the information about the check you performed, and allows th
 More complex conditions are supported as well:
 
 ``` kotlin
-if (b != null && b.length > 0) {
-    print("String of length ${b.length}")
-} else {
-    print("Empty string")
-}
+if (b != null && b.length > 0)
+  print("String of length ${b.length}")
+else
+  print("Empty string")
 ```
 
 Note that this only works where `b` is immutable (i.e. a local variable which is not modified between the check and the
@@ -83,22 +82,13 @@ b?.length
 This returns `b.length` if `b` is not null, and *null*{: .keyword } otherwise. The type of this expression is `Int?`.
 
 Safe calls are useful in chains. For example, if Bob, an Employee, may be assigned to a Department (or not),
-that in turn may have another Employee as a department head, then to obtain the name of Bob's department head (if any), we write the following:
+that in turn may have another Employee as a department head, then to obtain the name of Bob's department head, if any), we write the following:
 
 ``` kotlin
 bob?.department?.head?.name
 ```
 
 Such a chain returns *null*{: .keyword } if any of the properties in it is null.
-
-To perform a certain operation only for non-null values, you can use the safe call operator together with [`let`](/api/latest/jvm/stdlib/kotlin/let.html):
-
-``` kotlin
-val listWithNulls: List<String?> = listOf("A", null)
-for (item in listWithNulls) {
-     item?.let { println(it) } // prints A and ignores null
-}
-```
 
 ## Elvis Operator
 
@@ -122,9 +112,9 @@ the right hand side of the elvis operator. This can be very handy, for example, 
 
 ``` kotlin
 fun foo(node: Node): String? {
-    val parent = node.getParent() ?: return null
-    val name = node.getName() ?: throw IllegalArgumentException("name expected")
-    // ...
+  val parent = node.getParent() ?: return null
+  val name = node.getName() ?: throw IllegalArgumentException("name expected")
+  // ...
 }
 ```
 
@@ -134,7 +124,7 @@ The third option is for NPE-lovers. We can write `b!!`, and this will return a n
 (e.g., a `String` in our example) or throw an NPE if `b` is null:
 
 ``` kotlin
-val l = b!!.length
+val l = b!!.length()
 ```
 
 Thus, if you want an NPE, you can have it, but you have to ask for it explicitly, and it does not appear out of the blue.
@@ -148,11 +138,3 @@ Another option is to use safe casts that return *null*{: .keyword } if the attem
 val aInt: Int? = a as? Int
 ```
 
-## Collections of Nullable Type
-
-If you have a collection of elements of a nullable type and want to filter non-null elements, you can do so by using `filterNotNull`.
-
-``` kotlin
-val nullableList: List<Int?> = listOf(1, 2, null, 4)
-val intList: List<Int> = nullableList.filterNotNull()
-```

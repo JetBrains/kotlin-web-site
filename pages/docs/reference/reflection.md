@@ -49,22 +49,8 @@ println(numbers.filter(::isOdd)) // prints [1, 3]
 
 Here `::isOdd` is a value of function type `(Int) -> Boolean`.
 
-`::` can be used with overloaded functions when the expected type is known from the context.
-For example:
-
-``` kotlin
-fun isOdd(x: Int) = x % 2 != 0
-fun isOdd(s: String) = s == "brillig" || s == "slithy" || s == "tove"
-
-val numbers = listOf(1, 2, 3)
-println(numbers.filter(::isOdd)) // refers to isOdd(x: Int)
-```
-
-Alternatively, you can provide the necessary context by storing the method reference in a variable with an explicitly specified type:
-
-``` kotlin
-val predicate: (String) -> Boolean = ::isOdd   // refers to isOdd(x: String)
-```
+Note that right now the `::` operator cannot be used for overloaded functions. In the future, we plan to
+provide a syntax for specifying parameter types so that a specific overload of a function could be selected.
 
 If we need to use a member of a class, or an extension function, it needs to be qualified.
 e.g. `String::toCharArray` gives us an extension function for type `String`: `String.() -> CharArray`.
@@ -84,7 +70,7 @@ Now, you can apply it to callable references:
 
 
 ``` kotlin
-fun length(s: String) = s.length
+fun length(s: String) = s.size
 
 val oddLength = compose(::isOdd, ::length)
 val strings = listOf("a", "ab", "abc")
@@ -136,10 +122,10 @@ For an extension property:
 
 ``` kotlin
 val String.lastChar: Char
-    get() = this[length - 1]
+  get() = this[size - 1]
 
 fun main(args: Array<String>) {
-    println(String::lastChar.get("abc")) // prints "c"
+  println(String::lastChar.get("abc")) // prints "c"
 }
 ```
 

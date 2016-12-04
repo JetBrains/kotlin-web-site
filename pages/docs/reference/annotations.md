@@ -32,16 +32,16 @@ Additional attributes of the annotation can be specified by annotating the annot
         AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION)
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
-annotation class Fancy
+public annotation class Fancy
 ```
 
 ### Usage
 
 ``` kotlin
 @Fancy class Foo {
-    @Fancy fun baz(@Fancy foo: Int): Int {
-        return (@Fancy 1)
-    }
+  @Fancy fun baz(@Fancy foo: Int): Int {
+    return (@Fancy 1)
+  }
 }
 ```
 
@@ -51,7 +51,7 @@ to the constructor declaration, and add the annotations before it:
 
 ``` kotlin
 class Foo @Inject constructor(dependency: MyDependency) {
-    // ...
+  // ...
 }
 ```
 
@@ -86,27 +86,13 @@ Allowed parameter types are:
 If an annotation is used as a parameter of another annotation, its name is not prefixed with the @ character:
 
 ``` kotlin
-annotation class ReplaceWith(val expression: String)
+public annotation class ReplaceWith(val expression: String)
 
-annotation class Deprecated(
+public annotation class Deprecated(
         val message: String,
         val replaceWith: ReplaceWith = ReplaceWith(""))
 
 @Deprecated("This function is deprecated, use === instead", ReplaceWith("this === other"))
-```
-
-If you need to specify a class as an argument of an annotation, use a Kotlin class
-([KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)). The Kotlin compiler will
-automatically convert it to a Java class, so that the Java code will be able to see the annotations and arguments
-normally.
-
-``` kotlin
-
-import kotlin.reflect.KClass
-
-annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any?>)
-
-@Ann(String::class, Int::class) class MyClass
 ```
 
 ### Lambdas
@@ -148,7 +134,7 @@ target and putting all the annotations inside the brackets:
 ``` kotlin
 class Example {
      @set:[Inject VisibleForTesting]
-     var collaborator: Collaborator
+     public var collaborator: Collaborator
 }
 ```
 
@@ -185,17 +171,11 @@ Java annotations are 100% compatible with Kotlin:
 ``` kotlin
 import org.junit.Test
 import org.junit.Assert.*
-import org.junit.Rule
-import org.junit.rules.*
 
 class Tests {
-    // apply @Rule annotation to property getter
-    @get:Rule val tempFolder = TemporaryFolder()
-
-    @Test fun simple() {
-        val f = tempFolder.newFile()
-        assertEquals(42, getTheAnswer())
-    }
+  @Test fun simple() {
+    assertEquals(42, getTheAnswer())
+  }
 }
 ```
 
@@ -243,18 +223,18 @@ public @interface AnnWithArrayValue {
 @AnnWithArrayValue("abc", "foo", "bar") class C
 ```
 
-For other arguments that have an array type, you need to use `arrayOf` explicitly:
-
-``` java
-// Java
-public @interface AnnWithArrayMethod {
-    String[] names();
-}
-```
+If you need to specify a class as an argument of an annotation, use a Kotlin class
+([KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)). The Kotlin compiler will
+automatically convert it to a Java class, so that the Java code will be able to see the annotations and arguments
+normally.
 
 ``` kotlin
-// Kotlin
-@AnnWithArrayMethod(names = arrayOf("abc", "foo", "bar")) class C
+
+import kotlin.reflect.KClass
+
+annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any?>)
+
+@Ann(String::class, Int::class) class MyClass
 ```
 
 Values of an annotation instance are exposed as properties to Kotlin code.
