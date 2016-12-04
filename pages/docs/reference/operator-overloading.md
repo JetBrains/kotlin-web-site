@@ -127,8 +127,8 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 
 | Expression | Translated to |
 |------------|---------------|
-| `a == b` | `a?.equals(b) ?: b === null` |
-| `a != b` | `!(a?.equals(b) ?: b === null)` |
+| `a == b` | `a?.equals(b) ?: (b === null)` |
+| `a != b` | `!(a?.equals(b) ?: (b === null))` |
 
 *Note*: `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them
 
