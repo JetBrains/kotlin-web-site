@@ -14,8 +14,7 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="passParentEnvs" value="true" />
-      <option name="program" value="$USER_HOME$/.rvm/rubies/ruby-2.1.2/bin/scss" />
+      <option name="program" value="C:/Ruby22-x64/bin/scss.bat" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="$FileDir$" />
@@ -23,4 +22,3 @@
     </TaskOptions>
   </component>
 </project>
-
