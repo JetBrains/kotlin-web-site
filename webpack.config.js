@@ -15,7 +15,7 @@ var webpackConfig = {
   entry: {
     'common': 'page/common.js',
     'index': 'page/index.js',
-    'events': 'page/events.js',
+    'events': 'page/events/index.js',
     'reference': 'page/reference.js',
     'tutorials': 'page/tutorials.js',
     'videos': 'page/videos.js',
