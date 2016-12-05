@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js ie ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<html>
+<head>
+    {% include meta-inf.html %}
+    <link rel="stylesheet" href="{{ site.assets_url }}common.css"/>
+    <script src="{{ site.assets_url }}common.js"></script>
+
+    {% if page.entry-point %}
+        <link rel="stylesheet" href="{{ site.assets_url }}{{page.entry-point}}.css"/>
+        <script src="{{ site.assets_url }}{{page.entry-point}}.js"></script>
+    {% endif %}
+</head>
+<body>
+{% include analytics.html %}
+
+<div class="global-layout">
+
+    {% include header.html active=page.main_nav_id %}
+
+    <div class="g-layout global-content">
+        {{ content }}
+    </div>
+
+</div>
+
+{% include footer.html %}
+</body>
+</html>
