@@ -2656,6 +2656,8 @@
   date: 2016-11-26
   location: Kyoto, Japan
   lang: ja
+  content:
+    slides: http://www.slideshare.net/kenichitatsuhama/java-kotlin/18
 
 - title: "学生＆若手エンジニア向け勉強会"
   url: "http://supporterz-seminar.connpass.com/event/43681/"
@@ -2748,6 +2750,8 @@
   date: 2016-11-28
   location: Tel Aviv-Yafo, Israel
   lang: en
+  content:
+    slides: http://www.slideshare.net/haimyadid/taking-kotlin-to-production-seriously
 
 - title: "Thailand Developer Konference #1"
   url: "https://www.eventpop.me/e/790"
@@ -2874,3 +2878,85 @@
   content:
     slides: https://docs.google.com/presentation/d/1RONjTABiAWTrDNcAOWB12GEKr1LbJy8PAqwGDhpJ8_Q/edit#slide=id.g11418dcecc_3_6 
     video: https://www.youtube.com/watch?v=ThSYQOVeoqg
+
+- title: "Toronto Android Developers"
+  url: "http://www.meetup.com/ToAndroidDev/events/235487116/?a=socialmedia"
+  subject: "Android Tech Talk" 
+  speaker: Adam Erb
+  date: 2016-11-29
+  location: Toronto, Canada
+  lang: en 
+
+- title: "Kotlin Toronto"
+  url: "https://www.meetup.com/Kotlin-Toronto/events/235740293/"
+  subject: "Introduction to the Kotlin programming language"
+  speaker: Alberto Arias
+  date: 2017-1-23
+  location: Toronto, Canada
+  lang: en
+
+- title: "GDG DevFest Izmir" 
+  url: "https://devfestizmir.firebaseapp.com/schedule/day1"
+  subject: "Kotlin for Android"
+  speaker: Semih Bozdemir
+  date: 2016-11-27
+  location: Izmir, Turkey
+  lang: tr
+  content:
+    slides: http://www.slideshare.net/SemihBozdemir/kotlin-for-android-at-devfest-zmir-2016
+
+- title: "Kotlin Group of Boulder"
+  url: "https://www.meetup.com/Kotlin-Group-Boulder/?scroll=true"
+  subject:"Kotlin Workshop"
+  speaker: Damien Le Berrigaud
+  date: 2016-12-7
+  location: Colorado, USA
+  lang: en
+
+- title: "Kotlin Night Riga"
+  url: "https://jug.lv/"
+  subject: "Kotlin for Java Developers"
+  speaker: Ruslan Ibragimov 
+  date: 2016-12-15
+  location: Riga, Latvia
+  lang: ru
+
+- title: "Kotlin Night Riga"
+  url: "https://jug.lv/"
+  subject: "Introduction in Bootique and Kotlin Gradle"
+  speaker: Ruslan Ibragimov 
+  date: 2016-12-15
+  location: Riga, Latvia
+  lang: ru
+
+- title: "Kotlin Night Riga"
+  url: "https://jug.lv/"
+  subject: "Android & Kotlin"
+  speaker: Sergejs Luhmirins
+  date: 2016-12-15
+  location: Riga, Latvia
+  lang: ru
+
+- title: "New York Kotlin Meetup"
+  url: "https://www.meetup.com/New-York-Kotlin-Meetup/events/235676813/" 
+  subject: "Building A DSL in Kotlin"
+  speaker: Justin Lee
+  date: 2016-12-7
+  location: New York, USA
+  lang: en
+
+- title: "New York Kotlin Meetup"
+  url: "https://www.meetup.com/New-York-Kotlin-Meetup/events/235676813/" 
+  subject: "What's new in 1.0.5 (and a look at the 1.1 roadmap features)"
+  speaker: Brent Watson
+  date: 2016-12-7
+  location: New York, USA
+  lang: en
+
+- title: "DevFest Kuala Lumpur 2016"
+  url: "http://devfestkl2016.peatix.com/" 
+  subject: "Kotlin on Android"
+  speaker: Faez Murshidi bin Adnan
+  date: 2016-12-10
+  location: Kuala Lumpur, Malaysia
+  lang: en
