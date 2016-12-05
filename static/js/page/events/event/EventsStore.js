@@ -21,6 +21,8 @@ function EventsStore(eventsData, citiesData) {
     var event = new Event(data);
     if (event.city)
       store.events.push(event);
+    else
+      console.log(event);
   });
 
   store.events.forEach(function (event) {

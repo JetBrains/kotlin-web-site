@@ -3,9 +3,9 @@ var $ = require('jquery');
 var Map = require('./map/Map');
 var EventsStore = require('./event/EventsStore');
 var EventsList = require('./events-list/EventsList');
-var emitter = require('../../utils/emitter');
+var emitter = require('../../util/emitter');
 var EVENTS = require('./events-list');
-var FilterPanel = require('./filter-panel');
+var FilterPanel = require('./filter-panel/index');
 
 require('scrolltofixed/jquery-scrolltofixed.js');
 require('./index.scss');
@@ -51,10 +51,11 @@ function refreshMapSize(map, list) {
 
 $(document).ready(function () {
   var store;
-  var eventsStorePromise = EventsStore.create('/docs/events.json', '/docs/cities.json');
+  var eventsStorePromise = EventsStore.create('/data/events.json', '/data/cities.json');
 
   eventsStorePromise.then(function (eventsStore) {
     store = eventsStore;
+    window.store = store;
     return Map.create('.js-map', eventsStore);
   })
   .then(function (map) {

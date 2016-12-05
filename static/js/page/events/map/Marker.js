@@ -2,7 +2,7 @@ var icon = require('./marker-icon.png');
 var inactiveIcon = require('./marker-icon-inactive.png');
 var highlightedIcon = require('./marker-icon-highlighted.png');
 var EVENTS = require('./../events-list');
-var emitter = require('../../../utils/emitter');
+var emitter = require('../../../util/emitter');
 
 /**
  * @param {Event} event

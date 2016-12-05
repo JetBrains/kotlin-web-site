@@ -1,9 +1,9 @@
 var $ = require('jquery');
-var emitter = require('../../../utils/emitter');
+var emitter = require('../../../util/emitter');
 var EVENTS = require('./../events-list');
 var Marker = require('./Marker');
 
-var MAP_API_URL = 'https://maps.googleapis.com/maps/api/js';
+var MAP_API_URL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDPPgsnwwjJYfpkx5DlvSR5EnlyNaS7kzc';
 
 var mapOptions = {
   center: {
@@ -117,6 +117,9 @@ Map.prototype._createMarkers = function (events) {
   var markers = [];
 
   events.forEach(function (event) {
+    if (!event.city) {
+      return;
+    }
     markers.push(new Marker(event, map));
   });
 
