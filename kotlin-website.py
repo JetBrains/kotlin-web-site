@@ -104,6 +104,11 @@ def get_events():
     return Response(json.dumps(site_data['events'], cls=DateAwareEncoder), mimetype='application/json')
 
 
+@app.route('/data/cities.json')
+def get_cities():
+    return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
+
+
 @app.route('/data/videos.json')
 def get_videos():
     return Response(json.dumps(site_data['videos'], cls=DateAwareEncoder), mimetype='application/json')
