@@ -7,6 +7,19 @@ If you are a Kotlin-speaker, please, let us know about your upcoming talks and w
 
 <br/>
 
-<div id="events"></div>
+
+<div id="events" class="events">
+
+    <div class="events-list-col">
+        <div class="events-list js-events-list"></div>
+    </div>
+
+    <div class="events-map-col">
+        <div class="events-map-panel js-events-map-panel">
+            <div class="map js-map"></div>
+        </div>
+    </div>
+
+</div>
 
 <script src="{{ url_for('static', filename='events.js') }}"></script>
