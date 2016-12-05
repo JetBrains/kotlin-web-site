@@ -23,3 +23,4 @@ If you are a Kotlin-speaker, please, let us know about your upcoming talks and w
 </div>
 
 <script src="{{ url_for('static', filename='events.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='events.css') }}">
