@@ -127,7 +127,7 @@ EventsList.prototype.showEventDetails = function (event) {
   $detailed.find('.js-back').on('click', backHandler);
   $detailed.show();
 
-  this.$content.find('.js-list').hide();
+  this.$content.find('.js-list').addClass('_hidden');
 };
 
 EventsList.prototype.hideEventDetails = function () {
@@ -135,7 +135,7 @@ EventsList.prototype.hideEventDetails = function () {
   $detailed.find('.js-back').off('click');
   $detailed.hide();
 
-  this.$content.find('.js-list').show();
+  this.$content.find('.js-list').removeClass('_hidden');
 };
 
 module.exports = EventsList;

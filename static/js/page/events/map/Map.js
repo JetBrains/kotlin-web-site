@@ -145,7 +145,7 @@ Map.prototype.applyFilteredResults = function (filteredEvents) {
   var eventsBounds = new google.maps.LatLngBounds(null);
 
   filteredEvents.forEach(function (event) {
-    eventsBounds.extend(event.getBounds());
+    // eventsBounds.extend(event.getBounds());
   });
 
   map.fitBounds(eventsBounds);

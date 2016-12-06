@@ -26,6 +26,10 @@ body {
 
   .list {
     padding-top: 0;
+
+    &._hidden {
+      visibility: hidden;
+    }
   }
 }
 

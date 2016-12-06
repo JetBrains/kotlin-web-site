@@ -13,16 +13,38 @@ function EventsStore(eventsData, citiesData) {
   this.events = [];
   this.cities = [];
 
+  var citiesNames = citiesData.map(function(data) {
+    return data.name;
+  });
+
+  var citiesMissedInDict = [];
+
+  eventsData
+    .filter(function (data) { return typeof data.location !== 'undefined'; })
+    .map(function (data) { return data.location; })
+    .filter(function (value, index, self) { return self.indexOf(value) === index; })
+    .forEach(function(eventCity) {
+      if (citiesNames.indexOf(eventCity) === -1) {
+        citiesMissedInDict.push(eventCity);
+      }
+    });
+
+  if (citiesMissedInDict.length > 0) {
+    console.warn('Cities missed in cities.yml:\n' + citiesMissedInDict.join('\n'));
+  }
+
   citiesData.forEach(function (data) {
     store.cities.push(new City(data));
   });
 
   eventsData.forEach(function (data) {
-    var event = new Event(data);
-    if (event.city)
-      store.events.push(event);
-    else
-      console.log(event);
+    var eventCityExistInDict = data.location && citiesNames.indexOf(data.location) !== -1;
+
+    if (!eventCityExistInDict) {
+      return;
+    }
+
+    store.events.push(new Event(data));
   });
 
   store.events.forEach(function (event) {
