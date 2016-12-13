@@ -181,3 +181,7 @@
 - company: Avito
   url: https://play.google.com/store/apps/dev?id=6750101820856332864
   description: Kotlin is a primary language for Android projects
+  
+- company: ZnanyLekarz
+  url: https://play.google.com/store/apps/details?id=pl.znanylekarz
+  description: The largest site in Poland, which helps everyone find and choose a doctor and arrange a visit to him online
