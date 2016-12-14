@@ -185,3 +185,7 @@
 - company: ZnanyLekarz
   url: https://play.google.com/store/apps/details?id=pl.znanylekarz
   description: The largest site in Poland, which helps everyone find and choose a doctor and arrange a visit to him online
+  
+- company: Hudl
+  url: https://www.hudl.com
+  description: Hudl is a leading video software company revolutionizing the way coaches and athletes prepare for and stay ahead of the competition. Our app uses Kotlin extensively across multiple layers.
