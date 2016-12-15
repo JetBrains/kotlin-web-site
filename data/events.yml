@@ -2960,3 +2960,77 @@
   date: 2016-12-10
   location: Kuala Lumpur, Malaysia
   lang: en
+
+- title: "Developpeurs Mobiles Lillois"
+  url: "https://www.meetup.com/Groupe-des-Developpeurs-Mobiles-Lillois/events/235623768/"
+  subject: "Présentation du Framework Kotlin (Android)"
+  speaker: Vincent Masselis
+  date: 2016-12-14
+  location: Lille, France
+  lang: fr
+
+- title: "OSCON"
+  url: "http://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/57604" 
+  subject: "Functional Programming with Kotlin"
+  speaker: Hadi Hariri 
+  date: 2017-5-9
+  location: Austin, USA
+  lang: en
+
+- title: "Retty Tech Cafe"
+  url: "https://retty.connpass.com/event/45628/"
+  subject: "Kotlin開発Tips LT会"
+  speaker: Taro Nagasawa
+  date: 2016-12-9
+  location: Tokyo, Japan
+  lang: ja
+
+- title: "JUG Torino" 
+  url: "http://jugtorino.it/2016/12/13/meeting-dicembre-2016.html"
+  subject: "Kotlin: introduzione e live coding "
+  speaker: Roberto Franchini
+  date: 2016-12-21
+  location: Torino, Italy
+  lang: it
+
+- title: "EclipseConverge"
+  url: "https://www.eclipseconverge.org/na2017/session/acejump-writing-eclipse-plugin-kotlin?utm_source=dlvr.it&utm_medium=twitter"
+  subject: "AceJump: Writing an Eclipse Plugin in Kotlin"
+  speaker: Breandan Considine
+  date: 2017-3-20
+  location: San Jose, USA
+  lang: en
+
+- title: "GDG DevFest Cochabamba 2016"
+  url: "https://devfest.gdg.com.bo/schedule/day1?sessionId=144"
+  subject: "Kotlin para Desarrolladores Android"
+  speaker: Armando Picon
+  date: 2016-11-26
+  location: Cochabamba, Bolivia
+  lang: es
+
+- title: "Kotlin Internal 勉強会"
+  url: "https://connpass.com/event/40360/"
+  subject: "KotlinのSmart Castを探る"
+  speaker: Kota Mizushima
+  date: 2016-11-26
+  location: Tokyo, Japan
+  lang: ja
+
+- title: "Kotlin Internal 勉強会"
+  url: "https://connpass.com/event/40360/"
+  subject: "Kotlinソースコード探訪"
+  speaker: @yy_yank
+  date: 2016-11-26
+  location: Tokyo, Japan
+  lang: ja
+
+- title: "Kotlin Internal 勉強会"
+  url: "https://connpass.com/event/40360/"
+  subject: "【Platform Type】みんな大好きKotlinとnullの関係【コードリーディング】"
+  speaker: Ryota Murohoshi
+  date: 2016-11-26
+  location: Tokyo, Japan
+  lang: ja
+  content: 
+    slides: https://speakerdeck.com/ryotamurohoshi/kotlintojavatonullfalseraitonahua
