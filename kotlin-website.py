@@ -4,6 +4,7 @@ import os
 import sys
 from os import path
 
+import xmltodict
 import yaml
 from flask import Flask, render_template, Response, send_from_directory
 from flask.helpers import send_file
@@ -34,6 +35,8 @@ def get_site_data():
     data = {}
     for data_file in os.listdir(data_folder):
         if data_file.startswith('_'):
+            continue
+        if not data_file.endswith(".yml"):
             continue
         data_file_path = path.join(data_folder, data_file)
         with open(data_file_path) as stream:
@@ -101,7 +104,9 @@ def add_data_to_context():
 
 @app.route('/data/events.json')
 def get_events():
-    return Response(json.dumps(site_data['events'], cls=DateAwareEncoder), mimetype='application/json')
+    with open(path.join(data_folder, "events.xml")) as events_file:
+        events = xmltodict.parse(events_file)['events']['event']
+        return Response(json.dumps(events, cls=DateAwareEncoder), mimetype='application/json')
 
 
 @app.route('/data/cities.json')
