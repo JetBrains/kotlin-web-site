@@ -1318,7 +1318,7 @@
   lang: en
   
 - title: "STRV’s Developers Meetup"
-  url: hhttps://www.facebook.com/events/1059379367448273/
+  url: https://www.facebook.com/events/1059379367448273/
   subject: "Android Studio Tips & Kotlin"
   speaker: Artem Ufimtcev
   date: 2016-01-28
@@ -2736,7 +2736,7 @@
     slides: https://speakerdeck.com/clemp6r/introduction-a-kotlin
 
 - title: "第4回Kotlin勉強会 ＠Sansan"
-  url: "hhttp://connpass.com/event/44710/"
+  url: "http://connpass.com/event/44710/"
   subject: "Kotlin LT"
   speaker: 長澤 太郎 and others
   date: 2016-12-13
@@ -3020,7 +3020,7 @@
 - title: "Kotlin Internal 勉強会"
   url: "https://connpass.com/event/40360/"
   subject: "Kotlinソースコード探訪"
-  speaker: @yy_yank
+  speaker: "yy_yank"
   date: 2016-11-26
   location: Tokyo, Japan
   lang: ja
