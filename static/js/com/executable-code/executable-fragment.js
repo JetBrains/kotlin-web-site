@@ -1,19 +1,53 @@
-var ExecutableCodeTemplate = require('./executable-fragment.monk');
+const ExecutableCodeTemplate = require('./executable-fragment.monk');
 
-var CodeMirror = require('codemirror');
+const CodeMirror = require('codemirror');
 require('codemirror/lib/codemirror.css');
+require('codemirror/addon/fold/foldcode.js');
+
 require('./executable-fragment.scss');
 
-var Monkberry = require('monkberry');
-var directives = require('monkberry-directives').default;
+const Monkberry = require('monkberry');
+const directives = require('monkberry-directives').default;
 
-var $ = require('jquery');
+const $ = require('jquery');
 
 function getExceptionCauses(exception) {
   if (exception.cause !== undefined && exception.cause != null) {
     return [exception.cause].concat(getExceptionCauses(exception.cause))
   } else {
     return []
+  }
+}
+
+function findComment(cm, commentText) {
+  for (let line = 0; line < cm.lineCount(); line++) {
+    let tokens = cm.getLineTokens(line);
+    if (tokens.length > 1) continue;
+
+    let token = tokens[0];
+    if (token.type != "comment") continue;
+
+    if (token.string == '//' + commentText) {
+      return line
+    }
+  }
+}
+
+function getTopFoldRange(cm, position) {
+  return {
+    from: position,
+    to: {
+      line: findComment(cm, "sampleStart")
+    }
+  }
+}
+
+function getBottomFoldRange(cm, position) {
+  return {
+    from: position,
+    to: {
+      line: cm.lineCount() - 1
+    }
   }
 }
 
@@ -24,7 +58,7 @@ function unEscapeString(s) {
     ">": "&amp;gt;",
     " ": "%20"
   };
-  var unEscapedString = s;
+  let unEscapedString = s;
   Object.keys(tagsToReplace).forEach(function (key) {
     unEscapedString = unEscapedString.replace(tagsToReplace[key], key)
   });
@@ -57,6 +91,16 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       this.initializeCodeMirror();
       this.initialized = true;
     }
+
+    this.codemirror.foldCode(0, {
+      widget: '',
+      rangeFinder: getTopFoldRange
+    });
+
+    this.codemirror.foldCode(findComment(this.codemirror, "sampleEnd"), {
+      widget: '',
+      rangeFinder: getBottomFoldRange
+    });
   }
 
   execute() {
@@ -102,7 +146,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
         output = "";
       }
 
-      if(data.exception != null) {
+      if (data.exception != null) {
         data.exception.causes = getExceptionCauses(data.exception);
         data.exception.cause = undefined;
       }
@@ -113,7 +157,6 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       })
     })
   }
-
 
 
   showDiagnostics(diagnostics) {
@@ -157,7 +200,10 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       mode: 'text/x-kotlin',
       indentUnit: 4,
       viewportMargin: Infinity,
-      gutters: ["errors-and-warnings-gutter"]
+      gutters: [
+        "errors-and-warnings-gutter",
+        "CodeMirror-foldgutter"
+      ]
     });
 
     this.codemirror.on("change", codemirror => {

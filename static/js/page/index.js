@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var Carousel = require('../com/carousel');
 var Player = require('../com/video-player');
-var CodeMirror = require('../com/CodeMirror');
+var CodeMirror = require('../com/codemirror/CodeMirror');
 
 var initTabs = function () {
   var $tabs = $('.js-tab');

@@ -1,6 +1,8 @@
 {% import Exception from './exception.monk' %}
 
 <div class="executable-fragment">
+    <div class="zigzag-top"></div>
+
     <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
 
     <textarea>
