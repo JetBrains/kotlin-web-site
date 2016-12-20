@@ -39,6 +39,8 @@ function Map(node, store) {
     emitter.emit(EVENTS.EVENT_DESELECTED);
   });
 
+  this._limitWorldBounds();
+
   // Emit bounds change event
   var isFirstBoundsChangedEvent = true;
   instance.addListener('bounds_changed', function () {
@@ -48,7 +50,7 @@ function Map(node, store) {
     }
 
     setTimeout(function () {
-      emitter.emit(EVENTS.MAP_BOUNDS_CHANGED, instance.getBounds(), instance);
+      emitter.emit(EVENTS.MAP_BOUNDS_CHANGED, instance.getBounds());
     }, 200);
   });
 
@@ -78,7 +80,7 @@ function Map(node, store) {
   emitter.on(EVENTS.EVENT_SELECTED, function (event) {
     var currentMarker = event.marker;
 
-    //instance.setCenter(event.getBounds());
+    instance.panTo(event.getBounds());
 
     markers.forEach(function (marker) {
       if (marker === currentMarker) {
@@ -126,6 +128,28 @@ Map.prototype._createMarkers = function (events) {
   this.markers = markers;
 };
 
+Map.prototype._limitWorldBounds = function() {
+  var map = this.instance;
+  var lastValidCenter = null;
+
+  var maxBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(-85, -175),
+    new google.maps.LatLng(85, 175)
+  );
+
+  function handler() {
+    var bounds = this.getBounds();
+    if (maxBounds.contains(bounds.getNorthEast()) && maxBounds.contains(bounds.getSouthWest())) {
+      lastValidCenter = this.getCenter();
+    } else {
+      this.panTo(lastValidCenter);
+    }
+  }
+
+  map.addListener('dragend', handler);
+  map.addListener('idle', handler);
+};
+
 Map.prototype.reset = function () {
   this.markers.forEach(function (marker) {
     marker.activate();
@@ -145,10 +169,15 @@ Map.prototype.applyFilteredResults = function (filteredEvents) {
   var eventsBounds = new google.maps.LatLngBounds(null);
 
   filteredEvents.forEach(function (event) {
-    // eventsBounds.extend(event.getBounds());
+    eventsBounds.extend(event.getBounds());
   });
 
   map.fitBounds(eventsBounds);
+
+  var zoom = map.getZoom();
+  if (zoom <= 2) {
+    map.setCenter({lat: 39.90971744298563, lng: -49.34941524999998});
+  }
 };
 
 

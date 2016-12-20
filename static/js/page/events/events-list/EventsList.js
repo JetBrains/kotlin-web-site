@@ -42,7 +42,7 @@ function EventsList(node, store) {
   });
 
   // Filter events when map zoomed
-  emitter.on(EVENTS.MAP_BOUNDS_CHANGED, function (bounds, map) {
+  emitter.on(EVENTS.MAP_BOUNDS_CHANGED, function (bounds) {
     var request = $.extend({}, that.currentFilters, {bounds: bounds});
     that.currentFilters = request;
     var filteredEvents = store.filter(request);
@@ -127,7 +127,7 @@ EventsList.prototype.showEventDetails = function (event) {
   $detailed.find('.js-back').on('click', backHandler);
   $detailed.show();
 
-  this.$content.find('.js-list').addClass('_hidden');
+  this.$content.find('.js-list').hide();
 };
 
 EventsList.prototype.hideEventDetails = function () {
@@ -135,7 +135,7 @@ EventsList.prototype.hideEventDetails = function () {
   $detailed.find('.js-back').off('click');
   $detailed.hide();
 
-  this.$content.find('.js-list').removeClass('_hidden');
+  this.$content.find('.js-list').show();
 };
 
 module.exports = EventsList;
