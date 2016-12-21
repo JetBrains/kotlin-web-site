@@ -48,7 +48,7 @@ If you're a [MacPorts](https://www.macports.org/) user, you can install the comp
 
 1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following:
 
-   ``` kotlin-executable
+   ``` kotlin
    fun main(args: Array<String>) {
        println("Hello, World!")
    }
