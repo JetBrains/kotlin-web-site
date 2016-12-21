@@ -2,7 +2,6 @@ const ExecutableCodeTemplate = require('./executable-fragment.monk');
 
 const CodeMirror = require('codemirror');
 require('codemirror/lib/codemirror.css');
-require('codemirror/addon/fold/foldcode.js');
 
 require('./executable-fragment.scss');
 
@@ -19,6 +18,12 @@ function getExceptionCauses(exception) {
   }
 }
 
+function foldCode(codeMirror, range) {
+  return codeMirror.markText(range.from, range.to, {
+    collapsed: true
+  })
+}
+
 function findComment(cm, commentText) {
   for (let line = 0; line < cm.lineCount(); line++) {
     let tokens = cm.getLineTokens(line);
@@ -33,20 +38,28 @@ function findComment(cm, commentText) {
   }
 }
 
-function getTopFoldRange(cm, position) {
+function getTopFoldRange(cm) {
   return {
-    from: position,
+    from: {
+      line: 0,
+      ch: 0
+    },
     to: {
-      line: findComment(cm, "sampleStart")
+      line: findComment(cm, "sampleStart") + 1,
+      ch: 0
     }
   }
 }
 
-function getBottomFoldRange(cm, position) {
+function getBottomFoldRange(cm) {
   return {
-    from: position,
+    from: {
+      line: findComment(cm, "sampleEnd") - 1,
+      ch: null
+    },
     to: {
-      line: cm.lineCount() - 1
+      line: cm.lineCount(),
+      ch: 0
     }
   }
 }
@@ -92,15 +105,71 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       this.initialized = true;
     }
 
-    this.codemirror.foldCode(0, {
-      widget: '',
-      rangeFinder: getTopFoldRange
+    const foldButton = this.querySelector('.fold-button');
+    const topZigZagElement = this.querySelector('.zigzag._top');
+    const bottomZigZagElement = this.querySelector('.zigzag._bottom');
+    foldButton.addEventListener('mouseenter', (event) => {
+      $(foldButton).addClass('_hover');
+      $(topZigZagElement).addClass('_hover');
+      $(bottomZigZagElement).addClass("_hover")
     });
 
-    this.codemirror.foldCode(findComment(this.codemirror, "sampleEnd"), {
-      widget: '',
-      rangeFinder: getBottomFoldRange
+    foldButton.addEventListener('click', (event) => {
+      if ($(foldButton).hasClass('_unfolded')) {
+        this.foldCode()
+      } else {
+        this.unfoldCode()
+      }
+      $(foldButton).toggleClass('_unfolded');
     });
+
+    foldButton.addEventListener('mouseleave', (event) => {
+      $(foldButton).removeClass('_hover');
+      $(topZigZagElement).removeClass('_hover');
+      $(bottomZigZagElement).removeClass("_hover")
+    });
+
+    const commentStartLineNo = findComment(this.codemirror, "sampleStart");
+    const commentEndLineNo = findComment(this.codemirror, "sampleEnd");
+    this.codemirror.markText({
+        line: commentStartLineNo,
+        ch: 0
+      },
+      {
+        line: commentStartLineNo,
+        ch: null
+      },
+      {
+        readOnly: true
+      }
+    );
+    this.codemirror.markText({
+        line: commentEndLineNo,
+        ch: 0
+      },
+      {
+        line: commentEndLineNo,
+        ch: null
+      },
+      {
+        readOnly: true
+      }
+    );
+
+    this.foldCode()
+  }
+
+  unfoldCode() {
+    this.foldMarkers.forEach((marker) => {
+      marker.clear()
+    });
+    this.foldMarkers = [];
+  }
+
+  foldCode() {
+    this.foldMarkers = [];
+    this.foldMarkers.push(foldCode(this.codemirror, getTopFoldRange(this.codemirror)));
+    this.foldMarkers.push(foldCode(this.codemirror, getBottomFoldRange(this.codemirror)));
   }
 
   execute() {
@@ -136,7 +205,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
         this.showDiagnostics(data.errors["File.kt"])
       }
 
-      var output;
+      let output;
       if (data.text !== undefined) {
         output = data.text.replace("<outStream>", "<span class=\"standard-output\">")
           .replace("</outStream>", "</span>")
@@ -196,10 +265,11 @@ class ExecutableFragment extends ExecutableCodeTemplate {
   initializeCodeMirror() {
     const textarea = this.nodes[0].getElementsByTagName('textarea')[0];
     this.codemirror = CodeMirror.fromTextArea(textarea, {
-      lineNumbers: true,
+      lineNumbers: false,
       mode: 'text/x-kotlin',
       indentUnit: 4,
       viewportMargin: Infinity,
+      smartIndent: false,
       gutters: [
         "errors-and-warnings-gutter",
         "CodeMirror-foldgutter"

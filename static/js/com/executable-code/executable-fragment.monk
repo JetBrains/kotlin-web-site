@@ -1,13 +1,19 @@
 {% import Exception from './exception.monk' %}
 
 <div class="executable-fragment">
-    <div class="zigzag-top"></div>
+    <div>
+        <div class="fold-button"></div>
+        <div class="zigzag _top"></div>
 
-    <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
+        <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
 
-    <textarea>
-        {{ code }}
-    </textarea>
+        <textarea>
+            {{ code }}
+        </textarea>
+
+        <div class="zigzag _bottom"></div>
+    </div>
+
 
     {% if (output && output != "") || exception %}
         <div class="code-output">

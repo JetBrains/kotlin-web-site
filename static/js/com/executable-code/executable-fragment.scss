@@ -40,7 +40,7 @@
     height: 20px;
     width: 16px;
     cursor: pointer;
-    background: url("./icons/run_icon.svg");
+    background: url("./icons/run.svg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -128,29 +128,64 @@
     background: white;
 }
 
-.Shape_3_copy {
-  background-color: rgb(238, 238, 238);
-  position: absolute;
-  left: 1009px;
-  top: 648px;
-  width: 180px;
-  height: 5px;
-  z-index: 13;
+.fold-button {
+    position: absolute;
+    height: 19px;
+    width: 31px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+    background-color: white;
+    background-image: url('./icons/button_open.svg?fill=%23d4d4d4');
+    background-repeat: no-repeat;
+
+    &._unfolded {
+        background-image: url('./icons/button_close.svg?fill=%23d4d4d4');
+    }
+
+    &._unfolded._hover {
+        background-image: url('./icons/button_close.svg?fill=%23f68322');
+    }
+
+    &._hover {
+        background-image: url('./icons/button_open.svg?fill=%23f68322');
+    }
 }
 
-
-.zigzag-top {
+.zigzag._top {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 10;
+    z-index: 9;
     background-color: white;
-    background-image: url("./icons/zigzag.svg?fill=red");
+    background-image: url('./icons/zigzag.svg?fill=%23eee');
     background-size: auto 100%;
     background-repeat: repeat-x;
     width: 180px;
     height: 5px;
+
+    &._hover {
+        background-image: url('./icons/zigzag.svg?fill=%23f68322');
+    }
+}
+
+.zigzag._bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 9;
+    background-color: white;
+    background-image: url('./icons/zigzag.svg?fill=%23eee');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    width: 180px;
+    height: 5px;
+
+    &._hover {
+        background-image: url('./icons/zigzag.svg?fill=%23f68322');
+    }
 }
