@@ -74,7 +74,7 @@ html {
 }
 ```
 
-`html` is actually a function call that takes a [lambda expression](lambdas.html) as an argument
+`html` is actually a function call that takes a [lambda expression](lambdas.html) as an argument.
 This function is defined as follows:
 
 ``` kotlin
