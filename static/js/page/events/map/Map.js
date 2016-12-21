@@ -2,6 +2,7 @@ var $ = require('jquery');
 var emitter = require('../../../util/emitter');
 var EVENTS = require('./../events-list');
 var Marker = require('./Marker');
+var limitMap = require('./limit-map-bounds');
 
 var MAP_API_URL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDPPgsnwwjJYfpkx5DlvSR5EnlyNaS7kzc';
 
@@ -130,24 +131,13 @@ Map.prototype._createMarkers = function (events) {
 
 Map.prototype._limitWorldBounds = function() {
   var map = this.instance;
-  var lastValidCenter = null;
 
   var maxBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(-85, -175),
     new google.maps.LatLng(85, 175)
   );
 
-  function handler() {
-    var bounds = this.getBounds();
-    if (maxBounds.contains(bounds.getNorthEast()) && maxBounds.contains(bounds.getSouthWest())) {
-      lastValidCenter = this.getCenter();
-    } else {
-      this.panTo(lastValidCenter);
-    }
-  }
-
-  map.addListener('dragend', handler);
-  map.addListener('idle', handler);
+  limitMap(map, maxBounds);
 };
 
 Map.prototype.reset = function () {
