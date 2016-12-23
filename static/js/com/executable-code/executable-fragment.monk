@@ -1,7 +1,7 @@
 {% import Exception from './exception.monk' %}
 
 <div class="executable-fragment">
-    <div>
+    <div class="code-area">
         <div class="fold-button {{ folded ? '_folded' : '_unfolded' }} {{ foldButtonHover ? '_hover' : '' }}"
             :onmouseenter={{ this.onFoldButtonMouseEnter.bind(this) }}
             :onmouseleave={{ this.onFoldButtonMouseLeave.bind(this) }}>

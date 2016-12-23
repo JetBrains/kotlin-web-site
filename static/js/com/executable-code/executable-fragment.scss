@@ -94,7 +94,9 @@
 .code-output {
     border-top: 1px solid #eee;
     overflow: auto;
-    padding-left: 5px;
+    padding-left: 10px;
+    padding-top: 15px;
+    min-height: 50px;
     flex-grow: 1;
 }
 
@@ -154,11 +156,9 @@
     }
 }
 
-.zigzag._top {
+.zigzag {
     position: absolute;
-    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 9;
     background-color: white;
     background-image: url('./icons/zigzag.svg?fill=%23eee');
@@ -167,25 +167,22 @@
     width: 180px;
     height: 5px;
 
+    &._top {
+        top: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    &._bottom {
+        bottom: 0;
+        transform: translate(-50%, 50%);
+    }
+
     &._hover {
         background-image: url('./icons/zigzag.svg?fill=%23f68322');
     }
+
 }
 
-.zigzag._bottom {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    z-index: 9;
-    background-color: white;
-    background-image: url('./icons/zigzag.svg?fill=%23eee');
-    background-size: auto 100%;
-    background-repeat: repeat-x;
-    width: 180px;
-    height: 5px;
-
-    &._hover {
-        background-image: url('./icons/zigzag.svg?fill=%23f68322');
-    }
+.code-area {
+    position: relative;
 }
