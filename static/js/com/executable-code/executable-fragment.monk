@@ -2,8 +2,8 @@
 
 <div class="executable-fragment">
     <div>
-        <div class="fold-button"></div>
-        <div class="zigzag _top"></div>
+        <div class="fold-button {{ folded ? '_folded' : '_unfolded' }} {{ foldButtonHover ? '_hover' : '' }}"></div>
+        <div class="zigzag _top {{ foldButtonHover ? '_hover' : '' }}"></div>
 
         <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
 
@@ -11,7 +11,7 @@
             {{ code }}
         </textarea>
 
-        <div class="zigzag _bottom"></div>
+        <div class="zigzag _bottom {{ foldButtonHover ? '_hover' : '' }}"></div>
     </div>
 
 

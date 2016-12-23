@@ -7,6 +7,7 @@ require('./executable-fragment.scss');
 
 const Monkberry = require('monkberry');
 const directives = require('monkberry-directives').default;
+require('monkberry-events');
 
 const $ = require('jquery');
 
@@ -82,18 +83,34 @@ class ExecutableFragment extends ExecutableCodeTemplate {
   constructor() {
     super();
     this.arrayClasses = [];
-
     this.initialized = false;
+    this.foldMarkers = [];
     this.state = {
       code: '',
-      output: null
+      foldButtonHover: false,
+      folded: true,
+      output: null,
     };
   }
 
   static render(element) {
-    return Monkberry.render(ExecutableFragment, element, {
+    const instance = Monkberry.render(ExecutableFragment, element, {
       'directives': directives
     });
+
+    instance.on('click', '.fold-button', (event) => {
+      instance.update({folded: !instance.state.folded});
+    });
+
+    instance.on('mouseenter', (event) => {
+      instance.update({foldButtonHover: true})
+    });
+
+    instance.on('mouseleave', (event) => {
+      instance.update({foldButtonHover: false})
+    });
+
+    return instance;
   }
 
   update(state) {
@@ -103,60 +120,40 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     if (!this.initialized) {
       this.initializeCodeMirror();
       this.initialized = true;
+
+      const commentStartLineNo = findComment(this.codemirror, "sampleStart");
+      const commentEndLineNo = findComment(this.codemirror, "sampleEnd");
+      this.codemirror.markText({
+          line: commentStartLineNo,
+          ch: 0
+        },
+        {
+          line: commentStartLineNo,
+          ch: null
+        },
+        {
+          readOnly: true
+        }
+      );
+      this.codemirror.markText({
+          line: commentEndLineNo,
+          ch: 0
+        },
+        {
+          line: commentEndLineNo,
+          ch: null
+        },
+        {
+          readOnly: true
+        }
+      );
     }
 
-    const foldButton = this.querySelector('.fold-button');
-    const topZigZagElement = this.querySelector('.zigzag._top');
-    const bottomZigZagElement = this.querySelector('.zigzag._bottom');
-    foldButton.addEventListener('mouseenter', (event) => {
-      $(foldButton).addClass('_hover');
-      $(topZigZagElement).addClass('_hover');
-      $(bottomZigZagElement).addClass("_hover")
-    });
-
-    foldButton.addEventListener('click', (event) => {
-      if ($(foldButton).hasClass('_unfolded')) {
-        this.foldCode()
-      } else {
-        this.unfoldCode()
-      }
-      $(foldButton).toggleClass('_unfolded');
-    });
-
-    foldButton.addEventListener('mouseleave', (event) => {
-      $(foldButton).removeClass('_hover');
-      $(topZigZagElement).removeClass('_hover');
-      $(bottomZigZagElement).removeClass("_hover")
-    });
-
-    const commentStartLineNo = findComment(this.codemirror, "sampleStart");
-    const commentEndLineNo = findComment(this.codemirror, "sampleEnd");
-    this.codemirror.markText({
-        line: commentStartLineNo,
-        ch: 0
-      },
-      {
-        line: commentStartLineNo,
-        ch: null
-      },
-      {
-        readOnly: true
-      }
-    );
-    this.codemirror.markText({
-        line: commentEndLineNo,
-        ch: 0
-      },
-      {
-        line: commentEndLineNo,
-        ch: null
-      },
-      {
-        readOnly: true
-      }
-    );
-
-    this.foldCode()
+    if (this.state.folded) {
+      this.foldCode()
+    } else {
+      this.unfoldCode()
+    }
   }
 
   unfoldCode() {
@@ -167,7 +164,6 @@ class ExecutableFragment extends ExecutableCodeTemplate {
   }
 
   foldCode() {
-    this.foldMarkers = [];
     this.foldMarkers.push(foldCode(this.codemirror, getTopFoldRange(this.codemirror)));
     this.foldMarkers.push(foldCode(this.codemirror, getBottomFoldRange(this.codemirror)));
   }
@@ -280,8 +276,6 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       this.removeStyles()
     })
   }
-
-
 }
 
 module.exports = ExecutableFragment;
