@@ -58,7 +58,7 @@
     width: 13px;
     margin-top: 2px;
     margin-left: 2px;
-    background: url("http://localhost:8080/static/images/icons_all_sprite.png") no-repeat -150px -500px;
+    background: url("http://try.kotlinlang.org/static/images/icons_all_sprite.png") no-repeat -150px -500px;
 }
 
 .WARNINGgutter {
@@ -66,28 +66,28 @@
     width: 13px;
     margin-top: 2px;
     margin-left: 2px;
-    background: url("http://localhost:8080/static/images/icons_all_sprite.png") no-repeat -150px -600px;
+    background: url("http://try.kotlinlang.org/static/images/icons_all_sprite.png") no-repeat -150px -600px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .ERRORgutter {
-        background-image: url("http://localhost:8080/static/images/icons_all_sprite@2x.png");
+        background-image: url("http://try.kotlinlang.org/static/images/icons_all_sprite@2x.png");
         background-size: 250px 900px;
     }
 
     .WARNINGgutter {
-        background-image: url("http://localhost:8080/static/images/icons_all_sprite@2x.png");
+        background-image: url("http://try.kotlinlang.org/static/images/icons_all_sprite@2x.png");
         background-size: 250px 900px;
     }
 }
 
 .red_wavy_line {
-    background: url(http://localhost:8080/static/images/wavyline-red.gif) repeat-x 100% 100% !important;
+    background: url(http://try.kotlinlang.org/static/images/wavyline-red.gif) repeat-x 100% 100% !important;
     padding-bottom: 2px;
 }
 
 .green_wavy_line {
-    background: url(http://localhost:8080/static/images/wavyline-green.gif) repeat-x 100% 100% !important;
+    background: url(http://try.kotlinlang.org/static/images/wavyline-green.gif) repeat-x 100% 100% !important;
     padding-bottom: 2px;
 }
 
