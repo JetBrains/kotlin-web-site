@@ -2,7 +2,10 @@
 
 <div class="executable-fragment">
     <div>
-        <div class="fold-button {{ folded ? '_folded' : '_unfolded' }} {{ foldButtonHover ? '_hover' : '' }}"></div>
+        <div class="fold-button {{ folded ? '_folded' : '_unfolded' }} {{ foldButtonHover ? '_hover' : '' }}"
+            :onmouseenter={{ this.onFoldButtonMouseEnter.bind(this) }}
+            :onmouseleave={{ this.onFoldButtonMouseLeave.bind(this) }}>
+        </div>
         <div class="zigzag _top {{ foldButtonHover ? '_hover' : '' }}"></div>
 
         <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>

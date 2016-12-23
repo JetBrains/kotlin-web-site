@@ -102,14 +102,6 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       instance.update({folded: !instance.state.folded});
     });
 
-    instance.on('mouseenter', '.fold-button', (event) => {
-      instance.update({foldButtonHover: true})
-    });
-
-    instance.on('mouseleave', '.fold-button', (event) => {
-      instance.update({foldButtonHover: false})
-    });
-
     return instance;
   }
 
@@ -153,6 +145,18 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       this.foldCode()
     } else {
       this.unfoldCode()
+    }
+  }
+
+  onFoldButtonMouseEnter(){
+    if(!this.state.foldButtonHover){
+      this.update({foldButtonHover: true})
+    }
+  }
+
+  onFoldButtonMouseLeave(){
+    if(this.state.foldButtonHover){
+      this.update({foldButtonHover: false})
     }
   }
 
