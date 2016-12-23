@@ -190,7 +190,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       "readOnlyFileNames": []
     });
     $.ajax({
-      url: 'http://localhost:8080/kotlinServer?type=run&runConf=java',
+      url: 'http://try.kotlinlang.org/kotlinServer?type=run&runConf=java',
       method: 'post',
       dataType: 'JSON',
       context: this,
