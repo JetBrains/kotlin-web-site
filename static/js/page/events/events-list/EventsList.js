@@ -43,6 +43,7 @@ function EventsList(node, store) {
 
   // Filter events when map zoomed
   emitter.on(EVENTS.MAP_BOUNDS_CHANGED, function (bounds) {
+    return;
     var request = $.extend({}, that.currentFilters, {bounds: bounds});
     that.currentFilters = request;
     var filteredEvents = store.filter(request);
@@ -75,6 +76,7 @@ EventsList.prototype.render = function () {
   this.store.events.forEach(function (event) {
     var $node = $(event.node);
     $node.on('click', function () {
+      emitter.emit(EVENTS.EVENT_DESELECTED);
       emitter.emit(EVENTS.EVENT_SELECTED, event);
     });
 
@@ -119,23 +121,24 @@ EventsList.prototype.applyFilteredResults = function (filteredEvents) {
  * @param {Event} event
  */
 EventsList.prototype.showEventDetails = function (event) {
-  function backHandler() {
-    emitter.emit(EVENTS.EVENT_DESELECTED);
-  }
+  var $node = $(event.node);
+  this.currentEvent = event;
 
-  var $detailed = this.$content.find('.js-event-details').html(event.renderDetailed());
-  $detailed.find('.js-back').on('click', backHandler);
-  $detailed.show();
 
-  this.$content.find('.js-list').hide();
+  $node.addClass('_detailed').removeClass('_normal');
+  console.log($node);
+  $('html,body').animate({ scrollTop: $node.offset().top });
 };
 
 EventsList.prototype.hideEventDetails = function () {
-  var $detailed = this.$content.find('.js-event-details');
-  $detailed.find('.js-back').off('click');
-  $detailed.hide();
+  if (!this.currentEvent) {
+    return;
+  }
 
-  this.$content.find('.js-list').show();
+  var event = this.currentEvent;
+  $(event.node).addClass('_normal').removeClass('_detailed');
+
+  this.currentEvent = null;
 };
 
 module.exports = EventsList;

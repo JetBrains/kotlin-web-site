@@ -9,6 +9,10 @@
     cursor: pointer;
   }
 
+  &._detailed {
+    background-color: #eee;
+  }
+
   &._highlighted {
     background-color: rgb(229, 246, 255);
   }
@@ -19,10 +23,6 @@
   line-height: 15px;
   color: #666;
   white-space: nowrap;
-
-  &._detailed {
-    margin-top: 30px;
-  }
 }
 
 .event-title {
@@ -38,19 +38,12 @@
   font-weight: bold;
   color: #4c4c4c;
 
-  &._detailed {
-    //font-size: 22px;
-    //line-height: 25px;
-    //font-weight: normal;
-  }
-
   .text {
     padding-right: 8px;
   }
 }
 
 .event-info-indicators {
-  //position: absolute;
   display: inline-block;
 }
 
@@ -152,6 +145,18 @@
 
 .event-description {
   padding-top: 20px;
+  
+  &._detailed {
+    background-color: #ccc;
+  }
+
+  .event._normal & {
+    display: none;
+  }
+
+  .event._detailed & {
+    display: block;
+  }
 }
 
 .event-back-link {

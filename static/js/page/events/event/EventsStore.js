@@ -37,13 +37,14 @@ function EventsStore(eventsData, citiesData) {
     store.cities.push(new City(data));
   });
 
-  eventsData.forEach(function (data) {
+  eventsData.forEach(function (data, i) {
     var eventCityExistInDict = data.location && citiesNames.indexOf(data.location) !== -1;
 
     if (!eventCityExistInDict) {
       return;
     }
 
+    data.id = i.toString();
     store.events.push(new Event(data));
   });
 

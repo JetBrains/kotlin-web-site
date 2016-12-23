@@ -15,8 +15,10 @@ If you are a Kotlin-speaker, please, let us know about your upcoming talks and w
     </div>
 
     <div class="events-map-col">
-        <div class="events-map-panel js-events-map-panel">
-            <div class="map js-map"></div>
+        <div class="js-events-map-panel-wrap">
+            <div class="events-map-panel js-events-map-panel">
+                <div class="map js-map"></div>
+            </div>
         </div>
     </div>
 

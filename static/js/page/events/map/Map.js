@@ -81,8 +81,6 @@ function Map(node, store) {
   emitter.on(EVENTS.EVENT_SELECTED, function (event) {
     var currentMarker = event.marker;
 
-    instance.panTo(event.getBounds());
-
     markers.forEach(function (marker) {
       if (marker === currentMarker) {
         marker.activate();
@@ -92,6 +90,9 @@ function Map(node, store) {
         marker.closeWindow();
       }
     });
+
+    instance.setZoom(3);
+    instance.panTo(event.getBounds());
   });
 }
 

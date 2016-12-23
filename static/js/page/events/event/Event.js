@@ -10,6 +10,7 @@ var DEFAULT_LANG = 'en';
  * @constructor
  */
 function Event(data) {
+  this.id = data.id;
   this.title = data.title;
   this.url = data.url;
   this.subject = data.subject;
