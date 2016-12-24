@@ -96,7 +96,7 @@ To perform a certain operation only for non-null values, you can use the safe ca
 ``` kotlin
 val listWithNulls: List<String?> = listOf("A", null)
 for (item in listWithNulls) {
-     item?.let { println(it) } // prints A and ignores null
+     item?.let { println(item) } // prints A and ignores null
 }
 ```
 
