@@ -15,7 +15,7 @@ Kotlin fixes a series of issues that Java suffers from
 * [No raw types](java-interop.html)
 * Arrays in Kotlin are [invariant](basic-types.html#Arrays)
 * Kotlin has proper [function types](lambdas.html#function-types), as opposed to Java's SAM-conversions
-* [Use-site variance](generics.html#use-site-variance) without wildcards
+* [Use-site variance](generics.html#use-site-variance-type-projections) without wildcards
 * Kotlin does not have checked [exceptions](exceptions.html)
 
 ## What Java has that Kotlin does not
