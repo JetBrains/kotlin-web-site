@@ -133,7 +133,7 @@ In all respects, this is just the same as in Java since access to private proper
 
 ## Compile-Time Constants
 
-Properties the value of which is known at compile time can be marked as _compile time constants_ using the `const` modifier.
+Properties of which the value is known at compile time can be marked as _compile time constants_ using the `const` modifier.
 Such properties need to fulfil the following requirements:
 
   * Top-level or member of an `object`
