@@ -74,7 +74,7 @@ html {
 }
 ```
 
-`html` is actually a function call that takes a [lambda expression](lambdas.html) as an argument
+`html` is actually a function call that takes a [lambda expression](lambdas.html) as an argument.
 This function is defined as follows:
 
 ``` kotlin
@@ -220,7 +220,7 @@ abstract class Tag(val name: String) : Element {
         builder.append("$indent</$name>\n")
     }
 
-    private fun renderAttributes(): String? {
+    private fun renderAttributes(): String {
         val builder = StringBuilder()
         for (a in attributes.keys) {
             builder.append(" $a=\"${attributes[a]}\"")
