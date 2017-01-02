@@ -2339,6 +2339,7 @@
   lang: en
   content:
     slides: https://gotocon.com/dl/goto-cph-2016/slides/HadiHariri_KotlinReadyForProduction.pdf
+    video: https://realm.io/news/gotocph-hadi-hariri-kotlin-ready-for-production/
 
 - title: "DevCongress Meetup"
   url: "https://egotickets.com/events/devcongress-meetup"
@@ -2992,6 +2993,9 @@
   date: 2016-12-9
   location: Tokyo, Japan
   lang: ja
+  content:
+    slides: https://speakerdeck.com/ntaro/double-context-extension-kotlin-number-retty-tech-cafe
+    
 
 - title: "JUG Torino" 
   url: "http://jugtorino.it/2016/12/13/meeting-dicembre-2016.html"
@@ -3066,3 +3070,53 @@
   date: 2017-02-02
   location: Oslo, Norway
   lang: en
+
+- title: "Mobilization 2016"
+  url: "http://2016.mobilization.pl/"
+  subject: "Revisiting Types In Kotlin"
+  speaker: Francisco Estevez
+  date: 2016-10-22
+  location: Lodz, Poland
+  lang: en
+  content: 
+    video: https://www.youtube.com/watch?v=zBs8Jptdb-g
+
+- title: "Android в лицах"
+  url: "https://www.youtube.com/watch?v=d6795d1aN3U&feature=youtu.be"
+  subject: "Kotlin: Будущие изменения и текущие мифы"
+  speaker: Yan Zhulanow
+  date: 2016-12-20
+  location: Moscow, Russia
+  lang: ru
+  content: 
+    video: https://www.youtube.com/watch?v=d6795d1aN3U&feature=youtu.be
+
+- title: "Android DevConference 2016"
+  url: "http://androidconference.com.br/"
+  subject: "Live code with Kotlin: construindo o primeiro app usando Kotlin"
+  speaker: [Filipe Guedes, Philipe Steiff]
+  date: 2016-09-05
+  location: São Paulo, Brazil
+  lang: pt
+  content: 
+    video: http://wingztv.com/video/live-code-with-kotlin-construindo-o-primeiro-app-usando-kotlin-philipe-e-filipe/
+
+- title: "GeekOUT 2016"
+  url: "https://2016.geekout.ee/schedule/kotlin-in-real-projects/"
+  subject: "Kotlin in real projects"
+  speaker: Anton Keks
+  date: 2016-06-10
+  location: Tallinn, Estonia
+  lang: en
+  content: 
+    video: https://vimeo.com/170761906
+
+- title: "Codemotion Milan 2016"
+  url: "http://milan2016.codemotionworld.com/conference/"
+  subject: "Functional Reactive Programming with Kotlin on Android"
+  speaker: Giorgio Natili
+  date: 2016-11-25
+  location: Milan, Italy
+  lang: en
+  content: 
+    video: https://www.youtube.com/watch?v=sBn812RjNvc
