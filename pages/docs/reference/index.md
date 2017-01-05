@@ -32,14 +32,14 @@ chapter-by-chapter while it is being written and get the final book when it is f
 
 Use the coupon code '39jemerov' to get a 39% discount code on the book.
 
-<h2 style="clear: left">Kotlin for Android Developers</h2>
+## Kotlin for Android Developers
 
   <a href="https://leanpub.com/kotlin-for-android-developers"><img src="{{url_for('asset', path='images/kotlin-for-android-developers.png')}}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 
 [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers) is a book by Antonio Leiva showing
 how Kotlin can be used for creating an Android application from scratch.
 
-<h2 style="clear: left">Modern Web Development with Kotlin</h2>
+## Modern Web Development with Kotlin
 
   <a href="https://leanpub.com/modern-web-development-with-kotlin"><img src="{{ url_for("asset", path="images/mwdwk.jpg") }}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 
