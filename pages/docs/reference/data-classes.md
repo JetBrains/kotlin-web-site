@@ -21,7 +21,7 @@ The compiler automatically derives the following members from all properties dec
   * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order of declaration,
   * `copy()` function (see below).
   
-If any of these functions is explicitly defined in the class body or inherited from the base types, it will not be generated.
+If any of these functions are explicitly defined in the class body or inherited from the base types, it will not be generated.
 
 To ensure consistency and meaningful behavior of the generated code, data classes have to fulfil the following requirements:
 
