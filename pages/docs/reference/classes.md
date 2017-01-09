@@ -231,23 +231,24 @@ open class Foo {
     open val x: Int get { ... }
 }
 
-class Bar1: Foo {
+class Bar1 : Foo() {
     override val x: Int = ...
 }
 ```
 
 You can also override a `val` property with a `var` property, but not vice versa. This is allowed because a `val` property essentially declares a getter method, and overriding it as a `var` additionally declares a setter method in the derived class.
 
-Note that you can use the override keyword as part of the property declaration in a primary constructor.
+Note that you can use the *override*{: .keyword } keyword as part of the property declaration in a primary constructor.
 
 ``` kotlin 
 interface Foo {
     val count: Int
 }
 
-class Bar1(override val count: Int) : Foo()
-class Bar2: Foo() {
-    override var count: Int = 0.0
+class Bar1(override val count: Int) : Foo
+
+class Bar2 : Foo {
+    override var count: Int = 0
 }
 ```
 
