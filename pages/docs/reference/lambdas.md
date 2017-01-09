@@ -48,7 +48,7 @@ Lambda expressions are described in more [detail below](#lambda-expressions-and-
 * Its parameters (if any) are declared before `->` (parameter types may be omitted),
 * The body goes after `->` (when present).
 
-In Kotlin, there is a convention that if the last parameter to a function is a function, that parameter can be specified outside of the parentheses:
+In Kotlin, there is a convention that if the last parameter to a function is a function, and you're passing a lambda expression as the corresponding argument, you can specify it outside of parentheses:
 
 ``` kotlin
 lock (lock) {
