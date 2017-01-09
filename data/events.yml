@@ -3120,3 +3120,35 @@
   lang: en
   content: 
     video: https://www.youtube.com/watch?v=sBn812RjNvc
+
+- title: "Bordeaux JUG"
+  url: "http://www.bordeauxjug.org/20170112_WebReactiveSpring5Kotlin"
+  subject: "Functional web applications with Kotlin and Spring 5"
+  speaker: Sebastien Deleuze
+  date: 2017-01-12
+  location: Bordeaux, France
+  lang: fr 
+
+- title: "【チャット機能のAndroidアプリを作ろう！】"
+  url: "https://connpass.com/event/47654/"
+  subject: "Kotlin&Firebaseハンズオン"
+  speaker: 高橋良輔
+  date: 2017-01-27
+  location: Tokyo, Japan
+  lang: ja
+
+- title: "【学生＆若手エンジニア向け勉強会】"
+  url: "https://supporterz-seminar.connpass.com/event/47791/"
+  subject: "今こそ学ぶ、Kotlin入門（ハンズオン有）"
+  speaker: 藤田 琢磨
+  date: 2017-01-25
+  location: Tokyo, Japan
+  lang: ja
+
+- title: "Warszawa JUG"
+  url: "https://www.meetup.com/Warszawa-JUG/events/236607997/"
+  subject: "Kotlin & Spring: wrażenia po 300 godzinach" 
+  speaker: Paweł Barszcz
+  date: 2017-01-10
+  location: Warsaw, Poland
+  lang: pl
