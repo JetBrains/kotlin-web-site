@@ -248,7 +248,7 @@
   type: Framework
   link: https://github.com/fboldog/async-under8
   
-  - name: Corda
+- name: Corda
   description: distributed ledger platform
   type: Platform
   link: https://github.com/corda/corda
