@@ -25,13 +25,9 @@ function Event(data) {
   this.lang = data.lang || DEFAULT_LANG;
   this.content = data.content;
 
-  if (!(data.date instanceof Date)) {
-    this.date = convertToDate(data.date);
-    this.formattedDate = formatDate(this.date);
-
-  } else {
-    this.date = data.date;
-  }
+  this.startDate = new Date(data.startDate);
+  this.endDate = new Date(data.endDate);
+  this.formattedDate = formatDate(this.startDate, this.endDate);
 }
 
 /** @type {string} */
@@ -50,7 +46,10 @@ Event.prototype.speaker = null;
 Event.prototype.city = null;
 
 /** @type {Array<Date>} */
-Event.prototype.date = null;
+Event.prototype.startDate = null;
+
+/** @type {Array<Date>} */
+Event.prototype.endDate = null;
 
 /** @type {string} */
 Event.prototype.formattedDate = null;
@@ -68,10 +67,7 @@ Event.prototype.description = null;
 Event.prototype.marker = null;
 
 Event.prototype.isUpcoming = function () {
-  var date = this.date;
-  var now = new Date();
-
-  return Array.isArray(date) ? date[1] >= now : date >= now;
+  return this.endDate >= new Date();
 };
 
 Event.prototype.getBounds = function () {
@@ -114,9 +110,9 @@ Event.prototype.hide = function () {
 };
 
 
-function formatDate(date) {
+function formatDate(startDate, endDate) {
   var formatted = '';
-  var isRange = Array.isArray(date) && date.length == 2;
+  var isRange = startDate == endDate;
   var nowYear = new Date().getFullYear();
   var year, month, day;
 
@@ -137,11 +133,11 @@ function formatDate(date) {
 
   if (isRange) {
     month = [
-      months[date[0].getMonth()],
-      months[date[1].getMonth()]
+      months[startDate.getMonth()],
+      months[endDate.getMonth()]
     ];
-    year = [date[0].getFullYear(), date[1].getFullYear()];
-    day = [date[0].getDate(), date[1].getDate()];
+    year = [startDate.getFullYear(), endDate.getFullYear()];
+    day = [startDate.getDate(), endDate.getDate()];
 
     if (month[0] !== month[1]) {
       formatted = month[0] + ' ' + day[0] + '-' + month[1] + ' ' + day[1];
@@ -154,9 +150,9 @@ function formatDate(date) {
     }
   }
   else {
-    year = date.getFullYear();
-    month = months[date.getMonth()];
-    day = date.getDate();
+    year = startDate.getFullYear();
+    month = months[startDate.getMonth()];
+    day = startDate.getDate();
 
     formatted = month + ' ' + day;
     if (year !== nowYear) {
@@ -165,17 +161,6 @@ function formatDate(date) {
   }
 
   return formatted;
-}
-
-function convertToDate(dateStringOrArray) {
-  if (Array.isArray(dateStringOrArray) && (typeof dateStringOrArray[0] === 'string')) {
-    return [
-      new Date(dateStringOrArray[0]),
-      new Date(dateStringOrArray[1])
-    ];
-  } else {
-    return new Date(dateStringOrArray);
-  }
 }
 
 module.exports = Event;

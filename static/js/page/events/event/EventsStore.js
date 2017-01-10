@@ -118,12 +118,8 @@ EventsStore.materialsDict = {
 
 EventsStore.prototype.sort = function () {
   this.events.sort(function (a, b) {
-    var dateA = a.date;
-    var dateB = b.date;
-    var isADateIsRange = Array.isArray(dateA);
-    var isBDateIsRange = Array.isArray(dateB);
-    var compareA = isADateIsRange ? dateA[1] : dateA;
-    var compareB = isBDateIsRange ? dateB[1] : dateB;
+    var compareA = a.endDate;
+    var compareB = b.endDate;
 
     if (compareA === compareB) {
       return 0;
