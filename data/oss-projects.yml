@@ -252,3 +252,8 @@
   description: distributed ledger platform
   type: Platform
   link: https://github.com/corda/corda
+  
+- name: JAlgoArena
+  description: programming contest platfrom
+  type: Platform
+  link: https://github.com/spolnik/JAlgoArena
