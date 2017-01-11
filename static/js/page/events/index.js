@@ -48,10 +48,9 @@ $(document).ready(function () {
 
     var node = document.querySelector('.js-events-map-panel-wrap');
     refreshMapSize(node, map.instance);
+    var mapPanel = new Fixer().addElement('.js-events-map-panel', {stretchTo: '.global-footer'});
+    mapPanel.on('stretched', refreshMapSize.bind(null, node, map.instance));
     $(window).on('resize', refreshMapSize.bind(null, node, map.instance));
-
-    var fixer = new Fixer();
-    fixer.addElement('.js-events-map-panel', {stretchTo: '.global-footer'});
   });
 
 });
