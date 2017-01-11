@@ -1,3 +1,4 @@
+import re
 from flask import request
 
 
@@ -10,6 +11,7 @@ class NavItem:
             self.url = url
         else:
             self.url = None
+        self.urlPattern = re.compile(config['urlPattern']) if 'urlPattern' in config else None
         self.items = []
         if 'items' in config:
             self.items = [NavItem(item_config) for item_config in config['items']]
@@ -26,6 +28,8 @@ class NavItem:
         for item in self.items:
             if item.is_active():
                 return True
+        if self.urlPattern is not None:
+            return self.urlPattern.match(request.path)
         if self.url is not None:
             return request.path.startswith(self.url)
         else:
