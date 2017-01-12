@@ -1,9 +1,10 @@
 ---
 ---
 
-# How to spread the knowledge across the community
+# We're all Kotlin
 
-This site helps Kotlin users spread the word about Kotlin in the most effective and captivating way. We will help you to develop user groups and organize events.
+The community around Kotlin is rapidly growing, and every single day brings something new: awesome eliminating talks, Kotlin user groups meetups, various projects written in Kotlin. We do all our best to provide platforms for easy communication, help to bring into play all your initiatives and keep up to speed. This section of the site gives the idea how and where you can find the news and support and provides guidelines for events organizers.      
+
 
 ## Kotlin real-life Activities
 
@@ -14,24 +15,6 @@ This site helps Kotlin users spread the word about Kotlin in the most effective 
 2. **Kotlin Nights** are one-off events that usually include 3-4 talks on Kotlin. 
    The talks should be dedicated to technology, either to Kotlin or to some other compatible approaches 
    and not be focused on marketing, sales or commercials.
+3. Kotlin Talks
 
-## Kotlin Online Communities
-
-### Forums
-
-You can post technical questions on
-Kotlin forum
-Slack: get invite here
-StackOverflow. Make sure you tag questions with kotlin
-Reddit
-
-### Other mediums
-
-* Twitter
-* LinkedIn. Mostly for job related posts.
-* Google+
-* #kotlin channel on the freenode.net IRC network
-
-### Knowledge base
-
-* kotlin.link
+![Kotlin Community]({{ url_for('asset', path='images/community.jpg') }})
