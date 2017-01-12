@@ -50,6 +50,6 @@ Download design materials
 * Listing of the event on the Kotlin Events Page
 * If required,  reaching out to speakers to take part in event
 * If possible helping with finding location (via contacts, etc.)
-* As well as helping with possible partnership with local businesses. ...
+* As well as helping with possible partnership with local businesses.
 
 If you are looking for the detailed guideline for event organising, you can upload this documents with more detailed instructions
