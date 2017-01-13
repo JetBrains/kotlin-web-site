@@ -90,6 +90,18 @@ These conventions allow to write [LINQ-style](http://msdn.microsoft.com/en-us/li
 strings.filter { it.length == 5 }.sortBy { it }.map { it.toUpperCase() }
 ```
 
+### Underscore for unused variables (since 1.1)
+
+If the lambda parameter is unused, you can place underscore instead of its name:
+
+``` kotlin
+map.forEach { _, value -> println("$value!") }
+```
+
+### Destructuring in Lambdas (since 1.1)
+
+Destructuring in lambdas is described as a part of [destructuring declarations](multi-declarations.html#destructuring-in-lambdas-since-11). 
+
 ## Inline Functions
 
 Sometimes it is beneficial to enhance performance of higher-order functions using [inline functions](inline-functions.html).
