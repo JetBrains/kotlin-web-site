@@ -387,6 +387,11 @@ If you need access to the new APIs, use `kotlin-stdlib-jre7` and `kotlin-stdlib-
 Kotlin now supports storing parameter names in the bytecode. This can be enabled using the `-java-parameters` command line option.
 
 
+### Constant inlining
+
+The compiler now inlines values of `const val` properties into the locations where they are used.
+
+
 ### javax.scripting support
 
 Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223). See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
