@@ -5,6 +5,9 @@
 
 ## Kotlin User Groups List
 
+<div class="g-grid">
+<div class="g-6" markdown="1">
+
 ### Europe
 
  * [Belarus Kotlin User Group](https://bkug.by/), Belarus 
@@ -17,6 +20,10 @@
  * [Munich Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Munich/), Deutschland
  * [Warsaw Kotlin User Group](), Poland
  * [Yorkshire Kotlin Meetup](http://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/), United Kingdom
+ 
+</div>
+
+<div class="g-6" markdown="1">
 
 ### America
 
@@ -35,7 +42,9 @@
 
 ### Australia
 
-* [Brisbane Kotlin User Group](https://www.meetup.com/Brisbane-Kotlin-User-Group/), Australia 
+* [Brisbane Kotlin User Group](https://www.meetup.com/Brisbane-Kotlin-User-Group/), Australia
+</div>
+</div>
 
 
 ### If there is no KUG in your area, make a new one.
