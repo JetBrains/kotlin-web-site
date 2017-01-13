@@ -42,6 +42,8 @@ reference:
         title: Idioms
       - url: /docs/reference/coding-conventions.html
         title: Coding Conventions
+      - url: /docs/reference/whatsnew11.html
+        title: What's New in 1.1
 
   - title: Basics
     description: The Basics
