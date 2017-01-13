@@ -389,7 +389,7 @@ Kotlin now supports storing parameter names in the bytecode. This can be enabled
 
 ### javax.scripting support
 
-Kotlin now integrates with the javax.scripting API. See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
+Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223). See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
 for an example project using the API.
 
 
