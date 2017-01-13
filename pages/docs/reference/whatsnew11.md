@@ -181,9 +181,9 @@ val bytes = 0b11010010_01101001_10010100_10010010
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores-in-numeric-literals.md) for more details.
 
 
-### Shorter syntax for 'val' properties
+### Shorter syntax for properties
 
-For `val` properties without custom accessors, or with the getter defined as an expression body, the property type can now be omitted:
+For properties without custom accessors, or with the getter defined as an expression body, the property type can now be omitted:
 
 ``` kotlin
 val name = ""
@@ -326,13 +326,11 @@ wrapping sequence, which applies the given action lazily as the elements are bei
 
 ### groupingBy()
 
-This API can be used to group a collection by key and fold each group simultaneously. For example, given a list of
-stores and a list of orders, it can be used to get the total value of orders by store:
+This API can be used to group a collection by key and fold each group simultaneously. For example, it can be used
+to count the frequencies of characters in a text:
 
 ``` kotlin
-val storeTotals =
-        orders.groupingBy { it.store }
-              .sumEachBy { order -> order.total }
+val frequencies = words.groupingBy { it }.countEach()
 ```
 
 ### Map.toMap() and Map.toMutableMap()
