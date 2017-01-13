@@ -66,6 +66,8 @@ This prints
 NEW has been assigned to ‘p’ in Example@33a17727.
 ```
 
+Note that since Kotlin 1.1 you can declare a delegated property inside function or code block, it shouldn't necessarily be a member of a class.
+
 ## Property Delegate Requirements
 
 Here we summarize requirements to delegate objects. 
