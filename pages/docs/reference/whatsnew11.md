@@ -429,7 +429,7 @@ external class Node {
 ### Improved import handling
 
 You can now describe declarations which should be imported from JavaScript modules more precisely.
-If you add the `@JsModule("<module-name>")`` annotation on an external declaration it will be properly imported
+If you add the `@JsModule("<module-name>")` annotation on an external declaration it will be properly imported
 to a module system (either CommonJS or AMD) during the compilation. For example, with CommonJS the declaration will be
 imported via `require(...)` function.
 Additionally, if you want to import a declaration either as a module or as a global JavaScript object,
