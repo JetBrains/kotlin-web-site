@@ -226,7 +226,7 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/local-deleg
 
 ### Interception of delegated property binding
 
-For [delegated properties](delegated-properties.html), it is now possible now to intercept delegate to property binding using the
+For [delegated properties](delegated-properties.html), it is now possible to intercept delegate to property binding using the
 `provideDelegate` operator.
 For example, if we want to check the property name before binding, we can write something like this:
 
@@ -395,3 +395,71 @@ for an example project using the API.
 
 ## JavaScript Backend
 
+### Unified standard library
+
+A much larger part of the Kotlin standard library can now be used from code compiled to JavaScript.
+In particular, key classes such as collections (`ArrayList`, `HashMap` etc.), exceptions (`IllegalArgumentException` etc.) and a few
+others (`StringBuilder`, `Comparator`) are now defined under the `kotlin` package. On the JVM, the names are type
+aliases for the corresponding JDK classes, and on the JS, the classes are implemented in the Kotlin standard library.
+
+### Better code generation
+
+JavaScript backend now generates more statically checkable code, which is friendlier to JS code processing tools,
+like minifiers, optimisers, linters, etc.
+
+### The `external` modifier
+
+If you need to access a class implemented in JavaScript from Kotlin in a typesafe way, you can write a Kotlin
+declaration using the `external` modifier. (In Kotlin 1.0, the `@native` annotation was used instead.)
+Unlike the JVM target, the JS one permits to use external modifier with classes and properties.
+For example, here's how you can declare the DOM `Node` class:
+
+``` kotlin
+external class Node {
+    val firstChild: Node
+
+    fun appendChild(child: Node): Node
+
+    fun removeChild(child: Node): Node
+
+    // etc
+}
+```
+
+### Improved import handling
+
+You can now describe declarations which should be imported from JavaScript modules more precisely.
+If you add the `@JsModule("<module-name>")`` annotation on an external declaration it will be properly imported
+to a module system (either CommonJS or AMD) during the compilation. For example, with CommonJS the declaration will be
+imported via `require(...)` function.
+Additionally, if you want to import a declaration either as a module or as a global JavaScript object,
+you can use the `@JsNonModule` annotation.
+
+For example, here's how you can import JQuery into a Kotlin module:
+
+``` kotlin
+@JsNonModule
+@JsName("$")
+external abstract class JQuery {
+    fun toggle(duration: Int = 0): JQuery
+    fun click(handler: (Event) -> Unit): JQuery
+}
+
+@JsModule("jquery")
+@JsNonModule
+@JsName("$")
+external fun JQuery(selector: String): JQuery
+```
+
+In this case, JQuery will be imported as a module named `jquery`. Alternatively, it can be used as a $-object,
+depending on what module system Kotlin compiler is configured to use.
+
+You can use these declarations in your application like this:
+
+``` kotlin
+fun main(args: Array<String>) {
+    JQuery(".toggle-button").click {
+        JQuery(".toggle-panel").toggle(300)
+    }
+}
+```
