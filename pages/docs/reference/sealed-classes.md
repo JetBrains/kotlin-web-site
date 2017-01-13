@@ -37,3 +37,28 @@ fun eval(expr: Expr): Double = when(expr) {
     // the `else` clause is not required because we've covered all the cases
 }
 ```
+
+## Relaxed Rules for Sealed Classes (since 1.1)
+
+### Subclasses in the Same File
+
+Since 1.1 you can declare the subclasses of the `sealed` class on the top-level, with only restriction that they should be located in the same file as the parent class. 
+
+### Sealed Classes and Data Classes
+
+Data classes can extend other classes, including `sealed` classes, which makes the hierarchy more usable.
+
+With all the newly supported features, you can rewrite the `Expr` class hierarchy in the following way:
+
+``` kotlin
+sealed class Expr
+data class Const(val number: Double) : Expr()
+data class Sum(val e1: Expr, val e2: Expr) : Expr()
+object NotANumber : Expr()
+
+fun eval(expr: Expr): Double = when (expr) {
+    is Const -> expr.number
+    is Sum -> eval(expr.e1) + eval(expr.e2)
+    NotANumber -> Double.NaN
+}
+```
