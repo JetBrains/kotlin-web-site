@@ -379,7 +379,7 @@ and lambdas are generated exactly as in Kotlin 1.1), but we plan to make further
 ### Java 8 standard library support
 
 There are now separate versions of the standard library supporting the new JDK APIs added in Java 7 and 8.
-Use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8` artifacts instead of the standard `kotlin-stdlib`.
+If you need access to the new APIs, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8` artifacts instead of the standard `kotlin-stdlib`.
 
 
 ### Parameter names in the bytecode
