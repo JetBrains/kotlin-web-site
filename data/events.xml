@@ -12,14 +12,8 @@
         </subject>
         <description>
             <![CDATA[
-<p>This talk is about covering the language aspects that you usually don’t see in a 101 talk. Topics include amongst other:</p>
-<p>Generics and how Kotlin handles Covariance and Contravariance
-The secrets of inline functions in Kotlin
-Reified generics and avoiding type erasure on the JVM
-Lazy evaluation with sequences
-Using delegation to leverage code reuse
-Object invocations and lambdas with receivers for better DSL’s
-A view of asynchronous programming with coroutines</p>
+<p>Cette formation intensive de 2 jours a été créé pour les développeurs Android Java souhaitant découvrir une autre façon d’écrire des applications Android en utilisant le langage Kotlin.</p>
+<p>Kotlin pour Android permet de radicalement diminuer le temps de développement d’une application Android sans en diminuer la qualité. Kotlin peut s’intégrer à une application existante ou pour une nouvelle application.</p>
 ]]>
         </description>
     </event>
@@ -32,6 +26,13 @@ A view of asynchronous programming with coroutines</p>
         <title>第4回Kotlin勉強会 ＠Sansan</title>
         <url>hhttp://connpass.com/event/44710/</url>
         <subject>Kotlin LT</subject>
+        <description>
+            <![CDATA[
+<p>第4回Kotlin勉強会を開催いたします！</p>
+
+<p>LTご希望の方Welcomeです！Kotlinを語らって2016年を締めくくりましょう～！s</p>
+]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -42,6 +43,11 @@ A view of asynchronous programming with coroutines</p>
         <title>F(by) 2016</title>
         <url>http://fby.by/en/</url>
         <subject>Functional Programming in Kotlin with funKTionale</subject>
+        <description>
+            <![CDATA[
+<p>A fast introduction to Kotlin programming language and its functional features alongside with funKTionale library: <ul><li>A tiny introduction to Kotlin</li> <li>Function types</li> <li>Extension points</li> <li>Function composition, currying and partial application</li> <li>Option, Either and Disjunction</li> <li>Future developments</li></ul></p>
+]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -52,6 +58,11 @@ A view of asynchronous programming with coroutines</p>
         <title>F(by) 2016</title>
         <url>http://fby.by/en/</url>
         <subject>FullStack Web with Kotlin</subject>
+        <description>
+            <![CDATA[
+            <p>Nowadays we have a choice from the set of languages for web: JavaScript, TypeScript, Scala.js, ClojureScript, Elm and so on and so on. But only few of them become industrial standard. Kotlin - is a new (but already mature) language for JVM, JavaScript and Native in future. Let's see, how we can build both web and backend with them and 3R (Reactive React-Redux).</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -62,6 +73,19 @@ A view of asynchronous programming with coroutines</p>
         <title>NoSlidesConf 2016</title>
         <url>http://www.noslidesconf.net/#schedule</url>
         <subject>Kotlin social graph</subject>
+        <description>
+            <![CDATA[
+            <p>How to fetch and persist the Twitter stream to an OrientDB graph database using Kotlin as main language, with the support of Docker, of course.
+            </p>
+            <p>
+<ul>
+<il>OrientDB running in a Docker container</il>
+<il>Twitter4j for fetching the Twitter stream</il>
+<il>Kotlin to code</il>
+</ul>
+            </p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>fr</lang>
@@ -72,6 +96,14 @@ A view of asynchronous programming with coroutines</p>
         <title>Geek Breakfast #3</title>
         <url>https://www.weezevent.com/evenement.php?id_evenement=206643&amp;lg_billetterie=2</url>
         <subject>Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin, le langage de JVM open source de Jetbrains, est sorti dans sa première version "production ready" en début d'année et a commencé à secouer les communautés des développeurs Android et Spring Framework.</p>
+<p>Ce petit déjeuner propose de venir découvrir ce langage, qui reprend certains aspects de groovy ou scala, et qui est très proche de swift dans la syntaxe et les concepts.</p>
+<p>Pourquoi investir dans Kotlin et à quel coût ? Comment Kotlin booste la productivité des développements d’applications Java et ouvre les portes du développement réactif?</p>
+<p>Atelier animé par Arnaud Giuliani, architecte et développeur senior à ekito</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -82,6 +114,25 @@ A view of asynchronous programming with coroutines</p>
         <title>AnDevCon</title>
         <url>http://bit.ly/2f871Qh</url>
         <subject>Kotlin and Android, Better Together, Part I</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin is a new language by JetBrains that compiles to JVM bytecode. Version 1.0 was released in early 2016, which was a notable milestone. Kotlin has many characteristics that make it very compelling for use in Android app development, including Interoperability with Java, Lambdas, Null Safety, Extension Methods, Data Classes, relatively small size and method count, top-notch support in Android Studio, and others. This two-part class not only introduces Kotlin, but also illustrates the basic use of Kotlin with other popular Android libraries such as Dagger 2, Retrofit 2 and RxJava/RxAndroid.</p>
+
+<p>In Part I, we will dive into basic syntax fairly broadly though not in depth. Topics include:</p>
+<ul>
+<il>Functions as expressions</il>
+<il>Conditions as expressions</il>
+<il>Nullable/non-nullable values and alternate idioms to ensure null safety</il>
+<il>Type checks and automatic smart casts, safe casting</il>
+<il>When-expressions ('when' improves on Java's 'switch' but can be an expression as well as a statement)</il>
+<il>Functional literals aka lambda expressions</il>
+<il>Closure</il>
+</ul>
+<p>See Part II for how we try to provide context for the use of Kotlin in Android app development by using actual code snippets from a no-frills but functional demo Android app.</p>
+
+<p>Level: Overview</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -93,6 +144,11 @@ A view of asynchronous programming with coroutines</p>
         <url>https://www.meetup.com/JavaIL/events/235530964/?rv=ea1&amp;_af=event&amp;_af_eid=235530964&amp;https=on
         </url>
         <subject>Taking Kotlin to production, Seriously</subject>
+        <description>
+            <![CDATA[
+<p>Next Insurance was founded in the beginning of 2016 and first lines of our production code started accumulating in May 2016. In the beginning I have started writing in Java and experimenting with Kotlin, which saw its 1.0 release two months earlier. 6 months later, the development of our backend services has totally shifted to Kotlin. We still keep a few classes in Java just to make sure that the integration remains seamless but the vast majority of our codebase is written in Kotlin. In this talk I will cover the language features and why I think it is awesome, from null safety to smart casts and data classes. We will also look into the future with 1.1 async/await feature and more.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>ja</lang>
@@ -103,6 +159,27 @@ A view of asynchronous programming with coroutines</p>
         <title>Kansai.kt #2</title>
         <url>http://kansai-kt.connpass.com/event/42500/</url>
         <subject>Kotlin Workshop</subject>
+        <description>
+            <![CDATA[
+<p>関西でKotlinの勉強会を開催します。</p>
+<p>KotlinはIntellij IDEAで有名なJetBrains社が提供するJVM言語です。</p>
+<p><a href="http://kotlinlang.org/" rel="nofollow">http://kotlinlang.org/</a></p>
+<ul>
+<li>静的型付け</li>
+<li>関数リテラル、型推論、パターンマッチ、null安全</li>
+<li>Androidサポート</li>
+<li>altJSサポート (実験的段階)</li>
+</ul>
+<p>といった特徴があります。</p>
+<p>こんな人が対象です。</p>
+<ul>
+<li>next Javaになる言語を知りたい</li>
+<li>nullを撲滅したい</li>
+<li>関数型っぽいコーディングをしたい</li>
+<li>Android Java以外でAndroidアプリを開発したい</li>
+</ul>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -113,6 +190,11 @@ A view of asynchronous programming with coroutines</p>
         <title>GDG DevFest Minsk 2016</title>
         <url>http://devfest.by/</url>
         <subject>Workshop. Implementing MVP architecture with Kotlin and Rx</subject>
+        <description>
+            <![CDATA[
+<p>In the past year Kotlin really started to take off after successfull release of it's stable version. In this workshop, we will go trough transition of an outdated Android application to MVP architecture, utilizing Kotlin advanced features and RxJava/Kotlin.In the past year Kotlin really started to take off after successfull release of it's stable version. In this workshop, we will go trough transition of an outdated Android application to MVP architecture, utilizing Kotlin advanced features and RxJava/Kotlin.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>ru</lang>
@@ -123,6 +205,11 @@ A view of asynchronous programming with coroutines</p>
         <title>GDG DevFest Siberia</title>
         <url>http://devfest.gdg.org.ru/schedule/#session-048</url>
         <subject>New features in Kotlin 1.1 and what's next</subject>
+        <description>
+            <![CDATA[
+<p>Стас работает в команде Kotlin 3.5 года, в основном занимается компилятором и теоритическими задачами, которые возникают по ходу. Интересуется формальными системами типов, выводом типов. Активно учавствует в дизайне новых фич. Расскажет о том, что ждёт пользователей в релизе 1.1.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>ru</lang>
@@ -134,7 +221,7 @@ A view of asynchronous programming with coroutines</p>
         <url>http://mbltdev.ru/en#schedule</url>
         <subject>Practicing Kotlin. Writing DSL</subject>
     </event>
-    <event>
+    <event>а т
         <lang>de</lang>
         <startDate>2016-11-16</startDate>
         <endDate>2016-11-16</endDate>
@@ -143,6 +230,13 @@ A view of asynchronous programming with coroutines</p>
         <title>JUG Karlsruhe Meetup</title>
         <url>http://jug-ka.de/content/einfuehrung-kotlin/</url>
         <subject>Einführung in Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>In diesem Jahr hat Kotlin die Version 1.0 erreicht - Grund genug sich die Programmiersprache einmal näher anzuschauen.</p>
+<p>Der Vortrag gibt eine Übersicht über die Sprache und die wichtigsten Features und diskutiert diese anhand einer Beispielanwendung.</p>
+<p>Durch die nahtlose Interoperabilität zwischen Java und Kotlin lassen sich bestehende Projekte inkrementell migrieren. Worauf dabei zu achten ist, wird im zweiten Teil des Vortrag thematisiert.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -153,6 +247,14 @@ A view of asynchronous programming with coroutines</p>
         <title>TopConf Tallinn</title>
         <url>http://topconf.com/tallinn-2016/trackevent/kotlin-puzzlers/</url>
         <subject>Kotlin Puzzlers</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin is a marvelous alternative language for the JVM, aiming to improve usability of aging Java. While not exactly new, it has been quickly gaining adoption since its 1.0 release early this year.</p>
+<p>We will give a brief introduction and then, for the first time ever, will present Puzzlers of Kotlin – the gotchas that you may
+encounter while digging deeper into the language.</p>
+<p>While Kotlin was in development for 6 years, and aimed to be a perfect practical language, like all other languages, it still has tricky parts that you don't find in the documentation.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -164,6 +266,12 @@ A view of asynchronous programming with coroutines</p>
         <url>https://buildstuff16lithuania.sched.org/event/8jQ2/hadi-hariri-hhariri-creating-dsls-in-idiomatic-kotlin
         </url>
         <subject>Creating DSL's in idiomatic Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin is a fairly easy language to grasp given its similarity with other mainstream ones such as Java, C# and JavaScript. However, Kotlin provides a few characteristics which makes it possible to write nice DSL’s. But the question is, do we always need full-blown domain specific languages in our applications? Are we really going to write all our business rules in a specific language?</p>
+<p>Not necessarily, but that doesn’t mean we should discard DSL’s. In fact, DSL’s are really powerful when they are small and focused. In this talk we’re going to show a few DSL’s that we can create to deal with different aspects of our application, whether it’s business dealing with tax rules or infrastructure and working with transactions, and see how with very little effort we can create more concise, maintainable and readable code.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -177,6 +285,12 @@ A view of asynchronous programming with coroutines</p>
         <startDate>2016-11-16</startDate>
         <endDate>2016-11-16</endDate>
         <subject>Kotlin, not just for Android!</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin is a high-performance, statically typed "pragmatic language" that leverages the environment of the Java Virtual Machine.</p>
+<p>Created by IDE makers JetBrains, it makes use of the existing culture of Java libraries and tooling. Java, in turn, can use items built in Kotlin.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>fr</lang>
@@ -190,6 +304,11 @@ A view of asynchronous programming with coroutines</p>
         <startDate>2016-11-15</startDate>
         <endDate>2016-11-15</endDate>
         <subject>Présentation de Kotlin, nouveau langage pour Android et la JVM</subject>
+        <description>
+            <![CDATA[
+<p>Présentation de Kotlin, nouveau langage pour Android et la JVM</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -203,6 +322,12 @@ A view of asynchronous programming with coroutines</p>
         <startDate>2016-11-11</startDate>
         <endDate>2016-11-11</endDate>
         <subject>Creating Small DSLs with Idiomatic Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin is a fairly easy language to grasp given its similarity with other mainstream ones such as Java, C# and JavaScript. However, Kotlin provides a few characteristics which makes it possible to write nice DSL’s. But the question is, do we always need full-blown domain specific languages in our applications? Are we really going to write all our business rules in a specific language?</p>
+<p>Not necessarily, but that doesn’t mean we should discard DSL’s. In fact, DSL’s are really powerful when they are small and focused. In this talk we’re going to show a few DSL’s that we can create to deal with different aspects of our application, whether it’s business dealing with tax rules or infrastructure and working with transactions, and see how with very little effort we can create more concise, maintainable and readable code.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -217,6 +342,11 @@ A view of asynchronous programming with coroutines</p>
         <startDate>2016-11-11</startDate>
         <endDate>2016-11-11</endDate>
         <subject>Getting Kotlin in Your Codebase</subject>
+        <description>
+            <![CDATA[
+<p>Excitement swirls around Kotlin, and we developers want it in our codebases. From an Android engineer's point of view, Eric will talk about the best ways to start using Kotlin at work and what parts of a Android codebase really benefit from Kotlin usage. With the 1.0 stable release, convincing your coworkers to get Kotlin into at least your tests is an endeavor worth undertaking!</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>ja</lang>
@@ -227,6 +357,15 @@ A view of asynchronous programming with coroutines</p>
         <title>学生＆若手エンジニア向け勉強会</title>
         <url>http://supporterz-seminar.connpass.com/event/43681/</url>
         <subject>androidでRxとkotlin ~fluxで複雑な状態管理を解決した話~</subject>
+        <description>
+            <![CDATA[
+<p>サポーターズが贈るエンジニア勉強会。</p>
+<p>今回のテーマは「androidでRxとkotlin」。</p>
+<p>昨今のモバイルアプリは多数の状態を持つことが多く、設計が複雑になりがちです。</p>
+<p>当日は今webで流行しているfluxの概念をRxとkotlinを用いてandroidで実現した方法について解説します。</p>
+<p> ※ Rxの使い方についての説明はしません</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -239,6 +378,11 @@ A view of asynchronous programming with coroutines</p>
             https://www.eventbrite.com/e/nyjavasig-eclipse-collections-80-why-kotlin-java-streams-hardware-tickets-28897884350
         </url>
         <subject>Why bother with kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin is a new, open-source and lightweight programming language that runs on the JVM and can also be compiled into JavaScript, or even used with Android on mobile devices. It is a very cool and simple language learnable in a few hours, and thanks to its Java relationship, can use any existing Java frameworks/libraries.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -249,6 +393,12 @@ A view of asynchronous programming with coroutines</p>
         <title>Devoxx</title>
         <url>http://cfp.devoxx.be/2016/talk/STH-6071/Gradle_meets_Kotlin</url>
         <subject>Gradle meets Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>The requirements for build automation are constantly growing these days as having a well designed continuous delivery pipeline is essential to deliver features and bugfixes quick to customers. This growing complexity results in more complex custom build logic. This causes developers and build authors to invest more in custom build logic which should be a pleasant experience as writing production code. With Gradle now supporting Kotlin, a statically typed and pragmatic language for the JVM, for writing Gradle build scripts, build masters can easily detect potential misconfigurations at compile time which can reduce problems at runtime dramatically. Kotlin ships with first class IDE support for Eclipse and IDEA that allows more sophisticated tooling support for editing build logic than you have ever seen before by supporting auto completion, documentation lookup, refactoring etc.</p>
+<p>The last couple of months the Gradle Team and the Kotlin team have collaborated closely to provide a great expericence to Gradle users. In this session we’ll take a closer look on the Kotlin based Gradle DSL and the IDE support. Furthermore we discuss best practices and future plans.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>es</lang>
@@ -259,6 +409,14 @@ A view of asynchronous programming with coroutines</p>
         <title>Curso Presencial</title>
         <url>https://devexperto.com/kotlin-desarrolladores-android-presencial/</url>
         <subject>Kotlin para desarrolladores Android</subject>
+        <description>
+            <![CDATA[
+<p>Puede que la idea de aprender un lenguaje nuevo te haga pensar que vas a tener que dedicar demasiadas horas a analizar y escribir código hasta dominarlo con un experto. Puede que te preguntes si merecerá la pena el esfuerzo.</p>
+<p>Sin embargo, el caso de Kotlin es diferente. Es tan sencillo que un curso intensivo de un día es suficiente para conocer todos los conceptos que necesitas para crear tu primera app utilizando Kotlin como lenguaje principal. Te lo garantizo. Es así porque Kotlin ha sido ideado para facilitar la transición desde Java.</p>
+<p>El tiempo que dediques a aprender el lenguaje será tiempo que ganarás en el desarrollo diario de tus proyectos utilizando Kotlin.</p>
+<p>Porque los nuevos conceptos que introduce Kotlin te ahorrarán líneas de código innecesarias y te darán soluciones impensables con Java a día de hoy.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -269,6 +427,11 @@ A view of asynchronous programming with coroutines</p>
         <title>GDG DevFest Pilsen 2016</title>
         <url>https://devfest.cz/schedule/day1?sessionId=100</url>
         <subject>Firebase + Kotlin + MVP + Rx: Practical Tips</subject>
+        <description>
+            <![CDATA[
+<p>New Firebase products announced at I/O make an Android developer’s life so much easier. We have been happily developing with it since January 2016. Sample projects work great, but what if your database structure is complex and you want a solid architecture with MVP, RxJava and Kotlin? Come to learn some practical tips.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -282,6 +445,11 @@ A view of asynchronous programming with coroutines</p>
         <startDate>2016-11-03</startDate>
         <endDate>2016-11-04</endDate>
         <subject>You can do better with Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>The Kotlin programming language is gaining popularity amongst the Android developer community. It’s a modern language that gives more power in everyday routines. Kotlin code generally looks cleaner and nicer, and it’s much easier to work with when you have less verbosity or code duplication. But what’s even more important, is that Kotlin is 100% compatible with all existing Java frameworks, and has good tooling in Android Studio and IntelliJ IDEA. In this talk we’ll discuss the concepts of the language that provide the desired expressiveness, as well as additional goodies designed specifically for Android.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -297,6 +465,11 @@ A view of asynchronous programming with coroutines</p>
         <startDate>2016-11-03</startDate>
         <endDate>2016-11-03</endDate>
         <subject>No excuses: switch to Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Are you stuck in the Java world? I’ll share my story about convincing my team and the client of the benefits of Kotlin. Furthermore I’ll delve into how we migrated an existing Java Android app, with 300k active users, to Kotlin. Even if you have never seen Kotlin before, come and see how you will create better apps with this modern and elegant language. At the end of this talk you’ll be able to convince your team / client why it’s a great to use Kotlin. The power of Kotlin can be leveraged everywhere you use Java, since it compiles to JVM bytecode. So even if you’re not an Android developer, check out this session to get acquainted with Kotlin! No excuses: switch to Kotlin.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>fr</lang>
@@ -310,6 +483,11 @@ A view of asynchronous programming with coroutines</p>
         <startDate>2016-11-03</startDate>
         <endDate>2016-11-03</endDate>
         <subject>Develop a reactive Android app with Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin est un langage développé par Jetbrains. Sa version 1.0 (production ready) est sortie en début d'année et a fait un certain buzz au sein de la communauté android. Cette session propose de découvrir ce langage, qui reprend certains aspects de groovy ou scala, et qui est très proche de swift dans la syntaxe et les concepts. Nous verrons comment Kotlin boost la productivité du développement d’applications Android et comment il permet de bien accompagner le développement réactif.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -325,6 +503,11 @@ A view of asynchronous programming with coroutines</p>
         <startDate>2016-11-02</startDate>
         <endDate>2016-11-02</endDate>
         <subject>10 Kotlin Tricks in 10 Minutes</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin is a new and popular language for Android development. Its major advantages and features are immediately appealing and quick to learn, but it also has a lot of small and thoughtful parts which are harder to discover. This short talk will cover 10 of my favorites with real-world examples.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
@@ -335,6 +518,12 @@ A view of asynchronous programming with coroutines</p>
         <title>Tech Shock</title>
         <url>http://www.meetup.com/TechShock/events/234750703/</url>
         <subject>A native Android app written 100% in Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Damian Petla from Schibsted Tech Polska will share his experience on working with the Omni news app, a native Android app written 100% in Kotlin.</p>
+<p>Damian started his career as Java Developer in 2006 and for the last 2 years he has been working with Kotlin. He will present how to set up Android a project from scratch, compare the developer experience with Java and share some general tips.</p>
+            ]]>
+        </description>
     </event>
     <event>
         <lang>en</lang>
