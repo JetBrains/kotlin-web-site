@@ -1,0 +1,293 @@
+- name: St.Petersburg, Russia
+  geo:
+    lat: 59.946047
+    lng: 30.286587
+- name: Kirov, Russia
+  geo:
+    lat: 58.609079
+    lng: 49.648262
+- name: Uljanovsk, Russia
+  geo:
+    lat: 54.308292
+    lng: 48.381070
+- name: Yekaterinburg, Russia
+  geo:
+    lat: 56.837483
+    lng: 60.602056
+- name: Moscow, Russia
+  geo:
+    lat: 55.757202
+    lng: 37.626981
+- name: Chelyabinsk, Russia
+  geo:
+    lat: 55.163526
+    lng: 61.429164
+- name: Novosibirsk, Russia
+  geo:
+    lat: 55.010079
+    lng: 82.921247
+
+- name: Minsk, Belarus
+  geo:
+    lat: 53.902684
+    lng: 27.559610
+
+- name: Riga, Latvia
+  geo:
+    lat: 56.946312
+    lng: 24.109931
+
+- name: Vilnus, Lithuania
+  geo:
+    lat: 54.684216
+    lng: 25.284512
+
+- name: Brno, Czech Republic
+  geo:
+    lat: 49.196216
+    lng: 16.610575
+- name: Prague, Czech Republic
+  geo:
+    lat: 50.075012
+    lng: 14.436779
+
+- name: Thessaloniki, Greece
+  geo:
+    lat: 40.638775
+    lng: 22.94499
+
+- name: Chennai, India
+  geo:
+    lat: 13.078960
+    lng: 80.269428
+
+- name: Aarhus, Denmark
+  geo:
+    lat: 56.162602
+    lng: 10.205143
+
+- name: Sydney, Australia
+  geo:
+    lat: -33.873035
+    lng: 151.209423
+
+- name: Montreal, Canada
+  geo:
+    lat: 45.501838
+    lng: -73.565967
+
+- name: Barcelona, Spain
+  geo:
+    lat: 41.385239
+    lng: 2.172112
+- name:  Madrid, Spain
+  geo:
+    lat: 40.414348
+    lng: -3.704263
+
+- name: Kiev, Ukraine
+  geo:
+    lat: 50.440888
+    lng: 30.518952
+- name: Lviv, Ukraine
+  geo:
+    lat: 49.839311
+    lng: 24.031117
+
+- name: Kraków, Poland
+  geo:
+    lat: 50.057326
+    lng: 19.943073
+- name: Poznań, Poland
+  geo:
+    lat: 52.406730
+    lng: 16.922946
+- name: Warsaw, Poland
+  geo:
+    lat: 52.221499
+    lng: 21.007630
+- name: Lodz, Poland
+  geo:
+    lat: 51.757799
+    lng: 19.455185
+
+- name: Tallinn, Estonia
+  geo:
+    lat: 59.436246
+    lng: 24.753346
+
+- name: Lugano, Switzerland
+  geo:
+    lat: 46.003654
+    lng: 8.950171
+- name: Lausanne, Switzerland
+  geo:
+    lat: 46.518828
+    lng: 6.630865
+- name: Zurich, Switzerland
+  geo:
+    lat: 47.374644
+    lng: 8.540833
+
+- name: Tunis, Tunisia
+  geo:
+    lat: 36.806958
+    lng: 10.180011
+
+- name: Stockholm, Sweden
+  geo:
+    lat: 59.354254
+    lng: 18.075431
+- name: Malmö, Sweden
+  geo:
+    lat: 55.604388
+    lng: 13.004659
+
+- name: Zagreb, Croatia
+  geo:
+    lat: 45.810030
+    lng: 15.978406
+
+- name: Turin, Italy
+  geo:
+    lat: 45.077346
+    lng: 7.670798
+- name: Milan, Italy
+  geo:
+    lat: 45.463435
+    lng: 9.185627
+- name: Rome, Italy
+  geo:
+    lat: 41.894020
+    lng: 12.493763
+
+- name: Antwerp, Belgium
+  geo:
+    lat: 51.223763
+    lng: 4.397540
+
+- name: Berlin, Germany
+  geo:
+    lat: 52.521667
+    lng: 13.406591
+- name: Munich, Germany
+  geo:
+    lat: 48.132210
+    lng: 11.580286
+- name: Stuttgart, Germany
+  geo:
+    lat: 48.775716
+    lng: 9.182493
+- name: Brühl, Germany
+  geo:
+    lat: 50.826468
+    lng: 6.897847
+- name: Karlsruhe, Germany
+  geo:
+    lat: 49.004793
+    lng: 8.403696
+
+- name: Paris, France
+  geo:
+    lat: 48.856579
+    lng: 2.342405
+- name: Lyon, France
+  geo:
+    lat: 45.762860
+    lng: 4.837009
+- name: Strasbourg, France
+  geo:
+    lat: 48.572046
+    lng: 7.746643
+
+- name: Oslo, Norway
+  geo:
+    lat: 59.913751
+    lng: 10.752839
+
+- name: London, UK
+  geo:
+    lat: 51.510613
+    lng: -0.122204
+- name: Manchester, UK
+  geo:
+    lat: 53.481011
+    lng: -2.243163
+
+- name: Santa Clara, CA, USA
+  geo:
+    lat: 37.353285
+    lng: -121.955708
+- name: San Francisco, CA, USA
+  geo:
+    lat: 37.762648
+    lng: -122.447213
+- name: Portland, OR, USA
+  geo:
+    lat: 45.520770
+    lng: -122.677083
+- name: St. Louis, MO, USA
+  geo:
+    lat: 38.619826
+    lng: -90.198832
+- name: Twin Cities, MN, USA
+  geo:
+    lat: 44.937961
+    lng: -93.202105
+- name: Denver, CO, USA
+  geo:
+    lat: 39.732579
+    lng: -104.995194
+- name: Mountain View, CA, USA
+  geo:
+    lat: 37.381993
+    lng: -122.083327
+- name: Philadelphia, PA, USA
+  geo:
+    lat: 39.944156
+    lng: -75.170225
+- name: Detroit, MI, USA
+  geo:
+    lat: 42.326043
+    lng: -83.050798
+- name: New York, NY, USA
+  geo:
+    lat: 40.700360
+    lng: -74.010970
+- name: Indianapolis, IN, US
+  geo:
+    lat: 39.770729
+    lng: -86.158163
+- name: Lehi, UT, USA
+  geo:
+    lat: 40.397364
+    lng: -111.849055
+- name: Atlanta, USA
+  geo:
+    lat: 33.745001
+    lng: -84.389020
+
+- name: São Paulo, Brazil
+  geo:
+    lat: -23.600388
+    lng: -46.624169
+
+- name: Dublin, Ireland
+  geo:
+    lat: 53.347199
+    lng: -6.264249
+
+- name: Budapest, Hungary
+  geo:
+    lat: 47.494120
+    lng: 19.050646
+
+- name: Vienna, Austria
+  geo:
+    lat: 48.205564
+    lng: 16.367699
+
+- name: 兵庫県芦屋市業平町8番24号
+  geo:
+    lat: 34.732159
+    lng: 135.302780
