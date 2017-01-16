@@ -68,8 +68,8 @@ Marker.prototype.getIcon = function () {
 
   return {
     scaledSize: {
-      width: 16,
-      height: 16
+      width: 15,
+      height: 15
     },
     opacity: 1,
     url: iconUrl
