@@ -21,6 +21,12 @@
  * [Warsaw Kotlin User Group](), Poland
  * [Yorkshire Kotlin Meetup](http://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/), United Kingdom
  
+### Asia
+  
+ * [Japan Kotlin User Group](https://kotlin.doorkeeper.jp/), Japan
+ * [Korean Kotlin User Group](http://kotlin.kr/), Korea
+ * [New Delhi Kotlin User Group](https://www.facebook.com/kotlinNewDelhi/), India
+ 
 </div>
 
 <div class="g-6" markdown="1">
@@ -33,12 +39,6 @@
 * [New York Kotlin Meetup](http://www.meetup.com/New-York-Kotlin-Meetup/), USA
 * [Toronto Kotlin](https://www.meetup.com/Kotlin-Toronto/events/235740293/), Canada
 * [San Paolo Kotlin Meetup](https://www.meetup.com/kotlin-meetup-sp/), Brazil 
-
-### Asia
-
-* [Japan Kotlin User Group](https://kotlin.doorkeeper.jp/), Japan
-* [Korean Kotlin User Group](http://kotlin.kr/), Korea
-* [New Delhi Kotlin User Group](https://www.facebook.com/kotlinNewDelhi/), India
 
 ### Australia
 

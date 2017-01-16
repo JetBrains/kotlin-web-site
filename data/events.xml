@@ -1,6 +1,220 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>pl</lang>
+        <startDate>2017-01-10</startDate>
+        <endDate>2017-01-10</endDate>
+        <speaker>Paweł Barszcz</speaker>
+        <location>Tokyo, Japan</location>
+        <title>Kotlin & Spring: wrażenia po 300 godzinach</title>
+        <url>https://www.meetup.com/Warszawa-JUG/events/236607997/</url>
+        <subject>Warszawa JUG</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin to język programowania, który swoją popularność zyskał dzięki programistom Androida. Czy nadaje się on do pisania backendu opartego na Springu? Czy pracuje się z nim wygodniej lub bezpieczniej, niż z czystą Javą? Podzielę się swoimi spostrzeżeniami oraz przykładami kodu opartymi na doświadczeniu z aktualnego projektu.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-01-25</startDate>
+        <endDate>2017-01-25</endDate>
+        <speaker>藤田 琢磨</speaker>
+        <location>Tokyo, Japan</location>
+        <title>【学生＆若手エンジニア向け勉強会】</title>
+        <url>https://supporterz-seminar.connpass.com/event/47791/</url>
+        <subject>今こそ学ぶ、Kotlin入門（ハンズオン有）</subject>
+        <description>
+            <![CDATA[
+<p>サポーターズが贈るエンジニア勉強会。</p>
+<p>今回のテーマは「今こそ学ぶ、Kotlin入門」。</p>
+<p>KotlinはJetBrainsが作った言語で2016年の2月にv1がリリースされました。</p>
+<p>Null安全・拡張関数・関数リテラル等の魅力があり、正式リリース以降、</p>
+<p>サーバやAndroidなどでの導入事例が増えてきています。</p>
+<p>Kotlinの文法のハンズオンから導入の知見までを共有し、</p>
+<p>参加者がKotlinをふわっとその場で習得することを目指します。</p>
+<p>サーバ・Androidエンジニアだけではなく、</p>
+<p>iOSをSwiftで書いている人やAndroid始めたいと思っている方にもおすすめです！</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-01-27</startDate>
+        <endDate>2017-01-27</endDate>
+        <speaker>高橋良輔</speaker>
+        <location>Tokyo, Japan</location>
+        <title>【チャット機能のAndroidアプリを作ろう！】</title>
+        <url>https://connpass.com/event/47654/</url>
+        <subject>Kotlin&Firebaseハンズオン</subject>
+        <description>
+            <![CDATA[
+<p>最近Android開発で注目されているプログラミング言語Kotlinを使ったハンズオンセミナーを開催いたします。またGoogle社にて提供しているmBaas（モバイルバックエンドサービス）であるFirebaseを使って簡単なチャット機能のあるAndroidアプリを作ります。</p>
+<p><strong>ハンズオンで学習できる内容</strong></p>
+<ul>
+<li>Kotlin言語の基本</li>
+<li>Androidアプリ開発の基本</li>
+<li>Firebaseの使い方</li>
+</ul>
+</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>fr</lang>
+        <startDate>2017-01-12</startDate>
+        <endDate>2017-01-12</endDate>
+        <speaker>Sebastien Deleuze</speaker>
+        <location>Bordo, France</location>
+        <title>Bordeaux JUG</title>
+        <url>http://www.bordeauxjug.org/20170112_WebReactiveSpring5Kotlin</url>
+        <subject>Functional web applications with Kotlin and Spring 5</subject>
+        <description>
+            <![CDATA[
+<p>Cette présentation a pour but de vous montrer un nouveau type d'application fonctionnelle utilisant Spring Reactive ainsi que le langage Kotlin qui convient tout aussi bien à la programmation orientée objet qu'à la programmation fonctionnelle.</p>
+<p>Je me baserai sur un exemple concret, en l'occurence le projet du nouveau site de la conférence Mix-IT dont je m'occupe et dont les sources sont <a href="https://github.com/mix-it/mixit/">disponibles sur GitHub</a>:<br />
+ - Le support Kotlin intégré à Spring Framework 5 (en exclusivité mondiale ^^)<br />
+ - Le nouveau framework Spring Web functional<br />
+ - L'API de récupération de bean basée sur les lambdas (plus de proxy CGLIB)<br />
+ - Des classes immutables et une injection par constructeur plutôt que par setter<br />
+ - La puissance des extensions Kotlin pour un code propre<br />
+ - Un rendu des template client et server avec Mustache<br />
+ - Une application légère et Reactive basée sur Reactor Netty<br />
+ - L'utilisation de MongoDB via une API Reactive<br />
+ - Un fichier de build Gradle écrit également en Kotlin</p>
+<p>Ce talk est accessible à tout java-iste et même si vous ne connaissez pas Kotlin. </p>
+</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-02-02</startDate>
+        <endDate>2017-02-02</endDate>
+        <speaker>Sindre Moen</speaker>
+        <location>Oslo, Norway</location>
+        <title>Kotlin Night</title>
+        <url>https://www.eventbrite.fr/e/kotlin-night-tickets-30024479025</url>
+        <subject>Kotlin + Anko</subject>
+        <description>
+            <![CDATA[
+<p>Anko is a Kotlin library made by JetBrains to make Android pleasant to work with. One of its biggest features is a DSL for creating views programmatically with no hassle at all, but it also features a lot of helpers for interacting with views, intents, services, async tasks, databases and more. Sindre will talk about how to get started using Anko as well as look at some advanced topics, like extensing the layout DSL.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-02-02</startDate>
+        <endDate>2017-02-02</endDate>
+        <speaker>Rafael Winterhalter</speaker>
+        <location>Oslo, Norway</location>
+        <title>Kotlin Night</title>
+        <url>https://www.eventbrite.fr/e/kotlin-night-tickets-30024479025</url>
+        <subject>Runtime proxies for Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>A major distinction of Kotlin to other languages running on the JVM is its default of final classes and methods. While deliberate polymorphism is arguably a good design choice, many existing libraries in the Java ecosystem rely on generating runtime subclasses what exacerbates their use with Kotlin. In this presentation, we look into the need for runtime proxies and introduce alternatives to classical subclass proxying. Doing so, we will look into how the Mockito library overcame this problem and is able to mock non-opened Kotlin classes in its second version. Finally, we discuss the difficulties of proxying and mocking classes when running code on an Android virtual machine.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-01-18</startDate>
+        <endDate>2017-01-18</endDate>
+        <speaker>Robert Martin</speaker>
+        <location>Libertyville, USA</location>
+        <title>Live Webinar</title>
+        <url>https://blog.jetbrains.com/idea/2016/12/live-webinar-the-three-laws-of-tdd/</url>
+        <subject>The Three Laws of TDD</subject>
+        <description>
+            <![CDATA[
+<p>Test Driven Development continues to grow in popularity as a discipline that exemplifies professional care and diligence. In this webinar, Uncle Bob will describe the three laws of TDD, and will demonstrate the discipline using (sic!) the Kotlin language.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-05-09</startDate>
+        <endDate>2017-05-09</endDate>
+        <speaker>Hadi Hariri</speaker>
+        <location>Austin, USA</location>
+        <title>OSCON</title>
+        <url>http://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/57604</url>
+        <subject>Functional Programming with Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Hadi Hariri explains the basics of functional programming using Kotlin—where it fits in with the object orientation paradigm and how to use it in your everyday work. Along the way, Hadi covers important functional programming concepts, such as as lambdas, higher-order functions, currying, partial functions, memoization, and monads, and demonstrates how and where to apply functional patterns to cut down boilerplate code and keep it maintainable.</p>
+
+<p>While the workshop will use Kotlin, many of the concepts can be applied to other programming languages such as Java 8.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-01-23</startDate>
+        <endDate>2017-01-23</endDate>
+        <speaker>Alberto Arias</speaker>
+        <location>Toronto, Canada</location>
+        <title>Kotlin Toronto</title>
+        <url>https://www.meetup.com/Kotlin-Toronto/events/235740293/</url>
+        <subject>Introduction to the Kotlin programming language</subject>
+        <description>
+            <![CDATA[
+<p>1-hour intro the the Kotlin programing language. Let's take a quick look at the nicest features of this modern language.
+Kotlin is an open-sourced statically-typed programming language created by JetBrains that runs on the Java Virtual Machine and also can be compiled to JavaScript source code. Kotlin is designed to interoperate with Java code.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-22</startDate>
+        <endDate>2017-03-22</endDate>
+        <speaker>Hanneli Tavante, Breandan Considine</speaker>
+        <location>San Jose, USA</location>
+        <title>Devoxx US 2017</title>
+        <url>http://cfp.devoxx.us/2017/talk/WXR-6769/Typing_in_Java,_Kotlin_and_Scala:_A_quick_comparison</url>
+        <subject>Typing in Java, Kotlin and Scala: A quick comparison</subject>
+        <description>
+            <![CDATA[
+<p>There are several languages which are powered by the JVM. What are the main differences between their type systems? This session will compare bytecode generated by Java, Kotlin and Scala, analyse compilation and execution time, and explore the behaviour of generics and type inference. We will compare and contrast code samples to help understand how each of these languages handle types.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-22</startDate>
+        <endDate>2017-03-22</endDate>
+        <speaker>Hadi Hariri</speaker>
+        <location>San Jose, USA</location>
+        <title>Devoxx US 2017</title>
+        <url>http://cfp.devoxx.us/2017/talk/VSU-8919/Kotlin_102__-_Beyond_the_basics</url>
+        <subject>Kotlin 102-Beyond the basics</subject>
+        <description>
+            <![CDATA[
+<p>This talk is about covering the language aspects that you usually don’t see in a 101 talk. Topics include amongst other:</p>
+<ul>
+<li>Generics and how Kotlin handles Covariance and Contravariance </li> <li>The secrets of inline functions in Kotlin</li> <li>Reified generics and avoiding type erasure on the JVM</li> <li>Lazy evaluation with sequences</li> <li>Using delegation to leverage code reuse</li> <li>Object invocations and lambdas with receivers for better DSL’s</li> <li>A view of asynchronous programming with coroutines</li>
+</ul>
+</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-20</startDate>
+        <endDate>2017-03-20</endDate>
+        <speaker>Breandan Considine</speaker>
+        <location>San Jose, USA</location>
+        <title>EclipseConverge</title>
+        <url>https://www.eclipseconverge.org/na2017/session/acejump-writing-eclipse-plugin-kotlin</url>
+        <subject>AceJump: Writing an Eclipse Plugin in Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>AceJump, a popular plugin for IntelliJ IDEA, is coming soon to Eclipse! We'll discuss some technical hurdles encountered when migrating this plugin, and how I resolved them using Kotlin, Gradle, and the Eclipse RCP to help you jump to any character in the editor with just a few keystrokes.</p>
+]]>
+        </description>
+    </event>
+    <event>
         <lang>fr</lang>
         <startDate>2017-02-23</startDate>
         <endDate>2017-02-23</endDate>
