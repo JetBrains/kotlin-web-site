@@ -147,6 +147,11 @@ def search_page():
     return render_template('pages/search.html')
 
 
+@app.route('/community/')
+def community_page():
+    return render_template('pages/community.html')
+
+
 @app.route('/')
 def index_page():
     features = get_kotlin_features()
@@ -229,4 +234,4 @@ if __name__ == '__main__':
         if not ignore_stdlib:
             generate_sitemap(urls)
     else:
-        app.run(host="0.0.0.0", debug=False, threaded=True)
+        app.run(host="0.0.0.0", debug=True, threaded=True)

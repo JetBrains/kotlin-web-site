@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% macro speak_kotlin_link(href, text, class, comment=None) %}
+    <div class="all-speak-kotlin_link _{{ class }}">
+        <a href="{{ href }}" class="all-speak-kotlin_link-button">
+            <span>{{ text }}</span>
+            <div class="all-speak-kotlin_link-pointer"></div>
+        </a>
+        {% if comment %}
+            <div class="all-speak-kotlin_link-comment">{{ comment | safe }}</div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='community.css') }}">
+
+    <article role="main" class="page-content">
+        <h1 id="were-all-kotlin">We're all Kotlin</h1>
+        <p>
+            The community around Kotlin is rapidly growing, and every single day brings something new: awesome
+            eliminating
+            talks, Kotlin user groups meetups, various projects written in Kotlin. We do all our best to provide
+            platforms
+            for
+            easy communication, help to bring into play all your initiatives and keep up to speed. This section of the
+            site
+            gives the idea how and where you can find the news and support and provides guidelines for events
+            organizers.
+        </p>
+
+        <h2 id="kotlin-real-life-activities">Kotlin real-life Activities</h2>
+
+        <ol>
+            <li><strong>Local Kotlin User Groups</strong> is a place to share experience between Kotlin programmers.
+                Likewise, bring information about the technology to everyone who is interested.
+                Regular activities is the main idea of user groups.
+                The main goal is to provide support and opportunities for experience sharing and increasing engineering
+                excellence.
+            </li>
+            <li><strong>Kotlin Nights</strong> are one-off events that usually include 3-4 talks on Kotlin.
+                The talks should be dedicated to technology, either to Kotlin or to some other compatible approaches
+                and not be focused on marketing, sales or commercials.
+            </li>
+            <li>Kotlin Talks</li>
+        </ol>
+
+        <h2>All speak Kotlin</h2>
+        <div>
+            <div class="all-speak-kotlin">
+                <div class="all-speak-kotlin_links _left">
+                    {{ speak_kotlin_link(url_for('page', page_path="community/user-groups"), 'Local Kotlin User Groups', 'user-groups') }}
+                    {{ speak_kotlin_link(url_for('community_page'), 'Kotlin Nights', 'kotlin-nights') }}
+                    {{ speak_kotlin_link("https://www.reddit.com/r/Kotlin/", 'Reddit', 'reddit') }}
+                    {{ speak_kotlin_link("https://kotlinlang.slack.com/", 'Slack', 'slack',
+                            comment='get invite <a href="http://kotlinslackin.herokuapp.com/">here</a>') }}
+                    {{ speak_kotlin_link("https://www.linkedin.com/groups/7417237/profile", 'LinkedIn', 'linkedin',
+                        comment='Mostly for job related post') }}
+                </div>
+                <div class="all-speak-kotlin_img"></div>
+                <div class="all-speak-kotlin_links _right">
+                    {{ speak_kotlin_link("https://freenode.net/", 'Freenode', 'freenode',
+                            comment="kotlin channel on the IRC network") }}
+                    {{ speak_kotlin_link("https://freenode.net/", 'Kotlin Talks', 'kotlin-talks') }}
+                    {{ speak_kotlin_link("https://discuss.kotlinlang.org/", 'Kotlin Forum', 'kotlin-forum') }}
+                    {{ speak_kotlin_link("https://stackoverflow.com/questions/tagged/kotlin", 'Stackoverflow', 'stackoverflow') }}
+                    {{ speak_kotlin_link("https://twitter.com/kotlin", 'Twitter', 'twitter') }}
+                    {{ speak_kotlin_link("https://plus.google.com/communities/104597899765146112928", 'Google+', 'google') }}
+                    {{ speak_kotlin_link("https://stackoverflow.com/questions/tagged/kotlin", 'Kotlin.link', 'klink') }}
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <script src="{{ url_for('static', filename='community.js') }}"></script>
+{% endblock %}

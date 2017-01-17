@@ -20,6 +20,7 @@ var webpackConfig = {
     'tutorials': 'page/tutorials.js',
     'videos': 'page/videos.js',
     'grammar': 'page/grammar.js',
+    'community': 'page/community/community.js',
     'styles': 'styles.scss',
     'pdf': 'page/pdf.js'
   },

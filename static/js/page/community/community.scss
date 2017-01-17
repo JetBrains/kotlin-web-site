@@ -1,0 +1,207 @@
+@import "../../../css/config/_colors";
+
+$speak-kotlin-margin: 50px;
+$button-border-color: #6d6d6d;
+$button-border-color-hover: #6d6d6d;
+$button-border: 1px dashed $button-border-color;
+
+.all-speak-kotlin {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.all-speak-kotlin_links {
+    position: relative;
+    flex-grow: 1;
+
+    &._left {
+        margin-right: $speak-kotlin-margin;
+
+        .all-speak-kotlin_link {
+            right: 0;
+            align-items: flex-end;
+        }
+
+        .all-speak-kotlin_link-pointer {
+            left: 100%;
+        }
+
+        .all-speak-kotlin_link-pointer:after {
+            left: 100%;
+        }
+    }
+
+    &._right {
+        margin-left: $speak-kotlin-margin;
+
+        .all-speak-kotlin_link {
+            left: 0;
+            align-items: flex-start;
+        }
+
+        .all-speak-kotlin_link-pointer {
+            right: 100%;
+        }
+
+        .all-speak-kotlin_link-pointer:after {
+            right: 100%;
+        }
+    }
+}
+
+.all-speak-kotlin_img {
+    width: 400px;
+}
+
+.all-speak-kotlin_link {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+
+}
+
+.all-speak-kotlin_link-button {
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    border: $button-border;
+    padding: 5px 20px;
+    border-radius: 3px;
+    color: $base-color;
+
+    &:hover {
+        border-color: $button-border-color;
+
+        .all-speak-kotlin_link-pointer {
+            border-color: $button-border-color;
+        }
+
+        .all-speak-kotlin_link-pointer:after {
+            background-color: #f48b01
+        }
+    }
+}
+
+.all-speak-kotlin_link-pointer {
+    position: absolute;
+    top: 50%;
+    border-bottom: $button-border;
+}
+
+.all-speak-kotlin_link-pointer:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: #616161;
+    &:after {
+        width: 200px;
+    }
+}
+
+.all-speak-kotlin_link-comment {
+    padding-top: 4px;
+    color: #cfcfcf;
+    font-size: 12px;
+}
+
+.all-speak-kotlin_link {
+    &._linkedin {
+        top: 377px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 10px;
+        }
+    }
+
+    &._slack {
+        top: 283px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 10px;
+        }
+    }
+
+    &._reddit {
+        top: 237px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 90px;
+        }
+    }
+
+    &._kotlin-nights {
+        top: 182px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 7px;
+        }
+    }
+
+    &._user-groups {
+        top: 130px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin - 5px;
+        }
+    }
+
+    &._freenode {
+        top: 50px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin - 5px;
+        }
+    }
+
+    &._kotlin-talks {
+        top: 120px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 75px;
+        }
+    }
+
+    &._kotlin-forum {
+        top: 180px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 35px;
+        }
+    }
+
+    &._stackoverflow {
+        top: 240px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 105px;
+        }
+    }
+
+    &._twitter {
+        top: 300px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin - 5px;
+        }
+    }
+
+    &._google {
+        top: 355px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 165px;
+        }
+    }
+
+    &._klink {
+        top: 425px;
+
+        .all-speak-kotlin_link-pointer {
+            width: $speak-kotlin-margin + 255px;
+        }
+    }
+}
