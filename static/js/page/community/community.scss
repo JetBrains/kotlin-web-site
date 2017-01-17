@@ -2,7 +2,7 @@
 
 $speak-kotlin-margin: 50px;
 $button-border-color: #6d6d6d;
-$button-border-color-hover: #6d6d6d;
+$button-border-color-hover: #ce9a56;
 $button-border: 1px dashed $button-border-color;
 
 .all-speak-kotlin {
@@ -70,11 +70,12 @@ $button-border: 1px dashed $button-border-color;
     border-radius: 3px;
     color: $base-color;
 
-    &:hover {
-        border-color: $button-border-color;
+    &._hover {
+        border-color: $button-border-color-hover;
+        color: #f47810;
 
         .all-speak-kotlin_link-pointer {
-            border-color: $button-border-color;
+            border-color: $button-border-color-hover;
         }
 
         .all-speak-kotlin_link-pointer:after {
