@@ -1,10 +1,6 @@
 require('./community.scss');
 var $ = require('jquery');
 
-function processButtonHover(element, hover) {
-  setHoverState(element, hover);
-}
-
 function setHoverState(id, hover) {
   var $imgElement = $('.all-speak-kotlin_img');
   $("[data-svg-id='" + id + "'] > a").toggleClass('_hover', hover);
