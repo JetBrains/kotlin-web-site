@@ -72,8 +72,7 @@ future {
 ```
 
 
-kotlinx.coroutines relies on `CompletableFuture` and therefore requires JDK 8, but it's possible to build other implementations
-that will be compatible with environments such as Android where only Java 6 is available.
+kotlinx.coroutines `future` implementation relies on `CompletableFuture` and therefore requires JDK 8, but it also provides portable `defer` primitive and it's possible to build other implementations.
 
 The [KEEP document](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md) provides an extended
 description of the coroutine functionality.
