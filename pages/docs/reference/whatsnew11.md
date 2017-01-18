@@ -15,13 +15,13 @@ Starting with Kotlin 1.1, the JavaScript target is no longer considered experime
 and there are many new tools for integration with the front-end development environment. See [below](#javascript-backend) for
 a more detailed list of changes.
 
-## Coroutines
+## Coroutines (experimental)
 
-The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `async`/`await`, `yield` and similar programming
+The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `future`/`await`, `yield` and similar programming
 patterns. The key feature of Kotlin's design is that the implementation of coroutine execution is part of the libraries,
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
-A coroutine is effectively a function that can be suspended and resumed later. For example, with `async`/`await`,
+A coroutine is effectively a function that can be suspended and resumed later. For example, with `future`/`await`,
 when you use `await`, the execution of the function is suspended while the operation being awaited is executed, and
 is resumed (possibly on a different thread) when the operation being awaited completes.
 
@@ -57,11 +57,11 @@ Generated 4
 Generated 5
 ```
 
-The implementation of `async`/`await` is provided as an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines).
+The implementation of `future`/`await` is provided as an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines).
 Here's an example showing its use:
 
 ``` kotlin
-async {
+future {
     val original = asyncLoadImage("...original...") // creates a Future
     val overlay = asyncLoadImage("...overlay...")   // creates a Future
     ...
