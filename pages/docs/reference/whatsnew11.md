@@ -313,7 +313,7 @@ The `mod` operator is now deprecated, and `rem` is used instead. See [this issue
 There is a bunch of new extensions on the String class to convert it to a number without throwing an exception on invalid number:
 `String.toIntOrNull(): Int?`, `String.toDoubleOrNull(): Double?` etc.
 
-Also integer conversion functions, like `Int.toString()`, `String.toInt()`, `String.toIntOrNull(),
+Also integer conversion functions, like `Int.toString()`, `String.toInt()`, `String.toIntOrNull()`,
 each got an overload with `radix` parameter, which allows to specify the base of conversion.
 
 ### onEach()
@@ -323,13 +323,39 @@ possibly with side-effects, on each element of the collection/sequence in a chai
 On iterables it behaves like `forEach` but also returns the iterable instance further. And on sequences it returns a
 wrapping sequence, which applies the given action lazily as the elements are being iterated.
 
+### takeIf() and also()
+
+These are two general-purpose extension functions applicable to any receiver.
+ 
+`also` is like `apply`: it takes the receiver, does some action on it, and returns that receiver. 
+The difference is that in the block inside `apply` the receiver is available as `this`, 
+while in the block inside `also` it's available as `it` (and you can give it another name if you want).
+This comes handy when you do not want to shadow `this` from the outer scope:
+
+```kotlin
+fun Block.copy() = Block().also { it.content = this.content }
+```
+
+`takeIf` is like `filter` for a single value. It checks whether the receiver meets the predicate, and
+returns the receiver, if it does or `null` if it doesn't. 
+Combined with an elvis-operator and early returns it allows to write constructs like:
+
+```kotlin
+val outDirFile = File(outputDir.path).takeIf { it.exists() } ?: return false
+// do something with existing outDirFile
+
+val index = input.indexOf(keyword).takeIf { it >= 0 } ?: error("keyword not found")
+// do something with index of keyword in input string, given that it's found
+```
+
+
 ### groupingBy()
 
 This API can be used to group a collection by key and fold each group simultaneously. For example, it can be used
 to count the frequencies of characters in a text:
 
 ``` kotlin
-val frequencies = words.groupingBy { it }.countEach()
+val frequencies = words.groupingBy { it }.eachCount()
 ```
 
 ### Map.toMap() and Map.toMutableMap()
@@ -362,9 +388,12 @@ This method on `Map` returns an existing value corresponding to the given key or
 If the map was produced with `withDefault`, this method will return the default value instead of throwing an exception.
 
 
-### AbstractCollection and AbstractMutableCollection
+### Abstract collections
 
 These abstract classes can be used as base classes when implementing Kotlin collection classes.
+For implementing read-only collections there are `AbstractCollection`, `AbstractList`, `AbstractSet` and `AbstractMap`, 
+and for mutable collections there are `AbstractMutableCollection`, `AbstractMutableList`, `AbstractMutableSet` and `AbstractMutableMap`.
+On JVM these abstract mutable collections inherit most of their functionality from JDK's abstract collections.
 
 ## JVM Backend
 
@@ -378,7 +407,8 @@ and lambdas are generated exactly as in Kotlin 1.0), but we plan to make further
 ### Java 8 standard library support
 
 There are now separate versions of the standard library supporting the new JDK APIs added in Java 7 and 8.
-If you need access to the new APIs, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8` artifacts instead of the standard `kotlin-stdlib`.
+If you need access to the new APIs, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8` maven artifacts instead of the standard `kotlin-stdlib`.
+These artifacts are tiny extensions on top of `kotlin-stdlib` and they bring it to your project as a transitive dependency.
 
 
 ### Parameter names in the bytecode
