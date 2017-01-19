@@ -3152,3 +3152,77 @@
   date: 2017-01-10
   location: Warsaw, Poland
   lang: pl
+
+- title: "Guatemala Kotlin Meetup"
+  url: "https://www.meetup.com/Guatemala-Kotlin-Meetup/events/236780836/?a=socialmedia"
+  subject: "Introducción a Programación Funcional en Kotlin"
+  speaker: Juan Liska
+  date: 2017-01-12
+  location: Guatemala
+  lang: es
+
+- title: "MobileTech Conference"
+  url: "https://mobiletechcon.de/session/kotlin-deep-dive-ein-vergleich-des-generierten-bytecodes-zwischen-kotlin-java/"
+  subject: "Kotlin Deep Dive – ein Vergleich des generierten Bytecodes zwischen Kotlin und Java"
+  speaker: Alexander Frank, Benedict Pregler
+  date: 2017-03-15
+  location: Munich, Germany
+  lang: de
+
+- title: "CTO Roundtable. Berlin"
+  url: "https://www.meetup.com/CTO-Roundtable-Berlin/events/235885533/"
+  subject: "Gradle build tool and Kotlin"
+  speaker: Rene Groeschke
+  date: 2017-01-25
+  location: Berlin, Germany
+  lang: de
+
+- title: "Lyon Kotlin User Group"
+  url: "https://www.meetup.com/Lyon-Kotlin-User-Group/events/236825970/"
+  subject: "Building languages using Kotlin: how to build tool support for your language"
+  speaker: Federico Tomassetti
+  date: 2017-01-24
+  location: Lyon, France
+  lang: fr
+
+- title: "Kotlin user group Berlin"
+  url: "https://www.meetup.com/kotlin-berlin/events/236277611/"
+  subject: "Kotlin hands-on knowledge share"
+  speaker: Andrei Chernyshev, Mister Ligi
+  date: 2017-01-19
+  location: Berlin, Germany
+  lang: de
+
+- title: "GDG Cincinnati"
+  url: "https://www.meetup.com/cincy-android/events/236395996/"
+  subject: "Android Developers Presentation: Be More Productive with Kotlin"
+  speaker: Brandon Wever
+  date: 2017-01-18
+  location: Cincinnati, USA
+  lang: en
+
+- title: "GOTO Chicago"
+  url: "https://gotochgo.com/2017"
+  subject: "Kotlin - Ready for production"
+  speaker: Hadi Hariri
+  date: 2017-05-01
+  location: Chicago, USA
+  lang: en
+
+- title: "SpringOne Platform 2016"
+  url: "https://kotlin.link/articles/Developing-a-Geospatial-Webservice-with-Kotlin-and-Spring-Boot.html"
+  subject: "Developing a Geospatial Webservice with Kotlin and Spring Boot"
+  speaker: Sébastien Deleuze
+  date: 2016-11-25
+  location: Barcelona, Spain
+  lang: en 
+  content:
+    video: https://www.youtube.com/watch?v=tTTEiQj4BHA
+
+- title: "Kotlin User Group Bucharest"
+  url: "https://www.meetup.com/kug-bucharest/events/236497601/"
+  subject: "Microservices with Kotlin and Spring Boot"
+  speaker: Gabi Bornea
+  date: 2017-02-14
+  location: Bucharest, Romania
+  lang: ro
