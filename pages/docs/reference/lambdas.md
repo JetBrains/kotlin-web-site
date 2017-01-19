@@ -48,7 +48,7 @@ Lambda expressions are described in more [detail below](#lambda-expressions-and-
 * Its parameters (if any) are declared before `->` (parameter types may be omitted),
 * The body goes after `->` (when present).
 
-In Kotlin, there is a convention that if the last parameter to a function is a function, that parameter can be specified outside of the parentheses:
+In Kotlin, there is a convention that if the last parameter to a function is a function, and you're passing a lambda expression as the corresponding argument, you can specify it outside of parentheses:
 
 ``` kotlin
 lock (lock) {
@@ -146,12 +146,14 @@ val sum = { x: Int, y: Int -> x + y }
 
 A lambda expression is always surrounded by curly braces,
 parameter declarations in the full syntactic form go inside parentheses and have optional type annotations,
-the body goes after an `->` sign.
+the body goes after an `->` sign. If the inferred return type of the lambda is not `Unit`, the last (or possibly single) expression inside the lambda body is treated as the return value.
+
 If we leave all the optional annotations out, what's left looks like this:
 
 ``` kotlin
 val sum: (Int, Int) -> Int = { x, y -> x + y }
 ```
+
 
 It's very common that a lambda expression has only one parameter.
 If Kotlin can figure the signature out itself, it allows us not to declare the only parameter, and will implicitly
@@ -159,6 +161,20 @@ declare it for us under the name `it`:
 
 ``` kotlin
 ints.filter { it > 0 } // this literal is of type '(it: Int) -> Boolean'
+```
+
+We can explicitly return a value from the lambda using the [qualified return](returns.html#return-at-labels) syntax. Otherwise, the value of the last expression is implictly returned. Therefore, the two following snippets are equivalent:
+
+``` kotlin
+ints.filter {
+    val shouldFilter = it > 0 
+    shouldFilter
+}
+
+ints.filter {
+    val shouldFilter = it > 0 
+    return@filter shouldFilter
+}
 ```
 
 Note that if a function takes another function as the last parameter, the lambda expression argument can be passed

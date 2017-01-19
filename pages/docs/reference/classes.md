@@ -195,7 +195,7 @@ to inherit from this class. By default, all classes in Kotlin are final, which
 corresponds to [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
 Item 17: *Design and document for inheritance or else prohibit it*.
 
-### Overriding Members
+### Overriding Methods
 
 As we mentioned before, we stick to making things explicit in Kotlin. And unlike Java, Kotlin requires explicit
 annotations for overridable members (we call them *open*) and for overrides:
@@ -222,21 +222,35 @@ open class AnotherDerived() : Base() {
 }
 ```
 
-Overriding properties works in a similar way to overriding methods.
-Note that you can use the `override` keyword as part of the property declaration in a primary constructor:
+### Overriding Properties 
+
+Overriding properties works in a similar way to overriding methods; properties declared on a superclass that are then redeclared on a derived class must be prefaced with *override*{: .keyword }, and they must have a compatible type. Each declared property can be overridden by a property with an initializer or by a property with a getter method.
 
 ``` kotlin
 open class Foo {
     open val x: Int get { ... }
 }
 
-class Bar1(override val x: Int) : Foo() {
-
+class Bar1 : Foo() {
+    override val x: Int = ...
 }
 ```
 
-You can also override a `val` property with a `var` property, but not vice versa.
-This is allowed because a `val` property essentially declares a getter method, and overriding it as a `var` additionally declares a setter method in the derived class.
+You can also override a `val` property with a `var` property, but not vice versa. This is allowed because a `val` property essentially declares a getter method, and overriding it as a `var` additionally declares a setter method in the derived class.
+
+Note that you can use the *override*{: .keyword } keyword as part of the property declaration in a primary constructor.
+
+``` kotlin 
+interface Foo {
+    val count: Int
+}
+
+class Bar1(override val count: Int) : Foo
+
+class Bar2 : Foo {
+    override var count: Int = 0
+}
+```
 
 ### Overriding Rules
 
