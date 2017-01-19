@@ -47,7 +47,7 @@ See [Generic functions](generics.html).
 ## Extensions are resolved **statically**
 
 Extensions do not actually modify classes they extend. By defining an extension, you do not insert new members into a class,
-but merely make new functions callable with the dot-notation on instances of this class.
+but merely make new functions callable with the dot-notation on variables of this type.
 
 We would like to emphasize that extension functions are dispatched **statically**, i.e. they are not virtual by receiver type.
 This means that the extension function being called is determined by the type of the expression on which the function is invoked,

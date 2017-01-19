@@ -242,7 +242,7 @@ For example, if the type is declared as `interface Function<in T, out U>` we can
 
 *Note*: star-projections are very much like Java's raw types, but safe.
 
-# Generic functions
+## Generic functions
 
 Not only classes can have type parameters. Functions can, too. Type parameters are placed before the name of the function:
 
@@ -262,11 +262,11 @@ To call a generic function, specify the type arguments at the call site **after*
 val l = singletonList<Int>(1)
 ```
 
-# Generic constraints
+## Generic constraints
 
 The set of all possible types that can be substituted for a given type parameter may be restricted by **generic constraints**.
 
-## Upper bounds
+### Upper bounds
 
 The most common type of constraint is an **upper bound** that corresponds to Java's *extends* keyword:
 

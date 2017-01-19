@@ -1,12 +1,15 @@
 url: https://github.com/JetBrains/kotlin/releases
 
 latest:
-  version: 1.0.5-2
-  milestone: 1.0.5-2
-  url: https://github.com/JetBrains/kotlin/releases/tag/v1.0.5-2
+  version: 1.0.6
+  milestone: 1.0.6
+  url: https://github.com/JetBrains/kotlin/releases/tag/v1.0.6
   runtime_size: 736KB
 
 list:
+- milestone: 1.0.6
+  version: 1.0.6
+
 - milestone: 1.0.5-2
   version: 1.0.5-2
 

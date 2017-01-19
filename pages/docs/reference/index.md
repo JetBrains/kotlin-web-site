@@ -44,3 +44,10 @@ how Kotlin can be used for creating an Android application from scratch.
   <a href="https://leanpub.com/modern-web-development-with-kotlin"><img src="{{ url_for("asset", path="images/mwdwk.jpg") }}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 
 [Modern Web Development with Kotlin](https://leanpub.com/modern-web-development-with-kotlin) is a book by Denis Kalinin about Web development with Kotlin. It covers just enough basics to get started but mostly concentrates on the practical aspect of using the language. In particular, it guides you through the process of building a technology-packed Web application while using popular backend and frontend technologies.
+
+
+<h2 style="clear: left">Programming Kotlin</h2>
+
+  <a href="https://www.packtpub.com/application-development/programming-kotlin"><img src="{{url_for('asset', path='images/programming-kotlin.png')}}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
+
+[Programming Kotlin](https://www.packtpub.com/application-development/programming-kotlin) is a book by Stephen Samuel and Stefan Bocutiu about using Kotlin on the JVM. It covers all aspects of the language with particular focus on server side development. In is aimed at Java developers who want to learn Kotlin and especially where it improves on Java.
