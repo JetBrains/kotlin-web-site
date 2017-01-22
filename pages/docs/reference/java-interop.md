@@ -128,7 +128,7 @@ You can find the full list in the [Kotlin compiler source code](https://github.c
 
 Kotlin treats some Java types specially. Such types are not loaded from Java "as is", but are _mapped_ to corresponding Kotlin types.
 The mapping only matters at compile time, the runtime representation remains unchanged.
- Java's primitive types are mapped to corresponding Kotlin types (keeping [platform types](#platform-types) in mind):
+ Java's primitive types are mapped to corresponding Kotlin types (keeping [platform types](#notation-for-platform-types) in mind):
 
 | **Java type** | **Kotlin type**  |
 |---------------|------------------|
