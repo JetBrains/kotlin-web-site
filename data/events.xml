@@ -1,12 +1,168 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>es</lang>
+        <startDate>2017-01-12</startDate>
+        <endDate>2017-01-12</endDate>
+        <speaker>Juan Liska</speaker>
+        <location>Guatemala, Guatemala</location>
+        <title>Guatemala Kotlin Meetup</title>
+        <url>https://www.meetup.com/Guatemala-Kotlin-Meetup/events/236780836/?a=socialmedia</url>
+        <subject>Introducción a Programación Funcional en Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin es un lenguaje relativamente nuevo que compila a Javascript y a bytecode del JVM.  Fue diseñado por Jetbrains y ha crecido mucho en popularidad desde que se lanzó la versión 1.0 hace un año.  Se usa sobre todo para hacer apps de Android porque es compatible con Java SE 6 pero tiene una sintaxis muy agradable.  Se siente como python pero con excelente "type safety" y rendimiento.</p>
+<p>Estaremos repasando las características básicas de Kotlin y de la programación funcional en Kotlin.  Si el tiempo permite, habrá una demostración de async/await que será parte de Kotlin 1.1 </p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>de</lang>
+        <startDate>2017-03-15</startDate>
+        <endDate>2017-03-15</endDate>
+        <speaker>Alexander Frank, Benedict Pregler</speaker>
+        <location>Munich, Germany</location>
+        <title>MobileTech Conference</title>
+        <url>https://mobiletechcon.de/session/kotlin-deep-dive-ein-vergleich-des-generierten-bytecodes-zwischen-kotlin-java/</url>
+        <subject>Kotlin Deep Dive – ein Vergleich des generierten Bytecodes zwischen Kotlin und Java</subject>
+        <description>
+            <![CDATA[
+<p>Die JVM-Sprache Kotlin wurde bereits in mehreren Betrachtungen mit ihren Vor- und Nachteilen im Bereich der Quellcode Erstellung vorgestellt. Aber wie sieht es eigentlich mit dem erzeugten Bytecode und dessen Performance aus? Ist der resultierende Bytecode äquivalent zu Java, gibt es Einbußen oder ist das Ergebnis möglicherweise sogar schneller? Wir vergleichen den kompilierten Bytecode gleicher Funktionalität und verwendeter Techniken (z.B. Lambdas, Streams usw.) in Java und Kotlin, um zu betrachten, wie die Verwendung von Kotlin den Bytecode und damit die Laufzeitperformance beeinflusst. Zusätzlich zur Betrachtung mit Standard-Java werfen wir einen Blick auf Android mit der neuen Kompilierungskette „Jack and Jill“ und deren Auswirkungen auf die Verwendung von Kotlin.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>de</lang>
+        <startDate>2017-01-25</startDate>
+        <endDate>2017-01-25</endDate>
+        <speaker>Rene Groeschke</speaker>
+        <location>Berlin, Germany</location>
+        <title>CTO Roundtable. Berlin</title>
+        <url>https://www.meetup.com/CTO-Roundtable-Berlin/events/235885533/</url>
+        <subject>Gradle build tool and Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>Rene is going to be talking about the Gradle build tool and Kotlin. https://twitter.com/breskeby</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>fr</lang>
+        <startDate>2017-01-24</startDate>
+        <endDate>2017-01-24</endDate>
+        <speaker>Federico Tomassetti</speaker>
+        <location>Lyon, France</location>
+        <title>Lyon Kotlin User Group</title>
+        <url>https://www.meetup.com/Lyon-Kotlin-User-Group/events/236825970/</url>
+        <subject>Building languages using Kotlin: how to build tool support for your language</subject>
+        <description>
+            <![CDATA[
+<p>Languages are tools we use to think about problems and build solutions for them. By using the right language we can achieve a boost in productivity. There are situations in which it makes sense to build new languages, crafting them to fit perfectly into our domain.  <br/></p>
+<p> In this talk we will see how we can combine open-source components, and glue them together using Kotlin. At the end of the talk we will have built:  <br/></p>
+<p>•&nbsp;a parser</p>
+<p>•&nbsp;a validator</p>
+<p>•&nbsp;an interpreter</p>
+<p>•&nbsp;an editor  <br /></p>
+<p>for our own Domain Specific Language.  <br /></p>
+<p>Building such tools used to take tens of man-years worth of development. Today, using Kotlin, we can reduce our development time quite significantly. We can therefore build DSLs quicker and use them in more contexts. <br /></p>
+<p><b>Speaker</b>  <br /></p>
+<p>Federico Tomassetti is Italian and used to leave in Karlsruhe, Munich and Dublin before moving to Lyon. He got a PhD in Language Engineering, has done research in Italy and Germany, worked at TripAdvisor and Groupon and he is now an independent consultant on Language Engineering. He spends his time building languages, parsers, compilers, editors, simulators, interpreters, static analysis tools and anything related to languages. He blogs regularly at<a href="https://t.co/IlAo0B5WY9"> https://tomassetti.me&nbsp;</a></p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>de</lang>
+        <startDate>2017-01-19</startDate>
+        <endDate>2017-01-19</endDate>
+        <speaker>Andrei Chernyshev, Mister Ligi</speaker>
+        <location>Berlin, Germany</location>
+        <title>Kotlin user group Berlin</title>
+        <url>https://www.meetup.com/kotlin-berlin/events/236277611/</url>
+        <subject>Kotlin hands-on knowledge share</subject>
+        <description>
+            <![CDATA[
+<p>Kotlin hands-on knowledge share</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-01-18</startDate>
+        <endDate>2017-01-18</endDate>
+        <speaker>Brandon Wever</speaker>
+        <location>Cincinnati, USA</location>
+        <title>GDG Cincinnati</title>
+        <url>https://www.meetup.com/cincy-android/events/236395996/</url>
+        <subject>Android Developers Presentation: Be More Productive with Kotlin</subject>
+        <description>
+            <![CDATA[
+<p>People are excited about developing Android applications with Kotlin.  From new side projects to existing enterprise level Java architectures, Kotlin can improve code quality and readability while reducing lines of code and eliminating entire classes of bugs.  Find out why Kotlin is being used by developers at companies like Square, Trello, and Pintrest.</p>
+<p>Brandon Wever is a mobile developer at Atomic Robot and a recent graduate of NKU's Computer Science Graduate Program.  His number one goal in software is to find simple, pragmatic solutions and having tools that work for you.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-05-01</startDate>
+        <endDate>2017-05-01</endDate>
+        <speaker>Hadi Hariri</speaker>
+        <location>Chicago, USA</location>
+        <title>GOTO Chicago</title>
+        <url>https://gotochgo.com/2017</url>
+        <subject>Kotlin - Ready for production</subject>
+        <description>
+            <![CDATA[
+<p>Did you know that Kotlin is being used in production for over a few years now already? Both inside and outside of JetBrains there are people deploying Kotlin applications for Android platform, for Web Applications and just about any other type of application.</p>
+<p>Why are people using it instead of Java or some of the other languages out there? Primarily because it provides significant benefits in terms of conciseness, readability and safety, without some of the drawbacks that adopting a new language has such as a higher learning curve or interoperability with existing code and ecosystems.</p>
+<p>In this talk we'll cover some aspects of Kotlin that can really help you in your daily development, focusing on solving issues versus highlighting language features.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2016-11-25</startDate>
+        <endDate>2016-11-25</endDate>
+        <speaker>Sébastien Deleuze</speaker>
+        <location>Barcelona, Spain</location>
+        <title>SpringOne Platform 2016</title>
+        <url>https://kotlin.link/articles/Developing-a-Geospatial-Webservice-with-Kotlin-and-Spring-Boot.html</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=tTTEiQj4BHA</video>
+        </content>
+        <subject>Developing a Geospatial Webservice with Kotlin and Spring Boot</subject>
+        <description>
+            <![CDATA[
+<p>Spring I/O 2016 - 19 -20 May Barcelona</p>
+<p>As described in this announcement I made on <a href="https://spring.io/blog/2016/02/15/developing-spring-boot-applications-with-kotlin">Spring blog</a>, it is now easy to create a Spring Boot application using Kotlin.</p>
+<p>Thanks to a sample Geospatial chat application, I will show how Spring Boot and Kotlin share the same pragmatic, innovative and optionated mindset to allow you to build simple but powerful projects.</p>
+<p>That talk will also provide an opportunity to show how to use a relational database with Spring Data but without JPA in order to use advanced PostgreSQL functionalities (like its powerful spatial database extender PostGIS or the native JSON support) while keeping a lightweight stack.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>ro</lang>
+        <startDate>2017-02-14</startDate>
+        <endDate>2017-02-14</endDate>
+        <speaker>Gabi Bornea</speaker>
+        <location>Bucharest, Romania</location>
+        <title>Kotlin User Group Bucharest</title>
+        <url>https://www.meetup.com/kug-bucharest/events/236497601/</url>
+        <subject>Microservices with Kotlin and Spring Boot</subject>
+        <description>
+            <![CDATA[
+<p>The concept of “microservices” has gained a lot of traction in the last couple of years and Spring has made it easy to develop individual applications and connect them with each other.</p>
+<p>Kotlin is the statically typed JVM targeted language from JetBrains that is concise, expressive, safe and fully interoperable with Java code which means that it is a perfect fit for Spring applications.</p>
+<p>In this talk we will see how we can quickly build a distributed system with Kotlin and Spring.</p>
+]]>
+        </description>
+    </event>
+    <event>
         <lang>pl</lang>
         <startDate>2017-01-10</startDate>
         <endDate>2017-01-10</endDate>
         <speaker>Paweł Barszcz</speaker>
-        <location>Tokyo, Japan</location>
-        <title>Kotlin & Spring: wrażenia po 300 godzinach</title>
+        <location>Warsaw, Poland</location>
+        <title>Kotlin and Spring: wrażenia po 300 godzinach</title>
         <url>https://www.meetup.com/Warszawa-JUG/events/236607997/</url>
         <subject>Warszawa JUG</subject>
         <description>
@@ -46,7 +202,7 @@
         <location>Tokyo, Japan</location>
         <title>【チャット機能のAndroidアプリを作ろう！】</title>
         <url>https://connpass.com/event/47654/</url>
-        <subject>Kotlin&Firebaseハンズオン</subject>
+        <subject>Kotlin and Firebaseハンズオン</subject>
         <description>
             <![CDATA[
 <p>最近Android開発で注目されているプログラミング言語Kotlinを使ったハンズオンセミナーを開催いたします。またGoogle社にて提供しているmBaas（モバイルバックエンドサービス）であるFirebaseを使って簡単なチャット機能のあるAndroidアプリを作ります。</p>
