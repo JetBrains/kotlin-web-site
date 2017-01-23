@@ -39,6 +39,7 @@
 * [New York Kotlin Meetup](http://www.meetup.com/New-York-Kotlin-Meetup/), USA
 * [Toronto Kotlin](https://www.meetup.com/Kotlin-Toronto/events/235740293/), Canada
 * [San Paolo Kotlin Meetup](https://www.meetup.com/kotlin-meetup-sp/), Brazil 
+* [Guatemala Kotlin Meetup](https://www.meetup.com/Guatemala-Kotlin-Meetup/), Guatemala
 
 ### Australia
 
