@@ -33,7 +33,8 @@ subnav:
       items:
         - url: /community/
           urlPattern: ^/community/$
-          title: Community Map
+          title: Community Overview
+
         - url: /community/user-groups.html
           title: Kotlin User Groups
 

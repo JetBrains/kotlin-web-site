@@ -1,7 +1,7 @@
 ---
 ---
 
-# Kotlin night guidelines
+# Kotlin Nights
 
 Kotlin Night is a meetup, that includes 3-4 talks on Kotlin or related technologies. 
 At JetBrains we've organised a few events: 

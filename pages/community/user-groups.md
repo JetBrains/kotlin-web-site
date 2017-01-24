@@ -1,7 +1,7 @@
 ---
 ---
 
-# Kotlin user groups support
+# Kotlin User Groups Support
 
 ## Kotlin User Groups List
 
@@ -48,20 +48,20 @@
 </div>
 
 
-### If there is no KUG in your area, make a new one.
+## If there is no KUG in your area, make a new one.
 
 If you are a leader of active user group and it’s not in a list, please, let us know that there is a Kotlin User Group. We will share the information with others on this site, on our twitter and in Slack channel. 
 
 **[Submit a New Kotlin User Group](https://docs.google.com/forms/d/e/1FAIpQLSdkLbD_SPbXZDVW2nQPgUiLCW4HOSXysOVK1jPLcShPfyhkNA/viewform)**
 
-### Guidelines
+## Guidelines
 * User group provides activities to support professionals interested in a technology
 * Try to meet up regularly. It is the best way to increase Kotlin excellence for all members of the user group
 * All the events and materials should be public and available for people of any different backgrounds
 * All communication should be appropriate for the professional audience
 * Follow simple rules to collaborate efficiently: be kind, be someone that other people want to be around, do not insult or bring down other attendees. Collaboration and respect would help you to achieve your personal goals and create proper environment for the fellows. 
 
-### JetBrains Provides Support
+## JetBrains Provides Support
 * Kotlin swag for the attendees of your user group;
 * Design materials – logos, design, promo materials; 
 * Spreading the word about your user group in Kotlin official media channels and our network (speakers and regional partners recommendations could be possible);
