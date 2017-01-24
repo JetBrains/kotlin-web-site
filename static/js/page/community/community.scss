@@ -9,6 +9,7 @@ $button-border: 1px dashed $button-border-color;
     position: relative;
     display: flex;
     justify-content: space-between;
+
 }
 
 .all-speak-kotlin_links {
@@ -351,4 +352,8 @@ $button-border: 1px dashed $button-border-color;
     &.all-speak-kotlin_link {
         opacity: 1;
     }
+}
+
+[data-aos].all-speak-kotlin {
+    offset: 300px;
 }

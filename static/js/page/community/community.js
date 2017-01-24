@@ -16,12 +16,12 @@ function setAnimation(id, animation) {
   if (linkElement) {
     linkElement.setAttribute('data-aos', animation + "_link");
     linkElement.setAttribute('data-aos-anchor', ".all-speak-kotlin");
-    linkElement.setAttribute('data-aos-anchor-placement', "center-center");
+    linkElement.setAttribute('data-aos-anchor-placement', "top-center");
   }
 
   svgElement.setAttribute('data-aos', animation);
   svgElement.setAttribute('data-aos-anchor', ".all-speak-kotlin");
-  svgElement.setAttribute('data-aos-anchor-placement', "center-center");
+  svgElement.setAttribute('data-aos-anchor-placement', "top-center");
 }
 
 $(document).ready(function () {
