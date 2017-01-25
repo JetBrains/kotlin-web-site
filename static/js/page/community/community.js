@@ -9,17 +9,17 @@ function setHoverState(id, hover) {
   $imgElement.find('#' + id + ' .default').toggle(!hover);
 }
 
-function setAnimation(id, animation) {
+function setAnimation(id) {
   var linkElement = document.querySelector('[data-svg-id="' + id + '"]');
   var svgElement = document.getElementById(id);
 
   if (linkElement) {
-    linkElement.setAttribute('data-aos', animation + "_link");
+    linkElement.setAttribute('data-aos', 'animation');
     linkElement.setAttribute('data-aos-anchor', ".all-speak-kotlin");
     linkElement.setAttribute('data-aos-anchor-placement', "top-center");
   }
 
-  svgElement.setAttribute('data-aos', animation);
+  svgElement.setAttribute('data-aos', 'animation');
   svgElement.setAttribute('data-aos-anchor', ".all-speak-kotlin");
   svgElement.setAttribute('data-aos-anchor-placement', "top-center");
 }
@@ -61,23 +61,11 @@ $(document).ready(function () {
       setHoverState(this.parentNode.getAttribute('data-svg-id'), false)
     });
 
-    setAnimation("talking_kotlin", "anim1");
-    setAnimation("reddit", "anim2");
-    setAnimation("slack", "anim3");
-    setAnimation("linkedin", "anim4");
-    setAnimation("Layer_3", "anim5");
-    setAnimation("Layer_2", "anim5");
-    setAnimation("kotlin_talks", "anim5");
-    setAnimation("Layer_6", "anim6");
-    setAnimation("Layer_7", "anim7");
-    setAnimation("Layer_8", "anim8");
-    setAnimation("kotlin_forum", "anim9");
-    setAnimation("Layer_4", "anim9");
-    setAnimation("Layer_5", "anim9");
-    setAnimation("stackoverflow", "anim10");
-    setAnimation("twitter", "anim11");
-    setAnimation("google", "anim12");
-    setAnimation("klink", "anim13");
+    [
+      "talking_kotlin", "reddit", "slack", "linkedin", "Layer_3", "Layer_2", "kotlin_talks",
+      "Layer_6", "Layer_7", "Layer_8", "kotlin_forum", "Layer_4", "Layer_5", "stackoverflow",
+      "twitter", "google", "klink"
+    ].forEach(setAnimation);
 
     AOS.init({
       duration: 500
