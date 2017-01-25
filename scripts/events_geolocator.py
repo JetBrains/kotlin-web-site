@@ -18,7 +18,7 @@ cities = {}
 for city in cities_array:
     cities[city['name']] = city['geo']
 
-for event in events[:30]:
+for event in events:
     if 'location' not in event:
         print "Location of '" + event['title'] + "' is not specified"
         continue
@@ -46,7 +46,7 @@ for event in events[:30]:
                 break
     else:
         print location + " geocoded location " + \
-              "https://www.google.com/maps/@" + str(geocoded_coordinates[0]) + "," + str(geocoded_coordinates[1]) + "z"
+              "https://www.google.com/maps/@" + str(geocoded_coordinates[0]) + "," + str(geocoded_coordinates[1]) + ",15z"
         city = {
             'name': location,
             'geo': {
