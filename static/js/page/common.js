@@ -1,6 +1,7 @@
 require('../com/search');
 require('../com/cookie-banner');
 require('../com/colorize');
+var NavTree = require('../com/nav-tree');
 
 var $ = require('jquery');
 
@@ -20,5 +21,20 @@ $(document).ready(function () {
     html.className += ' ua_firefox';
 
   // hack to force :active support in mobile Safari
-  document.addEventListener("touchstart", function () {}, false);
+  document.addEventListener("touchstart", function () {
+  }, false);
+
+  document.querySelectorAll('h1,h2,h3').forEach(function (element) {
+    var id = element.getAttribute("id");
+    if (id == null) return;
+    var referenceElement = document.createElement("a");
+    referenceElement.className = "anchor";
+    referenceElement.href = "#" + id;
+    element.appendChild(referenceElement)
+  });
+
+  var sideTreeElement = document.querySelector('.js-side-tree-nav');
+  if (sideTreeElement) {
+    new NavTree(sideTreeElement);
+  }
 });
