@@ -55,6 +55,7 @@ function FilterPanel(node, config) {
 
   var timeSelector = new Switcher($timeSelector, {
     items: {all: 'All', upcoming: 'Upcoming', past: 'Past'},
+    selectedIndex: 1,
     onSelect: function (time) {
       handleSelect('time', time);
     }

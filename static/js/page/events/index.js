@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     var list = new EventsList('.js-events-list', store);
 
-    list.applyFilteredResults(store.events);
+    list.applyFilteredResults(store.getUpcomingEvents());
 
     var panel = new FilterPanel('.js-filter-panel-wrap', {
       languages: store.getLanguages(),
