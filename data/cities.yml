@@ -1,4 +1,44 @@
 - geo:
+    lat: 46.227638
+    lng: 2.213749
+  name: France
+- geo:
+    lat: 13.0826802
+    lng: 80.2707184
+  name: Madras, India
+- geo:
+    lat: 37.566535
+    lng: 126.9779692
+  name: Seoul, Korea
+- geo:
+    lat: 48.117266
+    lng: -1.6777926
+  name: Rennes, France
+- geo:
+    lat: 54.59728500000001
+    lng: -5.93012
+  name: Belfast, United Kingdom
+- geo:
+    lat: 43.296482
+    lng: 5.36978
+  name: Marseille, France
+- geo:
+    lat: 46.0569465
+    lng: 14.5057515
+  name: Ljubljana, Slovenia
+- geo:
+    lat: 49.4254092
+    lng: 11.0796553
+  name: Nürnberg, Germany
+- geo:
+    lat: 35.7795897
+    lng: -78.6381787
+  name: Raleigh, NC, US
+- geo:
+    lat: 42.0333607
+    lng: -88.0834059
+  name: Schaumburg, IL, US
+- geo:
     lat: -26.2041028
     lng: 28.0473051
   name: Johannesburg, South Africa
