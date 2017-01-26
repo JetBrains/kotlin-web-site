@@ -1,6 +1,7 @@
 require('./community.scss');
 var AOS = require('aos');
 var $ = require('jquery');
+require('smoothscroll-polyfill').polyfill();
 
 function setHoverState(id, hover) {
   var $imgElement = $('.all-speak-kotlin_img');
@@ -54,6 +55,13 @@ $(document).ready(function () {
       setHoverState(this.getAttribute('id'), false)
     });
 
+    $('.scroll-down-hint').on('click', function () {
+      window.scroll({
+        top: window.document.documentElement.offsetHeight,
+        left: 0,
+        behavior: 'smooth'
+      });
+    });
 
     $('.all-speak-kotlin_link-button').on('mouseenter', function () {
       setHoverState(this.parentNode.getAttribute('data-svg-id'), true)

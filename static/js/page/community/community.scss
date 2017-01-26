@@ -9,7 +9,37 @@ $button-border: 1px dashed $button-border-color;
     position: relative;
     display: flex;
     justify-content: space-between;
+}
 
+.scroll-down-hint {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 25px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+
+    &[data-aos].aos-animate {
+        display: none;
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.scroll-down-hint:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: rotate(-90deg);
+    height: 17px;
+    width: 10px;
+    z-index: 1;
+    cursor: pointer;
+    background: url("./arrow.svg?fill=white");
+    background-repeat: no-repeat;
 }
 
 .all-speak-kotlin_links {
@@ -99,6 +129,7 @@ $button-border: 1px dashed $button-border-color;
     width: 5px;
     height: 5px;
     background-color: #616161;
+
     &:after {
         width: 200px;
     }
@@ -250,11 +281,11 @@ $button-border: 1px dashed $button-border-color;
     transform: translateY(-140px);
 }
 
-[data-svg-id="reddit"]  {
+[data-svg-id="reddit"] {
     transform: translateY(-120px);
 }
 
-#slack{
+#slack {
     transform: translateY(-215px);
 }
 

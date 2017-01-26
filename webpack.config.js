@@ -47,7 +47,7 @@ var webpackConfig = {
         loader: WebpackExtractTextPlugin.extract([
           'css',
           'postcss',
-          'resolve-url',
+          'resolve-url?keepQuery',
           'sass?sourceMap'
         ].join('!'))
       },
@@ -60,7 +60,14 @@ var webpackConfig = {
         loader: 'nunjucks-loader'
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.svg/,
+        loaders: [
+          'url',
+          'svg-fill'
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/,
         loader: 'advanced-url?limit=10000&name=[path][name].[ext]'
       }
     ]
