@@ -269,6 +269,10 @@ $button-border: 1px dashed $button-border-color;
     }
 }
 
+.svg-link {
+    cursor: pointer;
+}
+
 #talking_kotlin {
     transform: translateY(-94px);
 }

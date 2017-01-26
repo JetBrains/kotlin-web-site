@@ -41,10 +41,10 @@ $(document).ready(function () {
       if (id == null) return;
       if (id.endsWith('_default')) {
         element.removeAttribute('id');
-        element.setAttribute('class', 'default')
+        element.setAttribute('class', 'svg-link default')
       } else if (id.endsWith('_hover')) {
         element.removeAttribute('id');
-        element.setAttribute('class', 'hover');
+        element.setAttribute('class', 'svg-link hover');
         element.setAttribute('display', 'none');
       }
     });
