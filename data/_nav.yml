@@ -36,13 +36,13 @@ subnav:
           title: Community Overview
 
         - url: /community/user-groups.html
-          title: Kotlin User Groups
+          title: User Groups
 
         - url: /community/kotlin-nights.html
           title: Kotlin Nights
 
         - url: /community/talks.html
-          title: Kotlin Talks
+          title: Talks
 
 # Reference navigation
 # ====================
