@@ -91,7 +91,6 @@ function Map(node, store) {
       }
     });
 
-    instance.setZoom(3);
     instance.panTo(event.getBounds());
   });
 }
