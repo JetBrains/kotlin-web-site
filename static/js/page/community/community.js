@@ -14,6 +14,10 @@ function setAnimation(id) {
   var linkElement = document.querySelector('[data-svg-id="' + id + '"]');
   var svgElement = document.getElementById(id);
 
+  if(!svgElement){
+    console.log(id)
+  }
+
   if (linkElement) {
     linkElement.setAttribute('data-aos', 'animation');
     linkElement.setAttribute('data-aos-anchor', ".all-speak-kotlin");
@@ -70,8 +74,8 @@ $(document).ready(function () {
     });
 
     [
-      "talking_kotlin", "reddit", "slack", "linkedin", "Layer_3", "Layer_2", "kotlin_talks",
-      "Layer_6", "Layer_7", "Layer_8", "kotlin_forum", "Layer_4", "Layer_5", "stackoverflow",
+      "talking_kotlin", "reddit", "slack", "linkedin", "Layer_3", "kotlin_talks",
+      "Layer_6", "Layer_7", "Layer_8", "kotlin_forum", "stackoverflow",
       "twitter", "google", "klink"
     ].forEach(setAnimation);
 
