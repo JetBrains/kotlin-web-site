@@ -480,7 +480,7 @@ Kotlin is an open-sourced statically-typed programming language created by JetBr
         <startDate>2016-11-30</startDate>
         <endDate>2016-11-30</endDate>
         <speaker>C.L. Kim</speaker>
-        <location>San Francisco, USA</location>
+        <location>San Francisco, CA, USA</location>
         <title>AnDevCon</title>
         <url>http://bit.ly/2f871Qh</url>
         <subject>Kotlin and Android, Better Together, Part I</subject>
@@ -631,7 +631,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-11-16</startDate>
         <endDate>2016-11-16</endDate>
         <speaker>Hadi Hariri</speaker>
-        <location>Vilnius, Lithuania</location>
+        <location>Vilnus, Lithuania</location>
         <title>Build Stuff 2016</title>
         <url>https://buildstuff16lithuania.sched.org/event/8jQ2/hadi-hariri-hhariri-creating-dsls-in-idiomatic-kotlin
         </url>
@@ -742,7 +742,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-11-09</startDate>
         <endDate>2016-11-09</endDate>
         <speaker>Justin Lee</speaker>
-        <location>New York, USA</location>
+        <location>New York, NY, USA</location>
         <title>NY JavaSIG</title>
         <url>
             https://www.eventbrite.com/e/nyjavasig-eclipse-collections-80-why-kotlin-java-streams-hardware-tickets-28897884350
@@ -869,7 +869,7 @@ encounter while digging deeper into the language.</p>
             <video>http://jakewharton.com/10-kotlin-tricks-in-10ish-minutes/</video>
         </content>
         <speaker>Jake Wharton</speaker>
-        <location>New York, USA</location>
+        <location>New York, NY, USA</location>
         <startDate>2016-11-02</startDate>
         <endDate>2016-11-02</endDate>
         <subject>10 Kotlin Tricks in 10 Minutes</subject>
@@ -1012,7 +1012,7 @@ encounter while digging deeper into the language.</p>
             </video>
         </content>
         <speaker>Andrey Breslav</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <startDate>2016-10-14</startDate>
         <endDate>2016-10-15</endDate>
         <subject>Asynchronous, but readable: coroutines in Kotlin</subject>
@@ -1048,7 +1048,7 @@ encounter while digging deeper into the language.</p>
             <video>https://www.youtube.com/watch?v=cjoalATmuAg</video>
         </content>
         <speaker>Graham Tackley</speaker>
-        <location>London, Great Britain</location>
+        <location>London, UK</location>
         <startDate>2016-10-12</startDate>
         <endDate>2016-10-12</endDate>
         <subject>10 Things I’m loving about Kotlin</subject>
@@ -1062,7 +1062,7 @@ encounter while digging deeper into the language.</p>
             <video>https://www.youtube.com/watch?v=p-AOjgobGR8</video>
         </content>
         <speaker>Nat Pryce, Duncan McGregor</speaker>
-        <location>London, Great Britain</location>
+        <location>London, UK</location>
         <startDate>2016-10-12</startDate>
         <endDate>2016-10-12</endDate>
         <subject>Expressive Kotlin</subject>
@@ -1075,7 +1075,7 @@ encounter while digging deeper into the language.</p>
             <video>https://www.youtube.com/watch?v=fTcTHSc5v2c</video>
         </content>
         <speaker>Dominic Fox</speaker>
-        <location>London, Great Britain</location>
+        <location>London, UK</location>
         <startDate>2016-10-12</startDate>
         <endDate>2016-10-12</endDate>
         <subject>Using Sealed Classes to build Concursus API</subject>
@@ -1201,7 +1201,7 @@ encounter while digging deeper into the language.</p>
             </video>
         </content>
         <speaker>Ty Smith</speaker>
-        <location>New York, NY, US</location>
+        <location>New York, NY, USA</location>
         <startDate>2016-09-29</startDate>
         <endDate>2016-09-30</endDate>
         <subject>Better Android Development with Kotlin and Gradle</subject>
@@ -1215,7 +1215,7 @@ encounter while digging deeper into the language.</p>
             <video>https://www.youtube.com/watch?v=mDpnc45WwlI</video>
         </content>
         <speaker>Christina Lee</speaker>
-        <location>New York, NY, US</location>
+        <location>New York, NY, USA</location>
         <startDate>2016-09-29</startDate>
         <endDate>2016-09-30</endDate>
         <subject>Kotlin in Production</subject>
@@ -1295,7 +1295,7 @@ encounter while digging deeper into the language.</p>
         <lang>pl</lang>
         <startDate>2016-09-28</startDate>
         <endDate>2016-09-28</endDate>
-        <location>Warszawa, Poland</location>
+        <location>Warsaw, Poland</location>
         <title>Polyglot.Tech</title>
         <url>https://eventil.com/events/java-vs-scala-vs-kotlin</url>
         <subject>Java vs Scala vs Kotlin</subject>
@@ -1361,7 +1361,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-09-20</startDate>
         <endDate>2016-09-22</endDate>
         <speaker>Hadi Hariri</speaker>
-        <location>San Francisco, US</location>
+        <location>San Francisco, CA, USA</location>
         <title>JavaOne 2016</title>
         <url>https://www.oracle.com/javaone</url>
         <subject>"Kotlin for JavaScript", "Creating small DSL's with idiomatic Kotlin"</subject>
@@ -1374,7 +1374,7 @@ encounter while digging deeper into the language.</p>
             <slides>https://docs.google.com/presentation/d/1pgzNnA4R3LU4hPnx0KTvQ0NFj23rPyq-ROr8kOiaxlM/edit</slides>
         </content>
         <speaker>Eugene Petrenko</speaker>
-        <location>San Francisco, US</location>
+        <location>San Francisco, CA, USA</location>
         <startDate>2016-09-20</startDate>
         <endDate>2016-09-22</endDate>
         <subject>Generating Kotlin Code for Better Refactorings, Tests, and IDE Support</subject>
@@ -1384,7 +1384,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-09-20</startDate>
         <endDate>2016-09-22</endDate>
         <speaker>Jason Lee</speaker>
-        <location>San Francisco, US</location>
+        <location>San Francisco, CA, USA</location>
         <title>JavaOne 2016</title>
         <url>https://www.oracle.com/javaone</url>
         <subject>Kotlin in a Mildly Elevated State of Agitation</subject>
@@ -1434,7 +1434,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-09-16</startDate>
         <endDate>2016-09-16</endDate>
         <speaker>Mike Evans</speaker>
-        <location>Chicago, IL, US</location>
+        <location>Chicago, USA</location>
         <title>Windcity DevCon</title>
         <url>http://windycity.io/</url>
         <subject>Kotlin for Android Developers</subject>
@@ -1540,7 +1540,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-08-30</startDate>
         <endDate>2016-08-30</endDate>
         <speaker>David Julia</speaker>
-        <location>Chicago, IL, US</location>
+        <location>Chicago, USA</location>
         <title>Chicago KUG Meetup</title>
         <url>https://www.meetup.com/Chicago-Kotlin-Users-Group/events/233247796/</url>
         <subject>Algebraic Data Types in Kotlin: A Pragmatist's Guide</subject>
@@ -1573,7 +1573,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-08-17</startDate>
         <endDate>2016-08-17</endDate>
         <speaker>Brandon Davis</speaker>
-        <location>Denver, CO, US</location>
+        <location>Denver, CO, USA</location>
         <title>Denver Droids Meetup</title>
         <url>http://www.meetup.com/DenverDroids/events/232743206/</url>
         <subject>Catching Kotlin</subject>
@@ -1583,7 +1583,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-08-14</startDate>
         <endDate>2016-08-16</endDate>
         <speaker>Thijs Suijten</speaker>
-        <location>Amsterdam, Netherlands</location>
+        <location>Amsterdam, The Netherlands</location>
         <title>Big Android BBQ Europe 2016</title>
         <url>http://www.babbq.nl/sessions/no-excuses-switch-to-kotlin/</url>
         <subject>No Excuses: Switch To Kotlin</subject>
@@ -1712,7 +1712,7 @@ encounter while digging deeper into the language.</p>
             <slides>https://speakerdeck.com/npryce/learn-you-a-kotlin-for-all-the-good-it-will-do-you</slides>
         </content>
         <speaker>Nat Pryce, Duncan McGregor</speaker>
-        <location>London, Great Britain</location>
+        <location>London, UK</location>
         <startDate>2016-07-27</startDate>
         <endDate>2016-07-27</endDate>
         <subject>Learn You A Kotlin For All The Good It Will Do You</subject>
@@ -1798,7 +1798,7 @@ encounter while digging deeper into the language.</p>
             <examples>https://github.com/yodle/android-kotlin-demo</examples>
         </content>
         <speaker>Daniel Nizri</speaker>
-        <location>New York, NY, US</location>
+        <location>New York, NY, USA</location>
         <startDate>2016-06-14</startDate>
         <endDate>2016-06-14</endDate>
         <subject>Kotlin 101</subject>
@@ -1818,7 +1818,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-06-04</startDate>
         <endDate>2016-06-04</endDate>
         <speaker>Yan Zhulanov</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>Mobius 2016</title>
         <url>http://2016.mobiusconf.com/talks/zhulanov/</url>
         <subject>Android-приложения на Kotlin, почему это хорошо</subject>
@@ -2064,7 +2064,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-04-25</startDate>
         <endDate>2016-04-25</endDate>
         <speaker>Svetlana Isakova</speaker>
-        <location>Amsterdam, Netherlands</location>
+        <location>Amsterdam, The Netherlands</location>
         <title>DutchAUG Meetup</title>
         <url>http://www.meetup.com/dutch-aug/events/229816059/</url>
         <subject>Kotlin for Android</subject>
@@ -2424,7 +2424,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-02-23</startDate>
         <endDate>2016-02-23</endDate>
         <speaker>ADRIEN CADET</speaker>
-        <location>San Francisco, USA</location>
+        <location>San Francisco, CA, USA</location>
         <title>Rails School Class</title>
         <url>https://www.railsschool.org/l/kotlin-tour</url>
         <subject>Kotlin Tour</subject>
@@ -2745,7 +2745,7 @@ encounter while digging deeper into the language.</p>
             <video>https://youtu.be/CUS698jQXYE</video>
         </content>
         <speaker>Mikhail Glukhikh</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <startDate>2015-11-12</startDate>
         <endDate>2015-11-12</endDate>
         <subject>Язык Котлин: от разадресации нуля до умных преобразований типов</subject>
@@ -2861,7 +2861,7 @@ encounter while digging deeper into the language.</p>
             <video>https://youtu.be/IXFIUF_KW_o</video>
         </content>
         <speaker>Svetlana Isakova</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <startDate>2015-10-18</startDate>
         <endDate>2015-10-18</endDate>
         <subject>Kotlin: what do we mean by a modern language</subject>
@@ -2874,7 +2874,7 @@ encounter while digging deeper into the language.</p>
             <video>https://www.youtube.com/watch?v=c1tf_zLGMKM</video>
         </content>
         <speaker>Dmitry Jemerov</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <startDate>2015-10-16</startDate>
         <endDate>2015-10-17</endDate>
         <subject>The Experience of Using Kotlin in JetBrains</subject>
@@ -3346,7 +3346,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2014-03-14</startDate>
         <endDate>2014-03-14</endDate>
         <speaker>Andrey Breslav</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>Mobius</title>
         <url>http://mobius.codefreeze.ru/talks/13/</url>
         <subject>Kotlin for Android</subject>
@@ -3410,7 +3410,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2013-10-15</startDate>
         <endDate>2013-10-15</endDate>
         <speaker>Andrey Brelsav</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>JOKER</title>
         <url>http://jokerconf.com</url>
         <subject>Language Design Tradeoffs</subject>
@@ -3606,7 +3606,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2013-04-05</startDate>
         <endDate>2013-04-05</endDate>
         <speaker>Andrey Breslav</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>JPoint</title>
         <url>http://javapoint.ru</url>
         <subject>Type-safe Web with Kotlin</subject>
@@ -3640,7 +3640,7 @@ encounter while digging deeper into the language.</p>
             <examples>https://github.com/abreslav/functions-and-data</examples>
         </content>
         <speaker>Andrey Breslav</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>FProg.ru</title>
         <url>http://lanyrd.com/2012/fprog-12/scbgcz/</url>
         <startDate>2012-12-12</startDate>
@@ -3881,7 +3881,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2012-05-19</startDate>
         <endDate>2012-05-19</endDate>
         <speaker>Svetlana Isakova</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>scaladev'12</title>
         <url>http://scaladev.ru</url>
     </event>
@@ -3940,7 +3940,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2012-04-26</startDate>
         <endDate>2012-04-26</endDate>
         <speaker>Andrey Breslav</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>JUG.ru meeting</title>
         <url>http://jugru.timepad.ru/event/23921</url>
     </event>
@@ -4007,7 +4007,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2012-02-10</startDate>
         <endDate>2012-02-10</endDate>
         <speaker>Andrey Breslav</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>JavaDay SPb</title>
         <url>http://oracle.timepad.ru/event/17633</url>
     </event>
@@ -4054,7 +4054,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2011-10-02</startDate>
         <endDate>2011-10-02</endDate>
         <speaker>Andrey Breslav</speaker>
-        <location>Saint Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <title>Yandex and CSClub</title>
         <url>http://logic.pdmi.ras.ru/csclub/en/node/1480</url>
     </event>
