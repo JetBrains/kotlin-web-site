@@ -1,3 +1,4 @@
+import codecs
 import os
 from os import path
 
@@ -7,7 +8,7 @@ import xmltodict
 
 data_folder = path.join(os.path.dirname(__file__), "../data")
 
-with open(path.join(data_folder, "events.xml")) as events_file:
+with codecs.open(path.join(data_folder, "events.xml"), encoding='utf-8') as events_file:
     events_file_content = events_file.read()
     events = xmltodict.parse(events_file_content)['events']['event']
 
@@ -39,10 +40,12 @@ for event in events:
                 else:
                     print "Please, enter 'y' or 'n'"
             if is_same:
-                location_template = "<location>{0}</location>"
+                location_template = u"<location>{0}</location>"
                 old_location = location_template.format(event['location'])
                 new_location = location_template.format(city['name'])
                 events_file_content = events_file_content.replace(old_location, new_location)
+                with codecs.open(path.join(data_folder, "events.xml"), 'w', encoding='utf-8') as events_file:
+                    events_file.write(events_file_content)
                 break
     else:
         print location + " geocoded location " + \
@@ -56,9 +59,5 @@ for event in events:
         }
         cities[city['name']] = city
         cities_array = [city] + cities_array
-
-with open(path.join(data_folder, "cities.yml"), 'w') as cities_file:
-    ruamel.yaml.dump(cities_array, stream=cities_file, Dumper=ruamel.yaml.RoundTripDumper, allow_unicode=True)
-
-with open(path.join(data_folder, "events.xml"), 'w') as events_file:
-    events_file.write(events_file_content)
+        with open(path.join(data_folder, "cities.yml"), 'w') as cities_file:
+            ruamel.yaml.dump(cities_array, stream=cities_file, Dumper=ruamel.yaml.RoundTripDumper, allow_unicode=True)
