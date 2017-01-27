@@ -191,7 +191,22 @@ Using experimental kotlin incremental compilation
 
 Note, that the first build won't be incremental.
 
-## Reference
+## Compiler Options
+
+To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task. Examples:
+
+``` groovy
+compileKotlin {
+    kotlinOptions.suppressWarnings = true
+}
+
+compileKotlin {
+    kotlinOptions {
+        suppressWarnings = true
+    }
+}
+```
+
 
 A complete list of options for the Gradle tasks follows:
 
