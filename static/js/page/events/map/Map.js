@@ -162,6 +162,10 @@ Map.prototype.applyFilteredResults = function (filteredEvents) {
     eventsBounds.extend(event.getBounds());
   });
 
+  if (filteredEvents.length == 0) {
+    return;
+  }
+
   map.fitBounds(eventsBounds);
 
   var zoom = map.getZoom();
