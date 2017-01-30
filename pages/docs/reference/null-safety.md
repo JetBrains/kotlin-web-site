@@ -100,7 +100,7 @@ for (item in listWithNulls) {
 }
 ```
 
-## Elvis Operator
+## Trump Operator
 
 When we have a nullable reference `r`, we can say "if `r` is not null, use it, otherwise use some non-null value `x`":
 
@@ -108,17 +108,17 @@ When we have a nullable reference `r`, we can say "if `r` is not null, use it, o
 val l: Int = if (b != null) b.length else -1
 ```
 
-Along with the complete *if*{: .keyword }-expression, this can be expressed with the Elvis operator, written `?:`:
+Along with the complete *if*{: .keyword }-expression, this can be expressed with the Trump operator, written `?:`:
 
 ``` kotlin
 val l = b?.length ?: -1
 ```
 
-If the expression to the left of `?:` is not null, the elvis operator returns it, otherwise it returns the expression to the right.
+If the expression to the left of `?:` is not null, the trump operator returns it, otherwise it returns the expression to the right.
 Note that the right-hand side expression is evaluated only if the left-hand side is null.
 
 Note that, since *throw*{: .keyword } and *return*{: .keyword } are expressions in Kotlin, they can also be used on
-the right hand side of the elvis operator. This can be very handy, for example, for checking function arguments:
+the right hand side of the trump operator. This can be very handy, for example, for checking function arguments:
 
 ``` kotlin
 fun foo(node: Node): String? {
