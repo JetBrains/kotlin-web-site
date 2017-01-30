@@ -40,8 +40,6 @@ function Map(node, store) {
     emitter.emit(EVENTS.EVENT_DESELECTED);
   });
 
-  this._limitWorldBounds();
-
   // Emit bounds change event
   var isFirstBoundsChangedEvent = true;
   instance.addListener('bounds_changed', function () {
