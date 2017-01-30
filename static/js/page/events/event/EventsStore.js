@@ -137,6 +137,15 @@ EventsStore.prototype.getUpcomingEvents = function (events) {
   var events = events || this.events;
   return events.filter(function (event) {
     return event.isUpcoming();
+  }).sort(function(eventA, eventB) {
+    var startA = eventA.startDate;
+    var startB = eventB.startDate;
+
+    if (startA === startB) {
+      return 0;
+    }
+
+    return startA < startB ? -1 : 1;
   });
 };
 
