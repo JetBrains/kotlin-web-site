@@ -67,6 +67,7 @@ NEW has been assigned to ‘p’ in Example@33a17727.
 ```
 
 Note that since Kotlin 1.1 you can declare a delegated property inside a function or code block, it shouldn't necessarily be a member of a class.
+Below you can find [the example](delegated-properties.html#local-delegated-properties-since-11).
 
 ## Property Delegate Requirements
 
@@ -199,3 +200,21 @@ class MutableUser(val map: MutableMap<String, Any?>) {
     var age: Int     by map
 }
 ```
+
+## Local Delegated Properties (since 1.1)
+
+You can declare local variables as delegated properties.
+For instance, you can make a local variable lazy:
+
+``` kotlin
+fun example(computeFoo: () -> Foo) {
+    val memoizedFoo by lazy(computeFoo)
+
+    if (someCondition && memoizedFoo.isValid()) {
+        memoizedFoo.doSomething()
+    }
+}
+```
+
+The `memoizedFoo` variable will be computed on the first access only.
+If `someCondition` fails, the variable won't be computed at all.
