@@ -4,7 +4,7 @@ var EVENTS = require('./../events-list');
 var Marker = require('./Marker');
 var limitMap = require('./limit-map-bounds');
 
-var MAP_API_URL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDPPgsnwwjJYfpkx5DlvSR5EnlyNaS7kzc';
+var MAP_API_URL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAMF-gJllft62W5l9xfgE6DBhaa6YmIJs0';
 
 var mapOptions = {
   center: {
