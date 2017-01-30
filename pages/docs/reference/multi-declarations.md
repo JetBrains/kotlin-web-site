@@ -123,7 +123,7 @@ If a component of the destructured parameter is unused, you can replace it with 
 map.mapValues { (_, value) -> "$value!" }
 ```
 
-You can specify the type for the whole destructured parameter or for the specific component separately:
+You can specify the type for the whole destructured parameter or for a specific component separately:
 
 ``` kotlin
 map.mapValues { (_, value): Map.Entry<Int, String> -> "$value!" }

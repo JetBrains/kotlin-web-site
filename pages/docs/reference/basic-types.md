@@ -42,9 +42,9 @@ Kotlin also supports a conventional notation for floating-point numbers:
 * Doubles by default: `123.5`, `123.5e10`
 * Floats are tagged by `f` or `F`: `123.5f`
  
-### Underscore in numeric literals (since 1.1)
+### Underscores in numeric literals (since 1.1)
  
-You can use underscore to make number constants more readable:
+You can use underscores to make number constants more readable:
 
 ``` kotlin
 val oneMillion = 1_000_000

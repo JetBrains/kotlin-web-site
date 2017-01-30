@@ -92,7 +92,7 @@ strings.filter { it.length == 5 }.sortBy { it }.map { it.toUpperCase() }
 
 ### Underscore for unused variables (since 1.1)
 
-If the lambda parameter is unused, you can place underscore instead of its name:
+If the lambda parameter is unused, you can place an underscore instead of its name:
 
 ``` kotlin
 map.forEach { _, value -> println("$value!") }
