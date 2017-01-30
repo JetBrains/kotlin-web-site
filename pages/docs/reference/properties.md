@@ -181,7 +181,7 @@ being accessed and the fact that it hasn't been initialized.
 
 ## Overriding Properties
 
-See [Overriding Members](classes.html#overriding-members)
+See [Overriding Properties](classes.html#overriding-properties)
 
 ## Delegated Properties
   

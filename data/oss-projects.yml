@@ -247,3 +247,13 @@
   description: Kotlin coroutine async implementation without java 8 requirement
   type: Framework
   link: https://github.com/fboldog/async-under8
+  
+- name: Corda
+  description: distributed ledger platform
+  type: Platform
+  link: https://github.com/corda/corda
+  
+- name: JAlgoArena
+  description: programming contest platform
+  type: Platform
+  link: https://github.com/spolnik/JAlgoArena

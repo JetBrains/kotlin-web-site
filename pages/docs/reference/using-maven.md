@@ -110,8 +110,8 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
                     <goals> <goal>test-compile</goal> </goals>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
-                            <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                            <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/src/test/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>

@@ -41,6 +41,10 @@
 - company: JackOfHearts
   url: https://play.google.com/store/apps/details?id=truefool.android
   description: True Fool. A Durak card game for Android written in Kotlin and libGDX
+
+- company: Expressen
+  url: https://play.google.com/store/apps/details?id=se.expressen.launcher
+  description: Expressen's Android application.
   
 - company: Schibsted Tech Polska (Omni)
   url: https://play.google.com/store/apps/details?id=se.omni
@@ -181,3 +185,23 @@
 - company: Avito
   url: https://play.google.com/store/apps/dev?id=6750101820856332864
   description: Kotlin is a primary language for Android projects
+  
+- company: ZnanyLekarz
+  url: https://play.google.com/store/apps/details?id=pl.znanylekarz
+  description: The largest site in Poland, which helps everyone find and choose a doctor and arrange a visit to him online
+  
+- company: Hudl
+  url: https://www.hudl.com
+  description: Hudl is a leading video software company revolutionizing the way coaches and athletes prepare for and stay ahead of the competition. Our app uses Kotlin extensively across multiple layers.
+
+- company: Infotech Group
+  url: https://infotech.group/?lang=en
+  description: Using Kotlin to drive two of our customer's apps
+  
+- company: Outline Sp z o.o.
+  url: http://byoutline.com/
+  description: Crafting and maintaing apps for our clients in Kotlin and Java.
+  
+- company: Clue
+  url: https://helloclue.com/
+  description: Clue uses science and data to provide insights into female health. All new Android code is written in Kotlin.
