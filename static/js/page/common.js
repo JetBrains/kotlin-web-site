@@ -24,13 +24,13 @@ $(document).ready(function () {
   document.addEventListener("touchstart", function () {
   }, false);
 
-  document.querySelectorAll('h1,h2,h3').forEach(function (element) {
-    var id = element.getAttribute("id");
+  $('h1,h2,h3').each(function (element) {
+    var id = this.getAttribute("id");
     if (id == null) return;
     var referenceElement = document.createElement("a");
     referenceElement.className = "anchor";
     referenceElement.href = "#" + id;
-    element.appendChild(referenceElement)
+    this.appendChild(referenceElement);
   });
 
   var sideTreeElement = document.querySelector('.js-side-tree-nav');
