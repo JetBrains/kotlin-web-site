@@ -7,7 +7,7 @@ from os import path
 import xmltodict
 import yaml
 from flask import Flask, render_template, Response, send_from_directory
-from flask.helpers import send_file
+from flask.helpers import url_for, send_file
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
@@ -181,6 +181,16 @@ def process_page(page_path):
         edit_on_github_url=edit_on_github_url,
 
     )
+
+
+@app.route('/community.html')
+def community_redirect():
+    return render_template('redirect.html', url=url_for('community_page'))
+
+
+@app.route('/docs/events.html')
+def events_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='community/talks'))
 
 
 @freezer.register_generator

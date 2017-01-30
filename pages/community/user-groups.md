@@ -1,9 +1,7 @@
 ---
 ---
 
-# Kotlin User Groups Support
-
-## Kotlin User Groups List
+# Kotlin User Groups
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -17,9 +15,10 @@
  * [Lyon Kotlin User Group](http://www.meetup.com/Lyon-Kotlin-User-Group/), France
  * [Madrid Kotlin User Group](https://www.meetup.com/KotlinMAD/), Spain
  * [Manchester Kotlin Developers](http://www.meetup.com/Kotlin-Manchester/) United Kingdom
- * [Munich Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Munich/), Deutschland
+ * [Munich Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Munich/), Germany
  * [Warsaw Kotlin User Group](), Poland
  * [Yorkshire Kotlin Meetup](http://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/), United Kingdom
+ * [Vienna Kotlin](https://www.meetup.com/Kotlin-Vienna/), Austria
  
 ### Asia
   
@@ -55,7 +54,7 @@ If you are a leader of active user group and it’s not in a list, please, let u
 **[Submit a New Kotlin User Group](https://docs.google.com/forms/d/e/1FAIpQLSdkLbD_SPbXZDVW2nQPgUiLCW4HOSXysOVK1jPLcShPfyhkNA/viewform)**
 
 ## Guidelines
-* User group provides activities to support professionals interested in a technology
+* User groups provide activities to support professionals interested in a technology
 * Try to meet up regularly. It is the best way to increase Kotlin excellence for all members of the user group
 * All the events and materials should be public and available for people of any different backgrounds
 * All communication should be appropriate for the professional audience
@@ -69,4 +68,4 @@ If you are a leader of active user group and it’s not in a list, please, let u
 * If you are looking for monetary support or any other type of sponsorships, see Events partnership
 
 
-If you feel like you need more ideas or advise on user group launch, contact alina@jetbrains.com 
+If you feel like you need more ideas or advice on user group launch, contact [alina@jetbrains.com](mailto:alina@jetbrains.com)

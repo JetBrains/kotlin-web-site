@@ -124,9 +124,7 @@ EventsList.prototype.showEventDetails = function (event) {
   var $node = $(event.node);
   this.currentEvent = event;
 
-
   $node.addClass('_detailed').removeClass('_normal');
-  console.log($node);
   $('html,body').animate({ scrollTop: $node.offset().top });
 };
 
