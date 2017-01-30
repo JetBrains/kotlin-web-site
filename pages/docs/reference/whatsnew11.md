@@ -21,9 +21,7 @@ The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `futu
 patterns. The key feature of Kotlin's design is that the implementation of coroutine execution is part of the libraries,
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
-A coroutine is effectively a function that can be suspended and resumed later. For example, with `future`/`await`,
-when you use `await`, the execution of the function is suspended while the operation being awaited is executed, and
-is resumed (possibly on a different thread) when the operation being awaited completes.
+A coroutine is effectively a light-weight thread that can be suspended and resumed later. A coroutine is started with a coroutine builder function and is suspended with special suspending functions. For example, `future` starts a coroutine and, when you use `await`, the execution of the coroutine is suspended while the operation being awaited is executed, and is resumed (possibly on a different thread) when the operation being awaited completes.
 
 The standard library uses coroutines to support *lazily generated sequences* with `yield` and `yieldAll` functions.
 In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
