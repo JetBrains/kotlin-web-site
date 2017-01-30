@@ -12,6 +12,8 @@
     {% include 'inc/header.html' %}
 
     <div class="g-layout global-content">
+        {% include 'inc/nav/docs-nav.html' %}
+
         {% block content %}
             {{ page.html | safe }}
         {% endblock %}

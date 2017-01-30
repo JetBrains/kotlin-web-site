@@ -15,11 +15,10 @@ var webpackConfig = {
   entry: {
     'common': 'page/common.js',
     'index': 'page/index.js',
-    'events': 'page/events.js',
-    'reference': 'page/reference.js',
-    'tutorials': 'page/tutorials.js',
+    'events': 'page/events/index.js',
     'videos': 'page/videos.js',
     'grammar': 'page/grammar.js',
+    'community': 'page/community/community.js',
     'styles': 'styles.scss',
     'pdf': 'page/pdf.js'
   },
@@ -48,7 +47,7 @@ var webpackConfig = {
         loader: WebpackExtractTextPlugin.extract([
           'css',
           'postcss',
-          'resolve-url',
+          'resolve-url?keepQuery',
           'sass?sourceMap'
         ].join('!'))
       },
@@ -61,7 +60,14 @@ var webpackConfig = {
         loader: 'nunjucks-loader'
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.svg/,
+        loaders: [
+          'url',
+          'svg-fill'
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/,
         loader: 'advanced-url?limit=10000&name=[path][name].[ext]'
       }
     ]

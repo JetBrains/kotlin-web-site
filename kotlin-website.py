@@ -4,9 +4,10 @@ import os
 import sys
 from os import path
 
+import xmltodict
 import yaml
 from flask import Flask, render_template, Response, send_from_directory
-from flask.helpers import send_file
+from flask.helpers import url_for, send_file
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
@@ -34,6 +35,8 @@ def get_site_data():
     data = {}
     for data_file in os.listdir(data_folder):
         if data_file.startswith('_'):
+            continue
+        if not data_file.endswith(".yml"):
             continue
         data_file_path = path.join(data_folder, data_file)
         with open(data_file_path) as stream:
@@ -101,7 +104,14 @@ def add_data_to_context():
 
 @app.route('/data/events.json')
 def get_events():
-    return Response(json.dumps(site_data['events'], cls=DateAwareEncoder), mimetype='application/json')
+    with open(path.join(data_folder, "events.xml")) as events_file:
+        events = xmltodict.parse(events_file)['events']['event']
+        return Response(json.dumps(events, cls=DateAwareEncoder), mimetype='application/json')
+
+
+@app.route('/data/cities.json')
+def get_cities():
+    return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
 @app.route('/data/videos.json')
@@ -137,6 +147,11 @@ def search_page():
     return render_template('pages/search.html')
 
 
+@app.route('/community/')
+def community_page():
+    return render_template('pages/community.html')
+
+
 @app.route('/')
 def index_page():
     features = get_kotlin_features()
@@ -166,6 +181,16 @@ def process_page(page_path):
         edit_on_github_url=edit_on_github_url,
 
     )
+
+
+@app.route('/community.html')
+def community_redirect():
+    return render_template('redirect.html', url=url_for('community_page'))
+
+
+@app.route('/docs/events.html')
+def events_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='community/talks'))
 
 
 @freezer.register_generator
@@ -219,4 +244,4 @@ if __name__ == '__main__':
         if not ignore_stdlib:
             generate_sitemap(urls)
     else:
-        app.run(host="0.0.0.0", debug=False, threaded=True)
+        app.run(host="0.0.0.0", debug=True, threaded=True)
