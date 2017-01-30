@@ -53,22 +53,22 @@ function FilterPanel(node, config) {
     that._emitter.emit(EVENTS.SELECT, currentFilters);
   }
 
-  var timeSelector = new Switcher($timeSelector, {
+  this.timeSelector = new Switcher($timeSelector, {
     items: {all: 'All', upcoming: 'Upcoming', past: 'Past'},
-    selectedIndex: 1,
+    // selectedIndex: 1,
     onSelect: function (time) {
       handleSelect('time', time);
     }
   });
 
-  var languageSelector = new Dropdown($languageSelectorNode, {
+  this.languageSelector = new Dropdown($languageSelectorNode, {
     items: $.extend({all: 'All'}, config.languages),
     onSelect: function (lang) {
       handleSelect('lang', lang);
     }
   });
 
-  var materialsSelector = new Dropdown($materialSelectorNode, {
+  this.materialsSelector = new Dropdown($materialSelectorNode, {
     items: $.extend({all: 'All'}, config.materials),
     onSelect: function (materials) {
       handleSelect('materials', materials);

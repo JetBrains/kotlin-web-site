@@ -26,11 +26,9 @@ $(document).ready(function () {
     return Map.create('.js-map', eventsStore);
   })
   .then(function (map) {
-    window.map = map.instance;
-
     var list = new EventsList('.js-events-list', store);
 
-    list.applyFilteredResults(store.getUpcomingEvents());
+    list.applyFilteredResults(store.events);
 
     var panel = new FilterPanel('.js-filter-panel-wrap', {
       languages: store.getLanguages(),
@@ -51,6 +49,10 @@ $(document).ready(function () {
     var mapPanel = new Fixer().addElement('.js-events-map-panel', {stretchTo: '.global-footer'});
     mapPanel.on('stretched', refreshMapSize.bind(null, node, map.instance));
     $(window).on('resize', refreshMapSize.bind(null, node, map.instance));
+
+    setTimeout(function() {
+      panel.timeSelector.select(1);
+    }, 300);
   });
 
 });
