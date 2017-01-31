@@ -263,11 +263,11 @@ $button-border: 1px dashed $button-border-color;
         }
     }
 
-    &._klink {
-        top: 425px;
+    &._youtrack {
+        top: 417px;
 
         .all-speak-kotlin_link-pointer {
-            width: $speak-kotlin-margin + 255px;
+            width: $speak-kotlin-margin + 220px;
         }
     }
 }
@@ -365,11 +365,11 @@ $button-border: 1px dashed $button-border-color;
     transform: translateY(-240px);
 }
 
-#klink {
+#youtrack {
     transform: translateY(-386px);
 }
 
-[data-svg-id="klink"] {
+[data-svg-id="youtrack"] {
     transform: translateY(-386px);
 }
 
