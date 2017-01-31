@@ -1,0 +1,42 @@
+<div class="event _{{ mode }}" data-id="{{ event.id }}">
+    {% if mode == 'detailed' %}
+        <span class="event-close js-close"></span>
+    {% endif %}
+
+    <div class="event-date">{{ event.formattedDate }}</div>
+    <div class="event-title">
+        {% if event.url %}
+            <a class="event-url" href="{{ event.url }}" target="_blank">{{ event.title }}</a>,
+        {% else %}
+            {{ event.title }}
+        {% endif %}
+        {% if event.city %}
+            <span class="event-location">{{ event.city }}</span>
+        {% endif %}
+    </div>
+
+    <div class="event-subject">
+        <span class="text">{{ event.subject }}</span>
+
+        <div class="event-info-indicators">
+            {% if event.lang %}
+                <div class="event-lang">{{ event.lang }}</div>
+            {% endif %}
+            {% if event.content %}
+                {% for type, href in event.content %}
+                    <a class="event-content-item _{{ type }}" href="{{ href }}" target="_blank" title="{{ type | capitalize }}"></a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="event-speaker">
+        {{ event.speaker }}
+    </div>
+
+    {% if event.description %}
+        <div class="event-description">
+            {{ event.description | safe }}
+        </div>
+    {% endif %}
+</div>

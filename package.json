@@ -4,6 +4,7 @@
   "description": "kotlinlang.org site",
   "dependencies": {
     "advanced-url-loader": "0.0.3",
+    "aos": "2.1.1",
     "autoprefixer": "6.3.1",
     "codemirror": "5.20.0",
     "cross-env": "1.0.7",
@@ -13,6 +14,7 @@
     "extend": "2.0.1",
     "extract-text-webpack-plugin": "0.8.2",
     "file-loader": "0.9.0",
+    "fixer.js": "1.4.15",
     "jcarousel": "0.3.4",
     "jquery": "2.1.4",
     "node-sass": "3.4.1",
@@ -23,8 +25,10 @@
     "resolve-url-loader": "1.6.0",
     "rimraf": "2.5.2",
     "sass-loader": "3.1.1",
-    "scrolltofixed": "1.0.6",
+    "smoothscroll-polyfill": "0.3.4",
     "style-loader": "0.13.0",
+    "svg-fill-loader": "0.0.6",
+    "url-loader": "0.5.7",
     "webpack": "1.12.2"
   },
   "devDependencies": {

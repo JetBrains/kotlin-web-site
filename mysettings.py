@@ -5,6 +5,7 @@ SERVER_NAME = 'localhost:5000'
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_HTML_RENDERER = jinja_aware_markdown
 FREEZER_IGNORE_404_NOT_FOUND = True
+FLATPAGES_AUTO_RELOAD = True
 GITHUB_URL = 'https://github.com/JetBrains/kotlin'
 TWITTER_URL = 'https://twitter.com/kotlin'
 EDIT_ON_GITHUB_URL = 'https://github.com/JetBrains/kotlin-web-site/edit/master/'
