@@ -3184,6 +3184,8 @@
   date: 2017-01-24
   location: Lyon, France
   lang: fr
+  content:
+    slides: http://www.slideshare.net/FTomassetti/building-languages-with-kotlin-71361871
 
 - title: "Kotlin user group Berlin"
   url: "https://www.meetup.com/kotlin-berlin/events/236277611/"
@@ -3226,3 +3228,75 @@
   date: 2017-02-14
   location: Bucharest, Romania
   lang: ro
+
+- title: "GDG Wellington"
+  url: "https://www.meetup.com/GDG-Wellington/events/237088347/"
+  subject: "Coding for Android with Kotlin - let’s build a simple app in 90 minutes"
+  speaker: Kai Koenig
+  date: 2017-02-08
+  location: Wellington, New Zealand
+  lang: en
+
+- title: "San Francisco Android Developers" 
+  url: "https://www.meetup.com/san-francisco-android/events/236721811/" 
+  subject: "Real-Time Tracking with Postmates"
+  speaker: Torrey Atcitty, Michael Soares
+  date: 2017-01-25
+  location: San Francisco, USA
+  lang: en
+
+- title: "Orange County Java User Group (OCJUG)"
+  url: "https://www.meetup.com/Orange-County-Java-Users-Group-OCJUG/events/237074873/?platform=hootsuite"
+  subject: "Kotlin"
+  speaker: Troy Miles
+  date: 2017-02-08
+  location: Irvine, USA
+  lang: en
+
+- title: "JUG - CS"
+  url: "https://www.meetup.com/JUG-CS/events/237131841/"
+  subject: "Kotlin: getting rid of Java"
+  speaker: Héctor Valls
+  date: 2017-01-26
+  location: Castello, Spain
+  lang: es
+
+- title: "New York Kotlin Meetup"
+  url: "https://www.meetup.com/New-York-Kotlin-Meetup/events/237193574/"
+  subject: "Anko"
+  speaker: Kevin Most
+  date: 2017-02-15
+  location: New York, USA
+  lang: en
+
+- title: "New York Kotlin Meetup"
+  url: "https://www.meetup.com/New-York-Kotlin-Meetup/events/237193574/"
+  subject: "Spring Boot"
+  speaker: Yousuf Haque
+  date: 2017-02-15
+  location: New York, USA
+  lang: en
+  
+- title: "Callista Developer's Conference"
+  url: "http://us3.campaign-archive2.com/?u=51fba111f275a6a984e600b9e&id=67163cdacf&e=ced45a4735"
+  subject: "Kotlin - ett elegant nytt språk för JVM"
+  speaker: Jesper Holmberg
+  date: 2017-01-25
+  location: Stockholm, Sweden
+  lang: sv
+  
+- title: "January Kotlin Meetup"
+  url: "https://www.meetup.com/Kotlin-Vienna/events/236959058/"
+  subject: "Show and Tell: Creating a Swing Application with Kotlin"
+  speaker: Christoph Pickl
+  date: 2017-01-31
+  location: Vienna, Austria
+  lang: en
+
+- title: "January Kotlin Meetup"
+  url: "https://www.meetup.com/Kotlin-Vienna/events/236959058/"
+  subject: "Spring Boot Microservices with Kotlin"
+  speaker: Christoph Leiter
+  date: 2017-01-31
+  location: Vienna, Austria
+  lang: en
