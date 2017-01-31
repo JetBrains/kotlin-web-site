@@ -1,6 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <title>Chicago Java User Group</title>
+        <url>https://www.meetup.com/ChicagoJUG/events/235596455/</url>
+        <content>
+            <video>https://vimeo.com/196243716</video>
+        </content>
+        <subject>A Brief Tour of Kotlin</subject>
+        <speaker>Todd Ginsberg</speaker>
+        <startDate>2016-12-13</startDate>
+        <endDate>2016-12-13</endDate>
+        <location>Chicago, USA</location>
+        <lang>en</lang>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+    <event>
         <title>Chicago Roboto</title>
         <url>http://chicagoroboto.com/speakers/</url>
         <subject>Kotlin: Uncovered</subject>
@@ -1195,6 +1212,9 @@ encounter while digging deeper into the language.</p>
         <location>Lyon, France</location>
         <title>Lyon Kotlin User Group</title>
         <url>https://www.meetup.com/fr-FR/Lyon-Kotlin-User-Group/events/234673830/</url>
+        <content>
+            <slides>http://www.slideshare.net/FTomassetti/building-languages-with-kotlin-71361871</slides>
+        </content>
         <subject>DSL in Kotlin</subject>
     </event>
     <event>
