@@ -22,7 +22,7 @@
  
 ### Asia
   
- * [Japan Kotlin User Group](https://kotlin.doorkeeper.jp/), Japan
+ * [Japan Kotlin User Group](https://kotlin.connpass.com/), Japan
  * [Korean Kotlin User Group](http://kotlin.kr/), Korea
  * [New Delhi Kotlin User Group](https://www.facebook.com/kotlinNewDelhi/), India
  
