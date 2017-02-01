@@ -30,13 +30,13 @@ function Dropdown(node, config) {
   var $dropdown = this.render();
   this.$dropdown = $dropdown;
   var $items = $dropdown.find('.js-item');
+  var selectedValueNode = $dropdown.find('.js-selected-value').get(0);
 
-  $dropdown.find('.js-selected-value').on('click', function (e) {
-    e.stopPropagation();
-    that.isOpened() ? that.close() : that.open();
+  $(document.body).on('click', function(event) {
+    event.target === selectedValueNode
+      ? that.toggle()
+      : that.close();
   });
-
-  $(document.body).on('click', this.close.bind(this));
 
   $items.each(function (i, elem) {
     $(elem).on('click', that.select.bind(that, i));
@@ -70,6 +70,10 @@ Dropdown.prototype.open = function () {
 
 Dropdown.prototype.close = function () {
   this.$dropdown.removeClass(CLASSES.OPENED);
+};
+
+Dropdown.prototype.toggle = function() {
+  this.isOpened() ? this.close() : this.open();
 };
 
 Dropdown.prototype.isOpened = function () {
