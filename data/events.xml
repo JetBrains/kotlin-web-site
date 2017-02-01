@@ -113,7 +113,7 @@
     </event>
     <event>
         <title>Callista Developer's Conference</title>
-        <url>http://us3.campaign-archive2.com/?u=51fba111f275a6a984e600b9e&id=67163cdacf&e=ced45a4735</url>
+        <url>http://us3.campaign-archive2.com/?u=51fba111f275a6a984e600b9e&amp;id=67163cdacf&amp;e=ced45a4735</url>
         <subject>Kotlin - ett elegant nytt språk för JVM</subject>
         <speaker>Jesper Holmberg</speaker>
         <startDate>2017-01-25</startDate>
