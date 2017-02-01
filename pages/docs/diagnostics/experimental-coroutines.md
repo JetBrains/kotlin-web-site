@@ -10,7 +10,7 @@ showAuthorInfo: false
 
 With all the benefits that they bring, Kotlin coroutines are a fairly new design that needs extensive battle-testing before we can be sure it’s 100% right and complete. This is why we will release it under an “experimental” opt-in flag. We do not expect the language rules to change, but APIs may require some adjustments in Kotlin 1.2.
 
-* **Command line:** `-Xcoroutines=enabled`
+* **Command line:** `-Xcoroutines=enable`
 * **Gradle:** `kotlin.coroutines=enable` in `gradle.properties` or `local.properties`
 * **Maven:** `<configuration> <args> <arg>-Xcoroutines=enable</arg> </args> </configuration>`
 * **IDE:** Use a quick-fix (Alt+Enter) or modify the facet options *(Project Structure -> Modules -> Your Module -> Compiler -> Coroutines (experimental))*
