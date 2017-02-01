@@ -15,6 +15,7 @@
     "extract-text-webpack-plugin": "0.8.2",
     "file-loader": "0.9.0",
     "fixer.js": "1.4.15",
+    "in-viewport": "3.4.2",
     "jcarousel": "0.3.4",
     "jquery": "2.1.4",
     "node-sass": "3.4.1",

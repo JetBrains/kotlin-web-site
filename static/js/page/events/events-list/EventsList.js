@@ -1,9 +1,9 @@
 require('./styles.scss');
-
 var $ = require('jquery');
 var template = require('./view.twig');
 var emitter = require('../../../util/emitter');
 var EVENTS = require('../events-list');
+var checkElementIsInViewport = require('in-viewport');
 
 /**
  * @param {HTMLElement|string} node
@@ -122,10 +122,14 @@ EventsList.prototype.applyFilteredResults = function (filteredEvents) {
  */
 EventsList.prototype.showEventDetails = function (event) {
   var $node = $(event.node);
+  var inViewport = checkElementIsInViewport(event.node);
   this.currentEvent = event;
 
   $node.addClass('_detailed').removeClass('_normal');
-  $('html,body').animate({ scrollTop: $node.offset().top });
+
+  if (!inViewport) {
+    $('html,body').animate({ scrollTop: $node.offset().top });
+  }
 };
 
 EventsList.prototype.hideEventDetails = function () {
