@@ -152,6 +152,12 @@ def community_page():
     return render_template('pages/community.html')
 
 
+@app.route('/docs/diagnostics/experimental-coroutines')
+@app.route('/docs/diagnostics/experimental-coroutines/')
+def coroutines_alias():
+    return render_template('redirect.html', url=url_for('page', page_path='docs/diagnostics/experimental-coroutines'))
+
+
 @app.route('/')
 def index_page():
     features = get_kotlin_features()
