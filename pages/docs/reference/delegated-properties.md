@@ -66,30 +66,10 @@ This prints
 NEW has been assigned to ‘p’ in Example@33a17727.
 ```
 
+The specification of the requirements to the delegated object can be found [below](delegated-properties.html#property-delegate-requirements).
+
 Note that since Kotlin 1.1 you can declare a delegated property inside a function or code block, it shouldn't necessarily be a member of a class.
 Below you can find [the example](delegated-properties.html#local-delegated-properties-since-11).
-
-## Property Delegate Requirements
-
-Here we summarize requirements to delegate objects. 
-
-For a **read-only** property (i.e. a *val*{:.keyword}), a delegate has to provide a function named `getValue` that takes the following parameters:
-
-* receiver --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended),
-* metadata --- must be of type `KProperty<*>` or its supertype,
- 
-this function must return the same type as property (or its subtype).
-
-For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally_ provide a function named `setValue` that takes the following parameters:
- 
-* receiver --- same as for `getValue()`,
-* metadata --- same as for `getValue()`,
-* new value --- must be of the same type as a property or its supertype.
- 
-`getValue()` and/or `setValue()` functions may be provided either as member functions of the delegate class or extension functions.
-The latter is handy when you need to delegate property to an object which doesn't originally provide these functions.
-Both of the functions need to be marked with the `operator` keyword.
-
 
 ## Standard Delegates
 
@@ -218,3 +198,24 @@ fun example(computeFoo: () -> Foo) {
 
 The `memoizedFoo` variable will be computed on the first access only.
 If `someCondition` fails, the variable won't be computed at all.
+
+## Property Delegate Requirements
+
+Here we summarize requirements to delegate objects. 
+
+For a **read-only** property (i.e. a *val*{:.keyword}), a delegate has to provide a function named `getValue` that takes the following parameters:
+
+* thisRef --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended),
+* property --- must be of type `KProperty<*>` or its supertype,
+ 
+this function must return the same type as property (or its subtype).
+
+For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally_ provide a function named `setValue` that takes the following parameters:
+ 
+* thisRef --- same as for `getValue()`,
+* property --- same as for `getValue()`,
+* new value --- must be of the same type as a property or its supertype.
+ 
+`getValue()` and/or `setValue()` functions may be provided either as member functions of the delegate class or extension functions.
+The latter is handy when you need to delegate property to an object which doesn't originally provide these functions.
+Both of the functions need to be marked with the `operator` keyword.
