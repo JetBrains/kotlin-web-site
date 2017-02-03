@@ -1,4 +1,20 @@
 - geo:
+    lat: 47.394144
+    lng: 0.68484
+  name: Tours, France
+- geo:
+    lat: 39.9863563
+    lng: -0.0513246
+  name: Castello, Spain
+- geo:
+    lat: 33.6839473
+    lng: -117.7946942
+  name: Irvine, USA
+- geo:
+    lat: -41.2864603
+    lng: 174.776236
+  name: Wellington, New Zealand
+- geo:
     lat: 46.227638
     lng: 2.213749
   name: France

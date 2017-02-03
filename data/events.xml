@@ -88,7 +88,7 @@
         <speaker>Kevin Most</speaker>
         <startDate>2017-02-15</startDate>
         <endDate>2017-02-15</endDate>
-        <location>New York, USA</location>
+        <location>New York, NY, USA</location>
         <lang>en</lang>
         <description>
             <![CDATA[
@@ -103,7 +103,7 @@
         <speaker>Yousuf Haque</speaker>
         <startDate>2017-02-15</startDate>
         <endDate>2017-02-15</endDate>
-        <location>New York, USA</location>
+        <location>New York, NY, USA</location>
         <lang>en</lang>
         <description>
             <![CDATA[
@@ -193,7 +193,7 @@
         <startDate>2017-02-06</startDate>
         <endDate>2017-02-06</endDate>
         <speaker>Alberto J Arias</speaker>
-        <location>Toronto, ON</location>
+        <location>Toronto, Canada</location>
         <title>Kotlin Toronto</title>
         <subject>Introduction to the Kotlin programming language, part 2/2</subject>
         <url>https://www.meetup.com/Kotlin-Toronto/events/237163615/</url>
