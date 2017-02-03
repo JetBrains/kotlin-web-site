@@ -29,7 +29,8 @@ assert(strings.size == 3)
 
 Kotlin does not have dedicated syntax constructs for creating lists or sets. Use methods from the standard library, such as
 `listOf()`, `mutableListOf()`, `setOf()`, `mutableSetOf()`.
-For creating maps in a not performance-critical code a simple [idiom](idioms.html#read-only-map) may be used: `mapOf(a to b, c to d)`
+Map creation in NOT performance-critical code can be accomplished with a simple [idiom](idioms.html#read-only-map): `mapOf(a to b, c to d)`
+
 
 Note that the `readOnlyView` variable points to the same list and changes as the underlying list changes. If the only references that exist to a list are of the read only variety, we can consider the collection fully immutable. A simple way to create such a collection is like this:
 
