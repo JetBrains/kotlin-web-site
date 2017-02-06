@@ -154,13 +154,14 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     }
   }
 
-  onFoldButtonMouseLeave(){
-    if(this.state.foldButtonHover){
+  onFoldButtonMouseLeave() {
+    if (this.state.foldButtonHover) {
       this.update({foldButtonHover: false})
     }
   }
 
   unfoldCode() {
+    this.codemirror.setOption("lineNumbers", true);
     this.foldMarkers.forEach((marker) => {
       marker.clear()
     });
@@ -168,6 +169,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
   }
 
   foldCode() {
+    this.codemirror.setOption("lineNumbers", false);
     this.foldMarkers.push(foldCode(this.codemirror, getTopFoldRange(this.codemirror)));
     this.foldMarkers.push(foldCode(this.codemirror, getBottomFoldRange(this.codemirror)));
   }
