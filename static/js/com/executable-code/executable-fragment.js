@@ -120,16 +120,16 @@ class ExecutableFragment extends ExecutableCodeTemplate {
           ch: 0
         },
         {
-          line: commentStartLineNo,
-          ch: null
+          line: commentStartLineNo + 1,
+          ch: 0
         },
         {
           readOnly: true
         }
       );
       this.codemirror.markText({
-          line: commentEndLineNo,
-          ch: 0
+          line: commentEndLineNo - 1,
+          ch: null
         },
         {
           line: this.codemirror.lineCount() - 1,
@@ -148,8 +148,8 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     }
   }
 
-  onFoldButtonMouseEnter(){
-    if(!this.state.foldButtonHover){
+  onFoldButtonMouseEnter() {
+    if (!this.state.foldButtonHover) {
       this.update({foldButtonHover: true})
     }
   }
