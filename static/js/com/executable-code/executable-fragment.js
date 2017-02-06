@@ -116,7 +116,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       const commentStartLineNo = findComment(this.codemirror, "sampleStart");
       const commentEndLineNo = findComment(this.codemirror, "sampleEnd");
       this.codemirror.markText({
-          line: commentStartLineNo,
+          line: 0,
           ch: 0
         },
         {
@@ -132,7 +132,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
           ch: 0
         },
         {
-          line: commentEndLineNo,
+          line: this.codemirror.lineCount() - 1,
           ch: null
         },
         {
