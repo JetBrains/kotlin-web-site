@@ -2,10 +2,6 @@
 
 {% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='reference.css') }}">
-{% endblock %}
-
 {% block content %}
     <div class="g-grid">
 
@@ -28,6 +24,4 @@
             {% endblock %}
         </article>
     </div>
-
-    <script src="{{ url_for('static', filename='reference.js') }}"></script>
 {% endblock %}
