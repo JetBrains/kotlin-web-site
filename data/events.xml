@@ -4,7 +4,7 @@
         <lang>en</lang>
         <startDate>2017-04-21</startDate>
         <endDate>2017-04-22</endDate>
-        <location>Saint-Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <subject>Kotlin all the... tests!</subject>
         <title>Mobius conference</title>
         <speaker>Danny Preussler</speaker>
@@ -231,7 +231,7 @@
         <lang>en</lang>
         <startDate>2017-03-01</startDate>
         <endDate>2017-03-01</endDate>
-        <location>Brooklyn, NY</location>
+        <location>New York, NY, USA</location>
         <subject>Introductions and Kickoff</subject>
         <title>Brooklyn Kotlin</title>
         <speaker>Patrick Cousins</speaker>
@@ -261,7 +261,7 @@
         <lang>en</lang>
         <startDate>2017-04-10</startDate>
         <endDate>2017-04-11</endDate>
-        <location>Boston, Massachusetts</location>
+        <location>Boston, MA, USA</location>
         <subject>Kotlin: Uncovered</subject>
         <title>Droidcon Boston</title>
         <speaker>Victoria Gonda</speaker>
@@ -276,7 +276,7 @@
         <lang>en</lang>
         <startDate>2017-03-16</startDate>
         <endDate>2017-03-17</endDate>
-        <location>Amsterdam, Netherlands</location>
+        <location>Amsterdam, The Netherlands</location>
         <subject>No excuses: switch to Kotlin!</subject>
         <title>Appdevcon</title>
         <speaker>Thijs Suijten</speaker>

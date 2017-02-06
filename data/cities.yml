@@ -1,4 +1,12 @@
 - geo:
+    lat: -19.9245018
+    lng: -43.93523760000001
+  name: Belo Horizonte, Brazil
+- geo:
+    lat: 41.0082376
+    lng: 28.9783589
+  name: Istanbul, Turkey
+- geo:
     lat: 47.394144
     lng: 0.68484
   name: Tours, France
