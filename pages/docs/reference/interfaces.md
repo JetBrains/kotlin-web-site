@@ -42,18 +42,18 @@ declared in interfaces can't reference them.
 
 ``` kotlin
 interface MyInterface {
-    val property: Int // abstract
+    val prop: Int // abstract
 
     val propertyWithImplementation: String
         get() = "foo"
 
     fun foo() {
-        print(property)
+        print(prop)
     }
 }
 
 class Child : MyInterface {
-    override val property: Int = 29
+    override val prop: Int = 29
 }
 ```
 
