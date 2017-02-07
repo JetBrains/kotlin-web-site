@@ -48,7 +48,7 @@ internal val baz = 6    // visible inside the same module
 
 ## Classes and Interfaces
 
-When declared inside a class:
+For members declared inside a class:
 
 * `private` means visible inside this class only (including all its members);
 * `protected` --- same as `private` + visible in subclasses too;
