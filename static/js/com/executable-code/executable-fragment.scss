@@ -49,7 +49,7 @@
     background-repeat: no-repeat;
 }
 
-.ERROR {
+.cm__ERROR {
     color: #ff0000 !important;
 }
 
@@ -85,18 +85,19 @@
     }
 }
 
-.red_wavy_line {
+.cm__red_wavy_line {
     background: url(http://try.kotlinlang.org/static/images/wavyline-red.gif) repeat-x 100% 100% !important;
     padding-bottom: 2px;
 }
 
-.green_wavy_line {
+.cm__green_wavy_line {
     background: url(http://try.kotlinlang.org/static/images/wavyline-green.gif) repeat-x 100% 100% !important;
     padding-bottom: 2px;
 }
 
 .code-output {
     border-top: 1px solid #eee;
+    font-family: $font-family-mono;
     overflow: auto;
     padding-left: 10px;
     padding-top: 15px;

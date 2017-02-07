@@ -242,7 +242,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       const severity = diagnostic.severity;
 
       this.arrayClasses.push(this.codemirror.markText(interval.start, interval.end, {
-        "className": diagnostic.className,
+        "className": "cm__" + diagnostic.className,
         "title": errorMessage
       }));
 
