@@ -19,12 +19,6 @@ function getExceptionCauses(exception) {
   }
 }
 
-function foldCode(codeMirror, range) {
-  return codeMirror.markText(range.from, range.to, {
-    collapsed: true
-  })
-}
-
 function findComment(cm, commentText) {
   for (let line = 0; line < cm.lineCount(); line++) {
     let tokens = cm.getLineTokens(line);
@@ -35,32 +29,6 @@ function findComment(cm, commentText) {
 
     if (token.string == '//' + commentText) {
       return line
-    }
-  }
-}
-
-function getTopFoldRange(cm) {
-  return {
-    from: {
-      line: 0,
-      ch: 0
-    },
-    to: {
-      line: findComment(cm, "sampleStart") + 1,
-      ch: 0
-    }
-  }
-}
-
-function getBottomFoldRange(cm) {
-  return {
-    from: {
-      line: findComment(cm, "sampleEnd") - 1,
-      ch: null
-    },
-    to: {
-      line: cm.lineCount(),
-      ch: 0
     }
   }
 }
@@ -84,7 +52,6 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     super();
     this.arrayClasses = [];
     this.initialized = false;
-    this.foldMarkers = [];
     this.state = {
       code: '',
       foldButtonHover: false,
@@ -106,13 +73,38 @@ class ExecutableFragment extends ExecutableCodeTemplate {
   }
 
   update(state) {
+    let sample;
+    if (state.code) {
+      this.prefix = state.code.substring(0, state.code.indexOf('//sampleStart') + '//sampleStart'.length + 1);
+      sample = state.code.substring(state.code.indexOf('//sampleStart') + '//sampleStart'.length + 1,
+        state.code.indexOf('//sampleEnd') - 1);
+      this.suffix = state.code.substring(state.code.indexOf('//sampleEnd') - 1);
+    } else {
+      if (this.state.folded) {
+        sample = this.codemirror.getValue();
+      } else {
+        let editorValue = this.codemirror.getValue();
+        sample = editorValue.substring(this.prefix.length, editorValue.length - this.suffix.length);
+      }
+    }
+
     Object.assign(this.state, state);
     super.update(this.state);
 
     if (!this.initialized) {
       this.initializeCodeMirror();
       this.initialized = true;
+    } else {
+      if (state.folded === undefined) {
+        return
+      }
+    }
 
+
+    if (this.state.folded) {
+      this.codemirror.setValue(sample);
+    } else {
+      this.codemirror.setValue(this.prefix + sample + this.suffix);
       const commentStartLineNo = findComment(this.codemirror, "sampleStart");
       const commentEndLineNo = findComment(this.codemirror, "sampleEnd");
       this.codemirror.markText({
@@ -140,12 +132,6 @@ class ExecutableFragment extends ExecutableCodeTemplate {
         }
       );
     }
-
-    if (this.state.folded) {
-      this.foldCode()
-    } else {
-      this.unfoldCode()
-    }
   }
 
   onFoldButtonMouseEnter() {
@@ -160,20 +146,6 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     }
   }
 
-  unfoldCode() {
-    this.codemirror.setOption("lineNumbers", true);
-    this.foldMarkers.forEach((marker) => {
-      marker.clear()
-    });
-    this.foldMarkers = [];
-  }
-
-  foldCode() {
-    this.codemirror.setOption("lineNumbers", false);
-    this.foldMarkers.push(foldCode(this.codemirror, getTopFoldRange(this.codemirror)));
-    this.foldMarkers.push(foldCode(this.codemirror, getBottomFoldRange(this.codemirror)));
-  }
-
   execute() {
     const projectJson = JSON.stringify({
       "id": "",
@@ -185,18 +157,19 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       "files": [
         {
           "name": "File.kt",
-          "text": this.codemirror.getValue(),
+          "text": this.getCode(),
           "publicId": ""
         }
       ],
       "readOnlyFileNames": []
     });
     $.ajax({
-      url: 'http://kotlin-web-demo-cloud.passive.aws.intellij.net/kotlinServer?type=run&runConf=java',
+      url: 'http://localhost:8080/kotlinServer?type=run&runConf=java',
       method: 'post',
       dataType: 'JSON',
       context: this,
       data: {
+        filename: "File.kt",
         project: projectJson
       },
       fail: function (jqXHR, message, errorThrown) {
@@ -229,11 +202,42 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     })
   }
 
+  getCode() {
+    if (this.state.folded) {
+      return this.prefix + this.codemirror.getValue() + this.suffix
+    } else {
+      return this.codemirror.getValue()
+    }
+  }
+
+  recalculatePosition(position) {
+    const newPosition = {
+      line: position.line,
+      ch: position.ch
+    };
+    if (!this.state.folded) {
+      return newPosition;
+    }
+
+    let linesInPrefix = (this.prefix.match(/\n/g) || []).length;
+    newPosition.line = position.line - linesInPrefix;
+    if (newPosition.line < 0) {
+      newPosition.line = 0;
+      newPosition.ch = 0;
+    } else if (newPosition.line >= this.codemirror.lineCount()) {
+      newPosition.line = this.codemirror.lineCount() - 1;
+      newPosition.ch = null;
+    }
+    return newPosition
+  }
 
   showDiagnostics(diagnostics) {
     this.removeStyles();
     diagnostics.forEach(diagnostic => {
       const interval = diagnostic.interval;
+      interval.start = this.recalculatePosition(interval.start);
+      interval.end = this.recalculatePosition(interval.end);
+
       const errorMessage = unEscapeString(diagnostic.message);
       const severity = diagnostic.severity;
 

@@ -10,9 +10,7 @@
 
         <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
 
-        <textarea>
-            {{ code }}
-        </textarea>
+        <textarea></textarea>
 
         <div class="zigzag _bottom {{ foldButtonHover ? '_hover' : '' }}"></div>
     </div>
