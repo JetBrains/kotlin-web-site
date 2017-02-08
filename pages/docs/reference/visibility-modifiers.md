@@ -29,7 +29,7 @@ class Bar {}
 * If you do not specify any visibility modifier, `public` is used by default, which means that your declarations will be
 visible everywhere;
 * If you mark a declaration `private`, it will only be visible inside the file containing the declaration;
-* If you mark it `internal`, it is visible everywhere in the same module;
+* If you mark it `internal`, it is visible everywhere in the same [module](#modules);
 * `protected` is not available for top-level declarations.
 
 Examples:
@@ -48,7 +48,7 @@ internal val baz = 6    // visible inside the same module
 
 ## Classes and Interfaces
 
-When declared inside a class:
+For members declared inside a class:
 
 * `private` means visible inside this class only (including all its members);
 * `protected` --- same as `private` + visible in subclasses too;

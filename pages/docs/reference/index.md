@@ -24,13 +24,16 @@ You can download the entire reference documentation as a single [PDF file]({{ si
 
 ## Kotlin in Action
 
-   <a href="https://manning.com/books/kotlin-in-action"><img src="{{ url_for('asset', path='images/Jemerov-Kotlin-MEAP-HI.png')}}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
+   <a href="https://manning.com/books/kotlin-in-action"><img src="{{ url_for('asset', path='images/kotlin-in-action.png')}}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 
-[Kotlin in Action](https://manning.com/books/kotlin-in-action) is a book on Kotlin being written by Dmitry Jemerov and Svetlana Isakova,
-developers on the Kotlin team. The book is currently available through the MEAP program, which allows you to read the book
-chapter-by-chapter while it is being written and get the final book when it is finished.
+[Kotlin in Action](https://manning.com/books/kotlin-in-action) teaches you to use the Kotlin language for
+production-quality applications. Written for experienced Java developers, this example-rich book goes further than
+most language books, covering interesting topics like building DSLs with natural language syntax.
 
-Use the coupon code '39jemerov' to get a 39% discount code on the book.
+The book is written by Dmitry Jemerov and Svetlana Isakova, developers on the Kotlin team.
+
+Chapter 6, covering the Kotlin type system, and chapter 11, covering DSLs, are available as a free preview on the
+<a href="https://www.manning.com/books/kotlin-in-action#downloads">publisher Web site</a>.
 
 <h2 style="clear: left">Kotlin for Android Developers</h2>
 

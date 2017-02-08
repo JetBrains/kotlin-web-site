@@ -40,7 +40,7 @@
 
 * [Bay Area Kotlin User Group](http://www.meetup.com/Bay-Area-Kotlin-User-Group/), USA
 * [Boulder Kotlin Group](http://www.meetup.com/Kotlin-Group-Boulder/), USA
-* [Chicago Kotlin Users Group](http://www.meetup.com/Chicago-Kotlin-Users-Group/), USA
+* [Chicago Kotlin Users Group](http://www.meetup.com/Chicago-Kotlin/), USA
 * [New York Kotlin Meetup](http://www.meetup.com/New-York-Kotlin-Meetup/), USA
 * [Norfolk Kotlin User Group](mailto:robert.chrzanowski@gmail.com), USA
 * [Peru Kotlin User Group](https://www.facebook.com/groups/1540580306247047/)
