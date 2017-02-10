@@ -81,13 +81,6 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       }
     }
 
-    if(state.errors){
-      this.showDiagnostics(state.errors);
-      state.errors = undefined;
-    } else{
-      this.removeStyles()
-    }
-
     Object.assign(this.state, state);
     super.update(this.state);
 
@@ -100,6 +93,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       }
     }
 
+    this.showDiagnostics(state.errors);
 
     if (this.state.folded) {
       this.codemirror.setValue(sample);
@@ -147,9 +141,21 @@ class ExecutableFragment extends ExecutableCodeTemplate {
   }
 
   execute() {
-    WebDemoApi.executeKotlinCode(this.getCode()).then(state => {
-      this.update(state)
-    })
+    if (this.state.waitingForOutput) {
+      return
+    }
+    this.update({
+      waitingForOutput: true
+    });
+    WebDemoApi.executeKotlinCode(this.getCode()).then(
+      state => {
+        state.waitingForOutput = false;
+        this.update(state);
+      },
+      () => {
+        this.update({waitingForOutput: false})
+      }
+    )
   }
 
   getCode() {
@@ -183,6 +189,9 @@ class ExecutableFragment extends ExecutableCodeTemplate {
 
   showDiagnostics(diagnostics) {
     this.removeStyles();
+    if (diagnostics === undefined) {
+      return;
+    }
     diagnostics.forEach(diagnostic => {
       const interval = diagnostic.interval;
       interval.start = this.recalculatePosition(interval.start);

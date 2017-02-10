@@ -52,6 +52,11 @@
     background: url("./icons/run.svg");
     background-size: cover;
     background-repeat: no-repeat;
+
+    &._disabled {
+        cursor: default;
+        opacity: 0.5;
+    }
 }
 
 .cm__ERROR {
@@ -100,14 +105,21 @@
     padding-bottom: 2px;
 }
 
-.code-output {
+.output-wrapper {
     border-top: 1px solid #eee;
+    min-height: 50px;
+}
+
+.code-output {
     font-family: $font-family-mono;
     overflow: auto;
     padding-left: 10px;
     padding-top: 15px;
-    min-height: 50px;
-    flex-grow: 1;
+}
+
+.loading-indicator img{
+    height: 50px;
+    margin: auto;
 }
 
 .error-output {
