@@ -96,8 +96,10 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     this.showDiagnostics(state.errors);
 
     if (this.state.folded) {
+      this.codemirror.setOption("lineNumbers", false);
       this.codemirror.setValue(sample);
     } else {
+      this.codemirror.setOption("lineNumbers", true);
       this.codemirror.setValue(this.prefix + sample + this.suffix);
       const commentStartLineNo = findComment(this.codemirror, "sampleStart");
       const commentEndLineNo = findComment(this.codemirror, "sampleEnd");
