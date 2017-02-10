@@ -1,31 +1,38 @@
 {% import Exception from './exception.monk' %}
 
-<div class="executable-fragment">
-    <div class="code-area">
-        <div class="fold-button {{ folded ? '_folded' : '_unfolded' }} {{ foldButtonHover ? '_hover' : '' }}"
-            :onmouseenter={{ this.onFoldButtonMouseEnter.bind(this) }}
-            :onmouseleave={{ this.onFoldButtonMouseLeave.bind(this) }}>
+<div class="executable-fragment-wrapper">
+    <div class="executable-fragment">
+        <div class="code-area">
+            <div class="fold-button {{ folded ? '_folded' : '_unfolded' }} {{ foldButtonHover ? '_hover' : '' }}"
+                :onmouseenter={{ this.onFoldButtonMouseEnter.bind(this) }}
+                :onmouseleave={{ this.onFoldButtonMouseLeave.bind(this) }}>
+            </div>
+            <div class="zigzag _top {{ foldButtonHover ? '_hover' : '' }}"></div>
+
+            <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
+
+            <textarea></textarea>
+
+            <div class="zigzag _bottom {{ foldButtonHover ? '_hover' : '' }}"></div>
         </div>
-        <div class="zigzag _top {{ foldButtonHover ? '_hover' : '' }}"></div>
 
-        <div class="run-button" :onclick={{ this.execute.bind(this) }}></div>
 
-        <textarea></textarea>
+        {% if (output && output != "") || exception %}
+            <div class="code-output">
+                {% unsafe output %}
 
-        <div class="zigzag _bottom {{ foldButtonHover ? '_hover' : '' }}"></div>
+                {% if exception %}
+                    <Exception {{...exception}} originalException={{ true }}/>
+                {% endif %}
+
+            </div>
+        {% endif %}
     </div>
 
-
-    {% if (output && output != "") || exception %}
-        <div class="code-output">
-            {% unsafe output %}
-
-            {% if exception %}
-                <Exception {{...exception}} originalException={{ true }}/>
-            {% endif %}
-
-        </div>
-    {% endif %}
+    <div class="compiler-info">
+        <span>Target platform: JVM</span>
+        <span>Running on kotlin v. {{ compilerVersion }}</span>
+    </div>
 
 
 </div>

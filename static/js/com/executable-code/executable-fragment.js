@@ -7,17 +7,10 @@ require('./executable-fragment.scss');
 
 const Monkberry = require('monkberry');
 const directives = require('monkberry-directives').default;
+const WebDemoApi = require('./webdemo-api');
 require('monkberry-events');
 
 const $ = require('jquery');
-
-function getExceptionCauses(exception) {
-  if (exception.cause !== undefined && exception.cause != null) {
-    return [exception.cause].concat(getExceptionCauses(exception.cause))
-  } else {
-    return []
-  }
-}
 
 function findComment(cm, commentText) {
   for (let line = 0; line < cm.lineCount(); line++) {
@@ -88,6 +81,13 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       }
     }
 
+    if(state.errors){
+      this.showDiagnostics(state.errors);
+      state.errors = undefined;
+    } else{
+      this.removeStyles()
+    }
+
     Object.assign(this.state, state);
     super.update(this.state);
 
@@ -147,58 +147,8 @@ class ExecutableFragment extends ExecutableCodeTemplate {
   }
 
   execute() {
-    const projectJson = JSON.stringify({
-      "id": "",
-      "name": "",
-      "args": "",
-      "compilerVersion": null,
-      "confType": "java",
-      "originUrl": null,
-      "files": [
-        {
-          "name": "File.kt",
-          "text": this.getCode(),
-          "publicId": ""
-        }
-      ],
-      "readOnlyFileNames": []
-    });
-    $.ajax({
-      url: 'http://kotlin-web-demo-cloud.passive.aws.intellij.net/kotlinServer?type=run&runConf=java',
-      method: 'post',
-      dataType: 'JSON',
-      context: this,
-      data: {
-        filename: "File.kt",
-        project: projectJson
-      },
-      fail: function (jqXHR, message, errorThrown) {
-        console.log(message)
-      }
-    }).success(function (data) {
-      if (data.errors["File.kt"] !== undefined) {
-        this.showDiagnostics(data.errors["File.kt"])
-      }
-
-      let output;
-      if (data.text !== undefined) {
-        output = data.text.replace("<outStream>", "<span class=\"standard-output\">")
-          .replace("</outStream>", "</span>")
-          .replace("<errStream>", "<span class=\"error-output\">")
-          .replace("</errStream>", "</span>");
-      } else {
-        output = "";
-      }
-
-      if (data.exception != null) {
-        data.exception.causes = getExceptionCauses(data.exception);
-        data.exception.cause = undefined;
-      }
-
-      this.update({
-        output: output,
-        exception: data.exception
-      })
+    WebDemoApi.executeKotlinCode(this.getCode()).then(state => {
+      this.update(state)
     })
   }
 

@@ -1,4 +1,5 @@
 const ExecutableFragment = require('./executable-fragment');
+const WebDemoApi = require('./webdemo-api');
 const $ = require('jquery');
 
 module.exports = function (element) {
@@ -6,8 +7,11 @@ module.exports = function (element) {
   const executableFragmentContainer = document.createElement('div');
   element.parentNode.replaceChild(executableFragmentContainer, element);
 
-  var view = ExecutableFragment.render(executableFragmentContainer);
-  view.update({
-    'code': code
+  const view = ExecutableFragment.render(executableFragmentContainer);
+  WebDemoApi.getCompilerVersion().then(function (compilerVersion) {
+    view.update({
+      code: code,
+      compilerVersion: compilerVersion
+    });
   });
 };

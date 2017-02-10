@@ -1,9 +1,12 @@
 @import "../../../css/config";
 
-.executable-fragment {
+.executable-fragment-wrapper {
     margin-bottom: 20px;
-    border: 1px solid #eee;
     position: relative;
+}
+
+.executable-fragment {
+    border: 1px solid #eee;
 }
 
 .CodeMirror {
@@ -192,4 +195,15 @@
 
 .code-area {
     position: relative;
+}
+
+.compiler-info {
+    position: absolute;
+    right: 0;
+    font-size: 10px;
+    color: #949494;
+
+    span {
+        margin-left: 15px;
+    }
 }
