@@ -1,5 +1,5 @@
 const $ = require('jquery');
-const webDemoUrl = "localhost:8080";
+const webDemoUrl = "kotlin-web-demo-cloud.passive.aws.intellij.net";
 
 function getExceptionCauses(exception) {
   if (exception.cause !== undefined && exception.cause != null) {
