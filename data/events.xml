@@ -229,6 +229,16 @@
     </event>
     <event>
         <lang>en</lang>
+        <startDate>2017-02-09</startDate>
+        <endDate>2017-02-09</endDate>
+        <location>Warsaw, Poland</location>
+        <subject>Kotlin Night in Warsaw</subject>
+        <title>Kotlin Warsaw</title>
+        <speaker>Sébastien Deleuze, Juan Liska</speaker>
+        <url>https://www.meetup.com/Kotlin-Warsaw/events/237437400/</url>
+    </event>
+    <event>
+        <lang>en</lang>
         <startDate>2017-03-01</startDate>
         <endDate>2017-03-01</endDate>
         <location>New York, NY, USA</location>
