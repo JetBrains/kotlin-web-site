@@ -20,7 +20,7 @@
  * [Munich Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Munich/), Germany
  * [RheinMain Kotlin](http://kotlin.rocks), Germany
  * [Vienna Kotlin](https://www.meetup.com/Kotlin-Vienna/), Austria
- * [Warsaw Kotlin User Group](), Poland
+ * [Kotlin Warsaw](https://www.meetup.com/Kotlin-Warsaw/), Poland
  * [Yorkshire Kotlin Meetup](http://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/), United Kingdom
 
  
