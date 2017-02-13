@@ -1,4 +1,5 @@
 require('../com/search');
+require('whatwg-fetch');
 require('../com/cookie-banner');
 const CodeMirror = require('../com/codemirror/CodeMirror');
 const NavTree = require('../com/nav-tree');
