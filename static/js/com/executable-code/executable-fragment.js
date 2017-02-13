@@ -10,20 +10,8 @@ const directives = require('monkberry-directives').default;
 const WebDemoApi = require('./webdemo-api');
 require('monkberry-events');
 
-const $ = require('jquery');
-
-function findComment(cm, commentText) {
-  for (let line = 0; line < cm.lineCount(); line++) {
-    let tokens = cm.getLineTokens(line);
-    if (tokens.length > 1) continue;
-
-    let token = tokens[0];
-    if (token.type != "comment") continue;
-
-    if (token.string == '//' + commentText) {
-      return line
-    }
-  }
+function countLines(string) {
+  return (string.match(/\n/g) || []).length;
 }
 
 function unEscapeString(s) {
@@ -100,14 +88,13 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     } else {
       this.codemirror.setOption("lineNumbers", true);
       this.codemirror.setValue(this.prefix + sample + this.suffix);
-      const commentStartLineNo = findComment(this.codemirror, "sampleStart");
-      const commentEndLineNo = findComment(this.codemirror, "sampleEnd");
+
       this.codemirror.markText({
           line: 0,
           ch: 0
         },
         {
-          line: commentStartLineNo + 1,
+          line: countLines(this.prefix),
           ch: 0
         },
         {
@@ -115,7 +102,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
         }
       );
       this.codemirror.markText({
-          line: commentEndLineNo - 1,
+          line: this.codemirror.lineCount() - countLines(this.suffix) - 1,
           ch: null
         },
         {
