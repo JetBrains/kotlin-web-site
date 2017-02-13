@@ -30,7 +30,7 @@
   
  * [Dubai Kotlin User Group](mailto:nimtiazm@gmail.com), United Arab Emirates
  * [Japan Kotlin User Group](https://kotlin.connpass.com/), Japan
- * [Hyderabad Kotlin User Group](mailto:srikanthreddy29@hotmail.com), India
+ * [Hyderabad Kotlin User Group](https://www.facebook.com/KotlinHyd/), India
  * [Karachi Kotlin User Group](mailto:nimtiazm@gmail.com), Pakistan
  * [Korean Kotlin User Group](http://kotlin.kr/), Korea
  * [New Delhi Kotlin User Group](https://www.facebook.com/kotlinNewDelhi/), India
