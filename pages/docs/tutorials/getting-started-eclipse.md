@@ -15,7 +15,7 @@ download from the [download page](https://www.eclipse.org/downloads/). The "Ecli
 We recommend installing Kotlin plugin from [Eclipse Marketplace](http://marketplace.eclipse.org/content/kotlin-plugin-eclipse). 
 One option is to drag-and-drop this button into a running Eclipse window:
 
-<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=2257536" class="drag" title="Drag to your running Eclipse workspace to install Kotlin Plugin for Eclipse"><img src="http://marketplace.eclipse.org/sites/all/themes/solstice/_themes/solstice_marketplace/public/images/btn-install.png" alt="Drag to your running Eclipse workspace to install Kotlin Plugin for Eclipse" /></a> 
+<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=2257536" class="drag" title="Drag to your running Eclipse workspace."><img class="img-responsive" src="http://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse workspace." /></a>
 
 Alternatively, use the *Help -> Eclipse Marketplace...* menu and search for Kotlin plugin: 
 
