@@ -127,6 +127,10 @@ class ExecutableFragment extends ExecutableCodeTemplate {
         }
       );
     }
+
+    for (let i =0; i < this.codemirror.lineCount(); i++) {
+      this.codemirror.indentLine(i)
+    }
   }
 
   onFoldButtonMouseEnter() {
@@ -235,12 +239,29 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       mode: 'text/x-kotlin',
       indentUnit: 4,
       viewportMargin: Infinity,
-      smartIndent: false,
       gutters: [
         "errors-and-warnings-gutter",
         "CodeMirror-foldgutter"
       ]
     });
+
+    if (window.navigator.appVersion.indexOf("Mac") != -1) {
+      this.codemirror.setOption("extraKeys", {
+        "Cmd-Alt-L": "indentAuto",
+        "Shift-Tab": "indentLess",
+        "Ctrl-/": "toggleComment",
+        "Cmd-[": false,
+        "Cmd-]": false
+      })
+    } else {
+      this.codemirror.setOption("extraKeys", {
+        "Ctrl-Alt-L": "indentAuto",
+        "Shift-Tab": "indentLess",
+        "Ctrl-/": "toggleComment",
+        "Ctrl-[": false,
+        "Ctrl-]": false
+      })
+    }
 
     this.codemirror.on("change", codemirror => {
       this.removeStyles()
