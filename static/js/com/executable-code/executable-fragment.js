@@ -88,12 +88,11 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       this.initializeCodeMirror();
       this.initialized = true;
     } else {
+      this.showDiagnostics(state.errors);
       if (state.folded === undefined) {
         return
       }
     }
-
-    this.showDiagnostics(state.errors);
 
     if (this.state.folded) {
       this.codemirror.setOption("lineNumbers", false);
