@@ -41,7 +41,7 @@ var webpackConfig = {
       },
       {
         test: /\.js$/,
-        loader: 'buble-loader',
+        loader: 'babel-loader',
         include: [
           './static/js'
         ]
@@ -97,7 +97,9 @@ var webpackConfig = {
     new Webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      'window.jQuery': 'jquery'
+      'window.jQuery': 'jquery',
+      fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+      Promise: 'imports?this=>global!exports?global.Promise!core-js/es6/promise'
     }),
 
     new WebpackExtractTextPlugin('[name].css'),
