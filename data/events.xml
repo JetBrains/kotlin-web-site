@@ -2,6 +2,311 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2017-02-27</startDate>
+        <endDate>2017-02-27</endDate>
+        <location>Wichelen, Belgium</location>
+        <subject>Kick-off Meeting</subject>
+        <title>Kotlin User Group Belgium</title>
+        <speaker>Guy Heylens</speaker>
+        <url>https://www.meetup.com/Kotlin-User-Group-Belgium/events/237336778/</url>
+        <description>
+            <![CDATA[
+<p>• 19:30 Intro</p>
+<p>• 20:00 Speaker</p>
+<p>• 21:00 Q&amp;A</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-02-23</startDate>
+        <endDate>2017-02-23</endDate>
+        <location>Toronto, ON</location>
+        <subject>Introduction to the the Kotlin programming language with Alberto Arias</subject>
+        <title>Toronto Java Users Group</title>
+        <speaker>Alberto Arias</speaker>
+        <url>https://www.meetup.com/Toronto-Java-Users-Group/events/235574761/</url>
+        <description>
+            <![CDATA[
+<p>Let's take a quick tour at the basic features of this modern, and pragmatic language for the JVM.
+Kotlin is an open-sourced statically-typed programming language created by JetBrains that targets the JVM or JavaScript; It’s designed to interoperate 100% with Java code easily, and allows gradual adoption.</p>
+<p>Content</p>
+<p>•&nbsp;Why kotlin?</p>
+<p>•&nbsp;Installation</p>
+<p>•&nbsp;The REPL</p>
+<p>•&nbsp;Data types and declaring variables</p>
+<p>•&nbsp;Loops and ranges</p>
+<p>•&nbsp;Control structures</p>
+<p>•&nbsp;OOP: Classes, Objects,</p>
+<p>•&nbsp;and Null safety</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-02-25</startDate>
+        <endDate>2017-02-25</endDate>
+        <location>Bangkok, Thailand</location>
+        <subject>Kotlin for Android</subject>
+        <title>TechAtAgoda #6: Let's talk Mobile</title>
+        <speaker>Tomasz Morcinek</speaker>
+        <url>https://www.meetup.com/TechAtAgoda/events/235480396/</url>
+        <description>
+            <![CDATA[
+<p>We are excited to invite you to our #6 meet-up that will be in mobile mark, we will share our mobile knowledge with you.This meet-up will be divided into 2 tracks, one will be about iOS and the other Android.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>de</lang>
+        <startDate>2017-03-29</startDate>
+        <endDate>2017-03-29</endDate>
+        <location>Bruhl, Germany</location>
+        <subject>Kotlin für den Build Master</subject>
+        <title>JavaLand 2017</title>
+        <speaker>Dirk Dittert</speaker>
+        <url>https://www.javaland.eu/de/home/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin ist eine statisch typisierte Programmiersprache für die Java VM, die sich für eine Vielzahl von Einsatzmöglichkeiten eignet  von der AndroidEntwicklung bis zum Gradle-Build-Skript. Für den Build Master lohnt es sich, einen Blick auf die Sprache zu werfen, da die täglichen Werkzeuge seit kurzem Kotlin unterstützen: Gradle 3 ermöglicht die Erstellung von Build-Skripten in Kotlin statt wie bisher in Groovy, wodurch z.B. wesentlich bessere Code-Vervollständigung in der IDE möglich wird. Aber auch Build-Konfigurationen für TeamCity können direkt mit Kotlin programmiert und in der Versionsverwaltung abgelegt werden.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>es</lang>
+        <startDate>2017-04-22</startDate>
+        <endDate>2017-04-22</endDate>
+        <location>Madrid, Spain</location>
+        <subject>Curso presencial: Kotlin para desarrolladores Android</subject>
+        <title>Kotlin para desarrolladores Android</title>
+        <speaker>Antonio Leiva</speaker>
+        <url>https://www.meetup.com/Kotlin-para-desarrolladores-Android/events/237392380/</url>
+        <description>
+            <![CDATA[
+<p>¡NUEVA EDICIÓN DEL CURSO PRESENCIAL!</p>
+<p>Aprende a crear una aplicación con Kotlin en un día.</p>
+<p>El único curso especializado para aprender Kotlin desde cero mientras desarrollas una aplicación Android</p>
+<p>En una jornada intensiva interiorizarás todos los conceptos del lenguaje necesarios para crear una app en Android.</p>
+<p>Puede que la idea de aprender un lenguaje nuevo te haga pensar que vas a tener que dedicar demasiadas horas a analizar y escribir código hasta dominarlo con un experto. Puede que te preguntes si merecerá la pena el esfuerzo. <br />Sin embargo, el caso de Kotlin es diferente. Es tan sencillo que un curso intensivo de un día es suficiente para conocer todos los conceptos que necesitas para crear tu primera app utilizando Kotlin como lenguaje principal. Te lo garantizo. Es así porque Kotlin ha sido ideado para facilitar la transición desde Java. <br />El tiempo que dediques a aprender el lenguaje será tiempo que ganarás en el desarrollo diario de tus proyectos utilizando Kotlin. <br />Porque los nuevos conceptos que introduce Kotlin te ahorrarán líneas de código innecesarias y te darán soluciones impensables con Java a día de hoy.</p>
+<p> <br />Las compañías tecnológicas ya han empezado a utilizar Kotlin para desarrollar sus aplicaciones porque es un lenguaje maduro, que se integra a la perfección con Android Studio, es estable y seguro. <br />Dominarlo te permitirá situarte a la vanguardia en el desarrollo de apps Android. Cuando la demanda sea masiva estarás preparado para aprovechar las oportunidades profesionales.</p>
+<p>Con Kotlin for Android Developers aprenderás en un día:</p>
+<p>- A crear una App desde cero utilizando Kotlin: Todos los conceptos básicos necesarios para crear una app.</p>
+<p>- A aplicar el lenguaje a Android: Las características exclusivas para Android y la interacción con el framework.</p>
+<p>- A utilizar las herramientas de desarrollo: Aprenderás a integrar Kotlin en Android Studio y a utilizarlo en tus proyectos.</p>
+<p>- De forma cien por cien práctica: A partir de ejemplos y escribiendo código.</p>
+<p>- En un grupo reducido: Seremos un máximo de 15 personas, para poder dedicarte tiempo individualizado.</p>
+<p>REQUISITOS: Fluidez con el Framework de Android y portátil propio con la última versión estable de Android Studio.</p>
+<p>El acceso al curso presencial incluye nueve horas intensivas de formación presencial en las que aprenderás a crear una App con Kotlin desde cero.</p>
+<p>Y además recibirás de forma gratuita…</p>
+<p>- El libro en papel Kotlin for Android Developers (in inglés) (29€) <br />- Soporte por email durante un mes (97€) <br />- Acceso a mi comunidad privada de desarrolladores de Facebook (97€) <br />- El curso online Superpoderes para convertirte en un Desarrollador de Éxito (47€)</p>
+<p>Me llamo Antonio Leiva, soy Android Engineer.</p>
+<p>Desde que descubrí Kotlin en 2015 me he dedicado a exprimirlo al máximo para volcar todo su potencial en el desarrollo de aplicaciones para Android.</p>
+<p>Mi objetivo con este curso es trasladarte esos conocimientos, mostrarte cómo utilizar Kotlin en un entorno Android en nueve horas de formación intensiva para que puedas mejorar tu productividad, saltar los límites de otros lenguajes y destacar como desarrollador aplicando un código moderno, sencillo y funcional.</p>
+<p>Más información: <a href="https://devexperto.com/kotlin-desarrolladores-android-presencial/" class="linkified">https://devexperto.com/kotlin-desarrolladores-android-presencial/</a></p>
+</div>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>es</lang>
+        <startDate>2017-02-10</startDate>
+        <endDate>2017-02-14</endDate>
+        <location>La Paz, Bolivia</location>
+        <subject>Kotlin en Acción</subject>
+        <title>Kotlin en Acción para Android Developers</title>
+        <speaker>Armando Picon, Lima Perú</speaker>
+        <url>http://mice.easybranches.com/event/19622</url>
+        <description>
+            <![CDATA[
+<p>Este taller está diseñado para introducir a los desarrolladores android en el uso de este lenguaje de programación. Se hará un repaso de los conceptos básicos del lenguaje y cómo estos pueden aplicarse en el desarrollo de aplicaciones Android.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>pl</lang>
+        <startDate>2017-02-23</startDate>
+        <endDate>2017-02-23</endDate>
+        <location>Katowice, Poland</location>
+        <subject>Kotlin: Customer Review</subject>
+        <title>Functional Miners - 02.2017</title>
+        <speaker>Mateusz Sulima</speaker>
+        <url>https://www.meetup.com/Functional-Miners/events/237320978/</url>
+        <description>
+            <![CDATA[
+<p>Chciałbym przedstawić mocne i słabe strony Kotlina zauważone po pół roku korzystania na produkcji. Szczególnie skupię się na porównaniu do jego bliskich krewnych - Javy i Scali.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>de</lang>
+        <startDate>2017-03-29</startDate>
+        <endDate>2017-03-29</endDate>
+        <location>Bruhl, Germany</location>
+        <subject>Java 6++: Moderne Android-Entwicklung mit Kotlin</subject>
+        <title>JavaLand 2017</title>
+        <speaker>Benjamin Schmid</speaker>
+        <url>https://www.javaland.eu/de/home/</url>
+        <description>
+            <![CDATA[
+<p>Android-Entwickler können nur sehnsüchtig seufzen: Die neuen Möglichkeiten aus Java 8 wie funktionale Programmierung, Lambdas oder Streams bleiben ihnen noch vorenthalten. Grund: Die Android-Plattform steckt weitgehend noch auf Java 6 fest. Abhilfe schafft hier die JVM-Sprache Kotlin, die nach über fünf Jahren Entwicklung mittlerweile die stabile Version 1.0 erreicht hat. Kotlin verspricht nicht nur weniger Boilerplate Code dank einer ausdrucksstarken und gut lesbaren Syntax mit funktionalen Features. Nein - eine vollständige Binärkompatibilität mit Java 6, die nahtlose Interoperabilität mit bestehenden Java-Code und eine enge Integration in die Android Studio IDE machen Kotlin auch für die moderne Android-Entwicklung zu einer idealen Alternative.</p>
+<p>In dieser Session erleben wir live, wie es sich anfühlt, der NullpointerException auf Nimmerwiedersehen zu sagen und sie in für die App-Entwicklung gegen funktionale Features, Dataclasses und Extension-Methods einzutauschen. Eine kleine Beispiel-App hilft beim Kennenlernen und vermittelt lebendige Eindrücke, sodass auch Android-Neulinge gut folgen können. Tools wie wie Anko und die Kotlin Android Extensions unterstützen beim Bändigen des Android SDK. Am Ende konnten wir hoffentlich nicht nur viel Lust und Inspiration auf eigene Experimente und Versuche anregen, sondern auch interessante Einblicke in die Programmiersprache sowie ihren Einsatz unter Android im Speziellen mitnehmen.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>pl</lang>
+        <startDate>2017-03-31</startDate>
+        <endDate>2017-03-31</endDate>
+        <location>Leipzig, Germany</location>
+        <subject>Kotlin in Practice</subject>
+        <title>JUG SAXONY CAMP Leipzig 2017</title>
+        <speaker>Philipp Hauer</speaker>
+        <url>https://leipzig.jugsaxony.camp/schedule/kotlin-in-practice/</url>
+        <description>
+            <![CDATA[
+<p>We speak about the introduction of Kotlin at Spreadshirt and the experience we made with this great language. We show how the development with popular frameworks (like Spring, Jackson and Vaadin) can benefit from Kotlin.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-04-05</startDate>
+        <endDate>2017-04-07</endDate>
+        <location>Paris, France</location>
+        <subject>Let's go to discover Kotlin!</subject>
+        <title>Devoxx France, Mounir Boudraa</title>
+        <speaker>David Wursteisen</speaker>
+        <url>http://cfp.devoxx.fr/2017/talk/ICW-0992/A_la_decouverte_de_Kotlin</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is between Java and Scala : more powerfull than Java with immutable class, extensions method, and other features, without be as complex as Scala.
+While building an interactive movie catalogues, discover with us major Kotlin features, Java integration, how Kotlin can be a productive language and how it help you to be more productive.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-04-26</startDate>
+        <endDate>2017-04-29</endDate>
+        <location>Bristol, UK</location>
+        <subject>An introduction to Kotlin by example</subject>
+        <title>ACCU 2017</title>
+        <speaker>Dmitry Kandalov</speaker>
+        <url>https://conference.accu.org/site/index.html</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a new programming language for the JVM (and JavaScript VM) by JetBrains. It is a statically typed language designed to include the most pragmatic features from Java, Groovy, C# and Scala. Kotlin is what Java 9 should have been in an ideal world.</p>
+<p>This session is an overview of Kotlin features using code examples and comparison with other JVM languages. The idea is to move from compiling and running "hello world" to more advanced examples, encounter some Kotlin puzzlers along the way and finish with actual program written in Kotlin
+(most likely Snake game).<p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-03-09</startDate>
+        <endDate>2017-03-10</endDate>
+        <location>Tokyo, Japan</location>
+        <subject>解剖 Kotlin ~バイトコードを読み解く~</subject>
+        <title>DroidKaigi 2017</title>
+        <speaker>Toshihiro Yagi</speaker>
+        <url>https://droidkaigi.github.io/2017/en/timetable.html</url>
+        <description>
+            <![CDATA[
+<p>Kotlinの特徴的な機能としてnull許容型や関数型や拡張関数などがよく取り沙汰されます。null安全だとか高階関数で簡潔に記述だとか拡張関数便利最高といった話は枚挙に暇がありません。確かに言語機能としていろいろとJavaに比べて便利なのは分かるんだけど、でもまぁ別にJavaを使っていてクリティカルに困っているわけではないしな〜学習コストとかチームへの導入コストを考えるとそこまで旨味を感じられるわけでもないしな〜みたいなそんな気分。わかります。
+本セッションではKotlinのコードをコンパイルして得られるJavaバイトコードを、可読化したりデコンパイルする事によって、Kotlinの特徴的な言語機能がJavaでどのように表現されているかを読み解いていきます。これによりKotlinが肩代わりしてくれるボイラープレートコード群を明らかにします。Kotlinを使うことで省略できたボイラープレートコードが可読性をどのように高め、設計に影響を与えるのかについても言及します。
+目次案<p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-03-09</startDate>
+        <endDate>2017-03-10</endDate>
+        <location>Tokyo, Japan</location>
+        <subject>Kotlin + RxJava + Dagger2 + Orma + Retrofit で作るAndroidアプリ</subject>
+        <title>DroidKaigi 2017</title>
+        <speaker>Aizawa lvla</speaker>
+        <url>https://droidkaigi.github.io/2017/en/timetable.html</url>
+        <description>
+            <![CDATA[
+<p>これらを利用したAndroidアプリケーションの作り方を紹介したいと思います。
+目次(予定)</p>
+<p>- 各ソフトウェア軽い紹介
+    <p>- Kotlin?</p>
+    <p>- RxJava?</p>
+    <p>- Dagger2?</p>
+    <p>- Orma?</p>
+    <p>- Retrofit?<p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-03-09</startDate>
+        <endDate>2017-03-10</endDate>
+        <location>Tokyo, Japan</location>
+        <subject>Kotlinを始めようハンズオン</subject>
+        <title>DroidKaigi 2017</title>
+        <speaker>長澤太郎 @ngsw_taro</speaker>
+        <url>https://droidkaigi.github.io/2017/en/timetable.html</url>
+        <description>
+            <![CDATA[
+<p>新しいプログラミング言語のKotlin（ことりん）を使ったAndroidプログラミングのハンズオンです。長らく（特に）Androidエンジニアの注目を集めていたKotlinですが、今年2月に念願のver1.0のリリースと7月に日本初の書籍の出版があり、今非常に勢いのある言語です。<p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-04-20</startDate>
+        <endDate>2017-04-20</endDate>
+        <location>Berlin, Germany</location>
+        <subject>Monthly Kotlin users get-together</subject>
+        <title>Kotlin user group Berlin</title>
+        <speaker>Bas Cancrinus</speaker>
+        <url>https://www.meetup.com/kotlin-berlin/events/237149856/</url>
+        <description>
+            <![CDATA[
+<p>We're getting together in an informal setting to share our knowledge of Kotlin and catch up. Please step up when you're willing to present something you've done with Kotlin. Don't be shy :-)<p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-02-20</startDate>
+        <endDate>2017-02-20</endDate>
+        <location>Tokyo, Japan</location>
+        <subject>【東京】JJUG ナイト・セミナー 「Kotlin（ことりん）</subject>
+        <title>Japan Java User Group</title>
+        <speaker>長澤 太郎</speaker>
+        <url>https://jjug.doorkeeper.jp/events/57443</url>
+        <description>
+            <![CDATA[
+<p>ここ数年、注目を集めているJVM言語 Kotlin（ことりん）をテーマに開催します。
+JJUGナイトセミナーとしてKotlinを取り上げるのは今回が初めて</p>
+<p>Kotlinは、IntelliJ IDEAなどのIDEでおなじみのJetBrainsにより開発されているプログラミング言語です。
+Java言語が動く環境を主要なターゲットとしており、その活躍の幅はサーバサイド、デスクトップ、モバイルなど多岐へ渡ります。
+近日リリース予定のバージョン1.1やSpring frameworkのKotlinサポートなど、今ホットな言語であると言えるでしょう。</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-07</startDate>
+        <endDate>2017-03-07</endDate>
+        <location>Nürnberg, Germany</location>
+        <subject>Kotlin Talk</subject>
+        <title>Android Developer Group Nürnberg</title>
+        <speaker>Nino Handler</speaker>
+        <url>https://www.meetup.com/Nurnberg-Android-Meetup/events/237308908/</url>
+        <description>
+            <![CDATA[
+<p>This time we will be talking about Kotlin. And I'm not talking about the Russian island  and I won't either compare it to the Indonesian island Java, but talk about both as a language. I recently started learning Kotlin and my talk will introduce you to my first month with Kotlin, things I liked and things I really didn't understand. <p>
+<p>I'm currently also trying to get a second speaker from the Kotlin community with more experience who might either substitute me or dive deeper into this language with us. In any case, there will be giveaways for Kotlin fans.<p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
         <startDate>2017-04-21</startDate>
         <endDate>2017-04-22</endDate>
         <location>St.Petersburg, Russia</location>
