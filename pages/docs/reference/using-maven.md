@@ -15,7 +15,7 @@ Define the version of Kotlin you want to use via a *kotlin.version* property:
 
 ``` xml
 <properties>
-    <kotlin.version>1.0.6</kotlin.version>
+    <kotlin.version>{{ site.data.releases.latest.version }}</kotlin.version>
 </properties>
 ```
 
