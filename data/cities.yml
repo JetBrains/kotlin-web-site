@@ -1,4 +1,24 @@
 - geo:
+    lat: 51.454513
+    lng: -2.58791
+  name: Bristol, UK
+- geo:
+    lat: 51.3396955
+    lng: 12.3730747
+  name: Leipzig, Germany
+- geo:
+    lat: 50.26489189999999
+    lng: 19.0237815
+  name: Katowice, Poland
+- geo:
+    lat: -16.489689
+    lng: -68.11929359999999
+  name: La Paz, Bolivia
+- geo:
+    lat: 51.0048208
+    lng: 3.97358
+  name: Wichelen, Belgium
+- geo:
     lat: -19.9245018
     lng: -43.93523760000001
   name: Belo Horizonte, Brazil

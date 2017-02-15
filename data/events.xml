@@ -1,6 +1,41 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>it</lang>
+        <startDate>2017-01-26</startDate>
+        <endDate>2017-01-26</endDate>
+        <location>Bologna, Italy</location>
+        <subject>Two months of Kotlin</subject>
+        <title>GDG Bologna</title>
+        <speaker>Erik Minarini</speaker>
+        <url>https://www.facebook.com/events/603061773232950/?active_tab=about</url>
+        <content>
+            <slides>https://docs.google.com/presentation/d/1Z2hRj-xe8CTL2yCTo-eg6Uywn5tUoD8Sq9KDFx_KgUo/edit#slide=id.p</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p>Kotlin é un linguaggio conciso e sicuro che puó essere usato come alternativa a Java o al fianco di esso nello sviluppo di applicazioni Android native.
+Questo talk tratta del primo impatto che ho avuto con questo linguaggio dopo averlo utilizzato per più di due mesi, dei suoi pregi e del perché esso stia prendendo sempre piú piede.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-02-16</startDate>
+        <endDate>2017-02-16</endDate>
+        <location>Boston, MA, USA</location>
+        <subject>Functional Reactive Programming with Kotlin</subject>
+        <title>Mobile Tea #14: Mobile and the City</title>
+        <speaker>Giorgio Natili</speaker>
+        <url>https://www.meetup.com/mobiletea/events/237419326/</url>
+        <description>
+            <![CDATA[
+<p>Reactive programming is a paradigm oriented around data flows and propagation of changes. Kotlin is a programming language intended to be a better Java, and it's designed to be usable and readable across large teams with skill and discipline variances. Despite its object-oriented building blocks, Kotlin fits well in the functional reactive programming landscape. In this essay, I will deep-dive into the most relevant aspects of FRP in Kotlin focusing on the advantages that everyone can get when using this approach to build an Android app.
+(speech level: intermediate; duration: 20 minutes)</p>
+]]>
+        </description>
+    </event>
+    <event>
         <lang>en</lang>
         <startDate>2017-02-27</startDate>
         <endDate>2017-02-27</endDate>
@@ -21,7 +56,7 @@
         <lang>en</lang>
         <startDate>2017-02-23</startDate>
         <endDate>2017-02-23</endDate>
-        <location>Toronto, ON</location>
+        <location>Toronto, Canada</location>
         <subject>Introduction to the the Kotlin programming language with Alberto Arias</subject>
         <title>Toronto Java Users Group</title>
         <speaker>Alberto Arias</speaker>
@@ -61,7 +96,7 @@ Kotlin is an open-sourced statically-typed programming language created by JetBr
         <lang>de</lang>
         <startDate>2017-03-29</startDate>
         <endDate>2017-03-29</endDate>
-        <location>Bruhl, Germany</location>
+        <location>Brühl, Germany</location>
         <subject>Kotlin für den Build Master</subject>
         <title>JavaLand 2017</title>
         <speaker>Dirk Dittert</speaker>
@@ -141,7 +176,7 @@ Kotlin is an open-sourced statically-typed programming language created by JetBr
         <lang>de</lang>
         <startDate>2017-03-29</startDate>
         <endDate>2017-03-29</endDate>
-        <location>Bruhl, Germany</location>
+        <location>Brühl, Germany</location>
         <subject>Java 6++: Moderne Android-Entwicklung mit Kotlin</subject>
         <title>JavaLand 2017</title>
         <speaker>Benjamin Schmid</speaker>
@@ -174,8 +209,8 @@ Kotlin is an open-sourced statically-typed programming language created by JetBr
         <endDate>2017-04-07</endDate>
         <location>Paris, France</location>
         <subject>Let's go to discover Kotlin!</subject>
-        <title>Devoxx France, Mounir Boudraa</title>
-        <speaker>David Wursteisen</speaker>
+        <title>Devoxx France</title>
+        <speaker>David Wursteisen, Mounir Boudraa</speaker>
         <url>http://cfp.devoxx.fr/2017/talk/ICW-0992/A_la_decouverte_de_Kotlin</url>
         <description>
             <![CDATA[
