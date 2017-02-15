@@ -11,25 +11,13 @@ description: "This tutorials walks you through different scenarios when using Ma
 
 The *kotlin-maven-plugin* compiles Kotlin sources and modules. Currently only Maven v3 is supported.
 
-Define the version of Kotlin you want to use via *kotlin.version*. The correspondence between Kotlin releases and versions is displayed below:
+Define the version of Kotlin you want to use via a *kotlin.version* property:
 
-<table>
-<thead>
-<tr>
-  <th>Milestone</th>
-  <th>Version</th>
-</tr>
-</thead>
-<tbody>
-{% for entry in site.data.releases.list %}
-<tr>
-  <td>{{ entry.milestone }}</td>
-  <td>{{ entry.version }}</td>
-</tr>
-{% endfor %}
-</tbody>
-</table>
-
+``` xml
+<properties>
+    <kotlin.version>{{ site.data.releases.latest.version }}</kotlin.version>
+</properties>
+```
 
 ## Dependencies
 
