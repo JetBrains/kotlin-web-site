@@ -102,6 +102,22 @@ def add_data_to_context():
     }
 
 
+@app.context_processor
+def override_url_for():
+    if path.exists(path.join(root_folder, 'build.txt')):
+        return {'url_for': versioned_url_for}
+    else:
+        return {}
+
+
+def versioned_url_for(endpoint, **values):
+    if endpoint == 'static':
+        with open(path.join(root_folder, 'build.txt')) as version_file:
+            values['build'] = version_file.readlines()
+            return url_for(endpoint, **values)
+    return url_for(endpoint, **values)
+
+
 @app.route('/data/events.json')
 def get_events():
     with open(path.join(data_folder, "events.xml")) as events_file:
