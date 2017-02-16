@@ -104,17 +104,13 @@ def add_data_to_context():
 
 @app.context_processor
 def override_url_for():
-    if path.exists(path.join(root_folder, 'build.txt')):
-        return {'url_for': versioned_url_for}
-    else:
-        return {}
+    return {'url_for': versioned_url_for}
 
 
 def versioned_url_for(endpoint, **values):
-    if endpoint == 'static':
-        with open(path.join(root_folder, 'build.txt')) as version_file:
-            values['build'] = version_file.readlines()
-            return url_for(endpoint, **values)
+    if 'BUILD_NUMBER' in os.environ and endpoint == 'static':
+        values['build'] = os.environ['BUILD_NUMBER']
+        return url_for(endpoint, **values)
     return url_for(endpoint, **values)
 
 
