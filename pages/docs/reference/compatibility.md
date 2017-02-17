@@ -53,8 +53,8 @@ Compatibility is a function of a pair of versions, e.g. we can speak of compatib
 ## Compatibility guarantees for Kotlin releases
 
 **Kotlin for JVM**:
-  - patch updates are fully compatible
-  - minor version updates are backwards compatible
+  - patch version updates (e.g. 1.1.X) are fully compatible
+  - minor version updates (e.g. 1.X) are backwards compatible
 
 | JVM  | 1.0 | 1.0.X | 1.1 | 1.1.X | ... | 2.0 |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
