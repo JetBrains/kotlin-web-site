@@ -111,4 +111,33 @@ When a big team is migrating onto a new version, it may appear in a "inconsisten
 
 ## Binary compatibility warnings
 
-TODO
+If you use the NV Kotlin compiler and have the OV standard library or the OV reflection library in the classpath, it can be a sign that the project is misconfigured.
+To prevent unexpected problems during compilation or at runtime, we suggest either updating the dependencies to NV, or specifying the API version / language version arguments explicitly.
+Otherwise we detect that something can go wrong and report a warning during compilation.
+
+For example if OV = 1.0 and NV = 1.1, you can observe one of the following warnings:
+
+```
+Runtime JAR files in the classpath have the version 1.0, which is older than the API version 1.1. Consider using the runtime of version 1.1, or pass '-api-version 1.0' explicitly to restrict the available APIs to the runtime of version 1.0.
+```
+
+This means that you're using the Kotlin compiler 1.1 against the standard or reflection library of version 1.0. This can be handled in a few ways, depending on the scenario:
+* If you intend to use the APIs from the 1.1 standard library, or language features that depend on those APIs, you should upgrade the dependency to the version 1.1.
+* If you want to keep your library compatible with the 1.0 standard library, you can pass `-api-version 1.0`.
+* If you've just upgraded to Kotlin 1.1 but may not use new language features yet because not all your teammates have upgraded, you can pass `-language-version 1.0`, which will restrict all APIs and language features to Kotlin 1.0.
+
+```
+Runtime JAR files in the classpath should have the same version. These files were found in the classpath:
+    kotlin-reflect.jar (version 1.0)
+    kotlin-runtime.jar (version 1.1)
+Consider providing an explicit dependency on kotlin-reflect 1.1 to prevent strange errors
+Some runtime JAR files in the classpath have an incompatible version. Consider removing them from the classpath
+```
+
+This means that you have a dependency on libraries of different versions, for example the 1.1 standard library and the 1.0 reflection library. To prevent subtle errors at runtime, we recommend you to use the same version of all Kotlin libraries. In this case, consider adding an explicit dependency on the 1.1 reflection library.
+
+```
+Some JAR files in the classpath have the Kotlin Runtime library bundled into them. This may cause difficult to debug problems if there's a different version of the Kotlin Runtime library in the classpath. Consider removing these libraries from the classpath
+```
+
+This means that there's a library in the classpath which does not depend on the Kotlin standard library as a Gradle/Maven dependency, but is distributed in one artifact with it (has it _bundled_). Such library is dangerous because standard build tools do not consider it an instance of the Kotlin standard library, thus it's not subject to the dependency version resolution mechanisms, and you can end up with several versions of the same library in the classpath. Consider contacting the authors of such a library and suggesting to use the Gradle/Maven dependency instead.
