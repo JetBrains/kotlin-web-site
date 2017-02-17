@@ -1,6 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>en</lang>
+        <startDate>2017-02-19</startDate>
+        <endDate>2017-02-19</endDate>
+        <location>New Delhi, India</location>
+        <subject>Faster development using Anko on Kotlin</subject>
+        <title>GDG New Delhi</title>
+        <speaker>Vatsal Bajpai</speaker>
+        <url>https://www.facebook.com/events/1019607468183347/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+    <event>
         <lang>it</lang>
         <startDate>2017-01-26</startDate>
         <endDate>2017-01-26</endDate>
