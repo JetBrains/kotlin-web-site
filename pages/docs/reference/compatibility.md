@@ -11,7 +11,7 @@ This page describes compatibility guarantees for different versions and subsyste
 
 ## Compatibility glossary
 
-Compatibility if a function of a pair of versions, e.g. we can speak of compatibility between versions 1.2 and 1.1.5. In such a pair, one version is *older* than another when its smaller wrt version comparison, e.g. 1.1.5 is older than 1.2, even if it was released later. In the list below we explain available compatibility modes for such pairs of versions. We use OV for "Older Version", and NV for "Newer Version". 
+Compatibility is a function of a pair of versions, e.g. we can speak of compatibility between versions 1.2 and 1.1.5. In such a pair, one version is *older* than another when its smaller wrt version comparison, e.g. 1.1.5 is older than 1.2, even if it was released later. In the list below we explain available compatibility modes for such pairs of versions. We use OV for "Older Version", and NV for "Newer Version". 
 
 - **C** - Full **C**ompatibility
   - Language
@@ -92,7 +92,7 @@ Experimental features, such as coroutines in Kotlin 1.1, have exemption from the
 
 We publish Early Access Preview (EAP) builds to special channels where early adopters from the community may try them out and give us feedback. Such builds provide no compatibility guarantees whatsoever (although we do our best to keep them reasonable compatible with releases and with each other). Quality expectations for such builds are also much lower than for releases. Beta builds also fall under this category.
 
-**IMPORTANT NOTE**: all binaries compiled by EAP builds are **rejected by release builds of the compiler**. We don't want any code compiled by pre-release versions to be kept around after a stable version is released. 
+**IMPORTANT NOTE**: all binaries compiled by EAP builds for BCB-version (e.g. 1.1-eap-X) are **rejected by release builds of the compiler**. We don't want any code compiled by pre-release versions to be kept around after a stable version is released. 
 
 ## Compatibility modes
 
