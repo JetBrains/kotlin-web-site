@@ -2,8 +2,8 @@
 
 <div class="executable-fragment-wrapper">
     <div class="executable-fragment">
-        <div class="code-area">
-            <div class="fold-button {{ folded ? '_folded' : '_unfolded' }} {{ foldButtonHover ? '_hover' : '' }}"
+        <div class="code-area {{ folded ? '_folded' : '_unfolded' }}">
+            <div class="fold-button {{ foldButtonHover ? '_hover' : '' }}"
                 :onmouseenter={{ this.onFoldButtonMouseEnter.bind(this) }}
                 :onmouseleave={{ this.onFoldButtonMouseLeave.bind(this) }}>
             </div>
