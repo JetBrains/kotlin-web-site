@@ -151,6 +151,8 @@ reference:
           title: API Reference
         - url: /docs/reference/grammar.html
           title: Grammar
+      - url: /docs/reference/compatibility.html
+        title: Compatibility
 
 
     - title: Java Interop
