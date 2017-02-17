@@ -98,7 +98,7 @@ Experimental features, such as coroutines in Kotlin 1.1, have exemption from the
 
 ## EAP builds
 
-We publish Early Access Preview (EAP) builds to special channels where early adopters from the community may try them out and give us feedback. Such builds provide no compatibility guarantees whatsoever (although we do our best to keep them reasonable compatible with releases and with each other). Quality expectations for such builds are also much lower than for releases. Beta builds also fall under this category.
+We publish Early Access Preview (EAP) builds to special channels where early adopters from the community may try them out and give us feedback. Such builds provide no compatibility guarantees whatsoever (although we do our best to keep them reasonably compatible with releases and with each other). Quality expectations for such builds are also much lower than for releases. Beta builds also fall under this category.
 
 **IMPORTANT NOTE**: all binaries compiled by EAP builds for BCB-version (e.g. 1.1-eap-X) are **rejected by release builds of the compiler**. We don't want any code compiled by pre-release versions to be kept around after a stable version is released. 
 
