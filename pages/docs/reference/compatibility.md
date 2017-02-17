@@ -77,6 +77,14 @@ Compatibility is a function of a pair of versions, e.g. we can speak of compatib
 
 **Kotlin Scripts**: both patch and minor version updates provide backward compatibility for the language (BCL), but no BCB.
 
+## Compatibility across platforms
+ 
+Kotlin is available for several platforms (JVM/Android, JavaScript and the upcoming native platforms). Every platform has its own peculiarities (e.g. JavaScript has no proper integers), so we have to adapt the language accordingly. Our goal is not to provide reasonable code portability without sacrificing too much.
+  
+Every platform may feature specific language extensions (such as platform types for JVM and dynamic types for JavaScript) or restrictions (e.g. some overloading-related restrictions on  the JVM), but the core language remains the same. 
+
+The Standard Library provides a core API available on all platforms, and we strive to make these APIs work in the same way on every platform. Along with these, the Standard Library provides platform-specific extensions (e.g. `java.io` for JVM, or `js()` for JavaScript), plus some APIs that can be called uniformly, but work differently (such as regular expressions for JVM and JavaScript).    
+
 ## Experimental features
 
 Experimental features, such as coroutines in Kotlin 1.1, have exemption from the compatibility modes listed above. Such features require an opt-in to use without compiler warning. Experimental features are at least backwards compatible for patch version updates, but we do guarantee no compatibility for minor version updates (migration aids will be provided where possible).    
