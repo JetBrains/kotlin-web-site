@@ -129,7 +129,7 @@ This means that you're using the Kotlin compiler 1.1 against the standard or ref
 ```
 Runtime JAR files in the classpath should have the same version. These files were found in the classpath:
     kotlin-reflect.jar (version 1.0)
-    kotlin-runtime.jar (version 1.1)
+    kotlin-stdlib.jar (version 1.1)
 Consider providing an explicit dependency on kotlin-reflect 1.1 to prevent strange errors
 Some runtime JAR files in the classpath have an incompatible version. Consider removing them from the classpath
 ```
