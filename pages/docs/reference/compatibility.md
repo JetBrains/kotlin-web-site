@@ -11,7 +11,7 @@ This page describes compatibility guarantees for different versions and subsyste
 
 ## Compatibility glossary
 
-Compatibility is a function of a pair of versions, e.g. we can speak of compatibility between versions 1.2 and 1.1.5. In such a pair, one version is *older* than another when its smaller wrt version comparison, e.g. 1.1.5 is older than 1.2, even if it was released later. In the list below we explain available compatibility modes for such pairs of versions. We use OV for "Older Version", and NV for "Newer Version". 
+Compatibility means answering the question: for given two versions of Kotlin (for example, 1.2 and 1.1.5), can the code written for one version be used with another version? The list below explains the compatibility modes of different pairs of versions. Note that a version is older if it has a smaller version number (even if it was released later than the version with a larger version number). We use OV for "Older Version", and NV for "Newer Version". 
 
 - **C** - Full **C**ompatibility
   - Language
