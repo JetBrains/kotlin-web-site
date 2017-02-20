@@ -87,7 +87,7 @@ The Standard Library provides a core API available on all platforms, and we stri
 
 ## Experimental features
 
-Experimental features, such as coroutines in Kotlin 1.1, have exemption from the compatibility modes listed above. Such features require an opt-in to use without compiler warning. Experimental features are at least backwards compatible for patch version updates, but we do guarantee no compatibility for minor version updates (migration aids will be provided where possible).    
+Experimental features, such as coroutines in Kotlin 1.1, have exemption from the compatibility modes listed above. Such features require an opt-in to use without compiler warning. Experimental features are at least backwards compatible for patch version updates, but we do not guarantee any compatibility for minor version updates (migration aids will be provided where possible).    
 
 | EXP  | 1.1 | 1.1.X | 1.2 | 1.2.X | 
 |---:|:---:|:---:|:---:|:---:|
