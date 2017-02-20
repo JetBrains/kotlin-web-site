@@ -23,7 +23,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
   - Binaries (ABI)
     - runtime: binaries can be used interchangeably
     - compilation: binaries can be used interchangeably
-- **BCL** - **B**ackward **C**ompatibility for the **L**anguage
+- **BCLA** - **B**ackward **C**ompatibility for the **L**anguage and **A**PI
   - Language
     - syntax deprecated in OV may be removed in NV
     - other than that, all code compilable in OV is compilable by in NV (modulo bugs*)
@@ -34,12 +34,13 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
     - new APIs may be added
     - deprecations with level `WARNING` may be added/removed
     - deprecations with level `WARNING` may be elevated to level `ERROR` or `HIDDEN` in NV
-- **BCB** - Full **B**ackward **C**ompatibility for Binaries
+- **BCB** - **B**ackward **C**ompatibility for **B**inaries
   - Binaries (ABI)
     - runtime: NV-binaries can be used  everywhere where OV binaries worked
     - NV compiler: code compilable against OV binaries is compilable against NV binaries
     - OV compiler may not accept NV binaries (e.g. those that exhibit newer language features or APIs)
-- **BC** = BCL & BCB
+- **BC** - Full **B**ackward **C**ompatibility
+  - BC = BCLA & BCB
 - **EXP** - Experimental feature
   - see below
 - **NO** - No compatibility guarantees
@@ -65,17 +66,17 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
 | **...** | ... | ... | ... | ... | ... | ... |
 | **2.0** | ? | ? | ? | ? | ... | - 
 
-**Kotlin for JS**: starting with Kotlin 1.1, both patch and minor version updates provide backward compatibility for the language (BCL), but no BCB.  
+**Kotlin for JS**: starting with Kotlin 1.1, both patch and minor version updates provide backward compatibility for the language and API (BCLA), but no BCB.  
 
 | Kotlin  | 1.0.X | 1.1 | 1.1.X | ... | 2.0 |
 |---:|:---:|:---:|:---:|:---:|:---:|
 | **1.0.X** | - |  EXP | EXP | ... | EXP |
-| **1.1** | EXP |  - | BCL | ... | ?
-| **1.1.X** | EXP | BCL | - | .... | ?
+| **1.1** | EXP |  - | BCLA | ... | ?
+| **1.1.X** | EXP | BCLA | - | .... | ?
 | **...** | ... | ... | ... | ... | ... | ... |
 | **2.0** | EXP | ? | ? | ? | ... | - 
 
-**Kotlin Scripts**: both patch and minor version updates provide backward compatibility for the language (BCL), but no BCB.
+**Kotlin Scripts**: both patch and minor version updates provide backward compatibility for the language and API (BCLA), but no BCB.
 
 ## Compatibility across platforms
  
