@@ -56,7 +56,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
   - patch version updates (e.g. 1.1.X) are fully compatible
   - minor version updates (e.g. 1.X) are backwards compatible
 
-| JVM  | 1.0 | 1.0.X | 1.1 | 1.1.X | ... | 2.0 |
+| Kotlin  | 1.0 | 1.0.X | 1.1 | 1.1.X | ... | 2.0 |
 |---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **1.0** | - | C | BC | BC | ... | ? |
 | **1.0.X** | C | - | BC | BC | ... | ?
@@ -67,7 +67,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
 
 **Kotlin for JS**: starting with Kotlin 1.1, both patch and minor version updates provide backward compatibility for the language (BCL), but no BCB.  
 
-| JS  | 1.0.X | 1.1 | 1.1.X | ... | 2.0 |
+| Kotlin  | 1.0.X | 1.1 | 1.1.X | ... | 2.0 |
 |---:|:---:|:---:|:---:|:---:|:---:|
 | **1.0.X** | - |  EXP | EXP | ... | EXP |
 | **1.1** | EXP |  - | BCL | ... | ?
@@ -89,7 +89,7 @@ The Standard Library provides a core API available on all platforms, and we stri
 
 Experimental features, such as coroutines in Kotlin 1.1, have exemption from the compatibility modes listed above. Such features require an opt-in to use without compiler warning. Experimental features are at least backwards compatible for patch version updates, but we do not guarantee any compatibility for minor version updates (migration aids will be provided where possible).    
 
-| EXP  | 1.1 | 1.1.X | 1.2 | 1.2.X | 
+| Kotlin  | 1.1 | 1.1.X | 1.2 | 1.2.X | 
 |---:|:---:|:---:|:---:|:---:|
 | **1.1** | - | BC | NO | NO  
 | **1.1.X** | BC | - | NO | NO
