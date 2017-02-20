@@ -79,7 +79,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
 
 ## Compatibility across platforms
  
-Kotlin is available for several platforms (JVM/Android, JavaScript and the upcoming native platforms). Every platform has its own peculiarities (e.g. JavaScript has no proper integers), so we have to adapt the language accordingly. Our goal is not to provide reasonable code portability without sacrificing too much.
+Kotlin is available for several platforms (JVM/Android, JavaScript and the upcoming native platforms). Every platform has its own peculiarities (e.g. JavaScript has no proper integers), so we have to adapt the language accordingly. Our goal is to provide reasonable code portability without sacrificing too much.
   
 Every platform may feature specific language extensions (such as platform types for JVM and dynamic types for JavaScript) or restrictions (e.g. some overloading-related restrictions on  the JVM), but the core language remains the same. 
 
