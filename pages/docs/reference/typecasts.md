@@ -57,7 +57,7 @@ or in the right-hand side of `&&` and `||`:
 ```
 
 
-Such _smart casts_ work for [*when*{: .keyword }-expressions](control-flow.html#when-expressions)
+Such _smart casts_ work for [*when*{: .keyword }-expressions](control-flow.html#when-expression)
 and [*while*{: .keyword }-loops](control-flow.html#while-loops) as well:
 
 ``` kotlin
@@ -80,7 +80,7 @@ More specifically, smart casts are applicable according to the following rules:
 ## "Unsafe" cast operator
 
 Usually, the cast operator throws an exception if the cast is not possible. Thus, we call it *unsafe*.
-The unsafe cast in Kotlin is done by the infix operator *as*{: .keyword } (see [operator precedence](grammar.html#operator-precedence)):
+The unsafe cast in Kotlin is done by the infix operator *as*{: .keyword } (see [operator precedence](grammar.html#precedence)):
 
 ``` kotlin
 val x: String = y as String

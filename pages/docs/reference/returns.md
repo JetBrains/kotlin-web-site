@@ -16,7 +16,7 @@ Kotlin has three structural jump operators
 ## Break and Continue Labels
 
 Any expression in Kotlin may be marked with a *label*{: .keyword }.
-Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#label)).
+Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#labelReference)).
 To label an expression, we just put a label in front of it
 
 ``` kotlin
