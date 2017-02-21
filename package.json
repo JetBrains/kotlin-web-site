@@ -47,6 +47,7 @@
     "whatwg-fetch": "2.0.2"
   },
   "devDependencies": {
+    "minimist": "1.2.0",
     "webpack-livereload-plugin": "0.4.0"
   },
   "repository": {

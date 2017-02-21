@@ -1,5 +1,4 @@
 const $ = require('jquery');
-const webDemoUrl = "kotlin-web-demo-cloud.passive.aws.intellij.net";
 
 function getExceptionCauses(exception) {
   if (exception.cause !== undefined && exception.cause != null) {
@@ -11,8 +10,8 @@ function getExceptionCauses(exception) {
 
 class WebDemoApi {
   static getCompilerVersion() {
-    return fetch(`http://${webDemoUrl}/kotlinServer?type=getKotlinVersions`)
-      .then(responce => responce.json())
+    return fetch(`${webDemoURL}/kotlinServer?type=getKotlinVersions`)
+      .then(response => response.json())
       .then(function (compilersConfigs) {
         let compilerVersion;
         compilersConfigs.forEach(function (configuration) {
@@ -46,10 +45,10 @@ class WebDemoApi {
     body.set('filename', "File.kt");
     body.set('project', projectJson);
 
-    return fetch(`http://${webDemoUrl}/kotlinServer?type=run&runConf=java`, {
+    return fetch(`${webDemoURL}/kotlinServer?type=run&runConf=java`, {
       method: 'POST',
       body: body
-    }).then(responce => responce.json()).then(function (data) {
+    }).then(response => response.json()).then(function (data) {
       let output;
       if (data.text !== undefined) {
         output = data.text.replace("<outStream>", "<span class=\"standard-output\">")

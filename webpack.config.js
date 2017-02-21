@@ -8,8 +8,11 @@ var WebpackExtractTextPlugin = require('extract-text-webpack-plugin');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 var extend = require('extend');
 var autoprefixer = require('autoprefixer');
+var parseArgs = require('minimist');
 
 var isProduction = process.env.NODE_ENV === 'production';
+var CLIArgs = parseArgs(process.argv.slice(2));
+var webDemoURL = CLIArgs['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
 
 var webpackConfig = {
   entry: {
@@ -100,6 +103,10 @@ var webpackConfig = {
       'window.jQuery': 'jquery',
       fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
       Promise: 'imports?this=>global!exports?global.Promise!core-js/es6/promise'
+    }),
+
+    new Webpack.DefinePlugin({
+      webDemoURL: JSON.stringify(webDemoURL)
     }),
 
     new WebpackExtractTextPlugin('[name].css'),
