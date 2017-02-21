@@ -65,6 +65,15 @@ EnumClass.values(): Array<EnumClass>
 The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
 not match any of the enum constants defined in the class.
 
+Since Kotlin 1.1, it's possible to access the constants in an enum class in a generic way, using
+the `values<T>()` and `valueOf<T>()` functions:
+
+``` kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+print(enumValues<RGB>().joinToString { it.name }) // prints RED, GREEN, BLUE
+```
+
 Every enum constant has properties to obtain its name and position in the enum class declaration:
 
 ``` kotlin
