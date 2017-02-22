@@ -466,12 +466,12 @@ Kotlin is an open-sourced statically-typed programming language created by JetBr
         </description>
     </event>
     <event>
-        <lang>pl</lang>
+        <lang>de</lang>
         <startDate>2017-03-31</startDate>
         <endDate>2017-03-31</endDate>
         <location>Leipzig, Germany</location>
         <subject>Kotlin in Practice</subject>
-        <title>JUG SAXONY CAMP Leipzig 2017</title>
+        <title>JUG Saxony Camp Leipzig 2017</title>
         <speaker>Philipp Hauer</speaker>
         <url>https://leipzig.jugsaxony.camp/schedule/kotlin-in-practice/</url>
         <description>
