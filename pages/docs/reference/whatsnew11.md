@@ -311,8 +311,12 @@ The `mod` operator is now deprecated, and `rem` is used instead. See [this issue
 There is a bunch of new extensions on the String class to convert it to a number without throwing an exception on invalid number:
 `String.toIntOrNull(): Int?`, `String.toDoubleOrNull(): Double?` etc.
 
+```
+val port = System.getenv("PORT")?.toIntOrNull() ?: 80
+```
+
 Also integer conversion functions, like `Int.toString()`, `String.toInt()`, `String.toIntOrNull()`,
-each got an overload with `radix` parameter, which allows to specify the base of conversion.
+each got an overload with `radix` parameter, which allows to specify the base of conversion (2 to 36).
 
 ### onEach()
 
@@ -321,9 +325,16 @@ possibly with side-effects, on each element of the collection/sequence in a chai
 On iterables it behaves like `forEach` but also returns the iterable instance further. And on sequences it returns a
 wrapping sequence, which applies the given action lazily as the elements are being iterated.
 
-### takeIf() and also()
+```
+inputDir.walk()
+        .filter { it.isFile && it.name.endsWith(".txt") }
+        .onEach { println("Moving $it to $outputDir") }
+        .forEach { moveFile(it, File(outputDir, it.toRelativeString(inputDir))) }
+```
 
-These are two general-purpose extension functions applicable to any receiver.
+### takeIf(), takeUnless() and also()
+
+These are three general-purpose extension functions applicable to any receiver.
  
 `also` is like `apply`: it takes the receiver, does some action on it, and returns that receiver. 
 The difference is that in the block inside `apply` the receiver is available as `this`, 
@@ -346,6 +357,17 @@ val index = input.indexOf(keyword).takeIf { it >= 0 } ?: error("keyword not foun
 // do something with index of keyword in input string, given that it's found
 ```
 
+`takeUnless` is the same as `takeIf`, but it takes the inverted predicate. It returns the receiver when it _doesn't_ meet the predicate and `null` otherwise. So one of the examples above could be rewritten with `takeUnless` as following:
+
+```
+val index = input.indexOf(keyword).takeUnless { it < 0 } ?: error("keyword not found")
+```
+
+It is also convenient to use when you have a callable reference instead of the lambda:
+
+```
+val notEmptyString = string.takeUnless(String::isEmpty)
+```
 
 ### groupingBy()
 
@@ -366,9 +388,26 @@ class ImmutablePropertyBag(map: Map<String, Any>) {
 }
 ```
 
+### Map.minus(key)
+
+The operator `plus` provides a way to add key-value pair(s) to a read-only map producing a new map, however there was not a simple way to do the opposite: to remove a key from the map you have to resort to less straightforward ways to like Map.filter() or Map.filterKeys().
+Now the operator `minus` fills this gap. There are 4 overloads available: for removing a single key, a collection of keys, a sequence of keys and an array of keys.
+
+```
+val map = mapOf("key" to 42)
+val emptyMap = map - "key"
+```
+
 ### minOf() and maxOf()
 
-These functions can be used to find the minimum and maximum of two given numbers.
+These functions can be used to find the lowest and greatest of two or three given values, where values are primitive numbers or `Comparable` objects. There is also an overload of each function that take an additional `Comparator` instance, if you want to compare objects that are not comparable themselves.
+
+```
+val list1 = listOf("a", "b")
+val list2 = listOf("x", "y", "z")
+val minSize = minOf(list1.size, list2.size)
+val longestList = maxOf(list1, list2, compareBy { it.size })
+```
 
 ### Array-like List instantiation functions
 
@@ -382,9 +421,20 @@ MutableList(size) { index -> element }
 
 ### Map.getValue()
 
-This method on `Map` returns an existing value corresponding to the given key or throws an exception, mentioning which key was not found.
-If the map was produced with `withDefault`, this method will return the default value instead of throwing an exception.
+This extension on `Map` returns an existing value corresponding to the given key or throws an exception, mentioning which key was not found.
+If the map was produced with `withDefault`, this function will return the default value instead of throwing an exception.
 
+```
+val map = mapOf("key" to 42)
+// returns non-nullable Int value 42
+val value: Int = map.getValue("key")
+// throws NoSuchElementException
+map.getValue("key2")
+
+val mapWithDefault = map.withDefault { k -> k.length }
+// returns 4
+val value2 = mapWithDefault.getValue("key2")
+```
 
 ### Abstract collections
 

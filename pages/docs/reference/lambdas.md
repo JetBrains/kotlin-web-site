@@ -179,7 +179,7 @@ ints.filter {
 
 Note that if a function takes another function as the last parameter, the lambda expression argument can be passed
 outside the parenthesized argument list.
-See the grammar for [callSuffix](grammar.html#call-suffix).
+See the grammar for [callSuffix](grammar.html#callSuffix).
 
 ### Anonymous Functions
 
