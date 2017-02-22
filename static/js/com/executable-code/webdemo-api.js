@@ -1,4 +1,5 @@
 const $ = require('jquery');
+const URLSearchParams = require('url-search-params');
 
 function getExceptionCauses(exception) {
   if (exception.cause !== undefined && exception.cause != null) {
@@ -47,7 +48,10 @@ class WebDemoApi {
 
     return fetch(`${webDemoURL}/kotlinServer?type=run&runConf=java`, {
       method: 'POST',
-      body: body
+      body: body.toString(),
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      }
     }).then(response => response.json()).then(function (data) {
       let output;
       if (data.text !== undefined) {
