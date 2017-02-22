@@ -59,7 +59,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       this.prefix = state.code.substring(0, state.code.indexOf('//sampleStart'));
       sample = state.code.substring(state.code.indexOf('//sampleStart') + '//sampleStart'.length + 1,
         state.code.indexOf('//sampleEnd') - 1);
-      this.suffix = state.code.substring(state.code.indexOf('//sampleEnd') + '//sampleEnd'.length - 1);
+      this.suffix = state.code.substring(state.code.indexOf('//sampleEnd') + '//sampleEnd'.length);
     } else {
       if (this.state.folded) {
         sample = this.codemirror.getValue();
