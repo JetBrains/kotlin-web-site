@@ -46,7 +46,7 @@ var webpackConfig = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [
-          './static/js'
+          path.resolve(__dirname, 'static/js')
         ]
       },
       {
