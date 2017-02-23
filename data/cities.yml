@@ -1,4 +1,20 @@
 - geo:
+    lat: 50.1109221
+    lng: 8.6821267
+  name: Frankfurt, Germany
+- geo:
+    lat: 45.2671352
+    lng: 19.8335496
+  name: Novi Sad, Serbia
+- geo:
+    lat: 53.22739
+    lng: -4.129263
+  name: Bangor, United Kingdom
+- geo:
+    lat: 42.9633599
+    lng: -85.6680863
+  name: Grand Rapids, MI
+- geo:
     lat: 51.454513
     lng: -2.58791
   name: Bristol, UK
