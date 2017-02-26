@@ -88,8 +88,8 @@ reference:
         - url: /docs/reference/data-classes.html
           title: Data Classes
         - url: /docs/reference/sealed-classes.html
-        title: Sealed Classes
-      - url: /docs/reference/generics.html
+          title: Sealed Classes
+        - url: /docs/reference/generics.html
           title: Generics
         - url: /docs/reference/nested-classes.html
           title: Nested Classes
