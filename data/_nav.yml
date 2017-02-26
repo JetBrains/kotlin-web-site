@@ -139,8 +139,8 @@ reference:
           title: Reflection
         - url: /docs/reference/type-safe-builders.html
           title: Type-Safe Builders
-      - url: /docs/reference/type-aliases.html
-        title: Type Aliases
+        - url: /docs/reference/type-aliases.html
+          title: Type Aliases
 
 
 
