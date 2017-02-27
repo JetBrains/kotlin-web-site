@@ -6,6 +6,14 @@ title: "What's New in Kotlin 1.1"
 
 # What's New in Kotlin 1.1
 
+## Table of Contents
+
+* [Coroutines](#coroutines-experimental)
+* [Other language features](#other-language-features)
+* [Standard library](#standard-library)
+* [JVM backend](#jvm-backend)
+* [JavaScript backend](#javascript-backend)
+
 ## JavaScript
 
 Starting with Kotlin 1.1, the JavaScript target is no longer considered experimental. All language features are supported,
