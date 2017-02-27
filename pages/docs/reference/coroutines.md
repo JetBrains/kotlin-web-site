@@ -109,9 +109,34 @@ The only "application-level" functions in `kotlin.coroutines.experimental` are
 - [`buildSequence()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/build-sequence.html)
 - [`buildIterator()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/build-iterator.html)
 
-TODO
+These are shipped within `kotlin-stdlib` because they are related to sequences. In fact, these functions (and we can limit ourselves to `buildSequence()` alone here) implement _generators_, i.e. provide a way to cheaply build a lazy sequence:
+ 
+``` kotlin
+val fibonacciSeq = buildSequence {
+    var a = 0
+    var b = 1
+    
+    yield(1)
+    
+    while (true) {
+        yield(a + b)
+        
+        val tmp = a + b
+        a = b
+        b = tmp
+    }
+}
+```
   
-### High-level API: `kotlinx.coroutines`
+This generates a lazy, potentially infinite Fibonacci sequence by creating a coroutine that yields consecutive Fibonacci numbers by calling the `yield()` function. When iterating over such a sequence every step of the iterator executes another portion of the coroutine that generates the next number. So, we can take any finite list of numbers out of this sequence, e.g. `fibonacciSeq.take(8).toList()` results in `[1, 1, 2, 3, 5, 8, 13, 21]`. And coroutines are cheap enough to make this practical. 
+   
+To yield a collection (or sequence) of values at once, the `yieldAll()` function is available.
+
+The `buildIterator()` works similarly to `buildSequence()`, but returns a lazy iterator.
+
+One can add custom yielding logic to `buildSequence()` by writing suspending extensions to the `SequenceBuilder` class that bares the `@RestrictsSuspension` annotation described [above](#restrictssuspension-annotation).
+  
+### Other high-level APIs: `kotlinx.coroutines`
 
 Only core APIs related to coroutines are available from the Kotlin Standard Library. This mostly consists of core primitives and interfaces that all coroutine-based libraries are likely to use.   
 
