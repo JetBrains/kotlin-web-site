@@ -17,11 +17,13 @@ a more detailed list of changes.
 
 ## Coroutines (experimental)
 
-The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `future`/`await`, `yield` and similar programming
+The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `async`/`await`, `yield` and similar programming
 patterns. The key feature of Kotlin's design is that the implementation of coroutine execution is part of the libraries,
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
-A coroutine is effectively a light-weight thread that can be suspended and resumed later. A coroutine is started with a coroutine builder function and is suspended with special suspending functions. For example, `future` starts a coroutine and, when you use `await`, the execution of the coroutine is suspended while the operation being awaited is executed, and is resumed (possibly on a different thread) when the operation being awaited completes.
+A coroutine is effectively a light-weight thread that can be suspended and resumed later. A coroutine is started with a coroutine builder function and is suspended with special suspending functions.
+For example, `async` starts a coroutine and, when you use `await`, the execution of the coroutine is suspended while the operation being awaited is executed,
+and is resumed (possibly on a different thread) when the operation being awaited completes.
 
 The standard library uses coroutines to support *lazily generated sequences* with `yield` and `yieldAll` functions.
 In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
@@ -55,22 +57,29 @@ Generated 4
 Generated 5
 ```
 
-The implementation of `future`/`await` is provided as an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines).
+The implementation of `async`/`await` is provided as an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines).
 Here's an example showing its use:
 
 ``` kotlin
-future {
-    val original = asyncLoadImage("...original...") // creates a Future
-    val overlay = asyncLoadImage("...overlay...")   // creates a Future
-    ...
-    // suspend while awaiting the loading of the images
-    // then run `applyOverlay(...)` when they are both loaded
-    return applyOverlay(original.await(), overlay.await())
+// runs the code in the background thread pool
+fun asyncOverlay() = async(CommonPool) {
+    // start two async operations
+    val original = asyncLoadImage(“original”)
+    val overlay = asyncLoadImage(“overlay”)
+    // and then apply overlay to both results
+    applyOverlay(original.await(), overlay.await())
+}
+
+// launches new coroutine in UI context
+launch(UI) {
+    // wait for async overlay to complete
+    val image = asyncOverlay().await()
+    // and then show it in UI
+    showImage(image)
 }
 ```
 
-
-kotlinx.coroutines `future` implementation relies on `CompletableFuture` and therefore requires JDK 8, but it also provides portable `defer` primitive and it's possible to build other implementations.
+kotlinx.coroutines `async` implementation relies on `CompletableFuture` and therefore requires JDK 8, but it also provides portable `defer` primitive and it's possible to build other implementations.
 
 The [KEEP document](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md) provides an extended
 description of the coroutine functionality.
