@@ -483,10 +483,19 @@ performance, but can lead to new race conditions in some rare usage scenarios. I
 your own synchronization for accessing the variables.
 
 
-### javax.scripting support
+### javax.script support
 
-Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223). See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
-for an example project using the API.
+Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223).
+The API allows to evaluate snippets of code at runtime:
+
+``` kotlin
+val engine = ScriptEngineManager().getEngineByExtension("kts")!!
+engine.eval("val x = 3")
+println(engine.eval("x + 2"))  // Prints out 5
+```
+
+See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
+for a larger example project using the API.
 
 
 ### kotlin.reflect.full
