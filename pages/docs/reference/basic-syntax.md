@@ -27,11 +27,19 @@ See [Packages](packages.html).
 
 Function having two `Int` parameters with `Int` return type:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 ``` kotlin
+//sampleStart
 fun sum(a: Int, b: Int): Int {
     return a + b
 }
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println(sum(3, 5))
+}
 ```
+</div>
 
 Function with an expression body and inferred return type:
 
