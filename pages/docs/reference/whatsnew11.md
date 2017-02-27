@@ -102,7 +102,7 @@ typealias FileTable<K> = MutableMap<K, MutableList<File>>
 typealias MouseEventHandler = (Any, MouseEvent) -> Unit
 ```
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
+See the [documentation](type-aliases.html) for more details.
 
 
 ### Bound callable references
@@ -189,15 +189,11 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores
 
 ### Shorter syntax for properties
 
-For properties without custom accessors, or with the getter defined as an expression body, the property type can now be omitted:
+For properties with the getter defined as an expression body, the property type can now be omitted:
 
 ``` kotlin
-val name = ""
-
-val lazyName get() = ""
+val lazyName get() = ""    // Property type inferred to be 'String'
 ```
-
-For both of these properties, the compiler will infer that the property type is `String`.
 
 
 ### Inline property accessors
