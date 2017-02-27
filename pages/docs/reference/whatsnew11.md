@@ -445,6 +445,14 @@ For implementing read-only collections there are `AbstractCollection`, `Abstract
 and for mutable collections there are `AbstractMutableCollection`, `AbstractMutableList`, `AbstractMutableSet` and `AbstractMutableMap`.
 On JVM these abstract mutable collections inherit most of their functionality from JDK's abstract collections.
 
+### Array manipulation functions
+
+The standard library now provides a set of functions for element-by-element operations on arrays: comparison
+(`contentEquals` and `contentDeepEquals`), hash code calculation (`contentHashCode` and `contentDeepHashCode`),
+and conversion to a string (`contentToString` and `contentDeepToString`). They're supported for both the JVM
+(where they act as aliases for the corresponding functions in `java.util.Arrays`) and on the JS (where the implementation
+is provided in the Kotlin standard library).
+
 ## JVM Backend
 
 ### Java 8 bytecode support
@@ -482,6 +490,14 @@ your own synchronization for accessing the variables.
 
 Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223). See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
 for an example project using the API.
+
+
+### kotlin.reflect.full
+
+To prepare for Java 9 support, the extension functions and properties in the `kotlin-reflect.jar` library have been moved
+to the package `kotlin.reflect.full`. The names in the old package (`kotlin.reflect`) are deprecated and will be removed in
+Kotlin 1.2. Note that the core reflection interfaces (such as `KClass`) are part of the Kotlin standard library,
+not `kotlin-reflect`, and are not affected by the move.
 
 
 ## JavaScript Backend
