@@ -64,8 +64,8 @@ Here's an example showing its use:
 // runs the code in the background thread pool
 fun asyncOverlay() = async(CommonPool) {
     // start two async operations
-    val original = asyncLoadImage(“original”)
-    val overlay = asyncLoadImage(“overlay”)
+    val original = asyncLoadImage("original")
+    val overlay = asyncLoadImage("overlay")
     // and then apply overlay to both results
     applyOverlay(original.await(), overlay.await())
 }
