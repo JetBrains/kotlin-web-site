@@ -10,8 +10,6 @@ title: "Coroutines"
 > Coroutines are *experimental* in Kotlin 1.1. See details [below](#experimental-status-of-coroutines) 
 {:.note}
 
-_The term "coroutines" has been in use in Computer Science since late 1950'ies to denote "[a generalization of subroutines with non-preemptive multitasking](https://en.wikipedia.org/wiki/Coroutine)". We will not delve into the theoretic side of things here, though._
-
 Some APIs initiate long-running operations (such as network IO, file IO, CPU- or GPU-intensive work, etc) and require the caller to block until they complete. Coroutines provide a way to avoid blocking a thread and replace it with a cheaper and more controllable operation: *suspension* of a coroutine.
 
 ## Blocking vs Suspending
@@ -67,25 +65,6 @@ A suspended coroutine can be stored and passed around as an object that keeps it
 
 More details on how coroutines work may be found in [this design document](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md). Similar descriptions of async/await in other languages (such as C# or ECMAScript 2016) are relevant here, although the language features they implement may not be as general as Kotlin coroutines. 
 
-## Standard APIs
- 
- 
-
-### The `kotlinx.coroutines` library
-
-Only core APIs related to coroutines are available from the Kotlin Standard Library. This mostly consists of core primitives and interfaces that all coroutine-based libraries are likely to use.   
-
-Most application-level APIs based on coroutines are released as a separate library: [kotlinx.corotuines](https://github.com/Kotlin/kotlinx.coroutines). This library covers
- * Platform-agnostic asynchronous programming with `kotlinx-coroutines-core`
-   * this module includes Go-like channels that support `select` and other convenient primitives
-   * A comprehensive guide to this library is available [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md).
- * APIs based on `CompletableFuture` from JDK 8: `kotlinx-coroutines-jdk8`
- * Non-blocking IO (NIO) based on APIs from JDK 7 and higher: `kotlinx-coroutines-nio`
- * Support for Swing (`kotlinx-coroutines-swing`) and JavaFx (`kotlinx-coroutines-javafx`)
- * Support for RxJava: `kotlinx-coroutines-rx`
- 
-These libraries serve as both convenient APIs that make common tasks easy and end-to-end examples of how to build coroutine-based libraries. 
-
 ## Experimental status of coroutines
 
 The design of coroutines is [experimental](compatibility.html#), which means that it may be changed in the upcoming releases. When compiling coroutines in Kotlin 1.1, a warning is reported by default: *The feature "coroutines" is experimental*. To remove the warning, you need to specify an [opt-in flag](diagnostics/experimental-coroutines.html).
@@ -96,6 +75,49 @@ Due to its experimental status, the coroutine-related API in the Standard Librar
  * copy all the APIs to `com.example` (without the experimental suffix),
  * keep the experimental package around for backward compatibility. 
  
- This will minimize migration issues for your users. 
-    
-    
+This will minimize migration issues for your users. 
+
+## Standard APIs
+ 
+Coroutines come in three main ingredients: 
+ - language support (i.s. suspending functions, as described above),
+ - low-level core API in the Kotlin Stadard Library,
+ - high-level APIs that can be used directly in the user code.
+ 
+## Low-level API: `kotlin.coroutines` 
+
+Low-level API is relatively small and should never be used other than for creating higher-level libraries. It consists of two main packages: 
+- [`kotlin.coroutines.experimental`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/index.html) with main types and primitives such as 
+  - [`createCoroutine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/create-coroutine.html)
+  - [`startCoroutine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/create-coroutine.html)
+  - [`suspendCoroutine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/create-coroutine.html)
+- [`kotlin.coroutines.experimental.intrinsics`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/index.html) with even lower-level intrinsics such as [`suspendCoroutineOrReturn`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/suspend-coroutine-or-return.html)
+ 
+ More details about the usage of these APIs can be found [here](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md).
+
+### The `@RestrictsSuspension` annotation
+ 
+TODO 
+
+### High-level API in `kotlin.coroutines`
+  
+The only "application-level" functions in `kotlin.coroutines.experimental` are
+- [`buildSequence()`](TODO)
+- [`buildIterator()`](TODO)
+
+TODO
+  
+### High-level API: `kotlinx.coroutines`
+
+Only core APIs related to coroutines are available from the Kotlin Standard Library. This mostly consists of core primitives and interfaces that all coroutine-based libraries are likely to use.   
+
+Most application-level APIs based on coroutines are released as a separate library: [kotlinx.corotuines](https://github.com/Kotlin/kotlinx.coroutines). This library covers
+ * Platform-agnostic asynchronous programming with `kotlinx-coroutines-core`
+   * this module includes Go-like channels that support `select` and other convenient primitives
+   * a comprehensive guide to this library is available [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md).
+ * APIs based on `CompletableFuture` from JDK 8: `kotlinx-coroutines-jdk8`
+ * Non-blocking IO (NIO) based on APIs from JDK 7 and higher: `kotlinx-coroutines-nio`
+ * Support for Swing (`kotlinx-coroutines-swing`) and JavaFx (`kotlinx-coroutines-javafx`)
+ * Support for RxJava: `kotlinx-coroutines-rx`
+ 
+These libraries serve as both convenient APIs that make common tasks easy and end-to-end examples of how to build coroutine-based libraries. 

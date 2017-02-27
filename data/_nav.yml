@@ -111,6 +111,8 @@ reference:
           title: Lambdas
         - url: /docs/reference/inline-functions.html
           title: Inline Functions
+        - url: /docs/reference/coroutines.html
+          title: Coroutines
 
     - title: Other
       description: Various bits and bobs
