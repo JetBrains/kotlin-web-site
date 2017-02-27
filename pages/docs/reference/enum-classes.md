@@ -66,7 +66,7 @@ The `valueOf()` method throws an `IllegalArgumentException` if the specified nam
 not match any of the enum constants defined in the class.
 
 Since Kotlin 1.1, it's possible to access the constants in an enum class in a generic way, using
-the `values<T>()` and `valueOf<T>()` functions:
+the `enumValues<T>()` and `enumValueOf<T>()` functions:
 
 ``` kotlin
 enum class RGB { RED, GREEN, BLUE }
