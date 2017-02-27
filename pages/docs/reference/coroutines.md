@@ -7,9 +7,6 @@ title: "Coroutines"
 
 # Coroutines
 
-TODO:
-- kotlinx.coroutines library
-
 > Coroutines are *experimental* in Kotlin 1.1. See details [below](#experimental-status-of-coroutines) 
 {:.note}
 
@@ -33,7 +30,19 @@ The rule above is recursive, and the Standard Library provides a set of entry-po
 
 
 
+## The `kotlinx.coroutines` library
 
+Only core APIs related to coroutines are available from the Kotlin Standard Library. This mostly consists of core primitives and interfaces that all coroutine-based libraries are likely to use.   
+
+Most application-level APIs based on coroutines are released as a separate library: [kotlinx.corotuines](https://github.com/Kotlin/kotlinx.coroutines). This library covers
+ * Platform-agnostic asynchronous programming with `kotlinx-coroutines-core`
+   * this module includes Go-like channels that support `select` and other convenient primitives
+ * APIs based on `CompletableFuture` from JDK 8: `kotlinx-coroutines-jdk8`
+ * Non-blocking IO (NIO) based on APIs from JDK 7 and higher: `kotlinx-coroutines-nio`
+ * Support for Swing (`kotlinx-coroutines-swing`) and JavaFx (`kotlinx-coroutines-javafx`)
+ * Support for RxJava: `kotlinx-coroutines-rx`
+ 
+These libraries serve as both convenient APIs that make common tasks easy and end-to-end examples of how to build coroutine-based libraries. 
 
 ## Experimental status of coroutines
 
