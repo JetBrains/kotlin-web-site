@@ -10,18 +10,9 @@ function getExceptionCauses(exception) {
 }
 
 class WebDemoApi {
-  static getCompilerVersion() {
+  static getCompilerConfigs() {
     return fetch(`${webDemoURL}/kotlinServer?type=getKotlinVersions`)
       .then(response => response.json())
-      .then(function (compilersConfigs) {
-        let compilerVersion;
-        compilersConfigs.forEach(function (configuration) {
-          if (configuration.latestStable) {
-            compilerVersion = configuration.version;
-          }
-        });
-        return compilerVersion;
-      })
   }
 
   static executeKotlinCode(code) {
