@@ -76,8 +76,6 @@ launch(UI) {
 }
 ```
 
-kotlinx.coroutines `async` implementation relies on `CompletableFuture` and therefore requires JDK 8, but it also provides portable `defer` primitive and it's possible to build other implementations.
-
 The [KEEP document](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md) provides an extended
 description of the coroutine functionality.
 
@@ -327,7 +325,7 @@ possibly with side-effects, on each element of the collection/sequence in a chai
 On iterables it behaves like `forEach` but also returns the iterable instance further. And on sequences it returns a
 wrapping sequence, which applies the given action lazily as the elements are being iterated.
 
-```
+``` kotlin
 inputDir.walk()
         .filter { it.isFile && it.name.endsWith(".txt") }
         .onEach { println("Moving $it to $outputDir") }
@@ -361,13 +359,13 @@ val index = input.indexOf(keyword).takeIf { it >= 0 } ?: error("keyword not foun
 
 `takeUnless` is the same as `takeIf`, but it takes the inverted predicate. It returns the receiver when it _doesn't_ meet the predicate and `null` otherwise. So one of the examples above could be rewritten with `takeUnless` as following:
 
-```
+``` kotlin
 val index = input.indexOf(keyword).takeUnless { it < 0 } ?: error("keyword not found")
 ```
 
 It is also convenient to use when you have a callable reference instead of the lambda:
 
-```
+``` kotlin
 val notEmptyString = string.takeUnless(String::isEmpty)
 ```
 
@@ -395,7 +393,7 @@ class ImmutablePropertyBag(map: Map<String, Any>) {
 The operator `plus` provides a way to add key-value pair(s) to a read-only map producing a new map, however there was not a simple way to do the opposite: to remove a key from the map you have to resort to less straightforward ways to like Map.filter() or Map.filterKeys().
 Now the operator `minus` fills this gap. There are 4 overloads available: for removing a single key, a collection of keys, a sequence of keys and an array of keys.
 
-```
+``` kotlin
 val map = mapOf("key" to 42)
 val emptyMap = map - "key"
 ```
@@ -404,7 +402,7 @@ val emptyMap = map - "key"
 
 These functions can be used to find the lowest and greatest of two or three given values, where values are primitive numbers or `Comparable` objects. There is also an overload of each function that take an additional `Comparator` instance, if you want to compare objects that are not comparable themselves.
 
-```
+``` kotlin
 val list1 = listOf("a", "b")
 val list2 = listOf("x", "y", "z")
 val minSize = minOf(list1.size, list2.size)
@@ -426,7 +424,7 @@ MutableList(size) { index -> element }
 This extension on `Map` returns an existing value corresponding to the given key or throws an exception, mentioning which key was not found.
 If the map was produced with `withDefault`, this function will return the default value instead of throwing an exception.
 
-```
+``` kotlin
 val map = mapOf("key" to 42)
 // returns non-nullable Int value 42
 val value: Int = map.getValue("key")
