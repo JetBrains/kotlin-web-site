@@ -208,6 +208,8 @@ val foo: Foo
     inline get() = Foo()
 ```
 
+You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
+
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
 
 
@@ -258,12 +260,16 @@ the necessary validation right away.
 
 ### Generic enum value access
 
-It is now possible to enumerate the values of an enum class in a generic way:
+It is now possible to enumerate the values of an enum class in a generic way.
 
 ``` kotlin
 enum class RGB { RED, GREEN, BLUE }
 
-print(enumValues<RGB>().joinToString { it.name }) // prints RED, GREEN, BLUE
+inline fun <reified T : Enum<T>> printAllValues() {
+    print(enumValues<T>().joinToString { it.name })
+}
+
+printAllValues<RGB>() // prints RED, GREEN, BLUE
 ```
 
 

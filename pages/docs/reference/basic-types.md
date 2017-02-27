@@ -192,10 +192,10 @@ Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` 
 ``` kotlin
 class Array<T> private constructor() {
     val size: Int
-    fun get(index: Int): T
-    fun set(index: Int, value: T): Unit
+    operator fun get(index: Int): T
+    operator fun set(index: Int, value: T): Unit
 
-    fun iterator(): Iterator<T>
+    operator fun iterator(): Iterator<T>
     // ...
 }
 ```

@@ -71,7 +71,11 @@ the `enumValues<T>()` and `enumValueOf<T>()` functions:
 ``` kotlin
 enum class RGB { RED, GREEN, BLUE }
 
-print(enumValues<RGB>().joinToString { it.name }) // prints RED, GREEN, BLUE
+inline fun <reified T : Enum<T>> printAllValues() {
+    print(enumValues<T>().joinToString { it.name })
+}
+
+printAllValues<RGB>() // prints RED, GREEN, BLUE
 ```
 
 Every enum constant has properties to obtain its name and position in the enum class declaration:
