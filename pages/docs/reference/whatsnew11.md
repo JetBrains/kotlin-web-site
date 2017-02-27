@@ -542,17 +542,15 @@ you can use the `@JsNonModule` annotation.
 For example, here's how you can import JQuery into a Kotlin module:
 
 ``` kotlin
-@JsNonModule
-@JsName("$")
-external abstract class JQuery {
-    fun toggle(duration: Int = 0): JQuery
+external interface JQuery {
+    fun toggle(duration: Int = definedExternally): JQuery
     fun click(handler: (Event) -> Unit): JQuery
 }
 
 @JsModule("jquery")
 @JsNonModule
 @JsName("$")
-external fun JQuery(selector: String): JQuery
+external fun jquery(selector: String): JQuery
 ```
 
 In this case, JQuery will be imported as a module named `jquery`. Alternatively, it can be used as a $-object,
@@ -562,8 +560,8 @@ You can use these declarations in your application like this:
 
 ``` kotlin
 fun main(args: Array<String>) {
-    JQuery(".toggle-button").click {
-        JQuery(".toggle-panel").toggle(300)
+    jquery(".toggle-button").click {
+        jquery(".toggle-panel").toggle(300)
     }
 }
 ```
