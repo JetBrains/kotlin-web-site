@@ -7,9 +7,7 @@ const ExecutableCode = require('../com/executable-code');
 const $ = require('jquery');
 
 $(document).ready(function () {
-  $('.sample').each(function (ind, element) {
-    new ExecutableCode(element)
-  });
+  new ExecutableCode('.sample');
 
   CodeMirror.colorize($('.code._highlighted'));
 
