@@ -117,7 +117,7 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/bound-calla
 ### Sealed and data classes
 
 Kotlin 1.1 removes some of the restrictions on sealed and data classes that were present in Kotlin 1.0.
-Now you can define subclasses of a sealed class anywhere in the same file, and not just as nested classes of the sealed class.
+Now you can define subclasses of a top-level sealed class on the top level in the same file, and not just as nested classes of the sealed class.
 Data classes can now extend other classes.
 This can be used to define a hierarchy of expression classes nicely and cleanly:
 
@@ -261,7 +261,7 @@ print(enumValues<RGB>().joinToString { it.name }) // prints RED, GREEN, BLUE
 
 ### Scope control for implicit receivers in DSLs
 
-The `@DslMarker` annotation allows to restrict the use of receivers from outer scopes in a DSL context.
+The [`@DslMarker`](/api/latest/jvm/stdlib/kotlin/-dsl-marker/index.html) annotation allows to restrict the use of receivers from outer scopes in a DSL context.
 Consider the canonical [HTML builder example](type-safe-builders.html):
 
 ``` kotlin
@@ -389,7 +389,7 @@ class ImmutablePropertyBag(map: Map<String, Any>) {
 
 ### Map.minus(key)
 
-The operator `plus` provides a way to add key-value pair(s) to a read-only map producing a new map, however there was not a simple way to do the opposite: to remove a key from the map you have to resort to less straightforward ways to like Map.filter() or Map.filterKeys().
+The operator `plus` provides a way to add key-value pair(s) to a read-only map producing a new map, however there was not a simple way to do the opposite: to remove a key from the map you have to resort to less straightforward ways to like `Map.filter()` or `Map.filterKeys()``.
 Now the operator `minus` fills this gap. There are 4 overloads available: for removing a single key, a collection of keys, a sequence of keys and an array of keys.
 
 ``` kotlin
@@ -414,8 +414,8 @@ Similar to the `Array` constructor, there are now functions that create `List` a
 each element by calling a lambda:
 
 ``` kotlin
-List(size) { index -> element }
-MutableList(size) { index -> element }
+val squares = List(10) { index -> index * index }
+val mutableSquares = MutableList(10) { index -> index * index }
 ```
 
 ### Map.getValue()
@@ -491,7 +491,7 @@ for an example project using the API.
 
 ### kotlin.reflect.full
 
-To prepare for Java 9 support, the extension functions and properties in the `kotlin-reflect.jar` library have been moved
+To [prepare for Java 9 support](https://blog.jetbrains.com/kotlin/2017/01/kotlin-1-1-whats-coming-in-the-standard-library/), the extension functions and properties in the `kotlin-reflect.jar` library have been moved
 to the package `kotlin.reflect.full`. The names in the old package (`kotlin.reflect`) are deprecated and will be removed in
 Kotlin 1.2. Note that the core reflection interfaces (such as `KClass`) are part of the Kotlin standard library,
 not `kotlin-reflect`, and are not affected by the move.
