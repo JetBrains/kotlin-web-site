@@ -15,12 +15,12 @@ class WebDemoApi {
       .then(response => response.json())
   }
 
-  static executeKotlinCode(code) {
+  static executeKotlinCode(code, compilerVersion) {
     const projectJson = JSON.stringify({
       "id": "",
       "name": "",
       "args": "",
-      "compilerVersion": null,
+      "compilerVersion": compilerVersion,
       "confType": "java",
       "originUrl": null,
       "files": [

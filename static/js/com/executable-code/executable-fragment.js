@@ -128,7 +128,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
     this.update({
       waitingForOutput: true
     });
-    WebDemoApi.executeKotlinCode(this.getCode()).then(
+    WebDemoApi.executeKotlinCode(this.getCode(), this.state.compilerVersion).then(
       state => {
         state.waitingForOutput = false;
         this.update(state);
@@ -195,7 +195,7 @@ class ExecutableFragment extends ExecutableCodeTemplate {
         this.codemirror.setGutterMarker(interval.start.line, "errors-and-warnings-gutter", gutter)
       } else {
         const gutter = this.codemirror.lineInfo(interval.start.line).gutterMarkers["errors-and-warnings-gutter"];
-        gutter.title += "\n$errorMessage";
+        gutter.title += `\n${errorMessage}`;
         if (gutter.className.indexOf("ERRORgutter") == -1) {
           gutter.className = severity + "gutter"
         }
