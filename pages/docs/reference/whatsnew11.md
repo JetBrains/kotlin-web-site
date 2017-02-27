@@ -449,8 +449,8 @@ On JVM these abstract mutable collections inherit most of their functionality fr
 
 The standard library now provides a set of functions for element-by-element operations on arrays: comparison
 (`contentEquals` and `contentDeepEquals`), hash code calculation (`contentHashCode` and `contentDeepHashCode`),
-and conversion to a string (`contentToString` and `contentDeepToString`). They're supported for both the JVM
-(where they act as aliases for the corresponding functions in `java.util.Arrays`) and on the JS (where the implementation
+and conversion to a string (`contentToString` and `contentDeepToString`). They're supported both for the JVM
+(where they act as aliases for the corresponding functions in `java.util.Arrays`) and for JS (where the implementation
 is provided in the Kotlin standard library).
 
 ## JVM Backend
