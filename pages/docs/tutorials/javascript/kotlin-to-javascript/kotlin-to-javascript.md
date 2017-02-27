@@ -8,8 +8,6 @@ date: 2016-09-29
 showAuthorInfo: false
 ---
 
-## Kotlin to JavaScript in Action
-
 There are multiple ways to compile Kotlin to JavaScript.
 The recommended approach is to use Gradle; if desired, you can also build JavaScript projects directly from
 IntelliJ IDEA, use Maven, or compile the code manually from the command line.

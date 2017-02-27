@@ -187,12 +187,12 @@ reference:
   #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
         - url: /docs/reference/kotlin-doc.html
           title: Documenting Kotlin Code
+        - url: /docs/reference/using-gradle.html
+          title: Using Gradle
         - url: /docs/reference/using-maven.html
           title: Using Maven
         - url: /docs/reference/using-ant.html
           title: Using Ant
-        - url: /docs/reference/using-gradle.html
-          title: Using Gradle
         - url: /docs/reference/kotlin-osgi.html
           title: Kotlin and OSGi
 
@@ -232,16 +232,16 @@ tutorials:
       items:
         - url: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
           title: Kotlin to JavaScript
+        - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
+          title: Getting Started with Gradle
         - url: /docs/tutorials/javascript/getting-started-idea/getting-started-with-intellij-idea.html
-          title: Getting Started with Kotlin and JavaScript with IntelliJ IDEA
-        - url: /docs/tutorials/javascript/working-with-modules/working-with-modules.html
-          title: Working with Kotlin and JavaScript Modules
+          title: Getting Started with IntelliJ IDEA
+        - url: /docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html
+          title: Getting Started with Maven
         - url: /docs/tutorials/javascript/getting-started-command-line/command-line-library-js.html
           title: Creating a Kotlin JavaScript library with the Command Line Compiler
-        - url: /docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html
-          title: Getting Started with Kotlin and JavaScript with Maven
-        - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
-          title: Getting Started with Kotlin and JavaScript with Gradle
+        - url: /docs/tutorials/javascript/working-with-modules/working-with-modules.html
+          title: Working with Kotlin and JavaScript Modules
 
     - title: Coroutines
       items:
