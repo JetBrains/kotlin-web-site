@@ -241,6 +241,11 @@ tutorials:
         - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
           title: Getting Started with Kotlin and JavaScript with Gradle
 
+    - title: Coroutines
+      items:
+        - url: /docs/tutorials/coroutines-basic-jvm.html
+          title: Introduction to Kotlin Coroutines on the JVM
+
     - title: Web Development
       items:
         - url: /docs/tutorials/httpservlets.html
