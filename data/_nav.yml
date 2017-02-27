@@ -169,7 +169,11 @@ reference:
        - url: /docs/reference/dynamic-type.html
          title: Dynamic Type
        - url: /docs/reference/js-interop.html
-         title: JavaScript Interoperability
+         title: Calling JavaScript from Kotlin
+       - url: /docs/reference/js-to-kotlin-interop.html
+         title: Calling Kotlin from JavaScript
+       - url: /docs/reference/js-modules.html
+         title: JavaScript Modules
        - url: /docs/reference/js-reflection.html
          title: JavaScript Reflection
 
