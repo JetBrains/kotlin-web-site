@@ -44,7 +44,7 @@ var <propertyName>[: <PropertyType>] [= <property_initializer>]
     [<setter>]
 ```
 
-The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer or from the base class member being overridden
+The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer
 (or from the getter return type, as shown below).
 
 Examples:

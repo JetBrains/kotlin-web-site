@@ -28,15 +28,16 @@ To ensure consistency and meaningful behavior of the generated code, data classe
   * The primary constructor needs to have at least one parameter;
   * All primary constructor parameters need to be marked as `val` or `var`;
   * Data classes cannot be abstract, open, sealed or inner;
-  * (since 1.1) Data classes may extend other classes (see [Sealed classes](sealed-classes.html#sealed-classes-and-data-classes) for examples);
   * (before 1.1) Data classes may only implement interfaces.
   
-> On the JVM, if the generated class needs to have a parameterless constructor, default values for all properties have to be specified
-> (see [Constructors](classes.html#constructors)).
->
-> ``` kotlin
-> data class User(val name: String = "", val age: Int = 0)
-> ```
+Since 1.1, data classes may extend other classes (see [Sealed classes](sealed-classes.html#sealed-classes-and-data-classes) for examples).
+
+On the JVM, if the generated class needs to have a parameterless constructor, default values for all properties have to be specified
+(see [Constructors](classes.html#constructors)).
+
+``` kotlin
+data class User(val name: String = "", val age: Int = 0)
+```
 
 ## Copying
   

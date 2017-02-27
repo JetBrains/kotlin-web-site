@@ -321,17 +321,16 @@ If you really need to call them, you can cast to `java.lang.Object`:
 
 ### getClass()
 
-To retrieve the type information from an object, we use the javaClass extension property.
+To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.html#class-references).
+
+``` kotlin
+val fooClass = foo::class.java
+```
+
+The code above uses a [bound class reference](reflection.html#bound-class-references-since-11), which is supported since Kotlin 1.1. You can also use the `javaClass` extension property.
 
 ``` kotlin
 val fooClass = foo.javaClass
-```
-
-Instead of Java's `Foo.class` use Foo::class.java.
-
-
-``` kotlin
-val fooClass = Foo::class.java
 ```
 
 ### clone()
@@ -378,8 +377,8 @@ if (Character.isLetter(a)) {
 
 ## Java Reflection
 
-Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance.javaClass` or 
-`ClassName::class.java` to enter Java reflection through `java.lang.Class`.
+Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance::class.java`,
+`ClassName::class.java` or `instance.javaClass` to enter Java reflection through `java.lang.Class`.
  
 Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property, a `KProperty` for a Java field, a Java method or constructor for a `KFunction` and vice versa.
 
