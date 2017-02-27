@@ -6,9 +6,6 @@ title: "What's New in Kotlin 1.1"
 
 # What's New in Kotlin 1.1
 
-Kotlin 1.1 is currently [available in beta](https://blog.jetbrains.com/kotlin/2017/01/kotlin-1-1-beta-is-here/). Here you can find a list of new features available in this release.
-Note that any new functionality is subject to change before Kotlin 1.1 is released.
-
 ## JavaScript
 
 Starting with Kotlin 1.1, the JavaScript target is no longer considered experimental. All language features are supported,
