@@ -187,7 +187,7 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores
 For properties with the getter defined as an expression body, the property type can now be omitted:
 
 ``` kotlin
-val lazyName get() = ""    // Property type inferred to be 'String'
+val name get() = "Max"    // Property type inferred to be 'String'
 ```
 
 
