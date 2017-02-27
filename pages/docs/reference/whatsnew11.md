@@ -76,8 +76,7 @@ launch(UI) {
 }
 ```
 
-The [KEEP document](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md) provides an extended
-description of the coroutine functionality.
+For more information, please refer to the [coroutine documentation](/docs/reference/coroutines.html) and [tutorial](/docs/tutorials/coroutines-basic-jvm.html).
 
 Note that coroutines are currently considered an **experimental feature**, meaning that the Kotlin team is not committing
 to supporting the backwards compatibility of this feature after the final 1.1 release.
