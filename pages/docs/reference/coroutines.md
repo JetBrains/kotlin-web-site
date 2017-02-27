@@ -55,6 +55,14 @@ fun main(args: Array<String>) {
 
 Note: suspending functions can be virtual, when overriding them, the `suspend` modifier has to be specified. 
 
+### `@RestrictsSuspension` annotation
+ 
+Extensions functions and lambdas can also be marked `suspend`, just like regular functions. This enables creation of [DSLs](type-safe-builders.html) and other APIs that users can extend. In some cases the library author needs to prevent the user from adding *new ways* of suspending a coroutine. 
+
+To achieve this, the [`@RestricsSuspension`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/-restricts-suspension/index.html) annotation may be used. When a receiver class `R` is annotated with it, all suspending extensions are required to delegate to either members of `R` or other extensions to it. Since extensions can't delegate to each other indefinitely (the program would not terminate), this guarantees that all suspensions happen through calling members of `R` that the author of the library can fully control.
+
+This is relevant in the _rare_ cases when every suspension is handled in a special way in the library. For example, when implementing generators through the [`buildSequence()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/build-sequence.html) function described below, we need to make sure that any suspending call in the coroutine ends up calling either `yield()` or `yieldAll()` and not any other function. See the sources [on Github](https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/src/kotlin/coroutines/experimental/SequenceBuilder.kt).   
+
 ## The inner workings of coroutines
 
 We are not trying here to give a complete explanation of how coroutines work under the hood, but a rough sense of what's going on is rather important.
@@ -67,7 +75,7 @@ More details on how coroutines work may be found in [this design document](https
 
 ## Experimental status of coroutines
 
-The design of coroutines is [experimental](compatibility.html#), which means that it may be changed in the upcoming releases. When compiling coroutines in Kotlin 1.1, a warning is reported by default: *The feature "coroutines" is experimental*. To remove the warning, you need to specify an [opt-in flag](diagnostics/experimental-coroutines.html).
+The design of coroutines is [experimental](compatibility.html#experimental-features), which means that it may be changed in the upcoming releases. When compiling coroutines in Kotlin 1.1, a warning is reported by default: *The feature "coroutines" is experimental*. To remove the warning, you need to specify an [opt-in flag](/docs/diagnostics/experimental-coroutines.html).
 
 Due to its experimental status, the coroutine-related API in the Standard Library is put under the `kotlin.coroutines.experimental` package. When the design is finalized and the experimental status lifted, the final API will be moved to `kotlin.coroutines`, and the experimental package will be kept around (probably in a separate artifact) for backward compatibility. 
 
@@ -94,10 +102,6 @@ Low-level API is relatively small and should never be used other than for creati
 - [`kotlin.coroutines.experimental.intrinsics`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/index.html) with even lower-level intrinsics such as [`suspendCoroutineOrReturn`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/suspend-coroutine-or-return.html)
  
  More details about the usage of these APIs can be found [here](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md).
-
-### The `@RestrictsSuspension` annotation
- 
-TODO 
 
 ### High-level API in `kotlin.coroutines`
   
