@@ -18,7 +18,7 @@ In order to use Gradle to target JavaScript, we need to use the `kotlin2js` plug
 Our `build.gradle` file should look like the following
 
 ```groovy
-group 'org.jetbrains'
+group 'org.example'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -43,7 +43,7 @@ dependencies {
 
 ```
 
-where `${kotlinVersion}` is the version of Kotlin we want to use. It's important to note that
+where `${kotlinVersion}` is the version of Kotlin we want to use, for example `1.1.0`. It's important to note that
 if we're using an EAP build, we need to have the corresponding repository referenced in the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
 
 On compiling, Gradle will produce the output of our application, which is by default placed under the `build/classes/main` directory. This can be overridden using [the compiler options](#configuringcompileroptions).
