@@ -96,13 +96,37 @@ to supporting the backwards compatibility of this feature after the final 1.1 re
 
 A type alias allows you to define an alternative name for an existing type.
 This is most useful for generic types such as collections, as well as for function types.
-Here are a few examples:
+Here is an example:
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
 ``` kotlin
-typealias FileTable<K> = MutableMap<K, MutableList<File>>
+//sampleStart
+typealias OscarWinners = Map<String, String>
+//sampleEnd
 
-typealias MouseEventHandler = (Any, MouseEvent) -> Unit
+fun oscarWinners(): OscarWinners {
+    return mapOf(
+            "Best song" to "City of Stars (La La Land)",
+            "Best actress" to "Emma Stone (La La Land)",
+            "Best picture" to "Moonlight" /* ... */)
+}
+
+fun countLaLaLand(oscarWinners: OscarWinners) =
+        oscarWinners.count { it.value.contains("La La Land") }
+
+// Note that the type names (initial and the type alias) are interchangeable:
+fun checkLaLaLandIsTheBestMovie(oscarWinners: Map<String, String>) =
+        oscarWinners["Best picture"] == "La La Land"
+
+fun main(args: Array<String>) {
+    println("Testing OscarWinners...")
+    val oscarWinners = oscarWinners()
+    println(countLaLaLand(oscarWinners))  // in our example 2, but actually it's 6
+    println(checkLaLaLandIsTheBestMovie(oscarWinners)) // false
+}
 ```
+</div>
 
 See the [documentation](type-aliases.html) for more details.
 
@@ -113,11 +137,20 @@ You can now use the `::` operator to get a [member reference](reflection.html#fu
 Previously this could only be expressed with a lambda.
 Here's an example:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
+//sampleStart
 val numberRegex = "\\d+".toRegex()
 val numbers = listOf("abc", "123", "456").filter(numberRegex::matches)
-// Result is list of "123", "456"
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println("Result is $numbers")
+}
 ```
+</div>
+
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/bound-callable-references.md) for more details.
 
@@ -129,7 +162,10 @@ Now you can define subclasses of a top-level sealed class on the top level in th
 Data classes can now extend other classes.
 This can be used to define a hierarchy of expression classes nicely and cleanly:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
+//sampleStart
 sealed class Expr
 
 data class Const(val number: Double) : Expr()
@@ -141,7 +177,14 @@ fun eval(expr: Expr): Double = when (expr) {
     is Sum -> eval(expr.e1) + eval(expr.e2)
     NotANumber -> Double.NaN
 }
+val e = eval(Sum(Const(1.0), Const(2.0)))
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println("e is $e") // 3.0
+}
 ```
+</div>
 
 Read the [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
 [data class](https://github.com/Kotlin/KEEP/blob/master/proposals/data-class-inheritance.md) KEEPs for more detail.
@@ -152,9 +195,17 @@ Read the [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sea
 You can now use the [destructuring declaration](multi-declarations.html) syntax to unpack the arguments passed to a lambda.
 Here's an example:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-map.mapValues { (key, value) -> "$value!" }
+fun main(args: Array<String>) {
+//sampleStart
+    val map = mapOf(1 to "one", 2 to "two")
+    println(map.mapValues { (key, value) -> "$value!" })
+//sampleEnd    
+}
 ```
+</div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
 
@@ -163,15 +214,37 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuri
 
 For a lambda with multiple parameters, you can use the `_` character to replace the names of the parameters you don't use:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-map.forEach { _, value -> println("$value!") }
+fun main(args: Array<String>) {
+    val map = mapOf(1 to "one", 2 to "two")
+
+//sampleStart
+    map.forEach { _, value -> println("$value!") }
+//sampleEnd    
+}
 ```
+</div>
 
 This also works in [destructuring declarations](multi-declarations.html):
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-val (_, status) = getResult()
+data class Result(val value: Any, val code: String)
+
+fun getResult() = Result(42, "ok")
+
+fun main(args: Array<String>) {
+    println("Testing 'getResult'...")
+//sampleStart
+    val (_, status) = getResult()
+//sampleEnd
+    println(status)
+}
 ```
+</div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscore-for-unused-parameters.md) for more details.
 
@@ -180,11 +253,22 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscore-
 
 Just as in Java 8, Kotlin now allows to use underscores in numeric literals to separate groups of digits:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
+//sampleStart
 val oneMillion = 1_000_000
 val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println(oneMillion)
+    println(hexBytes.toString(16))
+    println(bytes.toString(2))
+}
 ```
+</div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores-in-numeric-literals.md) for more details.
 
@@ -193,20 +277,44 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores
 
 For properties with the getter defined as an expression body, the property type can now be omitted:
 
-``` kotlin
-val name get() = "Max"    // Property type inferred to be 'String'
-```
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
+``` kotlin
+//sampleStart
+class Person(val name: String, val age: Int) {
+    val isAdult get() = age >= 20 // Property type inferred to be 'Boolean'
+}
+//sampleEnd
+
+// let's say we are in Japan and the age of majority is 20
+fun main(args: Array<String>) {
+    println("Testing 'isAdult'...")
+    val akari = Person("Akari", 26)
+    println(akari.isAdult)
+}
+```
+</div>
 
 ### Inline property accessors
 
 You can now mark property accessors with the `inline` modifier if the properties don't have a backing field.
 Such accessors are compiled in the same way as [inline functions](inline-functions.html).
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-val foo: Foo
-    inline get() = Foo()
+//sampleStart
+public val <T> List<T>.lastIndex: Int
+    inline get() = this.size - 1
+//sampleEnd    
+    
+fun main(args: Array<String>) {
+    println("Testing 'lastIndex'...")
+    // the getter will be inlined
+    println(listOf(1, 2).lastIndex == 1) 
+}    
 ```
+</div>
 
 You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
 
@@ -218,14 +326,29 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-prop
 You can now use the [delegated property](delegated-properties.html) syntax with local variables.
 One possible use is defining a lazily evaluated local variable:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-fun foo() {
-    val data: String by lazy { /* calculate the data */ }
-    if (needData()) {
-        println(data)   // data is calculated at this point
+import java.util.Random
+
+fun needAnswer() = Random().nextBoolean()
+
+fun main(args: Array<String>) {
+//sampleStart
+    val answer by lazy {
+        println("Calculating the answer...")
+        42
+    }
+    if (needAnswer()) {
+        println("The answer is $answer.")   // answer is calculated at this point
+    }
+//sampleEnd
+    else {
+        println("Sometimes no answer is the answer...")
     }
 }
 ```
+</div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/local-delegated-properties.md) for more details.
 
@@ -262,16 +385,22 @@ the necessary validation right away.
 
 It is now possible to enumerate the values of an enum class in a generic way.
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
+//sampleStart
 enum class RGB { RED, GREEN, BLUE }
 
 inline fun <reified T : Enum<T>> printAllValues() {
     print(enumValues<T>().joinToString { it.name })
 }
+//sampleEnd
 
-printAllValues<RGB>() // prints RED, GREEN, BLUE
+fun main(args: Array<String>) {
+    printAllValues<RGB>() // prints RED, GREEN, BLUE
+}
 ```
-
+</div>
 
 ### Scope control for implicit receivers in DSLs
 
