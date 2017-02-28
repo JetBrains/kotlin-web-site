@@ -34,20 +34,29 @@ The standard library uses coroutines to support *lazily generated sequences* wit
 In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
 and resumed when the next element is requested. Here's an example:
 
-``` kotlin
-val seq = buildSequence {
-    println("Yielding 1")
-    yield(1)
-    println("Yielding 2")
-    yield(2)
-    println("Yielding a range")
-    yieldAll(3..5)
-}
+<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
 
-for (i in seq) {
-    println("Generated $i")
+``` kotlin
+import kotlin.coroutines.experimental.*
+
+fun main(args: Array<String>) {
+//sampleStart
+    val seq = buildSequence {
+        println("Yielding 1")
+        yield(1)
+        println("Yielding 2")
+        yield(2)
+        println("Yielding a range")
+        yieldAll(3..5)
+    }
+
+    for (i in seq) {
+        println("Generated $i")
+    }
+//sampleEnd
 }
 ```
+</div>
 
 This will print:
 
@@ -241,16 +250,15 @@ This also works in [destructuring declarations](multi-declarations.html):
 <div class="sample" markdown="1" data-min-compiler-version="1.1">
 
 ``` kotlin
-data class Result(val value: Any, val code: String)
+data class Result(val value: Any, val status: String)
 
-fun getResult() = Result(42, "ok")
+fun getResult() = Result(42, "ok").also { println("getResult() returns $it") }
 
 fun main(args: Array<String>) {
-    println("Testing 'getResult'...")
 //sampleStart
     val (_, status) = getResult()
 //sampleEnd
-    println(status)
+    println("status is '$status'")
 }
 ```
 </div>
@@ -574,7 +582,7 @@ fun main(args: Array<String>) {
 ### groupingBy()
 
 This API can be used to group a collection by key and fold each group simultaneously. For example, it can be used
-to count the frequencies of characters in a text:
+to count the number of words starting with each letter:
 
 <div class="sample" markdown="1" data-min-compiler-version="1.1">
 
@@ -586,7 +594,8 @@ fun main(args: Array<String>) {
 //sampleEnd
     println("Counting first letters: $frequencies.")
 
-    // The alternative way that uses 'groupBy' and 'mapValues' creates an intermediate map, while 'groupingBy' way counts on the fly.
+    // The alternative way that uses 'groupBy' and 'mapValues' creates an intermediate map, 
+    // while 'groupingBy' way counts on the fly.
     val groupBy = words.groupBy { it.first() }.mapValues { (_, list) -> list.size }
     println("Comparing the result with using 'groupBy': ${groupBy == frequencies}.")
 }
@@ -683,6 +692,8 @@ fun main(args: Array<String>) {
     // returns 4
     val value2 = mapWithDefault.getValue("key2")
 //sampleEnd
+
+    // map.getValue("anotherKey") // <- this will throw NoSuchElementException
     
     println("value is $value")
     println("value2 is $value2")
@@ -704,6 +715,19 @@ The standard library now provides a set of functions for element-by-element oper
 and conversion to a string (`contentToString` and `contentDeepToString`). They're supported both for the JVM
 (where they act as aliases for the corresponding functions in `java.util.Arrays`) and for JS (where the implementation
 is provided in the Kotlin standard library).
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+    val array = arrayOf("a", "b", "c")
+    println(array.toString())  // JVM implementation: type-and-hash gibberish
+    println(array.contentToString())  // nicely formatted as list
+//sampleEnd
+}
+```
+</div>
 
 ## JVM Backend
 
