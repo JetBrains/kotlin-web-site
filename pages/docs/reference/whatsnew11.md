@@ -474,7 +474,7 @@ inputDir.walk()
         .forEach { moveFile(it, File(outputDir, it.toRelativeString(inputDir))) }
 ```
 
-### takeIf(), takeUnless() and also()
+### also(), takeIf() and takeUnless()
 
 These are three general-purpose extension functions applicable to any receiver.
  
@@ -483,21 +483,59 @@ The difference is that in the block inside `apply` the receiver is available as 
 while in the block inside `also` it's available as `it` (and you can give it another name if you want).
 This comes handy when you do not want to shadow `this` from the outer scope:
 
-```kotlin
-fun Block.copy() = Block().also { it.content = this.content }
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+class Block {
+    lateinit var content: String
+}
+
+//sampleStart
+fun Block.copy() = Block().also {
+    it.content = this.content
+}
+//sampleEnd
+
+// using 'apply' instead
+fun Block.copy1() = Block().apply {
+    this.content = this@copy1.content
+}
+
+fun main(args: Array<String>) {
+    val block = Block().apply { content = "content" }
+    val copy = block.copy()
+    println(block.content == copy.content)
+}
 ```
+</div>
 
 `takeIf` is like `filter` for a single value. It checks whether the receiver meets the predicate, and
 returns the receiver, if it does or `null` if it doesn't. 
 Combined with an elvis-operator and early returns it allows to write constructs like:
 
-```kotlin
+``` kotlin
 val outDirFile = File(outputDir.path).takeIf { it.exists() } ?: return false
 // do something with existing outDirFile
-
-val index = input.indexOf(keyword).takeIf { it >= 0 } ?: error("keyword not found")
-// do something with index of keyword in input string, given that it's found
 ```
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+fun main(args: Array<String>) {
+    val input = "Kotlin"
+    val keyword = "in"
+
+//sampleStart
+    val index = input.indexOf(keyword).takeIf { it >= 0 } ?: error("keyword not found")
+    // do something with index of keyword in input string, given that it's found
+//sampleEnd
+    
+    println("'$keyword' was found in '$input'")
+    println(input)
+    println(" ".repeat(index) + "^")
+}
+```
+</div>
 
 `takeUnless` is the same as `takeIf`, but it takes the inverted predicate. It returns the receiver when it _doesn't_ meet the predicate and `null` otherwise. So one of the examples above could be rewritten with `takeUnless` as following:
 
@@ -507,18 +545,45 @@ val index = input.indexOf(keyword).takeUnless { it < 0 } ?: error("keyword not f
 
 It is also convenient to use when you have a callable reference instead of the lambda:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-val notEmptyString = string.takeUnless(String::isEmpty)
+fun main(args: Array<String>) {
+    val string = ""
+
+//sampleStart
+    val notEmptyStringOrNull = string.takeUnless(String::isEmpty)
+//sampleEnd
+    
+    println(notEmptyStringOrNull)
+}
+
 ```
+</div>
 
 ### groupingBy()
 
 This API can be used to group a collection by key and fold each group simultaneously. For example, it can be used
 to count the frequencies of characters in a text:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-val frequencies = words.groupingBy { it }.eachCount()
+fun main(args: Array<String>) {
+    val words = "one two three four five six seven eight nine ten".split(' ')
+//sampleStart
+    val frequencies = words.groupingBy { it.first() }.eachCount()
+//sampleEnd
+    println("Testing 'groupingBy'...")
+    println(frequencies)
+
+    // The alternative way that uses 'groupBy' and 'mapValues' creates an intermediate map, 
+    // while using 'groupingBy' counts on the fly.
+    val groupBy = words.groupBy { it.first() }.mapValues { (_, list) -> list.size }
+    println(groupBy == frequencies) // true
+}
 ```
+</div>
 
 ### Map.toMap() and Map.toMutableMap()
 
@@ -535,48 +600,87 @@ class ImmutablePropertyBag(map: Map<String, Any>) {
 The operator `plus` provides a way to add key-value pair(s) to a read-only map producing a new map, however there was not a simple way to do the opposite: to remove a key from the map you have to resort to less straightforward ways to like `Map.filter()` or `Map.filterKeys()``.
 Now the operator `minus` fills this gap. There are 4 overloads available: for removing a single key, a collection of keys, a sequence of keys and an array of keys.
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-val map = mapOf("key" to 42)
-val emptyMap = map - "key"
+fun main(args: Array<String>) {
+//sampleStart
+    val map = mapOf("key" to 42)
+    val emptyMap = map - "key"
+//sampleEnd
+    
+    println("map: $map")
+    println("emptyMap: $emptyMap")
+}
 ```
+</div>
 
 ### minOf() and maxOf()
 
 These functions can be used to find the lowest and greatest of two or three given values, where values are primitive numbers or `Comparable` objects. There is also an overload of each function that take an additional `Comparator` instance, if you want to compare objects that are not comparable themselves.
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-val list1 = listOf("a", "b")
-val list2 = listOf("x", "y", "z")
-val minSize = minOf(list1.size, list2.size)
-val longestList = maxOf(list1, list2, compareBy { it.size })
+fun main(args: Array<String>) {
+//sampleStart
+    val list1 = listOf("a", "b")
+    val list2 = listOf("x", "y", "z")
+    val minSize = minOf(list1.size, list2.size)
+    val longestList = maxOf(list1, list2, compareBy { it.size })
+//sampleEnd
+    
+    println("minSize = $minSize")
+    println("longestList = $longestList")
+}
 ```
+</div>
 
 ### Array-like List instantiation functions
 
 Similar to the `Array` constructor, there are now functions that create `List` and `MutableList` instances and initialize
 each element by calling a lambda:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-val squares = List(10) { index -> index * index }
-val mutableSquares = MutableList(10) { index -> index * index }
+fun main(args: Array<String>) {
+//sampleStart
+    val squares = List(10) { index -> index * index }
+    val mutable = MutableList(10) { 0 }
+//sampleEnd
+
+    println("squares: $squares")
+    println("mutable: $mutable")
+}
 ```
+</div>
 
 ### Map.getValue()
 
 This extension on `Map` returns an existing value corresponding to the given key or throws an exception, mentioning which key was not found.
 If the map was produced with `withDefault`, this function will return the default value instead of throwing an exception.
 
-``` kotlin
-val map = mapOf("key" to 42)
-// returns non-nullable Int value 42
-val value: Int = map.getValue("key")
-// throws NoSuchElementException
-map.getValue("key2")
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
-val mapWithDefault = map.withDefault { k -> k.length }
-// returns 4
-val value2 = mapWithDefault.getValue("key2")
+``` kotlin
+fun main(args: Array<String>) {
+
+//sampleStart    
+    val map = mapOf("key" to 42)
+    // returns non-nullable Int value 42
+    val value: Int = map.getValue("key")
+
+    val mapWithDefault = map.withDefault { k -> k.length }
+    // returns 4
+    val value2 = mapWithDefault.getValue("key2")
+//sampleEnd
+    
+    println("value is $value")
+    println("value2 is $value2")
+}
 ```
+</div>
 
 ### Abstract collections
 
