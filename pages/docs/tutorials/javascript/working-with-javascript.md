@@ -196,13 +196,15 @@ The way in which we'd use this from JavaScript would be to call ```dataTable()``
 </table>
 ```
 
+we would invoke the following in JavaScript
+
 ```javascript
     $("#data").dataTable()
 ```
 
-How would we do this from Kotlin given that the function ```dataTable()``` doesn't exist as such? 
+How would we do this from Kotlin given that the function ```dataTable()``` does not exist, and calling it would give a compiler error.  
 
-For this we use the ```dynamic``` modifier, which allows us to work with dynamic types when targeting JavaScript. The following
+In situations like this we can use the ```dynamic``` modifier, which allows us to work with dynamic types when targeting JavaScript. The following
 type is declared as ```dynamic``` meaning that whatever we invoke on it will not result in a compile-time error
 
 ```kotlin
