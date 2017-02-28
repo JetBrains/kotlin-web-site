@@ -14,7 +14,7 @@ Some APIs initiate long-running operations (such as network IO, file IO, CPU- or
 
 ## Blocking vs Suspending
 
-Basically, coroutines are computations that can be *suspended* without *blocking a thread*. Blocking threads is often expensive, especially under high load, because only a relatively small number of threads is practical to keep around, so blocking one of them leads to some important work to be delayed.
+Basically, coroutines are computations that can be *suspended* without *blocking a thread*. Blocking threads is often expensive, especially under high load, because only a relatively small number of threads is practical to keep around, so blocking one of them leads to some important work being delayed.
  
 Coroutine suspension is almost free, on the other hand. No context switch or any other involvement of the OS is required. And on top of that, suspension can be controlled by a user library to a large extent: as library authors, we can decide what happens upon a suspension and optimize/log/intercept according to our needs.     
 
@@ -123,7 +123,7 @@ Coroutines come in three main ingredients:
  - low-level core API in the Kotlin Stadard Library,
  - high-level APIs that can be used directly in the user code.
  
-## Low-level API: `kotlin.coroutines` 
+### Low-level API: `kotlin.coroutines` 
 
 Low-level API is relatively small and should never be used other than for creating higher-level libraries. It consists of two main packages: 
 - [`kotlin.coroutines.experimental`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/index.html) with main types and primitives such as
