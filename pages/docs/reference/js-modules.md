@@ -10,7 +10,7 @@ title: "JavaScript Modules"
 Kotlin allows you to compile your Kotlin projects to JavaScript modules for popular module systems. Here is
 the list of available options:
 
-1. Plain. Don't compile for any module system. As usual, you can access module by name in the global scope.
+1. Plain. Don't compile for any module system. As usual, you can access a module by its name in the global scope.
    This option is used by default.
 2. [Asynchronous Module Definition (AMD)](https://github.com/amdjs/amdjs-api/wiki/AMD), which is in particular
    used by require.js library.
@@ -201,6 +201,6 @@ external fun sayHello(name: String)
 ### Notes
 
 Kotlin is distributed with `kotlin.js` standard library as a single file, which is itself compiled as an UMD module, so
-you can use it with any module system described above. Also it available on NPM as [`kotlin` pacakge](https://www.npmjs.com/package/kotlin)
+you can use it with any module system described above. Also it is available on NPM as [`kotlin` package](https://www.npmjs.com/package/kotlin)
 
 
