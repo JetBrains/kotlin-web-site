@@ -37,7 +37,7 @@ You may want to compile Kotlin to JavaScript in the following scenarios:
 Kotlin can be used together with existing third-party libraries and frameworks, such as JQuery or ReactJS. To access third-party frameworks
 with a strongly-typed API, you can convert TypeScript definitions from the [Definitely Typed](http://definitelytyped.org/)
 type definitions repository to Kotlin using the [ts2kt](https://github.com/kotlin/ts2kt) tool. Alternatively, you can use
-the [dynamic type](js-dynamic.html) to access any framework without strong typing.
+the [dynamic type](dynamic-type.html) to access any framework without strong typing.
 
 Kotlin is also compatible with CommonJS, AMD and UMD, [making interaction with different](/docs/tutorials/javascript/working-with-modules/working-with-modules.html) module systems straightforward.
 
