@@ -103,6 +103,13 @@ Here is an example:
 ``` kotlin
 //sampleStart
 typealias OscarWinners = Map<String, String>
+
+fun countLaLaLand(oscarWinners: OscarWinners) =
+        oscarWinners.count { it.value.contains("La La Land") }
+
+// Note that the type names (initial and the type alias) are interchangeable:
+fun checkLaLaLandIsTheBestMovie(oscarWinners: Map<String, String>) =
+        oscarWinners["Best picture"] == "La La Land"
 //sampleEnd
 
 fun oscarWinners(): OscarWinners {
@@ -112,18 +119,14 @@ fun oscarWinners(): OscarWinners {
             "Best picture" to "Moonlight" /* ... */)
 }
 
-fun countLaLaLand(oscarWinners: OscarWinners) =
-        oscarWinners.count { it.value.contains("La La Land") }
-
-// Note that the type names (initial and the type alias) are interchangeable:
-fun checkLaLaLandIsTheBestMovie(oscarWinners: Map<String, String>) =
-        oscarWinners["Best picture"] == "La La Land"
-
 fun main(args: Array<String>) {
-    println("Testing OscarWinners...")
     val oscarWinners = oscarWinners()
-    println(countLaLaLand(oscarWinners))  // in our example 2, but actually it's 6
-    println(checkLaLaLandIsTheBestMovie(oscarWinners)) // false
+
+    val laLaLandAwards = countLaLaLand(oscarWinners)
+    println("LaLaLandAwards = $laLaLandAwards (in our small example), but actually it's 6.")
+
+    val laLaLandIsTheBestMovie = checkLaLaLandIsTheBestMovie(oscarWinners)
+    println("LaLaLandIsTheBestMovie = $laLaLandIsTheBestMovie")
 }
 ```
 </div>
@@ -201,6 +204,12 @@ Here's an example:
 fun main(args: Array<String>) {
 //sampleStart
     val map = mapOf(1 to "one", 2 to "two")
+    // before
+    println(map.mapValues { entry ->
+        val (key, value) = entry
+        "$value!"
+    })
+    // now
     println(map.mapValues { (key, value) -> "$value!" })
 //sampleEnd    
 }
@@ -281,16 +290,14 @@ For properties with the getter defined as an expression body, the property type 
 
 ``` kotlin
 //sampleStart
-class Person(val name: String, val age: Int) {
+data class Person(val name: String, val age: Int) {
     val isAdult get() = age >= 20 // Property type inferred to be 'Boolean'
 }
 //sampleEnd
 
-// let's say we are in Japan and the age of majority is 20
 fun main(args: Array<String>) {
-    println("Testing 'isAdult'...")
     val akari = Person("Akari", 26)
-    println(akari.isAdult)
+    println("$akari.isAdult = ${akari.isAdult}")
 }
 ```
 </div>
@@ -306,13 +313,13 @@ Such accessors are compiled in the same way as [inline functions](inline-functio
 //sampleStart
 public val <T> List<T>.lastIndex: Int
     inline get() = this.size - 1
-//sampleEnd    
-    
+//sampleEnd
+
 fun main(args: Array<String>) {
-    println("Testing 'lastIndex'...")
+    val list = listOf('a', 'b')
     // the getter will be inlined
-    println(listOf(1, 2).lastIndex == 1) 
-}    
+    println("Last index of $list is ${list.lastIndex}")
+}
 ```
 </div>
 
@@ -339,13 +346,13 @@ fun main(args: Array<String>) {
         println("Calculating the answer...")
         42
     }
-    if (needAnswer()) {
+    if (needAnswer()) {                     // returns the random value
         println("The answer is $answer.")   // answer is calculated at this point
     }
-//sampleEnd
     else {
         println("Sometimes no answer is the answer...")
     }
+//sampleEnd
 }
 ```
 </div>
@@ -361,8 +368,8 @@ For example, if we want to check the property name before binding, we can write 
 
 ``` kotlin
 class ResourceLoader<T>(id: ResourceID<T>) {
-    operator fun provideDelegate(thisRef: MyUI, property: KProperty<*>): ReadOnlyProperty<MyUI, T> {
-        checkProperty(thisRef, property.name)
+    operator fun provideDelegate(thisRef: MyUI, prop: KProperty<*>): ReadOnlyProperty<MyUI, T> {
+        checkProperty(thisRef, prop.name)
         ... // property creation
     }
 
@@ -504,6 +511,7 @@ fun Block.copy1() = Block().apply {
 fun main(args: Array<String>) {
     val block = Block().apply { content = "content" }
     val copy = block.copy()
+    println("Testing the content was copied:")
     println(block.content == copy.content)
 }
 ```
@@ -548,16 +556,18 @@ It is also convenient to use when you have a callable reference instead of the l
 <div class="sample" markdown="1" data-min-compiler-version="1.1">
 
 ``` kotlin
-fun main(args: Array<String>) {
-    val string = ""
-
+private fun testTakeUnless(string: String) {
 //sampleStart
-    val notEmptyStringOrNull = string.takeUnless(String::isEmpty)
+    val result = string.takeUnless(String::isEmpty)
 //sampleEnd
-    
-    println(notEmptyStringOrNull)
+
+    println("string = \"$string\"; result = \"$result\"")
 }
 
+fun main(args: Array<String>) {
+    testTakeUnless("")
+    testTakeUnless("abc")
+}
 ```
 </div>
 
@@ -574,13 +584,11 @@ fun main(args: Array<String>) {
 //sampleStart
     val frequencies = words.groupingBy { it.first() }.eachCount()
 //sampleEnd
-    println("Testing 'groupingBy'...")
-    println(frequencies)
+    println("Counting first letters: $frequencies.")
 
-    // The alternative way that uses 'groupBy' and 'mapValues' creates an intermediate map, 
-    // while using 'groupingBy' counts on the fly.
+    // The alternative way that uses 'groupBy' and 'mapValues' creates an intermediate map, while 'groupingBy' way counts on the fly.
     val groupBy = words.groupBy { it.first() }.mapValues { (_, list) -> list.size }
-    println(groupBy == frequencies) // true
+    println("Comparing the result with using 'groupBy': ${groupBy == frequencies}.")
 }
 ```
 </div>
