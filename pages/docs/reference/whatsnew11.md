@@ -691,9 +691,9 @@ fun main(args: Array<String>) {
     val mapWithDefault = map.withDefault { k -> k.length }
     // returns 4
     val value2 = mapWithDefault.getValue("key2")
-//sampleEnd
 
     // map.getValue("anotherKey") // <- this will throw NoSuchElementException
+//sampleEnd
     
     println("value is $value")
     println("value2 is $value2")
