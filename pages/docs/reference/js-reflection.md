@@ -14,7 +14,7 @@ implementation that only supports the [simpleName](/api/latest/jvm/stdlib/kotlin
 [isInstance](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/is-instance.html) members.
 
 In addition to that, you can use [KClass.js](/api/latest/jvm/stdlib/kotlin.js/js.html) to access the
-[JsClass](api/latest/jvm/stdlib/kotlin.js/-js-class/index.html) instance corresponding to the class.
+[JsClass](/api/latest/jvm/stdlib/kotlin.js/-js-class/index.html) instance corresponding to the class.
 The `JsClass` instance itself is a reference to the constructor function.
 This can be used to interoperate with JS functions that expect a reference to a constructor.
 
