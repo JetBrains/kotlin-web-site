@@ -10,15 +10,14 @@ title: "JavaScript Modules"
 Kotlin allows you to compile your Kotlin projects to JavaScript modules for popular module systems. Here is
 the list of available options:
 
-1. Plain. Don't compile for any module system. As usual, you can access module `moduleName`
-   via `kotlin.modules.moduleName`, or by just `moduleName` identifier put in the global scope.
+1. Plain. Don't compile for any module system. As usual, you can access module by name in the global scope.
    This option is used by default.
 2. [Asynchronous Module Definition (AMD)](https://github.com/amdjs/amdjs-api/wiki/AMD), which is in particular
    used by require.js library.
 3. [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1) convention, widely used by node.js/npm
    (`require` function and `module.exports` object)
 4. Unified Module Definitions (UMD), which is compatible with both *AMD* and *CommonJS*, and works as "plain"
-   when neither *AMD* nor *CommonJS* is available.
+   when neither *AMD* nor *CommonJS* is available at runtime.
 
 
 ## Choosing the Target Module System
@@ -27,6 +26,11 @@ Choosing the target module system depends on your build environment:
 
 ### From IntelliJ IDEA
 
+Setup per module:
+Open File -> Project Structure..., find your module in Modules and select "Kotlin" facet under it. Choose appropriate
+module system in "Module kind" field.
+
+Setup for the whole project:
 Open File -> Settings, select "Build, Execution, Deployment" -> "Compiler" -> "Kotlin compiler". Choose appropriate
 module system in "Module kind" field.
 
@@ -180,7 +184,7 @@ given JavaScript code:
 ``` javascript
 function topLevelSayHello(name) { alert("Hello, " + name); }
 if (module && module.exports) {
-    module.exports.sayHello = topLevelSayHello;
+    module.exports = topLevelSayHello;
 }
 ```
 
@@ -197,6 +201,6 @@ external fun sayHello(name: String)
 ### Notes
 
 Kotlin is distributed with `kotlin.js` standard library as a single file, which is itself compiled as an UMD module, so
-you can use it with any module system described above.
+you can use it with any module system described above. Also it available on NPM as [`kotlin` pacakge](https://www.npmjs.com/package/kotlin)
 
 
