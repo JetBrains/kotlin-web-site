@@ -175,7 +175,7 @@ For more information on `kapt` refer to the [official blogpost](http://blog.jetb
 
 ## Incremental compilation
 
-Kotlin 1.0.2 introduced new experimental incremental compilation mode in Gradle. 
+Kotlin supports optional incremental compilation in Gradle.
 Incremental compilation tracks changes of source files between builds so only files affected by these changes would be compiled.
 
 There are several ways to enable it:
@@ -186,10 +186,23 @@ There are several ways to enable it:
 
 After incremental compilation is enabled, you should see the following warning message in your build log:
 ```
-Using experimental kotlin incremental compilation
+Using kotlin incremental compilation
 ```
 
 Note, that the first build won't be incremental.
+
+## Coroutines support
+
+[Coroutines](coroutines.html) support is an experimental feature in Kotlin 1.1, so the Kotlin compiler reports a warning when you use coroutines in your project.
+To turn off the warning, add the following block to your `build.gradle` file:
+
+``` groovy
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+```
 
 ## Compiler Options
 
