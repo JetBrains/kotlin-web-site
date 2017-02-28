@@ -77,11 +77,20 @@ fun main(args: Array<String>) {
 
 `Unit` return type can be omitted:
 
+<div class="sample" markdown="1">
+
 ``` kotlin
+//sampleStart
 fun printSum(a: Int, b: Int) {
     println("sum of $a and $b is ${a + b}")
 }
+//sampleEnd
+
+fun main(args: Array<String>) {
+    printSum(-1, 8)
+}
 ```
+</div>
 
 See [Functions](functions.html).
 
@@ -263,11 +272,11 @@ fun printProduct(arg1: String, arg2: String) {
 //sampleStart
     // ...
     if (x == null) {
-        println("Wrong number format in '${arg1}'")
+        println("Wrong number format in arg1: '${arg1}'")
         return
     }
     if (y == null) {
-        println("Wrong number format in '${arg2}'")
+        println("Wrong number format in arg2: '${arg2}'")
         return
     }
 
@@ -580,7 +589,7 @@ Using lambda expressions to filter and map collections:
 
 ``` kotlin
 fun main(args: Array<String>) {
-    val fruits = setOf("banana", "avocado", "apple", "kiwi")
+    val fruits = listOf("banana", "avocado", "apple", "kiwi")
 //sampleStart
     fruits
         .filter { it.startsWith("a") }
