@@ -101,7 +101,7 @@ external fun newC()
 
 * Kotlin numeric types, except for `kotlin.Long` are mapped to JavaScript Number.
 * `kotlin.Char` is mapped to JavaScript Number representing character code.
-* Kotlin can't distinguish between numeric types at run time, i.e. the following code works:
+* Kotlin can't distinguish between numeric types at run time (except for `kotlin.Long`), i.e. the following code works:
 
   ``` kotlin
   fun f() {
@@ -111,7 +111,7 @@ external fun newC()
   }
   ```
 
-* Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short` and `kotlin.Char`.
+* Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`.
 * There's no 64 bit integer number in JavaScript, so `kotlin.Long` is not mapped to any JavaScript object,
   it's emulated by a Kotlin class.
 * `kotlin.String` is mapped to JavaScript String.
