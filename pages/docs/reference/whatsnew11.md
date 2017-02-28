@@ -140,7 +140,7 @@ fun main(args: Array<String>) {
 ```
 </div>
 
-See the [documentation](type-aliases.html) for more details.
+See the [documentation](type-aliases.html) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
 
 
 ### Bound callable references
@@ -164,7 +164,7 @@ fun main(args: Array<String>) {
 </div>
 
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/bound-callable-references.md) for more details.
+Read the [documentation](reflection.html#bound-function-and-property-references-since-11) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/bound-callable-references.md) for more details.
 
 
 ### Sealed and data classes
@@ -198,7 +198,8 @@ fun main(args: Array<String>) {
 ```
 </div>
 
-Read the [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
+Read the [documentation](sealed-classes.html#relaxed-rules-for-sealed-classes-since-11) or 
+[sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
 [data class](https://github.com/Kotlin/KEEP/blob/master/proposals/data-class-inheritance.md) KEEPs for more detail.
 
 
@@ -225,7 +226,7 @@ fun main(args: Array<String>) {
 ```
 </div>
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
+Read the [documentation](multi-declarations.html#destructuring-in-lambdas-since-11) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
 
 
 ### Underscores for unused parameters
@@ -333,7 +334,7 @@ fun main(args: Array<String>) {
 
 You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
+Read the [documentation](inline-functions.html#inline-properties) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
 
 
 ### Local delegated properties
@@ -395,6 +396,8 @@ class MyUI {
 The `provideDelegate` method will be called for each property during the creation of a `MyUI` instance, and it can perform
 the necessary validation right away.
 
+Read the [documentation](delegated-properties.html#providing-a-delegate-since-11) for more details.
+
 
 ### Generic enum value access
 
@@ -454,7 +457,7 @@ fun Tag.td(init: TD.() -> Unit) {
 Now that the implicit receiver of the `init` lambda passed to the `td` function is a class annotated with `@HtmlTagMarker`,
 so the outer receivers of types which also have this annotation will be blocked.
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
+Read the [documentation](type-safe-builders.html#scope-control-dslmarker-since-11) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
 
 
 ### `rem` operator
