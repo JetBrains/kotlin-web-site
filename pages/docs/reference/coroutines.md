@@ -22,7 +22,7 @@ Another difference is that coroutines can not be suspended at random instruction
 
 ## Suspending functions
 
-A suspension happens when we call a function marked with the special modifier: `suspend`:
+A suspension happens when we call a function marked with the special modifier, `suspend`:
 
 ``` kotlin 
 suspend fun doSomething(foo: Foo): Bar {
@@ -30,22 +30,34 @@ suspend fun doSomething(foo: Foo): Bar {
 }
 ```
 
-Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions. In fact, to start a coroutine, there must be at least one suspending function, and it is usually anonymous (i.e. it is a suspending lambda). Let's look at an example from [kotlinx.coroutines](#the-kotlinx.coroutines-library):
+Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions. In fact, to start a coroutine, there must be at least one suspending function, and it is usually anonymous (i.e. it is a suspending lambda). Let's look at an example, a simplified `async()` function (from the [`kotlinx.coroutines`](#other-high-level-apis-kotlinxcoroutines) library):
+    
+``` kotlin
+fun <T> async(block: suspend () -> T)
+``` 
+
+Here, `async()` is a regular function (not a suspending function), but the `block` parameter has a function type with the `suspend` modifier: `suspend () -> T`. So, when we pass a lambda to `async()`, it is a *suspending lambda*, and we can call a suspending function from it:
    
 ``` kotlin
-async(CommonPool) {
-    val bar = doSomething(foo)
+async {
+    doSomething(foo)
     ...
 }
 ```
 
-Here, `async()` is a regular function (not a suspending function), but the lambda that it takes as an argument is a suspending function:
- 
-``` kotlin
-fun <T> async(..., block: suspend CoroutineScope.() -> T)
-``` 
+To continue the analogy, `await()` can be a suspending function (hence also callable from within an `async {}` block) that suspends a coroutine until some computation is done and returns its result:
 
-So, `doSomething()` can be called from this lambda, but can not be called from a regular function like `main()`:
+``` kotlin
+async {
+    ...
+    val result = computation.await()
+    ...
+}
+```
+
+More information on how actual `async/await` functions work in `kotlinx.coroutines` can be found [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md#composing-suspending-functions).
+
+Note that suspending functions `await()` and `doSomething()` can not be called from a regular function like `main()`:
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -53,7 +65,17 @@ fun main(args: Array<String>) {
 }
 ```
 
-Note: suspending functions can be virtual, when overriding them, the `suspend` modifier has to be specified. 
+Also note that suspending functions can be virtual, and when overriding them, the `suspend` modifier has to be specified:
+ 
+``` kotlin
+interface Base {
+    suspend fun foo()
+}
+
+class Derived: Base {
+    override suspend fun foo() { ... }
+}
+``` 
 
 ### `@RestrictsSuspension` annotation
  
