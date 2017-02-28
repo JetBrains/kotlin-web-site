@@ -232,6 +232,6 @@ val matches: (Regex, CharSequence) -> Boolean = Regex::matches
 Property reference can be bound as well:
 
 ``` kotlin
-val property = "abc"::length
-println(property.get())   // prints "3"
+val prop = "abc"::length
+println(prop.get())   // prints "3"
 ```
