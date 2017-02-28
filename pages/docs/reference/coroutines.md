@@ -30,7 +30,7 @@ suspend fun doSomething(foo: Foo): Bar {
 }
 ```
 
-Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions. In fact, to start a coroutine, there must be at least one suspending function, and it is usually anonymous (i.e. it is a suspending lambda). Let's look at an example, a simplified `async()` function (from the [`kotlinx.coroutines`](#other-high-level-apis-kotlinxcoroutines) library):
+Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions. In fact, to start a coroutine, there must be at least one suspending function, and it is usually anonymous (i.e. it is a suspending lambda). Let's look at an example, a simplified `async()` function (from the [`kotlinx.coroutines`](#generators-api-in-kotlincoroutines) library):
     
 ``` kotlin
 fun <T> async(block: suspend () -> T)
@@ -98,7 +98,7 @@ See the sources [on Github](https://github.com/JetBrains/kotlin/blob/master/libr
 
 We are not trying here to give a complete explanation of how coroutines work under the hood, but a rough sense of what's going on is rather important.
 
-Since coroutines are completely implemented through a compilation technique (no support from the VM or OS side is required), suspension works through code transformation. Basically, every suspending function (optimizations may apply, but we'll not go into this here) is transformed to a state machine where states correspond to suspending calls. Right before a suspension, the next state is stored in a field of a compiler-generated class along with relevant local variables, etc. Upon resumption of that coroutine, local variables are restored and the state machine proceeds from the state right after suspension.
+Coroutines are completely implemented through a compilation technique (no support from the VM or OS side is required), and suspension works through code transformation. Basically, every suspending function (optimizations may apply, but we'll not go into this here) is transformed to a state machine where states correspond to suspending calls. Right before a suspension, the next state is stored in a field of a compiler-generated class along with relevant local variables, etc. Upon resumption of that coroutine, local variables are restored and the state machine proceeds from the state right after suspension.
      
 A suspended coroutine can be stored and passed around as an object that keeps its suspended state and locals. The type of such objects is `Continuation`, and the overall code transformation described here corresponds to the classical [Continuation-passing style](https://en.wikipedia.org/wiki/Continuation-passing_style). Consequently, suspending functions take an extra parameter of type `Continuation` under the hood.
 
@@ -134,7 +134,7 @@ Low-level API is relatively small and should never be used other than for creati
  
  More details about the usage of these APIs can be found [here](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md).
 
-### High-level API in `kotlin.coroutines`
+### Generators API in `kotlin.coroutines`
   
 The only "application-level" functions in `kotlin.coroutines.experimental` are
 - [`buildSequence()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/build-sequence.html)
@@ -171,7 +171,7 @@ One can add custom yielding logic to `buildSequence()` by writing suspending ext
 
 Only core APIs related to coroutines are available from the Kotlin Standard Library. This mostly consists of core primitives and interfaces that all coroutine-based libraries are likely to use.   
 
-Most application-level APIs based on coroutines are released as a separate library: [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines). This library covers
+Most application-level APIs based on coroutines are released as a separate library: [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines). This library covers
  * Platform-agnostic asynchronous programming with `kotlinx-coroutines-core`
    * this module includes Go-like channels that support `select` and other convenient primitives
    * a comprehensive guide to this library is available [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md).
