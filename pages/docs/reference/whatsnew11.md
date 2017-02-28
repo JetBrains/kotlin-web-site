@@ -439,23 +439,7 @@ to put a `<tr>` tag in a `<td>`.
 
 In Kotlin 1.1, you can restrict that, so that only methods defined on the implicit receiver of `td`
 will be available inside the lambda passed to `td`. You do that by defining your annotation marked with the `@DslMarker` meta-annotation
-and applying it to the base class of the tag classes:
-
-``` kotlin
-@DslMarker
-annotation class HtmlTagMarker
-
-@HtmlTagMarker
-abstract class Tag(val name: String) { ... }
-
-class TD() : Tag("td") { ... }
-
-fun Tag.td(init: TD.() -> Unit) {
-}
-```
-
-Now that the implicit receiver of the `init` lambda passed to the `td` function is a class annotated with `@HtmlTagMarker`,
-so the outer receivers of types which also have this annotation will be blocked.
+and applying it to the base class of the tag classes.
 
 Read the [documentation](type-safe-builders.html#scope-control-dslmarker-since-11) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
 
