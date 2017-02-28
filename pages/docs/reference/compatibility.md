@@ -42,7 +42,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
 - **BC** - Full **B**ackward **C**ompatibility
   - BC = BCLA & BCB
 - **EXP** - Experimental feature
-  - see below
+  - see [below](#experimental-features)
 - **NO** - No compatibility guarantees
   - we'll do our best to offer smooth migration, but can give no guarantees
   - migration is planned individually for every incompatible subsystem 
