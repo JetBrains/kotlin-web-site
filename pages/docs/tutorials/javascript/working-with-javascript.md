@@ -62,7 +62,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.jetbrains.kotlinx:kotlinx.html.js:0.6.1'
+    compile 'org.jetbrains.kotlinx:kotlinx-html-js:0.6.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
 ```
