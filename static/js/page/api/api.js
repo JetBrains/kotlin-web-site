@@ -55,43 +55,30 @@ function initializeSelects() {
     version: '1.1'
   };
 
-  const platforms = {
-    'all': 'All'
-  };
-  $('[data-platform]').each((ind, element) => {
-    const platform = element.getAttribute('data-platform');
-    platforms[platform] = platform
+  addSelectToPanel(switchersPanel, "Platform", {
+    items: {
+    'all': 'All',
+    'jvm': 'JVM',
+    'js': 'JS'
+  },
+    onSelect: (platform) => {
+      state.platform = platform;
+      updateState(state)
+    }
   });
 
-  if (Object.keys(platforms).length > 2) {
-    addSelectToPanel(switchersPanel, "Platform", {
-      items: platforms,
-      onSelect: (platform) => {
-        state.platform = platform;
-        updateState(state)
-      }
-    });
-  }
 
-
-  const versions = {
-    '1.0': '1.0'
-  };
-  $('[data-kotlin-version]').each((ind, element) => {
-    const version = getVersion(element);
-    versions[version] = version
-  });
-
-  if (Object.keys(versions).length > 1) {
-    addSelectToPanel(switchersPanel, "Version", {
-      items: versions,
-      selectedIndex: 1,
-      onSelect: (version) => {
-        state.version = version;
-        updateState(state)
-      }
-    })
-  }
+  addSelectToPanel(switchersPanel, "Version", {
+    items: {
+    '1.0': '1.0',
+    '1.1': '1.1'
+  },
+    selectedIndex: 1,
+    onSelect: (version) => {
+      state.version = version;
+      updateState(state)
+    }
+  })
 }
 
 function addTag(rowElement, tag) {
