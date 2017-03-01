@@ -11,6 +11,7 @@ function getVersion(element) {
 }
 
 function updateState(state) {
+  localStorage.setItem("apiState", JSON.stringify(state));
   const $platformDependentElements = $('[data-platform]');
   const $versionDependentElements = $('[data-kotlin-version]');
   $versionDependentElements.removeClass('hidden');
@@ -50,17 +51,21 @@ function initializeSelects() {
 
   const switchersPanel = $('.api-panel__switchers')[0];
 
-  const state = {
-    platform: 'all',
-    version: '1.1'
-  };
+  const state = localStorage.getItem("apiState") ?
+    JSON.parse(localStorage.getItem("apiState")) :
+    {
+      platform: 'all',
+      version: '1.1'
+    };
+  updateState(state);
 
   addSelectToPanel(switchersPanel, "Platform", {
     items: {
-    'all': 'All',
-    'jvm': 'JVM',
-    'js': 'JS'
-  },
+      'all': 'All',
+      'jvm': 'JVM',
+      'js': 'JS'
+    },
+    selected: state.platform,
     onSelect: (platform) => {
       state.platform = platform;
       updateState(state)
@@ -70,10 +75,10 @@ function initializeSelects() {
 
   addSelectToPanel(switchersPanel, "Version", {
     items: {
-    '1.0': '1.0',
-    '1.1': '1.1'
-  },
-    selectedIndex: 1,
+      '1.0': '1.0',
+      '1.1': '1.1'
+    },
+    selected: state.version,
     onSelect: (version) => {
       state.version = version;
       updateState(state)
