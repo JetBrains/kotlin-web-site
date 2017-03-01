@@ -11,10 +11,10 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Interact with the DOM](#InteractingWithTheDom)
-* [Use kotlinx.html to generate HTML](#UsingKotlinx.html)
-* [Use ts2kt to interact with libraries](#Usingts2kt)
-* [Use dynamic to interact with libraries](#UsingDynamic)
+* [Interact with the DOM](#interacting-with-the-dom)
+* [Use kotlinx.html to generate HTML](#using-kotlinxhtml)
+* [Use ts2kt to interact with libraries](#using-ts2kt-to-generate-header-files-for-kotlin)
+* [Use dynamic to interact with libraries](#using-dynamic)
 
 
 
@@ -47,9 +47,10 @@ An important note is to make sure that the scripts are located before the ``body
 
 Much like we reference an input element, we can access other elements on the page, casting them to the appropriate types. 
 
-## Using Kotlinx.html
+## Using kotlinx.html
 
-The [Kotlinx.html library](http://www.github.com/kotlin/kotlinx.html) provides the ability to generate DOM using statically typed HTML builders. The is available when targeting the JVM as well as JavaScript. To use the library we need to include the corresponding
+The [kotlinx.html library](http://www.github.com/kotlin/kotlinx.html) provides the ability to generate DOM using statically typed HTML builders.
+The library is available when targeting the JVM as well as JavaScript. To use the library we need to include the corresponding
 dependency. In the case of Gradle this would be 
 
 ```groovy
@@ -61,7 +62,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.jetbrains.kotlinx:kotlinx.html.js:0.5.10'
+    compile 'org.jetbrains.kotlinx:kotlinx.html.js:0.6.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
 ```
@@ -76,10 +77,12 @@ import kotlin.browser.*
 import kotlinx.html.*
 import kotlinx.html.dom.*
 
-window.onload = {
-    document.body!!.append.div {
-        span {
-            +"Hello"
+fun printHello() {
+    window.onload = {
+        document.body!!.append.div {
+            span {
+                +"Hello"
+            }
         }
     }
 }
@@ -104,16 +107,10 @@ To convert a file we simply provide the input file, and optionally an output dir
 ts2kt -d headers jquery.d.ts 
 ```
 
-Once we have the file generated, we can simply include it in our project and use it
+Once we have the file generated, we can simply include it in our project and use it:
 
 ```kotlin
-jQuery("#area").hover { js("alert('Hello!')") }
-```
-
-or the shorter version
-
-```kotlin
-$("#area").hover { js("alert('Hello!')") }
+jQuery("#area").hover { window.alert("Hello!") }
 ```
 
 Note that ```jQuery``` needs to be included in the corresponding HTML:
@@ -212,7 +209,7 @@ Given our previous example where we used jQuery to work with DOM elements, we ca
 $("#data").asDynamic().dataTable()
 ```
 
-It is important to understand that just like in the case of `callAnything()`, the ```dataTable()` function must exist at runtime. In our case, we need to make
+It is important to understand that just like in the case of `callAnything()`, the `dataTable()` function must exist at runtime. In our case, we need to make
 sure that the corresponding script file for our plugin is included:
 
 ```html
