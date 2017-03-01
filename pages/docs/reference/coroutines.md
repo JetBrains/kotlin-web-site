@@ -12,6 +12,8 @@ title: "Coroutines"
 
 Some APIs initiate long-running operations (such as network IO, file IO, CPU- or GPU-intensive work, etc) and require the caller to block until they complete. Coroutines provide a way to avoid blocking a thread and replace it with a cheaper and more controllable operation: *suspension* of a coroutine.
 
+Corotuines simplify asynchronous programming by putting the complications into libraries. The logic of the program can be expressed *sequentially* in a coroutine, and the underlying library will figure out the asynchrony for us. The library can wrap relevant parts of the user code into callbacks, subscribe to relevant events, schedule execution on different threads (or even different machines!), and the code remains as simple as if it was sequentially executed.   
+
 Many asynchronous mechanisms available in other languages can be implemented as libraries using Kotlin coroutines. This includes [`async`/`await`](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md#composing-suspending-functions) from C# and ECMAScript, [channels](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md#channels) and [`select`](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md#select-expression) from Go, and [generators/`yield`](##generators-api-in-kotlincoroutines) from C# and Python. See the description [below](http://localhost:5000/docs/reference/coroutines.html#standard-apis) for libraries providing such constructs.
 
 ## Blocking vs Suspending
