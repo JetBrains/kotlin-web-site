@@ -3,6 +3,7 @@
 @mixin selector-label {
   display: inline-block;
   font-weight: bold;
+  padding-right: 5px;
 }
 
 @mixin selector-selector {

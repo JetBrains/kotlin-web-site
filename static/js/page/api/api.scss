@@ -1,0 +1,41 @@
+@import "../../../css/config/font";
+
+.api-page-panel {
+    display: flex;
+}
+
+.api-docs-breadcrumbs {
+    flex-grow: 1;
+}
+
+.api-panel__dropdown-title {
+    padding-right: 10px;
+}
+
+.api-panel__switchers {
+    display: flex;
+}
+
+.api-panel__select {
+    padding-right: 20px;
+}
+
+.tags {
+    display: flex;
+}
+
+.api-docs-table tr > td:first-child p {
+    margin-bottom: 0;
+}
+
+.tags__tag {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #a7a7a7;
+    padding: 0 7px;
+    font-size: 10px;
+    border-radius: 9px;
+    line-height: 18px;
+    margin-right: 5px;
+}
