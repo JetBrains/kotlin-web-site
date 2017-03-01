@@ -17,10 +17,10 @@ function updateState(state) {
   $versionDependentElements.removeClass('hidden');
   $platformDependentElements.removeClass('hidden');
 
-  if (state.platform != 'all') {
+  if (state.platform.toLowerCase() != 'all') {
     $platformDependentElements.each((ind, element) => {
       const $element = $(element);
-      if ($element.attr('data-platform') == state.platform) return;
+      if ($element.attr('data-platform').toLowerCase() == state.platform.toLowerCase()) return;
       $element.addClass('hidden')
     })
   }
