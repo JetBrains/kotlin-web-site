@@ -20,15 +20,15 @@ In this tutorial we'll see how to
 
 ## Interacting with the DOM
 
-The Kotlin standard library provides a series of wrappers around the Java API for interacting with documents. The main component we'd usually access is the variable ```document```. Given we have access to this, we can simply read and write to the corresponding properties. For instance, to set the background of the page we can do
+The Kotlin standard library provides a series of wrappers around the JavaScript API for interacting with documents. The main component we'd usually access is the variable `document`. Given we have access to this, we can simply read and write to the corresponding properties. For instance, to set the background of the page we can do
 
 
 ```kotlin
 document.bgColor = "FFAA12" 
 ```
 
-The DOM also provides us a way to retrieve a specific element by id, name, classname, tagname and so on. All returned elements are of type ```NodeList``` and to access members we need to cast it to the specific type of element. The code below shows how we could access an input
-element on the page
+The DOM also provides us a way to retrieve a specific element by ID, name, class name, tag name and so on. All returned elements are of type `NodeList`, and to access members we need to cast them to the specific type of element. The code below shows how we could access an input
+element on the page:
 
 ```html
 <body>
@@ -40,8 +40,7 @@ element on the page
 
 ```kotlin
 val email = document.getElementById("email") as HTMLInputElement
-
-val email = "hadi@jetbrains.com"
+email.value = "hadi@jetbrains.com"
 ```
 
 An important note is to make sure that the scripts are located before the ``body`` tag is closed. Placing them at the top means that the scripts would be loaded before the DOM is fully available.
@@ -50,7 +49,7 @@ Much like we reference an input element, we can access other elements on the pag
 
 ## Using Kotlinx.html
 
-The Kotlinx.html library provides the ability to generate DOM using statically typed HTML builders. The is available when targeting the JVM as well as JavaScript. To use the library we need to include the corresponding
+The [Kotlinx.html library](http://www.github.com/kotlin/kotlinx.html) provides the ability to generate DOM using statically typed HTML builders. The is available when targeting the JVM as well as JavaScript. To use the library we need to include the corresponding
 dependency. In the case of Gradle this would be 
 
 ```groovy
@@ -63,17 +62,20 @@ repositories {
 
 dependencies {
     compile 'org.jetbrains.kotlinx:kotlinx.html.js:0.5.10'
-    compile "org.jetbrains.kotlin:kotlin-js-library:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
 ```
 
-For more information about configuring Gradle to target JavaScript please see [Getting Started with Gradle](getting-started-gradle/getting-started-with-gradle.html)
+For more information about configuring Gradle to target JavaScript please see [Getting Started with Gradle](getting-started-gradle/getting-started-with-gradle.html).
 
-Once the dependency is included, we can access the difference interfaces provided to generate DOM. The code below will add a new ```span``` tag with the text ```Hello``` inside a ```div``` on the 
-```window.load``` event. 
- 
+Once the dependency is included, we can access the different interfaces provided to generate DOM. The code below will add a new ```span``` tag with the text ```Hello``` inside a ```div``` on the
+`window.load` event.
 
 ```kotlin
+import kotlin.browser.*
+import kotlinx.html.*
+import kotlinx.html.dom.*
+
 window.onload = {
     document.body!!.append.div {
         span {
@@ -85,42 +87,41 @@ window.onload = {
 
 ## Using ts2kt to generate header files for Kotlin
 
-The standard library provides us a with a series of wrappers around DOM as well as functions to work with JavaScript, using static typing. What happens however 
-when we want to use some library such as jQuery? Kotlin does not have its own ```header``` files for all the different libraries available on the JavaScript ecosystem
+The standard library provides us with a series of wrappers around DOM as well as functions to work with JavaScript, using static typing. What happens however
+when we want to use a library such as jQuery? Kotlin does not have its own "header" files for all the different libraries available on the JavaScript ecosystem
 however, TypeScript does. The [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/)  provides us with a very large selection of header files. 
 
-Using the tool ```ts2kt``` (TypeScript to Kotlin) we can convert any ```ds.ts``` files to Kotlin. To install the tool we can use ```npm```
+Using the tool `ts2kt` (TypeScript to Kotlin) we can convert any `d.ts` files to Kotlin. To install the tool we can use `npm`
 
-```text
+```kotlin
 npm install ts2kt
 ```
 
-To convert a file we simply provide the input file, and optionally an output directory. The command below will convert the file ```jquery.d.ts``` in the current folder, which we've previously
- downloaded from the [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/types/jquery/jquery.d.ts) to the output folder ```headers```
+To convert a file we simply provide the input file, and optionally an output directory. The command below will convert the file `jquery.d.ts` in the current folder, which we've previously
+ downloaded from the [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/types/jquery/jquery.d.ts) to the output folder `headers`:
 
-```text
+```kotlin
 ts2kt -d headers jquery.d.ts 
 ```
 
 Once we have the file generated, we can simply include it in our project and use it
 
 ```kotlin
-    jQuery("#area").hover { js("alert('Hello!')") }
+jQuery("#area").hover { js("alert('Hello!')") }
 ```
 
 or the shorter version
 
 ```kotlin
-   $("#area").hover { js("alert('Hello!')") }
+$("#area").hover { js("alert('Hello!')") }
 ```
 
-Note that ```jQuery``` needs to be included in the corresponding HTML
+Note that ```jQuery``` needs to be included in the corresponding HTML:
 
 ```html
 <script type="text/javascript" src="js/jquery.js"></script>
 
 <!-- other script files ....  -->
-
 ```
 
 ### Header files under the covers 
@@ -133,6 +134,10 @@ public external fun jQuery(selector: String): JQuery
 ```
 
 The above code indicates that the function is defined externally. The ```@JsName("$")``` annotation allows us to map the name at runtime to ```$```. 
+For more details on external declarations, please refer to the [JavaScript interop documentation](/docs/reference/js-interop.html#external-modifier).
+
+Note that the type systems of TypeScript and Kotlin do not match exactly, so you may need to edit the generated headers in case
+you encounter difficulties with using the APIs from Kotlin.
 
 
 ## Using Dynamic 
@@ -150,44 +155,26 @@ The way in which we'd use this from JavaScript would be to call ```dataTable()``
         <th>Position</th>
         <th>Office</th>
         <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
     </tr>
     </thead>
-    <tfoot>
-    <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Age</th>
-        <th>Start date</th>
-        <th>Salary</th>
-    </tr>
-    </tfoot>
     <tbody>
     <tr>
         <td>Tiger Nixon</td>
         <td>System Architect</td>
         <td>Edinburgh</td>
         <td>61</td>
-        <td>2011/04/25</td>
-        <td>$320,800</td>
     </tr>
     <tr>
         <td>Garrett Winters</td>
         <td>Accountant</td>
         <td>Tokyo</td>
         <td>63</td>
-        <td>2011/07/25</td>
-        <td>$170,750</td>
     </tr>
     <tr>
         <td>Ashton Cox</td>
         <td>Junior Technical Author</td>
         <td>San Francisco</td>
         <td>66</td>
-        <td>2009/01/12</td>
-        <td>$86,000</td>
     </tr>
     
       . . . 
@@ -199,51 +186,40 @@ The way in which we'd use this from JavaScript would be to call ```dataTable()``
 we would invoke the following in JavaScript
 
 ```javascript
-    $("#data").dataTable()
+$("#data").dataTable()
 ```
 
-How would we do this from Kotlin given that the function ```dataTable()``` does not exist, and calling it would give a compiler error.  
+How would we do this from Kotlin given that the function ```dataTable()``` does not exist, and calling it would give a compiler error?
 
-In situations like this we can use the ```dynamic``` modifier, which allows us to work with dynamic types when targeting JavaScript. The following
-type is declared as ```dynamic``` meaning that whatever we invoke on it will not result in a compile-time error
+In situations like this we can use the ```dynamic``` type, which allows us to work with dynamic types when targeting JavaScript. The following
+variable is declared as ```dynamic``` meaning that whatever we invoke on it will not result in a compile-time error:
 
 ```kotlin
-    val myObject: dynamic = null
- 
-    . . . 
-     
-    . . .
-     
-    myObject.callAnything()     
+val myObject: dynamic = null
+
+. . .
+
+myObject.callAnything()
 ```
 
 The above code compiles. However, it will produce a runtime error if the object is not properly initialised before use or if ```callAnything()``` is not
  defined at runtime.
  
-Similar to the ```dynamic``` modifier, the standard library defines a function named ```asDynamic()``` which converts a type to dynamic. The function is defined
-as 
+The standard library defines a function named [`asDynamic()`](/api/latest/jvm/stdlib/kotlin.js/as-dynamic.html) which casts a value to the dynamic type.
+Given our previous example where we used jQuery to work with DOM elements, we can now combine this with `asDynamic()` to then invoke `dataTable()` on the result:
 
 ```kotlin
-@kotlin.internal.InlineOnly
-public inline fun Any?.asDynamic(): dynamic = this
+$("#data").asDynamic().dataTable()
 ```
 
-
-Given our previous example where we used jQuery to work with DOM elements, we can now combine this with ```asDynamic()``` to then invoke ```dataTable()``` on the result
-
-```kotlin
-   $("#data").asDynamic().dataTable()
-```
-
-It is important to understand that just like in the case of ```callAnything()```, the call to ```dataTable()``` must exist at runtime. In our case, we need to make 
-sure that the corresponding script files for our plugin is included
+It is important to understand that just like in the case of `callAnything()`, the ```dataTable()` function must exist at runtime. In our case, we need to make
+sure that the corresponding script file for our plugin is included:
 
 ```html
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.dataTables.js"></script>
 
 <!-- other script files ....  -->
-
 ```
 
-For more information about ```dyanmic``` see the [reference documentation](../../reference/dynamic-type.html).
+For more information about ```dynamic``` see the [reference documentation](../../reference/dynamic-type.html).
