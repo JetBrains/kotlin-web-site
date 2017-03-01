@@ -242,6 +242,8 @@ tutorials:
           title: Creating a Kotlin JavaScript library with the Command Line Compiler
         - url: /docs/tutorials/javascript/working-with-modules/working-with-modules.html
           title: Working with Kotlin and JavaScript Modules
+        - url: /docs/tutorials/javascript/working-with-javascript.html
+          title: Working with JavaScript
 
     - title: Coroutines
       items:
