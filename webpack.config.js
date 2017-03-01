@@ -23,7 +23,8 @@ var webpackConfig = {
     'grammar': 'page/grammar.js',
     'community': 'page/community/community.js',
     'styles': 'styles.scss',
-    'pdf': 'page/pdf.js'
+    'pdf': 'page/pdf.js',
+    'api': 'page/api/api.js'
   },
   output: {
     path: path.join(__dirname, '_assets'),

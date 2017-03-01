@@ -17,6 +17,7 @@ var EVENTS = {
  * @param {HTMLElement|string} node
  * @param {Object} config
  * @param {number} [config.selectedIndex=0]
+ * @param {string} [config.selected]
  * @param {Function} [config.onSelect]
  * @constructor
  */
@@ -39,7 +40,11 @@ function Dropdown(node, config) {
   });
 
   $items.each(function (i, elem) {
-    $(elem).on('click', that.select.bind(that, i));
+    const $elem = $(elem);
+    if($elem.attr('data-value') == config.selected){
+      config.selectedIndex = i;
+    }
+    $elem.on('click', that.select.bind(that, i));
   });
 
   $(node).append($dropdown);

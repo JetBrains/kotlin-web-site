@@ -72,10 +72,13 @@ For the *prefix* forms `++a` and `--a` resolution works the same way, and the ef
 | `a - b` | `a.minus(b)` |
 | `a * b` | `a.times(b)` |
 | `a / b` | `a.div(b)` |
-| `a % b` | `a.mod(b)` |
+| `a % b` | `a.rem(b)`, `a.mod(b)` (deprecated) |
 | `a..b ` | `a.rangeTo(b)` |
 
 For the operations in this table, the compiler just resolves the expression in the *Translated to* column.
+
+Note that the `rem` operator is supported since Kotlin 1.1. Kotlin 1.0 uses the `mod` operator, which is deprecated
+in Kotlin 1.1.
 
 | Expression | Translated to |
 | -----------|-------------- |

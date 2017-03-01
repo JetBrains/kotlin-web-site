@@ -179,13 +179,80 @@ So, what the prefix `+` does here is it wraps a string into an instance of `Text
 so that it becomes a proper part of the tag tree.
 
 All this is defined in a package `com.example.html` that is imported at the top of the builder example above.
-In the next section you can read through the full definition of this package.
+In the last section you can read through the full definition of this package.
+
+## Scope control: @DslMarker (since 1.1)
+
+When using DSLs, one might have come across the problem that too many functions can be called in the context. 
+We can call methods of every available implicit receiver inside a lambda and therefore get an inconsistent result, like the tag `head` inside another `head`: 
+
+``` kotlin
+html {
+    head {
+        head {} // should be forbidden
+    }
+    // ...
+}
+```
+
+In this example only members of the nearest implicit receiver `this@head` must be available; `head()` is a member of the outer receiver `this@html`, so it must be illegal to call it.
+
+To address this problem, in Kotlin 1.1 a special mechanism to control receiver scope was introduced.
+
+To make the compiler start controlling scopes we only have to annotate the types of all receivers used in the DSL with the same marker annotation.
+For instance, for HTML Builders we declare an annotation `@HTMLTagMarker`:
+ 
+``` kotlin
+@DslMarker
+annotation class HtmlTagMarker
+```
+
+An annotation class is called a DSL marker if it is annotated with the `@DslMarker` annotation.
+
+In our DSL all the tag classes extend the same superclass `Tag`.
+It's enough to annotate only the superclass with `@HtmlTagMarker` and after that the Kotlin compiler will treat all the inherited classes as annotated:
+
+``` kotlin
+@HtmlTagMarker
+abstract class Tag(val name: String) { ... }
+```
+
+We don't have to annotate the `HTML` or `Head` classes with `@HtmlTagMarker` because their superclass is already annotated:
+
+```
+class HTML() : Tag("html") { ... }
+class Head() : Tag("head") { ... }
+```
+
+After we've added this annotation, the Kotlin compiler knows which implicit receivers are part of the same DSL and allows to call members of the nearest receivers only: 
+
+``` kotlin
+html {
+    head {
+        head { } // error: a member of outer receiver
+    }
+    // ...
+}
+```
+
+Note that it's still possible to call the members of the outer receiver, but to do that you have to specify this receiver explicitly:
+
+``` kotlin
+html {
+    head {
+        this@html.head { } // possible
+    }
+    // ...
+}
+```
 
 ## Full definition of the `com.example.html` package
 
 This is how the package `com.example.html` is defined (only the elements used in the example above).
 It builds an HTML tree. It makes heavy use of [extension functions](extensions.html) and
 [lambdas with receiver](lambdas.html#function-literals-with-receiver).
+
+Note that the `@DslMarker` annotation is available only since Kotlin 1.1.
 
 <a name='declarations'></a>
 
@@ -202,6 +269,10 @@ class TextElement(val text: String) : Element {
     }
 }
 
+@DslMarker
+annotation class HtmlTagMarker
+
+@HtmlTagMarker
 abstract class Tag(val name: String) : Element {
     val children = arrayListOf<Element>()
     val attributes = hashMapOf<String, String>()

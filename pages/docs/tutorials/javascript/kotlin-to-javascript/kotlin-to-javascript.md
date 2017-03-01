@@ -8,54 +8,16 @@ date: 2016-09-29
 showAuthorInfo: false
 ---
 
-## What it does
-
-Kotlin provides the ability to target JavaScript. It does so by transpiling Kotlin to JavaScript. The current implementation targets ECMAScript 5.1 but there are plans to eventually
- target ECMAScript 6 also. 
+There are multiple ways to compile Kotlin to JavaScript.
+The recommended approach is to use Gradle; if desired, you can also build JavaScript projects directly from
+IntelliJ IDEA, use Maven, or compile the code manually from the command line.
+To learn more about how to compile to JavaScript please see the corresponding tutorials
  
-When you choose the JavaScript target, any Kotlin code that is part of the project as well as the standard library that ships with Kotlin is transpiled to JavaScript.
-However, this excludes the JDK and any JVM or Java framework or library used. Any file that is not Kotlin will be ignored during compilation.
-
-The Kotlin compiler tries to comply with the following goals:
-
-* Provide output that is optimal in size
-* Provide output that is readable JavaScript
-* Provide interoperability with existing module systems
-* Provide the same functionality in the standard library whether targeting JavaScript or the JVM (to the largest possible degree).
-
-## How can it be used
-
-You may want to compile Kotlin to JavaScript in the following scenarios:
-
-* Creating Kotlin code that targets client-side JavaScript
-    
-    * **Interacting with DOM elements**. Kotlin provides a series of statically typed interfaces to interact with the Document Object Model, allowing creation and update of DOM elements. 
-    
-    * **Interacting with graphics such as WebGL**. You can use Kotlin to create graphical elements on a web page using WebGL.
-
-* Creating Kotlin code that targets server-side JavaScript
-
-    * **Working with server-side technology**. You can use Kotlin to interact with server-side JavaScript such as node.js
-    
-* Using Kotlin as a wrapper for third-party libraries or frameworks
-
-    * **Statically typed wrapper around common libraries such as jQuery or ReactJS**. We ship a series of statically-typed wrappers common libraries such as jQuery, but there are also
-     third-party projects that do the same with frameworks such as AngularJS or ReactJS. Kotlin will eventually be able to use the [Definitely Typed TypeScript](http://definitelytyped.org/) type definitions repository.
-
-
-Kotlin is also compatible with CommonJS, AMD and UMD, [making interaction with different](../working-with-modules/working-with-modules.html) module systems straightforward
-
-## Kotlin to JavaScript in Action
-
-There are multiple ways to compile Kotlin to JavaScript. If using IntelliJ IDEA, we can invoke the `Build Project` action to compile. If using Maven or Gradle, we need to target 
-JavaScript. To learn more about how to compile to JavaScript please see the corresponding tutorials
- 
-* [Getting Started with the Command Line](../getting-started-command-line/command-line-library-js.html)
+* [Getting Started with Gradle](../getting-started-gradle/getting-started-with-gradle.html)
 * [Getting Started with IntelliJ IDEA](../getting-started-idea/getting-started-with-intellij-idea.html)
 * [Getting Started with Maven](../getting-started-maven/getting-started-with-maven.html)
-* [Getting Started with Gradle](../getting-started-gradle/getting-started-with-gradle.html)
+* [Getting Started with the Command Line](../getting-started-command-line/command-line-library-js.html)
 
- 
 
 ### Examining the Compilation Output
 
