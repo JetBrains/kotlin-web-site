@@ -228,6 +228,8 @@ tutorials:
           title: Getting Started with Kotlin and JavaScript with Maven
         - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
           title: Getting Started with Kotlin and JavaScript with Gradle
+        - url: /docs/tutorials/javascript/working-with-javascript.html
+          title: Working with JavaScript
 
     - title: Web Development
       items:
