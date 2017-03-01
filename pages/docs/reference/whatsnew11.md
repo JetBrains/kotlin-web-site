@@ -26,53 +26,9 @@ The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `asyn
 patterns. The key feature of Kotlin's design is that the implementation of coroutine execution is part of the libraries,
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
-A coroutine is effectively a light-weight thread that can be suspended and resumed later. A coroutine is started with a coroutine builder function and is suspended with special suspending functions.
-For example, `async` starts a coroutine and, when you use `await`, the execution of the coroutine is suspended while the operation being awaited is executed,
-and is resumed (possibly on a different thread) when the operation being awaited completes.
+A coroutine is effectively a light-weight thread that can be suspended and resumed later. Coroutines are supported through [*suspending functions*](coroutines.html#suspending-functions): a call to such a function can potentially suspend a coroutine, and to start a new coroutine we usually use an anonymous suspending functions (i.e. suspending lambdas).  
 
-The standard library uses coroutines to support *lazily generated sequences* with `yield` and `yieldAll` functions.
-In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
-and resumed when the next element is requested. Here's an example:
-
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
-
-``` kotlin
-import kotlin.coroutines.experimental.*
-
-fun main(args: Array<String>) {
-//sampleStart
-    val seq = buildSequence {
-        println("Yielding 1")
-        yield(1)
-        println("Yielding 2")
-        yield(2)
-        println("Yielding a range")
-        yieldAll(3..5)
-    }
-
-    for (i in seq) {
-        println("Generated $i")
-    }
-//sampleEnd
-}
-```
-</div>
-
-This will print:
-
-```
-Yielding 1
-Generated 1
-Yielding 2
-Generated 2
-Yielding a range
-Generated 3
-Generated 4
-Generated 5
-```
-
-The implementation of `async`/`await` is provided as an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines).
-Here's an example showing its use:
+Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines): 
 
 ``` kotlin
 // runs the code in the background thread pool
@@ -92,6 +48,39 @@ launch(UI) {
     showImage(image)
 }
 ```
+
+Here, `async { ... }` starts a coroutine and, when we use `await()`, the execution of the coroutine is suspended while the operation being awaited is executed, and is resumed (possibly on a different thread) when the operation being awaited completes.
+
+The standard library uses coroutines to support *lazily generated sequences* with `yield` and `yieldAll` functions.
+In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
+and resumed when the next element is requested. Here's an example:
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+
+``` kotlin
+import kotlin.coroutines.experimental.*
+
+fun main(args: Array<String>) {
+//sampleStart
+  val seq = buildSequence {
+      for (i in 1..5) {
+          // yield a square of i
+          yield(i * i)
+      }
+      // yield a range
+      yieldAll(26..28)
+  }
+  
+  // print the sequence
+  println(seq.toList())
+//sampleEnd
+}
+```
+
+</div>
+
+
+Run the code above to see the result. Feel free to edit it and run again!
 
 For more information, please refer to the [coroutine documentation](/docs/reference/coroutines.html) and [tutorial](/docs/tutorials/coroutines-basic-jvm.html).
 
