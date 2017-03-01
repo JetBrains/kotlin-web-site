@@ -217,10 +217,10 @@ fun main(args: Array<String>) {
     // before
     println(map.mapValues { entry ->
         val (key, value) = entry
-        "$value!"
+        "$key -> $value!"
     })
     // now
-    println(map.mapValues { (key, value) -> "$value!" })
+    println(map.mapValues { (key, value) -> "$key -> $value!" })
 //sampleEnd    
 }
 ```
