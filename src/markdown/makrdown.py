@@ -10,8 +10,8 @@ languageMimeTypeMap = {
     "bash": "text/x-sh",
     "html": "application/xml",
     "javascript": "text/javascript",
-    "js": "text/javascript",
-    "json": "application/json"
+    "json": "application/json",
+    "js": "text/javascript"
 }
 
 

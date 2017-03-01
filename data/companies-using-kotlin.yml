@@ -205,3 +205,7 @@
 - company: Clue
   url: https://helloclue.com/
   description: Clue uses science and data to provide insights into female health. All new Android code is written in Kotlin.
+
+- company: Recharge
+  url: https://recharge.co/
+  description: Recharge lets you book by-the-minute stays at hotels. Android app is 100% Kotlin.

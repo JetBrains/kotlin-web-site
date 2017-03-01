@@ -26,7 +26,7 @@
             {% if (output && output != "") || exception %}
                 <div class="output-wrapper">
                     <div class="code-output">
-                        {% output %}
+                        {{ output }}
 
                         {% if exception %}
                             <Exception {{...exception}} originalException={{ true }}/>
