@@ -80,7 +80,7 @@ fun main(args: Array<String>) {
 </div>
 
 
-This will print: `[1, 4, 9, 16, 25, 26, 27, 28]` (feel free to edit and run the code above!).
+Run the code above to see the result. Feel free to edit it and run again!
 
 For more information, please refer to the [coroutine documentation](/docs/reference/coroutines.html) and [tutorial](/docs/tutorials/coroutines-basic-jvm.html).
 
