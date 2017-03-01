@@ -146,30 +146,112 @@ The only "application-level" functions in `kotlin.coroutines.experimental` are
 
 These are shipped within `kotlin-stdlib` because they are related to sequences. In fact, these functions (and we can limit ourselves to `buildSequence()` alone here) implement _generators_, i.e. provide a way to cheaply build a lazy sequence:
  
+<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+
 ``` kotlin
-val fibonacciSeq = buildSequence {
-    var a = 0
-    var b = 1
-    
-    yield(1)
-    
-    while (true) {
-        yield(a + b)
+import kotlin.coroutines.experimental.*
+
+fun main(args: Array<String>) {
+//sampleStart
+    val fibonacciSeq = buildSequence {
+        var a = 0
+        var b = 1
         
-        val tmp = a + b
-        a = b
-        b = tmp
+        yield(1)
+        
+        while (true) {
+            yield(a + b)
+            
+            val tmp = a + b
+            a = b
+            b = tmp
+        }
     }
+//sampleEnd
+
+    // Print the first five Fibonacci numbers
+    println(fibonacciSeq.take(8).toList())
 }
 ```
+
+</div>
   
 This generates a lazy, potentially infinite Fibonacci sequence by creating a coroutine that yields consecutive Fibonacci numbers by calling the `yield()` function. When iterating over such a sequence every step of the iterator executes another portion of the coroutine that generates the next number. So, we can take any finite list of numbers out of this sequence, e.g. `fibonacciSeq.take(8).toList()` results in `[1, 1, 2, 3, 5, 8, 13, 21]`. And coroutines are cheap enough to make this practical. 
    
-To yield a collection (or sequence) of values at once, the `yieldAll()` function is available.
+To demonstrate the real laziness of such a sequence, let's print some debug output inside a call to `buildSequence()`:
+  
+<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+
+``` kotlin
+import kotlin.coroutines.experimental.*
+
+fun main(args: Array<String>) {
+//sampleStart
+    val lazySeq = buildSequence {
+        print("START ")
+        for (i in 1..5) {
+            yield(i)
+            print("STEP ")
+        }
+        print("END")
+    }
+
+    // Print the first three elements of the sequence
+    lazySeq.take(3).forEach { print("$it ") }
+//sampleEnd
+}
+```
+
+</div>  
+   
+Run the code above to see that if we print the first three elements, the numbers are interleaved with the `STEP`s the generating loop. This means that the computation is lazy indeed. To print `1` we only execute until the first `yield(i)`, and print `START` along the way. Then, to print `2` we need to proceed to the next `yield(i)`, and this prints `STEP`. Same for `3`. And the next `STEP` never gets printed (as well as `END`), because we never requested further elements of the sequence.   
+   
+To yield a collection (or sequence) of values at once, the `yieldAll()` function is available:
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+
+``` kotlin
+import kotlin.coroutines.experimental.*
+
+fun main(args: Array<String>) {
+//sampleStart
+    val lazySeq = buildSequence {
+        yield(0)
+        yieldAll(1..10) 
+    }
+
+    lazySeq.forEach { print("$it ") }
+//sampleEnd
+}
+```
+
+</div>  
 
 The `buildIterator()` works similarly to `buildSequence()`, but returns a lazy iterator.
 
-One can add custom yielding logic to `buildSequence()` by writing suspending extensions to the `SequenceBuilder` class that bares the `@RestrictsSuspension` annotation described [above](#restrictssuspension-annotation).
+One can add custom yielding logic to `buildSequence()` by writing suspending extensions to the `SequenceBuilder` class (that bares the `@RestrictsSuspension` annotation described [above](#restrictssuspension-annotation)):
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+
+``` kotlin
+import kotlin.coroutines.experimental.*
+
+//sampleStart
+suspend fun SequenceBuilder<Int>.yieldIfOdd(x: Int) {
+    if (x % 2 != 0) yield(x)
+}
+
+val lazySeq = buildSequence {
+    for (i in 1..10) yieldIfOdd(i)
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    lazySeq.forEach { print("$it ") }
+}
+```
+
+</div>  
   
 ### Other high-level APIs: `kotlinx.coroutines`
 
