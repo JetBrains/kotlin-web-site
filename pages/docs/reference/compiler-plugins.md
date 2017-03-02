@@ -8,14 +8,14 @@ title: "Compiler Plugins"
 
 ## All-open compiler plugin
 
-Kotlin has classes and their members `final` by default, which makes it inconvenient to use frameworks and libraries such as Spring AOP or Mockito that require classes to be `open`. 
-The `all-open` compiler plugin fixes this problem and makes classes annotated with a specific annotation and their members open without the explicit `open` keyword.
+Kotlin has classes and their members `final` by default, which makes it inconvenient to use frameworks and libraries such as Spring AOP that require classes to be `open`. 
+The `all-open` compiler plugin adapts Kotlin to the requirements of those frameworks and makes classes annotated with a specific annotation and their members open without the explicit `open` keyword.
 For instance, when you use Spring, you don't need all the classes to be open, but only classes annotated with specific annotations like
 `@Configuration` or `@Service`.
 The `all-open` plugin allows to specify these annotations.
 
 We provide all-open plugin support both for Gradle and Maven, as well as the IDE integration.
-For Spring you can use the `kotlin-spring` compiler plugin ([see below](compiler-plugins.html#the-kotlin-spring-compiler-plugin)).
+For Spring you can use the `kotlin-spring` compiler plugin ([see below](compiler-plugins.html#kotlin-spring-compiler-plugin)).
 
 ### How to use all-open plugin
 
@@ -81,9 +81,9 @@ Here's how to use all-open with Maven:
 ```
 
 
-### The `kotlin-spring` compiler plugin
+### Kotlin-spring compiler plugin
  
-You don't need to specify Spring annotations by hand, the `kotlin-spring` plugin already has all the required annotations for the Spring framework:
+You don't need to specify Spring annotations by hand, you can use the `kotlin-spring` plugin, which automatically configures the all-open plugin according to the requirements of Spring. 
 
 ``` groovy
 buildscript {
@@ -95,7 +95,7 @@ buildscript {
 apply plugin: "kotlin-spring"
 ```
 
-The maven example is similar to the one above.
+The Maven example is similar to the one above.
 
 The plugin specifies the following annotations: 
 [`@Component`](http://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html), 
@@ -112,7 +112,7 @@ Note that if you use [start.spring.io](http://start.spring.io/#!language=kotlin)
 
 The no-arg compiler plugin generates an additional zero-argument constructor for classes with a specific annotation. 
 The generated constructor is synthetic so it can’t be directly called from Java or Kotlin, but it can be called using reflection. 
-This allows the Java Persistence API (JPA) to instantiate the `data` class although it doesn't have the no-arg constructor from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [below]()).
+This allows the Java Persistence API (JPA) to instantiate the `data` class although it doesn't have the no-arg constructor from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [below](compiler-plugins.html#kotlin-jpa-compiler-plugin)).
  
 ### How to use no-arg plugin
 
@@ -164,13 +164,13 @@ How to use no-arg in Maven:
 </plugin>
 ```
 
-### The `kotlin-jpa` compiler plugin
+### Kotlin-jpa compiler plugin
 
 The plugin specifies 
 [`@Entity`](http://docs.oracle.com/javaee/7/api/javax/persistence/Entity.html) 
 and [`@Embeddable`](http://docs.oracle.com/javaee/7/api/javax/persistence/Embeddable.html) 
 annotations as markers that no-arg constructor should be generated for a class.
-That's how you add the plugin in gradle: 
+That's how you add the plugin in Gradle: 
 
 ``` groovy
 buildscript {
@@ -182,4 +182,4 @@ buildscript {
 apply plugin: "kotlin-jpa"
 ```
 
-The maven example is similar to the one above.
+The Maven example is similar to the one above.
