@@ -1,4 +1,52 @@
 - geo:
+    lat: 50.8498434
+    lng: 16.475679
+  name: Swidnica, Poland
+- geo:
+    lat: 10.8230989
+    lng: 106.6296638
+  name: Saigon, Vietnam
+- geo:
+    lat: 43.610769
+    lng: 3.876716
+  name: Montpellier, France
+- geo:
+    lat: 50.8503396
+    lng: 4.3517103
+  name: Brussels, Belgium
+- geo:
+    lat: 48.1485965
+    lng: 17.1077477
+  name: Bratislava, Slovakia
+- geo:
+    lat: 18.4860575
+    lng: -69.93121169999999
+  name: Santo Domingo, Dominican Republic
+- geo:
+    lat: 35.6976541
+    lng: -0.6337376
+  name: Oran, Algeria
+- geo:
+    lat: 46.2043907
+    lng: 6.1431577
+  name: Geneva, Switzerland
+- geo:
+    lat: 20.6596988
+    lng: -103.3496092
+  name: Guadalajara, Mexico
+- geo:
+    lat: -12.2720956
+    lng: -76.2710833
+  name: Lima, Peru
+- geo:
+    lat: -6.1744651
+    lng: 106.822745
+  name: Jakarta, Indonesia
+- geo:
+    lat: 48.6208
+    lng: 22.287883
+  name: Uzhhorod,Ukraine
+- geo:
     lat: 50.1109221
     lng: 8.6821267
   name: Frankfurt, Germany
