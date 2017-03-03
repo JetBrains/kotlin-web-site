@@ -40,7 +40,19 @@ NOTE: Octal literals are not supported.
 Kotlin also supports a conventional notation for floating-point numbers:
  
 * Doubles by default: `123.5`, `123.5e10`
-* Floats are tagged by `f` or `F`: `123.5f` 
+* Floats are tagged by `f` or `F`: `123.5f`
+ 
+### Underscores in numeric literals (since 1.1)
+ 
+You can use underscores to make number constants more readable:
+
+``` kotlin
+val oneMillion = 1_000_000
+val creditCardNumber = 1234_5678_9012_3456L
+val socialSecurityNumber = 999_99_9999L
+val hexBytes = 0xFF_EC_DE_5E
+val bytes = 0b11010010_01101001_10010100_10010010
+```
 
 ### Representation
 
@@ -180,10 +192,10 @@ Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` 
 ``` kotlin
 class Array<T> private constructor() {
     val size: Int
-    fun get(index: Int): T
-    fun set(index: Int, value: T): Unit
+    operator fun get(index: Int): T
+    operator fun set(index: Int, value: T): Unit
 
-    fun iterator(): Iterator<T>
+    operator fun iterator(): Iterator<T>
     // ...
 }
 ```

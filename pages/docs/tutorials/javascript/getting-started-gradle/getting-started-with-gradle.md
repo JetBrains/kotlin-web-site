@@ -18,7 +18,7 @@ In order to use Gradle to target JavaScript, we need to use the `kotlin2js` plug
 Our `build.gradle` file should look like the following
 
 ```groovy
-group 'org.jetbrains'
+group 'org.example'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -33,30 +33,20 @@ buildscript {
 
 apply plugin: 'kotlin2js'
 
-compileKotlin2Js {
-    kotlinOptions.outputFile = "output.js"
-}
-
-sourceSets {
-    main.kotlin.srcDirs += "src/main/kotlin"
-}
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-js-library:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
 
 ```
 
-where `${kotlinVersion}` is the version of Kotlin we want to use. It's important to note that
+where `${kotlinVersion}` is the version of Kotlin we want to use, for example `1.1.0`. It's important to note that
 if we're using an EAP build, we need to have the corresponding repository referenced in the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
 
-The compiler option is defined under `compileKotlin2Js` and in particular `kotlinOptions.outputFile` is required to indicate the output of our compiled application. We can also use these options to [define module kinds](#configuringcompileroptions).
-
-On compiling, Gradle will produce the output of our application, which is the `{appname}.js` file. 
+On compiling, Gradle will produce the output of our application, which is by default placed under the `build/classes/main` directory. This can be overridden using [the compiler options](#configuringcompileroptions).
 
 In order to use this, we also need to include the Kotlin standard library in our application, i.e. `kotlin.js`, which was included as a dependency. By default,
 Gradle does not expand the JAR as part of the build process, so we would need to add an additional step in our build to do so.
@@ -88,7 +78,7 @@ In order to specify the module kind, we can add a configuration to our plugin as
 
 ```groovy
 compileKotlin2Js {
-    kotlinOptions.outputFile = "output.js"
+    kotlinOptions.outputFile = "{projectDir}/web/output.js"
     kotlinOptions.moduleKind = "amd"
     kotlinOptions.sourceMap = true
 }
@@ -104,5 +94,3 @@ where `moduleKind` can be
 For more information about the different types of module outputs, please see [Working with Modules](../working-with-modules/working-with-modules.md)
 
 We can also see how we can define whether we want the compiler to generate sourcemaps for us by indicating this via the `sourceMap` option. 
-
-

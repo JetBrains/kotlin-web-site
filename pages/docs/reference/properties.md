@@ -13,12 +13,12 @@ Classes in Kotlin can have properties.
 These can be declared as mutable, using the *var*{: .keyword } keyword or read-only using the *val*{: .keyword } keyword.
 
 ``` kotlin
-public class Address { 
-    public var name: String = ...
-    public var street: String = ...
-    public var city: String = ...
-    public var state: String? = ...
-    public var zip: String = ...
+class Address {
+    var name: String = ...
+    var street: String = ...
+    var city: String = ...
+    var state: String? = ...
+    var zip: String = ...
 }
 ```
 
@@ -39,12 +39,13 @@ fun copyAddress(address: Address): Address {
 The full syntax for declaring a property is
 
 ``` kotlin
-var <propertyName>: <PropertyType> [= <property_initializer>]
+var <propertyName>[: <PropertyType>] [= <property_initializer>]
     [<getter>]
     [<setter>]
 ```
 
-The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer or from the base class member being overridden.
+The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer
+(or from the getter return type, as shown below).
 
 Examples:
 
@@ -78,6 +79,12 @@ var stringRepresentation: String
 ```
 
 By convention, the name of the setter parameter is `value`, but you can choose a different name if you prefer.
+
+Since Kotlin 1.1, you can omit the property type if it can be inferred from the getter:
+
+``` kotlin
+val isEmpty get() = this.size == 0  // has type Boolean
+```
 
 If you need to change the visibility of an accessor or to annotate it, but don't need to change the default implementation,
 you can define the accessor without defining its body:

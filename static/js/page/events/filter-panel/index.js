@@ -1,6 +1,6 @@
 var $ = require('jquery');
 var Switcher = require('../switcher/index');
-var Dropdown = require('../dropdown/index');
+var Dropdown = require('../../../com/dropdown/index');
 var pageEmitter = require('../../../util/emitter');
 var PAGE_EVENTS = require('../events-list');
 var Emitter = require('event-emitter');

@@ -120,7 +120,7 @@ result of translation.
     <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
     <target name="build">
-        <!-- out.meta.js will be created, which contains binary descriptors -->
+        <!-- out.meta.js will be created, which contains binary metadata -->
         <kotlin2js src="root1" output="out.js" metaInfo="true"/>
     </target>
 </project>
@@ -155,7 +155,7 @@ Complete list of elements and attributes are listed below
 | Name | Description | Required |
 |------|-------------|----------|
 | `output`  | Destination file | Yes |
-| `library`  | Library files (kt, dir, jar) | No |
+| `libraries`  | Paths to Kotlin libraries | No |
 | `outputPrefix`  | Prefix to use for generated JavaScript files | No |
 | `outputSuffix` | Suffix to use for generated JavaScript files | No |
 | `sourcemap`  | Whether sourcemap file should be generated | No |

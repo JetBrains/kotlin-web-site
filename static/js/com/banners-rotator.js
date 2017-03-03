@@ -207,10 +207,10 @@ function getCookie(Name) {
   var CookieString = document.cookie;
   var result = null;
   if (CookieString.length > 0) {
-    offset = CookieString.indexOf(search);
+    let offset = CookieString.indexOf(search);
     if (offset != -1) {
       offset += search.length;
-      end = CookieString.indexOf(";", offset);
+      let end = CookieString.indexOf(";", offset);
       if (end == -1) {
         end = CookieString.length;
       }
