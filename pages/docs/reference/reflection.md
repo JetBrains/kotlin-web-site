@@ -31,6 +31,17 @@ The reference is a value of type [KClass](/api/latest/jvm/stdlib/kotlin.reflect/
 Note that a Kotlin class reference is not the same as a Java class reference. To obtain a Java class reference,
 use the `.java` property on a `KClass` instance.
 
+## Bound Class References (since 1.1)
+
+You can get the reference to a class of a specific object with the same `::class` syntax by using the object as a receiver:
+
+``` kotlin
+val widget: Widget = ...
+assert(widget is GoodWidget) { "Bad widget: ${widget::class.qualifiedName}" }
+```
+
+You obtain the reference to an exact class of an object, for instance `GoodWidget` or `BadWidget`, despite the type of the receiver expression (`Widget`).  
+
 ## Function References
 
 When we have a named function declared like this:
@@ -186,4 +197,41 @@ Using `::Foo`, the zero-argument constructor of the class Foo, we can simply cal
 
 ``` kotlin
 function(::Foo)
+```
+
+## Bound Function and Property References (since 1.1)
+
+You can refer to an instance method of a particular object.
+
+``` kotlin 
+val numberRegex = "\\d+".toRegex()
+println(numberRegex.matches("29")) // prints "true"
+ 
+val isNumber = numberRegex::matches
+println(isNumber("29")) // prints "true"
+```
+
+Instead of calling the method `matches` directly we are storing a reference to it.
+Such reference is bound to its receiver.
+It can be called directly (like in the example above) or used whenever an expression of function type is expected:
+
+``` kotlin
+val strings = listOf("abc", "124", "a70")
+println(strings.filter(numberRegex::matches)) // prints "[124]"
+```
+
+Compare the types of bound and the corresponding unbound references.
+Bound callable reference has its receiver "attached" to it, so the type of the receiver is no longer a parameter:
+
+``` kotlin
+val isNumber: (CharSequence) -> Boolean = numberRegex::matches
+
+val matches: (Regex, CharSequence) -> Boolean = Regex::matches
+```
+
+Property reference can be bound as well:
+
+``` kotlin
+val prop = "abc"::length
+println(prop.get())   // prints "3"
 ```

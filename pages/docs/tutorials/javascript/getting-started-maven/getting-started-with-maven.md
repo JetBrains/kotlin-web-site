@@ -44,13 +44,13 @@ If we're not using IntelliJ IDEA, we can configure the `pom.xml` file manually t
 
 ```xml
 <properties>
-    <kotlin.version>1.0.4</kotlin.version> 
+    <kotlin.version>1.1.0</kotlin.version> 
 </properties>
 
 <dependencies>
     <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
-        <artifactId>kotlin-js-library</artifactId>
+        <artifactId>kotlin-stdlib-js</artifactId>
         <version>${kotlin.version}</version>
     </dependency>
 </dependencies>
@@ -108,15 +108,8 @@ Maven does not expand the JAR as part of the build process, so we would need to 
                 <artifactItems>
                     <artifactItem>
                         <groupId>org.jetbrains.kotlin</groupId>
-                        <artifactId>kotlin-js-library</artifactId>
-                        <version>${project.version}</version>
-                        <outputDirectory>${project.build.directory}/js/lib</outputDirectory>
-                        <includes>*.js</includes>
-                    </artifactItem>
-                    <artifactItem>
-                        <groupId>org.jetbrains.kotlin</groupId>
-                        <artifactId>kotlin-js-library-example</artifactId>
-                        <version>${project.version}</version>
+                        <artifactId>kotlin-stdlib-js</artifactId>
+                        <version>${kotlin.version}</version>
                         <outputDirectory>${project.build.directory}/js/lib</outputDirectory>
                         <includes>*.js</includes>
                     </artifactItem>

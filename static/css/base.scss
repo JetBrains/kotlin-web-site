@@ -37,3 +37,7 @@ a {
 a:hover {
     color: $base-link-hover-color;
 }
+
+.hidden {
+    display: none !important;
+}

@@ -1,11 +1,16 @@
 require('../com/search');
+require('whatwg-fetch');
 require('../com/cookie-banner');
-require('../com/colorize');
-var NavTree = require('../com/nav-tree');
-
-var $ = require('jquery');
+const CodeMirror = require('../com/codemirror/CodeMirror');
+const NavTree = require('../com/nav-tree');
+const ExecutableCode = require('../com/executable-code');
+const $ = require('jquery');
 
 $(document).ready(function () {
+  new ExecutableCode('.sample');
+
+  CodeMirror.colorize($('.code._highlighted'));
+
   var html = document.getElementsByTagName('html')[0];
 
   html.className = html.className.replace('no-js', '');

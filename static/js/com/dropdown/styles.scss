@@ -2,6 +2,8 @@ $color-grey: #ededed;
 $padding-h: 5px;
 $select-value-arrow-space: 15px + $padding-h;
 $bg-color: #fff;
+$border-color: #c5c5c5;
+$border-radius: 3px;
 $color-blue: #416ea4;
 
 .dropdown {
@@ -11,6 +13,9 @@ $color-blue: #416ea4;
 
 .dropdown-selected-value {
   position: relative;
+  min-width: 30px;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
   padding: 0 $select-value-arrow-space 0 $padding-h;
   background-color: $bg-color;
 

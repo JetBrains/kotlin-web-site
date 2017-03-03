@@ -6,8 +6,13 @@ title: "What's New in Kotlin 1.1"
 
 # What's New in Kotlin 1.1
 
-Kotlin 1.1 is currently [available in beta](https://blog.jetbrains.com/kotlin/2017/01/kotlin-1-1-beta-is-here/). Here you can find a list of new features available in this release.
-Note that any new functionality is subject to change before Kotlin 1.1 is released.
+## Table of Contents
+
+* [Coroutines](#coroutines-experimental)
+* [Other language features](#other-language-features)
+* [Standard library](#standard-library)
+* [JVM backend](#jvm-backend)
+* [JavaScript backend](#javascript-backend)
 
 ## JavaScript
 
@@ -17,63 +22,67 @@ a more detailed list of changes.
 
 ## Coroutines (experimental)
 
-The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `future`/`await`, `yield` and similar programming
+The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `async`/`await`, `yield` and similar programming
 patterns. The key feature of Kotlin's design is that the implementation of coroutine execution is part of the libraries,
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
-A coroutine is effectively a light-weight thread that can be suspended and resumed later. A coroutine is started with a coroutine builder function and is suspended with special suspending functions. For example, `future` starts a coroutine and, when you use `await`, the execution of the coroutine is suspended while the operation being awaited is executed, and is resumed (possibly on a different thread) when the operation being awaited completes.
+A coroutine is effectively a light-weight thread that can be suspended and resumed later. Coroutines are supported through [*suspending functions*](coroutines.html#suspending-functions): a call to such a function can potentially suspend a coroutine, and to start a new coroutine we usually use an anonymous suspending functions (i.e. suspending lambdas).  
+
+Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines): 
+
+``` kotlin
+// runs the code in the background thread pool
+fun asyncOverlay() = async(CommonPool) {
+    // start two async operations
+    val original = asyncLoadImage("original")
+    val overlay = asyncLoadImage("overlay")
+    // and then apply overlay to both results
+    applyOverlay(original.await(), overlay.await())
+}
+
+// launches new coroutine in UI context
+launch(UI) {
+    // wait for async overlay to complete
+    val image = asyncOverlay().await()
+    // and then show it in UI
+    showImage(image)
+}
+```
+
+Here, `async { ... }` starts a coroutine and, when we use `await()`, the execution of the coroutine is suspended while the operation being awaited is executed, and is resumed (possibly on a different thread) when the operation being awaited completes.
 
 The standard library uses coroutines to support *lazily generated sequences* with `yield` and `yieldAll` functions.
 In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
 and resumed when the next element is requested. Here's an example:
 
-``` kotlin
-val seq = buildSequence {
-    println("Yielding 1")
-    yield(1)
-    println("Yielding 2")
-    yield(2)
-    println("Yielding a range")
-    yieldAll(3..5)
-}
-
-for (i in seq) {
-    println("Generated $i")
-}
-```
-
-This will print:
-
-```
-Yielding 1
-Generated 1
-Yielding 2
-Generated 2
-Yielding a range
-Generated 3
-Generated 4
-Generated 5
-```
-
-The implementation of `future`/`await` is provided as an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines).
-Here's an example showing its use:
+<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
 
 ``` kotlin
-future {
-    val original = asyncLoadImage("...original...") // creates a Future
-    val overlay = asyncLoadImage("...overlay...")   // creates a Future
-    ...
-    // suspend while awaiting the loading of the images
-    // then run `applyOverlay(...)` when they are both loaded
-    return applyOverlay(original.await(), overlay.await())
+import kotlin.coroutines.experimental.*
+
+fun main(args: Array<String>) {
+//sampleStart
+  val seq = buildSequence {
+      for (i in 1..5) {
+          // yield a square of i
+          yield(i * i)
+      }
+      // yield a range
+      yieldAll(26..28)
+  }
+  
+  // print the sequence
+  println(seq.toList())
+//sampleEnd
 }
 ```
 
+</div>
 
-kotlinx.coroutines `future` implementation relies on `CompletableFuture` and therefore requires JDK 8, but it also provides portable `defer` primitive and it's possible to build other implementations.
 
-The [KEEP document](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md) provides an extended
-description of the coroutine functionality.
+Run the code above to see the result. Feel free to edit it and run again!
+
+For more information, please refer to the [coroutine documentation](/docs/reference/coroutines.html) and [tutorial](/docs/tutorials/coroutines-basic-jvm.html).
 
 Note that coroutines are currently considered an **experimental feature**, meaning that the Kotlin team is not committing
 to supporting the backwards compatibility of this feature after the final 1.1 release.
@@ -85,15 +94,42 @@ to supporting the backwards compatibility of this feature after the final 1.1 re
 
 A type alias allows you to define an alternative name for an existing type.
 This is most useful for generic types such as collections, as well as for function types.
-Here are a few examples:
+Here is an example:
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
 ``` kotlin
-typealias FileTable<K> = MutableMap<K, MutableList<File>>
+//sampleStart
+typealias OscarWinners = Map<String, String>
 
-typealias MouseEventHandler = (Any, MouseEvent) -> Unit
+fun countLaLaLand(oscarWinners: OscarWinners) =
+        oscarWinners.count { it.value.contains("La La Land") }
+
+// Note that the type names (initial and the type alias) are interchangeable:
+fun checkLaLaLandIsTheBestMovie(oscarWinners: Map<String, String>) =
+        oscarWinners["Best picture"] == "La La Land"
+//sampleEnd
+
+fun oscarWinners(): OscarWinners {
+    return mapOf(
+            "Best song" to "City of Stars (La La Land)",
+            "Best actress" to "Emma Stone (La La Land)",
+            "Best picture" to "Moonlight" /* ... */)
+}
+
+fun main(args: Array<String>) {
+    val oscarWinners = oscarWinners()
+
+    val laLaLandAwards = countLaLaLand(oscarWinners)
+    println("LaLaLandAwards = $laLaLandAwards (in our small example), but actually it's 6.")
+
+    val laLaLandIsTheBestMovie = checkLaLaLandIsTheBestMovie(oscarWinners)
+    println("LaLaLandIsTheBestMovie = $laLaLandIsTheBestMovie")
+}
 ```
+</div>
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
+See the [documentation](type-aliases.html) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
 
 
 ### Bound callable references
@@ -102,23 +138,35 @@ You can now use the `::` operator to get a [member reference](reflection.html#fu
 Previously this could only be expressed with a lambda.
 Here's an example:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
+//sampleStart
 val numberRegex = "\\d+".toRegex()
 val numbers = listOf("abc", "123", "456").filter(numberRegex::matches)
-// Result is list of "123", "456"
-```
+//sampleEnd
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/bound-callable-references.md) for more details.
+fun main(args: Array<String>) {
+    println("Result is $numbers")
+}
+```
+</div>
+
+
+Read the [documentation](reflection.html#bound-function-and-property-references-since-11) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/bound-callable-references.md) for more details.
 
 
 ### Sealed and data classes
 
 Kotlin 1.1 removes some of the restrictions on sealed and data classes that were present in Kotlin 1.0.
-Now you can define subclasses of a sealed class anywhere in the same file, and not just as nested classes of the sealed class.
+Now you can define subclasses of a top-level sealed class on the top level in the same file, and not just as nested classes of the sealed class.
 Data classes can now extend other classes.
 This can be used to define a hierarchy of expression classes nicely and cleanly:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
+//sampleStart
 sealed class Expr
 
 data class Const(val number: Double) : Expr()
@@ -130,9 +178,17 @@ fun eval(expr: Expr): Double = when (expr) {
     is Sum -> eval(expr.e1) + eval(expr.e2)
     NotANumber -> Double.NaN
 }
-```
+val e = eval(Sum(Const(1.0), Const(2.0)))
+//sampleEnd
 
-Read the [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
+fun main(args: Array<String>) {
+    println("e is $e") // 3.0
+}
+```
+</div>
+
+Read the [documentation](sealed-classes.html#relaxed-rules-for-sealed-classes-since-11) or 
+[sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
 [data class](https://github.com/Kotlin/KEEP/blob/master/proposals/data-class-inheritance.md) KEEPs for more detail.
 
 
@@ -141,26 +197,61 @@ Read the [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sea
 You can now use the [destructuring declaration](multi-declarations.html) syntax to unpack the arguments passed to a lambda.
 Here's an example:
 
-``` kotlin
-map.mapValues { (key, value) -> "$value!" }
-```
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+    val map = mapOf(1 to "one", 2 to "two")
+    // before
+    println(map.mapValues { entry ->
+        val (key, value) = entry
+        "$key -> $value!"
+    })
+    // now
+    println(map.mapValues { (key, value) -> "$key -> $value!" })
+//sampleEnd    
+}
+```
+</div>
+
+Read the [documentation](multi-declarations.html#destructuring-in-lambdas-since-11) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
 
 
 ### Underscores for unused parameters
 
 For a lambda with multiple parameters, you can use the `_` character to replace the names of the parameters you don't use:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-map.forEach { _, value -> println("$value!") }
+fun main(args: Array<String>) {
+    val map = mapOf(1 to "one", 2 to "two")
+
+//sampleStart
+    map.forEach { _, value -> println("$value!") }
+//sampleEnd    
+}
 ```
+</div>
 
 This also works in [destructuring declarations](multi-declarations.html):
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-val (_, status) = getResult()
+data class Result(val value: Any, val status: String)
+
+fun getResult() = Result(42, "ok").also { println("getResult() returns $it") }
+
+fun main(args: Array<String>) {
+//sampleStart
+    val (_, status) = getResult()
+//sampleEnd
+    println("status is '$status'")
+}
 ```
+</div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscore-for-unused-parameters.md) for more details.
 
@@ -169,39 +260,70 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscore-
 
 Just as in Java 8, Kotlin now allows to use underscores in numeric literals to separate groups of digits:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
+//sampleStart
 val oneMillion = 1_000_000
 val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println(oneMillion)
+    println(hexBytes.toString(16))
+    println(bytes.toString(2))
+}
 ```
+</div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores-in-numeric-literals.md) for more details.
 
 
 ### Shorter syntax for properties
 
-For properties without custom accessors, or with the getter defined as an expression body, the property type can now be omitted:
+For properties with the getter defined as an expression body, the property type can now be omitted:
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
 ``` kotlin
-val name = ""
+//sampleStart
+data class Person(val name: String, val age: Int) {
+    val isAdult get() = age >= 20 // Property type inferred to be 'Boolean'
+}
+//sampleEnd
 
-val lazyName get() = ""
+fun main(args: Array<String>) {
+    val akari = Person("Akari", 26)
+    println("$akari.isAdult = ${akari.isAdult}")
+}
 ```
-
-For both of these properties, the compiler will infer that the property type is `String`.
-
+</div>
 
 ### Inline property accessors
 
 You can now mark property accessors with the `inline` modifier if the properties don't have a backing field.
 Such accessors are compiled in the same way as [inline functions](inline-functions.html).
 
-``` kotlin
-val foo: Foo
-    inline get() = Foo()
-```
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
+``` kotlin
+//sampleStart
+public val <T> List<T>.lastIndex: Int
+    inline get() = this.size - 1
+//sampleEnd
+
+fun main(args: Array<String>) {
+    val list = listOf('a', 'b')
+    // the getter will be inlined
+    println("Last index of $list is ${list.lastIndex}")
+}
+```
+</div>
+
+You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
+
+Read the [documentation](inline-functions.html#inline-properties) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
 
 
 ### Local delegated properties
@@ -209,14 +331,29 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-prop
 You can now use the [delegated property](delegated-properties.html) syntax with local variables.
 One possible use is defining a lazily evaluated local variable:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-fun foo() {
-    val data: String by lazy { /* calculate the data */ }
-    if (needData()) {
-        println(data)   // data is calculated at this point
+import java.util.Random
+
+fun needAnswer() = Random().nextBoolean()
+
+fun main(args: Array<String>) {
+//sampleStart
+    val answer by lazy {
+        println("Calculating the answer...")
+        42
     }
+    if (needAnswer()) {                     // returns the random value
+        println("The answer is $answer.")   // answer is calculated at this point
+    }
+    else {
+        println("Sometimes no answer is the answer...")
+    }
+//sampleEnd
 }
 ```
+</div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/local-delegated-properties.md) for more details.
 
@@ -229,8 +366,8 @@ For example, if we want to check the property name before binding, we can write 
 
 ``` kotlin
 class ResourceLoader<T>(id: ResourceID<T>) {
-    operator fun provideDelegate(thisRef: MyUI, property: KProperty<*>): ReadOnlyProperty<MyUI, T> {
-        checkProperty(thisRef, property.name)
+    operator fun provideDelegate(thisRef: MyUI, prop: KProperty<*>): ReadOnlyProperty<MyUI, T> {
+        checkProperty(thisRef, prop.name)
         ... // property creation
     }
 
@@ -248,21 +385,33 @@ class MyUI {
 The `provideDelegate` method will be called for each property during the creation of a `MyUI` instance, and it can perform
 the necessary validation right away.
 
+Read the [documentation](delegated-properties.html#providing-a-delegate-since-11) for more details.
+
 
 ### Generic enum value access
 
-It is now possible to enumerate the values of an enum class in a generic way:
+It is now possible to enumerate the values of an enum class in a generic way.
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
 ``` kotlin
+//sampleStart
 enum class RGB { RED, GREEN, BLUE }
 
-print(enumValues<RGB>().joinToString { it.name }) // prints RED, GREEN, BLUE
-```
+inline fun <reified T : Enum<T>> printAllValues() {
+    print(enumValues<T>().joinToString { it.name })
+}
+//sampleEnd
 
+fun main(args: Array<String>) {
+    printAllValues<RGB>() // prints RED, GREEN, BLUE
+}
+```
+</div>
 
 ### Scope control for implicit receivers in DSLs
 
-The `@DslMarker` annotation allows to restrict the use of receivers from outer scopes in a DSL context.
+The [`@DslMarker`](/api/latest/jvm/stdlib/kotlin/-dsl-marker/index.html) annotation allows to restrict the use of receivers from outer scopes in a DSL context.
 Consider the canonical [HTML builder example](type-safe-builders.html):
 
 ``` kotlin
@@ -279,25 +428,9 @@ to put a `<tr>` tag in a `<td>`.
 
 In Kotlin 1.1, you can restrict that, so that only methods defined on the implicit receiver of `td`
 will be available inside the lambda passed to `td`. You do that by defining your annotation marked with the `@DslMarker` meta-annotation
-and applying it to the base class of the tag classes:
+and applying it to the base class of the tag classes.
 
-``` kotlin
-@DslMarker
-annotation class HtmlTagMarker
-
-@HtmlTagMarker
-abstract class Tag(val name: String) { ... }
-
-class TD() : Tag("td") { ... }
-
-fun Tag.td(init: TD.() -> Unit) {
-}
-```
-
-Now that the implicit receiver of the `init` lambda passed to the `td` function is a class annotated with `@HtmlTagMarker`,
-so the outer receivers of types which also have this annotation will be blocked.
-
-Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
+Read the [documentation](type-safe-builders.html#scope-control-dslmarker-since-11) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
 
 
 ### `rem` operator
@@ -325,14 +458,14 @@ possibly with side-effects, on each element of the collection/sequence in a chai
 On iterables it behaves like `forEach` but also returns the iterable instance further. And on sequences it returns a
 wrapping sequence, which applies the given action lazily as the elements are being iterated.
 
-```
+``` kotlin
 inputDir.walk()
         .filter { it.isFile && it.name.endsWith(".txt") }
         .onEach { println("Moving $it to $outputDir") }
         .forEach { moveFile(it, File(outputDir, it.toRelativeString(inputDir))) }
 ```
 
-### takeIf(), takeUnless() and also()
+### also(), takeIf() and takeUnless()
 
 These are three general-purpose extension functions applicable to any receiver.
  
@@ -341,42 +474,109 @@ The difference is that in the block inside `apply` the receiver is available as 
 while in the block inside `also` it's available as `it` (and you can give it another name if you want).
 This comes handy when you do not want to shadow `this` from the outer scope:
 
-```kotlin
-fun Block.copy() = Block().also { it.content = this.content }
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+class Block {
+    lateinit var content: String
+}
+
+//sampleStart
+fun Block.copy() = Block().also {
+    it.content = this.content
+}
+//sampleEnd
+
+// using 'apply' instead
+fun Block.copy1() = Block().apply {
+    this.content = this@copy1.content
+}
+
+fun main(args: Array<String>) {
+    val block = Block().apply { content = "content" }
+    val copy = block.copy()
+    println("Testing the content was copied:")
+    println(block.content == copy.content)
+}
 ```
+</div>
 
 `takeIf` is like `filter` for a single value. It checks whether the receiver meets the predicate, and
 returns the receiver, if it does or `null` if it doesn't. 
 Combined with an elvis-operator and early returns it allows to write constructs like:
 
-```kotlin
+``` kotlin
 val outDirFile = File(outputDir.path).takeIf { it.exists() } ?: return false
 // do something with existing outDirFile
-
-val index = input.indexOf(keyword).takeIf { it >= 0 } ?: error("keyword not found")
-// do something with index of keyword in input string, given that it's found
 ```
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+fun main(args: Array<String>) {
+    val input = "Kotlin"
+    val keyword = "in"
+
+//sampleStart
+    val index = input.indexOf(keyword).takeIf { it >= 0 } ?: error("keyword not found")
+    // do something with index of keyword in input string, given that it's found
+//sampleEnd
+    
+    println("'$keyword' was found in '$input'")
+    println(input)
+    println(" ".repeat(index) + "^")
+}
+```
+</div>
 
 `takeUnless` is the same as `takeIf`, but it takes the inverted predicate. It returns the receiver when it _doesn't_ meet the predicate and `null` otherwise. So one of the examples above could be rewritten with `takeUnless` as following:
 
-```
+``` kotlin
 val index = input.indexOf(keyword).takeUnless { it < 0 } ?: error("keyword not found")
 ```
 
 It is also convenient to use when you have a callable reference instead of the lambda:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+private fun testTakeUnless(string: String) {
+//sampleStart
+    val result = string.takeUnless(String::isEmpty)
+//sampleEnd
+
+    println("string = \"$string\"; result = \"$result\"")
+}
+
+fun main(args: Array<String>) {
+    testTakeUnless("")
+    testTakeUnless("abc")
+}
 ```
-val notEmptyString = string.takeUnless(String::isEmpty)
-```
+</div>
 
 ### groupingBy()
 
 This API can be used to group a collection by key and fold each group simultaneously. For example, it can be used
-to count the frequencies of characters in a text:
+to count the number of words starting with each letter:
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
 ``` kotlin
-val frequencies = words.groupingBy { it }.eachCount()
+fun main(args: Array<String>) {
+    val words = "one two three four five six seven eight nine ten".split(' ')
+//sampleStart
+    val frequencies = words.groupingBy { it.first() }.eachCount()
+//sampleEnd
+    println("Counting first letters: $frequencies.")
+
+    // The alternative way that uses 'groupBy' and 'mapValues' creates an intermediate map, 
+    // while 'groupingBy' way counts on the fly.
+    val groupBy = words.groupBy { it.first() }.mapValues { (_, list) -> list.size }
+    println("Comparing the result with using 'groupBy': ${groupBy == frequencies}.")
+}
 ```
+</div>
 
 ### Map.toMap() and Map.toMutableMap()
 
@@ -390,51 +590,92 @@ class ImmutablePropertyBag(map: Map<String, Any>) {
 
 ### Map.minus(key)
 
-The operator `plus` provides a way to add key-value pair(s) to a read-only map producing a new map, however there was not a simple way to do the opposite: to remove a key from the map you have to resort to less straightforward ways to like Map.filter() or Map.filterKeys().
+The operator `plus` provides a way to add key-value pair(s) to a read-only map producing a new map, however there was not a simple way to do the opposite: to remove a key from the map you have to resort to less straightforward ways to like `Map.filter()` or `Map.filterKeys()``.
 Now the operator `minus` fills this gap. There are 4 overloads available: for removing a single key, a collection of keys, a sequence of keys and an array of keys.
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+    val map = mapOf("key" to 42)
+    val emptyMap = map - "key"
+//sampleEnd
+    
+    println("map: $map")
+    println("emptyMap: $emptyMap")
+}
 ```
-val map = mapOf("key" to 42)
-val emptyMap = map - "key"
-```
+</div>
 
 ### minOf() and maxOf()
 
 These functions can be used to find the lowest and greatest of two or three given values, where values are primitive numbers or `Comparable` objects. There is also an overload of each function that take an additional `Comparator` instance, if you want to compare objects that are not comparable themselves.
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+    val list1 = listOf("a", "b")
+    val list2 = listOf("x", "y", "z")
+    val minSize = minOf(list1.size, list2.size)
+    val longestList = maxOf(list1, list2, compareBy { it.size })
+//sampleEnd
+    
+    println("minSize = $minSize")
+    println("longestList = $longestList")
+}
 ```
-val list1 = listOf("a", "b")
-val list2 = listOf("x", "y", "z")
-val minSize = minOf(list1.size, list2.size)
-val longestList = maxOf(list1, list2, compareBy { it.size })
-```
+</div>
 
 ### Array-like List instantiation functions
 
 Similar to the `Array` constructor, there are now functions that create `List` and `MutableList` instances and initialize
 each element by calling a lambda:
 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
 ``` kotlin
-List(size) { index -> element }
-MutableList(size) { index -> element }
+fun main(args: Array<String>) {
+//sampleStart
+    val squares = List(10) { index -> index * index }
+    val mutable = MutableList(10) { 0 }
+//sampleEnd
+
+    println("squares: $squares")
+    println("mutable: $mutable")
+}
 ```
+</div>
 
 ### Map.getValue()
 
 This extension on `Map` returns an existing value corresponding to the given key or throws an exception, mentioning which key was not found.
 If the map was produced with `withDefault`, this function will return the default value instead of throwing an exception.
 
-```
-val map = mapOf("key" to 42)
-// returns non-nullable Int value 42
-val value: Int = map.getValue("key")
-// throws NoSuchElementException
-map.getValue("key2")
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
-val mapWithDefault = map.withDefault { k -> k.length }
-// returns 4
-val value2 = mapWithDefault.getValue("key2")
+``` kotlin
+fun main(args: Array<String>) {
+
+//sampleStart    
+    val map = mapOf("key" to 42)
+    // returns non-nullable Int value 42
+    val value: Int = map.getValue("key")
+
+    val mapWithDefault = map.withDefault { k -> k.length }
+    // returns 4
+    val value2 = mapWithDefault.getValue("key2")
+
+    // map.getValue("anotherKey") // <- this will throw NoSuchElementException
+//sampleEnd
+    
+    println("value is $value")
+    println("value2 is $value2")
+}
 ```
+</div>
 
 ### Abstract collections
 
@@ -442,6 +683,27 @@ These abstract classes can be used as base classes when implementing Kotlin coll
 For implementing read-only collections there are `AbstractCollection`, `AbstractList`, `AbstractSet` and `AbstractMap`, 
 and for mutable collections there are `AbstractMutableCollection`, `AbstractMutableList`, `AbstractMutableSet` and `AbstractMutableMap`.
 On JVM these abstract mutable collections inherit most of their functionality from JDK's abstract collections.
+
+### Array manipulation functions
+
+The standard library now provides a set of functions for element-by-element operations on arrays: comparison
+(`contentEquals` and `contentDeepEquals`), hash code calculation (`contentHashCode` and `contentDeepHashCode`),
+and conversion to a string (`contentToString` and `contentDeepToString`). They're supported both for the JVM
+(where they act as aliases for the corresponding functions in `java.util.Arrays`) and for JS (where the implementation
+is provided in the Kotlin standard library).
+
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
+
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+    val array = arrayOf("a", "b", "c")
+    println(array.toString())  // JVM implementation: type-and-hash gibberish
+    println(array.contentToString())  // nicely formatted as list
+//sampleEnd
+}
+```
+</div>
 
 ## JVM Backend
 
@@ -476,10 +738,27 @@ performance, but can lead to new race conditions in some rare usage scenarios. I
 your own synchronization for accessing the variables.
 
 
-### javax.scripting support
+### javax.script support
 
-Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223). See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
-for an example project using the API.
+Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223).
+The API allows to evaluate snippets of code at runtime:
+
+``` kotlin
+val engine = ScriptEngineManager().getEngineByExtension("kts")!!
+engine.eval("val x = 3")
+println(engine.eval("x + 2"))  // Prints out 5
+```
+
+See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
+for a larger example project using the API.
+
+
+### kotlin.reflect.full
+
+To [prepare for Java 9 support](https://blog.jetbrains.com/kotlin/2017/01/kotlin-1-1-whats-coming-in-the-standard-library/), the extension functions and properties in the `kotlin-reflect.jar` library have been moved
+to the package `kotlin.reflect.full`. The names in the old package (`kotlin.reflect`) are deprecated and will be removed in
+Kotlin 1.2. Note that the core reflection interfaces (such as `KClass`) are part of the Kotlin standard library,
+not `kotlin-reflect`, and are not affected by the move.
 
 
 ## JavaScript Backend
@@ -527,17 +806,15 @@ you can use the `@JsNonModule` annotation.
 For example, here's how you can import JQuery into a Kotlin module:
 
 ``` kotlin
-@JsNonModule
-@JsName("$")
-external abstract class JQuery {
-    fun toggle(duration: Int = 0): JQuery
+external interface JQuery {
+    fun toggle(duration: Int = definedExternally): JQuery
     fun click(handler: (Event) -> Unit): JQuery
 }
 
 @JsModule("jquery")
 @JsNonModule
 @JsName("$")
-external fun JQuery(selector: String): JQuery
+external fun jquery(selector: String): JQuery
 ```
 
 In this case, JQuery will be imported as a module named `jquery`. Alternatively, it can be used as a $-object,
@@ -547,8 +824,8 @@ You can use these declarations in your application like this:
 
 ``` kotlin
 fun main(args: Array<String>) {
-    JQuery(".toggle-button").click {
-        JQuery(".toggle-panel").toggle(300)
+    jquery(".toggle-button").click {
+        jquery(".toggle-panel").toggle(300)
     }
 }
 ```

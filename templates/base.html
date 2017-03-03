@@ -1,8 +1,12 @@
 <html>
 <head>
     {% include 'inc/head.html' %}
+    {% block styles %}
+    {% endblock %}
+
     <script src="{{ url_for('static', filename='default.js') }}"></script>
     <script src="{{ url_for('static', filename='common.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}"/>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -25,5 +29,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 {% include 'inc/footer.html' %}
+
+{% block scripts %}
+{% endblock %}
 </body>
 </html>

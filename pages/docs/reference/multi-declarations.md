@@ -89,3 +89,44 @@ operator fun <K, V> Map.Entry<K, V>.component2() = getValue()
 ```  
   
 So you can freely use destructuring declarations in *for*{: .keyword }-loops with maps (as well as collections of data class instances etc).
+
+## Underscore for unused variables (since 1.1)
+
+If you don't need a variable in the destructuring declaration, you can place an underscore instead of its name:
+
+``` kotlin
+val (_, status) = getResult()
+```
+
+## Destructuring in Lambdas (since 1.1)
+
+You can use the destructuring declarations syntax for lambda parameters.
+If a lambda has a parameter of the `Pair` type (or `Map.Entry`, or any other type that has the appropriate `componentN` functions), you can introduce several new parameters instead of one by putting them in parentheses:   
+
+``` kotlin
+map.mapValues { entry -> "${entry.value}!" }
+map.mapValues { (key, value) -> "$value!" }
+```
+
+Note the difference between declaring two parameters and declaring a destructuring pair instead of a parameter:  
+
+``` kotlin
+{ a -> ... } // one parameter
+{ a, b -> ... } // two parameters
+{ (a, b) -> ... } // a destructured pair
+{ (a, b), c -> ... } // a destructured pair and another parameter
+```
+
+If a component of the destructured parameter is unused, you can replace it with the underscore to avoid inventing its name:
+
+``` kotlin
+map.mapValues { (_, value) -> "$value!" }
+```
+
+You can specify the type for the whole destructured parameter or for a specific component separately:
+
+``` kotlin
+map.mapValues { (_, value): Map.Entry<Int, String> -> "$value!" }
+
+map.mapValues { (_, value: String) -> "$value!" }
+```

@@ -11,7 +11,10 @@ class MyFlatPages(FlatPages):
         :return: initialized :class:`Page` instance.
         """
         content = content.replace("\r\n", "\n")
-        _, meta, content = re.compile(r'^-{3,}$', re.MULTILINE).split(content)
+        try:
+            _, meta, content = re.compile(r'^-{3,}$', re.MULTILINE).split(content, 2)
+        except:
+            raise Exception("Can't find two --- markers in " + path)
 
         # Now we ready to get HTML renderer function
         html_renderer = self.config('html_renderer')
