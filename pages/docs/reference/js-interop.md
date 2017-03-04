@@ -16,7 +16,7 @@ type system, you can create Kotlin headers for JavaScript libraries.
 
 ## Inline JavaScript
 
-You can inline some JavaScript code into your Kotlin code using the [js("...")](api/latest/jvm/stdlib/kotlin.js/js.html) function.
+You can inline some JavaScript code into your Kotlin code using the [js("...")](/api/latest/jvm/stdlib/kotlin.js/js.html) function.
 For example:
 
 ``` kotlin
