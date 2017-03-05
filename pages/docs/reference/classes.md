@@ -2,35 +2,27 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Classes and Inheritance"
+title: "类和继承"
 related:
     - functions.md
     - nested-classes.md
     - interfaces.md
 ---
 
-# Classes and Inheritance
-
-## Classes
-
-Classes in Kotlin are declared using the keyword *class*{: .keyword }:
-
+# 类和继承
+## 类
+在kotlin中类用 *class*{: .keyword }声明:
 ``` kotlin
 class Invoice {
 }
 ```
-
-The class declaration consists of the class name, the class header (specifying its type parameters, the primary
-constructor etc.) and the class body, surrounded by curly braces. Both the header and the body are optional;
-if the class has no body, curly braces can be omitted.
-
+创建一个类需要class关键字,类名和类体(bbody).当然body是可以省略的:
 ``` kotlin
 class Empty
 ```
 
 
-### Constructors
-
+### 构造函数
 A class in Kotlin can have a **primary constructor** and one or more **secondary constructors**. The primary
 constructor is part of the class header: it goes after the class name (and optional type parameters).
 
@@ -38,17 +30,13 @@ constructor is part of the class header: it goes after the class name (and optio
 class Person constructor(firstName: String) {
 }
 ```
-
-If the primary constructor does not have any annotations or visibility modifiers, the *constructor*{: .keyword }
-keyword can be omitted:
-
+*constructor*是可以被省略的:
 ``` kotlin
 class Person(firstName: String) {
 }
 ```
 
-The primary constructor cannot contain any code. Initialization code can be placed
-in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword:
+主构造函数不能包含任何代码. 可以使用块来包含初始化代码, init块采用init关键字作为前缀:
 
 ``` kotlin
 class Customer(name: String) {
@@ -58,39 +46,30 @@ class Customer(name: String) {
 }
 ```
 
-Note that parameters of the primary constructor can be used in the initializer blocks. They can also be used in
-property initializers declared in the class body:
+主构造函数中的参数可以在init块中使用:
 
 ``` kotlin
 class Customer(name: String) {
     val customerKey = name.toUpperCase()
 }
 ```
-
-In fact, for declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:
-
-
+除此之外,kotlin还提供了一种简洁的对属性值进行设置和初始化的方式:
 ``` kotlin
 class Person(val firstName: String, val lastName: String, var age: Int) {
     // ...
 }
 ```
-
-Much the same way as regular properties, the properties declared in the primary constructor can be
-mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
-
-If the constructor has annotations or visibility modifiers, the *constructor*{: .keyword } keyword is required, and
-the modifiers go before it:
+在类中的属性可以声明为val不可变和var可变这两种形式
+如果类中又访问控制属性(比如java中的public, private)或注解时,必须使用constructor关键字:
 
 ``` kotlin
 class Customer public @Inject constructor(name: String) { ... }
 ```
 
-For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
+详细内容请参考 [Visibility Modifiers](visibility-modifiers.html#constructors).
 
 
-#### Secondary Constructors
-
+#### 从构造函数
 The class can also declare **secondary constructors**, which are prefixed with *constructor*{: .keyword }:
 
 ``` kotlin
