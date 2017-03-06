@@ -323,7 +323,7 @@ fun main(args: Array<String>) {
 
 You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
 
-Read the [documentation](inline-functions.html#inline-properties) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
+Read the [documentation](inline-functions.html#inline-properties-since-11) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
 
 
 ### Local delegated properties
