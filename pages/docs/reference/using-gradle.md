@@ -178,13 +178,15 @@ For more information on `kapt` refer to the [official blogpost](http://blog.jetb
 Kotlin supports optional incremental compilation in Gradle.
 Incremental compilation tracks changes of source files between builds so only files affected by these changes would be compiled.
 
-There are several ways to enable it:
+Starting with Kotlin 1.1.1, incremental compilation is enabled by default.
 
-  1. add `kotlin.incremental=true` line either to a `gradle.properties` or a `local.properties` file;
+There are several ways to override the default setting:
 
-  2. add `-Pkotlin.incremental=true` to gradle command line parameters. Note that in this case the parameter should be added to each subsequent build (any build without this parameter invalidates incremental caches).
+  1. add `kotlin.incremental=true` or `kotlin.incremental=false` line either to a `gradle.properties` or a `local.properties` file;
 
-After incremental compilation is enabled, you should see the following warning message in your build log:
+  2. add `-Pkotlin.incremental=true` or `-Pkotlin.incremental=false` to gradle command line parameters. Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental compilation invalidates incremental caches.
+
+When incremental compilation is enabled, you should see the following warning message in your build log:
 ```
 Using kotlin incremental compilation
 ```
