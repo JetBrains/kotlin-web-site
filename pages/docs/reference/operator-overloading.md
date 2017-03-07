@@ -38,18 +38,14 @@ This table says that when the compiler processes, for example, an expression `+a
 | `a++` | `a.inc()` + see below |
 | `a--` | `a.dec()` + see below |
 
-
-These operations are supposed to change their receiver and (optionally) return a value.
-
-> **`inc()/dec()` shouldn't mutate the receiver object**.<br>
-> By "changing the receiver" we mean _the receiver-variable_, not the receiver object.
-{:.note}
+The `inc()` and `dec()` functions must return a value, which will be assigned to the variable on which the
+`++` or `--` operation was used. They shouldn't mutate the object on which the `inc` or `dec` was invoked.
 
 The compiler performs the following steps for resolution of an operator in the *postfix* form, e.g. `a++`:
 
 * Determines the type of `a`, let it be `T`.
 * Looks up a function `inc()` with the `operator` modifier and no parameters, applicable to the receiver of type `T`.
-* If the function returns a type `R`, then it must be a subtype of `T`.
+* Checks that the return type of the function is a subtype of `T`.
 
 The effect of computing the expression is:
 
