@@ -83,6 +83,9 @@ Allowed parameter types are:
  * other annotations;
  * arrays of the types listed above.
 
+Annotation parameters cannot have nullable types, because the JVM does not support storing `null` as a value
+of an annotation attribute.
+
 If an annotation is used as a parameter of another annotation, its name is not prefixed with the @ character:
 
 ``` kotlin
