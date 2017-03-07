@@ -247,6 +247,19 @@ Obj.INSTANCE.foo(); // works too
 `@JvmStatic` annotation can also be applied on a property of an object or a companion object
 making its getter and setter methods be static members in that object or the class containing the companion object.
 
+## Visibility
+
+The Kotlin visibilities are mapped to Java in the following way:
+
+* `private` members are compiled to `private` members;
+* `private` top-level declarations are compiled to package-local declarations;
+* `protected` remains `protected` (note that Java allows accessing protected members from other classes in the same package
+and Kotlin doesn't, so Java classes will have broader access to the code);
+* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make
+it harder to accidentally use them from Java and to allow overloading for members with the same signature that don't see
+each other according to Kotlin rules;
+* `public` remains `public`.
+
 ## KClass
 
 Sometimes you need to call a Kotlin method with a parameter of type `KClass`.
