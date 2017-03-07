@@ -11,7 +11,30 @@ Kotlin code can be called from Java easily.
 
 ## Properties
 
-Property getters are turned into *get*-methods, and setters – into *set*-methods.
+A Kotlin property is compiled to the following Java elements:
+
+ * A getter method, with the name calculated by prepending the `get` suffix;
+ * A setter method, with the name calculated by prepending the `set` suffix (only for `var` properties);
+ * A private field, with the same name as the property name (only for properties with backing fields).
+
+For example, `var firstName: String` gets compiled to the following Java declarations:
+
+``` java
+private String firstName;
+
+public String getFirstName() {
+    return firstName;
+}
+
+public void setFirstName(String firstName) {
+    this.firstName = firstName;
+}
+```
+
+If the name of the property starts with `is`, a different name mapping rule is used: the name of the getter will be
+the same as the property name, and the name of the setter will be obtained by replacing `is` with `set`.
+For example, for a property `isOpen`, the getter will be called `isOpen()` and the setter will be called `setOpen()`.
+This rule applies for properties of any type, not just `Boolean`.
 
 ## Package-Level Functions
 
