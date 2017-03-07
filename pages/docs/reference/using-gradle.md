@@ -207,8 +207,11 @@ kotlin {
 ## Compiler Options
 
 To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task.
-When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileKotlin2Js`
-for test code. When targeting JavaScript, the tasks are called `compileKotlin2Js` and `compileTestKotlin2Js` respectively.
+
+When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
+for test code. The tasks for custom source sets of are called accordingly to the `compile<Name>Kotlin` pattern.
+
+When targeting JavaScript, the tasks are called `compileKotlin2Js` and `compileTestKotlin2Js` respectively, and `compile<Name>Kotlin2Js` for custom source sets.
 
 Examples:
 
