@@ -84,7 +84,7 @@ in Kotlin 1.1.
 For `in` and `!in` the procedure is the same, but the order of arguments is reversed.
 {:#in}
 
-| Symbol | Translated to |
+| Expression | Translated to |
 | -------|-------------- |
 | `a[i]`  | `a.get(i)` |
 | `a[i, j]`  | `a.get(i, j)` |
@@ -95,7 +95,7 @@ For `in` and `!in` the procedure is the same, but the order of arguments is reve
 
 Square brackets are translated to calls to `get` and `set` with appropriate numbers of arguments.
 
-| Symbol | Translated to |
+| Expression | Translated to |
 |--------|---------------|
 | `a()`  | `a.invoke()` |
 | `a(i)`  | `a.invoke(i)` |
@@ -131,9 +131,10 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 
 *Note*: `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them
 
-The `==` operation is special: it is translated to a complex expression that screens for `null`'s, and `null == null` is `true`.
+The `==` operation is special: it is translated to a complex expression that screens for `null`'s.
+`null == null` is always true, and `x == null` for a non-null `x` is always false and won't invoke `x.equals()`.
 
-| Symbol | Translated to |
+| Expression | Translated to |
 |--------|---------------|
 | `a > b`  | `a.compareTo(b) > 0` |
 | `a < b`  | `a.compareTo(b) < 0` |
