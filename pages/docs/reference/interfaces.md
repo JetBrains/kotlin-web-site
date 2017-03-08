@@ -81,10 +81,17 @@ class D : A, B {
         super<A>.foo()
         super<B>.foo()
     }
+
+    override fun bar() {
+        super<B>.bar()
+    }
 }
 ```
 
 Interfaces *A* and *B* both declare functions *foo()* and *bar()*. Both of them implement *foo()*, but only *B* implements *bar()* (*bar()* is not marked abstract in *A*,
 because this is the default for interfaces, if the function has no body). Now, if we derive a concrete class *C* from *A*, we, obviously, have to override *bar()* and provide
-an implementation. And if we derive *D* from *A* and *B*, we don’t have to override *bar()*, because we have inherited only one implementation of it.
-But we have inherited two implementations of *foo()*, so the compiler does not know which one to choose, and forces us to override *foo()* and say what we want explicitly.
+an implementation.
+
+However, if we derive *D* from *A* and *B*, we need to implement all the methods which we have
+inherited from multiple interfaces, and to specify how exactly *D* should implement them. This rule applies
+both to methods for which we've inherited a single implementation (*bar()*) and multiple implementations (*foo()*).

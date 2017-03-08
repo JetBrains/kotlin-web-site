@@ -7,11 +7,19 @@ title: "Returns and Jumps"
 
 # Returns and Jumps
 
-Kotlin has three structural jump operators
+Kotlin has three structural jump expressions:
 
 * *return*{: .keyword }. By default returns from the nearest enclosing function or [anonymous function](lambdas.html#anonymous-functions).
 * *break*{: .keyword }. Terminates the nearest enclosing loop.
 * *continue*{: .keyword }. Proceeds to the next step of the nearest enclosing loop.
+
+All of these expressions can be used as part of larger expressions:
+
+``` kotlin
+val s = person.name ?: return
+```
+
+The type of these expressions is the [Nothing type](exceptions.html#the-nothing-type).
 
 ## Break and Continue Labels
 

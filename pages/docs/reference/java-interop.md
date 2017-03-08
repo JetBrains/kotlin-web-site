@@ -152,15 +152,31 @@ Some non-primitive built-in classes are also mapped:
 | `java.lang.Enum`         | `kotlin.Enum!`    |
 | `java.lang.Annotation`   | `kotlin.Annotation!`    |
 | `java.lang.Deprecated`   | `kotlin.Deprecated!`    |
-| `java.lang.Void`         | `kotlin.Nothing!`    |
 | `java.lang.CharSequence` | `kotlin.CharSequence!`   |
 | `java.lang.String`       | `kotlin.String!`   |
 | `java.lang.Number`       | `kotlin.Number!`     |
 | `java.lang.Throwable`    | `kotlin.Throwable!`    |
 {:.zebra}
 
+Java's boxed primitive types are mapped to nullable Kotlin types:
+
+| **Java type**       | **Kotlin type**  |
+|---------------------|------------------|
+| `java.lang.Byte`    | `kotlin.Byte?`   |
+| `java.lang.Short`   | `kotlin.Short?`  |
+| `java.lang.Integer` | `kotlin.Int?`    |
+| `java.lang.Long`    | `kotlin.Long?`   |
+| `java.lang.Char`    | `kotlin.Char?`   |
+| `java.lang.Float`   | `kotlin.Float?`  |
+| `java.lang.Double`  | `kotlin.Double?  |
+| `java.lang.Boolean` | `kotlin.Boolean?` |
+{:.zebra}
+
+Note that a boxed primitive type used as a type parameter is mapped to a platform type:
+for example, `List<java.lang.Integer>` becomes a `List<Int!>` in Kotlin.
+
 Collection types may be read-only or mutable in Kotlin, so Java's collections are mapped as follows
-(all Kotlin types in this table reside in the package `kotlin`):
+(all Kotlin types in this table reside in the package `kotlin.collections`):
 
 | **Java type** | **Kotlin read-only type**  | **Kotlin mutable type** | **Loaded platform type** |
 |---------------|------------------|----|----|

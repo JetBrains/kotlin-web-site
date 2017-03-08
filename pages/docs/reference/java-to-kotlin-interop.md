@@ -11,7 +11,30 @@ Kotlin code can be called from Java easily.
 
 ## Properties
 
-Property getters are turned into *get*-methods, and setters – into *set*-methods.
+A Kotlin property is compiled to the following Java elements:
+
+ * A getter method, with the name calculated by prepending the `get` suffix;
+ * A setter method, with the name calculated by prepending the `set` suffix (only for `var` properties);
+ * A private field, with the same name as the property name (only for properties with backing fields).
+
+For example, `var firstName: String` gets compiled to the following Java declarations:
+
+``` java
+private String firstName;
+
+public String getFirstName() {
+    return firstName;
+}
+
+public void setFirstName(String firstName) {
+    this.firstName = firstName;
+}
+```
+
+If the name of the property starts with `is`, a different name mapping rule is used: the name of the getter will be
+the same as the property name, and the name of the setter will be obtained by replacing `is` with `set`.
+For example, for a property `isOpen`, the getter will be called `isOpen()` and the setter will be called `setOpen()`.
+This rule applies for properties of any type, not just `Boolean`.
 
 ## Package-Level Functions
 
@@ -224,6 +247,19 @@ Obj.INSTANCE.foo(); // works too
 `@JvmStatic` annotation can also be applied on a property of an object or a companion object
 making its getter and setter methods be static members in that object or the class containing the companion object.
 
+## Visibility
+
+The Kotlin visibilities are mapped to Java in the following way:
+
+* `private` members are compiled to `private` members;
+* `private` top-level declarations are compiled to package-local declarations;
+* `protected` remains `protected` (note that Java allows accessing protected members from other classes in the same package
+and Kotlin doesn't, so Java classes will have broader access to the code);
+* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make
+it harder to accidentally use them from Java and to allow overloading for members with the same signature that don't see
+each other according to Kotlin rules;
+* `public` remains `public`.
+
 ## KClass
 
 Sometimes you need to call a Kotlin method with a parameter of type `KClass`.
@@ -411,7 +447,7 @@ functions or classes, causing all wildcards inside them to be suppressed.
 
 ### Translation of type Nothing
  
-The type `Nothing` is special, because it has no natural counterpart in Java. Indeed, every Java reference type, including
+The type [`Nothing`](exceptions.html#the-nothing-type) is special, because it has no natural counterpart in Java. Indeed, every Java reference type, including
 `java.lang.Void`, accepts `null` as a value, and `Nothing` doesn't accept even that. So, this type cannot be accurately
 represented in the Java world. This is why Kotlin generates a raw type where an argument of type `Nothing` is used:
 
