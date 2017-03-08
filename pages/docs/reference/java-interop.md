@@ -172,6 +172,8 @@ Java's boxed primitive types are mapped to nullable Kotlin types:
 | `java.lang.Boolean` | `kotlin.Boolean?` |
 {:.zebra}
 
+Note that a boxed primitive type used as a type parameter is mapped to a platform type:
+for example, `List<java.lang.Integer>` becomes a `List<Int!>` in Kotlin.
 
 Collection types may be read-only or mutable in Kotlin, so Java's collections are mapped as follows
 (all Kotlin types in this table reside in the package `kotlin.collections`):
