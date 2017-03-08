@@ -127,15 +127,15 @@ Map.prototype._createMarkers = function (events) {
         return;
     }
     
-    if(city in cities) {
-      eventsByCities[city] = [event] + eventsByCities[city];
+    if(cities.indexOf(city) >= 0) {
+      eventsByCities[city].push(event);
     } else {
-      cities = [city] + cities;
+      cities.push(city);
       eventsByCities[city] = [event];
     }
   });
 
-  let step = 200;  // The grid step in meters
+  let step = 500;  // The grid step in meters
 
   cities.forEach(function (city) {
     var x = 0;
@@ -164,8 +164,8 @@ Map.prototype._createMarkers = function (events) {
  * */
 var _calculateOffset = function(position, x, y) {
   // Hack from http://gis.stackexchange.com/a/2964
-  let _x = x / 111.111;
-  let _y = y / Math.cos(position.lat * Math.PI / 180) / 111.111;
+  let _x = x / 111111;
+  let _y = y / Math.cos(position.lat * Math.PI / 180) / 111111;
   return {lat: _x, lng: _y};
 };
 
