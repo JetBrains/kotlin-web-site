@@ -33,6 +33,10 @@ Kotlin has an extensive standard library that can be used in your applications. 
 </dependencies>
 ```
 
+If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well.
+The artifact IDs are `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
+for the testing libraries.
+
 ## Compiling Kotlin only source code
 
 To compile source code, specify the source directories in the <build> tag:
@@ -225,9 +229,11 @@ You also need to change the standard library dependency:
 
 ``` xml
 <groupId>org.jetbrains.kotlin</groupId>
-<artifactId>kotlin-stdlib</artifactId>
+<artifactId>kotlin-stdlib-js</artifactId>
 <version>${kotlin.version}</version>
 ```
+
+For unit testing support, you also need to add a dependency on the `kotlin-test-js` artifact.
 
 See the [Getting Started with Kotlin and JavaScript with Maven](/docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html)
 tutorial for more information.
