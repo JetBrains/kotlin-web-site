@@ -141,7 +141,7 @@ dependencies {
 }
 ```
 
-If your project uses Kotlin reflection or testing facilities, you need to add the corresponding dependencies as well:
+If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well:
 
 ``` groovy
 compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
