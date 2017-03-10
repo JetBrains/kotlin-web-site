@@ -1,4 +1,12 @@
 - geo:
+    lat: 44.840798
+    lng: -93.2982799
+  name: Bloomington, MN
+- geo:
+    lat: 37.9838096
+    lng: 23.7275388
+  name: Athens, Greece
+- geo:
     lat: 50.8498434
     lng: 16.475679
   name: Swidnica, Poland
