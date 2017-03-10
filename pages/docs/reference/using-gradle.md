@@ -121,27 +121,27 @@ In addition to the kotlin-gradle-plugin dependency shown above, you need to add 
 
 ``` groovy
 buildscript {
-   ext.kotlin_version = '<version to use>'
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-  }
+    ext.kotlin_version = '<version to use>'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
 apply plugin: "kotlin" // or apply plugin: "kotlin2js" if targeting JavaScript
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 ```
 
-If your project uses Kotlin reflection or testing facilities, you need to add the corresponding dependencies as well:
+If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well:
 
 ``` groovy
 compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
@@ -206,7 +206,14 @@ kotlin {
 
 ## Compiler Options
 
-To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task. Examples:
+To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task.
+
+When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
+for test code. The tasks for custom source sets of are called accordingly to the `compile<Name>Kotlin` pattern.
+
+When targeting JavaScript, the tasks are called `compileKotlin2Js` and `compileTestKotlin2Js` respectively, and `compile<Name>Kotlin2Js` for custom source sets.
+
+Examples:
 
 ``` groovy
 compileKotlin {
@@ -223,7 +230,7 @@ compileKotlin {
 
 A complete list of options for the Gradle tasks follows:
 
-### Attributes common for 'kotlin' and 'kotlin2js'
+### Attributes common for JVM and JS
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
@@ -233,7 +240,7 @@ A complete list of options for the Gradle tasks follows:
 | `verbose` | Enable verbose logging output |  | false |
 | `freeCompilerArgs` | A list of additional compiler arguments |  | [] |
 
-### Attributes specific for 'kotlin'
+### Attributes specific for JVM
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
@@ -244,7 +251,7 @@ A complete list of options for the Gradle tasks follows:
 | `noReflect` | Don't include Kotlin reflection implementation into classpath |  | true |
 | `noStdlib` | Don't include Kotlin runtime into classpath |  | true |
 
-### Attributes specific for 'kotlin2js'
+### Attributes specific for JS
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|

@@ -59,7 +59,7 @@ Here's how to use all-open with Maven:
 
     <configuration>
         <compilerPlugins>
-            <!-- Or "kotlin-spring" for the Spring support -->
+            <!-- Or "spring" for the Spring support -->
             <plugin>all-open</plugin>
         </compilerPlugins>
 
@@ -145,7 +145,7 @@ How to use no-arg in Maven:
 
     <configuration>
         <compilerPlugins>
-            <!-- Or "kotlin-jpa" for JPA support -->
+            <!-- Or "jpa" for JPA support -->
             <plugin>no-arg</plugin>
         </compilerPlugins>
 
