@@ -42,13 +42,13 @@ explicitly. In nested lambdas with parameters, parameters should be always decla
 
 ## Class header formatting
 
-Classes with small amount of arguments can be written in single line:
+Classes with a few arguments can be written in a single line:
 
 ```kotlin 
 class Person(id: Int, name: String)
 ```
 
-Classes with longer header should be formatted the way, that each primary constructor argument is in other line with indentation. Also closing brackets should be with different line together with extension class:
+Classes with longer header should be formatted the way, that each primary constructor argument is in another line with indentation. Also, closing brackets should be with a different line. If we use inheritance, then superclass constructor call or interface implementation should be located on the same line:
 
 ```kotlin 
 class Person(
@@ -60,7 +60,7 @@ class Person(
 }
 ```
 
-For multiple interfaces, extension class should be located first and then each interface should be located in different line:
+For multiple interfaces, superclass  constructor call should be located first and then each interface should be located in a different line:
 
 ```kotlin 
 class Person(
@@ -72,6 +72,8 @@ class Person(
     // ...
 }
 ```
+
+Indent of parameters can be either single or double tab size. 
 
 ## Unit
 
