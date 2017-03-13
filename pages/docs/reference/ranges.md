@@ -144,7 +144,7 @@ fun IntProgression.step(step: Int): IntProgression {
 
 fun CharProgression.step(step: Int): CharProgression {
     if (step <= 0) throw IllegalArgumentException("Step must be positive, was: $step")
-    return CharProgression.fromClosedRange(first, last, step)
+    return CharProgression.fromClosedRange(first, last, if (increment > 0) step else -step)
 }
 ```
 
