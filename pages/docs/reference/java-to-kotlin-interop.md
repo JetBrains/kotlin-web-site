@@ -39,7 +39,8 @@ This rule applies for properties of any type, not just `Boolean`.
 ## Package-Level Functions
 
 All the functions and properties declared in a file `example.kt` inside a package `org.foo.bar` are put into a Java
-class named `org.foo.bar.ExampleKt`.
+class named `org.foo.bar.ExampleKt`. All top-level functions (including extension ones) are represented
+as static methods of this class.
 
 ``` kotlin
 // example.kt
@@ -206,8 +207,8 @@ int v = C.VERSION;
 
 ## Static Methods
 
-As mentioned above, Kotlin generates static methods for package-level functions.
-Kotlin can also generate static methods for functions defined in named objects or companion objects if you annotate those functions as `@JvmStatic`.
+As mentioned above, Kotlin represents package-level functions as static methods.
+Kotlin can also generate static methods for functions defined in named objects or companion objects if you annotate those functions as `@JvmStatic`. Instance methods will remain too.
 For example:
 
 ``` kotlin
@@ -224,6 +225,8 @@ Now, `foo()` is static in Java, while `bar()` is not:
 ``` java
 C.foo(); // works fine
 C.bar(); // error: not a static method
+C.Companion.foo(); // instance method remains
+C.Companion.bar(); // the only way it works
 ```
 
 Same for named objects:
