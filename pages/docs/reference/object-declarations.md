@@ -46,11 +46,37 @@ val ab: A = object : A(1), B {
 If, by any chance, we need "just an object", with no nontrivial supertypes, we can simply say:
 
 ``` kotlin
-val adHoc = object {
-    var x: Int = 0
-    var y: Int = 0
+fun foo() {
+    val adHoc = object {
+        var x: Int = 0
+        var y: Int = 0
+    }
+    print(adHoc.x + adHoc.y)
 }
-print(adHoc.x + adHoc.y)
+```
+
+Note that anonymous objects can be used as types only in local and private declarations. If you use an anonymous object as a
+return type of a public function or the type of a public property, the actual type of that function or property
+will be the declared supertype of the anonymous object, or `Any` if you didn't declare any supertype. Members added
+in the anonymous object will not be accessible.
+
+``` kotlin
+class C {
+    // Private function, so the return type is the anonymous object type
+    private fun foo() = object {
+        val x: String = "x"
+    }
+
+    // Public function, so the return type is Any
+    fun publicFoo() = object {
+        val x: String = "x"
+    }
+
+    fun bar() {
+        val x1 = foo().x        // Works
+        val x2 = publicFoo().x  // ERROR: Unresolved reference 'x'
+    }
+}
 ```
 
 Just like Java's anonymous inner classes, code in object expressions can access variables from the enclosing scope.
