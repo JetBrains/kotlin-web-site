@@ -40,6 +40,41 @@ list.filter { it > 10 }.map { element -> element * 2 }
 In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
 explicitly. In nested lambdas with parameters, parameters should be always declared explicitly.
 
+## Class header formatting
+
+Classes with a few arguments can be written in a single line:
+
+```kotlin 
+class Person(id: Int, name: String)
+```
+
+Classes with longer header should be formatted the way, that each primary constructor argument is in another line with indentation. Also, closing brackets should be with a different line. If we use inheritance, then superclass constructor call or interface implementation should be located on the same line:
+
+```kotlin 
+class Person(
+    id: Int, 
+    name: String,
+    surname: String
+): Human(id, name) {
+    // ...
+}
+```
+
+For multiple interfaces, superclass  constructor call should be located first and then each interface should be located in a different line:
+
+```kotlin 
+class Person(
+    id: Int, 
+    name: String,
+    surname: String
+): Human(id, name),
+    KotlinMaker {
+    // ...
+}
+```
+
+Indent of parameters can be either single or double tab size. 
+
 ## Unit
 
 If a function returns Unit, the return type should be omitted:
