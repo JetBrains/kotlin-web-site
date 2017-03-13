@@ -28,21 +28,21 @@ If the package is not specified, the contents of such a file belong to "default"
 
 A number of packages are imported into every Kotlin file by default:
 
-- java.lang.*
 - kotlin.*
 - kotlin.annotation.*
 - kotlin.collections.*
+- kotlin.comparisons.*  (since 1.1)
+- kotlin.io.*
 - kotlin.ranges.*
 - kotlin.sequences.*
 - kotlin.text.*
 
-Additional packages are imported depending on the targeted platform:
+Additional packages are imported depending on the target platform:
 
 - JVM:
-  - kotlin.io.*
+  - java.lang.*
   - kotlin.jvm.*
-  - kotlin.coroutines.* (since 1.1)
-  
+
 - JS:    
   - kotlin.js.*
 
