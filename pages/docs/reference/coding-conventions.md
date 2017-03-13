@@ -48,32 +48,34 @@ Classes with a few arguments can be written in a single line:
 class Person(id: Int, name: String)
 ```
 
-Classes with longer header should be formatted the way, that each primary constructor argument is in another line with indentation. Also, closing brackets should be with a different line. If we use inheritance, then superclass constructor call or interface implementation should be located on the same line:
+Classes with longer headers should be formatted the way, that each primary constructor argument is in a separate line with indentation.
+Also, the closing parenthesis should be on a new line. If we use inheritance, then the superclass constructor call or list of implemented interfaces
+should be located on the same line as the parenthesis:
 
 ```kotlin 
 class Person(
     id: Int, 
     name: String,
     surname: String
-): Human(id, name) {
+) : Human(id, name) {
     // ...
 }
 ```
 
-For multiple interfaces, superclass  constructor call should be located first and then each interface should be located in a different line:
+For multiple interfaces, the superclass constructor call should be located first and then each interface should be located in a different line:
 
 ```kotlin 
 class Person(
     id: Int, 
     name: String,
     surname: String
-): Human(id, name),
+) : Human(id, name),
     KotlinMaker {
     // ...
 }
 ```
 
-Indent of parameters can be either single or double tab size. 
+Constructor parameters can use either the regular indent or the continuation indent (double the regular indent).
 
 ## Unit
 
