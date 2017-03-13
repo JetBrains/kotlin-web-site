@@ -112,11 +112,11 @@ The `downTo()` extension function is defined for any pair of integral types, her
 
 ``` kotlin
 fun Long.downTo(other: Int): LongProgression {
-    return LongProgression.fromClosedRange(this, other, -1.0)
+    return LongProgression.fromClosedRange(this, other.toLong(), -1L)
 }
 
 fun Byte.downTo(other: Int): IntProgression {
-    return IntProgression.fromClosedRange(this, other, -1)
+    return IntProgression.fromClosedRange(this.toInt(), other, -1)
 }
 ```
 
