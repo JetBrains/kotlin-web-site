@@ -30,13 +30,24 @@ buildscript {
 }
 ```
 
+This is not required when using Kotlin Gradle plugin 1.1.1 and above with the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
+
 ## Targeting the JVM
 
-To target the JVM, the Kotlin plugin needs to be applied
+To target the JVM, the Kotlin plugin needs to be applied:
 
 ``` groovy
 apply plugin: "kotlin"
 ```
+
+Or, starting with Kotlin 1.1.1, the plugin can be applied using the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block):
+
+```groovy
+plugins {
+  id "org.jetbrains.kotlin.jvm" version "<version to use>"
+}
+```
+The `version` should be literal in this block, and it cannot be applied from another build script.
 
 Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
 
@@ -151,11 +162,22 @@ testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 
 ## Annotation processing
 
-The Kotlin plugin supports annotation processors like _Dagger_ or _DBFlow_. In order for them to work with Kotlin classes, apply the `kotlin-kapt` plugin and add the respective dependencies using the `kapt` configuration in your `dependencies` block:
+The Kotlin plugin supports annotation processors like _Dagger_ or _DBFlow_. In order for them to work with Kotlin classes, apply the `kotlin-kapt` plugin:
 
 ``` groovy
 apply plugin: 'kotlin-kapt'
+```
 
+Or, starting with Kotlin 1.1.1, you can apply it using the plugins DSL:
+
+```groovy
+plugins {
+  id "org.jetbrains.kotlin.kapt" version "<version to use>"
+}
+```
+
+Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
+```groovy
 dependencies {
   kapt 'groupId:artifactId:version'
 }

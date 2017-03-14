@@ -19,7 +19,7 @@ For Spring you can use the `kotlin-spring` compiler plugin ([see below](compiler
 
 ### How to use all-open plugin
 
-You add the plugin in `build.gradle` and specify the annotations that will make the class open: 
+Add the plugin in `build.gradle`: 
 
 ``` groovy
 buildscript {
@@ -29,7 +29,18 @@ buildscript {
 }
 
 apply plugin: "kotlin-allopen"
+```
+Or, if you use the Gradle plugins DSL, add it to the `plugins` block:
 
+```groovy
+plugins {
+  id "org.jetbrains.kotlin.plugin.allopen" version "<version to use>"
+}
+```
+
+Then specify the annotations that will make the class open:
+
+```groovy
 allOpen {
     annotation("com.my.Annotation")
 }
@@ -95,6 +106,14 @@ buildscript {
 apply plugin: "kotlin-spring"
 ```
 
+Or using the Gradle plugins DSL:
+
+```groovy
+plugins {
+  id "org.jetbrains.kotlin.plugin.spring" version "<version to use>"
+}
+```
+
 The Maven example is similar to the one above.
 
 The plugin specifies the following annotations: 
@@ -129,7 +148,19 @@ buildscript {
 }
 
 apply plugin: "kotlin-noarg"
+```
 
+Or using the Gradle plugins DSL:
+
+```groovy
+plugins {
+  id "org.jetbrains.kotlin.plugin.noarg" version "<version to use>"
+}
+```
+
+Then specify the annotation types:
+
+```groovy
 noArg {
     annotation("com.my.Annotation")
 }
@@ -180,6 +211,14 @@ buildscript {
 }
 
 apply plugin: "kotlin-jpa"
+```
+
+Or using the Gradle plugins DSL:
+
+```groovy
+plugins {
+  id "org.jetbrains.kotlin.plugin.jpa" version "<version to use>"
+}
 ```
 
 The Maven example is similar to the one above.
