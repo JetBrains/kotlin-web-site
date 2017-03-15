@@ -15,7 +15,7 @@ from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
 from src.encoder import DateAwareEncoder
 from src.grammar import get_grammar
-from src.markdown.makrdown import jinja_aware_markdown
+from src.markdown.makrdown import jinja_aware_markdown, highlight_code
 from src.pdf import generate_pdf
 from src.sitemap import generate_sitemap
 
@@ -222,6 +222,26 @@ def page():
 @app.route('/<path:page_path>.html')
 def page(page_path):
     return process_page(page_path)
+
+
+@freezer.register_generator
+def api_page():
+    if ignore_stdlib:
+        return
+    api_folder = path.join(root_folder, 'api')
+    for root, dirs, files in os.walk(api_folder):
+        for file in files:
+            yield {'page_path': path.join(path.relpath(root, api_folder), file).replace(os.sep, '/')}
+
+
+@app.route('/api/<path:page_path>')
+def api_page(page_path):
+    with open(path.join(root_folder, 'api', page_path)) as html_file:
+        html_content = html_file.read()
+        return render_template(
+            'api.html',
+            page_content=highlight_code(html_content)
+        )
 
 
 @app.route('/assets/<path:path>')
