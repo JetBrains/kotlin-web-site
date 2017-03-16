@@ -7,20 +7,22 @@ var emitter = require('../../../util/emitter');
 /**
  * @param {Event} event
  * @param {Object} map Google Map instance
+ * @param {Object} offset Latitude and Longitude to add to `event.city.position`
  * @constructor
  */
-function Marker(event, map) {
+function Marker(event, map, offset) {
   var marker = this;
   this.event = event;
   event.marker = this;
   this.map = map;
+  this.offset = offset;
   this.isActive = true;
   this.isHighlighted = false;
 
   // Marker instance
   var markerInstance = new google.maps.Marker({
     title: event.title,
-    position: event.city.position,
+    position: this.calculatePosition(),
     draggable: false,
     visible: true,
     icon: this.getIcon(),
@@ -55,6 +57,11 @@ function Marker(event, map) {
 
   this.infoWindow = infoWindow;
 }
+
+Marker.prototype.calculatePosition = function () {
+    let cityPosition = this.event.city.position;
+    return {lat: cityPosition.lat + this.offset.lat, lng: cityPosition.lng + this.offset.lng};
+};
 
 Marker.prototype.getIcon = function () {
   var mapZoom = this.map.instance.getZoom();

@@ -117,14 +117,56 @@ Map.prototype._createMarkers = function (events) {
   var map = this;
   var markers = [];
 
+  var cities = [];
+  var eventsByCities = {};
+
   events.forEach(function (event) {
+    let city = event.city;
+
     if (!event.city) {
-      return;
+        return;
     }
-    markers.push(new Marker(event, map));
+    
+    if(cities.indexOf(city) >= 0) {
+      eventsByCities[city].push(event);
+    } else {
+      cities.push(city);
+      eventsByCities[city] = [event];
+    }
+  });
+
+  let step = 500;  // The grid step in meters
+
+  cities.forEach(function (city) {
+    var x = 0;
+    var y = 0;
+
+    eventsByCities[city].forEach(function (event) {
+      markers.push(new Marker(event, map, _calculateOffset(city.position, x * step, y * step)));
+
+      if(x == 0) {
+        x = y + 1;
+        y = 0;
+      } else {
+        x--;
+        y++;
+      }
+    });
   });
 
   this.markers = markers;
+};
+
+/**
+ * @param {Object} position
+ * @param {number} x Latitude offset in meters
+ * @param {number} y Longitude offset in meters
+ * */
+var _calculateOffset = function(position, x, y) {
+  // Hack from http://gis.stackexchange.com/a/2964
+  let _x = x / 111111;
+  let _y = y / Math.cos(position.lat * Math.PI / 180) / 111111;
+  return {lat: _x, lng: _y};
 };
 
 Map.prototype._limitWorldBounds = function() {
