@@ -48,7 +48,15 @@
     "whatwg-fetch": "2.0.2"
   },
   "devDependencies": {
+    "chai": "3.5.0",
+    "glob": "7.1.1",
     "minimist": "1.2.0",
+    "wdio-mocha-framework": "0.5.9",
+    "wdio-screenshot": "0.5.2",
+    "wdio-spec-reporter": "0.1.0",
+    "wdio-teamcity-reporter": "1.1.1",
+    "wdio-visual-regression-service": "0.7.0",
+    "webdriverio": "4.6.2",
     "webpack-dev-server": "1.16.3",
     "webpack-livereload-plugin": "0.4.0"
   },
@@ -61,6 +69,10 @@
     "start:server": "rimraf ./_assets/* && cross-env NODE_ENV=development webpack-dev-server --port 9000",
     "build": "rimraf ./_assets/* && cross-env NODE_ENV=production webpack -p --bail",
     "postinstall": "cd node_modules/codemirror && npm i",
-    "clean": "rimraf ./_assets"
+    "clean": "rimraf ./_assets",
+    "start-selenium-server": "docker run -d -p 4444:4444 --name=selenium-standalone selenium/standalone-chrome:3.0.1-germanium",
+    "stop-selenium-server": "CONTAINER_ID=$(docker ps --filter \"name=selenium-standalone\" --format \"{{.ID}}\") && docker stop $CONTAINER_ID && docker rm --force $CONTAINER_ID",
+    "file-scanner": "node scripts/file-scanner.js",
+    "visual-regression-test": "wdio --spec=tests/visual-regression.test.js"
   }
 }
