@@ -7,7 +7,7 @@ title: "Interfaces"
 
 # Interfaces
 
-Interfaces in Kotlin are very similar to Java 8. They can contain declarations of abstract methods, as well as method
+Interfaces in Kotlin are very similar to Java 8 Interfaces. They can contain declarations of abstract methods, as well as method
 implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have
 properties but these need to be abstract or to provide accessor implementations.
 
