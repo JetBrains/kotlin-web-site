@@ -256,6 +256,15 @@ def get_index_page(page_path):
     return process_page(page_path + 'index')
 
 
+@app.after_request
+def add_header(request):
+    request.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    request.headers["Pragma"] = "no-cache"
+    request.headers["Expires"] = "0"
+    request.headers['Cache-Control'] = 'public, max-age=0'
+    return request
+
+
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         urls = freezer.freeze()
