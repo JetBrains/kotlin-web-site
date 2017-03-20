@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "minimist": "1.2.0",
+    "webpack-dev-server": "1.16.3",
     "webpack-livereload-plugin": "0.4.0"
   },
   "repository": {
@@ -57,6 +58,7 @@
   },
   "scripts": {
     "start": "rimraf ./_assets/* && cross-env NODE_ENV=development webpack --watch",
+    "start:server": "rimraf ./_assets/* && cross-env NODE_ENV=development webpack-dev-server --port 9000",
     "build": "rimraf ./_assets/* && cross-env NODE_ENV=production webpack",
     "postinstall": "cd node_modules/codemirror && npm i",
     "clean": "rimraf ./_assets"

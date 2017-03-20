@@ -11,6 +11,7 @@ var autoprefixer = require('autoprefixer');
 var parseArgs = require('minimist');
 
 var isProduction = process.env.NODE_ENV === 'production';
+var isServer = process.argv.toString().includes('webpack-dev-server');
 var CLIArgs = parseArgs(process.argv.slice(2));
 var webDemoURL = CLIArgs['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
 
@@ -110,13 +111,25 @@ var webpackConfig = {
       webDemoURL: JSON.stringify(webDemoURL)
     }),
 
-    new WebpackExtractTextPlugin('[name].css'),
+    new WebpackExtractTextPlugin('[name].css')
+  ],
 
+  devServer: {
+    proxy: {
+      '/**': {
+        target: 'http://localhost:5000'
+      }
+    }
+  }
+};
+
+if (!isServer) {
+  webpackConfig.plugins.push(
     new LiveReloadPlugin({
       appendScriptTag: false
     })
-  ]
-};
+  );
+}
 
 module.exports = webpackConfig;
 
