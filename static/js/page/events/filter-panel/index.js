@@ -1,10 +1,9 @@
 import $ from "jquery";
+import Emitter from "event-emitter";
 import Switcher from "../switcher";
 import Dropdown from "../../../com/dropdown/index";
-import pageEmitter from "../../../util/emitter";
-import PAGE_EVENTS from "../events-list";
-import Emitter from "event-emitter";
 import template from './view.twig';
+import timeSelectValues from './time-select-items';
 
 require('./styles.scss');
 
@@ -18,11 +17,10 @@ export default class FilterPanel {
    * @param {Object} config
    * @param {Object} config.languages
    * @param {Object} config.materials
-   * @param {Object} config.filters
+   * @param {Object} config.initialFilters
    * @param {EventsStore} config.store
    */
   constructor(node, config) {
-    const that = this;
     this.$node = $(node);
     this.$panel = this.render();
     this._emitter = Emitter({});
@@ -33,31 +31,23 @@ export default class FilterPanel {
 
     // Initial filters
     // TODO: values from hash
-    const currentFilters = {
-      time: 'all',
-      lang: 'all',
-      materials: 'all'
-    };
+    const {initialFilters} = config;
+    const timeSelectSelectedIndex = Object.keys(timeSelectValues).indexOf(initialFilters.time);
 
-    function handleSelect(type, value) {
+    const handleSelect = (type, value) => {
       const eventData = {};
       eventData[type] = value;
-      $.extend(currentFilters, eventData);
-
-      Object.keys(currentFilters).forEach((name) => {
-        if (currentFilters[name] === 'all') {
-          delete currentFilters[name];
-        }
-      });
-
-      that._emitter.emit(EVENTS.SELECT, currentFilters);
-    }
+      $.extend(initialFilters, eventData);
+      this._emitter.emit(EVENTS.SELECT, initialFilters);
+    };
 
     this.timeSelector = new Switcher($timeSelector, {
-      items: {all: 'All', upcoming: 'Upcoming', past: 'Past'},
-      // selectedIndex: 1,
+      items: timeSelectValues,
+      selectedIndex: timeSelectSelectedIndex,
       onSelect: (time) => handleSelect('time', time)
     });
+
+    // setTimeout(() => this.timeSelector.select(1), 300);
 
     this.languageSelector = new Dropdown($languageSelectorNode, {
       items: $.extend({all: 'All'}, config.languages),

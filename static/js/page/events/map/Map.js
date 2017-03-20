@@ -23,13 +23,15 @@ export default class Map {
   /**
    * @param {HTMLElement} node
    * @param {EventsStore} store
+   * @param {Object} initialFilters
    */
-  constructor(node, store) {
+  constructor(node, store, initialFilters = null) {
     const $mapNode = $(node);
     const that = this;
     this.node = $mapNode.get(0);
     this.store = store;
     this.markers = [];
+    this.initialFilters = initialFilters;
 
     const instance = new google.maps.Map($mapNode.get(0), mapOptions);
     this.instance = instance;
@@ -91,16 +93,22 @@ export default class Map {
 
       instance.panTo(event.getBounds());
     });
+
+    if (this.initialFilters) {
+      const filtered = this.store.filter(this.initialFilters);
+      this.applyFilteredResults(filtered);
+    }
   }
 
   /**
    * @static
    * @param {HTMLElement} node
    * @param {EventsStore} store
+   * @param {Object} initialFilters
    * @returns {Deferred}
    */
-  static create(node, store) {
-    return $.getScript(MAP_API_URL).then(() => new Map(node, store));
+  static create(node, store, initialFilters = null) {
+    return $.getScript(MAP_API_URL).then(() => new Map(node, store, initialFilters));
   }
 
   /**

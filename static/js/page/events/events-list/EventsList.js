@@ -10,6 +10,7 @@ export default class EventsList {
   /**
    * @param {HTMLElement|string} node
    * @param {EventsStore} store
+   * @param {Object} initialFilters
    */
   constructor(node, store) {
     this.store = store;

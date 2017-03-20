@@ -6,27 +6,41 @@ import languages from "./lang";
 export default class EventsStore {
   static FILTERS = {
     time: (time, event) => {
-      let isMatch = false;
+      let matched = false;
 
-      if (time == 'upcoming') {
-        isMatch = event.isUpcoming();
-      }
-      else if (time == 'past') {
-        isMatch = !event.isUpcoming();
-      }
-      else {
-        isMatch = true;
+      switch (time) {
+        case 'upcoming':
+          matched = event.isUpcoming();
+          break;
+
+        case 'past':
+          matched = !event.isUpcoming();
+          break;
+
+        case 'all':
+          matched = true;
+          break;
+
+        // TODO refactor this
+        case 'kotlin':
+          matched = event.hasTag('kotlin1.1');
+          break;
+
+        case null:
+        default:
+          matched = false;
+          break;
       }
 
-      return isMatch;
+      return matched;
     },
 
     lang: (lang, event) => {
-      return event.lang == lang;
+      return lang === 'all' || event.lang === lang;
     },
 
     materials: (materialType, event) => {
-      return event.content && event.content.hasOwnProperty(materialType);
+      return materialType === 'all' || event.content && event.content.hasOwnProperty(materialType);
     },
 
     bounds: (bounds, event) => {
@@ -169,7 +183,7 @@ export default class EventsStore {
         }
       });
 
-      if (performedConstraintsCount == constraintNames.length) {
+      if (performedConstraintsCount === constraintNames.length) {
         filtered.push(event);
       }
     });

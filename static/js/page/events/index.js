@@ -1,11 +1,13 @@
 import $ from "jquery";
+import Fixer from "fixer.js";
+import queryUtils from 'query-string';
 import Map from "./map/Map";
 import EventsStore from "./event/EventsStore";
 import EventsList from "./events-list/EventsList";
 import emitter from "../../util/emitter";
 import EVENTS from "./events-list";
 import FilterPanel from "./filter-panel/index";
-import Fixer from "fixer.js";
+import timeSelectValues from './filter-panel/time-select-items';
 
 require('./index.scss');
 
@@ -16,6 +18,15 @@ function refreshMapSize(node, map) {
 }
 
 $(document).ready(() => {
+  const query = queryUtils.parse(window.location.search);
+  const {time} = query;
+
+  const initialFilters = {
+    time: time in timeSelectValues ? time : 'all',
+    lang: 'all',
+    materials: 'all'
+  };
+
   let store;
   const eventsStorePromise = EventsStore.create('/data/events.json', '/data/cities.json');
 
@@ -24,14 +35,18 @@ $(document).ready(() => {
     return Map.create('.js-map', eventsStore);
   })
   .then(map => {
-    const list = new EventsList('.js-events-list', store);
+    const events = store.filter(initialFilters);
 
-    list.applyFilteredResults(store.events);
+    const list = new EventsList('.js-events-list', store, initialFilters);
+
+    emitter.emit(EVENTS.EVENTS_FILTERED, initialFilters);
+    // list.applyFilteredResults(events);
 
     const panel = new FilterPanel('.js-filter-panel-wrap', {
       languages: store.getLanguages(),
       materials: store.getMaterials(),
-      store: store
+      store: store,
+      initialFilters
     });
 
     panel.onSelect(filters => {
@@ -47,8 +62,6 @@ $(document).ready(() => {
     const mapPanel = new Fixer().addElement('.js-events-map-panel', {stretchTo: '.global-footer'});
     mapPanel.on('stretched', refreshMapSize.bind(null, node, map.instance));
     $(window).on('resize', refreshMapSize.bind(null, node, map.instance));
-
-    setTimeout(() => panel.timeSelector.select(1), 300);
   });
 
 });

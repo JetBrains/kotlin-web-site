@@ -1,8 +1,10 @@
 import EVENTS from "./../events-list";
 import emitter from "../../../util/emitter";
-import icon from './marker-icon.png';
-import inactiveIcon from './marker-icon-inactive.png';
-import highlightedIcon from './marker-icon-highlighted.png';
+import icon from './marker.png';
+import inactiveIcon from './marker-inactive.png';
+import highlightedIcon from './marker-highlighted.png';
+import taggedIcon from './marker-tagged.png';
+import taggedHighlightedIcon from './marker-tagged-highlighted.png';
 
 export default class Marker {
   /**
@@ -54,12 +56,13 @@ export default class Marker {
   }
 
   getIcon() {
-    const mapZoom = this.map.instance.getZoom();
     const {isActive, isHighlighted} = this;
-    let iconUrl = isActive ? icon : inactiveIcon;
+    const mapZoom = this.map.instance.getZoom();
+    const hasTags = this.event.tags.length > 0;
+    let iconUrl = isActive ? (hasTags ? taggedIcon : icon) : inactiveIcon;
 
     if (isHighlighted) {
-      iconUrl = highlightedIcon;
+      iconUrl = hasTags ? taggedHighlightedIcon : highlightedIcon;
     }
 
     return {

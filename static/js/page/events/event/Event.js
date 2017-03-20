@@ -17,6 +17,7 @@ export default class Event {
     this.subject = data.subject;
     this.speaker = data.speaker;
     this.description = data.description;
+    this.tags = data.tags ? data.tags.split(',').map(t => t.trim()) : [];
 
     if (!data.location) {
       console.warn(data.title + ' has no location');
@@ -37,6 +38,10 @@ export default class Event {
 
   getBounds() {
     return this.city.getBounds();
+  }
+
+  hasTag(tag) {
+    return this.tags.indexOf(tag) > -1;
   }
 
   render(mountNode) {
