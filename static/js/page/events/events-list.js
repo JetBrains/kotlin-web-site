@@ -1,4 +1,4 @@
-var events = {
+const events = {
   /**
    * @param {Object} Filters request
    */
@@ -30,4 +30,4 @@ var events = {
   MAP_BOUNDS_CHANGED: 'map_bounds_changed'
 };
 
-module.exports = events;
+export default events;

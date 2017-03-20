@@ -1,4 +1,4 @@
-var isoLangs = {
+export default {
   "ab": {
     "name": "Abkhaz",
     "nativeName": "аҧсуа"
@@ -728,5 +728,3 @@ var isoLangs = {
     "nativeName": "Saɯ cueŋƅ, Saw cuengh"
   }
 };
-
-module.exports = isoLangs;
