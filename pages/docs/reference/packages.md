@@ -24,6 +24,28 @@ So, in the example above, the full name of `baz()` is `foo.bar.baz`, and the ful
  
 If the package is not specified, the contents of such a file belong to "default" package that has no name.
 
+## Default Imports
+
+A number of packages are imported into every Kotlin file by default:
+
+- kotlin.*
+- kotlin.annotation.*
+- kotlin.collections.*
+- kotlin.comparisons.*  (since 1.1)
+- kotlin.io.*
+- kotlin.ranges.*
+- kotlin.sequences.*
+- kotlin.text.*
+
+Additional packages are imported depending on the target platform:
+
+- JVM:
+  - java.lang.*
+  - kotlin.jvm.*
+
+- JS:    
+  - kotlin.js.*
+
 ## Imports
 
 Apart from the default imports, each file may contain its own import directives.

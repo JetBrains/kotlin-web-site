@@ -2,8 +2,8 @@
  * Partially taken from https://github.com/ubilabs/google-map-bounds-limit
  */
 
-var ignoreNextMapMove = false;
-var lastValidCenter = null;
+let ignoreNextMapMove = false;
+let lastValidCenter = null;
 
 /**
  * Limits panning on the map beyond the given latitude.
@@ -16,7 +16,7 @@ function limitMapMove(map, maxBounds) {
     return;
   }
 
-  var bounds = map.getBounds();
+  const bounds = map.getBounds();
 
   if (maxBounds.contains(bounds.getNorthEast()) && maxBounds.contains(bounds.getSouthWest())) {
     lastValidCenter = map.getCenter();
@@ -42,10 +42,10 @@ function limitMapMove(map, maxBounds) {
  * @return {google.maps.LatLng}  The recalculated map center
  */
 function recalculateMapCenter(map, maxBounds) {
-  var center = map.getCenter();
-  var bounds = map.getBounds();
-  var offsets = getBoundsOffsets(bounds, maxBounds);
-  var newCenter = {
+  const center = map.getCenter();
+  const bounds = map.getBounds();
+  const offsets = getBoundsOffsets(bounds, maxBounds);
+  const newCenter = {
     lat: center.lat(),
     lng: center.lng()
   };
@@ -91,10 +91,6 @@ function getBoundsOffsets(inner, outer) {
  * @param  {google.maps.Map} map  The google map object
  * @param  {google.maps.LatLngBounds} maxBounds  The bounds limit
  */
-function limit(map, maxBounds) {
-  map.addListener('center_changed', function () {
-    limitMapMove(map, maxBounds);
-  });
+export default function limit(map, maxBounds) {
+  map.addListener('center_changed', () => limitMapMove(map, maxBounds));
 }
-
-module.exports = limit;

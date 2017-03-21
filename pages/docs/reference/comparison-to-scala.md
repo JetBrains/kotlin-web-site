@@ -27,9 +27,8 @@ Taking this into account, if you are happy with Scala, you most likely do not ne
 * Structural types
 * Value types
     * We plan to support [Project Valhalla](http://openjdk.java.net/projects/valhalla/) once it is released as part of the JDK
-* Yield operator
-* Actors
-    * Kotlin supports [Quasar](http://www.paralleluniverse.co/quasar/), a third-party framework for actor support on the JVM
+* Yield operator and actors
+    * See [Coroutines](coroutines.html)
 * Parallel collections
     * Kotlin supports Java 8 streams, which provide similar functionality
 

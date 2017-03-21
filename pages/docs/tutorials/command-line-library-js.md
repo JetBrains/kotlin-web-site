@@ -79,7 +79,7 @@ fun odd_factorial(n: Int): Long {
    Compile with library:
 
 ```
-   $ kotlinc-js -output binom.js -library-files sample-library.meta.js binom.kt
+   $ kotlinc-js -output binom.js -libraries sample-library.meta.js binom.kt
 ```
    
    Both files `sample-library.js` and `sample-library.meta.js` should be present in the latter case,
@@ -91,7 +91,7 @@ fun odd_factorial(n: Int): Long {
    you can use the following command
    
 ```
-   $ kotlinc-js -output binom.js -library-files sample-library.jar binom.kt
+   $ kotlinc-js -output binom.js -libraries sample-library.jar binom.kt
 ```
   
    

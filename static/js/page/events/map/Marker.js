@@ -1,121 +1,123 @@
-var icon = require('./marker-icon.png');
-var inactiveIcon = require('./marker-icon-inactive.png');
-var highlightedIcon = require('./marker-icon-highlighted.png');
-var EVENTS = require('./../events-list');
-var emitter = require('../../../util/emitter');
+import EVENTS from "./../events-list";
+import emitter from "../../../util/emitter";
+import icon from './marker.png';
+import inactiveIcon from './marker-inactive.png';
+import highlightedIcon from './marker-highlighted.png';
+import taggedIcon from './marker-tagged.png';
+import taggedHighlightedIcon from './marker-tagged-highlighted.png';
 
-/**
- * @param {Event} event
- * @param {Object} map Google Map instance
- * @constructor
- */
-function Marker(event, map) {
-  var marker = this;
-  this.event = event;
-  event.marker = this;
-  this.map = map;
-  this.isActive = true;
-  this.isHighlighted = false;
+export default class Marker {
+  /**
+   * @param {Event} event
+   * @param {Object} map Google Map instance
+   */
+  constructor(event, map) {
+    const marker = event.marker = this;
+    this.event = event;
+    this.map = map;
+    this.isActive = true;
+    this.isHighlighted = false;
 
-  // Marker instance
-  var markerInstance = new google.maps.Marker({
-    title: event.title,
-    position: event.city.position,
-    draggable: false,
-    visible: true,
-    icon: this.getIcon(),
-    map: map ? map.instance : null
-  });
+    const markerInstance = new google.maps.Marker({
+      title: event.title,
+      position: event.city.position,
+      draggable: false,
+      visible: true,
+      icon: this.getIcon(),
+      map: map ? map.instance : null
+    });
 
-  this.marker = markerInstance;
+    this.marker = markerInstance;
 
-  markerInstance.addListener('click', function () {
-    emitter.emit(EVENTS.EVENT_SELECTED, event);
-  });
+    markerInstance.addListener('click', () => {
+      emitter.emit(EVENTS.EVENT_SELECTED, event);
+    });
 
-  markerInstance.addListener('mouseover', function () {
-    marker.highlight();
-    emitter.emit(EVENTS.EVENT_HIGHLIGHTED, event);
-  });
+    markerInstance.addListener('mouseover', () => {
+      marker.highlight();
+      emitter.emit(EVENTS.EVENT_HIGHLIGHTED, event);
+    });
 
-  markerInstance.addListener('mouseout', function () {
-    //marker.isActive ? marker.activate() : marker.deactivate();
-    marker.unhighlight();
-    emitter.emit(EVENTS.EVENT_UNHIGHLIGHTED, event);
-  });
+    markerInstance.addListener('mouseout', () => {
+      marker.unhighlight();
+      emitter.emit(EVENTS.EVENT_UNHIGHLIGHTED, event);
+    });
 
-  // Info window
-  var infoWindow = new google.maps.InfoWindow({
-    content: event.title
-  });
+    // Info window
+    const infoWindow = new google.maps.InfoWindow({
+      content: event.title
+    });
 
-  infoWindow.addListener('closeclick', function () {
-    emitter.emit(EVENTS.EVENT_DESELECTED);
-  });
+    infoWindow.addListener('closeclick', () => {
+      emitter.emit(EVENTS.EVENT_DESELECTED);
+    });
 
-  this.infoWindow = infoWindow;
-}
-
-Marker.prototype.getIcon = function () {
-  var mapZoom = this.map.instance.getZoom();
-  var isActive = this.isActive;
-  var isHighlighted = this.isHighlighted;
-  var iconUrl = isActive ? icon : inactiveIcon;
-
-  if (isHighlighted) {
-    iconUrl = highlightedIcon;
+    this.infoWindow = infoWindow;
   }
 
-  return {
-    scaledSize: {
-      width: 15,
-      height: 15
-    },
-    opacity: 1,
-    url: iconUrl
-  };
-};
+  getIcon() {
+    const {isActive, isHighlighted} = this;
+    const mapZoom = this.map.instance.getZoom();
+    const hasTags = this.event.tags.length > 0;
+    let iconUrl = isActive ? (hasTags ? taggedIcon : icon) : inactiveIcon;
 
-Marker.prototype.openWindow = function () {
-  this.infoWindow.open(this.map.instance, this.marker);
-};
+    if (isHighlighted) {
+      iconUrl = hasTags ? taggedHighlightedIcon : highlightedIcon;
+    }
 
-Marker.prototype.closeWindow = function () {
-  this.infoWindow.close();
-};
+    return {
+      scaledSize: {
+        width: 15,
+        height: 15
+      },
+      opacity: 1,
+      url: iconUrl
+    };
+  }
 
-Marker.prototype.highlight = function () {
-  this.isHighlighted = true;
-  this.marker.setIcon(this.getIcon());
-  this.marker.setZIndex(30);
-};
+  openWindow() {
+    this.infoWindow.open(this.map.instance, this.marker);
+  }
 
-Marker.prototype.unhighlight = function () {
-  this.isHighlighted = false;
-  this.marker.setIcon(this.getIcon());
-  this.marker.setZIndex(this.isActive ? 2 : 1);
-};
+  closeWindow() {
+    this.infoWindow.close();
+  }
 
-Marker.prototype.activate = function () {
-  this.isActive = true;
-  this.isHighlighted = false;
-  this.marker.setIcon(this.getIcon());
-  this.marker.setZIndex(2);
-};
+  highlight() {
+    const {marker} = this;
+    this.isHighlighted = true;
+    marker.setIcon(this.getIcon());
+    marker.setZIndex(30);
+  }
 
-Marker.prototype.deactivate = function () {
-  this.isActive = false;
-  this.isHighlighted = false;
-  this.marker.setIcon(this.getIcon());
-  this.marker.setZIndex(1);
-};
+  unhighlight() {
+    const {marker} = this;
+    this.isHighlighted = false;
+    marker.setIcon(this.getIcon());
+    marker.setZIndex(this.isActive ? 2 : 1);
+  }
 
-Marker.prototype.show = function () {
-  this.marker.setVisible(true);
-};
+  activate() {
+    const {marker} = this;
+    this.isActive = true;
+    this.isHighlighted = false;
+    marker.setIcon(this.getIcon());
+    marker.setZIndex(2);
+  }
 
-Marker.prototype.hide = function () {
-  this.marker.setVisible(false);
-};
+  deactivate() {
+    const {marker} = this;
+    this.isActive = false;
+    this.isHighlighted = false;
+    marker.setIcon(this.getIcon());
+    marker.setZIndex(1);
+  }
 
-module.exports = Marker;
+  show() {
+    this.marker.setVisible(true);
+  }
+
+  hide() {
+    this.marker.setVisible(false);
+  }
+}

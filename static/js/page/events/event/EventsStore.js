@@ -1,233 +1,230 @@
-var $ = require('jquery');
-var Event = require('./Event');
-var City = require('./City');
-var languages = require('./lang');
+import $ from "jquery";
+import Event from "./Event";
+import City from "./City";
+import languages from "./lang";
 
-/**
- * @param {Object} eventsData Raw events data
- * @param {Object} citiesData Raw cities data
- * @constructor
- */
-function EventsStore(eventsData, citiesData) {
-  var store = this;
-  this.events = [];
-  this.cities = [];
+export default class EventsStore {
+  static FILTERS = {
+    time: (time, event) => {
+      let matched = false;
+      const hasTag = event.hasTag('kotlin1.1');
 
-  var citiesNames = citiesData.map(function(data) {
-    return data.name;
-  });
+      switch (time) {
+        case 'upcoming':
+          matched = !hasTag && event.isUpcoming();
+          break;
 
-  var citiesMissedInDict = [];
+        case 'past':
+          matched = !hasTag && !event.isUpcoming();
+          break;
 
-  eventsData
-    .filter(function (data) { return typeof data.location !== 'undefined'; })
-    .map(function (data) { return data.location; })
-    .filter(function (value, index, self) { return self.indexOf(value) === index; })
-    .forEach(function(eventCity) {
-      if (citiesNames.indexOf(eventCity) === -1) {
-        citiesMissedInDict.push(eventCity);
+        case 'all':
+          matched = !hasTag && true;
+          break;
+
+        // TODO refactor this
+        case 'kotlin':
+          matched = event.hasTag('kotlin1.1');
+          break;
+
+        case null:
+        default:
+          matched = false;
+          break;
+      }
+
+      return matched;
+    },
+
+    lang: (lang, event) => {
+      return lang === 'all' || event.lang === lang;
+    },
+
+    materials: (materialType, event) => {
+      return materialType === 'all' || event.content && event.content.hasOwnProperty(materialType);
+    },
+
+    bounds: (bounds, event) => {
+      return bounds.contains(event.getBounds());
+    }
+  };
+
+  static MATERIAL_TYPE = {
+    examples: 'Examples',
+    slides: 'Slides',
+    video: 'Video',
+    pdf: 'PDF',
+    article: 'Article'
+  };
+
+  /**
+   * @param {Object} eventsData Raw events data
+   * @param {Object} citiesData Raw cities data
+   */
+  constructor(eventsData, citiesData) {
+    const store = this;
+    this.events = [];
+    this.cities = [];
+
+    const citiesNames = citiesData.map(data => data.name);
+    const citiesMissedInDict = [];
+
+    eventsData
+      .filter(data => typeof data.location !== 'undefined')
+      .map(data => data.location)
+      .filter((value, index, self) => self.indexOf(value) === index)
+      .forEach(eventCity => {
+        if (citiesNames.indexOf(eventCity) === -1) {
+          citiesMissedInDict.push(eventCity);
+        }
+      });
+
+    if (citiesMissedInDict.length > 0) {
+      console.warn('Cities missed in cities.yml:\n' + citiesMissedInDict.join('\n'));
+    }
+
+    citiesData.forEach(data => store.cities.push(new City(data)));
+
+    eventsData.forEach((data, i) => {
+      const eventCityExistInDict = data.location && citiesNames.indexOf(data.location) !== -1;
+
+      if (!eventCityExistInDict) {
+        return;
+      }
+
+      data.id = i.toString();
+      store.events.push(new Event(data));
+    });
+
+    store.events.forEach((event) => {
+      event.city = store.cities.filter(city => city.name === event.city)[0];
+    });
+
+    this.sort();
+  }
+
+  /**
+   * @param {string} eventsUrl
+   * @param {string} citiesUrl
+   * @returns {Deferred}
+   */
+  static create(eventsUrl, citiesUrl) {
+    let events;
+    let cities;
+
+    return $.getJSON(eventsUrl)
+      .then(result => events = result)
+      .then(() => $.getJSON(citiesUrl))
+      .then((result) => cities = result)
+      .then(() => new EventsStore(events, cities));
+  }
+
+  sort() {
+    this.events.sort((a, b) => {
+      const compareA = a.endDate;
+      const compareB = b.endDate;
+
+      if (compareA === compareB) {
+        return 0;
+      }
+
+      return (compareA < compareB) ? 1 : -1;
+    });
+  }
+
+  /**
+   * @param {Array<Event>} [events]
+   * @returns {Array<Event>}
+   */
+  getUpcomingEvents(events) {
+    return (events || this.events)
+      .filter(event => event.isUpcoming())
+      .sort((eventA, eventB) => {
+        const startA = eventA.startDate;
+        const startB = eventB.startDate;
+
+        if (startA === startB) {
+          return 0;
+        }
+
+        return startA < startB ? -1 : 1;
+      });
+  }
+
+  /**
+   * @param {Array<Event>} [events]
+   * @returns {Array<Event>}
+   */
+  getPastEvents(events) {
+    return (events || this.events).filter((event) => !event.isUpcoming());
+  }
+
+  /**
+   * @param {Object} constraints
+   * @param {string} constraints.time
+   * @param {string} constraints.lang
+   * @param {string} constraints.materials
+   * @param {google.maps.LatLng} constraints.bounds
+   * @param {Array<Event>} [evts]
+   * @returns {Array<Event>}
+   */
+  filter(constraints, evts) {
+    const events = evts || this.events;
+    const filtered = [];
+    const constraintNames = Object.keys(constraints);
+
+    events.forEach((event) => {
+      let performedConstraintsCount = 0;
+
+      constraintNames.forEach((name) => {
+        const constraint = constraints[name];
+        const filter = EventsStore.FILTERS[name];
+        if (filter(constraint, event)) {
+          performedConstraintsCount++;
+        }
+      });
+
+      if (performedConstraintsCount === constraintNames.length) {
+        filtered.push(event);
       }
     });
 
-  if (citiesMissedInDict.length > 0) {
-    console.warn('Cities missed in cities.yml:\n' + citiesMissedInDict.join('\n'));
+    return filtered;
   }
 
-  citiesData.forEach(function (data) {
-    store.cities.push(new City(data));
-  });
+  /**
+   * @returns {Object<string, string>}
+   */
+  getLanguages() {
+    const idsList = $.unique( this.events.map(event => event.lang) );
+    const map = {};
 
-  eventsData.forEach(function (data, i) {
-    var eventCityExistInDict = data.location && citiesNames.indexOf(data.location) !== -1;
+    idsList.forEach((langId) => {
+      if (langId in languages) {
+        map[langId] = languages[langId].name;
+      }
+    });
 
-    if (!eventCityExistInDict) {
-      return;
-    }
+    return map;
+  }
 
-    data.id = i.toString();
-    store.events.push(new Event(data));
-  });
+  /**
+   * @see EventsStore.materialsDict
+   * @returns {Object<string, string>}
+   */
+  getMaterials() {
+    let list = [];
 
-  store.events.forEach(function (event) {
-    var eventCity = store.cities.filter(function (city) {
-      return city.name == event.city;
-    })[0];
+    this.events.forEach((event) => {
+      if (event.content) {
+        list = list.concat(Object.keys(event.content));
+      }
+    });
 
-    event.city = eventCity;
-  });
+    const listMap = {};
+    list = $.unique(list);
+    list.forEach((materialId) => listMap[materialId] = EventsStore.MATERIAL_TYPE[materialId]);
 
-  this.sort();
+    return listMap;
+  }
 }
-
-/**
- * @static
- * @param {string} eventsUrl
- * @param {string} citiesUrl
- * @returns {Deferred}
- */
-EventsStore.create = function (eventsUrl, citiesUrl) {
-  var events;
-  var cities;
-
-  return $.getJSON(eventsUrl)
-    .then(function (result) { events = result })
-    .then(function () { return $.getJSON(citiesUrl) })
-    .then(function (result) { cities = result })
-    .then(function () { return new EventsStore(events, cities) })
-};
-
-/**
- * @static
- */
-EventsStore.filters = {
-  time: function (time, event) {
-    var isMatch = false;
-    if (time == 'upcoming')
-      isMatch = event.isUpcoming();
-    else if (time == 'past')
-      isMatch = !event.isUpcoming();
-    else
-      isMatch = true;
-
-    return isMatch;
-  },
-
-  lang: function (lang, event) {
-    return event.lang == lang;
-  },
-
-  materials: function (materialType, event) {
-    return event.content && event.content.hasOwnProperty(materialType);
-  },
-
-  bounds: function (bounds, event) {
-    return bounds.contains(event.getBounds());
-  }
-};
-
-/**
- * @static
- */
-EventsStore.materialsDict = {
-  examples: 'Examples',
-  slides: 'Slides',
-  video: 'Video',
-  pdf: 'PDF',
-  article: 'Article'
-};
-
-EventsStore.prototype.sort = function () {
-  this.events.sort(function (a, b) {
-    var compareA = a.endDate;
-    var compareB = b.endDate;
-
-    if (compareA === compareB) {
-      return 0;
-    }
-
-    return (compareA < compareB) ? 1 : -1;
-  });
-};
-
-/**
- * @param {Array<Event>} [events]
- * @returns {Array<Event>}
- */
-EventsStore.prototype.getUpcomingEvents = function (events) {
-  var events = events || this.events;
-  return events.filter(function (event) {
-    return event.isUpcoming();
-  }).sort(function(eventA, eventB) {
-    var startA = eventA.startDate;
-    var startB = eventB.startDate;
-
-    if (startA === startB) {
-      return 0;
-    }
-
-    return startA < startB ? -1 : 1;
-  });
-};
-
-/**
- * @param {Array<Event>} [events]
- * @returns {Array<Event>}
- */
-EventsStore.prototype.getPastEvents = function (events) {
-  var events = events || this.events;
-  return events.filter(function (event) {
-    return !event.isUpcoming();
-  });
-};
-
-/**
- * @param {Object} constraints
- * @param {string} constraints.time
- * @param {string} constraints.lang
- * @param {string} constraints.materials
- * @param {google.maps.LatLng} constraints.bounds
- * @param {Array<Event>} [events]
- * @returns {Array<Event>}
- */
-EventsStore.prototype.filter = function (constraints, events) {
-  var events = events || this.events;
-  var filtered = [];
-  var constraintNames = Object.keys(constraints);
-
-  events.forEach(function (event) {
-    var performedConstraintsCount = 0;
-
-    constraintNames.forEach(function (name) {
-      var constraint = constraints[name];
-      var filter = EventsStore.filters[name];
-      if (filter(constraint, event)) {
-        performedConstraintsCount++;
-      }
-    });
-
-    if (performedConstraintsCount == constraintNames.length)
-      filtered.push(event);
-  });
-
-  return filtered;
-};
-
-/**
- * @returns {Object<string, string>}
- */
-EventsStore.prototype.getLanguages = function () {
-  var idsList = $.unique( this.events.map(function(event){ return event.lang }) );
-  var map = {};
-
-  idsList.forEach(function (langId) {
-    if (langId in languages) {
-      map[langId] = languages[langId].name;
-    }
-  });
-
-  return map;
-};
-
-/**
- * @see EventsStore.materialsDict
- * @returns {Object<string, string>}
- */
-EventsStore.prototype.getMaterials = function () {
-  var list = [];
-
-  this.events.forEach(function (event) {
-    if (event.content) {
-      list = list.concat(Object.keys(event.content));
-    }
-  });
-
-  var listMap = {};
-  list = $.unique(list);
-  list.forEach(function (materialId) {
-    listMap[materialId] = EventsStore.materialsDict[materialId];
-  });
-
-  return listMap;
-};
-
-module.exports = EventsStore;

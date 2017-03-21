@@ -1,42 +1,54 @@
-var $ = require('jquery');
-window.$ = $;
-
-var Map = require('./map/Map');
-var EventsStore = require('./event/EventsStore');
-var EventsList = require('./events-list/EventsList');
-var emitter = require('../../util/emitter');
-var EVENTS = require('./events-list');
-var FilterPanel = require('./filter-panel/index');
-var Fixer = require('fixer.js');
+import $ from "jquery";
+import Fixer from "fixer.js";
+import queryUtils from 'query-string';
+import Map from "./map/Map";
+import EventsStore from "./event/EventsStore";
+import EventsList from "./events-list/EventsList";
+import emitter from "../../util/emitter";
+import EVENTS from "./events-list";
+import FilterPanel from "./filter-panel/index";
+import timeSelectValues from './filter-panel/time-select-items';
 
 require('./index.scss');
 
 function refreshMapSize(node, map) {
-  var width = Math.floor( $(window).width() / 2 );
+  const width = Math.floor( $(window).width() / 2 );
   $(node).css('width', width);
   google.maps.event.trigger(map, 'resize');
 }
 
-$(document).ready(function () {
-  var store;
-  var eventsStorePromise = EventsStore.create('/data/events.json', '/data/cities.json');
+$(document).ready(() => {
+  const query = queryUtils.parse(window.location.search);
+  const {time} = query;
 
-  eventsStorePromise.then(function (eventsStore) {
+  const initialFilters = {
+    time: time in timeSelectValues ? time : 'all',
+    lang: 'all',
+    materials: 'all'
+  };
+
+  let store;
+  const eventsStorePromise = EventsStore.create('/data/events.json', '/data/cities.json');
+
+  eventsStorePromise.then(eventsStore => {
     store = eventsStore;
     return Map.create('.js-map', eventsStore);
   })
-  .then(function (map) {
-    var list = new EventsList('.js-events-list', store);
+  .then(map => {
+    const events = store.filter(initialFilters);
+    const list = new EventsList('.js-events-list', store, initialFilters);
 
-    list.applyFilteredResults(store.events);
+    emitter.emit(EVENTS.EVENTS_FILTERED, initialFilters);
+    // list.applyFilteredResults(events);
 
-    var panel = new FilterPanel('.js-filter-panel-wrap', {
+    const panel = new FilterPanel('.js-filter-panel-wrap', {
       languages: store.getLanguages(),
       materials: store.getMaterials(),
-      store: store
+      store: store,
+      initialFilters
     });
 
-    panel.onSelect(function (filters) {
+    panel.onSelect(filters => {
       emitter.emit(EVENTS.EVENTS_FILTERED, filters);
 
       if (list.mode == 'detailed') {
@@ -44,15 +56,11 @@ $(document).ready(function () {
       }
     });
 
-    var node = document.querySelector('.js-events-map-panel-wrap');
+    const node = document.querySelector('.js-events-map-panel-wrap');
     refreshMapSize(node, map.instance);
-    var mapPanel = new Fixer().addElement('.js-events-map-panel', {stretchTo: '.global-footer'});
+    const mapPanel = new Fixer().addElement('.js-events-map-panel', {stretchTo: '.global-footer'});
     mapPanel.on('stretched', refreshMapSize.bind(null, node, map.instance));
     $(window).on('resize', refreshMapSize.bind(null, node, map.instance));
-
-    setTimeout(function() {
-      panel.timeSelector.select(1);
-    }, 300);
   });
 
 });

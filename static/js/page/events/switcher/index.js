@@ -1,80 +1,81 @@
-var $ = require('jquery');
-var Emitter = require('event-emitter');
+import $ from "jquery";
+import Emitter from "event-emitter";
+import template from './view.twig';
 
 require('./styles.scss');
-var template = require('./view.twig');
 
-var CLASSES = {
+const CLASSES = {
   ITEM_SELECTED: '_selected'
 };
 
-var EVENTS = {
+const EVENTS = {
   SELECT: 'select'
 };
 
-/**
- * @param {HTMLElement|string} node
- * @param {Object} config
- * @param {Object<string, string>} config.items Values.
- * @param {number} [config.selectedIndex=0]
- * @param {Function} [config.onSelect]
- * @constructor
- */
-function Switcher(node, config) {
-  var that = this;
-  var $node = $(node);
+export default class Switcher {
+  /**
+   * @param {HTMLElement|string} node
+   * @param {Object} config
+   * @param {Object<string, string>} config.items Values.
+   * @param {number} [config.selectedIndex=0]
+   * @param {Function} [config.onSelect]
+   */
+  constructor(node, config) {
+    const that = this;
+    const $node = $(node);
 
-  this.config = config;
-  this.items = config.items;
-  this.$node = $node;
-  this.$switcher = this.render();
-  this._emitter = Emitter({});
+    this.config = config;
+    this.items = config.items;
+    this.$node = $node;
+    this.$switcher = this.render();
+    this._emitter = Emitter({});
 
-  var $items = this.$switcher.find('.js-item');
+    const $items = this.$switcher.find('.js-item');
 
-  $items.each(function (i, elem) {
-    $(elem).on('click', that.select.bind(that, i));
-  });
+    $items.each(function (i, elem) {
+      $(elem).on('click', that.select.bind(that, i));
+    });
 
-  config.onSelect && this.onSelect(config.onSelect);
+    config.onSelect && this.onSelect(config.onSelect);
 
-  this.select(config.selectedIndex || 0, false);
-}
-
-Switcher.prototype.onSelect = function (callback) {
-  this._emitter.on(EVENTS.SELECT, callback);
-};
-
-Switcher.prototype.render = function () {
-  var rendered = template.render({switcher: this});
-  var $rendered = $(rendered);
-  this.$node.append($rendered);
-
-  return $rendered;
-};
-
-Switcher.prototype.select = function (index, emit) {
-  if (this.selectedIndex == index) {
-    return;
+    this.select(config.selectedIndex || 0, false);
   }
-  this.selectedIndex = index;
 
-  var emit = typeof emit == 'boolean' ? emit : true;
-  var $switcher = this.$switcher;
-  var $items = $switcher.find('.js-item');
-  var $selectedItem =  $( $items.get(index) );
-  var selectedValue = $selectedItem.attr('data-value');
+  onSelect(callback) {
+    this._emitter.on(EVENTS.SELECT, callback);
+  }
 
-  $items.each(function (i, elem) {
-    var $item = $(elem);
+  render() {
+    const rendered = template.render({switcher: this});
+    const $rendered = $(rendered);
+    this.$node.append($rendered);
 
-    if (i === index)
-      $item.addClass(CLASSES.ITEM_SELECTED);
-    else
-      $item.removeClass(CLASSES.ITEM_SELECTED);
-  });
+    return $rendered;
+  }
 
-  emit && this._emitter.emit('select', selectedValue);
-};
+  select(index, emit) {
+    if (this.selectedIndex == index) {
+      return;
+    }
+    this.selectedIndex = index;
 
-module.exports = Switcher;
+    const shouldEmit = typeof emit == 'boolean' ? emit : true;
+    const $switcher = this.$switcher;
+    const $items = $switcher.find('.js-item');
+    const $selectedItem =  $( $items.get(index) );
+    const selectedValue = $selectedItem.attr('data-value');
+
+    $items.each((i, elem) => {
+      const $item = $(elem);
+
+      if (i === index) {
+        $item.addClass(CLASSES.ITEM_SELECTED);
+      }
+      else {
+        $item.removeClass(CLASSES.ITEM_SELECTED);
+      }
+    });
+
+    shouldEmit && this._emitter.emit('select', selectedValue);
+  }
+}
