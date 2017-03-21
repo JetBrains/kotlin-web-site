@@ -7,18 +7,19 @@ export default class EventsStore {
   static FILTERS = {
     time: (time, event) => {
       let matched = false;
+      const hasTag = event.hasTag('kotlin1.1');
 
       switch (time) {
         case 'upcoming':
-          matched = event.isUpcoming();
+          matched = !hasTag && event.isUpcoming();
           break;
 
         case 'past':
-          matched = !event.isUpcoming();
+          matched = !hasTag && !event.isUpcoming();
           break;
 
         case 'all':
-          matched = true;
+          matched = !hasTag && true;
           break;
 
         // TODO refactor this

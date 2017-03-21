@@ -44,7 +44,10 @@ export default class FilterPanel {
     this.timeSelector = new Switcher($timeSelector, {
       items: timeSelectValues,
       selectedIndex: timeSelectSelectedIndex,
-      onSelect: (time) => handleSelect('time', time)
+      onSelect: (time) => {
+        handleSelect('time', time);
+        history.replaceState(null, null, `?time=${time}`);
+      }
     });
 
     // setTimeout(() => this.timeSelector.select(1), 300);

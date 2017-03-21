@@ -1,5 +1,359 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Graz</title>
+        <subject>Moshbit GmbH</subject>
+        <location>Graz, Austria</location>
+        <tags>kotlin1.1</tags>
+        <url>http://blog.studo.co/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>Kotlin Event, Minsk</title>
+        <subject>BKUG</subject>
+        <location>Minsk, Belarus</location>
+        <tags>kotlin1.1</tags>
+        <url>https://bkug.by/2017/03/18/anons-bkug-3/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Wichelen</title>
+        <subject>Belgium Kotlin User Group</subject>
+        <location>Wichelen, Belgium</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/nl-NL/Kotlin-User-Group-Belgium/events/238165156/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Rio de Janeiro</title>
+        <subject>GDG Rio de Janeiro</subject>
+        <location>Rio de Janeiro, Brazil</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/Google-Developer-Group-GDG-Rio-de-Janeiro/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Vancouver</title>
+        <subject>Hootsuite</subject>
+        <location>Vancouver, Canada</location>
+        <tags>kotlin1.1</tags>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Billund</title>
+        <subject>Community event</subject>
+        <location> Billund, Denmark</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/Kotlin-Billund-Denmark/events/238267453/</url>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Toulouse</title>
+        <subject>ekito</subject>
+        <location>Toulouse, France</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/fr-FR/Toulouse-Kotlin-User-Group/events/238261078/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Berlin</title>
+        <subject>Kotlin user group Berlin</subject>
+        <location> Berlin, Germany</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/kotlin-berlin</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Budapest</title>
+        <subject>Kotlin Budapest</subject>
+        <location>Budapest, Hungary</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.facebook.com/groups/KotlinBudapest/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Netanya</title>
+        <subject>Community event</subject>
+        <location> Netanya, Israel</location>
+        <tags>kotlin1.1</tags>
+        <url>https://medium.com/@OhadShai/kotlin-1-1-event-50d62299f660#.8qfvwbjug</url>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Rome</title>
+        <subject>Code Invaders</subject>
+        <location>Rome, Italy</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/it-IT/codeinvaders/events/238096705/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-22</startDate>
+        <endDate>2017-03-22</endDate>
+        <title>kotlin1.1 Event, Riga</title>
+        <subject>Google Developers Group Riga</subject>
+        <location> Riga, Latvia</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/GDG-Riga/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Kaunas</title>
+        <subject>GDG Kaunas, Blaster Office</subject>
+        <location> Kaunas, Lithuania</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.facebook.com/events/732356340266907/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Ile Ife</title>
+        <subject>Hextremelabs Ltd.</subject>
+        <location> Ile Ife, Nigeria</location>
+        <tags>kotlin1.1</tags>
+        <url>https://twitter.com/kingsleyadio</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-25</startDate>
+        <endDate>2017-03-25</endDate>
+        <title>kotlin1.1 Event, Lima</title>
+        <subject>Lima Kotlin User Group (aka. Lima Kotlin)</subject>
+        <location>Lima, Peru</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.facebook.com/events/1871490926442678/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Kraków</title>
+        <subject>GDG Rzeszów</subject>
+        <location>Kraków, Poland</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/GDG-Krakow/events/238219464/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Warszawa</title>
+        <subject>KotlinWarsaw</subject>
+        <location>Warsaw, Poland</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/Kotlin-Warsaw/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Cluj Napoca</title>
+        <subject>HalcyonMobile</subject>
+        <location>Cluj Napoca, Romania</location>
+        <tags>kotlin1.1</tags>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, St. Petersburg</title>
+        <subject>GDG PTZ</subject>
+        <location>St.Petersburg, Russia</location>
+        <tags>kotlin1.1</tags>
+        <url>https://research.jetbrains.org/groups/plt_lab/events?id=7</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Petrozavodsk</title>
+        <subject>GDG Novosibirsk</subject>
+        <location>Petrozavodsk, Russia</location>
+        <tags>kotlin1.1</tags>
+        <url>https://vk.com/gdgcity17</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Novosibirsk</title>
+        <subject>Kotlin enthusiasts at MathMech SPBU</subject>
+        <location> Novosibirsk, Russia</location>
+        <tags>kotlin1.1</tags>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Bangkok</title>
+        <subject>Thailand Kotlin Developer</subject>
+        <location>Bangkok, Thailand</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.eventpop.me/e/1625</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Kyiv</title>
+        <subject>Yalantis Kotlin Community</subject>
+        <location>Kiev, Ukraine</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.facebook.com/Yalantis-Kotlin-Community-2039309206295631/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Dnipro</title>
+        <subject>GDG Kyiv-Center</subject>
+        <location> Dnipro, Ukraine</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.facebook.com/events/1822763901318290/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Manchester</title>
+        <subject>Kotlin Yorkshire Meetup Group</subject>
+        <location>Manchester, UK</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.facebook.com/kotlinmcr/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, London</title>
+        <subject>Kotlin London</subject>
+        <location>London, UK</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/kotlin-london/events/238235273/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Leeds</title>
+        <subject>Kotlin Developers in Manchester</subject>
+        <location>Leeds, United Kingdom</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Norfolk</title>
+        <subject>Grand Rapids Java Users Group</subject>
+        <location>Norfolk, United States</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/757dev/events/238276313/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Las Vegas</title>
+        <subject>New York Kotlin Meetup</subject>
+        <location>LAS VEGAS, CA, USA</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/gdglasvegas/events/238233826/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Grand Rapids</title>
+        <subject>Google Developer Group Las Vegas</subject>
+        <location>Grand Rapids, MI</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/gr-jug/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, NYC</title>
+        <subject>757 Dev</subject>
+        <location>New York, NY, USA</location>
+        <tags>kotlin1.1</tags>
+        <url>https://www.meetup.com/New-York-Kotlin-Meetup/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>kotlin1.1 Event, Chicago</title>
+        <subject>Pandera Labs</subject>
+        <location>Chicago, USA</location>
+        <tags>kotlin1.1</tags>
+        <url>httpshttps://www.panderalabs.com/</url>
+    </event>
+
     <event>
         <lang>en</lang>
         <startDate>2017-03-14</startDate>
@@ -40,7 +394,7 @@
         <location>Toulouse, France</location>
         <speaker>Andrey Breslav</speaker>
         <title>Toulouse Kotlin User Group</title>
-        <subject>Kotlin 1.1 - Jetbrains Live Event</subject>
+        <subject>kotlin1.1 - Jetbrains Live Event</subject>
         <url>https://www.meetup.com/Toulouse-Kotlin-User-Group/events/238261078/</url>
         <description>
             <![CDATA[
@@ -57,7 +411,7 @@
         <location>Manchester, UK</location>
         <speaker>Andrey Breslav</speaker>
         <title>Kotlin Developers in Manchester</title>
-        <subject>Kotlin 1.1</subject>
+        <subject>kotlin1.1</subject>
         <url>https://www.facebook.com/events/1466527116724889/</url>
         <description>
             <![CDATA[
@@ -109,7 +463,7 @@
         <location>Riga, Latvia</location>
         <speaker>Sergejs Luhmirins</speaker>
         <title>GDG Riga</title>
-        <subject>What’s new in Kotlin 1.1?</subject>
+        <subject>What’s new in kotlin1.1?</subject>
         <url>https://www.meetup.com/GDG-Riga/events/238265157/</url>
         <description>
             <![CDATA[
@@ -409,7 +763,7 @@
         <lang>en</lang>
         <startDate>2017-04-04</startDate>
         <endDate>2017-04-04</endDate>
-        <location>LAS VEGAS, USA</location>
+        <location>LAS VEGAS, CA, USA</location>
         <speaker>Matt Runo</speaker>
         <title>GDG Las Vegas</title>
         <subject>Kotlin for fun and profit.</subject>
@@ -771,7 +1125,7 @@ timesavers.</p>
         <location>St.Petersburg, Russia</location>
         <speaker>Станислав Ерохин</speaker>
         <title>GDG St. Petersburg</title>
-        <subject>Новые возможности Kotlin 1.1 и будущее языка</subject>
+        <subject>Новые возможности kotlin1.1 и будущее языка</subject>
         <url>https://www.meetup.com/gdgspb/events/238062112/</url>
         <description>
             <![CDATA[
@@ -2067,7 +2421,7 @@ Java言語が動く環境を主要なターゲットとしており、その活�
         <description>
             <![CDATA[
 <p>Kotlin es un lenguaje relativamente nuevo que compila a Javascript y a bytecode del JVM.  Fue diseñado por Jetbrains y ha crecido mucho en popularidad desde que se lanzó la versión 1.0 hace un año.  Se usa sobre todo para hacer apps de Android porque es compatible con Java SE 6 pero tiene una sintaxis muy agradable.  Se siente como python pero con excelente "type safety" y rendimiento.</p>
-<p>Estaremos repasando las características básicas de Kotlin y de la programación funcional en Kotlin.  Si el tiempo permite, habrá una demostración de async/await que será parte de Kotlin 1.1 </p>
+<p>Estaremos repasando las características básicas de Kotlin y de la programación funcional en Kotlin.  Si el tiempo permite, habrá una demostración de async/await que será parte de kotlin1.1 </p>
 ]]>
         </description>
     </event>
@@ -2083,7 +2437,7 @@ Java言語が動く環境を主要なターゲットとしており、その活�
         <description>
             <![CDATA[
 <p>Kotlin es un lenguaje relativamente nuevo que compila a Javascript y a bytecode del JVM.  Fue diseñado por Jetbrains y ha crecido mucho en popularidad desde que se lanzó la versión 1.0 hace un año.  Se usa sobre todo para hacer apps de Android porque es compatible con Java SE 6 pero tiene una sintaxis muy agradable.  Se siente como python pero con excelente "type safety" y rendimiento.</p>
-<p>Estaremos repasando las características básicas de Kotlin y de la programación funcional en Kotlin.  Si el tiempo permite, habrá una demostración de async/await que será parte de Kotlin 1.1 </p>
+<p>Estaremos repasando las características básicas de Kotlin y de la programación funcional en Kotlin.  Si el tiempo permite, habrá una demostración de async/await que será parte de kotlin1.1 </p>
 ]]>
         </description>
     </event>
@@ -2675,7 +3029,7 @@ Kotlin is an open-sourced statically-typed programming language created by JetBr
         <location>Novosibirsk, Russia</location>
         <title>GDG DevFest Siberia</title>
         <url>http://devfest.gdg.org.ru/schedule/#session-048</url>
-        <subject>New features in Kotlin 1.1 and what's next</subject>
+        <subject>New features in kotlin1.1 and what's next</subject>
         <description>
             <![CDATA[
 <p>Стас работает в команде Kotlin 3.5 года, в основном занимается компилятором и теоритическими задачами, которые возникают по ходу. Интересуется формальными системами типов, выводом типов. Активно учавствует в дизайне новых фич. Расскажет о том, что ждёт пользователей в релизе 1.1.</p>
@@ -3761,7 +4115,7 @@ encounter while digging deeper into the language.</p>
         <startDate>2016-08-01</startDate>
         <endDate>2016-08-04</endDate>
         <speaker>Sébastien Deleuze</speaker>
-        <location>LAS VEGAS, USA</location>
+        <location>LAS VEGAS, CA, USA</location>
         <title>SpringOne Platform</title>
         <url>
             https://2016.event.springoneplatform.io/schedule/sessions/developing_a_geospatial_webservice_with_kotlin_and_spring_boot.html

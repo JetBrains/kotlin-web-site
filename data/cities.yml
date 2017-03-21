@@ -1,4 +1,44 @@
 - geo:
+    lat: 36.8507689
+    lng: -76.28587259999999
+  name: Norfolk, United States
+- geo:
+    lat: 53.8007554
+    lng: -1.5490774
+  name: Leeds, United Kingdom
+- geo:
+    lat: 48.464717
+    lng: 35.046183
+  name: Dnipro, Ukraine
+- geo:
+    lat: 61.77816170000001
+    lng: 34.3640396
+  name: Petrozavodsk, Russia
+- geo:
+    lat: 46.7712101
+    lng: 23.6236353
+  name: Cluj Napoca, Romania
+- geo:
+    lat: 7.490462
+    lng: 4.5521274
+  name: Ile Ife, Nigeria
+- geo:
+    lat: 54.8985207
+    lng: 23.9035965
+  name: Kaunas, Lithuania
+- geo:
+    lat: 32.321458
+    lng: 34.853196
+  name: Netanya, Israel
+- geo:
+    lat: 55.728449
+    lng: 9.112366000000002
+  name: Billund, Denmark
+- geo:
+    lat: 49.2827291
+    lng: -123.1207375
+  name: Vancouver, Canada
+- geo:
     lat: 44.840798
     lng: -93.2982799
   name: Bloomington, MN

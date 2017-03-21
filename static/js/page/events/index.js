@@ -36,7 +36,6 @@ $(document).ready(() => {
   })
   .then(map => {
     const events = store.filter(initialFilters);
-
     const list = new EventsList('.js-events-list', store, initialFilters);
 
     emitter.emit(EVENTS.EVENTS_FILTERED, initialFilters);
