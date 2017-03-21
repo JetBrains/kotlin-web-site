@@ -1,4 +1,8 @@
 - geo:
+    lat: 50.0411867
+    lng: 21.9991196
+  name: Rzeszów, Poland
+- geo:
     lat: 36.8507689
     lng: -76.28587259999999
   name: Norfolk, United States
