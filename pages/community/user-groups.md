@@ -50,9 +50,10 @@
 
 ### South America
 
-* [Lima Kotlin User Group](https://www.facebook.com/groups/limakotlin/)
+* [Lima Kotlin User Group](https://www.facebook.com/groups/limakotlin/), Peru
 * [Peru Kotlin User Group](https://www.facebook.com/groups/1540580306247047/), Peru
 * [San Paolo Kotlin Meetup](https://www.meetup.com/kotlin-meetup-sp/), Brazil 
+* [Rio de Janeiro](https://www.meetup.com/Kotlin-Rio/), Brazil
 * [Guatemala Kotlin Meetup](https://www.meetup.com/Guatemala-Kotlin-Meetup/), Guatemala
 
 ### Australia/Oceania
