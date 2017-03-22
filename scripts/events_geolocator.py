@@ -10,7 +10,7 @@ data_folder = path.join(os.path.dirname(__file__), "../data")
 
 with codecs.open(path.join(data_folder, "events.xml"), encoding='utf-8') as events_file:
     events_file_content = events_file.read()
-    events = xmltodict.parse(events_yfile_content)['events']['event']
+    events = xmltodict.parse(events_file_content)['events']['event']
 
 with open(path.join(data_folder, "cities.yml")) as cities_file:
     cities_array = ruamel.yaml.load(cities_file, ruamel.yaml.RoundTripLoader)
