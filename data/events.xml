@@ -9,7 +9,7 @@
         <subject>Moshbit GmbH</subject>
         <location>Graz, Austria</location>
         <tags>kotlin1.1</tags>
-        <url>http://blog.studo.co/2017/03/20/kotlin-1-1-meetup-release-party-studo/ </url>
+        <url>http://blog.studo.co/2017/03/20/kotlin-1-1-meetup-release-party-studo/</url>
     </event>
 
     <event>
@@ -67,8 +67,6 @@
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/Kotlin-Billund-Denmark/events/238267453/</url>
     </event>
-
-
 
     <event>
         <lang>en</lang>
@@ -318,7 +316,7 @@
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
         <subject>Google Developer Group Las Vegas</subject>
-        <location>LAS VEGAS, CA, USA</location>
+        <location>Las Vegas, CA, USA</location>
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/gdglasvegas/events/238233826/</url>
     </event>
