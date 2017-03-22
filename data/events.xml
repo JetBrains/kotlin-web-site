@@ -9,7 +9,7 @@
         <subject>Moshbit GmbH</subject>
         <location>Graz, Austria</location>
         <tags>kotlin1.1</tags>
-        <url>http://blog.studo.co/</url>
+        <url>http://blog.studo.co/2017/03/20/kotlin-1-1-meetup-release-party-studo/</url>
     </event>
 
     <event>
@@ -52,6 +52,7 @@
         <title>Kotlin 1.1 Event</title>
         <subject>Hootsuite</subject>
         <location>Vancouver, Canada</location>
+        <url>https://twitter.com/neilpower</url>
         <tags>kotlin1.1</tags>
     </event>
 
@@ -66,8 +67,6 @@
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/Kotlin-Billund-Denmark/events/238267453/</url>
     </event>
-
-
 
     <event>
         <lang>en</lang>
@@ -175,9 +174,9 @@
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
         <subject>GDG Rzeszów</subject>
-        <location>Kraków, Poland</location>
+        <location>Rzeszów, Poland</location>
         <tags>kotlin1.1</tags>
-        <url>https://www.meetup.com/GDG-Krakow/events/238219464/</url>
+        <url> https://www.meetup.com/GDGRzeszow/events/238217722/</url>
     </event>
 
     <event>
@@ -185,7 +184,18 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>KotlinWarsaw</subject>
+        <subject>GDG Kraków</subject>
+        <location>Kraków, Poland</location>
+        <tags>kotlin1.1</tags>
+        <url> https://www.meetup.com/GDG-Krakow/events/238219464/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <title>Kotlin 1.1 Event</title>
+        <subject>Kotlin Warsaw</subject>
         <location>Warsaw, Poland</location>
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/Kotlin-Warsaw/</url>
@@ -195,7 +205,7 @@
         <lang>en</lang>
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
-        <title>kotlin1Kotlin 1.1 Event</title>
+        <title>Kotlin 1.1 Event</title>
         <subject>HalcyonMobile</subject>
         <location>Cluj Napoca, Romania</location>
         <tags>kotlin1.1</tags>
@@ -206,7 +216,7 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>GDG PTZ</subject>
+        <subject>Kotlin enthusiasts at MathMech SPBU</subject>
         <location>St.Petersburg, Russia</location>
         <tags>kotlin1.1</tags>
         <url>https://research.jetbrains.org/groups/plt_lab/events?id=7</url>
@@ -217,20 +227,10 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>GDG Novosibirsk</subject>
+        <subject>GDG PTZ</subject>
         <location>Petrozavodsk, Russia</location>
         <tags>kotlin1.1</tags>
         <url>https://vk.com/gdgcity17</url>
-    </event>
-
-    <event>
-        <lang>en</lang>
-        <startDate>2017-03-23</startDate>
-        <endDate>2017-03-23</endDate>
-        <title>Kotlin 1.1 Event</title>
-        <subject>Kotlin enthusiasts at MathMech SPBU</subject>
-        <location>Novosibirsk, Russia</location>
-        <tags>kotlin1.1</tags>
     </event>
 
     <event>
@@ -250,7 +250,7 @@
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
         <subject>Yalantis Kotlin Community</subject>
-        <location>Kiev, Ukraine</location>
+        <location>Dnipro, Ukraine</location>
         <tags>kotlin1.1</tags>
         <url>https://www.facebook.com/Yalantis-Kotlin-Community-2039309206295631/</url>
     </event>
@@ -261,7 +261,7 @@
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
         <subject>GDG Kyiv-Center</subject>
-        <location> Dnipro, Ukraine</location>
+        <location> Kyiv, Ukraine</location>
         <tags>kotlin1.1</tags>
         <url>https://www.facebook.com/events/1822763901318290/</url>
     </event>
@@ -271,7 +271,7 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>Kotlin Yorkshire Meetup Group</subject>
+        <subject>Kotlin Developers in Manchester</subject>
         <location>Manchester, UK</location>
         <tags>kotlin1.1</tags>
         <url>https://www.facebook.com/kotlinmcr/</url>
@@ -293,7 +293,7 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>Kotlin Developers in Manchester</subject>
+        <subject>Kotlin Yorkshire Meetup Group</subject>
         <location>Leeds, United Kingdom</location>
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/</url>
@@ -304,7 +304,7 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>Grand Rapids Java Users Group</subject>
+        <subject>757 Dev</subject>
         <location>Norfolk, United States</location>
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/757dev/events/238276313/</url>
@@ -315,8 +315,8 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>New York Kotlin Meetup</subject>
-        <location>LAS VEGAS, CA, USA</location>
+        <subject>Google Developer Group Las Vegas</subject>
+        <location>Las Vegas, CA, USA</location>
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/gdglasvegas/events/238233826/</url>
     </event>
@@ -326,7 +326,7 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>Google Developer Group Las Vegas</subject>
+        <subject>Grand Rapids Java Users Group</subject>
         <location>Grand Rapids, MI</location>
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/gr-jug/</url>
@@ -337,7 +337,7 @@
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
         <title>Kotlin 1.1 Event</title>
-        <subject>757 Dev</subject>
+        <subject>New York Kotlin Meetup</subject>
         <location>New York, NY, USA</location>
         <tags>kotlin1.1</tags>
         <url>https://www.meetup.com/New-York-Kotlin-Meetup/</url>
@@ -351,7 +351,7 @@
         <subject>Pandera Labs</subject>
         <location>Chicago, USA</location>
         <tags>kotlin1.1</tags>
-        <url>httpshttps://www.panderalabs.com/</url>
+        <url>https://www.panderalabs.com/events/</url>
     </event>
 
     <event>
