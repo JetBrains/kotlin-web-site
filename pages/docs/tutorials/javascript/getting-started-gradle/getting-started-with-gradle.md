@@ -78,11 +78,11 @@ In order to specify the module kind, we can add a configuration to our plugin as
 
 ```groovy
 compileKotlin2Js {
-    kotlinOptions.outputFile = "{projectDir}/web/output.js"
+    kotlinOptions.outputFile = "${projectDir}/web/output.js"
     kotlinOptions.moduleKind = "amd"
     kotlinOptions.sourceMap = true
 }
- ```
+```
 
 where `moduleKind` can be
 
