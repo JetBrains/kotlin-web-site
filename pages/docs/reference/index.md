@@ -54,3 +54,10 @@ how Kotlin can be used for creating an Android application from scratch.
   <a href="https://www.packtpub.com/application-development/programming-kotlin"><img src="{{url_for('asset', path='images/programming-kotlin.png')}}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 
 [Programming Kotlin](https://www.packtpub.com/application-development/programming-kotlin) is a book by Stephen Samuel and Stefan Bocutiu about using Kotlin on the JVM. It covers all aspects of the language with particular focus on server side development. In is aimed at Java developers who want to learn Kotlin and especially where it improves on Java.
+
+
+<h2 style="clear: left">Fundamental Kotlin</h2>
+
+  <a href="http://www.fundamental-kotlin.com/"><img src="http://static.milosvasic.net/images/fundamental_kotlin/cover_V2_w255px.png" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
+
+[Fundamental Kotlin](http://www.fundamental-kotlin.com/) is a book focused on Kotlin programming language and it’s comparison to Java. This book is focused on language’s most important features and aspects. Book doesn't go in too much theory since it's focused on exact examples with notes and code provided. This book is for developers and for people who are on its way to become developers. It is essential to have at least some basic knowledge of computer programming, especially of Java. Fundamental Kotlin is imagined as guide to Kotlin for developers who spent some time on Java powered projects but it is not mandatory. If you were programming for some time, it should be easy for you to follow this book.
