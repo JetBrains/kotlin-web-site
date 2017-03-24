@@ -1,5 +1,6 @@
 import subprocess
 
+import re
 from bs4 import BeautifulSoup
 
 languageMimeTypeMap = {
@@ -52,6 +53,15 @@ def highlight_code(text):
             continue
         element['data-lang'] = languageMimeTypeMap[lang]
         element['class'] = "code _highlighted"
+    header_elements = tree.select('h1,h2,h3')
+    for header in header_elements:
+        if header.get("id") is not None:
+            continue
+        generated_id = re.sub(r'[^a-zA-Z0-9 \\-]', '', header.text)
+        generated_id = generated_id.replace(' ', '-')
+        generated_id = generated_id.lower()
+        generated_id = generated_id.strip()
+        header['id'] = generated_id
     return unicode(str(tree), "utf8").replace("<br>", "<br/>")
 
 
