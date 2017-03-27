@@ -1,5 +1,391 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-29</startDate>
+        <endDate>2017-03-29</endDate>
+        <location>München, Germany</location>
+        <speaker>Enrique López Mañas</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/238356790/</url>
+        <description>
+            <![CDATA[
+<p>talk about Kotlin</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-03-17</startDate>
+        <endDate>2017-03-17</endDate>
+        <location>Tokyo,Japan</location>
+        <speaker>Takahiro Yamashita</speaker>
+        <title>山下貴弘</title>
+        <subject>Kotlinもくもく会</subject>
+        <url>https://connpass.com/event/52786/</url>
+        <description>
+            <![CDATA[
+<p>Android開発で注目されているプログラミング言語「Kotlin」をもくもく書いて勉強する会です。</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-15</startDate>
+        <endDate>2017-03-15</endDate>
+        <location>Brisbane, Australia</location>
+        <speaker>Mike Buho</speaker>
+        <title>Brisbane Kotlin User Group</title>
+        <subject>DSLs in Kotlin</subject>
+        <url>https://www.meetup.com/Brisbane-Kotlin-User-Group/events/238249765/</url>
+        <description>
+            <![CDATA[
+<p>Mike Buhot is going to take us through some DSL basics with Kotlin and the patterns he's used with eskotlin for Elasticsearch and kotlin-jpa-specification-dsl for JPA repositories.</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-16</startDate>
+        <endDate>2017-03-16</endDate>
+        <location>Johannesburg, South Africa</location>
+        <speaker>Dean Gerber</speaker>
+        <title>CocoaHeads Johannesburg</title>
+        <subject>Kotlin and Swift</subject>
+        <url>https://www.meetup.com/CocoaHeads-Johannesburg/events/238286902/</url>
+        <description>
+            <![CDATA[
+<p>We want industrial-strength object-oriented languages, make it better than Java and Objective-C but still be fully interoperable. Make it compile fast! Must work on Android and IOS! Give us the ability to use prototype-inheritance (Extensions!). What about Swift? Is learning Kotlin enough to know Swift? Sounds too good to be true? Let’s explore the facts, the fiction, the future of Kotlin and Swift.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <location>Roma, Italy</location>
+        <speaker>Giorgio Natili</speaker>
+        <title>MobileTea #11 - Tech TRILL</title>
+        <subject>Functional Reactive Programming with Kotlin</subject>
+        <url>https://www.meetup.com/codeinvaders/events/238096705/</url>
+        <description>
+            <![CDATA[
+<p>Reactive programming is a paradigm oriented around data flows and propagation of changes. Kotlin is a programming language intended to be a better Java, and it's designed to be usable and readable across large teams with skill and discipline variances. Despite its object-oriented building blocks, Kotlin fits well in the functional reactive programming landscape. In this essay, I will deep-dive into the most relevant aspects of FRP in Kotlin focusing on the advantages that everyone can get when using this approach to build an Android app.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-04-12</startDate>
+        <endDate>2017-04-12</endDate>
+        <location>Tokyo,Japan</location>
+        <speaker>小林 大祐</speaker>
+        <title>サポーターズ勉強会</title>
+        <subject>【学生＆若手エンジニア向け勉強会】ライブラリから始めるKotlin・Rx・DI入門</subject>
+        <url>https://supporterz-seminar.connpass.com/event/52131/</url>
+        <description>
+            <![CDATA[
+<p>回のテーマは「ライブラリから始めるKotlin・Rx・DI入門」。</p>
+<p>KotlinはJetBrainsが作った言語で2016年の2月にv1がリリースされました。</p>
+<p>Null安全・拡張関数・関数リテラル等の魅力があり、正式リリース以降、</p>
+<p>サーバやAndroidなどでの導入事例が増えてきています</p>
+<p>今回はそのKotlinや、Retrofit2・RxJava2・Dagger2などのモダンなライブラリを用いて、</p>
+<p>一通りの機能が揃ったアプリについて解説していきます。</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-15</startDate>
+        <endDate>2017-03-15</endDate>
+        <location>Brisbane, Australia</location>
+        <speaker>Mike Buhot</speaker>
+        <title>Brisbane Kotlin User Group</title>
+        <subject>DSLs in Kotlin</subject>
+        <url>https://www.meetup.com/Brisbane-Kotlin-User-Group/events/238249765/</url>
+        <description>
+            <![CDATA[
+<p>Mike Buhot is going to take us through some DSL basics with Kotlin and the patterns he's used with eskotlin for Elasticsearch and kotlin-jpa-specification-dsl for JPA repositories.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-20</startDate>
+        <endDate>2017-03-20</endDate>
+        <location>Toronto, ON</location>
+        <speaker>Adam Erb</speaker>
+        <title>Kotlin Toronto</title>
+        <subject>Kotlin workshop</subject>
+        <url>https://www.meetup.com/Kotlin-Toronto/events/237958457/</url>
+        <description>
+            <![CDATA[
+<p>This time is not a presentation, it's something better. Using our laptops we want to follow a tutorial in the Kotlin language or simply experiment with the language (either using the REPL, or an IDE, or solving the Kotlin koans http://kotlinlang.org/docs/tutorials/)</p>
+<p>Adam will be suggesting some tutorials that could be about Android development or back end development with Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-04-04</startDate>
+        <endDate>2017-04-04</endDate>
+        <location>Tokyo,Japan</location>
+        <speaker>Yuko Gonokami</speaker>
+        <title>Sansan株式会社</title>
+        <subject>第5回Kotlin勉強会 ＠Sansan 【Kotlin1.1リリース記念】</subject>
+        <url>https://sansan.connpass.com/event/53312/</url>
+        <description>
+            <![CDATA[
+<p>3/1にKotlin1.1リリースされました。Kotlin1.1リリース記念としてKotlin1.1 LT専用枠を設けました。 また、自由LT枠でもKotlin1.1に関する話題で応募していただいても構いません。</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2017-03-25</startDate>
+        <endDate>2017-03-25</endDate>
+        <location>Lima, Peru</location>
+        <speaker>Armando Picon</speaker>
+        <title>Lima Kotlin</title>
+        <subject>La nueva versión del SOSMap basada en  Kotlin con Firebase</subject>
+        <url>https://www.meetup.com/Java-For-Android-TechNet/events/238252448/</url>
+        <description>
+            <![CDATA[
+<p>Introducción al Kotlin</p>
+<p>Uso del SOSMap con la BD no relacional Firebase</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>zh</lang>
+        <startDate>2017-03-25</startDate>
+        <endDate>2017-03-25</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>楊哲偉</speaker>
+        <title>Taiwan Android Developer Study Group</title>
+        <subject>Kotlin 初體驗（Takuma 表示看能不能挖洞讓他多講小黃瓜）</subject>
+        <url>https://www.meetup.com/Taiwan-Android-Developer-Study-Group/events/238271961/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin 初體驗（Takuma 表示看能不能挖洞讓他多講小黃瓜）</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>zh</lang>
+        <startDate>2017-03-25</startDate>
+        <endDate>2017-03-25</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>Andy Yang</speaker>
+        <title>Taiwan Android Developer Study Group</title>
+        <subject>Kotlin 初体験</subject>
+        <url>https://www.meetup.com/Taiwan-Android-Developer-Study-Group/events/238271961/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin 初体験</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-19</startDate>
+        <endDate>2017-03-19</endDate>
+        <location>Bangkok, Thailand</location>
+        <speaker>Ty Smith</speaker>
+        <title>Droidcon Bangkok 2017</title>
+        <subject>Better Android Development with Kotlin and Gradle</subject>
+        <url>https://www.droidconbkk.com/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, Ty will walk you through setting up and using Kotlin with Gradle to streamline your workflow for Android development, both within the build tool phase and within the application itself. After a brief overview of Kotlin, we’ll dive into how it can be used with Gradle to accelerate Android Development with a consistent language.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-19</startDate>
+        <endDate>2017-03-19</endDate>
+        <location>Bangkok, Thailand</location>
+        <speaker>Travis Subannaphong</speaker>
+        <title>Droidcon Bangkok 2017</title>
+        <subject>Bacon Driven Development in Kotlin with Spek</subject>
+        <url>https://www.droidconbkk.com/</url>
+        <description>
+            <![CDATA[
+<p>Bacon Driven Development in Kotlin with Spek</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2017-03-23</startDate>
+        <endDate>2017-03-23</endDate>
+        <location>Минск, Беларусь</location>
+        <speaker>Сергей Крюков</speaker>
+        <title>Belarus Kotlin User Group #3</title>
+        <subject>Kotlin &amp; Spring 5</subject>
+        <url>https://bkug.by/2017/03/18/anons-bkug-3/</url>
+        <description>
+            <![CDATA[
+<p>Spring 5 – популярный фреймворк, выход которого запланирован уже этим летом.</p>
+<p>В этой версии мы увидим новый реактивный подход к написанию приложений, а Kotlin-разработчиков может заинтересовать поддержка их любимого языка.</p>
+<p>Сергей расскажет о поддержке Kotlin в Spring 5, а именно о:</p>
+<p>Плагине kotlin-spring</p>
+<p>Расширениях для GenericApplicationContext</p>
+<p>Расширениях для RestTemplate</p>
+<p>Встроенной поддержке nullable-типов</p>
+<p>Применении Kotlin в MVC-шаблонах</p>
+<p>Расширениях для Reactor</p>
+<p>Kotlin DSL для WebFlux</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2017-05-03</startDate>
+        <endDate>2017-05-06</endDate>
+        <location>Florianópolis, Brazil</location>
+        <speaker>Thiago Frederico Costa Porciúncula</speaker>
+        <title>The Developer's Conference</title>
+        <subject>Kotlin depois de 6 meses. É legal mesmo?</subject>
+        <url>http://www.thedevelopersconference.com.br/tdc/2017/florianopolis/trilha-android</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a programing language created by JetBrains that brings clarity, security, and simplicity to the code. In the last 6 months, we worked with this language developing an Android application. In this talk we'll give our opinion presenting the pros and cons of that experience.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-04-26</startDate>
+        <endDate>2017-04-26</endDate>
+        <location>Houston, USA</location>
+        <speaker>John Childress</speaker>
+        <title>Houston Java Users Group</title>
+        <subject>Desktop Programming in Kotlin</subject>
+        <url>https://www.eventbrite.com/e/desktop-programming-in-kotlin-teaching-kids-java-tickets-32716683481</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a statically typed language that targets the JVM and JavaScript developed by JetBrains.</p>
+<p>Tornado FX is a small and light JavaFX Framework for the Kotlin programming language.</p>
+<p>Come out for an introduction to Kotlin and TornadoFX.  Learn how TornadoFX can help you build desktop applications on the JVM.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-29</startDate>
+        <endDate>2017-03-29</endDate>
+        <location>München, Germany</location>
+        <speaker>Dmitry Jemerov</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/238356790/</url>
+        <description>
+            <![CDATA[
+<p>20:15 Dmitry Jemerov</p>
+
+<p>"State of the Union"</p>
+
+<p>Overview of where things are with Kotlin now and where they're moving.</p>
+
+<p>Dmitry is the author of the Kotlin in Action book and team lead in the Kotlin Tooling team at JetBrains.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-29</startDate>
+        <endDate>2017-03-29</endDate>
+        <location>München, Germany</location>
+        <speaker>Egor Andreevici</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Unit Testing with Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/238356790/</url>
+        <description>
+            <![CDATA[
+<p>20:45 Egor Andreevici</p>
+
+<p>Unit Testing with Kotlin</p>
+
+<p>Egor is an experienced Android developer, currently building a mobile messaging app at 1&1. He’s passionate about everything Android, likes to experiment with new tools and libraries and writes about his experiences in a personal blog.</p>
+
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-04-12</startDate>
+        <endDate>2017-04-12</endDate>
+        <location>Seoul, Korea (South)</location>
+        <speaker>Taeho Kim</speaker>
+        <title>Kotlin Korea</title>
+        <subject>Why has Lezhin Comics left for Kotlin? (레진코믹스가 코틀린으로 간 까닭은?)</subject>
+        <url>https://www.meetup.com/kotlinkr/events/238580224/</url>
+        <description>
+            <![CDATA[
+<p>레진코믹스 안드로이드 앱은 왜 코틀린을 쓰게 된 것일까요? 그 이유와 함께, 코틀린을 도입하면서 겪은 경험담과 팁을 공유합니다.</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-03-29</startDate>
+        <endDate>2017-03-29</endDate>
+        <location>Auckland, New Zealand</location>
+        <speaker>Brad Campbell</speaker>
+        <title>Auckland Android Community</title>
+        <subject>Kotlin and Android</subject>
+        <url>https://www.meetup.com/Android-Meetup/events/237897094/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a programming language that compiles to Java bytecode. Android Developers all over the world are adding Kotlin to their apps - come along to find out why!</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>sr</lang>
+        <startDate>2017-03-29</startDate>
+        <endDate>2017-03-29</endDate>
+        <location>Novi Sad, Serbia</location>
+        <speaker>Miloš Vasić</speaker>
+        <title>Kotlin User Group Serbia</title>
+        <subject>Basics of Kotlin: Working with collections, generics and delegates</subject>
+        <url>https://www.meetup.com/Serbia-Kotlin-User-Group/events/238650463/</url>
+        <description>
+            <![CDATA[
+<p>Predavač Miloš Vasić će pričati o korišćenju  Kotlin kolekcija i tome kako su kolekcije dizajnirane na nivou jezika. Pričaćemo još o Generics-ima, kao i šta su to Kotlin delegati i kako možete da ih upotrebimo sa ciljem da poboljšamo naše aplikacije</p>
+]]>
+        </description>
+    </event>
+
 
     <event>
         <lang>en</lang>
@@ -825,12 +1211,28 @@
 
     <event>
         <lang>es</lang>
-        <startDate>2017-03-21</startDate>
-        <endDate>2017-03-21</endDate>
-        <speaker>Eduardo Medina</speaker>
+        <startDate>2017-03-28</startDate>
+        <endDate>2017-03-28</endDate>
+        <speaker>José Cuentas Turpo</speaker>
         <location>Lima, Peru</location>
         <title>Perú Kotlin User Group</title>
         <subject>Kotlin para desarrolladores Android</subject>
+        <url>https://www.meetup.com/Peru-Kotlin-User-Group/events/237934715/</url>
+        <description>
+            <![CDATA[
+<p>Los invitamos al primer meetup  de la comunidad</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2017-03-28</startDate>
+        <endDate>2017-03-28</endDate>
+        <speaker>Kevin Salazar Llashag</speaker>
+        <location>Lima, Peru</location>
+        <title>Perú Kotlin User Group</title>
+        <subject>Kotlin Extensions</subject>
         <url>https://www.meetup.com/Peru-Kotlin-User-Group/events/237934715/</url>
         <description>
             <![CDATA[
