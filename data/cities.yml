@@ -1,4 +1,16 @@
 - geo:
+    lat: -36.8484597
+    lng: 174.7633315
+  name: Auckland, New Zealand
+- geo:
+    lat: -27.5953778
+    lng: -48.5480499
+  name: Florianópolis, Brazil
+- geo:
+    lat: -27.4697707
+    lng: 153.0251235
+  name: Brisbane, Australia
+- geo:
     lat: 50.0411867
     lng: 21.9991196
   name: Rzeszów, Poland
