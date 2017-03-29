@@ -2,6 +2,22 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2017-11-02</startDate>
+        <endDate>2017-11-03</endDate>
+        <location>San Francisco, CA, USA</location>
+        <speaker>Andrey Breslav, Erik Meijer, Keynotes by Andrey</speaker>
+        <title>Kotlin Conference</title>
+        <url>https://kotlinconf.com/</url>
+        <image>/assets/images/kotlinconf.png</image>
+        <description>
+            <![CDATA[
+<p>Two days of content from Kotlin creators and community members</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2017-03-29</startDate>
         <endDate>2017-03-29</endDate>
         <location>Munich, Germany</location>

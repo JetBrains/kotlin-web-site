@@ -26,6 +26,7 @@ export default class Event {
     this.city = data.location;
     this.lang = data.lang || DEFAULT_LANG;
     this.content = data.content;
+    this.image = data.image;
 
     this.startDate = new Date(data.startDate);
     this.endDate = new Date(data.endDate);
