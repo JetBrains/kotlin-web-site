@@ -4,7 +4,7 @@
         <lang>en</lang>
         <startDate>2017-03-29</startDate>
         <endDate>2017-03-29</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Enrique López Mañas</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
         <subject>Kotlin</subject>
@@ -20,7 +20,7 @@
         <lang>ja</lang>
         <startDate>2017-03-17</startDate>
         <endDate>2017-03-17</endDate>
-        <location>Tokyo,Japan</location>
+        <location>Tokyo, Japan</location>
         <speaker>Takahiro Yamashita</speaker>
         <title>山下貴弘</title>
         <subject>Kotlinもくもく会</subject>
@@ -69,7 +69,7 @@
         <lang>en</lang>
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
-        <location>Roma, Italy</location>
+        <location>Rome, Italy</location>
         <speaker>Giorgio Natili</speaker>
         <title>MobileTea #11 - Tech TRILL</title>
         <subject>Functional Reactive Programming with Kotlin</subject>
@@ -85,7 +85,7 @@
         <lang>ja</lang>
         <startDate>2017-04-12</startDate>
         <endDate>2017-04-12</endDate>
-        <location>Tokyo,Japan</location>
+        <location>Tokyo, Japan</location>
         <speaker>小林 大祐</speaker>
         <title>サポーターズ勉強会</title>
         <subject>【学生＆若手エンジニア向け勉強会】ライブラリから始めるKotlin・Rx・DI入門</subject>
@@ -122,7 +122,7 @@
         <lang>en</lang>
         <startDate>2017-03-20</startDate>
         <endDate>2017-03-20</endDate>
-        <location>Toronto, ON</location>
+        <location>Toronto, Canada</location>
         <speaker>Adam Erb</speaker>
         <title>Kotlin Toronto</title>
         <subject>Kotlin workshop</subject>
@@ -139,7 +139,7 @@
         <lang>ja</lang>
         <startDate>2017-04-04</startDate>
         <endDate>2017-04-04</endDate>
-        <location>Tokyo,Japan</location>
+        <location>Tokyo, Japan</location>
         <speaker>Yuko Gonokami</speaker>
         <title>Sansan株式会社</title>
         <subject>第5回Kotlin勉強会 ＠Sansan 【Kotlin1.1リリース記念】</subject>
@@ -237,7 +237,7 @@
         <lang>ru</lang>
         <startDate>2017-03-23</startDate>
         <endDate>2017-03-23</endDate>
-        <location>Минск, Беларусь</location>
+        <location>Minsk, Belarus</location>
         <speaker>Сергей Крюков</speaker>
         <title>Belarus Kotlin User Group #3</title>
         <subject>Kotlin &amp; Spring 5</subject>
@@ -278,7 +278,7 @@
         <lang>en</lang>
         <startDate>2017-04-26</startDate>
         <endDate>2017-04-26</endDate>
-        <location>Houston, USA</location>
+        <location>Houston, US</location>
         <speaker>John Childress</speaker>
         <title>Houston Java Users Group</title>
         <subject>Desktop Programming in Kotlin</subject>
@@ -296,7 +296,7 @@
         <lang>en</lang>
         <startDate>2017-03-29</startDate>
         <endDate>2017-03-29</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Dmitry Jemerov</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
         <subject>Kotlin</subject>
@@ -318,7 +318,7 @@
         <lang>en</lang>
         <startDate>2017-03-29</startDate>
         <endDate>2017-03-29</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Egor Andreevici</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
         <subject>Unit Testing with Kotlin</subject>
@@ -340,7 +340,7 @@
         <lang>en</lang>
         <startDate>2017-04-12</startDate>
         <endDate>2017-04-12</endDate>
-        <location>Seoul, Korea (South)</location>
+        <location>Seoul, Korea</location>
         <speaker>Taeho Kim</speaker>
         <title>Kotlin Korea</title>
         <subject>Why has Lezhin Comics left for Kotlin? (레진코믹스가 코틀린으로 간 까닭은?)</subject>
