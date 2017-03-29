@@ -53,4 +53,4 @@ how Kotlin can be used for creating an Android application from scratch.
 
   <a href="https://www.packtpub.com/application-development/programming-kotlin"><img src="{{url_for('asset', path='images/programming-kotlin.png')}}" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 
-[Programming Kotlin](https://www.packtpub.com/application-development/programming-kotlin) is a book by Stephen Samuel and Stefan Bocutiu about using Kotlin on the JVM. It covers all aspects of the language with particular focus on server side development. In is aimed at Java developers who want to learn Kotlin and especially where it improves on Java.
+[Programming Kotlin](https://www.packtpub.com/application-development/programming-kotlin) is a book by Stephen Samuel and Stefan Bocutiu about using Kotlin on the JVM. It covers all aspects of the language with particular focus on server side development. It is aimed at Java developers who want to learn Kotlin and especially where it improves on Java.
