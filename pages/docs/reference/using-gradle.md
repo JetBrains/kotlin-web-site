@@ -12,20 +12,20 @@ You can also enable [incremental compilation](#incremental-compilation) to make 
 
 ## Plugin and Versions
 
-The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
+The `kotlin-gradle-plugin` compiles Kotlin sources and modules.
 
-The version of Kotlin to use is usually defined as the *kotlin_version* property:
+The version of Kotlin to use is usually defined as the `kotlin_version` property:
 
 ``` groovy
 buildscript {
    ext.kotlin_version = '<version to use>'
 
    repositories {
-     mavenCentral()
+       mavenCentral()
    }
 
    dependencies {
-     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+       classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
    }
 }
 ```
@@ -44,7 +44,7 @@ Or, starting with Kotlin 1.1.1, the plugin can be applied using the [Gradle plug
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.jvm" version "<version to use>"
+    id "org.jetbrains.kotlin.jvm" version "<version to use>"
 }
 ```
 The `version` should be literal in this block, and it cannot be applied from another build script.
@@ -90,7 +90,7 @@ This file should be distributed together with the result of translation.
 
 ``` groovy
 compileKotlin2Js {
-	kotlinOptions.metaInfo = true
+    kotlinOptions.metaInfo = true
 }
 ```
 
@@ -114,11 +114,11 @@ If using Android Studio, the following needs to be added under android:
 
 ``` groovy
 android {
-  ...
+    ...
 
-  sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
-  }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 ```
 
@@ -128,37 +128,29 @@ This lets Android Studio know that the kotlin directory is a source root, so whe
 
 ## Configuring Dependencies
 
-In addition to the kotlin-gradle-plugin dependency shown above, you need to add a dependency on the Kotlin standard library:
+In addition to the `kotlin-gradle-plugin` dependency shown above, you need to add a dependency on the Kotlin standard library:
 
 ``` groovy
-buildscript {
-    ext.kotlin_version = '<version to use>'
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-apply plugin: "kotlin" // or apply plugin: "kotlin2js" if targeting JavaScript
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib"
 }
 ```
+
+Targeting JavaScript, use `compile "org.jetbrains.kotlin:kotlin-stdlib-js"` instead.
 
 If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well:
 
 ``` groovy
-compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+compile "org.jetbrains.kotlin:kotlin-reflect"
+testCompile "org.jetbrains.kotlin:kotlin-test"
+testCompile "org.jetbrains.kotlin:kotlin-test-junit"
 ```
+
+Starting with Kotlin 1.1.2, the dependencies with group `org.jetbrains.kotlin` are by default resolved with the version taken from the applied plugin. You can provide the version manually using the full dependency notation like `compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"`.
 
 ## Annotation processing
 
@@ -172,14 +164,14 @@ Or, starting with Kotlin 1.1.1, you can apply it using the plugins DSL:
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.kapt" version "<version to use>"
+    id "org.jetbrains.kotlin.kapt" version "<version to use>"
 }
 ```
 
 Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 ```groovy
 dependencies {
-  kapt 'groupId:artifactId:version'
+    kapt 'groupId:artifactId:version'
 }
 ```
 
