@@ -2,6 +2,22 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2017-03-30</startDate>
+        <endDate>2017-03-30</endDate>
+        <location>Singapore</location>
+        <speaker>Andrey Mischenko</speaker>
+        <title>Grab Tech Thursday - The Future Shape of Android Development</title>
+        <subject>Kotlin: A New Hope?</subject>
+        <url>https://www.meetup.com/grab-tech-thursdays/events/238527906/</url>
+        <description>
+            <![CDATA[
+<p>Rationale of using Kotlin for Android development</p>
+]]>
+        </description>
+    </event>
+    
+    <event>
+        <lang>en</lang>
         <startDate>2017-03-29</startDate>
         <endDate>2017-03-29</endDate>
         <location>Munich, Germany</location>
