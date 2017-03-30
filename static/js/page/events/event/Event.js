@@ -29,8 +29,8 @@ export default class Event {
     this.image = data.image;
     this.pinned = !!(data.pinned && data.pinned === 'true');
 
-    this.startDate = new Date(data.startDate);
-    this.endDate = new Date(data.endDate);
+    this.startDate = new Date(`${data.startDate} 0:0:0`);
+    this.endDate = new Date(`${data.endDate} 0:0:0`);
     this.formattedDate = formatDate(this.startDate, this.endDate);
   }
 

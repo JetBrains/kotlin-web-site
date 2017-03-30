@@ -1,7 +1,7 @@
 export function formatDate(startDate, endDate) {
   let formatted = '';
   let year, month, day;
-  const isRange = startDate == endDate;
+  const isRange = startDate.getTime() !== endDate.getTime();
   const nowYear = new Date().getFullYear();
 
   const months = [
@@ -20,6 +20,8 @@ export function formatDate(startDate, endDate) {
   ];
 
   if (isRange) {
+    console.log(startDate, endDate);
+
     month = [
       months[startDate.getMonth()],
       months[endDate.getMonth()]
