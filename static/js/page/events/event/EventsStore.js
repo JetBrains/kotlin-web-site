@@ -11,15 +11,15 @@ export default class EventsStore {
 
       switch (time) {
         case 'upcoming':
-          matched = !hasTag && event.isUpcoming();
+          matched = (!hasTag || event.pinned) && event.isUpcoming();
           break;
 
         case 'past':
-          matched = !hasTag && !event.isUpcoming();
+          matched = (!hasTag || event.pinned) && !event.isUpcoming();
           break;
 
         case 'all':
-          matched = !hasTag && true;
+          matched = (!hasTag || event.pinned);
           break;
 
         // TODO refactor this
@@ -124,6 +124,10 @@ export default class EventsStore {
       const compareA = a.endDate;
       const compareB = b.endDate;
 
+      if (b.pinned) {
+        return -1;
+      }
+
       if (compareA === compareB) {
         return 0;
       }
@@ -137,11 +141,15 @@ export default class EventsStore {
    * @returns {Array<Event>}
    */
   getUpcomingEvents(events) {
-    return (events || this.events)
+    const filtered = (events || this.events)
       .filter(event => event.isUpcoming())
       .sort((eventA, eventB) => {
         const startA = eventA.startDate;
         const startB = eventB.startDate;
+
+        if (eventA.pinned) {
+          return -1;
+        }
 
         if (startA === startB) {
           return 0;
@@ -149,6 +157,8 @@ export default class EventsStore {
 
         return startA < startB ? -1 : 1;
       });
+
+    return filtered;
   }
 
   /**

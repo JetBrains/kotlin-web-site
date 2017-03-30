@@ -27,6 +27,7 @@ export default class Event {
     this.lang = data.lang || DEFAULT_LANG;
     this.content = data.content;
     this.image = data.image;
+    this.pinned = !!(data.pinned && data.pinned === 'true');
 
     this.startDate = new Date(data.startDate);
     this.endDate = new Date(data.endDate);
