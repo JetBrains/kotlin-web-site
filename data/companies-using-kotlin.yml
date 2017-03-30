@@ -209,3 +209,7 @@
 - company: Recharge
   url: https://recharge.co/
   description: Recharge lets you book by-the-minute stays at hotels. Android app is 100% Kotlin.
+  
+- company: BandLab
+  url: https://play.google.com/store/apps/dev?id=8375301961782396369
+  description: Kotlin is a primary language for BandLab Android application and Gradle plugins
