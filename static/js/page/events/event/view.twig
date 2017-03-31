@@ -3,6 +3,12 @@
         <span class="event-close js-close"></span>
     {% endif %}
 
+    {% if event.image %}
+        <div class="event-image">
+            <img src="{{ event.image }}" alt="{{ event.title }}">
+        </div>
+    {% endif %}
+
     <div class="event-date">{{ event.formattedDate }}</div>
     <div class="event-title">
         {% if event.url %}
@@ -13,22 +19,37 @@
         {% if event.city %}
             <span class="event-location">{{ event.city }}</span>
         {% endif %}
+
+        {% if event.subject == undefined %}
+            <div class="event-info-indicators">
+                {% if event.lang %}
+                    <div class="event-lang">{{ event.lang }}</div>
+                {% endif %}
+                {% if event.content %}
+                    {% for type, href in event.content %}
+                        <a class="event-content-item _{{ type }}" href="{{ href }}" target="_blank" title="{{ type | capitalize }}"></a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 
-    <div class="event-subject">
-        <span class="text">{{ event.subject }}</span>
+    {% if event.subject %}
+        <div class="event-subject">
+            <span class="text">{{ event.subject }}</span>
 
-        <div class="event-info-indicators">
-            {% if event.lang %}
-                <div class="event-lang">{{ event.lang }}</div>
-            {% endif %}
-            {% if event.content %}
-                {% for type, href in event.content %}
-                    <a class="event-content-item _{{ type }}" href="{{ href }}" target="_blank" title="{{ type | capitalize }}"></a>
-                {% endfor %}
-            {% endif %}
+            <div class="event-info-indicators">
+                {% if event.lang %}
+                    <div class="event-lang">{{ event.lang }}</div>
+                {% endif %}
+                {% if event.content %}
+                    {% for type, href in event.content %}
+                        <a class="event-content-item _{{ type }}" href="{{ href }}" target="_blank" title="{{ type | capitalize }}"></a>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 
     <div class="event-speaker">
         {{ event.speaker }}

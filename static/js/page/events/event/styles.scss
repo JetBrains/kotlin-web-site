@@ -25,6 +25,10 @@
   white-space: nowrap;
 }
 
+.event-image {
+  margin-bottom: 15px;
+}
+
 .event-title {
   font-size: 14px;
   padding-top: 11px;
@@ -39,12 +43,13 @@
   color: #4c4c4c;
 
   .text {
-    padding-right: 8px;
+    padding-right: 0;
   }
 }
 
 .event-info-indicators {
   display: inline-block;
+  padding-left: 6px;
 }
 
 .event-content-item {
@@ -129,6 +134,7 @@
   text-transform: uppercase;
   border-radius: 100%;
   font-size: 10px;
+  font-weight: bold;
   width: 14px;
   text-align: center;
 }
