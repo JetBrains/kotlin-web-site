@@ -59,7 +59,7 @@ val bytes = 0b11010010_01101001_10010100_10010010
 On the Java platform, numbers are physically stored as JVM primitive types, unless we need a nullable number reference (e.g. `Int?`) or generics are involved. 
 In the latter cases numbers are boxed.
 
-Note that boxing of numbers does not preserve identity:
+Note that boxing of numbers does not necessarily preserve identity:
 
 ``` kotlin
 val a: Int = 10000
