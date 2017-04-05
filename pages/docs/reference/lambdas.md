@@ -70,7 +70,7 @@ fun <T, R> List<T>.map(transform: (T) -> R): List<R> {
 This function can be called as follows:
 
 ``` kotlin
-val doubled = ints.map { it -> it * 2 }
+val doubled = ints.map { value -> value * 2 }
 ```
 
 Note that the parentheses in a call can be omitted entirely if the lambda is the only argument to that call.
