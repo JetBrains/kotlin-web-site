@@ -209,3 +209,7 @@
 - company: Recharge
   url: https://recharge.co/
   description: Recharge lets you book by-the-minute stays at hotels. Android app is 100% Kotlin.
+  
+- company: Hootsuite
+  url: https://hootsuite.com
+  description: Hootsuite is a platform for managing social media. All new Android code is written in Kotlin.
