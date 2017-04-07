@@ -28,6 +28,13 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+@include adapt_retina {
+    body {
+        -webkit-font-smoothing: none;
+        font-smoothing: none;
+    }
+}
+
 /*
  * Addresses font-family inconsistency between 'textarea' and other form elements.
  */
