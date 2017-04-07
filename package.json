@@ -59,7 +59,7 @@
   "scripts": {
     "start": "rimraf ./_assets/* && cross-env NODE_ENV=development webpack --watch",
     "start:server": "rimraf ./_assets/* && cross-env NODE_ENV=development webpack-dev-server --port 9000",
-    "build": "rimraf ./_assets/* && cross-env NODE_ENV=production webpack",
+    "build": "rimraf ./_assets/* && cross-env NODE_ENV=production webpack -p --bail",
     "postinstall": "cd node_modules/codemirror && npm i",
     "clean": "rimraf ./_assets"
   }
