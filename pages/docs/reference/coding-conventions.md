@@ -48,7 +48,7 @@ Classes with a few arguments can be written in a single line:
 class Person(id: Int, name: String)
 ```
 
-Classes with longer headers should be formatted the way, that each primary constructor argument is in a separate line with indentation.
+Classes with longer headers should be formatted such that each primary constructor argument is in a separate line with indentation.
 Also, the closing parenthesis should be on a new line. If we use inheritance, then the superclass constructor call or list of implemented interfaces
 should be located on the same line as the parenthesis:
 
