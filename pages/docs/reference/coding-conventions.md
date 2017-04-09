@@ -10,7 +10,7 @@ title: Coding Conventions
 This page contains the current coding style for the Kotlin language.
 
 ## Naming Style
-If in doubt default to the Java Coding Conventions such as:
+If in doubt, default to the Java Coding Conventions such as:
 
 * use of camelCase for names (and avoid underscore in names)
 * types start with upper case
@@ -89,7 +89,7 @@ fun foo() { // ": Unit" is omitted here
 
 ## Functions vs Properties
 
-In some cases functions with no arguments might be interchangeable with read-only properties. 
+In some cases, functions with no arguments might be interchangeable with read-only properties. 
 Although the semantics are similar, there are some stylistic conventions on when to prefer one to another.
 
 Prefer a property over a function when the underlying algorithm:
