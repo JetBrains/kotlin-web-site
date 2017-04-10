@@ -32,8 +32,8 @@ body {
 
 @include adapt_retina {
     body {
-        -webkit-font-smoothing: none;
-        font-smoothing: none;
+        -webkit-font-smoothing: subpixel-antialiased;
+        font-smoothing: subpixel-antialiased;
     }
 }
 
