@@ -85,4 +85,4 @@ The Kotlin plugin also bundles a Java to Kotlin compiler which is located under 
 ![Convert Java to Kotlin Menu]({{ url_for('tutorial_img', filename='mixing-java-kotlin-intellij/convert-java-to-kotlin.png') }})
 
 Selecting an existing Java file, we can use this option to convert it automatically into Kotlin.
-While the converter is not full-proof, it does a pretty decent job of converting most boiler-plate code from Java to Kotlin. Some manual tweaking however is sometimes required.
+While the converter is not fool-proof, it does a pretty decent job of converting most boiler-plate code from Java to Kotlin. Some manual tweaking however is sometimes required.
