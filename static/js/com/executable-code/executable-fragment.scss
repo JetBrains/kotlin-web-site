@@ -14,7 +14,9 @@
 }
 
 .Codemirror-lines {
-    padding: 12px 0;
+    padding: 0;
+    margin: 12px 0;
+    background: white;
 }
 
 .CodeMirror-scroll {
@@ -41,8 +43,8 @@
     padding: 5px 30px;
 }
 
-.sample-line {
-    background-color: white;
+.CodeMirror-linebackground.unmodifiable-line {
+    background-color: #f7f7f7;
 }
 
 .run-button {
