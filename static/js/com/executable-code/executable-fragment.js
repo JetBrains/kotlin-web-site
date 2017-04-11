@@ -93,19 +93,19 @@ class ExecutableFragment extends ExecutableCodeTemplate {
       this.codemirror.setValue(this.prefix + sample + this.suffix);
       this.codemirror.markText(
         {line: 0, ch: 0},
-        {line: countLines(this.prefix) - 1, ch: null},
+        {line: countLines(this.prefix), ch: 0},
         {
           readOnly: true,
           inclusiveLeft: true,
-          inclusiveRight: true
+          inclusiveRight: false
         }
       );
       this.codemirror.markText(
-        {line: this.codemirror.lineCount() - countLines(this.suffix), ch: 0},
+        {line: this.codemirror.lineCount() - countLines(this.suffix) - 1, ch: null},
         {line: this.codemirror.lineCount() - 1, ch: null},
         {
           readOnly: true,
-          inclusiveLeft: true,
+          inclusiveLeft: false,
           inclusiveRight: true
         }
       );
