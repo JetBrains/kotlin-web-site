@@ -188,8 +188,8 @@ that expects a function parameter with no parameters and return type `Foo`:
 ``` kotlin
 class Foo
 
-fun function(factory : () -> Foo) {
-    val x : Foo = factory()
+fun function(factory: () -> Foo) {
+    val x: Foo = factory()
 }
 ```
 
