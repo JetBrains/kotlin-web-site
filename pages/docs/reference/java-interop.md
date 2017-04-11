@@ -168,7 +168,7 @@ Java's boxed primitive types are mapped to nullable Kotlin types:
 | `java.lang.Long`    | `kotlin.Long?`   |
 | `java.lang.Char`    | `kotlin.Char?`   |
 | `java.lang.Float`   | `kotlin.Float?`  |
-| `java.lang.Double`  | `kotlin.Double?  |
+| `java.lang.Double`  | `kotlin.Double?`  |
 | `java.lang.Boolean` | `kotlin.Boolean?` |
 {:.zebra}
 
