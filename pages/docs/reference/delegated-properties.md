@@ -12,7 +12,7 @@ would be very nice to implement once and for all, and put into a library. Exampl
 
 * lazy properties: the value gets computed only upon first access,
 * observable properties: listeners get notified about changes to this property,
-* storing properties in a map, not in separate field each.
+* storing properties in a map, instead of a separate field for each property.
 
 To cover these (and other) cases, Kotlin supports _delegated properties_:
 
