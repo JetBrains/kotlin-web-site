@@ -130,7 +130,10 @@
     top: 0;
     right: 50px;
 
-    img {
-        width: 100px;
+    .conference-banner__img {
+        width: 126px;
+        height: 100px;
+        background: url("images/kotlinconf_banner.svg");
+        background-repeat: no-repeat;
     }
 }
