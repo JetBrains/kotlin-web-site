@@ -293,12 +293,11 @@ abstract class Tag(val name: String) : Element {
 
     private fun renderAttributes(): String {
         val builder = StringBuilder()
-        for (a in attributes.keys) {
-            builder.append(" $a=\"${attributes[a]}\"")
+        for ((attr, value) in attributes) {
+            builder.append(" $attr=\"$value\"")
         }
         return builder.toString()
     }
-
 
     override fun toString(): String {
         val builder = StringBuilder()
@@ -313,17 +312,17 @@ abstract class TagWithText(name: String) : Tag(name) {
     }
 }
 
-class HTML() : TagWithText("html") {
+class HTML : TagWithText("html") {
     fun head(init: Head.() -> Unit) = initTag(Head(), init)
 
     fun body(init: Body.() -> Unit) = initTag(Body(), init)
 }
 
-class Head() : TagWithText("head") {
+class Head : TagWithText("head") {
     fun title(init: Title.() -> Unit) = initTag(Title(), init)
 }
 
-class Title() : TagWithText("title")
+class Title : TagWithText("title")
 
 abstract class BodyTag(name: String) : TagWithText(name) {
     fun b(init: B.() -> Unit) = initTag(B(), init)
@@ -335,13 +334,13 @@ abstract class BodyTag(name: String) : TagWithText(name) {
     }
 }
 
-class Body() : BodyTag("body")
-class B() : BodyTag("b")
-class P() : BodyTag("p")
-class H1() : BodyTag("h1")
+class Body : BodyTag("body")
+class B : BodyTag("b")
+class P : BodyTag("p")
+class H1 : BodyTag("h1")
 
-class A() : BodyTag("a") {
-    public var href: String
+class A : BodyTag("a") {
+    var href: String
         get() = attributes["href"]!!
         set(value) {
             attributes["href"] = value
