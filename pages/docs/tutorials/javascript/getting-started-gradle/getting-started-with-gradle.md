@@ -10,7 +10,7 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Create an application targeting JavaScript with Gradle](#Creatinganapplicationtargetingjavascript)
+* Create an application targeting JavaScript with Gradle
 * [Configure compiler options](#configuring-compiler-options)
 
 In order to use Gradle to target JavaScript, we need to use the `kotlin2js` plugin as opposed to the `kotlin` plugin.
