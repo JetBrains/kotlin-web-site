@@ -10,8 +10,8 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Create an application targeting JavaScript with Maven](#Creatinganapplicationtargetingjavascript)
-* [Configure compiler options](#configuringcompileroptions)
+* [Create an application targeting JavaScript with Maven](#creating-an-application-targeting-javascript)
+* [Configure compiler options](#configuring-compiler-options)
 
 
 ## Creating an application targeting JavaScript
@@ -32,7 +32,7 @@ JavaScript
 ![Configure Kotlin]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/configure-kotlin.png')}})
 
 
-IntelliJ IDEA will add the corresponding entries for us in the [Maven configuration](#mavenconfiguration). 
+IntelliJ IDEA will add the corresponding entries for us in the [Maven configuration](#maven-configuration). 
 
 
 ### Manual Configuration
