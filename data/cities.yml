@@ -1,4 +1,60 @@
 - geo:
+    lat: 52.09073739999999
+    lng: 5.1214201
+  name: Utrecht, Netherlands
+- geo:
+    lat: 19.0759837
+    lng: 72.8776559
+  name: Bombay,India
+- geo:
+    lat: 52.082869
+    lng: 0.18269
+  name: Hinxton, United Kingdom
+- geo:
+    lat: 18.5204303
+    lng: 73.8567437
+  name: Pune, India
+- geo:
+    lat: 45.5549624
+    lng: 18.6955144
+  name: Osijek, Croatia
+- geo:
+    lat: 60.16985569999999
+    lng: 24.938379
+  name: Helsinki, Finland
+- geo:
+    lat: 45.0811661
+    lng: 13.6387067
+  name: Rovinj, Croatia
+- geo:
+    lat: 28.4594965
+    lng: 77.0266383
+  name: Gurgaon, India
+- geo:
+    lat: 49.61162100000001
+    lng: 6.1319346
+  name: Luxembourg, Luxembourg
+- geo:
+    lat: 1.352083
+    lng: 103.819836
+  name: Singapore, Singapore
+- geo:
+    lat: 53.12348040000001
+    lng: 18.0084378
+  name: Bydgoszcz, Poland
+- geo:
+    lat: 46.9479739
+    lng: 7.4474468
+  name: Bern,Switzerland
+- geo:
+    lat: -8.0475622
+    lng: -34.8769643
+  name: Recife, Brazil
+- geo:
+    lat: 43.16103
+    lng: -77.6109219
+  name: Rochester, NY
+- geo:
     lat: -36.8484597
     lng: 174.7633315
   name: Auckland, New Zealand
