@@ -5,6 +5,7 @@ $(document).ready(function () {
     $searchElement = $('.global-search'),
     $searchBox = $('search-box'),
     $searchFormInput,
+    $extraNav = $('.extra-nav'),
     $searchFormSubmitButton;
 
 
@@ -42,6 +43,7 @@ $(document).ready(function () {
       } else {
         $searchBox.blur()
       }
+      $extraNav.toggleClass('hidden');
       $searchElement.toggleClass('_expanded');
     }
   });
@@ -50,6 +52,7 @@ $(document).ready(function () {
     //var $searchFormInput = $('input.gsc-input');
     if ($searchElement.hasClass('_expanded') && e.target != $searchFormInput[0] && $searchFormInput.val() == '') {
       $searchElement.removeClass('_expanded');
+      $extraNav.removeClass('hidden')
     }
   });
 });

@@ -64,7 +64,7 @@ Let's walk through the mechanisms of implementing type-safe builders in Kotlin.
 First of all we need to define the model we want to build, in this case we need to model HTML tags.
 It is easily done with a bunch of classes.
 For example, `HTML` is a class that describes the `<html>` tag, i.e. it defines children like `<head>` and `<body>`.
-(See its declaration [below](#declarations).)
+(See its declaration [below](#full-definition-of-the-comexamplehtml-package).)
 
 Now, let's recall why we can say something like this in the code:
 

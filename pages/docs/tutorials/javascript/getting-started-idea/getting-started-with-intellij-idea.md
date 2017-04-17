@@ -10,9 +10,9 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Create an application targeting JavaScript](#Creatingantargetingjavascript)
-* [Debug the application](#debuggingtheapplication)
-* [Configure compiler options](#configuringcompileroptions)
+* [Create an application targeting JavaScript](#create-an-application-targeting-javascript)
+* [Debug the application](#debugging-the-application)
+* [Configure compiler options](#configuring-compiler-options)
 
 
 ## Create an application targeting JavaScript

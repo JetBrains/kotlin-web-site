@@ -3,20 +3,23 @@ import json
 import os
 import sys
 from os import path
+from urlparse import urlparse, urljoin
 
 import xmltodict
 import yaml
+from bs4 import BeautifulSoup
 from flask import Flask, render_template, Response, send_from_directory
 from flask.helpers import url_for, send_file
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
-from src.MyFlatPages import MyFlatPages
 from src.Navigaton import Nav
 from src.encoder import DateAwareEncoder
 from src.grammar import get_grammar
-from src.markdown.makrdown import jinja_aware_markdown, highlight_code
+from src.markdown.makrdown import jinja_aware_markdown
+from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
+from src.processors.processors import process_code_blocks, process_header_ids
 from src.sitemap import generate_sitemap
 
 app = Flask(__name__, static_folder='_assets')
@@ -26,6 +29,9 @@ app.jinja_env.lstrip_blocks = True
 pages = MyFlatPages(app)
 freezer = Freezer(app)
 ignore_stdlib = "--ignore-stdlib" in sys.argv
+build_mode = False
+build_errors = []
+url_adapter = app.create_url_adapter(None)
 
 root_folder = path.join(os.path.dirname(__file__))
 data_folder = path.join(os.path.dirname(__file__), "data")
@@ -192,6 +198,27 @@ def process_page(page_path):
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):
         template += ".html"
+    if build_mode:
+        for link in page.parsed_html.select('a'):
+            if 'href' not in link.attrs:
+                continue
+
+            href = urlparse(urljoin('/' + page_path, link['href']))
+            if href.scheme != '':
+                continue
+            endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
+            if endpoint != 'page' and endpoint != 'get_index_page':
+                continue
+
+            referenced_page = pages.get(params['page_path'])
+            if referenced_page is None:
+                build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
+            if href.fragment == '':
+                continue
+
+            ids = map(lambda x: x['id'], referenced_page.parsed_html.select('h1,h2,h3,h4'))
+            if href.fragment not in ids:
+                build_errors.append("Bad anchor: " + str(href.fragment) + " on page " + page_path)
     return render_template(
         template,
         page=page,
@@ -214,8 +241,6 @@ def events_redirect():
 @freezer.register_generator
 def page():
     for page in pages:
-        if ignore_stdlib and page.path.startswith("api"):
-            continue
         yield {'page_path': page.path}
 
 
@@ -226,8 +251,6 @@ def page(page_path):
 
 @freezer.register_generator
 def api_page():
-    if ignore_stdlib:
-        return
     api_folder = path.join(root_folder, 'api')
     for root, dirs, files in os.walk(api_folder):
         for file in files:
@@ -237,10 +260,12 @@ def api_page():
 @app.route('/api/<path:page_path>')
 def api_page(page_path):
     with open(path.join(root_folder, 'api', page_path)) as html_file:
-        html_content = html_file.read()
+        html_content = BeautifulSoup(html_file.read(), 'html.parser')
+        html_content = process_code_blocks(html_content)
+        html_content = process_header_ids(html_content)
         return render_template(
             'api.html',
-            page_content=highlight_code(html_content)
+            page_content=html_content
         )
 
 
@@ -287,8 +312,13 @@ def add_header(request):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
+        build_mode = True
         urls = freezer.freeze()
         if not ignore_stdlib:
             generate_sitemap(urls)
+        if len(build_errors) > 0:
+            for error in build_errors:
+                sys.stderr.write(error + '\n')
+            sys.exit(-1)
     else:
         app.run(host="0.0.0.0", debug=True, threaded=True)

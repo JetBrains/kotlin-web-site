@@ -1,7 +1,8 @@
 import re
-from flask_flatpages import Page
+
 from flask_flatpages.flatpages import FlatPages
 from werkzeug.utils import import_string
+from src.pages.MyPage import MyPage
 
 
 class MyFlatPages(FlatPages):
@@ -27,4 +28,4 @@ class MyFlatPages(FlatPages):
         html_renderer = self._smart_html_renderer(html_renderer)
 
         # Initialize and return Page instance
-        return Page(path, meta, content, html_renderer)
+        return MyPage(path, meta, content, html_renderer)

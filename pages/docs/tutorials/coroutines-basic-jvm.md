@@ -17,7 +17,7 @@ In IntelliJ IDEA go to *File -> New > Project...*:
 
 <img src="{{ url_for('tutorial_img', filename='coroutines-basic-jvm/new_gradle_project_jvm.png')}}"/>
 
-Then follow the wizard steps. You'll have a `build.gradle` file created with Kotlin configured according to [this document](g/docs/reference/using-gradle.html).
+Then follow the wizard steps. You'll have a `build.gradle` file created with Kotlin configured according to [this document](/docs/reference/using-gradle.html).
 Make sure it's configured for Kotlin 1.1 or higher.
 
 Since coroutines have the *experimental* status in Kotlin 1.1, by default the compiler reports a warning every time they are used. We can opt-in for the experimental feature and use it without a warning by adding this code to `build.gradle`:

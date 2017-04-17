@@ -23,10 +23,10 @@ better understanding of how things work under the covers.
 
 What we'll see in this tutorial is how to
 
-* [Use Standard Library Function to emit JavaScript](#usingstandardlibraryfunctions)
-* [Work with strongly-typed libraries](#workingwithstronglytypedlibraries)
-* [Invoke a member that does not exist in Kotlin](#invokingjavascriptmembers)
-* [Create mappings with Dynamic and Native](#creatingmappingswithdynamicandnative)
+* [Use Standard Library Function to emit JavaScript](#using-standard-library-functions)
+* [Work with strongly-typed libraries](#working-with-strongly-typed-libraries)
+* [Invoke a member that does not exist in Kotlin](#invoking-javascript-only-members)
+* [Create mappings with Dynamic and Native](#creating-mappings-with-native)
 
 ## Using Standard Library Functions
 

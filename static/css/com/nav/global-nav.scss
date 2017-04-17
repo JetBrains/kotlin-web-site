@@ -41,6 +41,11 @@
         left: 0;
         font-size: $base-font-size;
         white-space: nowrap;
+        transition: all 0.4s;
+
+        &.hidden {
+          display: none;
+        }
 
         @media (max-width: 1205px) {
             left: auto;

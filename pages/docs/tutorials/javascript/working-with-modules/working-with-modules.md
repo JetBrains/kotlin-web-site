@@ -11,10 +11,10 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Configure modules when using IntelliJ IDEA](#ConfiguringModulesWithIntelliJIDEA)
-* [Configure modules when using Maven or Gradle](#ConfiguringModulesWithMavenOrGradle)
-* [Use Kotlin in the browser with AMD](#UsingAMD)
-* [Use Kotlin from node.js with CommonJS](#UsingCommonJS)
+* [Configure modules when using IntelliJ IDEA](#configuring-modules-with-intellij-idea)
+* [Configure modules when using Maven or Gradle](#configuring-modules-when-using-maven-or-gradle)
+* [Use Kotlin in the browser with AMD](#using-amd)
+* [Use Kotlin from node.js with CommonJS](#using-commonjs)
 
 
 
