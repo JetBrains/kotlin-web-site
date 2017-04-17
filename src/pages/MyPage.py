@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from flask_flatpages import Page
 from werkzeug.utils import cached_property
 
-from src.processors.CodeBlockProcessor import process_code_blocks
+from src.processors.processors import process_code_blocks
 
 
 class MyPage(Page):

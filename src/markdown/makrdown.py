@@ -1,8 +1,5 @@
 import subprocess
 
-from src.processors.CodeBlockProcessor import process_code_blocks
-
-
 def customized_markdown(text):
     kramdown = subprocess.Popen(
         "kramdown --input GFM --no-hard-wrap --smart-quotes apos,apos,quot,quot --no-enable-coderay",
