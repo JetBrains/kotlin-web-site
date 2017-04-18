@@ -9,7 +9,8 @@ import xmltodict
 import yaml
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, Response, send_from_directory
-from flask.helpers import url_for, send_file
+from flask.helpers import url_for, send_file, make_response
+from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
@@ -208,6 +209,9 @@ def process_page(page_path):
                 continue
             endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
             if endpoint != 'page' and endpoint != 'get_index_page':
+                response = app.test_client().get(href.path)
+                if response.status_code == 404:
+                    build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
                 continue
 
             referenced_page = pages.get(params['page_path'])
@@ -259,7 +263,18 @@ def api_page():
 
 @app.route('/api/<path:page_path>')
 def api_page(page_path):
-    with open(path.join(root_folder, 'api', page_path)) as html_file:
+    if page_path.endswith('.html'):
+        return process_api_page(page_path)
+    elif not page_path.endswith('/'):
+        page_path += '/'
+    return process_api_page(page_path + 'index.html')
+
+
+def process_api_page(page_path):
+    file_path = path.join(root_folder, 'api', page_path)
+    if not path.exists(file_path):
+        return make_response("Api page " + page_path + " not found", 404)
+    with open(file_path) as html_file:
         html_content = BeautifulSoup(html_file.read(), 'html.parser')
         html_content = process_code_blocks(html_content)
         html_content = process_header_ids(html_content)
