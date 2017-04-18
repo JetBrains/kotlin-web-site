@@ -38,7 +38,7 @@ It is hosted on GitHub and we happily accept contributors
 
 ### Where can I get an HD Kotlin logo?
 
-Logos can be downloaded [here](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip). Please follow simple rules in the `readme.txt` inside the archive.
+Logos can be downloaded [here](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip). Please follow simple rules in the `guidelines.pdf` inside the archive.
 
 
 ### Is it Java Compatible?
