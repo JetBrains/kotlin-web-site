@@ -10,7 +10,7 @@ title: Coding Conventions
 This page contains the current coding style for the Kotlin language.
 
 ## Naming Style
-If in doubt default to the Java Coding Conventions such as:
+If in doubt, default to the Java Coding Conventions such as:
 
 * use of camelCase for names (and avoid underscore in names)
 * types start with upper case
@@ -48,7 +48,7 @@ Classes with a few arguments can be written in a single line:
 class Person(id: Int, name: String)
 ```
 
-Classes with longer headers should be formatted the way, that each primary constructor argument is in a separate line with indentation.
+Classes with longer headers should be formatted so that each primary constructor argument is in a separate line with indentation.
 Also, the closing parenthesis should be on a new line. If we use inheritance, then the superclass constructor call or list of implemented interfaces
 should be located on the same line as the parenthesis:
 
