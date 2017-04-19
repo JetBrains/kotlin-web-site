@@ -213,3 +213,7 @@
 - company: Hootsuite
   url: https://hootsuite.com
   description: Hootsuite is a platform for managing social media. All new Android code is written in Kotlin.
+
+- company: BandLab
+  url: https://play.google.com/store/apps/dev?id=8375301961782396369
+  description: Kotlin is a primary language for BandLab's Android application and Gradle plugins
