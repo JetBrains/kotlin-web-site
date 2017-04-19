@@ -33,6 +33,10 @@ Kotlin has an extensive standard library that can be used in your applications. 
 </dependencies>
 ```
 
+If you're targeting JDK 7 or JDK 8, you can use extended versions of the Kotlin standard library which contain
+additional extension functions for APIs added in new JDK versions. Instead of `kotlin-stdlib`, use `kotlin-stdlib-jre7`
+or `kotlin-stdlib-jre8`, depending on your JDK version.
+
 If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well.
 The artifact IDs are `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
 for the testing libraries.
