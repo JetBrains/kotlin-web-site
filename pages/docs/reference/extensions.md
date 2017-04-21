@@ -34,7 +34,7 @@ l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
 Of course, this function makes sense for any `MutableList<T>`, and we can make it generic:
 
 ``` kotlin
-fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
+fun <T> MutableList<T>.swap(index1: T, index2: T) {
     val tmp = this[index1] // 'this' corresponds to the list
     this[index1] = this[index2]
     this[index2] = tmp
