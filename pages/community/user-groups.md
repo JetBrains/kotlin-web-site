@@ -68,6 +68,7 @@
 ### Australia/Oceania
 
 * [Brisbane Kotlin User Group](https://www.meetup.com/Brisbane-Kotlin-User-Group/), Australia
+* [Sydney Kotlin User Group](https://sydkotlin.space/), Australia
 * [Wellington Kotlin User Group](https://www.meetup.com/Wellington-kt/), New Zealand
 
 ### Africa
