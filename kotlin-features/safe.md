@@ -3,23 +3,22 @@
 Get rid of those pesky NullPointerExceptions, you know, The Billion Dollar Mistake
 
 ``` kotlin
-var output : String
-output = null
+var output: String
+output = null   // Compilation error
 ```
 
-And of course, Kotlin protects you from mistakenly operating on nullable types,
-including those from Java
+Kotlin protects you from mistakenly operating on nullable types
 
 ``` kotlin
-println(output.length())
+val data: String? = null    // Nullable type
+println(data.length())      // Compilation error
 ```
 
 And if you check a type is right, the compiler will auto-cast it for you
 
 ``` kotlin
 fun calculateTotal(obj: Any) {
-    if (obj is Invoice) {
+    if (obj is Invoice)
         obj.calculateTotal()
-    }
 }
 ```

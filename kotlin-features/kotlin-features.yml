@@ -11,7 +11,7 @@
   content_file: versatile.html
 
 - title: Interoperable
-  description: Leverage existing frameworks and libraries of the JVM with 100% Java Interoperability.
+  description: Leverage existing libraries for JVM, Android and the browser with full interoperability.
   content_file: interoperable.md
 
 - title: Tooling
