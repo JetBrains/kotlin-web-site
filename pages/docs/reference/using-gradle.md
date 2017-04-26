@@ -10,9 +10,9 @@ In order to build Kotlin with Gradle you should [set up the *kotlin-gradle* plug
 
 ## Plugin and Versions
 
-The *kotlin-gradle-plugin* compiles Kotlin sources and modules.
+The `kotlin-gradle-plugin` compiles Kotlin sources and modules.
 
-The version of Kotlin to use is usually defined as the *kotlin_version* property:
+The version of Kotlin to use is usually defined as the `kotlin_version` property:
 
 ``` groovy
 buildscript {
@@ -127,45 +127,40 @@ This lets Android Studio know that the kotlin directory is a source root, so whe
 
 ## Configuring Dependencies
 
-In addition to the kotlin-gradle-plugin dependency shown above, you need to add a dependency on the Kotlin standard library:
+In addition to the `kotlin-gradle-plugin` dependency shown above, you need to add a dependency on the Kotlin standard library:
 
 ``` groovy
-buildscript {
-    ext.kotlin_version = '<version to use>'
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-apply plugin: "kotlin" // or apply plugin: "kotlin2js" if targeting JavaScript
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib"
 }
 ```
+
+If you target JavaScript, use `compile "org.jetbrains.kotlin:kotlin-stdlib-js"` instead.
+
 If you're targeting JDK 7 or JDK 8, you can use extended versions of the Kotlin standard library which contain
 additional extension functions for APIs added in new JDK versions. Instead of `kotlin-stdlib`, use one of the
 following dependencies:
 
 ``` groovy
-compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+compile "org.jetbrains.kotlin:kotlin-stdlib-jre7"
+compile "org.jetbrains.kotlin:kotlin-stdlib-jre8"
 ```
 
 If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well:
 
 ``` groovy
-compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+compile "org.jetbrains.kotlin:kotlin-reflect"
+testCompile "org.jetbrains.kotlin:kotlin-test"
+testCompile "org.jetbrains.kotlin:kotlin-test-junit"
 ```
+
+Starting with Kotlin 1.1.2, the dependencies with group `org.jetbrains.kotlin` are by default resolved with the version
+taken from the applied plugin. You can provide the version manually using the full dependency notation like
+`compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"`.
 
 ## Annotation processing
 
