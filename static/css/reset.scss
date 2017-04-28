@@ -25,16 +25,7 @@ body {
     margin:0;
     padding:0;
     line-height:1;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-}
-
-@include adapt_retina {
-    body {
-        -webkit-font-smoothing: subpixel-antialiased;
-        font-smoothing: subpixel-antialiased;
-    }
 }
 
 /*
