@@ -5,7 +5,6 @@ title:  "Kotlin Android Extensions"
 description: "This tutorial describes how to use Kotlin Android Extensions to improve support for Android development."
 authors: Yan Zhulanow
 showAuthorInfo: true
-date: 2015-03-18
 source:
 ---
 In this tutorial we'll walk through the steps required to use the Kotlin Android Extensions plugin, enhancing the development experience with Android.
