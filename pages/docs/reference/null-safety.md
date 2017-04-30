@@ -11,7 +11,7 @@ title: "Null Safety"
 
 Kotlin's type system is aimed at eliminating the danger of null references from code, also known as the [The Billion Dollar Mistake](http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions).
 
-One of the most common pitfalls in many programming languages, including Java is that of accessing a member of a null reference, resulting in a null reference exception. In Java this
+One of the most common pitfalls in many programming languages, including Java, is that of accessing a member of a null reference, resulting in a null reference exception. In Java this
 would be the equivalent of a `NullPointerException` or NPE for short.
 
 Kotlin's type system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE's may be
