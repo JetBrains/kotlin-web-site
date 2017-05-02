@@ -4443,6 +4443,16 @@ encounter while digging deeper into the language.</p>
     </event>
     <event>
         <lang>fr</lang>
+        <startDate>2016-10-19</startDate>
+        <endDate>2016-10-19</endDate>
+        <speaker>Gaetan Zoritchak</speaker>
+        <location>Montpellier, France</location>
+        <title>Montpellier Java User Group</title>
+        <url>https://www.jug-montpellier.org/events/48</url>
+        <subject>Kotlin 1.0: pragmatic and fun</subject>
+    </event>    
+    <event>
+        <lang>fr</lang>
         <startDate>2016-10-18</startDate>
         <endDate>2016-10-18</endDate>
         <speaker>Gaetan Zoritchak</speaker>
@@ -4450,7 +4460,7 @@ encounter while digging deeper into the language.</p>
         <title>Lyon Kotlin User Group</title>
         <url>https://www.meetup.com/fr-FR/Lyon-Kotlin-User-Group/events/234673830/</url>
         <content>
-            <slides>http://www.slideshare.net/FTomassetti/building-languages-with-kotlin-71361871</slides>
+            <examples>https://gist.github.com/gzoritchak/facabe61903545a578208b486f069c6b</examples>
         </content>
         <subject>DSL in Kotlin</subject>
     </event>
@@ -6149,6 +6159,19 @@ encounter while digging deeper into the language.</p>
         <subject>Android Development with Kotlin</subject>
     </event>
     <event>
+        <lang>fr</lang>
+        <content>
+            <video>https://youtu.be/VEMMKzSjyAI?t=2m11s</video>
+        </content>
+        <speaker>Gaetan Zoritchak</speaker>
+        <location>Geneva, Switzerland</location>
+        <title>Geneva JUG</title>
+        <url>http://genevajug.ch/jug/archive.html?event=kotlin</url>
+        <startDate>2015-12-02</startDate>
+        <endDate>2015-12-02</endDate>
+        <subject>Kotlin: code with fun</subject>
+    </event>
+    <event>
         <lang>sp</lang>
         <title>Codemotion 2015</title>
         <url>http://2015.codemotion.es/agenda.html#5699289732874240</url>
@@ -6851,6 +6874,19 @@ encounter while digging deeper into the language.</p>
         <url>http://devconf.cz/</url>
         <subject>Kotlin or The Quest For Java.Next</subject>
     </event>
+	<event>
+		<lang>fr</lang>
+		<content>
+			<video>https://www.youtube.com/watch?v=IIpwcEWhIYY</video>
+		</content>
+		<startDate>2013-12-10</startDate>
+		<endDate>2013-12-10</endDate>
+		<speaker>Gaetan Zoritchak</speaker>
+		<location>Geneva, Switzerland</location>
+		<title>Human Talks</title>
+		<url>http://humantalks.com/talks/298-kotlin-c-est-maintenant</url>
+		<subject>Kotlin, C'est maintenant</subject>
+	</event>
     <event>
         <content>
             <slides>http://prezi.com/2nrkbg6nfc8h/kotlin-vs-java-puzzlers-devoxx/</slides>
