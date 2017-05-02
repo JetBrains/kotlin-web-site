@@ -114,7 +114,7 @@ object DataProviderManager {
         get() = // ...
 }
 ```
--
+
 This is called an *object declaration*, and it always has a name following the *object*{: .keyword } keyword.
 Just like a variable declaration, an object declaration is not an expression, and cannot be used on the right hand side of an assignment statement.
 
