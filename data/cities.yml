@@ -1,4 +1,36 @@
 - geo:
+    lat: 39.4699075
+    lng: -0.3762881
+  name: Valencia, Spain
+- geo:
+    lat: 44.977753
+    lng: -93.2650108
+  name: Minneapolis, MN
+- geo:
+    lat: 47.7510741
+    lng: -120.7401386
+  name: Washington, USA
+- geo:
+    lat: 53.4285438
+    lng: 14.5528116
+  name: Szczecin, Poland
+- geo:
+    lat: 51.2464536
+    lng: 22.5684463
+  name: Lublin, Poland
+- geo:
+    lat: 28.5383355
+    lng: -81.3792365
+  name: Orlando, FL
+- geo:
+    lat: 10.8230989
+    lng: 106.6296638
+  name: Ho Chi Minh, Vietnam
+- geo:
+    lat: 33.4483771
+    lng: -112.0740373
+  name: Phoenix, AZ
+- geo:
     lat: 52.09073739999999
     lng: 5.1214201
   name: Utrecht, Netherlands
