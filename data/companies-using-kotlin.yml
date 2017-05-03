@@ -217,3 +217,8 @@
 - company: BandLab
   url: https://play.google.com/store/apps/dev?id=8375301961782396369
   description: Kotlin is a primary language for BandLab's Android application and Gradle plugins
+  
+- company: Trove
+  url: https://www.mytrove.com/
+  description: Modernizing Moving and Storage. Android app is 100% Kotlin and introducing Kotlin into our Java backend stack.
+
