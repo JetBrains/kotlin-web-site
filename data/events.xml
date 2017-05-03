@@ -1218,6 +1218,10 @@ Kotlin.</p>
         <title>Pune Mobile Developers</title>
         <subject>Kotlin-ize your Android Development</subject>
         <url>https://www.meetup.com/Pune-Mobile-Developers/events/238978286/</url>
+        <content>
+            <slides>https://speakerdeck.com/akshaychordiya/kotlin-ize-your-android-development
+            </slides>
+        </content>
         <description>
             <![CDATA[
 <p>Since Android took the world by storm, we have had no alternatives to Java for android app development. Although its usage is widespread, Java comes with a lot of historical baggage. Java 8 solved few of the language issues, but to use it a minimum SDK version of 24 is required</p>
