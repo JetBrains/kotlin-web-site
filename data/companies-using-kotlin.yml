@@ -226,3 +226,6 @@
   url: http://www.tiendeo.com/
   description: Offers app with millions of users and 40% of code written in Kotlin (and increasing)
 
+- company: userfeeds.io
+  url: http://userfeeds.io/
+  description: The content ranking system for blockchain communities. Android SDK and apps written in Kotlin.
