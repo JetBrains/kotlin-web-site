@@ -4,33 +4,23 @@ layout: tutorial
 title:  "Getting Started with IntelliJ IDEA"
 description: "This tutorial walks you through creating a simple Hello World application using IntelliJ IDEA."
 authors: Hadi Hariri, Roman Belov
-date: 2015-11-02
+date: 2017-05-04
 showAuthorInfo: false
 ---
 ### Setting up the environment
-In this tutorial we're going to use IntelliJ IDEA. You can download the free [Open Source Community Edition][intellijdownload] from [JetBrains][jetbrains].
+In this tutorial we're going to use IntelliJ IDEA.
 For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][getting_started_command_line].
 
 If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/). If you are new to IntelliJ IDEA, check out the [The IntelliJ IDEA Minimal Survival Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
 
-1. **Kotlin is shipped with IntelliJ IDEA 15** ([download][intellijdownload]).
-
-   To use Kotlin with the [previous versions][oldintellijdownload] or Android Studio, we need to manually install the latest Kotlin Plugin.
-   Under **Preferences (OSX) or Settings (Windows/Linux) > Plugins > Browse Repositories** type **Kotlin** to find the Kotlin plugin. Click **Install** and follow the instructions.
-
-   ![Kotlin Plugin]({{ url_for('tutorial_img', filename='getting-started/install_kotlin_plugin.png') }})
-
-
+1. **Install a recent version of IntelliJ IDEA**. Kotlin is bundled with IntelliJ IDEA
+   starting from version 15. You can download the free [Community Edition][intellijdownload] from [JetBrains][jetbrains].
 
 2. Create a New Project. We select Java Module and select the SDK. Kotlin works with JDK 1.6+. Also, select the *Kotlin (Java)* checkbox.
 
    ![Kotlin New Project]({{ url_for('tutorial_img', filename='getting-started/new_project_step1.png') }})
 
-3. Then we click the *Create* button to specify the Kotlin runtime. We can either copy it to our project folder or use the bundle from the plugin.
-
-   ![Kotlin Select Technologies]({{ url_for('tutorial_img', filename='getting-started/kotlin_java.png') }})
-
-4. Give our project a name on the next step.
+3. Give our project a name on the next step.
 
    ![Kotlin Project Name]({{ url_for('tutorial_img', filename='getting-started/project_name.png') }})
 
@@ -61,6 +51,5 @@ If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](h
 Congratulations! We now have our first application running.
 
 [intellijdownload]: http://www.jetbrains.com/idea/download/index.html
-[oldintellijdownload]: https://confluence.jetbrains.com/display/IntelliJIDEA/Previous+IntelliJ+IDEA+Releases
 [jetbrains]: http://www.jetbrains.com
 [getting_started_command_line]: command-line.html
