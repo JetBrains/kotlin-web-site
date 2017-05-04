@@ -224,6 +224,12 @@ tutorials:
           title: Working with Build Tools
         - url: /docs/tutorials/koans.html
           title: Koans
+    - title: Android
+      items:
+        - url: /docs/tutorials/kotlin-android.html
+          title: Getting Started With Android Development
+        - url: /docs/tutorials/android-plugin.html
+          title: Kotlin Android Extensions
     - title: Java Interop
       items:
         - url: /docs/tutorials/mixing-java-kotlin-intellij.html
@@ -257,12 +263,6 @@ tutorials:
         - url: /docs/tutorials/spring-boot-restful.html
           title: Creating a RESTful Web Service with Spring Boot
 
-    - title: Mobile
-      items:
-        - url: /docs/tutorials/kotlin-android.html
-          title: Getting Started With Android Development
-        - url: /docs/tutorials/android-plugin.html
-          title: Kotlin Android Extensions
     - title: Tools
       items:
         - url: /docs/tutorials/kotlin-and-ci.html
