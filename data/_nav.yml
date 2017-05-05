@@ -48,6 +48,18 @@ subnav:
 # ====================
 reference:
   items:
+    - title: Overview
+      description: Overview of Kotlin
+      items:
+        - url: /docs/reference/server-overview.html
+          title: Kotlin for Server Side
+        - url: /docs/reference/android-overview.html
+          title: Kotlin for Android
+        - url: /docs/reference/js-overview.html
+          title: Kotlin for JavaScript
+        - url: /docs/reference/whatsnew11.html
+          title: What's New in 1.1
+
     - title: Getting Started
       description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
       items:
@@ -57,8 +69,6 @@ reference:
           title: Idioms
         - url: /docs/reference/coding-conventions.html
           title: Coding Conventions
-        - url: /docs/reference/whatsnew11.html
-          title: What's New in 1.1
 
     - title: Basics
       description: The Basics
@@ -168,8 +178,6 @@ reference:
     - title: JavaScript
       description: Using Kotlin with JavaScript
       items:
-       - url: /docs/reference/js-overview.html
-         title: JavaScript Overview
        - url: /docs/reference/dynamic-type.html
          title: Dynamic Type
        - url: /docs/reference/js-interop.html

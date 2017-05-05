@@ -1,8 +1,8 @@
 ---
 type: doc
 layout: reference
-category: "JavaScript"
-title: "Kotlin JavaScript Overview"
+category: "Introduction"
+title: "Kotlin for JavaScript"
 ---
 
 # Kotlin JavaScript Overview
