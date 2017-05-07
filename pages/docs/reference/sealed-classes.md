@@ -13,7 +13,7 @@ for an enum type is also restricted, but each enum constant exists only as a sin
 of a sealed class can have multiple instances which can contain state.
 
 To declare a sealed class, you put the `sealed` modifier before the name of the class. A sealed class can have
-subclasses, but all of them must be nested inside the declaration of the sealed class itself.
+subclasses, but all of them must be nested inside the declaration of the sealed class itself (before 1.1).
 
 ``` kotlin
 sealed class Expr {
@@ -42,7 +42,7 @@ fun eval(expr: Expr): Double = when(expr) {
 
 ### Subclasses in the Same File
 
-Since 1.1 you can declare the subclasses of the `sealed` class on the top-level, with only restriction that they should be located in the same file as the parent class. 
+Since 1.1 you can declare the subclasses of the `sealed` class on the top-level, with only restriction that they should be located in the same file as the parent class.
 
 ### Sealed Classes and Data Classes
 
