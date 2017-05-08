@@ -168,7 +168,7 @@ thus the mnemonic mentioned above is not really needed, and one can rephrase it 
 
 ### Use-site variance: Type projections
 
-It is very convenient to declare a type parameter T as *out* and have no trouble with subtyping on the use site. Yes, it is, when the class in question **can** actually be restricted to only return `T`'s, but what if it can't? 
+It is very convenient to declare a type parameter T as *out* and avoid trouble with subtyping on the use site, but some classes **can't** actually be restricted to only return `T`'s! 
 A good example of this is Array:
 
 ``` kotlin
