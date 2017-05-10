@@ -187,7 +187,7 @@ fun main(args: Array<String>) {
 ```
 </div>
 
-Read the [documentation](sealed-classes.html#relaxed-rules-for-sealed-classes-since-11) or 
+Read the [documentation](sealed-classes.html) or
 [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
 [data class](https://github.com/Kotlin/KEEP/blob/master/proposals/data-class-inheritance.md) KEEPs for more detail.
 

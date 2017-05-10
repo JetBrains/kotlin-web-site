@@ -30,7 +30,7 @@ To ensure consistency and meaningful behavior of the generated code, data classe
   * Data classes cannot be abstract, open, sealed or inner;
   * (before 1.1) Data classes may only implement interfaces.
   
-Since 1.1, data classes may extend other classes (see [Sealed classes](sealed-classes.html#sealed-classes-and-data-classes) for examples).
+Since 1.1, data classes may extend other classes (see [Sealed classes](sealed-classes.html) for examples).
 
 On the JVM, if the generated class needs to have a parameterless constructor, default values for all properties have to be specified
 (see [Constructors](classes.html#constructors)).
