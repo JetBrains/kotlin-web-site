@@ -104,7 +104,8 @@ def add_data_to_context():
             'forum_url': app.config['FORUM_URL'],
             'site_github_url': app.config['SITE_GITHUB_URL'],
             'data': site_data,
-            'text_using_gradle': app.config['TEXT_USING_GRADLE']
+            'text_using_gradle': app.config['TEXT_USING_GRADLE'],
+            'code_baseurl': app.config['CODE_URL']
         }
     }
 
