@@ -82,7 +82,8 @@ def get_kotlin_features():
             content = f.read().decode('utf-8')
             content = content.replace("\r\n", "\n")
             if file_path.endswith(".md"):
-                content = jinja_aware_markdown(content, pages)
+                html_content = BeautifulSoup(jinja_aware_markdown(content, pages), 'html.parser')
+                content = process_code_blocks(html_content)
             features.append(Feature(content, feature_meta))
     return features
 
