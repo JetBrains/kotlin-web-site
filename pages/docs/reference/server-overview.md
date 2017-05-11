@@ -26,7 +26,7 @@ maintaining full compatibility with existing Java-based technology stacks and a 
 ## Frameworks for Server-side Development with Kotlin
 
  * [Spring](https://spring.io) makes use of Kotlin's language features to offer [more concise APIs](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0),
-starting with version 5.0. The [online project generator](http://start.spring.io) allows to quickly generate a new project in Kotlin.
+starting with version 5.0. The [online project generator](https://start.spring.io/#!language=kotlin) allows to quickly generate a new project in Kotlin.
 
  * [Vert.x](http://vertx.io), a framework for building reactive Web applications on the JVM, offers [dedicated support](https://github.com/vert-x3/vertx-lang-kotlin)
 for Kotlin, including [full documentation](http://vertx.io/docs/vertx-core/kotlin/).
