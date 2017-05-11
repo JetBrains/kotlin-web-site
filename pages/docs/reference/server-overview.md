@@ -66,5 +66,5 @@ process at JetBrains, is written in 100% Kotlin and has been running in producti
 * The [Creating Web Applications with Http Servlets](/docs/tutorials/httpservlets.html) and
 [Creating a RESTful Web Service with Spring Boot](/docs/tutorials/spring-boot-restful.html) tutorials
 show you how you can build and run very small Web applications in Kotlin.
-* For a more in-depth introduction to the language, check out the [reference documentation](/docs/reference/) on this site and
+* For a more in-depth introduction to the language, check out the [reference documentation](/docs/reference/index.html) on this site and
 [Kotlin Koans](/docs/tutorials/koans.html).

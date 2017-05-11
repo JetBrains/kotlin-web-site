@@ -38,7 +38,7 @@ Kotlin has been successfully adopted by major companies, and a few of them have 
 
 The Kotlin team offers a set of tools for Android development that goes beyond the standard language features:
 
- * [Kotlin Android Extensions](docs/tutorials/android-plugin.html) is a compiler extension
+ * [Kotlin Android Extensions](/docs/tutorials/android-plugin.html) is a compiler extension
 that allows you to get rid of `findViewById()` calls in your code and to replace them with synthetic compiler-generated
 properties.
  * [Anko](http://github.com/kotlin/anko) is a library providing a set of Kotlin-friendly wrappers around the Android
@@ -46,9 +46,9 @@ properties.
 
 ## Next Steps
 
-* The [Getting Started with Android and Kotlin](docs/tutorials/kotlin-android.html) tutorial
+* The [Getting Started with Android and Kotlin](/docs/tutorials/kotlin-android.html) tutorial
 guides you through installing the Kotlin plugin into Android Studio and creating your first Kotlin application.
-* For a more in-depth introduction, check out the [reference documentation](/docs/reference/) on this site and
+* For a more in-depth introduction, check out the [reference documentation](/docs/reference/index.html) on this site and
 [Kotlin Koans](/docs/tutorials/koans.html).
 * Another great resource is [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers),
 a book that guides you step by step through the process of creating a real Android application in Kotlin.
