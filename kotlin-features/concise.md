@@ -9,7 +9,7 @@ data class Customer(val name: String, val email: String, val company: String)
 Or filter a list using a lambda expression:
 
 ``` kotlin
-val positiveNumbers = list.filter {it > 0}
+val positiveNumbers = list.filter { it > 0 }
 ```
 
 Want a singleton? Create an object:
