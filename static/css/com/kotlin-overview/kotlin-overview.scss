@@ -37,7 +37,6 @@
     $item-width: 240px;
     $item-margin: 24px;
     $item-count: 4;
-    $carousel-width: (($item-width + $item-margin) * $item-count) - $item-margin;
     @extend %kotlin-overview-section-background-image%default;
     position: relative;
     text-align: center;
@@ -51,40 +50,7 @@
         margin-bottom: $unit*5;
     }
 
-    .kotlin-features-carousel-wrap {
-        position: relative;
-        display: inline-block;
-        padding: 0 50px;
-        margin: auto;
-        white-space: nowrap;
-    }
-
-    .kotlin-features-carousel {
-        overflow: hidden;
-        width: $carousel-width;
-        padding: 0 8px;
-
-        @media (max-width: 1165px) {
-            width: $carousel-width - ($item-width + $item-margin);
-        }
-
-        @media (max-width: 930px) {
-            width: $carousel-width - (($item-width + $item-margin) * 2);
-        }
-    }
-
-    .kotlin-features-carousel-nav {
-        &._prev {
-            @extend %kotlin-overview-carousel%nav-prev;
-        }
-
-        &._next {
-            @extend %kotlin-overview-carousel%nav-next;
-        }
-    }
-
     .kotlin-features-list {
-        @include clearfix;
         display: inline-block;
         position: relative;
         left: 0;
@@ -948,128 +914,6 @@
         }
         */
 
-    }
-}
-
-.kotlin-overview-section._testimonials {
-    $item-width: 280px;
-    $item-margin: 24px;
-    $item-count: 3;
-    $carousel-width: (($item-width + $item-margin) * $item-count) - $item-margin;
-    @extend %kotlin-overview-section-background-image%default;
-
-    .section-header {
-        font-family: $font-family-sans-serif;
-        font-size: 24px;
-        line-height: 27px;
-        margin-bottom: $unit*4;
-    }
-
-    .testimonials-carousel-wrap {
-        position: relative;
-        margin: 0 auto;
-        padding: 0 50px;
-        width: $carousel-width;
-
-        @media (max-width: 1023px) {
-            width: $carousel-width - ($item-width + $item-margin);
-        }
-
-        @media (max-width: 600px) {
-            width: $carousel-width - ($item-width + $item-margin) * 2;
-        }
-    }
-
-    .testimonials-carousel {
-        overflow: hidden;
-    }
-
-    .testimonials-carousel-nav {
-        top: 85px !important;
-
-        &._prev {
-            @extend %kotlin-overview-carousel%nav-prev;
-        }
-
-        &._next {
-            @extend %kotlin-overview-carousel%nav-next;
-        }
-    }
-
-    .testimonials-list {
-        //@include grid('.testimonials-list-item', 3, 40px);
-        position: relative;
-        white-space: nowrap;
-        font-size: 0;
-    }
-
-    .testimonials-list-item {
-        $corner-height: 24px;
-        $quote-height: 150px;
-        width: $item-width;
-        margin-right: $item-margin;
-        display: inline-block;
-        font-size: $base-font-size;
-        white-space: normal;
-
-        .testimonial-quote {
-            position: relative;
-            box-sizing: border-box;
-            display: block;
-            margin: 5px 3px (5px + $corner-height);
-            padding: 0 30px;
-            min-height: $quote-height;
-            box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
-            border-radius: 4px;
-            background-color: #fff;
-            line-height: $quote-height;
-
-            .text {
-                display: inline-block;
-                color: #666;
-                font-style: italic;
-                font-weight: 300;
-                font-size: 20px;
-                line-height: 30px;
-                vertical-align: middle;
-            }
-
-            &:before,
-            &:after {
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                margin-left: -$corner-height;
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 20px $corner-height 0 $corner-height;
-                border-color: transparent;
-                content: '';
-            }
-
-            &:before {
-                margin-top: 2px;
-                border-top-color: #000;
-                opacity: 0.08;
-            }
-
-            &:after {
-                border-top-color: #fff;
-            }
-        }
-
-        .testimonial-company {
-            text-align: center;
-            font-size: 20px;
-            line-height: 50px;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        .testimonial-company-link {
-            text-decoration: none;
-        }
     }
 }
 

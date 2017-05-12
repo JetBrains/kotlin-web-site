@@ -1,6 +1,5 @@
-var $ = require('jquery');
-var Carousel = require('../com/carousel');
-var Player = require('../com/video-player');
+const $ = require('jquery');
+const Player = require('../com/video-player');
 
 var initTabs = function () {
   var $tabs = $('.js-tab');
@@ -129,16 +128,6 @@ var initPlayer = function () {
 };
 
 $(document).ready(function () {
-  // Features carousel
-  new Carousel({
-    elem: document.getElementById('features-carousel-wrap')
-  });
-
-  // Testimonials carousel
-  new Carousel({
-    elem: document.getElementById('testimonials-carousel-wrap')
-  });
-
   initPlayer();
   initPopups();
   initTabs();

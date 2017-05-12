@@ -6,10 +6,6 @@
   description: Avoid entire classes of errors such as null pointer exceptions.
   content_file: safe.md
 
-- title: Versatile
-  description: Build server-side applications, Android apps or frontend code running in the browser.
-  content_file: versatile.html
-
 - title: Interoperable
   description: Leverage existing frameworks and libraries of the JVM with 100% Java Interoperability.
   content_file: interoperable.md
