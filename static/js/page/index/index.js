@@ -1,5 +1,4 @@
 const $ = require('jquery');
-const Player = require('../com/video-player');
 
 var initTabs = function () {
   var $tabs = $('.js-tab');
@@ -94,41 +93,7 @@ var initPopups = function () {
   popups.init();
 };
 
-var initPlayer = function () {
-  var $playerBlock = $('.js-video-player-wrap'),
-    $playerPlaceholder = $playerBlock.find('.js-video-player'),
-    $thumbLink = $playerBlock.find('.js-video-thumb-link'),
-    playerHeight = $playerBlock.get(0).offsetHeight;
-
-  $playerBlock.css('height', playerHeight);
-
-  $thumbLink.on('click', function (e) {
-    var $thumbLink = $(this),
-      videoId = Player.getVideoIdFromUrl(this.href);
-
-    if (!videoId) {
-      return;
-    }
-
-    $playerBlock.addClass('is_showing-video');
-
-    setTimeout(function () {
-      $thumbLink.remove();
-      new Player($playerPlaceholder.get(0), {
-        width: '100%',
-        height: playerHeight,
-        videoId: videoId,
-        autoPlay: true
-      });
-
-    }, 400);
-
-    e.preventDefault();
-  });
-};
-
 $(document).ready(function () {
-  initPlayer();
   initPopups();
   initTabs();
 });
