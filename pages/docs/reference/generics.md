@@ -71,8 +71,8 @@ That's why the actual signature of `addAll()` is the following:
 
 ``` java
 // Java
-interface Collection<E> ... {
-  void addAll(Collection<? extends E> items);
+interface Collection<T> ... {
+  void addAll(Collection<? extends T> items);
 }
 ```
 
