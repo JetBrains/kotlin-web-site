@@ -1,7 +1,7 @@
-@import '../../_config';
-@import '../../_utils';
-@import '../_bits/_header';
-@import '../_bits/_button';
+@import '../../../css/_config';
+@import '../../../css/_utils';
+@import '../../../css/com/_bits/_header';
+@import '../../../css/com/_bits/_button';
 @import 'lib';
 
 .kotlin-overview-section {
@@ -21,15 +21,6 @@
         line-height: 21px;
         margin-bottom: $unit*2;
         text-align: center;
-    }
-
-    .section-content {
-
-    }
-
-    .overview-popup {
-        @extend %kotlin-overview-popup;
-        @extend %kotlin-overview-popup%_fixed;
     }
 }
 
@@ -67,7 +58,7 @@
             margin-right: $item-margin;
             margin-bottom: 10px;
             padding: 0;
-            min-height: 340px;
+            height: 310px;
             background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -80,41 +71,13 @@
                 box-shadow: 0 1px 9px 1px #84b5e6;
                 cursor: pointer;
             }
-
-            &._tooling {
-            }
-            &._concise {
-            }
-            &._expressive {
-            }
-            &._safe {
-            }
-            &._versatile {
-            }
-            &._interoperable {
-            }
         }
 
         .feature-image {
-            @extend %kotlin-overview-section-background-image%blue-paper;
             position: relative;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
-            background-color: #557799;
-            background-repeat: repeat;
-            height: 165px;
-            margin: 0 0 $unit*3;
-
-            &:after {
-                @include linear-gradient($from: rgba(255, 255, 255, 1), $to: rgba(255, 255, 255, 0));
-                position: absolute;
-                opacity: 0.3;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                content: '';
-            }
+            height: 160px;
         }
 
         .feature-icon {
@@ -125,42 +88,35 @@
             right: 0;
             bottom: 0;
             margin: auto;
-            background: url('images/kotlin-features-sprite.png') no-repeat 200% 200%;
-
-            @include adapt_retina {
-                background-image: url('images/kotlin-features-sprite@2x.png');
-                background-size: 100px 600px;
-            }
 
             &._tooling {
-                width: 47px;
-                height: 47px;
-                background-position: 0 0;
+                width: 60px;
+                height: 61px;
+                background: url('./images/tooling.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
+
             &._concise {
-                width: 31px;
-                height: 56px;
-                background-position: 0 -100px;
-            }
-            &._expressive {
-                width: 79px;
-                height: 55px;
-                background-position: 0 -200px;
+                width: 60px;
+                height: 73px;
+                background: url('./images/concise.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
             &._safe {
-                width: 39px;
-                height: 59px;
-                background-position: 0 -300px;
-            }
-            &._versatile {
-                width: 58px;
-                height: 57px;
-                background-position: 0 -400px;
+                width: 60px;
+                height: 69px;
+                background: url('./images/safe.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
             &._interoperable {
-                width: 55px;
-                height: 72px;
-                background-position: 0 -500px;
+                width: 60px;
+                height: 61px;
+                background: url('./images/interopable.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
         }
 
@@ -529,8 +485,6 @@
             margin: 15px auto 20px;
             width: 104px;
             height: 104px;
-            background-color: #F2F2F2;
-            border-radius: 50px;
 
             .jetbrains-logo._logo-intellij-idea._size-2 {
                 margin: 22px;
@@ -545,31 +499,31 @@
             bottom: 0;
             display: block;
             margin: auto;
-            background: url('images/get-kotlin-sprite.png') no-repeat 200% 200%;
             content: '';
-
-            @include adapt_retina {
-                background-image: url('images/get-kotlin-sprite@2x.png');
-                background-size: 100px 250px;
-
-            }
         }
+
         .option-image._standalone-compiler:after {
-            width: 50px;
-            height: 58px;
-            background-position: 0 0;
+            width: 75px;
+            height: 60px;
+            background: url("./images/standalone-compiler.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-        .option-image._source-code:after {
-            width: 50px;
-            height: 47px;
-            background-position: 0 -150px;
+        .option-image._eclipse:after {
+            width: 64px;
+            height: 60px;
+            background: url("./images/eclipse.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-        .option-image._try-online:after {
-            width: 54px;
-            height: 44px;
-            background-position: 0 -200px;
+        .option-image._android-studio:after {
+            width: 74px;
+            height: 80px;
+            background: url("./images/android_studio.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .option-title-pre-text {
@@ -599,6 +553,21 @@
             @extend %button_default;
 
         }
+    }
+}
+
+.kotlin-overview-section._try-online {
+    background-color: #f2f2f2;
+
+    .try-image {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: $unit * 2;
+        height: 56px;
+        width: 80px;
+        background: url("./images/try-online.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 }
 
