@@ -47,13 +47,12 @@ plugins {
 ```
 The `version` should be literal in this block, and it cannot be applied from another build script.
 
-Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
+Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using the same folder for Kotlin and Java sources:
 
 ``` groovy
 project
     - src
         - main (root)
-            - kotlin
             - java
 ```
 
@@ -137,6 +136,14 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib"
 }
+```
+If you're targeting JDK 7 or JDK 8, you can use extended versions of the Kotlin standard library which contain
+additional extension functions for APIs added in new JDK versions. Instead of `kotlin-stdlib`, use one of the
+following dependencies:
+
+``` groovy
+compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 ```
 
 If you target JavaScript, use `compile "org.jetbrains.kotlin:kotlin-stdlib-js"` instead.
