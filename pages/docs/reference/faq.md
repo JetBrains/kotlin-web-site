@@ -27,7 +27,7 @@ The core values behind the design of Kotlin make it
 
 * Interoperable: Kotlin can be freely mixed with Java,
 * Safe: statically check for common pitfalls (e.g., null pointer dereference) to catch errors at compile time,
-* Toolable: enable precise and performant tools such as IDEs and build systems,
+* Tool-friendly: enable precise and performant tools such as IDEs and build systems,
 * "Democratic": make all parts of the language available to all developers (no policies are needed to restrict the use of some features to library writers or other groups of developers).
 
 ### How is it licensed?
