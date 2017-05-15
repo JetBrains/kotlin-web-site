@@ -91,13 +91,13 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
 This library is published to Bintray JCenter repository, so let us add it:
  
 ```xml
-<repositoies>
+<repositories>
     ...
     <repository>
         <id>central</id>
         <url>http://jcenter.bintray.com</url>
     </repository>
-</repositoies>
+</repositories>
 ```
 
 That's it, we are good to go and write code under `src/main/kotlin`.
