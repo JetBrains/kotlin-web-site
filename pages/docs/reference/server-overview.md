@@ -21,7 +21,7 @@ maintaining full compatibility with existing Java-based technology stacks and a 
  * **Tooling**: In addition to great IDE support in general, Kotlin offers framework-specific tooling (for example,
    for Spring) in the plugin for IntelliJ IDEA Ultimate.
  * **Learning Curve**: For a Java developer, getting started with Kotlin is very easy. The automated Java to Kotlin converter included in the Kotlin plugin
-   helps with the first steps. [Kotlin Koans](/docs/tutorials/koans.html) offer a guide though the key features of the language with a series of interactive exercises.
+   helps with the first steps. [Kotlin Koans](/docs/tutorials/koans.html) offer a guide through the key features of the language with a series of interactive exercises.
 
 ## Frameworks for Server-side Development with Kotlin
 
