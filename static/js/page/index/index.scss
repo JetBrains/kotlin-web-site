@@ -571,6 +571,17 @@
     }
 }
 
+.kotlin-overview-section._testimonials {
+    @extend %kotlin-overview-section-background-image%default;
+
+    .section-header {
+        font-family: $font-family-sans-serif;
+        font-size: 24px;
+        line-height: 27px;
+        margin-bottom: $unit*4;
+    }
+ }
+
 .kotlin-overview-section._community {
     padding-top: $unit*6;
     padding-bottom: $unit*6;
@@ -608,7 +619,7 @@
             width: 104px;
             height: 104px;
             background-color: #F2F2F2;
-            border-radius: 50px;
+            border-radius: 60px;
 
             &:after {
                 position: absolute;
