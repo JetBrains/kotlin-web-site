@@ -568,6 +568,8 @@
             height: 104px;
 
             .jetbrains-logo._logo-intellij-idea._size-2 {
+                width: 70px;
+                height: 70px;
                 margin: 22px;
             }
         }
@@ -654,10 +656,10 @@
     .try-button {
         @extend %button_default;
         text-transform: uppercase;
-        font-size: 14px;
-        padding: 6px 40px;
+        font-size: 24px;
+        padding: 10px 55px;
         height: initial;
-        margin-bottom: $unit * 2;
+        margin-bottom: $unit * 3;
     }
 }
 
