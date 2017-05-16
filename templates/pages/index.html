@@ -14,12 +14,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="global-layout">
     {% include 'inc/header.html' %}
 
-{#
-    <section class="kotlin-overview-section">
+    <section class="kotlin-overview-section _works-on">
         <h2 class="section-header">Build Applications For</h2>
+        <div class="works-on-list">
+            {%- set technologies = [
+              {'target': 'JVM', 'href': '/docs/tutorials/getting-started.html'},
+              {'target': 'Android', 'href': '/docs/tutorials/getting-started.html'},
+              {'target': 'Browser', 'href': '/docs/tutorials/getting-started.html'},
+              {'target': 'Native'}
+            ]-%}
 
+            {% for technology in technologies %}
+                {% if(technology.href) %}
+                    <a href="{{ technology.href }}" class="works-on-item">
+                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
+                        <div class="works-on-text">
+                            {{ technology['target'] }}
+                        </div>
+                    </a>
+                {% else %}
+                    <div class="works-on-item">
+                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
+                        <div class="works-on-text">
+                            {{ technology['target'] }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </section>
-#}
 
     <section class="kotlin-overview-section _features">
         <h2 class="section-header">Why Kotlin?</h2>
@@ -137,17 +160,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <section class="kotlin-overview-section _try-online">
-        <a href="//try.kotlinlang.org">
-            <div class="try-image"></div>
-        </a>
-        <h2 class="section-header">Try online</h2>
+        <div class="try-image"></div>
+        <a href="//try.kotlinlang.org" class="try-button">Try online</a>
         <div class="section-description">
             Explore Kotlin code samples and solve problems<br/>
             directly in the browser
         </div>
     </section>
 
-{#
+    {#
     <section class="kotlin-overview-section _testimonials">
         <h2 class="section-header">Who's using Kotlin</h2>
     </section>
