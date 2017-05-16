@@ -75,7 +75,8 @@ is available and provides straightforward support for compiling and running appl
   
 ### What build tools support Kotlin?
 
-On the JVM side, the main build tools include Gradle, Maven, Ant, and [Kobalt](http://beust.com/kobalt/home/index.html). There are also some build tools available that target client-side JavaScript. 
+On the JVM side, the main build tools include [Gradle](/docs/reference/using-gradle.html), [Maven](/docs/reference/using-maven.html), 
+[Ant](/docs/reference/using-ant.html), and [Kobalt](http://beust.com/kobalt/home/index.html). There are also some build tools available that target client-side JavaScript. 
 
 ### What does Kotlin compile down to?
 
