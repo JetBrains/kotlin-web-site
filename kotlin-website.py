@@ -152,6 +152,9 @@ def grammar():
 def videos_page():
     return render_template('pages/videos.html')
 
+@app.route('/docs/books.html')
+def books_page():
+    return render_template('pages/books.html')
 
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():

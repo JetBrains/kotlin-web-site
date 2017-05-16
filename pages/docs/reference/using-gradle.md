@@ -293,6 +293,13 @@ A complete list of options for the Gradle tasks follows:
 | `target` | Generate JS files for specific ECMA version | "v5" | "v5" |
 
 
+## Generating documentation
+
+To generate documentation for Kotlin projects, use [Dokka](https://github.com/Kotlin/dokka);
+please refer to the [Dokka README](https://github.com/Kotlin/dokka/blob/master/README.md#using-the-gradle-plugin)
+for configuration instructions. Dokka supports mixed-language projects and can generate output in multiple
+formats, including standard JavaDoc.
+
 ## OSGi
 
 For OSGi support see the [Kotlin OSGi page](kotlin-osgi.html).
