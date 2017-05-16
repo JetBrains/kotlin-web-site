@@ -24,6 +24,81 @@
     }
 }
 
+.kotlin-overview-section._works-on {
+    background-color: #393939;
+    color: #fff;
+
+    .section-header {
+        margin-bottom: 2 * $unit;
+        font-size: 32px;
+    }
+
+    .works-on-list {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    a {
+        opacity: 0.8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .works-on-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 45px;
+    }
+
+    .works-on-icon {
+        margin-bottom: $unit;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+
+        &._jvm {
+            width: 50px;
+            height: 58px;
+            background: url('images/works_on_jvm.svg');
+        }
+
+        &._android {
+            width: 50px;
+            height: 58px;
+            background: url('images/works_on_android.svg');
+        }
+
+        &._browser {
+            width: 50px;
+            height: 50px;
+            background: url('images/works_on_browser.svg');
+        }
+
+        &._native {
+            width: 50px;
+            height: 50px;
+            background: url('images/works_on_native.svg');
+        }
+    }
+
+    a .works-on-text {
+        color: white;
+    }
+
+    .works-on-text {
+        color: #5c5c5c;
+    }
+}
+
 .kotlin-overview-section._features {
     $item-width: 240px;
     $item-margin: 24px;
@@ -551,23 +626,32 @@
 
         .option-link {
             @extend %button_default;
-
         }
     }
 }
 
 .kotlin-overview-section._try-online {
     background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .try-image {
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: $unit * 2;
-        height: 56px;
-        width: 80px;
+        margin-bottom: $unit * 3;
+        height: 70px;
+        width: 100px;
         background: url("./images/try-online.svg");
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    .try-button {
+        @extend %button_default;
+        text-transform: uppercase;
+        font-size: 14px;
+        padding: 6px 40px;
+        height: initial;
+        margin-bottom: $unit * 2;
     }
 }
 
