@@ -30,7 +30,7 @@
     color: #fff;
 
     .section-header {
-        margin-bottom: 2 * $unit;
+        margin-bottom: 3 * $unit;
         font-size: 32px;
     }
 
@@ -520,6 +520,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .kotlin-version {
+        margin-bottom: $unit*2;
+        font-size: 16px;
+        color: #fff;
+        text-align: right;
+    }
 
     .section-header {
         color: #fff;
