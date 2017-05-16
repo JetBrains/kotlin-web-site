@@ -26,6 +26,7 @@
 
 .kotlin-overview-section._works-on {
     background-color: #393939;
+    padding-top: 24px;
     color: #fff;
 
     .section-header {
@@ -52,12 +53,16 @@
         }
     }
 
+    a:hover .works-on-text {
+        color: $base-link-hover-color;
+    }
+
     .works-on-item {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        padding: 0 45px;
+        min-width: 12em;
     }
 
     .works-on-icon {
@@ -95,7 +100,8 @@
     }
 
     .works-on-text {
-        color: #5c5c5c;
+        color: #acacac;
+        text-align: center;
     }
 }
 
@@ -537,7 +543,7 @@
             position: relative;
             width: 240px;
             padding: 10px 15px 30px;
-            min-height: 360px;
+            min-height: 320px;
             margin-left: $grid-spacing / 2;
             margin-right: $grid-spacing / 2;
             margin-bottom: $grid-spacing;
@@ -562,6 +568,8 @@
             height: 104px;
 
             .jetbrains-logo._logo-intellij-idea._size-2 {
+                width: 70px;
+                height: 70px;
                 margin: 22px;
             }
         }
@@ -648,10 +656,10 @@
     .try-button {
         @extend %button_default;
         text-transform: uppercase;
-        font-size: 14px;
-        padding: 6px 40px;
+        font-size: 24px;
+        padding: 10px 55px;
         height: initial;
-        margin-bottom: $unit * 2;
+        margin-bottom: $unit * 3;
     }
 }
 

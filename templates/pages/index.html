@@ -18,9 +18,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="section-header">Build Applications For</h2>
         <div class="works-on-list">
             {%- set technologies = [
-              {'target': 'JVM', 'href': '/docs/tutorials/getting-started.html'},
-              {'target': 'Android', 'href': '/docs/tutorials/getting-started.html'},
-              {'target': 'Browser', 'href': '/docs/tutorials/getting-started.html'},
+              {'target': 'JVM', 'href': '/docs/reference/server-overview.html'},
+              {'target': 'Android', 'href': '/docs/reference/android-overview.html'},
+              {'target': 'Browser', 'href': '/docs/reference/js-overview.html'},
               {'target': 'Native'}
             ]-%}
 
@@ -29,14 +29,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="{{ technology.href }}" class="works-on-item">
                         <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
                         <div class="works-on-text">
-                            {{ technology['target'] }}
+                            {{ technology['target'] }}<br/>&nbsp;
                         </div>
                     </a>
                 {% else %}
                     <div class="works-on-item">
                         <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
                         <div class="works-on-text">
-                            {{ technology['target'] }}
+                            {{ technology['target'] }}<br/>(soon)
                         </div>
                     </div>
                 {% endif %}
@@ -83,7 +83,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="kotlin-overview-section _get-kotlin" id="get-kotlin">
         <h2 class="section-header">Try Kotlin</h2>
 
-        <p class="kotlin-version">{{ data.releases.latest.version }}</p>
+        <p class="kotlin-version">Latest version: {{ data.releases.latest.version }}</p>
 
         <div class="section-content">
             <div class="get-kotlin-options-list">
@@ -95,7 +95,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3 class="option-title">IntelliJ IDEA</h3>
 
                     <p class="option-description">
-                        Kotlin works with the free Community Edition or IntelliJ IDEA Ultimate
+                        Bundled with Community Edition or IntelliJ IDEA Ultimate
                     </p>
 
                     <div class="option-link-wrap">
@@ -112,7 +112,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3 class="option-title">Android Studio</h3>
 
                     <p class="option-description">
-                        Develop Kotlin Android applications in Android Studio
+                        Install the free plugin from the plugin repository
                     </p>
 
 
@@ -130,7 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3 class="option-title">Eclipse</h3>
 
                     <p class="option-description">
-                        Get the Kotlin plugin for Eclipse
+                        Install the plugin from the Eclipse Marketplace
                     </p>
 
                     <div class="option-link-wrap">
@@ -147,7 +147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3 class="option-title">Compiler</h3>
 
                     <p class="option-description">
-                        Compile your code from the command line
+                        Use any editor and build from the command line
                     </p>
 
                     <div class="option-link-wrap">

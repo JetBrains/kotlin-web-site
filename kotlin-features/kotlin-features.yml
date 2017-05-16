@@ -1,5 +1,5 @@
 - title: Concise
-  description: Drastically reduce the amount of boilerplate code you need to write.
+  description: Drastically reduce the amount of boilerplate code.
   content_file: concise.md
 
 - title: Safe
@@ -7,9 +7,9 @@
   content_file: safe.md
 
 - title: Interoperable
-  description: Leverage existing libraries for JVM, Android and the browser with full interoperability.
+  description: Leverage existing libraries for JVM, Android and the browser.
   content_file: interoperable.md
 
 - title: Tool-friendly
-  description: Command Line Compiler or First Class IDE Support. Freedom to choose.
+  description: Choose any Java IDE or build from the command line.
   content_file: tooling.md
