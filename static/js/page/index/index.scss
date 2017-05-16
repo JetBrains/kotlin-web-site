@@ -517,17 +517,30 @@
     background-color: #003356;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi5LKO/f///+8/fxmwAVYWZhag9PefvxhwgD9//zLh0g0HTAyEwLBSAQw1/CoAAgwAba4SlNFFbukAAAAASUVORK5CYII=);
     background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .section-header {
         color: #fff;
+        margin-bottom: 2 * $unit;
     }
 
-    .kotlin-version {
-        margin-top: -7px;
-        margin-bottom: $unit*2;
-        font-size: 16px;
-        color: #fff;
-        text-align: center;
+    .try-image {
+        margin-bottom: $unit * 3;
+        height: 70px;
+        width: 100px;
+        background: url("./images/try-online.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .try-button {
+        @extend %button_default;
+        font-size: 24px;
+        padding: 10px 35px;
+        height: initial;
+        margin-bottom: $unit * 3;
     }
 
     .section-description {
@@ -638,33 +651,11 @@
     }
 }
 
-.kotlin-overview-section._try-online {
-    background-color: #f2f2f2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .try-image {
-        margin-bottom: $unit * 3;
-        height: 70px;
-        width: 100px;
-        background: url("./images/try-online.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .try-button {
-        @extend %button_default;
-        text-transform: uppercase;
-        font-size: 24px;
-        padding: 10px 55px;
-        height: initial;
-        margin-bottom: $unit * 3;
-    }
-}
-
 .kotlin-overview-section._testimonials {
     @extend %kotlin-overview-section-background-image%default;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .section-header {
         font-family: $font-family-sans-serif;
@@ -672,7 +663,41 @@
         line-height: 27px;
         margin-bottom: $unit*4;
     }
- }
+
+    .testimonials-layout {
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+
+        @media (max-width: 1100px) {
+            width: auto;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+
+    .testimonials {
+        display: flex;
+        justify-content: center;
+        align-content: stretch;
+        flex-wrap: wrap;
+    }
+
+    .testimonial-header {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .testimonial {
+        background: white;
+        margin-bottom: 2 * $unit;
+        margin-right: 3 * $unit;
+        width: 180px;
+        padding: 30px;
+        border-radius: 5px;
+        text-align: center;
+    }
+}
 
 .kotlin-overview-section._community {
     padding-top: $unit*6;

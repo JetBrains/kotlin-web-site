@@ -83,7 +83,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="kotlin-overview-section _get-kotlin" id="get-kotlin">
         <h2 class="section-header">Try Kotlin</h2>
 
-        <p class="kotlin-version">Latest version: {{ data.releases.latest.version }}</p>
+        <div class="try-image"></div>
+        <a href="//try.kotlinlang.org" class="try-button">Try online</a>
+        <div class="section-description">
+            Explore Kotlin code samples and solve problems<br/>
+            directly in the browser
+        </div>
 
         <div class="section-content">
             <div class="get-kotlin-options-list">
@@ -159,21 +164,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <section class="kotlin-overview-section _try-online">
-        <div class="try-image"></div>
-        <a href="//try.kotlinlang.org" class="try-button">Try online</a>
-        <div class="section-description">
-            Explore Kotlin code samples and solve problems<br/>
-            directly in the browser
+    <section class="kotlin-overview-section _testimonials">
+        <h2 class="section-header">Kotlin Users and Use cases</h2>
+
+        <div class="testimonials-layout">
+            <div class="testimonials">
+                {% for testimonial in data.testimonials %}
+                    <div class="testimonial">
+                        <h3 class="testimonial-header">{{ testimonial.company }}</h3>
+                        <div class="testimonial-text">{{ testimonial.text | safe }}</div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
-
-    {#
-    <section class="kotlin-overview-section _testimonials">
-        <h2 class="section-header">Who's using Kotlin</h2>
-    </section>
-#}
-
 
     <section class="kotlin-overview-section _community">
         <h2 class="section-header">Stay in touch</h2>
