@@ -195,6 +195,8 @@ reference:
   #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
         - url: /docs/reference/kotlin-doc.html
           title: Documenting Kotlin Code
+        - url: /docs/reference/kapt.html
+          title: Using Kapt
         - url: /docs/reference/using-gradle.html
           title: Using Gradle
         - url: /docs/reference/using-maven.html
