@@ -8,7 +8,8 @@ showAuthorInfo: false
 ---
 
 ### Installing the Kotlin plugin
-First, if using Android Studio, you'll need to install the Kotlin plugin.
+
+The Kotlin plugin is bundled with Android Studio starting from version 3.0. If you use an earlier version, you'll need to install the Kotlin plugin.
 Go to _File \| Settings \| Plugins \| Install JetBrains plugin..._ and then search for and install *Kotlin*.
 If you are looking at the "Welcome to Android Studio" screen, choose _Configure \| Plugins \| Install JetBrains plugin..._
 You'll need to restart the IDE after this completes.
@@ -26,6 +27,9 @@ You need to name the project and choose which Android SDK version you have insta
 Name the project:
 ![Dialog 1]({{ url_for('tutorial_img', filename='kotlin-android/0-create-new-project.png') }})
 
+Android Studio 3.0 offers an option to enable Kotlin support on this screen. You can check this option and skip the
+"Configuring Kotlin in the project" step below.
+
 Choose the Android version:
 
 ![Dialog 2]({{ url_for('tutorial_img', filename='kotlin-android/1-create-new-project.png') }})
@@ -38,11 +42,13 @@ Name the activity:
 
 ![Dialog 4]({{ url_for('tutorial_img', filename='kotlin-android/3-create-new-project.png') }})
 
-You've created a new project with one Java activity that was generated for you.
+In Android Studio 3.0, you can choose to create the activity in Kotlin right away, so you can skip the "Converting
+Java code to Kotlin" step. Earlier versions will create an activity in Java, and you can use the automated converter tool
+to convert it.
 
-But now we'd like to add some code in Kotlin. The easiest way to start using Kotlin is to convert automatically Java activity into Kotlin one.
+In general, the easiest way to start using Kotlin is to convert automatically Java activity into Kotlin one.
 Please note that anytime instead of looking through documentation for a new way to express an old pattern, 
-you can write it in Java, then copy-paste Java code into Kotlin file, and Intellij (or Android Studio) will suggest to convert it. 
+you can write it in Java, then copy-paste Java code into Kotlin file, and IntelliJ IDEA (or Android Studio) will suggest to convert it. 
 
 
 #### Converting Java code to Kotlin
