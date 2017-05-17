@@ -240,6 +240,8 @@ tutorials:
           title: Getting Started With Android Development
         - url: /docs/tutorials/android-plugin.html
           title: Kotlin Android Extensions
+        - url: /doc/tutorials/android-frameworks.html
+          title: Android Frameworks
     - title: Java Interop
       items:
         - url: /docs/tutorials/mixing-java-kotlin-intellij.html
