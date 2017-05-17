@@ -164,41 +164,7 @@ taken from the applied plugin. You can provide the version manually using the fu
 
 ## Annotation processing
 
-The Kotlin plugin supports annotation processors like _Dagger_ or _DBFlow_. In order for them to work with Kotlin classes, apply the `kotlin-kapt` plugin:
-
-``` groovy
-apply plugin: 'kotlin-kapt'
-```
-
-Or, starting with Kotlin 1.1.1, you can apply it using the plugins DSL:
-
-``` groovy
-plugins {
-    id "org.jetbrains.kotlin.kapt" version "<version to use>"
-}
-```
-
-Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
-
-``` groovy
-dependencies {
-    kapt 'groupId:artifactId:version'
-}
-```
-
-If you previously used the [android-apt](https://bitbucket.org/hvisser/android-apt) plugin, remove it from your `build.gradle` file and replace usages of the `apt` configuration with `kapt`. If your project contains Java classes, `kapt` will also take care of them.
-
-If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the `kapt` dependency and it will be available both for production sources and tests.
-
-Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures. By default, Kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`, but you can change this behavior. Add the additional flag to the `build.gradle` file to enable error type inferring in stubs:
-
-``` groovy
-kapt {
-    correctErrorTypes = true
-}
-```
-
-Note that this option is experimental and it is disabled by default.
+See the description of [Kotlin annotation processing tool](kapt.html) (`kapt`).
 
 ## Incremental compilation
 
