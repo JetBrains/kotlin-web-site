@@ -95,8 +95,8 @@ No. Kotlin lets you choose between generating Java 6 and Java 8 compatible bytec
 
 ### Is Kotlin hard?
 
-Kotlin is inspired by existing languages such as Java, C#, JavaScript, Scala and Groovy. The learning curve has been made 
-intentionally low so that people can easily jump on board, reading and writing Kotlin in a matter of days. 
+Kotlin is inspired by existing languages such as Java, C#, JavaScript, Scala and Groovy. We've tried to ensure that Kotlin is easy to learn,
+so that people can easily jump on board, reading and writing Kotlin in a matter of days. 
 Learning idiomatic Kotlin and using some more of its advanced features can take a little longer, but overall it is not a complicated language.
  
 ### What companies are using Kotlin?
