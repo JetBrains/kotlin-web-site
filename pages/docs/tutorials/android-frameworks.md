@@ -10,12 +10,12 @@ source:
 
 The Android world has many popular frameworks simplifying development.
 You can use the same frameworks if you develop in Kotlin, often as easily as you'd use them in Java. 
-This tutorial provides the examples and highlights the differences in settings.
+This tutorial provides examples and highlights the differences in settings.
 
-We'll look at [Dagger](android-frameworks.html#dagger), [Butterknife](android-frameworks.html#butterknife), [Auto-parcel](android-frameworks.html#auto-parcel) and [DBFlow](android-frameworks.html#dbflow) (other libraries can be set up very similarly).
+We'll look at [Dagger](android-frameworks.html#dagger), [Butterknife](android-frameworks.html#butterknife), [Auto-parcel](android-frameworks.html#auto-parcel) and [DBFlow](android-frameworks.html#dbflow) (other frameworks can be set up similarly).
 All these frameworks work through annotation processing: you annotate the code to have the boiler-plate code generated for you.
-Annotations allow to hide all the verbosity and keep your code simple, while in the meantime you can see the generated code that the app executes.
-Note that for now Java code is generated.
+Annotations allow to hide all the verbosity and keep your code simple, and if you need to understand what actually happens at runtime, you can look at the generated code.
+Note that all these frameworks generate source code in Java, not Kotlin.
 
 In Kotlin you specify the dependencies in a similar to Java way using [Kotlin Annotation processing tool](/docs/reference/kapt.html) (`kapt`) instead of `annotationProcessor`.
 
@@ -24,12 +24,12 @@ In Kotlin you specify the dependencies in a similar to Java way using [Kotlin An
 
 [Dagger](https://google.github.io/dagger//) is a dependency injection framework.
 If you're not familiar with it yet, you can read its [user's guide](https://google.github.io/dagger//users-guide.html).
-[The coffee example](https://github.com/google/dagger/tree/master/examples/simple) 
-described in this guide has been converted into Kotlin, you can find the result [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger). 
+We've converted [The coffee example](https://github.com/google/dagger/tree/master/examples/simple) 
+described in this guide into Kotlin, and you can find the result [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger). 
 The Kotlin code looks pretty much the same; you can browse the whole example in one [file](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger/src/main/kotlin/Coffee.kt).
 
 As in Java, you use `@Inject` to annotate the constructor used by Dagger to create instances of a class.
-Kotlin has the concise syntax for declaring a property and a constructor parameter at the same time.
+Kotlin has concise syntax for declaring a property and a constructor parameter at the same time.
 To annotate the constructor, use the `constructor` keyword explicitly and put the `@Inject` annotation before it:
 
 ```kotlin
@@ -59,7 +59,7 @@ class DripCoffeeModule {
 ```
 
 Annotating methods looks absolutely the same. 
-In the example above `@Binds` determines that an `Thermosiphon` object is used whenever `Pump` is required, `@Provides` specifies the way to build `Heater` and `@Singleton` says that the same `Heater` should be used all over the place.
+In the example above `@Binds` determines that a `Thermosiphon` object is used whenever a `Pump` is required, `@Provides` specifies the way to build a `Heater`, and `@Singleton` says that the same `Heater` should be used all over the place.
 
 To have a dependency-injected implementation generated for the type, annotate it with `@Component`.
 The generated class will have the name of this type prepended with Dagger, like `DaggerCoffeeShop` below:
@@ -103,7 +103,7 @@ dependencies {
 ```
 
 That's all!
-Note that `kapt` takes care of your Java files as well, so you need only `kapt` dependency.
+Note that `kapt` takes care of your Java files as well, so you don't need to keep the `apt` dependency.
 
 The full build script for the sample project can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger/build.gradle).
 You can also look at the converted code for [the Android sample](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-dagger).
@@ -117,9 +117,9 @@ Note that [Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/andr
 Consider using it unless you're already using ButterKnife and don't want to migrate.
  
 You use `ButterKnife` with Kotlin in the same way as you use it with Java.
-Let's see first the changes in the gradle build script, and then highlight some of the differences in the code.
+Let's see first the changes in the Gradle build script, and then highlight some of the differences in the code.
  
-In the gradle dependencies you use add the `kotlin-kapt` plugin and replace `annotationProcessor` with `kapt`:
+In the Gradle dependencies you use add the `kotlin-kapt` plugin and replace `annotationProcessor` with `kapt`:
 
 ``` groovy
 apply plugin: 'kotlin-kapt'
@@ -134,7 +134,7 @@ dependencies {
 We've converted the ButterKnife [sample](https://github.com/JakeWharton/butterknife/tree/master/sample/app/src/main/java/com/example) to Kotlin.
 The resulting code can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-butterknife).
 
-Let's looked over it to spot what has changed.
+Let's look over it to spot what has changed.
 In Java you annotated the field, binding it with the corresponding view:
  
 ``` java 
@@ -153,7 +153,7 @@ The `@BindView` annotation can be applied to the fields only, but the Kotlin com
 Note how [the lateinit modifier](/docs/reference/properties.html#late-initialized-properties) allows to declare a non-null type initialized after the object is created (after the constructor call).
 Without `lateinit` you'd have to declare a [nullable type](/docs/reference/null-safety.html) and add additional nullability checks.
  
-You can also configure listeners onto method, using ButterKnife annotations:
+You can also configure methods as listeners, using ButterKnife annotations:
 
 ``` java
 @OnClick(R2.id.hello)
@@ -176,7 +176,7 @@ hello.onClick {
 [DBFlow](https://github.com/Raizlabs/DBFlow) is a SQLite library that simplifies interaction with databases.
 It heavily relies on annotation processing.
 
-To use it with Java project you configure annotation processing dependency using `kapt`:
+To use it with a project you configure annotation processing dependency using `kapt`:
 
 ``` kotlin
 apply plugin: 'kotlin-kapt'
@@ -192,7 +192,7 @@ compile "com.github.raizlabs.dbflow:dbflow-kotlinextensions:$dbflow_version"
 If your application already uses DBFlow, you can safely add Kotlin to your project. 
 You can gradually convert existing code to Kotlin (ensuring that everything compiles along the way).
 The converted code doesn't differ much from Java. 
-For instance, declaring a table looks similar to Java with a small difference that default values for properties must be specified explicitly:
+For instance, declaring a table looks similar to Java with the small difference that default values for properties must be specified explicitly:
  
 ``` kotlin 
 @Table(name="users", database = AppDatabase::class)
@@ -207,7 +207,7 @@ class User: BaseModel() {
 }
 ``` 
 
-Besides being able to convert existing functionality to Kotlin, you can also enjoy Kotlin specific module.
+Besides being able to convert existing functionality to Kotlin, you can also enjoy the Kotlin specific module.
 DBFlow defines a bunch of extensions to make its usage in Kotlin more idiomatic.
 Let's highlight some of the supported features.
 
@@ -254,7 +254,7 @@ You can also browse the converted [sample application](https://github.com/JetBra
 
 ### Auto-Parcel
 
-[Auto-Parcel](https://github.com/frankiesardo/auto-parcel) allows to generate `Parcelable` values when they annotated with `@AutoValue`.
+[Auto-Parcel](https://github.com/frankiesardo/auto-parcel) allows to generate `Parcelable` values for classes annotated with `@AutoValue`.
 
 When you specify the dependency you again use `kapt` as annotation processor to take care of Kotlin files: 
  
