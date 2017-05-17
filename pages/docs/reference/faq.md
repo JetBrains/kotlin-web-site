@@ -25,7 +25,7 @@ Yes. Kotlin is free, has been free and will remain free. It is developed under t
 Kotlin has both object-oriented and functional constructs. You can use it in both OO and FP styles, or mix elements of the two. 
 With first-class support for features such as higher-order functions, function types and lambdas, Kotlin is a great choice if you’re doing or exploring functional programming.
 
-### What advantages does Kotlin give me over Java?
+### What advantages does Kotlin give me over the Java programming language?
 
 Kotlin is more concise than Java. Rough estimates indicate approximately a 40% cut in the number of lines of code. 
 It’s also more type-safe, e.g. support for non-nullable types makes applications less prone to NPE’s. 
@@ -55,9 +55,15 @@ Yes. Kotlin is 100% compatible with the JVM and as such you can use any existing
 vert.x or JSF. In addition there are specific frameworks written in Kotlin such as [Ktor](http://github.com/kotlin/ktor). 
 For more information check out [the resource on server-side development](/docs/reference/server-overview.html).
 
+### Can I use Kotlin for frontend development?
+
+Yes. Kotlin supports transpilation to JavaScript. It integrates with npm and webpack via the [Kotlin frontend plugin](https://github.com/kotlin/kotlin-frontend-plugin)
+and supports [import of TypeScript definition files](https://github.com/kotlin/ts2kt). 
+For more information check out [the resource on JavaScript development](/docs/reference/js-overview.html).
+
 ### Can I use Kotlin for desktop development?
 
-Yes. Kotlin is 100% compatible with Java so you can use any UI framework such as JavaFx, Swing or other. 
+Yes. You can use any Java UI framework such as JavaFx, Swing or other. 
 In addition there are Kotlin specific frameworks such as [TornadoFX](https://github.com/edvin/tornadofx). 
 
 ### Can I use Kotlin for native development?
