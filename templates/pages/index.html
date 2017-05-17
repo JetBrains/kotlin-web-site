@@ -2,6 +2,8 @@
 <html>
 <head>
     {% include 'inc/head.html' %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body class="page_index">
 <!-- Google Tag Manager (noscript) -->
@@ -12,31 +14,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="global-layout">
     {% include 'inc/header.html' %}
 
+    <section class="kotlin-overview-section _works-on">
+        <h2 class="section-header">Build Applications For</h2>
+        <div class="works-on-list">
+            {%- set technologies = [
+              {'target': 'JVM', 'href': '/docs/reference/server-overview.html'},
+              {'target': 'Android', 'href': '/docs/reference/android-overview.html'},
+              {'target': 'Browser', 'href': '/docs/reference/js-overview.html'},
+              {'target': 'Native'}
+            ]-%}
+
+            {% for technology in technologies %}
+                {% if(technology.href) %}
+                    <a href="{{ technology.href }}" class="works-on-item">
+                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
+                        <div class="works-on-text">
+                            {{ technology['target'] }}<br/>&nbsp;
+                        </div>
+                    </a>
+                {% else %}
+                    <div class="works-on-item">
+                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
+                        <div class="works-on-text">
+                            {{ technology['target'] }}<br/>(soon)
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
     <section class="kotlin-overview-section _features">
         <h2 class="section-header">Why Kotlin?</h2>
         <div class="section-content">
-
-            <div class="kotlin-features-carousel-wrap" id="features-carousel-wrap">
-
-                <div class="kotlin-features-carousel js-carousel">
-                    <ul class="kotlin-features-list js-carousel-list">
-                        {% for feature in features %}
-                            <li class="kotlin-feature _{{ feature.id }} js-popup-open-button"
-                                data-popup-id="kotlin-feature_{{ feature.id }}">
-                                <div class="feature-image">
-                                    <div class="feature-icon _{{ feature.id }}"></div>
-                                </div>
-                                <h3 class="feature-title">{{ feature.title }}</h3>
-                                <p class="feature-description">{{ feature.description }}</p>
-                                <span class="feature-example-link">See example</span>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="kotlin-features-carousel-nav _prev js-carousel-nav-prev is_disabled"></div>
-                <div class="kotlin-features-carousel-nav _next js-carousel-nav-next"></div>
-            </div>
+            <ul class="kotlin-features-list">
+                {% for feature in features %}
+                    <li class="kotlin-feature _{{ feature.id }} js-popup-open-button"
+                        data-popup-id="kotlin-feature_{{ feature.id }}">
+                        <div class="feature-image">
+                            <div class="feature-icon _{{ feature.id }}"></div>
+                        </div>
+                        <h3 class="feature-title">{{ feature.title }}</h3>
+                        <p class="feature-description">{{ feature.description }}</p>
+                        <span class="feature-example-link">See example</span>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
 
         {% for feature in features %}
@@ -57,54 +80,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {# This fle conteins a lot of pre-formatted code. #}
     {% include 'inc/pages/index/code-examples.html' %}
 
-    <section class="kotlin-overview-section _video-overview">
-        <div class="section-content">
-            <div class="video-player-wrap js-video-player-wrap">
-
-                <a href="http://www.youtube.com/watch?v=viiDaLpPfN4" class="video-thumb-link js-video-thumb-link">
-                <span class="video-description">
-                    <span class="title">See Kotlin in action</span>
-                    <span class="description"></span>
-                </span>
-
-                    <span class="video-player-play-button js-play-video-button"></span>
-                    <span class="video-thumb-cover"></span>
-
-                    <img src="{{ url_for('asset', path='images/index/how-to-use-kotlin-video-thumb.jpg') }}"
-                         class="video-thumb"
-                         alt="Getting Started with Kotlin in 2 minutes"
-                         height="506"
-                    >
-                </a>
-
-                <div class="js-video-player">
-
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="kotlin-overview-section _get-kotlin" id="get-kotlin">
         <h2 class="section-header">Try Kotlin</h2>
 
-        <p class="kotlin-version">{{ data.releases.latest.version }}</p>
+        <div class="try-image"></div>
+        <a href="//try.kotlinlang.org" class="try-button">Try online</a>
+        <div class="section-description">
+            Explore Kotlin code samples and solve problems<br/>
+            directly in the browser
+        </div>
 
         <div class="section-content">
             <div class="get-kotlin-options-list">
-                <div class="option-item _try-online">
-                    <div class="option-image _try-online"></div>
-                    <div class="option-title-pre-text">In the browser</div>
-                    <h3 class="option-title">Try Online</h3>
+                <div class="option-item _intellij-idea">
+                    <div class="option-image">
+                        <div class="jetbrains-logo _logo-intellij-idea _size-2"></div>
+                    </div>
+                    <div class="option-title-pre-text">Use</div>
+                    <h3 class="option-title">IntelliJ IDEA</h3>
 
                     <p class="option-description">
-                        Explore Kotlin code samples and solve problems directly in your browser.
+                        Bundled with Community Edition or IntelliJ IDEA Ultimate
+                    </p>
+
+                    <div class="option-link-wrap">
+                        <a href="/docs/tutorials/getting-started.html"
+                           class="option-link">
+                            Instructions
+                        </a>
+                    </div>
+                </div>
+
+                <div class="option-item">
+                    <div class="option-image _android-studio"></div>
+                    <div class="option-title-pre-text">Use</div>
+                    <h3 class="option-title">Android Studio</h3>
+
+                    <p class="option-description">
+                        Install the free plugin from the plugin repository
                     </p>
 
 
                     <div class="option-link-wrap">
-                        <a href="http://try.kotlinlang.org"
+                        <a href="http://localhost:5000/docs/tutorials/kotlin-android.html"
                            class="option-link">
-                            Try Online
+                            Instructions
+                        </a>
+                    </div>
+                </div>
+
+                <div class="option-item">
+                    <div class="option-image _eclipse"></div>
+                    <div class="option-title-pre-text">Use</div>
+                    <h3 class="option-title">Eclipse</h3>
+
+                    <p class="option-description">
+                        Install the plugin from the Eclipse Marketplace
+                    </p>
+
+                    <div class="option-link-wrap">
+                        <a href="/docs/tutorials/getting-started-eclipse.html"
+                           class="option-link">
+                            Instructions
                         </a>
                     </div>
                 </div>
@@ -115,7 +152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3 class="option-title">Compiler</h3>
 
                     <p class="option-description">
-                        Compile your code from the command line or use build tools such as Ant, Gradle and Maven.
+                        Use any editor and build from the command line
                     </p>
 
                     <div class="option-link-wrap">
@@ -123,125 +160,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                            class="option-link">Download Compiler</a>
                     </div>
                 </div>
-
-                <div class="option-item _intellij-idea">
-                    <div class="option-image">
-                        <div class="jetbrains-logo _logo-intellij-idea _size-2"></div>
-                    </div>
-                    <div class="option-title-pre-text">Use</div>
-                    <h3 class="option-title">IntelliJ IDEA</h3>
-
-                    <p class="option-description">
-                        Kotlin works with the free Community Edition, IntelliJ IDEA Ultimate or Android Studio.
-                    </p>
-
-                    <div class="option-link-wrap">
-                        <a href="/docs/tutorials/getting-started.html"
-                           class="option-link">
-                            Setup Plugin
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="option-item _source-code">
-                    <div class="option-image _source-code"></div>
-                    <div class="option-title-pre-text">Use</div>
-                    <h3 class="option-title">Eclipse</h3>
-
-                    <p class="option-description">
-                        Get a preview version of the Kotlin plugin for Eclipse Luna.
-                    </p>
-
-                    <div class="option-link-wrap">
-                        <a href="/docs/tutorials/getting-started-eclipse.html"
-                           class="option-link">
-                            Setup Plugin
-                        </a>
-                    </div>
-                </div>
             </div>
-
-
-            <div class="overview-popup _hidden js-popup"
-                 id="setting-up-idea-option-popup">
-                <div class="popup-content">
-                    <h3>Setting Up IntelliJ IDEA</h3>
-
-                    <h4>Milestone Versions</h4>
-                    <p>
-                        A stable milestone version of Kotlin can be obtained from JetBrains <a href="#">Plugin
-                        Repository</a>.
-                        <br>
-                        In IDEA navigate to: Settings -> Plugins -> Browse Repositories
-                        <br>
-                        Select the Kotlin plugin and then Download and Install.
-                    </p>
-
-                    <h4>Using the Kotlin Nightly Builds</h4>
-                    <p>In IDEA navigate to: Preferences -> Plugins -> Browse Repositories. Enter:</p>
-                    <ul>
-                        <li>
-                            for IntelliJ IDEA 13 EAP:<br>
-                            <small>
-                                http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml
-                            </small>
-                        </li>
-                        <li>
-                            for IntelliJ IDEA 12.1.5: <br>
-                            <small>
-                                http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml?branch=idea12
-                            </small>
-                        </li>
-                        <li>
-                            for IntelliJ IDEA 12.1.4 and below: download manually, see instructions below.
-                        </li>
-                    </ul>
-
-                    <p>Then you should be able to select the Kotlin plugin and Download and Install. The repository
-                        above contains nightly builds published automatically.</p>
-                </div>
-
-                <div class="popup-close-button js-popup-close-button"
-                     data-popup-id="setting-up-idea-option-popup"></div>
-            </div>
+            <p class="kotlin-version">Latest version: {{ data.releases.latest.version }}</p>
         </div>
     </section>
 
     <section class="kotlin-overview-section _testimonials">
-        <div class="section-header">Who's using Kotlin</div>
-        <div class="section-content">
+        <h2 class="section-header">Kotlin Usage Highlights</h2>
 
-            <div class="g-layout2 testimonials-carousel-wrap" id="testimonials-carousel-wrap">
-                <div class="testimonials-carousel js-carousel">
-                    <ul class="testimonials-list js-carousel-list">
-                        {% for testimonial in data['companies-using-kotlin'] %}
-                            <li class="testimonials-list-item">
-                                <blockquote class="testimonial-quote">
-                                    <div class="text">{{ testimonial.description }}</div>
-                                </blockquote>
-
-                                <div class="testimonial-company">
-                                    {% if testimonial.logo or testimonial.url %}
-                                        <a href="{{ testimonial.url }}"
-                                           class="testimonial-company-link"
-                                           target="_blank"
-                                           rel="nofollow">
-                                            {{ testimonial.company }}
-                                        </a>
-                                    {% else %}
-                                        {{ testimonial.company }}
-                                    {% endif %}
-                                </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="testimonials-carousel-nav _prev js-carousel-nav-prev is_disabled"></div>
-                <div class="testimonials-carousel-nav _next js-carousel-nav-next"></div>
+        <div class="testimonials-layout">
+            <div class="testimonials">
+                {% for testimonial in data.testimonials %}
+                    <div class="testimonial">
+                        <h3 class="testimonial-header">{{ testimonial.company }}</h3>
+                        <div class="testimonial-text">{{ testimonial.text | safe }}</div>
+                    </div>
+                {% endfor %}
             </div>
-
         </div>
     </section>
 

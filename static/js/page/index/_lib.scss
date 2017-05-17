@@ -1,8 +1,8 @@
-@import '../../_config';
-@import '../../_utils';
-@import '../_bits/_pre';
-@import '../_bits/_code';
-@import '../_syntax-highlight/_syntax-highlight_dark';
+@import '../../../css/_config';
+@import '../../../css/_utils';
+@import '../../../css/com/_bits/_pre';
+@import '../../../css/com/_bits/_code';
+@import '../../../css/com/_syntax-highlight/_syntax-highlight_dark';
 
 $overview-section-width: 840px;
 
@@ -21,32 +21,6 @@ $overview-section-width: 840px;
     &%blue-paper {
         background-color: #557799;
         background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpiTGxc8P///1+//zJgA2yszCxA6a/ffzHgAL///GXCpRsOmBgIgWGlAhhq+FUABBgAqVoTbokugwMAAAAASUVORK5CYII=');
-    }
-}
-
-%kotlin-overview-carousel {
-    &%nav-next {
-        @include user-select(none);
-        position: absolute;
-        top: 50%;
-        right: 0;
-        margin-top: -26px;
-        width: 27px;
-        height: 52px;
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAA0CAYAAAB7LkO2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAd9JREFUeNq8mFFEQ1EYx2+3+9JrRET0FBExYowYMWJPY4wYMZamq7SXplZKU0o9RcSeeuopoteInqLXnkZPEREREf0//uOItdvd+c6fn3F3rp9zt3O/75y+er2+53neAXjzlOODBtgHQy5k72AVyAyHtWUehSHYASPaMskHqIAtMKotk3xSuA7GtGWmcM220O9w/Yu/oQjHtWWmcAlMaMtMYQlMacsk31yH8yChLTOFeZDUlrVTBXNxhX6Me2oUplzI2sJZkHYhk2zycWZcyCS7YBJkXcg8Fl55reVcyCQnYLCb0JZMcsZqX3Ahk5yCAVB0IZOc83PBhUzSZF0su5BJLsArWHYhk1yCVluoLZNcUZh3IZM8g5nAgSjBSl/Rlk1zzS1KAdaUJVnZK6z0npYsxfdkaF7UkKVZcsLfX9iWZSgLtd+NGT6+aqcBtmaWZRNb+2uQDVmOlXq728BeZQXu5RpRBvciK7IVaES9we9BJBX56D83xZlZyWgBPE1ZmRW4qd3rr/BUoRn3R44qk+3uC0t97AQRRS2WeNWd5wZ4siHqNjM5fLkHN9qnBXJwdmtT1GlmIrqmTPWE55Ctl3WRKesHx/wj3Gk1JYEhksX6oNlqBVxHsvN41G4gfwQYAJQGUvhq6jSNAAAAAElFTkSuQmCC);
-        cursor: pointer;
-
-        &.is_disabled {
-            opacity: 0.4;
-            cursor: default;
-        }
-    }
-
-    &%nav-prev {
-        @extend %kotlin-overview-carousel%nav-next;
-        @include transform(rotate(180deg));
-        left: 0;
-        right: auto;
     }
 }
 

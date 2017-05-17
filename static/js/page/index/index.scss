@@ -1,7 +1,7 @@
-@import '../../_config';
-@import '../../_utils';
-@import '../_bits/_header';
-@import '../_bits/_button';
+@import '../../../css/_config';
+@import '../../../css/_utils';
+@import '../../../css/com/_bits/_header';
+@import '../../../css/com/_bits/_button';
 @import 'lib';
 
 .kotlin-overview-section {
@@ -22,14 +22,86 @@
         margin-bottom: $unit*2;
         text-align: center;
     }
+}
 
-    .section-content {
+.kotlin-overview-section._works-on {
+    background-color: #393939;
+    padding-top: 24px;
+    color: #fff;
 
+    .section-header {
+        margin-bottom: 3 * $unit;
+        font-size: 32px;
     }
 
-    .overview-popup {
-        @extend %kotlin-overview-popup;
-        @extend %kotlin-overview-popup%_fixed;
+    .works-on-list {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    a {
+        opacity: 0.8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    a:hover .works-on-text {
+        color: $base-link-hover-color;
+    }
+
+    .works-on-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 12em;
+    }
+
+    .works-on-icon {
+        margin-bottom: $unit;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+
+        &._jvm {
+            width: 50px;
+            height: 58px;
+            background: url('images/works_on_jvm.svg');
+        }
+
+        &._android {
+            width: 50px;
+            height: 58px;
+            background: url('images/works_on_android.svg');
+        }
+
+        &._browser {
+            width: 50px;
+            height: 50px;
+            background: url('images/works_on_browser.svg');
+        }
+
+        &._native {
+            width: 50px;
+            height: 50px;
+            background: url('images/works_on_native.svg');
+        }
+    }
+
+    a .works-on-text {
+        color: white;
+    }
+
+    .works-on-text {
+        color: #acacac;
+        text-align: center;
     }
 }
 
@@ -37,7 +109,6 @@
     $item-width: 240px;
     $item-margin: 24px;
     $item-count: 4;
-    $carousel-width: (($item-width + $item-margin) * $item-count) - $item-margin;
     @extend %kotlin-overview-section-background-image%default;
     position: relative;
     text-align: center;
@@ -51,40 +122,7 @@
         margin-bottom: $unit*5;
     }
 
-    .kotlin-features-carousel-wrap {
-        position: relative;
-        display: inline-block;
-        padding: 0 50px;
-        margin: auto;
-        white-space: nowrap;
-    }
-
-    .kotlin-features-carousel {
-        overflow: hidden;
-        width: $carousel-width;
-        padding: 0 8px;
-
-        @media (max-width: 1165px) {
-            width: $carousel-width - ($item-width + $item-margin);
-        }
-
-        @media (max-width: 930px) {
-            width: $carousel-width - (($item-width + $item-margin) * 2);
-        }
-    }
-
-    .kotlin-features-carousel-nav {
-        &._prev {
-            @extend %kotlin-overview-carousel%nav-prev;
-        }
-
-        &._next {
-            @extend %kotlin-overview-carousel%nav-next;
-        }
-    }
-
     .kotlin-features-list {
-        @include clearfix;
         display: inline-block;
         position: relative;
         left: 0;
@@ -101,7 +139,7 @@
             margin-right: $item-margin;
             margin-bottom: 10px;
             padding: 0;
-            min-height: 340px;
+            height: 310px;
             background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -114,41 +152,13 @@
                 box-shadow: 0 1px 9px 1px #84b5e6;
                 cursor: pointer;
             }
-
-            &._tooling {
-            }
-            &._concise {
-            }
-            &._expressive {
-            }
-            &._safe {
-            }
-            &._versatile {
-            }
-            &._interoperable {
-            }
         }
 
         .feature-image {
-            @extend %kotlin-overview-section-background-image%blue-paper;
             position: relative;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
-            background-color: #557799;
-            background-repeat: repeat;
-            height: 165px;
-            margin: 0 0 $unit*3;
-
-            &:after {
-                @include linear-gradient($from: rgba(255, 255, 255, 1), $to: rgba(255, 255, 255, 0));
-                position: absolute;
-                opacity: 0.3;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                content: '';
-            }
+            height: 160px;
         }
 
         .feature-icon {
@@ -159,42 +169,35 @@
             right: 0;
             bottom: 0;
             margin: auto;
-            background: url('images/kotlin-features-sprite.png') no-repeat 200% 200%;
 
-            @include adapt_retina {
-                background-image: url('images/kotlin-features-sprite@2x.png');
-                background-size: 100px 600px;
+            &._tool-friendly {
+                width: 60px;
+                height: 61px;
+                background: url('images/tool-friendly.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
 
-            &._tooling {
-                width: 47px;
-                height: 47px;
-                background-position: 0 0;
-            }
             &._concise {
-                width: 31px;
-                height: 56px;
-                background-position: 0 -100px;
-            }
-            &._expressive {
-                width: 79px;
-                height: 55px;
-                background-position: 0 -200px;
+                width: 60px;
+                height: 73px;
+                background: url('./images/concise.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
             &._safe {
-                width: 39px;
-                height: 59px;
-                background-position: 0 -300px;
-            }
-            &._versatile {
-                width: 58px;
-                height: 57px;
-                background-position: 0 -400px;
+                width: 60px;
+                height: 69px;
+                background: url('./images/safe.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
             &._interoperable {
-                width: 55px;
-                height: 72px;
-                background-position: 0 -500px;
+                width: 60px;
+                height: 61px;
+                background: url('./images/interopable.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
         }
 
@@ -240,73 +243,6 @@
         @media (max-width: 1050px) {
             bottom: auto;
             min-height: 500px;
-        }
-    }
-
-    .overview-popup_versatile {
-        .logos-list {
-            font-size: 0;
-        }
-
-        .logos-list-item {
-            position: relative;
-            display: inline-block;
-            font-size: $base-font-size;
-            width: 50%;
-            margin-bottom: 27px;
-            vertical-align: top;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            .logo {
-                position: relative;
-                float: left;
-                margin-right: 20px;
-                background: url('images/logos-sprite.png') no-repeat;
-
-                @include adapt_retina {
-                    background-image: url('images/logos-sprite@2x.png');
-                    background-size: 100px 500px;
-                }
-
-                &._android {
-                    top: -5px;
-                    width: 65px;
-                    height: 77px;
-                    background-position: 0 0;
-                }
-                &._tomcat {
-                    width: 91px;
-                    height: 64px;
-                    background-position: 0 -100px;
-                }
-                &._js {
-                    width: 66px;
-                    height: 66px;
-                    background-position: 0 -200px;
-                }
-                &._javaee {
-                    top: -19px;
-                    width: 51px;
-                    height: 90px;
-                    margin-left: 20px;
-                    margin-right: 39px;
-                    background-position: 0 -300px;
-                }
-                &._html5 {
-                    top: -10px;
-                    width: 58px;
-                    height: 82px;
-                    background-position: 0 -400px;
-                }
-            }
-
-            .description {
-                display: block;
-                margin-right: 40px;
-            }
         }
     }
 
@@ -574,122 +510,6 @@
     }
 }
 
-.kotlin-overview-section._video-overview {
-    $video-height: auto;
-
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-    background-color: #fff;
-
-    .video-player-wrap {
-        @include transition(background-color 0.5s);
-        height: $video-height;
-        background-image: url('images/video-ajax-loader.gif');
-        background-repeat: no-repeat;
-        background-position: 200% 200%;
-        text-align: center;
-
-        &.is_showing-video {
-            background-color: #000;
-            background-position: center center;
-        }
-
-        .video-thumb-link {
-            @include transition(all 0.3);
-            display: inline-block;
-            position: relative;
-            margin: 30px auto;
-            text-align: center;
-            -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-        }
-        &.is_showing-video .video-thumb-link {
-            @include animation(overview-video-scale 0.5s);
-        }
-
-        .video-thumb {
-            opacity: 0.3;
-            max-width: 100%;
-            height: auto;
-            margin: 0;
-            vertical-align: top;
-        }
-        .video-thumb-link .video-thumb {
-            opacity: 1;
-        }
-
-        .video-description {
-            //opacity: 0.6;
-            position: absolute;
-            left: 0;
-            bottom: 50%;
-            width: 100%;
-            margin-bottom: 40px;
-            color: #fff;
-            text-align: center;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-
-            .title {
-                display: block;
-                font-size: 45px;
-                font-family: $font-family-serif;
-                line-height: 50px;
-                margin-bottom: $unit;
-            }
-
-            .description {
-
-            }
-        }
-        .video-thumb-link:hover .video-description {
-            opacity: 1;
-        }
-
-        .video-thumb-cover {
-            @include transition(background-color 0.3s);
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.15);
-        }
-        .video-thumb-link:hover .video-thumb-cover {
-            background-color: rgba(0, 0, 0, 0.001);
-        }
-
-        .video-player-play-button {
-            @include user-select(none);
-            position: absolute;
-            //opacity: 0.6;
-            left: 50%;
-            top: 50%;
-            width: 69px;
-            height: 69px;
-            margin-top: -35px;
-            margin-left: -35px;
-            background: url('../layout/images/main-sprite.png') no-repeat;
-            background-position: 0 -100px;
-            cursor: pointer;
-
-            @include adapt_retina {
-                background-image: url('../layout/images/main-sprite@2x.png');
-                background-size: 150px auto;
-            }
-        }
-        a:hover .video-player-play-button {
-            opacity: 1;
-        }
-    }
-
-    .video-player {
-        display: none;
-        height: $video-height;
-
-    }
-}
-
 .kotlin-overview-section._get-kotlin {
     padding-top: 30px;
     padding-bottom: 20px;
@@ -697,17 +517,37 @@
     background-color: #003356;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi5LKO/f///+8/fxmwAVYWZhag9PefvxhwgD9//zLh0g0HTAyEwLBSAQw1/CoAAgwAba4SlNFFbukAAAAASUVORK5CYII=);
     background-repeat: repeat;
-
-    .section-header {
-        color: #fff;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .kotlin-version {
-        margin-top: -7px;
         margin-bottom: $unit*2;
         font-size: 16px;
         color: #fff;
-        text-align: center;
+        text-align: right;
+    }
+
+    .section-header {
+        color: #fff;
+        margin-bottom: 2 * $unit;
+    }
+
+    .try-image {
+        margin-bottom: $unit * 3;
+        height: 70px;
+        width: 100px;
+        background: url("./images/try-online.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .try-button {
+        @extend %button_default;
+        font-size: 24px;
+        padding: 10px 35px;
+        height: initial;
+        margin-bottom: $unit * 3;
     }
 
     .section-description {
@@ -723,7 +563,7 @@
             position: relative;
             width: 240px;
             padding: 10px 15px 30px;
-            min-height: 360px;
+            min-height: 320px;
             margin-left: $grid-spacing / 2;
             margin-right: $grid-spacing / 2;
             margin-bottom: $grid-spacing;
@@ -746,10 +586,10 @@
             margin: 15px auto 20px;
             width: 104px;
             height: 104px;
-            background-color: #F2F2F2;
-            border-radius: 50px;
 
             .jetbrains-logo._logo-intellij-idea._size-2 {
+                width: 70px;
+                height: 70px;
                 margin: 22px;
             }
         }
@@ -762,31 +602,31 @@
             bottom: 0;
             display: block;
             margin: auto;
-            background: url('images/get-kotlin-sprite.png') no-repeat 200% 200%;
             content: '';
-
-            @include adapt_retina {
-                background-image: url('images/get-kotlin-sprite@2x.png');
-                background-size: 100px 250px;
-
-            }
         }
+
         .option-image._standalone-compiler:after {
-            width: 50px;
-            height: 58px;
-            background-position: 0 0;
+            width: 75px;
+            height: 60px;
+            background: url("./images/standalone-compiler.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-        .option-image._source-code:after {
-            width: 50px;
-            height: 47px;
-            background-position: 0 -150px;
+        .option-image._eclipse:after {
+            width: 64px;
+            height: 60px;
+            background: url("./images/eclipse.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-        .option-image._try-online:after {
-            width: 54px;
-            height: 44px;
-            background-position: 0 -200px;
+        .option-image._android-studio:after {
+            width: 74px;
+            height: 80px;
+            background: url("./images/android_studio.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .option-title-pre-text {
@@ -814,8 +654,55 @@
 
         .option-link {
             @extend %button_default;
-
         }
+    }
+}
+
+.kotlin-overview-section._testimonials {
+    @extend %kotlin-overview-section-background-image%default;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .section-header {
+        font-family: $font-family-sans-serif;
+        font-size: 24px;
+        line-height: 27px;
+        margin-bottom: $unit*4;
+    }
+
+    .testimonials-layout {
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+
+        @media (max-width: 1100px) {
+            width: auto;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+
+    .testimonials {
+        display: flex;
+        justify-content: center;
+        align-content: stretch;
+        flex-wrap: wrap;
+    }
+
+    .testimonial-header {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .testimonial {
+        background: white;
+        margin-bottom: 2 * $unit;
+        margin-right: 3 * $unit;
+        width: 180px;
+        padding: 30px;
+        border-radius: 5px;
+        text-align: center;
     }
 }
 
@@ -856,7 +743,7 @@
             width: 104px;
             height: 104px;
             background-color: #F2F2F2;
-            border-radius: 50px;
+            border-radius: 60px;
 
             &:after {
                 position: absolute;
@@ -948,128 +835,6 @@
         }
         */
 
-    }
-}
-
-.kotlin-overview-section._testimonials {
-    $item-width: 280px;
-    $item-margin: 24px;
-    $item-count: 3;
-    $carousel-width: (($item-width + $item-margin) * $item-count) - $item-margin;
-    @extend %kotlin-overview-section-background-image%default;
-
-    .section-header {
-        font-family: $font-family-sans-serif;
-        font-size: 24px;
-        line-height: 27px;
-        margin-bottom: $unit*4;
-    }
-
-    .testimonials-carousel-wrap {
-        position: relative;
-        margin: 0 auto;
-        padding: 0 50px;
-        width: $carousel-width;
-
-        @media (max-width: 1023px) {
-            width: $carousel-width - ($item-width + $item-margin);
-        }
-
-        @media (max-width: 600px) {
-            width: $carousel-width - ($item-width + $item-margin) * 2;
-        }
-    }
-
-    .testimonials-carousel {
-        overflow: hidden;
-    }
-
-    .testimonials-carousel-nav {
-        top: 85px !important;
-
-        &._prev {
-            @extend %kotlin-overview-carousel%nav-prev;
-        }
-
-        &._next {
-            @extend %kotlin-overview-carousel%nav-next;
-        }
-    }
-
-    .testimonials-list {
-        //@include grid('.testimonials-list-item', 3, 40px);
-        position: relative;
-        white-space: nowrap;
-        font-size: 0;
-    }
-
-    .testimonials-list-item {
-        $corner-height: 24px;
-        $quote-height: 150px;
-        width: $item-width;
-        margin-right: $item-margin;
-        display: inline-block;
-        font-size: $base-font-size;
-        white-space: normal;
-
-        .testimonial-quote {
-            position: relative;
-            box-sizing: border-box;
-            display: block;
-            margin: 5px 3px (5px + $corner-height);
-            padding: 0 30px;
-            min-height: $quote-height;
-            box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
-            border-radius: 4px;
-            background-color: #fff;
-            line-height: $quote-height;
-
-            .text {
-                display: inline-block;
-                color: #666;
-                font-style: italic;
-                font-weight: 300;
-                font-size: 20px;
-                line-height: 30px;
-                vertical-align: middle;
-            }
-
-            &:before,
-            &:after {
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                margin-left: -$corner-height;
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 20px $corner-height 0 $corner-height;
-                border-color: transparent;
-                content: '';
-            }
-
-            &:before {
-                margin-top: 2px;
-                border-top-color: #000;
-                opacity: 0.08;
-            }
-
-            &:after {
-                border-top-color: #fff;
-            }
-        }
-
-        .testimonial-company {
-            text-align: center;
-            font-size: 20px;
-            line-height: 50px;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        .testimonial-company-link {
-            text-decoration: none;
-        }
     }
 }
 
