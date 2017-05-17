@@ -18,7 +18,7 @@ var webDemoURL = CLIArgs['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive
 var webpackConfig = {
   entry: {
     'common': 'page/common.js',
-    'index': 'page/index.js',
+    'index': 'page/index/index.js',
     'events': 'page/events/index.js',
     'videos': 'page/videos.js',
     'grammar': 'page/grammar.js',

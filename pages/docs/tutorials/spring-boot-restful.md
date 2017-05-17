@@ -5,7 +5,6 @@ title:  "Creating a RESTful Web Service with Spring Boot"
 description: "This tutorial walks us through the process of creating a simple REST controller with Spring Boot"
 authors: Hadi Hariri, Edoardo Vacchi
 showAuthorInfo: true
-date: 2015-10-31
 source: spring-boot-restful
 ---
 Kotlin works quite smoothly with Spring Boot and many of the steps found on the [Spring Guides](https://spring.io/guides) for creating a RESTful service
@@ -15,7 +14,7 @@ and the project layout structure, as well as the initialization code.
 In this tutorial we'll walk through the steps required. For a more thorough explanation of Spring Boot and RESTful services, please see
 [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
 
-Note that all classes in this tutorial are in the `kotlin.demo` package.
+Note that all classes in this tutorial are in the `org.jetbrains.kotlin.demo` package.
 
 ### Defining the project and dependencies
 {{ site.text_using_gradle }}
@@ -24,8 +23,8 @@ The Gradle file is pretty much standard for Spring Boot. The only difference is 
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '1.0.0' // Required for Kotlin integration
-    ext.spring_boot_version = '1.3.0.RELEASE'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}' // Required for Kotlin integration
+    ext.spring_boot_version = '1.5.3.RELEASE'
     repositories {
         jcenter()
     }
@@ -38,7 +37,7 @@ buildscript {
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'kotlin' // Required for Kotlin integration
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
 
 jar {
@@ -75,12 +74,12 @@ representing an instance of *Greeting*
 @RestController
 class GreetingController {
 
-        val counter = AtomicLong()
+    val counter = AtomicLong()
 
-        @RequestMapping("/greeting")
-        fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
-                return Greeting(counter.incrementAndGet(), "Hello, $name")
-        }
+    @RequestMapping("/greeting")
+    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
+        return Greeting(counter.incrementAndGet(), "Hello, $name")
+    }
 }
 ```
 
@@ -98,11 +97,11 @@ The other change needed for Spring Boot is to mark the class as open. Spring boo
 ``` kotlin
 @SpringBootApplication
 open class Application {
-        companion object {
-                @JvmStatic fun main(args: Array<String>) {
-                        SpringApplication.run(Application::class.java, *args)
-                }
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+            SpringApplication.run(Application::class.java, *args)
         }
+    }
 }
 ```
 
@@ -140,7 +139,7 @@ springBoot {
 ### Running the application
 We can now use the any of the standard Gradle tasks for Spring Boot to run the application. As such, running
 
-        gradle bootRun
+    gradle bootRun
 
 the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
 

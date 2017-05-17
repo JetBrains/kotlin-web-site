@@ -5,7 +5,7 @@ category: FAQ
 title: "Comparison to Java"
 ---
 
-# Comparison to Java
+# Comparison to Java Programming Language
 
 ## Some Java issues addressed in Kotlin
 
@@ -44,3 +44,4 @@ Kotlin fixes a series of issues that Java suffers from
 * [Companion objects](classes.html#companion-objects)
 * [Data classes](data-classes.html)
 * [Separate interfaces for read-only and mutable collections](collections.html)
+* [Coroutines](coroutines.html)

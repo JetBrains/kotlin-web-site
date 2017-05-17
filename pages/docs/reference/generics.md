@@ -76,9 +76,9 @@ interface Collection<E> ... {
 }
 ```
 
-The **wildcard type argument** `? extends T` indicates that this method accepts a collection of objects of *some subtype of* `T`, not `T` itself. 
-This means that we can safely **read** `T`'s from items (elements of this collection are instances of a subclass of T), but **cannot write** to 
-it since we do not know what objects comply to that unknown subtype of `T`. 
+The **wildcard type argument** `? extends E` indicates that this method accepts a collection of objects of *some subtype of* `E`, not `E` itself. 
+This means that we can safely **read** `E`'s from items (elements of this collection are instances of a subclass of E), but **cannot write** to 
+it since we do not know what objects comply to that unknown subtype of `E`. 
 In return for this limitation, we have the desired behaviour: `Collection<String>` *is* a subtype of `Collection<? extends Object>`. 
 In "clever words", the wildcard with an **extends**\-bound (**upper** bound) makes the type **covariant**.
 
@@ -168,7 +168,7 @@ thus the mnemonic mentioned above is not really needed, and one can rephrase it 
 
 ### Use-site variance: Type projections
 
-It is very convenient to declare a type parameter T as *out* and have no trouble with subtyping on the use site. Yes, it is, when the class in question **can** actually be restricted to only return `T`'s, but what if it can't? 
+It is very convenient to declare a type parameter T as *out* and avoid trouble with subtyping on the use site, but some classes **can't** actually be restricted to only return `T`'s! 
 A good example of this is Array:
 
 ``` kotlin

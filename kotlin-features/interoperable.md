@@ -1,27 +1,28 @@
 
 ### Interoperable
 
-Create and consume Java code at will
+Use any existing library on the JVM, as there’s 100% compatibility, including SAM support.
 
 ``` kotlin
-import io.netty.channel.ChannelInboundMessageHandlerAdapter
-import io.netty.channel.ChannelHandlerContext
+import io.reactivex.Flowable
+import io.reactivex.schedulers.Schedulers
 
-public class NettyHandler: ChannelInboundMessageHandlerAdapter<Any>() {
-    public override fun messageReceived(p0: ChannelHandlerContext?, p1: Any?) {
-        throw UnsupportedOperationException()
+Flowable
+    .fromCallable {
+        Thread.sleep(1000) //  imitate expensive computation
+        "Done"
     }
-}
+    .subscribeOn(Schedulers.io())
+    .observeOn(Schedulers.single())
+    .subscribe(::println, Throwable::printStackTrace)
 ```
-
-Or use any existing library on the JVM, as there’s 100% compatibility, including SAM support.
 
 Target either the JVM or JavaScript. Write code in Kotlin and decide where you want to deploy to
 
 ``` kotlin
-import js.dom.html.*
+import kotlin.browser.window
 
 fun onLoad() {
-    window.document.body.innerHTML += "<br/>Hello, Kotlin!"
+    window.document.body!!.innerHTML += "<br/>Hello, Kotlin!"
 }
 ```

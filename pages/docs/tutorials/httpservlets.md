@@ -5,7 +5,6 @@ title:  "Creating Web Applications with Http Servlets"
 description: "This tutorial walks us through the process of creating a simple controller using HttpServlet to display Hello World."
 authors: Hadi Hariri
 showAuthorInfo: false
-date: 2015-11-01
 source: servlet-web-applications
 ---
 Java EE Http servlets can be used from Kotlin much like any other Java library or framework. We'll see
@@ -38,16 +37,17 @@ Once we have the build script defined with the correct dependencies, we can now 
 ``` kotlin
 @WebServlet(name = "Hello", value = "/hello")
 class HomeController : HttpServlet() {
-        override fun doGet(req: HttpServletRequest, res: HttpServletResponse) {
-                res.writer.write("Hello, World!")
-        }
+    override fun doGet(req: HttpServletRequest, res: HttpServletResponse) {
+        res.writer.write("Hello, World!")
+    }
 }
 ```
 
 ### Running the application
 
 Using IntelliJ IDEA we can easily run and debug the application in any of the possible application servers defined such as Tomcat, Glassfish or WildFly. In this case we're going to use Tomcat
-which has previously [been defined as an application server in IntelliJ IDEA](http://www.jetbrains.com/idea/webhelp/defining-application-servers-in-intellij-idea.html)
+which has previously [been defined as an application server in IntelliJ IDEA](http://www.jetbrains.com/idea/webhelp/defining-application-servers-in-intellij-idea.html).
+Note that application server support is only available in IntelliJ IDEA Ultimate.
 
 In order to run, we need the corresponding WAR(s) for deploying. We can generate these using the *war* task in Gradle which can easily be executed via the Gradle tool window in IntelliJ IDEA.
 
