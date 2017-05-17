@@ -27,14 +27,14 @@ With first-class support for features such as higher-order functions, function t
 
 ### What advantages does Kotlin give me over the Java programming language?
 
-Kotlin is more concise than Java. Rough estimates indicate approximately a 40% cut in the number of lines of code. 
+Kotlin is more concise. Rough estimates indicate approximately a 40% cut in the number of lines of code. 
 It’s also more type-safe, e.g. support for non-nullable types makes applications less prone to NPE’s. 
 Other features including smart casting, higher-order functions, extension functions and lambdas with receivers provide 
 the ability to write expressive code as well as facilitating creation of DSL.
  
-### Is Kotlin compatible with Java?
+### Is Kotlin compatible with the Java programming language?
 
-Yes. Kotlin is 100% interoperable with Java and major emphasis has been placed on making sure that your existing codebase 
+Yes. Kotlin is 100% interoperable with the Java programming language and major emphasis has been placed on making sure that your existing codebase 
 can interact properly with Kotlin. You can easily call Kotlin code from Java and Java code from Kotlin. This makes adoption
 much easier and lower-risk. There’s also an automated Java-to-Kotlin converter built into the IDE that simplifies migration of existing code.
 
@@ -55,11 +55,11 @@ Yes. Kotlin is 100% compatible with the JVM and as such you can use any existing
 vert.x or JSF. In addition there are specific frameworks written in Kotlin such as [Ktor](http://github.com/kotlin/ktor). 
 For more information check out [the resource on server-side development](/docs/reference/server-overview.html).
 
-### Can I use Kotlin for frontend development?
+### Can I use Kotlin for web development?
 
-Yes. Kotlin supports transpilation to JavaScript. It integrates with npm and webpack via the [Kotlin frontend plugin](https://github.com/kotlin/kotlin-frontend-plugin)
-and supports [import of TypeScript definition files](https://github.com/kotlin/ts2kt). 
-For more information check out [the resource on JavaScript development](/docs/reference/js-overview.html).
+Yes. In addition to using for backend web, you can also use Kotlin/JS for client-side web. Kotlin can use definitions from 
+[DefinitelyTyped](http://definitelytyped.org) to get static typing for common JavaScript libraries, and it is compatible with existing module systems such as AMD and CommonJS. 
+For more information check out [the resource on client-side development](/docs/reference/js-overview.html).
 
 ### Can I use Kotlin for desktop development?
 
