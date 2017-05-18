@@ -12,7 +12,7 @@ The Android world has many popular frameworks simplifying development.
 You can use the same frameworks if you develop in Kotlin, often as easily as you'd use them in Java. 
 This tutorial provides examples and highlights the differences in settings.
 
-We'll look at [Dagger](android-frameworks.html#dagger), [Butterknife](android-frameworks.html#butterknife), [Auto-parcel](android-frameworks.html#auto-parcel) and [DBFlow](android-frameworks.html#dbflow) (other frameworks can be set up similarly).
+We'll look at [Dagger](android-frameworks.html#dagger), [Butterknife](android-frameworks.html#butterknife), [Data Binding](android-frameworks.html#data-binding), [Auto-parcel](android-frameworks.html#auto-parcel) and [DBFlow](android-frameworks.html#dbflow) (other frameworks can be set up similarly).
 All these frameworks work through annotation processing: you annotate the code to have the boiler-plate code generated for you.
 Annotations allow to hide all the verbosity and keep your code simple, and if you need to understand what actually happens at runtime, you can look at the generated code.
 Note that all these frameworks generate source code in Java, not Kotlin.
@@ -163,13 +163,119 @@ internal fun sayHello() {
 ```
 
 This code specifies an action to be performed on the "hello" button click.
-Note that with [the Anko library](https://github.com/Kotlin/anko) and [Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), the same Kotlin code looks rather concise and can be written directly:  
+Note that with the [Anko](https://github.com/Kotlin/anko) library and [Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), the same Kotlin code looks rather concise and can be written directly:  
 
 ``` kotlin
 hello.onClick {
     toast("Hello, views!")
 }
 ```
+
+### Data Binding
+
+The [Data Binding Library](https://developer.android.com/topic/libraries/data-binding/index.html) allows you to bind your application data to the layouts in a concise way.
+
+You enable the library using the same configuration as in Java:
+
+``` groovy
+android {
+    ...
+    dataBinding {
+        enabled = true
+    }
+}
+```
+
+To make it work with Kotlin classes just add the `kapt` dependency: 
+
+``` groovy
+apply plugin: 'kotlin-kapt'
+dependencies {
+    kapt "com.android.databinding:compiler:$android_plugin_version"
+}  
+```
+
+When you switch to Kotlin, your xml layout files don't change at all.
+For instance, you use `variable` within `data` to describe a variable that may be used within the layout.
+You can declare a variable of a Kotlin type:
+ 
+```xml
+<data>
+    <variable name="data" type="org.example.kotlin.databinding.WeatherData"/>
+</data>
+``` 
+
+You use the `@{}` syntax for writing expressions, which now can refer Kotlin [properties](/docs/reference/properties.html): 
+
+```xml
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@{data.imageUrl}"
+    android:contentDescription="@string/image" />
+```
+
+Note that a reference `data.imageUrl` looks like a regular Kotlin syntax.
+In Kotlin you can write `v.prop` instead of `v.getProp()` even if `getProp()` is a Java method.
+Similarly, instead of calling a setter directly, you may use an assignment:
+  
+```kotlin
+class MainActivity : AppCompatActivity() {
+    // ...
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val binding: ActivityMainBinding =
+                DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.data = weather
+        // the same as
+        // binding.setData(weather)
+    }
+}
+```
+
+You can bind a listener to run an action when a specific event happens:
+
+```xml
+<Button
+    android:text="@string/next"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="startSecondActivity" />
+```
+
+Here `startOtherActivity` is a method defined in our `MainActivity`:
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+    // ...
+    fun startOtherActivity(view: View) = startActivity<OtherActivity>()
+}
+```
+
+In this example the utility function `startActivity` creating an intent with no data and starting a new activity is declared in the [Anko](https://github.com/Kotlin/anko) library.
+To pass some data, you can say `startActivity<OtherActivity>("KEY" to "VALUE")`.
+
+Kotlin supports lambdas.
+That means that you can bind actions directly in the Kotlin code in a convenient way.
+Instead of declaring lambdas in xml like in the following example, you can do the same in the code: 
+
+```xml
+<Button 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:onClick="@{() -> presenter.onSaveClick(task)}" />
+```          
+
+``` kotlin
+// the same logic written in Kotlin code
+button.setOnClickListener { presenter.onSaveClick(task) }
+```
+
+In the last line `button` is referenced by `id` using the [Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html) plugin. 
+Consider using this plugin as an alternative which allows you to keep binding logic in code and have the concise syntax at the same time.    
+
+You can find an example project [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-databinding).
 
 ### DBFlow
 
