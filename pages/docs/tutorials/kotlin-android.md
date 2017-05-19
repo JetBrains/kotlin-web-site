@@ -66,6 +66,7 @@ After the conversion you should have an activity written in Kotlin.
 #### Configuring Kotlin in the project
 
 If you start editing this file, Android Studio shows you a prompt that Kotlin is not configured, so you can configure it.
+Alternatively, you can invoke the configuration by selecting Tools | Kotlin | Configure Kotlin in Project from the main menu. 
 
 ![Config-Kotlin]({{ url_for('tutorial_img', filename='kotlin-android/kotlin-not-configured.png') }})
 
@@ -74,9 +75,9 @@ You are then prompted for the version of Kotlin. Choose the latest available fro
 ![Config-Kotlin-Details]({{ url_for('tutorial_img', filename='kotlin-android/configure-kotlin-in-project-details.png') }})
 
 After you configure Kotlin, build.gradle file for the application should be updated. 
-Now you can see that _apply plugin: 'kotlin-android'_ and the dependencies were added. 
+Now you can see that _apply plugin: 'kotlin-android'_ and the `kotlin-stdlib` dependency were added.
 
-*(For more details how to set up gradle for your project, please check [Using Gradle](/docs/reference/using-gradle.html))*
+*(For more details how to set up gradle for your project, please check [Using Gradle](/docs/reference/using-gradle.html#targeting-android))*
  
 ![Sync-Project-With-Gradle]({{ url_for('tutorial_img', filename='kotlin-android/sync-project-with-gradle.png') }})
 
