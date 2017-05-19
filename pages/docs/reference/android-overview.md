@@ -46,9 +46,11 @@ properties.
 
 ## Next Steps
 
-* The [Getting Started with Android and Kotlin](/docs/tutorials/kotlin-android.html) tutorial
-guides you through installing the Kotlin plugin into Android Studio and creating your first Kotlin application.
+* Download an install [Android Studio 3.0 Preview](https://developer.android.com/studio/preview/index.html), which includes Kotlin support out of the box.
+* Follow the [Getting Started with Android and Kotlin](/docs/tutorials/kotlin-android.html) tutorial
+to create your first Kotlin application.
 * For a more in-depth introduction, check out the [reference documentation](/docs/reference/index.html) on this site and
 [Kotlin Koans](/docs/tutorials/koans.html).
 * Another great resource is [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers),
 a book that guides you step by step through the process of creating a real Android application in Kotlin.
+ * Check out Google's [sample projects written in Kotlin](https://developer.android.com/samples/index.html?language=kotlin).
