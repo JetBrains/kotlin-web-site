@@ -205,7 +205,7 @@ You can declare a variable of a Kotlin type:
 </data>
 ``` 
 
-You use the `@{}` syntax for writing expressions, which now can refer Kotlin [properties](/docs/reference/properties.html): 
+You use the `@{}` syntax for writing expressions, which can now refer Kotlin [properties](/docs/reference/properties.html): 
 
 ```xml
 <ImageView
@@ -215,7 +215,7 @@ You use the `@{}` syntax for writing expressions, which now can refer Kotlin [pr
     android:contentDescription="@string/image" />
 ```
 
-Note that a reference `data.imageUrl` looks like a regular Kotlin syntax.
+Note that the databinding expression language uses the same syntax for referring to properties as Kotlin: `data.imageUrl`.
 In Kotlin you can write `v.prop` instead of `v.getProp()` even if `getProp()` is a Java method.
 Similarly, instead of calling a setter directly, you may use an assignment:
   
@@ -241,7 +241,7 @@ You can bind a listener to run an action when a specific event happens:
     android:text="@string/next"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:onClick="startSecondActivity" />
+    android:onClick="startOtherActivity" />
 ```
 
 Here `startOtherActivity` is a method defined in our `MainActivity`:
@@ -253,7 +253,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-In this example the utility function `startActivity` creating an intent with no data and starting a new activity is declared in the [Anko](https://github.com/Kotlin/anko) library.
+This example uses the utility function `startActivity` creating an intent with no data and starting a new activity, which comes from the [Anko](https://github.com/Kotlin/anko) library.
 To pass some data, you can say `startActivity<OtherActivity>("KEY" to "VALUE")`.
 
 Kotlin supports lambdas.
