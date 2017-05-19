@@ -52,3 +52,4 @@ guides you through installing the Kotlin plugin into Android Studio and creating
 [Kotlin Koans](/docs/tutorials/koans.html).
 * Another great resource is [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers),
 a book that guides you step by step through the process of creating a real Android application in Kotlin.
+* Official Android documentation for Kotlin [Kotlin and Android](https://developer.android.com/kotlin/index.html).
