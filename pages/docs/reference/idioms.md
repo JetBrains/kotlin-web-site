@@ -7,7 +7,7 @@ title: "Idioms"
 
 # Idioms
 
-A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it. Do a pull request.
+A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it by sending a pull request.
 
 ### Creating DTOs (POJOs/POCOs)
 
