@@ -96,5 +96,6 @@ Kotlin compiler produces byte-code, thus there really is no difference in terms 
 
 ### What's next?
 
-Read about [Kotlin Android Extensions plugin](android-plugin.html) and [Android Frameworks Using Annotation Processing](android-frameworks.html). 
-If you want to learn different Kotlin features, try [Kotlin Koans](koans.html).
+ * Read about [Kotlin Android Extensions plugin](android-plugin.html) and [Android Frameworks Using Annotation Processing](android-frameworks.html). 
+ * If you want to learn different Kotlin features, try [Kotlin Koans](koans.html).
+ * Check out Google's [sample projects written in Kotlin](https://developer.android.com/samples/index.html?language=kotlin)
