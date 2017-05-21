@@ -22,7 +22,7 @@ to the Android platform without introducing any new restrictions:
   * **Compilation Time**: Kotlin supports efficient incremental compilation, so while there's some additional overhead
     for clean builds, [incremental builds are usually as fast or faster than with Java](https://medium.com/keepsafe-engineering/kotlin-vs-java-compilation-speed-e6c174b39b5d).
   * **Learning Curve**: For a Java developer, getting started with Kotlin is very easy. The automated Java to Kotlin converter included in the Kotlin plugin
-    helps with the first steps. [Kotlin Koans](/docs/tutorials/koans.html) offer a guide though the key features of the language with a series of interactive exercises.
+    helps with the first steps. [Kotlin Koans](/docs/tutorials/koans.html) offer a guide through the key features of the language with a series of interactive exercises.
 
 ## Kotlin for Android Case Studies
 
