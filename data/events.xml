@@ -19,8 +19,8 @@
     </event>
     <event>
         <lang>en</lang>
-        <startDate>2016-05-19</startDate>
-        <endDate>2016-05-19</endDate>
+        <startDate>2017-05-19</startDate>
+        <endDate>2017-05-19</endDate>
         <location>Mountain View, CA, USA</location>
         <speaker>Hadi Hariri, Andrey Breslav </speaker>
         <title>Google I/O</title>
@@ -38,8 +38,8 @@
 
     <event>
         <lang>en</lang>
-        <startDate>2016-05-19</startDate>
-        <endDate>2016-05-19</endDate>
+        <startDate>2017-05-19</startDate>
+        <endDate>2017-05-19</endDate>
         <location>Mountain View, CA, USA</location>
         <speaker>Jake Wharthon, Christina Lee</speaker>
         <title>Google I/O</title>
@@ -57,8 +57,8 @@
 
     <event>
         <lang>en</lang>
-        <startDate>2016-05-22</startDate>
-        <endDate>2016-05-22</endDate>
+        <startDate>2017-05-22</startDate>
+        <endDate>2017-05-22</endDate>
         <location>Arlington, VA</location>
         <speaker>Drew Stephens</speaker>
         <title>Tech Talk DC</title>
@@ -75,8 +75,8 @@
 
     <event>
         <lang>fr</lang>
-        <startDate>2016-05-22</startDate>
-        <endDate>2016-05-22</endDate>
+        <startDate>2017-05-22</startDate>
+        <endDate>2017-05-22</endDate>
         <location>Paris, France</location>
         <speaker>Gregory Boissinot</speaker>
         <title>TechLabs by SOAT</title>
@@ -92,8 +92,8 @@
 
     <event>
         <lang>es</lang>
-        <startDate>2016-05-08</startDate>
-        <endDate>2016-05-08</endDate>
+        <startDate>2017-05-08</startDate>
+        <endDate>2017-05-08</endDate>
         <location>México City, Mexico</location>
         <speaker>Armando Picón</speaker>
         <title>Androidinights</title>
@@ -161,8 +161,8 @@
 
     <event>
         <lang>fr</lang>
-        <startDate>2016-05-31</startDate>
-        <endDate>2016-05-31</endDate>
+        <startDate>2017-05-31</startDate>
+        <endDate>2017-05-31</endDate>
         <location>Ho Chi Minh, Vietnam</location>
         <speaker>Laurent Lixfe</speaker>
         <title>Android meetup</title>
@@ -211,8 +211,8 @@
 
     <event>
         <lang>es</lang>
-        <startDate>2016-05-26</startDate>
-        <endDate>2016-05-26</endDate>
+        <startDate>2017-06-09</startDate>
+        <endDate>2017-06-09</endDate>
         <location>Barcelona, Spain</location>
         <speaker>Aleix Morgadas</speaker>
         <title>Kotlin BCN</title>
@@ -437,8 +437,6 @@
         </description>
     </event>
 
-
-
     <event>
         <lang>en</lang>
         <startDate>2017-06-27</startDate>
@@ -471,7 +469,6 @@
 ]]>
         </description>
     </event>
-
 
     <event>
         <lang>en</lang>
@@ -528,7 +525,6 @@
 ]]>
         </description>
     </event>
-
 
     <event>
         <lang>ua</lang>
