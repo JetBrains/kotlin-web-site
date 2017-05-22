@@ -48,7 +48,7 @@
  * [New Delhi Kotlin User Group](https://www.facebook.com/kotlinNewDelhi/), India
  * [Shanghai, KotlinThree](http://kotlinthree.github.io/), China
  * [Thailand Kotlin Developers](https://www.facebook.com/groups/872547279487598/), Thailand
- * [Vijayawada](https://www.facebook.com/KotlinVijayawada/), India
+ * [Vijayawada Kotlin User Group](https://www.facebook.com/KotlinVijayawada/), India
 
 </div>
 
