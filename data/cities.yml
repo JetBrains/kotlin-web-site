@@ -1,4 +1,36 @@
 - geo:
+    lat: 17.385044
+    lng: 78.486671
+  name: Hyderabad, Indian
+- geo:
+    lat: 46.482526
+    lng: 30.7233095
+  name: Odessa, Ukraine
+- geo:
+    lat: 33.9715904
+    lng: -6.8498129
+  name: Rabat, Morocco
+- geo:
+    lat: -30.0346471
+    lng: -51.2176584
+  name: Porto Alegre, Brasilia
+- geo:
+    lat: 51.17914889999999
+    lng: 32.6080941
+  name: Dnepr, Ukraine
+- geo:
+    lat: 35.0456297
+    lng: -85.3096801
+  name: Chattanooga, TN
+- geo:
+    lat: 19.4326077
+    lng: -99.133208
+  name: México City, Mexico
+- geo:
+    lat: 38.8799697
+    lng: -77.1067698
+  name: Arlington, VA
+- geo:
     lat: 39.4699075
     lng: -0.3762881
   name: Valencia, Spain
