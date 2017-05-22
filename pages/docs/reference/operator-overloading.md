@@ -64,9 +64,9 @@ For the *prefix* forms `++a` and `--a` resolution works the same way, and the ef
 
 ## Binary operations
 
-### Arithmetic operators
-
 {:#arithmetic}
+
+### Arithmetic operators 
 
 | Expression | Translated to |
 | -----------|-------------- |
@@ -82,9 +82,10 @@ For the operations in this table, the compiler just resolves the expression in t
 Note that the `rem` operator is supported since Kotlin 1.1. Kotlin 1.0 uses the `mod` operator, which is deprecated
 in Kotlin 1.1.
 
+{:#in}
+
 ### 'In' operator
 
-{:#in}
 
 | Expression | Translated to |
 | -----------|-------------- |
@@ -93,9 +94,9 @@ in Kotlin 1.1.
 
 For `in` and `!in` the procedure is the same, but the order of arguments is reversed.
 
-### Indexed access operator
-
 {:#indexed}
+
+### Indexed access operator
 
 | Expression | Translated to |
 | -------|-------------- |
@@ -108,9 +109,9 @@ For `in` and `!in` the procedure is the same, but the order of arguments is reve
 
 Square brackets are translated to calls to `get` and `set` with appropriate numbers of arguments.
 
-### Invoke operator
-
 {:#invoke}
+
+### Invoke operator
 
 | Expression | Translated to |
 |--------|---------------|
@@ -121,9 +122,9 @@ Square brackets are translated to calls to `get` and `set` with appropriate numb
 
 Parentheses are translated to calls to `invoke` with appropriate number of arguments.
 
-### Augmented assigments
-
 {:#assignments}
+
+### Augmented assignments
 
 | Expression | Translated to |
 |------------|---------------|
@@ -143,9 +144,9 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 
 *Note*: assignments are *NOT* expressions in Kotlin.
 
-### Equality and inequality operators
-
 {:#equals}
+
+### Equality and inequality operators
 
 | Expression | Translated to |
 |------------|---------------|
@@ -157,9 +158,9 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 The `==` operation is special: it is translated to a complex expression that screens for `null`'s.
 `null == null` is always true, and `x == null` for a non-null `x` is always false and won't invoke `x.equals()`.
 
-### Comparison operators
-
 {:#comparison}
+
+### Comparison operators
 
 | Expression | Translated to |
 |--------|---------------|
