@@ -12,11 +12,11 @@ Kotlin allows us to provide implementations for a predefined set of operators on
 or an [extension function](extensions.html) with a fixed name, for the corresponding type, i.e. left-hand side type for binary operations and argument type for unary ones.
 Functions that overload operators need to be marked with the `operator` modifier.
 
-## Conventions
+Further we describe the conventions that regulate operator overloading for different operators.
 
-Here we describe the conventions that regulate operator overloading for different operators.
+## Unary operations
 
-### Unary operations
+### Unary prefix operators
 
 | Expression | Translated to |
 |------------|---------------|
@@ -32,6 +32,8 @@ This table says that when the compiler processes, for example, an expression `+a
 * If the function is present and its return type is `R`, the expression `+a` has type `R`.
 
 *Note* that these operations, as well as all the others, are optimized for [Basic types](basic-types.html) and do not introduce overhead of function calls for them.
+
+### Increments and decrements
 
 | Expression | Translated to |
 |------------|---------------|
@@ -60,7 +62,11 @@ For the *prefix* forms `++a` and `--a` resolution works the same way, and the ef
 * Assign the result of `a.inc()` to `a`,
 * Return the new value of `a` as a result of the expression.
 
-### Binary operations
+## Binary operations
+
+### Arithmetic operators
+
+{:#arithmetic}
 
 | Expression | Translated to |
 | -----------|-------------- |
@@ -76,13 +82,20 @@ For the operations in this table, the compiler just resolves the expression in t
 Note that the `rem` operator is supported since Kotlin 1.1. Kotlin 1.0 uses the `mod` operator, which is deprecated
 in Kotlin 1.1.
 
+### 'In' operator
+
+{:#in}
+
 | Expression | Translated to |
 | -----------|-------------- |
 | `a in b` | `b.contains(a)` |
 | `a !in b` | `!b.contains(a)` |
 
 For `in` and `!in` the procedure is the same, but the order of arguments is reversed.
-{:#in}
+
+### Indexed access operator
+
+{:#indexed}
 
 | Expression | Translated to |
 | -------|-------------- |
@@ -95,6 +108,10 @@ For `in` and `!in` the procedure is the same, but the order of arguments is reve
 
 Square brackets are translated to calls to `get` and `set` with appropriate numbers of arguments.
 
+### Invoke operator
+
+{:#invoke}
+
 | Expression | Translated to |
 |--------|---------------|
 | `a()`  | `a.invoke()` |
@@ -104,6 +121,10 @@ Square brackets are translated to calls to `get` and `set` with appropriate numb
 
 Parentheses are translated to calls to `invoke` with appropriate number of arguments.
 
+### Augmented assigments
+
+{:#assignments}
+
 | Expression | Translated to |
 |------------|---------------|
 | `a += b` | `a.plusAssign(b)` |
@@ -111,7 +132,6 @@ Parentheses are translated to calls to `invoke` with appropriate number of argum
 | `a *= b` | `a.timesAssign(b)` |
 | `a /= b` | `a.divAssign(b)` |
 | `a %= b` | `a.modAssign(b)` |
-{:#assignments}
 
 For the assignment operations, e.g. `a += b`, the compiler performs the following steps:
 
@@ -122,7 +142,10 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 * Otherwise, try to generate code for `a = a + b` (this includes a type check: the type of `a + b` must be a subtype of `a`).
 
 *Note*: assignments are *NOT* expressions in Kotlin.
-{:#Equals}
+
+### Equality and inequality operators
+
+{:#equals}
 
 | Expression | Translated to |
 |------------|---------------|
@@ -133,6 +156,10 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 
 The `==` operation is special: it is translated to a complex expression that screens for `null`'s.
 `null == null` is always true, and `x == null` for a non-null `x` is always false and won't invoke `x.equals()`.
+
+### Comparison operators
+
+{:#comparison}
 
 | Expression | Translated to |
 |--------|---------------|

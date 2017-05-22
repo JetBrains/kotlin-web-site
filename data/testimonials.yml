@@ -9,7 +9,7 @@
 - company: Corda
   text: is an open-source distributed ledger platform, supported by major banks, and <a href="https://www.corda.net/2017/01/10/kotlin/">built entirely in Kotlin</a>.
 - company: Coursera
-  text: Coursera Andoid app is <a href="https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/">partially written</a> in Kotlin
+  text: Coursera Android app is <a href="https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/">partially written</a> in Kotlin
 - company: Pivotal
   text: Spring makes <a href="https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0">use of Kotlin's language features</a> to offer more concise APIs
 - company: Atlassian

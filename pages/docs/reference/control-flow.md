@@ -104,7 +104,7 @@ due to [smart casts](typecasts.html#smart-casts), you can access the methods and
 any extra checks.
 
 ```kotlin
-val hasPrefix = when(x) {
+fun hasPrefix(x: Any) = when(x) {
     is String -> x.startsWith("prefix")
     else -> false
 }
