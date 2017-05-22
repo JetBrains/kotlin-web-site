@@ -21,7 +21,7 @@
         <lang>en</lang>
         <startDate>2016-05-19</startDate>
         <endDate>2016-05-19</endDate>
-        <location>Mountain View, USA</location>
+        <location>Mountain View, CA, USA</location>
         <speaker>Hadi Hariri, Andrey Breslav </speaker>
         <title>Google I/O</title>
         <subject>Introduction to Kotlin</subject>
@@ -40,7 +40,7 @@
         <lang>en</lang>
         <startDate>2016-05-19</startDate>
         <endDate>2016-05-19</endDate>
-        <location>Mountain View, USA</location>
+        <location>Mountain View, CA, USA</location>
         <speaker>Jake Wharthon, Christina Lee</speaker>
         <title>Google I/O</title>
         <subject>Life is great and everything will be ok, Kotlin is here</subject>
@@ -110,7 +110,7 @@
         <lang>en</lang>
         <startDate>2017-05-18</startDate>
         <endDate>2017-05-18</endDate>
-        <location>Vancouver, BC</location>
+        <location>Vancouver, Canada</location>
         <speaker>Nishant Srivastava</speaker>
         <title>Code &amp; Coffee</title>
         <subject>Hello 'Kotlin' World!</subject>
@@ -163,7 +163,7 @@
         <lang>fr</lang>
         <startDate>2016-05-31</startDate>
         <endDate>2016-05-31</endDate>
-        <location>Ho-Chi-Minh, Vietnam</location>
+        <location>Ho Chi Minh, Vietnam</location>
         <speaker>Laurent Lixfe</speaker>
         <title>Android meetup</title>
         <subject>Kotlin, un nouveau souffle pour Android</subject>
@@ -229,7 +229,7 @@
         <lang>ja</lang>
         <startDate>2017-04-04</startDate>
         <endDate>2017-04-04</endDate>
-        <location>Tokyo,Japan</location>
+        <location>Tokyo, Japan</location>
         <speaker>Jumpei Yamamoto</speaker>
         <title>第5回Kotlin勉強会 ＠Sansan</title>
         <subject>sealed class in Kotlin1.1</subject>
@@ -249,7 +249,7 @@
         <lang>ja</lang>
         <startDate>2017-04-04</startDate>
         <endDate>2017-04-04</endDate>
-        <location>Tokyo,Japan</location>
+        <location>Tokyo, Japan</location>
         <speaker>きりみん</speaker>
         <title>第5回Kotlin勉強会 ＠Sansan</title>
         <subject>Kotlin 1.1 tour</subject>
@@ -269,7 +269,7 @@
         <lang>ja</lang>
         <startDate>2017-04-04</startDate>
         <endDate>2017-04-04</endDate>
-        <location>Tokyo,Japan</location>
+        <location>Tokyo, Japan</location>
         <speaker>Kenji Tomita</speaker>
         <title>第5回Kotlin勉強会 ＠Sansan</title>
         <subject>SwiftのEnum Associated Valuesを Kotlinでエミュレートしたい</subject>
@@ -289,7 +289,7 @@
         <lang>ja</lang>
         <startDate>2017-04-04</startDate>
         <endDate>2017-04-04</endDate>
-        <location>Tokyo,Japan</location>
+        <location>Tokyo, Japan</location>
         <speaker>Kamedon</speaker>
         <title>第5回Kotlin勉強会 ＠Sansan</title>
         <subject>Kotlin 1.1 Type aliases</subject>
@@ -325,7 +325,7 @@
         <lang>en</lang>
         <startDate>2017-06-21</startDate>
         <endDate>2017-06-21</endDate>
-        <location>Krakov, Poland</location>
+        <location>Kraków, Poland</location>
         <speaker>Paweł Barszcz</speaker>
         <title>Devoxx Poland</title>
         <subject>Kotlin - your 2017 Java replacement</subject>
@@ -443,7 +443,7 @@
         <lang>en</lang>
         <startDate>2017-06-27</startDate>
         <endDate>2017-06-27</endDate>
-        <location>London, England</location>
+        <location>London, UK</location>
         <speaker>Duncan McGregor and Nat Pryce</speaker>
         <title>Software Practice Advancement Conference 2017</title>
         <subject>Adopting Kotlin - How We Learned to Stop Worrying and Love the Null</subject>
@@ -477,7 +477,7 @@
         <lang>en</lang>
         <startDate>2017-05-11</startDate>
         <endDate>2017-05-11</endDate>
-        <location>London, England</location>
+        <location>London, UK</location>
         <speaker>Russel Winder</speaker>
         <title>DevoxxUK</title>
         <subject>The Case for Kotlin and Ceylon</subject>
@@ -652,7 +652,7 @@
         <lang>en</lang>
         <startDate>2017-05-12</startDate>
         <endDate>2017-05-12</endDate>
-        <location>London, England</location>
+        <location>London, UK</location>
         <speaker>Dmitry Kandalov</speaker>
         <title>Devoxx United Kingdom</title>
         <subject>An introduction to Kotlin</subject>
