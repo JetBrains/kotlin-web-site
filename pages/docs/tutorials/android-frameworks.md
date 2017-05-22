@@ -2,14 +2,14 @@
 type: tutorial
 layout: tutorial
 title:  "Android Frameworks Using Annotation Processing"
-description: "This tutorial describes the usage of popular Android frameworks and libraries that use annotation processing with Kotlin."
+description: "This tutorial describes how to use in Kotlin popular Android frameworks and libraries that rely on annotation processing."
 authors: Svetlana Isakova
 showAuthorInfo: false
 source:
 ---
 
 The Android world has many popular frameworks simplifying development.
-You can use the same frameworks if you develop in Kotlin, often as easily as you'd use them in Java. 
+You can use the same frameworks if you develop in Kotlin, often as easily as you'd do that in Java. 
 This tutorial provides examples and highlights the differences in settings.
 
 We'll look at [Dagger](android-frameworks.html#dagger), [Butterknife](android-frameworks.html#butterknife), [Data Binding](android-frameworks.html#data-binding), [Auto-parcel](android-frameworks.html#auto-parcel) and [DBFlow](android-frameworks.html#dbflow) (other frameworks can be set up similarly).
@@ -24,12 +24,12 @@ In Kotlin you specify the dependencies in a similar to Java way using [Kotlin An
 
 [Dagger](https://google.github.io/dagger//) is a dependency injection framework.
 If you're not familiar with it yet, you can read its [user's guide](https://google.github.io/dagger//users-guide.html).
-We've converted [The coffee example](https://github.com/google/dagger/tree/master/examples/simple) 
+We've converted [the coffee example](https://github.com/google/dagger/tree/master/examples/simple) 
 described in this guide into Kotlin, and you can find the result [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger). 
 The Kotlin code looks pretty much the same; you can browse the whole example in one [file](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger/src/main/kotlin/Coffee.kt).
 
 As in Java, you use `@Inject` to annotate the constructor used by Dagger to create instances of a class.
-Kotlin has concise syntax for declaring a property and a constructor parameter at the same time.
+Kotlin has a short syntax for declaring a property and a constructor parameter at the same time.
 To annotate the constructor, use the `constructor` keyword explicitly and put the `@Inject` annotation before it:
 
 ```kotlin
@@ -41,8 +41,8 @@ class Thermosiphon
 }    
 ```
 
-`@Module` annotates classes defining how to provide different objects.
-When you pass an annotation argument as a vararg argument, you have to explicitly wrap it into `arrayOf`, like in `@Module(includes = arrayOf(PumpModule::class))` below:
+Annotating methods looks absolutely the same. 
+In the example below `@Binds` determines that a `Thermosiphon` object is used whenever a `Pump` is required, `@Provides` specifies the way to build a `Heater`, and `@Singleton` says that the same `Heater` should be used all over the place:
 
 ```kotlin
 @Module
@@ -58,8 +58,8 @@ class DripCoffeeModule {
 }
 ```
 
-Annotating methods looks absolutely the same. 
-In the example above `@Binds` determines that a `Thermosiphon` object is used whenever a `Pump` is required, `@Provides` specifies the way to build a `Heater`, and `@Singleton` says that the same `Heater` should be used all over the place.
+`@Module`-annotated classes define how to provide different objects.
+Note that when you pass an annotation argument as a vararg argument, you have to explicitly wrap it into `arrayOf`, like in `@Module(includes = arrayOf(PumpModule::class))` above.
 
 To have a dependency-injected implementation generated for the type, annotate it with `@Component`.
 The generated class will have the name of this type prepended with Dagger, like `DaggerCoffeeShop` below:
@@ -103,7 +103,7 @@ dependencies {
 ```
 
 That's all!
-Note that `kapt` takes care of your Java files as well, so you don't need to keep the `apt` dependency.
+Note that `kapt` takes care of your Java files as well, so you don't need to keep the `annotationProcessor` dependency.
 
 The full build script for the sample project can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger/build.gradle).
 You can also look at the converted code for [the Android sample](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-dagger).
@@ -148,7 +148,7 @@ You annotate the property:
 @BindView(R2.id.title)
 lateinit var title: TextView
 ```
-The `@BindView` annotation can be applied to the fields only, but the Kotlin compiler understands that and annotates the corresponding field under the hood when you apply the annotation to the whole property.
+The `@BindView` annotation is defined to be applied to the fields only, but the Kotlin compiler understands that and annotates the corresponding field under the hood when you apply the annotation to the whole property.
 
 Note how [the lateinit modifier](/docs/reference/properties.html#late-initialized-properties) allows to declare a non-null type initialized after the object is created (after the constructor call).
 Without `lateinit` you'd have to declare a [nullable type](/docs/reference/null-safety.html) and add additional nullability checks.
@@ -163,13 +163,15 @@ internal fun sayHello() {
 ```
 
 This code specifies an action to be performed on the "hello" button click.
-Note that with the [Anko](https://github.com/Kotlin/anko) library and [Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), the same Kotlin code looks rather concise and can be written directly:  
+Note that with lambdas this code looks rather concise written directly in Kotlin:
 
 ``` kotlin
-hello.onClick {
+hello.setOnClickListener {
     toast("Hello, views!")
 }
 ```
+
+The `toast` function is defined in the [Anko](https://github.com/Kotlin/anko) library.
 
 ### Data Binding
 
@@ -186,7 +188,7 @@ android {
 }
 ```
 
-To make it work with Kotlin classes just add the `kapt` dependency: 
+To make it work with Kotlin classes add the `kapt` dependency: 
 
 ``` groovy
 apply plugin: 'kotlin-kapt'
@@ -256,9 +258,7 @@ class MainActivity : AppCompatActivity() {
 This example uses the utility function `startActivity` creating an intent with no data and starting a new activity, which comes from the [Anko](https://github.com/Kotlin/anko) library.
 To pass some data, you can say `startActivity<OtherActivity>("KEY" to "VALUE")`.
 
-Kotlin supports lambdas.
-That means that you can bind actions directly in the Kotlin code in a convenient way.
-Instead of declaring lambdas in xml like in the following example, you can do the same in the code: 
+Note that instead of declaring lambdas in xml like in the following example, you can can bind actions directly in the code: 
 
 ```xml
 <Button 
@@ -282,7 +282,7 @@ You can find an example project [here](https://github.com/JetBrains/kotlin-examp
 [DBFlow](https://github.com/Raizlabs/DBFlow) is a SQLite library that simplifies interaction with databases.
 It heavily relies on annotation processing.
 
-To use it with a project you configure annotation processing dependency using `kapt`:
+To use it with Kotlin configure annotation processing dependency using `kapt`:
 
 ``` kotlin
 apply plugin: 'kotlin-kapt'
@@ -293,9 +293,9 @@ compile "com.github.raizlabs.dbflow:dbflow:$dbflow_version"
 compile "com.github.raizlabs.dbflow:dbflow-kotlinextensions:$dbflow_version"
 ```
 
-[Here](https://agrosner.gitbooks.io/dbflow/content/including-in-project.html) is a detailed guide how to add DBFlow to your project.
+[Here](https://agrosner.gitbooks.io/dbflow/content/including-in-project.html) is a detailed guide how to configure DBFlow.
 
-If your application already uses DBFlow, you can safely add Kotlin to your project. 
+If your application already uses DBFlow, you can safely introduce Kotlin into your project. 
 You can gradually convert existing code to Kotlin (ensuring that everything compiles along the way).
 The converted code doesn't differ much from Java. 
 For instance, declaring a table looks similar to Java with the small difference that default values for properties must be specified explicitly:
@@ -313,7 +313,7 @@ class User: BaseModel() {
 }
 ``` 
 
-Besides being able to convert existing functionality to Kotlin, you can also enjoy the Kotlin specific module.
+Besides converting existing functionality to Kotlin, you can also enjoy the Kotlin specific module.
 DBFlow defines a bunch of extensions to make its usage in Kotlin more idiomatic.
 Let's highlight some of the supported features.
 
@@ -324,7 +324,7 @@ You can declare tables as data classes:
 data class User(@PrimaryKey var id: Long = 0, @Column var name: String? = null)
 ```
 
-Queries might be expressed via C#-like LINQ syntax.
+You can express queries via C#-like LINQ syntax.
 Thus the Java code below can be either converted directly or rewritten into the following style:
 
 ``` java
@@ -344,7 +344,7 @@ val results = (select
       groupBy column).list
 ```
  
-Having lambdas allows to write much simpler code for asynchronous computations:
+Lambdas allow to write much simpler code for asynchronous computations:
 
 ``` kotlin
 var items = (select from TestModel::class).list
@@ -375,7 +375,7 @@ dependencies {
 
 The converted [sample](https://github.com/frankiesardo/auto-parcel/tree/master/sample) can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-auto-parcel).
 
-You can safely annotate Kotlin classes with `@AutoValue`.
+You can annotate Kotlin classes with `@AutoValue`.
 Let's look at the converted [`Address`](https://github.com/frankiesardo/auto-parcel/blob/master/sample/src/main/java/model2/Address.java) class for which the `Parcelable` implementation will be generated:
 
 ``` kotlin
