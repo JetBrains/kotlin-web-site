@@ -270,6 +270,8 @@ def api_page():
 def api_page(page_path):
     if page_path.endswith('.html'):
         return process_api_page(page_path)
+    elif path.basename(page_path) == "package-list":
+        return respond_with_package_list(page_path)
     elif not page_path.endswith('/'):
         page_path += '/'
     return process_api_page(page_path + 'index.html')
@@ -287,6 +289,13 @@ def process_api_page(page_path):
             'api.html',
             page_content=html_content
         )
+
+
+def respond_with_package_list(page_path):
+    file_path = path.join(root_folder, 'api', page_path)
+    if not path.exists(file_path):
+        return make_response("package-list not found", 404)
+    return send_file(file_path, mimetype = "text/plain")
 
 
 @app.route('/assets/<path:path>')
