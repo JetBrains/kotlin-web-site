@@ -212,11 +212,13 @@ kotlin {
 To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task.
 
 When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
-for test code. The tasks for custom source sets of are called accordingly to the `compile<Name>Kotlin` pattern.
+for test code. The tasks for custom source sets of are called accordingly to the `compile<Name>Kotlin` pattern. 
+
+The names of the tasks in Android Projects contain the [build variant](https://developer.android.com/studio/build/build-variants.html) names and follow the pattern `compile<BuildVariant>Kotlin`, for example, `compileDebugKotlin`, `compileReleaseUnitTestKotlin`.
 
 When targeting JavaScript, the tasks are called `compileKotlin2Js` and `compileTestKotlin2Js` respectively, and `compile<Name>Kotlin2Js` for custom source sets.
 
-Examples:
+To configure a single task, use its name. Examples:
 
 ``` groovy
 compileKotlin {
@@ -230,6 +232,15 @@ compileKotlin {
 }
 ```
 
+It is also possible to configure all Kotlin compilation tasks in the project:
+
+``` groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        // ...
+    }
+}
+```
 
 A complete list of options for the Gradle tasks follows:
 
