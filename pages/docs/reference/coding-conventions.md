@@ -20,7 +20,7 @@ If in doubt, default to the Java Coding Conventions such as:
 
 ## Colon
 
-There is a space before colon where colon separates type and supertype and there's no space where colon separates instance and type:
+There is a space before then colon when it separates a type and supertype. There is no space when the colon separates an instance and type:
 
 ``` kotlin
 interface Foo<out T : Any> : Bar {
