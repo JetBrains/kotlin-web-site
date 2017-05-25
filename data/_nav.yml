@@ -155,12 +155,15 @@ reference:
           title: Type Aliases
 
 
+    - title: Core Libraries
+        - url: /api/latest/jvm/stdlib/index.html
+          title: Standard Library
+        - url: /api/latest/kotlin.test/index.html
+          title: kotlin.test
 
     - title: Reference
-      description: API and Grammar
+      description: Grammar and other information
       items:
-        - url: /api/latest/jvm/stdlib/index.html
-          title: API Reference
         - url: /docs/reference/grammar.html
           title: Grammar
         - url: /docs/reference/compatibility.html

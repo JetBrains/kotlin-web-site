@@ -287,10 +287,11 @@ To use it with Kotlin configure annotation processing dependency using `kapt`:
 ``` kotlin
 apply plugin: 'kotlin-kapt'
 
-kapt "com.github.raizlabs.dbflow:dbflow-processor:$dbflow_version"
-compile "com.github.raizlabs.dbflow:dbflow-core:$dbflow_version"
-compile "com.github.raizlabs.dbflow:dbflow:$dbflow_version"
-compile "com.github.raizlabs.dbflow:dbflow-kotlinextensions:$dbflow_version"
+dependencies {
+    kapt "com.github.raizlabs.dbflow:dbflow-processor:$dbflow_version"
+    compile "com.github.raizlabs.dbflow:dbflow-core:$dbflow_version"
+    compile "com.github.raizlabs.dbflow:dbflow:$dbflow_version"
+}
 ```
 
 [Here](https://agrosner.gitbooks.io/dbflow/content/including-in-project.html) is a detailed guide how to configure DBFlow.
@@ -313,49 +314,26 @@ class User: BaseModel() {
 }
 ``` 
 
-Besides converting existing functionality to Kotlin, you can also enjoy the Kotlin specific module.
-DBFlow defines a bunch of extensions to make its usage in Kotlin more idiomatic.
-Let's highlight some of the supported features.
-
-You can declare tables as data classes:
+Besides converting existing functionality to Kotlin, you can also enjoy the Kotlin specific support.
+For instance, you can declare tables as [data classes](/docs/reference/data-classes.html):
 
 ``` kotlin
 @Table(database = KotlinDatabase::class)
 data class User(@PrimaryKey var id: Long = 0, @Column var name: String? = null)
 ```
 
-You can express queries via C#-like LINQ syntax.
-Thus the Java code below can be either converted directly or rewritten into the following style:
-
-``` java
-/* java */
-List<Result> = SQLite.select()
-    .from(Result.class)
-    .where(Result_Table.column.eq(6))
-    .and(Result_Table.column2.in("5", "6", "9")).queryList()
-```  
-                    
-``` kotlin 
-/* kotlin */                   
-val results = (select
-      from Result::class
-      where (column eq 6)
-      and (column2 `in`("5", "6", "9"))
-      groupBy column).list
-```
- 
-Lambdas allow to write much simpler code for asynchronous computations:
+DBFlow defines a bunch of extensions to make its usage in Kotlin more idiomatic, which you can include in your dependencies:
 
 ``` kotlin
-var items = (select from TestModel::class).list
+dependencies {
+    compile "com.github.raizlabs.dbflow:dbflow-kotlinextensions:$dbflow_version"
+}
+```
 
-// delete all these items.
-items.processInTransactionAsync { it, databaseWrapper -> it.delete(databaseWrapper) }
-``` 
+That gives you a way to express queries via C#-like LINQ syntax, use lambdas to write much simpler code for asynchronous computations, and more.
+Read all the details [here](https://agrosner.gitbooks.io/dbflow/content/KotlinSupport.html).
 
-More details can be found [here](https://agrosner.gitbooks.io/dbflow/content/KotlinSupport.html).
-You can also browse the converted [sample application](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-dbflow).
-
+You can browse the converted [sample application](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-dbflow).
 
 
 ### Auto-Parcel
