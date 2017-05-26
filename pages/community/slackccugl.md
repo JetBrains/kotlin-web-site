@@ -1,3 +1,6 @@
+---
+---
+
 # Code of Conduct and Guidelines for Kotlin Slack
 
 * [How to behave](#how-to-behave)
