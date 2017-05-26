@@ -77,7 +77,7 @@ The Kotlin standard library provides factory methods for several useful kinds of
 
 ### Lazy
 
-`lazy()` is a function that takes a lambda and returns an instance of `Lazy<T>` which can serve as a delegate for implementing a lazy property:
+[`lazy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html) is a function that takes a lambda and returns an instance of `Lazy<T>` which can serve as a delegate for implementing a lazy property:
 the first call to `get()` executes the lambda passed to `lazy()` and remembers the result, 
 subsequent calls to `get()` simply return the remembered result. 
 
@@ -111,7 +111,7 @@ which doesn't incur any thread-safety guarantees and the related overhead.
 
 ### Observable
 
-`Delegates.observable()` takes two arguments: the initial value and a handler for modifications.
+[`Delegates.observable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/observable.html) takes two arguments: the initial value and a handler for modifications.
 The handler gets called every time we assign to the property (_after_ the assignment has been performed). It has three
 parameters: a property being assigned to, the old value and the new one:
 
@@ -139,7 +139,7 @@ This example prints:
 first -> second
 ```
 
-If you want to be able to intercept an assignment and "veto" it, use `vetoable()` instead of `observable()`.
+If you want to be able to intercept an assignment and "veto" it, use [`vetoable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html) instead of `observable()`.
 The handler passed to the `vetoable` is called _before_ the assignment of a new property value has been performed.
 
 ## Storing Properties in a Map
