@@ -136,11 +136,11 @@ fun body(init: Body.() -> Unit) : Body {
 Actually these two functions do just the same thing, so we can have a generic version, `initTag`:
 
 ``` kotlin
-    protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
-        tag.init()
-        children.add(tag)
-        return tag
-    }
+protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
+    tag.init()
+    children.add(tag)
+    return tag
+}
 ```
 
 So, now our functions are very simple:
