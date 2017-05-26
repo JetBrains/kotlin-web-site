@@ -1,4 +1,6 @@
 ---
+layout: default
+title: Code of Conduct and Guidelines for Kotlin Slack
 ---
 
 # Code of Conduct and Guidelines for Kotlin Slack
