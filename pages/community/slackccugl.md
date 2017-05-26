@@ -17,7 +17,7 @@ For this to be the case, it is vital that we all follow a basic set of guideline
 * Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
 * Exercise consideration, respect and empathy in your speech and actions. Remember, we have all been through different stages of learning when adopting technologies. 
 * Refrain from demeaning, discriminatory, or harassing behavior and speech.
-* Avoid conflictive behaviour. 
+* Disagreements on things are fine, conflictive behaviour or trolling are not. 
 
 ## How not to behave
 
@@ -26,18 +26,18 @@ For this to be the case, it is vital that we all follow a basic set of guideline
 * Post or display sexually explicit or violent material.
 * Post or threaten to post other people’s personally identifying information ("doxing").
 * Make personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
-* Engage in sexual attention. This includes, sexualized comments or jokes and unwelcomed sexual advances.
+* Engage in sexual attention. This includes, sexualized comments or jokes and sexual advances.
 * Advocate for, or encourage, any of the above behavior.
 
 ## How to report issues
 
-If someone is acting inappropriately or violating this Code of Conduct in any shape or form, and they are not receptive to your feedback or you prefer not to confront them, please get in touch with one of the Administrators. The main Administrators are Ilya Ryzhenkov (@orangy), Hadi Hariri (@hhariri) and Roman Belov (@roman.belov). Also, people with the suffix [JB] are part of JetBrains. Some are from the Kotlin Team, others are not. 
+If someone is acting inappropriately or violating this Code of Conduct in any shape or form, and they are not receptive to your feedback or you prefer not to confront them, please get in touch with one of the Administrators. The main Administrators are Ilya Ryzhenkov (@orangy), Hadi Hariri (@hhariri) and Roman Belov (@roman.belov). 
 
 ## Basic Usage Guidelines
 There are over 8000 users on many different timezones using the Kotlin Slack and the number is growing rapidly. The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run. If we all follow a set of guidelines, it can help make things more useful and bearable for everyone. 
 
 * Please remember this is a Slack team for Kotlin. If you have generic questions that are about a technology (which may or may not be used with Kotlin), maybe it’s better to use another forum, such as StackOverflow. 
-* This Slack is not an official support channel. It is a place where the community hang out along with some members of the Kotlin team. For official support, please use the Kotlin Forums, where messages are also persisted.
+* This Slack is not an official support channel. It is a place where the community hang out along with some members of the JetBrains/Kotlin team (suffix [JB]). For official support, please use the Kotlin Forums, where messages are also persisted.
 * This Slack is not the best place for reporting bugs either. For this, please use YouTrack.  
 * Find the right channel to ask your question. There are channels for pretty much every topic. For a list of some of the channels see below.
 * New channels should be focused around a well-known technology or area of interest. Create them sparingly. And before creating a new channel, make sure it doesn’t exist in any other shape or form. 
@@ -46,8 +46,8 @@ There are over 8000 users on many different timezones using the Kotlin Slack and
 * Use code blocks. Don’t paste code as plain text. Slack supports Kotlin markup. 
 * While it’s polite to say “Hi” or “I have a question” before asking something, it doesn’t scale and leads to noise. You can say hello in the same message you ask the question if you like.
 * Use threads. It allows both yourself and others to follow the conversations easily. 
-* Use emojis to show gratitude as opposed to a message. It reduces the noise and gets the message across.
-* Don’t use emojis to tell people they’re in the wrong place or asking the wrong question. If they’re on the wrong channel, point them to the right one. If their question is badly worded, help them correct it. Have empathy. 
+* Use reactions to show gratitude as opposed to a message. It reduces the noise and gets the message across.
+* Don’t use reactions to tell people they’re in the wrong place or asking the wrong question. If they’re on the wrong channel, point them to the right one. If their question is badly worded, help them correct it. Have empathy. 
 * Take into account cultural differences. As they say, what the English say isn’t what the English mean. Remember this both as the receiver and producer of messages.  
 * Don’t create integrations with Slack. Given this is running on the free tier, the number is limited and thus it won’t be approved.
 * @channel, @here and other forms of notifications are disabled, even if you own a channel (unfortunately Slack doesn’t allow fine-grained permissions).
