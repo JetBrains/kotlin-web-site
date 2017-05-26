@@ -42,7 +42,8 @@ words such as "Util" in file names.
 Kotlin follows the Java naming conventions. In particular:
 
  * Names of packages are always lower case and do not use underscores (`org.example.myproject`). Using multi-word
-   names is generally discouraged, but if you do need to use multiple words, simply concatenate them together.
+   names is generally discouraged, but if you do need to use multiple words, you can either simply concatenate them together
+   or use camel humps (`org.example.myProject`).
  * Names of classes start with an upper case letter and use camel humps (`class DeclarationProcessor`)
  * Names of functions and properties start with a lower case letter and use camel humps and no underscores 
    (`fun processDeclarations()`, `val declarationCount`)
@@ -142,13 +143,28 @@ Do not put a space before `?` used to mark a nullable type: `String?`
 
 ### Colon
 
-Put a space before `:` when it's used to separate a type and a supertype. Don't put a space before `:` when it separates
-a declaration and its type. Always put a space after `:`.
+Put a space before `:` in the following cases:
+
+  * when it's used to separate a type and a supertype;
+  * when delegating to a superclass constructor or a different constructor of the same class.
+  * after the `object` keyword.
+    
+Don't put a space before `:` when it separates a declaration and its type.
+ 
+Always put a space after `:`.
 
 ``` kotlin
-interface Foo<out T : Any> : Bar {
-    fun foo(a: Int): T
+abstract class Foo<out T : Any> : IFoo {
+    abstract fun foo(a: Int): T
 }
+
+class FooImpl : Foo() {
+    constructor(x: String) : this(x) {
+        //...
+    }
+    
+    val x = object : IFoo { ... } 
+} 
 ```
 
 ## Class header formatting
@@ -232,6 +248,8 @@ fun longMethodName(
 }
 ```
 
+Function parameters can use either the regular indent or the continuation indent (double the regular indent).
+
 Prefer using an expression body for functions with the body consisting of a single expression.
 
 ``` kotlin
@@ -256,8 +274,8 @@ If the expression body does not fit on one line, prefer using a block body inste
 
 ### Formatting of expressions used as function expression bodies
 
-If the body of a function is an `if`, `when`, `try` or `object` expression, the expression is not additionally indented;
-the closing brace of the expression is on the same indentation level as where the function closing curly brace would be.
+If the body of a function is an `when` or `object` expression, you may put the closing brace of the expression on the 
+same indentation level as where the function closing curly brace would be.
 
 ``` kotlin
 fun f(x: String) = when (x) {
@@ -506,7 +524,7 @@ Use the `until` function to loop over an open range:
 
 ```kotlin
 for (i in 0..n - 1) { ... }  // bad
-for (i in 0 until n) { ... }  // bad
+for (i in 0 until n) { ... }  // good
 ```
 
 ## Functions vs Properties
