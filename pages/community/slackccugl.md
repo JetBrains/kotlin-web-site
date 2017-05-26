@@ -17,7 +17,7 @@ For this to be the case, it is vital that we all follow a basic set of guideline
 * Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
 * Exercise consideration, respect and empathy in your speech and actions. Remember, we have all been through different stages of learning when adopting technologies. 
 * Refrain from demeaning, discriminatory, or harassing behavior and speech.
-* Disagreements on things are fine, conflictive behaviour or trolling are not. 
+* Disagreements on things are fine, argumentative behaviour or trolling are not. 
 
 ## How not to behave
 
