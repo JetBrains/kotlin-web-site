@@ -65,12 +65,12 @@ This is a list of some of the most popular channels, as well as a sample of the 
 * #datascience. Using Kotlin for Data Science. 
 * #functional. Functional programming topics with Kotlin
 * #gradle. Working with Gradle and Kotlin Script Gradle
-* #intellij. Working with IntelliJ IDEA and Kotlin
+* #intellij. Question regarding the Kotlin plugin for IntelliJ IDEA
 * #javafx. Working with JavaFX
 * #javascript. When targeting JavaScript
 * #koans. Have questions about the Kotlin Koans?
 * #kobalt. Working with Kobalt builds
-* #language-proposals. Discussions around new language proposals.
+* #language-proposals. Discussions around new language proposals
 * #native. For questions about Kotlin/Native
 * #nodejs. When targeting JavaScript and node.js
 * #reflect. For topics around reflection. 
