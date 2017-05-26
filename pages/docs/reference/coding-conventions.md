@@ -41,12 +41,14 @@ words such as "Util" in file names.
 
 Kotlin follows the Java naming conventions. In particular:
 
- * Names of packages are always lower case and do not use underscores (`org.example.myproject`)
- * Names of classes start with an upper case letter and use camel humps (`class DeclarationProcessor`).
+ * Names of packages are always lower case and do not use underscores (`org.example.myproject`). Using multi-word
+   names is generally discouraged, but if you do need to use multiple words, simply concatenate them together.
+ * Names of classes start with an upper case letter and use camel humps (`class DeclarationProcessor`)
  * Names of functions and properties start with a lower case letter and use camel humps and no underscores 
-   (`fun processDeclarations()`, `val declarationCount`) . Function names are usually verbs or verbs
- * It's OK to use uppercase underscore-separated names for constants (`const val MAX_COUNT = 8`) and enum constants
-   (`enum class Color { RED, GREEN }`)
+   (`fun processDeclarations()`, `val declarationCount`)
+ * Names of constants should use uppercase underscore-separated names (`const val MAX_COUNT = 8`) 
+ * For enum constants, it's OK to use either uppercase underscore-separated names
+   (`enum class Color { RED, GREEN }`) or regular camel-humps names starting with an uppercase letter, depending on the usage.
    
 When using an acronym as part of a declaration name, capitalize it if it consists of two letters (`IOStream`);
 capitalize only the first letter if it is longer (`HttpInputStream`).  
@@ -56,6 +58,9 @@ capitalize only the first letter if it is longer (`HttpInputStream`).
 The name of a class is usually a noun or a noun phrase explaining what the class _is_: `List`, `PersonReader`.
 
 The name of a method is usually a verb or a verb phrase saying what the method _does_: `close`, `readPersons`.
+
+The names should make it clear what the purpose of the entity is, so it's best to avoid using meaningless words
+(`Manager`, `Wrapper` etc.) in names.
 
 ### Names for backing properties
 
@@ -73,7 +78,7 @@ class C {
 
 ### Names for test methods
 
-In unit tests (and only in unit tests), it's acceptable to use method names with spaces enclosed in backticks.
+In tests (and only in tests), it's acceptable to use method names with spaces enclosed in backticks.
 (Note that such method names are currently not supported by the Android runtime.)
 
 ``` kotlin
@@ -85,15 +90,30 @@ class MyTestCase {
 
 ## General formatting rules
 
-In most cases, Kotlin follows the Java coding conventions. Specifically:
+In most cases, Kotlin follows the Java coding conventions.
 
-  * Use 4 spaces for indentation. Do not use tabs.
-  * Use K&R braces style. (In Kotlin, semicolons are optional, and therefore line breaks are significant. The language
-    design assumes K&R braces, and you may encounter surprising behavior if you try to use a different formatting style.)
-    
+Use 4 spaces for indentation. Do not use tabs.
+
+Use K&R braces style: put the opening brace in the end of the line where the construct begins, and the closing brace
+on a separate line aligned vertically with the opening construct.
+
+``` kotlin
+if (elements != null) {
+    for (element in elements) {
+        // ...
+    }
+}
+```
+
+(Note: In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
+K&R braces, and you may encounter surprising behavior if you try to use a different formatting style.)
+
+Do omit semicolons whenever possible.
+   
 ## Horizontal whitespace
 
-Put spaces around binary operators (`a + b`)
+Put spaces around binary operators (`a + b`). Exception: don't put spaces around the "range to" operator (`0..i`).
+
 Do not put spaces around unary operators (`a++`)
 
 Do put spaces between control flow keywords (`if`, `when`, `for` and `while`) and the corresponding opening parenthesis.
@@ -122,7 +142,8 @@ Do not put a space before `?` used to mark a nullable type: `String?`
 
 ### Colon
 
-There is a space before colon where colon separates type and supertype and there's no space where colon separates instance and type:
+Put a space before `:` when it's used to separate a type and a supertype. Don't put a space before `:` when it separates
+a declaration and its type. Always put a space after `:`.
 
 ``` kotlin
 interface Foo<out T : Any> : Bar {
@@ -148,6 +169,7 @@ class Person(
     name: String,
     surname: String
 ) : Human(id, name) {
+
     // ...
 }
 ```
@@ -161,9 +183,12 @@ class Person(
     surname: String
 ) : Human(id, name),
     KotlinMaker {
+    
     // ...
 }
 ```
+
+Prefer putting a blank line after the class header to make it clear where the header ends and the class body begins.
 
 Constructor parameters can use either the regular indent or the continuation indent (double the regular indent).
 
@@ -172,6 +197,7 @@ Constructor parameters can use either the regular indent or the continuation ind
 Generally, the contents of a class is sorted in the following order:
 
 - Property declarations
+- Secondary constructors
 - Initializer blocks
 - Method declarations
 - Companion object
@@ -180,6 +206,9 @@ Do not sort the method declarations alphabetically or by visibility, and do not 
 from extension methods. Instead, put related stuff together, so that someone reading the class from top to bottom would
 be able to follow the logic of what's happening. Choose an order (either higher-level stuff first, or vice versa)
 and stick to it.
+
+Put nested classes next to the code that uses those classes. If the classes are intended to be used externally and aren't
+referenced inside the class, put them in the end, after the companion object.
 
 ### Interface implementation layout
 
@@ -201,6 +230,16 @@ fun longMethodName(
 ): ReturnType {
     // body
 }
+```
+
+Prefer using an expression body for functions with the body consisting of a single expression.
+
+``` kotlin
+fun foo(): Int {     // bad
+    return 1 
+}
+
+fun foo() = 1        // good
 ```
 
 ### Expression body formatting
@@ -233,7 +272,7 @@ is on a new line and the closing brace of the expression is on the same indentat
 
 ``` kotlin
 fun f(x: String, y: String) =
-    when (x.equals(y, ignoreCase = true)) {
+    when (x.substring(y.length - 1) {
         "foo" -> ...
         else -> ...
     }
@@ -302,14 +341,14 @@ Annotations are typically placed on separate lines, before the declaration to wh
 annotation class JsonExclude
 ```
 
-Annotations without arguments can be placed on the same line:
+Annotations without arguments may be placed on the same line:
 
 ``` kotlin
 @JsonExclude @JvmField
 var x: String
 ```
 
-A single annotation without arguments should be placed on the same line as the corresponding declaration:
+A single annotation without arguments may be placed on the same line as the corresponding declaration:
 
 ``` kotlin
 @Test fun foo() { ... }
@@ -416,13 +455,15 @@ else
 Prefer using `if` for binary conditions instead of `when`. Instead of
 
 ``` kotlin
-when(x) {
+when (x) {
     null -> ...
     else -> ...
 }
 ```
 
 use `if (x == null) ... else ...`
+
+Prefer using `when` if there are three or more options.
 
 ### Formatting `when` statements
 
@@ -441,7 +482,7 @@ private fun parsePropertyValue(propName: String, token: Token) {
 Put short branches on the same line as the condition, without braces.
 
 ```
-when(foo) {
+when (foo) {
     true -> bar() //good
     false -> { baz() } //bad
 }
@@ -455,6 +496,18 @@ If you need to use a nullable `Boolean` in a conditional statement, use `if (val
 
 Prefer using higher-order functions (`filter`, `map` etc.) to loops. Exception: `forEach` (prefer using a regular for loop instead,
 unless the receiver of `forEach` is nullable or `forEach` is used as part of a longer call chain).
+
+When making a choice between a complex expression using multiple higher-order functions and a loop, understand the cost
+of the operations being performed in each case and keep performance considerations in mind. 
+
+### Loops on ranges
+
+Use the `until` function to loop over an open range:
+
+```kotlin
+for (i in 0..n - 1) { ... }  // bad
+for (i in 0 until n) { ... }  // bad
+```
 
 ## Functions vs Properties
 
@@ -505,9 +558,12 @@ If a declaration has multiple modifiers, always put them in the following order:
 
 ```
 public / protected / private / internal
-final / open / abstract
+final / open / abstract / sealed / const
+external
 override
 lateinit
+tailrec
+vararg
 suspend
 inner
 enum / annotation
@@ -558,7 +614,8 @@ val foo = createBar().apply {
 
 ### also
 
-Use `also` over `apply` if the receiver is used for anything other than setting properties or function calls **on it**:
+Use `also` over `apply` if the receiver is used for anything other than setting properties or function calls **on it**,
+or if the receiver is not used at all in the lambda.
 
 ```kotlin
 class Baz {
