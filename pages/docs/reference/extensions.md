@@ -177,7 +177,7 @@ import foo.bar.*   // importing everything from "foo.bar"
 
 fun usage(baz: Baz) {
     baz.goo()
-)
+}
 
 ```
 
