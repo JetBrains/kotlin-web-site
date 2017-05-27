@@ -174,3 +174,12 @@ All comparisons are translated into calls to `compareTo`, that is required to re
 ## Infix calls for named functions
 
 We can simulate custom infix operations by using [infix function calls](functions.html#infix-notation).
+
+## Example
+
+Below is an example Counter class that starts at a given value and can be incremented using the overloaded `+` operator.
+`data class Counter(var dayIndex: Int) {
+    operator fun plus(increment: Int): Counter {
+        return Counter(dayIndex + increment)
+    }
+}`
