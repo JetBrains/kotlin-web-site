@@ -160,16 +160,16 @@ Some non-primitive built-in classes are also mapped:
 
 Java's boxed primitive types are mapped to nullable Kotlin types:
 
-| **Java type**       | **Kotlin type**  |
-|---------------------|------------------|
-| `java.lang.Byte`    | `kotlin.Byte?`   |
-| `java.lang.Short`   | `kotlin.Short?`  |
-| `java.lang.Integer` | `kotlin.Int?`    |
-| `java.lang.Long`    | `kotlin.Long?`   |
-| `java.lang.Char`    | `kotlin.Char?`   |
-| `java.lang.Float`   | `kotlin.Float?`  |
-| `java.lang.Double`  | `kotlin.Double?`  |
-| `java.lang.Boolean` | `kotlin.Boolean?` |
+| **Java type**           | **Kotlin type**  |
+|-------------------------|------------------|
+| `java.lang.Byte`        | `kotlin.Byte?`   |
+| `java.lang.Short`       | `kotlin.Short?`  |
+| `java.lang.Integer`     | `kotlin.Int?`    |
+| `java.lang.Long`        | `kotlin.Long?`   |
+| `java.lang.Character`   | `kotlin.Char?`   |
+| `java.lang.Float`       | `kotlin.Float?`  |
+| `java.lang.Double`      | `kotlin.Double?`  |
+| `java.lang.Boolean`     | `kotlin.Boolean?` |
 {:.zebra}
 
 Note that a boxed primitive type used as a type parameter is mapped to a platform type:
