@@ -716,11 +716,11 @@ println("$name has ${children.size} children")
 
 Prefer to use multiline strings instead of embedding `\n` escape sequences into regular string literals.
 
-Use `trimMargin` to maintain indentation in multiline strings:
+Use `trimIndent` to maintain indentation in multiline strings:
 
 ``` kotlin
 assertEquals("""Foo
-               |Bar""".trimMargin(), value)
+                Bar""".trimIndent(), value)
 ```
 
 ## Coding conventions for libraries
