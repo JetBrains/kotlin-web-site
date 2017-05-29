@@ -8,7 +8,7 @@ title: Code of Conduct and Guidelines for Kotlin Slack
 * [How to behave](#how-to-behave)
 * [How not to behave](#how-not-to-behave)
 * [How to report issues](#how-to-report-issues)
-* [Slack Usage Guidelines](#slack-usage-guidelines)
+* [Basic Usage Guidelines](#basic-usage-guidelines)
 * [Common Channels](#common-channels)
 * [Copyright](#copyright)
 
