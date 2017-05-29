@@ -14,6 +14,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="global-layout">
     {% include 'inc/header.html' %}
 
+    <section class="kotlin-overview-section _works-on">
+        <h2 class="section-header">Build Applications For</h2>
+        <div class="works-on-list">
+            {%- set technologies = [
+              {'target': 'JVM', 'href': '/docs/reference/server-overview.html'},
+              {'target': 'Android', 'href': '/docs/reference/android-overview.html'},
+              {'target': 'Browser', 'href': '/docs/reference/js-overview.html'},
+              {'target': 'Native'}
+            ]-%}
+
+            {% for technology in technologies %}
+                {% if(technology.href) %}
+                    <a href="{{ technology.href }}" class="works-on-item">
+                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
+                        <div class="works-on-text">
+                            {{ technology['target'] }}<br/>&nbsp;
+                        </div>
+                    </a>
+                {% else %}
+                    <div class="works-on-item">
+                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
+                        <div class="works-on-text">
+                            {{ technology['target'] }}<br/>(soon)
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
     <section class="kotlin-overview-section _features">
         <h2 class="section-header">Why Kotlin?</h2>
         <div class="section-content">
@@ -46,38 +76,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         {% endfor %}
 
     </section>
-
-    <section class="kotlin-overview-section _works-on">
-        <h2 class="section-header">Build Applications For</h2>
-        <div class="works-on-list">
-            {%- set technologies = [
-              {'target': 'JVM', 'href': '/docs/reference/server-overview.html'},
-              {'target': 'Android', 'href': '/docs/reference/android-overview.html'},
-              {'target': 'Browser', 'href': '/docs/reference/js-overview.html'},
-              {'target': 'Native'}
-            ]-%}
-
-            {% for technology in technologies %}
-                {% if(technology.href) %}
-                    <a href="{{ technology.href }}" class="works-on-item">
-                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
-                        <div class="works-on-text">
-                            {{ technology['target'] }}<br/>&nbsp;
-                        </div>
-                    </a>
-                {% else %}
-                    <div class="works-on-item">
-                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
-                        <div class="works-on-text">
-                            {{ technology['target'] }}<br/>(soon)
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </section>
-
-
 
     {# This fle conteins a lot of pre-formatted code. #}
     {% include 'inc/pages/index/code-examples.html' %}
