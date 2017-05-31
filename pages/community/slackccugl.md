@@ -78,6 +78,7 @@ This is a list of some of the most popular channels, as well as a sample of the 
 * #language-proposals. Discussions around new language proposals
 * #native. For questions about Kotlin/Native
 * #nodejs. When targeting JavaScript and node.js
+* #random. For random things.
 * #reflect. For topics around reflection. 
 * #scripting. For Kotlin Scripting
 * #server. For server-side Kotlin
