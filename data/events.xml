@@ -18,6 +18,28 @@
         </description>
     </event>
     <event>
+        <lang>ru</lang>
+        <startDate>2017-06-03</startDate>
+        <endDate>2017-06-03</endDate>
+        <location>Minsk, Belarus</location>
+        <speaker>Zalim Bashorov</speaker>
+        <title>Java Day Minsk</title>
+        <subject>Kotlin as a language for Frontend Development</subject>
+        <url>http://javaday.by/</url>
+        <tags>kotlin-js</tags>
+    </event>
+    <event>
+        <lang>ru</lang>
+        <startDate>2017-06-02</startDate>
+        <endDate>2017-06-03</endDate>
+        <location>St.Petersburg, Russia</location>
+        <speaker>Zalim Bashorov</speaker>
+        <title>HolyJS</title>
+        <subject>Kotlin as a language for Frontend Development</subject>
+        <url>https://holyjs-piter.ru/</url>
+        <tags>kotlin-js</tags>
+    </event>
+    <event>
         <lang>en</lang>
         <startDate>2017-05-19</startDate>
         <endDate>2017-05-19</endDate>
