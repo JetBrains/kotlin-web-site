@@ -53,7 +53,7 @@ There are over 8000 users on many different timezones using the Kotlin Slack and
 * Use threads. It allows both yourself and others to follow the conversations easily. 
 * Use reactions to show gratitude as opposed to a message. It reduces the noise and gets the message across.
 * Don’t use reactions to tell people they’re in the wrong place or asking the wrong question. If they’re on the wrong channel, point them to the right one. If their question is badly worded, help them correct it. Have empathy. 
-* Take into account cultural differences. As they say, what the English say isn’t what the English mean. Remember this both as the receiver and producer of messages.  
+* Take into account cultural differences. As they say, what the British say isn’t what the British mean. Remember this both as the receiver and producer of messages.  
 * Don’t create integrations with Slack. Given this is running on the free tier, the number is limited and thus it won’t be approved.
 * @channel, @here and other forms of notifications are disabled, even if you own a channel (unfortunately Slack doesn’t allow fine-grained permissions).
 * Use the #meta channel if you’re unsure about how to do something.  
