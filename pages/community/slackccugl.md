@@ -42,8 +42,8 @@ If someone is acting inappropriately or violating this Code of Conduct in any sh
 There are over 8000 users on many different timezones using the Kotlin Slack and the number is growing rapidly. The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run. If we all follow a set of guidelines, it can help make things more useful and bearable for everyone. 
 
 * Please remember this is a Slack team for Kotlin. If you have generic questions that are about a technology (which may or may not be used with Kotlin), maybe it’s better to use another forum, such as StackOverflow. 
-* This Slack is not an official support channel. It is a place where the community hang out along with some members of the JetBrains/Kotlin team (suffix [JB]). For official support, please use the Kotlin Forums, where messages are also persisted.
-* This Slack is not the best place for reporting bugs either. For this, please use YouTrack.  
+* This Slack is not an official support channel. It is a place where the community hang out along with some members of the JetBrains/Kotlin team (suffix [JB]). For official support, please use the [Kotlin Forums](https://discuss.kotlinlang.org), where messages are also persisted.
+* This Slack is not the best place for reporting bugs either. For this, please use [YouTrack](https://youtrack.jetbrains.com/issues/kt).  
 * Find the right channel to ask your question. There are channels for pretty much every topic. For a list of some of the channels see below.
 * New channels should be focused around a well-known technology or area of interest. Create them sparingly. And before creating a new channel, make sure it doesn’t exist in any other shape or form. If you do end up creating a channel, make sure you set the topic. 
 * When you ask a question, please be patient. Don’t repeat it. Or at least not immediately.
