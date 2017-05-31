@@ -86,4 +86,4 @@ This is a list of some of the most popular channels, as well as a sample of the 
 
 ## Copyright
 
-This Code of Conduct is distributed under a Creative Commons Attribution-ShareAlike license. Portions of text derived from the Citizen Code of Conduct.  
+This Code of Conduct is distributed under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/). Portions of text derived from the [Citizen Code of Conduct](http://citizencodeofconduct.org/).  
