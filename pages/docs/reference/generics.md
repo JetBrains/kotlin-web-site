@@ -42,7 +42,7 @@ better than Java's arrays, since the following code would have compiled and caus
 List<String> strs = new ArrayList<String>();
 List<Object> objs = strs; // !!! The cause of the upcoming problem sits here. Java prohibits this!
 objs.add(1); // Here we put an Integer into a list of Strings
-String s = strs.get(0); // !!! ClassCastException: Cannot cast Integer to String
+String s = objs.get(0); // !!! ClassCastException: Cannot cast Integer to String
 ```
 So, Java prohibits such things in order to guarantee run-time safety. But this has some implications. For example, consider the `addAll()` method from `Collection` 
 interface. What's the signature of this method? Intuitively, we'd put it this way:
