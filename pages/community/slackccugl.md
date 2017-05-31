@@ -48,7 +48,7 @@ There are over 8000 users on many different timezones using the Kotlin Slack and
 * New channels should be focused around a well-known technology or area of interest. Create them sparingly. And before creating a new channel, make sure it doesn’t exist in any other shape or form. If you do end up creating a channel, make sure you set the topic. 
 * When you ask a question, please be patient. Don’t repeat it. Or at least not immediately.
 * Don’t split messages into multiple ones. Ask it all in a single message.
-* Use code blocks. Don’t paste code as plain text. Slack supports Kotlin markup. 
+* Use code blocks. Don’t paste code as plain text. Slack supports Kotlin markup. If the code you are pasting is longer than a few lines, use "Code or text snippet" available from + menu next to message input. Only first few lines will be displayed to all users and people interested in the code can expand your code to look into details.
 * While it’s polite to say “Hi” or “I have a question” before asking something, it doesn’t scale and leads to noise. You can say hello in the same message you ask the question if you like.
 * Use threads. It allows both yourself and others to follow the conversations easily. 
 * Use reactions to show gratitude as opposed to a message. It reduces the noise and gets the message across.
