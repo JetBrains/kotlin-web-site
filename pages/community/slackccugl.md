@@ -63,7 +63,7 @@ There are over 8000 users on many different timezones using the Kotlin Slack and
 This is a list of some of the most popular channels, as well as a sample of the types of channels available. 
 
 * #android. For Android generic topics
-* #beginner. For more beginner questions. Better ask here than in #general if you’re new to Kotlin
+* #getting-started. For more beginner questions. Better ask here than in #general if you’re new to Kotlin
 * #communities. A place to discuss physical communities. Also search for cities/countries as there are often channels with these names (#australia), as well as languages (i.e. #spanish).
 * #coroutines. Questions about coroutines and async programming in Kotlin
 * #dagger. About the Dagger framework. 
