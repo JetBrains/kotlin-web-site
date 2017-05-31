@@ -82,6 +82,7 @@ This is a list of some of the most popular channels, as well as a sample of the 
 * #scripting. For Kotlin Scripting
 * #server. For server-side Kotlin
 * #speaking. Want to speak or find a speaker?
+* #spring. Questions about the Spring framework
 * #vertx. Working with Vert.x
 
 ## Copyright
