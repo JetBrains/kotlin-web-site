@@ -192,7 +192,7 @@ This function is supposed to copy items from one array to another. Let's try to 
 
 ``` kotlin
 val ints: Array<Int> = arrayOf(1, 2, 3)
-val any = Array<Any>(3)
+val any = Array<Any>(3) { "" } 
 copy(ints, any) // Error: expects (Array<Any>, Array<Any>)
 ```
 
