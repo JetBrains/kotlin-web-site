@@ -26,13 +26,13 @@ For this to be the case, it is vital that we all follow a basic set of guideline
 
 ## How not to behave
 
-* Perform threats of violence or use violent language directed against another person.
-* Make jokes of sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory nature, or use language of this nature.
-* Post or display sexually explicit or violent material.
-* Post or threaten to post other people’s personally identifying information ("doxing").
-* Make personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
-* Engage in sexual attention. This includes, sexualized comments or jokes and sexual advances.
-* Advocate for, or encourage, any of the above behavior.
+* Do *not* perform threats of violence or use violent language directed against another person.
+* Do *not* make jokes of sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory nature, or use language of this nature.
+* Do *not* post or display sexually explicit or violent material.
+* Do *not* post or threaten to post other people’s personally identifying information ("doxing").
+* Do *not* make personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
+* Do *not* engage in sexual attention. This includes, sexualized comments or jokes and sexual advances.
+* Do *not* advocate for, or encourage, any of the above behavior.
 
 ## How to report issues
 
