@@ -80,7 +80,7 @@ Your second option is the safe call operator, written `?.`:
 ``` kotlin
 b?.length
 ```
-This returns `b.length` if `b` is not null, and *null*{: .keyword } otherwise. The type of this expression is `Int?`.
+This returns `b.length` if `b` is not null, and *null*{: .keyword } otherwise. The type of this expression is `String?`.
 
 Safe calls are useful in chains. For example, if Bob, an Employee, may be assigned to a Department (or not),
 that in turn may have another Employee as a department head, then to obtain the name of Bob's department head (if any), we write the following:
