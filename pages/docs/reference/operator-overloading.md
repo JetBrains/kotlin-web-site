@@ -33,6 +33,17 @@ This table says that when the compiler processes, for example, an expression `+a
 
 *Note* that these operations, as well as all the others, are optimized for [Basic types](basic-types.html) and do not introduce overhead of function calls for them.
 
+As an example, here's how you can overload the unary minus operator:
+
+``` kotlin
+data class Point(val x: Int, val y: Int)
+
+operator fun Point.unaryMinus() = Point(-x, -y)
+
+val point = Point(10, 20)
+println(-point)  // prints "(-10, -20)"
+```
+
 ### Increments and decrements
 
 | Expression | Translated to |
