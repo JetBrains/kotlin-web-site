@@ -71,7 +71,7 @@ In fact, for declaring properties and initializing them from the primary constru
 
 
 ``` kotlin
-class Person(val firstName: String, val lastName: String, var age: Int) {
+class Person(val firstName: String, val lastName: String, val age: Int) {
     // ...
 }
 ```
