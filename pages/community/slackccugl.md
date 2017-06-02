@@ -47,6 +47,7 @@ There are over 8000 users on many different timezones using the Kotlin Slack and
 * Find the right channel to ask your question. There are channels for pretty much every topic. For a list of some of the channels see below.
 * New channels should be focused around a well-known technology or area of interest. Create them sparingly. And before creating a new channel, make sure it doesn’t exist in any other shape or form. If you do end up creating a channel, make sure you set the topic. 
 * When you ask a question, please be patient. Don’t repeat it. Or at least not immediately.
+* Please do not ping or mention someone directly to get your questions answered, specially project owners, whether the project is Kotlin or other, unless they specifically indicate that you can. 
 * Don’t split messages into multiple ones. Ask it all in a single message.
 * Use code blocks. Don’t paste code as plain text. Slack supports Kotlin markup. If the code you are pasting is longer than a few lines, use "Code or text snippet" available from + menu next to message input. Only first few lines will be displayed to all users and people interested in the code can expand your code to look into details.
 * While it’s polite to say “Hi” or “I have a question” before asking something, it doesn’t scale and leads to noise. You can say hello in the same message you ask the question if you like.
