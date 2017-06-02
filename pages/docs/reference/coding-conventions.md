@@ -212,9 +212,8 @@ Constructor parameters can use either the regular indent or the continuation ind
 
 Generally, the contents of a class is sorted in the following order:
 
-- Property declarations
+- Property declarations and initializer blocks
 - Secondary constructors
-- Initializer blocks
 - Method declarations
 - Companion object
 
@@ -269,8 +268,6 @@ Indent the expression body by 4 spaces.
 fun f(x: String) =
     x.length
 ```
-
-If the expression body does not fit on one line, prefer using a block body instead.
 
 ### Formatting of expressions used as function expression bodies
 
@@ -535,7 +532,6 @@ Although the semantics are similar, there are some stylistic conventions on when
 Prefer a property over a function when the underlying algorithm:
 
 * does not throw
-* has a `O(1)` complexity
 * is cheap to calculate (or caсhed on the first run)
 * returns the same result over invocations
 
