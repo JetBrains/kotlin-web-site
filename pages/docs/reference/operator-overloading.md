@@ -95,6 +95,18 @@ in Kotlin 1.1.
 
 {:#in}
 
+### Example
+
+Below is an example Counter class that starts at a given value and can be incremented using the overloaded `+` operator.
+
+``` kotlin
+data class Counter(var dayIndex: Int) {
+    operator fun plus(increment: Int): Counter {
+        return Counter(dayIndex + increment)
+    }
+}
+```
+
 ### 'In' operator
 
 
