@@ -21,6 +21,7 @@ Simply run the following in a terminal and follow any instructions:
 
 ```
    $ curl -s https://get.sdkman.io | bash
+   $ source "$HOME/.sdkman/bin/sdkman-init.sh"
 ```
 
 Next open a new terminal and install Kotlin with:
