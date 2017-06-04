@@ -100,7 +100,7 @@ map.forEach { _, value -> println("$value!") }
 
 ### Destructuring in Lambdas (since 1.1)
 
-Destructuring in lambdas is described as a part of [destructuring declarations](multi-declarations.html#destructuring-in-lambdas-since-11). 
+Destructuring in lambdas is described as a part of [destructuring declarations](multi-declarations.html#destructuring-in-lambdas-since-11).
 
 ## Inline Functions
 
@@ -179,12 +179,12 @@ We can explicitly return a value from the lambda using the [qualified return](re
 
 ``` kotlin
 ints.filter {
-    val shouldFilter = it > 0 
+    val shouldFilter = it > 0
     shouldFilter
 }
 
 ints.filter {
-    val shouldFilter = it > 0 
+    val shouldFilter = it > 0
     return@filter shouldFilter
 }
 ```
@@ -223,12 +223,11 @@ The return type inference for anonymous functions works just like for normal fun
 automatically for anonymous functions with an expression body and has to be specified explicitly (or is assumed to be
 `Unit`) for anonymous functions with a block body.
 
-Note that anonymous function parameters are always passed inside the parentheses. The shorthand syntax allowing
-to leave the function outside the parentheses works only for lambda expressions.
+Note that function parameters which are anonymous functions can only be passed inside the parentheses. The shorthand syntax that allows
+leaving the function outside the parentheses works only for lambda expressions.
 
 One other difference between lambda expressions and anonymous functions is the behavior of
-[non-local returns](inline-functions.html#non-local-returns). A *return*{: .keyword }  statement without a label
-always returns from the function declared with the *fun*{: .keyword } keyword. This means that a *return*{: .keyword }
+[non-local returns](inline-functions.html#non-local-returns). a *return*{: .keyword }
 inside a lambda expression will return from the enclosing function, whereas a *return*{: .keyword } inside
 an anonymous function will return from the anonymous function itself.
 
