@@ -21,12 +21,6 @@ sealed class Expr
 data class Const(val number: Double) : Expr()
 data class Sum(val e1: Expr, val e2: Expr) : Expr()
 object NotANumber : Expr()
-
-fun eval(expr: Expr): Double = when (expr) {
-    is Const -> expr.number
-    is Sum -> eval(expr.e1) + eval(expr.e2)
-    NotANumber -> Double.NaN
-}
 ```
 
 (The example above uses one additional new feature of Kotlin 1.1: the possibility for data classes to extend other
@@ -40,9 +34,9 @@ to verify that the statement covers all cases, you don't need to add an `else` c
 
 ``` kotlin
 fun eval(expr: Expr): Double = when(expr) {
-    is Expr.Const -> expr.number
-    is Expr.Sum -> eval(expr.e1) + eval(expr.e2)
-    Expr.NotANumber -> Double.NaN
+    is Const -> expr.number
+    is Sum -> eval(expr.e1) + eval(expr.e2)
+    NotANumber -> Double.NaN
     // the `else` clause is not required because we've covered all the cases
 }
 ```

@@ -156,6 +156,7 @@ reference:
 
 
     - title: Core Libraries
+      items:
         - url: /api/latest/jvm/stdlib/index.html
           title: Standard Library
         - url: /api/latest/kotlin.test/index.html
