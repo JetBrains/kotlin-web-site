@@ -1,4 +1,64 @@
 - geo:
+    lat: 39.9611755
+    lng: -82.99879419999999
+  name: Columbus, OH
+- geo:
+    lat: 50.4673883
+    lng: 4.8719854
+  name: Namur, Belgium
+- geo:
+    lat: 54.7104264
+    lng: 20.4522144
+  name: Kaliningrad, Russia
+- geo:
+    lat: 6.244203
+    lng: -75.5812119
+  name: Medellín, Colombia
+- geo:
+    lat: 58.3447019
+    lng: 8.5948668
+  name: Grimstad, Norway
+- geo:
+    lat: 34.0522342
+    lng: -118.2436849
+  name: Los Angeles, CA
+- geo:
+    lat: 45.4215296
+    lng: -75.69719309999999
+  name: Ottawa, ON
+- geo:
+    lat: 41.1297613
+    lng: 14.7826208
+  name: Benevento, Italy
+- geo:
+    lat: -25.5163356
+    lng: -54.58537639999999
+  name: Foz do Iguaçu, Brazil
+- geo:
+    lat: 31.3260152
+    lng: 75.57618289999999
+  name: Jalandhar, India
+- geo:
+    lat: 37.9829496
+    lng: -120.3821724
+  name: Sonora, CA
+- geo:
+    lat: 55.8304307
+    lng: 49.06608060000001
+  name: Kazan, Russia
+- geo:
+    lat: 41.2523634
+    lng: -95.99798829999999
+  name: Omaha, NE
+- geo:
+    lat: 23.810332
+    lng: 90.4125181
+  name: Dhaka, Bangladesh
+- geo:
+    lat: -34.6036844
+    lng: -58.3815591
+  name: Buenos Aires, Argentina
+- geo:
     lat: 17.385044
     lng: 78.486671
   name: Hyderabad, Indian
