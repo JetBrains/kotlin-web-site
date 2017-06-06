@@ -33,3 +33,4 @@ fun main(args: Array<String>) {
 The *by*{: .keyword }-clause in the supertype list for `Derived` indicates that `b` will be stored internally in objects of `Derived`
 and the compiler will generate all the methods of `Base` that forward to `b`.
 
+Note that overrides work as you might expect: The compiler will use your `override` implementations instead of those in the delegate object. If we were to add `override fun print() { print("abc") }` to `Derived`, the program would print "abc" instead of "10".
