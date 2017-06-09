@@ -63,6 +63,7 @@
  * [Singapore Kotlin User Group](https://www.meetup.com/Singapore-Kotlin-User-group/), Singapore
  * [Sri Lanka Kotlin User Group](https://www.facebook.com/KotlinSrilanka/), Sri Lanka
  * [Syria Kotlin User Group](https://www.facebook.com/KotlinSyria/), Syria
+ * [Tel Aviv Kotlin User Group](https://www.meetup.com/KotlinTLV/), Israel
  * [Thailand Kotlin Developers](https://www.facebook.com/groups/872547279487598/), Thailand
  * [Vijayawada Kotlin User Group](https://www.facebook.com/KotlinVijayawada/), India
 
