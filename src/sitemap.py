@@ -13,7 +13,7 @@ def generate_sitemap(urls):
 
 
 def _generate_sitemap_content(urls):
-    non_static_urls = [url for url in urls if not (url.startswith('/static') or url.startswith('/assets'))]
+    non_static_urls = [url for url in urls if not (url.startswith('/_assets') or url.startswith('/assets'))]
     env = Environment(loader=FileSystemLoader(path.join(root_folder_path, 'templates')))
     template = env.get_template('sitemap.xml')
     return template.render(locations=non_static_urls)

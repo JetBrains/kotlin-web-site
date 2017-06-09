@@ -13,8 +13,8 @@ Kotlin code can be called from Java easily.
 
 A Kotlin property is compiled to the following Java elements:
 
- * A getter method, with the name calculated by prepending the `get` suffix;
- * A setter method, with the name calculated by prepending the `set` suffix (only for `var` properties);
+ * A getter method, with the name calculated by prepending the `get` prefix;
+ * A setter method, with the name calculated by prepending the `set` prefix (only for `var` properties);
  * A private field, with the same name as the property name (only for properties with backing fields).
 
 For example, `var firstName: String` gets compiled to the following Java declarations:

@@ -343,8 +343,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         build_mode = True
         urls = freezer.freeze()
-        if not ignore_stdlib:
-            generate_sitemap(urls)
+        generate_sitemap(urls)
         if len(build_errors) > 0:
             for error in build_errors:
                 sys.stderr.write(error + '\n')
