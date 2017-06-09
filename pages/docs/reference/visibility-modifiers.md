@@ -59,6 +59,27 @@ For members declared inside a class:
 
 If you override a `protected` member and do not specify the visibility explicitly, the overriding member will also have `protected` visibility.
  
+ java access levels:
+ 
+ |           |class|subclass|package|world|
+ |-----------|-----|--------|-------|-----|
+ |public     |  Y  |    Y   |   Y   |  Y  |
+ |protected  |  Y  |    Y   |   Y   |  N  |
+ |no-modifier|  Y  |    N   |   Y   |  N  |
+ |private    |  Y  |    N   |   N   |  N  |
+ 
+ 
+ kotlin access levels:
+  
+ |           |class|subclass| module|world|
+ |-----------|-----|--------|-------|-----|
+ |public     |  Y  |    Y   |   Y   |  Y  |
+ |internal   |  Y  |    Y   |   Y   |  N  |
+ |protected  |  Y  |    Y   |   N   |  N  |
+ |private    |  Y  |    N   |   N   |  N  |
+ 
+ 
+ 
 Examples:
 
 ``` kotlin
