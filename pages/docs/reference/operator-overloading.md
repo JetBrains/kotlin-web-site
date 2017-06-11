@@ -93,19 +93,20 @@ For the operations in this table, the compiler just resolves the expression in t
 Note that the `rem` operator is supported since Kotlin 1.1. Kotlin 1.0 uses the `mod` operator, which is deprecated
 in Kotlin 1.1.
 
-{:#in}
 
-### Example
+#### Example
 
 Below is an example Counter class that starts at a given value and can be incremented using the overloaded `+` operator.
 
 ``` kotlin
-data class Counter(var dayIndex: Int) {
+data class Counter(val dayIndex: Int) {
     operator fun plus(increment: Int): Counter {
         return Counter(dayIndex + increment)
     }
 }
 ```
+
+{:#in}
 
 ### 'In' operator
 
