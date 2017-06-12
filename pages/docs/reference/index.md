@@ -4,6 +4,7 @@ title: "Reference"
 ---
 
 # Reference
+This reference is licensed under [Apache License 2.0](https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE).
 
 Provides a complete reference to the Kotlin language and the [standard library](/api/latest/jvm/stdlib/index.html).
 
