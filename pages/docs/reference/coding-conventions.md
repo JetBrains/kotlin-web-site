@@ -109,7 +109,7 @@ if (elements != null) {
 (Note: In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
 K&R braces, and you may encounter surprising behavior if you try to use a different formatting style.)
 
-Do omit semicolons whenever possible.
+Omit semicolons whenever possible.
    
 ## Horizontal whitespace
 
@@ -117,7 +117,7 @@ Put spaces around binary operators (`a + b`). Exception: don't put spaces around
 
 Do not put spaces around unary operators (`a++`)
 
-Do put spaces between control flow keywords (`if`, `when`, `for` and `while`) and the corresponding opening parenthesis.
+Put spaces between control flow keywords (`if`, `when`, `for` and `while`) and the corresponding opening parenthesis.
 
 Do not put a space before an opening parenthesis in a primary constructor declaration, method declaration or method call.
 
@@ -309,10 +309,7 @@ Prefer declaring functions with default parameter values to declaring overloaded
 
 ``` kotlin
 // Bad
-fun foo() {
-    foo("a")
-}
-
+fun foo() = foo("a")
 fun foo(a: String) { ... }
 
 // Good
@@ -388,7 +385,7 @@ In lambda expressions, spaces should be used around the curly braces, as well as
 from the body. If a call takes a single lambda, it should be passed outside of parentheses whenever possible.
 
 ``` kotlin
-list.filter { it > 10 }.map { element -> element * 2 }
+list.filter { it > 10 }
 ```
 
 ### Lambda parameters
@@ -407,7 +404,7 @@ appendCommaSeparated(properties) { prop ->
 ### Returns in a lambda
 
 Avoid using multiple labeled returns in a lambda. Consider restructuring the lambda so that it will have a single exit point.
-If that's not possible or not clear enough, convert the lambda into an anonymous function.
+If that's not possible or not clear enough, consider converting the lambda into an anonymous function.
 
 Do not use a labeled return for the last statement in a lambda.
 
@@ -420,7 +417,7 @@ unless the meaning of all parameters is absolutely clear from context.
 drawSquare(x = 10, y = 10, width = 100, height = 100, fill = true)
 ```
 
-Do put spaces around the `=` sign separating the argument name and value.
+Put spaces around the `=` sign separating the argument name and value.
 
 ### Argument list wrapping
 
@@ -450,10 +447,15 @@ The first call in the chain usually should have a line break before it, but it's
 
 ## Using conditional statements
 
-Prefer using the expression form of `try`, `if` and `when`. Example:
+Prefer using the expression form of `try`, `if` and `when`. Examples:
 
 ``` kotlin
 return if (x) foo() else bar()
+
+return when(x) {
+    0 -> "zero"
+    else -> "nonzero"
+}
 ```
 
 The above is preferable to:
@@ -463,6 +465,11 @@ if (x)
     return foo()
 else
     return bar()
+    
+when(x) {
+    0 -> return "zero"
+    else -> return "nonzero"
+}    
 ```
 
 ### `if` versus `when`
@@ -492,6 +499,8 @@ private fun parsePropertyValue(propName: String, token: Token) {
 
         Token.LBRACE -> { // ...
         }
+    }
+}    
 ```
 
 Put short branches on the same line as the condition, without braces.
@@ -533,7 +542,7 @@ Prefer a property over a function when the underlying algorithm:
 
 * does not throw
 * is cheap to calculate (or caсhed on the first run)
-* returns the same result over invocations
+* returns the same result over invocations if the object state hasn't changed
 
 ## Using extension functions
 
@@ -549,7 +558,7 @@ Bad example: `add`.
 
 Don't declare a method as infix if it mutates the receiver object.
 
-### Factory functions
+## Factory functions
 
 If you declare a factory function for a class, don't give it the same name as the class itself. Use a distinct name
 making it clear why the behavior of the factory function is special. Example:
