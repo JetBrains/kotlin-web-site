@@ -37,7 +37,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
 ```groovy
 dependencies {
     ...
-    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.15"
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.16"
 }
 ```
 
@@ -83,7 +83,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
     <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlinx-coroutines-core</artifactId>
-        <version>0.15</version>
+        <version>0.16</version>
     </dependency>
 </dependencies>
 ```
