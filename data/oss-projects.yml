@@ -257,3 +257,13 @@
   description: programming contest platform
   type: Platform
   link: https://github.com/spolnik/JAlgoArena
+
+- name: ActivityStarter
+  description: Simple Android Library, that provides easy way to start the Activities with arguments.
+  type: Library
+  link: https://github.com/MarcinMoskala/ActivityStarter
+
+- name: PreferenceHolder
+  description:  Android library used to simplify SharedPreference usage in Kotlin
+  type: Library
+  link: https://github.com/MarcinMoskala/PreferenceHolder
