@@ -259,7 +259,7 @@
   link: https://github.com/spolnik/JAlgoArena
 
 - name: ActivityStarter
-  description: Simple Android Library, that provides easy way to start the Activities with arguments.
+  description: Simple Android Library, that provides easy way to start the Activities with arguments
   type: Library
   link: https://github.com/MarcinMoskala/ActivityStarter
 
