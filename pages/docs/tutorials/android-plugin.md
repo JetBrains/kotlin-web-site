@@ -27,7 +27,7 @@ class MyActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         textView.setText("Hello, world!")
-        // Instead of findView(R.id.textView) as TextView
+        // Instead of findViewById(R.id.textView) as TextView
     }
 }
 ```
