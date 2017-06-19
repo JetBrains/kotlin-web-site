@@ -81,7 +81,7 @@
 - name: Yested
   description: A Web Framework
   type: Framework
-  link: http://www.yested.net
+  link: https://github.com/jean79/yested_fw
 
 - name: Kotlin-Hashids
   description: Library that generates short, unique, non-sequential hashes from numbers.

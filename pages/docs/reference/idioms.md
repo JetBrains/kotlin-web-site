@@ -155,6 +155,14 @@ data?.let {
 }
 ```
 
+### Map nullable value if not null
+
+``` kotlin
+val data = ...
+
+val mapped = data?.let { transformData(it) } ?: defaultValueIfDataIsNull
+```
+
 ### Return on when statement
 
 ``` kotlin
