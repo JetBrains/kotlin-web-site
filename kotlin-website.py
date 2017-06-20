@@ -281,20 +281,22 @@ def api_page(page_path):
 titles = {}
 
 
-def process_titles(row_titles):
-    prefix = 'latest/jvm/stdlib'
-    url = prefix + row_titles["url"].split("kotlin-stdlib", 1)[1] + '.html'
+def process_titles(row_titles, title_prefix, path_folder):
+    url = title_prefix + row_titles["url"].split(path_folder, 1)[1] + '.html'
     titles[url] = row_titles["title"]
     if "content" not in row_titles:
         return
     for child_titles in row_titles["content"]:
-        process_titles(child_titles)
+        process_titles(child_titles, title_prefix, path_folder)
 
 
 def load_api_titles():
-    title_files_path = path.join(root_folder, 'api', 'latest', 'jvm', 'stdlib', 'index.yml')
-    with open(title_files_path) as title_files:
-        return process_titles(yaml.load(title_files)[0])
+    api_title_files_path = path.join(root_folder, 'api', 'latest', 'jvm', 'stdlib', 'index.yml')
+    with open(api_title_files_path) as title_files:
+        process_titles(yaml.load(title_files)[0], 'latest/jvm/stdlib', 'kotlin-stdlib')
+    test_title_files_path = path.join(root_folder, 'api', 'latest', 'kotlin.test', 'index.yml')
+    with open(test_title_files_path) as title_files:
+        process_titles(yaml.load(title_files)[0], 'latest/kotlin.test', 'kotlin-test')
 
 
 def process_api_page(page_path):
