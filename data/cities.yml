@@ -1,4 +1,40 @@
 - geo:
+    lat: 42.3439925
+    lng: -3.696906
+  name: Burgos, Spain
+- geo:
+    lat: -12.2597272
+    lng: -38.9646608
+  name: Feira de Santana, Brazil
+- geo:
+    lat: 33.8391574
+    lng: 132.7655752
+  name: Matsuyama, Japan
+- geo:
+    lat: 51.9356214
+    lng: 15.5061862
+  name: Zielona Góra, Poland
+- geo:
+    lat: -17.4139766
+    lng: -66.1653224
+  name: Cochabamba, Bolivia
+- geo:
+    lat: 39.90419989999999
+    lng: 116.4073963
+  name: Beijing, China
+- geo:
+    lat: 11.2587531
+    lng: 75.78041
+  name: Kozhikode, India
+- geo:
+    lat: 51.2277411
+    lng: 6.7734556
+  name: Düsseldorf, Germany
+- geo:
+    lat: -23.4209995
+    lng: -51.9330558
+  name: Maringá, Brazil
+- geo:
     lat: 39.9611755
     lng: -82.99879419999999
   name: Columbus, OH
