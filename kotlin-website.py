@@ -10,7 +10,6 @@ import yaml
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, Response, send_from_directory
 from flask.helpers import url_for, send_file, make_response
-from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
@@ -152,9 +151,11 @@ def grammar():
 def videos_page():
     return render_template('pages/videos.html')
 
+
 @app.route('/docs/books.html')
 def books_page():
     return render_template('pages/books.html')
+
 
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
@@ -277,7 +278,28 @@ def api_page(page_path):
     return process_api_page(page_path + 'index.html')
 
 
+titles = {}
+
+
+def process_titles(row_titles):
+    prefix = 'latest/jvm/stdlib'
+    url = prefix + row_titles["url"].split("kotlin-stdlib", 1)[1] + '.html'
+    titles[url] = row_titles["title"]
+    if "content" not in row_titles:
+        return
+    for child_titles in row_titles["content"]:
+        process_titles(child_titles)
+
+
+def load_api_titles():
+    title_files_path = path.join(root_folder, 'api', 'latest', 'jvm', 'stdlib', 'index.yml')
+    with open(title_files_path) as title_files:
+        return process_titles(yaml.load(title_files)[0])
+
+
 def process_api_page(page_path):
+    if len(titles) == 0:
+        load_api_titles()
     file_path = path.join(root_folder, 'api', page_path)
     if not path.exists(file_path):
         return make_response("Api page " + page_path + " not found", 404)
@@ -288,7 +310,7 @@ def process_api_page(page_path):
         return render_template(
             'api.html',
             page={
-                "title": html_content.select("h2")[0].get_text(),
+                "title": titles[page_path],
                 "content": html_content
             }
         )
@@ -298,7 +320,7 @@ def respond_with_package_list(page_path):
     file_path = path.join(root_folder, 'api', page_path)
     if not path.exists(file_path):
         return make_response("package-list not found", 404)
-    return send_file(file_path, mimetype = "text/plain")
+    return send_file(file_path, mimetype="text/plain")
 
 
 @app.route('/assets/<path:path>')
