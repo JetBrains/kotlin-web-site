@@ -287,7 +287,10 @@ def process_api_page(page_path):
         html_content = process_header_ids(html_content)
         return render_template(
             'api.html',
-            page_content=html_content
+            page={
+                "title": html_content.select("h2")[0].get_text(),
+                "content": html_content
+            }
         )
 
 
