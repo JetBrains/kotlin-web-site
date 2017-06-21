@@ -524,6 +524,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>Voxxed Days Thessaloniki</title>
         <subject>Spring Boot and Kotlin, a Match Made in Heaven</subject>
         <url>https://voxxeddays.com/thessaloniki/sessions/spring-boot-kotlin-match-made-heaven/</url>
+        <content>
+            <slides>https://www.slideshare.net/nfrankel/voxxed-days-belgrade-spring-boot-kotlin-a-match-made-in-heaven</slides>
+        </content>
         <description>
             <![CDATA[
 <p>Despite being very new, Spring Boot has seen a spectacular start as an amazing kickstarter for Spring-based application. You can now start your project in a matter of minutes, not days!</p>
@@ -1244,6 +1247,9 @@ readability.</p>
         <title>JEE Conf</title>
         <subject>Designing a DSL in Kotlin</subject>
         <url>http://jeeconf.com/program/designing-a-dsl-in-kotlin/</url>
+        <content>
+            <slides>https://www.slideshare.net/nfrankel/jeeconf-designing-a-dsl-in-kotlin</slides>
+        </content>
         <description>
             <![CDATA[
 <p>Kotlin is one of those “new” JVM languages that are currently rocking the boat. Although it’s made a great impact on Android, it’s equally good on the server side. As Domain-Specific Languages are constrained by the language they run on, Kotlin frees developers from Java fluent builders to propose something better.</p>
@@ -2449,10 +2455,11 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <url>http://cfp.devoxx.pl/2017/talk/VSR-9078/Kotlin_-_your_2017_Java_replacement</url>
         <description>
             <![CDATA[
-<p>Are you afraid of migrating Java to Scala? Do you fancy functional approach done right? Do you dream about life without unexpected nulls?</p>
+<p>Do you dream about life without unexpected nulls? Do you fancy a little bit of functional programming?  Are you tired of Java ceremony?</p>
+
 <p>Then maybe 2017 is The Right Moment to choose Kotlin! This JVM language brings you stuff like null-safety and immutability by default. Less boilerplate, more safety. And you can introduce it in your project class after class, module after module, without risky revolution.</p>
-<p>I will show you pros and cons of Kotlin based on last 8 months of my experience. In November 2016 I started a new backend project built on top of Gradle and Spring. Today I still do not regret the decision to write it in Kotlin. Let's see if I convince you! :-)</p>
-]]>
+
+<p>I will show you pros and cons of Kotlin, based on last 8 months of my experience. In November 2016 I started a new backend project built on top of Gradle and Spring. Today I still do not regret the decision to write it in Kotlin. Let's see if I convince you! :-)</p>]]>
         </description>
     </event>
 
