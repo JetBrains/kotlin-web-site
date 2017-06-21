@@ -26,7 +26,7 @@
  * [Lyon Kotlin User Group](http://www.meetup.com/Lyon-Kotlin-User-Group/), France
  * [Madrid Kotlin User Group](https://www.meetup.com/KotlinMAD/), Spain
  * [Manchester Kotlin Developers](http://www.meetup.com/Kotlin-Manchester/) United Kingdom
- * [Milano Kotlin User Group](www.meetup.com/it-IT/KUG-Milan/), Italy
+ * [Milano Kotlin User Group](https://www.meetup.com/it-IT/KUG-Milan/), Italy
  * [Munich Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Munich/), Germany
  * [RheinMain Kotlin](http://kotlin.rocks), Germany
  * [Serbia Kotlin User Group](https://www.meetup.com/Serbia-Kotlin-User-Group/), Serbia
