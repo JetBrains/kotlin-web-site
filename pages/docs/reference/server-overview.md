@@ -45,8 +45,7 @@ Kotlin-compiled classes to the requirements of the framework.
 Kotlin applications can be deployed into any host that supports Java Web applications, including Amazon Web Services,
 Google Cloud Platform and more.
 
-[This blog post](https://jkutner.github.io/2017/04/10/kotlin-heroku-ktor.html) offers a guide for deploying a Kotlin
-application on [Heroku](https://www.heroku.com).
+To deploy Kotlin applications on [Heroku](https://www.heroku.com), you can follow the [official Heroku tutorial](https://devcenter.heroku.com/articles/getting-started-with-kotlin).
 
 AWS Labs provides a [sample project](https://github.com/awslabs/serverless-photo-recognition) showing the use of Kotlin
 for writing [AWS Lambda](https://aws.amazon.com/lambda/) functions.
