@@ -20,8 +20,7 @@ maintaining full compatibility with existing Java-based technology stacks and a 
    writing new code in Kotlin while keeping older parts of your system in Java.
  * **Tooling**: In addition to great IDE support in general, Kotlin offers framework-specific tooling (for example,
    for Spring) in the plugin for IntelliJ IDEA Ultimate.
- * **Learning Curve**: For a Java developer, getting started with Kotlin is very easy. The automated Java to Kotlin converter included in the Kotlin plugin
-   helps with the first steps. [Kotlin Koans](/docs/tutorials/koans.html) offer a guide through the key features of the language with a series of interactive exercises.
+ * **Learning Curve**: For a Java developer, getting started with Kotlin is very easy. The automated Java to Kotlin converter included in the Kotlin plugin helps with the first steps. [Kotlin Koans](/docs/tutorials/koans.html) offer a guide through the key features of the language with a series of interactive exercises.
 
 ## Frameworks for Server-side Development with Kotlin
 
@@ -46,8 +45,7 @@ Kotlin-compiled classes to the requirements of the framework.
 Kotlin applications can be deployed into any host that supports Java Web applications, including Amazon Web Services,
 Google Cloud Platform and more.
 
-[This blog post](https://jkutner.github.io/2017/04/10/kotlin-heroku-ktor.html) offers a guide for deploying a Kotlin
-application on [Heroku](https://www.heroku.com).
+To deploy Kotlin applications on [Heroku](https://www.heroku.com), you can follow the [official Heroku tutorial](https://devcenter.heroku.com/articles/getting-started-with-kotlin).
 
 AWS Labs provides a [sample project](https://github.com/awslabs/serverless-photo-recognition) showing the use of Kotlin
 for writing [AWS Lambda](https://aws.amazon.com/lambda/) functions.

@@ -10,7 +10,6 @@ import yaml
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, Response, send_from_directory
 from flask.helpers import url_for, send_file, make_response
-from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
@@ -152,9 +151,11 @@ def grammar():
 def videos_page():
     return render_template('pages/videos.html')
 
+
 @app.route('/docs/books.html')
 def books_page():
     return render_template('pages/books.html')
+
 
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
@@ -277,7 +278,30 @@ def api_page(page_path):
     return process_api_page(page_path + 'index.html')
 
 
+titles = {}
+
+
+def process_titles(row_titles, title_prefix, path_folder):
+    url = title_prefix + row_titles["url"].split(path_folder, 1)[1] + '.html'
+    titles[url] = row_titles["title"]
+    if "content" not in row_titles:
+        return
+    for child_titles in row_titles["content"]:
+        process_titles(child_titles, title_prefix, path_folder)
+
+
+def load_api_titles():
+    api_title_files_path = path.join(root_folder, 'api', 'latest', 'jvm', 'stdlib', 'index.yml')
+    with open(api_title_files_path) as title_files:
+        process_titles(yaml.load(title_files)[0], 'latest/jvm/stdlib', 'kotlin-stdlib')
+    test_title_files_path = path.join(root_folder, 'api', 'latest', 'kotlin.test', 'index.yml')
+    with open(test_title_files_path) as title_files:
+        process_titles(yaml.load(title_files)[0], 'latest/kotlin.test', 'kotlin-test')
+
+
 def process_api_page(page_path):
+    if len(titles) == 0:
+        load_api_titles()
     file_path = path.join(root_folder, 'api', page_path)
     if not path.exists(file_path):
         return make_response("Api page " + page_path + " not found", 404)
@@ -287,7 +311,10 @@ def process_api_page(page_path):
         html_content = process_header_ids(html_content)
         return render_template(
             'api.html',
-            page_content=html_content
+            page={
+                "title": titles[page_path],
+                "content": html_content
+            }
         )
 
 
@@ -295,7 +322,7 @@ def respond_with_package_list(page_path):
     file_path = path.join(root_folder, 'api', page_path)
     if not path.exists(file_path):
         return make_response("package-list not found", 404)
-    return send_file(file_path, mimetype = "text/plain")
+    return send_file(file_path, mimetype="text/plain")
 
 
 @app.route('/assets/<path:path>')
