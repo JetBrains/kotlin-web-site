@@ -72,9 +72,9 @@ Kotlin/Native is currently [in the works](https://blog.jetbrains.com/kotlin/tag/
 that can run without a VM. There is a Technology Preview released but it is not production-ready yet, and doesn’t yet
  target all the platforms that we plan to support for 1.0. For more information check out the [blog post announcing Kotlin/Native](https://blog.jetbrains.com/kotlin/2017/04/kotlinnative-tech-preview-kotlin-without-a-vm/).
 
-### What IDE’s support Kotlin?
+### What IDEs support Kotlin?
 
-Kotlin is supported by all major Java IDE’s including [IntelliJ IDEA](/docs/tutorials/getting-started.html),
+Kotlin is supported by all major Java IDEs including [IntelliJ IDEA](/docs/tutorials/getting-started.html),
 [Android Studio](/docs/tutorials/kotlin-android.html), [Eclipse](/docs/tutorials/getting-started-eclipse.html) and 
 [NetBeans](http://plugins.netbeans.org/plugin/68590/kotlin). In addition, a [command line compiler](/docs/tutorials/command-line.html) 
 is available and provides straightforward support for compiling and running applications.
