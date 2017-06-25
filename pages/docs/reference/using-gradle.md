@@ -66,6 +66,43 @@ sourceSets {
 }
 ```
 
+### Mixed Java and Kotlin Test configuration
+
+To target the JVM with a mixed Java and Kotlin gradle build with test source in kotlin, the test sourceSets may also need to be updated even when using the default conventions.
+
+For example, to resolve a Kotlin class from a Kotlin JUnit test source in a mixed Java and Kotlin gradle script (Gradle 4.0, Kotlin 1.2) the following may be necessary.
+
+Given a conventional source tree and test class KotlinTest which references library class KotlinLibrry
+
+``` groovy
+project
+    - src
+        - main (root)
+            - java
+	      - java library source
+            - kotlin
+	      - packageA/packageB
+	        - KotlinLibrary.kt   (class packageA.packageB.KotlinLibrary)
+	- test (test cases)
+	    - java
+	      - Java test source
+	    - kotlin
+	      - packagea/packageb
+	        - KotlinTest.kt ( import packageA.packageB.KotlinLibrary )
+```
+
+You may get unresolved KotlinLibrary 'class not found' errors compiling KotlinTest.kt.
+
+The follow addition to the build script adds the Kotlin library source to the kotlin test compilation.
+
+```
+sourceSets {
+  main.java.srcDirs += "src/main/kotlin"
+  test.java.srcDirs += "src/main/kotlin"
+}
+```
+
+
 ## Targeting JavaScript
 
 When targeting JavaScript, a different plugin should be applied:
