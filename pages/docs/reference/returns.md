@@ -56,7 +56,7 @@ The most important use case is returning from a lambda expression. Recall that w
 ``` kotlin
 fun foo() {
     ints.forEach {
-        if (it == 0) return
+        if (it == 0) return  // nonlocal return from inside lambda directly to the caller of foo()
         print(it)
     }
 }
@@ -88,12 +88,12 @@ fun foo() {
 ```
 
 Alternatively, we can replace the lambda expression with an [anonymous function](lambdas.html#anonymous-functions).
-A *return*{: .keyword } statement in an anomymous function will return from the anonymous function itself.
+A *return*{: .keyword } statement in an anonymous function will return from the anonymous function itself.
 
 ``` kotlin
 fun foo() {
     ints.forEach(fun(value: Int) {
-        if (value == 0) return
+        if (value == 0) return  // local return to the caller of the anonymous fun, i.e. the forEach loop
         print(value)
     })
 }
