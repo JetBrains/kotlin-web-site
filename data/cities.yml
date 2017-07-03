@@ -1,4 +1,68 @@
 - geo:
+    lat: 38.9071923
+    lng: -77.0368707
+  name: Washington, DC
+- geo:
+    lat: 42.24059889999999
+    lng: -8.7207268
+  name: Vigo, Spain
+- geo:
+    lat: 29.8483192
+    lng: 31.3368529
+  name: Helwan, Egypt
+- geo:
+    lat: 22.817002
+    lng: 108.366543
+  name: Nanning, China
+- geo:
+    lat: 6.3702928
+    lng: 2.3912362
+  name: Cotonou, Benin
+- geo:
+    lat: 34.0194543
+    lng: -118.4911912
+  name: Santa Monica, CA
+- geo:
+    lat: 37.4418834
+    lng: -122.1430195
+  name: Palo Alto, California
+- geo:
+    lat: 10.607936
+    lng: 123.8857747
+  name: Cebu, Philippines
+- geo:
+    lat: 6.5243793
+    lng: 3.3792057
+  name: Lagos, Nigeria
+- geo:
+    lat: 25.6866142
+    lng: -100.3161126
+  name: Monterrey, Mexico
+- geo:
+    lat: 50.978564
+    lng: -3.2244989
+  name: Wellington, United Kingdom
+- geo:
+    lat: 48.390394
+    lng: -4.486076
+  name: Brest, France
+- geo:
+    lat: 37.1773363
+    lng: -3.5985571
+  name: Granada, Spain
+- geo:
+    lat: 51.6754966
+    lng: 39.2088823
+  name: Voronezh, Russia
+- geo:
+    lat: -22.9098833
+    lng: -47.0625812
+  name: Campinas, Brazil
+- geo:
+    lat: 26.1224386
+    lng: -80.13731740000001
+  name: Fort Lauderdale, FL
+- geo:
     lat: 42.3439925
     lng: -3.696906
   name: Burgos, Spain

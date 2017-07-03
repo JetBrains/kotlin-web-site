@@ -19,6 +19,951 @@
     </event>
 
     <event>
+        <lang>fr</lang>
+        <startDate>2017-06-26</startDate>
+        <endDate>2017-06-26</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>Yannick Lemin</speaker>
+        <title>Kotlin Belgium User Group</title>
+        <subject>First steps in Kotlin on Android.</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Belgium/events/239474627/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2017-06-26</startDate>
+        <endDate>2017-06-26</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>Damien Bravin</speaker>
+        <title>Kotlin Belgium User Group</title>
+        <subject>Improve code maintainability by using Kotlin.</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Belgium/events/239474627/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-19</startDate>
+        <endDate>2017-06-19</endDate>
+        <location>Copenhagen, Denmark</location>
+        <speaker>Nicolas Fränkel</speaker>
+        <title>JDK IO 2017</title>
+        <subject>Designing a DSL in Kotlin</subject>
+        <url>https://jdk.io/talks/177-designing-a-dsl-in-kotlin</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is one of those “new” JVM languages that are currently rocking the boat. Although it’s made a great impact on Android, it’s equally good on the server side. As Domain-Specific Languages are constrained by the language they run on, Kotlin frees developers from Java fluent builders to propose something better. Taking the example of a Vaadin UI DSL, I’ll demo how one could design its own DSL with Kotlin."</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-21</startDate>
+        <endDate>2017-06-21</endDate>
+        <location>Fort Lauderdale, FL</location>
+        <speaker>Marco Ferrer</speaker>
+        <title>Kotlin South Florida Users Group</title>
+        <subject> </subject>
+        <url>https://www.meetup.com/Kotlin-South-Florida-Users-Group/events/240459573/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-06-21</startDate>
+        <endDate>2017-06-21</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Kentaro Takiguchi</speaker>
+        <title>Android Talks @Cookpad #2</title>
+        <subject>Writing Gradle Plugin in Kotlin</subject>
+        <url>https://www.meetup.com/Android-Talks-Cookpad/events/240229714/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2017-06-21</startDate>
+        <endDate>2017-06-21</endDate>
+        <location>Campinas, Brazil</location>
+        <speaker>Leandro Sobocinski, Caio Yassoyama, Bernardo Teodosio</speaker>
+        <title>GDG Campinas</title>
+        <subject>Abram os portões: Kotlin chegou!</subject>
+        <url>https://www.meetup.com/gdgcampinas/events/240824690/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2017-06-22</startDate>
+        <endDate>2017-06-22</endDate>
+        <location>Voronezh, Russia</location>
+        <speaker>Sergey Ryabov, Sergey Chistyakov</speaker>
+        <title>GDG Voronezh</title>
+        <subject>IT talk on Kotlin</subject>
+        <url>https://www.meetup.com/GDG-Voronezh/events/240763860/</url>
+        <description>
+            <![CDATA[
+<p>- откуда появился этот язык, и чем он выделяется из череды JVM-языков;</p>
+<p>- почему стоит писать на Kotlin и как это правильно делать;</p>
+<p>- чем Kotlin лучше Java;</p>
+<p>- как убедить своего менеджера проекта попробовать этот язык;</p>
+<p>- с какими подводными камнями столкнулись при миграции на Kotlin в коммерческом Android-проекте.</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2017-06-22</startDate>
+        <endDate>2017-06-22</endDate>
+        <location>Paris, France</location>
+        <speaker>Mounir Boudraa</speaker>
+        <title>Paris Android User Group</title>
+        <subject>Kotlin for Android developers Tip &amp; Tricks</subject>
+        <url>https://www.meetup.com/Android-Paris/events/240755016/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=AVPgZJXdf7s&amp;feature=youtu.be</video>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2017-06-22</startDate>
+        <endDate>2017-06-22</endDate>
+        <location>Paris, France</location>
+        <speaker>Salomon Brys</speaker>
+        <title>Paris Android User Group</title>
+        <subject>Kotlin et l'injection de dépendance avec Kodein</subject>
+        <url>https://www.meetup.com/Android-Paris/events/240755016/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=qrtyyZCO__w&amp;feature=youtu.be</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Créateur et mainteneur de la librairie open-source Kotlin Kodein, la librairie de reference pour l'injection de dépendance en Kotlin (listée sur le site officiel de Kotlin), Salomon nous propose donc un talk sur l'injection de dependance en Kotlin, comment utiliser Kodein, et enfin quelles sont les spécificités de Kodein sur Android.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2017-06-22</startDate>
+        <endDate>2017-06-22</endDate>
+        <location>Granada, Spain</location>
+        <speaker>Olmo Gallegos, Juan Ramón González</speaker>
+        <title>Granada Geek</title>
+        <subject>Un lenguaje para dessarolladores productivos</subject>
+        <url>https://www.meetup.com/Granada-Geek/events/240686565/</url>
+        <content>
+            <slides>https://speakerdeck.com/jrgonzalez/kotlin-a-language-for-productive-developers</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p>En esta edición de Betabeers introduciremos Kotlin, el lenguaje del momento que Google ya soporta oficialmente en Android.</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2017-07-03</startDate>
+        <endDate>2017-07-03</endDate>
+        <location>Brest, France</location>
+        <speaker>Pascal Lombard</speaker>
+        <title>Finist JUG</title>
+        <subject>Kotlin pour les développeurs Java</subject>
+        <url>https://www.meetup.com/FinistJUG/events/240958127/</url>
+        <description>
+            <![CDATA[
+<p>Dans l’écosystème Java, l’extrême verbosité est considérée comme un crime particulièrement grave. Sur la JVM, un langage qui enquête sur ce crime fait maintenant partie d’une unité d’élite, appelée Langages Officiellement Supportés sur Android. Il s’appelle Kotlin. Voici son histoire. (TU-DUM)</p>
+<p>Nous passerons en revue les principales qualités (et défauts) de Kotlin, auréolé de sa nouvelle popularité, mais surtout nous tenterons de donner une nouvelle jeunesse à une application moins moderne, sans pour autant devoir casser ce qui fonctionne.</p>
+<p>Comparaison avec les autres langages du club JVM, idiomes, patrons de développement et intégration dans les forges classiques, un épisode palpitant nous attend ! (spoiler : ça finit bien)</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-07-15</startDate>
+        <endDate>2017-07-15</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Yuya Sat</speaker>
+        <title>Yochi Yochi Kotlin</title>
+        <subject>よちよち.kotlin #2</subject>
+        <url>https://ycyc-kotlin.connpass.com/event/60511/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin & Androidの初学者を中心に助け合いながらもくもくする会です。</p>
+<p>2週に1回くらいのペースで運用予定です。</p>
+<p>サポーターの方も大歓迎です。</p>
+<p>基本はもくもく会ですが、ネタがあればLTなども受け付けます。 (事前にコメントをお願いします)</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2017-06-23</startDate>
+        <endDate>2017-06-23</endDate>
+        <location>Cochabamba, Bolivia</location>
+        <speaker>Yury Camacho</speaker>
+        <title>GDG Cochabamba</title>
+        <subject>Kotlin: the force awakens</subject>
+        <url>https://www.facebook.com/events/1361741287253922</url>
+        <description>
+            <![CDATA[
+<p>Kotlin se anuncio de manea oficial en el pasado Google IO y a partir de ese momento Kotlin empezó a sonar con mas fuerza, y es necesario mostrar todas las bondades del lenguaje y de que manera nos ayudara a los programadores android a mejorar nuestra experiencia en el desarrollo de nuestras aplicaciones</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-06-22</startDate>
+        <endDate>2017-06-22</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Satoru Fujiwara</speaker>
+        <title>shibuya.apk #16</title>
+        <subject>Convert Java to Kotlin</subject>
+        <url>https://shibuya-apk.connpass.com/event/59671/</url>
+        <content>
+            <slides>https://speakerdeck.com/satorufujiwara/convert-java-to-kotlin-shibuya-dot-apk-16</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-06-12</startDate>
+        <endDate>2017-06-12</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Toshihiro Yagi</speaker>
+        <title>Rx Java</title>
+        <subject>Androidの非同期処理をKotlinコルーチンで行う</subject>
+        <url>https://connpass.com/event/57150/</url>
+        <content>
+            <slides>https://speakerdeck.com/sys1yagi/androidfalsefei-tong-qi-chu-li-wokotlinkorutindexing-u</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-20</startDate>
+        <endDate>2017-07-20</endDate>
+        <location>Wellington, United Kingdom</location>
+        <speaker>Andy Bowes, Michael Richardson</speaker>
+        <title>The JVM Thing!</title>
+        <subject>Introduction to Kotlin</subject>
+        <url>https://www.eventbrite.co.uk/e/the-jvm-thing-an-evening-to-showcase-kotlin-an-emerging-jvm-language-whats-all-the-fuss-about-tickets-35533102466</url>
+        <description>
+            <![CDATA[
+<p>An overview of the Kotlin Language to demonstrate the key features of the language.</p>
+<p>This session provides an introduction to the language, covering basic concepts and tips for Java developers to get started with it.</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-20</startDate>
+        <endDate>2017-07-20</endDate>
+        <location>Wellington, United Kingdom</location>
+        <speaker>Andy Bowes, Michael Richardson</speaker>
+        <title>The JVM Thing!</title>
+        <subject>Kotlin Microservices</subject>
+        <url>https://www.eventbrite.co.uk/e/the-jvm-thing-an-evening-to-showcase-kotlin-an-emerging-jvm-language-whats-all-the-fuss-about-tickets-35533102466</url>
+        <description>
+            <![CDATA[
+<p>Demonstration of use of Kotlin to create REST Microservices using Spring Boot.</p>
+<p>This will cover the similarity between Kotlin & Java Spring Boot applications & introduce the new features that are being introduced into the Spring framework to support Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-20</startDate>
+        <endDate>2017-07-20</endDate>
+        <location>Wellington, United Kingdom</location>
+        <speaker>Andy Bowes, Michael Richardson</speaker>
+        <title>The JVM Thing!</title>
+        <subject>Kotlin Android Applications</subject>
+        <url>https://www.eventbrite.co.uk/e/the-jvm-thing-an-evening-to-showcase-kotlin-an-emerging-jvm-language-whats-all-the-fuss-about-tickets-35533102466</url>
+        <description>
+            <![CDATA[
+<p>Google recently announced first-class support for Kotlin in Android development.</p>
+<p>This session will demonstrate the creation of Android applications using Kotlin and highlight the features of the language which make it a natural fit for Android development.</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>es</lang>
+        <startDate>2017-06-24</startDate>
+        <endDate>2017-06-24</endDate>
+        <location>Monterrey, Mexico</location>
+        <speaker>Joel Humberto Gómez Paredes</speaker>
+        <title>GDG Monterrey</title>
+        <subject>Novedades del Google IO 2017 e introducción a Kotlin</subject>
+        <url>https://www.meetup.com/GDG-Monterrey/events/240512343/</url>
+        <description>
+            <![CDATA[
+<p>Vamos a hablar sobre las novedades que nos trajo Google en el IO 2017, Android, Actions on Google, Kotlin, etc.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2017-06-24</startDate>
+        <endDate>2017-06-24</endDate>
+        <location>Moscow, Russia</location>
+        <speaker>Roman Elizarov</speaker>
+        <title>Mosdroid The Moscow Android Group</title>
+        <subject>«Корутины в Kotlin»</subject>
+        <url>https://www.meetup.com/mosdroid/events/240733927/</url>
+        <description>
+            <![CDATA[
+<p>Современные мобильные приложения в реальном времени работают с серверами, одновременно обслуживающими тысячи пользователей, и при этом интегрируются с дюжинами микросервисов. На смену монолитным приложения, созданным с использованием потоков, приходят программы, написанных в асинхронных стилях с помощью callbacks, future/promise, реактивных потоков и корутин.</p>
+<p>Kotlin — это современный и прагматичный язык для Java Virtual Machine, который был разработан в компании JetBrains с большим упором на совместимость с Java. Благодаря этому любой стиль асинхронного программирования, доступный на Java, также может быть использован и в Kotlin. Можно даже использовать реализации корутин для JVM, которые изменяют байткод, такие как Quasar и JavaFlow. Так зачем тогда Kotlin добавил поддержку корутин прямо в язык и чем они отличаются от generate/yield и async/awаit в таких языках, как C# и Python? Что отличает корутины в Kotlin от потоков?</p>
+<p>В своём докладе я постараюсь ответить на все эти вопросы. Мы на примерах разберём, как запускать и дожидаться завершения корутин и что такое suspend fun. А ещё научимся преобразовывать асинхронные библиотеки в корутины — чтобы лапша из callbacks и замыканий превращалась в понятный код, который выглядит так, как будто бы он выполняется синхронно и последовательно.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2017-06-27</startDate>
+        <endDate>2017-06-27</endDate>
+        <location>Rio de Janeiro, Brazil</location>
+        <speaker>Thiago Cortat</speaker>
+        <title>Android Meetup - Rio de Janeiro</title>
+        <subject>Kotlin</subject>
+        <url>https://www.meetup.com/android-meetup-rj/events/240605455/</url>
+        <description>
+            <![CDATA[
+<p>E nesse meetup vamos falar sobre Kotlin e Charles Proxy. O objetivo é engajar a comunidade carioca de desenvolvedores Android com talks, debates, coding dojos e muito networking. Se você é desenvolvedor, designer ou entusiasta de Android e quer conhecer a comunidade, vem pegar uns adesivos e conhecer a galera!</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>Lagos, Nigeria</location>
+        <speaker>Eyitayo Alimi</speaker>
+        <title>Lagos Kotlin User Group</title>
+        <subject>Kotlin for Android 101</subject>
+        <url>https://www.meetup.com/Lagos-Kotlin-User-Group/events/241058709/</url>
+        <description>
+            <![CDATA[
+<p>This talk will introduce attendee to what they could achieve with Kotlin for Android and also how they can start using it. There will also be a Kotlin help desk to solve the challenges faced with Kotlin for Android.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>Cebu, Philippines</location>
+        <speaker>Inaki Villar</speaker>
+        <title>GDG Cebu</title>
+        <subject>Kotlin is here</subject>
+        <url>https://www.eventbrite.com/e/google-io-extended-cebu-2017-tickets-35122849388</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is the new language for the Android World. Learn about the basics of Kotlin and see how can increase your productivity with Kotlin</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-07-23</startDate>
+        <endDate>2017-07-23</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Taro Nagasawa</speaker>
+        <title>Droid girls</title>
+        <subject>何らかの言語によるプログラミング経験者</subject>
+        <url>https://droidgirls.connpass.com/event/60439/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-28</startDate>
+        <endDate>2017-06-28</endDate>
+        <location>Sonora, CA</location>
+        <speaker>Cameron Jordan</speaker>
+        <title>The Sonora Software Developers Group</title>
+        <subject>Mobile Matters: Android Development with Kotlin</subject>
+        <url>https://www.meetup.com/The-Sonora-Software-Developers-Group/events/240639368/</url>
+        <description>
+            <![CDATA[
+<p>An introduction to Android development using Kotlin in Android Studio. We'll go through the basic concepts in native Android app development and take you through a working demo of a simple Android application. We'll use Kotlin to build on what we learned in Hands on with Kotlin and showcase a few of the advantages that Kotlin has over Java for native Android development.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-28</startDate>
+        <endDate>2017-06-28</endDate>
+        <location>Orlando, FL</location>
+        <speaker>Ivan Lugo</speaker>
+        <title>Central Florida Android Developers Group</title>
+        <subject>Kotlin, Kotlin, Kotlin.</subject>
+        <url>https://www.meetup.com/Central-Florida-Android-Developers-Group/events/240843149/</url>
+        <description>
+            <![CDATA[
+<p>We're all thinking and talking about it, and some of us are even convincing our team leads to start using it. But why Kotlin? What kind of benefits does the language really offer? This will be a brief overview of some of the more simple but highly usable grammatic and syntactic changes that come with Kotlin - type nullability, lambas, extensions, and beyond - that you can easily sink your teeth into to get going. We'll step through some very basic side-by-side examples of Java - vs - Kotlin (from at least one developer's perspective) to get a taste of the language, and how to start your own process of translating between the
+two.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-22</startDate>
+        <endDate>2017-06-22</endDate>
+        <location>Palo Alto, California</location>
+        <speaker>Jake Wharton</speaker>
+        <title>Gradle Summit 2017</title>
+        <subject>A Builder's Intro to Kotlin</subject>
+        <url>https://summit.gradle.com/</url>
+        <content>
+            <slides>https://speakerdeck.com/jakewharton/a-builders-intro-to-kotlin-gradle-summit-2017</slides>
+            <video>https://www.youtube.com/watch?v=UAec6OpJiA8</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Kotlin's popularity has been exploding in the past year. From last year's announcement that Gradle would support it as a build language, to its adoption on large platforms like Android and Spring, to its general applicability for writing IDE and build system plugins, it's hard to find an area that isn't adopting the language in some form.</p>
+<p>This talk will be an introduction to the language in the context of Gradle. After covering the language syntax and features and their benefits, we'll look at why it's great for authoring Gradle plugins. Finally, we'll set the stage for Gradle's Kotlin build script support for which there are other full talks at the conference.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-23</startDate>
+        <endDate>2017-06-23</endDate>
+        <location>Palo Alto, California</location>
+        <speaker>Nadav Cohen, Rodrigo B. de Oliveira</speaker>
+        <title>Gradle Summit 2017</title>
+        <subject>Powering-up your builds with Kotlin</subject>
+        <url>https://summit.gradle.com/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=_TUu9E7rcQ0</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Gradle now supports a Kotlin-based DSL that allows for better tooling, type-safety, and unprecedented expressiveness. What problems does Gradle Script Kotlin solve? How would you convert existing code to Kotlin? And how would it interact with Groovy in the process?</p>
+<p>In this live coding session, we will walk through several Groovy-based build examples and convert them to Kotlin. In this process, we'll uncover a few interesting language features and demonstrate how your builds can leverage them to take your builds to the next level.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>hu</lang>
+        <startDate>2017-06-29</startDate>
+        <endDate>2017-06-29</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Balogh Tamás</speaker>
+        <title>GDG Budapest</title>
+        <subject>Kotlin a gyarkorlatban</subject>
+        <url>https://www.meetup.com/GDG-Budapest/events/240288715/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-28</startDate>
+        <endDate>2017-06-28</endDate>
+        <location>Santa Monica, CA</location>
+        <speaker>Gevik Valijani, Steven Berard</speaker>
+        <title>Santa Monica Android Developers</title>
+        <subject>NFC and Getting Started with Kotlin</subject>
+        <url>https://www.meetup.com/Santa-Monica-Android-Meetup/events/240611295/</url>
+        <description>
+            <![CDATA[
+<p>Gevik will show off what he's learned about reading and writing to NFC chips in an Android app.</p>
+<p>Steven will show us all how we can get started with Kotlin in our current projects.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-29</startDate>
+        <endDate>2017-06-29</endDate>
+        <location>Chennai, India</location>
+        <speaker>Somasundaram Mahesh</speaker>
+        <title>Geek Night Chennai</title>
+        <subject>Kotlin for Android</subject>
+        <url>https://twchennai.github.io/geeknight/#agenda</url>
+        <description>
+            <![CDATA[
+<p>Kotlin will be now shipped with Android Studio working out of the box, starting with version 3.0. No extra installations needed. No more incompatible plugins. All thanks to close collaboration between JetBrains and Google.Let's see how to get started with Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-06-29</startDate>
+        <endDate>2017-06-29</endDate>
+        <location>Norfolk, United States</location>
+        <speaker>Robert Chrzanowski, Ben Earley</speaker>
+        <title>GDG Hampton Roads</title>
+        <subject>Kotlin: From Zero to Hero</subject>
+        <url>https://www.meetup.com/GDG-Hampton-Roads/events/240965483/</url>
+        <description>
+            <![CDATA[
+<p>Come learn the cool new programming language, Kotlin. Google now officially supports Android development using Kotlin. We will be going through the Kotlin Koans exercises with help from professional Kotlin programmer Robert Chrzanowski and Ben Earley.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>it</lang>
+        <startDate>2017-07-07</startDate>
+        <endDate>2017-07-07</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Roberto Orgiu, Lorenzo Quiroli</speaker>
+        <title>GDG Torino</title>
+        <subject>Kotlin: why you should love it</subject>
+        <url>http://gdgtorino.it/</url>
+        <description>
+            <![CDATA[
+<p>This is an introductory talk about Kotlin, where we explain the features of the language, we suggest readings, videos and tools that will help you learning this amazing new language.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>José Yoshiriro</speaker>
+        <title>Virada Tecnológica São Paulo - 2017</title>
+        <subject>Introdução à Kotlin, a Nova Linguagem Oficial para Android</subject>
+        <url>https://www.sympla.com.br/virada-tecnologica-sao-paulo---2017__144564</url>
+        <description>
+            <![CDATA[
+<p>Nesta palestra serão apresentadas as principais novidades que a Kotlin traz. Um pequeno projeto Android criado em Kotlin será comparado com o "mesmo", criado em Java.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2017-06-29</startDate>
+        <endDate>2017-06-29</endDate>
+        <location>México City, Mexico</location>
+        <speaker>Saúl Buentello Sánchez</speaker>
+        <title>Kotlin CDMX User Group</title>
+        <subject>"Kotlin + Fingerprint" y "Kotlin Tricks"</subject>
+        <url>https://www.meetup.com/Kotlin-CDMX/events/241025714/</url>
+        <description>
+            <![CDATA[
+<p>En esta ocasión tendremos la participación de Daniel Olvera, senior Android Developer, trabajando actualmente para Master Card en New York, quien nos compartirá acerca de Kotlin + Fingerprint para validar a los usuarios y dar accesos, así como para hacer pagos, o cualquier implementación para validar la identidad del usuario.</p>
+<p>También tenemos confirmada charla, por parte de Ángel Gladín, miembro del Google Developer Group UNAM y Desarrollador Android. Nos platicará acerca de lo que llama "Kotlin Tricks", puntualizando características y prácticas del lenguaje que, sobre todo para quienes van comenzando, serán de  mucha ayuda.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>Pune, India</location>
+        <speaker>Hardik Trivedi, Akshay Chordiya</speaker>
+        <title>GDG Pune</title>
+        <subject>Introduction to Kotlin</subject>
+        <url>https://www.meetup.com/Pune-GDG/events/240839546/</url>
+        <description>
+            <![CDATA[
+<p>This will be a series of complete step-by-step tutorials to walk you through how to accomplish different tasks in Kotlin, right from Getting Started to writing Android applications and more.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>Lagos, Nigeria</location>
+        <speaker>Eyitayo Alimi</speaker>
+        <title>Lagos Kotlin User Group</title>
+        <subject>Kick off meetup</subject>
+        <url>https://www.meetup.com/Lagos-Kotlin-User-Group/events/241058709/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2017-06-30</startDate>
+        <endDate>2017-06-30</endDate>
+        <location>Cotonou, Benin</location>
+        <speaker>Shadaï Ali</speaker>
+        <title>Kotlin Meetup Cotonou</title>
+        <subject>Découvrir comment kotlin peut améliorer la productivité des dévéloppeurs android</subject>
+        <url>https://www.meetup.com/Kotlin-Meetup-Cotonou/events/240916899/</url>
+        <description>
+            <![CDATA[
+<p> </p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>Gurgaon, India</location>
+        <speaker>Shubham Verma</speaker>
+        <title>Meetup at Daffodil Software</title>
+        <subject>Kotlin: Full day workshop on 1st July 2017.</subject>
+        <url>https://www.meetup.com/Meetup-at-Daffodil-Software/events/240411912/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin, the new programming language by JetBrains has taken the app development landscape by a storm. As a JVM language it is fairly easy to learn and a fun to work upon with some really helpful features like null-safe types. Today, Kotlin is an ideal option for developing large, complicated and performance-critical applications.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>zh</lang>
+        <startDate>2017-07-02</startDate>
+        <endDate>2017-07-02</endDate>
+        <location>Nanning, China</location>
+        <speaker>Qiu Weiming</speaker>
+        <title>GDG Nanning</title>
+        <subject>主题：Android-kotlin的优劣</subject>
+        <url>https://www.meetup.com/gdg-nanning/events/240545979/</url>
+        <description>
+            <![CDATA[
+<p>在2017的Google I/O大会上kotlin得到了官方的正式支持。这不单单意味着以后我们编写Android 程序多了一个选择，同时kotlin简洁的语法可以极大的提高我们的开发效率。kotlin 可以100％与java兼容，此外kotlin还具备各种现代编程语言的特性:空类型、函数式编程、拓展函数等，然而静态代码分析工具的缺乏以及推广度低也严重阻碍着kotlin前进的步伐。</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-04</startDate>
+        <endDate>2017-07-04</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Jussi Hallila</speaker>
+        <title>Dublin Kotliners</title>
+        <subject>Intro to Kotlin for Java devs</subject>
+        <url>https://www.meetup.com/Dublin-Kotliners/events/240554918/</url>
+        <description>
+            <![CDATA[
+<p>Can you imagine a better way to celebrate American independence day than talking about Russian built programming language? Let's get this show on the road and start building a community around Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-06-29</startDate>
+        <endDate>2017-06-29</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Ryota Murohoshi</speaker>
+        <title>第6回Kotlin勉強会 ＠Sansan</title>
+        <subject>Kotlin 1.1 Standard Libraryの改善</subject>
+        <url>https://sansan.connpass.com/event/57683/</url>
+        <content>
+            <slides>https://speakerdeck.com/ryotamurohoshi/kotlin-1-dot-1-standard-libraryfalsegai-shan</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-06-29</startDate>
+        <endDate>2017-06-29</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Koichiro Oishi</speaker>
+        <title>第6回Kotlin勉強会 ＠Sansan</title>
+        <subject>iOSアプリ開発者から見たKotlin</subject>
+        <url>https://sansan.connpass.com/event/57683/</url>
+        <content>
+            <slides>https://speakerdeck.com/koishi/iosapurikai-fa-zhe-karajian-takotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-06-29</startDate>
+        <endDate>2017-06-29</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Ysaka Sakamoto</speaker>
+        <title>第6回Kotlin勉強会 ＠Sansan</title>
+        <subject>iOSアプリ開発者から見たKotlin</subject>
+        <url>https://sansan.connpass.com/event/57683/</url>
+        <content>
+            <slides>https://speakerdeck.com/mintcreamcat/xing-kou-to-kotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-07-13</startDate>
+        <endDate>2017-07-13</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Taro Nagasawa</speaker>
+        <title>【G's Premiere】 Kotlinスタート講座 ～新しいAndroidプログラミング～</title>
+        <subject>KotlinでAndroidアプリ完成！！</subject>
+        <url>https://g-s.connpass.com/event/58914/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-07-08</startDate>
+        <endDate>2017-07-08</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Ma-kun</speaker>
+        <title>日本Androidの会浜松支部 第74回ミーティング #jaghama</title>
+        <subject>Kotlinの開発環境構築</subject>
+        <url>https://jaghama.connpass.com/event/60610/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2017-07-08</startDate>
+        <endDate>2017-07-08</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Ma-kun</speaker>
+        <title>日本Androidの会浜松支部 第74回ミーティング #jaghama</title>
+        <subject>Kotlin概要説明＆Hello, Kotlin!</subject>
+        <url>https://jaghama.connpass.com/event/60610/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>Helwan, Egypt</location>
+        <speaker>Shady Yehia Selim</speaker>
+        <title>GDG Helwan</title>
+        <subject>Intro to Kotlin</subject>
+        <url>https://www.meetup.com/GDG-Helwan/events/240603334/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>Helwan, Egypt</location>
+        <speaker>Ahmed Nabil Mahram</speaker>
+        <title>GDG Helwan</title>
+        <subject>Kotlin for Android</subject>
+        <url>https://www.meetup.com/GDG-Helwan/events/240603334/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-01</startDate>
+        <endDate>2017-07-01</endDate>
+        <location>Helwan, Egypt</location>
+        <speaker>Mohamed Hegazy</speaker>
+        <title>GDG Helwan</title>
+        <subject>Kotlin for Web</subject>
+        <url>https://www.meetup.com/GDG-Helwan/events/240603334/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-15</startDate>
+        <endDate>2017-07-15</endDate>
+        <location>Singapore, Singapore</location>
+        <speaker>Denis Nek</speaker>
+        <title>Kotlin Singapore User Group</title>
+        <subject>Kotlin Introduction Workshop</subject>
+        <url>https://www.meetup.com/kotlinsg/events/241196382/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is the modern programming language that is now officially supported by Google for Android development. And it also good for web and backend developers too.</p>
+<p>Kotlin syntax</p>
+<p>Kotlin first application</p>
+<p>Hands-on: let’s build our first console application with Kotlin</p>
+<p>Hands-on: let’s build our first Android application with Kotlin</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2017-07-04</startDate>
+        <endDate>2017-07-04</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Bruno Silva</speaker>
+        <title>GDG São Paulo</title>
+        <subject>Kotlin na prática: problemas e soluções encontrados durante o desenvolvimento de um app usando kotlin</subject>
+        <url>https://www.meetup.com/GDG-SP/events/240951370/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2017-07-04</startDate>
+        <endDate>2017-07-04</endDate>
+        <location>Vigo, Spain</location>
+        <speaker>Alberto Alonso Ruibal</speaker>
+        <title>JUG Vigo</title>
+        <subject>Kotlin, o Java para o século XXI</subject>
+        <url>https://www.meetup.com/Vigo-JUG/events/240760956/</url>
+        <description>
+            <![CDATA[
+<p>O anuncio do Google I/O ven avalar aos moitos desenvolvedores e empresas que xa confiaban en Kotlin como a súa linguaxe principal para Android.</p>
+<p>Pero Kotlin vai moito máis alá de Android: é unha linguaxe da JVM 100% interoperable con Java que tamén pode transpilar a Javascript, compilar a nativo e incluso ser usada en scripts.</p>
+<p>Nesta charla discutiremos as características de Kotlin, irmá pequena de Scala, que fan dela unha linguaxe funcional moderna, segura, concisa e productiva, amosando un exemplo de cómo se migrou un código Java existente a Kotlin (o Carballo Chess Engine).</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-05</startDate>
+        <endDate>2017-07-05</endDate>
+        <location>Melbourne, Australia</location>
+        <speaker>Ani Fichadia</speaker>
+        <title>Melbourne Java &amp; JVM Users Group</title>
+        <subject>Kotlin Crash Course</subject>
+        <url>https://www.meetup.com/Melbourne-Java-JVM-Users-Group/events/240578749/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin has been around on the JVM for a number of years now, and has recently spiked in popularity thanks to Google officially adopting it as a supported language in Android. It features modern language constructs that would be familiar to Scala and Groovy developers and maintains excellent interoperability with existing Java code.</p>
+<p>Aniruddh, our Android developer in residence and MelbJVM co-organiser will deliver a jam packed, crash course to Kotlin for Java Developers.</p>
+<p>f you missed when we first covered Kotlin a few years ago, would just like a refresher, or have used it yourself and want to share experiences, you'll find this an interesting talk.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-05</startDate>
+        <endDate>2017-07-05</endDate>
+        <location>Washington, DC</location>
+        <speaker>Brad Herrup</speaker>
+        <title>Joy of Programming DC</title>
+        <subject>The Joy of Haskell and Kotlin!</subject>
+        <url>https://www.meetup.com/Joy-of-Programming-DC/events/240640721/</url>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2017-07-05</startDate>
+        <endDate>2017-07-05</endDate>
+        <location>Novosibirsk, Russia</location>
+        <speaker>Dmitry Jemerov</speaker>
+        <title>Yandex Novosibirsk Events for Developers</title>
+        <subject>Kotlin: что это, зачем и кто им пользуется (Q&amp;A)</subject>
+        <url>https://events.yandex.ru/events/meetings/05-jul-2017/</url>
+        <description>
+            <![CDATA[
+<p>Расскажу про опыт использования языка Kotlin и отвечу на все ваши вопросы.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2017-06-13</startDate>
         <endDate>2017-06-13</endDate>
@@ -43,6 +988,9 @@
         <title>GDG Leeds</title>
         <subject>Kotlin for Java Developers</subject>
         <url>https://www.meetup.com/GDG-Leeds/events/239748214/</url>
+        <content>
+            <slides>https://speakerdeck.com/darrenatherton/kotlin-for-java-developers-gdg-leeds-june-2017?slide=62</slides>
+        </content>
         <description>
             <![CDATA[
 <p>This month we will have a roundup of all the big things (and maybe the little things you might have missed) announced at IO followed by a talk on the hot, new (old for some!) language for Android, Kotlin, by Darren Atherton.</p>
@@ -317,6 +1265,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>Kotlin Night Sydney</title>
         <subject>A 100% Kotlin on Android</subject>
         <url>https://www.meetup.com/sydney-kotlin/events/239311719/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=dnGX8NU0aKc</video>
+        </content>
         <description>
             <![CDATA[
 <p>In this talk we will look at the lessons learned from writing an Android app completely in Kotlin. We will look at the advantages and disadvantages of using Kotlin and how it plays with other technologies used, like RxJava & Realm.</p>
@@ -334,6 +1285,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>Kotlin Night Sydney</title>
         <subject>Fantastic DSLs and where to find them</subject>
         <url>https://www.meetup.com/sydney-kotlin/events/239311719/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=YmU_gFtao_k</video>
+        </content>
         <description>
             <![CDATA[
 <p>Kotlin is a very rich language. Unlike many other languages, it allows building another language inside itself. For example, mimic HTML syntax or construct completely typed SQL query. But Kotlin’s power isn’t limited to simple DSLs. With some Kotlin-fu, it’s possible to write a DSL that allows working on untyped data structures in a typed manner. In this talk, we’ll go through different ways to define a DSL in Kotlin, from very simple to fantastically powerful.</p>
@@ -351,6 +1305,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>Kotlin Night Sydney</title>
         <subject>Google I/O summary</subject>
         <url>https://www.meetup.com/sydney-kotlin/events/239311719/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=BvYNOB1QUUo</video>
+        </content>
         <description>
             <![CDATA[
 <p>We all heard what happened at Google I/O this year... You haven't? This talk will bring you up to speed and give a summary of all the Kotlin happenings at the conference.</p>
@@ -402,6 +1359,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>GDG St. Petersburg</title>
         <subject>Efficient Kotlin</subject>
         <url>https://www.meetup.com/gdgspb/events/240686457/</url>
+        <content>
+            <slides>https://speakerdeck.com/gdgspb/efficient-kotlin</slides>
+        </content>
         <description>
             <![CDATA[
 <p>Доклад будет про языковые конструкции и методы stdlib'ы и их оверхед на рантайм. Поделюсь советами о том, что нужно делать, чтобы минимизировать этот самый оверхед.</p>
@@ -419,6 +1379,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>GDG St. Petersburg</title>
         <subject>Safe and sound code with Kotlin</subject>
         <url>https://www.meetup.com/gdgspb/events/240686457/</url>
+        <content>
+            <slides>https://speakerdeck.com/npryce/adopting-kotlin-or-how-we-learned-to-stopped-worrying-and-love-the-null</slides>
+        </content>
         <description>
             <![CDATA[
 <p>Java достаточно безопасный язык программирования с точки зрения управления памятью и типов. Но с переходом на Kotlin мы можем программировать ещё более безопасно благодаря некоторым фичам языка, недоступных в Java.</p>
@@ -545,6 +1508,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>Kotlin User Group Milan</title>
         <subject>Spring Boot and Kotlin, a Match Made in Heaven</subject>
         <url>https://www.meetup.com/KUG-Milan/events/240689395/</url>
+        <content>
+            <slides>https://speakerdeck.com/brescia123/welcome-kotlin</slides>
+        </content>
         <description>
             <![CDATA[
 <p>Durante il primo incontro Giacomo Bresciani ci presenterà il linguaggio con un talk introduttivo con lo scopo di presentare Kotlin anche a chi ne ha solo sentito parlare. </p>
@@ -561,6 +1527,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>GDG Shikoku</title>
         <subject>Kotlin勉強会 in Ehime</subject>
         <url>https://gdgshikoku.connpass.com/event/59731/</url>
+        <content>
+            <slides>https://www.slideshare.net/bornknow108/kotlin-in-ehime</slides>
+        </content>
         <description>
             <![CDATA[
 <p>先日開催されたGoogle I/O 2017 において、Android開発の公式言語となることが発表された「Kotlin」。Android Studio 3.0から標準で組み込まれることになり、今後ますます注目度が高まりそうです。そんな「Kotlin」について、四国でも気になっている方たくさんいると思います</p>
@@ -739,6 +1708,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>GDG Feira de Santana</title>
         <subject>Kotlin para programadores raiz</subject>
         <url>https://www.meetup.com/gdgfsa/events/240636518/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=l8Xg2cA5zWc</video>
+        </content>
         <description>
             <![CDATA[
 <p>Quem é raiz usa editor de texto e linha de comando! Vamos aprender o básico sobre essa linguagem criada pela JetBrains e que será a nova alternativa para programação nativa no Android e outros projetos do Google.</p>
@@ -888,6 +1860,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>New York Kotlin Meetup</title>
         <subject>Kotlin Native</subject>
         <url>https://www.meetup.com/New-York-Kotlin-Meetup/events/240613564/</url>
+        <content>
+            <slides>https://docs.google.com/presentation/d/1FlfhHeTw6DAgDh9tb6j8XkqnIUfKlk2fNgFT7sQf9bY/edit#slide=id.p</slides>
+        </content>
         <description>
             <![CDATA[
 <p>You've probably heard about Kotlin Native but might not have had a chance to play with it yet.  This talk with cover getting started with Kotlin Native, what the differences are between JVM Kotlin and Native Kotlin, and some live coding to show what's currently possible with the new v0.2 pre-release.</p>
@@ -1176,6 +2151,9 @@ En este CodeLab haremos desde una aplicación básica en Android con Kotlin hast
         <title>GDG Leeds</title>
         <subject>Kotlin for Java Developers</subject>
         <url>https://www.meetup.com/GDG-Leeds/events/239748214/</url>
+        <content>
+            <slides>https://speakerdeck.com/darrenatherton/kotlin-for-java-developers-gdg-leeds-june-2017</slides>
+        </content>
         <description>
             <![CDATA[
 <p>This talk is a primer for Java developers who are interested in learning Kotlin.</p>
@@ -1664,6 +2642,9 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>KotlinTLV</title>
         <subject>Introduction to Kotlin</subject>
         <url>https://www.meetup.com/KotlinTLV/events/240383900/</url>
+        <content>
+            <slides>https://speakerdeck.com/alexgherschon/introduction-to-kotlin</slides>
+        </content>
         <description>
             <![CDATA[
 <p>For our first meetup, we'll start by an introduction to the Kotlin language, in stand-alone projects as well as in Android.</p>
@@ -1812,6 +2793,10 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>Kotlin User Group Helsinki</title>
         <subject> Kotlin in 42 minutes</subject>
         <url>https://www.meetup.com/Kotlin-User-Group-Helsinki/events/240264904/</url>
+        <content>
+            <slides>https://docs.google.com/presentation/d/1gpxQD3uhbzuhlRAZwUmCK6QfDXYrIu_9swH5Mgi001c/edit#slide=id.p</slides>
+            <video>https://drive.google.com/file/d/0B4G7Bza3ZmbxNk5qUkVOUVNlU1U/view</video>
+        </content>
         <description>
             <![CDATA[
 <p>Welcome to Kotlin, the open source, statically typed programming language for multi-platform applications. This gonna be a big and exciting journey. To start with, we have an introduction to the language, no matter you target native, JVM, Android or JavaScript. It covers basic syntax, type inference, lambdas, inline functions, data classes, statically typed DSLs, and much more.</p>
@@ -1973,6 +2958,9 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>Kotlin Paris Meetup</title>
         <subject>Kotlin, une histoire, une trajectoire</subject>
         <url>https://www.meetup.com/Kotlin-Paris-Meetup/events/240175863/</url>
+        <content>
+            <slides>https://salomonbrys.github.io/presentations/2017-06-14/2017-06-14.html#/</slides>
+        </content>
         <description>
             <![CDATA[
 <p>L’annonce du support officiel de Kotlin sur Android Studio 3.0 a été la news la plus applaudie de la Google I/O.Kotlin a été créé en 2011 et est utilisé depuis plusieurs années sur Android. Pourquoi un tel engouement autour du support officiel de Google ?</p>
@@ -2077,6 +3065,9 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>GeekOut 2017</title>
         <subject>Introduction to Kotlin coroutines</subject>
         <url>https://2017.geekout.ee/schedule/introduction-to-kotlin-coroutines/</url>
+        <content>
+            <video>https://vimeo.com/221264980/b3ac7f9001</video>
+        </content>
         <description>
             <![CDATA[
 <p>We live in an asynchronous era of concurrency. Modern front-end and mobile applications provide real-time feedback and communication, server-side applications and services handle thousands on-line users while integrating dozens of micro-services. Old-school monolithic applications with thread-based concurrency are going out of fashion and asynchronous styles of programming with callbacks, futures, reactive streams and coroutines are gaining popularity.</p>
@@ -2437,6 +3428,9 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>Сhadev</title>
         <subject>Intro to Kotlin for Android Development</subject>
         <url>https://www.meetup.com/chadevs/events/239834372/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=A1VSCz8BhIs</video>
+        </content>
         <description>
             <![CDATA[
 <p>Kotlin is here to save you from Java -- one class at a time. With an elegant syntax similar to that of Swift, Kotlin brings modern programming to the JVM while maintaining full interoperability with existing Java classes and libraries. While you can use Kotlin to replace Java on nearly any platform, Kotlin really shines in the world of modern Android development, and that’s what we’ll focus on in this talk. We’ll go over the basics of Kotlin, cover tips and tricks that make Kotlin a joy to write, and show you how to get started with Kotlin in your existing projects.</p>
@@ -2453,6 +3447,9 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>Devoxx Poland</title>
         <subject>Kotlin - your 2017 Java replacement</subject>
         <url>http://cfp.devoxx.pl/2017/talk/VSR-9078/Kotlin_-_your_2017_Java_replacement</url>
+        <content>
+            <slides>https://speakerdeck.com/nkoder/kotlin-your-2017-java-replacement</slides>
+        </content>
         <description>
             <![CDATA[
 <p>Do you dream about life without unexpected nulls? Do you fancy a little bit of functional programming?  Are you tired of Java ceremony?</p>
@@ -2570,6 +3567,9 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>Software Practice Advancement Conference 2017</title>
         <subject>Adopting Kotlin - How We Learned to Stop Worrying and Love the Null</subject>
         <url>http://spaconference.org/spa2017/sessions/session727.html</url>
+        <content>
+            <slides>https://speakerdeck.com/npryce/adopting-kotlin-or-how-we-learned-to-stopped-worrying-and-love-the-null</slides>
+        </content>
         <description>
             <![CDATA[
 <p>Since adopting the Kotlin in late 2016, and introducing it to SPA last year, we've been running teams releasing production code in this JVM language for some 18 months now.</p>
@@ -3003,6 +4003,9 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>Google I/O Extended 2017 Budapest</title>
         <subject>Ízelítő a Kotlin nyelvű Android fejlesztésből</subject>
         <url>https://www.meetup.com/GDG-Budapest/events/238509776/</url>
+        <content>
+            <slides> https://www.dropbox.com/s/3ctx7gxrmfe8ehb/%C3%8Dzel%C3%ADt%C5%91%20a%20Kotlin%20nyelv%C5%B1%20Android%20fejleszt%C3%A9sb%C5%91l_io_extended_export.pdf?dl=0</slides>
+        </content>
     </event>
 
     <event>
@@ -3046,6 +4049,10 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
         <title>Android Rennes</title>
         <subject>Présentation d'intro à Kotlin</subject>
         <url>https://www.meetup.com/AndroidRennes/events/239332725/</url>
+        <content>
+            <slides>https://speakerdeck.com/agiuliani/develop-your-next-app-with-kotlin-androidrennes-2017</slides>
+            <video>https://www.youtube.com/watch?v=jB_TxnclcZk&amp;feature=youtu.be</video>
+        </content>
         <description>
             <![CDATA[
 <p>Présentation de découverte du langage, qui reprend certains aspects de groovy ou scala, et qui est très proche de swift dans la syntaxe et les concepts. Nous verrons comment Kotlin boost la productivité du développement d’applications Android et pourquoi vous ne pourrez plus vous en passer ;)</p>
@@ -3267,6 +4274,9 @@ Opowiem również o wadach Kotlina i o tym jak można sobie z nimi radzić</p>
         <speaker>Christina Lee and Huyen Tue Dao</speaker>
         <title>DevFestDC 2017</title>
         <subject>The Road to Kotlintown</subject>
+        <content>
+            <slides>https://speakerdeck.com/queencodemonkey/the-road-to-kotlintown</slides>
+        </content>
         <url>http://www.devfestdc.org/sessions/the-road-to-kotlintown/</url>
         <description>
             <![CDATA[
@@ -3350,6 +4360,9 @@ Opowiem również o wadach Kotlina i o tym jak można sobie z nimi radzić</p>
         <title>Twin Cities Kotlin User Group</title>
         <subject>About functional programming and Kotlin</subject>
         <url>https://www.meetup.com/Twin-Cities-Kotlin-User-Group/events/239289615/</url>
+        <content>
+            <slides> https://leppik.net/david/2017/05/FPinKotlin.pdf</slides>
+        </content>
         <description>
             <![CDATA[
 <p>At the first meeting of the Twin Cities Kotlin User Group, David Leppik will deliver a talk on Functional Programming using Kotlin.</p>
@@ -3434,6 +4447,9 @@ Opowiem również o wadach Kotlina i o tym jak można sobie z nimi radzić</p>
         <title>Geekshubs</title>
         <subject>De Java a Kotlin: proyecto en producción</subject>
         <url>https://www.meetup.com/geekshubs-valencia/events/239589077/</url>
+        <content>
+            <video>https://geekshubsacademy.com/contenido-gratuito/de-java-a-kotlin</video>
+        </content>
         <description>
             <![CDATA[
 <p>En la primera charla Carlos nos hablará de Java a Kotlin dando una introducción a Kotlin contando las diferencias con Java, explicando la migración y características destacables del lenguaje.</p>
@@ -9253,6 +10269,7 @@ encounter while digging deeper into the language.</p>
         <url>http://www.devclub.eu/</url>
         <subject>About Kotlin</subject>
     </event>
+
     <event>
         <lang>fr</lang>
         <startDate>2016-03-23</startDate>
@@ -9263,6 +10280,7 @@ encounter while digging deeper into the language.</p>
         <url>http://www.breizhcamp.org/#</url>
         <subject>Développer un Web Service Géospatial avec Kotlin et Spring Boot</subject>
     </event>
+
     <event>
         <lang>jp</lang>
         <content>

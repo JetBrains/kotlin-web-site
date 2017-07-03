@@ -29,7 +29,7 @@ val result = double(2)
 Calling member functions uses the dot notation
 
 ``` kotlin
-Sample().foo() // create instance of class Sample and calls foo
+Sample().foo() // create instance of class Sample and call foo
 ```
 
 ### Infix notation
