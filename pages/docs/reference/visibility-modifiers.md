@@ -112,5 +112,6 @@ The `internal` visibility modifier means that the member is visible with the sam
 a module is a set of Kotlin files compiled together:
 
   * an IntelliJ IDEA module;
-  * a Maven or Gradle project;
+  * a Maven project;
+  * a Gradle source set;
   * a set of files compiled with one invocation of the <kotlinc> Ant task.
