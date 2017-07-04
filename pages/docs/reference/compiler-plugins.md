@@ -166,6 +166,14 @@ noArg {
 }
 ```
 
+Enable `invokeInitializers` option if you want the plugin to run the initialization logic from the synthetic constructor. Starting from Kotlin 1.1.3-2, it is disabled by default because of [`KT-18667`](https://youtrack.jetbrains.com/issue/KT-18667) and [`KT-18668`](https://youtrack.jetbrains.com/issue/KT-18668) which will be addressed in the future.
+
+```groovy
+noArg {
+    invokeInitializers = true
+}
+```
+
 How to use no-arg in Maven:
 
 ``` xml
@@ -182,6 +190,8 @@ How to use no-arg in Maven:
 
         <pluginOptions>
             <option>no-arg:annotation=com.my.Annotation</option>
+            <!-- Call instance initializers in the synthetic constructor -->
+            <!-- <option>no-arg:invokeInitializers=true</option> -->
         </pluginOptions>
     </configuration>
 
