@@ -29,7 +29,7 @@
     "monkberry-directives": "4.0.8",
     "monkberry-events": "4.0.8",
     "monkberry-loader": "4.0.8",
-    "node-sass": "3.4.1",
+    "node-sass": "4.5.3",
     "nunjucks": "2.4.2",
     "nunjucks-loader": "2.4.1",
     "postcss-loader": "0.8.0",

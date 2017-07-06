@@ -7,3 +7,4 @@ beautifulsoup4==4.5.1
 xmltodict==0.10.2
 geocoder==1.20.0
 ruamel.yaml==0.13.11
+algoliasearch==1.12.0
