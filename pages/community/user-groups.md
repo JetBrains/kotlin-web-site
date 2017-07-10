@@ -16,7 +16,7 @@
  * [Budapest Kotlin User Group](https://www.facebook.com/groups/KotlinBudapest/), Hungary
  * [Cologne Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref), Germany
  * [Croatia Kotlin User Group](https://www.meetup.com/Croatia-Kotlin-User-Group-Meetup/), Croatia
- * [Czech Kotlin User Group](http://www.kotliners.cz), Czech
+ * [Czech Kotlin User Group](http://www.kotliners.cz), Czech Republic
  * [Dublin Kotliners](https://www.meetup.com/Dublin-Kotliners/), Ireland
  * [Dusseldorf Kotlin User Group](https://www.meetup.com/Dusseldorf-Kotlin-Meetup/), Germany
  * [Dutch Kotlin User Group](http://kotlin.nl/), Netherlands
