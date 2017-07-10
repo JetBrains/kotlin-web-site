@@ -1,4 +1,12 @@
 - geo:
+    lat: 16.8660694
+    lng: 96.19513200000002
+  name: Yangon,Burma
+- geo:
+    lat: 33.5903547
+    lng: 130.4017155
+  name: Fukuoka, Japan
+- geo:
     lat: 38.9071923
     lng: -77.0368707
   name: Washington, DC
