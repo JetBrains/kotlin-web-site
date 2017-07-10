@@ -175,7 +175,7 @@ declare it for us under the name `it`:
 ints.filter { it > 0 } // this literal is of type '(it: Int) -> Boolean'
 ```
 
-We can explicitly return a value from the lambda using the [qualified return](returns.html#return-at-labels) syntax. Otherwise, the value of the last expression is implictly returned. Therefore, the two following snippets are equivalent:
+We can explicitly return a value from the lambda using the [qualified return](returns.html#return-at-labels) syntax. Otherwise, the value of the last expression is implicitly returned. Therefore, the two following snippets are equivalent:
 
 ``` kotlin
 ints.filter {
