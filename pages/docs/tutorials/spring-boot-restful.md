@@ -19,7 +19,7 @@ Note that all classes in this tutorial are in the `org.jetbrains.kotlin.demo` pa
 ### Defining the project and dependencies
 {{ site.text_using_gradle }}
 
-The Gradle file is pretty much standard for Spring Boot. The only differences are the structure layout for source folders for Kotlin, the required Kotlin dependencies and the [*kotlin-spring*](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugi)n Gradle plugin (CGLIB proxies used for example for `@Configuration` and `@Bean` processing require `open` classes).
+The Gradle file is pretty much standard for Spring Boot. The only differences are the structure layout for source folders for Kotlin, the required Kotlin dependencies and the [*kotlin-spring*](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugi) Gradle plugin (CGLIB proxies used for example for `@Configuration` and `@Bean` processing require `open` classes).
 
 ``` groovy
 buildscript {
@@ -83,7 +83,7 @@ As can be seen, this is again pretty much a one-to-one translation of Java to Ko
 ### Creating the Application class
 Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin. It could be done with the *@JvmStatic* annotation and a companion object but here we prefer using a [top-level function]({{ url_for('page', page_path="docs/reference/functions") }}) defined outside Application class since it leads to more concise and clean code.
 
-No need to mark the *Configuration* class as *open* since we are using the *kotlin-spring* Gradle plugin which does that automatically.
+No need to mark the Application class as *open* since we are using the *kotlin-spring* Gradle plugin which does that automatically.
 
 ``` kotlin
 @SpringBootApplication
