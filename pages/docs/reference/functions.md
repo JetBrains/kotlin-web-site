@@ -71,7 +71,7 @@ Function parameters can have default values, which are used when a corresponding
 other languages.
 
 ``` kotlin
-fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size()) {
+fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
 ...
 }
 ```
