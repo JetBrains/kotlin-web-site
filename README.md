@@ -2,7 +2,7 @@
 
 Este es el codigo fuente de la pagina de [Kotlin](http://kotlinlang.org)
 
-- [Lista de Errores](#filing-bugs)
+- [Lista de Errores](#lista-de-errores)
 - [Instalacion](#installation)
 - [Trabajando con el sitio](#working-with-site)
     - [Ejecutar el proyecto](#run-site)
