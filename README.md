@@ -12,7 +12,7 @@ Este es el codigo fuente de la pagina de [Kotlin](http://kotlinlang.org)
     - [Escribiendo Contenido](#writing-content)
 
 
-Filing Bugs
+Lista de Errores
 ===========
 We use [YouTrack](http://youtrack.jetbrains.com/issues/KT#) for bug reports and suggestions. Click [here to report an issue](http://youtrack.jetbrains.com/newIssue?project=KT&clearDraft=true&c=Subsystems+Web+Site).
 
