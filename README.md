@@ -1,15 +1,15 @@
 <a href="http://kotlinslackin.herokuapp.com"><img src="https://kotlinslackin.herokuapp.com/badge.svg" height="20"></a>
 
-This is the source for the [Kotlin Web Site](http://kotlinlang.org)
+Este es el codigo fuente de la pagina de [Kotlin](http://kotlinlang.org)
 
-- [Filing bugs](#filing-bugs)
-- [Installation](#installation)
-- [Working with site](#working-with-site)
-    - [Run](#run-site)
-    - [Data](#data)
-    - [Templates](#templates)
-    - [Page metadata](#page-metadata)
-    - [Writing content](#writing-content)
+- [Lista de Errores](#filing-bugs)
+- [Instalacion](#installation)
+- [Trabajando con el sitio](#working-with-site)
+    - [Ejecutar el proyecto](#run-site)
+    - [Informacion](#data)
+    - [Plantillas](#templates)
+    - [Pagina metadata](#page-metadata)
+    - [Escribiendo Contenido](#writing-content)
 
 
 Filing Bugs
