@@ -31,7 +31,11 @@ fun demo(source: List<Int>) {
 ## Getters and Setters
 
 Methods that follow the Java conventions for getters and setters (no-argument methods with names starting with `get`
-and single-argument methods with names starting with `set`) are represented as properties in Kotlin. For example:
+and single-argument methods with names starting with `set`) are represented as properties in Kotlin. 
+`Boolean` accessor methods (where the name of the getter starts with `is` and tne name of the setter starts with `set`)
+are represented as properties which have the same name as the getter method.
+
+For example:
 
 ``` kotlin
 import java.util.Calendar
@@ -39,7 +43,10 @@ import java.util.Calendar
 fun calendarDemo() {
     val calendar = Calendar.getInstance()
     if (calendar.firstDayOfWeek == Calendar.SUNDAY) {  // call getFirstDayOfWeek()
-        calendar.firstDayOfWeek = Calendar.MONDAY       // call setFirstDayOfWeek()
+        calendar.firstDayOfWeek = Calendar.MONDAY      // call setFirstDayOfWeek()
+    }
+    if (!calendar.isLenient) {                         // call isLenient() 
+        calendar.isLenient = true                      // call setLenient()
     }
 }
 ```

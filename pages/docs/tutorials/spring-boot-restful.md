@@ -3,7 +3,7 @@ type: tutorial
 layout: tutorial
 title:  "Creating a RESTful Web Service with Spring Boot"
 description: "This tutorial walks us through the process of creating a simple REST controller with Spring Boot"
-authors: Hadi Hariri, Edoardo Vacchi
+authors: Hadi Hariri, Edoardo Vacchi, Sébastien Deleuze
 showAuthorInfo: true
 source: spring-boot-restful
 ---
@@ -19,26 +19,25 @@ Note that all classes in this tutorial are in the `org.jetbrains.kotlin.demo` pa
 ### Defining the project and dependencies
 {{ site.text_using_gradle }}
 
-The Gradle file is pretty much standard for Spring Boot. The only difference is the structure layout for source folders for Kotlin, and the required Kotlin dependencies
+The Gradle file is pretty much standard for Spring Boot. The only differences are the structure layout for source folders for Kotlin, the required Kotlin dependencies and the [*kotlin-spring*](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugi) Gradle plugin (CGLIB proxies used for example for `@Configuration` and `@Bean` processing require `open` classes).
 
 ``` groovy
 buildscript {
     ext.kotlin_version = '{{ site.data.releases.latest.version }}' // Required for Kotlin integration
-    ext.spring_boot_version = '1.5.3.RELEASE'
+    ext.spring_boot_version = '1.5.4.RELEASE'
     repositories {
         jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Required for Kotlin integration
+	classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
     }
 }
 
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'kotlin' // Required for Kotlin integration
+apply plugin: "kotlin-spring" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
 apply plugin: 'org.springframework.boot'
-apply plugin: 'application'
 
 jar {
     baseName = 'gs-rest-service'
@@ -52,11 +51,7 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Required for Kotlin integration
     compile 'org.springframework.boot:spring-boot-starter-web'
-    testCompile 'junit:junit'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.9'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 ```
 
@@ -76,70 +71,33 @@ class GreetingController {
 
     val counter = AtomicLong()
 
-    @RequestMapping("/greeting")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
-        return Greeting(counter.incrementAndGet(), "Hello, $name")
-    }
+    @GetMapping("/greeting")
+    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String) =
+            Greeting(counter.incrementAndGet(), "Hello, $name")
+
 }
 ```
 
 As can be seen, this is again pretty much a one-to-one translation of Java to Kotlin, with nothing special required for Kotlin.
 
 ### Creating the Application class
-Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin
-using the *@JvmStatic* annotation. For this, we create a standard *Application* class and define a companion object inside where we can then create
-a function annotated with *@JvmStatic*
+Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin. It could be done with the *@JvmStatic* annotation and a companion object but here we prefer using a [top-level function]({{ url_for('page', page_path="docs/reference/functions") }}) defined outside Application class since it leads to more concise and clean code.
 
-Note: JvmStatic is an annotation in Kotlin which is used for interoperability with Java, so that the resulting method is defined as static when called from Java.
-
-The other change needed for Spring Boot is to mark the class as open. Spring boot *@Configuration* classes cannot be final. Classes in Kotlin are final by default without the *open* modifier.
+No need to mark the Application class as *open* since we are using the *kotlin-spring* Gradle plugin which does that automatically.
 
 ``` kotlin
 @SpringBootApplication
-open class Application {
-    companion object {
-        @JvmStatic fun main(args: Array<String>) {
-            SpringApplication.run(Application::class.java, *args)
-        }
-    }
-}
-```
-
-### Alternative Application class definition
-
-In Java, the `main()` method of a Spring Boot application is conventionally defined within the annotated application class. This is because Java *does not* support top-level methods.
-In Kotlin, however, we *do* have [top-level functions]({{ url_for('page', page_path="docs/reference/functions") }}). Thus, we can make the Spring main entry point much simpler:
-
-```kotlin
-@SpringBootApplication
-open class Application
+class Application
 
 fun main(args: Array<String>) {
-	SpringApplication.run(Application::class.java, *args)
-}
-```
-
-The only requirement for this variant to work is to declare in your `build.gradle` file to look for *this* main function. This is done through the `mainClass` property of the `springBoot` section:
-
-
-```groovy
-springBoot {
-    mainClass = 'my.package.YourMainClass'
-}
-```
-
-In Kotlin, top-level functions are compiled into static members of an automatically-generated class. The name of this class is derived from the name of the source file. For instance, a top-level function in the `Application.kt` file would be defined in a class named `ApplicationKt`. You may add the following lines to your `build.gradle`:
-
-```groovy
-springBoot {
-    mainClass = 'kotlin.demo.ApplicationKt'
+    SpringApplication.run(Application::class.java, *args)
 }
 ```
 
 ### Running the application
 We can now use the any of the standard Gradle tasks for Spring Boot to run the application. As such, running
 
-    gradle bootRun
+    ./gradlew bootRun
 
 the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
 
