@@ -51,7 +51,7 @@
  * [Chenai Kotlin User Group](https://www.meetup.com/Chennai-Kotlin-User-Group/), India
  * [Chengdu Kotlin User Group](https://www.kotliner.cn/chengdu/), China
  * [Coimbatore Kotlin User Group](https://facebook.com/kotlincbe/), India
- * [Cambodia Kotlin User Group](https://www.facebook.com/events/1720518288170706/?active_tab=about), Cambodia
+ * [Cambodia Kotlin User Group](https://www.facebook.com/groups/kotlinphnompenh), Cambodia
  * [Dubai Kotlin User Group](https://www.facebook.com/kotlindubai/), United Arab Emirates
  * [HeFei Kotlin User Group](http://weibo.com/kotlinhfug), China
  * [Hyderabad Kotlin User Group](https://www.facebook.com/KotlinHyd/), India
