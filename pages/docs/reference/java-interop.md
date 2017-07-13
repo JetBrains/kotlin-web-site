@@ -22,7 +22,7 @@ fun demo(source: List<Int>) {
         list.add(item)
     }
     // Operator conventions work as well:
-    for (i in 0..source.size() - 1) {
+    for (i in 0..source.size - 1) {
         list[i] = source[i] // get and set are called
     }
 }
