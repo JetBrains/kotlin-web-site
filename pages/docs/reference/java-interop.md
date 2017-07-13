@@ -80,7 +80,7 @@ Consider the following examples:
 ``` kotlin
 val list = ArrayList<String>() // non-null (constructor result)
 list.add("Item")
-val size = list.size() // non-null (primitive int)
+val size = list.size // non-null (primitive int)
 val item = list[0] // platform type inferred (ordinary Java object)
 ```
 
