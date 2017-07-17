@@ -76,7 +76,7 @@ interface Collection<E> ... {
 }
 ```
 
-The **wildcard type argument** `? extends E` indicates that this method accepts a collection of objects of *some subtype of* `E`, not `E` itself. 
+The **wildcard type argument** `? extends E` indicates that this method accepts a collection of objects of `E` *or some subtype of* `E`, not just `E` itself. 
 This means that we can safely **read** `E`'s from items (elements of this collection are instances of a subclass of E), but **cannot write** to 
 it since we do not know what objects comply to that unknown subtype of `E`. 
 In return for this limitation, we have the desired behaviour: `Collection<String>` *is* a subtype of `Collection<? extends Object>`. 
