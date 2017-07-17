@@ -81,7 +81,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
 <dependencies>
     ...
     <dependency>
-        <groupId>org.jetbrains.kotlin</groupId>
+        <groupId>org.jetbrains.kotlinx</groupId>
         <artifactId>kotlinx-coroutines-core</artifactId>
         <version>0.16</version>
     </dependency>
