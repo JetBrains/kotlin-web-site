@@ -1,4 +1,12 @@
 - geo:
+    lat: 47.1584549
+    lng: 27.6014418
+  name: Iasi, Romania
+- geo:
+    lat: 33.9191799
+    lng: -118.4164652
+  name: El Segundo, CA
+- geo:
     lat: 16.8660694
     lng: 96.19513200000002
   name: Yangon,Burma
