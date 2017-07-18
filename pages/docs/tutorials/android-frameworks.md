@@ -303,7 +303,7 @@ For instance, declaring a table looks similar to Java with the small difference 
  
 ``` kotlin 
 @Table(name="users", database = AppDatabase::class)
-class User: BaseModel() {
+class User : BaseModel() {
 
     @PrimaryKey(autoincrement = true)
     @Column(name = "id")

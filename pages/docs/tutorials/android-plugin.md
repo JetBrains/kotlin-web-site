@@ -65,11 +65,11 @@ For example, for this view:
 
 ``` xml
     <TextView
-            android:id="@+id/hello"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World, MyActivity"
-            />
+        android:id="@+id/hello"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello World, MyActivity"
+        />
 ```
 
 There will be a property named `hello`:
@@ -109,9 +109,9 @@ How this works is that when invoking a synthetic property, where the receiver is
 For instance, given
 
 ``` kotlin
-class MyActivity: Activity()
+class MyActivity : Activity()
 fun MyActivity.a() { 
-        this.textView.setText(“”) 
+    this.textView.setText(“”)
 }
 ```
 
@@ -121,7 +121,7 @@ However in the following case:
 
 ``` kotlin
 fun Activity.b() { 
-        this.textView.setText(“”)     
+    this.textView.setText(“”)
 }
 ```
 
