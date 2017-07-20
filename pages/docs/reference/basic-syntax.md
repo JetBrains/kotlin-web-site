@@ -38,7 +38,7 @@ fun sum(a: Int, b: Int): Int {
 
 fun main(args: Array<String>) {
     print("sum of 3 and 5 is ")
-    println(sum(3, 5))
+    println(sum(3, 5)) //sum of 3 and 5 is 8
 }
 ```
 </div>
@@ -53,7 +53,7 @@ fun sum(a: Int, b: Int) = a + b
 //sampleEnd
 
 fun main(args: Array<String>) {
-    println("sum of 19 and 23 is ${sum(19, 23)}")
+    println("sum of 19 and 23 is ${sum(19, 23)}") //sum of 19 and 23 is 42
 }
 ```
 </div>
@@ -70,7 +70,7 @@ fun printSum(a: Int, b: Int): Unit {
 //sampleEnd
 
 fun main(args: Array<String>) {
-    printSum(-1, 8)
+    printSum(-1, 8) //sum of -1 and 8 is 7
 }
 ```
 </div>
@@ -87,7 +87,7 @@ fun printSum(a: Int, b: Int) {
 //sampleEnd
 
 fun main(args: Array<String>) {
-    printSum(-1, 8)
+    printSum(-1, 8) //sum of -1 and 8 is 7
 }
 ```
 </div>
@@ -108,7 +108,7 @@ fun main(args: Array<String>) {
     val c: Int  // Type required when no initializer is provided
     c = 3       // deferred assignment
 //sampleEnd
-    println("a = $a, b = $b, c = $c")
+    println("a = $a, b = $b, c = $c") //a = 1, b = 2, c = 3
 }
 ```
 </div>
@@ -123,7 +123,7 @@ fun main(args: Array<String>) {
     var x = 5 // `Int` type is inferred
     x += 1
 //sampleEnd
-    println("x = $x")
+    println("x = $x") //x = 6
 }
 ```
 </div>
@@ -161,7 +161,7 @@ fun main(args: Array<String>) {
     // arbitrary expression in template:
     val s2 = "${s1.replace("is", "was")}, but now is $a"
 //sampleEnd
-    println(s2)
+    println(s2) //a was 1, but now is 2
 }
 ```
 </div>
@@ -185,7 +185,7 @@ fun maxOf(a: Int, b: Int): Int {
 //sampleEnd
 
 fun main(args: Array<String>) {
-    println("max of 0 and 42 is ${maxOf(0, 42)}")
+    println("max of 0 and 42 is ${maxOf(0, 42)}") //max of 0 and 42 is 42
 }
 ```
 </div>
@@ -201,7 +201,7 @@ fun maxOf(a: Int, b: Int) = if (a > b) a else b
 //sampleEnd
 
 fun main(args: Array<String>) {
-    println("max of 0 and 42 is ${maxOf(0, 42)}")
+    println("max of 0 and 42 is ${maxOf(0, 42)}") //max of 0 and 42 is 42
 }
 ```
 </div>
@@ -248,9 +248,9 @@ fun printProduct(arg1: String, arg2: String) {
 
 
 fun main(args: Array<String>) {
-    printProduct("6", "7")
-    printProduct("a", "7")
-    printProduct("a", "b")
+    printProduct("6", "7") //42
+    printProduct("a", "7") //either 'a' or '7' is not a number
+    printProduct("a", "b") //either 'a' or 'b' is not a number
 }
 ```
 </div>
@@ -286,9 +286,9 @@ fun printProduct(arg1: String, arg2: String) {
 }
 
 fun main(args: Array<String>) {
-    printProduct("6", "7")
-    printProduct("a", "7")
-    printProduct("99", "b")
+    printProduct("6", "7") //42
+    printProduct("a", "7") //Wrong number format in arg1: 'a'
+    printProduct("99", "b") //Wrong number format in arg2: 'b'
 }
 ```
 </div>
@@ -321,9 +321,9 @@ fun main(args: Array<String>) {
     fun printLength(obj: Any) {
         println("'$obj' string length is ${getStringLength(obj) ?: "... err, not a string"} ")
     }
-    printLength("Incomprehensibilities")
-    printLength(1000)
-    printLength(listOf(Any()))
+    printLength("Incomprehensibilities") //'Incomprehensibilities' string length is 21 
+    printLength(1000) //'1000' string length is ... err, not a string 
+    printLength(listOf(Any())) //'[java.lang.Object@77459877]' string length is ... err, not a string
 }
 ```
 </div>
@@ -347,9 +347,9 @@ fun main(args: Array<String>) {
     fun printLength(obj: Any) {
         println("'$obj' string length is ${getStringLength(obj) ?: "... err, not a string"} ")
     }
-    printLength("Incomprehensibilities")
-    printLength(1000)
-    printLength(listOf(Any()))
+    printLength("Incomprehensibilities") //'Incomprehensibilities' string length is 21 
+    printLength(1000) //'1000' string length is ... err, not a string
+    printLength(listOf(Any())) //'[java.lang.Object@77459877]' string length is ... err, not a string 
 }
 ```
 </div>
@@ -375,9 +375,9 @@ fun main(args: Array<String>) {
     fun printLength(obj: Any) {
         println("'$obj' string length is ${getStringLength(obj) ?: "... err, is empty or not a string at all"} ")
     }
-    printLength("Incomprehensibilities")
-    printLength("")
-    printLength(1000)
+    printLength("Incomprehensibilities") //'Incomprehensibilities' string length is 21 
+    printLength("") //'' string length is ... err, is empty or not a string at all 
+    printLength(1000) //'1000' string length is ... err, is empty or not a string at all 
 }
 ```
 </div>
@@ -393,7 +393,9 @@ fun main(args: Array<String>) {
 //sampleStart
     val items = listOf("apple", "banana", "kiwi")
     for (item in items) {
-        println(item)
+        println(item) //apple
+                      //banana
+                      //kiwi
     }
 //sampleEnd
 }
@@ -409,7 +411,9 @@ fun main(args: Array<String>) {
 //sampleStart
     val items = listOf("apple", "banana", "kiwi")
     for (index in items.indices) {
-        println("item at $index is ${items[index]}")
+        println("item at $index is ${items[index]}") //item at 0 is apple
+                                                     //item at 1 is banana
+                                                     //item at 2 is kiwi
     }
 //sampleEnd
 }
@@ -429,7 +433,9 @@ fun main(args: Array<String>) {
     val items = listOf("apple", "banana", "kiwi")
     var index = 0
     while (index < items.size) {
-        println("item at $index is ${items[index]}")
+        println("item at $index is ${items[index]}")//item at 0 is apple
+                                                    //item at 1 is banana
+                                                    //item at 2 is kiwi
         index++
     }
 //sampleEnd
@@ -457,11 +463,11 @@ fun describe(obj: Any): String =
 //sampleEnd
 
 fun main(args: Array<String>) {
-    println(describe(1))
-    println(describe("Hello"))
-    println(describe(1000L))
-    println(describe(2))
-    println(describe("other"))
+    println(describe(1)) //One
+    println(describe("Hello")) //Greeting
+    println(describe(1000L)) //Long
+    println(describe(2)) //Not a string
+    println(describe("other")) //Unknown
 }
 ```
 </div>
@@ -481,7 +487,7 @@ fun main(args: Array<String>) {
     val x = 10
     val y = 9
     if (x in 1..y+1) {
-        println("fits in range")
+        println("fits in range") //fits in range
     }
 //sampleEnd
 }
@@ -499,10 +505,10 @@ fun main(args: Array<String>) {
     val list = listOf("a", "b", "c")
     
     if (-1 !in 0..list.lastIndex) {
-        println("-1 is out of range")
+        println("-1 is out of range") //-1 is out of range
     }
     if (list.size !in list.indices) {
-        println("list size is out of valid list indices range too")
+        println("list size is out of valid list indices range too") //list size is out of valid list indices range too
     }
 //sampleEnd
 }
@@ -518,7 +524,7 @@ Iterating over a range:
 fun main(args: Array<String>) {
 //sampleStart
     for (x in 1..5) {
-        print(x)
+        print(x) //12345
     }
 //sampleEnd
 }
@@ -533,10 +539,10 @@ or over a progression:
 fun main(args: Array<String>) {
 //sampleStart
     for (x in 1..10 step 2) {
-        print(x)
+        print(x) //13579
     }
     for (x in 9 downTo 0 step 3) {
-        print(x)
+        print(x) //9630
     }
 //sampleEnd
 }
@@ -556,7 +562,9 @@ fun main(args: Array<String>) {
     val items = listOf("apple", "banana", "kiwi")
 //sampleStart
     for (item in items) {
-        println(item)
+        println(item) //apple
+                      //banana
+                      //kiwi
     }
 //sampleEnd
 }
@@ -574,7 +582,7 @@ fun main(args: Array<String>) {
 //sampleStart
     when {
         "orange" in items -> println("juicy")
-        "apple" in items -> println("apple is fine too")
+        "apple" in items -> println("apple is fine too") //apple is fine too
     }
 //sampleEnd
 }
@@ -595,7 +603,8 @@ fun main(args: Array<String>) {
         .filter { it.startsWith("a") }
         .sortedBy { it }
         .map { it.toUpperCase() }
-        .forEach { println(it) }
+        .forEach { println(it) //APPLE
+                               //AVOCADO }
 //sampleEnd
 }
 ```
