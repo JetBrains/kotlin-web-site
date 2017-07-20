@@ -10,7 +10,7 @@ At JetBrains we've organised a few events:
  
 The community however is asking for more Kotlin Nights and are willing to organise these themselves. Here you would find guidelines and some hints on putting things together. 
 
-Contact us at [alina@jetbrains.com](mailto:alina@jetbrains.com) to get support and inform about your upcoming event.
+Please, [submit your Kotlin Night](https://surveys.jetbrains.com/s3/1eca96c71ee7) to get support and inform about your upcoming event.
 
 ## Guidelines
 

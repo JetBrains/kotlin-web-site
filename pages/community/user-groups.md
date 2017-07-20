@@ -49,7 +49,7 @@
  * [Bengaluru Kotlin](https://www.facebook.com/KotlinBengaluru/), India
  * [Beijing Kotlin User Group](http://www.kotliner.cn/), China
  * [Bhopal Kotlin User Group](https://www.facebook.com/kotlinbpl/), India
- * [Chenai Kotlin User Group](https://www.meetup.com/Chennai-Kotlin-User-Group/), India
+ * [Chennai Kotlin User Group](https://www.meetup.com/Chennai-Kotlin-User-Group/), India
  * [Chengdu Kotlin User Group](https://www.kotliner.cn/chengdu/), China
  * [Coimbatore Kotlin User Group](https://facebook.com/kotlincbe/), India
  * [Cambodia Kotlin User Group](https://www.facebook.com/groups/kotlinphnompenh), Cambodia
