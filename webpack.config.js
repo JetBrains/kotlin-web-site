@@ -45,6 +45,10 @@ var webpackConfig = {
         loader: 'monkberry-loader'
       },
       {
+        test: /\.mustache$/,
+        loader: 'mustache-loader'
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [

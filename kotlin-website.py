@@ -169,11 +169,6 @@ def resources():
     return render_template('resources.html')
 
 
-@app.route('/search.html')
-def search_page():
-    return render_template('pages/search.html')
-
-
 @app.route('/community/')
 def community_page():
     return render_template('pages/community.html')
