@@ -1,5 +1,6 @@
-const $ = require('jquery');
-require('./index.scss');
+import '../../com/search/search';
+import $ from 'jquery';
+import './index.scss';
 
 const initTabs = function () {
   const $tabs = $('.js-tab');
