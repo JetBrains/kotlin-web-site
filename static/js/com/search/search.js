@@ -15,6 +15,15 @@ $(document).ready(function () {
     appId: '7961PKYRXV',
     apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
     indexName: 'dev_KOTLINLANG',
+    searchFunction: (helper) => {
+      const searchResults = $('.search-results');
+      if (helper.state.query === '') {
+        searchResults.hide();
+        return;
+      }
+      helper.search();
+      searchResults.show();
+    },
     urlSync: {
       trackedParameters: ['query', 'page']
     }
@@ -65,7 +74,7 @@ $(document).ready(function () {
   search.start();
 
   const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));
-  if('q' in urlParameters && urlParameters.q != ''){
+  if ('q' in urlParameters && urlParameters.q != '') {
     openPopup();
   }
 });
