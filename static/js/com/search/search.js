@@ -16,13 +16,13 @@ $(document).ready(function () {
     apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
     indexName: 'dev_KOTLINLANG',
     searchFunction: (helper) => {
-      const searchResults = $('.search-results');
+      const searchResults = $('.search-popup__results');
+      helper.search();
       if (helper.state.query === '') {
         searchResults.hide();
-        return;
+      } else {
+        searchResults.show();
       }
-      helper.search();
-      searchResults.show();
     },
     urlSync: {
       trackedParameters: ['query', 'page']
@@ -55,7 +55,7 @@ $(document).ready(function () {
   search.addWidget(
     Instantsearch.widgets.searchBox({
       container: '.search-popup__input',
-      placeholder: 'Search',
+      placeholder: 'Type to search',
       reset: false,
       magnifier: false,
     })
