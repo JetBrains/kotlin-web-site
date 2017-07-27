@@ -24,15 +24,22 @@ def get_page_path_from_url(url):
 
 
 def group_small_content_pats(content_parts, start_index=0):
-    for i in range(start_index, len(content_parts)):
-        if len(content_parts[i]) < 40 and i < len(content_parts) - 1:
+    size = len(content_parts)
+    for i in range(start_index, size):
+        if len(content_parts[i]) < 40 and i < size - 1:
             content_parts[i] = content_parts[i].rstrip()
             if not len(content_parts[i]) == 0 and not content_parts[i].endswith("."):
                 content_parts[i] = content_parts[i] + ". "
             content_parts[i] = content_parts[i] + content_parts[i + 1].lstrip()
-            del content_parts[i+1]
+            del content_parts[i + 1]
             group_small_content_pats(content_parts, i)
             return
+    if size > 1 and len(content_parts[size - 1]) < 40:
+        content_parts[size - 2] = content_parts[size - 2].rstrip()
+        if not len(content_parts[size - 2]) == 0 and not content_parts[size - 2].endswith("."):
+            content_parts[size - 2] = content_parts[size - 2] + ". "
+        content_parts[size - 2] = content_parts[size - 2] + content_parts[size - 1].lstrip()
+        del content_parts[size - 1]
 
 
 def get_valuable_content(page_content):
