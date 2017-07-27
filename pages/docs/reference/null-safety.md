@@ -20,11 +20,9 @@ Kotlin's type system is aimed to eliminate `NullPointerException`'s from our cod
 * Usage of the `!!` operator that is described below
 * External Java code has caused it
 * There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere)
-* An attempt to use a null reference that originated from Java interop. (Please read about [null safety with platform types](java-interop.html#null-safety-and-platform-types) and be careful with the references you get from calling Java code.)
+* An attempt to use a null reference accessed with Java interop. (Please read about [null safety with platform types](java-interop.html#null-safety-and-platform-types) and be careful with the references you get from calling Java code.)
 
-In Kotlin, the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that under normal circumstances can not (non-null references). ("Non-nullable" references may deceptively hold null in some initialization cases and when they are copied from null references coming from Java interop.)
-
-For example, a regular variable of type `String` can not hold *null*{: .keyword }:
+In Kotlin, the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that can not (non-null references). For example, a regular variable of type `String` can not hold *null*{: .keyword }:
 
 ``` kotlin
 var a: String = "abc"
