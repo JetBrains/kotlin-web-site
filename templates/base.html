@@ -4,6 +4,14 @@
     {% block styles %}
     {% endblock %}
 
+    {% if page and page.title %}
+        {% set title=page.title + ' - Kotlin Programming Language' %}
+    {% else %}
+        {% set title='Kotlin Programming Language' %}
+    {% endif %}
+
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+
     <script src="{{ url_for('static', filename='default.js') }}"></script>
     <script src="{{ url_for('static', filename='common.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}"/>

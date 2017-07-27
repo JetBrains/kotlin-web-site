@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Community{% endblock %}
+
 {% macro speak_kotlin_link(href, text, class, comment=None) %}
     <div class="all-speak-kotlin_link _{{ class }}" data-svg-id="{{ class.replace('-', '_') }}">
         <a href="{{ href }}" class="all-speak-kotlin_link-button">

@@ -166,7 +166,7 @@ def pdf():
 
 @app.route('/docs/resources.html')
 def resources():
-    return render_template('resources.html')
+    return render_template('pages/resources.html')
 
 
 @app.route('/community/')

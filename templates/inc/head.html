@@ -8,13 +8,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5P98');</script>
 <!-- End Google Tag Manager -->
 
-{% if page and page.title %}
-    {% set title=page.title + ' - Kotlin Programming Language' %}
-{% else %}
-    {% set title='Kotlin Programming Language' %}
-{% endif %}
-
-<title>{{ title }}</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="Shortcut Icon" href="{{ url_for('asset', path='images/favicon.ico') }}" type="image/x-icon"/>
 <link rel="apple-touch-icon" href="{{ url_for('asset', path='images/apple-touch-icon.png') }}"/>
