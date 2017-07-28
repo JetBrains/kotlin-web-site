@@ -32,6 +32,13 @@
   background: white;
   min-width: 100%;
   z-index: 100;
+  opacity: 1;
+  transition: 0.2s;
+
+  &._hidden {
+    opacity: 0;
+    z-index: -1;
+  }
 
   .search-popup__content {
     margin: 40px 170px 100px;
@@ -79,12 +86,12 @@
   .search-popup__close-text {
   }
 
-  .search-result {
-    display: flex;
+  .ais-infinite-hits--item {
     padding: 15px 15px;
     margin-left: 130px;
     margin-right: 130px;
 
+    &._active,
     &:hover {
       border: 1px solid #e9f0f4;
       border-radius: 2px;
@@ -96,6 +103,10 @@
         color: #25a4f2;
       }
     }
+  }
+
+  .search-result {
+    display: flex;
   }
 
   em {

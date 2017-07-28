@@ -11,6 +11,7 @@ $(document).ready(function () {
     $closeButton = $('.search-popup__close'),
     $layout = $('.global-layout');
 
+
   const search = Instantsearch({
     appId: '7961PKYRXV',
     apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
@@ -30,21 +31,46 @@ $(document).ready(function () {
   });
 
   function openPopup() {
-    $searchPopup.removeClass('hidden');
-    $layout.addClass('hidden');
+    $searchPopup.removeClass('_hidden');
+    $layout.addClass('_hidden');
     $('.ais-search-box--input').focus();
   }
 
   function closePopup() {
     search.helper.setQuery('').clearRefinements().search();
-    $layout.removeClass('hidden');
-    $searchPopup.addClass('hidden');
+    $layout.removeClass('_hidden');
+    $searchPopup.addClass('_hidden');
   }
 
-  $(document).keyup(function (e) {
-    // escape key
-    if (e.keyCode == 27) {
+  $searchPopup.keyup(function (e) {
+    if (e.keyCode == 27) { // escape key
       closePopup()
+    } else if (e.keyCode == 13) { //enter
+      window.location.href = $('.ais-infinite-hits--item._active a').attr('href')
+    } else if (e.keyCode == 40) { //arrow down
+      const $activeElement = $('.ais-infinite-hits--item._active');
+      const $nextElement = $activeElement.next();
+      if ($nextElement.length > 0) {
+        $activeElement.removeClass('_active');
+        $nextElement.addClass('_active');
+
+        const popupTop = $nextElement.position().top + $nextElement.outerHeight() - $(window).height();
+        if (popupTop > 0) {
+          $searchPopup.scrollTop($searchPopup.scrollTop() + popupTop);
+        }
+      }
+    } else if (e.keyCode == 38) { //arrow up
+      const $activeElement = $('.ais-infinite-hits--item._active');
+      const $prevElement = $activeElement.prev();
+      if ($prevElement.length > 0) {
+        $prevElement.addClass('_active');
+        $activeElement.removeClass('_active');
+
+        const popupTop = $prevElement.position().top;
+        if (popupTop < 0) {
+          $searchPopup.scrollTop($searchPopup.scrollTop() + popupTop);
+        }
+      }
     }
   });
 
@@ -61,6 +87,11 @@ $(document).ready(function () {
     })
   );
 
+  search.on('render', function () {
+    $('.ais-infinite-hits--item._active').removeClass('_active');
+    $('.ais-infinite-hits--item:first').addClass('_active')
+  });
+
   search.addWidget(
     Instantsearch.widgets.infiniteHits({
       container: '.search-popup__results',
@@ -72,6 +103,16 @@ $(document).ready(function () {
   );
 
   search.start();
+
+  const $input = $('.ais-search-box input').on('blur', function () {
+    $input.focus()
+  });
+
+  $input.keydown(function (e) {
+    if(e.keyCode == 40 || e.keyCode == 38){
+      e.preventDefault()
+    }
+  });
 
   const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));
   if ('q' in urlParameters && urlParameters.q != '') {
