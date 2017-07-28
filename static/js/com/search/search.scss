@@ -1,5 +1,9 @@
 @import '../../../css/_utils';
 
+body._no-scroll {
+  overflow: hidden;
+}
+
 .search-button {
   z-index: 1;
   vertical-align: middle;
@@ -33,7 +37,7 @@
   min-width: 100%;
   z-index: 100;
   opacity: 1;
-  transition: 0.2s;
+  transition: 0.3ss;
 
   &._hidden {
     opacity: 0;

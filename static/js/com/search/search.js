@@ -30,16 +30,45 @@ $(document).ready(function () {
     }
   });
 
+    search.addWidget(
+    Instantsearch.widgets.searchBox({
+      container: '.search-popup__input',
+      placeholder: 'Type to search',
+      reset: false,
+      magnifier: false,
+    })
+  );
+
+  search.on('render', function () {
+    $('.ais-infinite-hits--item._active').removeClass('_active');
+    $('.ais-infinite-hits--item:first').addClass('_active')
+  });
+
+  search.addWidget(
+    Instantsearch.widgets.infiniteHits({
+      container: '.search-popup__results',
+      templates: {
+        empty: 'No results',
+        item: resultTemaplate
+      }
+    })
+  );
+
+  search.start();
+
+  const $input = $('.ais-search-box input');
+
   function openPopup() {
     $searchPopup.removeClass('_hidden');
-    $layout.addClass('_hidden');
+    $('body').addClass('_no-scroll');
     $('.ais-search-box--input').focus();
   }
 
   function closePopup() {
     search.helper.setQuery('').clearRefinements().search();
-    $layout.removeClass('_hidden');
+    $('body').removeClass('_no-scroll');
     $searchPopup.addClass('_hidden');
+    $input.val('');
   }
 
   $searchPopup.keyup(function (e) {
@@ -78,33 +107,8 @@ $(document).ready(function () {
 
   $searchButton.on('click touch', openPopup);
 
-  search.addWidget(
-    Instantsearch.widgets.searchBox({
-      container: '.search-popup__input',
-      placeholder: 'Type to search',
-      reset: false,
-      magnifier: false,
-    })
-  );
 
-  search.on('render', function () {
-    $('.ais-infinite-hits--item._active').removeClass('_active');
-    $('.ais-infinite-hits--item:first').addClass('_active')
-  });
-
-  search.addWidget(
-    Instantsearch.widgets.infiniteHits({
-      container: '.search-popup__results',
-      templates: {
-        empty: 'No results',
-        item: resultTemaplate
-      }
-    })
-  );
-
-  search.start();
-
-  const $input = $('.ais-search-box input').on('blur', function () {
+  $input.on('blur', function () {
     $input.focus()
   });
 
