@@ -192,6 +192,8 @@ reference:
          title: JavaScript Modules
        - url: /docs/reference/js-reflection.html
          title: JavaScript Reflection
+       - url: /docs/reference/javascript-dce.html
+         title: JavaScript DCE
 
     - title: Tools
       description:
