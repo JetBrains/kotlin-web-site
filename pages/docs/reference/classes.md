@@ -252,6 +252,42 @@ class Bar2 : Foo {
 }
 ```
 
+### Calling the superclass implementation
+
+Code in a derived class can call its superclass functions and property accessors implementations using the *super*{: .keyword } keyword:
+
+```kotlin
+open class Foo {
+    open fun f() { println("Foo.f()") }
+    open val x: Int get() = 1
+}
+
+class Bar : Foo() {
+    override fun f() { 
+        super.f()
+        println("Bar.f()"} 
+    }
+    
+    override val x: Int get() = super.x + 1
+}
+```
+
+Inside an inner class, accessing the superclass of the outer class is done with the *super*{: .keyword } keyword qualified with the outer class name: `super@Outer`:
+
+```kotlin
+class Bar : Foo() {
+    override fun f() { /* ... */ }
+    override val x: String get() = "..."
+    
+    inner class Baz {
+        fun g() {
+            super@Bar.f() // Calls Foo's implementation of f()
+            println(super@Bar.x) // Uses Foo's implementation of x's getter
+        }
+    }
+}
+```
+
 ### Overriding Rules
 
 In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses,
