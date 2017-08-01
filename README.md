@@ -21,7 +21,7 @@ Installation
 
 ## Prerequisites
 
-- Python. Kotlinlang is [Flask](http://flask.pocoo.org/)-based site, so you'll need python 2 to get it working.
+- Python. Kotlinlang is [Flask](http://flask.pocoo.org/)-based site, so you'll need python 3 to get it working.
 - ruby + [kramdown](http://kramdown.gettalong.org/installation.html). Python has a very poor support for markdown, so kramdown is used as markdown to html converter
 - [nodejs](https://nodejs.org/en/) + npm to build frontend assets
 
