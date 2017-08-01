@@ -19,4 +19,4 @@ class MyPage(Page):
         """The content of the page, rendered as HTML by the configured
         renderer.
         """
-        return unicode(str(self.parsed_html), "utf8").replace("<br>", "<br/>")
+        return str(self.parsed_html).replace("<br>", "<br/>")
