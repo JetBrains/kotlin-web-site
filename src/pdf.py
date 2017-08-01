@@ -1,4 +1,3 @@
-import codecs
 import re
 import subprocess
 from os import path
@@ -34,7 +33,7 @@ PDF_TOC_CONFIG = {
 
 def generate_pdf(pages, toc):
     tmp_file_path = path.join(pdf_folder_path, "tmp.html")
-    with codecs.open(tmp_file_path, 'w', "utf8") as tmp_file:
+    with open(tmp_file_path, 'w', encoding="UTF-8") as tmp_file:
         tmp_file.write(get_pdf_content(pages, toc))
         output_file_path = path.join(pdf_folder_path, 'kotlin-docs.pdf')
         arguments = ["wkhtmltopdf"]
