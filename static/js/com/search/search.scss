@@ -45,6 +45,10 @@ body._no-scroll {
     z-index: -1;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   .search-popup__content {
     margin: 40px 170px 100px;
   }
