@@ -100,7 +100,7 @@
 
 ### South America
 
-* [Brasil Kotlin User Group](https://groups.google.com/forum/#!forum/kotlin-brasil), Brasil
+* [Brasil Kotlin User Group](https://groups.google.com/forum/#!forum/kotlin-brasil), Brazil
 * [Cochabamba Kotlin User Group](https://www.facebook.com/kotlincocha/), Bolivia
 * [La Paz Kotlin User Group](https://www.facebook.com/KotlinLaPaz/), Bolivia
 * [Lima Kotlin User Group](https://www.facebook.com/groups/limakotlin/), Peru
