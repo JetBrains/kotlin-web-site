@@ -178,7 +178,7 @@ def build_search_indices(site_structure, pages):
             page_info = get_api_page(page_path[4:])
             for table in page_info['content']('table'):
                 table.extract()
-            for overload_group in page_info['content'].findAll("div", {"class": "overload-group"}):
+            for overload_group in page_info['content'].findAll("div", {"class": "signature"}):
                 overload_group.extract()
             breadcrumbs = page_info['content'].find("div", {"class": "api-page-panel"})
             if breadcrumbs is not None:
