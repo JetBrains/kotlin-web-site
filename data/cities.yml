@@ -1,4 +1,36 @@
 - geo:
+    lat: 36.7021906
+    lng: 4.0593255
+  name: Tizi Ouzou, Algeria
+- geo:
+    lat: 41.0997803
+    lng: -80.6495194
+  name: Youngstown, OH
+- geo:
+    lat: 36.834047
+    lng: -2.4637136
+  name: Almería, Spain
+- geo:
+    lat: 32.96179
+    lng: -96.82916850000001
+  name: Addison, TX
+- geo:
+    lat: 30.0444196
+    lng: 31.2357116
+  name: Cairo, Egypt
+- geo:
+    lat: 0.3475964
+    lng: 32.5825197
+  name: Kampala, Uganda
+- geo:
+    lat: 36.1626638
+    lng: -86.7816016
+  name: Nashville, TN
+- geo:
+    lat: 5.7204203
+    lng: 10.901604
+  name: Foumban, Cameroon
+- geo:
     lat: 47.1584549
     lng: 27.6014418
   name: Iasi, Romania
