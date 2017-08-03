@@ -2,6 +2,7 @@ import $ from "jquery";
 import "./search.scss";
 import Instantsearch from "instantsearch.js";
 import resultTemaplate from "./search-result.mustache"
+import emptyResultsTemaplate from "./empty-result.mustache"
 import UrlUtils from "query-string"
 
 
@@ -30,12 +31,12 @@ $(document).ready(function () {
     }
   });
 
-    search.addWidget(
+  search.addWidget(
     Instantsearch.widgets.searchBox({
       container: '.search-popup__input',
-      placeholder: 'Type to search',
+      placeholder: 'Search',
       reset: false,
-      magnifier: false,
+      magnifier: false
     })
   );
 
@@ -48,7 +49,7 @@ $(document).ready(function () {
     Instantsearch.widgets.infiniteHits({
       container: '.search-popup__results',
       templates: {
-        empty: 'No results',
+        empty: emptyResultsTemaplate,
         item: resultTemaplate
       }
     })
@@ -107,13 +108,8 @@ $(document).ready(function () {
 
   $searchButton.on('click touch', openPopup);
 
-
-  $input.on('blur', function () {
-    $input.focus()
-  });
-
   $input.keydown(function (e) {
-    if(e.keyCode == 40 || e.keyCode == 38){
+    if (e.keyCode == 40 || e.keyCode == 38) {
       e.preventDefault()
     }
   });
