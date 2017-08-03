@@ -1,11 +1,74 @@
 import os
+from os import path
+from typing import Dict
 
 from algoliasearch import algoliasearch
 from algoliasearch.index import Index
 from bs4 import BeautifulSoup, Tag
 from flask import current_app as app
+from googleapiclient.discovery import build, Resource
+from oauth2client.service_account import ServiceAccountCredentials
 
 from src.api import get_api_page
+
+root_folder = path.dirname(path.dirname(__file__))
+
+
+def initialize_analyticsreporting() -> Resource:
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(
+        os.environ['KEY_FILE_LOCATION'], scopes='https://www.googleapis.com/auth/analytics.readonly')
+    analytics = build('analyticsreporting', 'v4', credentials=credentials)
+    return analytics
+
+
+def get_report(analytics: Resource) -> Dict:
+    return analytics.reports().batchGet(
+        body={
+            "reportRequests":
+                [
+                    {
+                        "viewId": "85132606",
+                        "samplingLevel": "LARGE",
+                        "filtersExpression": "ga:hostname==kotlinlang.org;ga:pagepath!@?",
+                        "pageSize": 10000,
+                        "orderBys": [
+                            {
+                                "fieldName": "ga:uniquepageviews",
+                                "sortOrder": "DESCENDING"
+                            }
+                        ],
+                        "dateRanges":
+                            [
+                                {
+                                    "startDate": "30daysAgo",
+                                    "endDate": "yesterday"
+                                }
+                            ],
+                        "metrics":
+                            [
+                                {
+                                    "expression": "ga:uniquepageviews",
+                                    "alias": ""
+                                }
+                            ],
+                        "dimensions":
+                            [
+                                {
+                                    "name": "ga:pagePath"
+                                }
+                            ]
+                    }
+                ]
+        }).execute()
+
+
+def get_page_views_statistic() -> Dict[str, int]:
+    page_views = {}
+    analytics = initialize_analyticsreporting()
+    report = get_report(analytics)
+    for row in report["reports"][0]["data"]["rows"]:
+        page_views[row["dimensions"][0]] = int(row['metrics'][0]["values"][0])
+    return page_views
 
 
 def get_client():
@@ -44,8 +107,6 @@ def group_small_content_pats(content_parts, start_index=0):
 
 def get_valuable_content(page_content):
     content = []
-    if isinstance(page_content, basestring):
-        page_content = BeautifulSoup(page_content, "html.parser")
     for child in page_content.children:
         if not isinstance(child, Tag):
             continue
@@ -61,7 +122,7 @@ def get_valuable_content(page_content):
     return content
 
 
-def get_page_index_objects(content, url, page_path, title, type, description=None):
+def get_page_index_objects(content, url, page_path, title, type, page_views: int, description=None):
     index_objects = []
     for ind, page_part in enumerate(get_valuable_content(content)):
         page_info = {
@@ -70,7 +131,8 @@ def get_page_index_objects(content, url, page_path, title, type, description=Non
             'content': page_part,
             'title': title,
             'type': type,
-            'description': description
+            'description': description,
+            'pageViews': page_views
         }
         if description is not None:
             page_info['description'] = description
@@ -81,10 +143,15 @@ def get_page_index_objects(content, url, page_path, title, type, description=Non
 
 
 def build_search_indices(site_structure, pages):
+    page_views_statistic = get_page_views_statistic()
     index_objects = []
     for url, endpoint in site_structure:
         if (not url.endswith('.html')) and (not url.endswith('/')):
             continue
+        if url in page_views_statistic:
+            page_views = page_views_statistic[url]
+        else:
+            page_views = 0
         page_path = get_page_path_from_url(url)
         if endpoint == 'page':
             page = pages.get(page_path)
@@ -104,6 +171,7 @@ def build_search_indices(site_structure, pages):
                 page_path,
                 page.meta['title'],
                 type,
+                page_views,
                 description
             )
         elif endpoint == "api_page":
@@ -120,7 +188,8 @@ def build_search_indices(site_structure, pages):
                 url,
                 page_path,
                 page_info['title'],
-                "Standard Library"
+                "Standard Library",
+                page_views
             )
         elif endpoint in ["coroutines_alias", "events_redirect", "community_redirect"]:
             continue
@@ -142,7 +211,8 @@ def build_search_indices(site_structure, pages):
                     'type': 'Page',
                     'title': title,
                     'url': url,
-                    'content': ''
+                    'content': '',
+                    'pageViews': page_views
                 })
             else:
                 index_objects += get_page_index_objects(
@@ -150,7 +220,8 @@ def build_search_indices(site_structure, pages):
                     url,
                     page_path,
                     title,
-                    "Page"
+                    "Page",
+                    page_views
                 )
     index = get_index()
     index.add_objects(index_objects)
