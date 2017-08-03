@@ -10,6 +10,7 @@ body._no-scroll {
   cursor: pointer;
   opacity: 0.8;
   padding: 5px;
+
   .icon {
     background: url('../../../css/com/layout/images/main-sprite.png') no-repeat 0 -550px;
     width: 23px;
@@ -63,6 +64,7 @@ body._no-scroll {
     border-width: 0;
     font-weight: bold;
     caret-color: #888fa3;
+    color: #221f3a;
 
     &::placeholder {
       color: #e9f0f4;
@@ -102,11 +104,13 @@ body._no-scroll {
     padding: 15px 15px;
     margin-left: 130px;
     margin-right: 130px;
+    border-radius: 2px;
+    border: 1px solid white;
+    margin-bottom: -1px;
 
     &._active,
     &:hover {
-      border: 1px solid #e9f0f4;
-      border-radius: 2px;
+      border-color: #e9f0f4;
       box-shadow: 0 5px 7px rgba(34, 31, 58, 0.1);
 
       .search-result__title,
@@ -160,7 +164,8 @@ body._no-scroll {
 
   .ais-infinite-hits__empty {
     font-size: 16px;
-
+    line-height: 24px;
+    color: #888fa3;
   }
 
   .ais-infinite-hits--showmore {
