@@ -3,7 +3,7 @@ import json
 import os
 import sys
 from os import path
-from urlparse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin
 
 import xmltodict
 import yaml
@@ -45,7 +45,7 @@ def get_site_data():
         if not data_file.endswith(".yml"):
             continue
         data_file_path = path.join(data_folder, data_file)
-        with open(data_file_path) as stream:
+        with open(data_file_path, encoding="UTF-8") as stream:
             try:
                 file_name_without_extension = data_file[:-4] if data_file.endswith(".yml") else data_file
                 data[file_name_without_extension] = yaml.load(stream)
@@ -77,8 +77,8 @@ def get_kotlin_features():
     features = []
     for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml"))):
         file_path = path.join(features_dir, feature_meta['content_file'])
-        with open(file_path) as f:
-            content = f.read().decode('utf-8')
+        with open(file_path, encoding='utf-8') as f:
+            content = f.read()
             content = content.replace("\r\n", "\n")
             if file_path.endswith(".md"):
                 html_content = BeautifulSoup(jinja_aware_markdown(content, pages), 'html.parser')
@@ -124,8 +124,8 @@ def versioned_url_for(endpoint, **values):
 
 @app.route('/data/events.json')
 def get_events():
-    with open(path.join(data_folder, "events.xml")) as events_file:
-        events = xmltodict.parse(events_file)['events']['event']
+    with open(path.join(data_folder, "events.xml"), encoding="UTF-8") as events_file:
+        events = xmltodict.parse(events_file.read())['events']['event']
         return Response(json.dumps(events, cls=DateAwareEncoder), mimetype='application/json')
 
 
