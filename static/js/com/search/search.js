@@ -16,7 +16,7 @@ $(document).ready(function () {
   const search = Instantsearch({
     appId: '7961PKYRXV',
     apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
-    indexName: 'dev_KOTLINLANG',
+    indexName: indexName,
     searchFunction: (helper) => {
       const searchResults = $('.search-popup__results');
       helper.search();
