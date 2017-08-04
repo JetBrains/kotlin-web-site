@@ -597,6 +597,13 @@ operator
 data
 ```
 
+Place all annotations before modifiers:
+
+```
+@Named("Foo") 
+private val foo: Foo
+```
+
 ## Platform types
 
 A public function/method returning an expression of a platform type must declare its kotlin type explicitly:
