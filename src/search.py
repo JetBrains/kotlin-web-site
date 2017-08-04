@@ -63,11 +63,13 @@ def get_report(analytics: Resource) -> Dict:
 
 
 def get_page_views_statistic() -> Dict[str, int]:
+    print("Acquiring page view statistic from google")
     page_views = {}
     analytics = initialize_analyticsreporting()
     report = get_report(analytics)
     for row in report["reports"][0]["data"]["rows"]:
         page_views[row["dimensions"][0]] = int(row['metrics'][0]["values"][0])
+    print("Page view statistic acquired")
     return page_views
 
 
@@ -75,7 +77,7 @@ def get_client():
     return algoliasearch.Client(os.environ['SEARCH_USER'], os.environ['SEARCH_KEY'])
 
 
-def get_index():
+def get_index() -> Index:
     index_name = os.environ['INDEX_NAME'] if 'INDEX_NAME' in os.environ else "dev_KOTLINLANG"
     return Index(get_client(), index_name)
 
@@ -147,6 +149,8 @@ def get_page_index_objects(content: BeautifulSoup, url: str, page_path: str, tit
 def build_search_indices(site_structure, pages):
     page_views_statistic = get_page_views_statistic()
     index_objects = []
+
+    print("Start building index")
     for url, endpoint in site_structure:
         if (not url.endswith('.html')) and (not url.endswith('/')):
             continue
@@ -226,5 +230,8 @@ def build_search_indices(site_structure, pages):
                     "Page",
                     page_views
                 )
+    print("Index objects successfully built")
+
     index = get_index()
+    print("Submitting index objects to " + index.index_name + " index")
     index.add_objects(index_objects)
