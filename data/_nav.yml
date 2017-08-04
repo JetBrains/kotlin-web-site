@@ -76,7 +76,7 @@ reference:
         - url: /docs/reference/basic-types.html
           title: Basic Types
         - url: /docs/reference/packages.html
-          title: Packages
+          title: Packages and Imports
         - url: /docs/reference/control-flow.html
           title: Control Flow
         - url: /docs/reference/returns.html

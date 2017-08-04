@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Inline Functions"
+title: "Inline Functions and Reified Type Parameters"
 ---
 
 # Inline Functions

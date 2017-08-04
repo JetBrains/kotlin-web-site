@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Object Expressions and Declarations"
+title: "Object Expressions, Object Declarations and Companion Objects"
 ---
 
 # Object Expressions and Declarations
