@@ -1,6 +1,6 @@
 import os
 from os import path
-from typing import Dict
+from typing import Dict, List
 
 from algoliasearch import algoliasearch
 from algoliasearch.index import Index
@@ -122,7 +122,8 @@ def get_valuable_content(page_content):
     return content
 
 
-def get_page_index_objects(content, url, page_path, title, type, page_views: int, description=None):
+def get_page_index_objects(content: BeautifulSoup, url: str, page_path: str, title: str, page_type: str,
+                           page_views: int, description=None) -> List[Dict]:
     index_objects = []
     for ind, page_part in enumerate(get_valuable_content(content)):
         page_info = {
@@ -130,7 +131,7 @@ def get_page_index_objects(content, url, page_path, title, type, page_views: int
             'objectID': page_path + '#' + str(ind),
             'content': page_part,
             'title': title,
-            'type': type,
+            'type': page_type,
             'description': description,
             'pageViews': page_views
         }
@@ -154,23 +155,23 @@ def build_search_indices(site_structure, pages):
             page_views = 0
         page_path = get_page_path_from_url(url)
         if endpoint == 'page':
-            page = pages.get(page_path)
-            type = "Page"
+            page_part = pages.get(page_path)
+            page_type = "Page"
             if page_path.startswith('community'):
-                type = 'Community'
+                page_type = 'Community'
             elif page_path.startswith('docs/reference'):
-                type = 'Reference'
+                page_type = 'Reference'
             elif page_path.startswith('docs/tutorials'):
-                type = 'Tutorial'
+                page_type = 'Tutorial'
             description = None
-            if 'description' in page.meta:
-                description = page.meta['description']
+            if 'description' in page_part.meta:
+                description = page_part.meta['description']
             index_objects += get_page_index_objects(
-                page.parsed_html,
+                page_part.parsed_html,
                 url,
                 page_path,
-                page.meta['title'],
-                type,
+                page_part.meta['title'],
+                page_type,
                 page_views,
                 description
             )
@@ -180,17 +181,18 @@ def build_search_indices(site_structure, pages):
                 table.extract()
             for overload_group in page_info['content'].findAll("div", {"class": "signature"}):
                 overload_group.extract()
-            breadcrumbs = page_info['content'].find("div", {"class": "api-page-panel"})
+            breadcrumbs = page_info['content'].find("div", {"class": "api-docs-breadcrumbs"})
+            full_name = page_info['title']
             if breadcrumbs is not None:
+                full_name_parts = list(map(lambda link: link.text, breadcrumbs.findAll("a")))
+                if "kotlin-stdlib" in full_name_parts:
+                    full_name_parts.remove("kotlin-stdlib")
+                else:
+                    full_name_parts.remove("kotlin-test")
+                full_name = " › ".join(full_name_parts).replace('<', '&lt;').replace('>', '&gt;')
                 breadcrumbs.extract()
-            index_objects += get_page_index_objects(
-                page_info['content'],
-                url,
-                page_path,
-                page_info['title'],
-                "Standard Library",
-                page_views
-            )
+            type = "Standard Library" if "jvm/stdlib" in url else "Kotlin Test"
+            index_objects += get_page_index_objects(page_info['content'], url, page_path, full_name, type, page_views)
         elif endpoint in ["coroutines_alias", "events_redirect", "community_redirect"]:
             continue
         else:
