@@ -76,7 +76,8 @@ def get_client():
 
 
 def get_index():
-    return Index(get_client(), "dev_KOTLINLANG")
+    index_name = os.environ['INDEX_NAME'] if 'INDEX_NAME' in os.environ else "dev_KOTLINLANG"
+    return Index(get_client(), index_name)
 
 
 def get_page_path_from_url(url):
