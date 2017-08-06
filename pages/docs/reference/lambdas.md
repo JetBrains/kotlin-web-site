@@ -165,7 +165,10 @@ If we leave all the optional annotations out, what's left looks like this:
 ``` kotlin
 val sum: (Int, Int) -> Int = { x, y -> x + y }
 ```
-
+To indicate that a lambda variable is optional, the entire lambda definition must be surrounded with parenthesis:
+``` kotlin
+var sum: ((Int, Int) -> Int)? = null
+```
 
 It's very common that a lambda expression has only one parameter.
 If Kotlin can figure the signature out itself, it allows us not to declare the only parameter, and will implicitly
