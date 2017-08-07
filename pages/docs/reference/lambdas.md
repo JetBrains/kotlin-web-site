@@ -148,6 +148,14 @@ A function type is written as above, or may have named parameters, if you want t
 val compare: (x: T, y: T) -> Int = ...
 ```
 
+To declare a nullable variable of a function type, enclose the entire function type in parentheses and put
+the question mark after it:
+
+``` kotlin
+var sum: ((Int, Int) -> Int)? = null
+```
+
+
 ### Lambda Expression Syntax
 
 The full syntactic form of lambda expressions, i.e. literals of function types, is as follows:
