@@ -166,7 +166,7 @@ reference:
       description: Grammar and other information
       items:
         - url: /docs/reference/keyword-reference.html
-          title: Keyword Reference
+          title: Keywords and Operators
         - url: /docs/reference/grammar.html
           title: Grammar
         - url: /docs/reference/compatibility.html

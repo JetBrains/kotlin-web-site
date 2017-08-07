@@ -2,10 +2,10 @@
 type: doc
 layout: reference
 category: "Tools"
-title: "Keyword Reference"
+title: "Keywords and Operators"
 ---
 
-# Keyword Reference
+# Keywords and Operators
 
 ## Hard Keywords
 
@@ -131,3 +131,43 @@ identifiers in other contexts:
  * `field` is used inside a property accessor to refer to the [backing field of the property](/docs/reference/properties.html#backing-fields)
  * `it` is used inside a lambda to [refer to its parameter implicitly](/docs/reference/lambdas.html#it-implicit-name-of-a-single-parameter)
  
+ 
+## Operators and Special Symbols
+
+Kotlin supports the following operators and special symbols:
+
+ * `+`, `-`, `*`, `/`, `%` - mathematical operators
+     - `*` is also used to [pass an array to a vararg parameter](/docs/reference/functions.html#variable-number-of-arguments-varargs)
+ * `=`
+     - assignment operator
+     - is used to specify [default values for parameters](/docs/reference/functions.html#default-arguments) 
+ * `+=`, `-=`, `*=`, `/=`, `%=` - [augmented assignment operators](/docs/reference/operator-overloading.html#assignments)
+ * `++`, `--` - [increment and decrement operators](/docs/reference/operator-overloading.html#increments-and-decrements)
+ * `&&`, `||`, `!` - logical 'and', 'or', 'not' operators (for bitwise operations, use corresponding [infix functions](/docs/reference/basic-types.html#operations))
+ * `==`, `!=` - [equality operators](/docs/reference/operator-overloading.html#equals) (translated to calls of `equals()` for non-primitive types) 
+ * `===`, `!==` - [referential equality operators](/docs/reference/equality.html#referential-equality)
+ * `<`, `>`, `<=`, `>=` - [comparison operators](/docs/reference/operator-overloading.html#comparison) (translated to calls of `compareTo()` for non-primitive types)
+ * `[`, `]` - [indexed access operator](/docs/reference/operator-overloading.html#indexed) (translated to calls of `get` and `set`)
+ * `!!` [asserts that an expression is non-null](/docs/reference/null-safety.html#the--operator)
+ * `?.` performs a [safe call](/docs/reference/null-safety.html#safe-calls) (calls a method or accesses a property if the receiver is non-null)
+ * `?:` takes the right-hand value if the left-hand value is null (the [elvis operator](http://kotlinlang.org/docs/reference/null-safety.html#elvis-operator))
+ * `::` creates a [member reference](/docs/reference/null-safety.html#nullable-types-and-non-null-types) or a [class reference](/docs/reference/reflection.html#class-references)
+ * `..` creates a [range](/docs/reference/ranges.html) 
+ * `:` separates a name from a type in declarations
+ * `?` marks a type as [nullable](/docs/reference/null-safety.html#nullable-types-and-non-null-types) 
+ * `->`
+     - separates the parameters and body of a [lambda expression](/docs/reference/lambdas.html#lambda-expression-syntax)
+     - separates the parameters and return type declaration in a [function type](/docs/reference/lambdas.html#function-types)
+     - separates the condition and body of a [when expression](http://kotlinlang.org/docs/reference/control-flow.html#when-expression) branch
+ * `@`
+    - introduces an [annotation](/docs/reference/annotations.html#usage)
+    - introduces or references a [loop label](/docs/reference/returns.html#break-and-continue-labels) 
+    - introduces or references a [lambda label](/docs/reference/returns.html#return-at-labels)
+    - references a ['this' expression from an outer scope](/docs/reference/this-expressions.html#qualified)
+    - references an [outer superclass](/docs/reference/classes.html#calling-the-superclass-implementation)
+ * `;` separates multiple statements on the same line
+ * `$` references a variable or expression in a [string template](/docs/reference/basic-types.html#string-templates)    
+ * `_`
+     - substitutes an unused parameter in a [lambda expression](/docs/reference/lambdas.html#underscore-for-unused-variables-since-11)
+     - substitutes an unused parameter in a [destructuring declaration](http://kotlinlang.org/docs/reference/multi-declarations.html#underscore-for-unused-variables-since-11)
+     
