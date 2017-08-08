@@ -19,14 +19,14 @@ The following tokens are always interpreted as keywords and cannot be used as id
  * `class` declares a [class](/docs/reference/classes.html)
  * `continue` [proceeds to the next step of the nearest enclosing loop](/docs/reference/returns.html) 
  * `do` begins a [do/while loop](/docs/reference/control-flow.html#while-loops) (loop with postcondition)
- * `else` defines the false branch of an [if expression](/docs/reference/control-flow.html#if-expression)
- * `false` specifies the false value of the [Boolean type](/docs/reference/basic-types.html#booleans)
+ * `else` defines the branch of an [if expression](/docs/reference/control-flow.html#if-expression) which is executed when the condition is false
+ * `false` specifies the 'false' value of the [Boolean type](/docs/reference/basic-types.html#booleans)
  * `for` begins a [for loop](/docs/reference/control-flow.html#for-loops)
  * `fun` declares a [function](/docs/reference/functions.html) 
  * `if` begins an [if expression](/docs/reference/control-flow.html#if-expression)
  * `in`
      - specifies the object being iterated in a [for loop](/docs/reference/control-flow.html#for-loops)
-     - is used as an operator to check that a value belongs to [a range](/docs/reference/ranges.html), 
+     - is used as an infix operator to check that a value belongs to [a range](/docs/reference/ranges.html), 
        a collection or another entity that [defines the 'contains' method](/docs/reference/operator-overloading.html#in)
      - is used in [when expressions](/docs/reference/control-flow.html#when-expression) for the same purpose
      - marks a type parameter as [contravariant](/docs/reference/generics.html#declaration-site-variance)
@@ -42,17 +42,17 @@ The following tokens are always interpreted as keywords and cannot be used as id
      - checks that [a value does NOT have a certain type](/docs/reference/typecasts.html#is-and-is-operators)
      - is used in [when expressions](/docs/reference/control-flow.html#when-expression) for the same purpose
  * `null` is a constant representing an object reference that doesn't point to any object
- * `object` declares [a class an its instance at the same time](/docs/reference/object-declarations.html)
+ * `object` declares [a class and its instance at the same time](/docs/reference/object-declarations.html)
  * `package` specifies the [package for the current file](/docs/reference/packages.html)
  * `return` [returns from the nearest enclosing function or anonymous function](/docs/reference/returns.html)  
  * `super` 
-     - [calls the superclass implementation of a method or property](/docs/reference/classes.html#calling-the-superclass-implementation)
+     - [refers to the superclass implementation of a method or property](/docs/reference/classes.html#calling-the-superclass-implementation)
      - [calls the superclass constructor from a secondary constructor](/docs/reference/classes.html#inheritance)
  * `this` 
      - refers to [the current receiver](/docs/reference/this-expressions.html)
      - [calls another constructor of the same class from a secondary constructor](http://kotlinlang.org/docs/reference/classes.html#constructors)
  * `throw` [throws an exception](/docs/reference/exceptions.html)
- * `true` specifies the true value of the [Boolean type](/docs/reference/basic-types.html#booleans)
+ * `true` specifies the 'true' value of the [Boolean type](/docs/reference/basic-types.html#booleans)
  * `try` [begins an exception handling block](/docs/reference/exceptions.html)
  * `typealias` declares a [type alias](/docs/reference/type-aliases.html)
  * `val` declares a read-only [property](/docs/reference/properties.html) or [local variable](/docs/reference/basic-syntax.html#defining-local-variables)
@@ -74,7 +74,7 @@ as identifiers in other contexts:
  * `dynamic` references a [dynamic type](/docs/reference/dynamic-type.html) in Kotlin/JS code
  * `field` is used as an [annotation use-site target](/docs/reference/annotations.html#annotation-use-site-targets)
  * `file` is used as an [annotation use-site target](/docs/reference/annotations.html#annotation-use-site-targets)
- * `finally` begins a block that [cleans up after an exception](/docs/reference/exceptions.html)
+ * `finally` begins a block that [is always executed when a try block exits](/docs/reference/exceptions.html)
  * `get`
      - declares the [getter of a property](/docs/reference/properties.html#getters-and-setters)
      - is used as an [annotation use-site target](/docs/reference/annotations.html#annotation-use-site-targets)
@@ -101,14 +101,14 @@ in other contexts:
  * `crossinline` forbids [non-local returns in a lambda passed to an inline function](/docs/reference/inline-functions.html#non-local-returns) 
  * `data` instructs the compiler to [generate canonical members for a class](/docs/reference/data-classes.html)
  * `enum` declares an [enumeration](/docs/reference/enum-classes.html)
- * `external` marks a declaration as implemented in native code ([JNI](/docs/reference/java-interop.html#using-jni-with-kotlin) or [JavaScript](/docs/reference/js-interop.html#external-modifier)) 
+ * `external` marks a declaration as implemented not in Kotlin (accessible through [JNI](/docs/reference/java-interop.html#using-jni-with-kotlin) or in [JavaScript](/docs/reference/js-interop.html#external-modifier)) 
  * `final` forbids [overriding a member](/docs/reference/classes.html#overriding-methods)
  * `infix` allows calling a function in [infix notation](/docs/reference/functions.html#infix-notation)
  * `inline` tells the compiler to [inline the function and the lambdas passed to it at the call site](/docs/reference/inline-functions.html)
- * `inner` allows referring to the outer class from a [nested class](/docs/reference/nested-classes.html)
+ * `inner` allows referring to the outer class instance from a [nested class](/docs/reference/nested-classes.html)
  * `internal` marks a declaration as [visible in the current module](/docs/reference/visibility-modifiers.html)
  * `lateinit` allows initializing a [non-null property outside of a constructor](/docs/reference/properties.html#late-initialized-properties)
- * `noinline` forbids [inlining of a lambda passed to an inline function](/docs/reference/inline-functions.html#noinline)
+ * `noinline` turns off [inlining of a lambda passed to an inline function](/docs/reference/inline-functions.html#noinline)
  * `open` allows [subclassing a class or overriding a member](/docs/reference/classes.html#inheritance)
  * `operator` marks a function as [overloading an operator or implementing a convention](/docs/reference/operator-overloading.html)
  * `out` marks a type parameter as [covariant](/docs/reference/generics.html#declaration-site-variance)
