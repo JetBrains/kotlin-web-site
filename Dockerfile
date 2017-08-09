@@ -1,5 +1,7 @@
 FROM python:3
 
+COPY google-credentials.json /secrets/google-credentials.json
+
 RUN pip install --no-cache-dir virtualenv;
 
 RUN export DEBIAN_FRONTEND=noninteractive; \

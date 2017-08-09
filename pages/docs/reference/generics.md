@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Generics"
+title: "Generics: in, out, where"
 ---
 
 # Generics

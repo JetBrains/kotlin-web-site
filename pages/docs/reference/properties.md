@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Properties and Fields"
+title: "Properties and Fields: Getters, Setters, const, lateinit"
 ---
 
 # Properties and Fields

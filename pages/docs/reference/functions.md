@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Functions"
+title: "Functions: infix, vararg, tailrec"
 ---
 
 # Functions

@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Basic Types"
+title: "Basic Types: Numbers, Strings, Arrays"
 ---
 
 # Basic Types

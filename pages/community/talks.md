@@ -1,4 +1,5 @@
 ---
+title: Kotlin Events
 ---
 
 # Kotlin talks and speakers support

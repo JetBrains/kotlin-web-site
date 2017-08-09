@@ -1,4 +1,5 @@
 ---
+title: Kotlin User Groups
 ---
 
 # Kotlin User Groups (103)
@@ -105,7 +106,7 @@
 * [La Paz Kotlin User Group](https://www.facebook.com/KotlinLaPaz/), Bolivia
 * [Lima Kotlin User Group](https://www.facebook.com/groups/limakotlin/), Peru
 * [Peru Kotlin User Group](https://www.facebook.com/groups/1540580306247047/), Peru
-* [San Paolo Kotlin Meetup](https://www.meetup.com/kotlin-meetup-sp/), Brazil 
+* [Sao Paulo Kotlin Meetup](https://www.meetup.com/kotlin-meetup-sp/), Brazil 
 * [Rio de Janeiro](https://www.meetup.com/Kotlin-Rio/), Brazil
 
 ### Australia/Oceania

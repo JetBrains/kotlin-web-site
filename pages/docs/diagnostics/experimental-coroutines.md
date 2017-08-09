@@ -1,5 +1,4 @@
 ---
-type: default
 layout: default
 title:  "Using coroutines"
 authors: Roman Belov

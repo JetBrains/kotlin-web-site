@@ -2,10 +2,10 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Control Flow"
+title: "Control Flow: if, when, for, while"
 ---
 
-# Control Flow
+# Control Flow: if, when, for, while
 
 ## If Expression
 
@@ -126,7 +126,8 @@ See the [grammar for *when*{: .keyword }](grammar.html#when).
 
 ## For Loops
 
-*for*{: .keyword } loop iterates through anything that provides an iterator. The syntax is as follows:
+*for*{: .keyword } loop iterates through anything that provides an iterator. This is equivalent
+to the `foreach` loop in languages like C#. The syntax is as follows:
 
 ``` kotlin
 for (item in collection) print(item)

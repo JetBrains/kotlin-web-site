@@ -2,10 +2,10 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Type Checks and Casts"
+title: "Type Checks and Casts: 'is' and 'as'"
 ---
 
-# Type Checks and Casts
+# Type Checks and Casts: 'is' and 'as'
 
 ## `is` and `!is` Operators
 

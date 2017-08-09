@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Packages"
+title: "Packages and Imports"
 ---
 
 # Packages

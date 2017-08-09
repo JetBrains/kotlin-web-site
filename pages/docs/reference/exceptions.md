@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Exceptions"
+title: "Exceptions: try, catch, finally, throw, Nothing"
 ---
 
 # Exceptions

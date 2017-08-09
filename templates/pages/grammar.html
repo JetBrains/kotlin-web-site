@@ -1,16 +1,13 @@
 {% extends 'reference.html' %}
-{#---#}
-{#type: doc#}
-{#category: "Grammar"#}
-{#title: "Grammar"#}
-{#---#}
+
+{% block title %}Grammar{% endblock %}
 
 {% block page_content %}
     <script src="{{ url_for('static', filename='grammar.js') }}"></script>
 
     <div id="js-toc"></div>
 
-    <div class="grammar">
+    <div class="grammar page-content">
         <h1 id="grammar">Grammar</h1>
 
         {% for set in kotlinGrammar %}

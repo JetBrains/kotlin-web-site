@@ -1,21 +1,22 @@
 'use strict';
 
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
-var Webpack = require('webpack');
-var WebpackExtractTextPlugin = require('extract-text-webpack-plugin');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
-var extend = require('extend');
-var autoprefixer = require('autoprefixer');
-var parseArgs = require('minimist');
+const Webpack = require('webpack');
+const WebpackExtractTextPlugin = require('extract-text-webpack-plugin');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
+const extend = require('extend');
+const autoprefixer = require('autoprefixer');
+const parseArgs = require('minimist');
 
-var isProduction = process.env.NODE_ENV === 'production';
-var isServer = process.argv.toString().includes('webpack-dev-server');
-var CLIArgs = parseArgs(process.argv.slice(2));
-var webDemoURL = CLIArgs['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
+const isProduction = process.env.NODE_ENV === 'production';
+const isServer = process.argv.toString().includes('webpack-dev-server');
+const CLIArgs = parseArgs(process.argv.slice(2));
+const webDemoURL = CLIArgs['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
+const indexName = CLIArgs['index-name'] || 'dev_KOTLINLANG';
 
-var webpackConfig = {
+const webpackConfig = {
   entry: {
     'common': 'page/common.js',
     'index': 'page/index/index.js',
@@ -43,6 +44,10 @@ var webpackConfig = {
       {
         test: /\.monk$/,
         loader: 'monkberry-loader'
+      },
+      {
+        test: /\.mustache$/,
+        loader: 'mustache-loader'
       },
       {
         test: /\.js$/,
@@ -108,7 +113,8 @@ var webpackConfig = {
     }),
 
     new Webpack.DefinePlugin({
-      webDemoURL: JSON.stringify(webDemoURL)
+      webDemoURL: JSON.stringify(webDemoURL),
+      indexName: JSON.stringify(indexName)
     }),
 
     new WebpackExtractTextPlugin('[name].css')

@@ -2,10 +2,10 @@
 type: doc
 layout: reference
 category: Other
-title: "Collections"
+title: "Collections: List, Set, Map"
 ---
 
-# Collections
+# Collections: List, Set, Map
 
 Unlike many languages, Kotlin distinguishes between mutable and immutable collections (lists, sets, maps, etc). Precise control over exactly when collections can be edited is useful for eliminating bugs, and for designing good APIs.
 

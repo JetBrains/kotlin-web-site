@@ -1,4 +1,4 @@
-require('../com/search');
+import '../com/search/search';
 require('whatwg-fetch');
 require('../com/cookie-banner');
 const CodeMirror = require('../com/codemirror/CodeMirror');
