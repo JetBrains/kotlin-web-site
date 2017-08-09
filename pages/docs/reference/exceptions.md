@@ -112,7 +112,8 @@ a value of an inferred type and there's no other information that can be used to
 specific type, the compiler will infer the `Nothing?` type:
 
 ``` kotlin
-val x = null    // 'x' has type `Nothing?`
+val x = null           // 'x' has type `Nothing?`
+val l = listOf(null)   // 'l' has type `List<Nothing?>
 ```
 
 ## Java Interoperability
