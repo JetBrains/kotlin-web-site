@@ -1,4 +1,36 @@
 - geo:
+    lat: 7.6124263
+    lng: 5.237108699999999
+  name: Ado, Nigeria
+- geo:
+    lat: 35.2270869
+    lng: -80.8431267
+  name: Charlotte, NC
+- geo:
+    lat: 20.9673702
+    lng: -89.5925857
+  name: Mérida, Mexico
+- geo:
+    lat: 22.7195687
+    lng: 75.8577258
+  name: Indore, India
+- geo:
+    lat: 33.5731104
+    lng: -7.589843399999999
+  name: ad-Dar-al-Bayda, Morocco
+- geo:
+    lat: 38.5815719
+    lng: -121.4943996
+  name: Sacramento, CA
+- geo:
+    lat: 51.8968917
+    lng: -8.4863157
+  name: Cork, Ireland
+- geo:
+    lat: 22.572646
+    lng: 88.36389500000001
+  name: Kolkata, India
+- geo:
     lat: 36.7021906
     lng: 4.0593255
   name: Tizi Ouzou, Algeria
