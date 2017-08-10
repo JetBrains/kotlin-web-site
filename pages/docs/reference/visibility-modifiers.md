@@ -108,7 +108,7 @@ Local variables, functions and classes can not have visibility modifiers.
 
 ## Modules
 
-The `internal` visibility modifier means that the member is visible with the same module. More specifically,
+The `internal` visibility modifier means that the member is visible within the same module. More specifically,
 a module is a set of Kotlin files compiled together:
 
   * an IntelliJ IDEA module;
