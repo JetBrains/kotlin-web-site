@@ -388,13 +388,13 @@
 
     <event>
         <lang>es</lang>
-        <startDate>2017-09-04</startDate>
-        <endDate>2017-09-04</endDate>
+        <startDate>2017-09-06</startDate>
+        <endDate>2017-09-06</endDate>
         <location>Lima, Peru</location>
         <speaker>Eduardo José Medina Alfaro</speaker>
         <title>Infosoft 2017</title>
         <subject>CodeLab Kotlin</subject>
-        <url>https://www.facebook.com/infosoft.pucp2017/</url>
+        <url>https://www.meetup.com/Peru-Kotlin-User-Group/events/242240476/?eventId=242240476/</url>
         <description>
             <![CDATA[
 <p>It is a workshop about develop applications android with Kotlin for the event called Infosoft</p>
