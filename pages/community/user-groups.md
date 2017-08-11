@@ -2,7 +2,7 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (108)
+# Kotlin User Groups (109)
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -128,6 +128,7 @@ title: Kotlin User Groups
 * [Brazza Kotlin User Group](https://www.facebook.com/groups/KotlinBrazza/), Congo
 * [Cape Town Kotlin Meetup](https://www.meetup.com/Cape-Town-Kotlin-Meetup/), South Africa
 * [Cairo Kotlin User Group](https://www.facebook.com/Kotlin.Cairo/), Egypt
+* [Cotonou Kotlin User Group](https://www.meetup.com/Kotlin-Meetup-Cotonou/), Benin
 * [Egypt Kotlin](https://www.facebook.com/kotlinegypt/), Egypt
 * [Johannesburg Kotlin User Group](https://www.meetup.com/Kotlin-Software-Development-Meetup/), South Africa
 * [Lagos Kotlin User Group](https://www.meetup.com/Lagos-Kotlin-Meetup/), Nigeria
