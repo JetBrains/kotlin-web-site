@@ -265,7 +265,7 @@ open class Foo {
 class Bar : Foo() {
     override fun f() { 
         super.f()
-        println("Bar.f()"} 
+        println("Bar.f()") 
     }
     
     override val x: Int get() = super.x + 1
