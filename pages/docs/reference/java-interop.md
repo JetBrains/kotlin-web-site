@@ -290,7 +290,7 @@ Java classes sometimes use a method declaration for the indices with a variable 
 ``` java
 public class JavaArrayExample {
 
-    public void removeIndices(int... indices) {
+    public void removeIndicesVarArg(int... indices) {
         // code here...
     }
 }
