@@ -3,11 +3,11 @@ require('whatwg-fetch');
 require('../com/cookie-banner');
 const CodeMirror = require('../com/codemirror/CodeMirror');
 const NavTree = require('../com/nav-tree');
-const ExecutableCode = require('../com/executable-code');
+const executableCode = require('kotlin-runcode');
 const $ = require('jquery');
 
 $(document).ready(function () {
-  new ExecutableCode('.sample');
+  executableCode('.sample');
 
   CodeMirror.colorize($('.code._highlighted'));
 
