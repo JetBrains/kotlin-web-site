@@ -299,7 +299,7 @@ public class JavaArrayExample {
 In that case you need to use the spread operator `*` to pass the `IntArray`:
 
 ``` kotlin
-val javaObj = JavaArray()
+val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
 ```
