@@ -125,7 +125,7 @@ class C(id: String) {
 
 ``` java
 // Java
-class JavaClient {
+public final class JavaClient {
     public String getID(C c) {
         return c.ID;
     }
