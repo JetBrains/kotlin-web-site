@@ -277,7 +277,7 @@ Inside an inner class, accessing the superclass of the outer class is done with 
 ```kotlin
 class Bar : Foo() {
     override fun f() { /* ... */ }
-    override val x: String get() = "..."
+    override val x: Int get() = 0
     
     inner class Baz {
         fun g() {
