@@ -26,6 +26,7 @@
     "instantsearch.js": "2.0.2",
     "jquery": "2.1.4",
     "kotlin-runcode": "^1.0.6",
+    "loader-utils": "1.1.0",
     "monkberry": "4.0.8",
     "monkberry-directives": "4.0.8",
     "monkberry-events": "4.0.8",
