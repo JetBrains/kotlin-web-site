@@ -28,23 +28,23 @@ If the package is not specified, the contents of such a file belong to "default"
 
 A number of packages are imported into every Kotlin file by default:
 
-- kotlin.*
-- kotlin.annotation.*
-- kotlin.collections.*
-- kotlin.comparisons.*  (since 1.1)
-- kotlin.io.*
-- kotlin.ranges.*
-- kotlin.sequences.*
-- kotlin.text.*
+- [kotlin.*](/api/latest/jvm/stdlib/kotlin/index.html)
+- [kotlin.annotation.*](/api/latest/jvm/stdlib/kotlin.annotation/index.html)
+- [kotlin.collections.*](/api/latest/jvm/stdlib/kotlin.collections/index.html)
+- [kotlin.comparisons.*](/api/latest/jvm/stdlib/kotlin.comparisons/index.html)  (since 1.1)
+- [kotlin.io.*](/api/latest/jvm/stdlib/kotlin.io/index.html)
+- [kotlin.ranges.*](/api/latest/jvm/stdlib/kotlin.ranges/index.html)
+- [kotlin.sequences.*](/api/latest/jvm/stdlib/kotlin.sequences/index.html)
+- [kotlin.text.*](/api/latest/jvm/stdlib/kotlin.text/index.html)
 
 Additional packages are imported depending on the target platform:
 
 - JVM:
   - java.lang.*
-  - kotlin.jvm.*
+  - [kotlin.jvm.*](/api/latest/jvm/stdlib/kotlin.jvm/index.html)
 
 - JS:    
-  - kotlin.js.*
+  - [kotlin.js.*](/api/latest/jvm/stdlib/kotlin.js/index.html)
 
 ## Imports
 
