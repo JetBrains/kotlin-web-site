@@ -117,8 +117,6 @@ $(document).ready(function () {
     }
   });
 
-  openPopup();
-
   const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));
   if ('q' in urlParameters && urlParameters.q != '') {
     openPopup();
