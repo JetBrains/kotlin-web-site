@@ -1,4 +1,4 @@
-require('pdf.scss');
+require('../../css/pdf.scss');
 const CodeMirror = require('../com/codemirror/CodeMirror');
 
 const $ = require('jquery');

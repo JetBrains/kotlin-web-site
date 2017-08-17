@@ -1,6 +1,5 @@
 var $ = require('jquery');
-var render = require('util/render');
-var localStorage = require('util/localStorage');
+var render = require('../util/render');
 
 var templates = {},
   helpers = {};
@@ -104,13 +103,13 @@ NavTree.prototype._initEvents = function () {
 
 NavTree.prototype.getItemsStateInfo = function () {
   var storageKey = NavTree.STORAGE_KEY + '_' + this.id;
-  var stateInfo = localStorage.getItem(storageKey);
+  var stateInfo = JSON.parse(localStorage.getItem(storageKey));
   return stateInfo;
 };
 
 NavTree.prototype.setItemsStateInfo = function (info) {
   var storageKey = NavTree.STORAGE_KEY + '_' + this.id;
-  localStorage.setItem(storageKey, info);
+  localStorage.setItem(storageKey, JSON.stringify(info));
 };
 
 NavTree.prototype.restoreItemsState = function () {
@@ -268,4 +267,4 @@ NavTree.prototype.templates.leafItem = function (item) {
   return t;
 };
 
-module.exports = NavTree
+export default NavTree;

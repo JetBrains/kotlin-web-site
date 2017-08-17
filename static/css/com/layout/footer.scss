@@ -50,11 +50,11 @@
             margin-left: 3px;
             width: 48px;
             height: 48px;
-            background: url('images/logos-sprite.png') no-repeat 0 -50px;
+            background: url('../layout/images/logos-sprite.png') no-repeat 0 -50px;
             font-size: 0;
 
             @include adapt_retina {
-                background-image: url('images/logos-sprite@2x.png');
+                background-image: url('../layout/images/logos-sprite@2x.png');
                 background-size: 200px 100px;
             }
 
