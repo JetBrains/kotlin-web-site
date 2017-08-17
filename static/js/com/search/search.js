@@ -4,7 +4,9 @@ import Instantsearch from "instantsearch.js";
 import resultTemaplate from "./search-result.mustache"
 import emptyResultsTemaplate from "./empty-result.mustache"
 import UrlUtils from "query-string"
+import debounce from 'debounce';
 
+const searchDelay = 300;
 
 $(document).ready(function () {
   const $searchButton = $('.search-button'),
@@ -17,15 +19,16 @@ $(document).ready(function () {
     appId: '7961PKYRXV',
     apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
     indexName: indexName,
-    searchFunction: (helper) => {
+    searchFunction: debounce((helper) => {
       const searchResults = $('.search-popup__results');
+
       helper.search();
       if (helper.state.query === '') {
         searchResults.hide();
       } else {
         searchResults.show();
       }
-    },
+    }, searchDelay),
     urlSync: {
       trackedParameters: ['query', 'page']
     }
@@ -113,6 +116,8 @@ $(document).ready(function () {
       e.preventDefault()
     }
   });
+
+  openPopup();
 
   const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));
   if ('q' in urlParameters && urlParameters.q != '') {
