@@ -7,6 +7,7 @@ module.exports = (params = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
   const env = isProduction ? 'production' : 'development';
   const isServer = process.argv.toString().includes('webpack-dev-server');
+  const originHost = 'localhost:5000';
 
   const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
   const indexName = params['index-name'] || 'dev_KOTLINLANG';
@@ -131,7 +132,12 @@ module.exports = (params = {}) => {
     devServer: {
       port: 9000,
       proxy: {
-        '/*': { target: 'http://localhost:5000' }
+        '/**': {
+          target: `http://${originHost}`,
+          bypass: function (req) {
+            req.headers.host = originHost;
+          }
+        }
       }
     }
   };
