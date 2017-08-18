@@ -14,6 +14,7 @@ $(document).ready(function () {
     $closeButton = $('.search-popup__close'),
     $layout = $('.global-layout');
 
+  let isInited = false;
 
   const search = Instantsearch({
     appId: '7961PKYRXV',
@@ -58,11 +59,14 @@ $(document).ready(function () {
     })
   );
 
-  search.start();
-
   const $input = $('.ais-search-box input');
 
   function openPopup() {
+    if (!isInited) {
+      search.start();
+      isInited = true;
+    }
+
     $searchPopup.removeClass('_hidden');
     $('body').addClass('_no-scroll');
     $('.ais-search-box--input').focus();
