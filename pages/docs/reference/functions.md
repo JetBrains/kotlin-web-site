@@ -91,6 +91,23 @@ class B : A() {
 }
 ```
 
+If a default parameter precedes a parameter with no default value, the default value can be used only by calling the function with [named arguments](#named-arguments):
+
+``` kotlin
+fun foo(bar: Int = 0, baz: Int) { /* ... */ }
+
+foo(baz = 1) // The default value bar = 0 is used
+```
+
+But if a last argument [lambda](lambdas.html#lambda-expression-syntax) is passed to a function call outside the parentheses, passing no values for the default parameters is allowed:
+
+``` kotlin
+fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { /* ... */ }
+
+foo(1) { println("hello") } // Uses the default value baz = 1 
+foo { println("hello") }    // Uses both defeault values bar = 0 and baz = 1
+```
+
 ### Named Arguments
 
 Function parameters can be named when calling functions. This is very convenient when a function has a high number of parameters or default ones.
@@ -136,9 +153,19 @@ and if we do not need all arguments
 reformat(str, wordSeparator = '_')
 ```
 
+When a function is called with both positional and named arguments, all the positional arguments should be placed before the first named one. For example, the call `f(1, y = 2)` is allowed, but `f(x = 1, 2)` is not.
+
+[Variable number of arguments (*vararg*{: .keyword })](#variable-number-of-arguments-varargs) can be passed in the named form by using the **spread** operator:
+
+``` kotlin
+fun foo(vararg strings: String) { /* ... */ }
+
+foo(strings = *arrayOf("a", "b", "c"))
+foo(strings = "a") // Not required for a single value
+```
+
 Note that the named argument syntax cannot be used when calling Java functions, because Java bytecode does not
 always preserve names of function parameters.
-
 
 ### Unit-returning functions
 
