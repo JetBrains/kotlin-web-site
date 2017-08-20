@@ -156,7 +156,7 @@ Parentheses are translated to calls to `invoke` with appropriate number of argum
 | `a -= b` | `a.minusAssign(b)` |
 | `a *= b` | `a.timesAssign(b)` |
 | `a /= b` | `a.divAssign(b)` |
-| `a %= b` | `a.modAssign(b)` |
+| `a %= b` | `a.remAssign(b)`, `a.modAssign(b)` (deprecated) |
 
 For the assignment operations, e.g. `a += b`, the compiler performs the following steps:
 
