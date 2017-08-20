@@ -228,7 +228,7 @@ Overriding properties works in a similar way to overriding methods; properties d
 
 ``` kotlin
 open class Foo {
-    open val x: Int get { ... }
+    open val x: Int get() { ... }
 }
 
 class Bar1 : Foo() {
