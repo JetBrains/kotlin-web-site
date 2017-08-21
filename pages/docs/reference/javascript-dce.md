@@ -5,6 +5,8 @@ category: "JavaScript"
 title: "JavaScript DCE"
 ---
 
+# JavaScript DCE
+
 Since version 1.1.4, Kotlin/JS includes a dead code elimination (DCE) tool.
 This tool allows to strip out unused properties, functions and classes from the generated JS.
 There are several ways you get unused declarations:
