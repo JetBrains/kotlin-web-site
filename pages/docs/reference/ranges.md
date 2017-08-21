@@ -16,6 +16,13 @@ if (i in 1..10) { // equivalent of 1 <= i && i <= 10
 }
 ```
 
+Or via ```forEach``` expression
+```kotlin
+(1..10).forEach {
+    println(it)
+}
+```
+
 Integral type ranges (`IntRange`, `LongRange`, `CharRange`) have an extra feature: they can be iterated over.
 The compiler takes care of converting this analogously to Java's indexed *for*{: .keyword }-loop, without extra overhead.
 
