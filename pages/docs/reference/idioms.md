@@ -31,7 +31,7 @@ provides a `Customer` class with the following functionality:
 fun foo(a: Int = 0, b: String = "") { ... }
 ```
 
-### Filtering a list
+### Filtering a list(note that: list can not contains null elemetns, you can call list.filterNotNull() to filters null elements first)
 
 ``` kotlin
 val positives = list.filter { x -> x > 0 }
