@@ -90,7 +90,7 @@ fun foo() {
 ```
 
 Such returns (located in a lambda, but exiting the enclosing function) are called *non-local* returns. We are used to
-this sort of constructs in loops, which inline functions often enclose:
+this sort of construct in loops, which inline functions often enclose:
 
 ``` kotlin
 fun hasZeros(ints: List<Int>): Boolean {
