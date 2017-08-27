@@ -32,29 +32,6 @@ Calling member functions uses the dot notation
 Sample().foo() // create instance of class Sample and call foo
 ```
 
-### Infix notation
-
-Functions can also be called using infix notations when
-
-* They are member functions or [extension functions](extensions.html)
-* They have a single parameter
-* They are marked with the `infix` keyword
-
-``` kotlin
-// Define extension to Int
-infix fun Int.shl(x: Int): Int {
-...
-}
-
-// call extension function using infix notation
-
-1 shl 2
-
-// is the same as
-
-1.shl(2)
-```
-
 ### Parameters
 
 Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed.
@@ -242,6 +219,29 @@ When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList
 ```kotlin
 val a = arrayOf(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
+```
+
+### Infix notation
+
+Functions can also be called using infix notations when
+
+* They are member functions or [extension functions](extensions.html)
+* They have a single parameter
+* They are marked with the `infix` keyword
+
+``` kotlin
+// Define extension to Int
+infix fun Int.shl(x: Int): Int {
+...
+}
+
+// call extension function using infix notation
+
+1 shl 2
+
+// is the same as
+
+1.shl(2)
 ```
 
 ## Function Scope
