@@ -1,142 +1,154 @@
-'use strict';
-
 const path = require('path');
-const fs = require('fs');
-
 const Webpack = require('webpack');
-const WebpackExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
-const extend = require('extend');
-const autoprefixer = require('autoprefixer');
-const parseArgs = require('minimist');
 
-const isProduction = process.env.NODE_ENV === 'production';
-const isServer = process.argv.toString().includes('webpack-dev-server');
-const CLIArgs = parseArgs(process.argv.slice(2));
-const webDemoURL = CLIArgs['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
-const indexName = CLIArgs['index-name'] || 'dev_KOTLINLANG';
+module.exports = (params = {}) => {
+  const isProduction = process.env.NODE_ENV === 'production';
+  const env = isProduction ? 'production' : 'development';
+  const isServer = process.argv.toString().includes('webpack-dev-server');
+  const originHost = 'localhost:5000';
 
-const webpackConfig = {
-  entry: {
-    'common': 'page/common.js',
-    'index': 'page/index/index.js',
-    'events': 'page/events/index.js',
-    'videos': 'page/videos.js',
-    'grammar': 'page/grammar.js',
-    'community': 'page/community/community.js',
-    'styles': 'styles.scss',
-    'pdf': 'page/pdf.js',
-    'api': 'page/api/api.js'
-  },
-  output: {
-    path: path.join(__dirname, '_assets'),
-    publicPath: '/_assets/',
-    filename: '[name].js'
-  },
-  resolve: {
-    modulesDirectories: ['node_modules', './static/js', './static/css']
-  },
+  const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
+  const indexName = params['index-name'] || 'dev_KOTLINLANG';
 
-  devtool: !isProduction ? 'sourcemap' : false,
+  const webpackConfig = {
+    entry: {
+      'common': './static/js/page/common.js',
+      'index': './static/js/page/index/index.js',
+      'events': './static/js/page/events/index.js',
+      'videos': './static/js/page/videos.js',
+      'grammar': './static/js/page/grammar.js',
+      'community': './static/js/page/community/community.js',
+      'pdf': './static/js/page/pdf.js',
+      'api': './static/js/page/api/api.js',
+      'styles': './static/css/styles.scss'
+    },
 
-  module: {
-    loaders: [
-      {
-        test: /\.monk$/,
-        loader: 'monkberry-loader'
-      },
-      {
-        test: /\.mustache$/,
-        loader: 'mustache-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [
-          path.resolve(__dirname, 'static/js')
-        ]
-      },
-      {
-        test: /\.css$/,
-        loader: WebpackExtractTextPlugin.extract([
-          'css',
-          'postcss'
-        ].join('!'))
-      },
-      {
-        test: /\.scss$/,
-        loader: WebpackExtractTextPlugin.extract([
-          'css',
-          'postcss',
-          'resolve-url?keepQuery',
-          'sass?sourceMap'
-        ].join('!'))
-      },
-      {
-        test: /\.(woff|ttf)$/,
-        loader: 'file?name=[path][name].[ext]'
-      },
-      {
-        test: /\.twig$/,
-        loader: 'nunjucks-loader'
-      },
-      {
-        test: /\.svg/,
-        loaders: [
-          'url',
-          'svg-fill'
-        ]
-      },
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        loader: 'advanced-url?limit=10000&name=[path][name].[ext]'
-      }
-    ]
-  },
+    output: {
+      path: path.join(__dirname, '_assets'),
+      publicPath: '/_assets/',
+      filename: '[name].js'
+    },
 
-  postcss: [
-    autoprefixer({browsers: ['last 2 versions']})
-  ],
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          loader: 'babel-loader',
+          include: [
+            path.resolve(__dirname, 'static/js')
+          ]
+        },
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract({
+            use: [
+              'css-loader',
+              {
+                loader: 'resolve-url-loader',
+                options: {
+                  keepQuery: true
+                }
+              },
+              'svg-fill-loader/encodeSharp',
+              {
+                loader: 'postcss-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true
+                }
+              }
+            ]
+          })
+        },
+        {
+          test: /\.twig$/,
+          loader: 'nunjucks-loader'
+        },
+        {
+          test: /\.monk$/,
+          loader: 'monkberry-loader'
+        },
+        {
+          test: /\.mustache$/,
+          loader: 'mustache-loader'
+        },
+        {
+          test: /\.svg/,
+          use: [
+            'url-loader',
+            'svg-fill-loader'
+          ]
+        },
+        {
+          test: /\.(jpe?g|png|gif)$/,
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: '[path][name].[ext]'
+          }
+        },
+        {
+          test: /\.(woff|ttf)$/,
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]'
+          }
+        }
+      ]
+    },
 
-  plugins: [
-    new Webpack.optimize.CommonsChunkPlugin({
-      name: 'default',
-      minChunks: 3
-    }),
+    plugins: [
+      new ExtractTextPlugin('[name].css'),
 
-    new Webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
-      Promise: 'imports?this=>global!exports?global.Promise!core-js/es6/promise'
-    }),
+      new Webpack.optimize.CommonsChunkPlugin({
+        name: 'default',
+        minChunks: 3
+      }),
 
-    new Webpack.DefinePlugin({
-      webDemoURL: JSON.stringify(webDemoURL),
-      indexName: JSON.stringify(indexName)
-    }),
+      new Webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+        fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
+        Promise: 'imports-loader?this=>global!exports-loader?global.Promise!core-js/es6/promise'
+      }),
 
-    new WebpackExtractTextPlugin('[name].css')
-  ],
+      new Webpack.DefinePlugin({
+        webDemoURL: JSON.stringify(webDemoURL),
+        indexName: JSON.stringify(indexName),
+        'process.env': {
+          NODE_ENV: JSON.stringify(env)
+        }
+      })
+    ],
 
-  devServer: {
-    proxy: {
-      '/**': {
-        target: 'http://localhost:5000'
+    devServer: {
+      port: 9000,
+      proxy: {
+        '/**': {
+          target: `http://${originHost}`,
+          bypass: function (req) {
+            req.headers.host = originHost;
+          }
+        }
       }
     }
+  };
+
+  if (!isServer) {
+    webpackConfig.plugins.push(
+      new LiveReloadPlugin({
+        appendScriptTag: false
+      })
+    );
   }
+
+  return webpackConfig;
 };
-
-if (!isServer) {
-  webpackConfig.plugins.push(
-    new LiveReloadPlugin({
-      appendScriptTag: false
-    })
-  );
-}
-
-module.exports = webpackConfig;
-
-

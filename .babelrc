@@ -1,8 +1,6 @@
 {
-  "presets": ["es2015"],
+  "presets": "@jetbrains/jetbrains",
   "plugins": [
-    "transform-class-properties",
-    "add-module-exports",
     "transform-runtime"
   ]
 }

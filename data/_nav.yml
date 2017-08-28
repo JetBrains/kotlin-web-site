@@ -194,6 +194,8 @@ reference:
          title: JavaScript Modules
        - url: /docs/reference/js-reflection.html
          title: JavaScript Reflection
+       - url: /docs/reference/javascript-dce.html
+         title: JavaScript DCE
 
     - title: Tools
       description:
@@ -268,6 +270,8 @@ tutorials:
           title: Working with Kotlin and JavaScript Modules
         - url: /docs/tutorials/javascript/working-with-javascript.html
           title: Working with JavaScript
+        - url: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
+          title: Debugging Kotlin in browser
 
     - title: Coroutines
       items:

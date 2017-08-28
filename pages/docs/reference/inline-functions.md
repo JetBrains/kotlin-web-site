@@ -90,7 +90,7 @@ fun foo() {
 ```
 
 Such returns (located in a lambda, but exiting the enclosing function) are called *non-local* returns. We are used to
-this sort of constructs in loops, which inline functions often enclose:
+this sort of construct in loops, which inline functions often enclose:
 
 ``` kotlin
 fun hasZeros(ints: List<Int>): Boolean {
@@ -201,3 +201,14 @@ inline var bar: Bar
 ```
 
 At the call site, inline accessors are inlined as regular inline functions.
+
+## Restrictions for public API inline functions
+
+When an inline function is `public` or `protected` and is not a part of a `private` or `internal` declaration, it is considered a [module](visibility-modifiers.html#modules)'s public API. It can be called in other modules and is inlined at such call sites as well.
+
+This imposes certain risks of binary incompatibility caused by changes in the module that declares an inline function in case the calling module is not re-compiled after the change.
+
+To eliminate the risk of such incompatibility being introduced by a change in **non**-public API of a module, the public API inline functions are not allowed to use non-public-API declarations, i.e. `private` and `internal` declarations and their parts, in their bodies.
+
+An `internal` declaration can be annotated with `@PublishedApi`, which allows its use in public API inline functions. When an `internal` inline function is marked as `@PublishedApi`, its body is checked too, as if it were public.
+ 

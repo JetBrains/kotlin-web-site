@@ -31,8 +31,8 @@ fun demo(source: List<Int>) {
 ## Getters and Setters
 
 Methods that follow the Java conventions for getters and setters (no-argument methods with names starting with `get`
-and single-argument methods with names starting with `set`) are represented as properties in Kotlin. 
-`Boolean` accessor methods (where the name of the getter starts with `is` and tne name of the setter starts with `set`)
+and single-argument methods with names starting with `set`) are represented as properties in Kotlin.
+`Boolean` accessor methods (where the name of the getter starts with `is` and the name of the setter starts with `set`)
 are represented as properties which have the same name as the getter method.
 
 For example:
@@ -45,7 +45,7 @@ fun calendarDemo() {
     if (calendar.firstDayOfWeek == Calendar.SUNDAY) {  // call getFirstDayOfWeek()
         calendar.firstDayOfWeek = Calendar.MONDAY      // call setFirstDayOfWeek()
     }
-    if (!calendar.isLenient) {                         // call isLenient() 
+    if (!calendar.isLenient) {                         // call isLenient()
         calendar.isLenient = true                      // call setLenient()
     }
 }
@@ -290,7 +290,7 @@ Java classes sometimes use a method declaration for the indices with a variable 
 ``` java
 public class JavaArrayExample {
 
-    public void removeIndices(int... indices) {
+    public void removeIndicesVarArg(int... indices) {
         // code here...
     }
 }
@@ -299,7 +299,7 @@ public class JavaArrayExample {
 In that case you need to use the spread operator `*` to pass the `IntArray`:
 
 ``` kotlin
-val javaObj = JavaArray()
+val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
 ```
@@ -402,7 +402,7 @@ if (Character.isLetter(a)) {
 
 Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance::class.java`,
 `ClassName::class.java` or `instance.javaClass` to enter Java reflection through `java.lang.Class`.
- 
+
 Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property, a `KProperty` for a Java field, a Java method or constructor for a `KFunction` and vice versa.
 
 ## SAM Conversions

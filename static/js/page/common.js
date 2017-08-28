@@ -1,13 +1,15 @@
+import executableCode from 'kotlin-runcode';
+import $ from 'jquery';
+import 'whatwg-fetch';
+
 import '../com/search/search';
-require('whatwg-fetch');
-require('../com/cookie-banner');
-const CodeMirror = require('../com/codemirror/CodeMirror');
-const NavTree = require('../com/nav-tree');
-const ExecutableCode = require('../com/executable-code');
-const $ = require('jquery');
+import '../com/cookie-banner';
+import CodeMirror from '../com/codemirror/CodeMirror';
+
+import NavTree from '../com/nav-tree';
 
 $(document).ready(function () {
-  new ExecutableCode('.sample');
+  executableCode('.sample');
 
   CodeMirror.colorize($('.code._highlighted'));
 

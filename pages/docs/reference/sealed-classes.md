@@ -26,6 +26,10 @@ object NotANumber : Expr()
 (The example above uses one additional new feature of Kotlin 1.1: the possibility for data classes to extend other
 classes, including sealed classes.)
 
+A sealed class is [abstract](classes.html#abstract-classes) by itself, it cannot be instantiated directly and can have *abstract*{: .keyword } members.
+
+Sealed classes are not allowed to have non-*private*{: .keyword } constructors (their constructors are *private*{: .keyword } by default).
+
 Note that classes which extend subclasses of a sealed class (indirect inheritors) can be placed anywhere, not necessarily in
 the same file.
 

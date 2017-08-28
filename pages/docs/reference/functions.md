@@ -32,29 +32,6 @@ Calling member functions uses the dot notation
 Sample().foo() // create instance of class Sample and call foo
 ```
 
-### Infix notation
-
-Functions can also be called using infix notations when
-
-* They are member functions or [extension functions](extensions.html)
-* They have a single parameter
-* They are marked with the `infix` keyword
-
-``` kotlin
-// Define extension to Int
-infix fun Int.shl(x: Int): Int {
-...
-}
-
-// call extension function using infix notation
-
-1 shl 2
-
-// is the same as
-
-1.shl(2)
-```
-
 ### Parameters
 
 Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed.
@@ -89,6 +66,23 @@ open class A {
 class B : A() {
     override fun foo(i: Int) { ... }  // no default value allowed
 }
+```
+
+If a default parameter precedes a parameter with no default value, the default value can be used only by calling the function with [named arguments](#named-arguments):
+
+``` kotlin
+fun foo(bar: Int = 0, baz: Int) { /* ... */ }
+
+foo(baz = 1) // The default value bar = 0 is used
+```
+
+But if a last argument [lambda](lambdas.html#lambda-expression-syntax) is passed to a function call outside the parentheses, passing no values for the default parameters is allowed:
+
+``` kotlin
+fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { /* ... */ }
+
+foo(1) { println("hello") } // Uses the default value baz = 1 
+foo { println("hello") }    // Uses both defeault values bar = 0 and baz = 1
 ```
 
 ### Named Arguments
@@ -136,9 +130,19 @@ and if we do not need all arguments
 reformat(str, wordSeparator = '_')
 ```
 
+When a function is called with both positional and named arguments, all the positional arguments should be placed before the first named one. For example, the call `f(1, y = 2)` is allowed, but `f(x = 1, 2)` is not.
+
+[Variable number of arguments (*vararg*{: .keyword })](#variable-number-of-arguments-varargs) can be passed in the named form by using the **spread** operator:
+
+``` kotlin
+fun foo(vararg strings: String) { /* ... */ }
+
+foo(strings = *arrayOf("a", "b", "c"))
+foo(strings = "a") // Not required for a single value
+```
+
 Note that the named argument syntax cannot be used when calling Java functions, because Java bytecode does not
 always preserve names of function parameters.
-
 
 ### Unit-returning functions
 
@@ -215,6 +219,29 @@ When we call a `vararg`-function, we can pass arguments one-by-one, e.g. `asList
 ```kotlin
 val a = arrayOf(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
+```
+
+### Infix notation
+
+Functions can also be called using infix notations when
+
+* They are member functions or [extension functions](extensions.html)
+* They have a single parameter
+* They are marked with the `infix` keyword
+
+``` kotlin
+// Define extension to Int
+infix fun Int.shl(x: Int): Int {
+...
+}
+
+// call extension function using infix notation
+
+1 shl 2
+
+// is the same as
+
+1.shl(2)
 ```
 
 ## Function Scope
