@@ -87,7 +87,7 @@ ints.map { it * 2 }
 These conventions allow to write [LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code:
 
 ``` kotlin
-strings.filter { it.length == 5 }.sortBy { it }.map { it.toUpperCase() }
+strings.filter { it.length == 5 }.sortedBy { it }.map { it.toUpperCase() }
 ```
 
 ### Underscore for unused variables (since 1.1)
