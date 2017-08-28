@@ -1,4 +1,36 @@
 - geo:
+    lat: 52.060669
+    lng: 4.494025
+  name: Zoetermeer, Netherlands
+- geo:
+    lat: 19.0759837
+    lng: 72.8776559
+  name: Mumbai, India
+- geo:
+    lat: -12.0463731
+    lng: -77.042754
+  name: Lima, Perú
+- geo:
+    lat: 47.2692124
+    lng: 11.4041024
+  name: Innsbruck, Austria
+- geo:
+    lat: -19.0195852
+    lng: -65.2619615
+  name: Sucre, Bolivia
+- geo:
+    lat: 35.0853336
+    lng: -106.6055534
+  name: Albuquerque, NM
+- geo:
+    lat: 53.4083714
+    lng: -2.9915726
+  name: Liverpool, United Kingdom
+- geo:
+    lat: -17.8251657
+    lng: 31.03351
+  name: Harare, Zimbabwe
+- geo:
     lat: 7.6124263
     lng: 5.237108699999999
   name: Ado, Nigeria
