@@ -342,6 +342,16 @@ Note that, as described in [Secondary Constructors](classes.html#secondary-const
 values for all constructor parameters, a public no-argument constructor will be generated for it. This works even
 if the `@JvmOverloads` annotation is not specified.
 
+If a constructor does not have overloads for all parameters, you can still use @JvmOverloads:
+
+``` kotlin
+class Foo @JvmOverloads constructor(val p1:String, val p2:String="default value")
+```
+
+``` java
+Foo foo=new Foo("test value");
+foo=new Foo("test value", "nondefault value");
+```
 
 ## Checked Exceptions
 
