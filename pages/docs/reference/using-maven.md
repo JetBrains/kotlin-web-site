@@ -40,10 +40,11 @@ or `kotlin-stdlib-jre8`, depending on your JDK version.
 If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well.
 The artifact IDs are `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
 for the testing libraries.
+You can inspect the dependencies tree with the [Maven Dependencies Diagram Tool](https://blog.jetbrains.com/idea/2010/05/maven-dependencies-diagram/): In the POM edition window, right click and select `Maven > Show Dependencies`.
 
 ## Compiling Kotlin only source code
 
-To compile source code, specify the source directories in the <build> tag:
+To compile source code, specify the source directories in the <build> tag (by default, the path is relative to the project base directory and `${project.basedir}/` is omitted):
 
 ``` xml
 <build>
@@ -58,19 +59,23 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 <build>
     <plugins>
         <plugin>
-            <artifactId>kotlin-maven-plugin</artifactId>
             <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
-
             <executions>
                 <execution>
                     <id>compile</id>
-                    <goals> <goal>compile</goal> </goals>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
                 </execution>
-
                 <execution>
                     <id>test-compile</id>
-                    <goals> <goal>test-compile</goal> </goals>
+                    <phase>test-compile</phase>
+                    <goals>
+                        <goal>test-compile</goal>
+                    </goals>
                 </execution>
             </executions>
         </plugin>
@@ -81,19 +86,22 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 ## Compiling Kotlin and Java sources
 
 To compile mixed code applications Kotlin compiler should be invoked before Java compiler.
-In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin using the following method, making sure that the kotlin plugin is above the maven-compiler-plugin in your pom.xml file.
+In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin using the following method. Make sure that the kotlin plugin comes before the maven-compiler-plugin in your `pom.xml` file.
 
 ``` xml
 <build>
     <plugins>
         <plugin>
-            <artifactId>kotlin-maven-plugin</artifactId>
             <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>            
             <version>${kotlin.version}</version>
             <executions>
                 <execution>
                     <id>compile</id>
-                    <goals> <goal>compile</goal> </goals>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
@@ -103,7 +111,10 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
                 </execution>
                 <execution>
                     <id>test-compile</id>
-                    <goals> <goal>test-compile</goal> </goals>
+                    <phase>test-compile</phase>
+                    <goals>
+                        <goal>test-compile</goal>
+                    </goals>
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
