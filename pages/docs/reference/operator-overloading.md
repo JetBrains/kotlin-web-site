@@ -195,6 +195,10 @@ The `==` operation is special: it is translated to a complex expression that scr
 
 All comparisons are translated into calls to `compareTo`, that is required to return `Int`.
 
+### Property delegation operators
+`provideDelegate`, `getValue` and `setValue` operator functions are described
+in [Delegated properties](delegated-properties.html).
+
 ## Infix calls for named functions
 
 We can simulate custom infix operations by using [infix function calls](functions.html#infix-notation).
