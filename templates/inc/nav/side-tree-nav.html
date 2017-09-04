@@ -1,10 +1,10 @@
 {% macro side_tree_nav(nav) %}
     <nav role="navigation" class="side-tree-nav">
         {% for category in nav %}
-            <div class="tree-item tree-branch js-item js-branch {% if category.is_active() %}_opened{% else %}_closed{% endif %}"
+            <div class="tree-item tree-branch js-item js-branch _opened"
                  data-id="{{ category.title }}">
 
-                <div class="tree-item-title tree-branch-title js-item-title js-branch-title">
+                <div class="tree-item-title tree-branch-title js-item-title js-branch-title is_active">
                     <div class="marker"></div>
                     <div class="text">{{ category.title }}</div>
                 </div>

@@ -40,7 +40,7 @@ $(document).ready(function () {
     this.appendChild(referenceElement);
   });
 
-  var sideTreeElement = document.querySelector('.js-side-tree-nav');
+  const sideTreeElement = document.querySelector('.js-side-tree-nav');
   if (sideTreeElement) {
     new NavTree(sideTreeElement);
   }
