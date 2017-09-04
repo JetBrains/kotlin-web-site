@@ -1,9 +1,9 @@
-var $ = require('jquery');
-var NavTree = require('../com/nav-tree');
-var Player = require('../com/video-player');
+import $ from 'jquery';
+import NavTree from '../com/nav-tree';
+import Player from '../com/video-player';
 
 NavTree.prototype.templates.leafItem = function (item) {
-  var hasUrl = 'url' in item,
+  let hasUrl = 'url' in item,
     hasDuration = 'duration' in item,
     hasDescription = 'description' in item,
     isExternal = hasUrl && Player.getVideoIdFromUrl(item.url) === null,
@@ -25,7 +25,7 @@ NavTree.prototype.templates.leafItem = function (item) {
     attrs['data-description'] = item.description;
   }
 
-  var t =
+  const t =
     ['.' + itemClassNames.join('.'),
       [
         (hasUrl ? 'a.' : 'div.') + itemLinkClassNames.join('.'), attrs,
@@ -40,41 +40,37 @@ NavTree.prototype.templates.leafItem = function (item) {
   return t;
 };
 
-function VideoGallery(elem, config) {
+class VideoGallery {
+  constructor(elem, config) {
+    this.tree = new NavTree(elem, {data: config.data});
+    this.player = new Player(config.playerElem, {
+      width: '100%',
+      height: 480,
+      videoId: 'viiDaLpPfN4'
+    });
 
-  var tree = new NavTree(elem, {data: config.data});
+    this.tree.on('selectLeaf', (e, branch, elem) => {
+      const videoUrl = elem.href,
+        videoId = Player.getVideoIdFromUrl(videoUrl),
+        description = elem.getAttribute('data-description') || '';
 
-  var player = new Player(config.playerElem, {
-    width: '100%',
-    height: 480,
-    videoId: 'viiDaLpPfN4'
-  });
+      if (videoId) {
+        this.player.playVideo(videoId);
+        config.descriptionElem.innerHTML = description;
+      }
+    });
 
-  tree.on('selectLeaf', function (e, branch, elem) {
-    var videoUrl = elem.href,
-      videoId,
-      description = elem.getAttribute('data-description') || '',
-      $elem = $(elem);
+    $(elem).find('a').on('click', (e) => {
+      const $elem = $(e.currentTarget);
+      const isExternal = $elem.hasClass('is_external');
 
-    videoId = Player.getVideoIdFromUrl(videoUrl);
+      if (isExternal)
+        $elem.attr('target', '_blank');
+      else
+        e.preventDefault();
 
-    if (videoId) {
-      player.playVideo(videoId);
-
-      config.descriptionElem.innerHTML = description;
-    }
-  });
-
-  $(elem).find('a').on('click', function (e) {
-    var $el = $(this);
-    var isExternal = $el.hasClass('is_external');
-
-    if (isExternal)
-      $el.attr('target', '_blank');
-    else
-      e.preventDefault();
-
-  });
+    });
+  }
 }
 
-module.exports = VideoGallery;
+export default VideoGallery;

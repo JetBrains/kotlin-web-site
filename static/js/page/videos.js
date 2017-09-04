@@ -1,5 +1,5 @@
-var VideoGallery = require('../com/video-gallery');
-var $ = require('jquery');
+import VideoGallery from '../com/video-gallery';
+import $ from 'jquery';
 
 $(document).ready(function () {
   $.getJSON("/data/videos.json", function (videos) {
