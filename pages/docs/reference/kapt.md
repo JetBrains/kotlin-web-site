@@ -19,7 +19,7 @@ Or, starting with Kotlin 1.1.1, you can apply it using the plugins DSL:
 
 ``` groovy
 plugins {
-    id "org.jetbrains.kotlin.kapt" version "<version to use>"
+    id "org.jetbrains.kotlin.kapt" version "{{ site.data.releases.latest.version }}"
 }
 ```
 

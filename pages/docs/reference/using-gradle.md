@@ -16,7 +16,7 @@ The version of Kotlin to use is usually defined as the `kotlin_version` property
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '<version to use>'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
 
     repositories {
         mavenCentral()
@@ -42,7 +42,7 @@ Or, starting with Kotlin 1.1.1, the plugin can be applied using the [Gradle plug
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "<version to use>"
+    id "org.jetbrains.kotlin.jvm" version "{{ site.data.releases.latest.version }}"
 }
 ```
 The `version` should be literal in this block, and it cannot be applied from another build script.
@@ -101,7 +101,7 @@ Android's Gradle model is a little different from ordinary Gradle, so if we want
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '<version to use>'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
 
     ...
 
