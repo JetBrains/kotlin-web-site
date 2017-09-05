@@ -13,7 +13,7 @@ from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
-from src.Navigaton import Nav
+from src.Navigaton import Nav, process_video_nav
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
 from src.grammar import get_grammar
@@ -136,11 +136,6 @@ def get_cities():
     return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
-@app.route('/data/videos.json')
-def get_videos():
-    return Response(json.dumps(site_data['videos'], cls=DateAwareEncoder), mimetype='application/json')
-
-
 @app.route('/docs/reference/grammar.html')
 def grammar():
     grammar = get_grammar()
@@ -151,7 +146,7 @@ def grammar():
 
 @app.route('/docs/videos.html')
 def videos_page():
-    return render_template('pages/videos.html')
+    return render_template('pages/videos.html', videos=process_video_nav(site_data['videos']))
 
 
 @app.route('/docs/books.html')

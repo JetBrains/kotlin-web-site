@@ -1,4 +1,6 @@
 import re
+from typing import List, Dict
+
 from flask import request
 
 
@@ -56,3 +58,30 @@ class Nav:
 
     def __getitem__(self, item):
         return self._nav[item]
+
+
+def process_video_nav(data: List[Dict]) -> List[Dict]:
+    for item in data:
+        process_video_nav_item(item)
+    return data
+
+
+def process_video_nav_item(data: Dict) -> Dict:
+    if 'content' in data:
+        for item in data['content']:
+            process_video_nav_item(item)
+    else:
+        data['class'] = 'video-item'
+        data['title_class'] = 'video-item-title'
+        if is_external(data['url']):
+            data['title_class'] += ' is_external'
+        if 'description' in data:
+            data['title_arguments'] = {
+                'data-description': data['description']
+            }
+            del data['description']
+    return data
+
+
+def is_external(link: str):
+    return 'www.youtube.com' not in link

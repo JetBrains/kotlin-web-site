@@ -1,4 +1,4 @@
-var $ = require('jquery');
+import $ from 'jquery';
 
 /**
  * @param {HTMLElement|string} elem HTML node or node ID
@@ -247,4 +247,4 @@ Player.prototype.playVideo = function (videoId) {
 
 };
 
-module.exports = Player;
+export default Player;

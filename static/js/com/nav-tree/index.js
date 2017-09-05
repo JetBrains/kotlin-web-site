@@ -24,7 +24,7 @@ class NavTree {
 
   _initEvents() {
     $(this.elem.querySelectorAll('.js-item-title')).on('click', (e) => {
-      const elem = $(e.currentTarget),
+      const elem = e.currentTarget,
         branchElem = e.currentTarget.parentNode,
         $branch = $(branchElem),
         itemId = $branch.attr('data-id'),
@@ -65,7 +65,7 @@ class NavTree {
       } else {
         $elem.removeClass('is_active');
       }
-    })
+    });
     return true;
   };
 
