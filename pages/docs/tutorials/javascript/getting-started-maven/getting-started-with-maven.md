@@ -44,7 +44,7 @@ If we're not using IntelliJ IDEA, we can configure the `pom.xml` file manually t
 
 ```xml
 <properties>
-    <kotlin.version>1.1.0</kotlin.version> 
+    <kotlin.version>{{ site.data.releases.latest.version }}</kotlin.version> 
 </properties>
 
 <dependencies>
