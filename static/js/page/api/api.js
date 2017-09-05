@@ -1,6 +1,7 @@
-require('./api.scss');
-const Dropdown = require('../../com/dropdown');
-const $ = require('jquery');
+import $ from 'jquery'
+import Dropdown from '../../com/dropdown'
+import NavTree from '../../com/nav-tree'
+import './api.scss'
 
 function getVersion(element) {
   let version = $(element).attr('data-kotlin-version');
@@ -111,5 +112,6 @@ function addTags() {
 
 $(document).ready(() => {
   initializeSelects();
-  addTags()
+  addTags();
+  new NavTree(document.querySelector('.js-side-tree-nav'));
 });

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import './styles.scss'
+import './index.scss'
 
 class NavTree {
   constructor(elem) {

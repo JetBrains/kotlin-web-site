@@ -43,7 +43,7 @@
 {% endmacro %}
 
 {% macro side_tree_nav(nav) %}
-    <nav role="navigation" class="side-tree-nav">
+    <nav class="side-tree-nav">
         {% for category in nav %}
             {{ side_tree_branch(category) }}
         {% endfor %}
