@@ -34,7 +34,7 @@ Or, if you use the Gradle plugins DSL, add it to the `plugins` block:
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.plugin.allopen" version "<version to use>"
+  id "org.jetbrains.kotlin.plugin.allopen" version "{{ site.data.releases.latest.version }}"
 }
 ```
 
@@ -110,7 +110,7 @@ Or using the Gradle plugins DSL:
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.plugin.spring" version "<version to use>"
+  id "org.jetbrains.kotlin.plugin.spring" version "{{ site.data.releases.latest.version }}"
 }
 ```
 
@@ -154,7 +154,7 @@ Or using the Gradle plugins DSL:
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.plugin.noarg" version "<version to use>"
+  id "org.jetbrains.kotlin.plugin.noarg" version "{{ site.data.releases.latest.version }}"
 }
 ```
 
@@ -227,7 +227,7 @@ Or using the Gradle plugins DSL:
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.plugin.jpa" version "<version to use>"
+  id "org.jetbrains.kotlin.plugin.jpa" version "{{ site.data.releases.latest.version }}"
 }
 ```
 
