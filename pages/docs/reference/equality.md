@@ -29,4 +29,11 @@ I.e. if `a` is not `null`, it calls the `equals(Any?)` function, otherwise (i.e.
 
 Note that there's no point in optimizing your code when comparing to `null` explicitly: `a == null` will be automatically translated to `a === null`.
 
+## Floating point numbers equality
 
+When an equality check operands are statically known to be `Float` or `Double` (nullable or not), the check follows the IEEE 754 
+Standard for Floating-Point Arithmetic. 
+
+Otherwise, the structural equality is used, which disagrees with the standard so that `NaN` is equal to itself, and `-0.0` is not equal to `0.0`.
+
+See: [Floating Point Numbers Comparison](basic-types.html#floating-point-numbers-comparison)
