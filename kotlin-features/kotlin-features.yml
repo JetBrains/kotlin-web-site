@@ -7,7 +7,7 @@
   content_file: safe.md
 
 - title: Interoperable
-  description: Leverage existing libraries for the JVM, Android and the browser.
+  description: Leverage existing libraries for the JVM, Android, and the browser.
   content_file: interoperable.md
 
 - title: Tool-friendly
