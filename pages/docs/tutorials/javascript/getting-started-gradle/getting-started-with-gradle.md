@@ -22,7 +22,7 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '${kotlinVersion}'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
     repositories {
         mavenCentral()
     }
@@ -43,8 +43,8 @@ dependencies {
 
 ```
 
-where `${kotlinVersion}` is the version of Kotlin we want to use, for example `1.1.0`. It's important to note that
-if we're using an EAP build, we need to have the corresponding repository referenced in the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
+To use an EAP build instead, we need to specify its version in `ext.kotlin_version` and 
+add the corresponding repository to the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
 
 On compiling, Gradle will produce the output of our application, which is by default placed under the `build/classes/main` directory. This can be overridden using [the compiler options](#configuring-compiler-options).
 
