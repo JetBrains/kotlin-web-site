@@ -46,7 +46,7 @@ val positives = list.filter { it > 0 }
 ### String Interpolation
 
 ``` kotlin
-println("Name $name")
+println("Name ${name}")
 ```
 
 ### Instance Checks
