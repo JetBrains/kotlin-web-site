@@ -42,7 +42,7 @@ class MyActivity : Activity() {
 
 Android Extensions is a part of the Kotlin IDEA plugin. You do not need to install additional plugins.
 
-All you need is to enable the Android Extensions Gradle plugin in your project-local `build.gradle` file:
+All you need is to enable the Android Extensions Gradle plugin in your module's `build.gradle` file:
 
 ``` groovy
 apply plugin: 'kotlin-android-extensions'
