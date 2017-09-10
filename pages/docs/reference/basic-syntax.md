@@ -241,7 +241,7 @@ fun printProduct(arg1: String, arg2: String) {
         println(x * y)
     }
     else {
-        println("either '$arg1' or '$arg2' is not a number")
+        println("either '${arg1}' or '${arg2}' is not a number")
     }    
 }
 //sampleEnd
