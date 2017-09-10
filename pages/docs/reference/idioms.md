@@ -238,6 +238,13 @@ fun transform(color: String): Int = when (color) {
 }
 ```
 
+### Conditional single-expression functions
+
+```kotlin
+fun isOdd(x: Int) = x % 2 != 0
+fun isEven(x: Int) = x % 2 == 0
+```
+
 ### Calling multiple methods on an object instance ('with')
 
 ``` kotlin
