@@ -165,7 +165,7 @@ val sum = { x: Int, y: Int -> x + y }
 ```
 
 A lambda expression is always surrounded by curly braces,
-parameter declarations in the full syntactic form go inside parentheses and have optional type annotations,
+parameter declarations in the full syntactic form go inside curly braces and have optional type annotations,
 the body goes after an `->` sign. If the inferred return type of the lambda is not `Unit`, the last (or possibly single) expression inside the lambda body is treated as the return value.
 
 If we leave all the optional annotations out, what's left looks like this:
