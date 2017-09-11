@@ -16,9 +16,9 @@ data class User(val name: String, val age: Int)
 
 The compiler automatically derives the following members from all properties declared in the primary constructor:
   
-  * `equals()`/`hashCode()` pair, 
-  * `toString()` of the form `"User(name=John, age=42)"`,
-  * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order of declaration,
+  * `equals()`/`hashCode()` pair;
+  * `toString()` of the form `"User(name=John, age=42)"`;
+  * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order of declaration;
   * `copy()` function (see below).
 
 To ensure consistency and meaningful behavior of the generated code, data classes have to fulfil the following requirements:
@@ -56,7 +56,7 @@ This is what `copy()` function is generated for. For the `User` class above, its
 fun copy(name: String = this.name, age: Int = this.age) = User(name, age)     
 ```     
 
-This allows us to write
+This allows us to write:
 
 ``` kotlin
 val jack = User(name = "Jack", age = 1)
