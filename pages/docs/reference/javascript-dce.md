@@ -11,11 +11,11 @@ Since version 1.1.4, Kotlin/JS includes a dead code elimination (DCE) tool.
 This tool allows to strip out unused properties, functions and classes from the generated JS.
 There are several ways you get unused declarations:
 
-* Functions can be inlined and never get called directly (which happens always except for few situations). 
+* Functions can be inlined and never get called directly (which happens always except for few situations);
 * You are using a shared library which provides much more functions than you actually need.
   For example, standard library (`kotlin.js`) contains functions for manipulating lists, arrays, char sequences,
   adapters for DOM, etc, which together gives about 1.3 mb file. A simple "Hello, world" application only requires
-  console routines, which is only few kilobytes for the entire file.  
+  console routines, which is only few kilobytes for the entire file.
 
 Dead code elimination is often also called 'tree shaking'.
 
@@ -49,7 +49,7 @@ You may want to keep this declaration. To do so, you can use the following synta
 runDceKotlinJs.keep "declarationToKeep"[, "declarationToKeep", ...]
 ```
 
-Where `declarationToKeep` has the following syntax: 
+Where `declarationToKeep` has the following syntax:
 
 ```
 moduleName.dot.separated.package.name.declarationName
@@ -75,10 +75,10 @@ can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gra
 
 * As for 1.1.x versions, DCE tool is an *experimental* feature.
  This does not mean we are going to remove it, or that it's unusable for production.
-  This means that we can change names of configuration parameters, default settings, etc.
+  This means that we can change names of configuration parameters, default settings, etc;
 * Currently you should not use DCE tool if your project is a shared library.
   It's only applicable when you are developing an application (which may use shared libraries).
-   The reason is: DCE does not know which parts of the library are going to be used by the user's application.
+   The reason is: DCE does not know which parts of the library are going to be used by the user's application;
 * DCE does not perform minification (uglification) of your code by removing unnecessary whitespaces and shortening identifiers.
   You should use existing tools, like UglifyJS (https://github.com/mishoo/UglifyJS2) 
   or Google Closure Compiler (https://developers.google.com/closure/compiler/) for this purpose.
