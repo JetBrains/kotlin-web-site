@@ -111,14 +111,13 @@ external fun newC()
   }
   ```
 
-* Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`.
+* Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`;
 * There's no 64 bit integer number in JavaScript, so `kotlin.Long` is not mapped to any JavaScript object,
-  it's emulated by a Kotlin class.
-* `kotlin.String` is mapped to JavaScript String.
-* `kotlin.Any` is mapped to JavaScript Object (i.e. `new Object()`, `{}`, etc).
-* `kotlin.Array` is mapped to JavaScript Array.
-* Kotlin collections (i.e. `List`, `Set`, `Map`, etc) are not mapped to any specific JavaScript type.
-* `kotlin.Throwable` is mapped to JavaScript Error.
-* Kotlin preserves lazy object initialization in JavaScript.
+  it's emulated by a Kotlin class;
+* `kotlin.String` is mapped to JavaScript String;
+* `kotlin.Any` is mapped to JavaScript Object (i.e. `new Object()`, `{}`, etc);
+* `kotlin.Array` is mapped to JavaScript Array;
+* Kotlin collections (i.e. `List`, `Set`, `Map`, etc) are not mapped to any specific JavaScript type;
+* `kotlin.Throwable` is mapped to JavaScript Error;
+* Kotlin preserves lazy object initialization in JavaScript;
 * Kotlin does not implement lazy initialization of top-level properties in JavaScript.
-
