@@ -276,7 +276,7 @@ Those class names are always getting in the way. We can use static imports and g
 swap(list, binarySearch(list, max(otherList)), max(list));
 ```
 
-This is a little better, but we have no or little help from the powerful code completion of the IDE. It would be so much better if we could say
+This is a little better, but we have no or little help from the powerful code completion of the IDE. It would be so much better if we could say:
 
 ``` java
 // Java
