@@ -610,20 +610,20 @@ See [Higher-order functions and Lambdas](lambdas.html).
 ``` kotlin
 //sampleStart
 fun main(args: Array<String>) {
-    val rectangle1: Rectangle = Rectangle(5.0, 2.0) //no 'new' keyword required in Kotlin while initializing
-    val triangle1: Triangle = Triangle(3.0, 4.0, 5.0)
-    print("Area of rectangle is - ${rectangle1.getArea()} and it's perimeter is - ${rectangle1.getPerimeter()}")
-    print("Area of triangle is - ${triangle1.getArea()} and it's perimeter is - ${triangle1.getPerimeter()}")
+    val rectangle: Rectangle = Rectangle (5.0, 2.0) //no 'new' keyword required in Kotlin while initializing
+    val triangle: Triangle = Triangle (3.0, 4.0, 5.0)
+    print( "Area of rectangle is - ${rectangle.getArea()} and it's perimeter is - ${rectangle.getPerimeter()}" )
+    print( "Area of triangle is - ${triangle.getArea()} and it's perimeter is - ${triangle.getPerimeter()}" )
 }
 //sampleEnd
 
-class Rectangle(var height: Double, var length: Double): Shape(4), rectangleProperties {
+class Rectangle (var height: Double, var length: Double): Shape(4), rectangleProperties {
     override fun isSquare(): Boolean = length == height
     override fun getArea(): Double = height*length
     override fun getPerimeter(): Double = 2*(height + length)
 }
 
-class Triangle(var sideA: Double, var sideB: Double, var sideC: Double): Shape(3) {
+class Triangle (var sideA: Double, var sideB: Double, var sideC: Double): Shape(3) {
 
     override fun getArea(): Double {
         var s = (sideA + sideB + sideC)/2
