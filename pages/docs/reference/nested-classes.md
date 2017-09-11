@@ -7,7 +7,7 @@ title: "Nested and Inner Classes"
 
 # Nested and Inner Classes
 
-Classes can be nested in other classes
+Classes can be nested in other classes:
 
 ``` kotlin
 class Outer {
