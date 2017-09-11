@@ -19,8 +19,8 @@ val dyn: dynamic = ...
 
 The `dynamic` type basically turns off Kotlin's type checker:
 
-  - a value of this type can be assigned to any variable or passed anywhere as a parameter,
-  - any value can be assigned to a variable of type `dynamic` or passed to a function that takes `dynamic` as a parameter,
+  - a value of this type can be assigned to any variable or passed anywhere as a parameter;
+  - any value can be assigned to a variable of type `dynamic` or passed to a function that takes `dynamic` as a parameter;
   - `null`-checks are disabled for such values.
 
 The most peculiar feature of `dynamic` is that we are allowed to call **any** property or function with any parameters
@@ -67,5 +67,3 @@ The following operators are supported:
 `in`, `!in` and `..` operations with values of type `dynamic` are forbidden.
 
 For a more technical description, see the [spec document](https://github.com/JetBrains/kotlin/blob/master/spec-docs/dynamic-types.md).
-
-
