@@ -195,7 +195,6 @@ for more details.
 
 There is one important semantic difference between object expressions and object declarations:
 
-* object expressions are executed (and initialized) **immediately**, where they are used
-* object declarations are initialized **lazily**, when accessed for the first time
-* a companion object is initialized when the corresponding class is loaded (resolved), matching the semantics of a Java static initializer
-
+* object expressions are executed (and initialized) **immediately**, where they are used;
+* object declarations are initialized **lazily**, when accessed for the first time;
+* a companion object is initialized when the corresponding class is loaded (resolved), matching the semantics of a Java static initializer.
