@@ -72,8 +72,8 @@ import bar.Bar as bBar // bBar stands for 'bar.Bar'
 
 The `import` keyword is not restricted to importing classes; you can also use it to import other declarations:
 
-  * top-level functions and properties;
-  * functions and properties declared in [object declarations](object-declarations.html#object-declarations);
+  * top-level functions and properties
+  * functions and properties declared in [object declarations](object-declarations.html#object-declarations)
   * [enum constants](enum-classes.html)
 
 Unlike Java, Kotlin does not have a separate ["import static"](https://docs.oracle.com/javase/8/docs/technotes/guides/language/static-import.html) syntax; all of these declarations are imported using the regular `import` keyword.
