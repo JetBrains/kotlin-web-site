@@ -602,3 +602,24 @@ fun main(args: Array<String>) {
 </div>
 
 See [Higher-order functions and Lambdas](lambdas.html).
+
+## Creating basic class and its object:
+
+<div class="sample" markdown="1">
+
+``` kotlin
+//sampleStart
+fun main(args: Array<String>) {
+    val person1 = Person() //no 'new' keyword required in Kotlin while initializing
+}
+//sampleEnd
+
+class Person(val name: String, val height: Double)
+    fun walk()
+    fun eat()
+    fun turn(degrees: Double)
+}
+```
+</div>
+
+See [classes](classes.html) and [objects](object-declarations.html).
