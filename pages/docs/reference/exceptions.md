@@ -12,13 +12,13 @@ title: "Exceptions: try, catch, finally, throw, Nothing"
 All exception classes in Kotlin are descendants of the class `Throwable`.
 Every exception has a message, stack trace and an optional cause.
 
-To throw an exception object, use the *throw*{: .keyword }-expression
+To throw an exception object, use the *throw*{: .keyword }-expression:
 
 ``` kotlin
 throw MyException("Hi There!")
 ```
 
-To catch an exception, use the *try*{: .keyword }-expression
+To catch an exception, use the *try*{: .keyword }-expression:
 
 ``` kotlin
 try {
@@ -37,7 +37,7 @@ However at least one *catch*{: .keyword } or *finally*{: .keyword } block should
 
 ### Try is an expression
 
-*try*{: .keyword } is an expression, i.e. it may have a return value.
+*try*{: .keyword } is an expression, i.e. it may have a return value:
 
 ``` kotlin
 val a: Int? = try { parseInt(input) } catch (e: NumberFormatException) { null }
@@ -51,7 +51,7 @@ Contents of the *finally*{: .keyword } block do not affect the result of the exp
 
 Kotlin does not have checked exceptions. There are many reasons for this, but we will provide a simple example.
 
-The following is an example interface of the JDK implemented by `StringBuilder` class
+The following is an example interface of the JDK implemented by `StringBuilder` class:
 
 ``` java
 Appendable append(CharSequence csq) throws IOException;
