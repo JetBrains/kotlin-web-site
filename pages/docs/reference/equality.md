@@ -9,8 +9,8 @@ title: "Equality"
 
 In Kotlin there are two types of equality:
 
-* Referential equality (two references point to the same object)
-* Structural equality (a check for `equals()`)
+* Referential equality (two references point to the same object);
+* Structural equality (a check for `equals()`).
 
 ## Referential equality
 
@@ -19,7 +19,7 @@ true if and only if `a` and `b` point to the same object.
 
 ## Structural equality
 
-Structural equality is checked by the `==` operation (and its negated counterpart `!=`). By convention, an expression like `a == b` is translated to
+Structural equality is checked by the `==` operation (and its negated counterpart `!=`). By convention, an expression like `a == b` is translated to:
 
 ``` kotlin
 a?.equals(b) ?: (b === null)
@@ -36,4 +36,4 @@ Standard for Floating-Point Arithmetic.
 
 Otherwise, the structural equality is used, which disagrees with the standard so that `NaN` is equal to itself, and `-0.0` is not equal to `0.0`.
 
-See: [Floating Point Numbers Comparison](basic-types.html#floating-point-numbers-comparison)
+See: [Floating Point Numbers Comparison](basic-types.html#floating-point-numbers-comparison).
