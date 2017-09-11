@@ -44,8 +44,8 @@ val result = lock(lock, { sharedResource.operation() })
 
 Lambda expressions are described in more [detail below](#lambda-expressions-and-anonymous-functions), but for purposes of continuing this section, let's see a brief overview:
 
-* A lambda expression is always surrounded by curly braces,
-* Its parameters (if any) are declared before `->` (parameter types may be omitted),
+* A lambda expression is always surrounded by curly braces;
+* Its parameters (if any) are declared before `->` (parameter types may be omitted);
 * The body goes after `->` (when present).
 
 In Kotlin, there is a convention that if the last parameter to a function is a function, and you're passing a lambda expression as the corresponding argument, you can specify it outside of parentheses:
@@ -116,7 +116,7 @@ max(strings, { a, b -> a.length < b.length })
 ```
 
 Function `max` is a higher-order function, i.e. it takes a function value as the second argument.
-This second argument is an expression that is itself a function, i.e. a function literal. As a function, it is equivalent to
+This second argument is an expression that is itself a function, i.e. a function literal. As a function, it is equivalent to:
 
 ``` kotlin
 fun compare(a: String, b: String): Boolean = a.length < b.length
