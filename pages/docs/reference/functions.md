@@ -9,7 +9,7 @@ title: "Functions: infix, vararg, tailrec"
 
 ## Function Declarations
 
-Functions in Kotlin are declared using the *fun*{: .keyword } keyword
+Functions in Kotlin are declared using the *fun*{: .keyword } keyword:
 
 ``` kotlin
 fun double(x: Int): Int {
@@ -19,14 +19,14 @@ fun double(x: Int): Int {
 
 ## Function Usage
 
-Calling functions uses the traditional approach
+Calling functions uses the traditional approach:
 
 ``` kotlin
 val result = double(2)
 ```
 
 
-Calling member functions uses the dot notation
+Calling member functions uses the dot notation:
 
 ``` kotlin
 Sample().foo() // create instance of class Sample and call foo
@@ -34,7 +34,7 @@ Sample().foo() // create instance of class Sample and call foo
 
 ### Parameters
 
-Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed.
+Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed:
 
 ``` kotlin
 fun powerOf(number: Int, exponent: Int) {
@@ -45,7 +45,7 @@ fun powerOf(number: Int, exponent: Int) {
 ### Default Arguments
 
 Function parameters can have default values, which are used when a corresponding argument is omitted. This allows for a reduced number of overloads compared to
-other languages.
+other languages:
 
 ``` kotlin
 fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
@@ -89,7 +89,7 @@ foo { println("hello") }    // Uses both defeault values bar = 0 and baz = 1
 
 Function parameters can be named when calling functions. This is very convenient when a function has a high number of parameters or default ones.
 
-Given the following function
+Given the following function:
 
 ``` kotlin
 fun reformat(str: String,
@@ -101,19 +101,19 @@ fun reformat(str: String,
 }
 ```
 
-we could call this using default arguments
+we could call this using default arguments:
 
 ``` kotlin
 reformat(str)
 ```
 
-However, when calling it with non-default, the call would look something like
+However, when calling it with non-default, the call would look something like:
 
 ``` kotlin
 reformat(str, true, true, false, '_')
 ```
 
-With named arguments we can make the code much more readable
+With named arguments we can make the code much more readable:
 
 ``` kotlin
 reformat(str,
@@ -124,7 +124,7 @@ reformat(str,
 )
 ```
 
-and if we do not need all arguments
+and if we do not need all arguments:
 
 ``` kotlin
 reformat(str, wordSeparator = '_')
@@ -147,7 +147,7 @@ always preserve names of function parameters.
 ### Unit-returning functions
 
 If a function does not return any useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`. This
-value does not have to be returned explicitly
+value does not have to be returned explicitly:
 
 ``` kotlin
 fun printHello(name: String?): Unit {
@@ -159,7 +159,7 @@ fun printHello(name: String?): Unit {
 }
 ```
 
-The `Unit` return type declaration is also optional. The above code is equivalent to
+The `Unit` return type declaration is also optional. The above code is equivalent to:
 
 ``` kotlin
 fun printHello(name: String?) {
@@ -169,13 +169,13 @@ fun printHello(name: String?) {
 
 ### Single-Expression functions
 
-When a function returns a single expression, the curly braces can be omitted and the body is specified after a **=** symbol
+When a function returns a single expression, the curly braces can be omitted and the body is specified after a **=** symbol:
 
 ``` kotlin
 fun double(x: Int): Int = x * 2
 ```
 
-Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler
+Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
 
 ``` kotlin
 fun double(x: Int) = x * 2
@@ -225,9 +225,9 @@ val list = asList(-1, 0, *a, 4)
 
 Functions can also be called using infix notations when
 
-* They are member functions or [extension functions](extensions.html)
-* They have a single parameter
-* They are marked with the `infix` keyword
+* They are member functions or [extension functions](extensions.html);
+* They have a single parameter;
+* They are marked with the `infix` keyword.
 
 ``` kotlin
 // Define extension to Int
@@ -251,7 +251,7 @@ to top level functions, Kotlin functions can also be declared local, as member f
 
 ### Local Functions
 
-Kotlin supports local functions, i.e. a function inside another function
+Kotlin supports local functions, i.e. a function inside another function:
 
 ``` kotlin
 fun dfs(graph: Graph) {
@@ -265,7 +265,7 @@ fun dfs(graph: Graph) {
 }
 ```
 
-Local function can access local variables of outer functions (i.e. the closure), so in the case above, the *visited* can be a local variable
+Local function can access local variables of outer functions (i.e. the closure), so in the case above, the *visited* can be a local variable:
 
 ``` kotlin
 fun dfs(graph: Graph) {
@@ -282,7 +282,7 @@ fun dfs(graph: Graph) {
 
 ### Member Functions
 
-A member function is a function that is defined inside a class or object
+A member function is a function that is defined inside a class or object:
 
 ``` kotlin
 class Sample() {
@@ -290,17 +290,17 @@ class Sample() {
 }
 ```
 
-Member functions are called with dot notation
+Member functions are called with dot notation:
 
 ``` kotlin
 Sample().foo() // creates instance of class Sample and calls foo
 ```
 
-For more information on classes and overriding members see [Classes](classes.html) and [Inheritance](classes.html#inheritance)
+For more information on classes and overriding members see [Classes](classes.html) and [Inheritance](classes.html#inheritance).
 
 ## Generic Functions
 
-Functions can have generic parameters which are specified using angle brackets before the function name
+Functions can have generic parameters which are specified using angle brackets before the function name:
 
 ``` kotlin
 fun <T> singletonList(item: T): List<T> {
@@ -308,25 +308,25 @@ fun <T> singletonList(item: T): List<T> {
 }
 ```
 
-For more information on generic functions see [Generics](generics.html)
+For more information on generic functions see [Generics](generics.html).
 
 ## Inline Functions
 
-Inline functions are explained [here](inline-functions.html)
+Inline functions are explained [here](inline-functions.html).
 
 ## Extension Functions
 
-Extension functions are explained in [their own section](extensions.html)
+Extension functions are explained in [their own section](extensions.html).
 
 ## Higher-Order Functions and Lambdas
 
-Higher-Order functions and Lambdas are explained in [their own section](lambdas.html)
+Higher-Order functions and Lambdas are explained in [their own section](lambdas.html).
 
 ## Tail recursive functions
 
 Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call).
 This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow.
-When a function is marked with the `tailrec` modifier and meets the required form, the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead.
+When a function is marked with the `tailrec` modifier and meets the required form, the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead:
 
 ``` kotlin
 tailrec fun findFixPoint(x: Double = 1.0): Double
