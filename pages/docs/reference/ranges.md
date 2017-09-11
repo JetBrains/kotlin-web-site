@@ -8,7 +8,7 @@ title: "Ranges"
 # Ranges
 
 Range expressions are formed with `rangeTo` functions that have the operator form `..` which is complemented by *in*{: .keyword } and *!in*{: .keyword }.
-Range is defined for any comparable type, but for integral primitive types it has an optimized implementation. Here are some examples of using ranges
+Range is defined for any comparable type, but for integral primitive types it has an optimized implementation. Here are some examples of using ranges:
 
 ``` kotlin
 if (i in 1..10) { // equivalent of 1 <= i && i <= 10
@@ -17,7 +17,7 @@ if (i in 1..10) { // equivalent of 1 <= i && i <= 10
 ```
 
 Integral type ranges (`IntRange`, `LongRange`, `CharRange`) have an extra feature: they can be iterated over.
-The compiler takes care of converting this analogously to Java's indexed *for*{: .keyword }-loop, without extra overhead.
+The compiler takes care of converting this analogously to Java's indexed *for*{: .keyword }-loop, without extra overhead:
 
 ``` kotlin
 for (i in 1..4) print(i) // prints "1234"
@@ -25,13 +25,13 @@ for (i in 1..4) print(i) // prints "1234"
 for (i in 4..1) print(i) // prints nothing
 ```
 
-What if you want to iterate over numbers in reverse order? It's simple. You can use the `downTo()` function defined in the standard library
+What if you want to iterate over numbers in reverse order? It's simple. You can use the `downTo()` function defined in the standard library:
 
 ``` kotlin
 for (i in 4 downTo 1) print(i) // prints "4321"
 ```
 
-Is it possible to iterate over numbers with arbitrary step, not equal to 1? Sure, the `step()` function will help you
+Is it possible to iterate over numbers with arbitrary step, not equal to 1? Sure, the `step()` function will help you:
 
 ``` kotlin
 for (i in 1..4 step 2) print(i) // prints "13"
@@ -122,7 +122,7 @@ fun Byte.downTo(other: Int): IntProgression {
 
 ### `reversed()`
 
-The `reversed()` extension functions are defined for each `*Progression` classes, and all of them return reversed progressions.
+The `reversed()` extension functions are defined for each `*Progression` classes, and all of them return reversed progressions:
 
 ``` kotlin
 fun IntProgression.reversed(): IntProgression {
@@ -134,7 +134,7 @@ fun IntProgression.reversed(): IntProgression {
 
 `step()` extension functions are defined for `*Progression` classes,
 all of them return progressions with modified `step` values (function parameter).
-The step value is required to be always positive, therefore this function never changes the direction of iteration.
+The step value is required to be always positive, therefore this function never changes the direction of iteration:
 
 ``` kotlin
 fun IntProgression.step(step: Int): IntProgression {
