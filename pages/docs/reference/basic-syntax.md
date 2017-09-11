@@ -627,7 +627,7 @@ class Triangle (var sideA: Double, var sideB: Double, var sideC: Double): Shape(
 
     override fun getArea(): Double {
         var s = (sideA + sideB + sideC)/2
-        return sqrt(s*(s - sideA)*(s - sideB)*(s - sideC))
+        return Math.sqrt(s*(s - sideA)*(s - sideB)*(s - sideC))
     }
     override fun getPerimeter(): Double = (sideA + sideB + sideC)
 }
