@@ -26,7 +26,7 @@ To include the Kotlin OSGi bundle to a Maven project:
     </dependencies>
 ```
 
-To exclude the standard library from external libraries (notice that "star exclusion" works in Maven 3 only)
+To exclude the standard library from external libraries (notice that "star exclusion" works in Maven 3 only):
 
 ```xml
         <dependency>
@@ -51,7 +51,7 @@ To include `kotlin-osgi-bundle` to a gradle project:
 compile "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"
 ```
 
-To exclude default Kotlin libraries that comes as transitive dependencies you can use the following approach
+To exclude default Kotlin libraries that comes as transitive dependencies you can use the following approach:
 
 ```groovy
 dependencies {
