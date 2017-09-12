@@ -21,7 +21,7 @@ Define the version of Kotlin you want to use via a *kotlin.version* property:
 
 ## Dependencies
 
-Kotlin has an extensive standard library that can be used in your applications. Configure the following dependency in the pom file
+Kotlin has an extensive standard library that can be used in your applications. Configure the following dependency in the pom file:
 
 ``` xml
 <dependencies>
@@ -81,7 +81,7 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 ## Compiling Kotlin and Java sources
 
 To compile mixed code applications Kotlin compiler should be invoked before Java compiler.
-In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin using the following method, making sure that the kotlin plugin is above the maven-compiler-plugin in your pom.xml file.
+In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin using the following method, making sure that the kotlin plugin is above the maven-compiler-plugin in your pom.xml file:
 
 ``` xml
 <build>
@@ -164,7 +164,7 @@ See the description of [Kotlin annotation processing tool](kapt.html) (`kapt`).
 ## Jar file
 
 To create a small Jar file containing just the code from your module, include the following under `build->plugins` in your Maven pom.xml file,
-where `main.class` is defined as a property and points to the main Kotlin or Java class.
+where `main.class` is defined as a property and points to the main Kotlin or Java class:
 
 ``` xml
 <plugin>
@@ -185,7 +185,7 @@ where `main.class` is defined as a property and points to the main Kotlin or Jav
 ## Self-contained Jar file
 
 To create a self-contained Jar file containing the code from your module along with dependencies, include the following under `build->plugins` in your Maven pom.xml file,
-where `main.class` is defined as a property and points to the main Kotlin or Java class.
+where `main.class` is defined as a property and points to the main Kotlin or Java class:
 
 ``` xml
 <plugin>
