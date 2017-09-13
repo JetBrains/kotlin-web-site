@@ -147,9 +147,9 @@ Creating instances of nested, inner and anonymous inner classes is described in 
 
 ### Class Members
 
-Classes can contain
+Classes can contain:
 
-* Constructors and initializer blocks
+* [Constructors and initializer blocks](classes.html#constructors)
 * [Functions](functions.html)
 * [Properties](properties.html)
 * [Nested and Inner Classes](nested-classes.html)
