@@ -131,6 +131,135 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
 You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptor.loader.java/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
+#### JSR-305 Support
+
+The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined 
+in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nullability of Java types.
+
+If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-null; `When.MAYBE` and 
+`When.NEVER` denote a nullable type; and `When.MAYBE` forces the type to be [platform one](#null-safety-and-platform-types).
+
+A library can be compiled against the JSR-305 annotations, but there's no need to make the annotations artifact (e.g. `jsr305.jar`)
+a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library without the annotations 
+present on the classpath.
+
+Since Kotlin 1.1.60, 
+[custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/41091f1cc7045142181d8c89645059f4a15cc91a/proposals/jsr-305-custom-nullability-qualifiers.md) 
+are also supported (see below).
+
+##### Type qualifier nicknames (since Kotlin 1.1.60)
+
+If an annotation type is annotated with both
+[`@TypeQualifierNickname`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierNickname.html) 
+and JSR-305 `@Nonnull` (or its another nickname, such as `@CheckForNull`), then the annotation type is itself used for 
+retrieving precise nullability and has the same meaning as that nullability annotation:
+
+``` java
+@TypeQualifierNickname
+@Nonnull(when = When.ALWAYS)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyNonnull {
+}
+
+@TypeQualifierNickname
+@CheckForNull // a nickname to another type qualifier nickname
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyNullable {
+}
+
+interface A {
+    @MyNullable
+    String foo(@MyNonnull String x);
+}
+```
+
+`A::foo` in this example is available in Kotlin as `fun foo(x: String): String?`
+
+##### Type qualifier defaults (since Kotlin 1.1.60)
+
+[`@TypeQualifierDefault`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierDefault.html) 
+allows introducing annotations that, when being applied, define the default nullability within the scope of the annotated 
+element.
+
+Such annotation type should itself be annotated with both `@Nonnull` (or its nickname) and `@TypeQualifierDefault(...)` 
+with one or more `ElementType` values:
+* `ElementType.METHOD` for return types of methods;
+* `ElementType.PARAMETER` for value parameters;
+* `ElementType.FIELD` for fields; and
+* `ElementType.TYPE_USE` for any type including type arguments, upper bounds of type parameters and wildcard types.
+
+The default nullability is used when a type itself is not annotated by a nullability annotation, and the default is
+determined by the innermost enclosing element annotated with a type qualifier default annotation with the 
+`ElementType` corresponding to the type usage.
+
+```java
+@Nonnull
+@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
+public @interface NonNullApi {
+}
+
+@Nonnull(when = When.MAYBE)
+@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
+public @interface NullableApi {
+}
+
+@NullableApi
+interface A {
+    String foo(String x); // fun foo(x: String?): String?
+ 
+    @NotNullApi // overriding default from the interface
+    String bar(String x, @Nullable String y); // fun bar(x: String, y: String?): String 
+    
+    // The type of `x` parameter remains platform because there's explicit UNKNOWN-marked
+    // nullability annotation
+    String baz(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
+}
+```
+
+Package-level default nullability is also supported:
+
+```java
+// FILE: test/package-info.java
+@NonNullApi // declaring all types in package 'test' as non-nullable by default
+package test;
+```
+
+##### `@UnderMigration` annotation (since Kotlin 1.1.60)
+
+The `@UnderMigration` annotation (from `kotlin.annotations.jvm`) can be used to define a migration status
+for both qualifier nicknames and default qualifiers.
+
+The status value in `@UnderMigration(status = ...)` specifies how inappropriate usages of the 
+annotated types in Kotlin are treated (e.g. using a `@MyNullable`-annotated type value as non-null):
+
+* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. reporting error for 
+the inappropriate usages;
+
+* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors; and
+
+* `MigrationStatus.IGNORE` makes the compiler ignore the nullability annotation completely.
+
+Note: the migration status of a nullability annotation is not inherited by its type qualifier nicknames, but is applied
+to its usages in default type qualifiers.
+
+##### Compiler configuration
+
+The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with the following options (and their combination):
+
+* `-Xjsr305={strict|warn|ignore}` to set up the behavior for non-`@UnderMigration` annotations;
+* `-Xjsr305=under-migration:{strict|warn|ignore}` to override the behavior for the ``@UnderMigration` annotations; and
+* `-Xjsr305=@<fq.name>:{strict|warn|ignore}` to override the behavior for a single annotation, where `<fq.name>` 
+is the fully qualified class name of the annotation (may appear several times for different annotations).
+
+The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`.
+
+For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the 
+compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by 
+`@org.library.MyNullable` and ignore all other JSR-305 annotations. 
+
+For kotlin versions 1.1.50+/1.2, the default behavior is the same to `-Xjsr305=warn`. The
+`strict` value should be considered experimental (more checks may be added to it in the future).
+
 ## Mapped types
 
 Kotlin treats some Java types specially. Such types are not loaded from Java "as is", but are _mapped_ to corresponding Kotlin types.
