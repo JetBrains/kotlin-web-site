@@ -611,7 +611,7 @@ See [Higher-order functions and Lambdas](lambdas.html).
 //sampleStart
 fun main(args: Array<String>) {
     val rectangle: Rectangle = Rectangle(5.0, 2.0) //no 'new' keyword required in Kotlin while initializing
-    val triangle: Triangle = Triangle (3.0, 4.0, 5.0)
+    val triangle: Triangle = Triangle(3.0, 4.0, 5.0)
     println("Area of rectangle is - ${rectangle.getArea()} and it's perimeter is - ${rectangle.getPerimeter()}")
     println("Area of triangle is - ${triangle.getArea()} and it's perimeter is - ${triangle.getPerimeter()}")
 }
