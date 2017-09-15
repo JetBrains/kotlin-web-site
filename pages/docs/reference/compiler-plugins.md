@@ -10,8 +10,7 @@ title: "Compiler Plugins"
 
 Kotlin has classes and their members `final` by default, which makes it inconvenient to use frameworks and libraries such as Spring AOP that require classes to be `open`. 
 The `all-open` compiler plugin adapts Kotlin to the requirements of those frameworks and makes classes annotated with a specific annotation and their members open without the explicit `open` keyword.
-For instance, when you use Spring, you don't need all the classes to be open, but only classes annotated with specific annotations like
-`@Configuration` or `@Service`.
+For instance, when you use Spring, you don't need all the classes to be open, but only classes annotated with specific annotations like `@Configuration` or `@Service`.
 The `all-open` plugin allows to specify these annotations.
 
 We provide all-open plugin support both for Gradle and Maven, as well as the IDE integration.
