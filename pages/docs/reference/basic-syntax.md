@@ -617,7 +617,7 @@ fun main(args: Array<String>) {
 }
 //sampleEnd
 
-class Rectangle (var height: Double, var length: Double): Shape(4), RectangleProperties {
+class Rectangle (var height: Double, var length: Double) : Shape(4), RectangleProperties {
     override fun isSquare(): Boolean = length == height
     override fun getArea(): Double = height * length
     override fun getPerimeter(): Double = 2 * (height + length)
