@@ -610,24 +610,24 @@ See [Higher-order functions and Lambdas](lambdas.html).
 ``` kotlin
 //sampleStart
 fun main(args: Array<String>) {
-    val rectangle: Rectangle = Rectangle (5.0, 2.0) //no 'new' keyword required in Kotlin while initializing
+    val rectangle: Rectangle = Rectangle(5.0, 2.0) //no 'new' keyword required in Kotlin while initializing
     val triangle: Triangle = Triangle (3.0, 4.0, 5.0)
-    print( "Area of rectangle is - ${rectangle.getArea()} and it's perimeter is - ${rectangle.getPerimeter()}" )
-    print( "Area of triangle is - ${triangle.getArea()} and it's perimeter is - ${triangle.getPerimeter()}" )
+    println("Area of rectangle is - ${rectangle.getArea()} and it's perimeter is - ${rectangle.getPerimeter()}")
+    println("Area of triangle is - ${triangle.getArea()} and it's perimeter is - ${triangle.getPerimeter()}")
 }
 //sampleEnd
 
-class Rectangle (var height: Double, var length: Double): Shape(4), rectangleProperties {
+class Rectangle (var height: Double, var length: Double): Shape(4), RectangleProperties {
     override fun isSquare(): Boolean = length == height
-    override fun getArea(): Double = height*length
-    override fun getPerimeter(): Double = 2*(height + length)
+    override fun getArea(): Double = height * length
+    override fun getPerimeter(): Double = 2 * (height + length)
 }
 
-class Triangle (var sideA: Double, var sideB: Double, var sideC: Double): Shape(3) {
+class Triangle (var sideA: Double, var sideB: Double, var sideC: Double) : Shape(3) {
 
     override fun getArea(): Double {
-        var s = (sideA + sideB + sideC)/2
-        return Math.sqrt(s*(s - sideA)*(s - sideB)*(s - sideC))
+        var s = (sideA + sideB + sideC) / 2
+        return Math.sqrt(s*(s - sideA) * (s - sideB) * (s - sideC))
     }
     override fun getPerimeter(): Double = (sideA + sideB + sideC)
 }
@@ -637,7 +637,7 @@ abstract class Shape (open var sides: Int) {
     abstract fun getPerimeter(): Double
 }
 
-interface rectangleProperties {
+interface RectangleProperties {
     fun isSquare(): Boolean
 }
 ```
