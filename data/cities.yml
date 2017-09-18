@@ -1,4 +1,48 @@
 - geo:
+    lat: 47.6062095
+    lng: -122.3320708
+  name: Seattle, WA
+- geo:
+    lat: 51.7189205
+    lng: 8.757509299999999
+  name: Paderborn, Germany
+- geo:
+    lat: 44.7721811
+    lng: 17.191
+  name: Banja Luka, Bosnia-Herzegovina
+- geo:
+    lat: 52.0302285
+    lng: 8.532470800000002
+  name: Bielefeld, Germany
+- geo:
+    lat: 52.1561113
+    lng: 5.387826599999999
+  name: Amersfoort, Netherlands
+- geo:
+    lat: 60.39126279999999
+    lng: 5.3220544
+  name: Bergen, Norway
+- geo:
+    lat: 28.0870967
+    lng: 30.7618397
+  name: Minia, Egypt
+- geo:
+    lat: 42.2808256
+    lng: -83.7430378
+  name: Ann Arbor, MI
+- geo:
+    lat: 43.0389025
+    lng: -87.9064736
+  name: Milwaukee, WI
+- geo:
+    lat: 52.1205333
+    lng: 11.6276237
+  name: Magdeburg, Germany
+- geo:
+    lat: 5.3599517
+    lng: -4.0082563
+  name: Abidjan, Ivory Coast
+- geo:
     lat: 52.060669
     lng: 4.494025
   name: Zoetermeer, Netherlands
