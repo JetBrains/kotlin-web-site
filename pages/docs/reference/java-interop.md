@@ -137,7 +137,7 @@ The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Non
 in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nullability of Java types.
 
 If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-null; `When.MAYBE` and 
-`When.NEVER` denote a nullable type; and `When.MAYBE` forces the type to be [platform one](#null-safety-and-platform-types).
+`When.NEVER` denote a nullable type; and `When.UNKNOWN` forces the type to be [platform one](#null-safety-and-platform-types).
 
 A library can be compiled against the JSR-305 annotations, but there's no need to make the annotations artifact (e.g. `jsr305.jar`)
 a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library without the annotations 
