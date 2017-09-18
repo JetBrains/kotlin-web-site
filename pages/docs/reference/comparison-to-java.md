@@ -9,7 +9,7 @@ title: "Comparison to Java"
 
 ## Some Java issues addressed in Kotlin
 
-Kotlin fixes a series of issues that Java suffers from
+Kotlin fixes a series of issues that Java suffers from:
 
 * Null references are [controlled by the type system](null-safety.html).
 * [No raw types](java-interop.html)

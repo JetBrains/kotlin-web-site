@@ -123,18 +123,18 @@ This will minimize migration issues for your users.
 ## Standard APIs
  
 Coroutines come in three main ingredients: 
- - language support (i.s. suspending functions, as described above),
- - low-level core API in the Kotlin Standard Library,
+ - language support (i.s. suspending functions, as described above);
+ - low-level core API in the Kotlin Standard Library;
  - high-level APIs that can be used directly in the user code.
  
 ### Low-level API: `kotlin.coroutines` 
 
 Low-level API is relatively small and should never be used other than for creating higher-level libraries. It consists of two main packages: 
-- [`kotlin.coroutines.experimental`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/index.html) with main types and primitives such as
-  - [`createCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/create-coroutine.html)
-  - [`startCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/start-coroutine.html)
-  - [`suspendCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/suspend-coroutine.html)
-- [`kotlin.coroutines.experimental.intrinsics`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/index.html) with even lower-level intrinsics such as [`suspendCoroutineOrReturn`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/suspend-coroutine-or-return.html)
+- [`kotlin.coroutines.experimental`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/index.html) with main types and primitives such as:
+  - [`createCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/create-coroutine.html),
+  - [`startCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/start-coroutine.html),
+  - [`suspendCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/suspend-coroutine.html);
+- [`kotlin.coroutines.experimental.intrinsics`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/index.html) with even lower-level intrinsics such as [`suspendCoroutineOrReturn`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/suspend-coroutine-or-return.html).
  
  More details about the usage of these APIs can be found [here](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md).
 
@@ -258,12 +258,12 @@ fun main(args: Array<String>) {
 Only core APIs related to coroutines are available from the Kotlin Standard Library. This mostly consists of core primitives and interfaces that all coroutine-based libraries are likely to use.   
 
 Most application-level APIs based on coroutines are released as a separate library: [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines). This library covers
- * Platform-agnostic asynchronous programming with `kotlinx-coroutines-core`
-   * this module includes Go-like channels that support `select` and other convenient primitives
-   * a comprehensive guide to this library is available [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md).
- * APIs based on `CompletableFuture` from JDK 8: `kotlinx-coroutines-jdk8`
- * Non-blocking IO (NIO) based on APIs from JDK 7 and higher: `kotlinx-coroutines-nio`
- * Support for Swing (`kotlinx-coroutines-swing`) and JavaFx (`kotlinx-coroutines-javafx`)
- * Support for RxJava: `kotlinx-coroutines-rx`
+ * Platform-agnostic asynchronous programming with `kotlinx-coroutines-core`:
+   * this module includes Go-like channels that support `select` and other convenient primitives,
+   * a comprehensive guide to this library is available [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md);
+ * APIs based on `CompletableFuture` from JDK 8: `kotlinx-coroutines-jdk8`;
+ * Non-blocking IO (NIO) based on APIs from JDK 7 and higher: `kotlinx-coroutines-nio`;
+ * Support for Swing (`kotlinx-coroutines-swing`) and JavaFx (`kotlinx-coroutines-javafx`);
+ * Support for RxJava: `kotlinx-coroutines-rx`.
  
 These libraries serve as both convenient APIs that make common tasks easy and end-to-end examples of how to build coroutine-based libraries. 

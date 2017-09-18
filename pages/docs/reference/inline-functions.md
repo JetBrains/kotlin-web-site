@@ -19,7 +19,7 @@ Consider the following case:
 lock(l) { foo() }
 ```
 
-Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code
+Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code:
 
 ``` kotlin
 l.lock()
@@ -116,7 +116,7 @@ inline fun f(crossinline body: () -> Unit) {
 ```
 
 
-> `break` and `continue` are not yet available in inlined lambdas, but we are planning to support them too
+> `break` and `continue` are not yet available in inlined lambdas, but we are planning to support them too.
 
 ## Reified type parameters
 

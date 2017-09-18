@@ -35,7 +35,7 @@ And, of course, there can be `component3()` and `component4()` and so on.
 
 Note that the `componentN()` functions need to be marked with the `operator` keyword to allow using them in a destructuring declaration.
 
-Destructuring declarations also work in *for*{: .keyword }-loops: when you say
+Destructuring declarations also work in *for*{: .keyword }-loops: when you say:
 
 ``` kotlin
 for ((a, b) in collection) { ... }
@@ -77,7 +77,7 @@ for ((key, value) in map) {
 
 To make this work, we should 
 
-* present the map as a sequence of values by providing an `iterator()` function,
+* present the map as a sequence of values by providing an `iterator()` function;
 * present each of the elements as a pair by providing functions `component1()` and `component2()`.
   
 And indeed, the standard library provides such extensions:
