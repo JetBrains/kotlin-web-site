@@ -272,11 +272,11 @@ fun printProduct(arg1: String, arg2: String) {
 //sampleStart
     // ...
     if (x == null) {
-        println("Wrong number format in arg1: '${arg1}'")
+        println("Wrong number format in arg1: '$arg1'")
         return
     }
     if (y == null) {
-        println("Wrong number format in arg2: '${arg2}'")
+        println("Wrong number format in arg2: '$arg2'")
         return
     }
 

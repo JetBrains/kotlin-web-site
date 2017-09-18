@@ -20,8 +20,6 @@ The compiler automatically derives the following members from all properties dec
   * `toString()` of the form `"User(name=John, age=42)"`,
   * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order of declaration,
   * `copy()` function (see below).
-  
-If any of these functions is explicitly defined in the class body or inherited from the base types, it will not be generated.
 
 To ensure consistency and meaningful behavior of the generated code, data classes have to fulfil the following requirements:
 
@@ -29,6 +27,16 @@ To ensure consistency and meaningful behavior of the generated code, data classe
   * All primary constructor parameters need to be marked as `val` or `var`;
   * Data classes cannot be abstract, open, sealed or inner;
   * (before 1.1) Data classes may only implement interfaces.
+  
+Additionally, the members generation follows these rules with regard to the members inheritance:
+
+* If there are explicit implementations of `equals()`, `hashCode()` or `toString()` in the data class body or 
+*final*{: .keyword } implementations in a superclass, then these functions are not generated, and the existing 
+implementations are used;
+* If a supertype has the `componentN()` functions that are *open*{: .keyword } and return compatible types, the 
+corresponding functions are generated for the data class and override those of the supertype. If the functions of the 
+supertype cannot be overridden due to incompatible signatures or being final, an error is reported; 
+* Providing explicit implementations for the `componentN()` and `copy()` functions is not allowed.
   
 Since 1.1, data classes may extend other classes (see [Sealed classes](sealed-classes.html) for examples).
 

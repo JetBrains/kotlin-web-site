@@ -1,5 +1,5 @@
-@import '../../_config';
-@import '../../_utils';
+@import '../../../css/config';
+@import '../../../css/utils';
 
 $branch-padding: 12px;
 $item-padding: 5px;
@@ -53,10 +53,10 @@ $item-padding: 5px;
             left: 2px;
             width: 27px;
             height: 15px;
-            background: url('../layout/images/main-sprite.png') no-repeat 0 -200px;
+            background: url('../../../css/com/layout/images/main-sprite.png') no-repeat 0 -200px;
 
             @include adapt_retina {
-                background-image: url('../layout/images/main-sprite@2x.png');
+                background-image: url('../../../css/com/layout/images/main-sprite@2x.png');
                 background-size: 150px auto;
             }
         }

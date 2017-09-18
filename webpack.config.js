@@ -22,6 +22,8 @@ module.exports = (params = {}) => {
       'community': './static/js/page/community/community.js',
       'pdf': './static/js/page/pdf.js',
       'api': './static/js/page/api/api.js',
+      'reference': './static/js/page/reference.js',
+      'tutorial': './static/js/page/tutorial.js',
       'styles': './static/css/styles.scss'
     },
 

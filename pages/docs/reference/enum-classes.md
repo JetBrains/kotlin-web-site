@@ -7,7 +7,7 @@ title: "Enum Classes"
 
 # Enum Classes
 
-The most basic usage of enum classes is implementing type-safe enums
+The most basic usage of enum classes is implementing type-safe enums:
 
 ``` kotlin
 enum class Direction {
@@ -19,7 +19,7 @@ Each enum constant is an object. Enum constants are separated with commas.
 
 ## Initialization
 
-Since each enum is an instance of the enum class, they can be initialized
+Since each enum is an instance of the enum class, they can be initialized as:
 
 ``` kotlin
 enum class Color(val rgb: Int) {
@@ -31,7 +31,7 @@ enum class Color(val rgb: Int) {
 
 ## Anonymous Classes
 
-Enum constants can also declare their own anonymous classes
+Enum constants can also declare their own anonymous classes:
 
 ``` kotlin
 enum class ProtocolState {

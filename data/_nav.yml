@@ -1,7 +1,7 @@
 # Header navigation
 # ====================
 main:
-  items:
+  content:
     - url: /docs/reference/
       title: Learn
 
@@ -15,9 +15,9 @@ main:
 # Docs section navigation
 # =======================
 subnav:
-  items:
+  content:
     - url: /docs/
-      items:
+      content:
         - url: /docs/reference/
           title: Reference
 
@@ -30,7 +30,7 @@ subnav:
         - url: /docs/resources.html
           title: More resources
     - url: /community/
-      items:
+      content:
         - url: /community/
           urlPattern: ^/community/$
           title: Community Overview
@@ -47,10 +47,10 @@ subnav:
 # Reference navigation
 # ====================
 reference:
-  items:
+  content:
     - title: Overview
       description: Overview of Kotlin
-      items:
+      content:
         - url: /docs/reference/server-overview.html
           title: Kotlin for Server Side
         - url: /docs/reference/android-overview.html
@@ -62,7 +62,7 @@ reference:
 
     - title: Getting Started
       description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
-      items:
+      content:
         - url: /docs/reference/basic-syntax.html
           title: Basic Syntax
         - url: /docs/reference/idioms.html
@@ -72,7 +72,7 @@ reference:
 
     - title: Basics
       description: The Basics
-      items:
+      content:
         - url: /docs/reference/basic-types.html
           title: Basic Types
         - url: /docs/reference/packages.html
@@ -84,7 +84,7 @@ reference:
 
     - title: Classes and Objects
       description: All about objects
-      items:
+      content:
         - url: /docs/reference/classes.html
           title: Classes and Inheritance
         - url: /docs/reference/properties.html
@@ -114,7 +114,7 @@ reference:
 
     - title: Functions and Lambdas
       description: All about functions
-      items:
+      content:
         - url: /docs/reference/functions.html
           title: Functions
         - url: /docs/reference/lambdas.html
@@ -126,7 +126,7 @@ reference:
 
     - title: Other
       description: Various bits and bobs
-      items:
+      content:
         - url: /docs/reference/multi-declarations.html
           title: Destructuring Declarations
         - url: /docs/reference/collections.html
@@ -156,7 +156,7 @@ reference:
 
 
     - title: Core Libraries
-      items:
+      content:
         - url: /api/latest/jvm/stdlib/index.html
           title: Standard Library
         - url: /api/latest/kotlin.test/index.html
@@ -164,7 +164,7 @@ reference:
 
     - title: Reference
       description: Grammar and other information
-      items:
+      content:
         - url: /docs/reference/keyword-reference.html
           title: Keywords and Operators
         - url: /docs/reference/grammar.html
@@ -175,7 +175,7 @@ reference:
 
     - title: Java Interop
       description: What you need to know about interoperability with Java.
-      items:
+      content:
         - url: /docs/reference/java-interop.html
           title: Calling Java from Kotlin
         - url: /docs/reference/java-to-kotlin-interop.html
@@ -183,7 +183,7 @@ reference:
 
     - title: JavaScript
       description: Using Kotlin with JavaScript
-      items:
+      content:
        - url: /docs/reference/dynamic-type.html
          title: Dynamic Type
        - url: /docs/reference/js-interop.html
@@ -199,7 +199,7 @@ reference:
 
     - title: Tools
       description:
-      items:
+      content:
   #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
         - url: /docs/reference/kotlin-doc.html
           title: Documenting Kotlin Code
@@ -218,7 +218,7 @@ reference:
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.
-      items:
+      content:
         - url: /docs/reference/faq.html
           title: FAQ
         - url: /docs/reference/comparison-to-java.html
@@ -229,9 +229,9 @@ reference:
 # Tutorials navigation
 # ====================
 tutorials:
-  items:
+  content:
     - title: Getting Started
-      items:
+      content:
         - url: /docs/tutorials/getting-started.html
           title: Getting Started with IntelliJ IDEA
         - url: /docs/tutorials/getting-started-eclipse.html
@@ -243,7 +243,7 @@ tutorials:
         - url: /docs/tutorials/koans.html
           title: Koans
     - title: Android
-      items:
+      content:
         - url: /docs/tutorials/kotlin-android.html
           title: Getting Started With Android Development
         - url: /docs/tutorials/android-plugin.html
@@ -251,11 +251,11 @@ tutorials:
         - url: /docs/tutorials/android-frameworks.html
           title: Android Frameworks
     - title: Java Interop
-      items:
+      content:
         - url: /docs/tutorials/mixing-java-kotlin-intellij.html
           title: Mixing Java and Kotlin in one project
     - title: JavaScript
-      items:
+      content:
         - url: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
           title: Kotlin to JavaScript
         - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
@@ -274,18 +274,18 @@ tutorials:
           title: Debugging Kotlin in browser
 
     - title: Coroutines
-      items:
+      content:
         - url: /docs/tutorials/coroutines-basic-jvm.html
           title: Introduction to Kotlin Coroutines on the JVM
 
     - title: Web Development
-      items:
+      content:
         - url: /docs/tutorials/httpservlets.html
           title: Creating Web Applications with Http Servlets
         - url: /docs/tutorials/spring-boot-restful.html
           title: Creating a RESTful Web Service with Spring Boot
 
     - title: Tools
-      items:
+      content:
         - url: /docs/tutorials/kotlin-and-ci.html
           title: Setting up Kotlin on TeamCity

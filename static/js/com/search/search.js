@@ -6,7 +6,7 @@ import emptyResultsTemaplate from "./empty-result.mustache"
 import UrlUtils from "query-string"
 import debounce from 'debounce';
 
-const searchDelay = 500;
+const searchDelay = 300;
 
 $(document).ready(function () {
   const $searchButton = $('.search-button'),

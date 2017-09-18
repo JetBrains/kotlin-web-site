@@ -22,7 +22,7 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '${kotlinVersion}'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
     repositories {
         mavenCentral()
     }
@@ -43,32 +43,38 @@ dependencies {
 
 ```
 
-where `${kotlinVersion}` is the version of Kotlin we want to use, for example `1.1.0`. It's important to note that
-if we're using an EAP build, we need to have the corresponding repository referenced in the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
+To use an EAP build instead, we need to specify its version in `ext.kotlin_version` and 
+add the corresponding repository to the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
 
 On compiling, Gradle will produce the output of our application, which is by default placed under the `build/classes/main` directory. This can be overridden using [the compiler options](#configuring-compiler-options).
 
-In order to use this, we also need to include the Kotlin standard library in our application, i.e. `kotlin.js`, which was included as a dependency. By default,
-Gradle does not expand the JAR as part of the build process, so we would need to add an additional step in our build to do so.
+In order to assemble an application, we also need to include the Kotlin standard library, i.e. `kotlin.js`, which was included as a dependency, and the other libraries if any. 
+
+By default, Gradle does not expand the JARs in the build process, so we need to add an additional step in our build to do so:
 
 ```groovy
-build.doLast {
+task assembleWeb(type: Sync) {
     configurations.compile.each { File file ->
-        copy {
+        from(zipTree(file.absolutePath), {
             includeEmptyDirs = false
-
-            from zipTree(file.absolutePath)
-            into "${projectDir}/web"
             include { fileTreeElement ->
                 def path = fileTreeElement.path
-                path.endsWith(".js") && (path.startsWith("META-INF/resources/") || !path.startsWith("META-INF/"))
+                path.endsWith(".js") && (path.startsWith("META-INF/resources/") || 
+                    !path.startsWith("META-INF/"))
             }
-        }
+        })
     }
-}
-```
+    from compileKotlin2Js.destinationDir
+    into "${projectDir}/web"
 
-For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
+    dependsOn classes
+}
+
+assemble.dependsOn assembleWeb
+```
+This task copies both dependencies runtime files and the compilation output to the `web` directory.
+
+For more information on the output generated and the instructions for running the application, please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
 ## Configuring Compiler Options
 

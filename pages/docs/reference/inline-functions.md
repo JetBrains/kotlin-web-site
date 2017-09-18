@@ -178,6 +178,8 @@ can not be used as an argument for a reified type parameter.
 
 For a low-level description, see the [spec document](https://github.com/JetBrains/kotlin/blob/master/spec-docs/reified-type-parameters.md).
 
+{:#inline-properties}
+
 ## Inline properties (since 1.1)
 
 The `inline` modifier can be used on accessors of properties that don't have a backing field.
@@ -201,6 +203,8 @@ inline var bar: Bar
 ```
 
 At the call site, inline accessors are inlined as regular inline functions.
+
+{:#public-inline-restrictions}
 
 ## Restrictions for public API inline functions
 

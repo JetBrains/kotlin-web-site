@@ -16,10 +16,10 @@ would be the equivalent of a `NullPointerException` or NPE for short.
 
 Kotlin's type system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE's may be
 
-* An explicit call to `throw NullPointerException()`
-* Usage of the `!!` operator that is described below
-* External Java code has caused it
-* There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere)
+* An explicit call to `throw NullPointerException()`;
+* Usage of the `!!` operator that is described below;
+* External Java code has caused it;
+* There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere).
 
 In Kotlin, the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that can not (non-null references).
 For example, a regular variable of type `String` can not hold *null*{: .keyword }:
@@ -36,7 +36,7 @@ var b: String? = "abc"
 b = null // ok
 ```
 
-Now, if you call a method or access a property on `a`, it's guaranteed not to cause an NPE, so you can safely say
+Now, if you call a method or access a property on `a`, it's guaranteed not to cause an NPE, so you can safely say:
 
 ``` kotlin
 val l = a.length
@@ -150,7 +150,7 @@ val aInt: Int? = a as? Int
 
 ## Collections of Nullable Type
 
-If you have a collection of elements of a nullable type and want to filter non-null elements, you can do so by using `filterNotNull`.
+If you have a collection of elements of a nullable type and want to filter non-null elements, you can do so by using `filterNotNull`:
 
 ``` kotlin
 val nullableList: List<Int?> = listOf(1, 2, null, 4)

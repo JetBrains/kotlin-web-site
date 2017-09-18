@@ -16,7 +16,7 @@ The version of Kotlin to use is usually defined as the `kotlin_version` property
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '<version to use>'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
 
     repositories {
         mavenCentral()
@@ -42,7 +42,7 @@ Or, starting with Kotlin 1.1.1, the plugin can be applied using the [Gradle plug
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "<version to use>"
+    id "org.jetbrains.kotlin.jvm" version "{{ site.data.releases.latest.version }}"
 }
 ```
 The `version` should be literal in this block, and it cannot be applied from another build script.
@@ -57,7 +57,7 @@ project
             - java
 ```
 
-The corresponding *sourceSets* property should be updated if not using the default convention
+The corresponding *sourceSets* property should be updated if not using the default convention:
 
 ``` groovy
 sourceSets {
@@ -75,7 +75,7 @@ apply plugin: "kotlin2js"
 ```
 
 This plugin only works for Kotlin files so it is recommended to keep Kotlin and Java files separate (if it's the case that the same project contains Java files). As with
-targeting the JVM, if not using the default convention, we need to specify the source folder using *sourceSets*
+targeting the JVM, if not using the default convention, we need to specify the source folder using *sourceSets*:
 
 ``` groovy
 sourceSets {
@@ -93,7 +93,6 @@ compileKotlin2Js {
 }
 ```
 
-
 ## Targeting Android
 
 Android's Gradle model is a little different from ordinary Gradle, so if we want to build an Android project written in Kotlin, we need
@@ -101,7 +100,7 @@ Android's Gradle model is a little different from ordinary Gradle, so if we want
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '<version to use>'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
 
     ...
 
@@ -130,7 +129,6 @@ android {
 ```
 
 This lets Android Studio know that the kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized. Alternatively, you can put Kotlin classes in the Java source directory, typically located in `src/main/java`.
-
 
 
 ## Configuring Dependencies

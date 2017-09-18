@@ -24,7 +24,7 @@ build
 workspace.xml
 uiDesigner.xml
 *.css.map
-api/
+/api/
 .idea
 *.iml
 grammar.xml

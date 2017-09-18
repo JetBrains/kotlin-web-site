@@ -13,14 +13,14 @@ from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
-from src.Navigaton import Nav
+from src.navigation import process_video_nav, process_nav
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
 from src.grammar import get_grammar
 from src.markdown.makrdown import jinja_aware_markdown
 from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
-from src.processors.processors import process_code_blocks, process_header_ids
+from src.processors.processors import process_code_blocks
 from src.search import build_search_indices
 from src.sitemap import generate_sitemap
 
@@ -67,11 +67,7 @@ site_data = get_site_data()
 
 def get_nav():
     with open(path.join(data_folder, "_nav.yml")) as stream:
-        nav = Nav(yaml.load(stream))
-        return nav
-
-
-nav = get_nav()
+        return process_nav(yaml.load(stream))
 
 
 def get_kotlin_features():
@@ -99,7 +95,7 @@ def add_year_to_context():
 @app.context_processor
 def add_data_to_context():
     return {
-        'nav': nav,
+        'nav': get_nav(),
         'data': site_data,
         'site': {
             'pdf_url': app.config['PDF_URL'],
@@ -136,11 +132,6 @@ def get_cities():
     return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
-@app.route('/data/videos.json')
-def get_videos():
-    return Response(json.dumps(site_data['videos'], cls=DateAwareEncoder), mimetype='application/json')
-
-
 @app.route('/docs/reference/grammar.html')
 def grammar():
     grammar = get_grammar()
@@ -151,7 +142,7 @@ def grammar():
 
 @app.route('/docs/videos.html')
 def videos_page():
-    return render_template('pages/videos.html')
+    return render_template('pages/videos.html', videos=process_video_nav(site_data['videos']))
 
 
 @app.route('/docs/books.html')
@@ -161,7 +152,7 @@ def books_page():
 
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
-    return send_file(generate_pdf(pages, nav['reference']))
+    return send_file(generate_pdf(pages, get_nav()['reference']))
 
 
 @app.route('/docs/resources.html')

@@ -6,14 +6,12 @@ import '../com/search/search';
 import '../com/cookie-banner';
 import CodeMirror from '../com/codemirror/CodeMirror';
 
-import NavTree from '../com/nav-tree';
-
 $(document).ready(function () {
   executableCode('.sample');
 
   CodeMirror.colorize($('.code._highlighted'));
 
-  var html = document.getElementsByTagName('html')[0];
+  const html = document.getElementsByTagName('html')[0];
 
   html.className = html.className.replace('no-js', '');
 
@@ -32,16 +30,11 @@ $(document).ready(function () {
   }, false);
 
   $('h1,h2,h3').each(function (element) {
-    var id = this.getAttribute("id");
+    const id = this.getAttribute("id");
     if (id == null) return;
-    var referenceElement = document.createElement("a");
+    const referenceElement = document.createElement("a");
     referenceElement.className = "anchor";
     referenceElement.href = "#" + id;
     this.appendChild(referenceElement);
   });
-
-  var sideTreeElement = document.querySelector('.js-side-tree-nav');
-  if (sideTreeElement) {
-    new NavTree(sideTreeElement);
-  }
 });

@@ -154,7 +154,7 @@ fun body(init: Body.() -> Unit) = initTag(Body(), init)
 And we can use them to build `<head>` and `<body>` tags. 
 
 
-One other thing to be discussed here is how we add text to tag bodies. In the example above we say something like
+One other thing to be discussed here is how we add text to tag bodies. In the example above we say something like:
 
 ``` kotlin
 html {

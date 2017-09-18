@@ -201,7 +201,7 @@ function(::Foo)
 
 ## Bound Function and Property References (since 1.1)
 
-You can refer to an instance method of a particular object.
+You can refer to an instance method of a particular object:
 
 ``` kotlin 
 val numberRegex = "\\d+".toRegex()
