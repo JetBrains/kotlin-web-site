@@ -640,7 +640,7 @@ class Triangle(
     var sideC: Double
 ) : Shape(listOf(sideA, sideB, sideC)) {
     override fun calculateArea(): Double {
-        val s = (perimeter) / 2
+        val s = perimeter / 2
         return Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC))
     }
 }
