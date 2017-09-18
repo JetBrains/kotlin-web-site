@@ -98,6 +98,8 @@ If you don't need a variable in the destructuring declaration, you can place an 
 val (_, status) = getResult()
 ```
 
+The `componentN()` operator functions are not called for the components that are skipped in this way.
+
 ## Destructuring in Lambdas (since 1.1)
 
 You can use the destructuring declarations syntax for lambda parameters.
