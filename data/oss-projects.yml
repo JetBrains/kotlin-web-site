@@ -257,3 +257,8 @@
   description: programming contest platform
   type: Platform
   link: https://github.com/spolnik/JAlgoArena
+  
+  - name: Jenesis Data Store
+  description: A dynamic, cross platform, high performance, ORM data-mapper. Designed to assist in rapid development and data mining
+  type: Library
+  link: https://github.com/SubiyaCryolite/Jenesis-Data-Store
