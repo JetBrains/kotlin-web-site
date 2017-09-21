@@ -117,8 +117,12 @@ external fun newC()
 * `kotlin.String` is mapped to JavaScript String.
 * `kotlin.Any` is mapped to JavaScript Object (i.e. `new Object()`, `{}`, etc).
 * `kotlin.Array` is mapped to JavaScript Array.
+* `kotlin.ByteArray`, `-.ShortArray`, `-.IntArray`, `-.FloatArray`, and `-.DoubleArray` are mapped to
+   JavaScript Int8Array, Int16Array, Int32Array, Float32Array, and Float64Array correspondingly.
+* `kotlin.BooleanArray` is mapped to JavaScript Int8Array with a property `$type$ == "BooleanArray"`
+* `kotlin.CharArray` is mapped to JavaScript UInt16Array with a property `$type$ == "CharArray"`
+* `kotlin.LongArray` is mapped to JavaScript Array of `kotlin.Long` with a property `$type$ == "LongArray"`.
 * Kotlin collections (i.e. `List`, `Set`, `Map`, etc) are not mapped to any specific JavaScript type.
 * `kotlin.Throwable` is mapped to JavaScript Error.
 * Kotlin preserves lazy object initialization in JavaScript.
 * Kotlin does not implement lazy initialization of top-level properties in JavaScript.
-
