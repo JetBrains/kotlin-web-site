@@ -5,7 +5,7 @@ title: "Reference"
 
 # Reference
 
-Provides a complete reference to the Kotlin language and the [standard library](/api/latest/jvm/stdlib/index.html).
+ให้อ้างอิงที่สมบูรณ์ในการใช้ภาษาและ Kotlin [ไลบรารีมาตรฐาน] (/api/latest/jvm/stdlib/index.html)
 
 ### Where to Begin
 
