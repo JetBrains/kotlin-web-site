@@ -173,8 +173,6 @@ interface A {
 }
 ```
 
-`A::foo` in this example is available in Kotlin as 
-
 ##### Type qualifier defaults (since 1.1.50)
 
 [`@TypeQualifierDefault`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierDefault.html) 
