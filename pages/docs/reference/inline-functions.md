@@ -44,8 +44,7 @@ inline fun lock<T>(lock: Lock, body: () -> T): T {
 The `inline` modifier affects both the function itself and the lambdas passed to it: all of those will be inlined
 into the call site.
 
-Inlining may cause the generated code to grow, but if we do it in a reasonable way (do not inline big functions)
-it will pay off in performance, especially at "megamorphic" call-sites inside loops.
+Inlining may cause the generated code to grow; however, if we do it in a reasonable way (i.e. avoiding inlining large functions), it will pay off in performance, especially at "megamorphic" call-sites inside loops.
 
 ## noinline
 
@@ -63,7 +62,7 @@ but `noinline` ones can be manipulated in any way we like: stored in fields, pas
 
 Note that if an inline function has no inlinable function parameters and no
 [reified type parameters](#reified-type-parameters), the compiler will issue a warning, since inlining such functions is
- very unlikely to be beneficial (you can suppress the warning if you are sure the inlining is needed).
+ very unlikely to be beneficial (you can suppress the warning if you are sure the inlining is needed using the annotation `@Suppress("NOTHING_TO_INLINE")`).
 
 ## Non-local returns
 
