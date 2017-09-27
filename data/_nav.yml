@@ -153,6 +153,8 @@ reference:
           title: Type-Safe Builders
         - url: /docs/reference/type-aliases.html
           title: Type Aliases
+        - url: /docs/reference/multiplatform.html
+          title: Multiplatform Projects (preview)
 
 
     - title: Core Libraries
