@@ -164,9 +164,9 @@ actual class Foo actual constructor(val bar: String) {
 
 This illustrates several important points:
 
-  * An expected declaration in the common module and its actual implementations always
+  * An expected declaration in the common module and its actual counterparts always
     have exactly the same fully qualified name.
-  * An expected declaration is marked with the `expect` keyword; the actual implementation
+  * An expected declaration is marked with the `expect` keyword; the actual declaration
     is marked with the `actual` keyword.
   * All actual declarations that match any part of an expected declaration need to be marked
     as `actual`.
@@ -190,13 +190,13 @@ actual fun formatString(source: String, vararg args: Any) =
 actual typealias Test = org.junit.Test
 ```
 
-The compiler ensures that every expected declaration has actual implementations in all platform
-modules that implement the corresponding common module, and reports an error if any implementations are 
-missing. The IDE provides tools that help you create the missing implementations.
+The compiler ensures that every expected declaration has actual declarations in all platform
+modules that implement the corresponding common module, and reports an error if any actual declarations are 
+missing. The IDE provides tools that help you create the missing actual declarations.
 
 If you have a platform-specific library that you want to use in common code while providing your own
 implementation for another platform, you can provide a typealias to an existing class as the actual
-implementation:
+declaration:
 
 ``` kotlin
 // Common
