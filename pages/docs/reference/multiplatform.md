@@ -199,12 +199,12 @@ implementation for another platform, you can provide a typealias to an existing 
 declaration:
 
 ``` kotlin
-// Common
-expect class URL(spec: String) {
-    open fun getHost(): String
-    open fun getPath(): String
+expect class AtomicRef<V>(value: V) {
+  fun get(): V
+  fun set(value: V)
+  fun getAndSet(value: V): V
+  fun compareAndSet(expect: V, update: V): Boolean
 }
 
-// JVM
-actual typealias URL = java.net.URL
+actual typealias AtomicRef<V> = java.util.concurrent.atomic.AtomicReference<V>
 ```
