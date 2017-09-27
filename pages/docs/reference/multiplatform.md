@@ -7,7 +7,7 @@ title: "Multiplatform Projects (Preview)"
 
 # Multiplatform Projects (Preview)
 
-> Multiplatform projects are a new experimental feature added in Kotlin 1.2 Beta. All of the language
+> Multiplatform projects are a new experimental feature in Kotlin 1.2. All of the language
 and tooling features described in this document are subject to change in future Kotlin versions.
 {:.note}
 
@@ -19,8 +19,8 @@ platforms. At this time supported target platforms are the JVM and JS, with Nati
 A multiplatform project consists of three types of modules:
 
   * A _common_ module contains code that is not specific to any platform, as well as declarations
-    of platform-dependent APIs. Those declarations allow common code to depend on platform-specific 
-    implementations.
+    without implementation of platform-dependent APIs. Those declarations allow common code to depend on 
+    platform-specific implementations.
   * A _platform_ module contains implementations of platform-dependent declarations in the common module
     for a specific platform, as well as other platform-dependent code. A platform module is always
     an implementation of a single common module.
@@ -135,7 +135,7 @@ doesn't cover all possible cases.
 
 As an alternative, Kotlin provides a mechanism of _expected and actual declarations_.
 With this mechanism, a common module can define _expected declarations_, and a platform module
-can provide _actual implementations_ of those declarations. 
+can provide _actual declarations_ corresponding to the expected ones. 
 To see how this works, let's look at an example first. This code is part of a common module:
 
 ``` kotlin
@@ -174,7 +174,21 @@ This illustrates several important points:
 
 Note that expected declarations are not restricted to interfaces and interface members.
 In this example, the expected class has a constructor and can be created directly from common code.
-You can apply the `expect` modifier to other declarations as well, including annotations.
+You can apply the `expect` modifier to other declarations as well, including top-level declarations and
+annotations:
+
+``` kotlin
+// Common
+expect fun formatString(source: String, vararg args: Any): String
+
+expect annotation class Test
+
+// JVM
+actual fun formatString(source: String, vararg args: Any) =
+    String.format(source, args)
+    
+actual typealias Test = org.junit.Test
+```
 
 The compiler ensures that every expected declaration has actual implementations in all platform
 modules that implement the corresponding common module, and reports an error if any implementations are 
@@ -192,6 +206,5 @@ expect class URL(spec: String) {
 }
 
 // JVM
-typealias URL = java.net.URL
+actual typealias URL = java.net.URL
 ```
-
