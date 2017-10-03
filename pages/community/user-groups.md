@@ -2,7 +2,7 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (111)
+# Kotlin User Groups (114)
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -95,6 +95,7 @@ title: Kotlin User Groups
 * [Guatemala Kotlin Meetup](https://www.meetup.com/Guatemala-Kotlin-Meetup/), Guatemala
 * [Mexico, CDMX Kotlin User Group](https://www.meetup.com/es-ES/Kotlin-Nights-CDMX/), Mexico
 * [Mérida Kotlin User Group](https://www.meetup.com/Merida-Kotlin-User-Group/), Mexico
+* [New England User Group](https://www.meetup.com/New-England-Kotlin-Users-Group/), USA
 * [New York Kotlin Meetup](http://www.meetup.com/New-York-Kotlin-Meetup/), USA
 * [Norfolk Kotlin User Group](mailto:robert.chrzanowski@gmail.com), USA
 * [Orange County Kotlin Meetup](https://www.meetup.com/oc-kotlin-meetup/), USA
@@ -136,7 +137,9 @@ title: Kotlin User Groups
 * [Johannesburg Kotlin User Group](https://www.meetup.com/Kotlin-Software-Development-Meetup/), South Africa
 * [Lagos Kotlin User Group](https://www.meetup.com/Lagos-Kotlin-Meetup/), Nigeria
 * [Lome Kotlin User Group](https://www.facebook.com/groups/1825278611119862/), Togo
+* [Minya Kotlin User Group](https://www.facebook.com/kotlinminya/), Egypt
 * [Noun Kotlin User Group](https://www.meetup.com/Noun-Kotlin-User-Group/), Cameroon
+* [Ondo Kotlin User Group](https://www.meetup.com/Kotlin-Ondo-User-Group/), Nigeria
 * [Ouagadougou Kotlin User Group](https://www.facebook.com/groups/649651491892414/), Burkina Faso 
 * [Rabat Kotlin User Group](https://www.meetup.com/Rabat-Kotlin-User-Group/), Morocco
 * [Tunisia Kotlin User Group](https://www.facebook.com/groups/1501353116571104), Tunisia
