@@ -1,4 +1,52 @@
 - geo:
+    lat: 47.2357137
+    lng: 39.701505
+  name: Rostov-on-Don, Russia
+- geo:
+    lat: 44.8564798
+    lng: 24.8691824
+  name: Pitesti, Romania
+- geo:
+    lat: 39.0997265
+    lng: -94.5785667
+  name: Kansas City, MO
+- geo:
+    lat: 43.0831301
+    lng: -73.7845651
+  name: Saratoga Springs, NY
+- geo:
+    lat: -15.4996879
+    lng: -70.12965299999999
+  name: Juliaca, Peru
+- geo:
+    lat: 27.950575
+    lng: -82.4571776
+  name: Tampa, FL
+- geo:
+    lat: -22.3679387
+    lng: -46.9432454
+  name: Mogi Guaçu, Brazil
+- geo:
+    lat: 40.44062479999999
+    lng: -79.9958864
+  name: Pittsburgh, PA
+- geo:
+    lat: 47.218371
+    lng: -1.553621
+  name: Nantes, France
+- geo:
+    lat: 40.76754400000001
+    lng: 114.886335
+  name: Zhangjiakou, China
+- geo:
+    lat: 51.9851034
+    lng: 5.898729599999999
+  name: Arnhem, Netherlands
+- geo:
+    lat: 53.0137902
+    lng: 18.5984437
+  name: Torun, Poland
+- geo:
     lat: 47.6062095
     lng: -122.3320708
   name: Seattle, WA
