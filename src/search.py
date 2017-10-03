@@ -1,6 +1,6 @@
 import os
 from os import path
-from typing import Dict, List
+from typing import Dict, List, Iterator
 
 from algoliasearch import algoliasearch
 from algoliasearch.index import Index
@@ -108,41 +108,55 @@ def group_small_content_pats(content_parts, start_index=0):
         del content_parts[size - 1]
 
 
-def get_valuable_content(page_content):
-    content = []
-    for child in page_content.children:
+def get_valuable_content(content: Iterator[Tag]) -> List[str]:
+    valuable_content = []
+    for child in content:
         if not isinstance(child, Tag):
             continue
         if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span']:
-            content.append(child.text)
+            valuable_content.append(child.text)
         elif child.name in ['ul', 'ol', 'blockquote', 'div']:
-            content += get_valuable_content(child)
+            valuable_content += get_valuable_content(child.children)
         elif child.name in ['pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br']:
             continue
         else:
             raise Exception('Unknown tag ' + child.name)
-    group_small_content_pats(content)
-    return content
+    group_small_content_pats(valuable_content)
+    return valuable_content
 
 
-def get_page_index_objects(content: BeautifulSoup, url: str, page_path: str, title: str, page_type: str,
-                           page_views: int, description=None) -> List[Dict]:
+def get_page_index_objects(content: Tag, url: str, page_path: str, title: str, page_type: str,
+                           page_views: int) -> List[Dict]:
     index_objects = []
-    for ind, page_part in enumerate(get_valuable_content(content)):
-        page_info = {
-            'url': url,
-            'objectID': page_path + '#' + str(ind),
-            'content': page_part,
-            'title': title,
-            'type': page_type,
-            'description': description,
-            'pageViews': page_views
-        }
-        if description is not None:
-            page_info['description'] = description
-        page_info['title'] = title
-
+    for ind, page_part in enumerate(get_valuable_content(content.children)):
+        page_info = {'url': url, 'objectID': page_path + '#' + str(ind), 'content': page_part, 'title': title,
+                     'type': page_type, 'pageViews': page_views}
         index_objects.append(page_info)
+    return index_objects
+
+
+def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, title: str, page_type: str,
+                                    page_views: int) -> List[Dict]:
+    headers = ['h1', 'h2', 'h3']
+    index_objects = []
+    children = [element for element in content.children if isinstance(element, Tag)]
+    if children[0].name not in headers:
+        return get_page_index_objects(content, url, page_path, title, page_type, page_views)
+    title = ""
+    content = []
+    url_with_href = ""
+    for child in children:
+        if child.name in headers:
+            if title != '':
+                for ind, page_part in enumerate(get_valuable_content(content)):
+                    page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
+                                 'title': title, 'type': page_type, 'pageViews': page_views}
+                    index_objects.append(page_info)
+            url_with_href = url + '#' + child.get('id')
+            title = child.text
+            content = []
+        else:
+            content.append(child)
     return index_objects
 
 
@@ -154,6 +168,7 @@ def build_search_indices(site_structure, pages):
     for url, endpoint in site_structure:
         if (not url.endswith('.html')) and (not url.endswith('/')):
             continue
+        print("Processing " + url)
         if url in page_views_statistic:
             page_views = page_views_statistic[url]
         else:
@@ -168,17 +183,13 @@ def build_search_indices(site_structure, pages):
                 page_type = 'Reference'
             elif page_path.startswith('docs/tutorials'):
                 page_type = 'Tutorial'
-            description = None
-            if 'description' in page_part.meta:
-                description = page_part.meta['description']
-            index_objects += get_page_index_objects(
+            index_objects += get_markdown_page_index_objects(
                 page_part.parsed_html,
                 url,
                 page_path,
                 page_part.meta['title'],
                 page_type,
-                page_views,
-                description
+                page_views
             )
         elif endpoint == "api_page":
             page_info = get_api_page(page_path[4:])

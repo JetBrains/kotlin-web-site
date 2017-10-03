@@ -8,10 +8,10 @@ title: "Delegated Properties"
 # Delegated Properties
 
 There are certain common kinds of properties, that, though we can implement them manually every time we need them, 
-would be very nice to implement once and for all, and put into a library. Examples include
+would be very nice to implement once and for all, and put into a library. Examples include:
 
-* lazy properties: the value gets computed only upon first access,
-* observable properties: listeners get notified about changes to this property,
+* lazy properties: the value gets computed only upon first access;
+* observable properties: listeners get notified about changes to this property;
 * storing properties in a map, instead of a separate field for each property.
 
 To cover these (and other) cases, Kotlin supports _delegated properties_:
@@ -48,7 +48,7 @@ val e = Example()
 println(e.p)
 ```
 
-This prints 
+This prints:
 
 ``` kotlin
 Example@33a17727, thank you for delegating ‘p’ to me!
@@ -205,15 +205,15 @@ Here we summarize requirements to delegate objects.
 
 For a **read-only** property (i.e. a *val*{:.keyword}), a delegate has to provide a function named `getValue` that takes the following parameters:
 
-* `thisRef` --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended),
-* `property` --- must be of type `KProperty<*>` or its supertype,
+* `thisRef` --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended);
+* `property` --- must be of type `KProperty<*>` or its supertype.
  
 this function must return the same type as property (or its subtype).
 
 For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally_ provide a function named `setValue` that takes the following parameters:
  
-* `thisRef` --- same as for `getValue()`,
-* `property` --- same as for `getValue()`,
+* `thisRef` --- same as for `getValue()`;
+* `property` --- same as for `getValue()`;
 * new value --- must be of the same type as a property or its supertype.
  
 `getValue()` and/or `setValue()` functions may be provided either as member functions of the delegate class or extension functions.
@@ -289,7 +289,7 @@ class MyUI {
 
 The parameters of `provideDelegate` are the same as for `getValue`:
 
-* `thisRef` --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended),
+* `thisRef` --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended);
 * `property` --- must be of type `KProperty<*>` or its supertype.
 
 The `provideDelegate` method is called for each property during the creation of the `MyUI` instance, and it performs the necessary validation right away.

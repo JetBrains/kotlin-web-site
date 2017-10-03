@@ -27,7 +27,7 @@ else {
 ## Smart Casts
 
 In many cases, one does not need to use explicit cast operators in Kotlin, because the compiler tracks the
-`is`-checks for immutable values and inserts (safe) casts automatically when needed:
+`is`-checks and [explicit casts](#unsafe-cast-operator) for immutable values and inserts (safe) casts automatically when needed:
 
 ``` kotlin
 fun demo(x: Any) {

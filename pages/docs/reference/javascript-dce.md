@@ -11,11 +11,11 @@ Since version 1.1.4, Kotlin/JS includes a dead code elimination (DCE) tool.
 This tool allows to strip out unused properties, functions and classes from the generated JS.
 There are several ways you get unused declarations:
 
-* Functions can be inlined and never get called directly (which happens always except for few situations). 
+* Functions can be inlined and never get called directly (which happens always except for few situations).
 * You are using a shared library which provides much more functions than you actually need.
   For example, standard library (`kotlin.js`) contains functions for manipulating lists, arrays, char sequences,
   adapters for DOM, etc, which together gives about 1.3 mb file. A simple "Hello, world" application only requires
-  console routines, which is only few kilobytes for the entire file.  
+  console routines, which is only few kilobytes for the entire file.
 
 Dead code elimination is often also called 'tree shaking'.
 
@@ -49,7 +49,7 @@ You may want to keep this declaration. To do so, you can use the following synta
 runDceKotlinJs.keep "declarationToKeep"[, "declarationToKeep", ...]
 ```
 
-Where `declarationToKeep` has the following syntax: 
+Where `declarationToKeep` has the following syntax:
 
 ```
 moduleName.dot.separated.package.name.declarationName

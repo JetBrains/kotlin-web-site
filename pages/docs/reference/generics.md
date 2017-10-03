@@ -276,7 +276,7 @@ fun <T : Comparable<T>> sort(list: List<T>) {
 }
 ```
 
-The type specified after a colon is the **upper bound**: only a subtype of `Comparable<T>` may be substituted for `T`. For example
+The type specified after a colon is the **upper bound**: only a subtype of `Comparable<T>` may be substituted for `T`. For example:
 
 ``` kotlin
 sort(listOf(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
