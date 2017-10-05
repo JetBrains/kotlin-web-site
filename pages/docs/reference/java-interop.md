@@ -131,7 +131,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
 You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptor.loader.java/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
-#### JSR-305 Support
+### JSR-305 Support
 
 The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined 
 in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nullability of Java types.
@@ -147,7 +147,7 @@ Since Kotlin 1.1.50,
 [custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/41091f1cc7045142181d8c89645059f4a15cc91a/proposals/jsr-305-custom-nullability-qualifiers.md) 
 are also supported (see below).
 
-##### Type qualifier nicknames (since 1.1.50)
+#### Type qualifier nicknames (since 1.1.50)
 
 If an annotation type is annotated with both
 [`@TypeQualifierNickname`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierNickname.html) 
@@ -173,7 +173,7 @@ interface A {
 }
 ```
 
-##### Type qualifier defaults (since 1.1.50)
+#### Type qualifier defaults (since 1.1.50)
 
 [`@TypeQualifierDefault`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierDefault.html) 
 allows introducing annotations that, when being applied, define the default nullability within the scope of the annotated 
@@ -221,7 +221,7 @@ Package-level default nullability is also supported:
 package test;
 ```
 
-##### Compiler configuration
+#### Compiler configuration
 
 The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with one of the values:
 
