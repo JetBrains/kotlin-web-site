@@ -124,14 +124,14 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
   * Android (`com.android.annotations` and `android.support.annotations`)
-  * JSR-305 (`javax.annotation`)
+  * JSR-305 (`javax.annotation`, more details below)
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`).
 
 You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptor.loader.java/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
-#### JSR-305 Support
+### JSR-305 Support
 
 The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined 
 in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nullability of Java types.
@@ -147,7 +147,7 @@ Since Kotlin 1.1.50,
 [custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/41091f1cc7045142181d8c89645059f4a15cc91a/proposals/jsr-305-custom-nullability-qualifiers.md) 
 are also supported (see below).
 
-##### Type qualifier nicknames (since 1.1.50)
+#### Type qualifier nicknames (since 1.1.50)
 
 If an annotation type is annotated with both
 [`@TypeQualifierNickname`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierNickname.html) 
@@ -173,7 +173,7 @@ interface A {
 }
 ```
 
-##### Type qualifier defaults (since 1.1.50)
+#### Type qualifier defaults (since 1.1.50)
 
 [`@TypeQualifierDefault`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierDefault.html) 
 allows introducing annotations that, when being applied, define the default nullability within the scope of the annotated 
@@ -226,7 +226,7 @@ Package-level default nullability is also supported:
 package test;
 ```
 
-##### `@UnderMigration` annotation (since 1.1.60)
+#### `@UnderMigration` annotation (since 1.1.60)
 
 The `@UnderMigration` annotation (provided in a separate artifact `kotlin-annotations-jvm`) can be used by library 
 maintainers to define the migration status for the nullability type qualifiers.
@@ -262,7 +262,7 @@ to its usages in default type qualifiers.
 If a default type qualifier uses a type qualifier nickname and they are both `@UnderMigration`, the status
 from the default type qualifier is used. 
 
-##### Compiler configuration
+#### Compiler configuration
 
 The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with the following options (and their combination):
 
@@ -271,12 +271,12 @@ Custom nullability qualifiers, especially
 `@TypeQualifierDefault`, are already spread among many well-known libraries, and users may need to migrate smoothly when 
 updating to the Kotlin version containing JSR-305 support.
 
-* `-Xjsr305=under-migration:{strict|warn|ignore}` to override the behavior for the `@UnderMigration` annotations.
+* `-Xjsr305=under-migration:{strict|warn|ignore}` (since 1.1.60) to override the behavior for the `@UnderMigration` annotations.
 Users may have different view on the migration status for the libraries: 
 they may want to have errors while the official migration status is `WARN`, or vice versa, 
 they may wish to postpone errors reporting for some until they complete their migration.
 
-* `-Xjsr305=@<fq.name>:{strict|warn|ignore}` to override the behavior for a single annotation, where `<fq.name>` 
+* `-Xjsr305=@<fq.name>:{strict|warn|ignore}` (since 1.1.60) to override the behavior for a single annotation, where `<fq.name>` 
 is the fully qualified class name of the annotation. May appear several times for different annotations. This is useful
 for managing the migration state for a particular library.
 
