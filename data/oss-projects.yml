@@ -257,3 +257,8 @@
   description: programming contest platform
   type: Platform
   link: https://github.com/spolnik/JAlgoArena
+
+- name: Komock
+  description: HTTP/Consul/Smtp/Spring Config mocker framework written in Kotlin.
+  type: Framework
+  link: https://github.com/laviua/komock
