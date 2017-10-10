@@ -33,7 +33,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
   - API (`kotlin-stdlib-*`, `kotlin-reflect-*`)
     - new APIs may be added
     - deprecations with level `WARNING` may be added/removed
-    - deprecations with level `WARNING` may be elevated to level `ERROR` or `HIDDEN` in NV
+    - deprecations with level `WARNING` in OV may be elevated to level `ERROR` or `HIDDEN` in NV
 - **BCB** - **B**ackward **C**ompatibility for **B**inaries
   - Binaries (ABI)
     - runtime: NV-binaries can be used  everywhere where OV binaries worked
