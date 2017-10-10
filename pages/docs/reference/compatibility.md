@@ -53,7 +53,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
 
 ## Compatibility guarantees for Kotlin releases
 
-**Kotlin for JVM**:
+**Kotlin/JVM**:
   - patch version updates (e.g. 1.1.X) are fully compatible;
   - minor version updates (e.g. 1.X) are backwards compatible.
 
@@ -66,7 +66,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
 | **...**   | ... | ...   | ... | ...   | ... | ... |
 | **2.0**   | ?   | ?     | ?   | ?     | ... | - 
 
-**Kotlin for JS**: starting with Kotlin 1.1, both patch and minor version updates provide backward compatibility for the language and API (BCLA), but no BCB.  
+**Kotlin/JS**: starting with Kotlin 1.1, both patch and minor version updates provide backward compatibility for the language and API (BCLA), but no BCB.  
 
 | Kotlin    | 1.0.X | 1.1  | 1.1.X | ... | 2.0 |
 |----------:|:-----:|:----:|:-----:|:---:|:---:|
@@ -77,6 +77,8 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
 | **2.0**   | EXP   | ?    | ?     | ... | - 
 
 **Kotlin Scripts**: both patch and minor version updates provide backward compatibility for the language and API (BCLA), but no BCB.
+
+**Kotlin/Native**: no guarantees until 1.0 is released.
 
 ## Compatibility across platforms
  
