@@ -120,7 +120,10 @@ Due to its experimental status, the coroutine-related API in the Standard Librar
  * copy all the APIs to `com.example` (without the experimental suffix),
  * keep the experimental package around for backward compatibility. 
  
-This will minimize migration issues for your users. 
+This will minimize migration issues for your users.
+
+**RESTRICTIONS**: suspend modifier can be applied to named functions and lambda-expressions,
+but at the moment it is not supported on anonymous functions, and suspend functional type cannot be used as a supertype.
 
 ## Standard APIs
  
