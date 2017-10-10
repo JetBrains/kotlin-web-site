@@ -49,7 +49,7 @@ Compatibility means answering the question: for given two versions of Kotlin (fo
 
 ---
 
-\* No changes *modulo bugs* means that if an important bug is found (e.g. in the compiler diagnostics or elsewhere), a fix for it may introduce a breaking change, but we are always very careful with such changes.
+\* No changes *modulo bugs* means that if an important bug is found (e.g. in the compiler diagnostics or elsewhere), a fix for it may introduce [a breaking change](../evolution/breaking-changes.html), but we are always very careful with such changes.
 
 ## Compatibility guarantees for Kotlin releases
 
