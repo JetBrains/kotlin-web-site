@@ -283,6 +283,7 @@ val sum = fun Int.(other: Int): Int = this + other
 A non-literal value of a function-with-receiver type can also be assigned or passed as an argument where an ordinary function is expected that has an
 additional *first* parameter of the receiver type, and vice versa. For example, the types `String.(Int) -> Boolean` and `(String, Int) -> Boolean` are compatible:
 
+``` kotlin
     val represents: String.(Int) -> Boolean = { other -> toIntOrNull() == other }
     println("123".represents(123)) // true
     
@@ -290,6 +291,7 @@ additional *first* parameter of the receiver type, and vice versa. For example, 
         assert(op(a, b) == c)
     
     testOperation(represents, "100", 100, true) // OK
+```
 
 Lambda expressions can be used as function literals with receiver when the receiver type can be inferred from context.
 
