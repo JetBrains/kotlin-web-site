@@ -118,7 +118,7 @@ Otherwise the compiler detects that something can go wrong and reports a warning
 
 For example, if OV = 1.0 and NV = 1.1, you can observe one of the following warnings:
 
-``` kotlin
+```
 Runtime JAR files in the classpath have the version 1.0, which is older than the API version 1.1. 
 Consider using the runtime of version 1.1, or pass '-api-version 1.0' explicitly to restrict the 
 available APIs to the runtime of version 1.0.
@@ -129,7 +129,7 @@ This means that you're using the Kotlin compiler 1.1 against the standard or ref
 * If you want to keep your code compatible with the 1.0 standard library, you can pass `-api-version 1.0`.
 * If you've just upgraded to Kotlin 1.1 but can not use new language features yet (e.g. because some of your teammates may not have upgraded), you can pass `-language-version 1.0`, which will restrict all APIs and language features to 1.0.
 
-``` kotlin
+```
 Runtime JAR files in the classpath should have the same version. These files were found in the classpath:
     kotlin-reflect.jar (version 1.0)
     kotlin-stdlib.jar (version 1.1)
@@ -139,7 +139,7 @@ Some runtime JAR files in the classpath have an incompatible version. Consider r
 
 This means that you have a dependency on libraries of different versions, for example the 1.1 standard library and the 1.0 reflection library. To prevent subtle errors at runtime, we recommend you to use the same version of all Kotlin libraries. In this case, consider adding an explicit dependency on the 1.1 reflection library.
 
-``` kotlin
+```
 Some JAR files in the classpath have the Kotlin Runtime library bundled into them. 
 This may cause difficult to debug problems if there's a different version of the Kotlin Runtime library in the classpath. 
 Consider removing these libraries from the classpath
