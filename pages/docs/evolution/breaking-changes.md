@@ -207,7 +207,7 @@ we defer to the existing
 ## `7` The scope of this policy
 
 
-## `7.1` In scope
+### `7.1` In scope
 
 `7.1.1` Language: syntax, static checks, execution
     semantics of language constructs.
@@ -232,7 +232,7 @@ we defer to the existing
 `7.1.7` KDoc syntax.
 
 
-## `7.2` Out of scope
+### `7.2` Out of scope
 
 `7.2.1` Build tools and plugins for them (e.g. Gradle
     support).
@@ -264,16 +264,16 @@ we defer to the existing
 
 ## `8` Different requirements for different platforms
 
-## `8.1` Kotlin/JVM
+### `8.1` Kotlin/JVM
 
 No additional requirements on deprecation/breaking changes.
 
-## `8.2` Kotlin/JS
+### `8.2` Kotlin/JS
 
 `8.2.1` Binary compatibility is not guaranteed for the
 JS world, because everything is usually built from sources.
 
-## `8.3` Kotlin/Native
+### `8.3` Kotlin/Native
 
 `8.3.1` Until Kotlin/Native reaches an official
     release, no compatibility guarantees are given for Kotlin/Native.
@@ -289,7 +289,7 @@ JS world, because everything is usually built from sources.
 
 Notation: NC — new compiler, OC — old compiler.
 
-## `9.1` Binary Change, issues
+### `9.1` Binary Change, issues
 
 `9.1.1` A binary produced from unchanged code with NC
     fails where the one produced by OC worked.
@@ -297,7 +297,7 @@ Notation: NC — new compiler, OC — old compiler.
 *Examples of failures*: linkage error, runtime exceptions not
         present in previous versions, deadlocks, race conditions
 
-## `9.2` Binary Change, non-issues
+### `9.2` Binary Change, non-issues
 
 `9.2.1` A binary compiled with NC may be rejected by
     OC, when it relies on new language features unsupported in OC.
@@ -315,7 +315,7 @@ Notation: NC — new compiler, OC — old compiler.
 `9.2.5` Adding supertypes to existing library
 classes/interfaces.
 
-## `9.3` Source Change, issues
+### `9.3` Source Change, issues
 
 `9.3.1` Sources that compiled with OC don't compile
     with NC against the same classpath.
@@ -324,7 +324,7 @@ classes/interfaces.
     behavior changes in a way significant for contract-abiding use
     cases.
 
-## `9.4` Source Change, non-issues
+### `9.4` Source Change, non-issues
 
 `9.4.1` Code compilable with NC fails to compile with
     OC (e.g. due to new language features supported in NC).
@@ -333,12 +333,12 @@ classes/interfaces.
     build configuration or compiler settings explicitly (i.e. in
     addition to advancing the compiler version).
 
-## `9.5` Library Change, issues
+### `9.5` Library Change, issues
 
 `9.5.1` Making a contract on existing API more strict
     than it used to be in a previous version.
 
-## `9.5` Library Change, non-issues
+### `9.5` Library Change, non-issues
 
 `9.5.2` Relaxing a contract on existing APIs.
 
@@ -354,7 +354,7 @@ classes/interfaces.
     stdlib at runtime.
 
 
-## `9.6` Performance changes
+### `9.6` Performance changes
 
 We recognize that runtime performance and bytecode size are important
 metrics, and will make reasonable effort to keep them in a good shape,
@@ -362,7 +362,7 @@ but we don't consider every slowdown (e.g. in edge cases or in very cold
 code) and every extra byte in the classfile a breaking change.
 
 
-# `10` Examples of subtle issues
+## `10` Examples of subtle issues
 
 Banishing the changes listed in this section may pose significant
 problems for language evolution.
@@ -436,7 +436,7 @@ which will likely break source compatibility for many users. We still
 want to do it, but devise a migration mechanism that will first report
 future issues as warnings, and let the users migrate.
 
-# `11` Changes to this policy
+## `11` Changes to this policy
 
 `11.1` Changes to this policy need to be approved by
     the Kotlin Language Committee.
