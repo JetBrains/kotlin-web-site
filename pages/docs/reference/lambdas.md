@@ -284,13 +284,13 @@ A non-literal value of a function-with-receiver type can also be assigned or pas
 additional *first* parameter of the receiver type, and vice versa. For example, the types `String.(Int) -> Boolean` and `(String, Int) -> Boolean` are compatible:
 
 ``` kotlin
-    val represents: String.(Int) -> Boolean = { other -> toIntOrNull() == other }
-    println("123".represents(123)) // true
+val represents: String.(Int) -> Boolean = { other -> toIntOrNull() == other }
+println("123".represents(123)) // true
+
+fun testOperation(op: (String, Int) -> Boolean, a: String, b: Int, c: Boolean) =
+    assert(op(a, b) == c)
     
-    fun testOperation(op: (String, Int) -> Boolean, a: String, b: Int, c: Boolean) =
-        assert(op(a, b) == c)
-    
-    testOperation(represents, "100", 100, true) // OK
+testOperation(represents, "100", 100, true) // OK
 ```
 
 Lambda expressions can be used as function literals with receiver when the receiver type can be inferred from context.
