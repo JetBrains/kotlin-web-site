@@ -49,6 +49,8 @@ async {
 }
 ```
 
+> **Note:** currently, suspending function types cannot be used as supertypes, and anonymous suspending functions are currently not supported.
+
 To continue the analogy, `await()` can be a suspending function (hence also callable from within an `async {}` block) that suspends a coroutine until some computation is done and returns its result:
 
 ``` kotlin
