@@ -6,36 +6,38 @@ title: "Kotlin Version Compatibility and Breaking Changes"
 toc: true
 ---
 
-# Breaking Change Policy 
+# Backwards Incompatible Changes and Deprecation Guidelines
 
 
 ## `1` Intro
-This document contains definitions and policies adhered to by the Kotlin
-language designers & [committee](language-committee.html) with regards to version compatibility and
-languages changes.
+This document contains definitions and policies with regards to version compatibility and languages changes. The Kotlin language designers & [committee](language-committee.html) use it as guidelines to consult with when making designd ecisions. 
 
+## `2` Goals
 
-## `2` Summary of the Policy
+We are balancing between two goals: **the long-term health of the language** and **the short-term comfort of its users**. Both are very important, and trade-offs are to be made carefully. 
 
-This policy is to set the expectations for Kotlin users, what they can
-rely on:
+`2.1` **Legacy cleanup**. We recognize that languages accumulate legacy over time. Our goal is to keep the Kotlin language fit and modern by cleaning this legacy up.
 
-`2.1` Users' binaries and source code won't break on compiler updates (with some caveats in a really small % of the cases)
+Examples of such legacy include 
+* mechanisms that become obsolete due to intruduction of better solutions to the same problems,
+* solutions to problems that became irrelevant over time due to some changes in the environment,
+* bugs and underspecified/accidental behaviors that stem from the implementation of the language.
 
-`2.2` If something is deprecated, there
-will be a migration path:
+Obsolete things should be eventually dropped and bugs should be fixed.
 
-`2.2.1` Users will be informed in a timely fashion
- (exact timeline will be defined on a case-by-case basis).
+`2.2` **Users' convenience**. We also recognize that backwards incompatible changes in the language are inconvenient and sometimes blocking for its users. Our goal is to evolve the language in such a manner that minimizes the inconvenience.   
 
-`2.2.2` Users should have enough time to migrate
-    comfortably.
+`2.2.1` Users' binaries and source code shouldn't break unexpectedly or frequently on compiler updates. 
 
-`2.2.3` Users won't have to do much by hand (the
-    tooling will help along).
+`2.2.2` If a backwards incompatible change inconveniences many users of the language considerably, it makes the change highly questionable, so only an exceptional need can justify it. 
 
+`2.2.3` Backwards incompatible changes should be introduced through a deprecation when possible.
 
+`2.2.4` Users should be informed about such changes in a timely fashion (exact timeline is to be defined on a case-by-case basis).
 
+`2.2.5` Users should have enough time to migrate comfortably.
+
+`2.2.6` Users shouldn't be required to do much by hand (the tooling will help along).
 
 ## `3` Basic principles of this policy
 
