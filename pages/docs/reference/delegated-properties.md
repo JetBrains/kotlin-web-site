@@ -267,6 +267,10 @@ One of the possible use cases of `provideDelegate` is to check property consiste
 For example, if you want to check the property name before binding, you can write something like this:
 
 ``` kotlin
+class ResourceDelegate<T> : ReadOnlyProperty<MyUI, T> {
+    override fun getValue(thisRef: MyUI, property: KProperty<*>): T { ... }
+}
+    
 class ResourceLoader<T>(id: ResourceID<T>) {
     operator fun provideDelegate(
             thisRef: MyUI,
@@ -274,14 +278,15 @@ class ResourceLoader<T>(id: ResourceID<T>) {
     ): ReadOnlyProperty<MyUI, T> {
         checkProperty(thisRef, prop.name)
         // create delegate
+        return ResourceDelegate()
     }
 
     private fun checkProperty(thisRef: MyUI, name: String) { ... }
 }
 
-fun <T> bindResource(id: ResourceID<T>): ResourceLoader<T> { ... }
-
 class MyUI {
+    fun <T> bindResource(id: ResourceID<T>): ResourceLoader<T> { ... }
+
     val image by bindResource(ResourceID.image_id)
     val text by bindResource(ResourceID.text_id)
 }
