@@ -6,6 +6,12 @@ title: "Kotlin Version Compatibility and Breaking Changes"
 toc: true
 ---
 
+<!--
+WHY THIS FILE HAS MANUALLY EDITABLE PARAGRAPH NUMBERS
+
+There will be external links to these paragraphs, and one needs a very good reason to change the numbering. Generally, it's only OK to add paragraphs to this file in such a way that the numbering of the existing paragraphs does not change  
+-->
+
 # Backwards Incompatible Changes and Deprecation Guidelines
 
 
@@ -23,43 +29,6 @@ Examples of such legacy include
 * solutions to problems that became irrelevant over time due to some changes in the environment,
 * bugs and underspecified/accidental behaviors that stem from the implementation of the language.
 
-Obsolete things should be eventually dropped and bugs should be fixed.
-
-`2.2` **Users' convenience**. We also recognize that backwards incompatible changes in the language are inconvenient and sometimes blocking for its users. Our goal is to evolve the language in such a manner that minimizes the inconvenience.   
-
-`2.2.1` Users' binaries and source code shouldn't break unexpectedly or frequently on compiler updates. 
-
-`2.2.2` If a backwards incompatible change inconveniences many users of the language considerably, it makes the change highly questionable, so only an exceptional need can justify it. 
-
-`2.2.3` Backwards incompatible changes should be introduced through a deprecation when possible.
-
-`2.2.4` Users should be informed about such changes in a timely fashion (exact timeline is to be defined on a case-by-case basis).
-
-`2.2.5` Users should have enough time to migrate comfortably.
-
-`2.2.6` Users shouldn't be required to do much by hand (the tooling will help along).
-
-## `3` Basic principles of this policy
-
-`3.1` We care about pragmatics, not formality.
-
-`3.2` Breaking existing code is generally undesirable
-    and should be avoided.
-
-`3.2.1` Binary incompatibilities for the JVM are
-    generally a lot harder to address on the user side, so the users
-    should never be required to fix them.
-
-`3.2.2` Source incompatibilities are easier to
-    address, especially with the help of automated tools, but they
-    still introduce significant inconvenience and should be generally
-    avoided.
-
-`3.3` Sometimes incompatible changes are needed
-    for the long-term benefit of the language and its users, and we are
-    willing to make those changes, after careful consideration and
-    justification.
-
 `3.3.1` *Example*: bugs and underspecified behaviors
     in kotlinc and kotlin-stdlib may require incompatible fixes, and it
     is often better to fix them (formally, breaking compatibility) than
@@ -72,18 +41,45 @@ Obsolete things should be eventually dropped and bugs should be fixed.
 `3.3.3` *Example*: legacy features that are no longer
     considered a good practice should be phased out (very) gradually.
 
+Obsolete things should be eventually dropped, and bugs should be fixed. We are willing to make such changes after careful consideration and justification.
+
+`3.1` We care about pragmatics, not formality.
+
+`2.2` **Users' convenience**. We also recognize that backwards incompatible changes in the language are inconvenient and sometimes blocking for its users. Our goal is to evolve the language in such a manner that minimizes the inconvenience. Breaking existing code is generally undesirable and should be avoided.
+
 `3.4` To be pragmatically beneficial, such changes
     should go through a graceful deprecation cycle, where the user is
     never stuck with a large number of migration issues to be addressed
     manually.
 
+`2.2.1` Users' binaries and source code shouldn't break unexpectedly or frequently on compiler updates. 
+
+`2.2.2` If a backwards incompatible change inconveniences many users of the language considerably, it makes the change highly questionable, so only an exceptional need can justify it. 
+
+`2.2.3` Backwards incompatible changes should be introduced through a deprecation when possible.
+
+`2.2.4` Users should be informed about such changes in a timely fashion (exact timeline is to be defined on a case-by-case basis).
+
 `3.5` Those issues that have to be addressed manually
  should be highlighted for the user by the tooling.
 
+`2.2.5` Users should have enough time to migrate comfortably.
+
+`2.2.6` Users shouldn't be required to do much by hand (the tooling will help along).
+
+`2.3` Inconvenience is hard to measure, but there are some general guidelines for a number of broad cases
+
+`2.3.1` Binary incompatibilities for the JVM are generally a lot harder to address on the user side, so the users shouldn't be required to fix them.
+
+`2.3.2` Source incompatibilities are easier to address, especially with the help of automated tools, but they still introduce significant inconvenience and should be generally avoided.
+
+ 
 `3.6` Any change that deprecates or breaks
 compatibilty for a feature or API needs to be reviewed by the Kotlin
 Language Committee following the
 [review procedure](/process/index.html).
+
+## `3` Basic principles of these guidelines
 
 
 ## `4` How breaking changes can be introduced and dealt with
