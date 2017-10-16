@@ -100,7 +100,7 @@ map.forEach { _, value -> println("$value!") }
 
 ### Destructuring in Lambdas (since 1.1)
 
-Destructuring in lambdas is described as a part of [destructuring declarations](multi-declarations.html#destructuring-in-lambdas-since-11). 
+Destructuring in lambdas is described as a part of [destructuring declarations](multi-declarations.html#destructuring-in-lambdas-since-11).
 
 ## Inline Functions
 
@@ -187,12 +187,12 @@ We can explicitly return a value from the lambda using the [qualified return](re
 
 ``` kotlin
 ints.filter {
-    val shouldFilter = it > 0 
+    val shouldFilter = it > 0
     shouldFilter
 }
 
 ints.filter {
-    val shouldFilter = it > 0 
+    val shouldFilter = it > 0
     return@filter shouldFilter
 }
 ```
@@ -289,7 +289,7 @@ println("123".represents(123)) // true
 
 fun testOperation(op: (String, Int) -> Boolean, a: String, b: Int, c: Boolean) =
     assert(op(a, b) == c)
-    
+
 testOperation(represents, "100", 100, true) // OK
 ```
 

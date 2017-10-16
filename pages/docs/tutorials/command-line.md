@@ -83,7 +83,7 @@ If you're a [MacPorts](https://www.macports.org/) user, you can install the comp
 ```
 
    Since binaries compiled this way depend on the Kotlin runtime you should make sure the latter is present in the classpath whenever your compiled library is used.
-   
+
    You can also use the `kotlin` script to run binaries produced by the Kotlin compiler:
 
 ```

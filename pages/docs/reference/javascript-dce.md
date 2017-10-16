@@ -32,17 +32,17 @@ apply plugin: 'kotlin-dce-js'
 
 Note that if you are using multi-project build, you should apply plugin to the main project that is an entry point to your application.
 
-By default, the resulting set of JavaScript files (your application together with all dependencies) 
+By default, the resulting set of JavaScript files (your application together with all dependencies)
 can be found at path `$BUILD_DIR/min/`, where `$BUILD_DIR` is the path to generated JavaScript
 (usually, `build/classes/main`).
 
 
 ### Configuring
 
-To configure DCE on the main source set, you can use the `runDceKotlinJs` task 
+To configure DCE on the main source set, you can use the `runDceKotlinJs` task
 (and corresponding `runDce<sourceSetName>KotlinJs` for other source sets).
 
-Sometimes you are going to use a Kotlin declaration directly from JavaScript, and it's being stripped out by DCE. 
+Sometimes you are going to use a Kotlin declaration directly from JavaScript, and it's being stripped out by DCE.
 You may want to keep this declaration. To do so, you can use the following syntax in `build.gradle`:
 
 ``` groovy
@@ -55,7 +55,7 @@ Where `declarationToKeep` has the following syntax:
 moduleName.dot.separated.package.name.declarationName
 ```
 
-For example, consider a module is named `kotlin-js-example` and it contains a function named `toKeep` 
+For example, consider a module is named `kotlin-js-example` and it contains a function named `toKeep`
 in package `org.jetbrains.kotlin.examples`. Use the following line:
 
 ``` groovy
@@ -80,5 +80,5 @@ can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gra
   It's only applicable when you are developing an application (which may use shared libraries).
    The reason is: DCE does not know which parts of the library are going to be used by the user's application.
 * DCE does not perform minification (uglification) of your code by removing unnecessary whitespaces and shortening identifiers.
-  You should use existing tools, like UglifyJS (https://github.com/mishoo/UglifyJS2) 
+  You should use existing tools, like UglifyJS (https://github.com/mishoo/UglifyJS2)
   or Google Closure Compiler (https://developers.google.com/closure/compiler/) for this purpose.

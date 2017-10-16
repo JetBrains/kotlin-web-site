@@ -9,7 +9,7 @@ title: "Type aliases (since 1.1)"
 
 Type aliases provide alternative names for existing types.
 If the type name is too long you can introduce a different shorter name and use the new one instead.
- 
+
 It's useful to shorten long generic types.
 For instance, it's often tempting to shrink collection types:
 
@@ -41,11 +41,11 @@ typealias AInner = A.Inner
 typealias BInner = B.Inner
 ```
 
-Type aliases do not introduce new types. 
+Type aliases do not introduce new types.
 They are equivalent to the corresponding underlying types.
-When you add `typealias Predicate<T>` and use `Predicate<Int>` in your code, the Kotlin compiler always expand it to `(Int) -> Boolean`. 
+When you add `typealias Predicate<T>` and use `Predicate<Int>` in your code, the Kotlin compiler always expand it to `(Int) -> Boolean`.
 Thus you can pass a variable of your type whenever a general function type is required and vice versa:
- 
+
 ``` kotlin
 typealias Predicate<T> = (T) -> Boolean
 

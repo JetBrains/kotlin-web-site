@@ -8,11 +8,11 @@ title: "Type-Safe Groovy-Style Builders"
 # Type-Safe Builders
 
 The concept of [builders](http://www.groovy-lang.org/dsls.html#_nodebuilder) is rather popular in the *Groovy* community.
-Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://www.groovy-lang.org/processing-xml.html#_creating_xml), 
-[laying out UI components](http://www.groovy-lang.org/swing.html), 
+Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://www.groovy-lang.org/processing-xml.html#_creating_xml),
+[laying out UI components](http://www.groovy-lang.org/swing.html),
 [describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081) and more...
 
-For many use cases, Kotlin allows to *type-check* builders, which makes them even more attractive than the 
+For many use cases, Kotlin allows to *type-check* builders, which makes them even more attractive than the
 dynamically-typed implementation made in Groovy itself.
 
 For the rest of the cases, Kotlin supports Dynamic types builders.
@@ -111,10 +111,10 @@ html {
 
 So, what does this call do? Let's look at the body of `html` function as defined above.
 It creates a new instance of `HTML`, then it initializes it by calling the function that is passed as an argument
-(in our example this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance. 
+(in our example this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance.
 This is exactly what a builder should do.
 
-The `head` and `body` functions in the `HTML` class are defined similarly to `html`. 
+The `head` and `body` functions in the `HTML` class are defined similarly to `html`.
 The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
 ``` kotlin
@@ -151,7 +151,7 @@ fun head(init: Head.() -> Unit) = initTag(Head(), init)
 fun body(init: Body.() -> Unit) = initTag(Body(), init)
 ```
 
-And we can use them to build `<head>` and `<body>` tags. 
+And we can use them to build `<head>` and `<body>` tags.
 
 
 One other thing to be discussed here is how we add text to tag bodies. In the example above we say something like:
@@ -183,8 +183,8 @@ In the last section you can read through the full definition of this package.
 
 ## Scope control: @DslMarker (since 1.1)
 
-When using DSLs, one might have come across the problem that too many functions can be called in the context. 
-We can call methods of every available implicit receiver inside a lambda and therefore get an inconsistent result, like the tag `head` inside another `head`: 
+When using DSLs, one might have come across the problem that too many functions can be called in the context.
+We can call methods of every available implicit receiver inside a lambda and therefore get an inconsistent result, like the tag `head` inside another `head`:
 
 ``` kotlin
 html {
@@ -201,7 +201,7 @@ To address this problem, in Kotlin 1.1 a special mechanism to control receiver s
 
 To make the compiler start controlling scopes we only have to annotate the types of all receivers used in the DSL with the same marker annotation.
 For instance, for HTML Builders we declare an annotation `@HTMLTagMarker`:
- 
+
 ``` kotlin
 @DslMarker
 annotation class HtmlTagMarker
@@ -224,7 +224,7 @@ class HTML() : Tag("html") { ... }
 class Head() : Tag("head") { ... }
 ```
 
-After we've added this annotation, the Kotlin compiler knows which implicit receivers are part of the same DSL and allows to call members of the nearest receivers only: 
+After we've added this annotation, the Kotlin compiler knows which implicit receivers are part of the same DSL and allows to call members of the nearest receivers only:
 
 ``` kotlin
 html {

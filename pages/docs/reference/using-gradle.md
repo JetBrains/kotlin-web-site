@@ -220,7 +220,7 @@ archivesBaseName = 'myExampleProject_lib'
 To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task.
 
 When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
-for test code. The tasks for custom source sets of are called accordingly to the `compile<Name>Kotlin` pattern. 
+for test code. The tasks for custom source sets of are called accordingly to the `compile<Name>Kotlin` pattern.
 
 The names of the tasks in Android Projects contain the [build variant](https://developer.android.com/studio/build/build-variants.html) names and follow the pattern `compile<BuildVariant>Kotlin`, for example, `compileDebugKotlin`, `compileReleaseUnitTestKotlin`.
 

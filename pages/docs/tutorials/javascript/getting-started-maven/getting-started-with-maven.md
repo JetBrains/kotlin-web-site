@@ -3,7 +3,7 @@ type: tutorial
 layout: tutorial
 title:  "Getting Started with Kotlin and JavaScript with Maven"
 description: "A look at how to use Maven to target JavaScript."
-authors: Hadi Hariri 
+authors: Hadi Hariri
 date: 2016-11-04
 showAuthorInfo: false
 ---
@@ -20,9 +20,9 @@ In this tutorial we'll see how to
 ### Automatic Configuration
 
 The easiest way to create a new application targeting JavaScript with Maven is to allow IntelliJ IDEA
-to configure the Maven project for us. Simply create a new Maven project in IntelliJ IDEA and once the project is created, add a new 
+to configure the Maven project for us. Simply create a new Maven project in IntelliJ IDEA and once the project is created, add a new
 folder to host the Kotlin source code, removing the default Java one. The project should end up with the following structure
- 
+
 ![Project Structure]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/project-structure.png')}})
 
 We can now add our first Kotlin source code file and IntelliJ IDEA will prompt us to configure the project for Kotlin. On doing so, we should select as target
@@ -32,7 +32,7 @@ JavaScript
 ![Configure Kotlin]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/configure-kotlin.png')}})
 
 
-IntelliJ IDEA will add the corresponding entries for us in the [Maven configuration](#maven-configuration). 
+IntelliJ IDEA will add the corresponding entries for us in the [Maven configuration](#maven-configuration).
 
 
 ### Manual Configuration
@@ -44,7 +44,7 @@ If we're not using IntelliJ IDEA, we can configure the `pom.xml` file manually t
 
 ```xml
 <properties>
-    <kotlin.version>{{ site.data.releases.latest.version }}</kotlin.version> 
+    <kotlin.version>{{ site.data.releases.latest.version }}</kotlin.version>
 </properties>
 
 <dependencies>
@@ -88,7 +88,7 @@ On compiling, Maven will produce the following output
 
 ![Maven Output]({{ url_for('tutorial_img', filename='javascript/getting-started-maven/maven-output.png')}})
 
-where we can see the output of our application, which is the `kotlinjs-maven.js` file. 
+where we can see the output of our application, which is the `kotlinjs-maven.js` file.
 
 In order to use this, we also need to include the Kotlin standard library in our application, i.e. `kotlin.js`, which was included as a dependency. By default,
 Maven does not expand the JAR as part of the build process, so we would need to add an additional step in our build to do so.
@@ -124,7 +124,7 @@ For more information on the output generated please see [Kotlin to JavaScript](.
 
 ## Configuring Compiler Options
 
-Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea/getting-started-with-intellij-idea.html) or the command line, we can have the compiler output JavaScript to comply with a specific module system such as AMD, CommonJS or UMD. 
+Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea/getting-started-with-intellij-idea.html) or the command line, we can have the compiler output JavaScript to comply with a specific module system such as AMD, CommonJS or UMD.
 
 In order to specify the module kind, we can add a configuration to our plugin as below
 

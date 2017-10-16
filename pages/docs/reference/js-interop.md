@@ -9,7 +9,7 @@ title: "Calling JavaScript from Kotlin"
 
 Kotlin was designed for easy interoperation with Java platform. It sees Java classes as Kotlin classes, and
 Java sees Kotlin classes as Java classes. However, JavaScript is a dynamically-typed language, which means
-it does not check types in compile-time. You can freely talk to JavaScript from Kotlin via 
+it does not check types in compile-time. You can freely talk to JavaScript from Kotlin via
 [dynamic](dynamic-type.html) types, but if you want the full power of Kotlin
 type system, you can create Kotlin headers for JavaScript libraries.
 

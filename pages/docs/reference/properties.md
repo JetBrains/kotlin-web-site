@@ -191,8 +191,8 @@ being accessed and the fact that it hasn't been initialized.
 See [Overriding Properties](classes.html#overriding-properties)
 
 ## Delegated Properties
-  
-The most common kind of properties simply reads from (and maybe writes to) a backing field. 
+
+The most common kind of properties simply reads from (and maybe writes to) a backing field.
 On the other hand, with custom getters and setters one can implement any behaviour of a property.
 Somewhere in between, there are certain common patterns of how a property may work. A few examples: lazy values,
 reading from a map by a given key, accessing a database, notifying listener on access, etc.

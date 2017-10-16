@@ -8,7 +8,7 @@ Visual regression testing
 
 ## Usage
 
-1. Run standalone Selenium server in Docker: 
+1. Run standalone Selenium server in Docker:
    ```
    npm run start-selenium-server
    ```
@@ -30,9 +30,9 @@ Visual regression testing
 
 5. Check out `visual-regression-report/report.html` to see report.
 
-6. Stop Selenium server: 
+6. Stop Selenium server:
    ```
    npm run stop-selenium-server
    ```
-   
+
 Further testing requires only step #4 (and running Selenium server).

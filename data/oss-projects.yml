@@ -68,7 +68,7 @@
   type: Android App
   url: https://github.com/exviva/stew
 
-- name: RxKotlin 
+- name: RxKotlin
   description: Kotlin Bindings for RxJava
   type: Library
   link: https://github.com/ReactiveX/RxKotlin
@@ -87,7 +87,7 @@
   description: Library that generates short, unique, non-sequential hashes from numbers.
   type: Library
   link: http://hashids.org/kotlin/
-  
+
 - name: Kotter Knife
   description: Butter-knife view binding for Kotlin
   type: Library
@@ -102,32 +102,32 @@
   description: Kotlin library for Android
   type: Library
   link: https://github.com/pawegio/KAndroid
-  
+
 - name: Kovenant
   description: Promises for Kotlin and Android
   type: Library
   link: https://github.com/mplatvoet/kovenant
-  
+
 - name: Progress
   description: Simple Progress tracking
   type: Library
   link: https://github.com/mplatvoet/progress
-  
+
 - name: Injekt
   description: Dependency Injection / Object Factory for Kotlin
   type: Library
   link: https://github.com/kohesive/injekt
-  
+
 - name: Fuel
   description: HTTP Client library written in Kotlin
   type: Library
   link: https://github.com/kittinunf/Fuel
 
-- name: Klutter 
+- name: Klutter
   description: Small helper libraries for Kotlin, usually extensions to other libraries
   type: Library
   link: https://github.com/klutter/klutter
-  
+
 - name: Kodein
   description: Painless Kotlin Dependency Injection
   type: Library
@@ -162,7 +162,7 @@
   description: Type Extensions (Long, Int, Enum, Date) for Klaxon
   type: Library
   link: https://github.com/fboldog/ext4klaxon
-  
+
 - name: Bubble
   description: Library for obtaining screen orientation when orientation is blocked in AndroidManifest
   type: Library
@@ -222,7 +222,7 @@
   description: Kotlin port of the famous ScalaTest
   type: Library
   link: https://github.com/kotlintest/kotlintest
-  
+
 - name: Black-and-White
   description: A library of algorithms for the Black-and-White tree coloring
   type: Library
@@ -242,17 +242,17 @@
   description: An implementation of the PAV algorithm for isotonic regression (machine learning) in Kotlin
   type: Library
   link: https://github.com/sanity/pairAdjacentViolators
-  
+
 - name: Async Under 8
   description: Kotlin coroutine async implementation without java 8 requirement
   type: Framework
   link: https://github.com/fboldog/async-under8
-  
+
 - name: Corda
   description: distributed ledger platform
   type: Platform
   link: https://github.com/corda/corda
-  
+
 - name: JAlgoArena
   description: programming contest platform
   type: Platform

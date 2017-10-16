@@ -40,13 +40,13 @@ See [Qualified *this*{: .keyword } expressions](this-expressions.html) to learn 
 ## Anonymous inner classes
 
 Anonymous inner class instances are created using an [object expression](object-declarations.html#object-expressions):
-                                                      
+
 ``` kotlin
 window.addMouseListener(object: MouseAdapter() {
     override fun mouseClicked(e: MouseEvent) {
         // ...
     }
-                                                                                                            
+
     override fun mouseEntered(e: MouseEvent) {
         // ...
     }

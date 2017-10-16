@@ -6,8 +6,8 @@ main_nav_id: contribute
 
 # Contributing to Kotlin
 
-Kotlin is an Apache 2 OSS Project. The source code, tooling, documentation and even this web site is maintained on [GitHub](https://github.com/jetbrains/kotlin). While the majority 
-of the team works at JetBrains, there have been nearly a hundred external contributors to the Kotlin Project and we are always looking for more people. 
+Kotlin is an Apache 2 OSS Project. The source code, tooling, documentation and even this web site is maintained on [GitHub](https://github.com/jetbrains/kotlin). While the majority
+of the team works at JetBrains, there have been nearly a hundred external contributors to the Kotlin Project and we are always looking for more people.
 
 ## How you can contribute
 
@@ -20,7 +20,7 @@ these are some of the easier ones to get started with.
 ### Contributing to the documentation or web site
 
 We need a lot more documentation. If you're interested in collaborating, please feel free to check out the source code [to this site on GitHub](https://github.com/jetbrains/kotlin-web-site) and send a Pull Request. The site
-is built using Markdown and Jekyll. 
+is built using Markdown and Jekyll.
 
 ### Contributing with tutorials or videos
 
@@ -45,5 +45,5 @@ is correct and up-to-date. Doing this with a language that no one on the team sp
 
 ### Spread the word
 
-Kotlin is a new language but we have high hopes for it and we need people that believe in it to spread the word! 
+Kotlin is a new language but we have high hopes for it and we need people that believe in it to spread the word!
 

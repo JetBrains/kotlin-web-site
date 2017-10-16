@@ -9,7 +9,7 @@ title: "Basic Types: Numbers, Strings, Arrays"
 
 In Kotlin, everything is an object in the sense that we can call member functions and properties on any variable.
 Some of the types can have a special internal representation - for example, numbers, characters and booleans can be
-represented as primitive values at runtime - but to the user they look like ordinary classes. 
+represented as primitive values at runtime - but to the user they look like ordinary classes.
 In this section we describe the basic types used in Kotlin: numbers, characters, booleans, arrays, and strings.
 
 ## Numbers
@@ -41,12 +41,12 @@ There are the following kinds of literal constants for integral values:
 NOTE: Octal literals are not supported.
 
 Kotlin also supports a conventional notation for floating-point numbers:
- 
+
 * Doubles by default: `123.5`, `123.5e10`
 * Floats are tagged by `f` or `F`: `123.5f`
- 
+
 ### Underscores in numeric literals (since 1.1)
- 
+
 You can use underscores to make number constants more readable:
 
 ``` kotlin
@@ -59,7 +59,7 @@ val bytes = 0b11010010_01101001_10010100_10010010
 
 ### Representation
 
-On the Java platform, numbers are physically stored as JVM primitive types, unless we need a nullable number reference (e.g. `Int?`) or generics are involved. 
+On the Java platform, numbers are physically stored as JVM primitive types, unless we need a nullable number reference (e.g. `Int?`) or generics are involved.
 In the latter cases numbers are boxed.
 
 Note that boxing of numbers does not necessarily preserve identity:
@@ -155,12 +155,12 @@ The operations on floating point numbers discussed in this section are:
 * Comparison operators: `a < b`, `a > b`, `a <= b`, `a >= b`
 * Range instantiation and range checks: `a..b`, `x in a..b`, `x !in a..b`
 
-When the operands `a` and `b` are statically known to be `Float` or `Double` or their nullable counterparts (the type is 
-declared or inferred or is a result of a [smart cast](typecasts.html#smart-casts)), the operations on the 
-numbers and the range that they form follow the IEEE 754 Standard for Floating-Point Arithmetic. 
+When the operands `a` and `b` are statically known to be `Float` or `Double` or their nullable counterparts (the type is
+declared or inferred or is a result of a [smart cast](typecasts.html#smart-casts)), the operations on the
+numbers and the range that they form follow the IEEE 754 Standard for Floating-Point Arithmetic.
 
-However, to support generic use cases and provide total ordering, when the operands are **not** statically typed as 
-floating point numbers (e.g. `Any`, `Comparable<...>`, a type parameter), the operations use the 
+However, to support generic use cases and provide total ordering, when the operands are **not** statically typed as
+floating point numbers (e.g. `Any`, `Comparable<...>`, a type parameter), the operations use the
 `equals` and `compareTo` implementations for `Float` and `Double`, which disagree with the standard, so that:
 
 * `NaN` is considered equal to itself
@@ -237,7 +237,7 @@ val asc = Array(5, { i -> (i * i).toString() })
 As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`.
 
 Note: unlike Java, arrays in Kotlin are invariant. This means that Kotlin does not let us assign an `Array<String>`
-to an `Array<Any>`, which prevents a possible runtime failure (but you can use `Array<out Any>`, 
+to an `Array<Any>`, which prevents a possible runtime failure (but you can use `Array<out Any>`,
 see [Type Projections](generics.html#type-projections)).
 
 Kotlin also has specialized classes to represent arrays of primitive types without boxing overhead: `ByteArray`,

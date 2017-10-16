@@ -222,7 +222,7 @@ open class AnotherDerived() : Base() {
 }
 ```
 
-### Overriding Properties 
+### Overriding Properties
 
 Overriding properties works in a similar way to overriding methods; properties declared on a superclass that are then redeclared on a derived class must be prefaced with *override*{: .keyword }, and they must have a compatible type. Each declared property can be overridden by a property with an initializer or by a property with a getter method.
 
@@ -240,7 +240,7 @@ You can also override a `val` property with a `var` property, but not vice versa
 
 Note that you can use the *override*{: .keyword } keyword as part of the property declaration in a primary constructor.
 
-``` kotlin 
+``` kotlin
 interface Foo {
     val count: Int
 }
@@ -263,11 +263,11 @@ open class Foo {
 }
 
 class Bar : Foo() {
-    override fun f() { 
+    override fun f() {
         super.f()
-        println("Bar.f()") 
+        println("Bar.f()")
     }
-    
+
     override val x: Int get() = super.x + 1
 }
 ```
@@ -278,7 +278,7 @@ Inside an inner class, accessing the superclass of the outer class is done with 
 class Bar : Foo() {
     override fun f() { /* ... */ }
     override val x: Int get() = 0
-    
+
     inner class Baz {
         fun g() {
             super@Bar.f() // Calls Foo's implementation of f()

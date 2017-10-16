@@ -23,7 +23,7 @@ fun MutableList<Int>.swap(index1: Int, index2: Int) {
 }
 ```
 
-The *this*{: .keyword } keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot). 
+The *this*{: .keyword } keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot).
 Now, we can call such a function on any `MutableList<Int>`:
 
 ``` kotlin
@@ -41,7 +41,7 @@ fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
 }
 ```
 
-We declare the generic type parameter before the function name for it to be available in the receiver type expression. 
+We declare the generic type parameter before the function name for it to be available in the receiver type expression.
 See [Generic functions](generics.html).
 
 ## Extensions are resolved **statically**
@@ -123,8 +123,8 @@ val <T> List<T>.lastIndex: Int
     get() = size - 1
 ```
 
-Note that, since extensions do not actually insert members into classes, there's no efficient way for an extension 
-property to have a [backing field](properties.html#backing-fields). This is why **initializers are not allowed for 
+Note that, since extensions do not actually insert members into classes, there's no efficient way for an extension
+property to have a [backing field](properties.html#backing-fields). This is why **initializers are not allowed for
 extension properties**. Their behavior can only be defined by explicitly providing getters/setters.
 
 Example:
@@ -159,12 +159,12 @@ MyClass.foo()
 ## Scope of Extensions
 
 Most of the time we define extensions on the top level, i.e. directly under packages:
- 
+
 ``` kotlin
 package foo.bar
- 
-fun Baz.goo() { ... } 
-``` 
+
+fun Baz.goo() { ... }
+```
 
 To use such an extension outside its declaring package, we need to import it at the call site:
 
@@ -258,7 +258,7 @@ C1().caller(D())  // prints "D.foo in C1" - dispatch receiver is resolved virtua
 C().caller(D1())  // prints "D.foo in C" - extension receiver is resolved statically
 ```
 
- 
+
 ## Motivation
 
 In Java, we are used to classes named "\*Utils": `FileUtils`, `StringUtils` and so on. The famous `java.util.Collections` belongs to the same breed.

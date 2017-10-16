@@ -5,18 +5,18 @@ title: Kotlin Nights
 # Kotlin Nights
 
 Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologies.
-At JetBrains we've organised a few events: 
-[Kotlin Night San Francisco](https://blog.jetbrains.com/kotlin/2016/06/kotlin-night-recordings/) and 
-[Kotlin Night London](https://blog.jetbrains.com/kotlin/2016/11/kotlin-night-in-london-recordings/). 
- 
-The community however is asking for more Kotlin Nights and are willing to organise these themselves. Here you would find guidelines and some hints on putting things together. 
+At JetBrains we've organised a few events:
+[Kotlin Night San Francisco](https://blog.jetbrains.com/kotlin/2016/06/kotlin-night-recordings/) and
+[Kotlin Night London](https://blog.jetbrains.com/kotlin/2016/11/kotlin-night-in-london-recordings/).
+
+The community however is asking for more Kotlin Nights and are willing to organise these themselves. Here you would find guidelines and some hints on putting things together.
 
 Please, [submit your Kotlin Night](https://surveys.jetbrains.com/s3/1eca96c71ee7) to get support and inform about your upcoming event.
 
 ## Guidelines
 
 * Please, stick with the design materials. It will help to have all events and materials with the same style
-* Kotlin Night should be a free event. A minimal fee can be charged to assure assistance but it is still a non-profit event. 
+* Kotlin Night should be a free event. A minimal fee can be charged to assure assistance but it is still a non-profit event.
 * The event should be published and available publicly for all people to attend without any kind of discrimination.
 * The contents of the talks should be made public online after the event without requiring sign-up or registration to access these.
 * Recording is optional but recommended and should also be made available
@@ -27,9 +27,9 @@ Please, [submit your Kotlin Night](https://surveys.jetbrains.com/s3/1eca96c71ee7
 
 ## Organiser is Responsible for
 
-1. Location and all required event production, including comfortable venue. Please, make sure 
+1. Location and all required event production, including comfortable venue. Please, make sure
   * all the participants are aware of the exact date, place and starting time of the event. It’s good tone to have at least 30 minutes before  your event for the participants gathering;
-  * there is enough place as well as food and beverages, in case you provide, for everyone. 
+  * there is enough place as well as food and beverages, in case you provide, for everyone.
   * you have a plan with your speakers: schedule, topics and abstracts of the talks, equipment for the presentations.
   * If you’d like to organise recording of the talks, plan it in advance to get a better quality
 2. Content and speakers

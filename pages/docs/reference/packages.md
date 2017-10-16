@@ -20,8 +20,8 @@ class Goo {}
 ```
 
 All the contents (such as classes and functions) of the source file are contained by the package declared.
-So, in the example above, the full name of `baz()` is `foo.bar.baz`, and the full name of `Goo` is `foo.bar.Goo`. 
- 
+So, in the example above, the full name of `baz()` is `foo.bar.baz`, and the full name of `Goo` is `foo.bar.Goo`.
+
 If the package is not specified, the contents of such a file belong to "default" package that has no name.
 
 ## Default Imports
@@ -43,7 +43,7 @@ Additional packages are imported depending on the target platform:
   - java.lang.*
   - [kotlin.jvm.*](/api/latest/jvm/stdlib/kotlin.jvm/index.html)
 
-- JS:    
+- JS:
   - [kotlin.js.*](/api/latest/jvm/stdlib/kotlin.js/index.html)
 
 ## Imports

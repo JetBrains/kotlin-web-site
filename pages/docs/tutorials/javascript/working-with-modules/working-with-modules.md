@@ -3,7 +3,7 @@ type: tutorial
 layout: tutorial
 title:  "Working with Kotlin and JavaScript Modules"
 description: "A look at how to use Kotlin to interact with JavaScript modules."
-authors: Hadi Hariri 
+authors: Hadi Hariri
 date: 2016-09-30
 showAuthorInfo: false
 ---
@@ -20,7 +20,7 @@ In this tutorial we'll see how to
 
 ## Configuring Modules with IntelliJ IDEA
 
-Kotlin generate JavaScript code that is compatible with Asynchronous Module Definition (AMD), CommonJS and Universal Model Definition (UMD). 
+Kotlin generate JavaScript code that is compatible with Asynchronous Module Definition (AMD), CommonJS and Universal Model Definition (UMD).
 
 * **AMD** is usually used on the client-side in the browser. The idea behind AMD is to load modules asynchronously, thus improving usability and performance.
 * **CommonJS** is the module system used on the server-side, and in particular with node.js. Node modules all abide by this definition. CommonJS modules can also be used in the browser via [Browserify](http://browserify.org/).
@@ -28,7 +28,7 @@ Kotlin generate JavaScript code that is compatible with Asynchronous Module Defi
 
 We can configure the Kotlin compiler option to use any of these. The last option (UMD) will generate UMD and fallback to the other options if one is not available.
 Currently Kotlin compiler options are per IntelliJ IDEA project as opposed to a Kotlin module.
- 
+
 ![Kotlin Compiler Options]({{ url_for('tutorial_img', filename='javascript/working-with-modules/kotlin-compiler.png')}})
 
 ## Configuring Modules when using Maven or Gradle
@@ -40,7 +40,7 @@ If using Maven or Gradle, we can also configure the module output format. For mo
 When using AMD, we set the compiler option to use AMD. Once we do that, we can then reference any modules that we've defined as if they were regular AMD ones.
 
 For instance, given
- 
+
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
     var isPreferred = false
@@ -49,7 +49,7 @@ class Customer(val id: Int, val name: String, val email: String) {
     }
 }
 ```
- 
+
 the following JavaScript code will be generated
 
 ```javascript
@@ -70,7 +70,7 @@ define('customerBL', ['kotlin'], function (Kotlin) {
   Kotlin.defineModule('customerBL', _);
   return _;
 });
-``` 
+```
 
 Assuming we have the following project layout
 
@@ -108,9 +108,9 @@ With this, we can then access any of the functionality defined inside `customerB
 ## Using CommonJS
 
 In order to use Kotlin with node.js, we need to set the compiler option to use CommonJS. Once we do that, the output of the application
-should be accessible using the node module system. 
+should be accessible using the node module system.
 
-For instance, given 
+For instance, given
 
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
@@ -123,7 +123,7 @@ class Customer(val id: Int, val name: String, val email: String) {
 
 the following JavaScript code will be generated
 
- 
+
 ```javascript
 module.exports = function (Kotlin) {
   'use strict';
@@ -143,20 +143,20 @@ module.exports = function (Kotlin) {
   return _;
 }(require('kotlin'));
 
-``` 
+```
 
 The last line is invoking the function itself and passing as argument `kotlin`, which refers to the standard library. This can be obtained in one of two ways:
 
-*Local reference* 
+*Local reference*
 
-When compiling, the compiler always outputs the kotlin.js file. The easiest way to reference this without having to refer to paths, is to set the output library folder for the compiler options 
+When compiling, the compiler always outputs the kotlin.js file. The easiest way to reference this without having to refer to paths, is to set the output library folder for the compiler options
 to `node_modules`. This way, Node will automatically pick it up as it does an exhaustive search for files under these folders
 
 ![Node Modules]({{ url_for('tutorial_img', filename='javascript/working-with-modules/node-modules.png')}})
 
 *NPM Directory*
- 
-The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we can simply include it in our `package.json` as a dependency. 
+
+The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we can simply include it in our `package.json` as a dependency.
 
 ```json
 {

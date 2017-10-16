@@ -19,14 +19,14 @@ platforms. At this time supported target platforms are the JVM and JS, with Nati
 A multiplatform project consists of three types of modules:
 
   * A _common_ module contains code that is not specific to any platform, as well as declarations
-    without implementation of platform-dependent APIs. Those declarations allow common code to depend on 
+    without implementation of platform-dependent APIs. Those declarations allow common code to depend on
     platform-specific implementations.
   * A _platform_ module contains implementations of platform-dependent declarations in the common module
     for a specific platform, as well as other platform-dependent code. A platform module is always
     an implementation of a single common module.
   * A regular module. Such modules target a specific platform and can either be dependencies of
     platform modules or depend on platform modules.
-    
+
 A common module can depend only on other common modules and libraries, including the common
 version of the Kotlin standard library (`kotlin-stdlib-common`). Common modules contain only Kotlin
 code, and not code in any other languages.
@@ -61,7 +61,7 @@ If you need to configure the project manually, use the following steps:
   * Add the `kotlin-stdlib-common` dependency to the common module
   * Apply the `kotlin-platform-jvm` and `kotlin-platform-js` plugins to the platform modules for JVM and JS
   * Add dependencies with `implement` scope from the platform modules to the common module
-  
+
 The following example demonstrates a complete `build.gradle` file for a common module with Kotlin 1.2-Beta:
 
 ``` groovy
@@ -135,7 +135,7 @@ doesn't cover all possible cases.
 
 As an alternative, Kotlin provides a mechanism of _expected and actual declarations_.
 With this mechanism, a common module can define _expected declarations_, and a platform module
-can provide _actual declarations_ corresponding to the expected ones. 
+can provide _actual declarations_ corresponding to the expected ones.
 To see how this works, let's look at an example first. This code is part of a common module:
 
 ``` kotlin
@@ -186,12 +186,12 @@ expect annotation class Test
 // JVM
 actual fun formatString(source: String, vararg args: Any) =
     String.format(source, args)
-    
+
 actual typealias Test = org.junit.Test
 ```
 
 The compiler ensures that every expected declaration has actual declarations in all platform
-modules that implement the corresponding common module, and reports an error if any actual declarations are 
+modules that implement the corresponding common module, and reports an error if any actual declarations are
 missing. The IDE provides tools that help you create the missing actual declarations.
 
 If you have a platform-specific library that you want to use in common code while providing your own

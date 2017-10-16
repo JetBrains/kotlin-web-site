@@ -13,19 +13,19 @@ In Kotlin, *if*{: .keyword } is an expression, i.e. it returns a value.
 Therefore there is no ternary operator (condition ? then : else), because ordinary *if*{: .keyword } works fine in this role.
 
 ``` kotlin
-// Traditional usage 
-var max = a 
+// Traditional usage
+var max = a
 if (a < b) max = b
 
-// With else 
+// With else
 var max: Int
 if (a > b) {
     max = a
 } else {
     max = b
 }
- 
-// As expression 
+
+// As expression
 val max = if (a > b) a else b
 ```
 
