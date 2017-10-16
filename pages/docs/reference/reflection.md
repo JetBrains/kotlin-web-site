@@ -108,12 +108,11 @@ println(strings.filter(oddLength)) // Prints "[a, abc]"
 To access properties as first-class objects in Kotlin, we can also use the `::` operator:
 
 ``` kotlin
-var x = 1
+val x = 1
 
 fun main(args: Array<String>) {
     println(::x.get()) // prints "1"
-    ::x.set(2)
-    println(x)         // prints "2"
+    println(::x.name)  // prints "x"
 }
 ```
 
@@ -122,7 +121,16 @@ value using `get()` or retrieve the property name using the `name` property. For
 the [docs on the `KProperty` class](/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html).
 
 For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html),
-which has a `set()` method.                     
+which has a `set()` method:
+
+``` kotlin
+var y = 1
+
+fun main(args: Array<String>) {
+    ::y.set(2)
+    println(y) // prints "2"
+}
+```                   
 
 A property reference can be used where a function with no parameters is expected:
  
