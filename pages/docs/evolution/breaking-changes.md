@@ -29,7 +29,7 @@ This document contains definitions and policies with regards to version compatib
 `2.1.1` *NOTE*: Keeping all the legacy around forever would mean that every language design decision made must be proven to be 100% correct and never require future fixes. In practice, it would hinder language evolution a lot, so we want to be able to move faster knowing that we can make mistakes and fix them in the future. This being said, we recognize that our mistakes cause our users pain, so we try to avoid them to the best of our abilities.   
 
 `2.1.1` *Example*: bugs and underspecified/accidental behaviors
-    in kotlinc and kotlin-stdlib may require incompatible fixes, and it
+    in `kotlinc` and `kotlin-stdlib` may require incompatible fixes, and it
     is often better to fix them (formally, breaking compatibility) than
     carry them around indefinitely.
 
@@ -61,20 +61,20 @@ compatibility for a language feature or standard API needs to be reviewed by the
 Language Committee](language-committee.html) following the
 [review procedure](/change-review-process.html).
 
-## `3` How breaking changes can be introduced and dealt with
+## `3` Types of incompatible changes and corresponding guidelines
 
-`3.1` Small changes that virtually no users will
+`3.1` Small fixes that virtually no users will
     encounter can normally be made right away (still require committee
-    [review](#3-6)).
+    [review](#2.4)).
 
 `3.1.1` When unsure about the full risk/impact of
     a change:
 
 *   Implement the change in a preview build.
 *   Try on large bodies of code available to us.
-*   Fall back to [deprecation procedure](#5) if needed.
+*   Fall back to [deprecation procedure](#4) if needed.
 
-`3.2` Behavior changing bug fixes in kotlinc:
+`3.2` Behavior-changing bug fixes in `kotlinc`:
 
 `3.2.1` Good code did not compile due to a bug can be
     fixed right away.
@@ -84,15 +84,15 @@ Language Committee](language-committee.html) following the
 
 `3.2.3` Bad code compiled due to a bug, and worked
     reasonably, must follow the deprecation policy spelled out in
-    [Paragraph 5](#5).
+    [Paragraph 4](#4).
 
 
 `3.3` Bug fixes and contract refinement in the
- kotlin-stdlib require publishing a release note one version in advance.
+ `kotlin-stdlib` require publishing a release note one version in advance.
 
-`3.4` Retiring language features & kotlin-stdlib APIs
+`3.4` Retiring language features & `kotlin-stdlib` APIs
     must follow the deprecation policies spelled out in
-    [Paragraph 5](#5) and [Paragraph 6](#6).
+    [Paragraph 4](#4) and [Paragraph 5](#5).
 
 
 
