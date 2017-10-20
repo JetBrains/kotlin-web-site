@@ -99,12 +99,12 @@ Language Committee](language-committee.html) following the
 ## `4` Deprecation procedures for language features
 
 Deprecation is closely related to versioning, for versioning scheme
-we defer to the existing
-[versioning policy](https://kotlinlang.org/docs/reference/compatibility.html).
+we refer to the existing [versioning policy](../reference/compatibility.html).
 
 `4.1` Before any changes are made, the upcoming
     change along with its rationale and the deprecation/migration plan
-    need to be announced to the Kotlin Community.
+    need to be announced to the Kotlin community, 
+    preview builds of the compiler and standard library should be made available.
 
 `4.2` Release a version (call it N.M) that reports
     deprecation warnings for the feature:
@@ -179,7 +179,7 @@ we defer to the existing
 
 
 
-## `5.4` The scope of this policy
+## `6` The scope of this policy
 
 ### `5.5` In scope
 
