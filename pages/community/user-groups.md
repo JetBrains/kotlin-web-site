@@ -150,7 +150,7 @@ title: Kotlin User Groups
 
 ## If there is no KUG in your area, make a new one.
 
-If you are a leader of active user group and it’s not in a list, please, let us know that there is a Kotlin User Group. We will share the information with others on this site, on our twitter and in Slack channel. 
+If you are a leader of active user group and it’s not in a list, please, let us know that there is a Kotlin User Group. We will share the information with others on this site. 
 
 **[Submit a New Kotlin User Group](https://docs.google.com/forms/d/e/1FAIpQLSdkLbD_SPbXZDVW2nQPgUiLCW4HOSXysOVK1jPLcShPfyhkNA/viewform)**
 
