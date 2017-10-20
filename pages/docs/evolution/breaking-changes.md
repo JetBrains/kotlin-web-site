@@ -54,8 +54,6 @@ This document contains definitions and policies with regards to version compatib
 
 `2.4.4` Users should be informed about such changes in a timely fashion (exact timeline is to be defined on a case-by-case basis). In particular, users should have enough time to migrate comfortably.
 
-`2.6.1` *NOTE*: Binary incompatibilities for the JVM are generally a lot harder to address on the user side, so requiring the  users to fix them should be avoided.
- 
 `2.7` Any change that deprecates or breaks
 compatibility for a language feature or standard API needs to be reviewed by the [Kotlin
 Language Committee](language-committee.html) following the
@@ -235,29 +233,6 @@ we refer to the existing [versioning policy](../reference/compatibility.html).
 
 `5.6.11` kotlin-script-runtime - until it graduates
     from the experimental status.
-
-## `5.7` Different requirements for different platforms
-
-### `5.8` Kotlin/JVM
-
-No additional requirements on deprecation/breaking changes.
-
-### `5.9` Kotlin/JS
-
-`5.9.1` Binary compatibility is not guaranteed for the
-JS world, because everything is usually built from sources.
-
-### `5.10` Kotlin/Native
-
-`5.10.1` Until Kotlin/Native reaches an official
-    release, no compatibility guarantees are given for Kotlin/Native.
-
-`5.10.2` After Kotlin/Native reaches the official
-    release, the binary compatibility guarantees should be considered
-    for Kotlin/Native, but as long as it is mostly focused on statically
-    linked programs, the importance of binary compatibility is
-    relatively low (compared to Kotlin/JVM).
-
 
 ## `5.11` Examples: issues & non-issues
 
