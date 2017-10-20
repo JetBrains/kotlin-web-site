@@ -1,4 +1,52 @@
 - geo:
+    lat: 35.8245029
+    lng: 10.634584
+  name: Susah, Tunisia
+- geo:
+    lat: 50.2103605
+    lng: 15.825211
+  name: Hradec Králové, Czech Republic
+- geo:
+    lat: 20.6719563
+    lng: -103.416501
+  name: Zapopan, Mexico
+- geo:
+    lat: 6.827622799999999
+    lng: -5.2893433
+  name: Yamoussoukro­, Ivory Coast
+- geo:
+    lat: 51.1078852
+    lng: 17.0385376
+  name: Wroclaw, Poland
+- geo:
+    lat: 31.2000924
+    lng: 29.9187387
+  name: Alexandria, Egypt
+- geo:
+    lat: 42.3736158
+    lng: -71.10973349999999
+  name: Cambridge, MA
+- geo:
+    lat: 35.7642515
+    lng: 10.8112885
+  name: al-Munastir, Tunisia
+- geo:
+    lat: -7.7955798
+    lng: 110.3694896
+  name: Yogyakarta, Indonesia
+- geo:
+    lat: 47.5595986
+    lng: 7.5885761
+  name: Basel, Switzerland
+- geo:
+    lat: 38.9822282
+    lng: -94.6707917
+  name: Overland Park, KS
+- geo:
+    lat: 39.7667061
+    lng: 30.52563109999999
+  name: Eskisehir, Turkey
+- geo:
     lat: 47.2357137
     lng: 39.701505
   name: Rostov-on-Don, Russia
