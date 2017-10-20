@@ -16,20 +16,19 @@ There will be external links to these paragraphs, and one needs a very good reas
 
 
 ## `1` Intro
-This document contains definitions and policies with regards to version compatibility and languages changes. The Kotlin language designers & [committee](language-committee.html) use it as guidelines to consult with when making designd ecisions. 
+This document contains definitions and policies with regards to version compatibility and languages changes. The Kotlin language designers & [committee](language-committee.html) use it as guidelines to consult with when making design decisions. 
 
-## `2` Goals
+## `2` Kotlin language evolution  
 
-We are balancing between two goals: **the long-term health of the language** and **the short-term comfort of its users**. Both are very important, and trade-offs are to be made carefully. 
+`2.1` **Our creed**. Kotlin is and should remain a modern language for industry. We care about pragmatics, not formality.
 
-`2.1` **Legacy cleanup**. We recognize that languages accumulate legacy over time. Our goal is to keep the Kotlin language fit and modern by cleaning this legacy up.
+`2.1.1` This means that we have to reconcile moving fast (which sometimes requires breaking things) and keeping the design stable enough to be pragmatically usable. We are balancing between two priorities: **the long-term health of the language** and **the short-term comfort of its users**. Both are very important, and trade-offs are to be made carefully.  
 
-Examples of such legacy include 
-* mechanisms that become obsolete due to intruduction of better solutions to the same problems,
-* solutions to problems that became irrelevant over time due to some changes in the environment,
-* bugs and underspecified/accidental behaviors that stem from the implementation of the language.
+`2.1` **Keeping the language modern**. We recognize that languages accumulate legacy over time. Our goal is to keep the Kotlin language fit and modern by cleaning this legacy up. Obsolete things should be eventually dropped, and bugs should be fixed. We are willing to make such changes after careful consideration and justification.
 
-`2.1.1` *Example*: bugs and underspecified behaviors
+`2.1.1` *NOTE*: Keeping all the legacy around forever would mean that every language design decision made must be proven to be 100% correct and never require future fixes. In practice, it would hinder language evolution a lot, so we want to be able to move faster knowing that we can make mistakes and fix them in the future. This being said, we recognize that our mistakes cause our users pain, so we try to avoid them to the best of our abilities.   
+
+`2.1.1` *Example*: bugs and underspecified/accidental behaviors
     in kotlinc and kotlin-stdlib may require incompatible fixes, and it
     is often better to fix them (formally, breaking compatibility) than
     carry them around indefinitely.
@@ -41,43 +40,26 @@ Examples of such legacy include
 `2.1.3` *Example*: legacy features that are no longer
     considered a good practice should be phased out (very) gradually.
 
-Obsolete things should be eventually dropped, and bugs should be fixed. We are willing to make such changes after careful consideration and justification.
+`2.1.4` *Example*: mechanisms that became irrelevant over time due to some changes in the environment should also be phased out.
 
-`2.2` We care about pragmatics, not formality.
-
-`2.3` **Users' convenience**. We also recognize that backwards incompatible changes in the language are inconvenient and sometimes blocking for its users. Our goal is to evolve the language in such a manner that minimizes the inconvenience. Breaking existing code is generally undesirable and should be avoided.
-
-`2.4` To be pragmatically beneficial, such changes
-    should go through a graceful deprecation cycle, where the user is
-    never stuck with a large number of migration issues to be addressed
-    manually.
+`2.3` **Pragmatic usefulness**. We also recognize that backwards incompatible changes in the language are distracting developers from their primary focus and should be generally avoided. When necessary, to be pragmatically beneficial, such changes should go through a graceful deprecation cycle, where the user is never stuck with a large number of migration issues to be addressed manually. 
 
 `2.4.1` Users' binaries and source code shouldn't break unexpectedly or frequently on compiler updates. 
 
-`2.4.2` If a backwards incompatible change inconveniences many users of the language considerably, it makes the change highly questionable, so only an exceptional need can justify it. 
+`2.4.2` If a backwards incompatible change inconveniences many users of the language considerably, it makes the change highly questionable, so only an exceptional need can justify it.  
 
-`2.4.3` Backwards incompatible changes should be introduced through a deprecation when possible.
+`2.4.3` Backwards incompatible changes should be introduced through a deprecation when possible. 
 
-`2.4.4` Users should be informed about such changes in a timely fashion (exact timeline is to be defined on a case-by-case basis).
+`2.4.4` The tooling should provide means of detection and migration: users shouldn't be required to do much by hand.
 
-`2.5` Those issues that have to be addressed manually
- should be highlighted for the user by the tooling.
+`2.4.4` Users should be informed about such changes in a timely fashion (exact timeline is to be defined on a case-by-case basis). In particular, users should have enough time to migrate comfortably.
 
-`2.5.1` Users should have enough time to migrate comfortably.
-
-`2.5.2` Users shouldn't be required to do much by hand (the tooling will help along).
-
-`2.6` Inconvenience is hard to measure, but there are some general guidelines for a number of broad cases
-
-`2.6.1` Binary incompatibilities for the JVM are generally a lot harder to address on the user side, so the users shouldn't be required to fix them.
-
-`2.6.2` Source incompatibilities are easier to address, especially with the help of automated tools, but they still introduce significant inconvenience and should be generally avoided.
-
+`2.6.1` *NOTE*: Binary incompatibilities for the JVM are generally a lot harder to address on the user side, so requiring the  users to fix them should be avoided.
  
 `2.7` Any change that deprecates or breaks
-compatibilty for a feature or API needs to be reviewed by the Kotlin
-Language Committee following the
-[review procedure](/process/index.html).
+compatibility for a language feature or standard API needs to be reviewed by the [Kotlin
+Language Committee](language-committee.html) following the
+[review procedure](/change-review-process.html).
 
 ## `3` How breaking changes can be introduced and dealt with
 
@@ -372,7 +354,7 @@ problems for language evolution.
 `6.1.2` Some improvements in the language (such as
     type inference, for example) may result in more precise static types
     known for some expressions. This may cause changes in overload
-    resolution [as stated above](#10-1-1), or even in type
+    resolution [as stated above](#10.1.1), or even in type
     signatures of declarations when return types are inferred from
     bodies.
 
