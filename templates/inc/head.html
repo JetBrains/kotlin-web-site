@@ -30,8 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {% if page and page.description %}
     <meta property="og:description" content="{{ page.description }}">
 {% else %}
-    <meta property="og:description"
-          content="Kotlin is a statically typed programming language for the JVM, Android and the browser, 100% interoperable with Java">
+    <meta property="og:description" content="">
 {% endif %}
 <meta property="og:site_name" content="Kotlin"/>
 
@@ -42,8 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {% if page and page.description %}
     <meta name="twitter:description" content="{{ page.description }}">
 {% else %}
-    <meta name="twitter:description"
-          content="Kotlin is a statically typed programming language for the JVM, Android and the browser, 100% interoperable with Java">
+    <meta name="twitter:description" content="">
 {% endif %}
 <meta name="twitter:image:src" content="https://kotlinlang.org{{ url_for('asset', path='images/twitter-card/kotlin_800x320.png') }}">
 <!-- Social Media tag Ends -->

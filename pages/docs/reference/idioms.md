@@ -141,16 +141,16 @@ println(files?.size ?: "empty")
 ### Executing a statement if null
 
 ``` kotlin
-val data = ...
-val email = data["email"] ?: throw IllegalStateException("Email is missing!")
+val values = ...
+val email = values["email"] ?: throw IllegalStateException("Email is missing!")
 ```
 
 ### Execute if not null
 
 ``` kotlin
-val data = ...
+val value = ...
 
-data?.let {
+value?.let {
     ... // execute this block if not null
 }
 ```
@@ -158,9 +158,9 @@ data?.let {
 ### Map nullable value if not null
 
 ``` kotlin
-val data = ...
+val value = ...
 
-val mapped = data?.let { transformData(it) } ?: defaultValueIfDataIsNull
+val mapped = value?.let { transformValue(it) } ?: defaultValueIfValueIsNull
 ```
 
 ### Return on when statement

@@ -257,3 +257,8 @@
   description: programming contest platform
   type: Platform
   link: https://github.com/spolnik/JAlgoArena
+
+- name: units-of-measure
+  description: type-safe dimensional analysis
+  type: Library
+  link: https://github.com/kunalsheth/units-of-measure
