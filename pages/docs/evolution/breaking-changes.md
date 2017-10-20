@@ -59,6 +59,15 @@ compatibility for a language feature or standard API needs to be reviewed by the
 Language Committee](language-committee.html) following the
 [review procedure](/change-review-process.html).
 
+## `7` Changes to this policy
+
+`7.1` Changes to this policy need to be approved by
+    the Kotlin Language Committee.
+
+`7.2` Any proposed change needs to be published as
+    a GitHub pull request; providing a reasonable time to allow for
+     comments on the change by the Kotlin Community.
+
 ## `3` Types of incompatible changes and corresponding guidelines
 
 `3.1` Small fixes that virtually no users will
@@ -384,13 +393,4 @@ change (it does not fall under the intuitive definition of one anyway).
 which will likely break source compatibility for many users. We still
 want to do it, but devise a migration mechanism that will first report
 future issues as warnings, and let the users migrate.
-
-## `7` Changes to this policy
-
-`7.1` Changes to this policy need to be approved by
-    the Kotlin Language Committee.
-
-`7.2` Any proposed change needs to be published as
-    a GitHub pull request; providing a reasonable time to allow for
-     comments on the change by the Kotlin Community.
 
