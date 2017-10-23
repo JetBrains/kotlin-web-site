@@ -3,8 +3,8 @@ type: tutorial
 layout: tutorial
 title:  "Creating Kotlin/JavaScript library with IntelliJ IDEA"
 description: "This tutorials walks us through creating a simple Kotlin/JavaScript library using IntelliJ IDEA."
-authors: 
-date: 
+authors:
+date:
 showAuthorInfo: false
 ---
 ### Setting up the environment
@@ -33,12 +33,12 @@ which includes the JavaScript debugger and other JavaScript support features.
    ![Kotlin New Project]({{ url_for('tutorial_img', filename='create-library-js/folder_structure.png') }})
 
 6. Let's create a new Kotlin file under the source folder. It can be named anything. In our case we will call it *library*:
-   
+
    ``` kotlin
    package org.sample
-   
+
    fun factorial(n: Int): Long = if (n == 0) 1 else n * factorial(n - 1)
-   ``` 
+   ```
 
 7. Using *File > Settings*, check compiler settings for Kotlin compiler. Disable "Copy library runtime files".
 
@@ -55,12 +55,12 @@ which includes the JavaScript debugger and other JavaScript support features.
    Choose name for artifact and add module compilation output to the content of newly created artifact.
 
    ![Kotlin New Project]({{ url_for('tutorial_img', filename='create-library-js/tune_artifact.png') }})
-   
+
 9. Click the *Build > Build Artifacts*, and the resulting artifact is our library, which can be distributed.
 
    ![Kotlin New Project]({{ url_for('tutorial_img', filename='create-library-js/created_artifact.png') }})
 
-   
+
    [intellijdownload]: http://www.jetbrains.com/idea/download/index.html
 [jetbrains]: http://www.jetbrains.com
 [getting_started_command_line]: command-line.html

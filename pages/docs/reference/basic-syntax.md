@@ -177,8 +177,8 @@ fun main(args: Array<String>) {
 //sampleStart
     var a = 1
     // simple name in template:
-    val s1 = "a is $a" 
-    
+    val s1 = "a is $a"
+
     a = 2
     // arbitrary expression in template:
     val s2 = "${s1.replace("is", "was")}, but now is $a"
@@ -264,7 +264,7 @@ fun printProduct(arg1: String, arg2: String) {
     }
     else {
         println("either '$arg1' or '$arg2' is not a number")
-    }    
+    }
 }
 //sampleEnd
 
@@ -290,7 +290,7 @@ fun parseInt(str: String): Int? {
 fun printProduct(arg1: String, arg2: String) {
     val x = parseInt(arg1)
     val y = parseInt(arg2)
-    
+
 //sampleStart
     // ...
     if (x == null) {
@@ -519,7 +519,7 @@ Check if a number is out of range:
 fun main(args: Array<String>) {
 //sampleStart
     val list = listOf("a", "b", "c")
-    
+
     if (-1 !in 0..list.lastIndex) {
         println("-1 is out of range")
     }

@@ -3,7 +3,7 @@ type: tutorial
 layout: tutorial
 title:  "Getting Started with Kotlin and JavaScript with Gradle"
 description: "A look at how to use Gradle to target JavaScript."
-authors: Hadi Hariri 
+authors: Hadi Hariri
 date: 2016-11-04
 showAuthorInfo: false
 ---
@@ -43,12 +43,12 @@ dependencies {
 
 ```
 
-To use an EAP build instead, we need to specify its version in `ext.kotlin_version` and 
+To use an EAP build instead, we need to specify its version in `ext.kotlin_version` and
 add the corresponding repository to the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
 
 On compiling, Gradle will produce the output of our application, which is by default placed under the `build/classes/main` directory. This can be overridden using [the compiler options](#configuring-compiler-options).
 
-In order to assemble an application, we also need to include the Kotlin standard library, i.e. `kotlin.js`, which was included as a dependency, and the other libraries if any. 
+In order to assemble an application, we also need to include the Kotlin standard library, i.e. `kotlin.js`, which was included as a dependency, and the other libraries if any.
 
 By default, Gradle does not expand the JARs in the build process, so we need to add an additional step in our build to do so:
 
@@ -59,7 +59,7 @@ task assembleWeb(type: Sync) {
             includeEmptyDirs = false
             include { fileTreeElement ->
                 def path = fileTreeElement.path
-                path.endsWith(".js") && (path.startsWith("META-INF/resources/") || 
+                path.endsWith(".js") && (path.startsWith("META-INF/resources/") ||
                     !path.startsWith("META-INF/"))
             }
         })
@@ -78,7 +78,7 @@ For more information on the output generated and the instructions for running th
 
 ## Configuring Compiler Options
 
-Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea/getting-started-with-intellij-idea.html) or the command line, we can have the compiler output JavaScript to comply with a specific module system such as AMD, CommonJS or UMD. 
+Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea/getting-started-with-intellij-idea.html) or the command line, we can have the compiler output JavaScript to comply with a specific module system such as AMD, CommonJS or UMD.
 
 In order to specify the module kind, we can add a configuration to our plugin as below
 
@@ -99,4 +99,4 @@ where `moduleKind` can be
 
 For more information about the different types of module outputs, please see [Working with Modules](../working-with-modules/working-with-modules.html)
 
-We can also see how we can define whether we want the compiler to generate sourcemaps for us by indicating this via the `sourceMap` option. 
+We can also see how we can define whether we want the compiler to generate sourcemaps for us by indicating this via the `sourceMap` option.

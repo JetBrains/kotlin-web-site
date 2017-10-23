@@ -49,8 +49,8 @@ A *continue*{: .keyword } proceeds to the next iteration of that loop.
 
 ## Return at Labels
 
-With function literals, local functions and object expression, functions can be nested in Kotlin. 
-Qualified *return*{: .keyword }s allow us to return from an outer function. 
+With function literals, local functions and object expression, functions can be nested in Kotlin.
+Qualified *return*{: .keyword }s allow us to return from an outer function.
 The most important use case is returning from a lambda expression. Recall that when we write this:
 
 ``` kotlin

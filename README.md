@@ -36,7 +36,7 @@ Working with site
 ## Run site
 
 - Use `npm run build` command to build assets. If you are going to modify js/scss files use `npm start` instead.
-- To run site use `python kotlin-website.py` command 
+- To run site use `python kotlin-website.py` command
 
 ## Data
 

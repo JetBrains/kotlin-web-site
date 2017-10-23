@@ -9,7 +9,7 @@ source:
 ---
 
 The Android world has many popular frameworks simplifying development.
-You can use the same frameworks if you develop in Kotlin, often as easily as you'd do that in Java. 
+You can use the same frameworks if you develop in Kotlin, often as easily as you'd do that in Java.
 This tutorial provides examples and highlights the differences in settings.
 
 We'll look at [Dagger](android-frameworks.html#dagger), [Butterknife](android-frameworks.html#butterknife), [Data Binding](android-frameworks.html#data-binding), [Auto-parcel](android-frameworks.html#auto-parcel) and [DBFlow](android-frameworks.html#dbflow) (other frameworks can be set up similarly).
@@ -24,8 +24,8 @@ In Kotlin you specify the dependencies in a similar to Java way using [Kotlin An
 
 [Dagger](https://google.github.io/dagger//) is a dependency injection framework.
 If you're not familiar with it yet, you can read its [user's guide](https://google.github.io/dagger//users-guide.html).
-We've converted [the coffee example](https://github.com/google/dagger/tree/master/examples/simple) 
-described in this guide into Kotlin, and you can find the result [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger). 
+We've converted [the coffee example](https://github.com/google/dagger/tree/master/examples/simple)
+described in this guide into Kotlin, and you can find the result [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger).
 The Kotlin code looks pretty much the same; you can browse the whole example in one [file](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-dagger/src/main/kotlin/Coffee.kt).
 
 As in Java, you use `@Inject` to annotate the constructor used by Dagger to create instances of a class.
@@ -33,15 +33,15 @@ Kotlin has a short syntax for declaring a property and a constructor parameter a
 To annotate the constructor, use the `constructor` keyword explicitly and put the `@Inject` annotation before it:
 
 ```kotlin
-class Thermosiphon 
+class Thermosiphon
 @Inject constructor(
         private val heater: Heater
 ) : Pump {
     // ...
-}    
+}
 ```
 
-Annotating methods looks absolutely the same. 
+Annotating methods looks absolutely the same.
 In the example below `@Binds` determines that a `Thermosiphon` object is used whenever a `Pump` is required, `@Provides` specifies the way to build a `Heater`, and `@Singleton` says that the same `Heater` should be used all over the place:
 
 ```kotlin
@@ -75,7 +75,7 @@ fun main(args: Array<String>) {
     val coffee = DaggerCoffeeShop.builder().build()
     coffee.maker().brew()
 }
-``` 
+```
 
 Dagger generates an implementation of `CoffeeShop` that allows you to get a fully-injected `CoffeeMaker`.
 You can navigate and see the implementation of `DaggerCoffeeShop` if you open the project in IDE.
@@ -111,14 +111,14 @@ You can also look at the converted code for [the Android sample](https://github.
 
 ### ButterKnife
 
-[ButterKnife](http://jakewharton.github.io/butterknife/) allows to bind views to fields directly instead of calling `findViewById`. 
+[ButterKnife](http://jakewharton.github.io/butterknife/) allows to bind views to fields directly instead of calling `findViewById`.
 
 Note that [Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html) plugin (automatically bundled into the Kotlin plugin in Android Studio) solves the same issue: replacing `findViewById` with a concise and straightforward code.
 Consider using it unless you're already using ButterKnife and don't want to migrate.
- 
+
 You use `ButterKnife` with Kotlin in the same way as you use it with Java.
 Let's see first the changes in the Gradle build script, and then highlight some of the differences in the code.
- 
+
 In the Gradle dependencies you use add the `kotlin-kapt` plugin and replace `annotationProcessor` with `kapt`:
 
 ``` groovy
@@ -136,12 +136,12 @@ The resulting code can be found [here](https://github.com/JetBrains/kotlin-examp
 
 Let's look over it to spot what has changed.
 In Java you annotated the field, binding it with the corresponding view:
- 
-``` java 
+
+``` java
 @BindView(R2.id.title) TextView title;
 ```
 
-In Kotlin you can't work with fields directly, you work with [properties](/docs/reference/properties.html). 
+In Kotlin you can't work with fields directly, you work with [properties](/docs/reference/properties.html).
 You annotate the property:
 
 ``` kotlin
@@ -152,7 +152,7 @@ The `@BindView` annotation is defined to be applied to the fields only, but the 
 
 Note how [the lateinit modifier](/docs/reference/properties.html#late-initialized-properties) allows to declare a non-null type initialized after the object is created (after the constructor call).
 Without `lateinit` you'd have to declare a [nullable type](/docs/reference/null-safety.html) and add additional nullability checks.
- 
+
 You can also configure methods as listeners, using ButterKnife annotations:
 
 ``` java
@@ -188,26 +188,26 @@ android {
 }
 ```
 
-To make it work with Kotlin classes add the `kapt` dependency: 
+To make it work with Kotlin classes add the `kapt` dependency:
 
 ``` groovy
 apply plugin: 'kotlin-kapt'
 dependencies {
     kapt "com.android.databinding:compiler:$android_plugin_version"
-}  
+}
 ```
 
 When you switch to Kotlin, your xml layout files don't change at all.
 For instance, you use `variable` within `data` to describe a variable that may be used within the layout.
 You can declare a variable of a Kotlin type:
- 
+
 ```xml
 <data>
     <variable name="data" type="org.example.kotlin.databinding.WeatherData"/>
 </data>
-``` 
+```
 
-You use the `@{}` syntax for writing expressions, which can now refer Kotlin [properties](/docs/reference/properties.html): 
+You use the `@{}` syntax for writing expressions, which can now refer Kotlin [properties](/docs/reference/properties.html):
 
 ```xml
 <ImageView
@@ -220,7 +220,7 @@ You use the `@{}` syntax for writing expressions, which can now refer Kotlin [pr
 Note that the databinding expression language uses the same syntax for referring to properties as Kotlin: `data.imageUrl`.
 In Kotlin you can write `v.prop` instead of `v.getProp()` even if `getProp()` is a Java method.
 Similarly, instead of calling a setter directly, you may use an assignment:
-  
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
     // ...
@@ -258,22 +258,22 @@ class MainActivity : AppCompatActivity() {
 This example uses the utility function `startActivity` creating an intent with no data and starting a new activity, which comes from the [Anko](https://github.com/Kotlin/anko) library.
 To pass some data, you can say `startActivity<OtherActivity>("KEY" to "VALUE")`.
 
-Note that instead of declaring lambdas in xml like in the following example, you can can bind actions directly in the code: 
+Note that instead of declaring lambdas in xml like in the following example, you can can bind actions directly in the code:
 
 ```xml
-<Button 
-    android:layout_width="wrap_content" 
+<Button
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:onClick="@{() -> presenter.onSaveClick(task)}" />
-```          
+```
 
 ``` kotlin
 // the same logic written in Kotlin code
 button.setOnClickListener { presenter.onSaveClick(task) }
 ```
 
-In the last line `button` is referenced by `id` using the [Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html) plugin. 
-Consider using this plugin as an alternative which allows you to keep binding logic in code and have the concise syntax at the same time.    
+In the last line `button` is referenced by `id` using the [Kotlin Android Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html) plugin.
+Consider using this plugin as an alternative which allows you to keep binding logic in code and have the concise syntax at the same time.
 
 You can find an example project [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-databinding).
 
@@ -296,12 +296,12 @@ dependencies {
 
 [Here](https://agrosner.gitbooks.io/dbflow/content/including-in-project.html) is a detailed guide how to configure DBFlow.
 
-If your application already uses DBFlow, you can safely introduce Kotlin into your project. 
+If your application already uses DBFlow, you can safely introduce Kotlin into your project.
 You can gradually convert existing code to Kotlin (ensuring that everything compiles along the way).
-The converted code doesn't differ much from Java. 
+The converted code doesn't differ much from Java.
 For instance, declaring a table looks similar to Java with the small difference that default values for properties must be specified explicitly:
- 
-``` kotlin 
+
+``` kotlin
 @Table(name="users", database = AppDatabase::class)
 class User : BaseModel() {
 
@@ -312,7 +312,7 @@ class User : BaseModel() {
     @Column
     var name: String? = null
 }
-``` 
+```
 
 Besides converting existing functionality to Kotlin, you can also enjoy the Kotlin specific support.
 For instance, you can declare tables as [data classes](/docs/reference/data-classes.html):
@@ -340,8 +340,8 @@ You can browse the converted [sample application](https://github.com/JetBrains/k
 
 [Auto-Parcel](https://github.com/frankiesardo/auto-parcel) allows to generate `Parcelable` values for classes annotated with `@AutoValue`.
 
-When you specify the dependency you again use `kapt` as annotation processor to take care of Kotlin files: 
- 
+When you specify the dependency you again use `kapt` as annotation processor to take care of Kotlin files:
+
 ``` groovy
 apply plugin: 'kotlin-kapt'
 
@@ -366,10 +366,10 @@ abstract class Address : Parcelable {
         fun create(coordinates: DoubleArray, cityName: String): Address {
             return builder().coordinates(coordinates).cityName(cityName).build()
         }
-        
+
         fun builder(): Builder = `$AutoValue_Address`.Builder()
     }
-    
+
     @AutoValue.Builder
     interface Builder {
         fun coordinates(x: DoubleArray): Builder
@@ -383,5 +383,5 @@ Kotlin doesn't have `static` methods, so they should be place inside a [`compani
 If you still want to use them from Java code, annotate them with [`@JvmStatic`](/docs/reference/java-to-kotlin-interop.html#static-methods).
 
 If you need to access a Java class or method with a name that is not a valid identifier in Kotlin, you can [escape the name](/docs/reference/java-interop.html#escaping-for-java-identifiers-that-are-keywords-in-kotlin) with the  backtick (\`) character, like in accessing the generated class \``$AutoValue_Address`\`.
-  
+
 Overall the converted code looks very similar to the original Java code.

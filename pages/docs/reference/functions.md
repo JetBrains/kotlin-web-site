@@ -81,7 +81,7 @@ But if a last argument [lambda](lambdas.html#lambda-expression-syntax) is passed
 ``` kotlin
 fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { /* ... */ }
 
-foo(1) { println("hello") } // Uses the default value baz = 1 
+foo(1) { println("hello") } // Uses the default value baz = 1
 foo { println("hello") }    // Uses both default values bar = 0 and baz = 1
 ```
 
@@ -185,7 +185,7 @@ fun double(x: Int) = x * 2
 
 Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`, [in which case it is optional](#unit-returning-functions).
 Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow in the body, and the return
-type will be non-obvious to the reader (and sometimes even for the compiler). 
+type will be non-obvious to the reader (and sometimes even for the compiler).
 
 
 ### Variable number of arguments (Varargs)

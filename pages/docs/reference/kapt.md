@@ -6,7 +6,7 @@ title: "Using kapt"
 
 # Using Kotlin annotation processing tool
 
-The Kotlin plugin supports annotation processors like _Dagger_ or _DBFlow_. 
+The Kotlin plugin supports annotation processors like _Dagger_ or _DBFlow_.
 In order for them to work with Kotlin classes, apply the `kotlin-kapt` plugin.
 
 ## Gradle configuration
@@ -48,7 +48,7 @@ Note that this option is experimental and it is disabled by default.
 
 ## Maven configuration (since Kotlin 1.1.2)
 
-Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`: 
+Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 
 ```xml
 <execution>
@@ -72,8 +72,8 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
     </configuration>
 </execution>
 ```
- 
+
 You can find a complete sample project showing the use of Kotlin, Maven and Dagger in the
 [Kotlin examples repository](https://github.com/JetBrains/kotlin-examples/tree/master/maven/dagger-maven-example).
- 
+
 Please note that kapt is still not supported for IntelliJ IDEA’s own build system. Launch the build from the “Maven Projects” toolbar whenever you want to re-run the annotation processing.

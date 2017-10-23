@@ -24,7 +24,7 @@ compileKotlin2Js {
     kotlinOptions.sourceMapEmbedSources = "always"
 
     // remaining configuration options
-} 
+}
 ```
 
 Now, if you rebuild the project, you should see both `.js` and `.js.map` files generated.

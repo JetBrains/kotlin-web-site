@@ -8,16 +8,16 @@ title: "Visibility Modifiers"
 # Visibility Modifiers
 
 Classes, objects, interfaces, constructors, functions, properties and their setters can have _visibility modifiers_.
-(Getters always have the same visibility as the property.) 
+(Getters always have the same visibility as the property.)
 There are four visibility modifiers in Kotlin: `private`, `protected`, `internal` and `public`.
 The default visibility, used if there is no explicit modifier, is `public`.
 
 Below please find explanations of these for different type of declaring scopes.
-  
+
 ## Packages
-  
+
 Functions, properties and classes, objects and interfaces can be declared on the "top-level", i.e. directly inside a package:
-  
+
 ``` kotlin
 // file name: example.kt
 package foo
@@ -44,7 +44,7 @@ private fun foo() {} // visible inside example.kt
 
 public var bar: Int = 5 // property is visible everywhere
     private set         // setter is visible only in example.kt
-    
+
 internal val baz = 6    // visible inside the same module
 ```
 
@@ -60,7 +60,7 @@ For members declared inside a class:
 *NOTE* for Java users: outer class does not see private members of its inner classes in Kotlin.
 
 If you override a `protected` member and do not specify the visibility explicitly, the overriding member will also have `protected` visibility.
- 
+
 Examples:
 
 ``` kotlin
@@ -69,7 +69,7 @@ open class Outer {
     protected open val b = 2
     internal val c = 3
     val d = 4  // public by default
-    
+
     protected class Nested {
         public val e: Int = 5
     }
@@ -86,7 +86,7 @@ class Subclass : Outer() {
 class Unrelated(o: Outer) {
     // o.a, o.b are not visible
     // o.c and o.d are visible (same module)
-    // Outer.Nested is not visible, and Nested::e is not visible either 
+    // Outer.Nested is not visible, and Nested::e is not visible either
 }
 ```
 
@@ -100,11 +100,11 @@ class C private constructor(a: Int) { ... }
 ```
 
 Here the constructor is private. By default, all constructors are `public`, which effectively
-amounts to them being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only 
+amounts to them being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only
 visible within the same module).
-     
+
 ### Local declarations
-     
+
 Local variables, functions and classes can not have visibility modifiers.
 
 

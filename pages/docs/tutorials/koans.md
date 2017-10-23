@@ -8,7 +8,7 @@ description: "This tutorial walks you through a series of exercises to get famil
 ---
 Kotlin Koans are a series of exercises to get you familiar with the Kotlin Syntax.
 Each exercise is created as a failing unit test and your job is to make it pass.
-You can play with [Koans online](http://try.kotlinlang.org/koans), 
+You can play with [Koans online](http://try.kotlinlang.org/koans),
 offline by using the [Kotlin Educational Plugin](https://blog.jetbrains.com/kotlin/2016/03/kotlin-educational-plugin/)
  or by cloning the project on [GitHub](https://github.com/Kotlin/kotlin-koans):
 
@@ -18,7 +18,7 @@ offline by using the [Kotlin Educational Plugin](https://blog.jetbrains.com/kotl
     git clone https://github.com/Kotlin/kotlin-koans
     ```
 
-2. Open up the project in IntelliJ IDEA or your favorite editor. Note: If IntelliJ IDEA prompts you to update the Kotlin library, just click yes. 
+2. Open up the project in IntelliJ IDEA or your favorite editor. Note: If IntelliJ IDEA prompts you to update the Kotlin library, just click yes.
 
 3. Run a test. Make it pass
 

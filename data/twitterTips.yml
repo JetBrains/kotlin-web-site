@@ -47,9 +47,9 @@
     date: 2014-09-05
     rt: 1
   - description: "Unlike in Java, but like C#, there is no binding between file and type/function. You can declare top level functions too"
-    date: 2014-09-09 
+    date: 2014-09-09
     rt: 1
-  - description: "String interpolation makes it easy to build complex formatting: \"My name is $name and I'm ${age.years} years old\""    
+  - description: "String interpolation makes it easy to build complex formatting: \"My name is $name and I'm ${age.years} years old\""
     date: 2014-09-15
     rt: 1
   - description: "All types and members in Kotlin are sealed (non-inheritable, non-overridable) by default."
@@ -60,5 +60,5 @@
     rt: 3
   - description: "Type 'C.(T) → R' is a function type invoked on an instance of type C, gets argument of type T and returns R."
     date: 2014-09-25
-    rt: 
- 
+    rt:
+

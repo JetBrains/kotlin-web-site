@@ -26,9 +26,9 @@ The key new feature in Kotlin 1.1 is *coroutines*, bringing the support of `asyn
 patterns. The key feature of Kotlin's design is that the implementation of coroutine execution is part of the libraries,
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
-A coroutine is effectively a light-weight thread that can be suspended and resumed later. Coroutines are supported through [*suspending functions*](coroutines.html#suspending-functions): a call to such a function can potentially suspend a coroutine, and to start a new coroutine we usually use an anonymous suspending functions (i.e. suspending lambdas).  
+A coroutine is effectively a light-weight thread that can be suspended and resumed later. Coroutines are supported through [*suspending functions*](coroutines.html#suspending-functions): a call to such a function can potentially suspend a coroutine, and to start a new coroutine we usually use an anonymous suspending functions (i.e. suspending lambdas).
 
-Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines): 
+Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines):
 
 ``` kotlin
 // runs the code in the background thread pool
@@ -55,7 +55,7 @@ The standard library uses coroutines to support *lazily generated sequences* wit
 In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
 and resumed when the next element is requested. Here's an example:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" data-min-compiler-version="1.1">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*
@@ -70,7 +70,7 @@ fun main(args: Array<String>) {
       // yield a range
       yieldAll(26..28)
   }
-  
+
   // print the sequence
   println(seq.toList())
 //sampleEnd
@@ -210,7 +210,7 @@ fun main(args: Array<String>) {
     })
     // now
     println(map.mapValues { (key, value) -> "$key -> $value!" })
-//sampleEnd    
+//sampleEnd
 }
 ```
 </div>
@@ -230,7 +230,7 @@ fun main(args: Array<String>) {
 
 //sampleStart
     map.forEach { _, value -> println("$value!") }
-//sampleEnd    
+//sampleEnd
 }
 ```
 </div>
@@ -468,9 +468,9 @@ inputDir.walk()
 ### also(), takeIf() and takeUnless()
 
 These are three general-purpose extension functions applicable to any receiver.
- 
-`also` is like `apply`: it takes the receiver, does some action on it, and returns that receiver. 
-The difference is that in the block inside `apply` the receiver is available as `this`, 
+
+`also` is like `apply`: it takes the receiver, does some action on it, and returns that receiver.
+The difference is that in the block inside `apply` the receiver is available as `this`,
 while in the block inside `also` it's available as `it` (and you can give it another name if you want).
 This comes handy when you do not want to shadow `this` from the outer scope:
 
@@ -502,7 +502,7 @@ fun main(args: Array<String>) {
 </div>
 
 `takeIf` is like `filter` for a single value. It checks whether the receiver meets the predicate, and
-returns the receiver, if it does or `null` if it doesn't. 
+returns the receiver, if it does or `null` if it doesn't.
 Combined with an elvis-operator and early returns it allows to write constructs like:
 
 ``` kotlin
@@ -521,7 +521,7 @@ fun main(args: Array<String>) {
     val index = input.indexOf(keyword).takeIf { it >= 0 } ?: error("keyword not found")
     // do something with index of keyword in input string, given that it's found
 //sampleEnd
-    
+
     println("'$keyword' was found in '$input'")
     println(input)
     println(" ".repeat(index) + "^")
@@ -570,7 +570,7 @@ fun main(args: Array<String>) {
 //sampleEnd
     println("Counting first letters: $frequencies.")
 
-    // The alternative way that uses 'groupBy' and 'mapValues' creates an intermediate map, 
+    // The alternative way that uses 'groupBy' and 'mapValues' creates an intermediate map,
     // while 'groupingBy' way counts on the fly.
     val groupBy = words.groupBy { it.first() }.mapValues { (_, list) -> list.size }
     println("Comparing the result with using 'groupBy': ${groupBy == frequencies}.")
@@ -601,7 +601,7 @@ fun main(args: Array<String>) {
     val map = mapOf("key" to 42)
     val emptyMap = map - "key"
 //sampleEnd
-    
+
     println("map: $map")
     println("emptyMap: $emptyMap")
 }
@@ -622,7 +622,7 @@ fun main(args: Array<String>) {
     val minSize = minOf(list1.size, list2.size)
     val longestList = maxOf(list1, list2, compareBy { it.size })
 //sampleEnd
-    
+
     println("minSize = $minSize")
     println("longestList = $longestList")
 }
@@ -659,7 +659,7 @@ If the map was produced with `withDefault`, this function will return the defaul
 ``` kotlin
 fun main(args: Array<String>) {
 
-//sampleStart    
+//sampleStart
     val map = mapOf("key" to 42)
     // returns non-nullable Int value 42
     val value: Int = map.getValue("key")
@@ -670,7 +670,7 @@ fun main(args: Array<String>) {
 
     // map.getValue("anotherKey") // <- this will throw NoSuchElementException
 //sampleEnd
-    
+
     println("value is $value")
     println("value2 is $value2")
 }
@@ -680,7 +680,7 @@ fun main(args: Array<String>) {
 ### Abstract collections
 
 These abstract classes can be used as base classes when implementing Kotlin collection classes.
-For implementing read-only collections there are `AbstractCollection`, `AbstractList`, `AbstractSet` and `AbstractMap`, 
+For implementing read-only collections there are `AbstractCollection`, `AbstractList`, `AbstractSet` and `AbstractMap`,
 and for mutable collections there are `AbstractMutableCollection`, `AbstractMutableList`, `AbstractMutableSet` and `AbstractMutableMap`.
 On JVM these abstract mutable collections inherit most of their functionality from JDK's abstract collections.
 

@@ -44,7 +44,7 @@ explicitly. In nested lambdas with parameters, parameters should be always decla
 
 Classes with a few arguments can be written in a single line:
 
-```kotlin 
+```kotlin
 class Person(id: Int, name: String)
 ```
 
@@ -52,9 +52,9 @@ Classes with longer headers should be formatted so that each primary constructor
 Also, the closing parenthesis should be on a new line. If we use inheritance, then the superclass constructor call or list of implemented interfaces
 should be located on the same line as the parenthesis:
 
-```kotlin 
+```kotlin
 class Person(
-    id: Int, 
+    id: Int,
     name: String,
     surname: String
 ) : Human(id, name) {
@@ -64,9 +64,9 @@ class Person(
 
 For multiple interfaces, the superclass constructor call should be located first and then each interface should be located in a different line:
 
-```kotlin 
+```kotlin
 class Person(
-    id: Int, 
+    id: Int,
     name: String,
     surname: String
 ) : Human(id, name),
@@ -89,7 +89,7 @@ fun foo() { // ": Unit" is omitted here
 
 ## Functions vs Properties
 
-In some cases functions with no arguments might be interchangeable with read-only properties. 
+In some cases functions with no arguments might be interchangeable with read-only properties.
 Although the semantics are similar, there are some stylistic conventions on when to prefer one to another.
 
 Prefer a property over a function when the underlying algorithm:
@@ -97,4 +97,4 @@ Prefer a property over a function when the underlying algorithm:
 * does not throw any Exceptions
 * has a `O(1)` complexity
 * is cheap to calculate (or caсhed on the first run)
-* returns the same result over invocations 
+* returns the same result over invocations

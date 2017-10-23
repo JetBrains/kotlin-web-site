@@ -8,7 +8,7 @@ title: "Reflection"
 # Reflection
 
 Reflection is a set of language and library features that allows for introspecting the structure of your own program at runtime.
-Kotlin makes functions and properties first-class citizens in the language, and introspecting them (i.e. learning a name or 
+Kotlin makes functions and properties first-class citizens in the language, and introspecting them (i.e. learning a name or
 a type of a property or function at runtime) is closely intertwined with simply using a functional or reactive style.
 
 > On the Java platform, the runtime component required for using the reflection features is distributed as a separate
@@ -40,7 +40,7 @@ val widget: Widget = ...
 assert(widget is GoodWidget) { "Bad widget: ${widget::class.qualifiedName}" }
 ```
 
-You obtain the reference to an exact class of an object, for instance `GoodWidget` or `BadWidget`, despite the type of the receiver expression (`Widget`).  
+You obtain the reference to an exact class of an object, for instance `GoodWidget` or `BadWidget`, despite the type of the receiver expression (`Widget`).
 
 ## Function References
 
@@ -130,10 +130,10 @@ fun main(args: Array<String>) {
     ::y.set(2)
     println(y) // prints "2"
 }
-```                   
+```                     
 
 A property reference can be used where a function with no parameters is expected:
- 
+
 ``` kotlin
 val strs = listOf("a", "bc", "def")
 println(strs.map(String::length)) // prints [1, 2, 3]
@@ -171,9 +171,9 @@ For example, to find a backing field or a Java method that serves as a getter fo
 
 ``` kotlin
 import kotlin.reflect.jvm.*
- 
+
 class A(val p: Int)
- 
+
 fun main(args: Array<String>) {
     println(A::p.javaGetter) // prints "public final int A.getP()"
     println(A::p.javaField)  // prints "private final int A.p"
@@ -188,9 +188,9 @@ fun getKClass(o: Any): KClass<Any> = o.javaClass.kotlin
 
 ## Constructor References
 
-Constructors can be referenced just like methods and properties. They can be used wherever an object of function type 
-is expected that takes the same parameters as the constructor and returns an object of the appropriate type. 
-Constructors are referenced by using the `::` operator and adding the class name. Consider the following function 
+Constructors can be referenced just like methods and properties. They can be used wherever an object of function type
+is expected that takes the same parameters as the constructor and returns an object of the appropriate type.
+Constructors are referenced by using the `::` operator and adding the class name. Consider the following function
 that expects a function parameter with no parameters and return type `Foo`:
 
 ``` kotlin
@@ -211,10 +211,10 @@ function(::Foo)
 
 You can refer to an instance method of a particular object:
 
-``` kotlin 
+``` kotlin
 val numberRegex = "\\d+".toRegex()
 println(numberRegex.matches("29")) // prints "true"
- 
+
 val isNumber = numberRegex::matches
 println(isNumber("29")) // prints "true"
 ```

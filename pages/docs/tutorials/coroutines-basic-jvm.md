@@ -42,7 +42,7 @@ dependencies {
 ```
 
 This library is published to Bintray JCenter repository, so let us add it:
- 
+
 ```groovy
 repositories {
     jcenter()
@@ -89,7 +89,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
 ```
 
 This library is published to Bintray JCenter repository, so let us add it:
- 
+
 ```xml
 <repositories>
     ...

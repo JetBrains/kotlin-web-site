@@ -77,7 +77,7 @@ For the *prefix* forms `++a` and `--a` resolution works the same way, and the ef
 
 {:#arithmetic}
 
-### Arithmetic operators 
+### Arithmetic operators
 
 | Expression | Translated to |
 | -----------|-------------- |

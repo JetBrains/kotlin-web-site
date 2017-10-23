@@ -8,7 +8,7 @@ title: "Compiler Plugins"
 
 ## All-open compiler plugin
 
-Kotlin has classes and their members `final` by default, which makes it inconvenient to use frameworks and libraries such as Spring AOP that require classes to be `open`. 
+Kotlin has classes and their members `final` by default, which makes it inconvenient to use frameworks and libraries such as Spring AOP that require classes to be `open`.
 The `all-open` compiler plugin adapts Kotlin to the requirements of those frameworks and makes classes annotated with a specific annotation and their members open without the explicit `open` keyword.
 For instance, when you use Spring, you don't need all the classes to be open, but only classes annotated with specific annotations like `@Configuration` or `@Service`.
 The `all-open` plugin allows to specify these annotations.
@@ -18,7 +18,7 @@ For Spring you can use the `kotlin-spring` compiler plugin ([see below](compiler
 
 ### How to use all-open plugin
 
-Add the plugin in `build.gradle`: 
+Add the plugin in `build.gradle`:
 
 ``` groovy
 buildscript {
@@ -45,7 +45,7 @@ allOpen {
 }
 ```
 
-If the class (or any of its superclasses) is annotated with `com.my.Annotation`, the class itself and all its members will become open. 
+If the class (or any of its superclasses) is annotated with `com.my.Annotation`, the class itself and all its members will become open.
 
 It also works with meta-annotations:
 
@@ -57,7 +57,7 @@ annotation class MyFrameworkAnnotation
 class MyClass // will be all-open
 ```
 
-`MyFrameworkAnnotation` is also the annotation that makes the class open, because it's annotated with `com.my.Annotation`. 
+`MyFrameworkAnnotation` is also the annotation that makes the class open, because it's annotated with `com.my.Annotation`.
 
 Here's how to use all-open with Maven:
 
@@ -92,7 +92,7 @@ Here's how to use all-open with Maven:
 
 
 ### Kotlin-spring compiler plugin
- 
+
 You don't need to specify Spring annotations by hand, you can use the `kotlin-spring` plugin, which automatically configures the all-open plugin according to the requirements of Spring:
 
 ``` groovy
@@ -115,19 +115,19 @@ plugins {
 
 The Maven example is similar to the one above.
 
-The plugin specifies the following annotations: 
+The plugin specifies the following annotations:
 [`@Component`](http://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html), [`@Async`](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/annotation/Async.html), [`@Transactional`](http://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html), [`@Cacheable`](http://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html). Thanks to meta-annotations support classes annotated with `@Configuration`, `@Controller`, `@RestController`, `@Service` or `@Repository` are automatically opened since these annotations are meta-annotated with `@Component`.
- 
+
 Of course, you can use both `kotlin-allopen` and `kotlin-spring` in the same project.
 Note that if you use [start.spring.io](http://start.spring.io/#!language=kotlin) the `kotlin-spring` plugin will be enabled by default.
 
 
 ## No-arg compiler plugin
 
-The no-arg compiler plugin generates an additional zero-argument constructor for classes with a specific annotation. 
-The generated constructor is synthetic so it can’t be directly called from Java or Kotlin, but it can be called using reflection. 
+The no-arg compiler plugin generates an additional zero-argument constructor for classes with a specific annotation.
+The generated constructor is synthetic so it can’t be directly called from Java or Kotlin, but it can be called using reflection.
 This allows the Java Persistence API (JPA) to instantiate the `data` class although it doesn't have the no-arg constructor from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [below](compiler-plugins.html#kotlin-jpa-compiler-plugin)).
- 
+
 ### How to use no-arg plugin
 
 The usage is pretty similar to all-open.
@@ -202,11 +202,11 @@ How to use no-arg in Maven:
 
 ### Kotlin-jpa compiler plugin
 
-The plugin specifies 
-[`@Entity`](http://docs.oracle.com/javaee/7/api/javax/persistence/Entity.html) 
-and [`@Embeddable`](http://docs.oracle.com/javaee/7/api/javax/persistence/Embeddable.html) 
+The plugin specifies
+[`@Entity`](http://docs.oracle.com/javaee/7/api/javax/persistence/Entity.html)
+and [`@Embeddable`](http://docs.oracle.com/javaee/7/api/javax/persistence/Embeddable.html)
 annotations as markers that no-arg constructor should be generated for a class.
-That's how you add the plugin in Gradle: 
+That's how you add the plugin in Gradle:
 
 ``` groovy
 buildscript {

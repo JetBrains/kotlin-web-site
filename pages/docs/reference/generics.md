@@ -33,8 +33,8 @@ One of the most tricky parts of Java's type system is wildcard types (see [Java 
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
 First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
-First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`. 
-Why so? If List was not **invariant**, it would have been no 
+First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`.
+Why so? If List was not **invariant**, it would have been no
 better than Java's arrays, since the following code would have compiled and caused an exception at runtime:
 
 ``` java
@@ -44,7 +44,7 @@ List<Object> objs = strs; // !!! The cause of the upcoming problem sits here. Ja
 objs.add(1); // Here we put an Integer into a list of Strings
 String s = strs.get(0); // !!! ClassCastException: Cannot cast Integer to String
 ```
-So, Java prohibits such things in order to guarantee run-time safety. But this has some implications. For example, consider the `addAll()` method from `Collection` 
+So, Java prohibits such things in order to guarantee run-time safety. But this has some implications. For example, consider the `addAll()` method from `Collection`
 interface. What's the signature of this method? Intuitively, we'd put it this way:
 
 ``` java
@@ -76,26 +76,26 @@ interface Collection<E> ... {
 }
 ```
 
-The **wildcard type argument** `? extends E` indicates that this method accepts a collection of objects of `E` *or some subtype of* `E`, not just `E` itself. 
-This means that we can safely **read** `E`'s from items (elements of this collection are instances of a subclass of E), but **cannot write** to 
-it since we do not know what objects comply to that unknown subtype of `E`. 
-In return for this limitation, we have the desired behaviour: `Collection<String>` *is* a subtype of `Collection<? extends Object>`. 
+The **wildcard type argument** `? extends E` indicates that this method accepts a collection of objects of `E` *or some subtype of* `E`, not just `E` itself.
+This means that we can safely **read** `E`'s from items (elements of this collection are instances of a subclass of E), but **cannot write** to
+it since we do not know what objects comply to that unknown subtype of `E`.
+In return for this limitation, we have the desired behaviour: `Collection<String>` *is* a subtype of `Collection<? extends Object>`.
 In "clever words", the wildcard with an **extends**\-bound (**upper** bound) makes the type **covariant**.
 
 The key to understanding why this trick works is rather simple: if you can only **take** items from a collection, then using a collection of `String`s
 and reading `Object`s from it is fine. Conversely, if you can only _put_ items into the collection, it's OK to take a collection of
 `Object`s and put `String`s into it: in Java we have `List<? super String>` a **supertype** of `List<Object>`.
- 
-The latter is called **contravariance**, and you can only call methods that take String as an argument on `List<? super String>` 
-(e.g., you can call `add(String)` or `set(int, String)`), while 
+
+The latter is called **contravariance**, and you can only call methods that take String as an argument on `List<? super String>`
+(e.g., you can call `add(String)` or `set(int, String)`), while
 if you call something that returns `T` in `List<T>`, you don't get a `String`, but an `Object`.
 
 Joshua Bloch calls those objects you only **read** from **Producers**, and those you only **write** to **Consumers**. He recommends: "*For maximum flexibility, use wildcard types on input parameters that represent producers or consumers*", and proposes the following mnemonic:
 
 *PECS stands for Producer-Extends, Consumer-Super.*
 
-*NOTE*: if you use a producer-object, say, `List<? extends Foo>`, you are not allowed to call `add()` or `set()` on this object, but this does not mean 
-that this object is **immutable**: for example, nothing prevents you from calling `clear()` to remove all items from the list, since `clear()` 
+*NOTE*: if you use a producer-object, say, `List<? extends Foo>`, you are not allowed to call `add()` or `set()` on this object, but this does not mean
+that this object is **immutable**: for example, nothing prevents you from calling `clear()` to remove all items from the list, since `clear()`
 does not take any parameters at all. The only thing guaranteed by wildcards (or other types of variance) is **type safety**. Immutability is a completely different story.
 
 ### Declaration-site variance
@@ -121,7 +121,7 @@ void demo(Source<String> strs) {
 
 To fix this, we have to declare objects of type `Source<? extends Object>`, which is sort of meaningless, because we can call all the same methods on such a variable as before, so there's no value added by the more complex type. But the compiler does not know that.
 
-In Kotlin, there is a way to explain this sort of thing to the compiler. This is called **declaration-site variance**: we can annotate the **type parameter** `T` of Source to make sure that it is only **returned** (produced) from members of `Source<T>`, and never consumed. 
+In Kotlin, there is a way to explain this sort of thing to the compiler. This is called **declaration-site variance**: we can annotate the **type parameter** `T` of Source to make sure that it is only **returned** (produced) from members of `Source<T>`, and never consumed.
 To do this we provide the **out** modifier:
 
 ``` kotlin
@@ -135,16 +135,16 @@ fun demo(strs: Source<String>) {
 }
 ```
 
-The general rule is: when a type parameter `T` of a class `C` is declared **out**, it may occur only in **out**\-position in the members of `C`, but in return `C<Base>` can safely be a supertype 
+The general rule is: when a type parameter `T` of a class `C` is declared **out**, it may occur only in **out**\-position in the members of `C`, but in return `C<Base>` can safely be a supertype
 of `C<Derived>`.
 
-In "clever words" they say that the class `C` is **covariant** in the parameter `T`, or that `T` is a **covariant** type parameter. 
+In "clever words" they say that the class `C` is **covariant** in the parameter `T`, or that `T` is a **covariant** type parameter.
 You can think of `C` as being a **producer** of `T`'s, and NOT a **consumer** of `T`'s.
 
-The **out** modifier is called a **variance annotation**, and  since it is provided at the type parameter declaration site, we talk about **declaration-site variance**. 
+The **out** modifier is called a **variance annotation**, and  since it is provided at the type parameter declaration site, we talk about **declaration-site variance**.
 This is in contrast with Java's **use-site variance** where wildcards in the type usages make the types covariant.
 
-In addition to **out**, Kotlin provides a complementary variance annotation: **in**. It makes a type parameter **contravariant**: it can only be consumed and never 
+In addition to **out**, Kotlin provides a complementary variance annotation: **in**. It makes a type parameter **contravariant**: it can only be consumed and never
 produced. A good example of a contravariant class is `Comparable`:
 
 ``` kotlin
@@ -159,7 +159,7 @@ fun demo(x: Comparable<Number>) {
 }
 ```
 
-We believe that the words **in** and **out** are self-explaining (as they were successfully used in C# for quite some time already), 
+We believe that the words **in** and **out** are self-explaining (as they were successfully used in C# for quite some time already),
 thus the mnemonic mentioned above is not really needed, and one can rephrase it for a higher purpose:
 
 **[The Existential](http://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out\!** :-)
@@ -168,7 +168,7 @@ thus the mnemonic mentioned above is not really needed, and one can rephrase it 
 
 ### Use-site variance: Type projections
 
-It is very convenient to declare a type parameter T as *out* and avoid trouble with subtyping on the use site, but some classes **can't** actually be restricted to only return `T`'s! 
+It is very convenient to declare a type parameter T as *out* and avoid trouble with subtyping on the use site, but some classes **can't** actually be restricted to only return `T`'s!
 A good example of this is Array:
 
 ``` kotlin
@@ -192,11 +192,11 @@ This function is supposed to copy items from one array to another. Let's try to 
 
 ``` kotlin
 val ints: Array<Int> = arrayOf(1, 2, 3)
-val any = Array<Any>(3) { "" } 
+val any = Array<Any>(3) { "" }
 copy(ints, any) // Error: expects (Array<Any>, Array<Any>)
 ```
 
-Here we run into the same familiar problem: `Array<T>` is **invariant** in `T`, thus neither of `Array<Int>` and `Array<Any>` 
+Here we run into the same familiar problem: `Array<T>` is **invariant** in `T`, thus neither of `Array<Int>` and `Array<Any>`
 is a subtype of the other. Why? Again, because copy **might** be doing bad things, i.e. it might attempt to **write**, say, a String to `from`,
 and if we actually passed an array of `Int` there, a `ClassCastException` would have been thrown sometime later.
 
@@ -208,8 +208,8 @@ fun copy(from: Array<out Any>, to: Array<Any>) {
 }
 ```
 
-What has happened here is called **type projection**: we said that `from` is not simply an array, but a restricted (**projected**) one: we can only call those methods that return the type parameter 
-`T`, in this case it means that we can only call `get()`. This is our approach to **use-site variance**, and corresponds to Java's `Array<? extends Object>`, 
+What has happened here is called **type projection**: we said that `from` is not simply an array, but a restricted (**projected**) one: we can only call those methods that return the type parameter
+`T`, in this case it means that we can only call `get()`. This is our approach to **use-site variance**, and corresponds to Java's `Array<? extends Object>`,
 but in a slightly simpler way.
 
 You can project a type with **in** as well:

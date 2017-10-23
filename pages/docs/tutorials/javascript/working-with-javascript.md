@@ -3,7 +3,7 @@ type: tutorial
 layout: tutorial
 title:  "Working with JavaScript"
 description: "A look at how we can interact with the DOM as well as using JavaScript libraries"
-authors: Hadi Hariri 
+authors: Hadi Hariri
 date: 2017-02-27
 showAuthorInfo: false
 ---
@@ -24,7 +24,7 @@ The Kotlin standard library provides a series of wrappers around the JavaScript 
 
 
 ```kotlin
-document.bgColor = "FFAA12" 
+document.bgColor = "FFAA12"
 ```
 
 The DOM also provides us a way to retrieve a specific element by ID, name, class name, tag name and so on. All returned elements are of type `NodeList`, and to access members we need to cast them to the specific type of element. The code below shows how we could access an input
@@ -45,13 +45,13 @@ email.value = "hadi@jetbrains.com"
 
 An important note is to make sure that the scripts are located before the ``body`` tag is closed. Placing them at the top means that the scripts would be loaded before the DOM is fully available.
 
-Much like we reference an input element, we can access other elements on the page, casting them to the appropriate types. 
+Much like we reference an input element, we can access other elements on the page, casting them to the appropriate types.
 
 ## Using kotlinx.html
 
 The [kotlinx.html library](http://www.github.com/kotlin/kotlinx.html) provides the ability to generate DOM using statically typed HTML builders.
 The library is available when targeting the JVM as well as JavaScript. To use the library we need to include the corresponding
-dependency. In the case of Gradle this would be 
+dependency. In the case of Gradle this would be
 
 ```groovy
 repositories {
@@ -92,7 +92,7 @@ fun printHello() {
 
 The standard library provides us with a series of wrappers around DOM as well as functions to work with JavaScript, using static typing. What happens however
 when we want to use a library such as jQuery? Kotlin does not have its own "header" files for all the different libraries available on the JavaScript ecosystem
-however, TypeScript does. The [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/)  provides us with a very large selection of header files. 
+however, TypeScript does. The [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/)  provides us with a very large selection of header files.
 
 Using the tool `ts2kt` (TypeScript to Kotlin) we can convert any `d.ts` files to Kotlin. To install the tool we can use `npm`
 
@@ -104,7 +104,7 @@ To convert a file we simply provide the input file, and optionally an output dir
  downloaded from the [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/types/jquery/jquery.d.ts) to the output folder `headers`:
 
 ```kotlin
-ts2kt -d headers jquery.d.ts 
+ts2kt -d headers jquery.d.ts
 ```
 
 Once we have the file generated, we can simply include it in our project and use it:
@@ -121,7 +121,7 @@ Note that ```jQuery``` needs to be included in the corresponding HTML:
 <!-- other script files ....  -->
 ```
 
-### Header files under the covers 
+### Header files under the covers
 
 The header files merely contain function declarations for functionality that is defined at runtime. For instance, we could define a ```jQuery``` function like so
 
@@ -130,14 +130,14 @@ The header files merely contain function declarations for functionality that is 
 public external fun jQuery(selector: String): JQuery
 ```
 
-The above code indicates that the function is defined externally. The ```@JsName("$")``` annotation allows us to map the name at runtime to ```$```. 
+The above code indicates that the function is defined externally. The ```@JsName("$")``` annotation allows us to map the name at runtime to ```$```.
 For more details on external declarations, please refer to the [JavaScript interop documentation](/docs/reference/js-interop.html#external-modifier).
 
 Note that the type systems of TypeScript and Kotlin do not match exactly, so you may need to edit the generated headers in case
 you encounter difficulties with using the APIs from Kotlin.
 
 
-## Using Dynamic 
+## Using Dynamic
 
 While the above solution works well for situations in which we have a corresponding header file (be this something we've defined ourselves or converted from a TypeScript header), often times
 we need to work with some library that does not have a header. For instance, let's say we want to use a jQuery plugin, that allows us to convert an HTML table to a nice looking navigable grid.
@@ -173,9 +173,9 @@ The way in which we'd use this from JavaScript would be to call ```dataTable()``
         <td>San Francisco</td>
         <td>66</td>
     </tr>
-    
-      . . . 
-    
+
+      . . .
+
     </tbody>
 </table>
 ```
@@ -201,7 +201,7 @@ myObject.callAnything()
 
 The above code compiles. However, it will produce a runtime error if the object is not properly initialised before use or if ```callAnything()``` is not
  defined at runtime.
- 
+
 The standard library defines a function named [`asDynamic()`](/api/latest/jvm/stdlib/kotlin.js/as-dynamic.html) which casts a value to the dynamic type.
 Given our previous example where we used jQuery to work with DOM elements, we can now combine this with `asDynamic()` to then invoke `dataTable()` on the result:
 
