@@ -58,7 +58,7 @@ This document contains definitions and policies with regards to version compatib
 `1.4` Any change that deprecates or breaks
 compatibility for a language feature or standard API needs to be reviewed by the [Kotlin
 Language Committee](language-committee.html) following the
-[review procedure](/change-review-process.html).
+[review procedure](change-review-process.html).
 
 ## `2` Changes to this policy
 
@@ -73,7 +73,7 @@ Language Committee](language-committee.html) following the
 
 `3.1` Small fixes that virtually no users will
     encounter can normally be made right away (still require committee
-    [review](#2.4)).
+    [review](#1.4)).
 
 `3.1.1` When unsure about the full risk/impact of
     a change:
@@ -129,7 +129,7 @@ we refer to the existing [versioning policy](../reference/compatibility.html).
 `4.3` Allow a long enough period of time for
     migration, the exact time will be based on the impact and complexity
     of the change as discussed during the Kotlin Language Committee
-    [review](/process/index.html).
+    [review](change-review-process.html).
 
 `4.4` In the version N.M+1 or N+1, report errors for
  previously deprecated cases.
@@ -340,7 +340,7 @@ problems for language evolution.
 `B.1.2` Some improvements in the language (such as
     type inference, for example) may result in more precise static types
     known for some expressions. This may cause changes in overload
-    resolution [as stated above](#10.1.1), or even in type
+    resolution [as stated above](#B.1.1), or even in type
     signatures of declarations when return types are inferred from
     bodies.
 
