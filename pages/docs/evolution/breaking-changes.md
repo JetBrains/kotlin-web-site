@@ -14,6 +14,7 @@ There will be external links to these paragraphs, and one needs a very good reas
 
 # Backwards Incompatible Changes and Deprecation Guidelines
 
+<ul id="report" style="color: red"></ul>
 
 ## Intro
 This document contains definitions and policies with regards to version compatibility and languages changes. The Kotlin language designers & [committee](language-committee.html) use it as guidelines to consult with when making design decisions. 
@@ -395,3 +396,77 @@ which will likely break source compatibility for many users. We still
 want to do it, but devise a migration mechanism that will first report
 future issues as warnings, and let the users migrate.
 
+<script language="javascript">
+sections = Array.from(document.getElementsByTagName("code"));
+report = document.getElementById("report");
+
+function reportError(text, lastSecText) {
+    report.innerHTML += "<li><code><a href=\"#" + text + "\">" + text + "</a>" 
+            + "</code> is out of order with " 
+            + "<code><a href=\"#" + lastSecText + "\">" + lastSecText + "</a></code></li>";
+}
+    
+lastSec = [];
+lastSecText = "";
+function checkOrdering(groups) {
+    currentSec = [];
+    for (j = 1; j < groups.length && groups[j]; j += 2) {        
+        level = (j / 2) | 0;              
+        currentValue = Number.parseInt(groups[j]);
+        currentSec[level] = currentValue;        
+    }
+    currentSecText = currentSec.join(".");
+    
+    if (currentSec.length > lastSec.length + 1) {
+        reportError(currentSecText, lastSecText)
+        result = false;
+    }
+    
+    for (level = 0; level < Math.max(currentSec.length, lastSec.length); level++) {
+        currentSec[level] = currentSec[level] ? currentSec[level] : 0; 
+        lastSec[level] = lastSec[level] ? lastSec[level] : 0; 
+    }
+        
+    result = true;
+        
+    for (level = 0; level < currentSec.length; level++) {
+        if (lastSec[level] < currentSec[level] - 1) {
+            reportError(currentSecText, lastSecText);
+            result = false;
+        }
+        if (lastSec[level] < currentSec[level]) break;
+        if ((lastSec[level] > currentSec[level])) {
+            reportError(currentSecText, lastSecText);
+            result = false;
+        }       
+    }
+    if (lastSec.toString() == currentSec.toString()) {
+        reportError(currentSecText, lastSecText);        
+        result = false;
+    }
+    lastSec = currentSec;
+    lastSecText = currentSecText;
+    return result;
+}
+
+for (i = 0; i < sections.length; i++) {
+    sec = sections[i];
+    text = sec.innerText;
+    
+    groups = text.match("^([0-9]+)(\.([0-9]+))?(\.([0-9]+))?(\.([0-9]+))?$");
+    if (!groups) continue;
+    
+    correct = checkOrdering(groups);
+    
+    anchor = document.createElement("a");
+    anchor.innerText = text;
+    anchor.href = "#" + text;
+    anchor.name = text;
+    if (!correct) {
+        anchor.style.color = "red";
+    }
+    
+    sec.insertAdjacentElement('beforebegin', anchor);
+    sec.remove();
+}
+</script>
