@@ -16,7 +16,6 @@ There will be external links to these paragraphs, and one needs a very good reas
 
 <ul id="report" style="color: red"></ul>
 
-## Intro
 This document contains definitions and policies with regards to version compatibility and languages changes. The Kotlin language designers & [committee](language-committee.html) use it as guidelines to consult with when making design decisions. 
 
 ## `1` Kotlin language evolution  
@@ -322,7 +321,7 @@ but we don't consider every slowdown (e.g. in edge cases or in very cold
 code) and every extra byte in the classfile a breaking change.
 
 
-## Appendix `B` Examples of subtle issues
+## Appendix `B`. Examples of subtle issues
 
 Banishing the changes listed in this section may pose significant
 problems for language evolution.
