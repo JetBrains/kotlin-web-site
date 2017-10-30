@@ -69,7 +69,7 @@ Obsolete things should be eventually dropped and bugs should be fixed.
     many users will benefit from may introduce subtle changes that do
     not harm most of the code out there.
 
-`3.3.2` *Example*: legacy features that are no longer
+`3.3.3` *Example*: legacy features that are no longer
     considered a good practice should be phased out (very) gradually.
 
 `3.4` To be pragmatically beneficial, such changes
@@ -159,30 +159,28 @@ we defer to the existing
 
 `5.4.3` Keep migration aids available.
 
-`5.4` In the version N.M+2 or N+1, report errors for
+`5.5` In the version N.M+2 or N+1, report errors for
     the deprecated feature.
 
-`5.4.1` In the release notes, declare the feature as
+`5.5.1` In the release notes, declare the feature as
     discontinued.
 
-`5.4.2` If possible, keep a compatibility mode that
+`5.5.2` If possible, keep a compatibility mode that
     does not support new features, but allows the deprecated one as in
     version N.M+1 or N+1.X.
 
-`5.4.3` Migration aids can be removed from the
+`5.5.3` Migration aids can be removed from the
     compiler at this point.
 
-`5.5` A version that supports automated migration
+`5.6` A version that supports automated migration
     must be maintained and kept available for download. Such tools can
     be retired after support period of a few years, and the retirement
     must be announced at least 1 year in advance.
 
-`5.6` Backward compatibility modes in the compiler
+`5.7` Backward compatibility modes in the compiler
     (through -language-version and -api-version) are supported for a few
     years and their retirement must be announced at least 1 year in
     advance.
-
-
 
 ## `6` Deprecation procedure for the Standard Library
 
@@ -207,7 +205,6 @@ we defer to the existing
 
 
 ## `7` The scope of this policy
-
 
 ### `7.1` In scope
 
@@ -340,23 +337,23 @@ classes/interfaces.
 `9.5.1` Making a contract on existing API more strict
     than it used to be in a previous version.
 
-### `9.5` Library Change, non-issues
+### `9.6` Library Change, non-issues
 
-`9.5.2` Relaxing a contract on existing APIs.
+`9.6.2` Relaxing a contract on existing APIs.
 
-`9.5.3` Clarification for unspecified behaviors.
+`9.6.3` Clarification for unspecified behaviors.
 
-`9.5.4` Changes in hashCode() are not breaking
+`9.6.4` Changes in hashCode() are not breaking
     changes.
 
-`9.5.5` Changes in toString() on other than Boolean,
+`9.6.5` Changes in toString() on other than Boolean,
     Numeric, and String types are not breaking changes.
 
-`9.5.6` Improper loading of two different versions of
+`9.6.6` Improper loading of two different versions of
     stdlib at runtime.
 
 
-### `9.6` Performance changes
+### `9.7` Performance changes
 
 We recognize that runtime performance and bytecode size are important
 metrics, and will make reasonable effort to keep them in a good shape,
