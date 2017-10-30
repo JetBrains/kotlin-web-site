@@ -15,232 +15,232 @@ There will be external links to these paragraphs, and one needs a very good reas
 # Backwards Incompatible Changes and Deprecation Guidelines
 
 
-## `1` Intro
+## Intro
 This document contains definitions and policies with regards to version compatibility and languages changes. The Kotlin language designers & [committee](language-committee.html) use it as guidelines to consult with when making design decisions. 
 
-## `2` Kotlin language evolution  
+## `1` Kotlin language evolution  
 
-`2.1` **Our creed**. Kotlin is and should remain a modern language for industry. We care about pragmatics, not formality.
+`1.1` **Our creed**. Kotlin is and should remain a modern language for industry. We care about pragmatics, not formality.
 
-`2.1.1` This means that we have to reconcile moving fast (which sometimes requires breaking things) and keeping the design stable enough to be pragmatically usable. We are balancing between two priorities: **the long-term health of the language** and **the short-term comfort of its users**. Both are very important, and trade-offs are to be made carefully.  
+`1.1.1` This means that we have to reconcile moving fast (which sometimes requires breaking things) and keeping the design stable enough to be pragmatically usable. We are balancing between two priorities: **the long-term health of the language** and **the short-term comfort of its users**. Both are very important, and trade-offs are to be made carefully.  
 
-`2.2` **Keeping the language modern**. We recognize that languages accumulate legacy over time. Our goal is to keep the Kotlin language fit and modern by cleaning this legacy up. Obsolete things should be eventually dropped, and bugs should be fixed. We are willing to make such changes after careful consideration and justification.
+`1.2` **Keeping the language modern**. We recognize that languages accumulate legacy over time. Our goal is to keep the Kotlin language fit and modern by cleaning this legacy up. Obsolete things should be eventually dropped, and bugs should be fixed. We are willing to make such changes after careful consideration and justification.
 
-`2.2.1` *NOTE*: Keeping all the legacy around forever would mean that every language design decision made must be proven to be 100% correct and never require future fixes. In practice, it would hinder language evolution a lot, so we want to be able to move faster knowing that we can make mistakes and fix them in the future. This being said, we recognize that our mistakes cause our users pain, so we try to avoid them to the best of our abilities.   
+`1.2.1` *NOTE*: Keeping all the legacy around forever would mean that every language design decision made must be proven to be 100% correct and never require future fixes. In practice, it would hinder language evolution a lot, so we want to be able to move faster knowing that we can make mistakes and fix them in the future. This being said, we recognize that our mistakes cause our users pain, so we try to avoid them to the best of our abilities.   
 
-`2.2.2` *Example*: bugs and underspecified/accidental behaviors
+`1.2.2` *Example*: bugs and underspecified/accidental behaviors
     in `kotlinc` and `kotlin-stdlib` may require incompatible fixes, and it
     is often better to fix them (formally, breaking compatibility) than
     carry them around indefinitely.
 
-`2.2.3` *Example*: some language improvements that
+`1.2.3` *Example*: some language improvements that
     many users will benefit from may introduce subtle changes that do
     not harm most of the code out there.
 
-`2.2.4` *Example*: legacy features that are no longer
+`1.2.4` *Example*: legacy features that are no longer
     considered a good practice should be phased out (very) gradually.
 
-`2.2.5` *Example*: mechanisms that became irrelevant over time due to some changes in the environment should also be phased out.
+`1.2.5` *Example*: mechanisms that became irrelevant over time due to some changes in the environment should also be phased out.
 
-`2.3` **Pragmatic usefulness**. We also recognize that backwards incompatible changes in the language are distracting developers from their primary focus and should be generally avoided. When necessary, to be pragmatically beneficial, such changes should go through a graceful deprecation cycle, where the user is never stuck with a large number of migration issues to be addressed manually. 
+`1.3` **Pragmatic usefulness**. We also recognize that backwards incompatible changes in the language are distracting developers from their primary focus and should be generally avoided. When necessary, to be pragmatically beneficial, such changes should go through a graceful deprecation cycle, where the user is never stuck with a large number of migration issues to be addressed manually. 
 
-`2.3.1` Users' binaries and source code shouldn't break unexpectedly or frequently on compiler updates. 
+`1.3.1` Users' binaries and source code shouldn't break unexpectedly or frequently on compiler updates. 
 
-`2.3.2` If a backwards incompatible change inconveniences many users of the language considerably, it makes the change highly questionable, so only an exceptional need can justify it.  
+`1.3.2` If a backwards incompatible change inconveniences many users of the language considerably, it makes the change highly questionable, so only an exceptional need can justify it.  
 
-`2.3.3` Backwards incompatible changes should be introduced through a deprecation when possible. 
+`1.3.3` Backwards incompatible changes should be introduced through a deprecation when possible. 
 
-`2.3.4` The tooling should provide means of detection and migration: users shouldn't be required to do much by hand.
+`1.3.4` The tooling should provide means of detection and migration: users shouldn't be required to do much by hand.
 
-`2.3.5` Users should be informed about such changes in a timely fashion (exact timeline is to be defined on a case-by-case basis). In particular, users should have enough time to migrate comfortably.
+`1.3.5` Users should be informed about such changes in a timely fashion (exact timeline is to be defined on a case-by-case basis). In particular, users should have enough time to migrate comfortably.
 
-`2.4` Any change that deprecates or breaks
+`1.4` Any change that deprecates or breaks
 compatibility for a language feature or standard API needs to be reviewed by the [Kotlin
 Language Committee](language-committee.html) following the
 [review procedure](/change-review-process.html).
 
-## `3` Changes to this policy
+## `2` Changes to this policy
 
-`3.1` Changes to this policy need to be approved by
+`2.1` Changes to this policy need to be approved by
     the Kotlin Language Committee.
 
-`3.2` Any proposed change needs to be published as
+`2.2` Any proposed change needs to be published as
     a GitHub pull request; providing a reasonable time to allow for
      comments on the change by the Kotlin Community.
 
-## `4` Types of incompatible changes and corresponding guidelines
+## `3` Types of incompatible changes and corresponding guidelines
 
-`4.1` Small fixes that virtually no users will
+`3.1` Small fixes that virtually no users will
     encounter can normally be made right away (still require committee
     [review](#2.4)).
 
-`4.1.1` When unsure about the full risk/impact of
+`3.1.1` When unsure about the full risk/impact of
     a change:
 
 *   Implement the change in a preview build.
 *   Try on large bodies of code available to us.
 *   Fall back to [deprecation procedure](#4) if needed.
 
-`4.2` Behavior-changing bug fixes in `kotlinc`:
+`3.2` Behavior-changing bug fixes in `kotlinc`:
 
-`4.2.1` Good code did not compile due to a bug can be
+`3.2.1` Good code did not compile due to a bug can be
     fixed right away.
 
-`4.2.2` Bad code compiled due to a bug, but always
+`3.2.2` Bad code compiled due to a bug, but always
     failed at runtime can be fixed right away.
 
-`4.2.3` Bad code compiled due to a bug, and worked
+`3.2.3` Bad code compiled due to a bug, and worked
     reasonably, must follow the deprecation policy spelled out in
     [Paragraph 4](#4).
 
 
-`4.3` Bug fixes and contract refinement in the
+`3.3` Bug fixes and contract refinement in the
  `kotlin-stdlib` require publishing a release note one version in advance.
 
-`4.4` Retiring language features & `kotlin-stdlib` APIs
+`3.4` Retiring language features & `kotlin-stdlib` APIs
     must follow the deprecation policies spelled out in
     [Paragraph 4](#4) and [Paragraph 5](#5).
 
 
 
-## `5` Deprecation procedures for language features
+## `4` Deprecation procedures for language features
 
 Deprecation is closely related to versioning, for versioning scheme
 we refer to the existing [versioning policy](../reference/compatibility.html).
 
-`5.1` Before any changes are made, the upcoming
+`4.1` Before any changes are made, the upcoming
     change along with its rationale and the deprecation/migration plan
     need to be announced to the Kotlin community, 
     preview builds of the compiler and standard library should be made available.
 
-`5.2` Release a version (call it N.M) that reports
+`4.2` Release a version (call it N.M) that reports
     deprecation warnings for the feature:
 
-`5.2.1` Provide and describe a replacement for
+`4.2.1` Provide and describe a replacement for
     deprecated constructs as part of the warning.
 
-`5.2.2` Allow to disable the warnings in settings,
+`4.2.2` Allow to disable the warnings in settings,
     or promote them to errors.
 
-`5.2.3` Along with this version, provide automated
+`4.2.3` Along with this version, provide automated
     migration aids (e.g. in the IDE).
 
-`5.3` Allow a long enough period of time for
+`4.3` Allow a long enough period of time for
     migration, the exact time will be based on the impact and complexity
     of the change as discussed during the Kotlin Language Committee
     [review](/process/index.html).
 
-`5.4` In the version N.M+1 or N+1, report errors for
+`4.4` In the version N.M+1 or N+1, report errors for
  previously deprecated cases.
 
-`5.4.1` In the release notes, repeat the information
+`4.4.1` In the release notes, repeat the information
     about the deprecation plan.
 
-`5.4.2` Allow to demote the errors to warnings through
+`4.4.2` Allow to demote the errors to warnings through
     settings.
 
-`5.4.3` Keep migration aids available.
+`4.4.3` Keep migration aids available.
 
-`5.5` In the version N.M+2 or N+1, report errors for
+`4.5` In the version N.M+2 or N+1, report errors for
     the deprecated feature.
 
-`5.5.1` In the release notes, declare the feature as
+`4.5.1` In the release notes, declare the feature as
     discontinued.
 
-`5.5.2` If possible, keep a compatibility mode that
+`4.5.2` If possible, keep a compatibility mode that
     does not support new features, but allows the deprecated one as in
     version N.M+1 or N+1.X.
 
-`5.5.3` Migration aids can be removed from the
+`4.5.3` Migration aids can be removed from the
     compiler at this point.
 
-`5.6` A version that supports automated migration
+`4.6` A version that supports automated migration
     must be maintained and kept available for download. Such tools can
     be retired after support period of a few years, and the retirement
     must be announced at least 1 year in advance.
 
-`5.7` Backward compatibility modes in the compiler
+`4.7` Backward compatibility modes in the compiler
     (through -language-version and -api-version) are supported for a few
     years and their retirement must be announced at least 1 year in
     advance.
 
-## `6` Deprecation procedure for the Standard Library
+## `5` Deprecation procedure for the Standard Library
 
-`6.1` Version N: Mark the declarations as
+`5.1` Version N: Mark the declarations as
 `@Deprecated(level = WARNING)`
 
-`6.1.1` Provide reasonable ReplaceWith if possible,
+`5.1.1` Provide reasonable ReplaceWith if possible,
     or custom migration aids if needed.
 
-`6.1.2` Provide an optional support dependency that
+`5.1.2` Provide an optional support dependency that
     exposes the same API.
 
-`6.2` Version N+1: Mark the declarations as
+`5.2` Version N+1: Mark the declarations as
 `@Deprecated(level = ERROR)`
 
-`6.3` Version N+2: Mark the declarations as
+`5.3` Version N+2: Mark the declarations as
 `@Deprecated(level = HIDDEN)`
 
-`6.3.1`  *Note*: for inline functions, complete
+`5.3.1`  *Note*: for inline functions, complete
      removal is sometimes possible at this point.
 
 
 
-## `7` The scope of this policy
+## `6` The scope of this policy
 
-### `7.1` In scope
+### `6.1` In scope
 
-`7.1.1` Language: syntax, static checks, execution
+`6.1.1` Language: syntax, static checks, execution
     semantics of language constructs.
 
-`7.1.2` The interop subsystem of the language: how
+`6.1.2` The interop subsystem of the language: how
     Java declarations are seen from Kotlin, and how Kotlin declarations
     are seen from Java.
 
-`7.1.3` Compatibility of binary artifacts produced by
+`6.1.3` Compatibility of binary artifacts produced by
  kotlinc with one another and with Java binaries
 
-`7.1.4` Standard library: API and contracts of the
+`6.1.4` Standard library: API and contracts of the
     declarations in kotlin-stdlib (and its  extensions such as for JRE
     7 & 8).
 
-`7.1.5` CLI parameters of the compiler except for the
+`6.1.5` CLI parameters of the compiler except for the
     -X keys.
 
-`7.1.6` Language Feature, Syntax & API Migration
+`6.1.6` Language Feature, Syntax & API Migration
  tools.
 
-`7.1.7` KDoc syntax.
+`6.1.7` KDoc syntax.
 
 
-### `7.2` Out of scope
+### `6.2` Out of scope
 
-`7.2.1` Build tools and plugins for them (e.g. Gradle
+`6.2.1` Build tools and plugins for them (e.g. Gradle
     support).
 
-`7.2.2` IDE and static analysis tools (other than the
+`6.2.2` IDE and static analysis tools (other than the
     compiler).
 
-`7.2.3` Java2Kotlin converter and other source code
+`6.2.3` Java2Kotlin converter and other source code
     manipulation tools.
 
-`7.2.4` Experimental language features & APIs.
+`6.2.4` Experimental language features & APIs.
 
-`7.2.5` APIs and contracts of libraries other than the
+`6.2.5` APIs and contracts of libraries other than the
     standard library.
 
-`7.2.6` API of the compiler.
+`6.2.6` API of the compiler.
 
-`7.2.7` Scripting support and Compiler REPL loop.
+`6.2.7` Scripting support and Compiler REPL loop.
 
-`7.2.8` dokka (docs generation tool).
+`6.2.8` dokka (docs generation tool).
 
-`7.2.9` Internal packages of the standard library.
+`6.2.9` Internal packages of the standard library.
 
-`7.2.10` kotlin-reflect - until it graduates from the
+`6.2.10` kotlin-reflect - until it graduates from the
     experimental status.
 
-`7.2.11` kotlin-script-runtime - until it graduates
+`6.2.11` kotlin-script-runtime - until it graduates
     from the experimental status.
 
 
