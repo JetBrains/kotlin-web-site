@@ -245,76 +245,76 @@ we refer to the existing [versioning policy](../reference/compatibility.html).
     from the experimental status.
 
 
-## `8`. Examples: issues & non-issues
+## Appendix `A`. Examples: issues & non-issues
 
 Notation: NC — new compiler, OC — old compiler.
 
-### `8.1` Binary Change, issues
+### `A.1` Binary Change, issues
 
-`8.1.1` A binary produced from unchanged code with NC
+`A.1.1` A binary produced from unchanged code with NC
     fails where the one produced by OC worked.
 
 *Examples of failures*: linkage error, runtime exceptions not
         present in previous versions, deadlocks, race conditions
 
-### `8.2` Binary Change, non-issues
+### `A.2` Binary Change, non-issues
 
-`8.2.1` A binary compiled with NC may be rejected by
+`A.2.1` A binary compiled with NC may be rejected by
     OC, when it relies on new language features unsupported in OC.
 
-`8.2.2` A binary compiled against a newer version of
+`A.2.2` A binary compiled against a newer version of
     kotlin-stdlib fails when an older version of kotlin-stdlib is
     supplied at runtime.
 
-`8.2.3` Adding generic parameters to existing
+`A.2.3` Adding generic parameters to existing
     declarations does not change the ABI on the JVM (due to erasure).
 
-`8.2.4` Changes to signatures of functions marked
+`A.2.4` Changes to signatures of functions marked
     @InlineOnly are not changing the ABI on the JVM.
 
-`8.2.5` Adding supertypes to existing library
+`A.2.5` Adding supertypes to existing library
 classes/interfaces.
 
-### `8.3` Source Change, issues
+### `A.3` Source Change, issues
 
-`8.3.1` Sources that compiled with OC don't compile
+`A.3.1` Sources that compiled with OC don't compile
     with NC against the same classpath.
 
-`8.3.2` Unchanged sources compile with NC, but their
+`A.3.2` Unchanged sources compile with NC, but their
     behavior changes in a way significant for contract-abiding use
     cases.
 
-### `8.4` Source Change, non-issues
+### `A.4` Source Change, non-issues
 
-`8.4.1` Code compilable with NC fails to compile with
+`A.4.1` Code compilable with NC fails to compile with
     OC (e.g. due to new language features supported in NC).
 
-`8.4.2` The code breaks only if the user alters the
+`A.4.2` The code breaks only if the user alters the
     build configuration or compiler settings explicitly (i.e. in
     addition to advancing the compiler version).
 
-### `8.5` Library Change, issues
+### `A.5` Library Change, issues
 
-`8.5.1` Making a contract on existing API more strict
+`A.5.1` Making a contract on existing API more strict
     than it used to be in a previous version.
 
-### `8.6` Library Change, non-issues
+### `A.6` Library Change, non-issues
 
-`8.6.1` Relaxing a contract on existing APIs.
+`A.6.1` Relaxing a contract on existing APIs.
 
-`8.6.2` Clarification for unspecified behaviors.
+`A.6.2` Clarification for unspecified behaviors.
 
-`8.6.3` Changes in hashCode() are not breaking
+`A.6.3` Changes in hashCode() are not breaking
     changes.
 
-`8.6.4` Changes in toString() on other than Boolean,
+`A.6.4` Changes in toString() on other than Boolean,
     Numeric, and String types are not breaking changes.
 
-`8.6.5` Improper loading of two different versions of
+`A.6.5` Improper loading of two different versions of
     stdlib at runtime.
 
 
-### `8.7` Performance changes
+### `A.7` Performance changes
 
 We recognize that runtime performance and bytecode size are important
 metrics, and will make reasonable effort to keep them in a good shape,
@@ -322,46 +322,46 @@ but we don't consider every slowdown (e.g. in edge cases or in very cold
 code) and every extra byte in the classfile a breaking change.
 
 
-## Appendix `9` Examples of subtle issues
+## Appendix `B` Examples of subtle issues
 
 Banishing the changes listed in this section may pose significant
 problems for language evolution.
 
-`9.1` Changes in type inference and overload
+`B.1` Changes in type inference and overload
     resolution algorithms.
 
-`9.1.1` It's reasonable to assume that overloads of
+`B.1.1` It's reasonable to assume that overloads of
     the same function are generally intended to do the same thing. So,
     though undesirable, a change in overload resolution that causes a
     different overload to be selected, may be acceptable. We encourage
     our users to follow this principle when defining overloaded
     functions.
 
-`9.1.2` Some improvements in the language (such as
+`B.1.2` Some improvements in the language (such as
     type inference, for example) may result in more precise static types
     known for some expressions. This may cause changes in overload
     resolution [as stated above](#10.1.1), or even in type
     signatures of declarations when return types are inferred from
     bodies.
 
-`9.1.3` some innocuous-looking changes in the source
+`B.1.3` some innocuous-looking changes in the source
     code, done by the user, may cause similar effects. We encourage our
     users to specify return types explicitly on public APIs to ensure
     their stability and binary compatibility.
 
-`9.1.4` Other improvements in type inference may
+`B.1.4` Other improvements in type inference may
     cause edge cases to break or change their results, but it's often
     tolerable to introduce such changes.
 
 
-`9.2` Changes in private/synthetic JVM signatures
+`B.2` Changes in private/synthetic JVM signatures
 generated by the compiler.
 
 While generally an implementation detail that we would like to change,
 in exceptional cases when some users may rely heavily on such
 declarations, extra care will be required in introducing the changes.
 
-`9.3` Moving classes from one JAR to another.
+`B.3` Moving classes from one JAR to another.
 
 This may be required by the platform (e.g. JVM does not allow split
 packages, and the "kotlin" package has historically been split across
@@ -370,7 +370,7 @@ ProGuard, rejecting duplicate classes, etc). A reasonable migration
 strategy has to be worked out in each individual case, and some pain on
 the user end may be inevitable.
 
-`9.4` Compatibility with the future.
+`B.4` Compatibility with the future.
 
 In the case of unsigned arithmetic and value types for Kotlin, we know
 that Java is going to add them some time in the future, and our present
@@ -381,7 +381,7 @@ break. This is a matter of choosing a trade-off and a reasonable
 deprecation/migration policy.
 
 
-`9.5` Compatibility of mental models.
+`B.5` Compatibility of mental models.
 
 Kotlin unsigned integers will be signed for Java clients, and the
 programmer that works with the same API in the Java code will be
@@ -389,7 +389,7 @@ surprised by getting different result. While an undesirable situation,
 this is sometimes inevitable, and should not be considered a breaking
 change (it does not fall under the intuitive definition of one anyway).
 
-`9.6` Interop compatibility vs improvements.
+`B.6` Interop compatibility vs improvements.
 
 *Example*: Android SDK needs to introduce nullability annotations,
 which will likely break source compatibility for many users. We still
