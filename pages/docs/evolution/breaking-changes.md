@@ -396,6 +396,11 @@ which will likely break source compatibility for many users. We still
 want to do it, but devise a migration mechanism that will first report
 future issues as warnings, and let the users migrate.
 
+
+
+
+<!-- Make sure the numbering is correct, and if not, report the errors -->
+
 <script language="javascript">
 sections = Array.from(document.getElementsByTagName("code"));
 report = document.getElementById("report");
@@ -408,14 +413,21 @@ function reportError(text, lastSecText) {
     
 lastSec = [];
 lastSecText = "";
+appendixBase = 0;
 function checkOrdering(groups) {
     currentSec = [];
     for (j = 1; j < groups.length && groups[j]; j += 2) {        
         level = (j / 2) | 0;              
-        currentValue = Number.parseInt(groups[j]);
+        group = groups[j];
+        currentValue = Number.parseInt(group);
+        if (Number.isNaN(currentValue))
+            currentValue = appendixBase + group.charCodeAt(0) - "A".charCodeAt(0) + 1; 
+          else if (level == 0) {
+              appendixBase = currentValue;
+          }
         currentSec[level] = currentValue;        
     }
-    currentSecText = currentSec.join(".");
+    currentSecText = groups[0];
     
     if (currentSec.length > lastSec.length + 1) {
         reportError(currentSecText, lastSecText)
@@ -453,7 +465,7 @@ for (i = 0; i < sections.length; i++) {
     sec = sections[i];
     text = sec.innerText;
     
-    groups = text.match("^([0-9]+)(\.([0-9]+))?(\.([0-9]+))?(\.([0-9]+))?$");
+    groups = text.match("^([0-9ABC]+)(\.([0-9]+))?(\.([0-9]+))?(\.([0-9]+))?$");
     if (!groups) continue;
     
     correct = checkOrdering(groups);
