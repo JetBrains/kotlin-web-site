@@ -27,6 +27,11 @@ files in "org.example.kotlin.foo.bar" should be in the "foo/bar" subdirectory of
 Placing multiple declarations (classes, top-level functions or properties) in the same Kotlin source file is encouraged
 as long as these declarations are closely related to each other semantically.
 
+In particular, when defining extension functions for a class which are relevant for all clients of this class,
+put them in the same file where the class itself is defined. When defining extension functions that make sense 
+only for a specific client, put them next to the code of that client. Do not create files just to hold 
+"all extensions of Foo".
+
 ### Source file names
 
 If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
@@ -41,15 +46,51 @@ words such as "Util" in file names.
 
 Kotlin follows the Java naming conventions. In particular:
 
- * Names of packages are always lower case and do not use underscores (`org.example.myproject`). Using multi-word
-   names is generally discouraged, but if you do need to use multiple words, you can either simply concatenate them together
-   or use camel humps (`org.example.myProject`).
- * Names of classes start with an upper case letter and use camel humps (`class DeclarationProcessor`)
- * Names of functions and properties start with a lower case letter and use camel humps and no underscores 
-   (`fun processDeclarations()`, `val declarationCount`)
- * Names of constants should use uppercase underscore-separated names (`const val MAX_COUNT = 8`) 
- * For enum constants, it's OK to use either uppercase underscore-separated names
-   (`enum class Color { RED, GREEN }`) or regular camel-humps names starting with an uppercase letter, depending on the usage.
+Names of packages are always lower case and do not use underscores (`org.example.myproject`). Using multi-word
+names is generally discouraged, but if you do need to use multiple words, you can either simply concatenate them together
+or use camel humps (`org.example.myProject`).
+
+Names of classes and objects start with an upper case letter and use camel humps:
+
+``` kotlin
+open class DeclarationProcessor { ... }
+
+object EmptyDeclarationProcessor : DeclarationProcessor() { ... }
+```
+ 
+Names of functions, properties and local variables start with a lower case letter and use camel humps and no underscores:
+
+``` kotlin
+fun processDeclarations() { ... }
+var declarationCount = ...
+``` 
+
+Exception: factory functions used to create instances of classes can have the same name as the class being created:
+
+``` kotlin
+abstract class Foo { ... }
+
+class FooImpl : Foo { ... }
+
+fun Foo(): Foo { return FooImpl(...) }
+```
+
+Names of constants (properties marked with `const`, or top-level or object properties that hold data) 
+should use uppercase underscore-separated names:
+
+``` kotlin
+const val MAX_COUNT = 8
+val USER_NAME_FIELD = "UserName"
+``` 
+
+Names of top-level or object properties which hold objects with behavior should use title-cased camel-hump names:
+
+``` kotlin
+val PersonComparator: Comparator<Person> = ...
+``` 
+ 
+For enum constants, it's OK to use either uppercase underscore-separated names
+(`enum class Color { RED, GREEN }`) or regular camel-humps names starting with an uppercase letter, depending on the usage.
    
 When using an acronym as part of a declaration name, capitalize it if it consists of two letters (`IOStream`);
 capitalize only the first letter if it is longer (`HttpInputStream`).  
@@ -141,6 +182,9 @@ Do not put spaces around `::`: `Foo::class`, `String::length`
 
 Do not put a space before `?` used to mark a nullable type: `String?`
 
+As a general rule, avoid horizontal alignment of any kind. Renaming an identifier to a name with a different length
+should not affect the formatting of either the declaration or any of the usages.
+
 ### Colon
 
 Put a space before `:` in the following cases:
@@ -206,7 +250,7 @@ class Person(
 
 Prefer putting a blank line after the class header to make it clear where the header ends and the class body begins.
 
-Constructor parameters can use either the regular indent or the continuation indent (double the regular indent).
+Use regular indent (4 spaces) for constructor parameters.
 
 ## Class layout
 
@@ -247,7 +291,7 @@ fun longMethodName(
 }
 ```
 
-Function parameters can use either the regular indent or the continuation indent (double the regular indent).
+Use regular indent (4 spaces) for function parameters.
 
 Prefer using an expression body for functions with the body consisting of a single expression.
 
@@ -267,30 +311,6 @@ Indent the expression body by 4 spaces.
 ``` kotlin
 fun f(x: String) =
     x.length
-```
-
-### Formatting of expressions used as function expression bodies
-
-If the body of a function is an `when` or `object` expression, you may put the closing brace of the expression on the 
-same indentation level as where the function closing curly brace would be.
-
-``` kotlin
-fun f(x: String) = when (x) {
-    "foo" -> ...
-    else -> ...
-}
-```
-
-However, if the function header is long and can't be fit on the same line as function declaration (because the declaration
-is too long, the condition is complex, or the object expression needs a complex set of super-types), then the expression
-is on a new line and the closing brace of the expression is on the same indentation level as the head of the expression:
-
-``` kotlin
-fun f(x: String, y: String) =
-    when (x.substring(y.length - 1) {
-        "foo" -> ...
-        else -> ...
-    }
 ```
 
 ### Unit
@@ -388,6 +408,16 @@ from the body. If a call takes a single lambda, it should be passed outside of p
 list.filter { it > 10 }
 ```
 
+If assigning a label for a lambda, do not put a space between the label and the opening curly brace:
+
+``` kotlin
+fun foo() {
+    ints.forEach lit@{
+        // ...
+    }
+}
+```
+
 ### Lambda parameters
 
 In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
@@ -398,6 +428,17 @@ When declaring parameter names in a multiline lambda, put the names on the first
 ``` kotlin
 appendCommaSeparated(properties) { prop ->
     val propertyValue = prop.get(obj)  // ...
+}
+```
+
+If the parameter list is too long to fit on a line, put the arrow on a separate line:
+
+``` kotlin
+foo { 
+   context: Context, 
+   environment: Env
+   ->
+   context.configureEnv(environment)
 }
 ```
 
@@ -487,9 +528,36 @@ use `if (x == null) ... else ...`
 
 Prefer using `when` if there are three or more options.
 
-### Formatting `when` statements
+### Formatting control flow statements
 
-In a `when` statement, if a branch is more than a single line, always separate it from adjacent case blocks with a blank line:
+If the condition of an `if` or `when` statement is multiline, always use curly braces around the body of the statement.
+Put the closing parentheses of the condition together with the opening curly brace on a separate line:
+
+``` kotlin
+if (!component.isSyncing &&
+    !hasAnyKotlinRuntimeInScope(module)
+) {
+    return createKotlinNotConfiguredPanel(module)
+}
+```
+
+Put the `else` and `finally` keywords on the same line as the preceding curly brace:
+
+``` kotlin
+if (condition) {
+    // body
+} else {
+    // else part
+}
+
+try {
+    // body
+} finally {
+    // cleanup
+} 
+```
+
+In a `when` statement, if a branch is more than a single line, consider separating it from adjacent case blocks with a blank line:
 
 ```
 private fun parsePropertyValue(propName: String, token: Token) {
@@ -518,7 +586,7 @@ If you need to use a nullable `Boolean` in a conditional statement, use `if (val
 
 ## Using loops
 
-Prefer using higher-order functions (`filter`, `map` etc.) to loops. Exception: `forEach` (prefer using a regular for loop instead,
+Prefer using higher-order functions (`filter`, `map` etc.) to loops. Exception: `forEach` (prefer using a regular `for` loop instead,
 unless the receiver of `forEach` is nullable or `forEach` is used as part of a longer call chain).
 
 When making a choice between a complex expression using multiple higher-order functions and a loop, understand the cost
@@ -560,7 +628,7 @@ Don't declare a method as infix if it mutates the receiver object.
 
 ## Factory functions
 
-If you declare a factory function for a class, don't give it the same name as the class itself. Use a distinct name
+If you declare a factory function for a class, avoid giving it the same name as the class itself. Prefer using a distinct name
 making it clear why the behavior of the factory function is special. Example:
 
 ``` kotlin
@@ -604,15 +672,17 @@ Place all annotations before modifiers:
 private val foo: Foo
 ```
 
+Unless you're working on a library, omit redundant modifiers (e.g. `public`).
+
 ## Platform types
 
-A public function/method returning an expression of a platform type must declare its kotlin type explicitly:
+A public function/method returning an expression of a platform type must declare its Kotlin type explicitly:
 
 ``` kotlin
 fun apiCall(): String = MyJavaApi.getProperty("name")
 ```
 
-Any property (package-level or class-level) initialised with an expression of a platform type must declare its kotlin type explicitly:
+Any property (package-level or class-level) initialised with an expression of a platform type must declare its Kotlin type explicitly:
 
 ``` kotlin
 class Person {
