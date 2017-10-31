@@ -37,7 +37,7 @@ for high scalability and offering an easy-to-use and idiomatic API.
 It serves as an alternative to traditional templating systems such as JSP and FreeMarker.
 
  * The available options for persistence include direct JDBC access, JPA, as well as using NoSQL databases through their Java drivers.
-For JPA, the [kotlin-jpa compiler plugin](/docs/reference/compiler-plugins.html#kotlin-jpa-compiler-plugin) adapts
+For JPA, the [kotlin-jpa compiler plugin](/docs/reference/compiler-plugins.html#jpa-support) adapts
 Kotlin-compiled classes to the requirements of the framework.
 
 ## Deploying Kotlin Server-side Applications

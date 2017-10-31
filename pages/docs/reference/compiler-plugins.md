@@ -159,7 +159,7 @@ The *no-arg* compiler plugin generates an additional zero-argument constructor f
 
 The generated constructor is synthetic so it can’t be directly called from Java or Kotlin, but it can be called using reflection.
 
-This allows the Java Persistence API (JPA) to instantiate the `data` class although it doesn't have the zero-parameter constructor from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [below](compiler-plugins.html#kotlin-jpa-compiler-plugin)).
+This allows the Java Persistence API (JPA) to instantiate the `data` class although it doesn't have the zero-parameter constructor from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [below](compiler-plugins.html#jpa-support)).
 
 ### Using in Gradle
 
