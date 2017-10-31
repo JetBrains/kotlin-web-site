@@ -124,16 +124,3 @@
         background-size: 200px 100px;
     }
 }
-
-.conference-banner {
-    position: absolute;
-    top: 0;
-    right: 50px;
-
-    .conference-banner__img {
-        width: 205px;
-        height: 100px;
-        background: url("images/kotlinconf_banner.svg");
-        background-repeat: no-repeat;
-    }
-}
