@@ -142,18 +142,18 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
     children = [element for element in content.children if isinstance(element, Tag)]
     if children[0].name not in headers:
         return get_page_index_objects(content, url, page_path, title, page_type, page_views)
-    title = ""
+    block_title = ""
     content = []
     url_with_href = ""
     for child in children:
         if child.name in headers:
-            if title != '':
+            if block_title != '':
                 for ind, page_part in enumerate(get_valuable_content(content)):
                     page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
-                                 'title': title, 'type': page_type, 'pageViews': page_views}
+                                 'title': block_title + ' - ' + title, 'type': page_type, 'pageViews': page_views}
                     index_objects.append(page_info)
             url_with_href = url + '#' + child.get('id')
-            title = child.text
+            block_title = child.text
             content = []
         else:
             content.append(child)
