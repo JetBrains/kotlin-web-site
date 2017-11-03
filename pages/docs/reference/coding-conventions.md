@@ -15,7 +15,7 @@ If in doubt, default to the Java Coding Conventions such as:
 * use of camelCase for names (and avoid underscore in names)
 * types start with upper case
 * methods and properties start with lower case
-* use 4 space indentation
+* use 2 space indentation
 * public functions should have documentation such that it appears in Kotlin Doc
 
 ## Colon
