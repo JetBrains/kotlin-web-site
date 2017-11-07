@@ -241,7 +241,7 @@ the inappropriate usages;
 
 * `MigrationStatus.IGNORE` makes the compiler ignore the nullability annotation completely.
 
-A library maintainer can add `@UnderMigration` status to both type qualifier nicknames and type qualifier defautls:  
+A library maintainer can add `@UnderMigration` status to both type qualifier nicknames and type qualifier defaults:  
 
 ```java
 @Nonnull(when = When.ALWAYS)
