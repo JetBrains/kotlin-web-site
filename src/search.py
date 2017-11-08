@@ -129,7 +129,7 @@ def get_page_index_objects(content: Tag, url: str, page_path: str, title: str, p
                            page_views: int) -> List[Dict]:
     index_objects = []
     for ind, page_part in enumerate(get_valuable_content(content.children)):
-        page_info = {'url': url, 'objectID': page_path + '#' + str(ind), 'content': page_part, 'title': title,
+        page_info = {'url': url, 'objectID': page_path + '#' + str(ind), 'content': page_part,
                      'headings': title, 'type': page_type, 'pageViews': page_views}
         index_objects.append(page_info)
     return index_objects
@@ -150,7 +150,7 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
             if block_title != '':
                 for ind, page_part in enumerate(get_valuable_content(content)):
                     page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
-                                 'title': block_title, 'headings': block_title, 'pageTitle': title, 'type': page_type,
+                                 'headings': block_title, 'pageTitle': title, 'type': page_type,
                                  'pageViews': page_views}
                     index_objects.append(page_info)
             url_with_href = url + '#' + child.get('id')
@@ -228,7 +228,6 @@ def build_search_indices(site_structure, pages):
                 index_objects.append({
                     'objectID': page_path,
                     'type': 'Page',
-                    'title': title,
                     'headings': title,
                     'url': url,
                     'content': '',
