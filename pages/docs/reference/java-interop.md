@@ -124,7 +124,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
   * Android (`com.android.annotations` and `android.support.annotations`)
-  * JSR-305 (`javax.annotation`)
+  * JSR-305 (`javax.annotation`, more details below)
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`).
@@ -183,7 +183,9 @@ Such annotation type should itself be annotated with both `@Nonnull` (or its nic
 with one or more `ElementType` values:
 * `ElementType.METHOD` for return types of methods;
 * `ElementType.PARAMETER` for value parameters;
-* `ElementType.FIELD` for fields.
+* `ElementType.FIELD` for fields; and
+* `ElementType.TYPE_USE` (since 1.1.60) for any type including type arguments, upper bounds of type parameters and wildcard types.
+
 
 The default nullability is used when a type itself is not annotated by a nullability annotation, and the default is
 determined by the innermost enclosing element annotated with a type qualifier default annotation with the 
@@ -196,7 +198,7 @@ public @interface NonNullApi {
 }
 
 @Nonnull(when = When.MAYBE)
-@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
+@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE_USE})
 public @interface NullableApi {
 }
 
@@ -207,6 +209,10 @@ interface A {
     @NotNullApi // overriding default from the interface
     String bar(String x, @Nullable String y); // fun bar(x: String, y: String?): String 
     
+    // The List<String> type argument is seen as nullable because of `@NullableApi`
+    // having the `TYPE_USE` element type: 
+    String baz(List<String> x); // fun baz(List<String?>?): String?
+
     // The type of `x` parameter remains platform because there's explicit UNKNOWN-marked
     // nullability annotation:
     String qux(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
@@ -221,16 +227,65 @@ Package-level default nullability is also supported:
 package test;
 ```
 
+#### `@UnderMigration` annotation (since 1.1.60)
+
+The `@UnderMigration` annotation (provided in a separate artifact `kotlin-annotations-jvm`) can be used by library 
+maintainers to define the migration status for the nullability type qualifiers.
+
+The status value in `@UnderMigration(status = ...)` specifies how the compiler treats inappropriate usages of the 
+annotated types in Kotlin (e.g. using a `@MyNullable`-annotated type value as non-null):
+
+* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. reporting error for 
+the inappropriate usages;
+
+* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors; and
+
+* `MigrationStatus.IGNORE` makes the compiler ignore the nullability annotation completely.
+
+A library maintainer can add `@UnderMigration` status to both type qualifier nicknames and type qualifier defaults:  
+
+```java
+@Nonnull(when = When.ALWAYS)
+@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
+@UnderMigration(status = MigrationStatus.WARN)
+public @interface NonNullApi {
+}
+
+// The types in the class are non-null, but only warnings are reported
+// because `@NonNullApi` is annotated `@UnderMigration(status = MigrationStatus.WARN)`
+@NonNullApi 
+public class Test {}
+```
+
+Note: the migration status of a nullability annotation is not inherited by its type qualifier nicknames but is applied
+to its usages in default type qualifiers.
+
+If a default type qualifier uses a type qualifier nickname and they are both `@UnderMigration`, the status
+from the default type qualifier is used. 
+
 #### Compiler configuration
 
-The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with one of the values:
+The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with the following options (and their combination):
 
-* `-Xjsr305=strict` makes JSR-305 annotation work as any plain nullability annotation, i.e. reporting error for 
-the inappropriate usages of the annotated types;
+* `-Xjsr305={strict|warn|ignore}` to set up the behavior for non-`@UnderMigration` annotations.
+Custom nullability qualifiers, especially 
+`@TypeQualifierDefault`, are already spread among many well-known libraries, and users may need to migrate smoothly when 
+updating to the Kotlin version containing JSR-305 support. Since Kotlin 1.1.60, this flag only affects non-`@UnderMigration` annotations.
 
-* `-Xjsr305=warn` makes the inappropriate usages produce compilation warnings instead of errors;
+* `-Xjsr305=under-migration:{strict|warn|ignore}` (since 1.1.60) to override the behavior for the `@UnderMigration` annotations.
+Users may have different view on the migration status for the libraries: 
+they may want to have errors while the official migration status is `WARN`, or vice versa, 
+they may wish to postpone errors reporting for some until they complete their migration.
 
-* `-Xjsr305=ignore` makes the compiler ignore the JSR-305 nullability annotations completely.
+* `-Xjsr305=@<fq.name>:{strict|warn|ignore}` (since 1.1.60) to override the behavior for a single annotation, where `<fq.name>` 
+is the fully qualified class name of the annotation. May appear several times for different annotations. This is useful
+for managing the migration state for a particular library.
+
+The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`.
+
+For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the 
+compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by 
+`@org.library.MyNullable` and ignore all other JSR-305 annotations. 
 
 For kotlin versions 1.1.50+/1.2, the default behavior is the same to `-Xjsr305=warn`. The
 `strict` value should be considered experimental (more checks may be added to it in the future).
