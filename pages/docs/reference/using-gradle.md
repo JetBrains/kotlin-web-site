@@ -57,7 +57,7 @@ project
             - java
 ```
 
-The corresponding *sourceSets* property should be updated if not using the default convention
+The corresponding *sourceSets* property should be updated if not using the default convention:
 
 ``` groovy
 sourceSets {
@@ -75,7 +75,7 @@ apply plugin: "kotlin2js"
 ```
 
 This plugin only works for Kotlin files so it is recommended to keep Kotlin and Java files separate (if it's the case that the same project contains Java files). As with
-targeting the JVM, if not using the default convention, we need to specify the source folder using *sourceSets*
+targeting the JVM, if not using the default convention, we need to specify the source folder using *sourceSets*:
 
 ``` groovy
 sourceSets {
@@ -92,7 +92,6 @@ compileKotlin2Js {
 	kotlinOptions.metaInfo = true
 }
 ```
-
 
 ## Targeting Android
 
@@ -130,7 +129,6 @@ android {
 ```
 
 This lets Android Studio know that the kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized. Alternatively, you can put Kotlin classes in the Java source directory, typically located in `src/main/java`.
-
 
 
 ## Configuring Dependencies
@@ -205,6 +203,16 @@ kotlin {
         coroutines 'enable'
     }
 }
+```
+
+## Module names
+
+The Kotlin modules that the build produces are named accordingly to the `archivesBaseName` property of the project. If a project has a broad name like `lib` or `jvm`, which is common for subprojects, the Kotlin output files related to the module (`*.kotlin_module`) might clash with those from third-party modules with the same name. This causes problems when a project is packaged into a single archive (e.g. APK).
+
+To avoid this, consider setting a unique `archivesBaseName` manually:
+
+``` groovy
+archivesBaseName = 'myExampleProject_lib'
 ```
 
 ## Compiler Options

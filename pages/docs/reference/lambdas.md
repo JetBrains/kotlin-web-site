@@ -44,8 +44,8 @@ val result = lock(lock, { sharedResource.operation() })
 
 Lambda expressions are described in more [detail below](#lambda-expressions-and-anonymous-functions), but for purposes of continuing this section, let's see a brief overview:
 
-* A lambda expression is always surrounded by curly braces,
-* Its parameters (if any) are declared before `->` (parameter types may be omitted),
+* A lambda expression is always surrounded by curly braces;
+* Its parameters (if any) are declared before `->` (parameter types may be omitted);
 * The body goes after `->` (when present).
 
 In Kotlin, there is a convention that if the last parameter to a function is a function, and you're passing a lambda expression as the corresponding argument, you can specify it outside of parentheses:
@@ -116,7 +116,7 @@ max(strings, { a, b -> a.length < b.length })
 ```
 
 Function `max` is a higher-order function, i.e. it takes a function value as the second argument.
-This second argument is an expression that is itself a function, i.e. a function literal. As a function, it is equivalent to
+This second argument is an expression that is itself a function, i.e. a function literal. As a function, it is equivalent to:
 
 ``` kotlin
 fun compare(a: String, b: String): Boolean = a.length < b.length
@@ -165,7 +165,7 @@ val sum = { x: Int, y: Int -> x + y }
 ```
 
 A lambda expression is always surrounded by curly braces,
-parameter declarations in the full syntactic form go inside parentheses and have optional type annotations,
+parameter declarations in the full syntactic form go inside curly braces and have optional type annotations,
 the body goes after an `->` sign. If the inferred return type of the lambda is not `Unit`, the last (or possibly single) expression inside the lambda body is treated as the return value.
 
 If we leave all the optional annotations out, what's left looks like this:
@@ -280,6 +280,19 @@ This can be useful if you need to declare a variable of a function type with rec
 val sum = fun Int.(other: Int): Int = this + other
 ```
 
+A non-literal value of a function-with-receiver type can also be assigned or passed as an argument where an ordinary function is expected that has an
+additional *first* parameter of the receiver type, and vice versa. For example, the types `String.(Int) -> Boolean` and `(String, Int) -> Boolean` are compatible:
+
+``` kotlin
+val represents: String.(Int) -> Boolean = { other -> toIntOrNull() == other }
+println("123".represents(123)) // true
+
+fun testOperation(op: (String, Int) -> Boolean, a: String, b: Int, c: Boolean) =
+    assert(op(a, b) == c)
+    
+testOperation(represents, "100", 100, true) // OK
+```
+
 Lambda expressions can be used as function literals with receiver when the receiver type can be inferred from context.
 
 ``` kotlin
@@ -298,3 +311,5 @@ html {       // lambda with receiver begins here
     body()   // calling a method on the receiver object
 }
 ```
+
+

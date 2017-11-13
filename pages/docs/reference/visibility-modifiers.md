@@ -32,6 +32,8 @@ visible everywhere;
 * If you mark it `internal`, it is visible everywhere in the same [module](#modules);
 * `protected` is not available for top-level declarations.
 
+Note: to use a visible top-level declaration from another package, you should still [import](packages.html#imports) it.
+
 Examples:
 
 ``` kotlin

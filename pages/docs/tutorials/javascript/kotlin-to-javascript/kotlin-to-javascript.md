@@ -42,7 +42,7 @@ Kotlin compiler would generate the following output
 
    ![Compiler Output]({{ url_for('tutorial_img', filename='javascript/kotlin-to-javascript/compiler-output.png')}})
    
-Note: the `lib` directory which contains `kotlin.js` and other library files is created when the build is run from IntelliJ IDEA and is controlled by the *Copy library runtime files* flag in the Kotlin [facet settings](https://www.jetbrains.com/help/idea/facets.html). In a Maven or Gradle build, no library files are copied by default to the compilation output directory, see the corresponding tutorials for the instructions.
+Note: the `lib` directory which contains `kotlin.js` and other library files is only created in IntelliJ IDEA-based projects and is controlled by the *Copy library runtime files* flag in the Kotlin [facet settings](https://www.jetbrains.com/help/idea/facets.html). In a Maven or Gradle build (including multiplatform projects), no library files are copied by default to the compilation output directory. See the corresponding tutorials for the instructions on how to achieve the same with those build systems.
 
 The file we're mostly interested in is `ConsoleOutput.js`
 

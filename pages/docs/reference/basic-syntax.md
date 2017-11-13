@@ -94,7 +94,7 @@ fun main(args: Array<String>) {
 
 See [Functions](functions.html).
 
-## Defining local variables
+## Defining variables
 
 Assign-once (read-only) local variable:
 
@@ -124,6 +124,28 @@ fun main(args: Array<String>) {
     x += 1
 //sampleEnd
     println("x = $x")
+}
+```
+</div>
+
+Top-level variables:
+
+<div class="sample" markdown="1">
+``` kotlin
+//sampleStart
+val PI = 3.14
+var x = 0
+
+fun incrementX() { 
+    x += 1 
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println("x = $x; PI = $PI")
+    incrementX()
+    println("incrementX()")
+    println("x = $x; PI = $PI")
 }
 ```
 </div>
@@ -272,11 +294,11 @@ fun printProduct(arg1: String, arg2: String) {
 //sampleStart
     // ...
     if (x == null) {
-        println("Wrong number format in arg1: '${arg1}'")
+        println("Wrong number format in arg1: '$arg1'")
         return
     }
     if (y == null) {
-        println("Wrong number format in arg2: '${arg2}'")
+        println("Wrong number format in arg2: '$arg2'")
         return
     }
 
@@ -602,3 +624,49 @@ fun main(args: Array<String>) {
 </div>
 
 See [Higher-order functions and Lambdas](lambdas.html).
+
+## Creating basic classes and their instances:
+
+<div class="sample" markdown="1">
+
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+    val rectangle = Rectangle(5.0, 2.0) //no 'new' keyword required
+    val triangle = Triangle(3.0, 4.0, 5.0)
+//sampleEnd
+    println("Area of rectangle is ${rectangle.calculateArea()}, its perimeter is ${rectangle.perimeter}")
+    println("Area of triangle is ${triangle.calculateArea()}, its perimeter is ${triangle.perimeter}")
+}
+
+abstract class Shape(val sides: List<Double>) {
+    val perimeter: Double get() = sides.sum()
+    abstract fun calculateArea(): Double
+}
+
+interface RectangleProperties {
+    val isSquare: Boolean
+}
+
+class Rectangle(
+    var height: Double,
+    var length: Double
+) : Shape(listOf(height, length, height, length)), RectangleProperties {
+    override val isSquare: Boolean get() = length == height
+    override fun calculateArea(): Double = height * length
+}
+
+class Triangle(
+    var sideA: Double,
+    var sideB: Double,
+    var sideC: Double
+) : Shape(listOf(sideA, sideB, sideC)) {
+    override fun calculateArea(): Double {
+        val s = perimeter / 2
+        return Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC))
+    }
+}
+```
+</div>
+
+See [classes](classes.html) and [objects and instances](object-declarations.html).

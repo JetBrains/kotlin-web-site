@@ -1,4 +1,144 @@
 - geo:
+    lat: 35.8245029
+    lng: 10.634584
+  name: Susah, Tunisia
+- geo:
+    lat: 50.2103605
+    lng: 15.825211
+  name: Hradec Králové, Czech Republic
+- geo:
+    lat: 20.6719563
+    lng: -103.416501
+  name: Zapopan, Mexico
+- geo:
+    lat: 6.827622799999999
+    lng: -5.2893433
+  name: Yamoussoukro­, Ivory Coast
+- geo:
+    lat: 51.1078852
+    lng: 17.0385376
+  name: Wroclaw, Poland
+- geo:
+    lat: 31.2000924
+    lng: 29.9187387
+  name: Alexandria, Egypt
+- geo:
+    lat: 42.3736158
+    lng: -71.10973349999999
+  name: Cambridge, MA
+- geo:
+    lat: 35.7642515
+    lng: 10.8112885
+  name: al-Munastir, Tunisia
+- geo:
+    lat: -7.7955798
+    lng: 110.3694896
+  name: Yogyakarta, Indonesia
+- geo:
+    lat: 47.5595986
+    lng: 7.5885761
+  name: Basel, Switzerland
+- geo:
+    lat: 38.9822282
+    lng: -94.6707917
+  name: Overland Park, KS
+- geo:
+    lat: 39.7667061
+    lng: 30.52563109999999
+  name: Eskisehir, Turkey
+- geo:
+    lat: 47.2357137
+    lng: 39.701505
+  name: Rostov-on-Don, Russia
+- geo:
+    lat: 44.8564798
+    lng: 24.8691824
+  name: Pitesti, Romania
+- geo:
+    lat: 39.0997265
+    lng: -94.5785667
+  name: Kansas City, MO
+- geo:
+    lat: 43.0831301
+    lng: -73.7845651
+  name: Saratoga Springs, NY
+- geo:
+    lat: -15.4996879
+    lng: -70.12965299999999
+  name: Juliaca, Peru
+- geo:
+    lat: 27.950575
+    lng: -82.4571776
+  name: Tampa, FL
+- geo:
+    lat: -22.3679387
+    lng: -46.9432454
+  name: Mogi Guaçu, Brazil
+- geo:
+    lat: 40.44062479999999
+    lng: -79.9958864
+  name: Pittsburgh, PA
+- geo:
+    lat: 47.218371
+    lng: -1.553621
+  name: Nantes, France
+- geo:
+    lat: 40.76754400000001
+    lng: 114.886335
+  name: Zhangjiakou, China
+- geo:
+    lat: 51.9851034
+    lng: 5.898729599999999
+  name: Arnhem, Netherlands
+- geo:
+    lat: 53.0137902
+    lng: 18.5984437
+  name: Torun, Poland
+- geo:
+    lat: 47.6062095
+    lng: -122.3320708
+  name: Seattle, WA
+- geo:
+    lat: 51.7189205
+    lng: 8.757509299999999
+  name: Paderborn, Germany
+- geo:
+    lat: 44.7721811
+    lng: 17.191
+  name: Banja Luka, Bosnia-Herzegovina
+- geo:
+    lat: 52.0302285
+    lng: 8.532470800000002
+  name: Bielefeld, Germany
+- geo:
+    lat: 52.1561113
+    lng: 5.387826599999999
+  name: Amersfoort, Netherlands
+- geo:
+    lat: 60.39126279999999
+    lng: 5.3220544
+  name: Bergen, Norway
+- geo:
+    lat: 28.0870967
+    lng: 30.7618397
+  name: Minia, Egypt
+- geo:
+    lat: 42.2808256
+    lng: -83.7430378
+  name: Ann Arbor, MI
+- geo:
+    lat: 43.0389025
+    lng: -87.9064736
+  name: Milwaukee, WI
+- geo:
+    lat: 52.1205333
+    lng: 11.6276237
+  name: Magdeburg, Germany
+- geo:
+    lat: 5.3599517
+    lng: -4.0082563
+  name: Abidjan, Ivory Coast
+- geo:
     lat: 52.060669
     lng: 4.494025
   name: Zoetermeer, Netherlands

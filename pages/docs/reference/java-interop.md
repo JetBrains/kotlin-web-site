@@ -10,7 +10,7 @@ title: "Calling Java from Kotlin"
 Kotlin is designed with Java Interoperability in mind. Existing Java code can be called from Kotlin in a natural way, and Kotlin code can be used from
 Java rather smoothly as well. In this section we describe some details about calling Java code from Kotlin.
 
-Pretty much all Java code can be used without any issues
+Pretty much all Java code can be used without any issues:
 
 ``` kotlin
 import java.util.*
@@ -63,7 +63,7 @@ since the value itself is known in advance (being `Unit`).
 
 Some of the Kotlin keywords are valid identifiers in Java: *in*{: .keyword }, *object*{: .keyword }, *is*{: .keyword }, etc.
 If a Java library uses a Kotlin keyword for a method, you can still call the method
-escaping it with the backtick (`) character
+escaping it with the backtick (`) character:
 
 ``` kotlin
 foo.`is`(bar)
@@ -186,6 +186,7 @@ with one or more `ElementType` values:
 * `ElementType.FIELD` for fields; and
 * `ElementType.TYPE_USE` (since 1.1.60) for any type including type arguments, upper bounds of type parameters and wildcard types.
 
+
 The default nullability is used when a type itself is not annotated by a nullability annotation, and the default is
 determined by the innermost enclosing element annotated with a type qualifier default annotation with the 
 `ElementType` matching the type usage.
@@ -211,7 +212,7 @@ interface A {
     // The List<String> type argument is seen as nullable because of `@NullableApi`
     // having the `TYPE_USE` element type: 
     String baz(List<String> x); // fun baz(List<String?>?): String?
-    
+
     // The type of `x` parameter remains platform because there's explicit UNKNOWN-marked
     // nullability annotation:
     String qux(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
@@ -269,7 +270,7 @@ The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with
 * `-Xjsr305={strict|warn|ignore}` to set up the behavior for non-`@UnderMigration` annotations.
 Custom nullability qualifiers, especially 
 `@TypeQualifierDefault`, are already spread among many well-known libraries, and users may need to migrate smoothly when 
-updating to the Kotlin version containing JSR-305 support.
+updating to the Kotlin version containing JSR-305 support. Since Kotlin 1.1.60, this flag only affects non-`@UnderMigration` annotations.
 
 * `-Xjsr305=under-migration:{strict|warn|ignore}` (since 1.1.60) to override the behavior for the `@UnderMigration` annotations.
 Users may have different view on the migration status for the libraries: 
@@ -367,12 +368,12 @@ Java's arrays are mapped as mentioned [below](java-interop.html#java-arrays):
 
 Kotlin's generics are a little different from Java's (see [Generics](generics.html)). When importing Java types to Kotlin we perform some conversions:
 
-* Java's wildcards are converted into type projections
-  * `Foo<? extends Bar>` becomes `Foo<out Bar!>!`
-  * `Foo<? super Bar>` becomes `Foo<in Bar!>!`
+* Java's wildcards are converted into type projections,
+  * `Foo<? extends Bar>` becomes `Foo<out Bar!>!`,
+  * `Foo<? super Bar>` becomes `Foo<in Bar!>!`;
 
-* Java's raw types are converted into star projections
-  * `List` becomes `List<*>!`, i.e. `List<out Any?>!`
+* Java's raw types are converted into star projections,
+  * `List` becomes `List<*>!`, i.e. `List<out Any?>!`.
 
 Like Java's, Kotlin's generics are not retained at runtime, i.e. objects do not carry information about actual type arguments passed to their constructors,
 i.e. `ArrayList<Integer>()` is indistinguishable from `ArrayList<Character>()`.
@@ -425,7 +426,7 @@ for (x in array) { // no iterator created
 }
 ```
 
-Even when we navigate with an index, it does not introduce any overhead
+Even when we navigate with an index, it does not introduce any overhead:
 
 ``` kotlin
 for (i in array.indices) { // no iterator created
@@ -433,7 +434,7 @@ for (i in array.indices) { // no iterator created
 }
 ```
 
-Finally, *in*{: .keyword }-checks have no overhead either
+Finally, *in*{: .keyword }-checks have no overhead either:
 
 ``` kotlin
 if (i in array.indices) { // same as (i >= 0 && i < array.size)
@@ -443,7 +444,7 @@ if (i in array.indices) { // same as (i >= 0 && i < array.size)
 
 ## Java Varargs
 
-Java classes sometimes use a method declaration for the indices with a variable number of arguments (varargs).
+Java classes sometimes use a method declaration for the indices with a variable number of arguments (varargs):
 
 ``` java
 public class JavaArrayExample {
@@ -502,13 +503,13 @@ If you really need to call them, you can cast to `java.lang.Object`:
 
 ### getClass()
 
-To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.html#class-references).
+To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.html#class-references):
 
 ``` kotlin
 val fooClass = foo::class.java
 ```
 
-The code above uses a [bound class reference](reflection.html#bound-class-references-since-11), which is supported since Kotlin 1.1. You can also use the `javaClass` extension property.
+The code above uses a [bound class reference](reflection.html#bound-class-references-since-11), which is supported since Kotlin 1.1. You can also use the `javaClass` extension property:
 
 ``` kotlin
 val fooClass = foo.javaClass
@@ -548,7 +549,7 @@ At most one Java class (and as many Java interfaces as you like) can be a supert
 ## Accessing static members
 
 Static members of Java classes form "companion objects" for these classes. We cannot pass such a "companion object" around as a value,
-but can access the members explicitly, for example
+but can access the members explicitly, for example:
 
 ``` kotlin
 if (Character.isLetter(a)) {
@@ -585,7 +586,7 @@ executor.execute { println("This runs in a thread pool") }
 
 If the Java class has multiple methods taking functional interfaces, you can choose the one you need to call by
 using an adapter function that converts a lambda to a specific SAM type. Those adapter functions are also generated
-by the compiler when needed.
+by the compiler when needed:
 
 ``` kotlin
 executor.execute(Runnable { println("This runs in a thread pool") })

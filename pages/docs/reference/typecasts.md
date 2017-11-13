@@ -27,7 +27,7 @@ else {
 ## Smart Casts
 
 In many cases, one does not need to use explicit cast operators in Kotlin, because the compiler tracks the
-`is`-checks for immutable values and inserts (safe) casts automatically when needed:
+`is`-checks and [explicit casts](#unsafe-cast-operator) for immutable values and inserts (safe) casts automatically when needed:
 
 ``` kotlin
 fun demo(x: Any) {
@@ -55,7 +55,6 @@ or in the right-hand side of `&&` and `||`:
         print(x.length) // x is automatically cast to String
     }
 ```
-
 
 Such _smart casts_ work for [*when*{: .keyword }-expressions](control-flow.html#when-expression)
 and [*while*{: .keyword }-loops](control-flow.html#while-loops) as well:
@@ -88,7 +87,7 @@ val x: String = y as String
 
 Note that *null*{: .keyword } cannot be cast to `String` as this type is not [nullable](null-safety.html),
 i.e. if `y` is null, the code above throws an exception.
-In order to match Java cast semantics we have to have nullable type at cast right hand side, like
+In order to match Java cast semantics we have to have nullable type at cast right hand side, like:
 
 ``` kotlin
 val x: String? = y as String?

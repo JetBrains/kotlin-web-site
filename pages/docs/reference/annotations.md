@@ -157,15 +157,15 @@ class Example {
 
 The full list of supported use-site targets is:
 
-  * `file`
-  * `property` (annotations with this target are not visible to Java)
-  * `field`
-  * `get` (property getter)
-  * `set` (property setter)
-  * `receiver` (receiver parameter of an extension function or property)
-  * `param` (constructor parameter)
-  * `setparam` (property setter parameter)
-  * `delegate` (the field storing the delegate instance for a delegated property)
+  * `file`;
+  * `property` (annotations with this target are not visible to Java);
+  * `field`;
+  * `get` (property getter);
+  * `set` (property setter);
+  * `receiver` (receiver parameter of an extension function or property);
+  * `param` (constructor parameter);
+  * `setparam` (property setter parameter);
+  * `delegate` (the field storing the delegate instance for a delegated property).
 
 To annotate the receiver parameter of an extension function, use the following syntax:
 
@@ -176,9 +176,9 @@ fun @receiver:Fancy String.myExtension() { }
 If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
 being used. If there are multiple applicable targets, the first applicable target from the following list is used:
 
-  * `param`
-  * `property`
-  * `field`
+  * `param`;
+  * `property`;
+  * `field`.
 
 
 ## Java Annotations
@@ -203,7 +203,7 @@ class Tests {
 ```
 
 Since the order of parameters for an annotation written in Java is not defined, you can't use a regular function
-call syntax for passing the arguments. Instead, you need to use the named argument syntax.
+call syntax for passing the arguments. Instead, you need to use the named argument syntax:
 
 ``` java
 // Java
@@ -218,7 +218,7 @@ public @interface Ann {
 @Ann(intValue = 1, stringValue = "abc") class C
 ```
 
-Just like in Java, a special case is the `value` parameter; its value can be specified without an explicit name.
+Just like in Java, a special case is the `value` parameter; its value can be specified without an explicit name:
 
 ``` java
 // Java
@@ -260,7 +260,7 @@ public @interface AnnWithArrayMethod {
 @AnnWithArrayMethod(names = arrayOf("abc", "foo", "bar")) class C
 ```
 
-Values of an annotation instance are exposed as properties to Kotlin code.
+Values of an annotation instance are exposed as properties to Kotlin code:
 
 ``` java
 // Java
