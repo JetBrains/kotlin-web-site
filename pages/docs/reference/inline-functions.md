@@ -36,7 +36,7 @@ Isn't it what we wanted from the very beginning?
 To make the compiler do this, we need to mark the `lock()` function with the `inline` modifier:
 
 ``` kotlin
-inline fun lock<T>(lock: Lock, body: () -> T): T {
+inline fun <T> lock(lock: Lock, body: () -> T): T {
     // ...
 }
 ```
