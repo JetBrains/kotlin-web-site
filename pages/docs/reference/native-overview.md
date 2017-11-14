@@ -26,12 +26,12 @@ for Kotlin/Native is available as plugins for [CLion](https://www.jetbrains.com/
 
 Kotlin/Native currently supports the following platforms:
 
-    * Windows (x86_64 only at the moment)
-    * Linux (x86_64, arm32, MIPS, MIPS little endian)
-    * MacOS (x86_64)
-    * iOS (arm64 only)
-    * Android (arm32 and arm64)
-    * WebAssembly (wasm32 only)
+   * Windows (x86_64 only at the moment)
+   * Linux (x86_64, arm32, MIPS, MIPS little endian)
+   * MacOS (x86_64)
+   * iOS (arm64 only)
+   * Android (arm32 and arm64)
+   * WebAssembly (wasm32 only)
 
 ### Sample Projects
 
@@ -40,9 +40,9 @@ We've built a number of sample projects to showcase the possibilities of Kotlin/
  * The [Kotlin/Native GitHub repository](https://github.com/JetBrains/kotlin-native/tree/master/samples) contains a number of sample projects;
  * The [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner) is a simple cross-platform 
    mobile multiplayer game fully built in Kotlin/Native, consisting of the following components:
-       - a backend, using SQLite for data storage and exposing a REST/JSON API;
-       - mobile clients for iOS and Android, using OpenGL;
-       - a WebAssembly-based browser frontend for viewing the game scores.
+     - a backend, using SQLite for data storage and exposing a REST/JSON API;
+     - mobile clients for iOS and Android, using OpenGL;
+     - a WebAssembly-based browser frontend for viewing the game scores.
  * The [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) is an iOS app
    with a UIKit-based UI, showcasing the Objective/C interop facilities of Kotlin/Native.
 
