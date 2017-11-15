@@ -129,8 +129,8 @@ def get_page_index_objects(content: Tag, url: str, page_path: str, title: str, p
                            page_views: int) -> List[Dict]:
     index_objects = []
     for ind, page_part in enumerate(get_valuable_content(content.children)):
-        page_info = {'url': url, 'objectID': page_path + '#' + str(ind), 'content': page_part, 'title': title,
-                     'type': page_type, 'pageViews': page_views}
+        page_info = {'url': url, 'objectID': page_path + '#' + str(ind), 'content': page_part,
+                     'headings': title, 'type': page_type, 'pageViews': page_views}
         index_objects.append(page_info)
     return index_objects
 
@@ -142,18 +142,19 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
     children = [element for element in content.children if isinstance(element, Tag)]
     if children[0].name not in headers:
         return get_page_index_objects(content, url, page_path, title, page_type, page_views)
-    title = ""
+    block_title = ""
     content = []
     url_with_href = ""
     for child in children:
         if child.name in headers:
-            if title != '':
+            if block_title != '':
                 for ind, page_part in enumerate(get_valuable_content(content)):
                     page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
-                                 'title': title, 'type': page_type, 'pageViews': page_views}
+                                 'headings': block_title, 'pageTitle': title, 'type': page_type,
+                                 'pageViews': page_views}
                     index_objects.append(page_info)
             url_with_href = url + '#' + child.get('id')
-            title = child.text
+            block_title = child.text
             content = []
         else:
             content.append(child)
@@ -227,7 +228,7 @@ def build_search_indices(site_structure, pages):
                 index_objects.append({
                     'objectID': page_path,
                     'type': 'Page',
-                    'title': title,
+                    'headings': title,
                     'url': url,
                     'content': '',
                     'pageViews': page_views

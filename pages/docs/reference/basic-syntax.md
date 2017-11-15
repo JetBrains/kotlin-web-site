@@ -94,7 +94,7 @@ fun main(args: Array<String>) {
 
 See [Functions](functions.html).
 
-## Defining local variables
+## Defining variables
 
 Assign-once (read-only) local variable:
 
@@ -124,6 +124,28 @@ fun main(args: Array<String>) {
     x += 1
 //sampleEnd
     println("x = $x")
+}
+```
+</div>
+
+Top-level variables:
+
+<div class="sample" markdown="1">
+``` kotlin
+//sampleStart
+val PI = 3.14
+var x = 0
+
+fun incrementX() { 
+    x += 1 
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println("x = $x; PI = $PI")
+    incrementX()
+    println("incrementX()")
+    println("x = $x; PI = $PI")
 }
 ```
 </div>

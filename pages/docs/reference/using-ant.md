@@ -16,7 +16,7 @@ Kotlin provides three tasks for Ant:
 * withKotlin: Task to compile Kotlin files when using the standard *javac* Ant task.
 
 These tasks are defined in the *kotlin-ant.jar* library which is located in the *lib* folder for the [Kotlin Compiler]({{site.data.releases.latest.url}})
-
+Ant version 1.8.2+ is required.
 
 ## Targeting JVM with Kotlin-only source
 

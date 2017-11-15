@@ -13,7 +13,7 @@ Functions in Kotlin are declared using the *fun*{: .keyword } keyword:
 
 ``` kotlin
 fun double(x: Int): Int {
-    return 2*x
+    return 2 * x
 }
 ```
 

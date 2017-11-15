@@ -57,6 +57,8 @@ reference:
           title: Kotlin for Android
         - url: /docs/reference/js-overview.html
           title: Kotlin for JavaScript
+        - url: /docs/reference/native-overview.html
+          title: Kotlin/Native
         - url: /docs/reference/whatsnew11.html
           title: What's New in 1.1
 
@@ -291,3 +293,10 @@ tutorials:
       content:
         - url: /docs/tutorials/kotlin-and-ci.html
           title: Setting up Kotlin on TeamCity
+
+    - title: Education
+      content:
+        - url: /docs/tutorials/edu-tools-learner.html
+          title: Learning Kotlin with EduTools plugin
+        - url: /docs/tutorials/edu-tools-educator.html
+          title: Teaching Kotlin with EduTools plugin

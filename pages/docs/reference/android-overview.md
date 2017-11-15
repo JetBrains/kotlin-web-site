@@ -46,7 +46,7 @@ properties.
 
 ## Next Steps
 
-* Download an install [Android Studio 3.0 Preview](https://developer.android.com/studio/preview/index.html), which includes Kotlin support out of the box.
+* Download an install [Android Studio 3.0](https://developer.android.com/studio/index.html), which includes Kotlin support out of the box.
 * Follow the [Getting Started with Android and Kotlin](/docs/tutorials/kotlin-android.html) tutorial
 to create your first Kotlin application.
 * For a more in-depth introduction, check out the [reference documentation](/docs/reference/index.html) on this site and

@@ -9,7 +9,12 @@
     </div>
     <div>
         <div class="search-result__title">
-            {{{_highlightResult.title.value}}}
+            {{#pageTitle}}
+                {{{_highlightResult.headings.value}}} - {{{pageTitle}}}
+            {{/pageTitle}}
+            {{^papageTitle}}
+                {{{_highlightResult.headings.value}}}
+            {{/papageTitle}}
         </div>
         <div class="search-result__details">
             {{{_highlightResult.content.value}}}

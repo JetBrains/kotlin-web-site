@@ -37,7 +37,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
 ```groovy
 dependencies {
     ...
-    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.18"
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.19.2"
 }
 ```
 
@@ -83,7 +83,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
     <dependency>
         <groupId>org.jetbrains.kotlinx</groupId>
         <artifactId>kotlinx-coroutines-core</artifactId>
-        <version>0.18</version>
+        <version>0.19.2</version>
     </dependency>
 </dependencies>
 ```
@@ -111,12 +111,14 @@ True threads, on the other hand, are expensive to start and keep around. A thous
 So, how do we start a coroutine? Let's use the `launch {}` function:
 
 ```kotlin
-launch(CommonPool) {
+launch {
     ...
 }
 ```
 
-This starts a new coroutine on a given thread pool. In this case we are using `CommonPool` that uses `ForkJoinPool.commonPool()`. Threads still exist in a program based on coroutines, but one thread can run many coroutines, so there's no need for too many threads.
+This starts a new coroutine. By default, coroutines are run on a shared pool of threads. 
+Threads still exist in a program based on coroutines, but one thread can run many coroutines, so there's no need for 
+too many threads.
 
 Let's look at a full program that uses `launch`:
 
@@ -128,7 +130,7 @@ fun main(args: Array<String>) {
     println("Start")
 
     // Start a coroutine
-    launch(CommonPool) {
+    launch {
         delay(1000)
         println("Hello")
     }
@@ -184,7 +186,7 @@ Let's try the same with coroutines:
 val c = AtomicInteger()
 
 for (i in 1..1_000_000)
-    launch(CommonPool) {
+    launch {
         c.addAndGet(i)
     }
 
@@ -205,7 +207,7 @@ Let's create a million coroutines again, keeping their `Deferred` objects. Now t
 
 ```kotlin
 val deferred = (1..1_000_000).map { n ->
-    async (CommonPool) {
+    async {
         n
     }
 }
@@ -236,7 +238,7 @@ Let's also make sure that our coroutines actually run in parallel. If we add a 1
 
 ```kotlin
 val deferred = (1..1_000_000).map { n ->
-    async (CommonPool) {
+    async {
         delay(1000)
         n
     }
@@ -272,7 +274,7 @@ suspend fun workload(n: Int): Int {
 Now when we call `workload()` from a coroutine, the compiler knows that it may suspend and will prepare accordingly:
 
 ```kotlin
-async (CommonPool) {
+async {
     workload(n)
 }
 ```
