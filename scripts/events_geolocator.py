@@ -27,6 +27,9 @@ for event in events:
     if location in cities:
         continue
     geocoded_coordinates = geocoder.google(location).latlng
+    if len(geocoded_coordinates) == 0:
+        print "Location not found: ", location
+        exit(-1)
     for city in cities_array:
         coordinates = city['geo']
         if abs(coordinates['lat'] - geocoded_coordinates[0]) < 0.1 and abs(coordinates['lng'] - geocoded_coordinates[1]) < 0.1:
