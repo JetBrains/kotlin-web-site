@@ -152,7 +152,7 @@
         <lang>en</lang>
         <startDate>2018-01-18</startDate>
         <endDate>2018-01-18</endDate>
-        <location>London, England</location>
+        <location>London, UK</location>
         <speaker>Marcin Moskała</speaker>
         <title>NDC London 2018</title>
         <subject>Kotlin: Next level of Android Development</subject>
@@ -168,7 +168,7 @@
         <lang>en</lang>
         <startDate>2018-01-15</startDate>
         <endDate>2018-01-15</endDate>
-        <location>London, England</location>
+        <location>London, UK</location>
         <speaker>Dmitry Kandalov</speaker>
         <title>NDC London 2018</title>
         <subject>An introduction to Kotlin by example</subject>
@@ -430,7 +430,7 @@
         <lang>en</lang>
         <startDate>2017-11-05</startDate>
         <endDate>2017-11-05</endDate>
-        <location>San Francisco, USA</location>
+        <location>San Francisco, CA, USA</location>
         <speaker>Jake Wharton, Alec Strong</speaker>
         <title>.droidconSF 2017</title>
         <subject>Generating Kotlin Code</subject>
@@ -448,7 +448,7 @@
         <lang>en</lang>
         <startDate>2017-11-05</startDate>
         <endDate>2017-11-05</endDate>
-        <location>San Francisco, USA</location>
+        <location>San Francisco, CA, USA</location>
         <speaker>Pablo Guardiola</speaker>
         <title>.droidconSF 2017 </title>
         <subject>Building a DSL… in Kotlin!</subject>
@@ -465,7 +465,7 @@
         <lang>en</lang>
         <startDate>2017-11-05</startDate>
         <endDate>2017-11-05</endDate>
-        <location>San Francisco, USA</location>
+        <location>San Francisco, CA, USA</location>
         <speaker>Victoria Gonda</speaker>
         <title>.droidconSF 2017 </title>
         <subject>Kotlin: Uncovered</subject>
@@ -483,7 +483,7 @@
         <lang>en</lang>
         <startDate>2017-11-05</startDate>
         <endDate>2017-11-05</endDate>
-        <location>San Francisco, USA</location>
+        <location>San Francisco, CA, USA</location>
         <speaker>Giorgio Natili</speaker>
         <title>.droidconSF 2017 </title>
         <subject>Codelab: Android Development, the Kotlin Way</subject>
@@ -501,7 +501,7 @@
         <lang>en</lang>
         <startDate>2017-11-04</startDate>
         <endDate>2017-11-04</endDate>
-        <location>Hyderabad, India</location>
+        <location>Hyderabad, Indian</location>
         <speaker>Gaurav Sharma</speaker>
         <title>GDG DevFest Hyderabad 2017</title>
         <subject>Building Android App using Kotlin</subject>
@@ -516,7 +516,7 @@
         <lang>ro</lang>
         <startDate>2017-11-02</startDate>
         <endDate>2017-11-02</endDate>
-        <location>Cluj-Napoca, Romania</location>
+        <location>Cluj Napoca, Romania</location>
         <speaker>Victor Kropp</speaker>
         <title>Mobile Unplugged 2017</title>
         <subject>Introduction to Kotlin</subject>
@@ -534,7 +534,7 @@
         <lang>ro</lang>
         <startDate>2017-11-02</startDate>
         <endDate>2017-11-02</endDate>
-        <location>Cluj-Napoca, Romania</location>
+        <location>Cluj Napoca, Romania</location>
         <speaker>Victor Kropp</speaker>
         <title>Mobile Unplugged 2017</title>
         <subject>Kotlin coroutines</subject>
@@ -550,7 +550,7 @@
         <lang>ro</lang>
         <startDate>2017-11-02</startDate>
         <endDate>2017-11-02</endDate>
-        <location>Cluj-Napoca, Romania</location>
+        <location>Cluj Napoca, Romania</location>
         <speaker>Paulina Strychacz, Grzegorz Dec</speaker>
         <title>Mobile Unplugged 2017</title>
         <subject>Kotlinify your unit tests (and specs!)</subject>
