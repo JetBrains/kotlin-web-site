@@ -97,7 +97,8 @@ def get_pdf_content(pages: MyFlatPages, toc: Dict) -> str:
                         if href.startswith('#'):
                             new_href = page_id + '_' + href[1:]
                         else:
-                            url_path = url.path[:-5] if url.path.endswith(".html") else url.path
+                            url_path = url.path.split("/")[-1]
+                            url_path = url_path[:-5] if url_path.endswith(".html") else url_path
                             new_href = url_path + ('_' + url.fragment if url.fragment != "" else "")
                         element.attrs['href'] = "#" + new_href
 
