@@ -168,8 +168,11 @@ public @interface MyNullable {
 }
 
 interface A {
-    @MyNullable String foo(@MyNonnull String x); // in strict mode, `fun foo(x: String): String?`
-    String bar(List<@MyNonnull String> x);       // in strict mode, `fun bar(x: List<String>!): String!`
+    @MyNullable String foo(@MyNonnull String x); 
+    // in Kotlin (strict mode): `fun foo(x: String): String?`
+    
+    String bar(List<@MyNonnull String> x);       
+    // in Kotlin (strict mode): `fun bar(x: List<String>!): String!`
 }
 ```
 
@@ -213,8 +216,8 @@ interface A {
     // having the `TYPE_USE` element type: 
     String baz(List<String> x); // fun baz(List<String?>?): String?
 
-    // The type of `x` parameter remains platform because there's explicit UNKNOWN-marked
-    // nullability annotation:
+    // The type of `x` parameter remains platform because there's an explicit
+    // UNKNOWN-marked nullability annotation:
     String qux(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
 }
 ```
