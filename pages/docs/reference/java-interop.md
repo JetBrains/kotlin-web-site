@@ -168,8 +168,8 @@ public @interface MyNullable {
 }
 
 interface A {
-    @MyNullable String foo(@MyNonnull String x); // seen as `fun foo(x: String): String?`
-    String bar(List<@MyNonnull String> x);       // seen as `fun bar(x: List<String>!): String!`
+    @MyNullable String foo(@MyNonnull String x); // in strict mode, `fun foo(x: String): String?`
+    String bar(List<@MyNonnull String> x);       // in strict mode, `fun bar(x: List<String>!): String!`
 }
 ```
 
@@ -219,6 +219,8 @@ interface A {
 }
 ```
 
+> Note: the types in this example only take place with the strict mode enabled, otherwise, the platform types remain. See the [`@UnderMigration` annotation](#undermigration-annotation-since-1160) and [Compiler configuration](#compiler-configuration) sections.
+
 Package-level default nullability is also supported:
 
 ```java
@@ -235,10 +237,11 @@ maintainers to define the migration status for the nullability type qualifiers.
 The status value in `@UnderMigration(status = ...)` specifies how the compiler treats inappropriate usages of the 
 annotated types in Kotlin (e.g. using a `@MyNullable`-annotated type value as non-null):
 
-* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. reporting error for 
-the inappropriate usages;
+* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. report errors for 
+the inappropriate usages and affect the types in the annotated declarations as they are seen in Kotlin;
 
-* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors; and
+* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors, 
+but the types in the annotated declarations remain platform; and
 
 * `MigrationStatus.IGNORE` makes the compiler ignore the nullability annotation completely.
 
@@ -281,7 +284,7 @@ they may wish to postpone errors reporting for some until they complete their mi
 is the fully qualified class name of the annotation. May appear several times for different annotations. This is useful
 for managing the migration state for a particular library.
 
-The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`.
+The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`, and only the `strict` mode affects the types in the annotated declarations as they are seen in Kotlin.
 
 For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the 
 compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by 
