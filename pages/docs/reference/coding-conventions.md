@@ -65,16 +65,6 @@ fun processDeclarations() { ... }
 var declarationCount = ...
 ``` 
 
-Exception: factory functions used to create instances of classes can have the same name as the class being created:
-
-``` kotlin
-abstract class Foo { ... }
-
-class FooImpl : Foo { ... }
-
-fun Foo(): Foo { return FooImpl(...) }
-```
-
 Names of constants (properties marked with `const`, or top-level or object properties that hold data) 
 should use uppercase underscore-separated names:
 
