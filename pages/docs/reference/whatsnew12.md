@@ -14,15 +14,13 @@ title: "What's New in Kotlin 1.2"
 * [JVM backend](#jvm-backend)
 * [JavaScript backend](#javascript-backend)
 
-# Docs page draft: What's New in Kotlin 1.2
-
 ## Multiplatform Projects (experimental)
 
 Multiplatform projects are a new **experimental** feature in Kotlin 1.2, allowing you to reuse code between target platforms supported by Kotlin – JVM, JavaScript and (in the future) Native. In a multiplatform project, you have three kinds of modules:
 
 * A *common* module contains code that is not specific to any platform, as well as declarations without implementation of platform-dependent APIs.
 * A *platform* module contains implementations of platform-dependent declarations in the common module for a specific platform, as well as other platform-dependent code.
-* A regular module that targets a specific platform and can either be a dependency of platform modules or depend on platform modules.
+* A regular module targets a specific platform and can either be a dependency of platform modules or depend on platform modules.
 
 When you compile a multiplatform project for a specific platform, the code for both the common and platform-specific parts is generated.
 
@@ -58,18 +56,6 @@ actual typealias URL = java.net.URL
 
 See the [documentation](http://kotlinlang.org/docs/reference/multiplatform.html) for details and steps to build a 
 multiplatform project.
-
-### Writing multiplatform unit tests
-
-It is also possible to write tests in a common project so that they will be compiled and run in each platform project. 
-There are 4 annotations provided in `kotlin.test` package to markup tests in common code: `@Test`, `@Ignore`, 
-`@BeforeTest` and `@AfterTest`.
-
-In JVM platform these annotations are mapped to the corresponding JUnit 4 annotations and in JS they are already 
-available since 1.1.4 to support JS unit testing.
-
-In order to use them you need to add a dependency on `kotlin-test-annotations-common` to your common module, 
-on `kotlin-test-junit` to your JVM module, and on `kotlin-test-js` to the JS module.
 
 ## Other Language Features
 
