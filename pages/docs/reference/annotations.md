@@ -232,6 +232,8 @@ public @interface AnnWithValue {
 @AnnWithValue("abc") class C
 ```
 
+### Arrays as annotation parameters
+
 If the `value` argument in Java has an array type, it becomes a `vararg` parameter in Kotlin:
 
 ``` java
@@ -263,8 +265,10 @@ class C
 
 // Older Kotlin versions:
 @AnnWithArrayMethod(names = arrayOf("abc", "foo", "bar")) 
-class C
+class D
 ```
+
+### Accessing properties of an annotation instance
 
 Values of an annotation instance are exposed as properties to Kotlin code:
 
