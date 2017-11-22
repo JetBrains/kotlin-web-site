@@ -239,10 +239,12 @@ of the outer receiver.
 
 ### Deprecation: data classes overriding copy
 
-When a data class inherited from a type that already had the `copy` function with default parameters, the 
-`copy` implementation generated for the data class used the defaults from the supertype, leading to counter-intuitive 
-behavior (or a runtime failure in a similar case when there were no default parameters in the supertype). 
-This has become deprecated with a warning in Kotlin 1.2 and will be an error in Kotlin 1.3.
+When a data class derived from a type that already had the `copy` function with the same signature , the `copy` 
+implementation generated for the data class used the defaults from the supertype, leading to counter-intuitive behavior, 
+or failed at runtime if were no default parameters in the supertype. 
+
+Inheritance that leads to a `copy` conflict has become deprecated with a warning in Kotlin 1.2 
+and will be an error in Kotlin 1.3.
 
 ### Deprecation: Nested types in enum entries
 
