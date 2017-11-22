@@ -293,8 +293,10 @@ For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@o
 compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by 
 `@org.library.MyNullable` and ignore all other JSR-305 annotations. 
 
-For kotlin versions 1.1.50+/1.2, the default behavior is the same to `-Xjsr305=warn`. The
+For kotlin versions 1.1.50+/1.2, the default behavior is the same to `-Xjsr305=warn`, except of [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html), [`@Nullable`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nullable.html) and [`@CheckForNull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/CheckForNull.html). The
 `strict` value should be considered experimental (more checks may be added to it in the future).
+
+[`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html), [`@Nullable`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nullable.html) and [`@CheckForNull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/CheckForNull.html) are enabled by default, affecting the types in the annotated declarations as they are seen in Kotlin. They are not affected by `-Xjsr305` flag.
 
 ## Mapped types
 
