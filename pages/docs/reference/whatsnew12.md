@@ -93,7 +93,7 @@ The `lateinit` modifier can now be used on top-level properties and local variab
 for example, when a lambda passed as a constructor argument to one object refers to another object 
 which has to be defined later:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
 
 ```kotlin
 class Node<T>(val value: T, val next: () -> Node<T>)
@@ -119,7 +119,7 @@ fun main(args: Array<String>) {
 
 You can now check whether a lateinit var has been initialized using `isInitialized` on the property reference:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
 
 ```kotlin
 class Foo {
@@ -144,7 +144,7 @@ fun main(args: Array<String>) {
 
 Inline functions are now allowed to have default values for their inlined functional parameters:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
 
 ```kotlin
 //sampleStart
@@ -180,7 +180,7 @@ val button = findViewById(R.id.button) as Button
 When a variable is assigned from a safe call expression and checked for null, the smart cast is now applied to 
 the safe call receiver as well:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
 
 ```kotlin
 fun countFirst(s: Any): Int {
@@ -211,7 +211,7 @@ fun main(args: Array<String>) {
 
 Also, smart casts in a lambda are now allowed for local variables that are only modified before the lambda:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -296,7 +296,7 @@ New extensions for `Iterable<T>`, `Sequence<T>`, and `CharSequence` cover such u
 batch processing (`chunked`), sliding window and computing sliding average (`windowed`) , and processing pairs 
 of subsequent items (`zipWithNext`):
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -326,7 +326,7 @@ fun main(args: Array<String>) {
 A set of extension functions was added for manipulating lists: `fill`, `replaceAll` and `shuffle` for `MutableList`, 
 and `shuffled` for read-only `List`:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
 
 ```kotlin
 fun main(args: Array<String>) {
