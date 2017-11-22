@@ -223,16 +223,25 @@ A bound callable reference to a member of `this` can now be written without expl
 of `this::foo`. This also makes callable references more convenient to use in lambdas where you refer to a member 
 of the outer receiver.
 
+### Breaking change: sound smart casts after try blocks
+
+Earlier, Kotlin used assignments made inside a `try` block for smart casts after the block, which could break type- and null-safety 
+and lead to runtime failures. This release fixes this issue, making the smart casts more strict, but breaking some code
+that relied on such smart casts.
+
+To switch to the old smart casts behavior, pass the fallback flag `-Xlegacy-smart-cast-after-try` as the compiler 
+argument. It will become deprecated in Kotlin 1.3.
+
 ### Deprecation: data classes overriding copy
 
-When a data class derived from a type that already had the `copy` function with the same signature , the `copy` 
+When a data class derived from a type that already had the `copy` function with the same signature, the `copy` 
 implementation generated for the data class used the defaults from the supertype, leading to counter-intuitive behavior, 
-or failed at runtime if were no default parameters in the supertype. 
+or failed at runtime if there were no default parameters in the supertype. 
 
 Inheritance that leads to a `copy` conflict has become deprecated with a warning in Kotlin 1.2 
 and will be an error in Kotlin 1.3.
 
-### Deprecation: Nested types in enum entries
+### Deprecation: nested types in enum entries
 
 Inside enum entries, defining a nested type that is not an `inner class` has been deprecated due to issues in the 
 initialization logic. This causes a warning in Kotlin 1.2 and will become an error in Kotlin 1.3.
@@ -415,7 +424,7 @@ Before Kotlin 1.2, interface members overriding Java-default methods while targe
 super calls: `Super calls to Java default methods are deprecated in JVM target 1.6. Recompile with '-jvm-target 1.8'`. 
 In Kotlin 1.2, there's an **error** instead, thus requiring any such code to be compiled with JVM target 1.8.
 
-### Consistent behavior of x.equals(null) for platform types
+### Breaking change: consistent behavior of x.equals(null) for platform types
 
 Calling `x.equals(null)` on a platform type that is mapped to a Java primitive 
 (`Int!`, `Boolean!`, `Short`!, `Long!`, `Float!`, `Double!`, `Char!`) incorrectly returned `true` when `x` was null. 
@@ -423,6 +432,14 @@ Starting with Kotlin 1.2, calling `x.equals(...)` on a null value of a platform 
 (but `x == ...` does not).
 
 To return to the pre-1.2 behavior, pass the flag `-Xno-exception-on-explicit-equals-for-boxed-null` to the compiler.
+
+### Breaking change: fix for platform null escaping through an inlined extension receiver
+
+Inline extension functions that were called on a null value of a platform type did not check the receiver for null and 
+would thus allow null to escape into the other code. Kotlin 1.2 forces this check at the call sites, throwing an exception
+if the receiver is null.
+
+To switch to the old behavior, pass the fallback flag `-Xno-receiver-assertions` to the compiler.
 
 ## JavaScript Backend
 
