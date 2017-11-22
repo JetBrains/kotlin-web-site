@@ -66,10 +66,9 @@ The following example demonstrates a complete `build.gradle` file for a common m
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '1.2-Beta'
+    ext.kotlin_version = '1.2.0'
 
     repositories {
-        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
         mavenCentral()
     }
     dependencies {
@@ -80,7 +79,6 @@ buildscript {
 apply plugin: 'kotlin-platform-common'
 
 repositories {
-    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
     mavenCentral()
 }
 
@@ -95,10 +93,9 @@ attention to the `implement` line in the `dependencies` block:
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '1.2-Beta'
+    ext.kotlin_version = '1.2.0'
 
     repositories {
-        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
         mavenCentral()
     }
     dependencies {
@@ -109,13 +106,12 @@ buildscript {
 apply plugin: 'kotlin-platform-jvm'
 
 repositories {
-    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
     mavenCentral()
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implement project(":")
+    expectedBy project(":")
     testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
@@ -208,3 +204,14 @@ expect class AtomicRef<V>(value: V) {
 
 actual typealias AtomicRef<V> = java.util.concurrent.atomic.AtomicReference<V>
 ```
+
+## Multiplatform tests
+
+It is possible to write tests in a common project so that they will be compiled and run in each platform project. 
+There are 4 annotations provided in `kotlin.test` package to markup tests in common code: `@Test`, `@Ignore`, 
+`@BeforeTest` and `@AfterTest`.
+In JVM platform these annotations are mapped to the corresponding JUnit 4 annotations, and in JS they are already 
+available since 1.1.4 to support JS unit testing.
+
+In order to use them you need to add a dependency on `kotlin-test-annotations-common` to your common module, on 
+`kotlin-test-junit` to your JVM module, and on `kotlin-test-js` to the JS module.
