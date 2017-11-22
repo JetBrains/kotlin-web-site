@@ -60,13 +60,13 @@ If you need to configure the project manually, use the following steps:
   * Apply the `kotlin-platform-common` plugin to the common module
   * Add the `kotlin-stdlib-common` dependency to the common module
   * Apply the `kotlin-platform-jvm` and `kotlin-platform-js` plugins to the platform modules for JVM and JS
-  * Add dependencies with `implement` scope from the platform modules to the common module
+  * Add dependencies with `expectedBy` scope from the platform modules to the common module
   
 The following example demonstrates a complete `build.gradle` file for a common module with Kotlin 1.2-Beta:
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '1.2.0'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
 
     repositories {
         mavenCentral()
@@ -89,11 +89,11 @@ dependencies {
 ```
 
 And the example below shows a complete `build.gradle` for a JVM module. Pay special
-attention to the `implement` line in the `dependencies` block:
+attention to the `expectedBy` line in the `dependencies` block:
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '1.2.0'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
 
     repositories {
         mavenCentral()
