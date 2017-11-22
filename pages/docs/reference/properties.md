@@ -197,6 +197,8 @@ if (foo::bar.isInitialized) {
 }
 ```
 
+This check is only available for the properties declared in the same class or one of the outer classes.  
+
 ## Overriding Properties
 
 See [Overriding Properties](classes.html#overriding-properties)
