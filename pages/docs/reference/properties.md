@@ -197,7 +197,8 @@ if (foo::bar.isInitialized) {
 }
 ```
 
-This check is only available for the properties declared in the same class or one of the outer classes.  
+This check is only available for the properties that are lexically accessible, i.e. declared in the same type or in one of
+the outer types, or at top level in the same file.
 
 ## Overriding Properties
 
