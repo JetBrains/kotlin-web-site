@@ -94,6 +94,7 @@ as identifiers in other contexts:
 The following tokens act as keywords in modifier lists of declarations and can be used as identifiers
 in other contexts:
 
+ * `actual` denotes a platform-specific implementation in [multiplatform projects](/docs/reference/multiplatform.html)
  * `abstract` marks a class or member as [abstract](/docs/reference/classes.html#abstract-classes)
  * `annotation` declares an [annotation class](/docs/reference/annotations.html)
  * `companion` declares a [companion object](/docs/reference/object-declarations.html#companion-objects)
@@ -101,6 +102,7 @@ in other contexts:
  * `crossinline` forbids [non-local returns in a lambda passed to an inline function](/docs/reference/inline-functions.html#non-local-returns) 
  * `data` instructs the compiler to [generate canonical members for a class](/docs/reference/data-classes.html)
  * `enum` declares an [enumeration](/docs/reference/enum-classes.html)
+ * `expect` marks a declaration as [platform-specific](/docs/reference/multiplatform.html), expecting an implementation in platform modules.
  * `external` marks a declaration as implemented not in Kotlin (accessible through [JNI](/docs/reference/java-interop.html#using-jni-with-kotlin) or in [JavaScript](/docs/reference/js-interop.html#external-modifier)) 
  * `final` forbids [overriding a member](/docs/reference/classes.html#overriding-methods)
  * `infix` allows calling a function in [infix notation](/docs/reference/functions.html#infix-notation)
