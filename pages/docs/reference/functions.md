@@ -138,7 +138,6 @@ When a function is called with both positional and named arguments, all the posi
 fun foo(vararg strings: String) { /* ... */ }
 
 foo(strings = *arrayOf("a", "b", "c"))
-foo(strings = "a") // Not required for a single value
 ```
 
 Note that the named argument syntax cannot be used when calling Java functions, because Java bytecode does not
