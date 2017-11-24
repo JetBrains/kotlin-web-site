@@ -109,7 +109,7 @@ in other contexts:
  * `inline` tells the compiler to [inline the function and the lambdas passed to it at the call site](/docs/reference/inline-functions.html)
  * `inner` allows referring to the outer class instance from a [nested class](/docs/reference/nested-classes.html)
  * `internal` marks a declaration as [visible in the current module](/docs/reference/visibility-modifiers.html)
- * `lateinit` allows initializing a [non-null property outside of a constructor](/docs/reference/properties.html#late-initialized-properties)
+ * `lateinit` allows initializing a [non-null property outside of a constructor](/docs/reference/properties.html#late-initialized-properties-and-variables)
  * `noinline` turns off [inlining of a lambda passed to an inline function](/docs/reference/inline-functions.html#noinline)
  * `open` allows [subclassing a class or overriding a member](/docs/reference/classes.html#inheritance)
  * `operator` marks a function as [overloading an operator or implementing a convention](/docs/reference/operator-overloading.html)
