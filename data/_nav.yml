@@ -61,6 +61,8 @@ reference:
           title: Kotlin/Native
         - url: /docs/reference/whatsnew11.html
           title: What's New in 1.1
+        - url: /docs/reference/whatsnew12.html
+          title: What's New in 1.2
 
     - title: Getting Started
       description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
