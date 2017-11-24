@@ -348,7 +348,7 @@ for JVM and JS and contains the following:
 
 * Constants: `PI` and `E`;
 * Trigonometric: `cos`, `sin`, `tan` and inverse of them: `acos`, `asin`, `atan`, `atan2`;
-* Hyperbolic: `cosh`, `sinh`, `tanh`;
+* Hyperbolic: `cosh`, `sinh`, `tanh` and their inverse: `acosh`, `asinh`, `atanh`
 * Exponentation: `pow` (an extension function), `sqrt`, `hypot`, `exp`, `expm1`;
 * Logarithms: `log`, `log2`, `log10`, `ln`, `ln1p`;
 * Rounding:
@@ -362,7 +362,7 @@ for JVM and JS and contains the following:
 * Binary representation:
     * `ulp` extension property;
     * `nextUp`, `nextDown`, `nextTowards` extension functions;
-    * `toBits`, `toRawBits`, `Double.fromBits` (these are in the `kotlin` package and not available for JS).
+    * `toBits`, `toRawBits`, `Double.fromBits` (these are in the `kotlin` package).
 
 The same set of functions (but without constants) is also available for `Float` arguments.
 
