@@ -288,7 +288,7 @@ If the same type parameter needs more than one upper bound, we need a separate *
 
 ``` kotlin
 fun <T> cloneWhenGreater(list: List<T>, threshold: T): List<T>
-    where T : Comparable,
+    where T : Comparable<T>,
           T : Cloneable {
   return list.filter { it > threshold }.map { it.clone() }
 }

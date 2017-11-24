@@ -340,7 +340,7 @@ private fun findFixPoint(): Double {
     var x = 1.0
     while (true) {
         val y = Math.cos(x)
-        if (x == y) return y
+        if (x == y) return x
         x = y
     }
 }

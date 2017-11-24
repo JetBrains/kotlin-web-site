@@ -129,7 +129,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`).
 
-You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptor.loader.java/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptors.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
 ### JSR-305 Support
 
@@ -168,8 +168,11 @@ public @interface MyNullable {
 }
 
 interface A {
-    @MyNullable String foo(@MyNonnull String x); // seen as `fun foo(x: String): String?`
-    String bar(List<@MyNonnull String> x);       // seen as `fun bar(x: List<String>!): String!`
+    @MyNullable String foo(@MyNonnull String x); 
+    // in Kotlin (strict mode): `fun foo(x: String): String?`
+    
+    String bar(List<@MyNonnull String> x);       
+    // in Kotlin (strict mode): `fun bar(x: List<String>!): String!`
 }
 ```
 
@@ -213,11 +216,13 @@ interface A {
     // having the `TYPE_USE` element type: 
     String baz(List<String> x); // fun baz(List<String?>?): String?
 
-    // The type of `x` parameter remains platform because there's explicit UNKNOWN-marked
-    // nullability annotation:
+    // The type of `x` parameter remains platform because there's an explicit
+    // UNKNOWN-marked nullability annotation:
     String qux(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
 }
 ```
+
+> Note: the types in this example only take place with the strict mode enabled, otherwise, the platform types remain. See the [`@UnderMigration` annotation](#undermigration-annotation-since-1160) and [Compiler configuration](#compiler-configuration) sections.
 
 Package-level default nullability is also supported:
 
@@ -235,10 +240,11 @@ maintainers to define the migration status for the nullability type qualifiers.
 The status value in `@UnderMigration(status = ...)` specifies how the compiler treats inappropriate usages of the 
 annotated types in Kotlin (e.g. using a `@MyNullable`-annotated type value as non-null):
 
-* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. reporting error for 
-the inappropriate usages;
+* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. report errors for 
+the inappropriate usages and affect the types in the annotated declarations as they are seen in Kotlin;
 
-* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors; and
+* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors, 
+but the types in the annotated declarations remain platform; and
 
 * `MigrationStatus.IGNORE` makes the compiler ignore the nullability annotation completely.
 
@@ -281,7 +287,9 @@ they may wish to postpone errors reporting for some until they complete their mi
 is the fully qualified class name of the annotation. May appear several times for different annotations. This is useful
 for managing the migration state for a particular library.
 
-The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`.
+The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`, and only the `strict` mode affects the types in the annotated declarations as they are seen in Kotlin.
+
+> Note: the built-in JSR-305 annotations [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html), [`@Nullable`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nullable.html) and [`@CheckForNull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/CheckForNull.html) are always enabled and affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
 
 For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the 
 compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by 
