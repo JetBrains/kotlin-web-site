@@ -262,3 +262,8 @@
   description: type-safe dimensional analysis
   type: Library
   link: https://github.com/kunalsheth/units-of-measure
+  
+- name: three.kt
+  description: Kotlin wrapper for Three.js Javascript 3D library
+  type: Library
+  link: https://github.com/markaren/three.kt
