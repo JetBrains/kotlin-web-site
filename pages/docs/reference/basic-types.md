@@ -226,7 +226,7 @@ class Array<T> private constructor() {
 To create an array, we can use a library function `arrayOf()` and pass the item values to it, so that `arrayOf(1, 2, 3)` creates an array [1, 2, 3].
 Alternatively, the `arrayOfNulls()` library function can be used to create an array of a given size filled with null elements.
 
-Another option is to use a factory function that takes the array size and the function that can return the initial value
+Another option is to use the `Array` constructor that takes the array size and the function that can return the initial value
 of each array element given its index:
 
 ``` kotlin
