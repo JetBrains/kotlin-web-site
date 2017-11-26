@@ -477,9 +477,9 @@ drawSquare(
 
 When wrapping chained calls, put the . character or the `?.` operator on the next line, with a single indent:
 
-```
+``` kotlin
 val anchor = owner
-    .firstChild!!
+    ?.firstChild!!
     .siblings(forward = true)
     .dropWhile { it is PsiComment || it is PsiWhiteSpace }
 ```
@@ -559,7 +559,7 @@ try {
 
 In a `when` statement, if a branch is more than a single line, consider separating it from adjacent case blocks with a blank line:
 
-```
+``` kotlin
 private fun parsePropertyValue(propName: String, token: Token) {
     when (token) {
         is Token.ValueToken ->
@@ -573,10 +573,10 @@ private fun parsePropertyValue(propName: String, token: Token) {
 
 Put short branches on the same line as the condition, without braces.
 
-```
+``` kotlin
 when (foo) {
-    true -> bar() //good
-    false -> { baz() } //bad
+    true -> bar() // good
+    false -> { baz() } // bad
 }
 ```
 
@@ -647,7 +647,7 @@ factory functions.
 
 If a declaration has multiple modifiers, always put them in the following order:
 
-```
+``` kotlin
 public / protected / private / internal
 final / open / abstract / sealed / const
 external
@@ -667,7 +667,7 @@ data
 
 Place all annotations before modifiers:
 
-```
+``` kotlin
 @Named("Foo") 
 private val foo: Foo
 ```
