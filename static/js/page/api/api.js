@@ -77,7 +77,8 @@ function initializeSelects() {
   addSelectToPanel(switchersPanel, "Version", {
     items: {
       '1.0': '1.0',
-      '1.1': '1.1'
+      '1.1': '1.1',
+      '1.2': '1.2'
     },
     selected: state.version,
     onSelect: (version) => {
