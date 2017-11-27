@@ -157,7 +157,7 @@ that `T` for this call needs to be bound to the type `Foo`.
 This is particularly important for Android developers, since the compiler can now correctly analyze generic 
 `findViewById` calls in Android API level 26:
 
-```
+```kotlin
 val button = findViewById(R.id.button) as Button
 ```
 
@@ -252,7 +252,7 @@ For consistency with array literals in annotations, passing a single item for a 
 form (`foo(items = i)`) has been deprecated. Please use the spread operator with the corresponding 
 array factory functions:
 
-```
+```kotlin
 foo(items = *intArrayOf(1))
 ```
 
