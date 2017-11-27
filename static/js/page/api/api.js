@@ -56,7 +56,7 @@ function initializeSelects() {
     JSON.parse(localStorage.getItem("apiState")) :
     {
       platform: 'all',
-      version: '1.1'
+      version: '1.2'
     };
   updateState(state);
 
