@@ -25,7 +25,8 @@ files in "org.example.kotlin.foo.bar" should be in the "foo/bar" subdirectory of
 ### Source file organization
 
 Placing multiple declarations (classes, top-level functions or properties) in the same Kotlin source file is encouraged
-as long as these declarations are closely related to each other semantically.
+as long as these declarations are closely related to each other semantically and the file size remains reasonable
+(not exceeding a few hundred lines).
 
 In particular, when defining extension functions for a class which are relevant for all clients of this class,
 put them in the same file where the class itself is defined. When defining extension functions that make sense 
@@ -75,15 +76,15 @@ class FooImpl : Foo { ... }
 fun Foo(): Foo { return FooImpl(...) }
 ```
 
-Names of constants (properties marked with `const`, or top-level or object properties that hold data) 
-should use uppercase underscore-separated names:
+Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
+that hold deeply immutable data) should use uppercase underscore-separated names:
 
 ``` kotlin
 const val MAX_COUNT = 8
 val USER_NAME_FIELD = "UserName"
 ``` 
 
-Names of top-level or object properties which hold objects with behavior should use title-cased camel-hump names:
+Names of top-level or object properties which hold objects with behavior or mutable data should use title-cased camel-hump names:
 
 ``` kotlin
 val PersonComparator: Comparator<Person> = ...
@@ -100,6 +101,8 @@ capitalize only the first letter if it is longer (`HttpInputStream`).
 The name of a class is usually a noun or a noun phrase explaining what the class _is_: `List`, `PersonReader`.
 
 The name of a method is usually a verb or a verb phrase saying what the method _does_: `close`, `readPersons`.
+The name should also suggest if the method is mutating the object or returning a new one. For instance `sort` is
+sorting a collection in place, while `sorted` is returning a sorted copy of the collection.
 
 The names should make it clear what the purpose of the entity is, so it's best to avoid using meaningless words
 (`Manager`, `Wrapper` etc.) in names.
@@ -629,7 +632,10 @@ Don't declare a method as infix if it mutates the receiver object.
 ## Factory functions
 
 If you declare a factory function for a class, avoid giving it the same name as the class itself. Prefer using a distinct name
-making it clear why the behavior of the factory function is special. Example:
+making it clear why the behavior of the factory function is special. Only if there is really no special semantics,
+you can use the same name as the class.
+
+Example:
 
 ``` kotlin
 class Point(val x: Double, val y: Double) {
@@ -798,11 +804,16 @@ println("$name has ${children.size} children")
 
 Prefer to use multiline strings instead of embedding `\n` escape sequences into regular string literals.
 
-Use `trimIndent` to maintain indentation in multiline strings:
+To maintain indentation in multiline strings, use `trimIndent` when the resulting string does not require any internal
+indentation, or `trimMargin` when internal indentation is required:
 
 ``` kotlin
 assertEquals("""Foo
                 Bar""".trimIndent(), value)
+
+val a = """if(a > 1) {
+          |    return a
+          |}""".trimMargin()
 ```
 
 ## Coding conventions for libraries
