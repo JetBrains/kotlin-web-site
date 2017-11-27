@@ -251,6 +251,19 @@ class Person(
 }
 ```
 
+For classes with no constructor parameters and a long supertype list, put a line break before the colon and
+align all supertype names vertically:
+
+```kotlin
+class MyFavouriteVeryLongClassHolder
+    : MyLongHolder<MyFavouriteVeryLongClass>(),
+      SomeOtherInterface,
+      AndAnotherOne {
+
+    fun foo() {}
+}
+```
+
 Prefer putting a blank line after the class header to make it clear where the header ends and the class body begins.
 
 Use regular indent (4 spaces) for constructor parameters.
@@ -355,6 +368,14 @@ val foo: String
         // ...
     }
 
+```
+
+For properties with an initializer, if the initializer is long, add a line break after the equals sign
+and indent the initializer by four spaces:
+
+```kotlin
+private val defaultCharset: Charset? =
+    EncodingRegistry.getInstance().getDefaultCharsetForPropertiesFiles(file)
 ```
 
 ## Type aliases
