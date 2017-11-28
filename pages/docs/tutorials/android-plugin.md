@@ -13,11 +13,11 @@ In this tutorial we'll walk through the steps required to use the Kotlin Android
 
 ### Background
 
-Every Android developer knows well the `findViewById()` function. It is, without a doubt, a source of potential bugs and nasty code which is hard to read and support. While there are several libraries available that provide solutions to this problem, being libraries dependent on runtime, they require annotating fields for each exposed `View`.
+Every Android developer knows well the `findViewById()` function. It is, without a doubt, a source of potential bugs and nasty code which is hard to read and support. While there are several libraries available that provide solutions to this problem, those libraries require annotating fields for each exposed `View`.
 
 The Kotlin Android Extensions plugin allows us to obtain the same experience we have with some of these libraries, without having to add any extra code.
 
-In essence, this would allow for the following code:
+In essence, this allows for the following code:
 
 ```kotlin
 // Using R.layout.activity_main from the 'main' source set
@@ -43,7 +43,7 @@ class MyActivity : Activity() {
 
 {{ site.text_using_gradle }}
 
-Android Extensions is a part of the Kotlin IDEA plugin. You do not need to install additional plugins.
+Android Extensions is a part of the Kotlin plugin for IntelliJ IDEA and Android Studio. You do not need to install additional plugins.
 
 All you need is to enable the Android Extensions Gradle plugin in your module's `build.gradle` file:
 
@@ -81,7 +81,7 @@ activity.hello.text = "Hello World!"
 
 ### Experimental Mode
 
-Android Extensions plugin includes several experimental features like `LayoutContainer` support or a `Parcelable` implementation generator. These features are not considered production ready yet, so you need to turn on the experimental mode in `build.gradle` in order to use them:
+Android Extensions plugin includes several experimental features such as `LayoutContainer` support and a `Parcelable` implementation generator. These features are not considered production ready yet, so you need to turn on the experimental mode in `build.gradle` in order to use them:
 
 ```gradle
 androidExtensions {
@@ -95,6 +95,8 @@ androidExtensions {
 Android Extensions plugin supports different kinds of containers. The most basic ones are [`Activity`](https://developer.android.com/reference/android/app/Activity.html), [`Fragment`](https://developer.android.com/reference/android/support/v4/app/Fragment.html) and [`View`](https://developer.android.com/reference/android/view/View.html), but you can turn (virtually) any class to an Android Extensions container by implementing the `LayoutContainer` interface, e.g.:
 
 ```kotlin
+import kotlinx.android.extensions.LayoutContainer
+
 class ViewHolder(override val containerView: View) : ViewHolder(containerView), LayoutContainer {
     fun setup(title: String) {
         itemTitle.text = "Hello World!"
@@ -154,7 +156,7 @@ fun Activity.b() {
 }
 ```
 
-We wouldn't know if this function would be invoked on only activities from our sources or on plain Java activities also. As such, we don’t use caching there, even if `MyActivity` instance from the previous example is passed as a receiver.
+We wouldn't know if this function would be invoked on only activities from our sources or on plain Java activities also. Because of this, we don’t use caching there, even if `MyActivity` instance from the previous example is passed as a receiver.
 
 
 ### Changing View Caching Strategy
@@ -169,11 +171,13 @@ androidExtensions {
 }
 ```
 
-By default, Android Extensions plugin uses `HashMap` as a backing storage, but you can switch to the `SparseArray` implementation, or just switch off caching. The latter is expecially useful when you use only the [Parcelable](#parcelable) part of Android Extensions.
+By default, Android Extensions plugin uses `HashMap` as a backing storage, but you can switch to the `SparseArray` implementation, or just switch off caching. The latter is especially useful when you use only the [Parcelable](#parcelable) part of Android Extensions.
 
 Also, you can annotate a container with `@ContainerOptions` to change its caching strategy:
 
 ```
+import kotlinx.android.extensions.ContainerOptions
+
 @ContainerOptions(cache = CacheImplementation.NO_CACHE)
 class MyActivity : Activity()
 
@@ -194,9 +198,11 @@ Apply the `kotlin-android-extensions` Gradle plugin as described [above]((#confi
 
 ### How to use
 
-Annotate the class with `@Parcelize`, and `Parcelable` implementation will be generated automatically.
+Annotate the class with `@Parcelize`, and a `Parcelable` implementation will be generated automatically.
 
 ```kotlin
+import kotlinx.android.parcel.Parcelize
+
 @Parcelize
 class User(val firstName: String, val lastName: String, val age: Int): Parcelable
 ```
