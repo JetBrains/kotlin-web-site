@@ -83,7 +83,7 @@ activity.hello.text = "Hello World!"
 
 Android Extensions plugin includes several experimental features such as `LayoutContainer` support and a `Parcelable` implementation generator. These features are not considered production ready yet, so you need to turn on the experimental mode in `build.gradle` in order to use them:
 
-```gradle
+```groovy
 androidExtensions {
     experimental = true
 }
@@ -111,7 +111,7 @@ Note that you need to turn on the [experimental flag](#experimental-mode) to use
 
 Android Extensions plugin supports Android flavors. Suppose you have a flavor named `free` in your `build.gradle` file:
 
-```
+```groovy
 android {
     productFlavors {
         free {
@@ -175,7 +175,7 @@ By default, Android Extensions plugin uses `HashMap` as a backing storage, but y
 
 Also, you can annotate a container with `@ContainerOptions` to change its caching strategy:
 
-```
+``` kotlin
 import kotlinx.android.extensions.ContainerOptions
 
 @ContainerOptions(cache = CacheImplementation.NO_CACHE)
