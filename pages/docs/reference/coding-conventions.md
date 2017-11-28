@@ -84,11 +84,17 @@ const val MAX_COUNT = 8
 val USER_NAME_FIELD = "UserName"
 ``` 
 
-Names of top-level or object properties which hold objects with behavior or mutable data should use title-cased camel-hump names:
+Names of top-level or object properties which hold objects with behavior or mutable data should use regular camel-hump names:
+
+``` kotlin
+val mutableCollection: MutableSet<String> = HashSet()
+```
+
+Names of properties holding references to singleton objects can use the same naming style as `object` declarations:
 
 ``` kotlin
 val PersonComparator: Comparator<Person> = ...
-``` 
+```
  
 For enum constants, it's OK to use either uppercase underscore-separated names
 (`enum class Color { RED, GREEN }`) or regular camel-humps names starting with an uppercase letter, depending on the usage.
@@ -251,20 +257,30 @@ class Person(
 }
 ```
 
-For classes with no constructor parameters and a long supertype list, put a line break before the colon and
-align all supertype names vertically:
+For classes with a long supertype list, put a line break after the colon and align all supertype names vertically:
 
 ```kotlin
-class MyFavouriteVeryLongClassHolder
-    : MyLongHolder<MyFavouriteVeryLongClass>(),
-      SomeOtherInterface,
-      AndAnotherOne {
+class MyFavouriteVeryLongClassHolder :
+    MyLongHolder<MyFavouriteVeryLongClass>(),
+    SomeOtherInterface,
+    AndAnotherOne {
 
     fun foo() {}
 }
 ```
 
-Prefer putting a blank line after the class header to make it clear where the header ends and the class body begins.
+To clearly separate the class header and body when the class header is long, either put a blank line
+following the class header (as in the example above), or put the opening curly brace on a separate line:
+
+```kotlin
+class MyFavouriteVeryLongClassHolder :
+    MyLongHolder<MyFavouriteVeryLongClass>(),
+    SomeOtherInterface,
+    AndAnotherOne
+{
+    fun foo() {}
+}
+```
 
 Use regular indent (4 spaces) for constructor parameters.
 
