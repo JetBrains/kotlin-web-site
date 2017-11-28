@@ -158,7 +158,7 @@ reference:
         - url: /docs/reference/type-aliases.html
           title: Type Aliases
         - url: /docs/reference/multiplatform.html
-          title: Multiplatform Projects (preview)
+          title: Multiplatform Projects
 
 
     - title: Core Libraries

@@ -2,10 +2,10 @@
 type: doc
 layout: reference
 category: "Other"
-title: "Multiplatform Projects (Preview)"
+title: "Multiplatform Projects"
 ---
 
-# Multiplatform Projects (Preview)
+# Multiplatform Projects
 
 > Multiplatform projects are a new experimental feature in Kotlin 1.2. All of the language
 and tooling features described in this document are subject to change in future Kotlin versions.
