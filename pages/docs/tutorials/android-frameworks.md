@@ -150,7 +150,7 @@ lateinit var title: TextView
 ```
 The `@BindView` annotation is defined to be applied to the fields only, but the Kotlin compiler understands that and annotates the corresponding field under the hood when you apply the annotation to the whole property.
 
-Note how [the lateinit modifier](/docs/reference/properties.html#late-initialized-properties) allows to declare a non-null type initialized after the object is created (after the constructor call).
+Note how [the lateinit modifier](/docs/reference/properties.html#late-initialized-properties-and-variables) allows to declare a non-null type initialized after the object is created (after the constructor call).
 Without `lateinit` you'd have to declare a [nullable type](/docs/reference/null-safety.html) and add additional nullability checks.
  
 You can also configure methods as listeners, using ButterKnife annotations:

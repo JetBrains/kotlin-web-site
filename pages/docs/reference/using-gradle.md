@@ -152,9 +152,11 @@ additional extension functions for APIs added in new JDK versions. Instead of `k
 following dependencies:
 
 ``` groovy
-compile "org.jetbrains.kotlin:kotlin-stdlib-jre7"
-compile "org.jetbrains.kotlin:kotlin-stdlib-jre8"
+compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
+compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 ```
+
+In Kotlin 1.1.x, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8` instead.
 
 If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well:
 

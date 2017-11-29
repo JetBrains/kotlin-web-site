@@ -132,7 +132,7 @@ class JavaClient {
 }
 ```
 
-[Late-Initialized](properties.html#late-initialized-properties) properties are also exposed as fields. 
+[Late-Initialized](properties.html#late-initialized-properties-and-variables) properties are also exposed as fields. 
 The visibility of the field will be the same as the visibility of `lateinit` property setter.
 
 ## Static Fields
@@ -163,7 +163,7 @@ Key.COMPARATOR.compare(key1, key2);
 // public static final field in Key class
 ```
 
-A [late-initialized](properties.html#late-initialized-properties) property in an object or a companion object
+A [late-initialized](properties.html#late-initialized-properties-and-variables) property in an object or a companion object
 has a static backing field with the same visibility as the property setter.
 
 ``` kotlin

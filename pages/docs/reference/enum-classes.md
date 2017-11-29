@@ -51,6 +51,8 @@ with their corresponding methods, as well as overriding base methods. Note that 
 members, you need to separate the enum constant definitions from the member definitions with a semicolon, just like
 in Java.
 
+Enum entries cannot contain nested types other than inner classes (deprecated in Kotlin 1.2).
+
 ## Working with Enum Constants
 
 Just like in Java, enum classes in Kotlin have synthetic methods allowing to list

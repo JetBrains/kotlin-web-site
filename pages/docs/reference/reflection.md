@@ -243,3 +243,5 @@ Property reference can be bound as well:
 val prop = "abc"::length
 println(prop.get())   // prints "3"
 ```
+
+Since Kotlin 1.2, explicitly specifying `this` as the receiver is not necessary: `this::foo` and `::foo` are equivalent.
