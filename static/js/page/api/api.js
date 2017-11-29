@@ -3,6 +3,9 @@ import Dropdown from '../../com/dropdown'
 import NavTree from '../../com/nav-tree'
 import './api.scss'
 
+const DEFAULT_VERSION = '1.2';
+const LOCAL_STORAGE_KEY = 'targetApi';
+
 function getVersion(element) {
   let version = $(element).attr('data-kotlin-version');
   if (version.startsWith("Kotlin ")) {
@@ -12,7 +15,7 @@ function getVersion(element) {
 }
 
 function updateState(state) {
-  localStorage.setItem("apiState", JSON.stringify(state));
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
   const $platformDependentElements = $('[data-platform]');
   const $versionDependentElements = $('[data-kotlin-version]');
   $versionDependentElements.removeClass('hidden');
@@ -29,7 +32,7 @@ function updateState(state) {
   $versionDependentElements.each((ind, element) => {
     const $element = $(element);
     const version = getVersion(element);
-    if (version <= state.version) return;
+    if (state.version == null || version <= state.version) return;
     $element.addClass('hidden')
   })
 }
@@ -52,11 +55,10 @@ function initializeSelects() {
 
   const switchersPanel = $('.api-panel__switchers')[0];
 
-  const state = localStorage.getItem("apiState") ?
-    JSON.parse(localStorage.getItem("apiState")) :
+  const state = localStorage.getItem(LOCAL_STORAGE_KEY) ?
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) :
     {
-      platform: 'all',
-      version: '1.2'
+      platform: 'all'
     };
   updateState(state);
 
@@ -80,9 +82,13 @@ function initializeSelects() {
       '1.1': '1.1',
       '1.2': '1.2'
     },
-    selected: state.version,
+    selected: state.version != null ? state.version : DEFAULT_VERSION,
     onSelect: (version) => {
-      state.version = version;
+      if(version != DEFAULT_VERSION){
+        state.version = version;
+      } else {
+        delete state.version;
+      }
       updateState(state)
     }
   })
