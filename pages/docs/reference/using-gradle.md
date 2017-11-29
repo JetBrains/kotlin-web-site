@@ -196,7 +196,7 @@ Note, that the first build won't be incremental.
 
 ## Coroutines support
 
-[Coroutines](coroutines.html) support is an experimental feature in Kotlin 1.1, so the Kotlin compiler reports a warning when you use coroutines in your project.
+[Coroutines](coroutines.html) support is an experimental feature in Kotlin 1.2, so the Kotlin compiler reports a warning when you use coroutines in your project.
 To turn off the warning, add the following block to your `build.gradle` file:
 
 ``` groovy
