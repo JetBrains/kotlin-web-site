@@ -22,6 +22,16 @@ the common root package omitted (e.g. if all the code in the project is in the "
 subpackages, files with the "org.example.kotlin" package should be placed directly under the source root, and
 files in "org.example.kotlin.foo.bar" should be in the "foo/bar" subdirectory of the source root.
 
+### Source file names
+
+If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
+as the name of the class, with the .kt extension appended. If a file contains multiple classes, or only top-level declarations,
+choose a name describing what the file contains, and name the file accordingly. Use camel humps with an uppercase first letter
+(e.g. `ProcessDeclarations.kt`).
+
+The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
+words such as "Util" in file names.
+
 ### Source file organization
 
 Placing multiple declarations (classes, top-level functions or properties) in the same Kotlin source file is encouraged
@@ -33,15 +43,31 @@ put them in the same file where the class itself is defined. When defining exten
 only for a specific client, put them next to the code of that client. Do not create files just to hold 
 "all extensions of Foo".
 
-### Source file names
+### Class layout
 
-If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
-as the name of the class, with the .kt extension appended. If a file contains multiple classes, or only top-level declarations,
-choose a name describing what the file contains, and name the file accordingly. Use camel humps with an uppercase first letter
-(e.g. `ProcessDeclarations.kt`).
+Generally, the contents of a class is sorted in the following order:
 
-The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
-words such as "Util" in file names.
+- Property declarations and initializer blocks
+- Secondary constructors
+- Method declarations
+- Companion object
+
+Do not sort the method declarations alphabetically or by visibility, and do not separate regular methods
+from extension methods. Instead, put related stuff together, so that someone reading the class from top to bottom would
+be able to follow the logic of what's happening. Choose an order (either higher-level stuff first, or vice versa)
+and stick to it.
+
+Put nested classes next to the code that uses those classes. If the classes are intended to be used externally and aren't
+referenced inside the class, put them in the end, after the companion object.
+
+### Interface implementation layout
+
+When implementing an interface, keep the implementing members in the same order as members of the interface (if necessary,
+interspersed with additional private methods used for the implementation)
+
+### Overload layout
+
+Always put overloads next to each other in a class.
 
 ## Naming rules
 
@@ -58,6 +84,8 @@ open class DeclarationProcessor { ... }
 
 object EmptyDeclarationProcessor : DeclarationProcessor() { ... }
 ```
+
+### Function names
  
 Names of functions, properties and local variables start with a lower case letter and use camel humps and no underscores:
 
@@ -75,6 +103,20 @@ class FooImpl : Foo { ... }
 
 fun Foo(): Foo { return FooImpl(...) }
 ```
+
+#### Names for test methods
+
+In tests (and only in tests), it's acceptable to use method names with spaces enclosed in backticks.
+(Note that such method names are currently not supported by the Android runtime.)
+
+``` kotlin
+class MyTestCase {
+     @Test fun `ensure everything works`() {
+     }
+}
+```
+
+### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
 that hold deeply immutable data) should use uppercase underscore-separated names:
@@ -99,21 +141,7 @@ val PersonComparator: Comparator<Person> = ...
 For enum constants, it's OK to use either uppercase underscore-separated names
 (`enum class Color { RED, GREEN }`) or regular camel-humps names starting with an uppercase letter, depending on the usage.
    
-When using an acronym as part of a declaration name, capitalize it if it consists of two letters (`IOStream`);
-capitalize only the first letter if it is longer (`HttpInputStream`).  
-
-### Choosing good names
-
-The name of a class is usually a noun or a noun phrase explaining what the class _is_: `List`, `PersonReader`.
-
-The name of a method is usually a verb or a verb phrase saying what the method _does_: `close`, `readPersons`.
-The name should also suggest if the method is mutating the object or returning a new one. For instance `sort` is
-sorting a collection in place, while `sorted` is returning a sorted copy of the collection.
-
-The names should make it clear what the purpose of the entity is, so it's best to avoid using meaningless words
-(`Manager`, `Wrapper` etc.) in names.
-
-### Names for backing properties
+#### Names for backing properties
 
 If a class has two properties which are conceptually the same but one is part of a public API and another is an implementation
 detail, use an underscore as the prefix for the name of the private property:
@@ -127,19 +155,22 @@ class C {
 }
 ```
 
-### Names for test methods
+### Choosing good names
 
-In tests (and only in tests), it's acceptable to use method names with spaces enclosed in backticks.
-(Note that such method names are currently not supported by the Android runtime.)
+The name of a class is usually a noun or a noun phrase explaining what the class _is_: `List`, `PersonReader`.
 
-``` kotlin
-class MyTestCase {
-     @Test fun `ensure everything works`() {
-     }
-}
-```
+The name of a method is usually a verb or a verb phrase saying what the method _does_: `close`, `readPersons`.
+The name should also suggest if the method is mutating the object or returning a new one. For instance `sort` is
+sorting a collection in place, while `sorted` is returning a sorted copy of the collection.
 
-## General formatting rules
+The names should make it clear what the purpose of the entity is, so it's best to avoid using meaningless words
+(`Manager`, `Wrapper` etc.) in names.
+
+When using an acronym as part of a declaration name, capitalize it if it consists of two letters (`IOStream`);
+capitalize only the first letter if it is longer (`HttpInputStream`).
+
+
+## Formatting
 
 In most cases, Kotlin follows the Java coding conventions.
 
@@ -159,9 +190,7 @@ if (elements != null) {
 (Note: In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
 K&R braces, and you may encounter surprising behavior if you try to use a different formatting style.)
 
-Omit semicolons whenever possible.
-   
-## Horizontal whitespace
+### Horizontal whitespace
 
 Put spaces around binary operators (`a + b`). Exception: don't put spaces around the "range to" operator (`0..i`).
 
@@ -220,7 +249,7 @@ class FooImpl : Foo() {
 } 
 ```
 
-## Class header formatting
+### Class header formatting
 
 Classes with a few arguments can be written in a single line:
 
@@ -284,33 +313,73 @@ class MyFavouriteVeryLongClassHolder :
 
 Use regular indent (4 spaces) for constructor parameters.
 
-## Class layout
+### Modifiers
 
-Generally, the contents of a class is sorted in the following order:
+If a declaration has multiple modifiers, always put them in the following order:
 
-- Property declarations and initializer blocks
-- Secondary constructors
-- Method declarations
-- Companion object
+``` kotlin
+public / protected / private / internal
+final / open / abstract / sealed / const
+external
+override
+lateinit
+tailrec
+vararg
+suspend
+inner
+enum / annotation
+companion
+inline
+infix
+operator
+data
+```
 
-Do not sort the method declarations alphabetically or by visibility, and do not separate regular methods
-from extension methods. Instead, put related stuff together, so that someone reading the class from top to bottom would
-be able to follow the logic of what's happening. Choose an order (either higher-level stuff first, or vice versa)
-and stick to it.
+Place all annotations before modifiers:
 
-Put nested classes next to the code that uses those classes. If the classes are intended to be used externally and aren't
-referenced inside the class, put them in the end, after the companion object.
+``` kotlin
+@Named("Foo")
+private val foo: Foo
+```
 
-### Interface implementation layout
+Unless you're working on a library, omit redundant modifiers (e.g. `public`).
 
-When implementing an interface, keep the implementing members in the same order as members of the interface (if necessary,
-interspersed with additional private methods used for the implementation)
+### Annotation formatting
 
-### Overload layout
+Annotations are typically placed on separate lines, before the declaration to which they are attached, and with the same indentation:
 
-Always put overloads next to each other in a class.
+``` kotlin
+@Target(AnnotationTarget.PROPERTY)
+annotation class JsonExclude
+```
 
-## Function formatting
+Annotations without arguments may be placed on the same line:
+
+``` kotlin
+@JsonExclude @JvmField
+var x: String
+```
+
+A single annotation without arguments may be placed on the same line as the corresponding declaration:
+
+``` kotlin
+@Test fun foo() { ... }
+```
+
+### File annotations
+
+File annotations are placed after the file comment (if any), before the `package` statement, and are separated from `package` with a blank line (to emphasize the fact that they target the file and not the package).
+
+``` kotlin
+/** License, copyright and whatever */
+@file:JvmName("FooBar")
+
+package foo.bar
+```
+
+Put spaces around the `=` sign separating the argument name and value.
+
+### Function formatting
 
 If the function signature doesn't fit on a single line, use the following syntax:
 
@@ -345,29 +414,6 @@ fun f(x: String) =
     x.length
 ```
 
-### Unit
-
-If a function returns Unit, the return type should be omitted:
-
-``` kotlin
-fun foo() { // ": Unit" is omitted here
-
-}
-```
-
-### Default parameter values
-
-Prefer declaring functions with default parameter values to declaring overloaded functions.
-
-``` kotlin
-// Bad
-fun foo() = foo("a")
-fun foo(a: String) { ... }
-
-// Good
-fun foo(a: String = "a") { ... }
-```
-
 ## Property formatting
 
 For very simple read-only properties, consider one-line formatting:
@@ -379,8 +425,8 @@ val isEmpty: Boolean get() = size == 0
 For more complex properties, always put `get` and `set` keywords on separate lines:
 
 ```kotlin
-val foo: String 
-    get() { 
+val foo: String
+    get() {
         // ...
     }
 
@@ -394,113 +440,60 @@ private val defaultCharset: Charset? =
     EncodingRegistry.getInstance().getDefaultCharsetForPropertiesFiles(file)
 ```
 
-## Type aliases
+### Formatting control flow statements
 
-If you have a functional type or a type with type parameters which is used multiple times in a codebase, prefer defining
-a type alias for it:
-
-```kotlin
-typealias MouseClickHandler = (Any, MouseEvent) -> Unit
-typealias PersonIndex = Map<String, Person>
-```
-
-## Annotation formatting
-
-Annotations are typically placed on separate lines, before the declaration to which they are attached, and with the same indentation:
+If the condition of an `if` or `when` statement is multiline, always use curly braces around the body of the statement.
+Put the closing parentheses of the condition together with the opening curly brace on a separate line:
 
 ``` kotlin
-@Target(AnnotationTarget.PROPERTY)
-annotation class JsonExclude
+if (!component.isSyncing &&
+    !hasAnyKotlinRuntimeInScope(module)
+) {
+    return createKotlinNotConfiguredPanel(module)
+}
 ```
 
-Annotations without arguments may be placed on the same line:
+Put the `else` and `finally` keywords on the same line as the preceding curly brace:
 
 ``` kotlin
-@JsonExclude @JvmField
-var x: String
+if (condition) {
+    // body
+} else {
+    // else part
+}
+
+try {
+    // body
+} finally {
+    // cleanup
+}
 ```
 
-A single annotation without arguments may be placed on the same line as the corresponding declaration:
+In a `when` statement, if a branch is more than a single line, consider separating it from adjacent case blocks with a blank line:
 
 ``` kotlin
-@Test fun foo() { ... }
-```
+private fun parsePropertyValue(propName: String, token: Token) {
+    when (token) {
+        is Token.ValueToken ->
+            callback.visitValue(propName, token.value)
 
-### File annotations
-
-File annotations are placed after the file comment (if any), before the `package` statement, and are separated from `package` with a blank line (to emphasize the fact that they target the file and not the package).
-
-``` kotlin
-/** License, copyright and whatever */
-@file:JvmName("FooBar")
-
-package foo.bar
-```
-
-## Lambdas
-
-### Lambda formatting
-
-In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
-from the body. If a call takes a single lambda, it should be passed outside of parentheses whenever possible.
-
-``` kotlin
-list.filter { it > 10 }
-```
-
-If assigning a label for a lambda, do not put a space between the label and the opening curly brace:
-
-``` kotlin
-fun foo() {
-    ints.forEach lit@{
-        // ...
+        Token.LBRACE -> { // ...
+        }
     }
 }
 ```
 
-### Lambda parameters
-
-In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
-explicitly. In nested lambdas with parameters, parameters should be always declared explicitly.
-
-When declaring parameter names in a multiline lambda, put the names on the first line, followed by the arrow and the newline:
+Put short branches on the same line as the condition, without braces.
 
 ``` kotlin
-appendCommaSeparated(properties) { prop ->
-    val propertyValue = prop.get(obj)  // ...
+when (foo) {
+    true -> bar() // good
+    false -> { baz() } // bad
 }
 ```
 
-If the parameter list is too long to fit on a line, put the arrow on a separate line:
 
-``` kotlin
-foo { 
-   context: Context, 
-   environment: Env
-   ->
-   context.configureEnv(environment)
-}
-```
-
-### Returns in a lambda
-
-Avoid using multiple labeled returns in a lambda. Consider restructuring the lambda so that it will have a single exit point.
-If that's not possible or not clear enough, consider converting the lambda into an anonymous function.
-
-Do not use a labeled return for the last statement in a lambda.
-
-## Method call formatting
-
-Use the named argument syntax when a method takes multiple parameters of the same primitive type, or for parameters of `Boolean` type,
-unless the meaning of all parameters is absolutely clear from context.
-
-``` kotlin
-drawSquare(x = 10, y = 10, width = 100, height = 100, fill = true)
-```
-
-Put spaces around the `=` sign separating the argument name and value.
-
-### Argument list wrapping
+### Method call formatting
 
 In long argument lists, put a line break after the opening parenthesis. Group multiple closely related arguments
 on the same line.
@@ -526,7 +519,122 @@ val anchor = owner
 
 The first call in the chain usually should have a line break before it, but it's OK to omit it the code makes more sense that way.
 
-## Using conditional statements
+### Lambda formatting
+
+In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
+from the body. If a call takes a single lambda, it should be passed outside of parentheses whenever possible.
+
+``` kotlin
+list.filter { it > 10 }
+```
+
+If assigning a label for a lambda, do not put a space between the label and the opening curly brace:
+
+``` kotlin
+fun foo() {
+    ints.forEach lit@{
+        // ...
+    }
+}
+```
+
+When declaring parameter names in a multiline lambda, put the names on the first line, followed by the arrow and the newline:
+
+``` kotlin
+appendCommaSeparated(properties) { prop ->
+    val propertyValue = prop.get(obj)  // ...
+}
+```
+
+If the parameter list is too long to fit on a line, put the arrow on a separate line:
+
+``` kotlin
+foo {
+   context: Context,
+   environment: Env
+   ->
+   context.configureEnv(environment)
+}
+```
+
+
+## Avoiding redundant constructs
+
+In general, if a certain syntactic construction in Kotlin is optional and highlighted by the IDE
+as redundant, you should omit it in your code. Do not leave unnecessary syntactic elements in code
+just "for clarity".
+
+### Unit
+
+If a function returns Unit, the return type should be omitted:
+
+``` kotlin
+fun foo() { // ": Unit" is omitted here
+
+}
+```
+
+### Semicolons
+
+Omit semicolons whenever possible.
+
+### String templates
+
+Don't use curly braces when inserting a simple variable into a string template. Use curly braces only for longer expressions.
+
+``` kotlin
+println("$name has ${children.size} children")
+```
+
+
+## Idiomatic use of language features
+
+### Default parameter values
+
+Prefer declaring functions with default parameter values to declaring overloaded functions.
+
+``` kotlin
+// Bad
+fun foo() = foo("a")
+fun foo(a: String) { ... }
+
+// Good
+fun foo(a: String = "a") { ... }
+```
+
+### Type aliases
+
+If you have a functional type or a type with type parameters which is used multiple times in a codebase, prefer defining
+a type alias for it:
+
+```kotlin
+typealias MouseClickHandler = (Any, MouseEvent) -> Unit
+typealias PersonIndex = Map<String, Person>
+```
+
+### Lambda parameters
+
+In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
+explicitly. In nested lambdas with parameters, parameters should be always declared explicitly.
+
+
+### Returns in a lambda
+
+Avoid using multiple labeled returns in a lambda. Consider restructuring the lambda so that it will have a single exit point.
+If that's not possible or not clear enough, consider converting the lambda into an anonymous function.
+
+Do not use a labeled return for the last statement in a lambda.
+
+### Named arguments
+
+Use the named argument syntax when a method takes multiple parameters of the same primitive type, or for parameters of `Boolean` type,
+unless the meaning of all parameters is absolutely clear from context.
+
+``` kotlin
+drawSquare(x = 10, y = 10, width = 100, height = 100, fill = true)
+```
+
+### Using conditional statements
 
 Prefer using the expression form of `try`, `if` and `when`. Examples:
 
@@ -568,63 +676,11 @@ use `if (x == null) ... else ...`
 
 Prefer using `when` if there are three or more options.
 
-### Formatting control flow statements
-
-If the condition of an `if` or `when` statement is multiline, always use curly braces around the body of the statement.
-Put the closing parentheses of the condition together with the opening curly brace on a separate line:
-
-``` kotlin
-if (!component.isSyncing &&
-    !hasAnyKotlinRuntimeInScope(module)
-) {
-    return createKotlinNotConfiguredPanel(module)
-}
-```
-
-Put the `else` and `finally` keywords on the same line as the preceding curly brace:
-
-``` kotlin
-if (condition) {
-    // body
-} else {
-    // else part
-}
-
-try {
-    // body
-} finally {
-    // cleanup
-} 
-```
-
-In a `when` statement, if a branch is more than a single line, consider separating it from adjacent case blocks with a blank line:
-
-``` kotlin
-private fun parsePropertyValue(propName: String, token: Token) {
-    when (token) {
-        is Token.ValueToken ->
-            callback.visitValue(propName, token.value)
-
-        Token.LBRACE -> { // ...
-        }
-    }
-}    
-```
-
-Put short branches on the same line as the condition, without braces.
-
-``` kotlin
-when (foo) {
-    true -> bar() // good
-    false -> { baz() } // bad
-}
-```
-
 ### Using nullable `Boolean` values in conditions
 
 If you need to use a nullable `Boolean` in a conditional statement, use `if (value == true)` or `if (value == false)` checks.
 
-## Using loops
+### Using loops
 
 Prefer using higher-order functions (`filter`, `map` etc.) to loops. Exception: `forEach` (prefer using a regular `for` loop instead,
 unless the receiver of `forEach` is nullable or `forEach` is used as part of a longer call chain).
@@ -641,7 +697,25 @@ for (i in 0..n - 1) { ... }  // bad
 for (i in 0 until n) { ... }  // good
 ```
 
-## Functions vs Properties
+### Using strings
+
+Prefer using string templates to string concatenation.
+
+Prefer to use multiline strings instead of embedding `\n` escape sequences into regular string literals.
+
+To maintain indentation in multiline strings, use `trimIndent` when the resulting string does not require any internal
+indentation, or `trimMargin` when internal indentation is required:
+
+``` kotlin
+assertEquals("""Foo
+                Bar""".trimIndent(), value)
+
+val a = """if(a > 1) {
+          |    return a
+          |}""".trimMargin()
+```
+
+### Functions vs Properties
 
 In some cases functions with no arguments might be interchangeable with read-only properties. 
 Although the semantics are similar, there are some stylistic conventions on when to prefer one to another.
@@ -652,21 +726,21 @@ Prefer a property over a function when the underlying algorithm:
 * is cheap to calculate (or caсhed on the first run)
 * returns the same result over invocations if the object state hasn't changed
 
-## Using extension functions
+### Using extension functions
 
 Use extension functions liberally. Every time you have a function that works primarily on an object, consider making it
 an extension function accepting that object as a receiver. To minimize API pollution, restrict the visibility of
 extension functions as much as it makes sense. As necessary, use local extension functions, member extension functions,
 or top-level extension functions with private visibility.
 
-## Using infix functions
+### Using infix functions
 
 Declare a function as infix only when it works on two objects which play a similar role. Good examples: `and`, `to`, `zip`.
 Bad example: `add`.
 
 Don't declare a method as infix if it mutates the receiver object.
 
-## Factory functions
+### Factory functions
 
 If you declare a factory function for a class, avoid giving it the same name as the class itself. Prefer using a distinct name
 making it clear why the behavior of the factory function is special. Only if there is really no special semantics,
@@ -686,38 +760,7 @@ If you have an object with multiple overloaded constructors that don't call diff
 can't be reduced to a single constructor with default argument values, prefer to replace the overloaded constructors with
 factory functions.
 
-## Modifiers
-
-If a declaration has multiple modifiers, always put them in the following order:
-
-``` kotlin
-public / protected / private / internal
-final / open / abstract / sealed / const
-external
-override
-lateinit
-tailrec
-vararg
-suspend
-inner
-enum / annotation
-companion
-inline
-infix
-operator
-data
-```
-
-Place all annotations before modifiers:
-
-``` kotlin
-@Named("Foo") 
-private val foo: Foo
-```
-
-Unless you're working on a library, omit redundant modifiers (e.g. `public`).
-
-## Platform types
+### Platform types
 
 A public function/method returning an expression of a platform type must declare its Kotlin type explicitly:
 
@@ -742,9 +785,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-## Using scope functions apply/with/run/also/let
+### Using scope functions apply/with/run/also/let
 
-### apply
+#### apply
 
 Use `apply` for initialization:
 
@@ -755,7 +798,7 @@ val foo = createBar().apply {
 }
 ```
 
-### also
+#### also
 
 Use `also` over `apply` if the receiver is used for anything other than setting properties or function calls **on it**,
 or if the receiver is not used at all in the lambda.
@@ -785,7 +828,7 @@ class Foo {
 }
 ```
 
-### apply/with/run
+#### apply/with/run
 
 Prefer `apply`/`run` over `with` if the receiver is nullable.
 
@@ -823,34 +866,6 @@ Prefer `let` over `run` in method chains that transform the receiver
 val baz: Baz = foo.let { createBar(it) }.convertBarToBaz()
 // or with function references
 val baz: Baz = foo.let(::createBar).convertBarToBaz()
-```
-
-## String literals
-
-### String templates
-
-Prefer using string templates to string concatenation.
-
-Don't use curly braces when inserting a simple variable into a string template. Use curly braces only for longer expressions.
-
-``` kotlin
-println("$name has ${children.size} children")
-```
-
-### Multiline strings
-
-Prefer to use multiline strings instead of embedding `\n` escape sequences into regular string literals.
-
-To maintain indentation in multiline strings, use `trimIndent` when the resulting string does not require any internal
-indentation, or `trimMargin` when internal indentation is required:
-
-``` kotlin
-assertEquals("""Foo
-                Bar""".trimIndent(), value)
-
-val a = """if(a > 1) {
-          |    return a
-          |}""".trimMargin()
 ```
 
 ## Coding conventions for libraries
