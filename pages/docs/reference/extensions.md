@@ -255,7 +255,7 @@ class C1 : C() {
 
 C().caller(D())   // prints "D.foo in C"
 C1().caller(D())  // prints "D.foo in C1" - dispatch receiver is resolved virtually
-C().caller(D1())  // prints "D.foo in C" - extension receiver is resolved statically
+C().caller(D1())  // prints "D1.foo in C" - extension receiver is resolved statically
 ```
 
  
