@@ -102,3 +102,72 @@ val x: String? = y as? String
 ```
 
 Note that despite the fact that the right-hand side of *as?*{: .keyword } is a non-null type `String` the result of the cast is nullable.
+
+## Type erasure and generic type checks
+
+Kotlin ensures type safety of operations involving [generics](generics.html) at compile time,
+while, at runtime, instances of generic types hold no information about their actual type arguments. For example, 
+`List<Foo>` is erased to just `List<*>`. In general, there is no way to check whether an instance belongs to a generic 
+type with certain type arguments at runtime. 
+
+Given that, the compiler prohibits *is*{: .keyword }-checks that cannot be performed at runtime due to type erasure, such as 
+`ints is List<Int>` or `list is T` (type parameter). You can, however, check an instance against a [star-projected type](generics.html#star-projections):
+
+```kotlin
+if (something is List<*>) {
+    something.forEach { println(it) } // The items are typed as `Any?`
+}
+```
+
+Similarly, when you already have the type arguments of an instance checked statically (at compile time),
+you can make an *is*{: .keyword }-check or a cast that involves the non-generic part of the type. Note that 
+angle brackets are omitted in this case:
+
+```kotlin
+fun handleStrings(list: List<String>) {
+    if (list is ArrayList) {
+        // `list` is smart-cast to `ArrayList<String>`
+    }
+}
+```
+
+The same syntax with omitted type arguments is used for unsafe casts for 
+non-generic part of the type: `list as ArrayList`. 
+
+Inline functions with [reified type parameters](inline-functions.html#reified-type-parameters) have their actual type arguments
+ inlined at each call site, which enables `arg is T` checks for the type parameters, but if `arg` is an instance of a 
+generic type itself, *its* type arguments are still erased. 
+
+## Unchecked casts
+
+As said above, type erasure makes checking actual type arguments of a generic type instance impossible at runtime, and 
+generic types in the code might be connected to each other not closely enough for the compiler to ensure 
+type safety. 
+
+Even so, sometimes we have high-level program logic that implies type safety instead. For example:
+
+```kotlin
+fun readDictionary(file: File): Map<String, *> = file.inputStream().use { 
+    TODO("Read a mapping of strings to arbitrary elements.")
+}
+
+val intsFile = File("ints.dictionary")
+
+// We saved a map with `Int`s into that file, so we want 
+// this map to have `Int` for value type:
+val intsDictionary: Map<String, Int> = readDictionary(intsFile) as Map<String, Int>
+// Warning: Unchecked cast: `Map<String, *>` to `Map<String, Int>`
+```
+
+The compiler produces a warning for the cast in the last line since it cannot be fully checked at runtime, it provides 
+no guarantees that the map holds `Int` actual values.  
+
+In general, you should avoid unchecked casts by doing proper design: in the example above, there could be interfaces
+ `DictionaryReader<T>` and `DictionaryWriter<T>` with type-safe implementations. 
+ Using [generic variance](generics.html#variance) properly can also help avoiding unchecked casts.
+ 
+For generic functions, using [reified type parameters](inline-functions.html#reified-type-parameters) makes the casts 
+such as `arg as T` checked, unless `arg`'s type has *its own* type arguments that are erased.
+
+An unchecked cast warning can be suppressed by [annotating](annotations.html#annotations) the statement or the 
+declaration where it occurs with `@Suppress("UNCHECKED_CAST")`.
