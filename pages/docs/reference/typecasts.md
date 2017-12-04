@@ -131,7 +131,7 @@ fun handleStrings(list: List<String>) {
 }
 ```
 
-The same syntax with omitted type arguments can used for casts that do not take type arguments into account: `list as ArrayList`. 
+The same syntax with omitted type arguments can be used for casts that do not take type arguments into account: `list as ArrayList`. 
 
 Inline functions with [reified type parameters](inline-functions.html#reified-type-parameters) have their actual type arguments
  inlined at each call site, which enables `arg is T` checks for the type parameters, but if `arg` is an instance of a 
