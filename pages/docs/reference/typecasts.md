@@ -131,8 +131,7 @@ fun handleStrings(list: List<String>) {
 }
 ```
 
-The same syntax with omitted type arguments is used for unsafe casts for 
-non-generic part of the type: `list as ArrayList`. 
+The same syntax with omitted type arguments can used for casts that do not take type arguments into account: `list as ArrayList`. 
 
 Inline functions with [reified type parameters](inline-functions.html#reified-type-parameters) have their actual type arguments
  inlined at each call site, which enables `arg is T` checks for the type parameters, but if `arg` is an instance of a 
@@ -164,7 +163,7 @@ no guarantees that the map holds `Int` actual values.
 
 In general, you should avoid unchecked casts by doing proper design: in the example above, there could be interfaces
  `DictionaryReader<T>` and `DictionaryWriter<T>` with type-safe implementations. 
- Using [generic variance](generics.html#variance) properly can also help avoiding unchecked casts.
+ Using [generic variance](generics.html#variance) properly can also help.
  
 For generic functions, using [reified type parameters](inline-functions.html#reified-type-parameters) makes the casts 
 such as `arg as T` checked, unless `arg`'s type has *its own* type arguments that are erased.
