@@ -135,7 +135,33 @@ The same syntax with omitted type arguments can used for casts that do not take 
 
 Inline functions with [reified type parameters](inline-functions.html#reified-type-parameters) have their actual type arguments
  inlined at each call site, which enables `arg is T` checks for the type parameters, but if `arg` is an instance of a 
-generic type itself, *its* type arguments are still erased. 
+generic type itself, *its* type arguments are still erased. Example:
+
+<div class="sample" markdown="1">
+
+``` kotlin
+//sampleStart
+inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
+    if (first !is A || second !is B) return null
+    return first as A to second as B
+}
+
+val somePair: Pair<Any?, Any?> = "items" to listOf(1, 2, 3)
+
+val stringToSomething = somePair.asPairOf<String, Any>()
+val stringToInt = somePair.asPairOf<String, Int>()
+val stringToList = somePair.asPairOf<String, List<*>>()
+val stringToStringList = somePair.asPairOf<String, List<String>>() // Breaks type safety!
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println("stringToSomething = " + stringToSomething)
+    println("stringToInt = " + stringToInt)
+    println("stringToList = " + stringToList)
+    println("stringToStringList = " + stringToStringList)
+}
+```
+</div>
 
 ## Unchecked casts
 
@@ -145,28 +171,36 @@ type safety.
 
 Even so, sometimes we have high-level program logic that implies type safety instead. For example:
 
-```kotlin
+```kotlin 
 fun readDictionary(file: File): Map<String, *> = file.inputStream().use { 
     TODO("Read a mapping of strings to arbitrary elements.")
 }
 
+// We saved a map with `Int`s into that file
 val intsFile = File("ints.dictionary")
 
-// We saved a map with `Int`s into that file, so we want 
-// this map to have `Int` for value type:
-val intsDictionary: Map<String, Int> = readDictionary(intsFile) as Map<String, Int>
 // Warning: Unchecked cast: `Map<String, *>` to `Map<String, Int>`
+val intsDictionary: Map<String, Int> = readDictionary(intsFile) as Map<String, Int>
 ```
 
-The compiler produces a warning for the cast in the last line since it cannot be fully checked at runtime, it provides 
-no guarantees that the map holds `Int` actual values.  
+The compiler produces a warning for the cast in the last line. The cast cannot be fully checked at runtime and provides 
+no guarantee that the values in the map are `Int`.
 
-In general, you should avoid unchecked casts by doing proper design: in the example above, there could be interfaces
- `DictionaryReader<T>` and `DictionaryWriter<T>` with type-safe implementations. 
- Using [generic variance](generics.html#variance) properly can also help.
+To avoid unchecked casts, you can redesign the program structure: in the example above, there could be interfaces
+ `DictionaryReader<T>` and `DictionaryWriter<T>` with type-safe implementations for different types. 
+ You can introduce reasonable abstractions to move unchecked casts from calling code to the implementation details.
+ Proper use of [generic variance](generics.html#variance) can also help. 
  
 For generic functions, using [reified type parameters](inline-functions.html#reified-type-parameters) makes the casts 
 such as `arg as T` checked, unless `arg`'s type has *its own* type arguments that are erased.
 
 An unchecked cast warning can be suppressed by [annotating](annotations.html#annotations) the statement or the 
-declaration where it occurs with `@Suppress("UNCHECKED_CAST")`.
+declaration where it occurs with `@Suppress("UNCHECKED_CAST")`:
+
+```kotlin
+inline fun <reified T> List<*>.asListOfType(): List<T>? =
+    if (all { it is T })
+        @Suppress("UNCHECKED_CAST")
+        this as List<T> else
+        null
+```
