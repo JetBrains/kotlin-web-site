@@ -113,6 +113,32 @@ class Person(val name: String) {
 }
 ```
 
+Note that code in initializer blocks effectively becomes part of the primary constructor. Delegation to the primary
+constructor happens as the first statement of a secondary constructor, so the code in all initializer blocks is executed
+before the secondary constructor body. Even if the class has no primary constructor, the delegation still happens
+implicitly, and the initializer blocks are still executed:
+
+<div class="sample" markdown="1">
+
+``` kotlin
+//sampleStart
+class Constructors {
+    init {
+        println("Init block")
+    }
+
+    constructor(i: Int) {
+        println("Constructor")
+    }
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    Constructors(1)
+}
+```
+</div>
+
 If a non-abstract class does not declare any constructors (primary or secondary), it will have a generated primary
 constructor with no arguments. The visibility of the constructor will be public. If you do not want your class
 to have a public constructor, you need to declare an empty primary constructor with non-default visibility:
