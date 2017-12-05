@@ -1,4 +1,108 @@
 - geo:
+    lat: 37.5078772
+    lng: 15.0830304
+  name: Catania, Italy
+- geo:
+    lat: 33.5731104
+    lng: -7.589843399999999
+  name: Casablanca, Morocco
+- geo:
+    lat: -17.9646772
+    lng: -67.1060353
+  name: Oruro, Bolivia
+- geo:
+    lat: 56.2965039
+    lng: 43.93605900000001
+  name: Nizhny Novgorod, Russia
+- geo:
+    lat: 23.022505
+    lng: 72.5713621
+  name: Ahmedabad, India
+- geo:
+    lat: 52.2574121
+    lng: 6.7927725
+  name: Hengelo, The Netherlands
+- geo:
+    lat: -1.2920659
+    lng: 36.8219462
+  name: Nairobi, Kenya
+- geo:
+    lat: 35.3387352
+    lng: 25.1442126
+  name: Heraklion, Greece
+- geo:
+    lat: 36.8968908
+    lng: 30.7133233
+  name: Antalya, Turkey
+- geo:
+    lat: 34.341574
+    lng: 108.93977
+  name: Xi'an,Shannxi, China
+- geo:
+    lat: 44.8004192
+    lng: 18.0602921
+  name: Doboj, Bosnia and Herzegovina
+- geo:
+    lat: 40.5621704
+    lng: -111.929658
+  name: South Jordan, UT
+- geo:
+    lat: 48.2920787
+    lng: 25.9358367
+  name: Chernivtsi, Ukraine
+- geo:
+    lat: 36.7212737
+    lng: -4.4213988
+  name: Málaga, Spain
+- geo:
+    lat: -25.5085286
+    lng: -54.6753231
+  name: Ciudad del Este, Paraguay
+- geo:
+    lat: 33.3061605
+    lng: -111.8412502
+  name: Chandler, AZ
+- geo:
+    lat: -22.314459
+    lng: -49.0586951
+  name: Bauru, Brasil
+- geo:
+    lat: 21.0277644
+    lng: 105.8341598
+  name: Hanoi, Vietnam
+- geo:
+    lat: 40.0992294
+    lng: -83.1140771
+  name: Dublin, OH
+- geo:
+    lat: 36.4757929
+    lng: 2.8297576
+  name: Blida, Algeria
+- geo:
+    lat: -33.4488897
+    lng: -70.6692655
+  name: Santiago, Chile
+- geo:
+    lat: 57.70887
+    lng: 11.97456
+  name: Göteborg, Sweden
+- geo:
+    lat: 40.8517746
+    lng: 14.2681244
+  name: Napoli, Italy
+- geo:
+    lat: 37.831316
+    lng: -122.2852473
+  name: Emeryville, CA
+- geo:
+    lat: 30.483997
+    lng: 76.5939516
+  name: Rajpura, India
+- geo:
+    lat: 9.0764785
+    lng: 7.398574
+  name: Abuja, Nigeria
+- geo:
     lat: 40.2033145
     lng: -8.4102573
   name: Coimbra, Portugal
