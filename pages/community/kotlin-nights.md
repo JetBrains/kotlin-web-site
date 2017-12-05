@@ -28,12 +28,12 @@ Please, [submit your Kotlin Night](https://surveys.jetbrains.com/s3/1eca96c71ee7
 ## Organiser is Responsible for
 
 1. Location and all required event production, including comfortable venue. Please, make sure 
-  * all the participants are aware of the exact date, place and starting time of the event. It’s good tone to have at least 30 minutes before  your event for the participants gathering;
-  * there is enough place as well as food and beverages, in case you provide, for everyone. 
-  * you have a plan with your speakers: schedule, topics and abstracts of the talks, equipment for the presentations.
+  * All the participants are aware of the exact date, place and starting time of the event. It’s good tone to have at least 30 minutes before  your event for the participants gathering;
+  * There is enough place as well as food and beverages, in case you provide, for everyone. 
+  * You have a plan with your speakers: schedule, topics and abstracts of the talks, equipment for the presentations.
   * If you’d like to organise recording of the talks, plan it in advance to get a better quality
 2. Content and speakers
-  * Feel free to invite people with talks from your local community, from the neighbour countries or even from all over the globe. You don’t have to to have any JetBrains representative or speaker at your event. However we would be glad to learn about one more kotlin NIght, so feel free to notify us.
+  * Feel free to invite people with talks from your local community, from the neighbour countries or even from all over the globe. You don’t have to have any JetBrains representative or speaker at your event. However we would be glad to learn about one more Kotlin Night, so feel free to notify us.
 3. Announcements and promotion
   * Announce your event at least 3 weeks before the date of a meetup
   * Add timeline, topics, abstracts and speakers bios to the announcement
