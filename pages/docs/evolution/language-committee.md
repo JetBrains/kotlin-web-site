@@ -32,3 +32,6 @@ Current members of this committee:
 *   [Andrey Breslav, JetBrains](https://github.com/abreslav)
 *   [Jeffrey van Gogh, Google](https://github.com/jvgogh)
 
+### Open Process 
+
+Meeting minutes of the Language Committee are public and can be viewed live in [this document](https://docs.google.com/document/d/1ReH84Cw_ZhGOUM_MdMQbLjzB0edXIeaFuBUF5molsuI/preview). 
