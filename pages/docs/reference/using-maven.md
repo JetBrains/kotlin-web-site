@@ -272,7 +272,7 @@ tutorial for more information.
 
 ## Specifying compiler options
 
-Additional options for the compiler can be specified as tags under the `<configuration>` element of the
+Additional options and arguments for the compiler can be specified as tags under the `<configuration>` element of the
 Maven plugin node:
 
 ``` xml
@@ -283,6 +283,10 @@ Maven plugin node:
     <executions>...</executions>
     <configuration>
         <nowarn>true</nowarn>  <!-- Disable warnings -->
+        <args>
+            <arg>-Xjsr305=strict</arg> <!-- Enable strict mode for JSR-305 annotations -->
+            ...
+        </args>
     </configuration>
 </plugin>
 ```
