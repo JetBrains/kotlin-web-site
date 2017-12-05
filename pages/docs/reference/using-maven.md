@@ -161,6 +161,17 @@ Alternatively, run your build with the `-Dkotlin.compiler.incremental=true` opti
 
 See the description of [Kotlin annotation processing tool](kapt.html) (`kapt`).
 
+## Coroutines support
+
+[Coroutines](coroutines.html) support is an experimental feature in Kotlin 1.2, so the Kotlin compiler reports a warning when you use coroutines in your project.
+To turn off the warning, add the following block to your `pom.xml` file:
+
+``` xml
+<configuration>
+    <experimentalCoroutines>enable</experimentalCoroutines>
+</configuration>
+```
+
 ## Jar file
 
 To create a small Jar file containing just the code from your module, include the following under `build->plugins` in your Maven pom.xml file,
@@ -261,7 +272,7 @@ tutorial for more information.
 
 ## Specifying compiler options
 
-Additional options for the compiler can be specified as tags under the `<configuration>` element of the
+Additional options and arguments for the compiler can be specified as tags under the `<configuration>` element of the
 Maven plugin node:
 
 ``` xml
@@ -272,6 +283,10 @@ Maven plugin node:
     <executions>...</executions>
     <configuration>
         <nowarn>true</nowarn>  <!-- Disable warnings -->
+        <args>
+            <arg>-Xjsr305=strict</arg> <!-- Enable strict mode for JSR-305 annotations -->
+            ...
+        </args>
     </configuration>
 </plugin>
 ```

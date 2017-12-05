@@ -130,7 +130,8 @@ fun foo(node: Node): String? {
 
 ## The `!!` Operator
 
-The third option is for NPE-lovers. We can write `b!!`, and this will return a non-null value of `b`
+The third option is for NPE-lovers: the not-null assertion operator (`!!`) converts any value to a non-null
+type and throws an exception if the value is null. We can write `b!!`, and this will return a non-null value of `b`
 (e.g., a `String` in our example) or throw an NPE if `b` is null:
 
 ``` kotlin

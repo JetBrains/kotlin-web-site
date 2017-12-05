@@ -48,15 +48,35 @@ class Person(firstName: String) {
 ```
 
 The primary constructor cannot contain any code. Initialization code can be placed
-in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword:
+in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword.
+
+During an instance initialization, the initializer blocks are executed in the same order as they appear 
+in the class body, interleaved with the property initializers:
+
+<div class="sample" markdown="1">
 
 ``` kotlin
-class Customer(name: String) {
+//sampleStart
+class InitOrderDemo(name: String) {
+    val firstProperty = "First property: $name".also(::println)
+    
     init {
-        logger.info("Customer initialized with value ${name}")
+        println("First initializer block that prints ${name}")
+    }
+    
+    val secondProperty = "Second property: ${name.length}".also(::println)
+    
+    init {
+        println("Second initializer block that prints ${name.length}")
     }
 }
+//sampleEnd
+
+fun main(args: Array<String>) {
+    InitOrderDemo("hello")
+}
 ```
+</div>
 
 Note that parameters of the primary constructor can be used in the initializer blocks. They can also be used in
 property initializers declared in the class body:
@@ -112,6 +132,32 @@ class Person(val name: String) {
     }
 }
 ```
+
+Note that code in initializer blocks effectively becomes part of the primary constructor. Delegation to the primary
+constructor happens as the first statement of a secondary constructor, so the code in all initializer blocks is executed
+before the secondary constructor body. Even if the class has no primary constructor, the delegation still happens
+implicitly, and the initializer blocks are still executed:
+
+<div class="sample" markdown="1">
+
+``` kotlin
+//sampleStart
+class Constructors {
+    init {
+        println("Init block")
+    }
+
+    constructor(i: Int) {
+        println("Constructor")
+    }
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    Constructors(1)
+}
+```
+</div>
 
 If a non-abstract class does not declare any constructors (primary or secondary), it will have a generated primary
 constructor with no arguments. The visibility of the constructor will be public. If you do not want your class
