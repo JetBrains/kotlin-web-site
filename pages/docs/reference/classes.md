@@ -48,15 +48,35 @@ class Person(firstName: String) {
 ```
 
 The primary constructor cannot contain any code. Initialization code can be placed
-in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword:
+in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword.
+
+During an instance initialization, the initializer blocks are executed in the same order as they appear 
+in the class body, interleaved with the property initializers:
+
+<div class="sample" markdown="1">
 
 ``` kotlin
-class Customer(name: String) {
+//sampleStart
+class InitOrderDemo(name: String) {
+    val firstProperty = "First property: $name".also(::println)
+    
     init {
-        logger.info("Customer initialized with value ${name}")
+        println("First initializer block that prints ${name}")
+    }
+    
+    val secondProperty = "Second property: ${name.length}".also(::println)
+    
+    init {
+        println("Second initializer block that prints ${name.length}")
     }
 }
+//sampleEnd
+
+fun main(args: Array<String>) {
+    InitOrderDemo("hello")
+}
 ```
+</div>
 
 Note that parameters of the primary constructor can be used in the initializer blocks. They can also be used in
 property initializers declared in the class body:
