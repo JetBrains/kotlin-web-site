@@ -287,9 +287,9 @@ The default upper bound (if none specified) is `Any?`. Only one upper bound can 
 If the same type parameter needs more than one upper bound, we need a separate **where**\-clause:
 
 ``` kotlin
-fun <T> cloneWhenGreater(list: List<T>, threshold: T): List<T>
-    where T : Comparable<T>,
-          T : Cloneable {
-  return list.filter { it > threshold }.map { it.clone() }
+fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
+    where T : CharSequence,
+          T : Comparable<T> {
+    return list.filter { it > threshold }.map { it.toString() }
 }
 ```
