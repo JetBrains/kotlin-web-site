@@ -372,7 +372,7 @@ Java's arrays are mapped as mentioned [below](java-interop.html#java-arrays):
 | `String[]`    | `kotlin.Array<(out) String>!` |
 {:.zebra}
 
-Note: the static members of these Java are not directly accessible on the [companion objects](object-declarations.html#companion-objects) of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(foo)`.
+Note: the static members of these Java types are not directly accessible on the [companion objects](object-declarations.html#companion-objects) of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(foo)`.
 
 ## Java generics in Kotlin
 
