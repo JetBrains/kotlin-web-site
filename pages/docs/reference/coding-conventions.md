@@ -462,9 +462,10 @@ if (!component.isSyncing &&
 }
 ```
 
-> Rationale: Tidy alignmennt and clear separation of condition and statement body
+> Rationale: Tidy alignment and clear separation of condition and statement body
 
-Put the `else` and `finally` keywords on the same line as the preceding curly brace:
+Put the `else`, `catch`, `finally` keywords, as well as the `while` keyword of a do/while loop, on the same line as the 
+preceding curly brace:
 
 ``` kotlin
 if (condition) {
