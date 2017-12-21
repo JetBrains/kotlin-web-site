@@ -107,11 +107,15 @@ fun Foo(): Foo { return FooImpl(...) }
 #### Names for test methods
 
 In tests (and only in tests), it's acceptable to use method names with spaces enclosed in backticks.
-(Note that such method names are currently not supported by the Android runtime.)
+(Note that such method names are currently not supported by the Android runtime.) Underscores in method names are
+also allowed in test code.
 
 ``` kotlin
 class MyTestCase {
      @Test fun `ensure everything works`() {
+     }
+     
+     @Test fun ensureEverythingWorks_onAndroid() {
      }
 }
 ```
@@ -176,7 +180,7 @@ In most cases, Kotlin follows the Java coding conventions.
 
 Use 4 spaces for indentation. Do not use tabs.
 
-Use K&R braces style: put the opening brace in the end of the line where the construct begins, and the closing brace
+For curly braces, put the opening brace in the end of the line where the construct begins, and the closing brace
 on a separate line aligned vertically with the opening construct.
 
 ``` kotlin
@@ -188,7 +192,7 @@ if (elements != null) {
 ```
 
 (Note: In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
-K&R braces, and you may encounter surprising behavior if you try to use a different formatting style.)
+Java-style braces, and you may encounter surprising behavior if you try to use a different formatting style.)
 
 ### Horizontal whitespace
 
@@ -228,7 +232,7 @@ should not affect the formatting of either the declaration or any of the usages.
 Put a space before `:` in the following cases:
 
   * when it's used to separate a type and a supertype;
-  * when delegating to a superclass constructor or a different constructor of the same class.
+  * when delegating to a superclass constructor or a different constructor of the same class;
   * after the `object` keyword.
     
 Don't put a space before `:` when it separates a declaration and its type.
@@ -313,12 +317,16 @@ class MyFavouriteVeryLongClassHolder :
 
 Use regular indent (4 spaces) for constructor parameters.
 
+> Rationale: This ensures that properties declared in the primary constructor have the same indentation as properties
+> declared in the body of a class.
+
 ### Modifiers
 
 If a declaration has multiple modifiers, always put them in the following order:
 
 ``` kotlin
 public / protected / private / internal
+expect / actual
 final / open / abstract / sealed / const
 external
 override
@@ -377,8 +385,6 @@ File annotations are placed after the file comment (if any), before the `package
 package foo.bar
 ```
 
-Put spaces around the `=` sign separating the argument name and value.
-
 ### Function formatting
 
 If the function signature doesn't fit on a single line, use the following syntax:
@@ -393,6 +399,8 @@ fun longMethodName(
 ```
 
 Use regular indent (4 spaces) for function parameters.
+
+> Rationale: Consistency with constructor parameters
 
 Prefer using an expression body for functions with the body consisting of a single expression.
 
@@ -443,6 +451,7 @@ private val defaultCharset: Charset? =
 ### Formatting control flow statements
 
 If the condition of an `if` or `when` statement is multiline, always use curly braces around the body of the statement.
+Indent each subsequent line of the condition by 4 spaces relative to statement begin. 
 Put the closing parentheses of the condition together with the opening curly brace on a separate line:
 
 ``` kotlin
@@ -452,6 +461,8 @@ if (!component.isSyncing &&
     return createKotlinNotConfiguredPanel(module)
 }
 ```
+
+> Rationale: Tidy alignmennt and clear separation of condition and statement body
 
 Put the `else` and `finally` keywords on the same line as the preceding curly brace:
 
@@ -495,8 +506,8 @@ when (foo) {
 
 ### Method call formatting
 
-In long argument lists, put a line break after the opening parenthesis. Group multiple closely related arguments
-on the same line.
+In long argument lists, put a line break after the opening parenthesis. Indent arguments by 4 spaces. 
+Group multiple closely related arguments on the same line.
 
 ``` kotlin
 drawSquare(
@@ -505,6 +516,8 @@ drawSquare(
     fill = true
 )
 ```
+
+Put spaces around the `=` sign separating the argument name and value.
 
 ### Chained call wrapping
 
@@ -556,7 +569,6 @@ foo {
    context.configureEnv(environment)
 }
 ```
-
 
 ## Avoiding redundant constructs
 
@@ -787,86 +799,73 @@ fun main(args: Array<String>) {
 
 ### Using scope functions apply/with/run/also/let
 
-#### apply
+Kotlin provides a variety of functions to execute a block of code in the context of a given object. To choose the correct
+function, consider the following:
 
-Use `apply` for initialization:
-
-```kotlin
-val foo = createBar().apply {
-    property = value
-    init()
-}
-```
-
-#### also
-
-Use `also` over `apply` if the receiver is used for anything other than setting properties or function calls **on it**,
-or if the receiver is not used at all in the lambda.
-
-```kotlin
+  * Are you calling methods on multiple objects in the block, or passing the instance of the context object as an 
+    argument? If you are, use one of the functions that allows you to access the context object as `it`,
+    not `this` (`also` or `let`). Use `also` if the receiver is not used at all in the block.
+    
+``` kotlin
+// Context object is 'it'
 class Baz {
     var currentBar: Bar?
     val observable: Observable
 
     val foo = createBar().also {
-        currentBar = it
-        observable.registerCallback(it)
+        currentBar = it                    // Accessing property of Baz
+        observable.registerCallback(it)    // Passing context object as argument
     }
 }
-```
 
-Prefer `also` over `apply` if there already are multiple receivers in scope, especially if you make calls on any outer receivers:
+// Recevier not used in the block
+val foo = createBar().also {
+    LOG.info("Bar created")
+}
 
-```kotlin
-class Foo {
-    fun Bar.baz() {
-        val stuff = callSomething().also {
-            it.init()
-            this@baz.registerCallback(it)
-        }
+// Context object is 'this'
+class Baz {
+    val foo: Bar = createBar().apply {
+        color = RED    // Accessing only properties of Bar
+        text = "Foo"
     }
 }
-```
-
-#### apply/with/run
-
-Prefer `apply`/`run` over `with` if the receiver is nullable.
-
-```kotlin
-getNullable()?.run {
-    init()
+```    
+    
+  * What should the result of the call be? If the result needs to be the context object, use `apply` or `also`.
+    If you need to return a value from the block, use `with`, `let` or `run`
+    
+``` kotlin
+// Return value is context object
+class Baz {
+    val foo: Bar = createBar().apply {
+        color = RED    // Accessing only properties of Bar
+        text = "Foo"
+    }
 }
 
-getNullable()?.apply {
-    init()
+
+// Return value is block result
+class Baz {
+    val foo: Bar = createNetworkConnection().let {
+        loadBar()
+    }
+}
+```    
+    
+  * Is the context object nullable, or is it evaluated as a result of a call chain? If it is, use `apply`, `let` or `run`.
+    Otherwise, use `with` or `also`.
+     
+``` kotlin
+// Context object is nullable
+person.email?.let { sendEmail(it) }
+
+// Context object is non-null and accessible directly
+with(person) {
+    println("First name: $firstName, last name: $lastName")
 }
 ```
 
-Prefer `run`/`with` over `apply` if the returned value is not used
-
-```kotlin
-view.run {
-    textView.text = "Hello World"
-    progressBar.init()
-}
-
-with(view) {
-    textView.text = "Hello World"
-    progressBar.init()
-}
-```
-
-Choose one of the above and use it consistently.
-
-### let
-
-Prefer `let` over `run` in method chains that transform the receiver
-
-```kotlin
-val baz: Baz = foo.let { createBar(it) }.convertBarToBaz()
-// or with function references
-val baz: Baz = foo.let(::createBar).convertBarToBaz()
-```
 
 ## Coding conventions for libraries
 
