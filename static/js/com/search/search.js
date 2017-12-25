@@ -9,123 +9,123 @@ import debounce from 'debounce';
 const searchDelay = 300;
 
 $(document).ready(function () {
-    const $searchButton = $('.search-button'),
-        $searchPopup = $('.search-popup'),
-        $closeButton = $('.search-popup__close'),
-        $layout = $('.global-layout');
+  const $searchButton = $('.search-button'),
+    $searchPopup = $('.search-popup'),
+    $closeButton = $('.search-popup__close'),
+    $layout = $('.global-layout');
 
-    let isInited = false;
+  let isInited = false;
 
-    const search = Instantsearch({
-        appId: '7961PKYRXV',
-        apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
-        indexName: indexName,
-        searchFunction: debounce((helper) => {
-            const searchResults = $('.search-popup__results');
+  const search = Instantsearch({
+    appId: '7961PKYRXV',
+    apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
+    indexName: indexName,
+    searchFunction: debounce((helper) => {
+      const searchResults = $('.search-popup__results');
 
-            helper.search();
-            if (helper.state.query === '') {
-                searchResults.hide();
-            } else {
-                searchResults.show();
-            }
-        }, searchDelay),
-        urlSync: {
-            trackedParameters: ['query', 'page']
-        }
-    });
+      helper.search();
+      if (helper.state.query === '') {
+        searchResults.hide();
+      } else {
+        searchResults.show();
+      }
+    }, searchDelay),
+    urlSync: {
+      trackedParameters: ['query', 'page']
+    }
+  });
 
-    search.addWidget(
-        Instantsearch.widgets.searchBox({
-            container: '.search-popup__input',
-            placeholder: 'Search',
-            reset: false,
-            magnifier: false
-        })
-    );
+  search.addWidget(
+    Instantsearch.widgets.searchBox({
+      container: '.search-popup__input',
+      placeholder: 'Search',
+      reset: false,
+      magnifier: false
+    })
+  );
 
-    search.on('render', function () {
-        $('.ais-infinite-hits--item._active').removeClass('_active');
-        $('.ais-infinite-hits--item:first').addClass('_active')
-    });
+  search.on('render', function () {
+    $('.ais-infinite-hits--item._active').removeClass('_active');
+    $('.ais-infinite-hits--item:first').addClass('_active')
+  });
 
-    search.addWidget(
-        Instantsearch.widgets.infiniteHits({
-            container: '.search-popup__results',
-            templates: {
-                empty: emptyResultsTemaplate,
-                item: resultTemaplate
-            }
-        })
-    );
+  search.addWidget(
+    Instantsearch.widgets.infiniteHits({
+      container: '.search-popup__results',
+      templates: {
+        empty: emptyResultsTemaplate,
+        item: resultTemaplate
+      }
+    })
+  );
 
-    const $input = $('.ais-search-box input');
+  const $input = $('.ais-search-box input');
 
-    function openPopup() {
-        if (!isInited) {
-            search.start();
-            isInited = true;
-        }
-
-        $searchPopup.removeClass('_hidden');
-        $('body').addClass('_no-scroll');
-        $('.ais-search-box--input').focus();
+  function openPopup() {
+    if (!isInited) {
+      search.start();
+      isInited = true;
     }
 
-    function closePopup() {
-        search.helper.setQuery('').clearRefinements().search();
-        $('body').removeClass('_no-scroll');
-        $searchPopup.addClass('_hidden');
-        $input.val('');
-    }
+    $searchPopup.removeClass('_hidden');
+    $('body').addClass('_no-scroll');
+    $('.ais-search-box--input').focus();
+  }
 
-    $searchPopup.keyup(function (e) {
-        if (e.keyCode === 27) { // escape key
-            closePopup()
-        } else if (e.keyCode === 13) { //enter
-            const searchRef = $('.ais-infinite-hits--item._active a').attr('href');
-            if (searchRef !== undefined) {
-                 window.location.href = searchRef;
-            }
-        } else if (e.keyCode === 40) { //arrow down
-            const $activeElement = $('.ais-infinite-hits--item._active');
-            const $nextElement = $activeElement.next();
-            if ($nextElement.length > 0) {
-                $activeElement.removeClass('_active');
-                $nextElement.addClass('_active');
+  function closePopup() {
+    search.helper.setQuery('').clearRefinements().search();
+    $('body').removeClass('_no-scroll');
+    $searchPopup.addClass('_hidden');
+    $input.val('');
+  }
 
-                const popupTop = $nextElement.position().top + $nextElement.outerHeight() - $(window).height();
-                if (popupTop > 0) {
-                    $searchPopup.scrollTop($searchPopup.scrollTop() + popupTop);
-                }
-            }
-        } else if (e.keyCode === 38) { //arrow up
-            const $activeElement = $('.ais-infinite-hits--item._active');
-            const $prevElement = $activeElement.prev();
-            if ($prevElement.length > 0) {
-                $prevElement.addClass('_active');
-                $activeElement.removeClass('_active');
+  $searchPopup.keyup(function (e) {
+    if (e.keyCode === 27) { // escape key
+      closePopup()
+    } else if (e.keyCode === 13) { //enter
+      const searchRef = $('.ais-infinite-hits--item._active a').attr('href');
+      if (searchRef !== undefined) {
+        window.location.href = searchRef;
+      }
+    } else if (e.keyCode === 40) { //arrow down
+      const $activeElement = $('.ais-infinite-hits--item._active');
+      const $nextElement = $activeElement.next();
+      if ($nextElement.length > 0) {
+        $activeElement.removeClass('_active');
+        $nextElement.addClass('_active');
 
-                const popupTop = $prevElement.position().top;
-                if (popupTop < 0) {
-                    $searchPopup.scrollTop($searchPopup.scrollTop() + popupTop);
-                }
-            }
+        const popupTop = $nextElement.position().top + $nextElement.outerHeight() - $(window).height();
+        if (popupTop > 0) {
+          $searchPopup.scrollTop($searchPopup.scrollTop() + popupTop);
         }
-    });
+      }
+    } else if (e.keyCode === 38) { //arrow up
+      const $activeElement = $('.ais-infinite-hits--item._active');
+      const $prevElement = $activeElement.prev();
+      if ($prevElement.length > 0) {
+        $prevElement.addClass('_active');
+        $activeElement.removeClass('_active');
 
-    $closeButton.on('click', closePopup);
-
-    $searchButton.on('click touch', openPopup);
-
-    $input.keydown(function (e) {
-        if (e.keyCode == 40 || e.keyCode == 38) {
-            e.preventDefault()
+        const popupTop = $prevElement.position().top;
+        if (popupTop < 0) {
+          $searchPopup.scrollTop($searchPopup.scrollTop() + popupTop);
         }
-    });
-
-    const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));
-    if ('q' in urlParameters && urlParameters.q != '') {
-        openPopup();
+      }
     }
+  });
+
+  $closeButton.on('click', closePopup);
+
+  $searchButton.on('click touch', openPopup);
+
+  $input.keydown(function (e) {
+    if (e.keyCode == 40 || e.keyCode == 38) {
+      e.preventDefault()
+    }
+  });
+
+  const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));
+  if ('q' in urlParameters && urlParameters.q != '') {
+    openPopup();
+  }
 });
