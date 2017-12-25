@@ -204,3 +204,8 @@ inline fun <reified T> List<*>.asListOfType(): List<T>? =
         this as List<T> else
         null
 ```
+
+On the JVM, the [array types](basic-types.html#arrays) (`Array<Foo>`) retain the information about the erased type of 
+their elements, and the type casts to an array type are partially checked: the 
+nullability and actual type arguments of the elements type are still erased. For example, 
+the cast `foo as Array<List<String>?>` will succeed if `foo` is an array holding any `List<*>`, nullable or not.
