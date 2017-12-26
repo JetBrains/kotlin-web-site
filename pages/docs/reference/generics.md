@@ -261,7 +261,7 @@ To call a generic function, specify the type arguments at the call site **after*
 ``` kotlin
 val l = singletonList<Int>(1)
 ```
-Parameter types can be omitted if they can be inferred from context, so the following example works as well:
+Type arguments can be omitted if they can be inferred from the context, so the following example works as well:
 ``` kotlin
 val l = singletonList(1)
 ```
