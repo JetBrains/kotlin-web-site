@@ -301,7 +301,7 @@ At runtime, the instances of generic types do not hold any information about the
 The type information is said to be *erased*. For example, the instances of `Foo<Bar>` and `Foo<Baz?>` are erased to
 just `Foo<*>`.
 
-Therefore, there is no general way to check whether an of a generic type was created with certain type
+Therefore, there is no general way to check whether an instance of a generic type was created with certain type
 arguments at runtime, and the compiler [prohibits such *is*{: .keyword }-checks](typecasts.html#type-erasure-and-generic-type-checks).
 
 Type casts to generic types with concrete type arguments, e.g. `foo as List<String>`, cannot be checked at runtime.  
