@@ -1,4 +1,56 @@
 - geo:
+    lat: 30.274084
+    lng: 120.15507
+  name: Hangzhou, China
+- geo:
+    lat: 54.35202520000001
+    lng: 18.6466384
+  name: Gdansk,Poland
+- geo:
+    lat: 49.9928617
+    lng: 8.2472526
+  name: Mainz,Germany
+- geo:
+    lat: 41.4489396
+    lng: -82.7079605
+  name: Sandusky, Ohio
+- geo:
+    lat: 36.9741171
+    lng: -122.0307963
+  name: Santa Cruz, CA
+- geo:
+    lat: 38.0293059
+    lng: -78.47667810000002
+  name: Charlottesville, VA
+- geo:
+    lat: 22.543096
+    lng: 114.057865
+  name: Shenzhen, China
+- geo:
+    lat: 28.4743879
+    lng: 77.50399039999999
+  name: Greater Noida, India
+- geo:
+    lat: 11.504776
+    lng: 77.2383942
+  name: Sathyamangalam, India
+- geo:
+    lat: 30.5972455
+    lng: 30.9876321
+  name: Menofeya, Egypt
+- geo:
+    lat: 63.8258471
+    lng: 20.2630354
+  name: Umeå, Sweden
+- geo:
+    lat: 35.4675602
+    lng: -97.5164276
+  name: Oklahoma City, OK
+- geo:
+    lat: 43.7101728
+    lng: 7.261953200000001
+  name: Nice, France
+- geo:
     lat: 37.5078772
     lng: 15.0830304
   name: Catania, Italy
