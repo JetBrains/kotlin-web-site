@@ -2,13 +2,14 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (126)
+# Kotlin User Groups (131)
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
 
 ### Europe
 
+ * [Amsterdam Kotlin User Group](https://www.meetup.com/kotlin-amsterdam/), Netherlands
  * [Barcelona, KotlinBCN](https://www.meetup.com/kotlinbcn/), Spain
  * [Belarus Kotlin User Group](https://bkug.by/), Belarus 
  * [Belgium Kotlin User Group](https://www.kotlin.be/), Belgium
@@ -33,6 +34,7 @@ title: Kotlin User Groups
  * [Madrid Kotlin User Group](https://www.meetup.com/KotlinMAD/), Spain
  * [Manchester Kotlin Developers](http://www.meetup.com/Kotlin-Manchester/), United Kingdom
  * [Milano Kotlin User Group](https://www.meetup.com/it-IT/KUG-Milan/), Italy
+ * [Moscow Kotlin User Group](https://vk.com/kotlinmoscow), Russia
  * [Munich Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Munich/), Germany
  * [Paris Kotlin User Group](https://www.meetup.com/Kotlin-Paris-Meetup/), France
  * [Rhein-Main Kotlin](http://kotlin.rocks), Germany
@@ -70,6 +72,7 @@ title: Kotlin User Groups
  * [Karachi Kotlin User Group](https://www.facebook.com/kotlinkarachi/), Pakistan
  * [Kolkata Kotlin User Group](https://www.facebook.com/KotlinKolkata/), India
  * [Korean Kotlin User Group](http://kotlin.kr/), Korea
+ * [Kozhikode Kotlin User Group](https://www.facebook.com/kotlinkozhikode/), India 
  * [Myanmar Kotlin User Group](https://www.facebook.com/groups/kotlinmyanmarusergroup/about/), Myanmar 
  * [New Delhi Kotlin User Group](https://www.facebook.com/kotlinNewDelhi/), India
  * [Pakistan KotlinUser Group](https://www.facebook.com/groups/565405337181251/), Pakistan
@@ -106,6 +109,7 @@ title: Kotlin User Groups
 * [New York Kotlin Meetup](http://www.meetup.com/New-York-Kotlin-Meetup/), USA
 * [Norfolk Kotlin User Group](mailto:robert.chrzanowski@gmail.com), USA
 * [Orange County Kotlin Meetup](https://www.meetup.com/oc-kotlin-meetup/), USA
+* [Santa Cruz Kotlin User Group](https://www.meetup.com/Santa-Cruz-Kotlin-User-Group/events/245895831/), USA
 * [South Florida Kotlin User Group](https://www.meetup.com/Kotlin-South-Florida-Users-Group/), USA
 * [Toronto Kotlin](https://www.meetup.com/Kotlin-Toronto/events/235740293/), Canada
 * [Twin Cities Kotlin User Group](https://www.meetup.com/Twin-Cities-Kotlin-User-Group/), USA
@@ -118,6 +122,7 @@ title: Kotlin User Groups
 
 * [Brasil Kotlin User Group](https://groups.google.com/forum/#!forum/kotlin-brasil), Brazil
 * [Buenos Aires Desarrollo en Android con Kotlin](https://www.meetup.com/Desarrollo-en-Android-con-Kotlin/), Argentina
+* [Chile Kotlin User Group](http://www.facebook.com/kotlinchile), Chile 
 * [Cochabamba Kotlin User Group](https://www.facebook.com/kotlincocha/), Bolivia
 * [La Paz Kotlin User Group](https://www.facebook.com/KotlinLaPaz/), Bolivia
 * [Lima Kotlin User Group](https://www.facebook.com/groups/limakotlin/), Peru
