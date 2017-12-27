@@ -21,27 +21,27 @@ for city in cities_array:
 
 for event in events:
     if 'location' not in event:
-        print "Location of '" + event['title'] + "' is not specified"
+        print("Location of '" + event['title'] + "' is not specified")
         continue
     location = event['location']
     if location in cities:
         continue
     geocoded_coordinates = geocoder.google(location).latlng
     if len(geocoded_coordinates) == 0:
-        print "Location not found: ", location
+        print("Location not found: ", location)
         exit(-1)
     for city in cities_array:
         coordinates = city['geo']
         if abs(coordinates['lat'] - geocoded_coordinates[0]) < 0.1 and abs(coordinates['lng'] - geocoded_coordinates[1]) < 0.1:
             is_same = None
             while is_same is None:
-                user_input = raw_input("Are " + location + " and " + city['name'] + " the same place? (y/n)")
+                user_input = input("Are " + location + " and " + city['name'] + " the same place? (y/n)")
                 if user_input == "y" or user_input == "yes":
                     is_same = True
                 elif user_input == "n" or user_input == "no":
                     is_same = False
                 else:
-                    print "Please, enter 'y' or 'n'"
+                    print("Please, enter 'y' or 'n'")
             if is_same:
                 location_template = u"<location>{0}</location>"
                 old_location = location_template.format(event['location'])
@@ -51,8 +51,8 @@ for event in events:
                     events_file.write(events_file_content)
                 break
     else:
-        print location + " geocoded location " + \
-              "https://www.google.com/maps/@" + str(geocoded_coordinates[0]) + "," + str(geocoded_coordinates[1]) + ",15z"
+        print(location + " geocoded location " + \
+              "https://www.google.com/maps/@" + str(geocoded_coordinates[0]) + "," + str(geocoded_coordinates[1]) + ",15z")
         city = {
             'name': location,
             'geo': {

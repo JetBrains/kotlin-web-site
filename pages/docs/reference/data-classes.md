@@ -22,7 +22,7 @@ The compiler automatically derives the following members from all properties dec
   * [`componentN()` functions](multi-declarations.html) corresponding to the properties in their order of declaration;
   * `copy()` function (see below).
 
-To ensure consistency and meaningful behavior of the generated code, data classes have to fulfil the following requirements:
+To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:
 
   * The primary constructor needs to have at least one parameter;
   * All primary constructor parameters need to be marked as `val` or `var`;

@@ -14,6 +14,11 @@ function getVersion(element) {
   return version
 }
 
+function updateTagByKind(rowElement, newTag, kind) {
+  let $tag = $(rowElement).find(`.tags__tag.${kind}`);
+  $tag.text(newTag);
+}
+
 function updateState(state) {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
   const $platformDependentElements = $('[data-platform]');
@@ -31,9 +36,14 @@ function updateState(state) {
 
   $versionDependentElements.each((ind, element) => {
     const $element = $(element);
+    const stateVersion = state.version ? state.version : DEFAULT_VERSION;
     const version = getVersion(element);
-    if (state.version == null || version <= state.version) return;
-    $element.addClass('hidden')
+    const pureVersion = version.replace(/\+$/, '');
+    if (pureVersion > stateVersion) {
+      $element.addClass('hidden');
+    } else if (version != pureVersion) {
+      updateTagByKind($element, pureVersion == stateVersion ? pureVersion : version, 'kotlin-version');
+    }
   })
 }
 
@@ -94,31 +104,31 @@ function initializeSelects() {
   })
 }
 
-function addTag(rowElement, tag) {
+function addTag(rowElement, tag, kind) {
   let $tagsElement = $(rowElement).find('.tags');
   if ($tagsElement.length == 0) {
     $tagsElement = $('<div class="tags"></div>');
     $(rowElement).find('td:first').append($tagsElement);
   }
-  $tagsElement.append(`<div class="tags__tag">${tag}</div>`)
+  $tagsElement.append(`<div class="tags__tag ${kind}">${tag}</div>`)
 }
 
 function addTags() {
   $('[data-platform]').each((ind, element) => {
     const platform = element.getAttribute('data-platform');
-    addTag(element, platform)
+    addTag(element, platform, 'platform')
   });
 
-  $('[data-kotlin-version]').each((ind, element) => addTag(element, getVersion(element)));
+  $('[data-kotlin-version]').each((ind, element) => addTag(element, getVersion(element), 'kotlin-version'));
 
   $('[data-jre-version]').each((ind, element) => {
-    const platform = element.getAttribute('data-jre-version');
-    addTag(element, platform)
+    const version = element.getAttribute('data-jre-version');
+    addTag(element, version, 'jre-version')
   });
 }
 
 $(document).ready(() => {
-  initializeSelects();
   addTags();
+  initializeSelects();
   new NavTree(document.querySelector('.js-side-tree-nav'));
 });

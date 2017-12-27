@@ -99,8 +99,7 @@ var setterWithAnnotation: Any? = null
 
 ### Backing Fields
 
-Classes in Kotlin cannot have fields. However, sometimes it is necessary to have a backing field when using custom accessors. For these purposes, Kotlin provides
-an automatic backing field which can be accessed using the `field` identifier:
+Fields cannot be declared directly in Kotlin classes. However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in the accessors using the `field` identifier:
 
 ``` kotlin
 var counter = 0 // the initializer value is written directly to the backing field

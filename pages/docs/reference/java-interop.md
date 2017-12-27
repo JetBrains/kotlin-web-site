@@ -372,6 +372,8 @@ Java's arrays are mapped as mentioned [below](java-interop.html#java-arrays):
 | `String[]`    | `kotlin.Array<(out) String>!` |
 {:.zebra}
 
+Note: the static members of these Java types are not directly accessible on the [companion objects](object-declarations.html#companion-objects) of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(foo)`.
+
 ## Java generics in Kotlin
 
 Kotlin's generics are a little different from Java's (see [Generics](generics.html)). When importing Java types to Kotlin we perform some conversions:
@@ -564,6 +566,8 @@ if (Character.isLetter(a)) {
     // ...
 }
 ```
+
+To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the full qualified name of the Java type: `java.lang.Integer.bitCount(foo)`.
 
 ## Java Reflection
 

@@ -80,11 +80,14 @@ $(document).ready(function () {
   }
 
   $searchPopup.keyup(function (e) {
-    if (e.keyCode == 27) { // escape key
+    if (e.keyCode === 27) { // escape key
       closePopup()
-    } else if (e.keyCode == 13) { //enter
-      window.location.href = $('.ais-infinite-hits--item._active a').attr('href')
-    } else if (e.keyCode == 40) { //arrow down
+    } else if (e.keyCode === 13) { //enter
+      const searchRef = $('.ais-infinite-hits--item._active a').attr('href');
+      if (searchRef !== undefined) {
+        window.location.href = searchRef;
+      }
+    } else if (e.keyCode === 40) { //arrow down
       const $activeElement = $('.ais-infinite-hits--item._active');
       const $nextElement = $activeElement.next();
       if ($nextElement.length > 0) {
@@ -96,7 +99,7 @@ $(document).ready(function () {
           $searchPopup.scrollTop($searchPopup.scrollTop() + popupTop);
         }
       }
-    } else if (e.keyCode == 38) { //arrow up
+    } else if (e.keyCode === 38) { //arrow up
       const $activeElement = $('.ais-infinite-hits--item._active');
       const $prevElement = $activeElement.prev();
       if ($prevElement.length > 0) {
