@@ -194,7 +194,7 @@ Starting from Kotlin 1.1.4, Android Extensions plugin provides Parcelable implem
 
 ### Enabling Parcelable support
 
-Apply the `kotlin-android-extensions` Gradle plugin as described [above]((#configuring-the-dependency) and [turn on](#experimental-mode) the experimental flag.
+Apply the `kotlin-android-extensions` Gradle plugin as described [above](#configuring-the-dependency) and [turn on](#experimental-mode) the experimental flag.
 
 ### How to use
 
