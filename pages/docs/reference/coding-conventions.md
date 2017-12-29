@@ -863,7 +863,7 @@ class Baz {
     }
 }
 
-// Recevier not used in the block
+// Receiver not used in the block
 val foo = createBar().also {
     LOG.info("Bar created")
 }
