@@ -68,7 +68,7 @@ If we need to return from a lambda expression, we have to label it and qualify t
 
 ``` kotlin
 fun foo() {
-    ints.forEach lit@ {
+    ints.forEach lit@{
         if (it == 0) return@lit
         print(it)
     }
