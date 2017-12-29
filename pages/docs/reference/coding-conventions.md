@@ -571,6 +571,46 @@ foo {
 }
 ```
 
+## Documentation comments
+
+For longer documentation comments, place the opening `/**` on a separate line and begin each subsequent line
+with an asterisk:
+
+``` kotlin
+/**
+ * This is a documentation comment
+ * on multiple lines.
+ */
+```
+
+Short comments can be placed on a single line:
+
+``` kotlin
+/** This is a short documentation comment. */
+```
+
+Generally, avoid using `@param` and `@return` tags. Instead, incorporate the description of parameters and return values
+directly into the documentation comment, and add links to parameters wherever they are mentioned. Use `@param` and
+`@return` only when a lengthy description is required which doesn't fit into the flow of the main text.
+
+``` kotlin
+// Avoid doing this:
+
+/**
+ * Returns the absolute value of the given number.
+ * @param number The number to return the absolute value for.
+ * @return The absolute value.
+ */
+fun abs(number: Int) = ...
+
+// Do this instead:
+
+/**
+ * Returns the absolute value of the given [number].
+ */
+fun abs(number: Int) = ...
+```
+
 ## Avoiding redundant constructs
 
 In general, if a certain syntactic construction in Kotlin is optional and highlighted by the IDE
@@ -875,4 +915,5 @@ When writing libraries, it's recommended to follow an additional set of rules to
  * Always explicitly specify member visibility (to avoid accidentally exposing declarations as public API)
  * Always explicitly specify function return types and property types (to avoid accidentally changing the return type
    when the implementation changes)
- * Provide KDoc comments for all public methods (to support generating documentation for the library)
+ * Provide KDoc comments for all public members, with the exception of overrides that do not require any new documentation
+   (to support generating documentation for the library)
