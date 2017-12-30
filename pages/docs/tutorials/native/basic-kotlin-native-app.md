@@ -1,7 +1,7 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "First Kotlin/Native Application"
+title:  "A Basic Kotlin/Native Application"
 description: "A look at how to compile our first Kotlin/Native application"
 authors: Hadi Hariri 
 date: 2017-12-03
@@ -19,14 +19,14 @@ In this tutorial we'll see how to
 
 ## Obtaining the compiler
 
-Kotlin/Native is available for different macOS, Linux and Windows. Depending on the operating system we're working on, we'll need to download
+Kotlin/Native is available for macOS, Linux and Windows. Depending on the operating system we're working on, we'll need to download
 the correct compiler. While cross-platform compilation is possible (i.e. using one platform to compile for another), in this first tutorial
 we're going to compile for the same operating system we're running on. In our case this will be macOS. 
 
 We can obtain the latest version of the compiler from the [GitHub releases page](https://github.com/JetBrains/kotlin-native/releases).
 
 Once downloaded, we can uncompress it in any folder. For convenience it's useful to add the `bin` folder to the system path so that we can invoke the 
-compiler from any location.
+compiler from any location. 
 
 ## Creating Hello Kotlin
 
@@ -42,26 +42,24 @@ fun main(args: Array<String>) {
 
 ## Compiling and examining output 
 
-The next step is to compile the application, which will be done using the compiler downloaded in the first step. If we have the `bin` folder
+The Kotlin compiler uses a technology known as [LLVM](https://en.wikipedia.org/wiki/LLVM) to target multiple platforms. LLVM requires as input what's know as intermediate representation or IR. This IR is
+represented by a bitcode file, which is a bitstream file format. 
+
+![Compiler Diagram]({{ url_for('tutorial_img', filename='native/first-kotlin-native/llvm-diagram.png')}})
+
+
+We now need to compile our application, which is done using the compiler downloaded in the first step. If we have the `bin` folder
 correctly added to the path, we should be able to invoke the compiler using
 
 `kotlinc hello.kt`
 
 which is telling the compiler to compile the source code `hello.kt`.
 
-The first time the compiler runs, it downloads a list of necessary requirements (thus first run does take longer). If everything runs correctly, the output 
-should be two files  
+The first time the compiler runs, it downloads a list of necessary requirements (thus first run does take longer). 
+While there are no runtime dependencies for binaries produced by Kotlin/Native, the compiler itself does require Java 8. If everything runs correctly, the output 
+should be
 
-`hello-world.kt.bc`
-`hello.kexe`
-
-The filename with extension `bc` is what's known a a `bitcode` file. To understand what this is, we first need to see how Kotlin/Native works.
- 
-The Kotlin compiler uses a technology known as [LLVM](https://en.wikipedia.org/wiki/LLVM) to target multiple platforms. LLVM requires as input what's know as intermediate representation or IR. This IR is
-represented by the bitcode file, which is a bitstream file format. 
-
-![Compiler Diagram]({{ url_for('tutorial_img', filename='native/first-kotlin-native/llvm-diagram.png')}})
-
+`hello.kexe` 
 
 The `hello.kexe` file is the actual binary produced for our target platform. The compiler provides us with a series of options, one of these
 being the ability to specify the output filename. In order to do this, we can use the -output (or -o) option
@@ -72,7 +70,8 @@ which would produce
 
 `first.kexe`
 
-The extension cannot be set and is determined based on the target platform. 
+The extension cannot be set and is determined based on the target platform, but we can of course rename the executable to anything we like, using 
+the usual system commands to rename files.
 
 ## Running the application
 
