@@ -25,8 +25,10 @@ we're going to compile for the same operating system we're running on. In our ca
 
 We can obtain the latest version of the compiler from the [GitHub releases page](https://github.com/JetBrains/kotlin-native/releases).
 
-Once downloaded, we can uncompress it in any folder. For convenience it's useful to add the `bin` folder to the system path so that we can invoke the 
-compiler from any location. 
+Once downloaded, we can uncompress it in any folder, e.g. ~/kotlin-native. For convenience it's useful to add the `bin` folder to the system path so that we can invoke the 
+compiler from any location. If we uncompressed to ~/kotlin-native, this would be ~/kotlin-native/bin) 
+
+While the output by the compiler does not have any dependencies, the compiler itself does require Java 8, which should be on the system.
 
 ## Creating Hello Kotlin
 
@@ -55,8 +57,7 @@ correctly added to the path, we should be able to invoke the compiler using
 
 which is telling the compiler to compile the source code `hello.kt`.
 
-The first time the compiler runs, it downloads a list of necessary requirements (thus first run does take longer). 
-While there are no runtime dependencies for binaries produced by Kotlin/Native, the compiler itself does require Java 8. If everything runs correctly, the output 
+The first time the compiler runs, it downloads a list of necessary requirements, thus first run does take longer. If everything runs correctly, the output 
 should be
 
 `hello.kexe` 

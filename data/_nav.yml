@@ -281,8 +281,8 @@ tutorials:
 
     - title: Native
       content:
-        - url: /docs/tutorials/native/first-kotlin-native-app.html
-          title: First Kotlin/Native Application
+        - url: /docs/tutorials/native/basic-kotlin-native-app.html
+          title: Basic Kotlin/Native Application
 
     - title: Coroutines
       content:
