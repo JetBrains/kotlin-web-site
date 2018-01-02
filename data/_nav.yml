@@ -279,6 +279,11 @@ tutorials:
         - url: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
           title: Debugging Kotlin in browser
 
+    - title: Native
+      content:
+        - url: /docs/tutorials/native/basic-kotlin-native-app.html
+          title: Basic Kotlin/Native Application
+
     - title: Coroutines
       content:
         - url: /docs/tutorials/coroutines-basic-jvm.html
