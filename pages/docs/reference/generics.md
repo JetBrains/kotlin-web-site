@@ -125,8 +125,8 @@ In Kotlin, there is a way to explain this sort of thing to the compiler. This is
 To do this we provide the **out** modifier:
 
 ``` kotlin
-abstract class Source<out T> {
-    abstract fun nextT(): T
+interface Source<out T> {
+    fun nextT(): T
 }
 
 fun demo(strs: Source<String>) {
@@ -145,11 +145,11 @@ The **out** modifier is called a **variance annotation**, and  since it is provi
 This is in contrast with Java's **use-site variance** where wildcards in the type usages make the types covariant.
 
 In addition to **out**, Kotlin provides a complementary variance annotation: **in**. It makes a type parameter **contravariant**: it can only be consumed and never 
-produced. A good example of a contravariant class is `Comparable`:
+produced. A good example of a contravariant type is `Comparable`:
 
 ``` kotlin
-abstract class Comparable<in T> {
-    abstract fun compareTo(other: T): Int
+interface Comparable<in T> {
+    operator fun compareTo(other: T): Int
 }
 
 fun demo(x: Comparable<Number>) {
