@@ -24,7 +24,7 @@ statement).
 In pure Kotlin projects, the recommended directory structure is to follow the package structure with
 the common root package omitted (e.g. if all the code in the project is in the "org.example.kotlin" package and its
 subpackages, files with the "org.example.kotlin" package should be placed directly under the source root, and
-files in "org.example.kotlin.foo.bar" should be in the "foo/bar" subdirectory of the source root.
+files in "org.example.kotlin.foo.bar" should be in the "foo/bar" subdirectory of the source root).
 
 ### Source file names
 
