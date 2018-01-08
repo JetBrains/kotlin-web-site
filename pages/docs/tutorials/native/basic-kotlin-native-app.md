@@ -12,7 +12,7 @@ showAuthorInfo: false
 In this tutorial we'll see how to
 
 * [Obtain the Kotlin/Native compiler](#obtaining-the-compiler)
-* [Write the application](#creating-Hello-Kotlin)
+* [Write the application](#creating-hello-kotlin)
 * [Compile and examine output](#compiling-and-examining-output)
 * [Run the application](#running-the-application)
 
