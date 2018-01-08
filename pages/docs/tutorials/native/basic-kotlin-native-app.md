@@ -11,10 +11,10 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Obtain the Kotlin/Native compiler](#Obtaining-the-compiler)
-* [Write the application](#Creating-Hello-Kotlin)
-* [Compile and examine output](#Compiling-and-examining-output)
-* [Run the application](#Running-the-application)
+* [Obtain the Kotlin/Native compiler](#obtaining-the-compiler)
+* [Write the application](#creating-Hello-Kotlin)
+* [Compile and examine output](#compiling-and-examining-output)
+* [Run the application](#running-the-application)
 
 
 ## Obtaining the compiler
@@ -47,7 +47,7 @@ fun main(args: Array<String>) {
 The Kotlin compiler uses a technology known as [LLVM](https://en.wikipedia.org/wiki/LLVM) to target multiple platforms. LLVM requires as input what's know as intermediate representation or IR. This IR is
 represented by a bitcode file, which is a bitstream file format. 
 
-![Compiler Diagram]({{ url_for('tutorial_img', filename='native/first-kotlin-native/llvm-diagram.png')}})
+![Compiler Diagram]({{ url_for('tutorial_img', filename='native/basic-kotlin-native/llvm-diagram.png')}})
 
 
 We now need to compile our application, which is done using the compiler downloaded in the first step. If we have the `bin` folder
