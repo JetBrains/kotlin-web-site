@@ -28,7 +28,7 @@ We can obtain the latest version of the compiler from the [GitHub releases page]
 Once downloaded, we can uncompress it in any folder, e.g. ~/kotlin-native. For convenience it's useful to add the `bin` folder to the system path so that we can invoke the 
 compiler from any location. If we uncompressed to ~/kotlin-native, this would be ~/kotlin-native/bin) 
 
-While the output by the compiler does not have any dependencies, the compiler itself does require Java 8, which should be on the system.
+While the output by the compiler does not have any dependencies, the compiler itself does require Java 8, which should be on the system. You also have to ensure that a current MacOS SDK is available by installing the latest XCode from App Store. 
 
 ## Creating Hello Kotlin
 
@@ -53,7 +53,7 @@ represented by a bitcode file, which is a bitstream file format.
 We now need to compile our application, which is done using the compiler downloaded in the first step. If we have the `bin` folder
 correctly added to the path, we should be able to invoke the compiler using
 
-`kotlinc hello.kt`
+`kotlinc-native hello.kt`
 
 which is telling the compiler to compile the source code `hello.kt`.
 
@@ -65,7 +65,7 @@ should be
 The `hello.kexe` file is the actual binary produced for our target platform. The compiler provides us with a series of options, one of these
 being the ability to specify the output filename. In order to do this, we can use the -output (or -o) option
 
-`kotlinc -o first hello.kt`
+`kotlinc-native -o first hello.kt`
 
 which would produce
 
