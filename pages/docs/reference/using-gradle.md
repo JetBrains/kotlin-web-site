@@ -217,6 +217,20 @@ To avoid this, consider setting a unique `archivesBaseName` manually:
 archivesBaseName = 'myExampleProject_lib'
 ```
 
+## Gradle Build Cache support (since 1.2.20)
+
+The Kotlin plugin supports [Gradle Build Cache](https://guides.gradle.org/using-build-cache/) (Gradle version 4.3 and above is required; caching is disabled with lower versions).
+
+The kapt annotation processing tasks are not cached by default since annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs, might access and modify the files that are not tracked by Gradle etc. To enable caching for kapt anyway, add the following lines to the build script:
+
+``` groovy
+kapt {
+    useBuildCache = true
+}
+```
+
+To disable the caching for all Kotlin tasks, set the system property flag `kotlin.caching.enabled` to `false` (run the build with the argument `-Dkotlin.caching.enabled=false`).
+
 ## Compiler Options
 
 To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task.
