@@ -646,6 +646,29 @@ println("$name has ${children.size} children")
 
 ## Idiomatic use of language features
 
+### Immutability
+
+Prefer using immutable data to mutable. Always declare local variables and properties as `val` rather than `var` if
+they are not modified after initialization.
+
+Always use immutable collection interfaces (`Collection`, `List`, `Set`, `Map`) to declare collections which are not
+mutated. When using factory functions to create collection instances, always use functions that return immutable
+collection types when possible:
+
+``` kotlin
+// Bad: use of mutable collection type for value which will not be mutated
+fun validateValue(actualValue: String, allowedValues: HashSet<String>) { ... }
+
+// Good: immutable collection type used instead
+fun validateValue(actualValue: String, allowedValues: Set<String>) { ... }
+
+// Bad: arrayListOf() returns ArrayList<T>, which is a mutable collection type
+val allowedValues = arrayListOf("a", "b", "c")
+
+// Good: listOf() returns List<T>
+val allowedValues = listOf("a", "b", "c")
+```
+
 ### Default parameter values
 
 Prefer declaring functions with default parameter values to declaring overloaded functions.
