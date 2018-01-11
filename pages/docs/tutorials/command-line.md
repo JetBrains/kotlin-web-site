@@ -100,7 +100,7 @@ We can run the compiler without parameters to have an interactive shell. We can 
 
 ### Using the command line to run scripts
 
-Kotlin can also be used as a scripting language. A script is a Kotlin source file (.kts) with top level executable code.
+Kotlin can also be used as a scripting language. A script is a Kotlin script file (.kts) with top level executable code.
 
 ``` kotlin
    import java.io.File
