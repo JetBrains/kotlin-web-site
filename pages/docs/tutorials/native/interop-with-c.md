@@ -69,7 +69,7 @@ libcurl examples over to Kotlin.
 
 The code in question is from the [simple](https://curl.haxx.se/libcurl/c/simple.html) example (comments removed for brevity)
 
-```c
+```
 #include <stdio.h>
 #include <curl/curl.h>
  
