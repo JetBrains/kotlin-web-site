@@ -9,8 +9,8 @@ showAuthorInfo: false
 ---
 
 
-When writing native applications, often times we need to access certain functionality that is not included in the Kotlin standard library, 
-such as for instance making HTTP calls, reading and writing from disk, etc.
+When writing native applications, oftentimes we need to access certain functionality that is not included in the Kotlin standard library, 
+such as making HTTP calls, reading and writing from disk, etc.
 
 Kotlin/Native provides us with the ability to consume standard C libraries, opening up an entire ecosystem of functionality that exists 
 for pretty much anything we could need. 
@@ -26,7 +26,7 @@ how to
 ## Generating Bindings
 
 An ideal scenario for interop is to call C functions as if we were calling Kotlin functions, that is, following the same signature and conventions. And that is precisely what the 
-`cinterop` tool provides us with. It takes a series of C libraries and generates the corresponding Kotlin bindings for it, which then allow us
+`cinterop` tool provides us with. It takes a C library and generates the corresponding Kotlin bindings for it, which then allow us
 to use the library as if it were Kotlin code. 
 
 In order to generate these bindings, we need to create a library definition file (`def`) that contains some information about the headers we need to generate. In our case we want to use the famous `libcurl` library
@@ -39,14 +39,14 @@ linkerOpts.osx = -L/opt/local/lib -L/usr/local/opt/curl/lib -lcurl
 linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl```
 ```
 
-A few things going on in that file so let's see them one by one. The first entry is `headers` which is the list of header files that we want to generate 
-Kotlin stubs for. We can multiple files to this entry, separating each one with `\` on a new line. In our case we only want `curl.h`. The files we reference
-need to relative to the folder where the definition file is, or by a available on the system path (in our case it would be `/usr/bin/curl`).
+A few things are going on in that file so let's see them one by one. The first entry is `headers` which is the list of header files that we want to generate 
+Kotlin stubs for. We can add multiple files to this entry, separating each one with `\` on a new line. In our case we only want `curl.h`. The files we reference
+need to be relative to the folder where the definition file is, or be available on the system path (in our case it would be `/usr/bin/curl`).
 
 The second line is the `headerFilter`. This is used to denote what exactly we want included. In C, when one file references another file with the `#include` directive, 
 all the headers are also included. Sometimes this may not be needed, and we can use this parameter, [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)), to fine tune things. 
 
-The third and forth line are about providing linker options, which can vary based on different target platforms. In our cause we are defining it for macOS and Linux. 
+The third and forth lines are about providing linker options, which can vary based on different target platforms. In our cause we are defining it for macOS and Linux. 
 Compiler options can also be specific, albeit in this case it is not necessary. 
 
 The convention that is followed is that each library gets its own definition file, usually named the same as the library. For more information on all
@@ -103,12 +103,12 @@ fun main(args: Array<String>) {
     if (curl != null) {
         curl_easy_setopt(curl, CURLOPT_URL, "http://example.com")
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L)
+        val res = curl_easy_perform(curl)
+        if (res != CURLE_OK) {
+            println("curl_easy_perform() failed ${curl_easy_strerror(res)}")
+        }
+        curl_easy_cleanup(curl)
     }
-    val res = curl_easy_perform(curl)
-    if (res != CURLE_OK) {
-        println("curl_easy_perform() failed ${curl_easy_strerror(res)}")
-    }
-    curl_easy_cleanup(curl)
 }
 ```
 
@@ -125,9 +125,9 @@ The only difference in this case is that we have to include the library that `ci
 
     konanc Main.kt -library build/c_interop/libcurl
 
-We can see that we're passing in as `library` parameter the outut path of `cinterop`. 
+We can see that we're passing in as `library` parameter the output path of `cinterop`. 
 
-If there are no errors during compilation, we should seen the output as a file named `program.kexe`, which on execution should output 
+If there are no errors during compilation, we should see the output as a file named `program.kexe`, which on execution should output 
 the contents of the site `http://example.com`
 
 ![Output]({{ url_for('tutorial_img', filename='native/cinterop/output.png')}})
