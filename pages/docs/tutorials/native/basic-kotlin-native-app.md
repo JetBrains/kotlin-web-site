@@ -53,7 +53,7 @@ represented by a bitcode file, which is a bitstream file format.
 We now need to compile our application, which is done using the compiler downloaded in the first step. If we have the `bin` folder
 correctly added to the path, we should be able to invoke the compiler using
 
-`kotlinc hello.kt`
+`konanc hello.kt`
 
 which is telling the compiler to compile the source code `hello.kt`.
 
@@ -65,7 +65,7 @@ should be
 The `hello.kexe` file is the actual binary produced for our target platform. The compiler provides us with a series of options, one of these
 being the ability to specify the output filename. In order to do this, we can use the -output (or -o) option
 
-`kotlinc -o first hello.kt`
+`konanc -o first hello.kt`
 
 which would produce
 
