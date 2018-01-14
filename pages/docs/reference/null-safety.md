@@ -102,6 +102,13 @@ for (item in listWithNulls) {
 }
 ```
 
+A safe call can also be placed on the left side of an assignment. Then, if one of the receivers in the safe calls chain is null, the assignment is skipped, and the expression on the right is not evaluated at all:
+
+``` kotlin
+// If either `person` or `person.department` is null, the function is not called:
+person?.department?.head = managersPool.getManager()
+```
+
 ## Elvis Operator
 
 When we have a nullable reference `r`, we can say "if `r` is not null, use it, otherwise use some non-null value `x`":
