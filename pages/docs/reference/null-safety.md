@@ -17,8 +17,11 @@ Kotlin's type system is aimed to eliminate `NullPointerException`'s from our cod
 
 * An explicit call to `throw NullPointerException()`;
 * Usage of the `!!` operator that is described below;
-* External Java code has caused it;
-* There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere).
+* There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere);
+* Java interoperation:
+  * Attempts to access a member on a `null` reference of a [platform type](java-interop.html#null-safety-and-platform-types);
+  * Generic types used for Java interoperation with incorrect nullability, e.g. a piece of Java code might add `null` into a Kotlin `MutableList<String>`, meaning that `MutableList<String?>` should be used for working with it;
+  * Other issues caused by external Java code.
 
 In Kotlin, the type system distinguishes between references that can hold *null*{: .keyword } (nullable references) and those that can not (non-null references).
 For example, a regular variable of type `String` can not hold *null*{: .keyword }:
@@ -97,6 +100,13 @@ val listWithNulls: List<String?> = listOf("A", null)
 for (item in listWithNulls) {
      item?.let { println(it) } // prints A and ignores null
 }
+```
+
+A safe call can also be placed on the left side of an assignment. Then, if one of the receivers in the safe calls chain is null, the assignment is skipped, and the expression on the right is not evaluated at all:
+
+``` kotlin
+// If either `person` or `person.department` is null, the function is not called:
+person?.department?.head = managersPool.getManager()
 ```
 
 ## Elvis Operator
