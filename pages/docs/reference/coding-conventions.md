@@ -10,7 +10,7 @@ title: Coding Conventions
 This page contains the current coding style for the Kotlin language.
 
 > Note: To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
-> 1.2.20-eap-33 or newer, go to Settings | Editor | Code Style | Kotlin, click on "Set from..." link in the upper
+> 1.2.20 or newer, go to Settings | Editor | Code Style | Kotlin, click on "Set from..." link in the upper
 > right corner, and select "Predefined style / Kotlin style guide" from the menu.
 
 ## Source code organization
