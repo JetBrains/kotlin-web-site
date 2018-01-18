@@ -10,13 +10,13 @@ showAuthorInfo: false
 
 
 When writing native applications, oftentimes we need to access certain functionality that is not included in the Kotlin standard library, 
-such as making HTTP calls, reading and writing from disk, etc.
+such as making HTTP requests, reading and writing from disk, etc. 
 
 Kotlin/Native provides us with the ability to consume standard C libraries, opening up an entire ecosystem of functionality that exists 
-for pretty much anything we could need. 
+for pretty much anything we could need. In fact, Kotlin/Native already ships with a set of prebuilt [platform libraries](https://github.com/JetBrains/kotlin-native/blob/master/PLATFORM_LIBS.md) which 
+provide some additional common functionality to that of the standard library. 
 
-In this tutorial we'll see how to create a native Kotlin application that uses the `libcurl` C library to call an HTTP endpoint. We'll cover
-how to 
+In this tutorial however, we'll see how to use some specific libraries, such as `libcurl`. We'll learn to  
 
 * [Create Kotlin Bindings](#generating-bindings)
 * [Consume a generated Kotlin API](#consuming-the-kotlin-api)
@@ -45,6 +45,8 @@ need to be relative to the folder where the definition file is, or be available 
 
 The second line is the `headerFilter`. This is used to denote what exactly we want included. In C, when one file references another file with the `#include` directive, 
 all the headers are also included. Sometimes this may not be needed, and we can use this parameter, [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)), to fine tune things. 
+Note, that `headerFilter` is an optional argument and mostly only used when the library we're using is being installed as a system library and we do not want to fetch external dependencies 
+(such as system `stdint.h` header) into our interop library. It may be important for both optimising library size and fixing potential conflicts between system and the Kotlin/Native provided compilation environment.
 
 The third and forth lines are about providing linker options, which can vary based on different target platforms. In our cause we are defining it for macOS and Linux. 
 Compiler options can also be specific, albeit in this case it is not necessary. 
@@ -56,7 +58,7 @@ Once we have the definition file ready, we can invoke `cinterop` and have it gen
 
     cinterop -def libcurl.def -o build/c_interop/libcurl
     
-The output should be a Kotlin compiled library (extension `.klib`) and the Kotlin source header files. We're also instructing `cinterop`
+The output should be a Kotlin compiled library (extension `.klib`). We're also instructing `cinterop`
 to output the contents to the folder `build/c_interop/libcurl` which we'll later use as input by `konanc`. It's important this folder is created
 beforehand as `cinterop` needs an existing folder. The *c_interop* is a convention that is followed for libraries that are for interop.
 
