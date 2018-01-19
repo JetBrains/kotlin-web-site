@@ -126,7 +126,7 @@ $(document).ready(function () {
 
   $searchButton.on('click touch', openPopup);
 
-  $("html").click(function () {
+  $(".search-popup").click(function () {
     $(".ais-search-box--input").focus();
   });
 
