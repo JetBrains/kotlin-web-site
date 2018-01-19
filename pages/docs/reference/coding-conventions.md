@@ -220,6 +220,8 @@ fun bar() {
 
 Never put a space after `(`, `[`, or before `]`, `)`.
 
+Never put a space around `.` or `?.`: `foo.bar().filter { it > 2 }.joinToString()`, `foo?.bar()`
+
 Put a space after `//`: `// This is a comment`
 
 Do not put spaces around angle brackets used to specify type parameters: `class Map<K, V> { ... }`
