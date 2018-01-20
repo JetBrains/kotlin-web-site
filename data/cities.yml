@@ -1,3 +1,7 @@
+- name: San Diego, CA
+  geo:
+    lat: 32.715738
+    lng: -117.1610838
 - geo:
     lat: 30.274084
     lng: 120.15507
