@@ -36,7 +36,7 @@ to make some HTTP calls, so we'll create a file named `libcurl.def` with the fol
 headers = curl/curl.h
 headerFilter = curl/*
 linkerOpts.osx = -L/opt/local/lib -L/usr/local/opt/curl/lib -lcurl
-linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl```
+linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl
 ```
 
 A few things are going on in that file so let's see them one by one. The first entry is `headers` which is the list of header files that we want to generate 
@@ -107,7 +107,7 @@ fun main(args: Array<String>) {
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L)
         val res = curl_easy_perform(curl)
         if (res != CURLE_OK) {
-            println("curl_easy_perform() failed ${curl_easy_strerror(res)}")
+            println("curl_easy_perform() failed ${curl_easy_strerror(res)?.toKString()}")
         }
         curl_easy_cleanup(curl)
     }
