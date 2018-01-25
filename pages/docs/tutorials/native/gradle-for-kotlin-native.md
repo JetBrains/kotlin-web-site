@@ -22,7 +22,7 @@ In this tutorial we'll see how to
 * [Generate CMake files to use with CLion](#generating-cmake-files)
 
 
-**Note**: This tutorial assumes somewhat familiarity with Gradle. If you're new to Gradle, while you should be able to follow along, it would be beneficial to review some of the 
+**Note**: This tutorial assumes basic familiarity with Gradle. If you're new to Gradle, while you should be able to follow along, it would be beneficial to review some of the 
 [Getting Started guides](https://gradle.org/guides/#getting-started). To install Gradle on your system please see the [Install guide](https://gradle.org/install/).
 
 
@@ -52,7 +52,7 @@ konanArtifacts {
 }
 ```
 
-The `buildscript` section defines the repositories and dependencies required for the Gradle plugin for Kotlin/Native which is `konan`. Then comes the actual parameters for compiling:
+The `buildscript` section defines the repositories and dependencies required for the Gradle plugin for Kotlin/Native which is `konan`. Then come the actual parameters for compiling:
 
 1. The `konan.targets` can contain one or more target platforms.
 
@@ -62,7 +62,7 @@ executable called `hello`.
 An important aspect for this build script to work is that we follow the default convention of where our source
 files are located, which is `src/main/kotlin`. We can of course change this behaviour by defining the `srcFiles`, which we'll see further down. 
 
-We can now create a Kotlin file with the following contents and place it in the `src/main/kotlin` folder:
+We can now create a Kotlin file with the following contents and place it in the `src/main/kotlin` directory:
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -85,7 +85,8 @@ which will build the application. The end result should be the following:
 ![Directory Structure After Build]({{ url_for('tutorial_img', filename='native/gradle-for-kotlin-native/dir-after-build.png')}}))
      
 
-We can see that there is a new `build` directory with a subdirectory for each target. Inside this folder we have the actual executable with the name
+We can see that there is a new `build` directory with a subdirectory for each target. Inside this 
+we have the actual executable with the name
 we passed to the the parameter `program` in the build script.
 
 ## Building and referencing a library
@@ -147,10 +148,10 @@ using the the command `generateCMake`:
 
     gradle generateCMake
     
-The result of running this action would give us a new file named `CMakeLists.txt` which allows us to open the project in CLion.
+The result is a new file named `CMakeLists.txt` which allows us to open the project in CLion.
 
 
-This is a simple taste of what the Gradle plugin for Kotlin/Native provides. For more detailed information about these, see the [corresponding README]https://github.com/JetBrains/kotlin-native/blob/fix-gradle-plugin-readme/GRADLE_PLUGIN.md.
+This is a simple taste of what the Gradle plugin for Kotlin/Native provides. For more detailed information about these, see the [corresponding README]https://github.com/JetBrains/kotlin-native/blob/master/GRADLE_PLUGIN.md.
 
 
 
