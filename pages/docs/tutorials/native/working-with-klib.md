@@ -19,7 +19,7 @@ In this tutorial we'll see
 
 ## What is Kotlin/Native Library
 
-The concept of a library, a collection of resources to be used by applications, is available in Kotlin/Native and it is represented
+The concept of a library, a collection of functions and other resources such as images, to be used by applications is available in Kotlin/Native and it is represented
 as a file with the extension `klib`. Kotlin/Native libraries are artifacts that are only available at compile time, i.e. we do not ship these as dependencies to our application
 (as we would for instance with DLL files on the Windows platform).
 
@@ -48,9 +48,6 @@ File `utils.klib`
 
     manifest                    /* A file in Java Property Format describing the library */ 
 ```
-
-**Note**: It's important to note that until Kotlin/Native stabilises, the internal format of a `klib` file may change somewhat. Usually when working with `klib` files however,  
-knowing the internals is not required. 
  
 ## Creating a Kotlin/Native Libraries
 
@@ -78,7 +75,7 @@ By default, the output of the filename is `library.klib`. We can override it usi
     konanc utils.kt -p library -o utils
     
 
-The second way to create a library is using the `cinterop` tool which allows us to create a Kotlin/Native library of an existing
+The second way to create a library is using the `cinterop` tool which allows us to create a Kotlin/Native library from an existing
 C library. See the [Interop with C tutorial](interop-with-c.html) on how to accomplish this.
  
 ## Consuming a Kotlin/Native Library
@@ -93,17 +90,17 @@ fun main(args: Array<String>) {
 }
 ```
 
-Notice how we need to import the library on the first line using the `import` statement. 
+Notice how we need to import the necessary package from the library on the first line using the `import` statement. 
 
-In order for the compiler to correctly link in the library, we need to pass the library name using the `-library` or `-l` paramter
+In order for the compiler to correctly link in the library, we need to pass the library name using the `-library` or `-l` parameter
 
     konanc sample.kt -l utils
     
-this would then produce a single executable file with no runtime dependencies.    
+This would then produce a single executable file with no runtime dependencies.    
     
 ## Using and creating library repositories
 
-Often it would be useful to use the same library across multiple applications. To avoid having various copies of the same library, the Kotlin
+Often it is useful to use the same library across multiple applications. To avoid having various copies of the same library, the Kotlin
 compiler can search for libraries in what's called a library repository. The default repository is usually installed under the folder `~/konanc/klib` and we can 
 add and remove our own libraries with a utility named `klib` that ships as part of the compiler tools.  
 
@@ -132,8 +129,8 @@ In order to do this, we can once again use the command `klib`:
 
     klib install utils -repository jetbrains
     
-which would install the `utils` library to a custom repository located in a folder named `jetbrains` under the current directory. The command follows the same pattern as before
-except that in this case we're explicitly indicating the repository.  
+but this time adding the parameter `-repository` with the value `jetbrains`. This installs the `utils` library into a custom repository located in a subdirecty named `jetbrains` relative to where we execute the command. For instance if our project is located under the directory `/home/kotlin/projects/`, the above command would install the library to the directory `/home/kotlin/projects/jetbrains/utils`. 
+
 
 For more information about the commands available for `klib` as well as the sequence when searching for libraries, please see the [README](https://github.com/JetBrains/kotlin-native/blob/master/LIBRARIES.md#advanced-topics)
 
