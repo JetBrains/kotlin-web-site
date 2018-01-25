@@ -217,6 +217,20 @@ To avoid this, consider setting a unique `archivesBaseName` manually:
 archivesBaseName = 'myExampleProject_lib'
 ```
 
+## Gradle Build Cache support (since 1.2.20)
+
+The Kotlin plugin supports [Gradle Build Cache](https://guides.gradle.org/using-build-cache/) (Gradle version 4.3 and above is required; caching is disabled with lower versions).
+
+The kapt annotation processing tasks are not cached by default since annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs, might access and modify the files that are not tracked by Gradle etc. To enable caching for kapt anyway, add the following lines to the build script:
+
+``` groovy
+kapt {
+    useBuildCache = true
+}
+```
+
+To disable the caching for all Kotlin tasks, set the system property flag `kotlin.caching.enabled` to `false` (run the build with the argument `-Dkotlin.caching.enabled=false`).
+
 ## Compiler Options
 
 To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task.
@@ -254,15 +268,21 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
 
 A complete list of options for the Gradle tasks follows:
 
+### Attributes common for JVM, JS, and JS DCE
+
+| Name | Description | Possible values |Default value |
+|------|-------------|-----------------|--------------|
+| `allWarningsAsErrors` | Report an error if there are any warnings |  | false |
+| `suppressWarnings` | Generate no warnings |  | false |
+| `verbose` | Enable verbose logging output |  | false |
+| `freeCompilerArgs` | A list of additional compiler arguments |  | [] |
+
 ### Attributes common for JVM and JS
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
-| `apiVersion` | Allow to use declarations only from the specified version of bundled libraries | "1.0", "1.1" | "1.1" |
-| `languageVersion` | Provide source compatibility with specified language version | "1.0", "1.1" | "1.1" |
-| `suppressWarnings` | Generate no warnings |  | false |
-| `verbose` | Enable verbose logging output |  | false |
-| `freeCompilerArgs` | A list of additional compiler arguments |  | [] |
+| `apiVersion` | Allow to use declarations only from the specified version of bundled libraries | "1.0", "1.1", "1.2", "1.3 (EXPERIMENTAL)" |  |
+| `languageVersion` | Provide source compatibility with specified language version | "1.0", "1.1", "1.2", "1.3 (EXPERIMENTAL)" |  |
 
 ### Attributes specific for JVM
 
@@ -286,10 +306,10 @@ A complete list of options for the Gradle tasks follows:
 | `noStdlib` | Don't use bundled Kotlin stdlib |  | true |
 | `outputFile` | Output file path |  |  |
 | `sourceMap` | Generate source map |  | false |
-| `sourceMapEmbedSources` | Embed source files into source map | "never", "always", "inlining" | "inlining" |
+| `sourceMapEmbedSources` | Embed source files into source map | "never", "always", "inlining" |  |
 | `sourceMapPrefix` | Prefix for paths in a source map |  |  |
 | `target` | Generate JS files for specific ECMA version | "v5" | "v5" |
-| `typedArrays` | Translate primitive arrays to JS typed arrays |  | false |
+| `typedArrays` | Translate primitive arrays to JS typed arrays |  | true |
 
 
 ## Generating documentation

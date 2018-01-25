@@ -145,6 +145,13 @@ val values = ...
 val email = values["email"] ?: throw IllegalStateException("Email is missing!")
 ```
 
+### Get first item of a possibly empty collection
+
+``` kotlin
+val emails = ... // might be empty
+val mainEmail = emails.firstOrNull() ?: ""
+```
+
 ### Execute if not null
 
 ``` kotlin
