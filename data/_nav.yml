@@ -283,6 +283,8 @@ tutorials:
       content:
         - url: /docs/tutorials/native/basic-kotlin-native-app.html
           title: Basic Kotlin/Native Application
+        - url: /docs/tutorials/native/interop-with-c.html
+          title: Interop with C Libraries
 
     - title: Coroutines
       content:
