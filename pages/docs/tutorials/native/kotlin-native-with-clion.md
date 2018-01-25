@@ -23,7 +23,7 @@ a fully-fledged IDE experience for Kotlin/Native via [CLion](https://www.jetbrai
 IntelliJ platform. 
 
 Kotlin support in CLion is provided via a couple of plugins, namely the Kotlin plugin which provides core support for the language, and the Kotlin/Native plugin which 
-add functionality for native support. Both of these plugins are provided by JetBrains and can be installed using the the `Plugins` configuration dialog
+adds functionality for native support. Both of these plugins are provided by JetBrains and can be installed using the the `Plugins` configuration dialog
 
 
 ![Plugins]({{ url_for('tutorial_img', filename='native/kotlin-native-with-clion/plugins.png')}})
