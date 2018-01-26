@@ -72,7 +72,7 @@ fun main(args: Array<String>) {
 
 To recap, this should be our directory structure layout:
 
-![Directory Structure Before Build]({{ url_for('tutorial_img', filename='native/gradle-for-kotlin-native/dir-before-build.png')}}))
+![Directory Structure Before Build]({{ url_for('tutorial_img', filename='native/gradle-for-kotlin-native/dir-before-build.png')}})
 
 
 From the root directory, where our `build.gradle` file is, we can now run the following command:
@@ -82,7 +82,7 @@ From the root directory, where our `build.gradle` file is, we can now run the fo
     
 which will build the application. The end result should be the following:
 
-![Directory Structure After Build]({{ url_for('tutorial_img', filename='native/gradle-for-kotlin-native/dir-after-build.png')}}))
+![Directory Structure After Build]({{ url_for('tutorial_img', filename='native/gradle-for-kotlin-native/dir-after-build.png')}})
      
 
 We can see that there is a new `build` directory with a subdirectory for each target. Inside this 
@@ -139,7 +139,7 @@ We can execute our application by referencing it directly or use Gradle via:
     
 resulting in:
     
-![Gradle Run Result]({{ url_for('tutorial_img', filename='native/gradle-for-kotlin-native/gradle-run.png')}}))    
+![Gradle Run Result]({{ url_for('tutorial_img', filename='native/gradle-for-kotlin-native/gradle-run.png')}})    
 
 ## Generating CMake files
 
@@ -151,4 +151,4 @@ using the the command `generateCMake`:
 The result is a new file named `CMakeLists.txt` which allows us to open the project in CLion.
 
 
-This is a simple taste of what the Gradle plugin for Kotlin/Native provides. For more detailed information about these, see the [corresponding README]https://github.com/JetBrains/kotlin-native/blob/master/GRADLE_PLUGIN.md.
+This is a simple taste of what the Gradle plugin for Kotlin/Native provides. For more detailed information about these, see the [corresponding README](https://github.com/JetBrains/kotlin-native/blob/master/GRADLE_PLUGIN.md).
