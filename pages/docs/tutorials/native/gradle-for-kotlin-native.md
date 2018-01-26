@@ -152,11 +152,3 @@ The result is a new file named `CMakeLists.txt` which allows us to open the proj
 
 
 This is a simple taste of what the Gradle plugin for Kotlin/Native provides. For more detailed information about these, see the [corresponding README]https://github.com/JetBrains/kotlin-native/blob/master/GRADLE_PLUGIN.md.
-
-
-
-
-
-
-
-
