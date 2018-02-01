@@ -55,11 +55,15 @@ The most important use case is returning from a lambda expression. Recall that w
 
 ``` kotlin
 fun foo() {
-    ints.forEach {
-        if (it == 0) return  // nonlocal return from inside lambda directly to the caller of foo()
+    listOf(1, 2, 3, 4, 5).forEach {
+        if (it == 3) return // nonlocal return from inside lambda directly to the caller of foo()
         print(it)
     }
+
+    // this point is unreachable
 }
+
+foo() // prints "12"
 ```
 
 The *return*{: .keyword }-expression returns from the nearest enclosing function, i.e. `foo`.
@@ -68,23 +72,31 @@ If we need to return from a lambda expression, we have to label it and qualify t
 
 ``` kotlin
 fun foo() {
-    ints.forEach lit@{
-        if (it == 0) return@lit
+    listOf(1, 2, 3, 4, 5).forEach lit@{
+        if (it == 3) return@lit // local return to the caller of the lambda, i.e. the forEach loop
         print(it)
     }
+
+    print(" done with explicit label")
 }
+
+foo() // prints "1245 done with explicit label"
 ```
 
-Now, it returns only from the lambda expression. Oftentimes it is more convenient to use implicits labels:
+Now, it returns only from the lambda expression. Oftentimes it is more convenient to use implicit labels:
 such a label has the same name as the function to which the lambda is passed.
 
 ``` kotlin
 fun foo() {
-    ints.forEach {
-        if (it == 0) return@forEach
+    listOf(1, 2, 3, 4, 5).forEach {
+        if (it == 3) return@forEach // local return to the caller of the lambda, i.e. the forEach loop
         print(it)
     }
+
+    print(" done with implicit label")
 }
+
+foo() // prints "1245 done with implicit label"
 ```
 
 Alternatively, we can replace the lambda expression with an [anonymous function](lambdas.html#anonymous-functions).
@@ -92,12 +104,18 @@ A *return*{: .keyword } statement in an anonymous function will return from the 
 
 ``` kotlin
 fun foo() {
-    ints.forEach(fun(value: Int) {
-        if (value == 0) return  // local return to the caller of the anonymous fun, i.e. the forEach loop
+    listOf(1, 2, 3, 4, 5).forEach(fun(value: Int) {
+        if (value == 3) return  // local return to the caller of the anonymous fun, i.e. the forEach loop
         print(value)
     })
+
+    print(" done with anonymous function")
 }
+
+foo() // prints "1245 done with anonymous function"
 ```
+
+Notice that the use of local returns in previous three examples is similar to the use of the *continue*{: .keyword } expression in regular loops. However, there is no such equivalent for the *break*{: .keyword } expression.
 
 When returning a value, the parser gives preference to the qualified return, i.e.
 
