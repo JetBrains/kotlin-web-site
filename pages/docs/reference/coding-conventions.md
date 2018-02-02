@@ -9,9 +9,23 @@ title: Coding Conventions
 
 This page contains the current coding style for the Kotlin language.
 
-> Note: To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
-> 1.2.20 or newer, go to Settings | Editor | Code Style | Kotlin, click on "Set from..." link in the upper
-> right corner, and select "Predefined style / Kotlin style guide" from the menu.
+* [Source code organization](#source-code-organization)
+* [Naming rules](#naming-rules)
+* [Formatting](#formatting)
+* [Documentation comments](#documentation-comments)
+* [Avoiding redundant constructs](#avoiding-redundant-constructs)
+* [Idiomatic use of language features](#idiomatic-use-of-language-features)
+* [Coding conventions for libraries](#coding-conventions-for-libraries)
+
+### Applying the style guide
+
+To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
+1.2.20 or newer, go to Settings | Editor | Code Style | Kotlin, click on "Set from..." link in the upper
+right corner, and select "Predefined style / Kotlin style guide" from the menu.
+
+To verify that your code is formatted according to the style guide, go to the inspection settings and enable
+the "Kotlin | Style issues | File is not formatted according to project settings" inspection. Additional
+inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.
 
 ## Source code organization
 
@@ -428,7 +442,7 @@ fun f(x: String) =
     x.length
 ```
 
-## Property formatting
+### Property formatting
 
 For very simple read-only properties, consider one-line formatting:
 
