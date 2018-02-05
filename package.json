@@ -63,7 +63,7 @@
     "start": "rimraf ./_assets/* && cross-env NODE_ENV=development webpack --watch",
     "start:server": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "rimraf ./_assets/* && cross-env NODE_ENV=production webpack -p --bail",
-    "postinstall": "cd node_modules/codemirror && npm i",
+    "postinstall": "cd node_modules/codemirror && yarn install && yarn run build",
     "clean": "rimraf ./_assets"
   }
 }
