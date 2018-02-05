@@ -82,7 +82,6 @@ fun main(args: Array<String>) {
     println("person1 with age ${person1.age}: ${person1}")
     println("person2 with age ${person2.age}: ${person2}")
 }
-println("person2: ${person2}")
 ```
 </div>
 
