@@ -50,6 +50,42 @@ On the JVM, if the generated class needs to have a parameterless constructor, de
 data class User(val name: String = "", val age: Int = 0)
 ```
 
+## Properties Declared in the Class Body
+
+Note that the compiler only uses the properties defined inside the primary constructor for the automatically generated functions. To exclude a property from the generated implementations, declare it inside the class body:
+
+```kotlin
+data class Person(val name: String) {
+    var age: Int = 0
+}
+```
+
+Only the property `name` will be used inside the `toString()`, `equals()`, `hashCode()`, and `copy()` implementations, and there will only be one component function `component1()`. While two `Person` objects can have different ages, they will be treated as equal.
+
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
+
+``` kotlin
+data class Person(val name: String) {
+    var age: Int = 0
+}
+
+fun main(args: Array<String>) {
+    //sampleStart
+    val person1 = Person("John")
+    val person2 = Person("John")
+
+    person1.age = 10
+    person2.age = 20
+    //sampleEnd
+
+    println("person1 == person2: ${person1 == person2}")
+    println("person1 with age ${person1.age}: ${person1}")
+    println("person2 with age ${person2.age}: ${person2}")
+}
+println("person2: ${person2}")
+```
+</div>
+
 ## Copying
   
 It's often the case that we need to copy an object altering _some_ of its properties, but keeping the rest unchanged. 
@@ -64,33 +100,6 @@ This allows us to write:
 ``` kotlin
 val jack = User(name = "Jack", age = 1)
 val olderJack = jack.copy(age = 2)
-```
-
-## Excluding Properties
-
-It is important to remember that the compiler only uses the properties inside the primary constructor for the automatically generated methods. In order to exclude a property from these methods the developer must define it inside the class itself.
-
-Consider the following class:
-
-```kotlin
-data class Person(val name: String) {
-	var age: Int = 0
-}
-```
-
-Only the property `name` will be used inside `toString()`, `equals()`, `hashCode()` and `copy()`. This means that while two `Person` objects can have different ages, they will be treated as equal.
-
-```kotlin
-val john1 = Person("John")
-val john2 = Person("John")
-
-john1.age = 10
-john2.age = 20
-
-println(john1 == john2) // true
-println(john1.hashCode() == john2.hashCode()) // true
-println(john1) // Person(name=John)
-println(john2) // Person(name=John)
 ```
 
 ## Data Classes and Destructuring Declarations
