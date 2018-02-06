@@ -20,8 +20,8 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
 ## How to run
 
-- **All in one option (suitable for content authors/writers)**: `docker-compose up`. 
-  It will build all stuff and create site on [localhost:5000](http://localhost:5000).
+- **All in one option (suitable for content authors/writers)**:
+  - `docker-compose up`. It will build all stuff and create site on [localhost:5000](http://localhost:5000).
 - **Developer has 2-step option**:
   - `docker-compose up website` will run only site at [localhost:5000](http://localhost:5000).
   - `yarn start` will run webpack-dev-server on [localhost:9000](http://localhost:9000).
