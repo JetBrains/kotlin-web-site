@@ -35,3 +35,4 @@ pdf/tmp.html
 *.pyc
 google-credentials.json
 package-lock.json
+.env

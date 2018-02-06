@@ -13,4 +13,4 @@ RUN pip install -r /tmp/requirements.txt; \
     gem install kramdown;
 
 EXPOSE 5000
-CMD python /src/kotlin-website.py
+ENTRYPOINT python /src/kotlin-website.py
