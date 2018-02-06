@@ -25,6 +25,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Static members](classes.html)
 * [Non-private fields](properties.html)
 * [Wildcard-types](generics.html)
+* [Ternary-operator `a ? b : c`](control-flow.html#if-expression)
 
 ## What Kotlin has that Java does not
 

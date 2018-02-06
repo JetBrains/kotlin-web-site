@@ -131,8 +131,11 @@ module.exports = (params = {}) => {
       })
     ],
 
+    stats: 'errors-only',
+
     devServer: {
       port: 9000,
+      stats: 'errors-only',
       proxy: {
         '/**': {
           target: `http://${originHost}`,
