@@ -1,18 +1,23 @@
 const path = require('path');
-const Webpack = require('webpack');
+
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const LiveReloadPlugin = require('webpack-livereload-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 module.exports = (params = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
+  const isDevelopment = !isProduction;
   const env = isProduction ? 'production' : 'development';
   const isServer = process.argv.toString().includes('webpack-dev-server');
-  const originHost = 'localhost:5000';
+  const sourcemaps = params.sourcemaps || isDevelopment;
 
+  const siteHost = 'localhost:5000';
   const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
   const indexName = params['index-name'] || 'dev_KOTLINLANG';
 
-  const webpackConfig = {
+  const config = {
     entry: {
       'common': './static/js/page/common.js',
       'index': './static/js/page/index/index.js',
@@ -32,6 +37,8 @@ module.exports = (params = {}) => {
       publicPath: '/_assets/',
       filename: '[name].js'
     },
+
+    devtool: sourcemaps ? 'source-map' : false,
 
     module: {
       rules: [
@@ -109,12 +116,12 @@ module.exports = (params = {}) => {
     plugins: [
       new ExtractTextPlugin('[name].css'),
 
-      new Webpack.optimize.CommonsChunkPlugin({
+      new webpack.optimize.CommonsChunkPlugin({
         name: 'default',
         minChunks: 3
       }),
 
-      new Webpack.ProvidePlugin({
+      new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
@@ -122,12 +129,10 @@ module.exports = (params = {}) => {
         Promise: 'imports-loader?this=>global!exports-loader?global.Promise!core-js/es6/promise'
       }),
 
-      new Webpack.DefinePlugin({
+      new webpack.DefinePlugin({
         webDemoURL: JSON.stringify(webDemoURL),
         indexName: JSON.stringify(indexName),
-        'process.env': {
-          NODE_ENV: JSON.stringify(env)
-        }
+        'process.env.NODE_ENV': JSON.stringify(env)
       })
     ],
 
@@ -138,22 +143,27 @@ module.exports = (params = {}) => {
       stats: 'errors-only',
       proxy: {
         '/**': {
-          target: `http://${originHost}`,
+          target: `http://${siteHost}`,
           bypass: function (req) {
-            req.headers.host = originHost;
+            req.headers.host = siteHost;
           }
         }
       }
     }
   };
 
+  const plugins = config.plugins;
+
   if (!isServer) {
-    webpackConfig.plugins.push(
-      new LiveReloadPlugin({
-        appendScriptTag: false
-      })
-    );
+    plugins.push(new CleanPlugin(['_assets']))
   }
 
-  return webpackConfig;
+  if (isProduction) {
+    const minimizePlugin = new UglifyJsPlugin({ sourceMap: sourcemaps });
+    const minimizeLoaderOptionPlugin = new LoaderOptionsPlugin({ minimize: true });
+    plugins.push(minimizePlugin);
+    plugins.push(minimizeLoaderOptionPlugin);
+  }
+
+  return config;
 };
