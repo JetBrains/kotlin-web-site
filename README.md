@@ -7,11 +7,12 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 - [How to run](#how-to-run)
 - [Project structure & overview](#project-structure)
 - [Writing content](#writing-content)
+- [Filing bugs](#filing-bugs)
 
 ## Installation
 
 1. You will need Docker to run site lifecycle tasks. Installation for [macOS](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac) and 
-   [Windows](https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows)).
+   [Windows](https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows).
 2. If you want to develop frontend Yarn package manager is also needed ([installation instructions](https://yarnpkg.com/lang/en/docs/install/)).
    Don't forget to install frontend dependencies - `yarn install`.
 3. All specific app parameters stored in env-file. Copy sample file `.env.sample` and rename it to `.env`. 
@@ -20,11 +21,11 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 ## How to run
 
 - **All in one option (suitable for content authors/writers)**: `docker-compose up`. 
-  It will build all stuff and create site on [http://localhost:5000](http://localhost:5000).
+  It will build all stuff and create site on [localhost:5000](http://localhost:5000).
 - **Developer has 2-step option**:
-  - `docker-compose up website` will run only site at [http://localhost:5000](http://localhost:5000).
-  - `yarn start` will run webpack-dev-server on [http://localhost:9000](http://localhost:9000).
-     This address should be used to development. All pages from origin server will be proxied.
+  - `docker-compose up website` will run only site at [localhost:5000](http://localhost:5000).
+  - `yarn start` will run webpack-dev-server on [localhost:9000](http://localhost:9000).
+     This address should be used for development. All pages from origin server will be proxied.
      
 <a id="project-structure"></a>
 ## Project structure & overview
