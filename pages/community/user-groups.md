@@ -2,7 +2,7 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (136)
+# Kotlin User Groups (138)
  
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -55,6 +55,7 @@ title: Kotlin User Groups
  * [Azerbaijan Kotlin User Group](https://www.facebook.com/groups/395337754167951/), Azerbaijan
  * [Bangladesh Kotlin User Group](https://www.facebook.com/KotlinBangladesh/), Bangladesh
  * [Bengaluru Kotlin](https://www.facebook.com/KotlinBengaluru/), India
+ * [Bengaluru Kotlin Meetup](https://www.meetup.com/BlrKotlin/), India
  * [Beijing Kotlin User Group](http://www.kotliner.cn/), China
  * [Bhopal Kotlin User Group](https://www.facebook.com/kotlinbpl/), India
  * [Bhubaneswar Kotlin User Group](https://www.facebook.com/groups/1961143800818624/), India
@@ -73,6 +74,7 @@ title: Kotlin User Groups
  * [Kolkata Kotlin User Group](https://www.facebook.com/KotlinKolkata/), India
  * [Korean Kotlin User Group](http://kotlin.kr/), Korea
  * [Kozhikode Kotlin User Group](https://www.facebook.com/kotlinkozhikode/), India
+ * [Mumbai Kotlin User Group](https://www.facebook.com/kotlinmumbai/), India
  * [Myanmar Kotlin User Group](https://www.facebook.com/groups/kotlinmyanmarusergroup/about/), Myanmar
  * [Nepal Kotlin User Group](https://www.facebook.com/groups/dnkotlin/), Nepal
  * [New Delhi Kotlin User Group](https://www.facebook.com/kotlinNewDelhi/), India

@@ -1,3 +1,27 @@
+- name: Mason, OH
+  geo:
+    lat: 39.3600586
+    lng: -84.309939
+- name: Tiyarat, Algeria
+  geo:
+    lat: 36.4757929
+    lng: 2.8297576
+- name: San Pedro Sula, Honduras
+  geo:
+    lat: 15.5149204
+    lng: -87.9922684
+- name: Morgantown, WV
+  geo:
+    lat: 39.629526
+    lng: -79.95589679999999
+- name: Lille, France
+  geo:
+    lat: 50.62925
+    lng: 3.057256
+- name: Noida, India
+  geo:
+    lat: 28.5355161
+    lng: 77.3910265
 - name: San Diego, CA
   geo:
     lat: 32.715738
