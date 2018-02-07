@@ -318,14 +318,6 @@ buildscript {
 apply plugin: "kotlin-sam-with-receiver"
 ```
 
-Or using the Gradle plugins DSL:
-
-```groovy
-plugins {
-  id "org.jetbrains.kotlin.plugin.sam.with.receiver" version "{{ site.data.releases.latest.version }}"
-}
-```
-
 Then specify the list of no-arg annotations:
 
 ```groovy
