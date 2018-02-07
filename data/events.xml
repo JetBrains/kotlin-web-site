@@ -860,12 +860,12 @@ Let's kick things off with a social gathering to discuss formation questions, su
         <location>Osaka, Japan</location>
         <speaker>Akira Aratani</speaker>
         <title>CyberAgent Group</title>
-        <subject>2017_12_18-19_Kotlin_Conf_Report_Kotlin_Types_Updated</subject>
+        <subject>KotlinConf Report. Kotlin Types Updated</subject>
         <url>https://cyberagent.connpass.com/event/73540/ </url>
+        <content>
+            <slides>https://speakerdeck.com/aakira/2017-12-18-19-kotlin-conf-report-kotlin-types-updated</slides>
+        </content>
         <description>
-            <content>
-                <slides>https://speakerdeck.com/aakira/2017-12-18-19-kotlin-conf-report-kotlin-types-updated</slides>
-            </content>
             <![CDATA[
 <p>This presentation based on Kotlin Exposed Type by Svetlana Isakova in Kotlin Conf 2017.</p>
 ]]>
@@ -7022,7 +7022,6 @@ Los programadores que han trabajado en la plataforma oficial de desarrollo de ap
             </description>
         </event>
 
-    =========
     <event>
         <lang>fr</lang>
         <startDate>2017-08-31</startDate>
