@@ -190,6 +190,34 @@ The compiler ensures that every expected declaration has actual declarations in 
 modules that implement the corresponding common module, and reports an error if any actual declarations are 
 missing. The IDE provides tools that help you create the missing actual declarations.
 
+While `expect` declarations never contain any implementation code, they may inherit from each other. It's also possible to inherit `expect` declaration from a regular class, but without its constructor call: 
+``` kotlin
+// Common
+expect open class A {
+    val s: String
+}
+expect class B : A
+
+open class D {
+    val i = 42
+}
+expect class C : D
+
+// JVM
+actual open class A {
+    actual open val s: String = ""
+}
+
+actual class B : A() {
+    actual override val s = "Hello"
+}
+
+actual class C : D() {
+    val id = super.i
+}
+
+```
+
 If you have a platform-specific library that you want to use in common code while providing your own
 implementation for another platform, you can provide a typealias to an existing class as the actual
 declaration:
