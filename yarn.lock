@@ -1469,9 +1469,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-"codemirror@git://github.com/codemirror/codemirror.git#d1d6ee2ddeaafc5d5f540b22c8d4fa58ce4bf92c":
-  version "5.24.3"
-  resolved "git://github.com/codemirror/codemirror.git#d1d6ee2ddeaafc5d5f540b22c8d4fa58ce4bf92c"
+"codemirror@https://github.com/codemirror/CodeMirror.git#f3e6d7ea61d0a69b57cad1ff8134fe07e8b28112":
+  version "5.34.1"
+  resolved "https://github.com/codemirror/CodeMirror.git#f3e6d7ea61d0a69b57cad1ff8134fe07e8b28112"
 
 collection-visit@^1.0.0:
   version "1.0.0"
