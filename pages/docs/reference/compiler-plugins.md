@@ -277,7 +277,7 @@ As with all-open, add the plugin JAR file to the compiler plugin classpath and s
 ```
 
 
-## Sam-with-receiver compiler plugin
+## SAM-with-receiver compiler plugin
 
 The *sam-with-receiver* compiler plugin makes the first parameter of the annotated Java "single abstract method" (SAM) interface method a receiver in Kotlin. This conversion only works when the SAM interface is passed as a Kotlin lambda, both for SAM adapters and SAM constructors (see the [documentation](https://kotlinlang.org/docs/reference/java-interop.html#sam-conversions) for more details).
 
@@ -318,7 +318,7 @@ buildscript {
 apply plugin: "kotlin-sam-with-receiver"
 ```
 
-Then specify the list of no-arg annotations:
+Then specify the list of SAM-with-receiver annotations:
 
 ```groovy
 samWithReceiver {
