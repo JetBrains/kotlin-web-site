@@ -285,6 +285,8 @@ tutorials:
           title: Basic Kotlin/Native Application
         - url: /docs/tutorials/native/interop-with-c.html
           title: Interop with C Libraries
+        - url: /docs/tutorials/native/memory-management.html
+          title: Memory Management in Kotlin/Native
 
     - title: Coroutines
       content:
