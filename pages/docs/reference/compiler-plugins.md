@@ -14,7 +14,7 @@ For instance, when you use Spring, you don't need all the classes to be open, bu
 
 We provide *all-open* plugin support both for Gradle and Maven with the complete IDE integration.
 
-:point_up: For Spring you can use the `kotlin-spring` compiler plugin ([see below](compiler-plugins.html#spring-support)).
+Note: For Spring you can use the `kotlin-spring` compiler plugin ([see below](compiler-plugins.html#spring-support)).
 
 ### Using in Gradle
 
