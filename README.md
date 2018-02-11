@@ -14,16 +14,16 @@ Este es el codigo fuente de la pagina de [Kotlin](http://kotlinlang.org)
 
 Lista de Errores
 ===========
-We use [YouTrack](http://youtrack.jetbrains.com/issues/KT#) for bug reports and suggestions. Click [here to report an issue](http://youtrack.jetbrains.com/newIssue?project=KT&clearDraft=true&c=Subsystems+Web+Site).
+Nosotros usamos [YouTrack](http://youtrack.jetbrains.com/issues/KT#) para el reporter de errores y sugerencias. Click [aqui para el reporte de problemas](http://youtrack.jetbrains.com/newIssue?project=KT&clearDraft=true&c=Subsystems+Web+Site).
 
-Installation
+Instalacion
 ============
 
-## Prerequisites
+## Prerequisitos
 
-- Python. Kotlinlang is [Flask](http://flask.pocoo.org/)-based site, so you'll need python 2 to get it working.
-- ruby + [kramdown](http://kramdown.gettalong.org/installation.html). Python has a very poor support for markdown, so kramdown is used as markdown to html converter
-- [nodejs](https://nodejs.org/en/) + npm to build frontend assets
+- Python. Kotlinlang es un sitio creado con [Flask](http://flask.pocoo.org/), para esto es necesario python 2 para poder ejecutarla.
+- ruby + [kramdown](http://kramdown.gettalong.org/installation.html). Python tiene un soporte muy pobre para el manejo del formato markdown, entonces para eso se utiliza kramdown como traductor de markdown a html.
+- [nodejs](https://nodejs.org/en/) + npm para crear los recursos del interfaz de la pagina.
 
 ## Installation
 
