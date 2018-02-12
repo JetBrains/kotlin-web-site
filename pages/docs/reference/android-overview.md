@@ -42,7 +42,7 @@ The Kotlin team offers a set of tools for Android development that goes beyond t
 that allows you to get rid of `findViewById()` calls in your code and to replace them with synthetic compiler-generated
 properties.
  * [Anko](http://github.com/kotlin/anko) is a library providing a set of Kotlin-friendly wrappers around the Android
-   APIs, as well as a DSL that lets your replace your layout .xml files with Kotlin code.
+   APIs, as well as a DSL that lets you replace your layout .xml files with Kotlin code.
 
 ## Next Steps
 
