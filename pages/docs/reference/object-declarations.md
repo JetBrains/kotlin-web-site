@@ -20,8 +20,8 @@ title: "Object Expressions and Declarations"
 # Object Expressions and Declarations
 -->
 
-時にはあるクラスをわずかに修正しただけのオブジェクトをそれのための新しいサブクラスを明示的に宣言せずに、作成する必要があります。Javaでは *無名内部クラス* でこの事例を処理します。
-Kotlinではたった *オブジェクト式* と *オブジェクトの宣言* だけでこの概念を一般化します。
+時には、あるクラスをわずかに修正しただけのオブジェクトを、それのための新しいサブクラスを明示的に宣言せずに作成する必要があります。Javaでは *無名内部クラス* でこの事例を処理します。
+Kotlinでは*オブジェクト式* と *オブジェクトの宣言* だけでこの概念を一般化します。
 
 <!--original
 Sometimes we need to create an object of a slight modification of some class, without explicitly declaring a new subclass for it.
@@ -125,7 +125,7 @@ print(adHoc.x + adHoc.y)
 ```
 -->
 
-ただ、Javaの無名内部クラスのように、内包するスコープからオブジェクト式のコードが変数にアクセスすることができます。（Javaのとは違って、これは final の変数に限定されるものではありません。）
+ただ、Javaの無名内部クラスのように、内包するスコープからオブジェクト式のコードが変数にアクセスすることができます。（Javaのものとは違って、これは final の変数に限定されるものではありません。）
 
 <!--original
 Just like Java's anonymous inner classes, code in object expressions can access variables from the enclosing scope.
@@ -192,7 +192,7 @@ object DataProviderManager {
     get() = // ...
 }
 ```
-- これは、オブジェクトの宣言と呼ばれ、それは常に object キーワードの後に名前を持ちます。ちょうど変数宣言と同じように、オブジェクトの宣言は式ではなく、代入文の右側に使用することはできません。
+- これはオブジェクトの宣言と呼ばれ、それは常に object キーワードの後に名前を持ちます。ちょうど変数宣言と同じように、オブジェクトの宣言は式ではなく、代入文の右側に使用することはできません。
 
 <!--original
 ``` kotlin
@@ -258,7 +258,7 @@ object DefaultListener : MouseAdapter() {
 ```
 -->
 
-**注**：オブジェクト宣言はローカルにすることはできません（つまり、関数内で直接ネストしてください）。ただし、他のオブジェクト宣言または非内部クラスにネストすることもできます。
+**注**：オブジェクト宣言はローカルにすることはできません（つまり、関数内で直接ネストする必要があります）。ただし、他のオブジェクト宣言または非内部クラスにネストすることもできます。
 
 <!--original
 **NOTE**: object declarations can't be local (i.e. be nested directly inside a function), but they can be nested into other object declarations or non-inner classes.
