@@ -32,12 +32,12 @@ adds functionality for native support. Both of these plugins are provided by Jet
 Once installed (which requires a restart of the IDE), we should now have Kotlin support enabled. We can now create a new project using the 
 `New Project` wizard
 
-![New Project]({{ url_for('tutorial_img', filename='native/kotlin-native-with-clion/new-project.png) }})
+![New Project]({{ url_for('tutorial_img', filename='native/kotlin-native-with-clion/new-project.png') }})
 
 
 Additionally we can also create a new project based on an exiting sample template, by choosing one of the available ones
 
-![New Project Template]({{ url_for('tutorial_img', filename='native/kotlin-native-with-clion/new-project-hello.png) }})
+![New Project Template]({{ url_for('tutorial_img', filename='native/kotlin-native-with-clion/new-project-hello.png') }})
 
 In our case we're going to use the `Hello World` template to generate a sample application. 
 
@@ -46,9 +46,9 @@ In our case we're going to use the `Hello World` template to generate a sample a
 Once we have created the application, we can build and run it by using the `Run` menu and selecting `Build`, or alternatively
 pressing the assigned keyboard shortcut (which depends on our keyboard mapping)
 
-![Build and Run]({{ url_for('tutorial_img', filename='native/kotlin-native/kotlin-native-with-clion/build-run.png) }}) 
+![Build and Run]({{ url_for('tutorial_img', filename='native/kotlin-native-with-clion/build-run.png') }}) 
 
 To run the application, we merely select `Run` from the same `Build` menu and see the output
 
-![Run]({{ url_for('tutorial_img', filename='native/kotlin-native/kotlin-native-with-clion/run.png) }})
+![Run]({{ url_for('tutorial_img', filename='native/kotlin-native-with-clion/run.png') }})
 
