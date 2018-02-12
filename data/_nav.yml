@@ -285,6 +285,8 @@ tutorials:
           title: Basic Kotlin/Native Application
         - url: /docs/tutorials/native/interop-with-c.html
           title: Interop with C Libraries
+        - url: /docs/tutorials/native/working-with-klib.html
+          title: Working with Kotlin/Native Libraries
 
     - title: Coroutines
       content:
