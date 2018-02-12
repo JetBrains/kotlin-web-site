@@ -102,7 +102,8 @@ fun countClicks(window: JComponent) {
 
 ## Object declarations
 
-[Singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a very useful pattern, and Kotlin (after Scala) makes it easy to declare singletons:
+[Singleton](http://en.wikipedia.org/wiki/Singleton_pattern) may be useful in several cases,
+and Kotlin (after Scala) makes it easy to declare singletons:
 
 ``` kotlin
 object DataProviderManager {
@@ -117,6 +118,8 @@ object DataProviderManager {
 
 This is called an *object declaration*, and it always has a name following the *object*{: .keyword } keyword.
 Just like a variable declaration, an object declaration is not an expression, and cannot be used on the right hand side of an assignment statement.
+
+Object declaration's initialization is thread-safe.
 
 To refer to the object, we use its name directly:
 

@@ -204,13 +204,13 @@ Classes can contain:
 
 ## Inheritance
 
-All classes in Kotlin have a common superclass `Any`, that is a default super for a class with no supertypes declared:
+All classes in Kotlin have a common superclass `Any`, that is the default superclass for a class with no supertypes declared:
 
 ``` kotlin
 class Example // Implicitly inherits from Any
 ```
 
-`Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
+> Note: `Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
 Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
 
 To declare an explicit supertype, we place the type after a colon in the class header:
@@ -221,7 +221,12 @@ open class Base(p: Int)
 class Derived(p: Int) : Base(p)
 ```
 
-If the class has a primary constructor, the base type can (and must) be initialized right there,
+> The *open*{: .keyword } annotation on a class is the opposite of Java's *final*{: .keyword }: it allows others
+to inherit from this class. By default, all classes in Kotlin are final, which
+corresponds to [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
+Item 17: *Design and document for inheritance or else prohibit it*.
+
+If the derived class has a primary constructor, the base class can (and must) be initialized right there,
 using the parameters of the primary constructor.
 
 If the class has no primary constructor, then each secondary constructor has to initialize the base type
@@ -235,11 +240,6 @@ class MyView : View {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 }
 ```
-
-The *open*{: .keyword } annotation on a class is the opposite of Java's *final*{: .keyword }: it allows others
-to inherit from this class. By default, all classes in Kotlin are final, which
-corresponds to [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
-Item 17: *Design and document for inheritance or else prohibit it*.
 
 ### Overriding Methods
 
@@ -297,6 +297,43 @@ class Bar2 : Foo {
     override var count: Int = 0
 }
 ```
+
+### Derived class initialization order
+
+During construction of a new instance of a derived class, the base class initialization is done as the first step (preceded only by evaluation of the arguments for the base class constructor) and thus happens before the initialization logic of the derived class is run. 
+
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
+
+``` kotlin
+//sampleStart
+open class Base(val name: String) {
+
+    init { println("Initializing Base") }
+
+    open val size: Int = 
+        name.length.also { println("Initializing size in Base: $it") }
+}
+
+class Derived(
+    name: String,
+    val lastName: String
+) : Base(name.capitalize().also { println("Argument for Base: $it") }) {
+
+    init { println("Initializing Derived") }
+
+    override val size: Int =
+        (super.size + lastName.length).also { println("Initializing size in Derived: $it") }
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println("Constructing Derived(\"hello\", \"world\")")
+    val d = Derived("hello", "world")
+}
+```
+</div>
+
+It means that, by the time of the base class constructor execution, the properties declared or overridden in the derived class are not yet initialized. If any of those properties are used in the base class initialization logic (either directly or indirectly, through another overridden *open*{: .keyword } member implementation), it may lead to incorrect behavior or a runtime failure. Designing a base class, you should therefore avoid using *open*{: .keyword } members in the constructors, property initializers, and *init*{: .keyword } blocks.
 
 ### Calling the superclass implementation
 

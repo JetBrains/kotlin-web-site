@@ -9,9 +9,23 @@ title: Coding Conventions
 
 This page contains the current coding style for the Kotlin language.
 
-> Note: To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
-> 1.2.20-eap-33 or newer, go to Settings | Editor | Code Style | Kotlin, click on "Set from..." link in the upper
-> right corner, and select "Predefined style / Kotlin style guide" from the menu.
+* [Source code organization](#source-code-organization)
+* [Naming rules](#naming-rules)
+* [Formatting](#formatting)
+* [Documentation comments](#documentation-comments)
+* [Avoiding redundant constructs](#avoiding-redundant-constructs)
+* [Idiomatic use of language features](#idiomatic-use-of-language-features)
+* [Coding conventions for libraries](#coding-conventions-for-libraries)
+
+### Applying the style guide
+
+To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
+1.2.20 or newer, go to Settings | Editor | Code Style | Kotlin, click on "Set from..." link in the upper
+right corner, and select "Predefined style / Kotlin style guide" from the menu.
+
+To verify that your code is formatted according to the style guide, go to the inspection settings and enable
+the "Kotlin | Style issues | File is not formatted according to project settings" inspection. Additional
+inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.
 
 ## Source code organization
 
@@ -175,7 +189,7 @@ The names should make it clear what the purpose of the entity is, so it's best t
 (`Manager`, `Wrapper` etc.) in names.
 
 When using an acronym as part of a declaration name, capitalize it if it consists of two letters (`IOStream`);
-capitalize only the first letter if it is longer (`HttpInputStream`).
+capitalize only the first letter if it is longer (`XmlFormatter`, `HttpInputStream`).
 
 
 ## Formatting
@@ -220,6 +234,8 @@ fun bar() {
 
 Never put a space after `(`, `[`, or before `]`, `)`.
 
+Never put a space around `.` or `?.`: `foo.bar().filter { it > 2 }.joinToString()`, `foo?.bar()`
+
 Put a space after `//`: `// This is a comment`
 
 Do not put spaces around angle brackets used to specify type parameters: `class Map<K, V> { ... }`
@@ -259,13 +275,13 @@ class FooImpl : Foo() {
 
 ### Class header formatting
 
-Classes with a few arguments can be written in a single line:
+Classes with a few primary constructor parameters can be written in a single line:
 
 ```kotlin
 class Person(id: Int, name: String)
 ```
 
-Classes with longer headers should be formatted so that each primary constructor argument is in a separate line with indentation.
+Classes with longer headers should be formatted so that each primary constructor parameter is in a separate line with indentation.
 Also, the closing parenthesis should be on a new line. If we use inheritance, then the superclass constructor call or list of implemented interfaces
 should be located on the same line as the parenthesis:
 
@@ -426,7 +442,7 @@ fun f(x: String) =
     x.length
 ```
 
-## Property formatting
+### Property formatting
 
 For very simple read-only properties, consider one-line formatting:
 
@@ -645,6 +661,29 @@ println("$name has ${children.size} children")
 
 
 ## Idiomatic use of language features
+
+### Immutability
+
+Prefer using immutable data to mutable. Always declare local variables and properties as `val` rather than `var` if
+they are not modified after initialization.
+
+Always use immutable collection interfaces (`Collection`, `List`, `Set`, `Map`) to declare collections which are not
+mutated. When using factory functions to create collection instances, always use functions that return immutable
+collection types when possible:
+
+``` kotlin
+// Bad: use of mutable collection type for value which will not be mutated
+fun validateValue(actualValue: String, allowedValues: HashSet<String>) { ... }
+
+// Good: immutable collection type used instead
+fun validateValue(actualValue: String, allowedValues: Set<String>) { ... }
+
+// Bad: arrayListOf() returns ArrayList<T>, which is a mutable collection type
+val allowedValues = arrayListOf("a", "b", "c")
+
+// Good: listOf() returns List<T>
+val allowedValues = listOf("a", "b", "c")
+```
 
 ### Default parameter values
 
