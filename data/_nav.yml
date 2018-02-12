@@ -285,6 +285,13 @@ tutorials:
           title: Basic Kotlin/Native Application
         - url: /docs/tutorials/native/gradle-for-kotlin-native.html
           title: Gradle for Kotlin/Native
+        - url: /docs/tutorials/native/kotlin-native-with-clion.html
+          title: Kotlin/Native with CLion
+        - url: /docs/tutorials/native/interop-with-c.html
+          title: Interop with C Libraries
+        - url: /docs/tutorials/native/working-with-klib.html
+          title: Working with Kotlin/Native Libraries
+
     - title: Coroutines
       content:
         - url: /docs/tutorials/coroutines-basic-jvm.html

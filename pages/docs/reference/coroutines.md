@@ -34,7 +34,9 @@ suspend fun doSomething(foo: Foo): Bar {
 }
 ```
 
-Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions. In fact, to start a coroutine, there must be at least one suspending function, and it is usually anonymous (i.e. it is a suspending lambda). Let's look at an example, a simplified `async()` function (from the [`kotlinx.coroutines`](#generators-api-in-kotlincoroutines) library):
+Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions, as well as function literals inlined into those.
+
+In fact, to start a coroutine, there must be at least one suspending function, and it is usually a suspending lambda. Let's look at an example, a simplified `async()` function (from the [`kotlinx.coroutines`](#generators-api-in-kotlincoroutines) library):
     
 ``` kotlin
 fun <T> async(block: suspend () -> T)
@@ -63,11 +65,22 @@ async {
 
 More information on how actual `async/await` functions work in `kotlinx.coroutines` can be found [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md#composing-suspending-functions).
 
-Note that suspending functions `await()` and `doSomething()` can not be called from a regular function like `main()`:
+Note that suspending functions `await()` and `doSomething()` cannot be called from function literals that are not inlined into a suspending function body and from regular function like `main()`:
 
 ``` kotlin
 fun main(args: Array<String>) {
     doSomething() // ERROR: Suspending function called from a non-coroutine context 
+    
+    async { 
+        ...
+        computations.forEach { // `forEach` is an inline function, the lambda is inlined
+            it.await() // OK
+        }
+            
+        thread { // `thread` is not an inline function, so the lambda is not inlined
+            doSomething() // ERROR
+        }
+    }
 }
 ```
 

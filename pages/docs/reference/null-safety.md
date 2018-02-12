@@ -13,11 +13,13 @@ Kotlin's type system is aimed at eliminating the danger of null references from 
 
 One of the most common pitfalls in many programming languages, including Java, is that accessing a member of a null reference will result in a null reference exception. In Java this would be the equivalent of a `NullPointerException` or NPE for short.
 
-Kotlin's type system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE's may be
+Kotlin's type system is aimed to eliminate `NullPointerException`'s from our code. The only possible causes of NPE's may be:
 
 * An explicit call to `throw NullPointerException()`;
 * Usage of the `!!` operator that is described below;
-* There's some data inconsistency with regard to initialization (an uninitialized *this* available in a constructor is used somewhere);
+* Some data inconsistency with regard to initialization, such as when:
+  * An uninitialized *this*{: .keyword } available in a constructor is passed and used somewhere ("leaking *this*{: .keyword }"); 
+  * [A superclass constructor calls an open member](classes.html#derived-class-initialization-order) whose implementation in the derived class uses uninitialized state;
 * Java interoperation:
   * Attempts to access a member on a `null` reference of a [platform type](java-interop.html#null-safety-and-platform-types);
   * Generic types used for Java interoperation with incorrect nullability, e.g. a piece of Java code might add `null` into a Kotlin `MutableList<String>`, meaning that `MutableList<String?>` should be used for working with it;
