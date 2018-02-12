@@ -11,9 +11,8 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Configure Kotlin/Native in CLion](#configuring-clion-for-kotlin/native-development)
+* [Configure Kotlin/Native in CLion](#configuring-clion-for-kotlinnative-development)
 * [Build and run a sample application](#building-an-running-the-application)
-* [Debug the application](#debugging-the-application)
 
 
 ## Configuring CLion for Kotlin/Native development

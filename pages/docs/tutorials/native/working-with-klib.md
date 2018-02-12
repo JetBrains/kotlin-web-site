@@ -11,9 +11,9 @@ showAuthorInfo: false
 
 In this tutorial we'll see
 
-* [What is a Kotlin/Native Libary](#what-is-kotlin/native-library)
-* [How to create a Kotlin/Native Library](#creating-a-kotlin/native-libraries)
-* [How to consume Kotlin/Native libraries](#consuming-a-kotlin/native-library)
+* [What is a Kotlin/Native Libary](#what-is-kotlinnative-library)
+* [How to create a Kotlin/Native Library](#creating-a-kotlinnative-libraries)
+* [How to consume Kotlin/Native libraries](#consuming-a-kotlinnative-library)
 * [How to use and create library repositories](#using-and-creating-library-repositories)
 
 
