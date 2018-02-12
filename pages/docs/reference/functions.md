@@ -222,7 +222,7 @@ val list = asList(-1, 0, *a, 4)
 
 ### Infix notation
 
-Functions can also be called using infix notations when
+Functions can also be called using the infix notation (omitting the dot and the parentheses for the call) when
 
 * They are member functions or [extension functions](extensions.html);
 * They have a single parameter;
@@ -235,13 +235,28 @@ infix fun Int.shl(x: Int): Int {
 }
 
 // call extension function using infix notation
-
 1 shl 2
 
 // is the same as
-
 1.shl(2)
 ```
+
+Note that infix functions always require both the receiver and the parameter to be specified. When you're
+calling a method on the current receiver using the infix notation, you need to use `this` explicitly; unlike regular method calls, 
+it cannot be omitted. This is required to ensure unambiguous parsing.
+
+```kotlin
+class MyStringCollection {
+    infix fun add(s: String) { /* ... */ }
+    
+    fun build() {
+        this add "abc"   // Correct
+        add("abc")       // Correct
+        add "abc"        // Incorrect: the receiver must be specified
+    }
+}
+```
+
 
 ## Function Scope
 
