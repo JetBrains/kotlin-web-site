@@ -1,6 +1,6 @@
 {
   "name": "kotlinlang.org",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "kotlinlang.org site",
   "license": "Apache-2.0",
   "dependencies": {
