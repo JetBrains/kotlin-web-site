@@ -430,7 +430,7 @@ When compiling to JVM byte codes, the compiler optimizes access to arrays so tha
 
 ``` kotlin
 val array = arrayOf(1, 2, 3, 4)
-array[x] = array[x] * 2 // no actual calls to get() and set() generated
+array[1] = array[1] * 2 // no actual calls to get() and set() generated
 for (x in array) { // no iterator created
     print(x)
 }
