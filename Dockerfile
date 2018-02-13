@@ -1,5 +1,7 @@
 FROM python:3.6
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 COPY requirements.txt /tmp
 
 RUN apt-get update; \
