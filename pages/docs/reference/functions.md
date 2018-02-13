@@ -240,13 +240,13 @@ infix fun Int.shl(x: Int): Int {
 1.shl(2)
 ```
 
-> Infix function calls have lower precedence than the arithmetic operators, type casts, and the range operator.
+> Infix function calls have lower precedence than the arithmetic operators, type casts, and the `rangeTo` operator.
 > The following expressions are equivalent:
 > * `1 shl 2 + 3` and `1 shl (2 + 3)`
-> * `0..n - 1` and `0..(n - 1)`
+> * `0 until n * 2` and `0 until (n * 2)`
 > * `xs union ys as Set<*>` and `xs union (ys as Set<*>)`
 >
-> On the other hand, infix function call's precedence is higher than that of boolean operators `&&` and `||`, `is`- and `in`-checks, and some other operators. These expressions are equivalent as well:
+> On the other hand, infix function call's precedence is higher than that of the boolean operators `&&` and `||`, `is`- and `in`-checks, and some other operators. These expressions are equivalent as well:
 > * `a && b xor c` and `a && (b xor c)`
 > * `a xor b in c` and `(a xor b) in c`
 > 
