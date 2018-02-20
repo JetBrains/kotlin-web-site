@@ -127,7 +127,7 @@ $(document).ready(function () {
   $searchButton.on('click touch', openPopup);
 
   $(".search-popup").click(function () {
-    $(".ais-search-box--input").focus();
+    $(".ais-search-box--input").select();
   });
 
   const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));

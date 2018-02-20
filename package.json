@@ -1,6 +1,6 @@
 {
   "name": "kotlinlang.org",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "kotlinlang.org site",
   "license": "Apache-2.0",
   "dependencies": {
@@ -11,7 +11,8 @@
     "babel-core": "6.18.2",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "codemirror": "git://github.com/codemirror/codemirror.git#d1d6ee2ddeaafc5d5f540b22c8d4fa58ce4bf92c",
+    "clean-webpack-plugin": "0.1.18",
+    "codemirror": "https://github.com/codemirror/CodeMirror.git#f3e6d7ea61d0a69b57cad1ff8134fe07e8b28112",
     "core-js": "^2.4.1",
     "cross-env": "1.0.7",
     "css-loader": "0.21.0",
@@ -40,6 +41,8 @@
     "query-string": "3.0.0",
     "resolve-url-loader": "^2.1.0",
     "rimraf": "2.5.2",
+    "rollup": "^0.34.10",
+    "rollup-plugin-buble": "^0.15.0",
     "sass-loader": "^6.0.6",
     "scrolltofixed": "1.0.6",
     "smoothscroll-polyfill": "0.3.4",
@@ -55,15 +58,9 @@
     "webpack-dev-server": "^2.7.1",
     "webpack-livereload-plugin": "0.4.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JetBrains/kotlin-web-site"
-  },
   "scripts": {
-    "start": "rimraf ./_assets/* && cross-env NODE_ENV=development webpack --watch",
-    "start:server": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "rimraf ./_assets/* && cross-env NODE_ENV=production webpack -p --bail",
-    "postinstall": "cd node_modules/codemirror && yarn install && yarn run build",
-    "clean": "rimraf ./_assets"
+    "build": "webpack --bail",
+    "postinstall": "cd node_modules/codemirror && rollup -c",
+    "start": "webpack-dev-server"
   }
 }

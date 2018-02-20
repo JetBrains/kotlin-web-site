@@ -1,5 +1,7 @@
 FROM python:3.6
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 COPY requirements.txt /tmp
 
 RUN apt-get update; \
@@ -13,4 +15,4 @@ RUN pip install -r /tmp/requirements.txt; \
     gem install kramdown;
 
 EXPOSE 5000
-CMD python /src/kotlin-website.py
+ENTRYPOINT python /src/kotlin-website.py

@@ -222,26 +222,53 @@ val list = asList(-1, 0, *a, 4)
 
 ### Infix notation
 
-Functions can also be called using infix notations when
+Functions marked with the *infix*{: .keyword } keyword can also be called using the infix notation (omitting the dot and the parentheses for the call). Infix functions must satisfy the following requirements:
 
-* They are member functions or [extension functions](extensions.html);
-* They have a single parameter;
-* They are marked with the `infix` keyword.
+* They must be member functions or [extension functions](extensions.html);
+* They must have a single parameter;
+* The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have no [default value](#default-arguments).
 
 ``` kotlin
-// Define extension to Int
 infix fun Int.shl(x: Int): Int {
-...
+    // ...
 }
 
-// call extension function using infix notation
-
+// calling the function using the infix notation
 1 shl 2
 
 // is the same as
-
 1.shl(2)
 ```
+
+> Infix function calls have lower precedence than the arithmetic operators, type casts, and the `rangeTo` operator.
+> The following expressions are equivalent:
+> * `1 shl 2 + 3` and `1 shl (2 + 3)`
+> * `0 until n * 2` and `0 until (n * 2)`
+> * `xs union ys as Set<*>` and `xs union (ys as Set<*>)`
+>
+> On the other hand, infix function call's precedence is higher than that of the boolean operators `&&` and `||`, `is`- and `in`-checks, and some other operators. These expressions are equivalent as well:
+> * `a && b xor c` and `a && (b xor c)`
+> * `a xor b in c` and `(a xor b) in c`
+> 
+> See the [Grammar reference](grammar.html#precedence) for the complete operators precedence hierarchy.
+{:.note}
+
+Note that infix functions always require both the receiver and the parameter to be specified. When you're
+calling a method on the current receiver using the infix notation, you need to use `this` explicitly; unlike regular method calls, 
+it cannot be omitted. This is required to ensure unambiguous parsing.
+
+```kotlin
+class MyStringCollection {
+    infix fun add(s: String) { /* ... */ }
+    
+    fun build() {
+        this add "abc"   // Correct
+        add("abc")       // Correct
+        add "abc"        // Incorrect: the receiver must be specified
+    }
+}
+```
+
 
 ## Function Scope
 
