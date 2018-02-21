@@ -23,11 +23,11 @@ Please, [submit your Kotlin Night](https://surveys.jetbrains.com/s3/1eca96c71ee7
 * The talks should be primarily about Kotlin and not a focus on marketing or sales
 * The event can serve food and/or drinks optionally
 
-[Download design materials]({{ url_for('asset', path='k-night_files.zip') }})
+[Download design materials](#{{ url_for('asset', path='k-night_files.zip') }})
 
 ## Organiser is Responsible for
 
-1. Location and all required event production, including comfortable venue. Please, make sure 
+1. Location and all required event production,вщсо including comfortable venue. Please, make sure 
   * All the participants are aware of the exact date, place and starting time of the event. It’s good tone to have at least 30 minutes before  your event for the participants gathering;
   * There is enough place as well as food and beverages, in case you provide, for everyone. 
   * You have a plan with your speakers: schedule, topics and abstracts of the talks, equipment for the presentations.
