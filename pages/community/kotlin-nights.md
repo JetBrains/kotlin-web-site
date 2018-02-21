@@ -23,7 +23,7 @@ Please, [submit your Kotlin Night](https://surveys.jetbrains.com/s3/1eca96c71ee7
 * The talks should be primarily about Kotlin and not a focus on marketing or sales
 * The event can serve food and/or drinks optionally
 
-[Download design materials](#{{ url_for('asset', path='k-night_files.zip') }})
+[Download design materials]({{ url_for('asset', path='k-night_files.zip') }})
 
 ## Organiser is Responsible for
 
