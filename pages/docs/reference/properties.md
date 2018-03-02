@@ -102,7 +102,7 @@ var setterWithAnnotation: Any? = null
 Fields cannot be declared directly in Kotlin classes. However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in the accessors using the `field` identifier:
 
 ``` kotlin
-var counter = 0 // initializer value is written directly to the backing field
+var counter = 0 // Note: the initializer assigns the backing field directly
     set(value) {
         if (value >= 0) field = value
     }
