@@ -2,20 +2,18 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Type-Safe Groovy-Style Builders"
+title: "Type-Safe Builders"
 ---
 
 # Type-Safe Builders
 
-The concept of [builders](http://www.groovy-lang.org/dsls.html#_nodebuilder) is rather popular in the *Groovy* community.
-Builders allow for defining data in a semi-declarative way. Builders are good for [generating XML](http://www.groovy-lang.org/processing-xml.html#_creating_xml), 
+By using well-named functions as builders in combination with extension lambdas it is possible to create static type safe builders in Kotlin. Type-safe builders are also known as domain specific languages (DSLs).
+
+Builders, or domain specific languages, are a good solution for often-repeated code that builds complex data structures in a semi-declarative way. Builders are good for [generating XML](http://www.groovy-lang.org/processing-xml.html#_creating_xml), 
 [laying out UI components](http://www.groovy-lang.org/swing.html), 
-[describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081) and more...
+[describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081), and more...
 
-For many use cases, Kotlin allows to *type-check* builders, which makes them even more attractive than the 
-dynamically-typed implementation made in Groovy itself.
-
-For the rest of the cases, Kotlin supports Dynamic types builders.
+To support builders that can't be statically typed, Kotlin supports also supports [Dynamic types](/docs/reference/dynamic-type.html) builders.
 
 ## A type-safe builder example
 
