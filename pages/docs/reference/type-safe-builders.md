@@ -7,13 +7,13 @@ title: "Type-Safe Builders"
 
 # Type-Safe Builders
 
-By using well-named functions as builders in combination with extension lambdas it is possible to create static type safe builders in Kotlin. Type-safe builders are also known as domain specific languages (DSLs).
+By using well-named functions as builders in combination with [function literals with receiver](lambdas.html#function-literals-with-receiver) it is possible to create type-safe, statically-typed builders in Kotlin.
 
-Builders, or domain specific languages, are a good solution for often-repeated code that builds complex data structures in a semi-declarative way. Builders are good for [generating XML](http://www.groovy-lang.org/processing-xml.html#_creating_xml), 
-[laying out UI components](http://www.groovy-lang.org/swing.html), 
-[describing 3D scenes](http://www.artima.com/weblogs/viewpost.jsp?thread=296081), and more...
+Type-safe builders allow for creating Kotlin-based domain-specific languages (DSLs) suitable for building complex hierarchical data structures in a semi-declarative way. Some of the example use cases for the builders are:
 
-To support builders that can't be statically typed, Kotlin supports also supports [Dynamic types](/docs/reference/dynamic-type.html) builders.
+* Generating markup with Kotlin code, such as [HTML](https://github.com/Kotlin/kotlinx.html) or XML;
+* Programmatically laying out UI components: [Anko](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
+* Configuring routes for a web server: [Ktor](http://ktor.io/features/routing.html#routing-tree).
 
 ## A type-safe builder example
 
