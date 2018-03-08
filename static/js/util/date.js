@@ -20,8 +20,6 @@ export function formatDate(startDate, endDate) {
   ];
 
   if (isRange) {
-    console.log(startDate, endDate);
-
     month = [
       months[startDate.getMonth()],
       months[endDate.getMonth()]
