@@ -255,11 +255,34 @@ Strings are represented by the type `String`. Strings are immutable.
 Elements of a string are characters that can be accessed by the indexing operation: `s[i]`.
 A string can be iterated over with a *for*{: .keyword }-loop:
 
+<div class="sample" markdown="1">
 ``` kotlin
+fun main(args: Array<String>) {
+val str = "abcd"
+//sampleStart
 for (c in str) {
     println(c)
 }
+//sampleEnd
+}
 ```
+</div>
+
+You can concatenate strings using the `+` operator. This also works for concatenating strings with values of other types, as long
+as the first element in the expression is a string:
+
+<div class="sample" markdown="1">
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+val s = "abc" + 1
+println(s + "def")
+//sampleEnd
+}
+```
+</div>
+
+Note that in most cases using [string templates](#string-templates) or raw strings is preferable to string concatenation.
 
 ### String Literals
 
@@ -298,17 +321,29 @@ By default `|` is used as margin prefix, but you can choose another character an
 Strings may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string.
 A template expression starts with a dollar sign ($) and consists of either a simple name:
 
+<div class="sample" markdown="1">
 ``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
 val i = 10
-val s = "i = $i" // evaluates to "i = 10"
+println("i = $i") // prints "i = 10"
+//sampleEnd
+}
 ```
+</div>
 
 or an arbitrary expression in curly braces:
 
+<div class="sample" markdown="1">
 ``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
 val s = "abc"
-val str = "$s.length is ${s.length}" // evaluates to "abc.length is 3"
+println("$s.length is ${s.length}") // prints "abc.length is 3"
+//sampleEnd
+}
 ```
+</div>
 
 Templates are supported both inside raw strings and inside escaped strings.
 If you need to represent a literal `$` character in a raw string (which doesn't support backslash escaping), you can use the following syntax:
