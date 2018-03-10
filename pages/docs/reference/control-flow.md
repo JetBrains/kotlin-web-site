@@ -149,25 +149,56 @@ As mentioned before, *for*{: .keyword } iterates through anything that provides 
 
 All of these three functions need to be marked as `operator`.
 
-A `for` loop over an array is compiled to an index-based loop that does not create an iterator object.
+To iterate over a range of numbers, use a [range expression](ranges.html):
+
+<div class="sample" markdown="1">
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+for (i in 1..3) {
+    println(i)
+}
+for (i in 6 downTo 0 step 2) {
+    println(i)
+}
+//sampleEnd
+}
+```
+</div>
+
+A `for` loop over a range or an array is compiled to an index-based loop that does not create an iterator object.
 
 If you want to iterate through an array or a list with an index, you can do it this way:
 
+<div class="sample" markdown="1">
 ``` kotlin
+fun main(args: Array<String>) {
+val array = arrayOf("a", "b", "c")
+//sampleStart
 for (i in array.indices) {
-    print(array[i])
+    println(array[i])
+}
+//sampleEnd
 }
 ```
+</div>
 
 Note that this "iteration through a range" is compiled down to optimal implementation with no extra objects created.
 
 Alternatively, you can use the `withIndex` library function:
 
+<div class="sample" markdown="1">
 ``` kotlin
+fun main(args: Array<String>) {
+val array = arrayOf("a", "b", "c")
+//sampleStart
 for ((index, value) in array.withIndex()) {
     println("the element at $index is $value")
 }
+//sampleEnd
+}
 ```
+</div>
 
 See the [grammar for *for*{: .keyword }](grammar.html#for).
 
