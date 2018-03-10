@@ -183,8 +183,6 @@ for (i in array.indices) {
 ```
 </div>
 
-Note that this "iteration through a range" is compiled down to optimal implementation with no extra objects created.
-
 Alternatively, you can use the `withIndex` library function:
 
 <div class="sample" markdown="1">
