@@ -71,7 +71,7 @@ libcurl examples over to Kotlin.
 
 The code in question is from the [simple](https://curl.haxx.se/libcurl/c/simple.html) example (comments removed for brevity)
 
-```
+```c
 #include <stdio.h>
 #include <curl/curl.h>
  
@@ -124,8 +124,9 @@ Note that for the purpose of this tutorial, we've done a line by line literal tr
 The next step is to compile our application. We already covered the basics of compiling a Kotlin/Native application from the command line in the [A Basic Kotlin/Native application](basic-kotlin-native-app.html) tutorial.
 The only difference in this case is that we have to include the library that `cinterop` generated for us. 
 
-
-    konanc Main.kt -library build/c_interop/libcurl
+```bash
+konanc Main.kt -library build/c_interop/libcurl
+```
 
 We can see that we're passing in as `library` parameter the output path of `cinterop`. 
 
