@@ -36,3 +36,4 @@ pdf/tmp.html
 google-credentials.json
 package-lock.json
 .env
+pages/api/

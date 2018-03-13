@@ -12,7 +12,7 @@
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "clean-webpack-plugin": "0.1.18",
-    "codemirror": "https://github.com/codemirror/CodeMirror.git#f3e6d7ea61d0a69b57cad1ff8134fe07e8b28112",
+    "codemirror": "5.35.0",
     "core-js": "^2.4.1",
     "cross-env": "1.0.7",
     "css-loader": "0.21.0",

@@ -59,7 +59,7 @@ If you need to configure the project manually, use the following steps:
   * Add the Kotlin Gradle plugin to the buildscript classpath: `classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"`
   * Apply the `kotlin-platform-common` plugin to the common module
   * Add the `kotlin-stdlib-common` dependency to the common module
-  * Apply the `kotlin-platform-jvm` and `kotlin-platform-js` plugins to the platform modules for JVM and JS
+  * Apply the `kotlin-platform-jvm`, `kotlin-platform-android`, and `kotlin-platform-js` plugins to the platform modules for JVM, Android, and JS, respectively
   * Add dependencies with `expectedBy` scope from the platform modules to the common module
   
 The following example demonstrates a complete `build.gradle` file for a common module with Kotlin 1.2-Beta:
