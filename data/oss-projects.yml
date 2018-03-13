@@ -262,3 +262,8 @@
   description: type-safe dimensional analysis
   type: Library
   link: https://github.com/kunalsheth/units-of-measure
+  
+- name: Cloudopt Next
+  description: A next-generation Java web lightweight framework based on vertx and kotlin
+  type: Framework
+  link: https://github.com/cloudoptlab/cloudopt-next
