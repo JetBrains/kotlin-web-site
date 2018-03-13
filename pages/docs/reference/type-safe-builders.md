@@ -168,7 +168,7 @@ so it is a function call that invokes a prefix `unaryPlus()` operation.
 That operation is actually defined by an extension function `unaryPlus()` that is a member of the `TagWithText` abstract class (a parent of `Title`):
 
 ``` kotlin
-fun String.unaryPlus() {
+operator fun String.unaryPlus() {
     children.add(TextElement(this))
 }
 ```
