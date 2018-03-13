@@ -1,3 +1,11 @@
+- name: Pisa, Italy
+  geo:
+    lat: 43.7228386
+    lng: 10.4016888
+- name: Kochi, India
+  geo:
+    lat: 9.9312328
+    lng: 76.26730409999999
 - name: Mason, OH
   geo:
     lat: 39.3600586
