@@ -9,7 +9,7 @@ Provides a complete reference to the Kotlin language and the [standard library](
 
 ### Where to Begin
 
-This reference is designed for you to easily learn Kotlin in a matter of hours.
+This reference is designed for you to learn Kotlin in a matter of hours.
 Start with the [basic syntax](basic-syntax.html), then proceed to more advanced topics.
 While reading, you can try out the examples in the [online IDE](http://try.kotlinlang.org/).
 
