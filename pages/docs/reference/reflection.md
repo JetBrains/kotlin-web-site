@@ -61,10 +61,19 @@ fun isOdd(x: Int) = x % 2 != 0
 We can easily call it directly (`isOdd(5)`), but we can also use it as a function type value, e.g. pass it 
 to another function. To do this, we use the `::` operator:
 
+<div class="sample" markdown="1">
+
 ``` kotlin
-val numbers = listOf(1, 2, 3)
-println(numbers.filter(::isOdd)) // prints [1, 3]
+fun isOdd(x: Int) = x % 2 != 0
+
+fun main(args: Array<String>) {
+    //sampleStart
+    val numbers = listOf(1, 2, 3)
+    println(numbers.filter(::isOdd))
+    //sampleEnd
+}
 ```
+</div>
 
 Here `::isOdd` is a value of function type `(Int) -> Boolean`.
 
@@ -74,13 +83,20 @@ subtypes, depending on the parameter count, e.g. `KFunction3<T1, T2, T3, R>`.
 `::` can be used with overloaded functions when the expected type is known from the context.
 For example:
 
-``` kotlin
-fun isOdd(x: Int) = x % 2 != 0
-fun isOdd(s: String) = s == "brillig" || s == "slithy" || s == "tove"
+<div class="sample" markdown="1">
 
-val numbers = listOf(1, 2, 3)
-println(numbers.filter(::isOdd)) // refers to isOdd(x: Int)
+``` kotlin
+fun main(args: Array<String>) {
+    //sampleStart
+    fun isOdd(x: Int) = x % 2 != 0
+    fun isOdd(s: String) = s == "brillig" || s == "slithy" || s == "tove"
+    
+    val numbers = listOf(1, 2, 3)
+    println(numbers.filter(::isOdd)) // refers to isOdd(x: Int)
+    //sampleEnd
+}
 ```
+</div>
 
 Alternatively, you can provide the necessary context by storing the method reference in a variable with an explicitly specified type:
 
@@ -111,28 +127,43 @@ fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
 It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))`.
 Now, you can apply it to callable references:
 
+<div class="sample" markdown="1">
 
 ``` kotlin
-fun length(s: String) = s.length
+fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
+    return { x -> f(g(x)) }
+}
 
-val oddLength = compose(::isOdd, ::length)
-val strings = listOf("a", "ab", "abc")
+fun isOdd(x: Int) = x % 2 != 0
 
-println(strings.filter(oddLength)) // Prints "[a, abc]"
+fun main(args: Array<String>) {
+    //sampleStart
+    fun length(s: String) = s.length
+    
+    val oddLength = compose(::isOdd, ::length)
+    val strings = listOf("a", "ab", "abc")
+    
+    println(strings.filter(oddLength))
+    //sampleEnd
+}
 ```
+</div>
 
 ### Property References
 
 To access properties as first-class objects in Kotlin, we can also use the `::` operator:
 
+<div class="sample" markdown="1">
+
 ``` kotlin
 val x = 1
 
 fun main(args: Array<String>) {
-    println(::x.get()) // prints "1"
-    println(::x.name)  // prints "x"
+    println(::x.get())
+    println(::x.name) 
 }
 ```
+</div>
 
 The expression `::x` evaluates to a property object of type `KProperty<Int>`, which allows us to read its
 value using `get()` or retrieve the property name using the `name` property. For more information, please refer to
@@ -141,51 +172,66 @@ the [docs on the `KProperty` class](/api/latest/jvm/stdlib/kotlin.reflect/-k-pro
 For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutableProperty<Int>`](/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html),
 which has a `set()` method:
 
+<div class="sample" markdown="1">
+
 ``` kotlin
 var y = 1
 
 fun main(args: Array<String>) {
     ::y.set(2)
-    println(y) // prints "2"
+    println(y)
 }
-```                   
+```       
+</div>            
 
 A property reference can be used where a function with one parameter is expected:
- 
+
+<div class="sample" markdown="1">
+
 ``` kotlin
-val strs = listOf("a", "bc", "def")
-println(strs.map(String::length)) // prints [1, 2, 3]
+fun main(args: Array<String>) {
+    //sampleStart
+    val strs = listOf("a", "bc", "def")
+    println(strs.map(String::length))
+    //sampleEnd
+}
 ```
+</div>
 
 To access a property that is a member of a class, we qualify it:
 
-``` kotlin
-class A(val p: Int)
+<div class="sample" markdown="1">
 
+``` kotlin
 fun main(args: Array<String>) {
+    //sampleStart
+    class A(val p: Int)
     val prop = A::p
-    println(prop.get(A(1))) // prints "1"
+    println(prop.get(A(1)))
+    //sampleEnd
 }
 ```
+</div>
 
 For an extension property:
 
+<div class="sample" markdown="1">
 
 ``` kotlin
 val String.lastChar: Char
     get() = this[length - 1]
 
 fun main(args: Array<String>) {
-    println(String::lastChar.get("abc")) // prints "c"
+    println(String::lastChar.get("abc"))
 }
 ```
+</div>
 
 ### Interoperability With Java Reflection
 
 On the Java platform, standard library contains extensions for reflection classes that provide a mapping to and from Java
   reflection objects (see package `kotlin.reflect.jvm`).
 For example, to find a backing field or a Java method that serves as a getter for a Kotlin property, you can say something like this:
-
 
 ``` kotlin
 import kotlin.reflect.jvm.*
@@ -233,22 +279,36 @@ Callable references to constructors are typed as one of the
 
 You can refer to an instance method of a particular object:
 
+<div sample="1" markdown="1">
+
 ``` kotlin 
-val numberRegex = "\\d+".toRegex()
-println(numberRegex.matches("29")) // prints "true"
- 
-val isNumber = numberRegex::matches
-println(isNumber("29")) // prints "true"
+fun main(args: Array<String>) {
+    //sampleStart
+    val numberRegex = "\\d+".toRegex()
+    println(numberRegex.matches("29"))
+     
+    val isNumber = numberRegex::matches
+    println(isNumber("29"))
+    //sampleEnd
+}
 ```
+</div>
 
 Instead of calling the method `matches` directly we are storing a reference to it.
 Such reference is bound to its receiver.
 It can be called directly (like in the example above) or used whenever an expression of function type is expected:
 
-``` kotlin
-val strings = listOf("abc", "124", "a70")
-println(strings.filter(numberRegex::matches)) // prints "[124]"
+<div sample="1" markdown="1">
+
+``` kotlin 
+fun main(args: Array<String>) {
+    //sampleStart
+    val strings = listOf("abc", "124", "a70")
+    println(strings.filter(numberRegex::matches))
+    //sampleEnd
+}
 ```
+</div>
 
 Compare the types of bound and the corresponding unbound references.
 Bound callable reference has its receiver "attached" to it, so the type of the receiver is no longer a parameter:
@@ -261,10 +321,17 @@ val matches: (Regex, CharSequence) -> Boolean = Regex::matches
 
 Property reference can be bound as well:
 
-``` kotlin
-val prop = "abc"::length
-println(prop.get())   // prints "3"
+<div sample="1" markdown="1">
+
+``` kotlin 
+fun main(args: Array<String>) {
+    //sampleStart
+    val prop = "abc"::length
+    println(prop.get())
+    //sampleEnd
+}
 ```
+</div>
 
 Since Kotlin 1.2, explicitly specifying `this` as the receiver is not necessary: `this::foo` and `::foo` are equivalent.
 
