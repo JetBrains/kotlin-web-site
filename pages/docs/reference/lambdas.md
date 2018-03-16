@@ -15,7 +15,7 @@ be stored in variables and data structures, passed as arguments to and returned 
 non-function values. 
 
 To facilitate this, Kotlin, as a statically typed programming language, uses a family of 
-types to represent functions and a provides set of specialized language constructs, such as [lambda expressions](#lambda-expressions-and-anonymous-functions). 
+types to represent functions and provides a set of specialized language constructs, such as [lambda expressions](#lambda-expressions-and-anonymous-functions). 
 
 The function types have special notation that corresponds to the signatures of the functions:
 
@@ -24,7 +24,7 @@ The function types have special notation that corresponds to the signatures of t
  The parameter types list may be empty, as in `() -> A`. 
  
 * Function types can optionally have an additional *receiver* type, which is specified before a dot in the notation:
- the type `A.(B) -> C` consists of functions that can be called on an receiver object of `A` with a parameter of `B`.
+ the type `A.(B) -> C` consists of functions that can be called on a receiver object of `A` with a parameter of `B`.
  
 * [Suspending functions](coroutines.html#suspending-functions) belong to function types of special kind, which have a *suspend*{: .keyword} modifier in the 
  notation, such as `suspend () -> Unit` or `suspend A.(B) -> C`.
@@ -99,7 +99,7 @@ fun main(args: Array<String>) {
 
 ### Invoking a function type instance  
 
-A value of a function type can be invoked by using its [`invoke(...)` operator](operator-overloading.html#invoke).
+A value of a function type can be invoked by using its [`invoke(...)` operator](operator-overloading.html#invoke): `f.invoke(x)` or just `f(x)`.
 
 If the value has a receiver type, the receiver object should be passed as the first argument.
 Another way to invoke a value of a function type with receiver is to prepend it with the receiver object,
@@ -213,7 +213,7 @@ max(strings, { a, b -> a.length < b.length })
 ```
 
 Function `max` is a higher-order function, it takes a function value as the second argument.
-This second argument is an expression that is itself a function, i.e. a function literal, whcih is equivalent to
+This second argument is an expression that is itself a function, i.e. a function literal, which is equivalent to
 the following named function:
 
 ``` kotlin
@@ -341,19 +341,19 @@ print(sum)
 
 ### Function literals with receiver
 
-Function [types with](#function-types) receiver, such as `A.(B) -> C`, can be instantiated with a special form of function literals – 
+[Function types] (#function-types) with receiver, such as `A.(B) -> C`, can be instantiated with a special form of function literals – 
 function literals with receiver.
 
 As said above, Kotlin provides the ability [to call an instance](#invoking-a-function-type-instance) of a function type with receiver providing the _receiver object_.
 
 Inside the body of the function literal, the receiver object passed to a call becomes an *implicit* *this*{: .keyword}, so that you 
-can access the members of that receiver object without any additional qualifiers, or access it 
+can access the members of that receiver object without any additional qualifiers, or access the receiver object 
 using a [*this* {: .keyword} expression](this-expressions.html).
  
 This behavior is similar to [extension functions](extensions.html), which allow you to access the members of the receiver object 
 inside the body of the function.
 
-Here's is an example of a function literal with receiver along with its type, where `plus` is called on the 
+Here is an example of a function literal with receiver along with its type, where `plus` is called on the 
 receiver object:
 
 ``` kotlin
