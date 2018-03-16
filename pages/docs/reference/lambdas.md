@@ -183,7 +183,7 @@ fun main(args: Array<String>) {
     println("production = $production")
 }
 ```
-<div>
+</div>
 
 In Kotlin, there is a convention that if the last parameter of a function accepts a function, a lambda expression that is 
 passed as the corresponding argument can be placed outside the parentheses:
@@ -380,7 +380,6 @@ fun html(init: HTML.() -> Unit): HTML {
     html.init()        // pass the receiver object to the lambda
     return html
 }
-
 
 html {       // lambda with receiver begins here
     body()   // calling a method on the receiver object
