@@ -53,7 +53,7 @@ There are several ways to obtain an instance of a function type:
     * a top-level, member, or extension [property](reflection.html#property-references): `List<Int>::size`,
     * a [constructor](reflection.html#constructor-references): `::Regex`
     
-   These include [bound callable references](#bound-function-and-property-references-since-11) that point to a member of a particular instance: `foo::toString`.
+   These include [bound callable references](reflection.html#bound-function-and-property-references-since-11) that point to a member of a particular instance: `foo::toString`.
    
 * Using instances of a custom class that implements a function type as an interface: 
 
@@ -348,7 +348,7 @@ As said above, Kotlin provides the ability [to call an instance](#invoking-a-fun
 
 Inside the body of the function literal, the receiver object passed to a call becomes an *implicit* *this*{: .keyword}, so that you 
 can access the members of that receiver object without any additional qualifiers, or access it 
-using a [*this* {: .keyword} expression](this-expressions.htm).
+using a [*this* {: .keyword} expression](this-expressions.html).
  
 This behavior is similar to [extension functions](extensions.html), which allow you to access the members of the receiver object 
 inside the body of the function.
