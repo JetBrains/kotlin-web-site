@@ -9,7 +9,7 @@ title: "Idioms"
 
 A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it by sending a pull request.
 
-### Creating DTOs (POJOs/POCOs)
+### Creating DTOs (Plain Old [Java|CLR] Object {POJOs/POCOs})
 
 ``` kotlin
 data class Customer(val name: String, val email: String)
