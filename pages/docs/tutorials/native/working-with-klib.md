@@ -68,12 +68,14 @@ fun printWarning(warning: String) {
 
 To create a library from this file, we can use the compiler with the parameter `-produce library` or `-p library` for short:
 
-    konanc utils.kt -p library
-    
+```bash
+konanc utils.kt -p library
+```
 By default, the output of the filename is `library.klib`. We can override it using the `-output` or `-o` parameter:
 
-    konanc utils.kt -p library -o utils
-    
+```bash
+konanc utils.kt -p library -o utils
+```
 
 The second way to create a library is using the `cinterop` tool which allows us to create a Kotlin/Native library from an existing
 C library. See the [Interop with C tutorial](interop-with-c.html) on how to accomplish this.
@@ -94,7 +96,9 @@ Notice how we need to import the necessary package from the library on the first
 
 In order for the compiler to correctly link in the library, we need to pass the library name using the `-library` or `-l` parameter
 
-    konanc sample.kt -l utils
+```bash
+konanc sample.kt -l utils
+```
     
 This would then produce a single executable file with no runtime dependencies.    
     
@@ -108,16 +112,22 @@ add and remove our own libraries with a utility named `klib` that ships as part 
 
 The easiest way to install a library so that it can be later referenced by any application is to use `klib` with the following command:
 
-    klib install utils
+```bash
+klib install utils
+```
     
 This will copy and extract the necessary files to the proper locations in the default library folder, allowing us to then compile our application and link 
 a specific library without needing to have the `klib` file in the project folder:
 
-    konanc sample.kt -l utils
+```bash
+konanc sample.kt -l utils
+```
 
 We can of course also uninstall libraries at any point by issuing the command:
 
-    klib remove utils
+```bash
+klib remove utils
+```
     
     
 ### Installing libraries to custom repositories
@@ -127,7 +137,9 @@ if we want to share libraries amongst a group of projects.
 
 In order to do this, we can once again use the command `klib`: 
 
-    klib install utils -repository jetbrains
+```bash
+klib install utils -repository jetbrains
+```
     
 but this time adding the parameter `-repository` with the value `jetbrains`. This installs the `utils` library into a custom repository located in a subdirecty named `jetbrains` relative to where we execute the command. For instance if our project is located under the directory `/home/kotlin/projects/`, the above command would install the library to the directory `/home/kotlin/projects/jetbrains/utils`. 
 

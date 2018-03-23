@@ -77,7 +77,9 @@ To recap, this should be our directory structure layout:
 
 From the root directory, where our `build.gradle` file is, we can now run the following command:
 
-    gradle build
+```bash
+gradle build
+```
     
     
 which will build the application. The end result should be the following:
