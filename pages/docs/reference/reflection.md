@@ -279,7 +279,7 @@ Callable references to constructors are typed as one of the
 
 You can refer to an instance method of a particular object:
 
-<div sample="1" markdown="1">
+<div class="sample" markdown="1">
 
 ``` kotlin 
 fun main(args: Array<String>) {
@@ -298,7 +298,7 @@ Instead of calling the method `matches` directly we are storing a reference to i
 Such reference is bound to its receiver.
 It can be called directly (like in the example above) or used whenever an expression of function type is expected:
 
-<div sample="1" markdown="1">
+<div class="sample" markdown="1">
 
 ``` kotlin 
 fun main(args: Array<String>) {
@@ -321,7 +321,7 @@ val matches: (Regex, CharSequence) -> Boolean = Regex::matches
 
 Property reference can be bound as well:
 
-<div sample="1" markdown="1">
+<div class="sample" markdown="1">
 
 ``` kotlin 
 fun main(args: Array<String>) {
