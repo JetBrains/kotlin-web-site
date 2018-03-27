@@ -52,8 +52,9 @@ fun main(args: Array<String>) {
     val items = listOf(1, 2, 3, 4, 5)
     
     // Lambdas are code blocks enclosed in curly braces.
-    // When a lambda has parameters, they go first, followed by '->'
-    items.fold(0, { acc: Int, i: Int ->
+    items.fold(0, { 
+        // When a lambda has parameters, they go first, followed by '->'
+        acc: Int, i: Int -> 
         print("acc = $acc, i = $i, ") 
         val result = acc + i
         println("result = $result")
@@ -81,7 +82,7 @@ Kotlin uses a family of function types like `(Int) -> String` for declarations t
 
 These types have a special notation that corresponds to the signatures of the functions, i.e. their parameters and return values:
 
-* All function types have a parenthesized parameter types list and a return type: `(A, B) -> C` denotes a type that  
+* All function types have a parenthesized parameter types list and a return type: `(A, B) -> C` denotes a type that
  represents functions taking two arguments of types `A` and `B` and returning a value of type `C`. 
  The parameter types list may be empty, as in `() -> A`. The [`Unit` return type](functions.html#unit-returning-functions) 
  cannot be omitted. 
@@ -100,6 +101,7 @@ These names can be used for documenting the meaning of the parameters.
 > To specify that a function type is [nullable](null-safety.html#nullable-types-and-non-null-types), use parentheses: `((Int, Int) -> Int)?`.
 > 
 > Function types can be combined using parentheses: `(Int) -> ((Int) -> Unit)`
+>
 > The arrow notation is right-associative, `(Int) -> (Int) -> Unit` is equivalent to the previous example, but not to 
 `((Int) -> (Int)) -> Unit`.
 
@@ -362,7 +364,7 @@ As said above, Kotlin provides the ability [to call an instance](#invoking-a-fun
 
 Inside the body of the function literal, the receiver object passed to a call becomes an *implicit* *this*{: .keyword}, so that you 
 can access the members of that receiver object without any additional qualifiers, or access the receiver object 
-using a [*this* {: .keyword} expression](this-expressions.html).
+using a [`this` expression](this-expressions.html).
  
 This behavior is similar to [extension functions](extensions.html), which also allow you to access the members of the receiver object 
 inside the body of the function.
