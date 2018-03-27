@@ -7,36 +7,107 @@ title: "Higher-Order Functions and Lambdas"
 
 # Higher-Order Functions and Lambdas
 
-## Function types
-
 Kotlin functions are [*first-class*](https://en.wikipedia.org/wiki/First-class_function), which means that they can 
 be stored in variables and data structures, passed as arguments to and returned from other 
-[higher-order functions](#higher-order-functions), and operated with in any way that is possible for other 
+[higher-order functions](#higher-order-functions). You can operate with functions in any way that is possible for other 
 non-function values. 
 
 To facilitate this, Kotlin, as a statically typed programming language, uses a family of 
-types to represent functions and provides a set of specialized language constructs, such as [lambda expressions](#lambda-expressions-and-anonymous-functions). 
+[function types](#function-types) to represent functions and provides a set of specialized language constructs, such as [lambda expressions](#lambda-expressions-and-anonymous-functions).
 
-The function types have special notation that corresponds to the signatures of the functions:
+## Higher-Order Functions
 
-* All function types have a parenthesized parameter types list and a return type: `(A, B) -> C` denotes a type that consists of 
- functions taking two arguments of types `A` and `B` and returning a value of type `C`. 
- The parameter types list may be empty, as in `() -> A`. 
+A higher-order function is a function that takes functions as parameters, or returns a function.
+
+A good example is the [functional programming idiom `fold`](https://en.wikipedia.org/wiki/Fold_(higher-order_function)) 
+for collections, which takes an initial accumulator value and a combining function and builds its return value by 
+consecutively combining current accumulator value with each collection element, replacing the accumulator:
+
+``` kotlin
+fun <T, R> Collection<T>.fold(
+    initial: R, 
+    combine: (acc: R, nextElement: T) -> R
+): R {
+    var accumulator: R = initial
+    for (element: T in this) {
+        accumulator = combine(accumulator, element)
+    }
+    return accumulator
+}
+```
+
+In the code above, the parameter `combine` has a [function type](#function-types) `(R, T) -> R`, so it accepts a function that 
+takes two arguments of types `R` and `T` and returns a value of type `R`. 
+It is [invoked](#invoking-a-function-type-instance) inside the *for*{: .keyword }-loop, and the return value is 
+then assigned to `accumulator`.
+
+To call `fold`, we need to pass it an [instance of the function type](#instantiating-a-function-type) as an argument, and lambda expressions ([described in more detail below](#lambda-expressions-and-anonymous-functions)) are widely used for 
+this purpose at higher-order function call sites:
+
+<div class="sample" markdown="1">
+
+```kotlin
+fun main(args: Array<String>) {
+    //sampleStart
+    val items = listOf(1, 2, 3, 4, 5)
+    
+    // Lambdas are code blocks enclosed in curly braces.
+    // When a lambda has parameters, they go first, followed by '->'
+    items.fold(0, { acc: Int, i: Int ->
+        print("acc = $acc, i = $i, ") 
+        val result = acc + i
+        println("result = $result")
+        // The last expression in a lambda is considered the return value:
+        result
+    })
+    
+    // Parameter types in a lambda are optional if they can be inferred:
+    val joinedToString = items.fold("Elements:", { acc, i -> acc + " " + i })
+    
+    // Function references can also be used for higher-order function calls:
+    val product = items.fold(1, Int::times)
+    //sampleEnd
+    println("joinedToString = $joinedToString")
+    println("product = $product")
+}
+```
+</div>
+
+The following sections explain in more detail the concepts mentioned so far.
+
+## Function types
+
+Kotlin uses a family of function types like `(Int) -> String` for declarations that deal with functions: `val onClick: () -> Unit = ...`.
+
+These types have a special notation that corresponds to the signatures of the functions, i.e. their parameters and return values:
+
+* All function types have a parenthesized parameter types list and a return type: `(A, B) -> C` denotes a type that  
+ represents functions taking two arguments of types `A` and `B` and returning a value of type `C`. 
+ The parameter types list may be empty, as in `() -> A`. The [`Unit` return type](functions.html#unit-returning-functions) 
+ cannot be omitted. 
  
 * Function types can optionally have an additional *receiver* type, which is specified before a dot in the notation:
- the type `A.(B) -> C` consists of functions that can be called on a receiver object of `A` with a parameter of `B`.
+ the type `A.(B) -> C` represents functions that can be called on a receiver object of `A` with a parameter of `B` and
+ return a value of `C`.
+ [Function literals with receiver](#function-literals-with-receiver) are often used along with these types.
  
-* [Suspending functions](coroutines.html#suspending-functions) belong to function types of special kind, which have a *suspend*{: .keyword} modifier in the 
+* [Suspending functions](coroutines.html#suspending-functions) belong to function types of a special kind, which have a *suspend*{: .keyword} modifier in the 
  notation, such as `suspend () -> Unit` or `suspend A.(B) -> C`.
  
 The function type notation can optionally include names for the function parameters: `(x: Int, y: Int) -> Point`.
-These names can be used for documenting the semantics of the parameters.
+These names can be used for documenting the meaning of the parameters.
 
-> To denote a nullable function type, use parentheses: `((Int, Int) -> Int)?`.
+> To specify that a function type is [nullable](null-safety.html#nullable-types-and-non-null-types), use parentheses: `((Int, Int) -> Int)?`.
 > 
-> The arrow notation is right-associative, `(Int) -> (Int) -> Unit` is equivalent to `(Int) -> ((Int) -> Unit)`.
+> Function types can be combined using parentheses: `(Int) -> ((Int) -> Unit)`
+> The arrow notation is right-associative, `(Int) -> (Int) -> Unit` is equivalent to the previous example, but not to 
+`((Int) -> (Int)) -> Unit`.
 
-Function types can also be encased in [type aliases](type-aliases.html).
+You can also give a function type an alternative name by using [a type alias](type-aliases.html):
+
+```kotlin
+typealias ClickHandler = (Button, ClickEvent) -> Unit
+```
  
 ### Instantiating a function type
 
@@ -120,83 +191,11 @@ fun main(args: Array<String>) {
     
     println(intPlus.invoke(1, 1))
     println(intPlus(1, 2))
-    println(2.intPlus(3))
+    println(2.intPlus(3)) // extension-like call
     //sampleEnd
 }
 ```
 </div>
-
-## Higher-Order Functions
-
-A higher-order function is a function that takes functions as parameters, or returns a function.
-
-A good example is the [functional programming idiom `fold`](https://en.wikipedia.org/wiki/Fold_(higher-order_function)) 
-for collections, which takes an initial accumulator value and a combining function and builds its return value by 
-consecutively combining current accumulator value with each collection element, replacing the accumulator:
-
-``` kotlin
-fun <T, R> Collection<T>.fold(
-    initial: R, 
-    combine: (acc: R, nextElement: T) -> R
-): R {
-    var accumulator: R = initial
-    for (element: T in this) {
-        accumulator = combine(accumulator, element)
-    }
-    return accumulator
-}
-```
-
-In the code above, the parameter `combine` has a [function type](#function-types) `(R, T) -> R`, so it accepts a function that 
-takes two arguments of types `R` and `T` and returns a value of type `R`. 
-It is [invoked](#invoking-a-function-type-instance) inside the *for*{: .keyword }-loop, and the return value is 
-then assigned to `accumulator`.
-
-To call `fold`, we need to pass it an [instance of the function type](#instantiating-a-function-type) as an argument.
-
-Lambda expressions ([described in more detail below](#lambda-expressions-and-anonymous-functions)) are widely used for 
-this purpose at higher-order function call-sites:
-
-<div class="sample" markdown="1">
-
-```kotlin
-fun main(args: Array<String>) {
-    //sampleStart
-    val items = listOf(1, 2, 3, 4, 5)
-    
-    // Lambdas are code blocks enclosed in curly braces.
-    // When a lambda has parameters, they go first, followed by '->'
-    items.fold(0, { acc: Int, i: Int ->
-        print("acc = $acc, i = $i, ") 
-        val result = acc + i
-		println("result = $result")
-        result
-    })
-    
-    // Parameter types in a lambda are optional if they can be inferred:
-    val joinedToString = items.fold("Elements:", { acc, i -> acc + " " + i })
-    
-    // Function references can also be used for higher-order function calls:
-    val production = items.fold(1, Int::times)
-    //sampleEnd
-    println("joinedToString = $joinedToString")
-    println("production = $production")
-}
-```
-</div>
-
-In Kotlin, there is a convention that if the last parameter of a function accepts a function, a lambda expression that is 
-passed as the corresponding argument can be placed outside the parentheses:
-
-``` kotlin
-val producetion = items.fold(1) { acc, e -> acc * e }
-```
-
-If the lambda is the only argument to that call, the parentheses can be omitted entirely: 
-
-``` kotlin
-run { println("...") }
-```
 
 ### Inline functions
 
@@ -222,7 +221,7 @@ fun compare(a: String, b: String): Boolean = a.length < b.length
 
 ### Lambda expression syntax
 
-The full syntactic form of lambda expressions, i.e. literals of function types, is as follows:
+The full syntactic form of lambda expressions is as follows:
 
 ``` kotlin
 val sum = { x: Int, y: Int -> x + y }
@@ -238,6 +237,21 @@ If we leave all the optional annotations out, what's left looks like this:
 val sum: (Int, Int) -> Int = { x, y -> x + y }
 ```
 
+### Passing a lambda to the last parameter
+
+In Kotlin, there is a convention that if the last parameter of a function accepts a function, a lambda expression that is 
+passed as the corresponding argument can be placed outside the parentheses:
+
+``` kotlin
+val product = items.fold(1) { acc, e -> acc * e }
+```
+
+If the lambda is the only argument to that call, the parentheses can be omitted entirely: 
+
+``` kotlin
+run { println("...") }
+```
+
 ### `it`: implicit name of a single parameter
 
 It's very common that a lambda expression has only one parameter.
@@ -247,13 +261,6 @@ The parameter will be implicitly declared under the name `it`:
 
 ``` kotlin
 ints.filter { it > 0 } // this literal is of type '(it: Int) -> Boolean'
-```
-
-This convention, along with passing a lambda expression outside parentheses, allows for 
-[LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code:
-
-``` kotlin
-strings.filter { it.length == 5 }.sortedBy { it }.map { it.toUpperCase() }
 ```
 
 ### Returning a value from a lambda expression
@@ -273,6 +280,13 @@ ints.filter {
     val shouldFilter = it > 0 
     return@filter shouldFilter
 }
+```
+
+This convention, along with [passing a lambda expression outside parentheses](#passing-a-lambda-to-the-last-parameter), allows for 
+[LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code:
+
+``` kotlin
+strings.filter { it.length == 5 }.sortedBy { it }.map { it.toUpperCase() }
 ```
 
 ### Underscore for unused variables (since 1.1)
@@ -341,7 +355,7 @@ print(sum)
 
 ### Function literals with receiver
 
-[Function types] (#function-types) with receiver, such as `A.(B) -> C`, can be instantiated with a special form of function literals – 
+[Function types](#function-types) with receiver, such as `A.(B) -> C`, can be instantiated with a special form of function literals – 
 function literals with receiver.
 
 As said above, Kotlin provides the ability [to call an instance](#invoking-a-function-type-instance) of a function type with receiver providing the _receiver object_.
@@ -350,7 +364,7 @@ Inside the body of the function literal, the receiver object passed to a call be
 can access the members of that receiver object without any additional qualifiers, or access the receiver object 
 using a [*this* {: .keyword} expression](this-expressions.html).
  
-This behavior is similar to [extension functions](extensions.html), which allow you to access the members of the receiver object 
+This behavior is similar to [extension functions](extensions.html), which also allow you to access the members of the receiver object 
 inside the body of the function.
 
 Here is an example of a function literal with receiver along with its type, where `plus` is called on the 
