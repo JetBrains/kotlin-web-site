@@ -48,7 +48,7 @@ References to functions, properties, and constructors, apart from introspecting 
 also be called or used as instances of [function types](lambdas.html#function-types).
 
 The common supertype for all callable references is [`KCallable<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-callable/index.html), 
-where `R` is the return value type. 
+where `R` is the return value type, which is the property type for properties, and the constructed type for constructors. 
 
 ### Function References
 
