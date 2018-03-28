@@ -373,7 +373,7 @@ Here is an example of a function literal with receiver along with its type, wher
 receiver object:
 
 ``` kotlin
-val sum: Int.(other: Int) -> Int = { plus(other) } 
+val sum: Int.(Int) -> Int = { other -> plus(other) } 
 ```
 
 The anonymous function syntax allows you to specify the receiver type of a function literal directly.
