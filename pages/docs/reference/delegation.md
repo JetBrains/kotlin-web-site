@@ -56,7 +56,7 @@ interface Base {
 
 class BaseImpl(val x: Int) : Base {
     override fun print() { print(x) }
-    override fun print() { println(x) }
+    override fun println() { println(x) }
 }
 
 class Derived(b: Base) : Base by b {
