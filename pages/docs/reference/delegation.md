@@ -7,7 +7,7 @@ title: "Delegation"
 
 # Delegation
 
-## Property delegation
+## Property Delegation
 
 Delegated properties are described on a separate page: [Delegated Properties](delegated-properties.html).
 
