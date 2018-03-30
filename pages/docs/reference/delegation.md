@@ -50,23 +50,23 @@ implementations instead of those in the delegate object. If we were to add `over
 
 ``` kotlin
 interface Base {
-    fun print()
-    fun println()
+    fun printMessage()
+    fun printMessageLine()
 }
 
 class BaseImpl(val x: Int) : Base {
-    override fun print() { print(x) }
-    override fun print() { println(x) }
+    override fun printMessage() { print(x) }
+    override fun printMessageLine() { println(x) }
 }
 
 class Derived(b: Base) : Base by b {
-    override fun print() { print("abc") }
+    override fun printMessage() { print("abc") }
 }
 
 fun main(args: Array<String>) {
     val b = BaseImpl(10)
-    Derived(b).print()
-    Derived(b).println()
+    Derived(b).printMessage()
+    Derived(b).printMessageLine()
 }
 ```
 </div>
