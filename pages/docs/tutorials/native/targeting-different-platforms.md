@@ -9,14 +9,12 @@ showAuthorInfo: false
 ## /*EVAN-5121*/
 ---
 
-#Targeting Different Platforms with Kotlin/Native
-
 Kotlin/Native supports compiling code for different platforms including
 Windows (x86_64),
 Linux (x86_64, arm32, MIPS, MIPS little endian),
 MacOS (x86_64),
 iOS (arm64),
-Android (arm32, arm64)
+Android (arm32, arm64),
 WebAssembly (wasm32).
 In this tutorial we'll see how to
 
@@ -32,25 +30,12 @@ We assume that you have `kotlinc` command available from the system PATH environ
 
 The list of supported target platforms of `kotlinc` depends 
 on the operation system. You may list them via `konanc -list_targets`
-console command. For example, on macOS (OS X) with Kotlin/Native 0.6.2:
+console command. For example, on macOS (OS X) with Kotlin/Native v0.6.2:
 ```
 > konanc -list_targets
 macbook:                      (default)
 iphone:
 iphone_sim:
-android_arm32:
-android_arm64:
-wasm32:
-zephyr_stm32f4_disco:
-```
-
-On Linux with Kotlin/Native 0.6.2:
-```
-> konanc -list_targets
-linux:                        (default)
-raspberrypi:
-linux_mips32:
-linux_mipsel32:
 android_arm32:
 android_arm64:
 wasm32:
@@ -73,9 +58,7 @@ We use `-target` argument of the `konanc` to specify the platform. It is also
 helpful to use `-output` to clearly 
 instruct the compiler on where to create the compiled binary, e.g.
 
-```
-> konanc -target iphone_sim -output bin/iphone_sim main.kt
-```
+    konanc -target iphone -output bin/iphone main.kt
 
 ## Building a Console Utility
 
@@ -85,13 +68,10 @@ need to call Kotlin/Native compiler on every of OS:
 
     konanc main.kt
 
-
 There is no need to specify `-target` parameter explicitly, because 
 the default value will work the best.  
 
 [Gradle build system](gradle-for-kotlin-native.md) helps to simplify
 the setup for every operation system, it helps to download and run 
 Kotlin/Native compiler.
-
-
 
