@@ -30,7 +30,7 @@ We assume that you have `konanc` command available in console.
 
 The list of supported target platforms of `konanc` depends 
 on the operating system. You may list them via `konanc -list_targets`
-console command. For example, on macOS (OS X) with Kotlin/Native v0.6.2
+console command. For example, on macOS (OS X) with Kotlin/Native v0.6.2:
 ```
 konanc -list_targets
 macbook:                      (default)
@@ -65,7 +65,7 @@ the compiler on where to create the compiled binary, e.g. to build for `iphone` 
 ## Building a Console Utility
 
 We call Kotlin/Native compiler on every OS, namely, Windows, macOS and Linux, 
-to produce the OS-specific binaries
+to produce the OS-specific binaries:
 
     konanc main.kt
 
