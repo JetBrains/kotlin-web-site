@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Targeting Multiple Platforms"
 description: "Compiling with Kotlin/Native for multiple platforms"
 authors: Eugene Petrenko
-date: 2018-03-30
+date: 2018-04-03
 showAuthorInfo: false
 ## /*EVAN-5121*/
 ---
@@ -32,7 +32,7 @@ The list of supported target platforms of `konanc` depends
 on the operating system. You may list them via `konanc -list_targets`
 console command. For example, on macOS (OS X) with Kotlin/Native v0.6.2:
 ```
-> konanc -list_targets
+konanc -list_targets
 macbook:                      (default)
 iphone:
 iphone_sim:
