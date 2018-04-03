@@ -58,7 +58,7 @@ fun main(args: Array<String>) {
 
 We use `-target` argument of the `konanc` to specify the platform. It is also 
 helpful to use `-output` to clearly 
-the compiler on where to create the compiled binary, e.g. to build for `iphone` target:
+the compiler on where to create the compiled binary, e.g. to build for `iphone` target on macOS:
 
     konanc -target iphone -output bin/iphone main.kt
 
