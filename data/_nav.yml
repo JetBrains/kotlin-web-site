@@ -287,8 +287,8 @@ tutorials:
           title: Interop with C Libraries
         - url: /docs/tutorials/native/working-with-klib.html
           title: Working with Kotlin/Native Libraries
-        - url: /docs/tutorials/native/targeting-different-platforms.html
-          title: Targeting Different Platforms
+        - url: /docs/tutorials/native/targeting-multiple-platforms.html
+          title: Targeting Multiple Platforms
         - url: /docs/tutorials/native/kotlin-native-with-clion.html
           title: Kotlin/Native with CLion
         - url: /docs/tutorials/native/gradle-for-kotlin-native.html
