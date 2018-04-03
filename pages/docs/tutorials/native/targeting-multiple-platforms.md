@@ -23,14 +23,14 @@ In this tutorial, we'll see how to
 * [Build a Console Utility](#building-a-console-utility)
 
 To start with you need to have Kotlin/Native compiler on your machine. Check out to the 
-[A Basic Kotlin/Native Application](basic-kotlin-native-app.md) tutorial for the instructions.
-We assume that you have `konanc` command available from the system PATH environment variable.
+[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler) tutorial for the instructions.
+We assume that you have `konanc` command available in console.
 
 ## Specifying Target Platform
 
 The list of supported target platforms of `konanc` depends 
 on the operating system. You may list them via `konanc -list_targets`
-console command. For example, on macOS (OS X) with Kotlin/Native v0.6.2:
+console command. For example, on macOS (OS X) with Kotlin/Native v0.6.2
 ```
 konanc -list_targets
 macbook:                      (default)
@@ -47,7 +47,9 @@ specified.
 
 ## Building for a Specific Platform
 
-Let's create a sample Kotlin program and save it as `main.kt`
+Let's create a sample Kotlin/Native program and save it as `main.kt`. You may checkout 
+[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#creating-hello-kotlin) for more details.
+
 ```kotlin
 fun main(args: Array<String>) {
   println("Hello Kotlin/Native!")
@@ -62,15 +64,14 @@ the compiler on where to create the compiled binary, e.g. to build for `iphone` 
 
 ## Building a Console Utility
 
-To create a command line utility for all 
-operation system, namely Windows, Linux and macOS we 
-need to call Kotlin/Native compiler on every of OS:
+We call Kotlin/Native compiler on every OS, namely, Windows, macOS and Linux, 
+to produce the OS-specific binaries
 
     konanc main.kt
 
 There is no need to specify `-target` parameter explicitly because 
 the default value will work the best.  
 
-[Gradle build system](gradle-for-kotlin-native.md) helps to simplify
+[Gradle build system](gradle-for-kotlin-native.html) helps to simplify
 the setup for every operating system. It helps to download and run 
 Kotlin/Native compiler on a build machine
