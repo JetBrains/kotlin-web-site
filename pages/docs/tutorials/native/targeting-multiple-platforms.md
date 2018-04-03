@@ -19,7 +19,7 @@ WebAssembly (wasm32).
 In this tutorial, we'll see how to
 
 * [Specify a Target Platform](#specifying-target-platform)
-* [Building for a Specific Platform](#building-for-a-specific-platform)
+* [Build for a Specific Platform](#building-for-a-specific-platform)
 * [Build a Console Utility](#building-a-console-utility)
 
 To start with you need to have Kotlin/Native compiler on your machine. Check out to the 
@@ -56,7 +56,7 @@ fun main(args: Array<String>) {
 
 We use `-target` argument of the `konanc` to specify the platform. It is also 
 helpful to use `-output` to clearly 
-the compiler on where to create the compiled binary, e.g.
+the compiler on where to create the compiled binary, e.g. to build for `iphone` target:
 
     konanc -target iphone -output bin/iphone main.kt
 
