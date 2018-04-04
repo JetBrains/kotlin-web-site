@@ -9,7 +9,7 @@ showAuthorInfo: false
 ## /*EVAN-5121*/
 ---
 
-Kotlin/Native support compiling code for different platforms including
+Kotlin/Native supports compiling code for different platforms including
 Windows (x86_64),
 Linux (x86_64, arm32, MIPS, MIPS little endian),
 MacOS (x86_64),
@@ -22,7 +22,7 @@ In this tutorial, we'll see how to
 * [Build for a Specific Platform](#building-for-a-specific-platform)
 * [Build a Console Utility](#building-a-console-utility)
 
-To start with you need to have Kotlin/Native compiler on your machine. Check out to the 
+You shall have Kotlin/Native compiler on your machine. Check out to the 
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler) tutorial for the instructions.
 We assume that you have `konanc` command available in console.
 
@@ -42,12 +42,12 @@ wasm32:
 zephyr_stm32f4_disco:
 ```
 
-The default target is highlighted with `(default)` and used if no `-target` argument was 
+The default target is highlighted with `(default)` and used if no `-target` argument is 
 specified.
 
 ## Building for a Specific Platform
 
-Let's create a sample Kotlin/Native program and save it as `main.kt`. You may checkout 
+Let's create a sample Kotlin/Native program and save it as `main.kt`. Check out 
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#creating-hello-kotlin) for more details.
 
 ```kotlin
@@ -57,8 +57,9 @@ fun main(args: Array<String>) {
 ```
 
 We use `-target` argument of the `konanc` to specify the platform. It is also 
-helpful to use `-output` to clearly 
-the compiler on where to create the compiled binary, e.g. to build for `iphone` target on macOS:
+helpful to use `-output` to clearly instruct
+the compiler on where to create the compiled binary. 
+The following command line builds sources on macOS for `iphone` target:
 
     konanc -target iphone -output bin/iphone main.kt
 
