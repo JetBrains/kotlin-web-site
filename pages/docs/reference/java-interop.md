@@ -131,6 +131,31 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
 You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptors.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
+### Annotating type parameters
+
+It can be necessary to annotate type parameters to resolve all platform types in Java types. For example, we need
+
+```java
+@NotNull
+Set<@NotNull String> toSet(@NotNull Collection<@NotNull String> elements) { ... }
+```
+
+to obtain the desired Kotlin signature:
+
+```kotlin
+fun toSet(elements: (Mutable)Collection<String>) : (Mutable)Set<String> { ... }
+```
+
+Note the `@NotNull` annotations on `String` which are not possible with e.g. FindBugs or JSR-305 annotations, nor with Java 7 and lower.
+Without them, we get:
+
+```kotlin
+fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
+```
+
+Annotating type parameters works with e.g. Jetbrains annotations and Java 8 or higher.
+
+
 ### JSR-305 Support
 
 The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined 
