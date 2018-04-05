@@ -109,12 +109,12 @@ concept of weak reference, whether they implement ARC (Swift) or Garbage Collect
 ## Memory Management in Kotlin/Native
 
 In languages that use ARC, such as Swift, one way to solve the issue of cyclic references is to use weak references. This works but puts an additional burden on us as developers, in that we have to
-proactively think about whether a specific reference should be weak. And situations in which weak references are required isn't limited to exclusively that of cyclic references.
+proactively think about whether a specific reference should be weak. This isn't to say that weak references are exclusively used for cyclic references. They can be used in other scenarios and are often useful. 
 
-The way Kotlin/Native approaches memory management is with ARC. However Kotlin implements Cycle Collection based on [David F. Bacon's algorithm](https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon03Pure.pdf) which
+In addition to ARC, Kotlin implements Cycle Collection based on [David F. Bacon's algorithm](https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon03Pure.pdf) which
 has the ability to detect cyclic garbage in a reference counted system.
 
-Consequently, when writing pure Kotlin code targeting native platforms, we do not have to be concerned with manual memory management or weak references!
+Consequently, when writing pure Kotlin code targeting native platforms, we do not have to be concerned with manual memory management or weak references. 
 
 ### Interop with C and Native Memory
 
