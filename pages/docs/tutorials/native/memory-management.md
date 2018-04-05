@@ -75,7 +75,7 @@ are moved to *Generation 1* or *Generation 2*.
 
 ### Automatic Reference Counting
 
-With [Automatic Reference Counting or ARC](https://en.wikipedia.org/wiki/Automatic_Reference_Counting), the compiler takes care of handling memory management for us. It does so by keeping count to the number of references there are to a specific object. When the count reaches zero, the object can be deallocated..
+With [Automatic Reference Counting or ARC](https://en.wikipedia.org/wiki/Automatic_Reference_Counting), the compiler takes care of handling memory management for us. It does so by keeping count of the number of references there are to a specific object. When the count reaches zero, the object can be deallocated..
 Example of languages using ARC are Objective C and Swift amongst others.
 
 ### Strong and Weak References
