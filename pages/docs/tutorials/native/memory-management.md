@@ -89,7 +89,7 @@ class Parent {
 }
 ```
 
-With ARC, the compiler will make sure that the instance `child` points to is only disposed of when there are no more references to it. This is what's known as a *strong* reference. In most cases, references to other objects are strong and thing work well. However, there are scenarios where
+With ARC, the compiler will make sure that the instance `child` points to is only disposed of when there are no more references to it. This is what's known as a *strong* reference. In most cases, references to other objects are strong and thing work out well. However, there are scenarios where
 this can be counter productive. One of these is that of cyclic references, i.e when two objects have references between themselves:
 
 ```kotlin
