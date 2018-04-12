@@ -551,7 +551,7 @@ val anchor = owner
     .dropWhile { it is PsiComment || it is PsiWhiteSpace }
 ```
 
-The first call in the chain usually should have a line break before it, but it's OK to omit it the code makes more sense that way.
+The first call in the chain usually should have a line break before it, but it's OK to omit it if the code makes more sense that way.
 
 ### Lambda formatting
 
