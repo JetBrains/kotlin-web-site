@@ -264,15 +264,15 @@ External parcelers can be applied using `@TypeParceler` or `@WriteWith` annotati
 
 ```kotlin
 // Class-local parceler
-@Parcelable
+@Parcelize
 @TypeParceler<ExternalClass, ExternalClassParceler>()
 class MyClass(val external: ExternalClass)
 
 // Property-local parceler
-@Parcelable
+@Parcelize
 class MyClass(@TypeParceler<ExternalClass, ExternalClassParceler>() val external: ExternalClass)
 
 // Type-local parceler
-@Parcelable
+@Parcelize
 class MyClass(val external: @WriteWith<ExternalClassParceler>() ExternalClass)
 ```
