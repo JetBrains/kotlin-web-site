@@ -503,7 +503,7 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 
 ### wait()/notify()
 
-[Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html) Item 69 kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
+[Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html) Item 81 kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
 Thus, these methods are not available on references of type `Any`.
 If you really need to call them, you can cast to `java.lang.Object`:
 
@@ -536,7 +536,7 @@ class Example : Cloneable {
 }
 ```
 
- Do not forget about [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 11: *Override clone judiciously*.
+ Do not forget about [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 13: *Override clone judiciously*.
 
 ### finalize()
 
