@@ -1,3 +1,47 @@
+- name: Düzce, Turkey
+  geo:
+    lat: 40.83872
+    lng: 31.162609
+- name: Valbonne, France
+  geo:
+    lat: 43.64152
+    lng: 7.009186
+- name: Tanjah, Morocco
+  geo:
+    lat: 35.7594651
+    lng: -5.833954299999999
+- name: Cali, Colombia
+  geo:
+    lat: 3.4516467
+    lng: -76.5319854
+- name: Cascavel,Brasil
+  geo:
+    lat: -24.9577771
+    lng: -53.45951119999999
+- name: Rosario, Argentina
+  geo:
+    lat: -32.9442426
+    lng: -60.65053880000001
+- name: Brighton, United Kingdom
+  geo:
+    lat: 50.82253000000001
+    lng: -0.137163
+- name: Ondo, Nigeria
+  geo:
+    lat: 7.1000051
+    lng: 4.8416936
+- name: Oxford, United Kingdom
+  geo:
+    lat: 51.7520209
+    lng: -1.2577263
+- name: Weimar, Germany
+  geo:
+    lat: 50.9794934
+    lng: 11.3235439
+- name: Dallas, TX
+  geo:
+    lat: 32.7766642
+    lng: -96.79698789999999
 - name: Pisa, Italy
   geo:
     lat: 43.7228386
