@@ -2,7 +2,7 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (149)
+# Kotlin User Groups (150)
  
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -89,6 +89,7 @@ title: Kotlin User Groups
  * [Pakistan KotlinUser Group](https://www.facebook.com/groups/565405337181251/), Pakistan
  * [Philippines Kotlin](https://www.facebook.com/groups/642901202586581/), Philippines
  * [Pune Kotlin User Group](https://www.facebook.com/groups/punekotlin), India
+ * [Saudi Arabia Kotlin User Group](https://www.facebook.com/KotlinArabia), Saudi Arabia
  * [Shanghai, KotlinThree](http://kotlinthree.github.io/), China
  * [Singapore Kotlin User Group](https://www.meetup.com/Singapore-Kotlin-User-group/), Singapore
  * [Sri Lanka Kotlin User Group](https://www.facebook.com/KotlinSrilanka/), Sri Lanka
