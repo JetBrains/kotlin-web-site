@@ -332,8 +332,9 @@ class C {
 class C {
     // calling "provideDelegate" to create the additional "delegate" property
     private val prop$delegate = MyDelegate().provideDelegate(this, this::prop)
-    val prop: Type
+    var prop: Type
         get() = prop$delegate.getValue(this, this::prop)
+        set(value: Type) = prop$delegate.setValue(this, this::prop, value)
 }
 ```
 
