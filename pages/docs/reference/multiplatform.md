@@ -47,7 +47,7 @@ compiled implementation code for each platform.
 ## Setting Up a Multiplatform Project
 
 As of Kotlin 1.2, multiplatform projects have to be built with Gradle; other build systems
-are not supported.
+are not supported. If you work with a multiplatform project in IDE, make sure that `Delegate IDE build/run actions to gradle` option is enabled and `Gradle Test Runner` is set for `Run tests using` option. Both options may be found here: _Settings > Build, execution, Deployment > Build Tools > Gradle > Runner_
 
 To create a new multiplatform project in the IDE, select the "Kotlin (Multiplatform)" option
 under "Kotlin" in the New Project dialog. This will create a project with three modules, a common one
@@ -62,7 +62,7 @@ If you need to configure the project manually, use the following steps:
   * Apply the `kotlin-platform-jvm`, `kotlin-platform-android`, and `kotlin-platform-js` plugins to the platform modules for JVM, Android, and JS, respectively
   * Add dependencies with `expectedBy` scope from the platform modules to the common module
   
-The following example demonstrates a complete `build.gradle` file for a common module with Kotlin 1.2-Beta:
+The following example demonstrates a complete `build.gradle` file for a common module with Kotlin 1.2:
 
 ``` groovy
 buildscript {
