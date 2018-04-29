@@ -4,7 +4,6 @@ import 'whatwg-fetch';
 
 import '../com/search/search';
 import '../com/cookie-banner';
-import '../com/india-banner';
 import CodeMirror from '../com/codemirror/CodeMirror';
 
 $(document).ready(function () {
