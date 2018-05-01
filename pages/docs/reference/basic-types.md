@@ -91,10 +91,10 @@ If they were, we would have troubles of the following sort:
 // Hypothetical code, does not actually compile:
 val a: Int? = 1 // A boxed Int (java.lang.Integer)
 val b: Long? = a // implicit conversion yields a boxed Long (java.lang.Long)
-print(a == b) // Surprise! This prints "false" as Long's equals() check for other part to be Long as well
+print(a == b) // Surprise! This prints "false" as Int's equals() checks whether the other is Long as well
 ```
 
-So not only identity, but even equality would have been lost silently all over the place.
+So equality would have been lost silently all over the place, not to mention identity.
 
 As a consequence, smaller types are NOT implicitly converted to bigger types.
 This means that we cannot assign a value of type `Byte` to an `Int` variable without an explicit conversion
