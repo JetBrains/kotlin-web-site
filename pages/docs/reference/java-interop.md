@@ -133,28 +133,26 @@ You can find the full list in the [Kotlin compiler source code](https://github.c
 
 ### Annotating type parameters
 
-It can be necessary to annotate type parameters to resolve all platform types in Java types. For example, we need
+It is possible to annotate type arguments of generic types to provide nullability information for them as well. For example, consider these annotations on a Java declaration:
 
 ```java
 @NotNull
 Set<@NotNull String> toSet(@NotNull Collection<@NotNull String> elements) { ... }
 ```
 
-to obtain the desired Kotlin signature:
+It leads to the following signature seen in Kotlin:
 
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String>) : (Mutable)Set<String> { ... }
 ```
 
-Note the `@NotNull` annotations on `String` which are not possible with e.g. FindBugs or JSR-305 annotations, nor with Java 7 and lower.
-Without them, we get:
+Note the `@NotNull` annotations on `String` type arguments. Without them, we get platform types in the type arguments:
 
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
 ```
 
-Annotating type parameters works with e.g. Jetbrains annotations and Java 8 or higher.
-
+Annotating type arguments works with Java 8 target or higher and requires the nullability annotations to support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above).
 
 ### JSR-305 Support
 
