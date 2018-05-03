@@ -20,7 +20,7 @@ from a C header file, with full support for all C language features.
 On macOS and iOS, interoperability with Objective/C code is also supported.
 
 Kotlin/Native is currently in development; preview releases are available for you to try. IDE support
-for Kotlin/Native is available as plugins for [CLion](https://www.jetbrains.com/clion/) and [AppCode](https://www.jetbrains.com/objc/), both require the plugin to be installed via *File | Settings | Plugins | Browse repositories...*
+for Kotlin/Native is available as plugins for [CLion](https://www.jetbrains.com/clion/) and [AppCode](https://www.jetbrains.com/objc/), both require the plugin to be installed via *Plugins | Install JetBrains plugin...* in the IDE preferences.
 
 ### Target Platforms
 
