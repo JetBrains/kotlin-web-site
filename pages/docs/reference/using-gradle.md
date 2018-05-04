@@ -28,7 +28,7 @@ buildscript {
 }
 ```
 
-This is not required when using Kotlin Gradle plugin 1.1.1 and above with the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
+This is not required when using Kotlin Gradle plugin 1.1.1 and above with the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block), and with [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl).
 
 ## Targeting the JVM
 
@@ -46,6 +46,14 @@ plugins {
 }
 ```
 The `version` should be literal in this block, and it cannot be applied from another build script.
+
+With Gradle Kotlin DSL, apply the plugin as follows:
+
+```kotlin
+plugins {
+    kotlin("jvm") version "{{ site.data.releases.latest.version }}"
+}
+```
 
 Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
 
@@ -65,6 +73,8 @@ sourceSets {
     main.java.srcDirs += 'src/main/myJava'
 }
 ```
+
+With Gradle Kotlin DSL, configure source sets with `java.sourceSets { ... }` instead.
 
 ## Targeting JavaScript
 
@@ -89,7 +99,7 @@ The generation is controlled by the  `kotlinOptions.metaInfo` option:
 
 ``` groovy
 compileKotlin2Js {
-	kotlinOptions.metaInfo = true
+    kotlinOptions.metaInfo = true
 }
 ```
 
@@ -156,6 +166,17 @@ compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
 compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 ```
 
+With Gradle Kotlin DSL, the following notation for the dependencies is equivalent:
+
+``` kotlin
+dependencies {
+    compile kotlin("stdlib")
+    // or one of:
+    compile kotlin("stdlib-jdk7")
+    compile kotlin("stdlib-jdk8") 
+}
+```
+
 In Kotlin 1.1.x, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8` instead.
 
 If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well:
@@ -166,9 +187,17 @@ testCompile "org.jetbrains.kotlin:kotlin-test"
 testCompile "org.jetbrains.kotlin:kotlin-test-junit"
 ```
 
+Or, with Gradle Kotlin DSL:
+
+``` kotlin
+compile(kotlin("reflect"))
+testCompile(kotlin("test"))
+testCompile(kotlin("test-junit"))
+```
+
 Starting with Kotlin 1.1.2, the dependencies with group `org.jetbrains.kotlin` are by default resolved with the version
 taken from the applied plugin. You can provide the version manually using the full dependency notation like
-`compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"`.
+`compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"`, or `kotlin("stdlib", kotlinVersion)` in Gradle Kotlin DSL.
 
 ## Annotation processing
 
@@ -183,14 +212,9 @@ Starting with Kotlin 1.1.1, incremental compilation is enabled by default.
 
 There are several ways to override the default setting:
 
-  1. add `kotlin.incremental=true` or `kotlin.incremental=false` line either to a `gradle.properties` or a `local.properties` file;
+  1. add `kotlin.incremental=true` or `kotlin.incremental=false` line either to a `gradle.properties` or to a `local.properties` file;
 
-  2. add `-Pkotlin.incremental=true` or `-Pkotlin.incremental=false` to gradle command line parameters. Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental compilation invalidates incremental caches.
-
-When incremental compilation is enabled, you should see the following warning message in your build log:
-```
-Using kotlin incremental compilation
-```
+  2. add `-Pkotlin.incremental=true` or `-Pkotlin.incremental=false` to Gradle command line parameters. Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental compilation invalidates incremental caches.
 
 Note, that the first build won't be incremental.
 
@@ -207,6 +231,15 @@ kotlin {
 }
 ```
 
+Or, with Gradle Kotlin DSL:
+
+``` kotlin
+import org.jetbrains.kotlin.gradle.dsl.Coroutines
+// ...
+
+kotlin.experimental.coroutines = Coroutines.ENABLE
+```
+
 ## Module names
 
 The Kotlin modules that the build produces are named accordingly to the `archivesBaseName` property of the project. If a project has a broad name like `lib` or `jvm`, which is common for subprojects, the Kotlin output files related to the module (`*.kotlin_module`) might clash with those from third-party modules with the same name. This causes problems when a project is packaged into a single archive (e.g. APK).
@@ -215,6 +248,12 @@ To avoid this, consider setting a unique `archivesBaseName` manually:
 
 ``` groovy
 archivesBaseName = 'myExampleProject_lib'
+```
+
+With Gradle Kotlin DSL, it is:
+
+``` kotlin
+setProperty("archivesBaseName", "myExampleProject_lib")
 ```
 
 ## Gradle Build Cache support (since 1.2.20)
@@ -236,7 +275,7 @@ To disable the caching for all Kotlin tasks, set the system property flag `kotli
 To specify additional compilation options, use the `kotlinOptions` property of a Kotlin compilation task.
 
 When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
-for test code. The tasks for custom source sets of are called accordingly to the `compile<Name>Kotlin` pattern. 
+for test code. The tasks for custom source sets are called accordingly to the `compile<Name>Kotlin` pattern. 
 
 The names of the tasks in Android Projects contain the [build variant](https://developer.android.com/studio/build/build-variants.html) names and follow the pattern `compile<BuildVariant>Kotlin`, for example, `compileDebugKotlin`, `compileReleaseUnitTestKotlin`.
 
@@ -255,6 +294,19 @@ compileKotlin {
     }
 }
 ```
+
+With Gradle Kotlin DSL, get the task from the project's `tasks` first:
+
+``` kotlin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+// ...
+
+val kotlinCompile: KotlinCompile by tasks
+
+kotlinCompile.kotlinOptions.suppressWarnings = true
+```
+
+Use the types `Kotlin2JsCompile` and `KotlinCommonCompile` for the JS and Common targets, accordingly.
 
 It is also possible to configure all Kotlin compilation tasks in the project:
 
@@ -322,6 +374,10 @@ formats, including standard JavaDoc.
 ## OSGi
 
 For OSGi support see the [Kotlin OSGi page](kotlin-osgi.html).
+
+## Using Gradle Kotlin DSL
+
+When using [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl), apply the Kotlin plugins using the `plugins { ... }` block. If you apply them with `apply { plugin(...) }` instead, you may encounter unresolved references to the extensions generated by Gradle Kotlin DSL. To resolve that, you can comment out the erroneous usages, run the Gradle task `kotlinDslAccessorsSnapshot`, then uncomment the usages back and rerun the build or reimport the project into the IDE.
 
 ## Examples
 
