@@ -85,13 +85,13 @@ print(boxedA == anotherBoxedA) // Prints 'true'
 ### Explicit Conversions
 
 Due to different representations, smaller types are not subtypes of bigger ones.
-If they were, we would have troubles of the following sort:
+If they were, we would not have troubles of the following sort:
 
 ``` kotlin
 // Hypothetical code, does not actually compile:
 val a: Int? = 1 // A boxed Int (java.lang.Integer)
 val b: Long? = a // implicit conversion yields a boxed Long (java.lang.Long)
-print(a == b) // Surprise! This prints "false" as Int's equals() checks whether the other is Long as well
+print(b == a) // Surprise! This prints "false" as Long's equals() checks whether the other is Long as well
 ```
 
 So equality would have been lost silently all over the place, not to mention identity.
