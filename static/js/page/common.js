@@ -4,6 +4,7 @@ import 'whatwg-fetch';
 
 import '../com/search/search';
 import '../com/cookie-banner';
+import '../com/tel-aviv-banner';
 import CodeMirror from '../com/codemirror/CodeMirror';
 
 $(document).ready(function () {
