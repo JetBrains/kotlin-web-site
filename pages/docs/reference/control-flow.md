@@ -68,7 +68,7 @@ is the value of the last expression in the block.)
 
 The *else*{: .keyword } branch is evaluated if none of the other branch conditions are satisfied.
 If *when*{: .keyword } is used as an expression, the *else*{: .keyword } branch is mandatory,
-unless the compiler can prove that all possible cases are covered with branch conditions.
+unless the compiler can prove that all possible cases are covered with branch conditions (as, for example, with [*enum*{: .keyword } class](enum-classes.html) entries and [*sealed*{: .keyword } class](sealed-classes.html) subtypes).
 
 If many cases should be handled in the same way, the branch conditions may be combined with a comma:
 
