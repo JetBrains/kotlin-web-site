@@ -53,6 +53,39 @@ in Java.
 
 Enum entries cannot contain nested types other than inner classes (deprecated in Kotlin 1.2).
 
+## Implementing Interfaces in Enum Classes
+
+An enum class may implement an interface (but not derive from a class), providing either a single interface members implementation for all of the entries, or separate ones for each entry within its anonymous class. This is done by adding the interfaces to the enum class declaration as follows:
+
+<div class="sample" markdown="1">
+
+``` kotlin
+import java.util.function.BinaryOperator
+import java.util.function.IntBinaryOperator
+
+//sampleStart
+enum class IntArithmetics : BinaryOperator<Int>, IntBinaryOperator {
+    PLUS {
+        override fun apply(t: Int, u: Int): Int = t + u
+    },
+    TIMES {
+        override fun apply(t: Int, u: Int): Int = t * u
+    };
+    
+    override fun applyAsInt(t: Int, u: Int) = apply(t, u)
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    val a = 13
+    val b = 31
+    for (f in IntArithmetics.values()) {
+        println("$f($a, $b) = ${f.apply(a, b)}")
+    }
+}
+```
+</div>
+
 ## Working with Enum Constants
 
 Just like in Java, enum classes in Kotlin have synthetic methods allowing to list
