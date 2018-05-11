@@ -73,14 +73,10 @@ recommended to use *withKotlin* task:
 </project>
 ```
 
-To specify additional command line arguments for `<withKotlin>`, you can use a nested `<compilerArg>` parameter.
-The full list of arguments that can be used is shown when you run `kotlinc -help`.
 You can also specify the name of the module being compiled as the `moduleName` attribute:
 
 ``` xml
-<withKotlin moduleName="myModule">
-    <compilerarg value="-no-stdlib"/>
-</withKotlin>
+<withKotlin moduleName="myModule"/>
 ```
 
 
@@ -161,3 +157,18 @@ Complete list of elements and attributes are listed below:
 | `sourcemap`  | Whether sourcemap file should be generated | No |
 | `metaInfo`  | Whether metadata file with binary descriptors should be generated | No |
 | `main`  | Should compiler generated code call the main function | No |
+
+### Passing raw compiler arguments
+
+To pass custom raw compiler arguments, you can use `<compilerarg>` elements with either `value` or `line` attributes.
+This can be done within the `<kotlinc>`, `<kotlin2js>`, and `<withKotlin>` task elements, as follows:
+
+``` xml
+<kotlinc src="${test.data}/hello.kt" output="${temp}/hello.jar">
+    <compilerarg value="-Xno-inline"/>
+    <compilerarg line="-Xno-call-assertions -Xno-param-assertions"/>
+    <compilerarg value="-Xno-optimize"/>
+</kotlinc>
+```
+
+The full list of arguments that can be used is shown when you run `kotlinc -help`.
