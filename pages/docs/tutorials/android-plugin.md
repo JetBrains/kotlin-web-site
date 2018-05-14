@@ -213,7 +213,7 @@ If your class requires more advanced serialization logic, you can write it insid
 
 ```kotlin
 @Parcelize
-data class Value(val firstName: String, val lastName: String, val age: Int) : Parcelable {
+data class User(val firstName: String, val lastName: String, val age: Int) : Parcelable {
     private companion object : Parceler<User> {
         override fun User.write(parcel: Parcel, flags: Int) {
             // Custom write implementation
