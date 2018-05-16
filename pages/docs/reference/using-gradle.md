@@ -170,10 +170,10 @@ With Gradle Kotlin DSL, the following notation for the dependencies is equivalen
 
 ``` kotlin
 dependencies {
-    compile kotlin("stdlib")
+    compile(kotlin("stdlib"))
     // or one of:
-    compile kotlin("stdlib-jdk7")
-    compile kotlin("stdlib-jdk8") 
+    compile(kotlin("stdlib-jdk7"))
+    compile(kotlin("stdlib-jdk8"))
 }
 ```
 
