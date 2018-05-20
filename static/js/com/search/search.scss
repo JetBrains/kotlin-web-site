@@ -42,7 +42,7 @@ body._no-scroll {
 
   &._hidden {
     opacity: 0;
-    z-index: -1;
+    top: 100%;
   }
 
   &:focus {
