@@ -183,6 +183,11 @@
   type: Library
   link: https://github.com/seratch/kotliquery
 
+- name: Kotlin Playground
+  description: Self-contained component to embed in websites for running Kotlin code
+  type: Library
+  link: https://github.com/JetBrains/kotlin-playground
+
 - name: Zipangu
   description: Easy to handle the information in the prefectures of Japan in Kotlin
   type: Library
