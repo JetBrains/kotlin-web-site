@@ -1,0 +1,23 @@
+version: '2.1'
+
+services:
+  website:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    env_file:
+      - .env
+    ports:
+      - 5000:5000
+    volumes:
+      - ./:/src
+    working_dir: /src
+
+  frontend:
+    command: /bin/bash scripts/build-frontend.sh
+    env_file:
+      - .env
+    image: node:9
+    volumes:
+      - ./:/src
+    working_dir: /src

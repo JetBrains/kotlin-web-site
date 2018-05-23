@@ -32,7 +32,7 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that we are talk
 One of the most tricky parts of Java's type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)).
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
-First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Use bounded wildcards to increase API flexibility*.
+First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 31: *Use bounded wildcards to increase API flexibility*.
 First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`. 
 Why so? If List was not **invariant**, it would have been no 
 better than Java's arrays, since the following code would have compiled and caused an exception at runtime:
@@ -64,7 +64,7 @@ void copyAll(Collection<Object> to, Collection<String> from) {
 }
 ```
 
-(In Java, we learned this lesson the hard way, see [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 25: *Prefer lists to arrays*)
+(In Java, we learned this lesson the hard way, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Prefer lists to arrays*)
 
 
 That's why the actual signature of `addAll()` is the following:
@@ -125,8 +125,8 @@ In Kotlin, there is a way to explain this sort of thing to the compiler. This is
 To do this we provide the **out** modifier:
 
 ``` kotlin
-abstract class Source<out T> {
-    abstract fun nextT(): T
+interface Source<out T> {
+    fun nextT(): T
 }
 
 fun demo(strs: Source<String>) {
@@ -145,11 +145,11 @@ The **out** modifier is called a **variance annotation**, and  since it is provi
 This is in contrast with Java's **use-site variance** where wildcards in the type usages make the types covariant.
 
 In addition to **out**, Kotlin provides a complementary variance annotation: **in**. It makes a type parameter **contravariant**: it can only be consumed and never 
-produced. A good example of a contravariant class is `Comparable`:
+produced. A good example of a contravariant type is `Comparable`:
 
 ``` kotlin
-abstract class Comparable<in T> {
-    abstract fun compareTo(other: T): Int
+interface Comparable<in T> {
+    operator fun compareTo(other: T): Int
 }
 
 fun demo(x: Comparable<Number>) {
@@ -229,9 +229,9 @@ The safe way here is to define such a projection of the generic type, that every
 
 Kotlin provides so called **star-projection** syntax for this:
 
- - For `Foo<out T>`, where `T` is a covariant type parameter with the upper bound `TUpper`, `Foo<*>` is equivalent to `Foo<out TUpper>`. It means that when the `T` is unknown you can safely *read* values of `TUpper` from `Foo<*>`.
+ - For `Foo<out T : TUpper>`, where `T` is a covariant type parameter with the upper bound `TUpper`, `Foo<*>` is equivalent to `Foo<out TUpper>`. It means that when the `T` is unknown you can safely *read* values of `TUpper` from `Foo<*>`.
  - For `Foo<in T>`, where `T` is a contravariant type parameter, `Foo<*>` is equivalent to `Foo<in Nothing>`. It means there is nothing you can *write* to `Foo<*>` in a safe way when `T` is unknown.
- - For `Foo<T>`, where `T` is an invariant type parameter with the upper bound `TUpper`, `Foo<*>` is equivalent to `Foo<out TUpper>` for reading values and to `Foo<in Nothing>` for writing values.
+ - For `Foo<T : TUpper>`, where `T` is an invariant type parameter with the upper bound `TUpper`, `Foo<*>` is equivalent to `Foo<out TUpper>` for reading values and to `Foo<in Nothing>` for writing values.
 
 If a generic type has several type parameters each of them can be projected independently.
 For example, if the type is declared as `interface Function<in T, out U>` we can imagine the following star-projections:
@@ -261,6 +261,10 @@ To call a generic function, specify the type arguments at the call site **after*
 ``` kotlin
 val l = singletonList<Int>(1)
 ```
+Type arguments can be omitted if they can be inferred from the context, so the following example works as well:
+``` kotlin
+val l = singletonList(1)
+```
 
 ## Generic constraints
 
@@ -287,9 +291,30 @@ The default upper bound (if none specified) is `Any?`. Only one upper bound can 
 If the same type parameter needs more than one upper bound, we need a separate **where**\-clause:
 
 ``` kotlin
-fun <T> cloneWhenGreater(list: List<T>, threshold: T): List<T>
-    where T : Comparable,
-          T : Cloneable {
-  return list.filter { it > threshold }.map { it.clone() }
+fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
+    where T : CharSequence,
+          T : Comparable<T> {
+    return list.filter { it > threshold }.map { it.toString() }
 }
 ```
+
+## Type erasure
+
+The type safety checks that Kotlin performs for generic declaration usages are only done at compile time.
+At runtime, the instances of generic types do not hold any information about their actual type arguments.
+The type information is said to be *erased*. For example, the instances of `Foo<Bar>` and `Foo<Baz?>` are erased to
+just `Foo<*>`.
+
+Therefore, there is no general way to check whether an instance of a generic type was created with certain type
+arguments at runtime, and the compiler [prohibits such *is*{: .keyword }-checks](typecasts.html#type-erasure-and-generic-type-checks).
+
+Type casts to generic types with concrete type arguments, e.g. `foo as List<String>`, cannot be checked at runtime.  
+These [unchecked casts](typecasts.html#unchecked-casts) can be used when type safety is implied by the high-level 
+program logic but cannot be inferred directly by the compiler. The compiler issues a warning on unchecked casts, and at 
+runtime, only the non-generic part is checked (equivalent to `foo as List<*>`).
+ 
+The type arguments of generic function calls are also only checked at compile time. Inside the function bodies, 
+the type parameters cannot be used for type checks, and type casts to type parameters (`foo as T`) are unchecked. However,
+[reified type parameters](inline-functions.html#reified-type-parameters) of inline functions are substituted by the actual 
+type arguments in the inlined function body at the call sites and thus can be used for type checks and casts,
+with the same restrictions for instances of generic types as described above.

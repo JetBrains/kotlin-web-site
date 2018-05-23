@@ -91,10 +91,10 @@ If they were, we would have troubles of the following sort:
 // Hypothetical code, does not actually compile:
 val a: Int? = 1 // A boxed Int (java.lang.Integer)
 val b: Long? = a // implicit conversion yields a boxed Long (java.lang.Long)
-print(a == b) // Surprise! This prints "false" as Long's equals() check for other part to be Long as well
+print(b == a) // Surprise! This prints "false" as Long's equals() checks whether the other is Long as well
 ```
 
-So not only identity, but even equality would have been lost silently all over the place.
+So equality would have been lost silently all over the place, not to mention identity.
 
 As a consequence, smaller types are NOT implicitly converted to bigger types.
 This means that we cannot assign a value of type `Byte` to an `Int` variable without an explicit conversion
@@ -226,7 +226,7 @@ class Array<T> private constructor() {
 To create an array, we can use a library function `arrayOf()` and pass the item values to it, so that `arrayOf(1, 2, 3)` creates an array [1, 2, 3].
 Alternatively, the `arrayOfNulls()` library function can be used to create an array of a given size filled with null elements.
 
-Another option is to use a factory function that takes the array size and the function that can return the initial value
+Another option is to use the `Array` constructor that takes the array size and the function that can return the initial value
 of each array element given its index:
 
 ``` kotlin
@@ -255,11 +255,34 @@ Strings are represented by the type `String`. Strings are immutable.
 Elements of a string are characters that can be accessed by the indexing operation: `s[i]`.
 A string can be iterated over with a *for*{: .keyword }-loop:
 
+<div class="sample" markdown="1">
 ``` kotlin
+fun main(args: Array<String>) {
+val str = "abcd"
+//sampleStart
 for (c in str) {
     println(c)
 }
+//sampleEnd
+}
 ```
+</div>
+
+You can concatenate strings using the `+` operator. This also works for concatenating strings with values of other types, as long
+as the first element in the expression is a string:
+
+<div class="sample" markdown="1">
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+val s = "abc" + 1
+println(s + "def")
+//sampleEnd
+}
+```
+</div>
+
+Note that in most cases using [string templates](#string-templates) or raw strings is preferable to string concatenation.
 
 ### String Literals
 
@@ -298,17 +321,29 @@ By default `|` is used as margin prefix, but you can choose another character an
 Strings may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string.
 A template expression starts with a dollar sign ($) and consists of either a simple name:
 
+<div class="sample" markdown="1">
 ``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
 val i = 10
-val s = "i = $i" // evaluates to "i = 10"
+println("i = $i") // prints "i = 10"
+//sampleEnd
+}
 ```
+</div>
 
 or an arbitrary expression in curly braces:
 
+<div class="sample" markdown="1">
 ``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
 val s = "abc"
-val str = "$s.length is ${s.length}" // evaluates to "abc.length is 3"
+println("$s.length is ${s.length}") // prints "abc.length is 3"
+//sampleEnd
+}
 ```
+</div>
 
 Templates are supported both inside raw strings and inside escaped strings.
 If you need to represent a literal `$` character in a raw string (which doesn't support backslash escaping), you can use the following syntax:

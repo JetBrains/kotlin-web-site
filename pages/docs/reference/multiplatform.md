@@ -2,10 +2,10 @@
 type: doc
 layout: reference
 category: "Other"
-title: "Multiplatform Projects (Preview)"
+title: "Multiplatform Projects"
 ---
 
-# Multiplatform Projects (Preview)
+# Multiplatform Projects
 
 > Multiplatform projects are a new experimental feature in Kotlin 1.2. All of the language
 and tooling features described in this document are subject to change in future Kotlin versions.
@@ -47,7 +47,7 @@ compiled implementation code for each platform.
 ## Setting Up a Multiplatform Project
 
 As of Kotlin 1.2, multiplatform projects have to be built with Gradle; other build systems
-are not supported.
+are not supported. If you work with a multiplatform project in IDE, make sure that `Delegate IDE build/run actions to gradle` option is enabled and `Gradle Test Runner` is set for `Run tests using` option. Both options may be found here: _Settings > Build, execution, Deployment > Build Tools > Gradle > Runner_
 
 To create a new multiplatform project in the IDE, select the "Kotlin (Multiplatform)" option
 under "Kotlin" in the New Project dialog. This will create a project with three modules, a common one
@@ -59,17 +59,16 @@ If you need to configure the project manually, use the following steps:
   * Add the Kotlin Gradle plugin to the buildscript classpath: `classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"`
   * Apply the `kotlin-platform-common` plugin to the common module
   * Add the `kotlin-stdlib-common` dependency to the common module
-  * Apply the `kotlin-platform-jvm` and `kotlin-platform-js` plugins to the platform modules for JVM and JS
-  * Add dependencies with `implement` scope from the platform modules to the common module
+  * Apply the `kotlin-platform-jvm`, `kotlin-platform-android`, and `kotlin-platform-js` plugins to the platform modules for JVM, Android, and JS, respectively
+  * Add dependencies with `expectedBy` scope from the platform modules to the common module
   
-The following example demonstrates a complete `build.gradle` file for a common module with Kotlin 1.2-Beta:
+The following example demonstrates a complete `build.gradle` file for a common module with Kotlin 1.2:
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '1.2-Beta'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
 
     repositories {
-        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
         mavenCentral()
     }
     dependencies {
@@ -80,7 +79,6 @@ buildscript {
 apply plugin: 'kotlin-platform-common'
 
 repositories {
-    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
     mavenCentral()
 }
 
@@ -91,14 +89,13 @@ dependencies {
 ```
 
 And the example below shows a complete `build.gradle` for a JVM module. Pay special
-attention to the `implement` line in the `dependencies` block:
+attention to the `expectedBy` line in the `dependencies` block:
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '1.2-Beta'
+    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
 
     repositories {
-        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
         mavenCentral()
     }
     dependencies {
@@ -109,13 +106,12 @@ buildscript {
 apply plugin: 'kotlin-platform-jvm'
 
 repositories {
-    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
     mavenCentral()
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implement project(":")
+    expectedBy project(":")
     testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
@@ -208,3 +204,14 @@ expect class AtomicRef<V>(value: V) {
 
 actual typealias AtomicRef<V> = java.util.concurrent.atomic.AtomicReference<V>
 ```
+
+## Multiplatform tests
+
+It is possible to write tests in a common project so that they will be compiled and run in each platform project. 
+There are 4 annotations provided in `kotlin.test` package to markup tests in common code: `@Test`, `@Ignore`, 
+`@BeforeTest` and `@AfterTest`.
+In JVM platform these annotations are mapped to the corresponding JUnit 4 annotations, and in JS they are already 
+available since 1.1.4 to support JS unit testing.
+
+In order to use them you need to add a dependency on `kotlin-test-annotations-common` to your common module, on 
+`kotlin-test-junit` to your JVM module, and on `kotlin-test-js` to the JS module.

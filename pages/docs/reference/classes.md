@@ -48,15 +48,35 @@ class Person(firstName: String) {
 ```
 
 The primary constructor cannot contain any code. Initialization code can be placed
-in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword:
+in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword.
+
+During an instance initialization, the initializer blocks are executed in the same order as they appear 
+in the class body, interleaved with the property initializers:
+
+<div class="sample" markdown="1">
 
 ``` kotlin
-class Customer(name: String) {
+//sampleStart
+class InitOrderDemo(name: String) {
+    val firstProperty = "First property: $name".also(::println)
+    
     init {
-        logger.info("Customer initialized with value ${name}")
+        println("First initializer block that prints ${name}")
+    }
+    
+    val secondProperty = "Second property: ${name.length}".also(::println)
+    
+    init {
+        println("Second initializer block that prints ${name.length}")
     }
 }
+//sampleEnd
+
+fun main(args: Array<String>) {
+    InitOrderDemo("hello")
+}
 ```
+</div>
 
 Note that parameters of the primary constructor can be used in the initializer blocks. They can also be used in
 property initializers declared in the class body:
@@ -113,6 +133,32 @@ class Person(val name: String) {
 }
 ```
 
+Note that code in initializer blocks effectively becomes part of the primary constructor. Delegation to the primary
+constructor happens as the first statement of a secondary constructor, so the code in all initializer blocks is executed
+before the secondary constructor body. Even if the class has no primary constructor, the delegation still happens
+implicitly, and the initializer blocks are still executed:
+
+<div class="sample" markdown="1">
+
+``` kotlin
+//sampleStart
+class Constructors {
+    init {
+        println("Init block")
+    }
+
+    constructor(i: Int) {
+        println("Constructor")
+    }
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    Constructors(1)
+}
+```
+</div>
+
 If a non-abstract class does not declare any constructors (primary or secondary), it will have a generated primary
 constructor with no arguments. The visibility of the constructor will be public. If you do not want your class
 to have a public constructor, you need to declare an empty primary constructor with non-default visibility:
@@ -158,13 +204,13 @@ Classes can contain:
 
 ## Inheritance
 
-All classes in Kotlin have a common superclass `Any`, that is a default super for a class with no supertypes declared:
+All classes in Kotlin have a common superclass `Any`, that is the default superclass for a class with no supertypes declared:
 
 ``` kotlin
 class Example // Implicitly inherits from Any
 ```
 
-`Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
+> Note: `Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
 Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
 
 To declare an explicit supertype, we place the type after a colon in the class header:
@@ -175,7 +221,12 @@ open class Base(p: Int)
 class Derived(p: Int) : Base(p)
 ```
 
-If the class has a primary constructor, the base type can (and must) be initialized right there,
+> The *open*{: .keyword } annotation on a class is the opposite of Java's *final*{: .keyword }: it allows others
+to inherit from this class. By default, all classes in Kotlin are final, which
+corresponds to [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
+Item 19: *Design and document for inheritance or else prohibit it*.
+
+If the derived class has a primary constructor, the base class can (and must) be initialized right there,
 using the parameters of the primary constructor.
 
 If the class has no primary constructor, then each secondary constructor has to initialize the base type
@@ -189,11 +240,6 @@ class MyView : View {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 }
 ```
-
-The *open*{: .keyword } annotation on a class is the opposite of Java's *final*{: .keyword }: it allows others
-to inherit from this class. By default, all classes in Kotlin are final, which
-corresponds to [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
-Item 17: *Design and document for inheritance or else prohibit it*.
 
 ### Overriding Methods
 
@@ -251,6 +297,43 @@ class Bar2 : Foo {
     override var count: Int = 0
 }
 ```
+
+### Derived class initialization order
+
+During construction of a new instance of a derived class, the base class initialization is done as the first step (preceded only by evaluation of the arguments for the base class constructor) and thus happens before the initialization logic of the derived class is run. 
+
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
+
+``` kotlin
+//sampleStart
+open class Base(val name: String) {
+
+    init { println("Initializing Base") }
+
+    open val size: Int = 
+        name.length.also { println("Initializing size in Base: $it") }
+}
+
+class Derived(
+    name: String,
+    val lastName: String
+) : Base(name.capitalize().also { println("Argument for Base: $it") }) {
+
+    init { println("Initializing Derived") }
+
+    override val size: Int =
+        (super.size + lastName.length).also { println("Initializing size in Derived: $it") }
+}
+//sampleEnd
+
+fun main(args: Array<String>) {
+    println("Constructing Derived(\"hello\", \"world\")")
+    val d = Derived("hello", "world")
+}
+```
+</div>
+
+It means that, by the time of the base class constructor execution, the properties declared or overridden in the derived class are not yet initialized. If any of those properties are used in the base class initialization logic (either directly or indirectly, through another overridden *open*{: .keyword } member implementation), it may lead to incorrect behavior or a runtime failure. Designing a base class, you should therefore avoid using *open*{: .keyword } members in the constructors, property initializers, and *init*{: .keyword } blocks.
 
 ### Calling the superclass implementation
 

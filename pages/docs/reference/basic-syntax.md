@@ -413,7 +413,7 @@ See [Classes](classes.html) and [Type casts](typecasts.html).
 ``` kotlin
 fun main(args: Array<String>) {
 //sampleStart
-    val items = listOf("apple", "banana", "kiwi")
+    val items = listOf("apple", "banana", "kiwifruit")
     for (item in items) {
         println(item)
     }
@@ -429,7 +429,7 @@ or
 ``` kotlin
 fun main(args: Array<String>) {
 //sampleStart
-    val items = listOf("apple", "banana", "kiwi")
+    val items = listOf("apple", "banana", "kiwifruit")
     for (index in items.indices) {
         println("item at $index is ${items[index]}")
     }
@@ -448,7 +448,7 @@ See [for loop](control-flow.html#for-loops).
 ``` kotlin
 fun main(args: Array<String>) {
 //sampleStart
-    val items = listOf("apple", "banana", "kiwi")
+    val items = listOf("apple", "banana", "kiwifruit")
     var index = 0
     while (index < items.size) {
         println("item at $index is ${items[index]}")
@@ -557,6 +557,7 @@ fun main(args: Array<String>) {
     for (x in 1..10 step 2) {
         print(x)
     }
+    println()
     for (x in 9 downTo 0 step 3) {
         print(x)
     }
@@ -575,7 +576,7 @@ Iterating over a collection:
 
 ``` kotlin
 fun main(args: Array<String>) {
-    val items = listOf("apple", "banana", "kiwi")
+    val items = listOf("apple", "banana", "kiwifruit")
 //sampleStart
     for (item in items) {
         println(item)
@@ -592,7 +593,7 @@ Checking if a collection contains an object using *in*{: .keyword } operator:
 
 ``` kotlin
 fun main(args: Array<String>) {
-    val items = setOf("apple", "banana", "kiwi")
+    val items = setOf("apple", "banana", "kiwifruit")
 //sampleStart
     when {
         "orange" in items -> println("juicy")
@@ -611,7 +612,7 @@ Using lambda expressions to filter and map collections:
 
 ``` kotlin
 fun main(args: Array<String>) {
-    val fruits = listOf("banana", "avocado", "apple", "kiwi")
+    val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
 //sampleStart
     fruits
         .filter { it.startsWith("a") }

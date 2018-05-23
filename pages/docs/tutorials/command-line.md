@@ -44,6 +44,13 @@ If you're a [MacPorts](https://www.macports.org/) user, you can install the comp
    $ sudo port install kotlin
 ```
 
+#### [Snap](https://snapcraft.io/) package
+If you’re on Ubuntu 16.04 or later, you can install the compiler from the command line:
+
+```
+   $ sudo snap install --classic kotlin
+```
+
 ### Creating and running a first application
 
 1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following:

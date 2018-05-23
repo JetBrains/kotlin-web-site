@@ -12,7 +12,7 @@ Classes, objects, interfaces, constructors, functions, properties and their sett
 There are four visibility modifiers in Kotlin: `private`, `protected`, `internal` and `public`.
 The default visibility, used if there is no explicit modifier, is `public`.
 
-Below please find explanations of these for different type of declaring scopes.
+Below please find explanations of how the modifiers apply to different types of declaring scopes.
   
 ## Packages
   
@@ -115,5 +115,5 @@ a module is a set of Kotlin files compiled together:
 
   * an IntelliJ IDEA module;
   * a Maven project;
-  * a Gradle source set;
+  * a Gradle source set (with the exception that the `test` source set can access the internal declarations of `main`);
   * a set of files compiled with one invocation of the <kotlinc> Ant task.

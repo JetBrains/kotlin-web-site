@@ -4,7 +4,7 @@ layout: reference
 title: "Using kapt"
 ---
 
-# Annotation processing with Kotlin
+# Annotation Processing with Kotlin
 
 Annotation processors (see [JSR 269](https://jcp.org/en/jsr/detail?id=269)) are supported in Kotlin with the *kapt* compiler plugin.
 
@@ -39,6 +39,35 @@ dependencies {
 If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config) for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`. If your project contains Java classes, `kapt` will also take care of them.
 
 If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the `kapt` dependency and it will be available both for production sources and tests.
+
+## Annotation Processor Arguments
+
+Use `arguments {}` block to pass arguments to annotation processors:
+
+``` groovy
+kapt {
+    arguments {
+        arg("key", "value")
+    }
+}
+```
+
+## Java Compiler Options
+
+Kapt uses Java compiler to run annotation processors.  
+Here is how you can pass arbitrary options to javac:
+
+``` groovy
+kapt {
+    javacOptions {
+        // Increase the max count of errors from annotation processors.
+        // Default is 100.
+        option("-Xmaxerrs", 500)
+    }
+}
+```
+
+## Non Existent Type Correction
 
 Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures. By default, Kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`, but you can change this behavior. Add the additional flag to the `build.gradle` file to enable error type inferring in stubs:
 
@@ -124,7 +153,7 @@ An example:
 ```
 
 
-## Generating Kotlin sources
+## Generating Kotlin Sources
 
 Kapt can generate Kotlin sources. Just write the generated Kotlin source files to the directory specified by `processingEnv.options["kapt.kotlin.generated"]`, and these files will be compiled together with the main sources.
 
@@ -133,7 +162,7 @@ You can find the complete sample in the [kotlin-examples](https://github.com/Jet
 Note that Kapt does not support multiple rounds for the generated Kotlin files.
 
 
-## AP/javac options encoding
+## AP/Javac Options Encoding
 
 `apoptions` and `javacArguments` CLI options accept an encoded map of options.  
 Here is how you can encode options by yourself:

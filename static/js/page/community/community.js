@@ -33,7 +33,7 @@ $(document).ready(function () {
   $.ajax({
     url: '/assets/images/all_speak_kotlin.svg',
     dataType: 'xml'
-  }).success(function (data) {
+  }).done(function (data) {
     var svgElement = data.documentElement;
     var $imgElement = $('.all-speak-kotlin_img');
     $(svgElement).find('g').each(function (index, element) {

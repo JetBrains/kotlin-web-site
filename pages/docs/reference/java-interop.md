@@ -124,12 +124,35 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
   * Android (`com.android.annotations` and `android.support.annotations`)
-  * JSR-305 (`javax.annotation`)
+  * JSR-305 (`javax.annotation`, more details below)
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`).
 
-You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptor.loader.java/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptors.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+
+### Annotating type parameters
+
+It is possible to annotate type arguments of generic types to provide nullability information for them as well. For example, consider these annotations on a Java declaration:
+
+```java
+@NotNull
+Set<@NotNull String> toSet(@NotNull Collection<@NotNull String> elements) { ... }
+```
+
+It leads to the following signature seen in Kotlin:
+
+```kotlin
+fun toSet(elements: (Mutable)Collection<String>) : (Mutable)Set<String> { ... }
+```
+
+Note the `@NotNull` annotations on `String` type arguments. Without them, we get platform types in the type arguments:
+
+```kotlin
+fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
+```
+
+Annotating type arguments works with Java 8 target or higher and requires the nullability annotations to support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above).
 
 ### JSR-305 Support
 
@@ -168,8 +191,11 @@ public @interface MyNullable {
 }
 
 interface A {
-    @MyNullable String foo(@MyNonnull String x); // seen as `fun foo(x: String): String?`
-    String bar(List<@MyNonnull String> x);       // seen as `fun bar(x: List<String>!): String!`
+    @MyNullable String foo(@MyNonnull String x); 
+    // in Kotlin (strict mode): `fun foo(x: String): String?`
+    
+    String bar(List<@MyNonnull String> x);       
+    // in Kotlin (strict mode): `fun bar(x: List<String>!): String!`
 }
 ```
 
@@ -183,7 +209,9 @@ Such annotation type should itself be annotated with both `@Nonnull` (or its nic
 with one or more `ElementType` values:
 * `ElementType.METHOD` for return types of methods;
 * `ElementType.PARAMETER` for value parameters;
-* `ElementType.FIELD` for fields.
+* `ElementType.FIELD` for fields; and
+* `ElementType.TYPE_USE` (since 1.1.60) for any type including type arguments, upper bounds of type parameters and wildcard types.
+
 
 The default nullability is used when a type itself is not annotated by a nullability annotation, and the default is
 determined by the innermost enclosing element annotated with a type qualifier default annotation with the 
@@ -196,7 +224,7 @@ public @interface NonNullApi {
 }
 
 @Nonnull(when = When.MAYBE)
-@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
+@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE_USE})
 public @interface NullableApi {
 }
 
@@ -207,11 +235,17 @@ interface A {
     @NotNullApi // overriding default from the interface
     String bar(String x, @Nullable String y); // fun bar(x: String, y: String?): String 
     
-    // The type of `x` parameter remains platform because there's explicit UNKNOWN-marked
-    // nullability annotation:
+    // The List<String> type argument is seen as nullable because of `@NullableApi`
+    // having the `TYPE_USE` element type: 
+    String baz(List<String> x); // fun baz(List<String?>?): String?
+
+    // The type of `x` parameter remains platform because there's an explicit
+    // UNKNOWN-marked nullability annotation:
     String qux(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
 }
 ```
+
+> Note: the types in this example only take place with the strict mode enabled, otherwise, the platform types remain. See the [`@UnderMigration` annotation](#undermigration-annotation-since-1160) and [Compiler configuration](#compiler-configuration) sections.
 
 Package-level default nullability is also supported:
 
@@ -221,16 +255,68 @@ Package-level default nullability is also supported:
 package test;
 ```
 
+#### `@UnderMigration` annotation (since 1.1.60)
+
+The `@UnderMigration` annotation (provided in a separate artifact `kotlin-annotations-jvm`) can be used by library 
+maintainers to define the migration status for the nullability type qualifiers.
+
+The status value in `@UnderMigration(status = ...)` specifies how the compiler treats inappropriate usages of the 
+annotated types in Kotlin (e.g. using a `@MyNullable`-annotated type value as non-null):
+
+* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. report errors for 
+the inappropriate usages and affect the types in the annotated declarations as they are seen in Kotlin;
+
+* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors, 
+but the types in the annotated declarations remain platform; and
+
+* `MigrationStatus.IGNORE` makes the compiler ignore the nullability annotation completely.
+
+A library maintainer can add `@UnderMigration` status to both type qualifier nicknames and type qualifier defaults:  
+
+```java
+@Nonnull(when = When.ALWAYS)
+@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
+@UnderMigration(status = MigrationStatus.WARN)
+public @interface NonNullApi {
+}
+
+// The types in the class are non-null, but only warnings are reported
+// because `@NonNullApi` is annotated `@UnderMigration(status = MigrationStatus.WARN)`
+@NonNullApi 
+public class Test {}
+```
+
+Note: the migration status of a nullability annotation is not inherited by its type qualifier nicknames but is applied
+to its usages in default type qualifiers.
+
+If a default type qualifier uses a type qualifier nickname and they are both `@UnderMigration`, the status
+from the default type qualifier is used. 
+
 #### Compiler configuration
 
-The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with one of the values:
+The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with the following options (and their combination):
 
-* `-Xjsr305=strict` makes JSR-305 annotation work as any plain nullability annotation, i.e. reporting error for 
-the inappropriate usages of the annotated types;
+* `-Xjsr305={strict|warn|ignore}` to set up the behavior for non-`@UnderMigration` annotations.
+Custom nullability qualifiers, especially 
+`@TypeQualifierDefault`, are already spread among many well-known libraries, and users may need to migrate smoothly when 
+updating to the Kotlin version containing JSR-305 support. Since Kotlin 1.1.60, this flag only affects non-`@UnderMigration` annotations.
 
-* `-Xjsr305=warn` makes the inappropriate usages produce compilation warnings instead of errors;
+* `-Xjsr305=under-migration:{strict|warn|ignore}` (since 1.1.60) to override the behavior for the `@UnderMigration` annotations.
+Users may have different view on the migration status for the libraries: 
+they may want to have errors while the official migration status is `WARN`, or vice versa, 
+they may wish to postpone errors reporting for some until they complete their migration.
 
-* `-Xjsr305=ignore` makes the compiler ignore the JSR-305 nullability annotations completely.
+* `-Xjsr305=@<fq.name>:{strict|warn|ignore}` (since 1.1.60) to override the behavior for a single annotation, where `<fq.name>` 
+is the fully qualified class name of the annotation. May appear several times for different annotations. This is useful
+for managing the migration state for a particular library.
+
+The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`, and only the `strict` mode affects the types in the annotated declarations as they are seen in Kotlin.
+
+> Note: the built-in JSR-305 annotations [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html), [`@Nullable`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nullable.html) and [`@CheckForNull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/CheckForNull.html) are always enabled and affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
+
+For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the 
+compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by 
+`@org.library.MyNullable` and ignore all other JSR-305 annotations. 
 
 For kotlin versions 1.1.50+/1.2, the default behavior is the same to `-Xjsr305=warn`. The
 `strict` value should be considered experimental (more checks may be added to it in the future).
@@ -309,6 +395,8 @@ Java's arrays are mapped as mentioned [below](java-interop.html#java-arrays):
 | `String[]`    | `kotlin.Array<(out) String>!` |
 {:.zebra}
 
+Note: the static members of these Java types are not directly accessible on the [companion objects](object-declarations.html#companion-objects) of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(foo)`.
+
 ## Java generics in Kotlin
 
 Kotlin's generics are a little different from Java's (see [Generics](generics.html)). When importing Java types to Kotlin we perform some conversions:
@@ -365,7 +453,7 @@ When compiling to JVM byte codes, the compiler optimizes access to arrays so tha
 
 ``` kotlin
 val array = arrayOf(1, 2, 3, 4)
-array[x] = array[x] * 2 // no actual calls to get() and set() generated
+array[1] = array[1] * 2 // no actual calls to get() and set() generated
 for (x in array) { // no iterator created
     print(x)
 }
@@ -438,7 +526,7 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 
 ### wait()/notify()
 
-[Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html) Item 69 kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
+[Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html) Item 81 kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
 Thus, these methods are not available on references of type `Any`.
 If you really need to call them, you can cast to `java.lang.Object`:
 
@@ -471,7 +559,7 @@ class Example : Cloneable {
 }
 ```
 
- Do not forget about [Effective Java](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 11: *Override clone judiciously*.
+ Do not forget about [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 13: *Override clone judiciously*.
 
 ### finalize()
 
@@ -501,6 +589,8 @@ if (Character.isLetter(a)) {
     // ...
 }
 ```
+
+To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the full qualified name of the Java type: `java.lang.Integer.bitCount(foo)`.
 
 ## Java Reflection
 
