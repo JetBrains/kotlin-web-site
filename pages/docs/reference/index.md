@@ -17,6 +17,11 @@ Once you get an idea of what Kotlin looks like, try solving some [Kotlin Koans](
 If you are not sure how to solve a Koan, or you're looking for a more elegant solution, check out [Kotlin idioms](idioms.html).
 
 
-### Browse offline
+### Browse Offline
 You can download the entire reference documentation as a single [PDF file]({{ site.pdf_url }}).
 
+
+### Kotlin Training
+Get Kotlin Training from JetBrains and Certified Partners or apply to get your own Kotlin
+training program certified. 
+For more details check out the [Kotlin Training Certified by JetBrains page](https://www.jetbrains.com/company/partners/kotlin/)
