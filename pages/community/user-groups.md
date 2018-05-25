@@ -2,7 +2,7 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (150)
+# Kotlin User Groups (151)
  
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -19,6 +19,7 @@ title: Kotlin User Groups
  * [Bucharest Kotlin User Group](https://www.meetup.com/kug-bucharest/), Romania
  * [Budapest Kotlin User Group](https://www.facebook.com/groups/KotlinBudapest/), Hungary
  * [Cologne Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref), Germany
+ * [Cosenza Kotlin User Group](https://www.facebook.com/groups/251720265392355), Italy
  * [Croatia Kotlin User Group](https://www.meetup.com/Croatia-Kotlin-User-Group-Meetup/), Croatia
  * [Czech Kotlin User Group](https://www.facebook.com/czkug/), Czech Republic
  * [Dnipro Kotlin User Group](https://www.meetup.com/Kotlin-Dnipro/), Ukraine
@@ -188,7 +189,7 @@ title: Kotlin User Groups
 
 If you are a leader of active user group and it’s not in a list, please, let us know that there is a Kotlin User Group. We will share the information with others on this site. 
 
-**[Submit a New Kotlin User Group](https://docs.google.com/forms/d/e/1FAIpQLSdkLbD_SPbXZDVW2nQPgUiLCW4HOSXysOVK1jPLcShPfyhkNA/viewform)**
+**[Submit a New Kotlin User Group](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group)**
 
 ## Guidelines
 * User groups provide activities to support professionals interested in a technology
@@ -201,8 +202,8 @@ If you are a leader of active user group and it’s not in a list, please, let u
 * Kotlin swag for the attendees of your user group;
 * Design materials – logos, design, promo materials; 
 * Spreading the word about your user group in Kotlin official media channels and our network (speakers and regional partners recommendations could be possible);
-* Licenses of our products to raffle out at your meetups;
-* If you are looking for monetary support or any other type of sponsorships, see Events partnership
+* JetBrains product licenses to raffle out at your meetups. To receive free licenses, please, [fill out the form](https://www.jetbrains.com/community/support/?fromMenu#section=communities);
+* If you are looking for monetary support or any other type of sponsorships, please contact us at sponsorships@jetbrains.com
 
 
 If you feel like you need more ideas or advice on user group launch, contact [alina@jetbrains.com](mailto:alina@jetbrains.com)

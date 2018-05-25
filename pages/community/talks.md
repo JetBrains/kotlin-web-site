@@ -4,7 +4,7 @@ title: Kotlin Events
 
 # Kotlin talks and speakers support
 
-If you are a Kotlin speaker, please let us know about your upcoming talks via filling out [this form](https://goo.gl/forms/K2zEzJj3nBdcgOYh2)
+If you are a Kotlin speaker, please let us know about your upcoming talks via filling out [this form](https://surveys.jetbrains.com/s3/Submit-a-Kotlin-Talk)
 and we will announce your talks at kotlinlang.org. We'll also be glad to ship a t-shirt for you and some stickers and swag for the attendees of your event.
 
 <br/>
