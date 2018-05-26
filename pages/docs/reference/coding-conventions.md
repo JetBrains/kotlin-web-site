@@ -803,8 +803,11 @@ To maintain indentation in multiline strings, use `trimIndent` when the resultin
 indentation, or `trimMargin` when internal indentation is required:
 
 ``` kotlin
-assertEquals("""Foo
-                Bar""".trimIndent(), value)
+assertEquals(
+    """
+    Foo
+    Bar""".trimIndent(), value
+)
 
 val a = """if(a > 1) {
           |    return a
