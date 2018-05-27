@@ -177,6 +177,36 @@ class C {
 }
 ```
 
+### Extension names
+
+If a class has a member function, and an extension function is defined which has the same receiver type, the same name and is applicable to given arguments, the member always wins. This may cause trouble in the future. The extension code that can run is not not compatible with the old library in the future.
+
+#### Same author's Extension
+
+If we define a extension functions/properties for the library we write, use the name start with a lower case letter and use camel humps and no underscores.
+
+``` kotlin
+class C {
+}
+
+// the same author wrote the foo extension
+fun C.foo() { println("same author's extension") }
+```
+
+#### Third-party Extension
+
+If we define a extension functions/properties for the library we can't control, use the name start with a underscore followed by a lower case letter and use camel humps and no underscores.
+
+
+``` kotlin
+class C {
+    fun foo() { println("member") }
+}
+
+// third-part extension's name should start with underscore
+fun C._foo() { println("third-part extension") }
+```
+
 ### Choosing good names
 
 The name of a class is usually a noun or a noun phrase explaining what the class _is_: `List`, `PersonReader`.
