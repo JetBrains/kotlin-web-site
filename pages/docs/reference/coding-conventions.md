@@ -806,7 +806,9 @@ indentation, or `trimMargin` when internal indentation is required:
 assertEquals(
     """
     Foo
-    Bar""".trimIndent(), value
+    Bar
+    """.trimIndent(), 
+    value
 )
 
 val a = """if(a > 1) {
