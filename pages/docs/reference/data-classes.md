@@ -50,6 +50,41 @@ On the JVM, if the generated class needs to have a parameterless constructor, de
 data class User(val name: String = "", val age: Int = 0)
 ```
 
+## Properties Declared in the Class Body
+
+Note that the compiler only uses the properties defined inside the primary constructor for the automatically generated functions. To exclude a property from the generated implementations, declare it inside the class body:
+
+```kotlin
+data class Person(val name: String) {
+    var age: Int = 0
+}
+```
+
+Only the property `name` will be used inside the `toString()`, `equals()`, `hashCode()`, and `copy()` implementations, and there will only be one component function `component1()`. While two `Person` objects can have different ages, they will be treated as equal.
+
+<div class="sample" markdown="1" data-min-compiler-version="1.2">
+
+``` kotlin
+data class Person(val name: String) {
+    var age: Int = 0
+}
+
+fun main(args: Array<String>) {
+    //sampleStart
+    val person1 = Person("John")
+    val person2 = Person("John")
+
+    person1.age = 10
+    person2.age = 20
+    //sampleEnd
+
+    println("person1 == person2: ${person1 == person2}")
+    println("person1 with age ${person1.age}: ${person1}")
+    println("person2 with age ${person2.age}: ${person2}")
+}
+```
+</div>
+
 ## Copying
   
 It's often the case that we need to copy an object altering _some_ of its properties, but keeping the rest unchanged. 

@@ -64,7 +64,16 @@ runDceKotlinJs.keep "kotlin-js-example_main.org.jetbrains.kotlin.examples.toKeep
 
 Note that if your function has parameters, its name will be mangled, so the mangled name should be used in the keep directive.
 
+### Development mode
 
+Running DCE takes a bit of extra time each build, and the output size does not matter during development. You can improve development builds time by making the DCE tool skip actual dead code elimination with the `dceOptions.devMode` flag of the DCE tasks.
+
+For example, to disable DCE based on a custom condition for the `main` source set and always for the `test` code, add the following lines to the build script:
+
+```groovy
+runDceKotlinJs.dceOptions.devMode = isDevMode
+runDceTestKotlinJs.dceOptions.devMode = true 
+```
 # Example
 
 A full example that shows how to integrate Kotlin with DCE and webpack to get a small bundle,

@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  website:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    ports:
+      - 5000:5000
+    volumes:
+      - ./:/src
+    working_dir: /src
