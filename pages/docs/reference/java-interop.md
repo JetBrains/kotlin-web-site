@@ -50,7 +50,7 @@ fun calendarDemo() {
     }
 }
 ```
-
+Note that,  While generating a property for a Java getter/setter pair Kotlin at first looks for a getter. The getter is enough to infer the type of property from the type of the getter. When a setter comes into play, property generation process becomes a bit ambiguous. The reason is that the getter and the setter may have different type. Moreover, the getter and/or the setter may be overridden in a subclass . ( For more documentation of this feature , follow this link https://medium.com/@er.abhishek.luthra/how-does-kotlin-generated-property-from-java-getters-and-setters-undocumented-by-jetbrains-7e1ad88052b1 )
 Note that, if the Java class only has a setter, it will not be visible as a property in Kotlin, because Kotlin does not support set-only properties at this time.
 
 ## Methods returning void
