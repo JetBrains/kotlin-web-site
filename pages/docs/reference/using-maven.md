@@ -137,6 +137,9 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
                     <id>java-test-compile</id>
                     <phase>test-compile</phase>
                     <goals> <goal>testCompile</goal> </goals>
+                    <configuration>
+                        <skip>${maven.test.skip}</skip>
+                    </configuration>
                 </execution>
             </executions>
         </plugin>
