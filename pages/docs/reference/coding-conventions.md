@@ -542,7 +542,7 @@ Put spaces around the `=` sign separating the argument name and value.
 
 ### Chained call wrapping
 
-When wrapping chained calls, put the . character or the `?.` operator on the next line, with a single indent:
+When wrapping chained calls, put the `.` character or the `?.` operator on the next line, with a single indent:
 
 ``` kotlin
 val anchor = owner
