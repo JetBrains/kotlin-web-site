@@ -244,7 +244,7 @@ For example, if the type is declared as `interface Function<in T, out U>` we can
 
 ## Generic functions
 
-Not only classes can have type parameters. Functions can, too. Type parameters are placed before the name of the function:
+Not only classes can have type parameters. Functions can, too. Type parameters are placed **before** the name of the function:
 
 ``` kotlin
 fun <T> singletonList(item: T): List<T> {
