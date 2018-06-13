@@ -1,7 +1,7 @@
 url: https://github.com/JetBrains/kotlin/releases
 
 latest:
-  version: 1.2.41
-  url: https://github.com/JetBrains/kotlin/releases/tag/v1.2.41
-  runtime_size: 943KB
-  date: April 28, 2018
+  version: 1.2.50
+  url: https://github.com/JetBrains/kotlin/releases/tag/v1.2.50
+  runtime_size: 962KB
+  date: June 14, 2018
