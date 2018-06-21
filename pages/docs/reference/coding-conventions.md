@@ -778,8 +778,8 @@ If you need to use a nullable `Boolean` in a conditional statement, use `if (val
 
 ### Using loops
 
-Prefer using higher-order functions (`filter`, `map` etc.) to loops. Exception: `forEach` (prefer using a regular `for` loop instead,
-unless the receiver of `forEach` is nullable or `forEach` is used as part of a longer call chain).
+Prefer using higher-order functions (`filter`, `map` etc.) to loops. Exception: `forEach` and `onEach` (prefer using a regular `for` loop instead,
+unless the receiver of `forEach` is nullable or `onEach` is used as part of a longer call chain).
 
 When making a choice between a complex expression using multiple higher-order functions and a loop, understand the cost
 of the operations being performed in each case and keep performance considerations in mind. 
