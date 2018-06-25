@@ -95,7 +95,7 @@ external fun sayHello(name: String)
 ### Applying `@JsModule` to packages
 
 Some JavaScript libraries export packages (namespaces) instead of functions and classes.
-In terms of JavaScript is's an object that has members that *are* classes, functions and properties.
+In terms of JavaScript, it's an object that has members that *are* classes, functions and properties.
 Importing these packages as Kotlin objects often looks unnatural.
 The compiler allows to map imported JavaScript packages to Kotlin packages, using the following notation:
 
