@@ -95,11 +95,11 @@ fun main(args: Array<String>) {
 ```
 
 ### Running the application
-We can now use the any of the standard Gradle tasks for Spring Boot to run the application. As such, running
+We can now use any of the standard Gradle tasks for Spring Boot to run the application. As such, running
 
     ./gradlew bootRun
 
-the application is compiled, resources bundled and launched, allowing us to access is via the browser (default port is 8080)
+the application is compiled, resources bundled and launched, allowing us to access it via the browser (default port is 8080)
 
 ![Running App]({{ url_for('tutorial_img', filename='spring-boot-restful/running-app.png')}})
 
