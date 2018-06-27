@@ -260,9 +260,10 @@ C().caller(D1())  // prints "D.foo in C" - extension receiver is resolved static
 
 ## Note on visibility
 
-Extensions utilize the same [visibility of other entities](visibility-modifiers.html) as a regular function declared in the same scope would.
-E.g. if an extension is declared outside of its receiver such an extension cannot access the receiver's private members;
-or an extension declared on the top level of a package does have access to entities of `internal` visibility.
+Extensions utilize the same [visibility of other entities](visibility-modifiers.html) as regular functions declared in the same scope would. For example:
+
+* An extension declared on top level of a file has access to the other `private` top-level declarations in the same file;
+* If an extension is declared outside its receiver type, such an extension cannot access the receiver's `private` members.
 
 ## Motivation
 
