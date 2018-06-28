@@ -24,4 +24,4 @@ You can download the entire reference documentation as a single [PDF file]({{ si
 ### Kotlin Training
 Get Kotlin Training from JetBrains and Certified Partners or apply to get your own Kotlin
 training program certified. 
-For more details check out the [Kotlin Training Certified by JetBrains page](https://www.jetbrains.com/company/partners/kotlin/)
+For more details check out the [Kotlin Training Certified by JetBrains page](https://www.jetbrains.com/company/partners/kotlin/).
