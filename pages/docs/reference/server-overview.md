@@ -30,8 +30,7 @@ starting with version 5.0. The [online project generator](https://start.spring.i
  * [Vert.x](http://vertx.io), a framework for building reactive Web applications on the JVM, offers [dedicated support](https://github.com/vert-x3/vertx-lang-kotlin)
 for Kotlin, including [full documentation](http://vertx.io/docs/vertx-core/kotlin/).
 
- * [Ktor](https://github.com/kotlin/ktor) is a Kotlin-native Web framework built by JetBrains, making use of coroutines
-for high scalability and offering an easy-to-use and idiomatic API.
+ * [Ktor](https://github.com/kotlin/ktor) Ktor is a framework built by JetBrains for creating Web applications in Kotlin, making use of coroutines for high scalability and offering an easy-to-use and idiomatic API.
 
  * [kotlinx.html](https://github.com/kotlin/kotlinx.html) is a DSL that can be used to build HTML in a Web application.
 It serves as an alternative to traditional templating systems such as JSP and FreeMarker.
