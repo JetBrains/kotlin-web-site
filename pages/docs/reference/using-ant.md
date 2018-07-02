@@ -32,7 +32,7 @@ When the project consists of exclusively Kotlin source code, the easiest way to 
 </project>
 ```
 
-where ${kotlin.lib} points to the folder where the Kotlin standalone compiler was unzipped.
+where `${kotlin.lib}` points to the folder where the Kotlin standalone compiler was unzipped.
 
 ## Targeting JVM with Kotlin-only source and multiple roots
 
