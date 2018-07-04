@@ -1516,9 +1516,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codemirror@5.35.0:
-  version "5.35.0"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.35.0.tgz#280653d495455bc66aa87e6284292b02775ba878"
+codemirror@5.39.0:
+  version "5.39.0"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.39.0.tgz#4654f7d2f7e525e04a62e72d9482348ccb37dce5"
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -3548,9 +3548,9 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-kotlin-runcode@^1.0.6:
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/kotlin-runcode/-/kotlin-runcode-1.0.25.tgz#1132baff7885a7939cc928a5af7b55475b645651"
+kotlin-playground@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.7.0.tgz#a65163e88f61d08d358ed59702d9b3615b9a16e9"
 
 lazy-cache@^0.2.3:
   version "0.2.7"

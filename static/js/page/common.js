@@ -1,4 +1,4 @@
-import executableCode from 'kotlin-runcode';
+import kotlinPlayground from 'kotlin-playground';
 import $ from 'jquery';
 import 'whatwg-fetch';
 
@@ -8,7 +8,7 @@ import '../com/tel-aviv-banner';
 import CodeMirror from '../com/codemirror/CodeMirror';
 
 $(document).ready(function () {
-  executableCode('.sample');
+  kotlinPlayground('.sample');
 
   CodeMirror.colorize($('.code._highlighted'));
 
