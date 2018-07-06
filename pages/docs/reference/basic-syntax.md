@@ -11,6 +11,7 @@ title: "Basic Syntax"
 
 Package specification should be at the top of the source file:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 package my.demo
 
@@ -18,6 +19,7 @@ import java.util.*
 
 // ...
 ```
+</div>
 
 It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
 
@@ -27,7 +29,7 @@ See [Packages](packages.html).
 
 Function having two `Int` parameters with `Int` return type:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -45,7 +47,7 @@ fun main(args: Array<String>) {
 
 Function with an expression body and inferred return type:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -60,7 +62,7 @@ fun main(args: Array<String>) {
 
 Function returning no meaningful value:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -77,7 +79,7 @@ fun main(args: Array<String>) {
 
 `Unit` return type can be omitted:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -98,7 +100,7 @@ See [Functions](functions.html).
 
 Assign-once (read-only) local variable:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -115,7 +117,7 @@ fun main(args: Array<String>) {
 
 Mutable variable:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -130,7 +132,7 @@ fun main(args: Array<String>) {
 
 Top-level variables:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
 //sampleStart
 val PI = 3.14
@@ -170,7 +172,7 @@ See [Documenting Kotlin Code](kotlin-doc.html) for information on the documentat
 
 ## Using string templates
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -193,7 +195,7 @@ See [String templates](basic-types.html#string-templates).
 ## Using conditional expressions
 
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -215,7 +217,7 @@ fun main(args: Array<String>) {
 
 Using *if*{: .keyword } as an expression:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -236,16 +238,18 @@ A reference must be explicitly marked as nullable when *null*{: .keyword } value
 
 Return *null*{: .keyword } if `str` does not hold an integer:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun parseInt(str: String): Int? {
     // ...
 }
 ```
+</div>
 
 Use a function returning nullable value:
 
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -280,7 +284,7 @@ fun main(args: Array<String>) {
 or
 
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -323,7 +327,7 @@ The *is*{: .keyword } operator checks if an expression is an instance of a type.
 If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
 
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -352,7 +356,7 @@ fun main(args: Array<String>) {
 
 or
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -378,7 +382,7 @@ fun main(args: Array<String>) {
 
 or even
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -408,7 +412,7 @@ See [Classes](classes.html) and [Type casts](typecasts.html).
 
 ## Using a `for` loop
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -424,7 +428,7 @@ fun main(args: Array<String>) {
 
 or
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -443,7 +447,7 @@ See [for loop](control-flow.html#for-loops).
 
 ## Using a `while` loop
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -464,7 +468,7 @@ See [while loop](control-flow.html#while-loops).
 
 ## Using `when` expression
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -495,7 +499,7 @@ See [when expression](control-flow.html#when-expression).
 
 Check if a number is within a range using *in*{: .keyword } operator:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -513,7 +517,7 @@ fun main(args: Array<String>) {
 
 Check if a number is out of range:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -534,7 +538,7 @@ fun main(args: Array<String>) {
 
 Iterating over a range:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -549,7 +553,7 @@ fun main(args: Array<String>) {
 
 or over a progression:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -572,7 +576,7 @@ See [Ranges](ranges.html).
 
 Iterating over a collection:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -589,7 +593,7 @@ fun main(args: Array<String>) {
 
 Checking if a collection contains an object using *in*{: .keyword } operator:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -608,17 +612,17 @@ fun main(args: Array<String>) {
 Using lambda expressions to filter and map collections:
 
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea" auto-indent="false" indent="2">
 
 ``` kotlin
 fun main(args: Array<String>) {
-    val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
 //sampleStart
-    fruits
-        .filter { it.startsWith("a") }
-        .sortedBy { it }
-        .map { it.toUpperCase() }
-        .forEach { println(it) }
+  val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
+  fruits
+      .filter { it.startsWith("a") }
+      .sortedBy { it }
+      .map { it.toUpperCase() }
+      .forEach { println(it) }
 //sampleEnd
 }
 ```
@@ -628,7 +632,7 @@ See [Higher-order functions and Lambdas](lambdas.html).
 
 ## Creating basic classes and their instances:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 fun main(args: Array<String>) {
