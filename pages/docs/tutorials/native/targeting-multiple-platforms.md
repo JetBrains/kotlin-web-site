@@ -2,14 +2,14 @@
 type: tutorial
 layout: tutorial
 title:  "Targeting Multiple Platforms"
-description: "Compiling with Kotlin/Native for multiple platforms"
+description: "Compiling with Kotlin/Native for different platforms"
 authors: Eugene Petrenko
 date: 2018-07-10
 showAuthorInfo: false
 issue: EVAN-5121
 ---
 
-Targeting multiple platforms. With Kotlin/Native we are able to target 
+With Kotlin/Native we are able to target to 
 the following platforms, including (as of Kotlin/Native v0.8): 
 - Windows (x86_64),
 - Linux (x86_64, arm32, MIPS, MIPS little endian),
@@ -25,19 +25,21 @@ In this tutorial, we'll see how to
 * [Build for a Specific Platform](#building-for-a-specific-platform)
 * [Build a Console Utility for several OSes](#building-a-console-utility)
 
-The very first step. We need to have Kotlin/Native compiler on our machines. 
-We have already covered that step in 
+We need to have Kotlin/Native compiler on our machines. 
+The step is already covered in 
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial.
-Let's assume we have a console, where `kotlinc` command is available. 
+Let's assume we have a console, where `kotlinc` (or the older `konanc`) command is available. 
 
 ## Specifying Target Platform
 
 The list of supported target platforms of `kotlinc` depends 
 on the operating system where you run it. We may list them via 
+
 ```bash
 kotlinc -list_targets
 ```
+
 command. For example, on macOS X with Kotlin/Native v0.8:
 ```
 > kotlinc -list_targets
@@ -50,7 +52,9 @@ android_arm64:
 wasm32:
 zephyr_stm32f4_disco:
 ```
-And for Linux with Kotlin/Native v0.8 we have:
+
+For Linux with Kotlin/Native v0.8 we have:
+
 ```
 > kotlinc -list_targets
 linux_x64:                    (default) linux
@@ -63,7 +67,7 @@ wasm32:
 zephyr_stm32f4_disco:
 ```
 
-On Windows with Kotlin/Native v0.8:
+On Windows with Kotlin/Native v0.8 it shows:
 ```
 > kotlinc -list_targets
 mingw_x64:                    (default) mingw
@@ -71,7 +75,7 @@ wasm32:
 zephyr_stm32f4_disco:
 ```
 
-The set of target of Kotlin/Native compiler depends on the host operation system.
+The set of targets of Kotlin/Native compiler depends on the host operation system.
 We may specify target explicitly with `-target <name>` argument. The default target 
 is highlighted with `(default)` and used if no `-target` argument was 
 specified.
@@ -97,7 +101,7 @@ the compiler on where to create the compiled binary, e.g. to build for iOS emula
 
 We use the command 
 ```bash
-    kotlinc -target ios_arm64 -output bin/ios_x64 main.kt
+    kotlinc -target ios_arm64 -output bin/ios_arm64 main.kt
 ```
 to create a binary for fresh iPhone supporting arm64. 
 
@@ -112,8 +116,9 @@ for those OSes. So on each of the operation systems we call the compiler:
 ```
 
 There is no need to specify `-target` parameter explicitly, because 
-the default value will work the best on every OS.  
-
+the default value will work the best on every OS. 
+A [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration)
+may be used to automate and simplify the process. 
 
 ## Next Steps
 
