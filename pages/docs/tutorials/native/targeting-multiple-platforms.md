@@ -4,50 +4,81 @@ layout: tutorial
 title:  "Targeting Multiple Platforms"
 description: "Compiling with Kotlin/Native for multiple platforms"
 authors: Eugene Petrenko
-date: 2018-04-03
+date: 2018-07-10
 showAuthorInfo: false
-## /*EVAN-5121*/
+issue: EVAN-5121
 ---
 
-Kotlin/Native support compiling code for different platforms including
-Windows (x86_64),
-Linux (x86_64, arm32, MIPS, MIPS little endian),
-MacOS (x86_64),
-iOS (arm64),
-Android (arm32, arm64),
-WebAssembly (wasm32).
+Targeting multiple platforms. With Kotlin/Native we are able to target 
+the following platforms, including (as of Kotlin/Native v0.8): 
+- Windows (x86_64),
+- Linux (x86_64, arm32, MIPS, MIPS little endian),
+- MacOS (x86_64),
+- iOS (arm32, arm64, x64),
+- Android (arm32, arm64),
+- STM32
+- WebAssembly (wasm32).
+
 In this tutorial, we'll see how to
 
 * [Specify a Target Platform](#specifying-target-platform)
 * [Build for a Specific Platform](#building-for-a-specific-platform)
-* [Build a Console Utility](#building-a-console-utility)
+* [Build a Console Utility for several OSes](#building-a-console-utility)
 
-To start with you need to have Kotlin/Native compiler on your machine. Check out to the 
-[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler) tutorial for the instructions.
-We assume that you have `konanc` command available in console.
+The very first step. We need to have Kotlin/Native compiler on our machines. 
+We have already covered that step in 
+[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
+tutorial.
+Let's assume we have a console, where `kotlinc` command is available. 
 
 ## Specifying Target Platform
 
-The list of supported target platforms of `konanc` depends 
-on the operating system. You may list them via `konanc -list_targets`
-console command. For example, on macOS (OS X) with Kotlin/Native v0.6.2:
+The list of supported target platforms of `kotlinc` depends 
+on the operating system where you run it. We may list them via 
+```bash
+kotlinc -list_targets
 ```
-konanc -list_targets
-macbook:                      (default)
-iphone:
-iphone_sim:
+command. For example, on macOS X with Kotlin/Native v0.8:
+```
+> kotlinc -list_targets
+macos_x64:                    (default) macbook, macos, imac
+ios_arm32:                              iphone32
+ios_arm64:                              iphone, ipad, ios
+ios_x64:                                iphone_sim
+android_arm32:
+android_arm64:
+wasm32:
+zephyr_stm32f4_disco:
+```
+And for Linux with Kotlin/Native v0.8 we have:
+```
+> kotlinc -list_targets
+linux_x64:                    (default) linux
+linux_arm32_hfp:                        raspberrypi
+linux_mips32:
+linux_mipsel32:
 android_arm32:
 android_arm64:
 wasm32:
 zephyr_stm32f4_disco:
 ```
 
-The default target is highlighted with `(default)` and used if no `-target` argument was 
+On Windows with Kotlin/Native v0.8:
+```
+> kotlinc -list_targets
+mingw_x64:                    (default) mingw
+wasm32:
+zephyr_stm32f4_disco:
+```
+
+The set of target of Kotlin/Native compiler depends on the host operation system.
+We may specify target explicitly with `-target <name>` argument. The default target 
+is highlighted with `(default)` and used if no `-target` argument was 
 specified.
 
 ## Building for a Specific Platform
 
-Let's create a sample Kotlin/Native program and save it as `main.kt`. You may checkout 
+Let's create a sample Kotlin/Native program and save it as `main.kt`. You may see the previous tutorial 
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#creating-hello-kotlin) for more details.
 
 ```kotlin
@@ -56,22 +87,38 @@ fun main(args: Array<String>) {
 }
 ```
 
-We use `-target` argument of the `konanc` to specify the platform. It is also 
-helpful to use `-output` to clearly 
-the compiler on where to create the compiled binary, e.g. to build for `iphone` target on macOS:
+We use `-target` argument of the `kotlinc` to specify the platform. It is also 
+helpful to use `-output` to clearly instruct
+the compiler on where to create the compiled binary, e.g. to build for iOS emulator on macOS we use:
 
-    konanc -target iphone -output bin/iphone main.kt
+```bash
+    kotlinc -target ios_x64 -output bin/ios_x64 main.kt
+``` 
+
+We use the command 
+```bash
+    kotlinc -target ios_arm64 -output bin/ios_x64 main.kt
+```
+to create a binary for fresh iPhone supporting arm64. 
 
 ## Building a Console Utility
 
-We call Kotlin/Native compiler on every OS, namely, Windows, macOS and Linux, 
-to produce the OS-specific binaries:
+We saw above that the set of supported target platforms depends on the host operation system. 
+It is required to run the compiler on Windows, macOS and Linux to create a console application 
+for those OSes. So on each of the operation systems we call the compiler:
 
-    konanc main.kt
+```bash
+    kotlinc main.kt
+```
 
-There is no need to specify `-target` parameter explicitly because 
-the default value will work the best.  
+There is no need to specify `-target` parameter explicitly, because 
+the default value will work the best on every OS.  
 
-[Gradle build system](gradle-for-kotlin-native.html) helps to simplify
-the setup for every operating system. It helps to download and run 
-Kotlin/Native compiler on a build machine
+
+## Next Steps
+
+Build tools helps to deal with compiler arguments. You may probably 
+like using [Gradle build system](gradle-for-kotlin-native.html) for your project. 
+Gradle with Kotlin/Native plugin simplify the setup for every operating system, download and run 
+Kotlin/Native compiler for you easier. 
+
