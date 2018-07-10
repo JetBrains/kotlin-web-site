@@ -208,9 +208,8 @@ Also, smart casts in a lambda are now allowed for local variables that are only 
 
 ```kotlin
 fun main(args: Array<String>) {
-    val flag = args.size == 0
-    
     //sampleStart
+    val flag = args.size == 0
     var x: String? = null
     if (flag) x = "Yahoo!"
 
