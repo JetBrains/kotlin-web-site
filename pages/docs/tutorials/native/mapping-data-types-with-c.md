@@ -14,24 +14,29 @@ In this tutorial we learn how C types are visible in Kotlin/Native and vice vers
 - [Data Types in C Language](#types-in-c-language)
 - Primitive types and [Example C Library](#example-c-library)
 - [Primitive Types in Kotlin/Native](#primitive-types-in-kotlinnative)
+- [Struct and Union C types](#struct-and-union-c-types)
 - C types maps to Kotlin types
 - C function pointers and their mapping in Kotlin/Native
 - And something more (TODO)
+- Strings? (TODO)
 
 ## Types in C Language
 
 What data types do we have in C language? Let's first all of them. I use the
 [C data types](https://en.wikipedia.org/wiki/C_data_types) article from Wikipedia.
 It shows the following types groups:
-- basic types: `char, int, float, double` with modifiers `signed, unsigned, short, long`
+- basic types: `char, int, float, double`
+- structures, unions, arrays
+- pointers
+- function pointers
+
+There are also more specific types, that we are not going to cover:
 - boolean type (from [C99](https://en.wikipedia.org/wiki/C99))
 - `size_t` and `ptrdiff_t` (also `ssize_t`)
 - fixed width integer types, e.g. `int32_t` or `uint64_t` (from [C99](https://en.wikipedia.org/wiki/C99))
-- structures
-- unions
-- arrays
-- pointers
-- function pointers
+
+In C language one have several modifiers like `signed, unsigned, short, long`. And modifiers like 
+`const`, `volatile`, `restruct`, `atomic`.
 
 The best way to see how C data types are visible in Kotlin/Native is to try it. We create a 
 C library using all those types and see how Kotlin/Native uses it. You may check 
@@ -92,7 +97,7 @@ cinterop -def lib.def -compilerOpts "-I$(pwd)" -o lib.klib
 
 The `cinterop` tool generated us the following API code:
 
-*TODO: How do I see the generated API from console?*
+**TODO: How do I see the generated API from console?**
 
 ```kotlin
 
@@ -113,4 +118,66 @@ As we see, types mapped in the expected way, but `char` is `Byte`:
 | float | Float |
 | double | Double |
 {:.zebra}
+
+
+## Struct and Union C types
+
+Let's update the `lib.h` to demonstrate more complicated C types:
+```c
+#ifndef LIB2_H_INCLUDED
+#define LIB2_H_INCLUDED
+
+typedef struct {
+  int a;
+  double b;
+} MyStruct;
+
+void structs(MyStruct s);
+
+
+
+typedef union {
+  int a;
+  MyStruct b;
+  float c;
+} MyUnion;
+
+void unions(MyUnion u);
+
+
+#endif
+
+``` 
+
+Now we call the  
+
+```bash
+cinterop -def lib.def -compilerOpts "-I$(pwd)" -o lib.klib
+```
+
+and see the generated API:
+
+```kotlin
+
+fun structs(s: CValue<MyStruct>)
+
+fun unions(u: CValue<MyUnion>)
+
+class MyStruct(rawPtr: NativePtr) : CStructVar(rawPtr) {
+    var a: Int
+    var b: Double
+}
+
+class MyUnion(rawPtr: NativePtr) : CStructVar(rawPtr) {
+    var a: Int
+    val b: MyStruct
+    var c: Float
+}
+
+```
+
+We see that `cinterop` generated wrapper types for our `sturct` and `union` types. It uses `CStructVar` as a base type
+for a structure and `CValue` as a wrapper class to pass the structure to a method.
+
+**TODO: nice to include a link to the documentation for those wrapper types**
 
