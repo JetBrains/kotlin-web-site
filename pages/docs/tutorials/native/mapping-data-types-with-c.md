@@ -12,7 +12,8 @@ issue: EVAN-5343
 
 In this tutorial we learn how C types are visible in Kotlin/Native and vice versa. You will learn how to: 
 - [Data Types in C Language](#types-in-c-language)
-- Create a tiny C Library
+- Primitive types and [Example C Library](#example-c-library)
+- [Primitive Types in Kotlin/Native](#primitive-types-in-kotlinnative)
 - C types maps to Kotlin types
 - C function pointers and their mapping in Kotlin/Native
 - And something more (TODO)
@@ -65,6 +66,9 @@ void doubles(float a, double b) { }
 
 ```
 
+It is only necessary to have `.h` files for the `cinterop`. We present the `lib.c` file
+here just for reference. 
+
 We need to create a `.def` file to the `cinterop` too. Please refer to 
 [Interop with C Libraries](interop-with-c.html) for more details. It is enough for
 the tutorial to create the `lib.def` file with the following content:
@@ -72,16 +76,41 @@ the tutorial to create the `lib.def` file with the following content:
 headers = lib.h
 ```
 
-We assume, you have Kotlin/Native compiler and C toolchain on your machine.
+We assume, you have Kotlin/Native compiler on your machine.
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial has good instructions to install Kotlin/Native.
 We assume `kotlinc` and `cinterop` commands are available in PATH. 
 
 Now we are ready to compile the library and to import it into Kotlin/Native. Let's 
 call the following commands (in Linux or macOS):
-```bash
-gcc -c "-I$(pwd)" lib.c -o lib.o
-ar rcs lib.a lib.o
 
+```bash
 cinterop -def lib.def -compilerOpts "-I$(pwd)" -o lib.klib
 ```
+
+## Primitive Types in Kotlin/Native
+
+The `cinterop` tool generated us the following API code:
+
+*TODO: How do I see the generated API from console?*
+
+```kotlin
+
+fun ints(c: Byte, d: Short, e: Int, f: Long): Unit 
+
+fun doubles(a: Float, b: Double): Unit 
+
+```
+
+As we see, types mapped in the expected way, but `char` is `Byte`:
+
+| C | Kotlin |
+|---|--------|
+| char  | Byte |
+| short | Short |
+| int   | Int |
+| long  | Long |
+| float | Float |
+| double | Double |
+{:.zebra}
+
