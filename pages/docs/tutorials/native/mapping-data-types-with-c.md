@@ -10,11 +10,12 @@ issue: EVAN-5343
 ---
 
 
-In this tutorial we learn how C types are visible in Kotlin/Native and vice versa. You will learn how to: 
-- [Data Types in C Language](#types-in-c-language)
-- Primitive types and [Example C Library](#example-c-library)
-- [Primitive Types in Kotlin/Native](#primitive-types-in-kotlinnative)
-- [Struct and Union C types](#struct-and-union-c-types)
+In this tutorial we learn how C data types are visible in Kotlin/Native and vice versa. You will: 
+- See what [Data Types are in C Language](#types-in-c-language)
+- Create a [tiny C Library](#example-c-library) that uses those types in exports
+- Find which [Primitive Types in Kotlin/Native](#primitive-types-in-kotlinnative) are used for them
+- Deal with [Struct and Union C types](#struct-and-union-c-types)
+
 - C types maps to Kotlin types
 - C function pointers and their mapping in Kotlin/Native
 - And something more (TODO)
@@ -22,7 +23,7 @@ In this tutorial we learn how C types are visible in Kotlin/Native and vice vers
 
 ## Types in C Language
 
-What data types do we have in C language? Let's first all of them. I use the
+What types do we have in C language? Let's first all of them. I use the
 [C data types](https://en.wikipedia.org/wiki/C_data_types) article from Wikipedia.
 It shows the following types groups:
 - basic types: `char, int, float, double`
@@ -35,8 +36,8 @@ There are also more specific types, that we are not going to cover:
 - `size_t` and `ptrdiff_t` (also `ssize_t`)
 - fixed width integer types, e.g. `int32_t` or `uint64_t` (from [C99](https://en.wikipedia.org/wiki/C99))
 
-In C language one have several modifiers like `signed, unsigned, short, long`. And modifiers like 
-`const`, `volatile`, `restruct`, `atomic`.
+In C language one have several modifiers like `signed, unsigned, short, long`. And type qualifiers like 
+`const`, `volatile`, `restruct`, `atomic`. We will not be discussing it here too.
 
 The best way to see how C data types are visible in Kotlin/Native is to try it. We create a 
 C library using all those types and see how Kotlin/Native uses it. You may check 
