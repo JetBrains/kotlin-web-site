@@ -13,13 +13,7 @@ In this tutorial we learn how C data types are visible in Kotlin/Native and vice
 - See what [Data Types are in C Language](#types-in-c-language)
 - Create a [tiny C Library](#example-c-library) that uses those types in exports
 - [Inspect Generated Kotlin/Native APIs from a C library](#inspecting-generated-kotlinnative-apis-for-a-c-library)
-- Find which [Primitive Types in Kotlin/Native](#primitive-types-in-kotlinnative) are used for them
-- Deal with [struct and union C types](#struct-and-union-c-types)
-TODO:
-- C types maps to Kotlin types
-- C function pointers and their mapping in Kotlin/Native
-- And something more (TODO)
-- Strings? (TODO)
+- Find how [Primitive Types in Kotlin/Native](#primitive-types-in-kotlinnative) are mapped to C
 
 ## Types in C Language
 
@@ -113,64 +107,7 @@ C types mapped in the expected way, but `char` is `Byte`:
 {:.zebra}
 
 
-## Struct and Union C types
-
-Let's update the `lib.h` to demonstrate more complicated C types:
-```c
-#ifndef LIB2_H_INCLUDED
-#define LIB2_H_INCLUDED
-
-typedef struct {
-  int a;
-  double b;
-} MyStruct;
-
-void structs(MyStruct s);
-
-
-
-typedef union {
-  int a;
-  MyStruct b;
-  float c;
-} MyUnion;
-
-void unions(MyUnion u);
-
-
-#endif
-
-``` 
-
-Now we call the  
-
-```bash
-cinterop -def lib.def -compilerOpts "-I$(pwd)" -o lib.klib
-```
-
-and see the generated API:
-
-```kotlin
-
-fun structs(s: CValue<MyStruct>)
-
-fun unions(u: CValue<MyUnion>)
-
-class MyStruct(rawPtr: NativePtr) : CStructVar(rawPtr) {
-    var a: Int
-    var b: Double
-}
-
-class MyUnion(rawPtr: NativePtr) : CStructVar(rawPtr) {
-    var a: Int
-    val b: MyStruct
-    var c: Float
-}
-
-```
-
-We see that `cinterop` generated wrapper types for our `sturct` and `union` types. It uses `CStructVar` as a base type
-for a structure and `CValue` as a wrapper class to pass the structure to a method.
-
-**TODO: nice to include a link to the documentation for those wrapper types**
+We continue exploring more complicated C language types and their representation in Kotlin/Native
+in next tutorials:
+- [Mapping Struct and Union Types with C](mapping-primitive-data-types-with-c.html)
 
