@@ -112,3 +112,5 @@ We continue exploring more complicated C language types and their representation
 in next tutorials:
 - [Mapping Struct and Union Types with C](mapping-struct-union-types-from-c.html)
 
+You may also take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+for more advanced scenarios.

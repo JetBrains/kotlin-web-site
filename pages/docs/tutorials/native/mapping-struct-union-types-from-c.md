@@ -88,9 +88,16 @@ for a structure and `CValue` as a wrapper class to pass the structure to a metho
 
 
 
+We continue exploring more complicated C language types and their representation in Kotlin/Native
+in next tutorials:
+- [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html). 
+
+You may also take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+for more advanced scenarios.
 
 
 
+## TODO:
 - Deal with [struct and union C types](#struct-and-union-c-types)
 TODO:
 - C types maps to Kotlin types
