@@ -16,17 +16,20 @@ would be very nice to implement once and for all, and put into a library. Exampl
 
 To cover these (and other) cases, Kotlin supports _delegated properties_:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Example {
     var p: String by Delegate()
 }
 ```
+</div>
 
 The syntax is: `val/var <property name>: <Type> by <expression>`. The expression after *by*{:.keyword} is the _delegate_, 
 because `get()` (and `set()`) corresponding to the property will be delegated to its `getValue()` and `setValue()` methods.
 Property delegates don’t have to implement any interface, but they have to provide a `getValue()` function (and `setValue()` --- for *var*{:.keyword}s).
 For example:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Delegate {
     operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
@@ -38,15 +41,18 @@ class Delegate {
     }
 }
 ```
+</div>
 
 When we read from `p` that delegates to an instance of `Delegate`, the `getValue()` function from `Delegate` is called,
 so that its first parameter is the object we read `p` from and the second parameter holds a description of `p` itself 
 (e.g. you can take its name). For example:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val e = Example()
 println(e.p)
 ```
+</div>
 
 This prints:
 
@@ -56,9 +62,11 @@ Example@33a17727, thank you for delegating ‘p’ to me!
  
 Similarly, when we assign to `p`, the `setValue()` function is called. The first two parameters are the same, and the third holds the value being assigned:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 e.p = "NEW"
 ```
+</div>
 
 This prints
  
@@ -81,7 +89,7 @@ The Kotlin standard library provides factory methods for several useful kinds of
 the first call to `get()` executes the lambda passed to `lazy()` and remembers the result, 
 subsequent calls to `get()` simply return the remembered result. 
 
-
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
 val lazyValue: String by lazy {
     println("computed!")
@@ -93,14 +101,7 @@ fun main(args: Array<String>) {
     println(lazyValue)
 }
 ```
-
-This example prints:
-
-```
-computed!
-Hello
-Hello
-```
+</div>
 
 By default, the evaluation of lazy properties is **synchronized**: the value is computed only in one thread, and all threads
 will see the same value. If the synchronization of initialization delegate is not required, so that multiple threads
@@ -115,6 +116,7 @@ which doesn't incur any thread-safety guarantees and the related overhead.
 The handler gets called every time we assign to the property (_after_ the assignment has been performed). It has three
 parameters: a property being assigned to, the old value and the new one:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
 import kotlin.properties.Delegates
 
@@ -131,13 +133,7 @@ fun main(args: Array<String>) {
     user.name = "second"
 }
 ```
-
-This example prints:
-
-```
-<no name> -> first
-first -> second
-```
+</div>
 
 If you want to be able to intercept an assignment and "veto" it, use [`vetoable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html) instead of `observable()`.
 The handler passed to the `vetoable` is called _before_ the assignment of a new property value has been performed.
@@ -148,44 +144,65 @@ One common use case is storing the values of properties in a map.
 This comes up often in applications like parsing JSON or doing other “dynamic” things.
 In this case, you can use the map instance itself as the delegate for a delegated property.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class User(val map: Map<String, Any?>) {
     val name: String by map
     val age: Int     by map
 }
 ```
+</div>
 
 In this example, the constructor takes a map:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val user = User(mapOf(
     "name" to "John Doe",
     "age"  to 25
 ))
 ```
+</div>
 
 Delegated properties take values from this map (by the string keys --– names of properties):
 
-
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
-println(user.name) // Prints "John Doe"
-println(user.age)  // Prints 25
+class User(val map: Map<String, Any?>) {
+    val name: String by map
+    val age: Int     by map
+}
+
+fun main(args: Array<String>) {
+    val user = User(mapOf(
+        "name" to "John Doe",
+        "age"  to 25
+    ))
+//sampleStart
+    println(user.name) // Prints "John Doe"
+    println(user.age)  // Prints 25
+//sampleEnd
+}
 ```
+</div>
 
 This works also for *var*{:.keyword}’s properties if you use a `MutableMap` instead of read-only `Map`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class MutableUser(val map: MutableMap<String, Any?>) {
     var name: String by map
     var age: Int     by map
 }
 ```
+</div>
 
 ## Local Delegated Properties (since 1.1)
 
 You can declare local variables as delegated properties.
 For instance, you can make a local variable lazy:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun example(computeFoo: () -> Foo) {
     val memoizedFoo by lazy(computeFoo)
@@ -195,6 +212,7 @@ fun example(computeFoo: () -> Foo) {
     }
 }
 ```
+</div>
 
 The `memoizedFoo` variable will be computed on the first access only.
 If `someCondition` fails, the variable won't be computed at all.
@@ -223,6 +241,7 @@ Both of the functions need to be marked with the `operator` keyword.
 The delegate class may implement one of the interfaces `ReadOnlyProperty` and `ReadWriteProperty` containing the required `operator` methods.
 These interfaces are declared in the Kotlin standard library:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ``` kotlin
 interface ReadOnlyProperty<in R, out T> {
     operator fun getValue(thisRef: R, property: KProperty<*>): T
@@ -233,12 +252,14 @@ interface ReadWriteProperty<in R, T> {
     operator fun setValue(thisRef: R, property: KProperty<*>, value: T)
 }
 ```
+</div>
 
 ### Translation Rules
 
 Under the hood for every delegated property the Kotlin compiler generates an auxiliary property and delegates to it.
 For instance, for the property `prop` the hidden property `prop$delegate` is generated, and the code of the accessors simply delegates to this additional property:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ``` kotlin
 class C {
     var prop: Type by MyDelegate()
@@ -252,6 +273,8 @@ class C {
         set(value: Type) = prop$delegate.setValue(this, this::prop, value)
 }
 ```
+</div>
+
 The Kotlin compiler provides all the necessary information about `prop` in the arguments: the first argument `this` refers to an instance of the outer class `C` and `this::prop` is a reflection object of the `KProperty` type describing `prop` itself.
 
 Note that the syntax `this::prop` to refer a [bound callable reference](reflection.html#bound-function-and-property-references-since-11) in the code directly is available only since Kotlin 1.1.  
@@ -266,6 +289,7 @@ One of the possible use cases of `provideDelegate` is to check property consiste
 
 For example, if you want to check the property name before binding, you can write something like this:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class ResourceDelegate<T> : ReadOnlyProperty<MyUI, T> {
     override fun getValue(thisRef: MyUI, property: KProperty<*>): T { ... }
@@ -291,6 +315,7 @@ class MyUI {
     val text by bindResource(ResourceID.text_id)
 }
 ```
+</div>
 
 The parameters of `provideDelegate` are the same as for `getValue`:
 
@@ -302,6 +327,7 @@ The `provideDelegate` method is called for each property during the creation of 
 Without this ability to intercept the binding between the property and its delegate, to achieve the same functionality
 you'd have to pass the property name explicitly, which isn't very convenient:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 // Checking the property name without "provideDelegate" functionality
 class MyUI {
@@ -317,11 +343,13 @@ fun <T> MyUI.bindResource(
    // create delegate
 }
 ```
+</div>
 
 In the generated code, the `provideDelegate` method is called to initialize the auxiliary `prop$delegate` property.
 Compare the generated code for the property declaration `val prop: Type by MyDelegate()` with the generated code 
 [above](delegated-properties.html#translation-rules) (when the `provideDelegate` method is not present):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ``` kotlin
 class C {
     var prop: Type by MyDelegate()
@@ -337,5 +365,6 @@ class C {
         set(value: Type) = prop$delegate.setValue(this, this::prop, value)
 }
 ```
+</div>
 
 Note that the `provideDelegate` method affects only the creation of the auxiliary property and doesn't affect the code generated for getter or setter.
