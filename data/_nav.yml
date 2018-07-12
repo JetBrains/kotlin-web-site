@@ -285,10 +285,10 @@ tutorials:
           title: Basic Kotlin/Native Application
         - url: /docs/tutorials/native/interop-with-c.html
           title: Interop with C Libraries
-        - url: /docs/tutorials/native/mapping-primitive-data-types-with-c.html
-          title: Mapping Primitive Data Types with C
-        - url: /docs/tutorials/native/mapping-struct-union-types-with-c.html
-          title: Mapping Struct and Union Types with C
+        - url: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
+          title: Mapping Primitive Data Types from C
+        - url: /docs/tutorials/native/mapping-struct-union-types-from-c.html
+          title: Mapping Struct and Union Types from C
         - url: /docs/tutorials/native/working-with-klib.html
           title: Working with Kotlin/Native Libraries
         - url: /docs/tutorials/native/targeting-multiple-platforms.html

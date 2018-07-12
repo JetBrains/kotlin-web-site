@@ -1,7 +1,7 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Mapping Primitive Data Types with C"
+title:  "Mapping Primitive Data Types from C"
 description: "Primitive Data types from C and how they look in Kotlin/Native side"
 authors: Eugene Petrenko 
 date: 2018-07-11
@@ -109,5 +109,5 @@ C types mapped in the expected way, but `char` is `Byte`:
 
 We continue exploring more complicated C language types and their representation in Kotlin/Native
 in next tutorials:
-- [Mapping Struct and Union Types with C](mapping-primitive-data-types-with-c.html)
+- [Mapping Struct and Union Types with C](mapping-primitive-data-types-from-c.html)
 
