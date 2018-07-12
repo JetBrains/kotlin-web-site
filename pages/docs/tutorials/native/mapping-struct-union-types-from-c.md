@@ -9,17 +9,19 @@ showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-- Deal with [struct and union C types](#struct-and-union-c-types)
-TODO:
-- C types maps to Kotlin types
-- C function pointers and their mapping in Kotlin/Native
-- And something more (TODO)
-- Strings? (TODO)
+That is the second post in the series. You may want to check 
+[Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html) first. 
+
+In this tutorial we see how `struct` and `union` types from C are visible to Kotlin/Native. 
+You will learn:
+- How wrappers are generated
+- How to create and fill struct or union in Kotlin/Native
 
 
 ## Struct and Union C types
 
-Let's update the `lib.h` to demonstrate more complicated C types:
+The best way to understand the mapping between Kotlin/Native and C is to try a tiny 
+example. We create a `lib.h` file with the following declarations:
 ```c
 #ifndef LIB2_H_INCLUDED
 #define LIB2_H_INCLUDED
@@ -29,48 +31,50 @@ typedef struct {
   double b;
 } MyStruct;
 
-void structs(MyStruct s);
-
-
-
 typedef union {
   int a;
   MyStruct b;
   float c;
 } MyUnion;
 
+void structs(MyStruct s);
 void unions(MyUnion u);
-
 
 #endif
 
 ``` 
 
-Now we call the  
-
-```bash
-cinterop -def lib.def -compilerOpts "-I$(pwd)" -o lib.klib
+We still need to create a `.def` file to the `cinterop`. For more details
+you may check [Interop with C Libraries](interop-with-c.html). It is enough for
+the tutorial to create the `lib.def` file with the following content:
+```c
+headers = lib.h
 ```
 
-and see the generated API:
+Now we call the  
+```bash
+cinterop -def lib.def -compilerOpts "-I." -o lib.klib
+klib contents lib.klib
+```
+
+and it prints the following Kotlin API for our C library:
 
 ```kotlin
-
 fun structs(s: CValue<MyStruct>)
-
 fun unions(u: CValue<MyUnion>)
 
-class MyStruct(rawPtr: NativePtr) : CStructVar(rawPtr) {
+class MyStruct constructor(rawPtr: NativePtr /* = NativePtr */) : CStructVar {
     var a: Int
     var b: Double
+    companion object : CStructVar.Type
 }
 
-class MyUnion(rawPtr: NativePtr) : CStructVar(rawPtr) {
+class MyUnion constructor(rawPtr: NativePtr /* = NativePtr */) : CStructVar {
     var a: Int
     val b: MyStruct
     var c: Float
+    companion object : CStructVar.Type
 }
-
 ```
 
 We see that `cinterop` generated wrapper types for our `sturct` and `union` types. It uses `CStructVar` as a base type
@@ -78,3 +82,18 @@ for a structure and `CValue` as a wrapper class to pass the structure to a metho
 
 **TODO: nice to include a link to the documentation for those wrapper types**
 
+
+## Using Struct and Union Types from Kotlin/Native
+
+
+
+
+
+
+
+- Deal with [struct and union C types](#struct-and-union-c-types)
+TODO:
+- C types maps to Kotlin types
+- C function pointers and their mapping in Kotlin/Native
+- And something more (TODO)
+- Strings? (TODO)
