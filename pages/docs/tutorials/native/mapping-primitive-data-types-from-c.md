@@ -63,7 +63,8 @@ It is only necessary to have an `.h` file to run the `cinterop` tool. And we do 
 We still need to create a `.def` file to the `cinterop`. For more details
 you may check [Interop with C Libraries](interop-with-c.html). It is enough for
 the tutorial to create the `lib.def` file with the following content:
-```
+
+```c
 headers = lib.h
 ```
 
@@ -90,8 +91,8 @@ command prints the API of the library to the console.
 From `cinterop` and `klib` calls we see the following API:
 
 ```kotlin
-    fun doubles(a: Float, b: Double)
-    fun ints(c: Byte, d: Short, e: Int, f: Long)
+fun doubles(a: Float, b: Double)
+fun ints(c: Byte, d: Short, e: Int, f: Long)
 ```
 
 C types mapped in the expected way, but `char` is `Byte`:
@@ -109,5 +110,5 @@ C types mapped in the expected way, but `char` is `Byte`:
 
 We continue exploring more complicated C language types and their representation in Kotlin/Native
 in next tutorials:
-- [Mapping Struct and Union Types with C](mapping-primitive-data-types-from-c.html)
+- [Mapping Struct and Union Types with C](mapping-struct-union-types-from-c.html)
 
