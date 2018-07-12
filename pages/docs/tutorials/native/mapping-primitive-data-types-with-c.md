@@ -1,21 +1,21 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Mapping Data Types with C"
-description: "Data types how they look from C and Kotlin/Native sides"
+title:  "Mapping Primitive Data Types with C"
+description: "Primitive Data types from C and how they look in Kotlin/Native side"
 authors: Eugene Petrenko 
 date: 2018-07-11
 showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-
 In this tutorial we learn how C data types are visible in Kotlin/Native and vice versa. You will: 
 - See what [Data Types are in C Language](#types-in-c-language)
 - Create a [tiny C Library](#example-c-library) that uses those types in exports
+- [Inspect Generated Kotlin/Native APIs from a C library](#inspecting-generated-kotlinnative-apis-for-a-c-library)
 - Find which [Primitive Types in Kotlin/Native](#primitive-types-in-kotlinnative) are used for them
-- Deal with [Struct and Union C types](#struct-and-union-c-types)
-
+- Deal with [struct and union C types](#struct-and-union-c-types)
+TODO:
 - C types maps to Kotlin types
 - C function pointers and their mapping in Kotlin/Native
 - And something more (TODO)
@@ -59,28 +59,21 @@ void doubles(float a, double b);
 ```
 
 The file is missing the `extern "C"` block, which is not needed for our example, by may be 
-necessary if you use C++ compiler. For more details, please refer to
+necessary if you use C++ and overloaded functions. For more details, you may check the 
 [C++ compatibility](https://stackoverflow.com/questions/1041866/what-is-the-effect-of-extern-c-in-c)
 thread.
 
-Next, we create a trivial `lib.c` file with the implementations of those functions:
-```c
-#include "lib.h"
+It is only necessary to have an `.h` file to run the `cinterop` tool. And we do not need to create a 
+`lib.c` file, unless we want to compile and run the example.
 
-void ints(char c, short d, int e, long f) { }
-void doubles(float a, double b) { }
-
-```
-
-It is only necessary to have `.h` files for the `cinterop`. We present the `lib.c` file
-here just for reference. 
-
-We need to create a `.def` file to the `cinterop` too. Please refer to 
-[Interop with C Libraries](interop-with-c.html) for more details. It is enough for
+We still need to create a `.def` file to the `cinterop`. For more details
+you may check [Interop with C Libraries](interop-with-c.html). It is enough for
 the tutorial to create the `lib.def` file with the following content:
 ```
 headers = lib.h
 ```
+
+## Inspecting Generated Kotlin/Native APIs for a C library
 
 We assume, you have Kotlin/Native compiler on your machine.
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
@@ -88,27 +81,26 @@ tutorial has good instructions to install Kotlin/Native.
 We assume `kotlinc` and `cinterop` commands are available in PATH. 
 
 Now we are ready to compile the library and to import it into Kotlin/Native. Let's 
-call the following commands (in Linux or macOS):
+call the following commands:
 
 ```bash
-cinterop -def lib.def -compilerOpts "-I$(pwd)" -o lib.klib
+cinterop -def lib.def -compilerOpts "-I." -o lib.klib
+klib contents lib.klib
 ```
+
+The `cinterop` command generates the `lib.klib`, the Kotlin/Native library to call C code. The `klib`
+command prints the API of the library to the console.
 
 ## Primitive Types in Kotlin/Native
 
-The `cinterop` tool generated us the following API code:
-
-**TODO: How do I see the generated API from console?**
+From `cinterop` and `klib` calls we see the following API:
 
 ```kotlin
-
-fun ints(c: Byte, d: Short, e: Int, f: Long): Unit 
-
-fun doubles(a: Float, b: Double): Unit 
-
+    fun doubles(a: Float, b: Double)
+    fun ints(c: Byte, d: Short, e: Int, f: Long)
 ```
 
-As we see, types mapped in the expected way, but `char` is `Byte`:
+C types mapped in the expected way, but `char` is `Byte`:
 
 | C | Kotlin |
 |---|--------|
