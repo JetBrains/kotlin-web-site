@@ -11,13 +11,13 @@ issue: EVAN-5121
 
 With Kotlin/Native we are able to target to 
 the following platforms, including (as of Kotlin/Native v0.8): 
-- Windows (x86_64),
-- Linux (x86_64, arm32, MIPS, MIPS little endian),
-- MacOS (x86_64),
-- iOS (arm32, arm64, x64),
-- Android (arm32, arm64),
+- Windows (x86_64)
+- Linux (x86_64, arm32, MIPS, MIPS little endian)
+- MacOS (x86_64)
+- iOS (arm32, arm64, x64)
+- Android (arm32, arm64)
 - STM32
-- WebAssembly (wasm32).
+- WebAssembly (wasm32)
 
 In this tutorial, we'll see how to
 
