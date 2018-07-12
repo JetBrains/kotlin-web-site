@@ -28,17 +28,20 @@ example. We create a `lib.h` file with the following declarations:
 
 typedef struct {
   int a;
-  double b;
+  const double b;
 } MyStruct;
 
+void struct_by_value(MyStruct s);
+void struct_by_pointer(MyStruct* s);
+
 typedef union {
-  int a;
+  const int a;
   MyStruct b;
   float c;
 } MyUnion;
 
-void structs(MyStruct s);
-void unions(MyUnion u);
+void union_by_value(MyUnion u);
+void union_by_pointer(MyUnion* u);
 
 #endif
 
@@ -60,8 +63,11 @@ klib contents lib.klib
 and it prints the following Kotlin API for our C library:
 
 ```kotlin
-fun structs(s: CValue<MyStruct>)
-fun unions(u: CValue<MyUnion>)
+fun struct_by_value(s: CValue<MyStruct>)
+fun struct_by_pointer(s: CValuesRef<MyStruct>?)
+
+fun union_by_value(u: CValue<MyUnion>)
+fun union_by_pointer(u: CValuesRef<MyUnion>?)
 
 class MyStruct constructor(rawPtr: NativePtr /* = NativePtr */) : CStructVar {
     var a: Int
@@ -77,10 +83,20 @@ class MyUnion constructor(rawPtr: NativePtr /* = NativePtr */) : CStructVar {
 }
 ```
 
-We see that `cinterop` generated wrapper types for our `sturct` and `union` types. It uses `CStructVar` as a base type
-for a structure and `CValue` as a wrapper class to pass the structure to a method.
+We see that `cinterop` generated wrapper types for our `sturct` and `union` types. 
+For `struct` and `union` type declarations we have a Kotlin wrappers generated.
+The wrappers inherit from `CStructVar` base class and declare all fields as properties.
 
-**TODO: nice to include a link to the documentation for those wrapper types**
+It uses `CValue<T>` to represent a by-value structure parameter and `CValuesRef<T>?`
+to represent passing a pointer to a structure.
+
+We see that there is technically no difference between `struct` and `union` types on the 
+Kotlin/Native side. One should understand that `a`, `b`, and `c` fields on `MyUnion` `union` uses
+the same memory location to read/write their value. 
+
+We may take a look at the 
+[C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md#passing-and-receiving-structs-by-value)
+for more details.
 
 
 ## Using Struct and Union Types from Kotlin/Native
