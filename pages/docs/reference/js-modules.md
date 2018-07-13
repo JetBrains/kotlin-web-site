@@ -68,9 +68,11 @@ Available values are: `plain`, `amd`, `commonjs`, `umd`.
 
 To select module system when compiling via Gradle, you should set `moduleKind` property, i.e.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 compileKotlin2Js.kotlinOptions.moduleKind = "commonjs"
 ```
+</div>
 
 Available values are similar to Maven.
 
@@ -80,16 +82,20 @@ Available values are similar to Maven.
 To tell Kotlin that an `external` class, package, function or property is a JavaScript module, you can use `@JsModule`
 annotation. Consider you have the following CommonJS module called "hello":
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
 module.exports.sayHello = function(name) { alert("Hello, " + name); }
 ```
+</div>
 
 You should declare it like this in Kotlin:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 @JsModule("hello")
 external fun sayHello(name: String)
 ```
+</div>
 
 
 ### Applying `@JsModule` to packages
@@ -99,6 +105,7 @@ In terms of JavaScript, it's an object that has members that *are* classes, func
 Importing these packages as Kotlin objects often looks unnatural.
 The compiler allows to map imported JavaScript packages to Kotlin packages, using the following notation:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 @file:JsModule("extModule")
 package ext.jspackage.name
@@ -107,19 +114,23 @@ external fun foo()
 
 external class C
 ```
+</div>
 
 where the corresponding JavaScript module is declared like this:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
 module.exports = {
     foo:  { /* some code here */ },
     C:  { /* some code here */ }
 }
 ```
+</div>
 
 Important: files marked with `@file:JsModule` annotation can't declare non-external members.
 The example below produces compile-time error:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 @file:JsModule("extModule")
 package ext.jspackage.name
@@ -128,6 +139,7 @@ external fun foo()
 
 fun bar() = "!" + foo() + "!" // error here
 ```
+</div>
 
 ### Importing deeper package hierarchies
 
@@ -137,6 +149,7 @@ This case is also supported by Kotlin, though you have to declare a new `.kt` fi
 
 For example, let's make our example a bit more complicated:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
 module.exports = {
     mylib: {
@@ -150,9 +163,11 @@ module.exports = {
     }
 }
 ```
+</div>
 
 To import this module in Kotlin, you have to write two Kotlin source files:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @file:JsModule("extModule")
 @file:JsQualifier("mylib.pkg1")
@@ -162,9 +177,11 @@ external fun foo()
 
 external fun bar()
 ```
+</div>
 
 and
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @file:JsModule("extModule")
 @file:JsQualifier("mylib.pkg2")
@@ -172,6 +189,7 @@ package extlib.pkg2
 
 external fun baz()
 ```
+</div>
 
 ### `@JsNonModule` annotation
 
@@ -181,21 +199,25 @@ can copy to project's static resources and include via `<script>` element. To te
 to use a `@JsModule` declaration from non-module environment, you should put `@JsNonModule` declaration. For example,
 given JavaScript code:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
 function topLevelSayHello(name) { alert("Hello, " + name); }
 if (module && module.exports) {
     module.exports = topLevelSayHello;
 }
 ```
+</div>
 
 can be described like this:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @JsModule("hello")
 @JsNonModule
 @JsName("topLevelSayHello")
 external fun sayHello(name: String)
 ```
+</div>
 
 
 ### Notes
