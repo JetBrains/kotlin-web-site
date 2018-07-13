@@ -26,9 +26,11 @@ DCE tool is currently available from Gradle.
 
 To activate DCE tool, add the following line to `build.gradle`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 apply plugin: 'kotlin-dce-js'
 ```
+</div>
 
 Note that if you are using multi-project build, you should apply plugin to the main project that is an entry point to your application.
 
@@ -45,9 +47,11 @@ To configure DCE on the main source set, you can use the `runDceKotlinJs` task
 Sometimes you are going to use a Kotlin declaration directly from JavaScript, and it's being stripped out by DCE. 
 You may want to keep this declaration. To do so, you can use the following syntax in `build.gradle`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 runDceKotlinJs.keep "declarationToKeep"[, "declarationToKeep", ...]
 ```
+</div>
 
 Where `declarationToKeep` has the following syntax:
 
@@ -58,9 +62,11 @@ moduleName.dot.separated.package.name.declarationName
 For example, consider a module is named `kotlin-js-example` and it contains a function named `toKeep` 
 in package `org.jetbrains.kotlin.examples`. Use the following line:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 runDceKotlinJs.keep "kotlin-js-example_main.org.jetbrains.kotlin.examples.toKeep"
 ```
+</div>
 
 Note that if your function has parameters, its name will be mangled, so the mangled name should be used in the keep directive.
 
@@ -70,10 +76,12 @@ Running DCE takes a bit of extra time each build, and the output size does not m
 
 For example, to disable DCE based on a custom condition for the `main` source set and always for the `test` code, add the following lines to the build script:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 runDceKotlinJs.dceOptions.devMode = isDevMode
 runDceTestKotlinJs.dceOptions.devMode = true 
 ```
+</div>
 # Example
 
 A full example that shows how to integrate Kotlin with DCE and webpack to get a small bundle,
