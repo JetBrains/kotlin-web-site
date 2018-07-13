@@ -32,6 +32,7 @@ What we'll see in this tutorial is how to
 
 The Standard Library comes with a function named `js` which allows us to emit JavaScript easily from Kotlin. 
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun main(args: Array<String>) {
 
@@ -39,23 +40,26 @@ fun main(args: Array<String>) {
 
 }
 ```
+</div>
 
-The code above would emit a JavaScript message dialog as soon as the main function is executed. It's important to note that this is not merely an `eval`. The JavaScript 
-code is verified to be valid and injected into the generated code. 
+The code above would emit a JavaScript message dialog as soon as the main function is executed. It's important to note that this is not merely an `eval`. The JavaScript
+code is verified to be valid and injected into the generated code.
 
 ## Working with Strongly-Typed Libraries
 
-Kotlin standard library ships with a series of headers for interacting with JavaScript libraries such as jQuery[1]. 
+Kotlin standard library ships with a series of headers for interacting with JavaScript libraries such as jQuery[1].
 
 For the case of jQuery, we can use the `jq` standard library function. This allows us to write jQuery directly without having to resort to invoking it using
-inline JavaScript. 
+inline JavaScript.
 
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun main(args: Array<String>) {
     jq("#message").html("Hello from Kotlin")
 }
 ```
+</div>
 
 which would set the HTML of the `div` with id `message`
 
@@ -79,41 +83,47 @@ which would set the HTML of the `div` with id `message`
 ## Invoking JavaScript-only members
 
 There are cases in which we want to invoke some method that only exists in JavaScript. For instance, let's assume we want to use the [DataTables](https://datatables.net/) jQuery plugin that creates a grid out of a table. This plugin requires
-us to invoke `Datatable()` on a DOM table element. 
+us to invoke `Datatable()` on a DOM table element.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```javascript
     $('#table').DataTable();
 ```
+</div>
 
 If we were to try and do this using our `jq()` function, the code wouldn't compile
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun main(args: Array<String>) {
     jq("#table").DataTable()
 }
 ```
+</div>
 
-and we'd get an unresolved reference 
+and we'd get an unresolved reference
 
 ![Unresolved Reference]({{ url_for('tutorial_img', filename='javascript/calling-javascript-from-kotlin/unresolved-reference.png')}})
 
-In such cases, we can use the `asDynamic()` function to cast the return type `jq` to [dynamic](https://kotlinlang.org/docs/reference/dynamic-type.html). This will then satisfy the compiler. 
+In such cases, we can use the `asDynamic()` function to cast the return type `jq` to [dynamic](https://kotlinlang.org/docs/reference/dynamic-type.html). This will then satisfy the compiler.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun main(args: Array<String>) {
     jq("#table").asDynamic().DataTable()
 }
 ```
+</div>
 
-At runtime, the call will be mapped to the same member invocation. 
+At runtime, the call will be mapped to the same member invocation.
 
-
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```javascript
 var workingWithJavaScript = function (Kotlin) {
   'use strict';
   var _ = Kotlin.defineRootPackage(null, /** @lends _ */ {
     main_kand9s$: function (args) {
-      $('#table').DataTable(); // <-- LITERAL TRANSLATION  
+      $('#table').DataTable(); // <-- LITERAL TRANSLATION
     }
   });
   Kotlin.defineModule('workingWithJavaScript', _);
@@ -121,15 +131,16 @@ var workingWithJavaScript = function (Kotlin) {
   return _;
 }(kotlin);
 ```
+</div>
 
 ## Creating mappings with Native
 
-In the above scenario, `DataTable()` was transpiled to the same member name in JavaScript. What happens however when we want to map to something different? In fact, we're doing this with `jq` itself. 
+In the above scenario, `DataTable()` was transpiled to the same member name in JavaScript. What happens however when we want to map to something different? In fact, we're doing this with `jq` itself.
 If we notice the output of the code above, we see the `jq` has been transpiled to `$`. How does this happen?
 
 Kotlin allows us to map a function to something else in JavaScript by annotating it using the `@native` annotation. If we look at the standard library, we can see that the `jq` function has the following definition
 
-
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @native("$")
 public fun jq(selector: String): JQuery = JQuery();
@@ -144,6 +155,7 @@ public fun jq(el: Element): JQuery = JQuery();
 @native("$")
 public fun jq(): JQuery = JQuery();
 ```
+</div>
 
 Using a combination of `dynamic` and `native` we can use third-party libraries that are available in JavaScript for which we do not currently have strongly-typed header definitions. 
 
