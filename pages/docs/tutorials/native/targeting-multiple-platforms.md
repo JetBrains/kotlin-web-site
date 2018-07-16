@@ -9,7 +9,7 @@ showAuthorInfo: false
 issue: EVAN-5121
 ---
 
-With Kotlin/Native we are able to target to 
+With Kotlin/Native can compile a native binary for 
 the following platforms, including (as of Kotlin/Native v0.8): 
 - Windows (x86_64)
 - Linux (x86_64, arm32, MIPS, MIPS little endian)
@@ -19,16 +19,16 @@ the following platforms, including (as of Kotlin/Native v0.8):
 - STM32
 - WebAssembly (wasm32)
 
-In this tutorial, we'll see how to
+In this tutorial, we will see how to
 
 * [Specify a Target Platform](#specifying-target-platform)
 * [Build for a Specific Platform](#building-for-a-specific-platform)
 * [Build a Console Utility for several OSes](#building-a-console-utility)
 
 We need to have Kotlin/Native compiler on our machines. 
-The step is already covered in 
+You may have a look at the
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial.
+tutorial for more information in that step.
 Let's assume we have a console, where `kotlinc` (or the older `konanc`) command is available. 
 
 ## Specifying Target Platform
@@ -75,7 +75,7 @@ wasm32:
 zephyr_stm32f4_disco:
 ```
 
-The set of targets of Kotlin/Native compiler depends on the host operation system.
+The set of targets of Kotlin/Native compiler depends on the host operating system.
 We may specify target explicitly with `-target <name>` argument. The default target 
 is highlighted with `(default)` and used if no `-target` argument was 
 specified.
@@ -92,14 +92,14 @@ fun main(args: Array<String>) {
 ```
 
 We use `-target` argument of the `kotlinc` to specify the platform. It is also 
-helpful to use `-output` to clearly instruct
-the compiler on where to create the compiled binary, e.g. to build for iOS emulator on macOS we use:
+helpful to use `-output` to explicitly instruct
+the compiler on where to create the compiled binary, e.g., to build for the iOS emulator on macOS we use:
 
 ```bash
     kotlinc -target ios_x64 -output bin/ios_x64 main.kt
 ``` 
 
-Native executable `bin/ios_x64.kexe` will be produced, we check that with the command
+Native executable `bin/ios_x64.kexe` will be produced. We check that with the `file` command 
 ```
 > file bin/ios_x64.kexe
 bin/ios_x64.kexe: Mach-O 64-bit executable x86_64
@@ -113,9 +113,9 @@ to create a binary for fresh iPhone supporting arm64.
 
 ## Building a Console Utility
 
-We saw above that the set of supported target platforms depends on the host operation system. 
-It is required to run the compiler on Windows, macOS and Linux to create a console application 
-for those OSes. So on each of the operation systems we call the compiler:
+We saw above that the set of supported target platforms depends on the host operating system. 
+It is required to run the compiler on Windows, macOS, and Linux to create a console application 
+for those OSes. On each of the operating system we call the compiler:
 
 ```bash
 kotlinc main.kt -output bin/theTool
@@ -128,8 +128,8 @@ may be used to automate and simplify the process.
 
 ## Next Steps
 
-Build tools helps to deal with compiler arguments. You may probably 
+Build tools help to deal with compiler arguments. You may probably 
 like using [Gradle build system](gradle-for-kotlin-native.html) for your project. 
-Gradle with Kotlin/Native plugin simplify the setup for every operating system, download and run 
-Kotlin/Native compiler for you easier. 
+Gradle with Kotlin/Native plugin simplifies the setup for every operating system, download and run 
+Kotlin/Native compiler for you more pleasant. 
 
