@@ -99,6 +99,12 @@ the compiler on where to create the compiled binary, e.g. to build for iOS emula
     kotlinc -target ios_x64 -output bin/ios_x64 main.kt
 ``` 
 
+Native executable `bin/ios_x64.kexe` will be produced, we check that with the command
+```
+> file bin/ios_x64.kexe
+bin/ios_x64.kexe: Mach-O 64-bit executable x86_64
+```
+
 We use the command 
 ```bash
     kotlinc -target ios_arm64 -output bin/ios_arm64 main.kt
@@ -112,11 +118,11 @@ It is required to run the compiler on Windows, macOS and Linux to create a conso
 for those OSes. So on each of the operation systems we call the compiler:
 
 ```bash
-    kotlinc main.kt
+kotlinc main.kt -output bin/theTool
 ```
 
-There is no need to specify `-target` parameter explicitly, because 
-the default value will work the best on every OS. 
+The `-target` parameter is optional. If it is not included, the binary will be produced for the 
+system, where the compiler is executed. It matches the behavior of other native compilers.
 A [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration)
 may be used to automate and simplify the process. 
 
