@@ -17,21 +17,20 @@ In this tutorial we learn how C data types are visible in Kotlin/Native and vice
 
 ## Types in C Language
 
-What types do we have in C language? Let's first all of them. I use the
+What types do we have in C language? Let's first list all of them. I use the
 [C data types](https://en.wikipedia.org/wiki/C_data_types) article from Wikipedia.
-It shows the following types groups:
-- basic types: `char, int, float, double`
+There are following types in C programming language:
+- basic types `char, int, float, double` with modifiers `signed, unsigned, short, long` 
 - structures, unions, arrays
 - pointers
 - function pointers
 
-There are also more specific types, that we are not going to cover:
+There are also more specific types:
 - boolean type (from [C99](https://en.wikipedia.org/wiki/C99))
 - `size_t` and `ptrdiff_t` (also `ssize_t`)
 - fixed width integer types, e.g. `int32_t` or `uint64_t` (from [C99](https://en.wikipedia.org/wiki/C99))
 
-In C language one have several modifiers like `signed, unsigned, short, long`. And type qualifiers like 
-`const`, `volatile`, `restruct`, `atomic`. We will not be discussing it here too.
+In C language one also has type qualifiers `const`, `volatile`, `restruct`, `atomic`.
 
 The best way to see how C data types are visible in Kotlin/Native is to try it. We create a 
 C library using all those types and see how Kotlin/Native uses it. You may check 
@@ -95,16 +94,17 @@ fun doubles(a: Float, b: Double)
 fun ints(c: Byte, d: Short, e: Int, f: Long)
 ```
 
-C types mapped in the expected way, but `char` is `Byte`:
+C types mapped in the expected way, note that `char` type is mapped to `kotlin.Byte` 
+as it is usually an 8-bit unsigned value.
 
 | C | Kotlin |
 |---|--------|
-| char  | Byte |
-| short | Short |
-| int   | Int |
-| long  | Long |
-| float | Float |
-| double | Double |
+| char  |  kotlin.Byte |
+| short |  kotlin.Short |
+| int   |  kotlin.Int |
+| long  |  kotlin.Long |
+| float |  kotlin.Float |
+| double | kotlin.Double |
 {:.zebra}
 
 
