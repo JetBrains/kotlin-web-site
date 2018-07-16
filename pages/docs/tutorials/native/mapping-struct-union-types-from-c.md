@@ -21,10 +21,16 @@ You will learn:
 ## Struct and Union C types
 
 The best way to understand the mapping between Kotlin/Native and C is to try a tiny 
-example. We create a `lib.h` file with the following declarations:
+example. We create struct and union to see how they are mapped.
+
+`cinterop` uses a `.def` file for library definitions. For more details
+you may check [Interop with C Libraries](interop-with-c.html). 
+In previous tutorial we created an `lib.h` file. This time we include
+those declarations directly into the `lib.def` file:
+
 ```c
-#ifndef LIB2_H_INCLUDED
-#define LIB2_H_INCLUDED
+
+---
 
 typedef struct {
   int a;
@@ -43,23 +49,13 @@ typedef union {
 void union_by_value(MyUnion u);
 void union_by_pointer(MyUnion* u);
 
-#endif
-
 ``` 
 
-We still need to create a `.def` file to the `cinterop`. For more details
-you may check [Interop with C Libraries](interop-with-c.html). It is enough for
-the tutorial to create the `lib.def` file with the following content:
-```c
-headers = lib.h
-```
-
-Now we call the  
+Now we call:  
 ```bash
-cinterop -def lib.def -compilerOpts "-I." -o lib.klib
+cinterop -def lib.def -o lib.klib
 klib contents lib.klib
 ```
-
 and it prints the following Kotlin API for our C library:
 
 ```kotlin
