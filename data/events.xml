@@ -1,6 +1,1755 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
 
+   <event>
+        <lang>en</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Helwan, Egypt</location>
+        <speaker>Shady Yehia Selim</speaker>
+        <title>GDG Helwan</title>
+        <subject>Kotlin Surprises in Google I/O 2018!</subject>
+        <url>https://www.meetup.com/GDG-Helwan/events/250354478/</url>
+        <description>
+            <![CDATA[
+<p>Collecting all the Kotlin announcements in Google I/O 2018</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>fr</lang>
+        <startDate>2018-06-29</startDate>
+        <endDate>2018-06-29</endDate>
+        <location>Montpellier, France</location>
+        <speaker>Didier Plaindoux</speaker>
+        <title>Sunny Tech 2018</title>
+        <subject>Kotlin Parsec</subject>
+        <url>https://sunny-tech.io/schedule/day1</url>
+        <description>
+            <![CDATA[
+<p>Un Parsec est bien connu pour mesurer la distance à laquelle se trouve une étoile dont la parallaxe est d'une seconde . Cela vous semble cryptique je vous propose alors plutôt de traiter de Parser Combinator avec Kotlin afin de découvrir certaines facettes du langage comme l'extension de fonction et la construction d'un DSL dédié.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-05-24</startDate>
+        <endDate>2018-05-24</endDate>
+        <location>Valencia, Spain</location>
+        <speaker>Víctor Bolinches</speaker>
+        <title>Kotlin MasterClass</title>
+        <subject>Desarrollo Multiplataforma con Kotlin</subject>
+        <url>http://empretsinf.blogs.upv.es/2018/05/15/anuncion-de-charla-kotlin-masterclass-jueves-24-5-1230/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin es un lenguaje fuertemente tipado, cross-platform y open source, bajo la licencia Apache 2.0, creado por JetBrains. Su programación es concisa, versátil y segura. Interoperable con Java al 100%, es el lenguaje oficial de Google para aplicaciones Android nativas. Permite desarrollos nativos en sistemas embebidos tales como Windows, Linux, Mac e iOS, así como una fácil programación a través de DSL’s en el marco Web.</p>
+<p>Los asistentes a las charla podrán recibir una MasterClass de Kotlin para abordar desarrollos multiplataforma.</p>
+<p>Se migrará código de Java a Kotlin para comprender su sintaxis, apoyado con ejemplos de uso.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-16</startDate>
+        <endDate>2018-06-16</endDate>
+        <location>Abuja, Nigeria</location>
+        <speaker>Akinrolie Slick</speaker>
+        <title>KOTLIN NIGHT ABUJA '18</title>
+        <subject>Best practices in using Kotlin on Android</subject>
+        <url>https://www.eventbrite.com/e/kotlin-night-abuja-18-tickets-43651251067</url>
+        <description>
+            <![CDATA[
+<p>taking the participants through the best possible ways and steps to build Android Apps with Kotlin</p>
+]]>
+     </description>
+         </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-06-16</startDate>
+        <endDate>2018-06-16</endDate>
+        <location>Abuja, Nigeria</location>
+        <speaker>Adetayo James</speaker>
+        <title>KOTLIN NIGHT ABUJA '18</title>
+        <subject>Kotlin In Action with Codelab session</subject>
+        <url>https://www.eventbrite.com/e/kotlin-night-abuja-18-tickets-43651251067</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-06-16</startDate>
+        <endDate>2018-06-16</endDate>
+        <location>Abuja, Nigeria</location>
+        <speaker>Micheal Obi</speaker>
+        <title>KOTLIN NIGHT ABUJA '18</title>
+        <subject>Kotlin Lang What's in Need with Codelab Session: Api with Kotlin</subject>
+        <url>https://www.eventbrite.com/e/kotlin-night-abuja-18-tickets-43651251067</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+       <event>
+        <lang>en</lang>
+        <startDate>2018-06-16</startDate>
+        <endDate>2018-06-16</endDate>
+        <location>Abuja, Nigeria</location>
+        <speaker>Ijatuyi Sukanmi</speaker>
+        <title>KOTLIN NIGHT ABUJA '18</title>
+        <subject>Kotlin On Web</subject>
+        <url>https://www.eventbrite.com/e/kotlin-night-abuja-18-tickets-43651251067</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-01</startDate>
+        <endDate>2018-06-01</endDate>
+        <location>Athens, Greece</location>
+        <speaker>Antonis Lilis</speaker>
+        <title>Voxxed Athens 2018</title>
+        <subject>Why Kotlin?</subject>
+        <url>https://voxxeddays.com/athens/#schedule</url>
+        <description>
+            <![CDATA[
+<p>Do you like Java but wish you didn’t have to write so much boilerplate code? Maybe it’s time for a switch. Kotlin aims to address many of the pitfalls that are common with Java development, while making your code more concise, safe, and expressive. It is also 100% interoperable with Java and can be easily mixed in the same project.</p>
+<p>In this presentation Antonis will try to guide you through the main features of Kotlin that make it so special and provide a short introduction to the language.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-06</startDate>
+        <endDate>2018-06-06</endDate>
+        <location>Lima, Peru</location>
+        <speaker>Bruno Aybar</speaker>
+        <title>Perú Kotlin User Group</title>
+        <subject>Java to Kotlin: From Zero to Hero</subject>
+        <url>https://www.meetup.com/Peru-Kotlin-User-Group/events/251019272/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-06</startDate>
+        <endDate>2018-06-06</endDate>
+        <location>Lima, Peru</location>
+        <speaker>Eduardo José Medina Alfaro</speaker>
+        <title>Perú Kotlin User Group</title>
+        <subject>Conceptos básicos sobre patrones de arquitectura para Android</subject>
+        <url>https://www.meetup.com/Peru-Kotlin-User-Group/events/251019272/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-06</startDate>
+        <endDate>2018-06-06</endDate>
+        <location>Lima, Peru</location>
+        <speaker>Kevin Salazar</speaker>
+        <title>Perú Kotlin User Group</title>
+        <subject>Kotlin Extensions with Anko and Android KTX</subject>
+        <url>https://www.meetup.com/Peru-Kotlin-User-Group/events/251019272/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-24</startDate>
+        <endDate>2018-06-24</endDate>
+        <location>Eliezer López</location>
+        <speaker>Rafa Paradela</speaker>
+        <title>GDG Cádiz</title>
+        <subject>Introducción a la Programación Funcional con Kotlin</subject>
+        <url>https://www.meetup.com/gdgcadiz/events/250319785/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-24</startDate>
+        <endDate>2018-06-24</endDate>
+        <location>Zapopan, Mexico</location>
+        <speaker>Alejandro Tellez</speaker>
+        <title>Guadalajara Java User Group</title>
+        <subject>Consuming Microsoft Excel documents with Apache POI and Kotlin</subject>
+        <url>https://www.meetup.com/gdljug/events/250846709/</url>
+        <description>
+            <![CDATA[
+<p>Apache POI, a project run by the Apache Software Foundation, and previously a sub-project of the Jakarta Project, is a set of libraries used to read and write Microsoft Office documents. We'll be learening how to use it with Kotlin as a language to read and write an Excel file</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-05-26</startDate>
+        <endDate>2018-05-26</endDate>
+        <location>Solo, Indonesia</location>
+        <speaker>Nando Septian Husni</speaker>
+        <title>Solo Kotlin User Group</title>
+        <subject>the first app with your kotlin in android developer</subject>
+        <description>
+            <![CDATA[
+<p>Introduce using kotlin for android developer</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-05-31</startDate>
+        <endDate>2018-05-31</endDate>
+        <location>México City, Mexico</location>
+        <speaker>David Hackro</speaker>
+        <title>Kotlin CDMX User Group</title>
+        <subject>How Kotlin it's best option? - From perspective of Java Developer</subject>
+        <url>https://www.meetup.com/Kotlin-CDMX/events/251110278/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>ru</lang>
+        <startDate>2018-05-26</startDate>
+        <endDate>2018-05-26</endDate>
+        <location>Minsk, Belarus</location>
+        <speaker>Eugene Petrenko</speaker>
+        <title>Voxxeddays Minsk</title>
+        <subject>Multiplatform Kotlin In 42 minutes</subject>
+        <url>https://voxxeddays.com/minsk/</url>
+        <content>
+            <slides>https://speakerdeck.com/nightlynexus/getting-kotlin-in-your-codebase</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p> </p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-05-30</startDate>
+        <endDate>2018-05-30</endDate>
+        <location>Valencia, Spain</location>
+        <speaker>Ricardo García Fernández</speaker>
+        <title>GDG Valencia</title>
+        <subject>Mejora tu código con Sonarqube + Aplicaciones asíncronas con Kotlin</subject>
+        <url>https://www.meetup.com/GDGValencia/events/250916434/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>de</lang>
+        <startDate>2018-05-26</startDate>
+        <endDate>2018-05-26</endDate>
+        <location>Regensburg,Germany</location>
+        <speaker>Tobias Schneck</speaker>
+        <title>Hackaburg 2018</title>
+        <subject>Kotlin for backend development</subject>
+        <url>https://hackaburg.de/</url>
+         <content>
+            <slides>https://www.slideshare.net/TobiasSchneck/kotlin-for-backend-development-hackaburg-2018-regensburg-98785534/</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-05-31</startDate>
+        <endDate>2018-05-31</endDate>
+        <location>México City, Mexico</location>
+        <speaker>Leonel Méndez</speaker>
+        <title>Kotlin CDMX User Group</title>
+        <subject>El sistema de tipos en Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-CDMX/events/251110278/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-19</startDate>
+        <endDate>2018-07-19</endDate>
+        <location>Denver, United States</location>
+        <speaker>Nick Capurso</speaker>
+        <title>360|AnDev July 2018</title>
+        <subject>Kotlin Coroutines: An Intro to Practical Use on Android</subject>
+        <url>https://360andev.com/sessions/kotlin-coroutines-an-intro-to-practical-use-on-android/</url>
+        <description>
+            <![CDATA[
+<p>Asynchronous programming has always been a challenging problem for Android developers. Any good solution has to gracefully handle errors, cancellation, chaining multiple actions together, handle thread swapping, and much more.</p>
+<p>Kotlin’s coroutines are yet another option for asynchronous programming. However, unlike other popular contenders, coroutines meet all the previously mentioned requirements out-of-the-box, have a gentler learning curve, and don’t require you to write an absurd amount of boilerplate.</p>
+<p>That said, learning any new asynchronous solution takes time and often comes with a period of trial-and-error until you have all the nuances figured out. Get a jumpstart on coroutines:</p>
+<p>(1) Lessen the learning curve by getting the subtleties of coroutines out of the way early
+(2) Learn how to work coroutines into an existing app: easy places to start transitioning, interop with existing libraries, and reusing existing threading constructs
+(3) Learn how to easily support error handling, cancellation, and task chaining
+(4) Learn how to unit test coroutines</p>
+<p>Get a head start on coroutines in your apps and easily write, test, and maintain asynchronous code like never before!</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-20</startDate>
+        <endDate>2018-07-20</endDate>
+        <location>Denver, United States</location>
+        <speaker>Oluwasegun Famisa</speaker>
+        <title>360|AnDev July 2018</title>
+        <subject>Kotlin, Beyond the Basics</subject>
+        <url>https://360andev.com/sessions/kotlin-beyond-the-basics/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we will look at how you should not do things with Kotlin. For example, we will talk about misusing scoping functions like “let”, “run”, “apply”, etc. and learn the right time to use which one while not overusing them. We will also talk about interoperability between Kotlin and Java. We will look at how not to do things when building APIs that may be consumed in Java – things like top-level constant declaration vs constants within companion objects, making use Jvm* annotations in Kotlin vs not using them.</p>
+<p>We will also talk about platform types and the potential harm they pose when calling Java code from Kotlin. We will also address another commonly overlooked topic – the fact that Kotlin encourages a new paradigm of programming where you’re not thinking in terms of steps (imperative) but rather, in terms of functions applied to parameters (functional programming) and we still find ourselves doing things the wrong way.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-20</startDate>
+        <endDate>2018-07-20</endDate>
+        <location>Denver, United States</location>
+        <speaker>Joshua Lamson</speaker>
+        <title>360|AnDev July 2018</title>
+        <subject>Custom Drawing with Canvas in Kotlin</subject>
+        <url>https://360andev.com/sessions/custom-drawing-with-canvas-in-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>When you’re creating a new View to display some complex data, it’s easy for the number of View objects you’re using to get out of control. Between elaborate shapes, shaders/colors, and text in specific places and orientations, using only Android Views and layouts can turn your layout into a dense, complicated mess. Luckily, there’s a better way to add all your customizations. What you need is a blank Canvas! (Literally, android.graphics.Canvas).</p>
+<p>In this session, we’ll delve into the details of using a Canvas to display anything you need in a truly custom way, explaining it all through simple examples written in Kotlin. You’ll leave this talk knowing how override the behavior of View, ViewGroup, and Drawable to draw custom shapes, paths, and text on the Canvas.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Prague, Czech Republic</location>
+        <speaker>Eugene Petrenko</speaker>
+        <title>CZ Kotlin User Group</title>
+        <subject>Multiplatform Kotlin in 42 minutes</subject>
+        <url>https://www.eventbrite.com/e/cz-kotlin-meetup-4-tickets-46459595902?utm-medium=discovery&amp;utm-campaign=social&amp;utm-content=attendeeshare&amp;aff=estw&amp;utm-source=tw&amp;utm-term=listing</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>cz</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Prague, Czech Republic</location>
+        <speaker>Petr Balat</speaker>
+        <title>CZ Kotlin User Group</title>
+        <subject>Kotlin a Spring Framework/Spring Boot </subject>
+        <url>https://www.eventbrite.com/e/cz-kotlin-meetup-4-tickets-46459595902?utm-medium=discovery&amp;utm-campaign=social&amp;utm-content=attendeeshare&amp;aff=estw&amp;utm-source=tw&amp;utm-term=listing</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>ru</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Minsk, Belarus</location>
+        <speaker>Sergey Sitko</speaker>
+        <title>GDG Minsk</title>
+        <subject>Разбираемся с Kotlin coroutines</subject>
+        <url>https://www.meetup.com/GDG-Minsk/events/251263252/</url>
+        <description>
+            <![CDATA[
+<p>Общий подход асинхронного программирования. Короткое ревью возможностей Java concurrent API, RxJava, Android API. Знакомство с Kotlin Coroutine. Что такое coroutine, как это чудо создавать и как им пользоваться.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-01</startDate>
+        <endDate>2018-06-01</endDate>
+        <location>Kampala, Uganda</location>
+        <speaker>Brian</speaker>
+        <title>GDG Kampala</title>
+        <subject>Android Things and Kotlin</subject>
+        <url>https://www.meetup.com/GDG-Kampala/events/251255643/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, Brian tells us about the latest and greatest about Kotlin released at Google I/O 2018 and about the development of Sentinel, the first home security robot powered by Android Things, and how hardware, software, coded in Kotlin, Firebase and how the Google Cloud Platform integrates with Sentinel to "bring it to life".</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-01</startDate>
+        <endDate>2018-06-01</endDate>
+        <location>Kampala, Uganda</location>
+        <speaker>Johnstone</speaker>
+        <title>GDG Kampala</title>
+        <subject>Kotlin Multiplatform Projects</subject>
+        <url>https://www.meetup.com/GDG-Kampala/events/251255643/</url>
+        <description>
+            <![CDATA[
+<p>A Kotlin multiplatform project allows you share code between different platforms. It takes a different approach to cross platform development than Xamarin and other frameworks. This talk will be about how to setup and build a multiplatform project. We will look at features of Kotlin multiplatform development through an example project. We will also look at the current limitations.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-01</startDate>
+        <endDate>2018-06-01</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Christoph Pickl, Riccardo ten Cate</speaker>
+        <title>defdev.eu/vienna</title>
+        <subject>Kotlin introduction + Automated security testing in CI/CD pipeline (an intro)</subject>
+        <url>https://www.meetup.com/defdev-vie/events/251000578/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-05</startDate>
+        <endDate>2018-06-05</endDate>
+        <location>Amsterdam, Netherlands</location>
+        <speaker>Joost Heijkoop</speaker>
+        <title>Kotlin.amsterdam</title>
+        <subject>Kotlin Case Studies</subject>
+        <url>https://www.meetup.com/kotlin-amsterdam/events/251189211/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Santiago, Chile</location>
+        <speaker>Joost Heijkoop</speaker>
+        <title>GDG Android Santiago</title>
+        <subject>What's Kotlin and Why should you use it? </subject>
+        <url>https://www.meetup.com/gdg-android-santiago/events/251192922/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Santiago, Chile</location>
+        <speaker>Harttin Arce</speaker>
+        <title>GDG Android Santiago</title>
+        <subject>Kotlin + Room for Dummies</subject>
+        <url>https://www.meetup.com/gdg-android-santiago/events/251192922/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>ja</lang>
+        <startDate>2018-05-30</startDate>
+        <endDate>2018-05-30</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Fukui Atsuko</speaker>
+        <title>集まれKotlin好き！Kotlin愛好会 vol1</title>
+        <subject>こんな時どう書くの？ 逆引きKotlin入門</subject>
+        <url>https://love-kotlin.connpass.com/event/86390/</url>
+        <content>
+            <slides>https://speakerdeck.com/muumuumuumuu/konnashi-doushu-kufalse-ni-yin-kikotlinru-men</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+
+
+<event>
+        <lang>ja</lang>
+        <startDate>2018-05-30</startDate>
+        <endDate>2018-05-30</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Sasami</speaker>
+        <title>「集まれKotlin好き！Kotlin愛好会 vol1</title>
+        <subject>How to Kotlin のセッションからKotlinらしい表現を学ぶ </subject>
+        <url>https://love-kotlin.connpass.com/event/86390/</url>
+        <content>
+            <slides>https://speakerdeck.com/sasamihoo/learn-how-to-kotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>ru</lang>
+        <startDate>2018-06-20</startDate>
+        <endDate>2018-06-20</endDate>
+        <location>Moscow, Russia</location>
+        <speaker>Sergey Krukov</speaker>
+        <title>Kotlin Moscow</title>
+        <subject>Kotlin/Native Sneak Peek</subject>
+        <url>https://www.meetup.com/KotlinMoscow/events/250681145/</url>
+        <description>
+            <![CDATA[
+<p> </p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>ru</lang>
+        <startDate>2018-06-20</startDate>
+        <endDate>2018-06-20</endDate>
+        <location>Moscow, Russia</location>
+        <speaker>Svyatoslav Shcherbyna</speaker>
+        <title>Kotlin Moscow</title>
+        <subject>Kotlin/Native: что, как, зачем и почему</subject>
+        <url>https://www.meetup.com/KotlinMoscow/events/250681145/</url>
+        <description>
+            <![CDATA[
+<p> </p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-05</startDate>
+        <endDate>2018-06-05</endDate>
+        <location>Bogotá, Colombia</location>
+        <speaker>Juan Guillermo Gómez</speaker>
+        <title>GDG Bogotá</title>
+        <subject>Creando tu backend con Kotlin y GCP</subject>
+        <url>https://www.meetup.com/gdgbogota/events/251192993/</url>
+        <description>
+            <![CDATA[
+<p>Klotin un nuevo lenguaje que corre sobre la JVM, moderno y multiplataforma. Se habla mucho de kotlin a nivel de apps, pero es posible crear backends con el. En este meetup crearemos un microservicio con kotlin, usando frameworks de la industria, con clean architecture y lo desplegaremos en Google Cloud Platform.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>tr</lang>
+        <startDate>2018-06-05</startDate>
+        <endDate>2018-06-05</endDate>
+        <location>Istanbul, Turkey</location>
+        <speaker>Hadi Tok</speaker>
+        <title>Kotlin Istanbul</title>
+        <subject>Android projesini Kotlin'e dönüştürme</subject>
+        <url>https://www.meetup.com/Kotlin-%C4%B0stanbul/events/250871440/</url>
+        <description>
+            <![CDATA[
+<p>Bu etkinliğimizde Hadi Tok bizlere varolan android uygulamalarımızda kullandığımız Java dilinin kotlin ile beraber kullanımı, Java kodlarının Kotlin'e dönüştürülmesi ve bu geçişte karşılaşılan genel problemler ve bu problemlerin çözüm yollarından bahsedecek.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-05</startDate>
+        <endDate>2018-06-05</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Ubiratan Soares</speaker>
+        <title>GDG-SP</title>
+        <subject>Kotlin workshop</subject>
+        <url>https://www.meetup.com/GDG-SP/events/251018475/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-06</startDate>
+        <endDate>2018-06-06</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Joshua Bloch.</speaker>
+        <title>San Diego Kotlin User Group</title>
+        <subject>Monthly Kotlin! - Effective Kotlin</subject>
+        <url>https://www.meetup.com/sd-kotlin/events/251387669/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-06</startDate>
+        <endDate>2018-06-06</endDate>
+        <location>Madrid, Spain</location>
+        <speaker>Sobre Raúl</speaker>
+        <title>MadridJUG</title>
+        <subject>Programación funcional en Kotlin con Arrow</subject>
+        <url>https://www.meetup.com/MadridJUG/events/251046516/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-06-06</startDate>
+        <endDate>2018-06-06</endDate>
+        <location>Lima, Peru</location>
+        <speaker>Jose Quispe Irrazábal</speaker>
+        <title>Perú Kotlin User Group</title>
+        <subject>Conceptos básicos sobre patrones de arquitectura para Android</subject>
+        <url>https://www.meetup.com/Peru-Kotlin-User-Group/events/251019272/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>nl</lang>
+        <startDate>2018-06-07</startDate>
+        <endDate>2018-06-07</endDate>
+        <location>Utrecht, Netherlands</location>
+        <speaker>Urs Peter</speaker>
+        <title>Utrecht Kotlin Meetup</title>
+        <subject>From Java to Kotlin in 60 minutes</subject>
+        <url>https://www.meetup.com/meetup-group-YgJEOzCn/events/251042505/</url>
+        <description>
+            <![CDATA[
+<p>In de eerste sessie zal Urs Peter via live-coding laten zien hoe makkelijk het is om van Java naar Kotlin over te stappen en welke voordelen daarbij komen kijken. Hij maakt gebruik van Java code snippets, die stapsgewijs worden omgezet naar Kotlin terwijl de belangrijkste taal features toegelicht worden. Tot slot licht hij toe hoe je Kotlin succesvol in je organisatie kunt introduceren op basis van de ervaringen die hij heeft opgedaan bij Coin.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-07</startDate>
+        <endDate>2018-06-07</endDate>
+        <location>Amsterdam, Netherlands</location>
+        <speaker>Alexey Soshin</speaker>
+        <title>GOTO Nights Amsterdam</title>
+        <subject>Concurrency with VertX in Kotlin</subject>
+        <url>https://www.meetup.com/GOTO-Nights-Amsterdam/events/248885105/</url>
+        <description>
+            <![CDATA[
+<p>In this talk we'll discuss how to write highly concurrent web scrapper on top of Vert.x and Kotlin. Let's assume you want to have the entire LOLcatz archive on your laptop. That's thousands of pages you need to parse, to get those funny picture URL's from, then actually download them. I plan to demonstrate how the asynchronous model of Vert.x can help us with this very important tasks and get the maximum from your hardware. Also in this talk, some more serious stuff: pipelines, worker verticles, the EventBus and asynchronous work with the file system.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-07</startDate>
+        <endDate>2018-06-07</endDate>
+        <location>Zagreb, Croatia</location>
+        <speaker>Branimir Akmadža</speaker>
+        <title>Infinum Android Talks / Zagreb</title>
+        <subject>UI Tests and Kotlin Robots</subject>
+        <url>https://www.meetup.com/Infinum-Android-Talks-Zagreb/events/251105758/</url>
+        <description>
+            <![CDATA[
+<p>When I first started to implement UI tests in my project, I thought to myself "What a huge amount of code for something so simple - I only need to check if my image is really shown". After some time spent on research, I discovered a very nice pattern that is possible to set up in Kotlin - DSL robots. In this talk I will show you how that Kotlin sorcery looks like, and why you should (or should not) implement UI tests!</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>it</lang>
+        <startDate>2018-06-08</startDate>
+        <endDate>2018-06-08</endDate>
+        <location>Torino, Italy</location>
+        <speaker>Leonardo Pirro</speaker>
+        <title>GDG Torino</title>
+        <subject>Better Async With Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/GDG-Torino/events/248902996/</url>
+        <description>
+            <![CDATA[
+<p>In questo talk scopriremo i principi base delle coroutines e quanto è semplice implementarle nei nostri progetti.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>it</lang>
+        <startDate>2018-06-08</startDate>
+        <endDate>2018-06-08</endDate>
+        <location>Fabio Collini</location>
+        <speaker>Leonardo Pirro</speaker>
+        <title>GDG Torino</title>
+        <subject>Async code on Kotlin: RxJava or/and co-routines</subject>
+        <url>https://www.meetup.com/GDG-Torino/events/248902996/</url>
+        <description>
+            <![CDATA[
+<p>Impareremo a scrivere codice asincrono con RxJava e le altre librerie ReactiveX</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>it</lang>
+        <startDate>2018-06-08</startDate>
+        <endDate>2018-06-08</endDate>
+        <location>Omar Miatello</location>
+        <speaker>Leonardo Pirro</speaker>
+        <title>GDG Torino</title>
+        <subject>Google Cloud Functions: try{ Kotlin } instead Of Javascript</subject>
+        <url>https://www.meetup.com/GDG-Torino/events/248902996/</url>
+        <description>
+            <![CDATA[
+<p>I primi passi per iniziare a scrivere le Cloud Functions for Firebase utilizzando Kotlin/JS per realizzare la backend</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>it</lang>
+        <startDate>2018-06-08</startDate>
+        <endDate>2018-06-08</endDate>
+        <location>Roberto Orgiu</location>
+        <speaker>Leonardo Pirro</speaker>
+        <title>GDG Torino</title>
+        <subject>Escape from Java" Scopriremo come passare da Java a Kotlin in pochi passaggi</subject>
+        <url>https://www.meetup.com/GDG-Torino/events/248902996/</url>
+        <description>
+            <![CDATA[
+<p>Durante l’evento saranno presenti tanti gadget per i partecipanti e il servizio di catering gentilmente offerto da Synesthesia.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-09</startDate>
+        <endDate>2018-06-09</endDate>
+        <location>Kuala Lumpur, Malaysia</location>
+        <speaker>Amr Mohsen, Harsh Mittal</speaker>
+        <title>Google Developer Group Kuala Lumpur - GDGKL</title>
+        <subject>Introduction to Kotlin</subject>
+        <url>https://www.meetup.com/GDGKualaLumpur/events/251223746/</url>
+        <description>
+            <![CDATA[
+<p>We'll have a tech talk then a workshop where you will learn the basics of Kotlin, create an Android app using it, and you will see why you should make the switch from Java to Kotlin.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-05-26</startDate>
+        <endDate>2018-05-26</endDate>
+        <location>Semarang, Indonesia</location>
+        <speaker>Kalif Ardy Noerwicaksono</speaker>
+        <title>Google Developer Group Kuala Lumpur - GDGKL</title>
+        <subject>Sandec Weekly Training #53 Bassic Kotlin</subject>
+        <url>https://www.dicoding.com/events/1694</url>
+        <description>
+            <![CDATA[
+<p>At SANDEC Weekly Training # 53 this time, we will learn about the (new) language used in creating Android app, which is KOTLIN. a new multi-purpose programming language developed by JetBrains.</p>
+<p>In this workshop, my friends will know what the difference when we use Kotlin in making an application in android. This workshop will be filled by Mas Kalif Ardi N - One of the trainers at SANDEC.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-30</startDate>
+        <endDate>2018-06-30</endDate>
+        <location>Lahore, Pakistan</location>
+        <speaker>Mehmood Asghar</speaker>
+        <title>Google Developer Group Kuala Lumpur - GDGKL</title>
+        <subject>Want know about kotlin</subject>
+        <url>https://developer.android.com/kotlin/</url>
+        <description>
+            <![CDATA[
+<p>I want to know about kotlin, as I am a developer.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Toronto, ON</location>
+        <speaker>Serhiy Shyyko</speaker>
+        <title>Kotlin Toronto</title>
+        <subject>Building frontend with Kotlin webpack and React</subject>
+        <url>https://www.meetup.com/Kotlin-Toronto/events/250880050/</url>
+        <description>
+            <![CDATA[
+<p>In this talk you’ll learn how to you to build and deploy a Kotlin react frontend application using webpack and kotlin-frontend-plugin. We’ll write a simple backend via Ktor and deploy it all on one of the cloud service providers.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Chicago, IL</location>
+        <speaker>Michael Maletich</speaker>
+        <title>Chicago Kotlin Users Group</title>
+        <subject>Validating Data at Scale with Kotlin</subject>
+        <url>https://www.meetup.com/Chicago-Kotlin/events/249196057/</url>
+        <description>
+            <![CDATA[
+<p>It's practically a given that data coming into your application will be inconsistent and poorly formatted for your purposes. The best way to handle bad data is to create a strict schema before capturing it. In this talk, you will learn how to improve the quality of data flowing from legacy sources with Kotlin and Baleen, an open source library.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Melbourne, Australia</location>
+        <speaker>Kon Soulianidis</speaker>
+        <title>Melbourne Java &amp; JVM Users Group</title>
+        <subject>Lean Kotlin</subject>
+        <url>https://www.meetup.com/Chicago-Kotlin/events/249196057/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Gustav Karlsson</speaker>
+        <title>Kotlin Meetup Rhein-Main</title>
+        <subject>Dealing with time in Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-Rhein-Main/events/250605620/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Ralf Stuckert</speaker>
+        <title>Kotlin Meetup Rhein-Main</title>
+        <subject>Kotlin-React</subject>
+        <url>https://www.meetup.com/Kotlin-Rhein-Main/events/250605620/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>de</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Guido Dolfen, Timm Hirsens</speaker>
+        <title>Kotlin Meetup Rhein-Main</title>
+        <subject>Von Java Legacy zu Kotlin Multi-Plattform – Ein Erfahrungsbericht aus der Praxis</subject>
+        <url>https://www.meetup.com/Kotlin-Rhein-Main/events/250605620/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>fr</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Toulouse, France</location>
+        <speaker>Kevin Davin</speaker>
+        <title>Toulouse Java User Group</title>
+        <subject>Deep Dive Kotlin: du Hello World au Bytecode</subject>
+        <url>https://www.meetup.com/Toulouse-Java-User-Group/events/250956533/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Singapore, Singapore</location>
+        <speaker>Andrey Mischenko</speaker>
+        <title>Singapore Kotlin User group</title>
+        <subject>What’s next? New features of upcoming Kotlin 1.3</subject>
+        <url>https://www.meetup.com/kotlinsg/events/251369236/</url>
+        <description>
+            <![CDATA[
+<p>What should we expect from the 3rd big release of Kotlin?
+Sneak peak on new features, changes and improvements of Kotlin 1.3 before the official announcement and beta version.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-12</startDate>
+        <endDate>2018-06-12</endDate>
+        <location>Singapore, Singapore</location>
+        <speaker>Vladislav Kan, Alexander Sukharev</speaker>
+        <title>Singapore Kotlin User group</title>
+        <subject>Kotlin Code Generation</subject>
+        <url>https://www.meetup.com/kotlinsg/events/251369236/</url>
+        <description>
+            <![CDATA[
+<p>Learn how to use modern programming technics to avoid writing boilerplate code.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-13</startDate>
+        <endDate>2018-06-13</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Christoph Leiter, Christoph Pickl</speaker>
+        <title>From Kotlin Vienna</title>
+        <subject>Kotlin for beginners - 101 talk and Koans hands-on</subject>
+        <url>https://www.meetup.com/Kotlin-Vienna/events/251396611/</url>
+        <description>
+            <![CDATA[
+<p>ou will hear the basics of the Kotlin programming language in a introductionary talk, no Kotlin experience required, Java highly recommended, at least some other general purpose object oriented language (C#, Scala, Ruby, ...)</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-20</startDate>
+        <endDate>2018-07-20</endDate>
+        <location>Denver, CO</location>
+        <speaker>Joshua Lamson</speaker>
+        <title>From Kotlin Vienna</title>
+        <subject>Custom Drawing with Canvas in Kotlin</subject>
+        <url>https://360andev.com/sessions/custom-drawing-with-canvas-in-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>When you’re creating a new View to display some complex data, it’s easy for the number of View objects you’re using to get out of control. Between elaborate shapes, shaders/colors, and text in specific places and orientations, using only Android Views and layouts can turn your layout into a dense, complicated mess. Luckily, there’s a better way to add all your customizations. What you need is a blank Canvas! (Literally, android.graphics.Canvas).</p>
+<p>In this session, we’ll delve into the details of using a Canvas to display anything you need in a truly custom way, explaining it all through simple examples written in Kotlin. You’ll leave this talk knowing how override the behavior of View, ViewGroup, and Drawable to draw custom shapes, paths, and text on the Canvas.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-20</startDate>
+        <endDate>2018-06-20</endDate>
+        <location>Salzburg, Austria</location>
+        <speaker>Christian Ortner</speaker>
+        <title>Salzburg Web Dev</title>
+        <subject>Kotlin everywhere</subject>
+        <url>https://www.meetup.com/salzburgwebdev/events/250207767/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-26</startDate>
+        <endDate>2018-06-26</endDate>
+        <location>Seoul, Korea (South)</location>
+        <speaker>Hadi Hariri</speaker>
+        <title>Kotlin Korea</title>
+        <subject>Kotlin을 사용한 비동기 프로그래밍(Asynchronous Programming with Kotlin)</subject>
+        <url>https://www.meetup.com/kotlinkr/events/251399066/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-26</startDate>
+        <endDate>2018-06-26</endDate>
+        <location>Prague, Czech Republic</location>
+        <speaker>Vladimir Valouch, Jan Dedecek</speaker>
+        <title>Prague Mobile Development Meetup</title>
+        <subject>How to use TensorFlow on your phone and Kotlin idioms in practice</subject>
+        <url>https://www.meetup.com/Prague-Mobile-Development-Meetup/events/251672580/</url>
+        <description>
+            <![CDATA[
+<p>Machine Learning on mobile devices with usage of TensorFlow, and the 2nd part of the meetup will be about idioms in Kotlin.
+</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>fr</lang>
+        <startDate>2018-06-22</startDate>
+        <endDate>2018-06-22</endDate>
+        <location>Luxembourg, Luxembourg</location>
+        <speaker>Philippe Charrière</speaker>
+        <title>Voxxed Days Luxembourg</title>
+        <subject>Mais LOL, pourquoi avoir inventé Kotlin, Scala est déjà un Java simplifié</subject>
+        <url>https://cfp-voxxed-lux.yajug.org/2018/talk/AAF-2167/Mais_LOL,_pourquoi_avoir_invente_Kotlin,_Scala_est_deja_un_Java_simplifie</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-09</startDate>
+        <endDate>2018-06-09</endDate>
+        <location>Gomel, Belarus</location>
+        <speaker>Ales Tsvil</speaker>
+        <title>Storm the Front Meetup #1</title>
+        <subject>Kotlin is Here Again!</subject>
+        <url>https://events.epam.com/events/gomel-front-end-meetup-1</url>
+        <description>
+            <![CDATA[
+<p>I want to tell you about one of the modern and trending languages of today - Kotlin, which among other cool features, has JS compilation target. So if it is possible to use Kotlin today - definitely yes! And I'll show you why =)</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>de</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Hamburg, Germany</location>
+        <speaker>Christophe Beyls</speaker>
+        <title>Kotlin User Group Hamburg</title>
+        <subject>Kotlin's hidden costs, revisited</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Hamburg/events/251261120/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin has become the new default modern programming language for many Android and backend developers. But exactly how much performance and code size are we sacrificing for making use of all the additional features this language provides compared to Java?
+We'll study the Java bytecode generated by the Kotlin compiler in various scenarios in order to find out which code constructs come with hidden performance penalties and learn how to become better Kotlin programmers. Some significant improvements in the recent versions of Kotlin will also be highlighted.
+This talk is based on the series of blog posts from the speaker and extends it in some areas.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>de</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Hamburg, Germany</location>
+        <speaker>Niklas Baudy</speaker>
+        <title>Kotlin User Group Hamburg</title>
+        <subject>Kotlin on Code Quality Tools</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Hamburg/events/251261120/</url>
+        <description>
+            <![CDATA[
+<p>Some might have heard about code quality tools such as Checkstyle, PMD, Findbugs, Lint, Detekt and others but which ones are applicable to Kotlin? I'll list a bunch of tools, explain what they can do, touch on how they work and most importantly show you how you can start using them to be more productive and save a lot of time. With the help of these analyzers you can focus on coding conventions in your team, catch a few bugs and concentrate on what really matters when reviewing code</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Cambridge, MA</location>
+        <speaker>Anton Spaans</speaker>
+        <title>Kotlin Office Hours</title>
+        <subject>Weaponize your Functional Kotlin with an Arro</subject>
+        <url>https://www.meetup.com/kotlin-office-hours/events/251200468/</url>
+        <description>
+            <![CDATA[
+<p>This talk is an introduction of how you can apply basic functional data types into your Kotlin applications. We will introduce concepts of functional programming and the basic functional data types provided by the Arrow library and show examples on how to use it all in your applications</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Cambridge, MA</location>
+        <speaker>Patrick Beagan</speaker>
+        <title>Kotlin Office Hours</title>
+        <subject>Let, Also, With, Apply, Run</subject>
+        <url>https://www.meetup.com/kotlin-office-hours/events/251200468/</url>
+        <description>
+            <![CDATA[
+<p>If you've ever seen kotlin code with words like "let, also, with, apply, run" thrown in and wondered what they're for, we'll cover them in this talk. We'll go over the basic usages of each of these standard library functions, the patterns that they can supplement, and how to extend their functionality to help consolidate your code!
+</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-14</startDate>
+        <endDate>2018-06-14</endDate>
+        <location>Lehi, UT</location>
+        <speaker>Jordan Hansen</speaker>
+        <title>GDG Silicon Slopes</title>
+        <subject>Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/GDG-Silicon-Slopes/events/250912410/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>no</lang>
+        <startDate>2018-06-18</startDate>
+        <endDate>2018-06-18</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Thomas Pettersen</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>Kotlin på Android = &lt;3</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/251123351/</url>
+        <description>
+            <![CDATA[
+<p>Hei alle sammen! Nå er det tid for den første Kotlin-meetupen, og det er bare å glede seg. I dag skal vi høre Thomas Pettersen snakke om hvor mye Kotlin forenkler livet vårt når det gjelder utvikling for Android. Det blir lett servering med pizza og brus, og muligheter til mingling og diskusjoner etter foredraget.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>it</lang>
+        <startDate>2018-06-18</startDate>
+        <endDate>2018-06-18</endDate>
+        <location>Pisa, Italy</location>
+        <speaker>Domenico Blanco</speaker>
+        <title>GDG Pisa</title>
+        <subject>KotlinLab</subject>
+        <url>https://www.meetup.com/GDG-Pisa/events/251621352/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>hg</lang>
+        <startDate>2018-06-18</startDate>
+        <endDate>2018-06-18</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Varga Balázs</speaker>
+        <title>HWSW free!</title>
+        <subject>Kotlin multiplatform vs testing</subject>
+        <url>https://www.meetup.com/hwswfree/events/251298043/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>hg</lang>
+        <startDate>2018-06-18</startDate>
+        <endDate>2018-06-18</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Fuszenecker Zsombor</speaker>
+        <title>HWSW free!</title>
+        <subject>A Kotlin nyelv kifejezőképessége okozhat meglepetéseket</subject>
+        <url>https://www.meetup.com/hwswfree/events/251298043/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-19</startDate>
+        <endDate>2018-06-19</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Karolina Kafel</speaker>
+        <title>Women Techmakers Berlin</title>
+        <subject>Study Jam Kickoff + Introduction to Kotlin</subject>
+        <url>https://www.meetup.com/Women-Techmakers-Berlin/events/250511743/</url>
+        <description>
+            <![CDATA[
+<p>On this last session we will give you time to work a bit more on your projects, then we will encourage you to present them :-) It does not matter if it does not work or it is incomplete, what matters is that you tried!</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-19</startDate>
+        <endDate>2018-06-19</endDate>
+        <location>Santa Cruz, CA</location>
+        <speaker>John Kaster</speaker>
+        <title>Santa Cruz Kotlin User Group</title>
+        <subject>Kotlin Coroutines: what are they, and why you should love them</subject>
+        <url>https://www.meetup.com/Women-Techmakers-Berlin/events/250511743/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-25</startDate>
+        <endDate>2018-06-25</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Ronen Sabag</speaker>
+        <title>.droidcon Berlin</title>
+        <subject>Lean way to write asynchronous code with Kotlin's coroutines</subject>
+        <url>https://www.de.droidcon.com/Sessions/LEAN-WAY-WRITE-ASYNCHRONOUS-CODE-WITH-KOTLIN%E2%80%99S-COROUTINES</url>
+        <description>
+            <![CDATA[
+<p>A very common scenario for a modern app is the need to perform several background tasks in parallel. Sometimes we want to wait for the response of all or some of them and this can be cumbersome to develop. We will see how can we use Kotlin's coroutines power and simplicity to run and manage several tasks in parallel in a very convenient way. This could also be a great and native alternative to RxJava without its steep learning curve and complexity.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-25</startDate>
+        <endDate>2018-06-25</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Nelson Osacky</speaker>
+        <title>.droidcon Berlin</title>
+        <subject>Can Kotlin save me from my groovy buildscripts?</subject>
+        <url>https://www.de.droidcon.com/Sessions/CAN-KOTLIN-SAVE-ME-FROM-MY-GROOVY-BUILDSCRIPTS%3F</url>
+        <description>
+            <![CDATA[
+<p>We all know and love to use Kotlin in our Android apps, but did you know you can also use it to write your gradle build scripts? This talk will cover the pros and cons of migrating your buildscripts from Groovy to Kotlin. Is Kotlin more understandable than Groovy? Does it compile faster than Groovy? Is type safety and advantage in build scripts? This talk will also cover how the Kotlin Gradle DSL works under the hood.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-25</startDate>
+        <endDate>2018-06-25</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Danny Preussler</speaker>
+        <title>.droidcon Berlin</title>
+        <subject>To inject or not inject - dependence injection in a Kotlin world</subject>
+        <url>https://www.de.droidcon.com/Sessions/TO-INJECT-OR-NOT-INJECT---DEPENDENCY-INJECTION-IN-A-KOTLIN-WORLD</url>
+        <description>
+            <![CDATA[
+<p>Dependency Injection via frameworks like Dagger were present in most modern Android projects. But then Kotlin happened. And since then a bunch of new libraries like Koin or Kodein appeared. Developers are even writing articles how to do DI without any framework. Some argue that those don’t even offer real dependency injection. Let’s look at that argument and compare the approaches. So, is there something wrong with Dagger & co. in Kotlin? Are they obsolete? What are the alternatives? Let’s dive in.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-25</startDate>
+        <endDate>2018-06-25</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Zan Markan</speaker>
+        <title>.droidcon Berlin</title>
+        <subject>The state of the Kotlin ecosystem</subject>
+        <url>https://www.de.droidcon.com/Sessions/TO-INJECT-OR-NOT-INJECT---DEPENDENCY-INJECTION-IN-A-KOTLIN-WORLD</url>
+        <description>
+            <![CDATA[
+<p>Over the last three months I ran a survey of the global Kotlin ecosystem. My goal was to learn how developers use and adopt Kotlin - either in work or side projects, or just for playing around, and what are some of the most popular resources for learning it. The survey was a great success, and gained over 2400 responses in total! The results are meant to become a resource for the Kotlin community. Something we can all look at for interesting insights that will also help drive adoption of Kotlin in our teams and organisations. To give you a taster, here’s a few questions I asked in the survey: How big is Android as a proportion of all Kotlin developers Are people happy naming libraries and tooling with K What are the favourite features of the language What kind of DSLs are people </p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-25</startDate>
+        <endDate>2018-06-25</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Ricardo Lage</speaker>
+        <title>.droidcon Berlin</title>
+        <subject>A deep dive into migrating from avtovalue to Kotlin data classes</subject>
+        <url>https://www.de.droidcon.com/Sessions/A-DEEP-DIVE-INTO-MIGRATING-FROM-AUTOVALUE-TO-KOTLIN-DATA-CLASSES</url>
+        <description>
+            <![CDATA[
+<p>AutoValue is a powerful tool provided by Google to generate Java immutable value classes. If you are migrating your project to Kotlin, data classes are the most direct way to replace it while keeping the same features. There are however trade-offs to take into account. In this talk we will introduce how we migrated our project from AutoValue to Kotlin data classes and how we dealt with the issues we encountered along the way. We will also discuss the advantages and disadvantages of each approach in terms of build time, apk size, method count and serialization time. After this introduction, we will deep dive into two topics: First, we will look into different serialization strategies available and how they perform. We will look into Gson, Moshi and Kotlinx.serialization libraries and explore their</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-21</startDate>
+        <endDate>2018-06-21</endDate>
+        <location>Salzburg, Austria</location>
+        <speaker>Christian Ortner</speaker>
+        <title>Salzburg Web Dev</title>
+        <subject>Kotlin everywhere - JVM, Android, Javascript</subject>
+        <url>https://www.meetup.com/salzburgwebdev/events/250207767/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-21</startDate>
+        <endDate>2018-06-21</endDate>
+        <location>Lehi, UT</location>
+        <speaker>Matt Berteaux</speaker>
+        <title>Kotlin Utah</title>
+        <subject>Kotlin on the frontend</subject>
+        <url>https://www.meetup.com/Kotlin-Utah/events/250979298/</url>
+        <description>
+            <![CDATA[
+<p>Did you know that Kotlin can be used for front-end web development? We are going to explore how to do this. Come eat some food and learn more about all that Kotlin can do!</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-21</startDate>
+        <endDate>2018-06-21</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>David Gonzalez</speaker>
+        <title>Kotlin Belgium User Group</title>
+        <subject>Kotlin Summer talk</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Belgium/events/251197508/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-27</startDate>
+        <endDate>2018-06-27</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Volker Benders</speaker>
+        <title>Frankfurt AWS User Group</title>
+        <subject>Kickstarting AWS with Kotlin and Serverless</subject>
+        <url>https://www.meetup.com/aws-frankfurt/events/251910783/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-20</startDate>
+        <endDate>2018-06-20</endDate>
+        <location>München, Germany</location>
+        <speaker>Jossi Wolf</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Kotlin JS: An Introduction</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/251468134/</url>
+        <content>
+            <slides>https://speakerdeck.com/jossiwolf/js-kug-munich</slides>
+            <video>https://www.pscp.tv/w/1zqKVLyjAQVJB</video>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-20</startDate>
+        <endDate>2018-06-20</endDate>
+        <location>München, Germany</location>
+        <speaker>Dmitry Jemerov</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Project Centaur: Using Kotlin to turn IntelliJ IDEA into a server</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/251468134/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-20</startDate>
+        <endDate>2018-06-20</endDate>
+        <location>München, Germany</location>
+        <speaker>Werner Keil</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Physikal – Using Kotlin for Clean Energy</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/251468134/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>pl</lang>
+        <startDate>2018-06-20</startDate>
+        <endDate>2018-06-20</endDate>
+        <location>Krakow, Poland</location>
+        <speaker>Artur Czopek</speaker>
+        <title>Devoxx Poland 2018</title>
+        <subject>Do Super Language with Kotlin</subject>
+        <url>https://cfp.devoxx.pl/2018/talk/NQF-9752/%5B30_min%5D_DSL_-_Do_Super_Language_with_Kotlin</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is more powerful every year. This language is great either for imperative and functional programming. However, Kotlin can be used also to creating own Domain-Specified Language. In this session, I will show you how to create your own DSL and use it to create applications even faster with more readable code.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>pl</lang>
+        <startDate>2018-06-20</startDate>
+        <endDate>2018-06-20</endDate>
+        <location>Krakow, Poland</location>
+        <speaker>Grzegorz Dyrda</speaker>
+        <title>Devoxx Poland 2018</title>
+        <subject>Introduction to Kotlin</subject>
+        <url>https://cfp.devoxx.pl/2018/talk/QER-3823/Introduction_to_Kotlin</url>
+        <description>
+            <![CDATA[
+<p>In this talk I'd like to show You the biggest advantages of Kotlin - a great new programming language for JVM, Web & Native.</p>
+<p>I use it for over two years now, and I simply love its readability, elegant solutions of Java’s biggest issues, and vast amount of features that we won’t see in Java anytime soon…</p>
+<p>During this talk You'll learn about Kotlin's main characteristics (e.g. null-safety), seamless Java interop, greatest features (e.g. extensions, data classes) etc.</p>
+<p>But, most importantly, you'll see that Kotlin is easy to learn and makes you more productive and satisfied as a developer :)</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-07</startDate>
+        <endDate>2018-07-07</endDate>
+        <location>Alexandria, Egypt</location>
+        <speaker>Shady Selim</speaker>
+        <title>GDG Alexandria</title>
+        <subject>Kotlin Updates in from the Google I/O</subject>
+        <url>https://www.meetup.com/GDG-Alexandria/events/247743156/</url>
+        <description>
+            <![CDATA[
+<p>Will summarize all the Kotlin talks and updates that was mentioned in the Google I/O 2018</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-07</startDate>
+        <endDate>2018-07-07</endDate>
+        <location>Bhubaneswar, India</location>
+        <speaker>Sriyank Siddhartha</speaker>
+        <title>GDG Bhubaneswar</title>
+        <subject>The Power of Kotlin Language</subject>
+        <url>https://www.meetup.com/GDG-Bhubaneswar/events/249694826/</url>
+        <description>
+            <![CDATA[
+<p>Leverage the power of Koltin with its amazing features and get a sneak peak of its application in Android.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-09</startDate>
+        <endDate>2018-07-09</endDate>
+        <location>Bangalore, India</location>
+        <speaker>Chandra Sekhar Nayak</speaker>
+        <title>BangaloreJUG</title>
+        <subject>Introduction to Kotlin</subject>
+        <url>https://www.meetup.com/BangaloreOpenJUG/events/250733205/</url>
+        <content>
+            <slides>https://speakerdeck.com/chansek/introduction-to-kotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p>An introduction to Kotlin for Java developers. This is presented at BangaloreJUG meetup's June 2018 meet.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-26</startDate>
+        <endDate>2018-06-26</endDate>
+        <location>London,United Kingdom</location>
+        <speaker>Duncan McGregor</speaker>
+        <title>London Java Community</title>
+        <subject>Refactoring to Kotlin</subject>
+        <url>https://www.eventbrite.co.uk/e/refactoring-to-kotlin-tickets-46728063897?aff=twsp</url>
+        <description>
+            <![CDATA[
+<p>Kotlin neatly fills a gap between the verbosity of Java and the complexity of Scala, has excellent tooling and a fun keyword, so what's not to like?</p>
+<p>In this session we introduce the Kotlin language through converting and then refactoring Java code. We’ll code our way through a structured series of exercises designed to familiarise the audience with the features and patterns of the language.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>ko</lang>
+        <startDate>2018-06-26</startDate>
+        <endDate>2018-06-26</endDate>
+        <location>Seoul, Korea (South)</location>
+        <speaker>Jaewe Heo</speaker>
+        <title>Kotlin Korea Meetup 2018</title>
+        <subject>Kotlin-Flavored BuildScripts</subject>
+        <url>https://www.meetup.com/kotlinkr/events/251399066/</url>
+        <content>
+            <slides>https://speakerdeck.com/importre/kotlin-flavored-buildscripts</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p># 코틀린 맛 빌드스크립트
+코틀린으로 그래들 플러그인을 만들고, 이미 존재하는 그래들 프로젝트에서 사용하는 방법을 소개합니다.
+그루비로 되어있는 그래들 프로젝트를 점차 코틀린으로 바꾸는 방향을 제안합니다.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-30</startDate>
+        <endDate>2018-06-30</endDate>
+        <location>Bangalore, India</location>
+        <speaker>Adit Lal</speaker>
+        <title>BlrKotlin - Kotlin User Group</title>
+        <subject>Kotlin with Arch Components</subject>
+        <url>https://www.meetup.com/BlrKotlin/events/251671812/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-30</startDate>
+        <endDate>2018-06-30</endDate>
+        <location>Bangalore, India</location>
+        <speaker>Suraj Shah</speaker>
+        <title>BlrKotlin - Kotlin User Group</title>
+        <subject>Idiomatic usage of Operators in Kotlin</subject>
+        <url>https://www.meetup.com/BlrKotlin/events/251671812/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-30</startDate>
+        <endDate>2018-06-30</endDate>
+        <location>Bangalore, India</location>
+        <speaker>Adnan AM</speaker>
+        <title>BlrKotlin - Kotlin User Group</title>
+        <subject>A Slice of Android Slices</subject>
+        <url>https://www.meetup.com/BlrKotlin/events/251671812/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>de</lang>
+        <startDate>2018-06-30</startDate>
+        <endDate>2018-06-30</endDate>
+        <location>Karlsruhe, Germany</location>
+        <speaker>Hendrik Still, Daniel Bälz</speaker>
+        <title>inovex Meetup Karlsruhe</title>
+        <subject>Application.kt – Spring Boot 2 mit Kotlin</subject>
+        <url>https://www.meetup.com/inovex-karlsruhe/events/249381296/</url>
+        <description>
+            <![CDATA[
+<p>Die armen mit Java EE geknechteten Backend-Kolleg*innen müssen den ganzen Tag lang Java entwickeln, während die hippen Android-Kolleg*innen ständig am Puls der Zeit sind und mit Kotlin spielen dürfen? Nix da, denn in Spring Boot 2 ist Kotlin ein First-Class Citizen! Deshalb werden wir uns gemeinsam anschauen, welche Änderungen zu beachten sind, was genau gleich bleibt und wie kurz der Code von Beans auf einmal sein kann.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>ja</lang>
+        <startDate>2018-06-26</startDate>
+        <endDate>2018-06-26</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Yuki Shiho</speaker>
+        <title>shibuya.apk #26</title>
+        <subject>Kotlin cross-platform / multi-format serialization</subject>
+        <url>https://shibuya-apk.connpass.com/event/90517/</url>
+        <content>
+            <slides>https://speakerdeck.com/shihochan/multi-format-serialization</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-21</startDate>
+        <endDate>2018-06-21</endDate>
+        <location>Lille, France</location>
+        <speaker>Benjamin Monjoie</speaker>
+        <title>Devfest Lille</title>
+        <subject>A Kotlink between worlds</subject>
+        <url>https://devfest.gdglille.org/#/schedule</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is very popular in the Android community but Jetbrains hasn't focused only on the Java related worlds. They have targeted Javascript from the beginning and now they are also broadening their scope to other realms like iOS. Therefore, it's time for you to get acquainted on how you can share code between your projects. That is why, through the help of a little game called</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>fr</lang>
+        <startDate>2018-06-21</startDate>
+        <endDate>2018-06-21</endDate>
+        <location>Lille, France</location>
+        <speaker>Grégory Bévan, Thomas Betous</speaker>
+        <title>Devfest Lille</title>
+        <subject>Devenez un backend hero avec Kotlin</subject>
+        <url>https://devfest.gdglille.org/#/schedule</url>
+        <description>
+            <![CDATA[
+<p>Kotlin gagne en popularité depuis la sortie officielle de sa version 1.0. Petit à petit, il devient la référence à la fois dans le monde du mobile (Android), du backend (Spring) et des outils (Gradle). Dans ce codelab nous allons introduire progressivement les concepts clé du langage à travers le développement du backend d'une application permettant de tester les capacités des développeurs, type CodinGame.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>it</lang>
+        <startDate>2018-06-30</startDate>
+        <endDate>2018-06-30</endDate>
+        <location>Pisa, Italy</location>
+        <speaker>Gianni</speaker>
+        <title>GDG Pisa</title>
+        <subject>Merenda con Kotlin</subject>
+        <url>https://www.meetup.com/GDG-Pisa/events/252067143/</url>
+        <description>
+            <![CDATA[
+<p>Dopo KotlinLab, GDG Pisa propone di passare insieme un sabato pomeriggio alternativo presso il caffè letterario voltapagina, dove poter chiacchierare riguardo Kotlin tra una fetta di torta e l'altra. 🍰</p>
+<p>L'evento è pensato per essere totalmente libero da schemi: potete fare domande riguardo quanto affrontato durante il KotlinLab o fare domande affini a Kotlin e al mondo che vi orbita (Android, Kotlin-native, librerie ecc).</p>
+<p>Per partecipare non è necessaria alcuna propedeuticità, non è necessario portare un PC e non è necessario aver seguito il KotlinLab.</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-06-30</startDate>
+        <endDate>2018-06-30</endDate>
+        <location>Gaborone, Botswana</location>
+        <speaker>Kesego Tumisang</speaker>
+        <title>GDG Gaborone</title>
+        <subject>Kotlin for Beginners</subject>
+        <url>https://www.meetup.com/GDG-Gaborone/events/250956441/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-07</startDate>
+        <endDate>2018-07-07</endDate>
+        <location>Alexandria, Egypt</location>
+        <speaker>Wessam Elsharawy</speaker>
+        <title>GDG Alexandria</title>
+        <subject>(Flutter - Angular - Kotlin) in parallel</subject>
+        <url>https://www.meetup.com/GDG-Alexandria/events/247743156/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-09</startDate>
+        <endDate>2018-07-09</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Tomás Hanley</speaker>
+        <title>Dublin Kotlin Meetup</title>
+        <subject>Intro to Kotlin &amp; starting the Kotlin Koans</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-Meetup/events/251790075/</url>
+        <description>
+            <![CDATA[
+<p>We'll be starting with a presentation on Kotlin, what it is, why you should use it, and why we're passionate about adopting it!</p>
+]]>
+     </description>
+         </event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-07-10</startDate>
+        <endDate>2018-07-10</endDate>
+        <location>Omaha, NE</location>
+        <speaker>Parshav Chauhan</speaker>
+        <title>Google Developer Group Omaha</title>
+        <subject>Kotlin Λrrow</subject>
+        <url>https://www.meetup.com/GDGOmaha/events/251531835/</url>
+        <description>
+            <![CDATA[
+]]>
+     </description>
+         </event>
 
     <event>
         <lang>en</lang>
@@ -151,7 +1900,7 @@
         <endDate>2018-04-20</endDate>
         <location>Kampala, Uganda</location>
         <speaker>Kevin Janvier</speaker>
-        <title>KGDG Kampala</title>
+        <title>GDG Kampala</title>
         <subject>Kotlin Beyond Android - Using Kotlin on New and Existing Projects</subject>
         <url>https://www.meetup.com/GDG-Kampala/events/249864608/</url>
         <description>
@@ -315,7 +2064,7 @@
         <endDate>2018-04-20</endDate>
         <location>Turin, Italy</location>
         <speaker>Lorenzo Quiroli</speaker>
-        <title>droidcon italy</title>
+        <title>droidcon Italy</title>
         <subject>Kotlin Tips &amp; Tricks</subject>
         <url>http://it.droidcon.com/2018/agenda/</url>
         <content>
