@@ -64,6 +64,7 @@ If you need to configure the project manually, use the following steps:
   
 The following example demonstrates a complete `build.gradle` file for a common module with Kotlin 1.2:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 buildscript {
     ext.kotlin_version = '{{ site.data.releases.latest.version }}'
@@ -87,10 +88,12 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
 }
 ```
+</div>
 
 And the example below shows a complete `build.gradle` for a JVM module. Pay special
 attention to the `expectedBy` line in the `dependencies` block:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 buildscript {
     ext.kotlin_version = '{{ site.data.releases.latest.version }}'
@@ -117,6 +120,7 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
 }
 ```
+</div>
 
 
 ## Platform-Specific Declarations
@@ -134,6 +138,7 @@ With this mechanism, a common module can define _expected declarations_, and a p
 can provide _actual declarations_ corresponding to the expected ones. 
 To see how this works, let's look at an example first. This code is part of a common module:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 package org.jetbrains.foo
 
@@ -145,9 +150,11 @@ fun main(args: Array<String>) {
     Foo("Hello").frob()
 }
 ```
+</div>
 
 And this is the corresponding JVM module:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 package org.jetbrains.foo
 
@@ -157,6 +164,7 @@ actual class Foo actual constructor(val bar: String) {
     }
 }
 ```
+</div>
 
 This illustrates several important points:
 
@@ -173,6 +181,7 @@ In this example, the expected class has a constructor and can be created directl
 You can apply the `expect` modifier to other declarations as well, including top-level declarations and
 annotations:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 // Common
 expect fun formatString(source: String, vararg args: Any): String
@@ -185,6 +194,7 @@ actual fun formatString(source: String, vararg args: Any) =
     
 actual typealias Test = org.junit.Test
 ```
+</div>
 
 The compiler ensures that every expected declaration has actual declarations in all platform
 modules that implement the corresponding common module, and reports an error if any actual declarations are 
@@ -194,6 +204,7 @@ If you have a platform-specific library that you want to use in common code whil
 implementation for another platform, you can provide a typealias to an existing class as the actual
 declaration:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 expect class AtomicRef<V>(value: V) {
   fun get(): V
@@ -204,6 +215,7 @@ expect class AtomicRef<V>(value: V) {
 
 actual typealias AtomicRef<V> = java.util.concurrent.atomic.AtomicReference<V>
 ```
+</div>
 
 ## Multiplatform tests
 
