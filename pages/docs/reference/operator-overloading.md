@@ -35,14 +35,20 @@ This table says that when the compiler processes, for example, an expression `+a
 
 As an example, here's how you can overload the unary minus operator:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
 data class Point(val x: Int, val y: Int)
 
 operator fun Point.unaryMinus() = Point(-x, -y)
 
 val point = Point(10, 20)
-println(-point)  // prints "(-10, -20)"
+
+fun main(args: Array<String>) {
+   println(-point)  // prints "(-10, -20)"
+}
+
 ```
+</div>
 
 ### Increments and decrements
 
