@@ -542,7 +542,7 @@ Put spaces around the `=` sign separating the argument name and value.
 
 ### Chained call wrapping
 
-When wrapping chained calls, put the . character or the `?.` operator on the next line, with a single indent:
+When wrapping chained calls, put the `.` character or the `?.` operator on the next line, with a single indent:
 
 ``` kotlin
 val anchor = owner
@@ -803,8 +803,13 @@ To maintain indentation in multiline strings, use `trimIndent` when the resultin
 indentation, or `trimMargin` when internal indentation is required:
 
 ``` kotlin
-assertEquals("""Foo
-                Bar""".trimIndent(), value)
+assertEquals(
+    """
+    Foo
+    Bar
+    """.trimIndent(), 
+    value
+)
 
 val a = """if(a > 1) {
           |    return a

@@ -306,7 +306,7 @@ val kotlinCompile: KotlinCompile by tasks
 kotlinCompile.kotlinOptions.suppressWarnings = true
 ```
 
-Use the types `Kotlin2JsCompile` and `KotlinCommonCompile` for the JS and Common targets, accordingly.
+Use the types `Kotlin2JsCompile` and `KotlinCompileCommon` for the JS and Common targets, accordingly.
 
 It is also possible to configure all Kotlin compilation tasks in the project:
 

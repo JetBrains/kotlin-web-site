@@ -258,7 +258,13 @@ C1().caller(D())  // prints "D.foo in C1" - dispatch receiver is resolved virtua
 C().caller(D1())  // prints "D.foo in C" - extension receiver is resolved statically
 ```
 
- 
+## Note on visibility
+
+Extensions utilize the same [visibility of other entities](visibility-modifiers.html) as regular functions declared in the same scope would. For example:
+
+* An extension declared on top level of a file has access to the other `private` top-level declarations in the same file;
+* If an extension is declared outside its receiver type, such an extension cannot access the receiver's `private` members.
+
 ## Motivation
 
 In Java, we are used to classes named "\*Utils": `FileUtils`, `StringUtils` and so on. The famous `java.util.Collections` belongs to the same breed.
