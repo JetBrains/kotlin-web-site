@@ -15,36 +15,36 @@ Kotlin slightly generalizes this concept with *object expressions* and *object d
 
 To create an object of an anonymous class that inherits from some type (or types), we write:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 window.addMouseListener(object : MouseAdapter() {
-    override fun mouseClicked(e: MouseEvent) {
-        // ...
-    }
+    override fun mouseClicked(e: MouseEvent) { ... }
 
-    override fun mouseEntered(e: MouseEvent) {
-        // ...
-    }
+    override fun mouseEntered(e: MouseEvent) { ... }
 })
 ```
+</div>
 
 If a supertype has a constructor, appropriate constructor parameters must be passed to it.
 Many supertypes may be specified as a comma-separated list after the colon:
 
-
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 open class A(x: Int) {
     public open val y: Int = x
 }
 
-interface B {...}
+interface B { ... }
 
 val ab: A = object : A(1), B {
     override val y = 15
 }
 ```
+</div>
 
 If, by any chance, we need "just an object", with no nontrivial supertypes, we can simply say:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun foo() {
     val adHoc = object {
@@ -54,12 +54,14 @@ fun foo() {
     print(adHoc.x + adHoc.y)
 }
 ```
+</div>
 
 Note that anonymous objects can be used as types only in local and private declarations. If you use an anonymous object as a
 return type of a public function or the type of a public property, the actual type of that function or property
 will be the declared supertype of the anonymous object, or `Any` if you didn't declare any supertype. Members added
 in the anonymous object will not be accessible.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class C {
     // Private function, so the return type is the anonymous object type
@@ -78,10 +80,12 @@ class C {
     }
 }
 ```
+</div>
 
 Just like Java's anonymous inner classes, code in object expressions can access variables from the enclosing scope.
 (Unlike Java, this is not restricted to final variables.)
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun countClicks(window: JComponent) {
     var clickCount = 0
@@ -99,12 +103,14 @@ fun countClicks(window: JComponent) {
     // ...
 }
 ```
+</div>
 
 ## Object declarations
 
 [Singleton](http://en.wikipedia.org/wiki/Singleton_pattern) may be useful in several cases,
 and Kotlin (after Scala) makes it easy to declare singletons:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 object DataProviderManager {
     fun registerDataProvider(provider: DataProvider) {
@@ -115,6 +121,7 @@ object DataProviderManager {
         get() = // ...
 }
 ```
+</div>
 
 This is called an *object declaration*, and it always has a name following the *object*{: .keyword } keyword.
 Just like a variable declaration, an object declaration is not an expression, and cannot be used on the right hand side of an assignment statement.
@@ -123,23 +130,23 @@ Object declaration's initialization is thread-safe.
 
 To refer to the object, we use its name directly:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 DataProviderManager.registerDataProvider(...)
 ```
+</div>
 
 Such objects can have supertypes:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 object DefaultListener : MouseAdapter() {
-    override fun mouseClicked(e: MouseEvent) {
-        // ...
-    }
+    override fun mouseClicked(e: MouseEvent) { ... }
 
-    override fun mouseEntered(e: MouseEvent) {
-        // ...
-    }
+    override fun mouseEntered(e: MouseEvent) { ... }
 }
 ```
+</div>
 
 **NOTE**: object declarations can't be local (i.e. be nested directly inside a function), but they can be nested into other object declarations or non-inner classes.
 
@@ -148,6 +155,7 @@ object DefaultListener : MouseAdapter() {
 
 An object declaration inside a class can be marked with the *companion*{: .keyword } keyword:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class MyClass {
     companion object Factory {
@@ -155,32 +163,36 @@ class MyClass {
     }
 }
 ```
+</div>
 
 Members of the companion object can be called by using simply the class name as the qualifier:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val instance = MyClass.create()
 ```
+</div>
 
 The name of the companion object can be omitted, in which case the name `Companion` will be used:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class MyClass {
-    companion object {
-    }
+    companion object { }
 }
 
 val x = MyClass.Companion
 ```
+</div>
 
 Note that, even though the members of companion objects look like static members in other languages, at runtime those
 are still instance members of real objects, and can, for example, implement interfaces:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 interface Factory<T> {
     fun create(): T
 }
-
 
 class MyClass {
     companion object : Factory<MyClass> {
@@ -188,6 +200,7 @@ class MyClass {
     }
 }
 ```
+</div>
 
 However, on the JVM you can have members of companion objects generated as real static methods and fields, if you use
 the `@JvmStatic` annotation. See the [Java interoperability](java-to-kotlin-interop.html#static-fields) section

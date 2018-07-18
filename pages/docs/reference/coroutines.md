@@ -28,33 +28,38 @@ Another difference is that coroutines can not be suspended at random instruction
 
 A suspension happens when we call a function marked with the special modifier, `suspend`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin 
-suspend fun doSomething(foo: Foo): Bar {
-    ...
-}
+suspend fun doSomething(foo: Foo): Bar { ... }
 ```
+</div>
 
 Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions, as well as function literals inlined into those.
 
 In fact, to start a coroutine, there must be at least one suspending function, and it is usually a suspending lambda. Let's look at an example, a simplified `async()` function (from the [`kotlinx.coroutines`](#generators-api-in-kotlincoroutines) library):
-    
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun <T> async(block: suspend () -> T)
-``` 
+```
+</div>
 
 Here, `async()` is a regular function (not a suspending function), but the `block` parameter has a function type with the `suspend` modifier: `suspend () -> T`. So, when we pass a lambda to `async()`, it is a *suspending lambda*, and we can call a suspending function from it:
-   
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 async {
     doSomething(foo)
     ...
 }
 ```
+</div>
 
 > **Note:** currently, suspending function types cannot be used as supertypes, and anonymous suspending functions are currently not supported.
 
 To continue the analogy, `await()` can be a suspending function (hence also callable from within an `async {}` block) that suspends a coroutine until some computation is done and returns its result:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 async {
     ...
@@ -62,11 +67,13 @@ async {
     ...
 }
 ```
+</div>
 
 More information on how actual `async/await` functions work in `kotlinx.coroutines` can be found [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md#composing-suspending-functions).
 
 Note that suspending functions `await()` and `doSomething()` cannot be called from function literals that are not inlined into a suspending function body and from regular function like `main()`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun main(args: Array<String>) {
     doSomething() // ERROR: Suspending function called from a non-coroutine context 
@@ -83,9 +90,11 @@ fun main(args: Array<String>) {
     }
 }
 ```
+</div>
 
 Also note that suspending functions can be virtual, and when overriding them, the `suspend` modifier has to be specified:
- 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 interface Base {
     suspend fun foo()
@@ -94,7 +103,8 @@ interface Base {
 class Derived: Base {
     override suspend fun foo() { ... }
 }
-``` 
+```
+</div>
 
 ### `@RestrictsSuspension` annotation
  
@@ -104,12 +114,12 @@ To achieve this, the [`@RestrictsSuspension`](/api/latest/jvm/stdlib/kotlin.coro
 
 This is relevant in the _rare_ cases when every suspension is handled in a special way in the library. For example, when implementing generators through the [`buildSequence()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/build-sequence.html) function described [below](#generators-api-in-kotlincoroutines), we need to make sure that any suspending call in the coroutine ends up calling either `yield()` or `yieldAll()` and not any other function. This is why [`SequenceBuilder`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/-sequence-builder/index.html) is annotated with `@RestrictsSuspension`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 @RestrictsSuspension
-public abstract class SequenceBuilder<in T> {
-    ...
-}
+public abstract class SequenceBuilder<in T> { ... }
 ```
+</div>
  
 See the sources [on Github](https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/src/kotlin/coroutines/experimental/SequenceBuilder.kt).   
 
@@ -161,7 +171,7 @@ The only "application-level" functions in `kotlin.coroutines.experimental` are
 
 These are shipped within `kotlin-stdlib` because they are related to sequences. In fact, these functions (and we can limit ourselves to `buildSequence()` alone here) implement _generators_, i.e. provide a way to cheaply build a lazy sequence:
  
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*
@@ -195,7 +205,7 @@ This generates a lazy, potentially infinite Fibonacci sequence by creating a cor
    
 To demonstrate the real laziness of such a sequence, let's print some debug output inside a call to `buildSequence()`:
   
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*
@@ -223,7 +233,7 @@ Running the code above prints the first three elements. The numbers are interlea
    
 To yield a collection (or sequence) of values at once, the `yieldAll()` function is available:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*
@@ -246,7 +256,7 @@ The `buildIterator()` works similarly to `buildSequence()`, but returns a lazy i
 
 One can add custom yielding logic to `buildSequence()` by writing suspending extensions to the `SequenceBuilder` class (that bears the `@RestrictsSuspension` annotation described [above](#restrictssuspension-annotation)):
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*

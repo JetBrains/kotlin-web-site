@@ -12,6 +12,7 @@ Java rather smoothly as well. In this section we describe some details about cal
 
 Pretty much all Java code can be used without any issues:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 import java.util.*
 
@@ -27,6 +28,7 @@ fun demo(source: List<Int>) {
     }
 }
 ```
+</div>
 
 ## Getters and Setters
 
@@ -37,6 +39,7 @@ are represented as properties which have the same name as the getter method.
 
 For example:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 import java.util.Calendar
 
@@ -50,6 +53,7 @@ fun calendarDemo() {
     }
 }
 ```
+</div>
 
 Note that, if the Java class only has a setter, it will not be visible as a property in Kotlin, because Kotlin does not support set-only properties at this time.
 
@@ -65,9 +69,11 @@ Some of the Kotlin keywords are valid identifiers in Java: *in*{: .keyword }, *o
 If a Java library uses a Kotlin keyword for a method, you can still call the method
 escaping it with the backtick (`) character:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 foo.`is`(bar)
 ```
+</div>
 
 ## Null-Safety and Platform Types
 
@@ -77,29 +83,35 @@ so that safety guarantees for them are the same as in Java (see more [below](#ma
 
 Consider the following examples:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val list = ArrayList<String>() // non-null (constructor result)
 list.add("Item")
 val size = list.size // non-null (primitive int)
 val item = list[0] // platform type inferred (ordinary Java object)
 ```
+</div>
 
 When we call methods on variables of platform types, Kotlin does not issue nullability errors at compile time,
 but the call may fail at runtime, because of a null-pointer exception or an assertion that Kotlin generates to
 prevent nulls from propagating:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 item.substring(1) // allowed, may throw an exception if item == null
 ```
+</div>
 
 Platform types are *non-denotable*, meaning that one can not write them down explicitly in the language.
 When a platform value is assigned to a Kotlin variable, we can rely on type inference (the variable will have an inferred platform type then,
  as `item` has in the example above), or we can choose the type that we expect (both nullable and non-null types are allowed):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val nullable: String? = item // allowed, always works
 val notNull: String = item // allowed, may fail at runtime
 ```
+</div>
 
 If we choose a non-null type, the compiler will emit an assertion upon assignment. This prevents Kotlin's non-null variables from holding
 nulls. Assertions are also emitted when we pass platform values to Kotlin functions expecting non-null values etc.
@@ -135,22 +147,28 @@ You can find the full list in the [Kotlin compiler source code](https://github.c
 
 It is possible to annotate type arguments of generic types to provide nullability information for them as well. For example, consider these annotations on a Java declaration:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```java
 @NotNull
 Set<@NotNull String> toSet(@NotNull Collection<@NotNull String> elements) { ... }
 ```
+</div>
 
 It leads to the following signature seen in Kotlin:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String>) : (Mutable)Set<String> { ... }
 ```
+</div>
 
 Note the `@NotNull` annotations on `String` type arguments. Without them, we get platform types in the type arguments:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
 ```
+</div>
 
 Annotating type arguments works with Java 8 target or higher and requires the nullability annotations to support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above).
 
@@ -177,6 +195,7 @@ If an annotation type is annotated with both
 and JSR-305 `@Nonnull` (or its another nickname, such as `@CheckForNull`), then the annotation type is itself used for 
 retrieving precise nullability and has the same meaning as that nullability annotation:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` java
 @TypeQualifierNickname
 @Nonnull(when = When.ALWAYS)
@@ -198,6 +217,7 @@ interface A {
     // in Kotlin (strict mode): `fun bar(x: List<String>!): String!`
 }
 ```
+</div>
 
 #### Type qualifier defaults (since 1.1.50)
 
@@ -217,6 +237,7 @@ The default nullability is used when a type itself is not annotated by a nullabi
 determined by the innermost enclosing element annotated with a type qualifier default annotation with the 
 `ElementType` matching the type usage.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```java
 @Nonnull
 @TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
@@ -244,16 +265,19 @@ interface A {
     String qux(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
 }
 ```
+</div>
 
 > Note: the types in this example only take place with the strict mode enabled, otherwise, the platform types remain. See the [`@UnderMigration` annotation](#undermigration-annotation-since-1160) and [Compiler configuration](#compiler-configuration) sections.
 
 Package-level default nullability is also supported:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```java
 // FILE: test/package-info.java
 @NonNullApi // declaring all types in package 'test' as non-nullable by default
 package test;
 ```
+</div>
 
 #### `@UnderMigration` annotation (since 1.1.60)
 
@@ -273,6 +297,7 @@ but the types in the annotated declarations remain platform; and
 
 A library maintainer can add `@UnderMigration` status to both type qualifier nicknames and type qualifier defaults:  
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```java
 @Nonnull(when = When.ALWAYS)
 @TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
@@ -285,6 +310,7 @@ public @interface NonNullApi {
 @NonNullApi 
 public class Test {}
 ```
+</div>
 
 Note: the migration status of a nullability annotation is not inherited by its type qualifier nicknames but is applied
 to its usages in default type qualifiers.
@@ -413,11 +439,13 @@ i.e. `ArrayList<Integer>()` is indistinguishable from `ArrayList<Character>()`.
 This makes it impossible to perform *is*{: .keyword }-checks that take generics into account.
 Kotlin only allows *is*{: .keyword }-checks for star-projected generic types:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
 // but
 if (a is List<*>) // OK: no guarantees about the contents of the list
 ```
+</div>
 
 ## Java Arrays
 
@@ -432,6 +460,7 @@ They are not related to the `Array` class and are compiled down to Java's primit
 
 Suppose there is a Java method that accepts an int array of indices:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` java
 public class JavaArrayExample {
 
@@ -440,17 +469,21 @@ public class JavaArrayExample {
     }
 }
 ```
+</div>
 
 To pass an array of primitive values you can do the following in Kotlin:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndices(array)  // passes int[] to method
 ```
+</div>
 
 When compiling to JVM byte codes, the compiler optimizes access to arrays so that there's no overhead introduced:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val array = arrayOf(1, 2, 3, 4)
 array[1] = array[1] * 2 // no actual calls to get() and set() generated
@@ -458,27 +491,33 @@ for (x in array) { // no iterator created
     print(x)
 }
 ```
+</div>
 
 Even when we navigate with an index, it does not introduce any overhead:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 for (i in array.indices) { // no iterator created
     array[i] += 2
 }
 ```
+</div>
 
 Finally, *in*{: .keyword }-checks have no overhead either:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 if (i in array.indices) { // same as (i >= 0 && i < array.size)
     print(array[i])
 }
 ```
+</div>
 
 ## Java Varargs
 
 Java classes sometimes use a method declaration for the indices with a variable number of arguments (varargs):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` java
 public class JavaArrayExample {
 
@@ -487,14 +526,17 @@ public class JavaArrayExample {
     }
 }
 ```
+</div>
 
 In that case you need to use the spread operator `*` to pass the `IntArray`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
 ```
+</div>
 
 It's currently not possible to pass *null*{: .keyword } to a method that is declared as varargs.
 
@@ -510,6 +552,7 @@ Calling Java methods using the infix call syntax is not allowed.
 In Kotlin, all exceptions are unchecked, meaning that the compiler does not force you to catch any of them.
 So, when you call a Java method that declares a checked exception, Kotlin does not force you to do anything:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun render(list: List<*>, to: Appendable) {
     for (item in list) {
@@ -517,6 +560,7 @@ fun render(list: List<*>, to: Appendable) {
     }
 }
 ```
+</div>
 
 ## Object Methods
 
@@ -530,34 +574,41 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 Thus, these methods are not available on references of type `Any`.
 If you really need to call them, you can cast to `java.lang.Object`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 (foo as java.lang.Object).wait()
 ```
+</div>
 
 ### getClass()
 
 To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.html#class-references):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val fooClass = foo::class.java
 ```
+</div>
 
 The code above uses a [bound class reference](reflection.html#bound-class-references-since-11), which is supported since Kotlin 1.1. You can also use the `javaClass` extension property:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val fooClass = foo.javaClass
 ```
+</div>
 
 ### clone()
 
 To override `clone()`, your class needs to extend `kotlin.Cloneable`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-
 class Example : Cloneable {
     override fun clone(): Any { ... }
 }
 ```
+</div>
 
  Do not forget about [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 13: *Override clone judiciously*.
 
@@ -565,6 +616,7 @@ class Example : Cloneable {
 
 To override `finalize()`, all you need to do is simply declare it, without using the *override*{:.keyword} keyword:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 class C {
     protected fun finalize() {
@@ -572,6 +624,7 @@ class C {
     }
 }
 ```
+</div>
 
 According to Java's rules, `finalize()` must not be *private*{: .keyword }.
 
@@ -584,11 +637,11 @@ At most one Java class (and as many Java interfaces as you like) can be a supert
 Static members of Java classes form "companion objects" for these classes. We cannot pass such a "companion object" around as a value,
 but can access the members explicitly, for example:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-if (Character.isLetter(a)) {
-    // ...
-}
+if (Character.isLetter(a)) { ... }
 ```
+</div>
 
 To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the full qualified name of the Java type: `java.lang.Integer.bitCount(foo)`.
 
@@ -607,25 +660,31 @@ method match the parameter types of the Kotlin function.
 
 You can use this for creating instances of SAM interfaces:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val runnable = Runnable { println("This runs in a runnable") }
 ```
+</div>
 
 ...and in method calls:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val executor = ThreadPoolExecutor()
 // Java signature: void execute(Runnable command)
 executor.execute { println("This runs in a thread pool") }
 ```
+</div>
 
 If the Java class has multiple methods taking functional interfaces, you can choose the one you need to call by
 using an adapter function that converts a lambda to a specific SAM type. Those adapter functions are also generated
 by the compiler when needed:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 executor.execute(Runnable { println("This runs in a thread pool") })
 ```
+</div>
 
 Note that SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
 abstract method.
@@ -637,8 +696,10 @@ of functions into implementations of Kotlin interfaces is unnecessary and theref
 
 To declare a function that is implemented in native (C or C++) code, you need to mark it with the `external` modifier:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 external fun foo(x: Int): Double
 ```
+</div>
 
 The rest of the procedure works in exactly the same way as in Java.

@@ -47,12 +47,15 @@ To exclude the standard library from external libraries (notice that "star exclu
 
 To include `kotlin-osgi-bundle` to a gradle project:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 compile "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"
 ```
+</div>
 
 To exclude default Kotlin libraries that comes as transitive dependencies you can use the following approach:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 dependencies {
  compile (
@@ -61,6 +64,7 @@ dependencies {
   exclude group: 'org.jetbrains.kotlin'
 }
 ```
+</div>
 
 ## FAQ
 

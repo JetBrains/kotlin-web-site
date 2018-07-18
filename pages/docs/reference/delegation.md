@@ -17,7 +17,7 @@ The [Delegation pattern](https://en.wikipedia.org/wiki/Delegation_pattern) has p
 and Kotlin supports it natively requiring zero boilerplate code.
 A class `Derived` can implement an interface `Base` by delegating all of its public members to a specified object:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 interface Base {
@@ -46,7 +46,7 @@ of `Derived` and the compiler will generate all the methods of `Base` that forwa
 implementations instead of those in the delegate object. If we were to add `override fun print() { print("abc") }` to 
 `Derived`, the program would print "abc" instead of "10" when `print` is called:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 interface Base {
@@ -74,7 +74,7 @@ fun main(args: Array<String>) {
 Note, however, that members overridden in this way do not get called from the members of the 
 delegate object, which can only access its own implementations of the interface members:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 interface Base {

@@ -15,37 +15,41 @@ related:
 
 Classes in Kotlin are declared using the keyword *class*{: .keyword }:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-class Invoice {
-}
+class Invoice { ... }
 ```
+</div>
 
 The class declaration consists of the class name, the class header (specifying its type parameters, the primary
 constructor etc.) and the class body, surrounded by curly braces. Both the header and the body are optional;
 if the class has no body, curly braces can be omitted.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Empty
 ```
-
+</div>
 
 ### Constructors
 
 A class in Kotlin can have a **primary constructor** and one or more **secondary constructors**. The primary
 constructor is part of the class header: it goes after the class name (and optional type parameters).
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-class Person constructor(firstName: String) {
-}
+class Person constructor(firstName: String) { ... }
 ```
+</div>
 
 If the primary constructor does not have any annotations or visibility modifiers, the *constructor*{: .keyword }
 keyword can be omitted:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-class Person(firstName: String) {
-}
+class Person(firstName: String) { ... }
 ```
+</div>
 
 The primary constructor cannot contain any code. Initialization code can be placed
 in **initializer blocks**, which are prefixed with the *init*{: .keyword } keyword.
@@ -53,7 +57,7 @@ in **initializer blocks**, which are prefixed with the *init*{: .keyword } keywo
 During an instance initialization, the initializer blocks are executed in the same order as they appear 
 in the class body, interleaved with the property initializers:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -81,20 +85,21 @@ fun main(args: Array<String>) {
 Note that parameters of the primary constructor can be used in the initializer blocks. They can also be used in
 property initializers declared in the class body:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Customer(name: String) {
     val customerKey = name.toUpperCase()
 }
 ```
+</div>
 
 In fact, for declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:
 
-
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-class Person(val firstName: String, val lastName: String, var age: Int) {
-    // ...
-}
+class Person(val firstName: String, val lastName: String, var age: Int) { ... }
 ```
+</div>
 
 Much the same way as regular properties, the properties declared in the primary constructor can be
 mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
@@ -102,9 +107,11 @@ mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 If the constructor has annotations or visibility modifiers, the *constructor*{: .keyword } keyword is required, and
 the modifiers go before it:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Customer public @Inject constructor(name: String) { ... }
 ```
+</div>
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
 
@@ -113,6 +120,7 @@ For more details, see [Visibility Modifiers](visibility-modifiers.html#construct
 
 The class can also declare **secondary constructors**, which are prefixed with *constructor*{: .keyword }:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Person {
     constructor(parent: Person) {
@@ -120,11 +128,13 @@ class Person {
     }
 }
 ```
+</div>
 
 If the class has a primary constructor, each secondary constructor needs to delegate to the primary constructor, either
 directly or indirectly through another secondary constructor(s). Delegation to another constructor of the same class
 is done using the *this*{: .keyword } keyword:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Person(val name: String) {
     constructor(name: String, parent: Person) : this(name) {
@@ -132,13 +142,14 @@ class Person(val name: String) {
     }
 }
 ```
+</div>
 
 Note that code in initializer blocks effectively becomes part of the primary constructor. Delegation to the primary
 constructor happens as the first statement of a secondary constructor, so the code in all initializer blocks is executed
 before the secondary constructor body. Even if the class has no primary constructor, the delegation still happens
 implicitly, and the initializer blocks are still executed:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -163,29 +174,32 @@ If a non-abstract class does not declare any constructors (primary or secondary)
 constructor with no arguments. The visibility of the constructor will be public. If you do not want your class
 to have a public constructor, you need to declare an empty primary constructor with non-default visibility:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-class DontCreateMe private constructor () {
-}
+class DontCreateMe private constructor () { ... }
 ```
+</div>
 
 > **NOTE**: On the JVM, if all of the parameters of the primary constructor have default values, the compiler will
 > generate an additional parameterless constructor which will use the default values. This makes it easier to use
 > Kotlin with libraries such as Jackson or JPA that create class instances through parameterless constructors.
->
-> ``` kotlin
+> <div class="sample" markdown="1" theme="idea" data-highlight-only>
 > class Customer(val customerName: String = "")
-> ```
+> </div>
+
 {:.info}
 
 ### Creating instances of classes
 
 To create an instance of a class, we call the constructor as if it were a regular function:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val invoice = Invoice()
 
 val customer = Customer("Joe Smith")
 ```
+</div>
 
 Note that Kotlin does not have a *new*{: .keyword } keyword.
 
@@ -206,20 +220,24 @@ Classes can contain:
 
 All classes in Kotlin have a common superclass `Any`, that is the default superclass for a class with no supertypes declared:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Example // Implicitly inherits from Any
 ```
+</div>
 
 > Note: `Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
 Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
 
 To declare an explicit supertype, we place the type after a colon in the class header:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 open class Base(p: Int)
 
 class Derived(p: Int) : Base(p)
 ```
+</div>
 
 > The *open*{: .keyword } annotation on a class is the opposite of Java's *final*{: .keyword }: it allows others
 to inherit from this class. By default, all classes in Kotlin are final, which
@@ -233,6 +251,7 @@ If the class has no primary constructor, then each secondary constructor has to 
 using the *super*{: .keyword } keyword, or to delegate to another constructor which does that.
 Note that in this case different secondary constructors can call different constructors of the base type:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class MyView : View {
     constructor(ctx: Context) : super(ctx)
@@ -240,21 +259,24 @@ class MyView : View {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 }
 ```
+</div>
 
 ### Overriding Methods
 
 As we mentioned before, we stick to making things explicit in Kotlin. And unlike Java, Kotlin requires explicit
 annotations for overridable members (we call them *open*) and for overrides:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 open class Base {
-    open fun v() {}
-    fun nv() {}
+    open fun v() { ... }
+    fun nv() { ... }
 }
 class Derived() : Base() {
-    override fun v() {}
+    override fun v() { ... }
 }
 ```
+</div>
 
 The *override*{: .keyword } annotation is required for `Derived.v()`. If it were missing, the compiler would complain.
 If there is no *open*{: .keyword } annotation on a function, like `Base.nv()`, declaring a method with the same signature in a subclass is illegal,
@@ -262,16 +284,19 @@ either with *override*{: .keyword } or without it. In a final class (e.g. a clas
 
 A member marked *override*{: .keyword } is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use *final*{: .keyword }:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 open class AnotherDerived() : Base() {
-    final override fun v() {}
+    final override fun v() { ... }
 }
 ```
+</div>
 
 ### Overriding Properties 
 
 Overriding properties works in a similar way to overriding methods; properties declared on a superclass that are then redeclared on a derived class must be prefaced with *override*{: .keyword }, and they must have a compatible type. Each declared property can be overridden by a property with an initializer or by a property with a getter method.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 open class Foo {
     open val x: Int get() { ... }
@@ -281,11 +306,13 @@ class Bar1 : Foo() {
     override val x: Int = ...
 }
 ```
+</div>
 
 You can also override a `val` property with a `var` property, but not vice versa. This is allowed because a `val` property essentially declares a getter method, and overriding it as a `var` additionally declares a setter method in the derived class.
 
 Note that you can use the *override*{: .keyword } keyword as part of the property declaration in a primary constructor.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin 
 interface Foo {
     val count: Int
@@ -297,12 +324,13 @@ class Bar2 : Foo {
     override var count: Int = 0
 }
 ```
+</div>
 
 ### Derived class initialization order
 
 During construction of a new instance of a derived class, the base class initialization is done as the first step (preceded only by evaluation of the arguments for the base class constructor) and thus happens before the initialization logic of the derived class is run. 
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -339,6 +367,7 @@ It means that, by the time of the base class constructor execution, the properti
 
 Code in a derived class can call its superclass functions and property accessors implementations using the *super*{: .keyword } keyword:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 open class Foo {
     open fun f() { println("Foo.f()") }
@@ -354,9 +383,11 @@ class Bar : Foo() {
     override val x: Int get() = super.x + 1
 }
 ```
+</div>
 
 Inside an inner class, accessing the superclass of the outer class is done with the *super*{: .keyword } keyword qualified with the outer class name: `super@Outer`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 class Bar : Foo() {
     override fun f() { /* ... */ }
@@ -370,6 +401,7 @@ class Bar : Foo() {
     }
 }
 ```
+</div>
 
 ### Overriding Rules
 
@@ -377,6 +409,7 @@ In Kotlin, implementation inheritance is regulated by the following rule: if a c
 it must override this member and provide its own implementation (perhaps, using one of the inherited ones).
 To denote the supertype from which the inherited implementation is taken, we use *super*{: .keyword } qualified by the supertype name in angle brackets, e.g. `super<Base>`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 open class A {
     open fun f() { print("A") }
@@ -396,6 +429,7 @@ class C() : A(), B {
     }
 }
 ```
+</div>
 
 It's fine to inherit from both `A` and `B`, and we have no problems with `a()` and `b()` since `C` inherits only one implementation of each of these functions.
 But for `f()` we have two implementations inherited by `C`, and thus we have to override `f()` in `C`
@@ -409,6 +443,7 @@ Note that we do not need to annotate an abstract class or function with open –
 
 We can override a non-abstract open member with an abstract one
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 open class Base {
     open fun f() {}
@@ -418,6 +453,7 @@ abstract class Derived : Base() {
     override abstract fun f()
 }
 ```
+</div>
 
 ## Companion Objects
 

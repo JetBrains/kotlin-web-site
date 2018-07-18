@@ -14,12 +14,20 @@ Every exception has a message, stack trace and an optional cause.
 
 To throw an exception object, use the *throw*{: .keyword }-expression:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
-throw MyException("Hi There!")
+
+fun main(args: Array<String>) {
+//sampleStart
+    throw Exception("Hi There!")
+//sampleEnd
+}
 ```
+</div>
 
 To catch an exception, use the *try*{: .keyword }-expression:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 try {
     // some code
@@ -31,6 +39,7 @@ finally {
     // optional finally block
 }
 ```
+</div>
 
 There may be zero or more *catch*{: .keyword } blocks. *finally*{: .keyword } blocks may be omitted.
 However at least one *catch*{: .keyword } or *finally*{: .keyword } block should be present.
@@ -39,9 +48,11 @@ However at least one *catch*{: .keyword } or *finally*{: .keyword } block should
 
 *try*{: .keyword } is an expression, i.e. it may have a return value:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val a: Int? = try { parseInt(input) } catch (e: NumberFormatException) { null }
 ```
+</div>
 
 The returned value of a *try*{: .keyword }-expression is either the last expression in the *try*{: .keyword } block or the
 last expression in the *catch*{: .keyword } block (or blocks).
@@ -53,14 +64,17 @@ Kotlin does not have checked exceptions. There are many reasons for this, but we
 
 The following is an example interface of the JDK implemented by `StringBuilder` class:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` java
 Appendable append(CharSequence csq) throws IOException;
 ```
+</div>
 
 What does this signature say? It says that every time I append a string to something (a `StringBuilder`, some kind of a log, a console, etc.)
 I have to catch those `IOExceptions`. Why? Because it might be performing IO (`Writer` also implements `Appendable`)...
 So it results into this kind of code all over the place:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 try {
     log.append(message)
@@ -69,6 +83,7 @@ catch (IOException e) {
     // Must be safe
 }
 ```
+</div>
 
 And this is no good, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 77: *Don't ignore exceptions*.
 
@@ -85,36 +100,44 @@ Other citations of this sort:
 
 `throw` is an expression in Kotlin, so you can use it, for example, as part of an Elvis expression:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val s = person.name ?: throw IllegalArgumentException("Name required")
 ```
+</div>
 
 The type of the `throw` expression is the special type `Nothing`.
 The type has no values and is used to mark code locations that can never be reached.
 In your own code, you can use `Nothing` to mark a function that never returns:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun fail(message: String): Nothing {
     throw IllegalArgumentException(message)
 }
 ```
+</div>
 
 When you call this function, the compiler will know that the execution doesn't continue beyond the call:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val s = person.name ?: fail("Name required")
 println(s)     // 's' is known to be initialized at this point
 ```
+</div>
 
 Another case where you may encounter this type is type inference. The nullable variant of this type,
 `Nothing?`, has exactly one possible value, which is `null`. If you use `null` to initialize
 a value of an inferred type and there's no other information that can be used to determine a more
 specific type, the compiler will infer the `Nothing?` type:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val x = null           // 'x' has type `Nothing?`
 val l = listOf(null)   // 'l' has type `List<Nothing?>
 ```
+</div>
 
 ## Java Interoperability
 

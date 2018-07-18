@@ -11,6 +11,7 @@ title: "Type Checks and Casts: 'is' and 'as'"
 
 We can check whether an object conforms to a given type at runtime by using the `is` operator or its negated form `!is`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 if (obj is String) {
     print(obj.length)
@@ -23,12 +24,14 @@ else {
     print(obj.length)
 }
 ```
+</div>
 
 ## Smart Casts
 
 In many cases, one does not need to use explicit cast operators in Kotlin, because the compiler tracks the
 `is`-checks and [explicit casts](#unsafe-cast-operator) for immutable values and inserts (safe) casts automatically when needed:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun demo(x: Any) {
     if (x is String) {
@@ -36,16 +39,20 @@ fun demo(x: Any) {
     }
 }
 ```
+</div>
 
 The compiler is smart enough to know a cast to be safe if a negative check leads to a return:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
     if (x !is String) return
     print(x.length) // x is automatically cast to String
 ```
+</div>
 
 or in the right-hand side of `&&` and `||`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
     // x is automatically cast to string on the right-hand side of `||`
     if (x !is String || x.length == 0) return
@@ -55,10 +62,12 @@ or in the right-hand side of `&&` and `||`:
         print(x.length) // x is automatically cast to String
     }
 ```
+</div>
 
 Such _smart casts_ work for [*when*{: .keyword }-expressions](control-flow.html#when-expression)
 and [*while*{: .keyword }-loops](control-flow.html#while-loops) as well:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 when (x) {
     is Int -> print(x + 1)
@@ -66,6 +75,7 @@ when (x) {
     is IntArray -> print(x.sum())
 }
 ```
+</div>
 
 Note that smart casts do not work when the compiler cannot guarantee that the variable cannot change between the check and the usage.
 More specifically, smart casts are applicable according to the following rules:
@@ -81,25 +91,31 @@ More specifically, smart casts are applicable according to the following rules:
 Usually, the cast operator throws an exception if the cast is not possible. Thus, we call it *unsafe*.
 The unsafe cast in Kotlin is done by the infix operator *as*{: .keyword } (see [operator precedence](grammar.html#precedence)):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val x: String = y as String
 ```
+</div>
 
 Note that *null*{: .keyword } cannot be cast to `String` as this type is not [nullable](null-safety.html),
 i.e. if `y` is null, the code above throws an exception.
 In order to match Java cast semantics we have to have nullable type at cast right hand side, like:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val x: String? = y as String?
 ```
+</div>
 
 ## "Safe" (nullable) cast operator
 
 To avoid an exception being thrown, one can use a *safe* cast operator *as?*{: .keyword } that returns *null*{: .keyword } on failure:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val x: String? = y as? String
 ```
+</div>
 
 Note that despite the fact that the right-hand side of *as?*{: .keyword } is a non-null type `String` the result of the cast is nullable.
 
@@ -113,16 +129,19 @@ type with certain type arguments at runtime.
 Given that, the compiler prohibits *is*{: .keyword }-checks that cannot be performed at runtime due to type erasure, such as 
 `ints is List<Int>` or `list is T` (type parameter). You can, however, check an instance against a [star-projected type](generics.html#star-projections):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 if (something is List<*>) {
     something.forEach { println(it) } // The items are typed as `Any?`
 }
 ```
+</div>
 
 Similarly, when you already have the type arguments of an instance checked statically (at compile time),
 you can make an *is*{: .keyword }-check or a cast that involves the non-generic part of the type. Note that 
 angle brackets are omitted in this case:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun handleStrings(list: List<String>) {
     if (list is ArrayList) {
@@ -130,6 +149,7 @@ fun handleStrings(list: List<String>) {
     }
 }
 ```
+</div>
 
 The same syntax with omitted type arguments can be used for casts that do not take type arguments into account: `list as ArrayList`. 
 
@@ -137,7 +157,7 @@ Inline functions with [reified type parameters](inline-functions.html#reified-ty
  inlined at each call site, which enables `arg is T` checks for the type parameters, but if `arg` is an instance of a 
 generic type itself, *its* type arguments are still erased. Example:
 
-<div class="sample" markdown="1">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -171,6 +191,7 @@ type safety.
 
 Even so, sometimes we have high-level program logic that implies type safety instead. For example:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin 
 fun readDictionary(file: File): Map<String, *> = file.inputStream().use { 
     TODO("Read a mapping of strings to arbitrary elements.")
@@ -182,6 +203,7 @@ val intsFile = File("ints.dictionary")
 // Warning: Unchecked cast: `Map<String, *>` to `Map<String, Int>`
 val intsDictionary: Map<String, Int> = readDictionary(intsFile) as Map<String, Int>
 ```
+</div>
 
 The compiler produces a warning for the cast in the last line. The cast cannot be fully checked at runtime and provides 
 no guarantee that the values in the map are `Int`.
@@ -197,6 +219,7 @@ such as `arg as T` checked, unless `arg`'s type has *its own* type arguments tha
 An unchecked cast warning can be suppressed by [annotating](annotations.html#annotations) the statement or the 
 declaration where it occurs with `@Suppress("UNCHECKED_CAST")`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
 inline fun <reified T> List<*>.asListOfType(): List<T>? =
     if (all { it is T })
@@ -204,6 +227,7 @@ inline fun <reified T> List<*>.asListOfType(): List<T>? =
         this as List<T> else
         null
 ```
+</div>
 
 On the JVM, the [array types](basic-types.html#arrays) (`Array<Foo>`) retain the information about the erased type of 
 their elements, and the type casts to an array type are partially checked: the 

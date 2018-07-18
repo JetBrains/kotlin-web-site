@@ -15,9 +15,11 @@ Kotlin has three structural jump expressions:
 
 All of these expressions can be used as part of larger expressions:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val s = person.name ?: return
 ```
+</div>
 
 The type of these expressions is the [Nothing type](exceptions.html#the-nothing-type).
 
@@ -27,14 +29,17 @@ Any expression in Kotlin may be marked with a *label*{: .keyword }.
 Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#labelReference)).
 To label an expression, we just put a label in front of it
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 loop@ for (i in 1..100) {
     // ...
 }
 ```
+</div>
 
 Now, we can qualify a *break*{: .keyword } or a *continue*{: .keyword } with a label:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 loop@ for (i in 1..100) {
     for (j in 1..100) {
@@ -42,6 +47,7 @@ loop@ for (i in 1..100) {
     }
 }
 ```
+</div>
 
 A *break*{: .keyword } qualified with a label jumps to the execution point right after the loop marked with that label.
 A *continue*{: .keyword } proceeds to the next iteration of that loop.
@@ -53,7 +59,7 @@ With function literals, local functions and object expression, functions can be 
 Qualified *return*{: .keyword }s allow us to return from an outer function. 
 The most important use case is returning from a lambda expression. Recall that when we write this:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -76,7 +82,7 @@ The *return*{: .keyword }-expression returns from the nearest enclosing function
 (Note that such non-local returns are supported only for lambda expressions passed to [inline functions](inline-functions.html).)
 If we need to return from a lambda expression, we have to label it and qualify the *return*{: .keyword }:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -98,7 +104,7 @@ fun main(args: Array<String>) {
 Now, it returns only from the lambda expression. Oftentimes it is more convenient to use implicit labels:
 such a label has the same name as the function to which the lambda is passed.
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -120,7 +126,7 @@ fun main(args: Array<String>) {
 Alternatively, we can replace the lambda expression with an [anonymous function](lambdas.html#anonymous-functions).
 A *return*{: .keyword } statement in an anonymous function will return from the anonymous function itself.
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -141,7 +147,7 @@ fun main(args: Array<String>) {
 
 Note that the use of local returns in previous three examples is similar to the use of *continue*{: .keyword } in regular loops. There is no direct equivalent for *break*{: .keyword }, but it can be simulated by adding another nesting lambda and non-locally returning from it:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 //sampleStart
@@ -164,8 +170,10 @@ fun main(args: Array<String>) {
 
 When returning a value, the parser gives preference to the qualified return, i.e.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 return@a 1
 ```
+</div>
 
 means "return `1` at label `@a`" and not "return a labeled expression `(@a 1)`".

@@ -22,6 +22,7 @@ To access *this*{: .keyword } from an outer scope (a [class](classes.html), or [
 or labeled [function literal with receiver](lambdas.html#function-literals-with-receiver)) we write `this@label` where `@label` is a [label](returns.html)
 on the scope *this*{: .keyword } is meant to be from:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ``` kotlin
 class A { // implicit label @A
     inner class B { // implicit label @B
@@ -46,3 +47,4 @@ class A { // implicit label @A
     }
 }
 ```
+</div>

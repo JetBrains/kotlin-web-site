@@ -13,6 +13,7 @@ properties but these need to be abstract or to provide accessor implementations.
 
 An interface is defined using the keyword *interface*{: .keyword }
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 interface MyInterface {
     fun bar()
@@ -21,11 +22,13 @@ interface MyInterface {
     }
 }
 ```
+</div>
 
 ## Implementing Interfaces
 
 A class or object can implement one or more interfaces
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Child : MyInterface {
     override fun bar() {
@@ -33,6 +36,7 @@ class Child : MyInterface {
     }
 }
 ```
+</div>
 
 ## Properties in Interfaces
 
@@ -40,6 +44,7 @@ You can declare properties in interfaces. A property declared in an interface ca
 implementations for accessors. Properties declared in interfaces can't have backing fields, and therefore accessors
 declared in interfaces can't reference them.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 interface MyInterface {
     val prop: Int // abstract
@@ -56,11 +61,13 @@ class Child : MyInterface {
     override val prop: Int = 29
 }
 ```
+</div>
 
 ## Interfaces Inheritance
 
 An interface can derive from other interfaces and thus both provide implementations for their members and declare new functions and properties. Quite naturally, classes implementing such an interface are only required to define the missing implementations:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 interface Named {
     val name: String
@@ -80,11 +87,13 @@ data class Employee(
     val position: Position
 ) : Person
 ```
+</div>
 
 ## Resolving overriding conflicts
 
 When we declare many types in our supertype list, it may appear that we inherit more than one implementation of the same method. For example
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 interface A {
     fun foo() { print("A") }
@@ -111,6 +120,7 @@ class D : A, B {
     }
 }
 ```
+</div>
 
 Interfaces *A* and *B* both declare functions *foo()* and *bar()*. Both of them implement *foo()*, but only *B* implements *bar()* (*bar()* is not marked abstract in *A*,
 because this is the default for interfaces, if the function has no body). Now, if we derive a concrete class *C* from *A*, we, obviously, have to override *bar()* and provide

@@ -16,25 +16,31 @@ Please read below about how to apply the *kapt* plugin to your Gradle/Maven buil
 
 Apply the `kotlin-kapt` Gradle plugin:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 apply plugin: 'kotlin-kapt'
 ```
+</div>
 
 Or you can apply it using the plugins DSL:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 plugins {
     id "org.jetbrains.kotlin.kapt" version "{{ site.data.releases.latest.version }}"
 }
 ```
+</div>
 
 Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 dependencies {
     kapt 'groupId:artifactId:version'
 }
 ```
+</div>
 
 If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config) for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`. If your project contains Java classes, `kapt` will also take care of them.
 
@@ -44,6 +50,7 @@ If you use annotation processors for your `androidTest` or `test` sources, the r
 
 Use `arguments {}` block to pass arguments to annotation processors:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 kapt {
     arguments {
@@ -51,12 +58,14 @@ kapt {
     }
 }
 ```
+</div>
 
 ## Java Compiler Options
 
 Kapt uses Java compiler to run annotation processors.  
 Here is how you can pass arbitrary options to javac:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 kapt {
     javacOptions {
@@ -66,16 +75,19 @@ kapt {
     }
 }
 ```
+</div>
 
 ## Non Existent Type Correction
 
 Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures. By default, Kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`, but you can change this behavior. Add the additional flag to the `build.gradle` file to enable error type inferring in stubs:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 kapt {
     correctErrorTypes = true
 }
 ```
+</div>
 
 ## Using in Maven
 
@@ -167,6 +179,7 @@ Note that Kapt does not support multiple rounds for the generated Kotlin files.
 `apoptions` and `javacArguments` CLI options accept an encoded map of options.  
 Here is how you can encode options by yourself:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun encodeList(options: Map<String, String>): String {
     val os = ByteArrayOutputStream()
@@ -182,3 +195,4 @@ fun encodeList(options: Map<String, String>): String {
     return Base64.getEncoder().encodeToString(os.toByteArray())
 }
 ```
+</div>

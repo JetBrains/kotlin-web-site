@@ -14,6 +14,7 @@ The `kotlin-gradle-plugin` compiles Kotlin sources and modules.
 
 The version of Kotlin to use is usually defined as the `kotlin_version` property:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 buildscript {
     ext.kotlin_version = '{{ site.data.releases.latest.version }}'
@@ -27,6 +28,7 @@ buildscript {
     }
 }
 ```
+</div>
 
 This is not required when using Kotlin Gradle plugin 1.1.1 and above with the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block), and with [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl).
 
@@ -34,45 +36,56 @@ This is not required when using Kotlin Gradle plugin 1.1.1 and above with the [G
 
 To target the JVM, the Kotlin plugin needs to be applied:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 apply plugin: "kotlin"
 ```
+</div>
 
 Or, starting with Kotlin 1.1.1, the plugin can be applied using the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 plugins {
     id "org.jetbrains.kotlin.jvm" version "{{ site.data.releases.latest.version }}"
 }
 ```
+</div>
+
 The `version` should be literal in this block, and it cannot be applied from another build script.
 
 With Gradle Kotlin DSL, apply the plugin as follows:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 plugins {
     kotlin("jvm") version "{{ site.data.releases.latest.version }}"
 }
 ```
+</div>
 
 Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
 
-``` groovy
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+```groovy
 project
     - src
         - main (root)
             - kotlin
             - java
 ```
+</div>
 
 The corresponding *sourceSets* property should be updated if not using the default convention:
 
-``` groovy
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```groovy
 sourceSets {
     main.kotlin.srcDirs += 'src/main/myKotlin'
     main.java.srcDirs += 'src/main/myJava'
 }
 ```
+</div>
 
 With Gradle Kotlin DSL, configure source sets with `java.sourceSets { ... }` instead.
 
@@ -80,34 +93,41 @@ With Gradle Kotlin DSL, configure source sets with `java.sourceSets { ... }` ins
 
 When targeting JavaScript, a different plugin should be applied:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 apply plugin: "kotlin2js"
 ```
+</div>
 
 This plugin only works for Kotlin files so it is recommended to keep Kotlin and Java files separate (if it's the case that the same project contains Java files). As with
 targeting the JVM, if not using the default convention, we need to specify the source folder using *sourceSets*:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 sourceSets {
     main.kotlin.srcDirs += 'src/main/myKotlin'
 }
 ```
+</div>
 
 In addition to the output JavaScript file, the plugin by default creates an additional JS file with binary descriptors.
 This file is required if you're building a re-usable library that other Kotlin modules can depend on, and should be distributed together with the result of translation.
 The generation is controlled by the  `kotlinOptions.metaInfo` option:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 compileKotlin2Js {
     kotlinOptions.metaInfo = true
 }
 ```
+</div>
 
 ## Targeting Android
 
 Android's Gradle model is a little different from ordinary Gradle, so if we want to build an Android project written in Kotlin, we need
 *kotlin-android* plugin instead of *kotlin*:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 buildscript {
     ext.kotlin_version = '{{ site.data.releases.latest.version }}'
@@ -121,6 +141,7 @@ buildscript {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 ```
+</div>
 
 Don't forget to configure the [standard library dependency](#configuring-dependencies).
 
@@ -128,6 +149,7 @@ Don't forget to configure the [standard library dependency](#configuring-depende
 
 If using Android Studio, the following needs to be added under android:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 android {
   ...
@@ -137,6 +159,7 @@ android {
   }
 }
 ```
+</div>
 
 This lets Android Studio know that the kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized. Alternatively, you can put Kotlin classes in the Java source directory, typically located in `src/main/java`.
 
@@ -145,6 +168,7 @@ This lets Android Studio know that the kotlin directory is a source root, so whe
 
 In addition to the `kotlin-gradle-plugin` dependency shown above, you need to add a dependency on the Kotlin standard library:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 repositories {
     mavenCentral()
@@ -154,6 +178,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib"
 }
 ```
+</div>
 
 If you target JavaScript, use `compile "org.jetbrains.kotlin:kotlin-stdlib-js"` instead.
 
@@ -161,13 +186,16 @@ If you're targeting JDK 7 or JDK 8, you can use extended versions of the Kotlin 
 additional extension functions for APIs added in new JDK versions. Instead of `kotlin-stdlib`, use one of the
 following dependencies:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
 compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 ```
+</div>
 
 With Gradle Kotlin DSL, the following notation for the dependencies is equivalent:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 dependencies {
     compile(kotlin("stdlib"))
@@ -176,24 +204,29 @@ dependencies {
     compile(kotlin("stdlib-jdk8"))
 }
 ```
+</div>
 
 In Kotlin 1.1.x, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8` instead.
 
 If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well:
 
-``` groovy
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```groovy
 compile "org.jetbrains.kotlin:kotlin-reflect"
 testCompile "org.jetbrains.kotlin:kotlin-test"
 testCompile "org.jetbrains.kotlin:kotlin-test-junit"
 ```
+</div>
 
 Or, with Gradle Kotlin DSL:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```groovy
 compile(kotlin("reflect"))
 testCompile(kotlin("test"))
 testCompile(kotlin("test-junit"))
 ```
+</div>
 
 Starting with Kotlin 1.1.2, the dependencies with group `org.jetbrains.kotlin` are by default resolved with the version
 taken from the applied plugin. You can provide the version manually using the full dependency notation like
@@ -223,6 +256,7 @@ Note, that the first build won't be incremental.
 [Coroutines](coroutines.html) support is an experimental feature in Kotlin 1.2, so the Kotlin compiler reports a warning when you use coroutines in your project.
 To turn off the warning, add the following block to your `build.gradle` file:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 kotlin {
     experimental {
@@ -230,15 +264,18 @@ kotlin {
     }
 }
 ```
+</div>
 
 Or, with Gradle Kotlin DSL:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
 // ...
 
 kotlin.experimental.coroutines = Coroutines.ENABLE
 ```
+</div>
 
 ## Module names
 
@@ -246,15 +283,19 @@ The Kotlin modules that the build produces are named accordingly to the `archive
 
 To avoid this, consider setting a unique `archivesBaseName` manually:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 archivesBaseName = 'myExampleProject_lib'
 ```
+</div>
 
 With Gradle Kotlin DSL, it is:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 setProperty("archivesBaseName", "myExampleProject_lib")
 ```
+</div>
 
 ## Gradle Build Cache support (since 1.2.20)
 
@@ -262,11 +303,13 @@ The Kotlin plugin supports [Gradle Build Cache](https://guides.gradle.org/using-
 
 The kapt annotation processing tasks are not cached by default since annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs, might access and modify the files that are not tracked by Gradle etc. To enable caching for kapt anyway, add the following lines to the build script:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 kapt {
     useBuildCache = true
 }
 ```
+</div>
 
 To disable the caching for all Kotlin tasks, set the system property flag `kotlin.caching.enabled` to `false` (run the build with the argument `-Dkotlin.caching.enabled=false`).
 
@@ -283,6 +326,7 @@ When targeting JavaScript, the tasks are called `compileKotlin2Js` and `compileT
 
 To configure a single task, use its name. Examples:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 compileKotlin {
     kotlinOptions.suppressWarnings = true
@@ -294,9 +338,11 @@ compileKotlin {
     }
 }
 ```
+</div>
 
 With Gradle Kotlin DSL, get the task from the project's `tasks` first:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 // ...
@@ -305,18 +351,19 @@ val kotlinCompile: KotlinCompile by tasks
 
 kotlinCompile.kotlinOptions.suppressWarnings = true
 ```
+</div>
 
 Use the types `Kotlin2JsCompile` and `KotlinCompileCommon` for the JS and Common targets, accordingly.
 
 It is also possible to configure all Kotlin compilation tasks in the project:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-    kotlinOptions {
-        // ...
-    }
+    kotlinOptions { ... }
 }
 ```
+</div>
 
 A complete list of options for the Gradle tasks follows:
 
