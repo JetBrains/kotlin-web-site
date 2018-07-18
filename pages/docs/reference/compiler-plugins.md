@@ -20,6 +20,7 @@ Note: For Spring you can use the `kotlin-spring` compiler plugin ([see below](co
 
 Add the plugin artifact to the buildscript dependencies and apply the plugin:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 buildscript {
     dependencies {
@@ -29,28 +30,34 @@ buildscript {
 
 apply plugin: "kotlin-allopen"
 ```
+</div>
 
 As an alternative, you can enable it using the `plugins` block:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 plugins {
   id "org.jetbrains.kotlin.plugin.allopen" version "{{ site.data.releases.latest.version }}"
 }
 ```
+</div>
 
 Then specify the list of annotations that will make classes open:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 allOpen {
     annotation("com.my.Annotation")
     // annotations("com.another.Annotation", "com.third.Annotation")
 }
 ```
+</div>
 
 If the class (or any of its superclasses) is annotated with `com.my.Annotation`, the class itself and all its members will become open.
 
 It also works with meta-annotations:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 @com.my.Annotation
 annotation class MyFrameworkAnnotation
@@ -58,6 +65,7 @@ annotation class MyFrameworkAnnotation
 @MyFrameworkAnnotation
 class MyClass // will be all-open
 ```
+</div>
 
 `MyFrameworkAnnotation` is annotated with the all-open meta-annotation `com.my.Annotation`, so it becomes an all-open annotation as well.
 
@@ -102,6 +110,7 @@ If you use Spring, you can enable the *kotlin-spring* compiler plugin instead of
 
 As with all-open, add the plugin to the buildscript dependencies:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 buildscript {
     dependencies {
@@ -111,14 +120,17 @@ buildscript {
 
 apply plugin: "kotlin-spring" // instead of "kotlin-allopen"
 ```
+</div>
 
 Or using the Gradle plugins DSL:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 plugins {
   id "org.jetbrains.kotlin.plugin.spring" version "{{ site.data.releases.latest.version }}"
 }
 ```
+</div>
 
 In Maven, enable the `spring` plugin:
 
@@ -166,7 +178,8 @@ This allows the Java Persistence API (JPA) to instantiate the `data` class altho
 The usage is pretty similar to all-open.
 
 Add the plugin and specify the list of annotations that must lead to generating a no-arg constructor for the annotated classes.
- 
+
+ <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 buildscript {
     dependencies {
@@ -176,30 +189,37 @@ buildscript {
 
 apply plugin: "kotlin-noarg"
 ```
+</div>
 
 Or using the Gradle plugins DSL:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 plugins {
   id "org.jetbrains.kotlin.plugin.noarg" version "{{ site.data.releases.latest.version }}"
 }
 ```
+</div>
 
 Then specify the list of no-arg annotations:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 noArg {
     annotation("com.my.Annotation")
 }
 ```
+</div>
 
 Enable `invokeInitializers` option if you want the plugin to run the initialization logic from the synthetic constructor. Starting from Kotlin 1.1.3-2, it is disabled by default because of [`KT-18667`](https://youtrack.jetbrains.com/issue/KT-18667) and [`KT-18668`](https://youtrack.jetbrains.com/issue/KT-18668) which will be addressed in the future.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 noArg {
     invokeInitializers = true
 }
 ```
+</div>
 
 ### Using in Maven
 
@@ -240,6 +260,7 @@ As with the *kotlin-spring* plugin, *kotlin-jpa* is a wrapped on top of *no-arg*
 
 That's how you add the plugin in Gradle: 
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
 buildscript {
     dependencies {
@@ -249,14 +270,17 @@ buildscript {
 
 apply plugin: "kotlin-jpa"
 ```
+</div>
 
 Or using the Gradle plugins DSL:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 plugins {
   id "org.jetbrains.kotlin.plugin.jpa" version "{{ site.data.releases.latest.version }}"
 }
 ```
+</div>
 
 In Maven, enable the `jpa` plugin:
 
@@ -283,6 +307,7 @@ The *sam-with-receiver* compiler plugin makes the first parameter of the annotat
 
 Here is an example:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```java
 public @interface SamWithReceiver {}
 
@@ -291,7 +316,9 @@ public interface TaskRunner {
     void run(Task task);
 }
 ```
+</div>
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun test(context: TaskContext) {
     val handler = TaskHandler { 
@@ -303,11 +330,13 @@ fun test(context: TaskContext) {
     }
 }
 ```
+</div>
 
 ### Using in Gradle
 
 The usage is the same to all-open and no-arg, except the fact that sam-with-receiver does not have any built-in presets, and you need to specify your own list of special-treated annotations.
- 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 buildscript {
     dependencies {
@@ -317,14 +346,17 @@ buildscript {
 
 apply plugin: "kotlin-sam-with-receiver"
 ```
+</div>
 
 Then specify the list of SAM-with-receiver annotations:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 samWithReceiver {
     annotation("com.my.Annotation")
 }
 ```
+</div>
 
 ### Using in Maven
 
@@ -340,7 +372,9 @@ samWithReceiver {
         </compilerPlugins>
 
         <pluginOptions>
-            <option>sam-with-receiver:annotation=com.my.SamWithReceiver</option>
+            <option>
+                sam-with-receiver:annotation=com.my.SamWithReceiver
+            </option>
         </pluginOptions>
     </configuration>
 
