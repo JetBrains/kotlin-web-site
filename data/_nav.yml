@@ -289,6 +289,8 @@ tutorials:
           title: Mapping Primitive Data Types from C
         - url: /docs/tutorials/native/mapping-struct-union-types-from-c.html
           title: Mapping Struct and Union Types from C
+        - url: /docs/tutorials/native/mapping-function-pointers-from-c.html
+          title: Mapping Function Pointers from C
         - url: /docs/tutorials/native/working-with-klib.html
           title: Working with Kotlin/Native Libraries
         - url: /docs/tutorials/native/targeting-multiple-platforms.html

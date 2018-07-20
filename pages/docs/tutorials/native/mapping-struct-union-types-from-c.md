@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Mapping Struct and Union Types from C"
-description: "Struct and Union types from C and how they look in Kotlin/Native side"
+description: "Struct and Union types from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
 date: 2018-07-20
 showAuthorInfo: false
@@ -235,17 +235,9 @@ fun callMix_value() {
 ## Next Steps
 
 Join us to continue exploring C language types and their representation in Kotlin in the related tutorials:
-- [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html). 
+- [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html)
+- [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 
 You may also take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
 for more advanced scenarios.
 
-
-
-## TODO:
-- Deal with [struct and union C types](#struct-and-union-c-types)
-TODO:
-- C types maps to Kotlin types
-- C function pointers and their mapping in Kotlin
-- And something more (TODO)
-- Strings? (TODO)

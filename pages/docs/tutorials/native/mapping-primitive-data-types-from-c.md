@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Mapping Primitive Data Types from C"
-description: "Primitive Data types from C and how they look in Kotlin/Native side"
+description: "Primitive Data types from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
 date: 2018-07-20
 showAuthorInfo: false
@@ -115,7 +115,8 @@ as it is usually an 8-bit unsigned value.
 
 We continue exploring more complicated C language types and their representation in Kotlin/Native
 in next tutorials:
-- [Mapping Struct and Union Types with C](mapping-struct-union-types-from-c.html)
+- [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
+- [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 
 You may also take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
 for more advanced scenarios.
