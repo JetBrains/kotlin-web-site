@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Mapping Struct and Union Types from C"
-description: "Struct and Union types from C and how they look in Kotlin side"
+description: "Struct and Union types from C and how they look in Kotlin/Native side"
 authors: Eugene Petrenko 
 date: 2018-07-20
 showAuthorInfo: false
