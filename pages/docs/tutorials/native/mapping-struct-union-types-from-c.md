@@ -28,7 +28,7 @@ Let's assume we have a console, where `kotlinc`, `cinterop` and `klib` commands 
 The best way to understand the mapping between Kotlin and C is to try a tiny 
 example. We declare a struct and an union in C language to see how they are mapped into Kotlin.
 
-`cinterop`, the tool to generate bindings between C langauge and Kotlin, uses 
+`cinterop`, the tool to generate bindings between C language and Kotlin, uses 
 a `.def` file to specify a library to import. For more details
 you may check [Interop with C Libraries](interop-with-c.html) tutorial.
  
