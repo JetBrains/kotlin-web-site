@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Mapping Primitive Data Types from C"
 description: "Primitive Data types from C and how they look in Kotlin/Native side"
 authors: Eugene Petrenko 
-date: 2018-07-11
+date: 2018-07-20
 showAuthorInfo: false
 issue: EVAN-5343
 ---
@@ -30,7 +30,7 @@ There are also more specific types:
 - `size_t` and `ptrdiff_t` (also `ssize_t`)
 - fixed width integer types, e.g. `int32_t` or `uint64_t` (from [C99](https://en.wikipedia.org/wiki/C99))
 
-In C language one also has type qualifiers `const`, `volatile`, `restruct`, `atomic`.
+one also has the following type qualifiers in C language: `const`, `volatile`, `restruct`, `atomic`.
 
 The best way to see how C data types are visible in Kotlin/Native is to try it. We create a 
 C library using all those types and see how Kotlin/Native uses it. You may check 
@@ -67,12 +67,16 @@ the tutorial to create the `lib.def` file with the following content:
 headers = lib.h
 ```
 
+We may have avoided `.h` file from being created and placed declarations
+directly to `.def` file. For example, we done that in the [next tutorial](mapping-struct-union-types-from-c.html).
+
 ## Inspecting Generated Kotlin/Native APIs for a C library
 
-We assume, you have Kotlin/Native compiler on your machine.
+We need to have a Kotlin/Native compiler on our machines. 
+You may have a look at the
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial has good instructions to install Kotlin/Native.
-We assume `kotlinc` and `cinterop` commands are available in PATH. 
+tutorial for more information on performing this step.
+Let's assume we have a console, where `kotlinc`, `cinterop` and `klib` commands are available. 
 
 Now we are ready to compile the library and to import it into Kotlin/Native. Let's 
 call the following commands:
@@ -107,6 +111,7 @@ as it is usually an 8-bit unsigned value.
 | double | kotlin.Double |
 {:.zebra}
 
+## Next Steps
 
 We continue exploring more complicated C language types and their representation in Kotlin/Native
 in next tutorials:
