@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Mapping Struct and Union Types from C"
 description: "Struct and Union types from C and how they look in Kotlin side"
 authors: Eugene Petrenko 
-date: 2018-07-12
+date: 2018-07-20
 showAuthorInfo: false
 issue: EVAN-5343
 ---
@@ -148,15 +148,21 @@ fun callValue() {
 
 `CValuesRef<T>` type is used in Kotlin to a typed pointer parameter of a C functions. First we need an instance of 
 `MyStruct` and `MyUnion` classes. This time we create them directly in the native memory. Let's use 
-the  
-`fun <reified T : kotlinx.cinterop.CVariable> alloc(): T` extension function on `kotlinx.cinterop.NativePlacement`
+the    
+```kotlin
+fun <reified T : kotlinx.cinterop.CVariable> alloc(): T   
+```
+extension function on `kotlinx.cinterop.NativePlacement`
 type for that.
 
 `NativePlacement` represents native memory with functions similar to `malloc` and `free`. 
 There are several implementations of `NativePlacement`. The global one is called `kotlinx.cinterop.nativeHeap`
 and you shall not forget to call `nativeHeap.free(..)` function to free the memory after use. 
 Another option is to use the
-`fun <R> memScoped(block: kotlinx.cinterop.MemScope.() -> R): R` function. It helps to create a short-leaving
+```kotlin
+fun <R> memScoped(block: kotlinx.cinterop.MemScope.() -> R): R    
+```
+function. It helps to create a short-leaving
 pointers scope and to have them cleaned up automatically at the end.
 
 Our code to call functions with pointers will look like that:
@@ -183,6 +189,10 @@ fun callRef() {
 Note, here we use the extension property `ptr` which comes from `memScoped` lambda receiver type 
 to turn `MyStruct` and `MyUnion` instances into native pointers.
 
+The `MyStruct` and `MyUnion` classes has the pointer to the native memory underneath. The memory will be released
+when `memScoped` function exits, which is equal to the end of its block. One should make sure, they do not need the
+pointer outside for the `memScoped` call. One uses `Arena()` or `nativeHeap` for pointers, that 
+should be available longer, and for pointers that are cached inside C library.   
 
 ### Conversion between CValue<T> and CValuesRef<T>
 
@@ -221,51 +231,10 @@ fun callMix_value() {
   }
 }
 ```
- 
-
-
-
-
-
-#TRASH 
-
-  
-In Kotlin we have two ways to create the C structure/union. The first one called
-
-
-In Kotlin we are only able to create a structure on a memory heap. There is a global heap in Kotlin, 
-it is called `nativeHeap`. You may also create 
-your own short-leaving heap via `Arena()` class and `memScoped { .. }` construction. 
-
-I create an instance of my `MyStruct` in a short-leaving heap this way:
-```kotlin
-
-fun callC() {
-    memScoped {
-        val cStruct = alloc<MyStruct>()
-        cSt
-        val cUnion = alloc<MyStruct>()
-        
-        
-        
-    }
-}
-
-```
-
-We should note, the `alloc` function here is the extension function on `kotlinx.cinterop.NativePlacement` interface,
-`nativeHeap`, `memScoped` and `Arena` implements the interface. 
-
-The `MyStruct` class has the pointed to the native memory underneath. The memory is allocated and will be released
-when `memScoped` function exits, which is equal to the end of its block. We should make sure, we do not need the
-valid memory pointer outside for the `memScoped` call. One uses `Arena()` or `nativeHeap` for pointers, that 
-should be available longer, or for pointers that are cached inside C library.   
-
 
 ## Next Steps
 
-We continue exploring more complicated C language types and their representation in Kotlin
-in next tutorials:
+Join us to continue exploring C language types and their representation in Kotlin in the related tutorials:
 - [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html). 
 
 You may also take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
