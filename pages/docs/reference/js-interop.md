@@ -200,4 +200,4 @@ External interfaces have some restrictions:
 1. They can't be used on the right hand side of `is` checks.
 2. `as` cast to external interface always succeeds (and produces a warning in compile-time).
 3. They can't be passed as reified type arguments.
-4. Then can't be used in class literal expression (i.e. `I::class`).
+4. They can't be used in class literal expressions (i.e. `I::class`).
