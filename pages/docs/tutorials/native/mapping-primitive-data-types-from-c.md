@@ -117,6 +117,7 @@ We continue exploring more complicated C language types and their representation
 in next tutorials:
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
+- [Mapping Strings from C](mapping-strings-from-c.html)
 
 You may also take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
 for more advanced scenarios.

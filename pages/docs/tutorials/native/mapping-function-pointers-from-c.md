@@ -85,7 +85,9 @@ fun myFun() {
 
 Here we use `staticCFunction{..}` helper function from Kotlin to wrap a lambda into a C Function pointer.
 The function only allows to have an unbound and non-capturing lambda function. For example, it is not allowed
-to use a local variable from the function. We may only use globally visible declarations.
+to use a local variable from the function. We may only use globally visible declarations. Throwing exceptions
+from a `staticCFunction{..}` has non determined side-effects. It is vital to make sure you not throwing an
+exception from it.
 
 The second step, we call a C function pointer from a C pointer we have from `supply_fun()` call:
 ```kotlin
@@ -107,6 +109,7 @@ You may continue exploring more C language types and their representation in Kot
 in next tutorials:
 - [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html)
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
+- [Mapping Strings from C](mapping-strings-from-c.html)
 
 You may also have a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
 for more advanced scenarios.

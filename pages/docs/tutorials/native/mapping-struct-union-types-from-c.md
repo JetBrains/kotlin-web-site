@@ -237,6 +237,7 @@ fun callMix_value() {
 Join us to continue exploring C language types and their representation in Kotlin in the related tutorials:
 - [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
+- [Mapping Strings from C](mapping-strings-from-c.html)
 
 You may also take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
 for more advanced scenarios.
