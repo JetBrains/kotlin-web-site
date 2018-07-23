@@ -4,16 +4,16 @@ layout: tutorial
 title:  "Mapping Primitive Data Types from C"
 description: "Primitive Data types from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
-date: 2018-07-20
+date: 2018-07-23
 showAuthorInfo: false
 issue: EVAN-5343
 ---
 
 In this tutorial we learn how C data types are visible in Kotlin/Native and vice versa. You will: 
 - See what [Data Types are in C Language](#types-in-c-language)
-- Create a [tiny C Library](#example-c-library) that uses those types in exports
-- [Inspect Generated Kotlin/Native APIs from a C library](#inspecting-generated-kotlinnative-apis-for-a-c-library)
-- Find how [Primitive Types in Kotlin/Native](#primitive-types-in-kotlinnative) are mapped to C
+- Create a [tiny C Library](#an-example-c-library) that uses those types in exports
+- [Inspect Generated Kotlin APIs from a C library](#inspecting-generated-kotlin-apis-for-a-c-library)
+- Find how [Primitive Types in Kotlin](#primitive-types-in-kotlin) are mapped to C
 
 ## Types in C Language
 
@@ -32,15 +32,11 @@ There are also more specific types:
 
 one also has the following type qualifiers in C language: `const`, `volatile`, `restruct`, `atomic`.
 
-The best way to see how C data types are visible in Kotlin/Native is to try it. We create a 
-C library using all those types and see how Kotlin/Native uses it. You may check 
-[Interop with C Libraries](interop-with-c.html) tutorial for more details on how 
-Kotlin/Native interop works. In this tutorial we focus more on how types are mapped.  
+The best way to see how C data types are visible in Kotlin is to try it
 
+## An Example C Library
 
-## Example C Library
-
-We create a `lib.h` file to demonstrate function signatures:
+We create a `lib.h` file to see how C functions are mapped into Kotlin:
 ```c
 #ifndef LIB2_H_INCLUDED
 #define LIB2_H_INCLUDED
@@ -68,17 +64,17 @@ headers = lib.h
 ```
 
 We may have avoided `.h` file from being created and placed declarations
-directly to `.def` file. For example, we done that in the [next tutorial](mapping-struct-union-types-from-c.html).
+directly to `.def` file. That is how we do it in the [next tutorial](mapping-struct-union-types-from-c.html).
 
-## Inspecting Generated Kotlin/Native APIs for a C library
+## Inspecting Generated Kotlin APIs for a C library
 
-We need to have a Kotlin/Native compiler on our machines. 
+We need to have a Kotlin compiler on our machines. 
 You may have a look at the
-[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
+[A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial for more information on performing this step.
 Let's assume we have a console, where `kotlinc`, `cinterop` and `klib` commands are available. 
 
-Now we are ready to compile the library and to import it into Kotlin/Native. Let's 
+Now we are ready to compile the library and to import it into Kotlin. Let's 
 call the following commands:
 
 ```bash
@@ -86,10 +82,10 @@ cinterop -def lib.def -compilerOpts "-I." -o lib.klib
 klib contents lib.klib
 ```
 
-The `cinterop` command generates the `lib.klib`, the Kotlin/Native library to call C code. The `klib`
+The `cinterop` command generates the `lib.klib`, the Kotlin library, which is the bridge to call C code. The `klib`
 command prints the API of the library to the console.
 
-## Primitive Types in Kotlin/Native
+## Primitive Types in Kotlin
 
 From `cinterop` and `klib` calls we see the following API:
 
@@ -111,10 +107,13 @@ as it is usually an 8-bit unsigned value.
 | double | kotlin.Double |
 {:.zebra}
 
+
+Kotlin does not explicitly tell `signed` and `unsigned` types right now. It may change in the future
+
 ## Next Steps
 
 We continue exploring more complicated C language types and their representation in Kotlin/Native
-in next tutorials:
+in the next tutorials:
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 - [Mapping Strings from C](mapping-strings-from-c.html)

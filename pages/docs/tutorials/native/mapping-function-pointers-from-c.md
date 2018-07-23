@@ -9,14 +9,14 @@ showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-That is the third post in the series. You might want to check the first tutorial called
-[Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html) first or the 
-second one called [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html).
+That is the third post in the series. You might want to begin with the very first tutorial called
+[Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html). There are also
+[Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html) and 
+[Mapping Strings from C](mapping-strings-from-c.html) tutorials.
 
-In that tutorial we see how function pointers from C are visible to Kotlin. 
-You will learn:
-- [How function pointer types are mapped from C](#mapping-function-pointer-types-from-c)
-- [Dealing with C function pointers](#dealing-with-c-function-pointers)
+In that tutorial you will learn how to:
+- [pass Kotlin function as C function pointer](#passing-kotlin-function-as-c-function-pointer)
+- [use C function pointer from Kotlin](#using-c-function-pointer-from-kotlin)
 
 We need to have a Kotlin compiler on our machines. 
 You may have a look at the
@@ -31,12 +31,13 @@ The best way to understand the mapping between Kotlin and C is to try a tiny
 example. We declare a function that accepts a function pointer as a parameter and 
 another function that returns a function pointer. 
 
-`cinterop`, the tool to generate bindings between C language and Kotlin, uses 
-a `.def` file to specify a library to import. For more details
-you may check [Interop with C Libraries](interop-with-c.html) tutorial.
+Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between C language and Kotlin.
+It uses a `.def` file to specify a C library to import. For more details
+you may check the [Interop with C Libraries](interop-with-c.html) tutorial.
  
-In [the previous tutorial](mapping-primitive-data-types-from-c.html) we created an `lib.h` file. This time, 
-we include those declarations directly into the `lib.def` file, after `---` line:
+The shortest way to try C API mapping is to have all C declarations in the
+`lib.def` file, without creating any `.h` of `.c` files at all. One places C declarations 
+in `.def` file after the special `---` separator line:
 
 ```c 
 
@@ -68,14 +69,12 @@ typealias MyFunVar = kotlinx.cinterop.CPointerVarOf<lib.MyFun>
 We see that our function typedef from C turned into Kotlin `typealias`. It uses `CPointer<..>` type
 to represent the pointer parameters, and `CFunction<(Int)->Int>` to represent the function signature. 
 There in an `invoke` operator extension function available for all `CPointer<CFunction<..>` types, so that 
-one is allowed to call as any other function in Kotlin. 
+one is allowed to call it as any other function in Kotlin. 
 
-Let's see how one deals with C function pointers
+## Passing Kotlin Function as C Function Pointer
 
-## Dealing with C Function Pointers
-
-It is the time to try using C Functions from our Kotlin program. The first one - we call `accept_fun`
-function and pass C function pointer to a Kotlin function:
+It is the time to try using C Functions from our Kotlin program. Let's call the `accept_fun`
+function and pass C function pointer to a Kotlin lambda:
 ```kotlin
 fun myFun() {
   accept_fun(staticCFunction<Int, Int> { it + 1 })
@@ -83,11 +82,13 @@ fun myFun() {
 
 ```
 
-Here we use `staticCFunction{..}` helper function from Kotlin to wrap a lambda into a C Function pointer.
-The function only allows to have an unbound and non-capturing lambda function. For example, it is not allowed
+Here we use `staticCFunction{..}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C Function pointer.
+It only allows to have an unbound and non-capturing lambda functions. For example, it is not allowed
 to use a local variable from the function. We may only use globally visible declarations. Throwing exceptions
-from a `staticCFunction{..}` has non determined side-effects. It is vital to make sure you not throwing an
-exception from it.
+from a `staticCFunction{..}` ends up in non-deterministic side-effects. It is vital to make sure we are not 
+throwing any sudden exception from it
+
+## Using C Function Pointer from Kotlin
 
 The second step, we call a C function pointer from a C pointer we have from `supply_fun()` call:
 ```kotlin
@@ -101,7 +102,8 @@ fun myFun2() {
 
 Kotlin turns the function pointer return type into nullable `CPointer<CFunction<..>` object. One need
 to explicitly check for `null` first. We use [elvis operator](../reference/null-safety.html) for that.
-The `cinterop` tool helps us to turn a C function pointer into an easy to call object in Kotlin.
+The `cinterop` tool helps us to turn a C function pointer into an easy to call object in Kotlin. That is
+what we did in the last line
 
 ## Next Steps
 
