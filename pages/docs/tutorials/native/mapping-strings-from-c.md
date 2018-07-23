@@ -13,11 +13,11 @@ That is the next post in the series. You might want to check the first tutorial 
 [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html) first or the 
 second one called [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html).
 
-In that tutorial we see how *** from C are visible to Kotlin. 
+In that tutorial we see how to deal with C strings in Kotlin/Native. 
 You will learn how to:
-- [work with C strings](#working-with-c-strings)
-- use `size_t`, and other defined types
-- access static variables from C
+- [pass Kotlin string to C](#passing-kotlin-string-to-c)
+- [read C string in Kotlin](#reading-c-string-in-kotlin)
+- [receive C string bytes into Kotlin string](#receiving-c-string-bytes-from-kotlin)
 
 We need to have a Kotlin compiler on our machines. 
 You may have a look at the
@@ -25,8 +25,7 @@ You may have a look at the
 tutorial for more information on performing this step.
 Let's assume we have a console, where `kotlinc`, `cinterop` and `klib` commands are available. 
 
-
-# Working with C strings
+## Working with C strings
 
 There in no dedicated type in C language for strings. Developer knows from a method 
 signature or documentation, what a given `char *` means in the context. Strings in C are null-terminated, 
@@ -77,8 +76,7 @@ parameters and to `CPointer<ByteVar>?` in return types.
 In the generated Kotlin declarations we see that `str` is represented as `CValuesRef<ByteVar/>?`. The type
 is nullable, and we can simply pass Kotlin `null` as the parameter. 
 
-
-### Passing Kotlin string to C
+## Passing Kotlin string to C
 
 Let's try to use the API from Kotlin. Let's call `pass_string(..)` first:
 ```kotlin
@@ -94,7 +92,7 @@ on type `kotlin.String`. There is also `String.wcstr` for the case you
 need wide characters.
 
 
-### Reading C string in Kotlin
+## Reading C string in Kotlin
 
 This time we turn a returned `char *` from `return_string(..)` function into
 a Kotlin string. For that we do the following in Kotlin:
@@ -119,7 +117,7 @@ The first one takes a `char*` as UTF-8 string and turns it into String.
 The second function does the same for wide, `UTF-16` strings.
 
 
-### Receiving C string bytes from Kotlin
+## Receiving C string bytes from Kotlin
 
 This time we ask a C function to write us a C string to a given buffer. The function
 is called `copy_string`. It takes a pointer to the location to write characters and 
@@ -147,41 +145,7 @@ First of all, to pass a pointer to a C function we need to allocate memory for i
 to temporary allocate and automatically release memory. It is `allocArray<ByteVar>(maxSize){..}` function, 
 that we use to get the pointer. Next we call `copy_string` with the allocated pointer and check exit code of it.
 `toKString()` extension function is used to turn a memory into Kotlin string, which we can use either inside
-or outside of thr `memScoped{..}` block
-
-
-```
-
-
-```kotlin
-
-fun pass_pointer(arg0: CValuesRef<*>?, size: size_t /* = Long */)
-fun pass_string(str: CValuesRef<ByteVar /* = ByteVarOf<Byte> */>?)
-
-var global_string: CPointer<ByteVar /* = ByteVarOf<Byte> */>?
-
-```
-
-Let's take a look how different types are processed.
-
-## void* and size_t type 
-
-The first function we created is `pass_pointer`. That is how one may pass a block of memory from 
-Kotlin to C world. The interpretation if that 
-
-
-`size_t` is the type one use for sized. You pass a `size_t` value to `malloc(..)` in C, we receive
-`size_t` from `sizeof(..)` call too. The type is documented in POSIX.  Kotlin is smart enough 
-to use that fact and to refer to `platform.posix.size_t`. The `platform.posix.size_t` is implemented
-as a typealias to `kotlin.Long` type. Let's pass a numeric constant as an example.
-
-
-
-
-
-
-
-
+or outside of the `memScoped{..}` block.
 
 ## Next Steps
 

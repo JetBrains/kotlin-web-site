@@ -291,8 +291,8 @@ tutorials:
           title: Mapping Struct and Union Types from C
         - url: /docs/tutorials/native/mapping-function-pointers-from-c.html
           title: Mapping Function Pointers from C
-        - url: /docs/tutorials/native/mapping-special-types-from-c.html
-          title: Mapping Special Types from C
+        - url: /docs/tutorials/native/mapping-strings-from-c.html
+          title: Mapping Strings from C
         - url: /docs/tutorials/native/working-with-klib.html
           title: Working with Kotlin/Native Libraries
         - url: /docs/tutorials/native/targeting-multiple-platforms.html
