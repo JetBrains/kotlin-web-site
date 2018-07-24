@@ -19,64 +19,66 @@ Unzip the standalone compiler into a directory and optionally add the `bin` dire
 An easier way to install Kotlin on UNIX based systems such as OS X, Linux, Cygwin, FreeBSD and Solaris is by using [SDKMAN!](http://sdkman.io).
 Simply run the following in a terminal and follow any instructions:
 
-```
-   $ curl -s https://get.sdkman.io | bash
+```bash
+$ curl -s https://get.sdkman.io | bash
 ```
 
 Next open a new terminal and install Kotlin with:
 
-```
-   $ sdk install kotlin
+```bash
+$ sdk install kotlin
 ```
 
 #### Homebrew
 Alternatively, on OS X you can install the compiler via [Homebrew](http://brew.sh/).
 
-```
-   $ brew update
-   $ brew install kotlin
+```bash
+$ brew update
+$ brew install kotlin
 ```
 
 #### MacPorts
 If you're a [MacPorts](https://www.macports.org/) user, you can install the compiler with:
 
-```
-   $ sudo port install kotlin
+```bash
+$ sudo port install kotlin
 ```
 
 #### [Snap](https://snapcraft.io/) package
 If you’re on Ubuntu 16.04 or later, you can install the compiler from the command line:
 
-```
-   $ sudo snap install --classic kotlin
+```bash
+$ sudo snap install --classic kotlin
 ```
 
 ### Creating and running a first application
 
 1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following:
 
+   <div class="sample" markdown="1" theme="idea">
    ``` kotlin
    fun main(args: Array<String>) {
        println("Hello, World!")
    }
    ```
+   </div>
 
 2. Compile the application using the Kotlin compiler
 
-   ```
+   ```bash
    $ kotlinc hello.kt -include-runtime -d hello.jar
    ```
 
    The `-d` option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a *.jar* file name. The `-include-runtime` option makes the resulting *.jar* file self-contained and runnable by including the Kotlin runtime library in it.
    If you want to see all available options run
 
-   ```
+   ```bash
    $ kotlinc -help
    ```
 
 3. Run the application.
 
-   ```
+   ```bash
    $ java -jar hello.jar
    ```
 
@@ -85,16 +87,16 @@ If you’re on Ubuntu 16.04 or later, you can install the compiler from the comm
 
    If you're developing a library to be used by other Kotlin applications, you can produce the .jar file without including the Kotlin runtime into it.
 
-```
-   $ kotlinc hello.kt -d hello.jar
+```bash
+$ kotlinc hello.kt -d hello.jar
 ```
 
    Since binaries compiled this way depend on the Kotlin runtime you should make sure the latter is present in the classpath whenever your compiled library is used.
    
    You can also use the `kotlin` script to run binaries produced by the Kotlin compiler:
 
-```
-   $ kotlin -classpath hello.jar HelloKt
+```bash
+$ kotlin -classpath hello.jar HelloKt
 ```
 
    `HelloKt` is the main class name that the Kotlin compiler generates for the file named `hello.kt`.
@@ -109,15 +111,17 @@ We can run the compiler without parameters to have an interactive shell. We can 
 
 Kotlin can also be used as a scripting language. A script is a Kotlin source file (.kts) with top level executable code.
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
    import java.io.File
 
    val folders = File(args[0]).listFiles { file -> file.isDirectory() }
    folders?.forEach { folder -> println(folder) }
 ```
+</div>
 
 To run a script, we just pass the `-script` option to the compiler with the corresponding script file.
 
-```
-   $ kotlinc -script list_folders.kts <path_to_folder_to_inspect>
+```bash
+$ kotlinc -script list_folders.kts <path_to_folder_to_inspect>
 ```
