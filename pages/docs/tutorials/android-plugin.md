@@ -19,6 +19,7 @@ The Kotlin Android Extensions plugin allows us to obtain the same experience we 
 
 In essence, this allows for the following code:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 // Using R.layout.activity_main from the 'main' source set
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,6 +34,7 @@ class MyActivity : Activity() {
     }
 }
 ```
+</div>
 
 `textView` is an extension property for `Activity`, and it has the same type as declared in `activity_main.xml` (so it is a `TextView`).
 
@@ -47,17 +49,21 @@ Android Extensions is a part of the Kotlin plugin for IntelliJ IDEA and Android 
 
 All you need is to enable the Android Extensions Gradle plugin in your module's `build.gradle` file:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 apply plugin: 'kotlin-android-extensions'
 ```
+</div>
 
 #### Importing synthetic properties
 
 It is convenient to import all widget properties for a specific layout in one go:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 import kotlinx.android.synthetic.main.<layout>.*
 ```
+</div>
 
 Thus if the layout filename is `activity_main.xml`, we'd import `kotlinx.android.synthetic.main.activity_main.*`.
 
@@ -66,34 +72,39 @@ If we want to call the synthetic properties on `View`, we should also import `ko
 Once we do that, we can then invoke the corresponding extensions, which are properties named after the views in the XML file. For example, for this view:
 
 ```xml
-    <TextView
-        android:id="@+id/hello"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+<TextView
+    android:id="@+id/hello"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"/>
 ```
 
 There will be a property named `hello`:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 activity.hello.text = "Hello World!"
 ```
+</div>
 
 
 ### Experimental Mode
 
 Android Extensions plugin includes several experimental features such as `LayoutContainer` support and a `Parcelable` implementation generator. These features are not considered production ready yet, so you need to turn on the experimental mode in `build.gradle` in order to use them:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 androidExtensions {
     experimental = true
 }
 ```
+</div>
 
 
 ### `LayoutContainer` Support
 
 Android Extensions plugin supports different kinds of containers. The most basic ones are [`Activity`](https://developer.android.com/reference/android/app/Activity.html), [`Fragment`](https://developer.android.com/reference/android/support/v4/app/Fragment.html) and [`View`](https://developer.android.com/reference/android/view/View.html), but you can turn (virtually) any class to an Android Extensions container by implementing the `LayoutContainer` interface, e.g.:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 import kotlinx.android.extensions.LayoutContainer
 
@@ -103,6 +114,7 @@ class ViewHolder(override val containerView: View) : ViewHolder(containerView), 
     }
 }
 ```
+</div>
 
 Note that you need to turn on the [experimental flag](#experimental-mode) to use `LayoutContainer`.
 
@@ -111,6 +123,7 @@ Note that you need to turn on the [experimental flag](#experimental-mode) to use
 
 Android Extensions plugin supports Android flavors. Suppose you have a flavor named `free` in your `build.gradle` file:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 android {
     productFlavors {
@@ -120,12 +133,15 @@ android {
     }
 }
 ```
+</div>
 
 So you can import all synthetic properties for the `free/res/layout/activity_free.xml` layout by adding this import:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 import kotlinx.android.synthetic.free.activity_free.*
 ```
+</div>
 
 In the [experimental mode](#experimental-mode), you can specify any variant name (not only flavor), e.g. `freeDebug` or `freeRelease` will work as well.
 
@@ -138,6 +154,7 @@ By default, Android Extensions adds a hidden cache function and a storage field 
 
 In the following example, `findViewById()` is only invoked once:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class MyActivity : Activity()
 
@@ -146,15 +163,18 @@ fun MyActivity.a() {
     textView.visibility = View.INVISIBLE
 }
 ```
+</div>
 
 However in the following case:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 fun Activity.b() { 
     textView.text = "Hidden view"
     textView.visibility = View.INVISIBLE
 }
 ```
+</div>
 
 We wouldn't know if this function would be invoked on only activities from our sources or on plain Java activities also. Because of this, we don’t use caching there, even if `MyActivity` instance from the previous example is passed as a receiver.
 
@@ -165,16 +185,19 @@ You can change the caching strategy globally or per container. This also require
 
 Project-global caching strategy is set in the `build.gradle` file:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
 androidExtensions {
     defaultCacheImplementation = "HASH_MAP" // also SPARSE_ARRAY, NONE
 }
 ```
+</div>
 
 By default, Android Extensions plugin uses `HashMap` as a backing storage, but you can switch to the `SparseArray` implementation, or just switch off caching. The latter is especially useful when you use only the [Parcelable](#parcelable) part of Android Extensions.
 
 Also, you can annotate a container with `@ContainerOptions` to change its caching strategy:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 import kotlinx.android.extensions.ContainerOptions
 
@@ -187,6 +210,7 @@ fun MyActivity.a() {
     textView.visibility = View.INVISIBLE
 }
 ```
+</div>
 
 ## Parcelable
 
@@ -200,17 +224,20 @@ Apply the `kotlin-android-extensions` Gradle plugin as described [above](#config
 
 Annotate the class with `@Parcelize`, and a `Parcelable` implementation will be generated automatically.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 class User(val firstName: String, val lastName: String, val age: Int): Parcelable
 ```
+</div>
 
 `@Parcelize` requires all serialized properties to be declared in the primary constructor. Android Extensions will issue a warning on each property with a backing field declared in the class body. Also, `@Parcelize` can't be applied if some of the primary constructor parameters are not properties.
 
 If your class requires more advanced serialization logic, you can write it inside a companion class:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @Parcelize
 data class User(val firstName: String, val lastName: String, val age: Int) : Parcelable {
@@ -225,6 +252,7 @@ data class User(val firstName: String, val lastName: String, val age: Int) : Par
     }
 }
 ```
+</div>
 
 
 ### Supported Types
@@ -248,6 +276,7 @@ data class User(val firstName: String, val lastName: String, val age: Int) : Par
 
 Even if your type is not supported directly, you can write a `Parceler` mapping object for it.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 class ExternalClass(val value: Int)
 
@@ -259,9 +288,11 @@ object ExternalClassParceler : Parceler<ExternalClass> {
     }
 }
 ```
+</div>
 
 External parcelers can be applied using `@TypeParceler` or `@WriteWith` annotations:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 // Class-local parceler
 @Parcelize
@@ -276,3 +307,4 @@ class MyClass(@TypeParceler<ExternalClass, ExternalClassParceler>() val external
 @Parcelize
 class MyClass(val external: @WriteWith<ExternalClassParceler>() ExternalClass)
 ```
+</div>
