@@ -3548,9 +3548,9 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-kotlin-playground@1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.8.0.tgz#447f0716a81319170abf3af4fd4704c16c7a6477"
+kotlin-playground@1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.9.0.tgz#79a5314eb7e5563e01e91adfdb202d4bbe54f7cd"
 
 lazy-cache@^0.2.3:
   version "0.2.7"
