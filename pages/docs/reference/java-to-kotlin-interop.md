@@ -348,6 +348,13 @@ fun getX() = 10
 ```
 </div>
 
+To change the names of generated accessor methods for properties without explicitly implemented getters and setters, you can use `@get:JvmName` and `@set:JvmName`:
+
+``` kotlin
+@get:JvmName("x")
+@set:JvmName("changeX")
+var x: Int = 23
+```
 
 ## Overloads Generation
 
