@@ -17,6 +17,7 @@ In order to use Gradle to target JavaScript, we need to use the `kotlin2js` plug
 
 Our `build.gradle` file should look like the following
 
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 ```groovy
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -42,6 +43,7 @@ dependencies {
 }
 
 ```
+</div>
 
 To use an EAP build instead, we need to specify its version in `ext.kotlin_version` and 
 add the corresponding repository to the `buildscript` section (usually EAP builds are located on [Bintray](https://bintray.com/kotlin))
@@ -52,6 +54,7 @@ In order to assemble an application, we also need to include the Kotlin standard
 
 By default, Gradle does not expand the JARs in the build process, so we need to add an additional step in our build to do so:
 
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 ```groovy
 task assembleWeb(type: Sync) {
     configurations.compile.each { File file ->
@@ -72,6 +75,8 @@ task assembleWeb(type: Sync) {
 
 assemble.dependsOn assembleWeb
 ```
+</div>
+
 This task copies both dependencies runtime files and the compilation output to the `web` directory.
 
 For more information on the output generated and the instructions for running the application, please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
@@ -82,6 +87,7 @@ Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea
 
 In order to specify the module kind, we can add a configuration to our plugin as below
 
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 ```groovy
 compileKotlin2Js {
     kotlinOptions.outputFile = "${projectDir}/web/output.js"
@@ -89,6 +95,7 @@ compileKotlin2Js {
     kotlinOptions.sourceMap = true
 }
 ```
+</div>
 
 where `moduleKind` can be
 
