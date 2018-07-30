@@ -35,30 +35,34 @@ Once the IDE has finished creating the new project, we should be left with the f
 At this point we can start writing Kotlin code. For this sample, we're going to write some code that will print a string
 out to the console window.
 
+<div class="sample" markdown="1" theme="idea" data-target-platform="js">
 ```kotlin
 fun main(args: Array<String>) {
     val message = "Hello JavaScript!"
     println(message)
 }
 ```
+</div>
 
 We now need an HTML page to load the code, so we'll create a file called `index.html`. If you want more information on how Kotlin compiles to JavaScript and the output generated, check out the
 [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html) tutorial. 
 
+<div class="sample" markdown="1" theme="idea" mode="xml" data-highlight-only auto-indent="false">
 ```html 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Console Output</title>
-</head>
-<body>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Console Output</title>
+    </head>
+    <body>
 
-<script type="text/javascript" src="out/production/sampleapp/lib/kotlin.js"></script>
-<script type="text/javascript" src="out/production/sampleapp/sampleapp.js"></script>
-</body>
+    <script type="text/javascript" src="out/production/sampleapp/lib/kotlin.js"></script>
+    <script type="text/javascript" src="out/production/sampleapp/sampleapp.js"></script>
+    </body>
 </html>
 ```
+</div>
 
 A couple of important points:
 
