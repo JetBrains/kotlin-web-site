@@ -21,6 +21,7 @@ Note that all classes in this tutorial are in the `org.jetbrains.kotlin.demo` pa
 
 The Gradle file is pretty much standard for Spring Boot. The only differences are the structure layout for source folders for Kotlin, the required Kotlin dependencies and the [*kotlin-spring*](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugi) Gradle plugin (CGLIB proxies used for example for `@Configuration` and `@Bean` processing require `open` classes).
 
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 ``` groovy
 buildscript {
     ext.kotlin_version = '{{ site.data.releases.latest.version }}' // Required for Kotlin integration
@@ -54,17 +55,21 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 ```
+</div>
 
 ### Creating a Greeting Data Class and Controller
 The next step is to create Greeting Data class that has two properties: *id* and a *content*
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 data class Greeting(val id: Long, val content: String)
 ```
+</div>
 
 We now define the *GreetingController* which serves requests of the form */greeting?name={value}* and returns a JSON object
 representing an instance of *Greeting*
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 @RestController
 class GreetingController {
@@ -77,6 +82,7 @@ class GreetingController {
 
 }
 ```
+</div>
 
 As can be seen, this is again pretty much a one-to-one translation of Java to Kotlin, with nothing special required for Kotlin.
 
@@ -85,6 +91,7 @@ Finally we need to define an Application class. As Spring Boot looks for a publi
 
 No need to mark the Application class as *open* since we are using the *kotlin-spring* Gradle plugin which does that automatically.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 @SpringBootApplication
 class Application
@@ -93,6 +100,7 @@ fun main(args: Array<String>) {
     SpringApplication.run(Application::class.java, *args)
 }
 ```
+</div>
 
 ### Running the application
 We can now use any of the standard Gradle tasks for Spring Boot to run the application. As such, running
