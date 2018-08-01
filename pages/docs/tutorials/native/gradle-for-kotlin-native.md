@@ -30,6 +30,7 @@ In this tutorial we'll see how to
 
 The following Gradle script (named `build.gradle`) is the simplest needed to compile an application 
 
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 ```groovy
 buildscript {
     repositories {
@@ -51,6 +52,7 @@ konanArtifacts {
     program('hello')
 }
 ```
+</div>
 
 The `buildscript` section defines the repositories and dependencies required for the Gradle plugin for Kotlin/Native which is `konan`. Then come the actual parameters for compiling:
 
@@ -64,11 +66,13 @@ files are located, which is `src/main/kotlin`. We can of course change this beha
 
 We can now create a Kotlin file with the following contents and place it in the `src/main/kotlin` directory:
 
+<div class="sample" markdown="1" theme="idea">
 ```kotlin
 fun main(args: Array<String>) {
     println("Hello Gradle!")
 }
-``` 
+```
+</div>
 
 To recap, this should be our directory structure layout:
 
@@ -96,7 +100,8 @@ we passed to the the parameter `program` in the build script.
 A common process in building applications is to build and reference libraries, be these native libraries we create from scratch in Kotlin, or as a result of interop with C or other languages.
 
 In Gradle we can combine all of this in a single script:
- 
+
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 ```groovy
 buildscript {
     repositories {
@@ -126,6 +131,7 @@ konanArtifacts {
     }
 }
 ```
+</div>
 
 In this example we're building our library, with the source being in a custom directory and not the default one by convention. We then reference this library 
 during the building of our actual application.
