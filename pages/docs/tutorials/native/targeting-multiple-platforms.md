@@ -86,11 +86,13 @@ Let's create a sample Kotlin/Native program and save it as `main.kt`.
 You may want to have a look at the tutorial
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#creating-hello-kotlin) for more details.
 
+<div class="sample" markdown="1" theme="idea">
 ```kotlin
 fun main(args: Array<String>) {
   println("Hello Kotlin/Native!")
 }
 ```
+</div>
 
 We use the `-target` argument of the `kotlinc` to specify the platform. It is also 
 helpful to use `-output` to explicitly instruct
