@@ -36,11 +36,13 @@ Our first application is going to simply print some text on the standard output.
  
 We can open up our favorite IDE or editor and write the following code in a file named `hello.kt` 
 
+<div class="sample" markdown="1" theme="idea">
 ```kotlin
 fun main(args: Array<String>) {
     println("Hello Kotlin/Native!")
 }
 ```
+</div>
 
 ## Compiling and examining output 
 
