@@ -11,8 +11,8 @@ Kotlin works quite smoothly with Spring Boot and many of the steps found on the 
 can be followed verbatim for Kotlin. There are some minor differences however when it comes to defining the Gradle configuration
 and the project layout structure, as well as the initialization code.
 
-In this tutorial we'll walk through the steps required. For a more thorough explanation of Spring Boot and RESTful services, please see
-[Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
+In this tutorial we'll walk through the steps required. For a more thorough explanation of Spring Boot and Kotlin, please see
+[Building web applications with Spring Boot and Kotlin](https://spring.io/guides/tutorials/spring-boot-kotlin/).
 
 Note that all classes in this tutorial are in the `org.jetbrains.kotlin.demo` package.
 
