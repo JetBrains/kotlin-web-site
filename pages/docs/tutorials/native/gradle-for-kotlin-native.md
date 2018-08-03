@@ -30,7 +30,7 @@ In this tutorial we'll see how to
 
 The following Gradle script (named `build.gradle`) is the simplest needed to compile an application 
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 buildscript {
     repositories {
@@ -101,7 +101,7 @@ A common process in building applications is to build and reference libraries, b
 
 In Gradle we can combine all of this in a single script:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 buildscript {
     repositories {
