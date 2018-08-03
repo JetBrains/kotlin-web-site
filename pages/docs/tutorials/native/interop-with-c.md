@@ -71,6 +71,7 @@ libcurl examples over to Kotlin.
 
 The code in question is from the [simple](https://curl.haxx.se/libcurl/c/simple.html) example (comments removed for brevity)
 
+<div class="sample" markdown="1" theme="idea" mode="c">
 ```c
 #include <stdio.h>
 #include <curl/curl.h>
@@ -94,9 +95,11 @@ int main(void)
   return 0;
 }
 ```
+</div>
 
 The first thing we'll need is a Kotlin file called `Main.kt` with the `main` function defined in it and then proceed to translate each line
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 import libcurl.*
 
@@ -113,6 +116,7 @@ fun main(args: Array<String>) {
     }
 }
 ```
+</div>
 
 As we can see, we've eliminated the explicit variable declarations in the Kotlin version, but everything else is pretty much verbatim to the C version. All the calls we'd
 expect in the `libcurl` library are available in their Kotlin version.
