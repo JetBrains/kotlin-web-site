@@ -27,6 +27,7 @@ A `klib` file is a compressed archive in zip format with the following directory
 
 File `utils.klib`
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```
     targets/                    /* One or more target platforms */
     
@@ -48,12 +49,14 @@ File `utils.klib`
 
     manifest                    /* A file in Java Property Format describing the library */ 
 ```
+</div>
  
 ## Creating a Kotlin/Native Libraries
 
 There are two ways we can create a Kotlin/Native library. The first and most common way is to use the Kotlin compiler. Let's assume
 we create a small library called `utils.kt` which contains the following two functions
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 package utils
 
@@ -65,6 +68,7 @@ fun printWarning(warning: String) {
     println("Warning: $warning")
 }
 ```
+</div>
 
 To create a library from this file, we can use the compiler with the parameter `-produce library` or `-p library` for short:
 
@@ -84,13 +88,18 @@ C library. See the [Interop with C tutorial](interop-with-c.html) on how to acco
 
 Now that we have our library, we can use it in our application. In our case this is a simple file named `sample.kt` with the following contents:
 
+<div class="sample" markdown="1" theme="idea">
 ```kotlin
-import utils.*
-
+//sampleStart
 fun main(args: Array<String>) {
     printWarning("App is about to shut down!")
 }
+//sampleEnd
+fun printWarning(warning: String) {
+    println("Warning: $warning")
+}
 ```
+</div>
 
 Notice how we need to import the necessary package from the library on the first line using the `import` statement. 
 
