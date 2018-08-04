@@ -23287,6 +23287,22 @@ O objetivo será mostrar algumas características da linguagem e como aplica-las
     </event>
 
     <event>
+        <lang>es</lang>
+        <startDate>2017-05-08</startDate>
+        <endDate>2017-05-08</endDate>
+        <location>Mexico City, Mexico</location>
+        <speaker>Armando Picon</speaker>
+        <title>GDG Androidtitlan</title>
+        <subject>Kotlin Workshop</subject>
+        <url>https://www.meetup.com/es-ES/Androidinights/events/239482868/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Workshop for Android Developers</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>vi</lang>
         <startDate>2017-04-15</startDate>
         <endDate>2017-04-15</endDate>
