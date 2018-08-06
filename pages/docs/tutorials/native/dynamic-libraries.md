@@ -15,7 +15,7 @@ compile our Kotlin code into a dynamic library, `.so`, `.dylib` and `.dll`.
 
 In this tutorial, we will:
  - [Compile a Kotlin code to a dynamic library](#creating-a-kotlin-library)
- - [Examine Generated C headers](#generated-headers-file)
+ - [Examine generated C headers](#generated-headers-file)
  - [Use the Kotlin dynamic library from C](#using-generated-headers-from-c)
  - Compile and run the example [on Linux and Mac](#compiling-and-running-the-example-on-linux-and-macos)
    and [on Windows](#compiling-and-running-the-example-on-windows)
