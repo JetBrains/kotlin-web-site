@@ -291,6 +291,8 @@ tutorials:
           title: Targeting Multiple Platforms
         - url: /docs/tutorials/native/dynamic-libraries.html
           title: Kotlin/Native as a Dynamic Library
+        - url: /docs/tutorials/native/apple-framework.html
+          title: Kotlin/Native as an Apple Framework
         - url: /docs/tutorials/native/kotlin-native-with-clion.html
           title: Kotlin/Native with CLion
         - url: /docs/tutorials/native/gradle-for-kotlin-native.html
