@@ -1606,3 +1606,8 @@
   geo:
     lat: 34.732159
     lng: 135.30278
+    
+- name: Singapore
+  geo:
+    lat: 1.283333
+    lng: 103.833333
