@@ -361,7 +361,7 @@ fun main(args: Array<String>) {
 ```
 </div>
 
-It means that, by the time of the base class constructor execution, the properties declared or overridden in the derived class are not yet initialized. If any of those properties are used in the base class initialization logic (either directly or indirectly, through another overridden *open*{: .keyword } member implementation), it may lead to incorrect behavior or a runtime failure. Designing a base class, you should therefore avoid using *open*{: .keyword } members in the constructors, property initializers, and *init*{: .keyword } blocks.
+It means that, by the time of the base class constructor execution, the properties declared or overridden in the derived class are not yet initialized. If any of those properties are used in the base class initialization logic (either directly or indirectly, through another overridden *open*{: .keyword } member implementation), it may lead to incorrect behavior or a runtime failure. When designing a base class, you should therefore avoid using *open*{: .keyword } members in the constructors, property initializers, and *init*{: .keyword } blocks.
 
 ### Calling the superclass implementation
 
