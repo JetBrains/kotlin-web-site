@@ -40,7 +40,8 @@ If using Maven or Gradle, we can also configure the module output format. For mo
 When using AMD, we set the compiler option to use AMD. Once we do that, we can then reference any modules that we've defined as if they were regular AMD ones.
 
 For instance, given
- 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
     var isPreferred = false
@@ -49,9 +50,11 @@ class Customer(val id: Int, val name: String, val email: String) {
     }
 }
 ```
+</div>
  
 the following JavaScript code will be generated
 
+<div class="sample" markdown="1" theme="idea" mode="js">
 ```javascript
 define('customerBL', ['kotlin'], function (Kotlin) {
   'use strict';
@@ -70,7 +73,8 @@ define('customerBL', ['kotlin'], function (Kotlin) {
   Kotlin.defineModule('customerBL', _);
   return _;
 });
-``` 
+```
+</div>
 
 Assuming we have the following project layout
 
@@ -79,6 +83,7 @@ Assuming we have the following project layout
 
 we could define our `index.html` to load `require.js` along with `main.js` as the value of the `data-main` attribute
 
+<div class="sample" markdown="1" theme="idea" mode="xml">
 ```html
 <head>
     <meta charset="UTF-8">
@@ -86,9 +91,11 @@ we could define our `index.html` to load `require.js` along with `main.js` as th
     <script data-main="scripts/main"  src="scripts/require.js"></script>
 </head>
 ```
+</div>
 
 The contents of our `main.js` would be:
 
+<div class="sample" markdown="1" theme="idea" mode="js">
 ```javascript
 requirejs.config({
     paths: {
@@ -101,6 +108,7 @@ requirejs(["customerBL"], function (customerBL) {
     console.log(customerBL)
 });
 ```
+</div>
 
 With this, we can then access any of the functionality defined inside `customerBL`.
 
@@ -112,6 +120,7 @@ should be accessible using the node module system.
 
 For instance, given 
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
     var isPreferred = false
@@ -120,10 +129,11 @@ class Customer(val id: Int, val name: String, val email: String) {
     }
 }
 ```
+</div>
 
 the following JavaScript code will be generated
 
- 
+<div class="sample" markdown="1" theme="idea" mode="js">
 ```javascript
 module.exports = function (Kotlin) {
   'use strict';
@@ -143,7 +153,8 @@ module.exports = function (Kotlin) {
   return _;
 }(require('kotlin'));
 
-``` 
+```
+</div>
 
 The last line is invoking the function itself and passing as argument `kotlin`, which refers to the standard library. This can be obtained in one of two ways:
 
@@ -158,6 +169,7 @@ to `node_modules`. This way, Node will automatically pick it up as it does an ex
  
 The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we can simply include it in our `package.json` as a dependency. 
 
+<div class="sample" markdown="1" theme="idea" mode="js">
 ```json
 {
   "name": "node-demo",
@@ -168,13 +180,13 @@ The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we
   }
 }
 ```
+</div>
 
 
 We can simply refer to any class or member function inside our node.js code by simply importing the module using `require`:
 
+<div class="sample" markdown="1" theme="idea" mode="js">
 ```javascript
-
-
 var customerBL = require('./scripts/customerBL')
 
 var customer = new customerBL.Customer(1, "Jane Smith", "jane.smith@company.com")
@@ -183,6 +195,7 @@ console.dir(customer)
 customer.makePreferred()
 console.dir(customer)
 ```
+</div>
 
 In this case, we've set the output of our compilation to the `scripts` folder. On running the application we should see the following output:
 
