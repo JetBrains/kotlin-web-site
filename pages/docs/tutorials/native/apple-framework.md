@@ -236,14 +236,22 @@ code in Swift. There are some small differences, so far. We create the `object` 
 to access it's methods. We may see from the attributes that it is the way to access the object. 
 It is good to notice, the method and property names are translated as-is. 
 
+# XCode and Framework Dependencies
+
+It may turn out tricky to configure the Objective-C or Swift project in XCode or
+JetBrains AppCode. You need to include the Framework to the project, 
+for that you should include the Framework into the *General* tab of Target settings. 
+Also, you may need to fix `@rpath` to list the folder where the framework is, for that
+just search for *Runpath Search Paths* in the *Build Settings* section. 
+It is convenient to add `@xecutable_path/frameworks` or something similar.  
+
+
 # Next Steps
 
 Kotlin/Native integrates with Objective-C and Swift reference counting. Unused Kotlin
 objects are automatically removed. You may want to see the detailed documentation on 
 that in the [OBJC_INTEROP.md](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md).
 
-You should make sure the compiled Framework is included into Framework load path or embedded into 
-an iOS project. Otherwise you may have error compiling or running the project.
 
 You may also import Frameworks to use them from Kotlin. find more information on Kotlin/Native and Objective-C Interop
 in the [documentation](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md).
