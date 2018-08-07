@@ -91,7 +91,7 @@ Now let's see what changes should be made to the build script.
 
 In Java you specify `Dagger` as `annotationProcessor` (or `apt`) dependency:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 dependencies {
   ...
@@ -102,7 +102,7 @@ dependencies {
 
 In Kotlin you have to add the `kotlin-kapt` plugin to enable `kapt`, and then replace `annotationProcessor` with `kapt`:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 apply plugin: 'kotlin-kapt'
 dependencies {
@@ -131,7 +131,7 @@ Let's see first the changes in the Gradle build script, and then highlight some 
  
 In the Gradle dependencies you use add the `kotlin-kapt` plugin and replace `annotationProcessor` with `kapt`:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 apply plugin: 'kotlin-kapt'
 
@@ -149,7 +149,7 @@ The resulting code can be found [here](https://github.com/JetBrains/kotlin-examp
 Let's look over it to spot what has changed.
 In Java you annotated the field, binding it with the corresponding view:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
 ``` java 
 @BindView(R2.id.title) TextView title;
 ```
@@ -172,7 +172,7 @@ Without `lateinit` you'd have to declare a [nullable type](/docs/reference/null-
  
 You can also configure methods as listeners, using ButterKnife annotations:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
 ```java
 @OnClick(R2.id.hello)
 internal fun sayHello() {
@@ -200,7 +200,7 @@ The [Data Binding Library](https://developer.android.com/topic/libraries/data-bi
 
 You enable the library using the same configuration as in Java:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 android {
     ...
@@ -213,7 +213,7 @@ android {
 
 To make it work with Kotlin classes add the `kapt` dependency: 
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 apply plugin: 'kotlin-kapt'
 dependencies {
@@ -225,15 +225,18 @@ dependencies {
 When you switch to Kotlin, your xml layout files don't change at all.
 For instance, you use `variable` within `data` to describe a variable that may be used within the layout.
 You can declare a variable of a Kotlin type:
- 
+
+<div class="sample" markdown="1" theme="idea" mode="xml">
 ```xml
 <data>
     <variable name="data" type="org.example.kotlin.databinding.WeatherData"/>
 </data>
-``` 
+```
+</div>
 
 You use the `@{}` syntax for writing expressions, which can now refer Kotlin [properties](/docs/reference/properties.html): 
 
+<div class="sample" markdown="1" theme="idea" mode="xml">
 ```xml
 <ImageView
     android:layout_width="wrap_content"
@@ -241,6 +244,7 @@ You use the `@{}` syntax for writing expressions, which can now refer Kotlin [pr
     android:src="@{data.imageUrl}"
     android:contentDescription="@string/image" />
 ```
+</div>
 
 Note that the databinding expression language uses the same syntax for referring to properties as Kotlin: `data.imageUrl`.
 In Kotlin you can write `v.prop` instead of `v.getProp()` even if `getProp()` is a Java method.
@@ -265,6 +269,7 @@ class MainActivity : AppCompatActivity() {
 
 You can bind a listener to run an action when a specific event happens:
 
+<div class="sample" markdown="1" theme="idea" mode="xml">
 ```xml
 <Button
     android:text="@string/next"
@@ -272,6 +277,7 @@ You can bind a listener to run an action when a specific event happens:
     android:layout_height="wrap_content"
     android:onClick="startOtherActivity" />
 ```
+</div>
 
 Here `startOtherActivity` is a method defined in our `MainActivity`:
 
@@ -289,12 +295,14 @@ To pass some data, you can say `startActivity<OtherActivity>("KEY" to "VALUE")`.
 
 Note that instead of declaring lambdas in xml like in the following example, you can can bind actions directly in the code: 
 
+<div class="sample" markdown="1" theme="idea" mode="xml">
 ```xml
 <Button 
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content"
     android:onClick="@{() -> presenter.onSaveClick(task)}" />
-```          
+```
+</div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
@@ -381,7 +389,7 @@ You can browse the converted [sample application](https://github.com/JetBrains/k
 
 When you specify the dependency you again use `kapt` as annotation processor to take care of Kotlin files: 
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 apply plugin: 'kotlin-kapt'
 
