@@ -49,7 +49,7 @@ Android Extensions is a part of the Kotlin plugin for IntelliJ IDEA and Android 
 
 All you need is to enable the Android Extensions Gradle plugin in your module's `build.gradle` file:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 apply plugin: 'kotlin-android-extensions'
 ```
@@ -71,12 +71,14 @@ If we want to call the synthetic properties on `View`, we should also import `ko
 
 Once we do that, we can then invoke the corresponding extensions, which are properties named after the views in the XML file. For example, for this view:
 
+<div class="sample" markdown="1" theme="idea" mode="xml">
 ```xml
 <TextView
     android:id="@+id/hello"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"/>
 ```
+</div>
 
 There will be a property named `hello`:
 
@@ -91,7 +93,7 @@ activity.hello.text = "Hello World!"
 
 Android Extensions plugin includes several experimental features such as `LayoutContainer` support and a `Parcelable` implementation generator. These features are not considered production ready yet, so you need to turn on the experimental mode in `build.gradle` in order to use them:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 androidExtensions {
     experimental = true
@@ -123,7 +125,7 @@ Note that you need to turn on the [experimental flag](#experimental-mode) to use
 
 Android Extensions plugin supports Android flavors. Suppose you have a flavor named `free` in your `build.gradle` file:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 android {
     productFlavors {
@@ -185,7 +187,7 @@ You can change the caching strategy globally or per container. This also require
 
 Project-global caching strategy is set in the `build.gradle` file:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 androidExtensions {
     defaultCacheImplementation = "HASH_MAP" // also SPARSE_ARRAY, NONE
