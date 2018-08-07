@@ -9,7 +9,7 @@ title: "Type-Safe Builders"
 
 By using well-named functions as builders in combination with [function literals with receiver](lambdas.html#function-literals-with-receiver) it is possible to create type-safe, statically-typed builders in Kotlin.
 
-Type-safe builders allow for creating Kotlin-based domain-specific languages (DSLs) suitable for building complex hierarchical data structures in a semi-declarative way. Some of the example use cases for the builders are:
+Type-safe builders allow creating Kotlin-based domain-specific languages (DSLs) suitable for building complex hierarchical data structures in a semi-declarative way. Some of the example use cases for the builders are:
 
 * Generating markup with Kotlin code, such as [HTML](https://github.com/Kotlin/kotlinx.html) or XML;
 * Programmatically laying out UI components: [Anko](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
@@ -61,7 +61,7 @@ You can play with this code online (modify it and run in the browser) [here](htt
 ## How it works
 
 Let's walk through the mechanisms of implementing type-safe builders in Kotlin.
-First of all we need to define the model we want to build, in this case we need to model HTML tags.
+First of all, we need to define the model we want to build, in this case we need to model HTML tags.
 It is easily done with a bunch of classes.
 For example, `HTML` is a class that describes the `<html>` tag, i.e. it defines children like `<head>` and `<body>`.
 (See its declaration [below](#full-definition-of-the-comexamplehtml-package).)
@@ -193,7 +193,7 @@ operator fun String.unaryPlus() {
 ```
 </div>
 
-So, what the prefix `+` does here is it wraps a string into an instance of `TextElement` and adds it to the `children` collection,
+So, what the prefix `+` does here is wrapping a string into an instance of `TextElement` and adding it to the `children` collection,
 so that it becomes a proper part of the tag tree.
 
 All this is defined in a package `com.example.html` that is imported at the top of the builder example above.
