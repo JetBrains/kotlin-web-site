@@ -53,7 +53,7 @@ wasm32:
 zephyr_stm32f4_disco:
 ```
 
-For Linux with Kotlin/Native v0.8 we have:
+For Linux and Windows Subsystem for Linux (WSL) with Kotlin/Native v0.8 we have:
 
 ```
 > kotlinc -list_targets
