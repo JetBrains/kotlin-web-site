@@ -21,7 +21,7 @@ Note that all classes in this tutorial are in the `org.jetbrains.kotlin.demo` pa
 
 The Gradle file is pretty much standard for Spring Boot. The only differences are the structure layout for source folders for Kotlin, the required Kotlin dependencies and the [*kotlin-spring*](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugi) Gradle plugin (CGLIB proxies used for example for `@Configuration` and `@Bean` processing require `open` classes).
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ``` groovy
 buildscript {
     ext.kotlin_version = '{{ site.data.releases.latest.version }}' // Required for Kotlin integration

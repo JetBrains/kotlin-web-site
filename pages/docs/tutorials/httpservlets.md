@@ -14,7 +14,7 @@ how to make a simple controller that returns "Hello, World!".
 {{ site.text_using_gradle }}
 The main dependency required for using HTTP servlets is the JavaEE API:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ``` groovy
 dependencies {
     compile group: 'javax', name: 'javaee-api', version: '7.0'
@@ -25,7 +25,7 @@ dependencies {
 
 We also need to use the *war* plugin that helps us generate the corresponding WAR artifacts for running/deploying
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ``` groovy
 apply plugin: war
 ```

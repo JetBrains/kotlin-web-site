@@ -22,7 +22,7 @@ To add a new Java class to a Kotlin project is very straightforward. All we need
 
 We can now consume the Java Class from Kotlin or vice versa without any further actions. For instance, adding the following Java class:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
 ``` java
 public class Customer {
 

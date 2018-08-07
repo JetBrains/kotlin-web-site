@@ -22,7 +22,7 @@ Make sure it's configured for Kotlin 1.1 or higher.
 
 Since coroutines have the *experimental* status in Kotlin 1.1, by default the compiler reports a warning every time they are used. We can opt-in for the experimental feature and use it without a warning by adding this code to `build.gradle`:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 apply plugin: 'kotlin'
 
@@ -36,7 +36,7 @@ kotlin {
 
 Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), let's add its recent version to our dependencies:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 dependencies {
     ...
@@ -47,7 +47,7 @@ dependencies {
 
 This library is published to Bintray JCenter repository, so let us add it:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 repositories {
     jcenter()
@@ -68,7 +68,7 @@ Make sure it's configured for Kotlin 1.1 or higher.
 
 Since coroutines have the *experimental* status in Kotlin 1.1, by default the compiler reports a warning every time they are used. We can opt-in for the experimental feature and use it without a warning by adding this code to `pom.xml`:
 
-<div class="sample" markdown="1" theme="idea" mode="xml" data-highlight-only auto-indent="false">
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
 <plugin>
     <groupId>org.jetbrains.kotlin</groupId>
@@ -85,7 +85,7 @@ Since coroutines have the *experimental* status in Kotlin 1.1, by default the co
 
 Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), let's add its recent version to our dependencies:
 
-<div class="sample" markdown="1" theme="idea" mode="xml" data-highlight-only auto-indent="false">
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
 <dependencies>
     ...
@@ -100,7 +100,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
 
 This library is published to Bintray JCenter repository, so let us add it:
 
-<div class="sample" markdown="1" theme="idea" mode="xml" data-highlight-only auto-indent="false">
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
 <repositories>
     ...
