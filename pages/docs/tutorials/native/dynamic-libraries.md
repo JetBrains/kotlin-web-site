@@ -13,6 +13,10 @@ In the tutorial, we see how to use a Kotlin/Native code from
 an existing native applications or libraries. For that we 
 compile our Kotlin code into a dynamic library, `.so`, `.dylib` and `.dll`.
 
+Targeting Apple platform? You may want to see the 
+[Kotlin/Native as an Apple Framework](apple-framework.html)
+tutorial.
+
 In this tutorial, we will:
  - [Compile a Kotlin code to a dynamic library](#creating-a-kotlin-library)
  - [Examine generated C headers](#generated-headers-file)
@@ -337,3 +341,6 @@ You may use them share your code with many platforms or languages, including JVM
 [Python](https://github.com/JetBrains/kotlin-native/blob/master/samples/python_extension/src/main/c/kotlin_bridge.c),
 iOS, Android and others. There is the dedicated support for Objective-C, Swift interop[TUTORIAL_FOR_FRAMEWORKS_LINK]
 
+Kotlin/Native also have tight integration with Objective-C and Swift. You 
+You may want to see the [Kotlin/Native as an Apple Framework](apple-framework.html)
+tutorial.
