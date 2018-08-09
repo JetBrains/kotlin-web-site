@@ -42,6 +42,7 @@ If we're not using IntelliJ IDEA, we can configure the `pom.xml` file manually t
 
 #### Maven configuration
 
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
 <properties>
     <kotlin.version>{{ site.data.releases.latest.version }}</kotlin.version> 
@@ -83,6 +84,7 @@ If we're not using IntelliJ IDEA, we can configure the `pom.xml` file manually t
 </build>
 
 ```
+</div>
 
 On compiling, Maven will produce the following output
 
@@ -93,6 +95,7 @@ where we can see the output of our application, which is the `kotlinjs-maven.js`
 In order to use this, we also need to include the Kotlin standard library in our application, i.e. `kotlin.js`, which was included as a dependency. By default,
 Maven does not expand the JAR as part of the build process, so we would need to add an additional step in our build to do so.
 
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -119,6 +122,7 @@ Maven does not expand the JAR as part of the build process, so we would need to 
     </executions>
 </plugin>
 ```
+</div>
 
 For more information on the output generated please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
@@ -128,6 +132,7 @@ Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea
 
 In order to specify the module kind, we can add a configuration to our plugin as below
 
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
  </executions>
  ...
@@ -137,6 +142,7 @@ In order to specify the module kind, we can add a configuration to our plugin as
  </configuration>
 
 ```
+</div>
 
 where `moduleKind` can be
 
