@@ -47,7 +47,7 @@ Note: the `lib` directory which contains `kotlin.js` and other library files is 
 
 The file we're mostly interested in is `ConsoleOutput.js`
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="js">
 ```javascript
 if (typeof kotlin === 'undefined') {
   throw new Error("Error loading module 'ConsoleOutput'. Its dependency 'kotlin' was not found. /* ... */");
@@ -81,21 +81,23 @@ Given this is a self-executing-function, as soon as the code is loaded, it will 
 
 The purpose of this code is to write out some text in the console. In order to use this from the browser, we need to load it, preferably from inside an HTML page:
 
-
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Console Output</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Console Output</title>
+    </head>
+    <body>
 
-<script type="text/javascript" src="out/production/ConsoleOutput/lib/kotlin.js"></script>
-<script type="text/javascript" src="out/production/ConsoleOutput/ConsoleOutput.js"></script>
-</body>
+    <script type="text/javascript" src="out/production/ConsoleOutput/lib/kotlin.js"></script>
+    <script type="text/javascript" src="out/production/ConsoleOutput/ConsoleOutput.js"></script>
+    </body>
 </html>
 ```
+</div>
+
 (Use the relative paths to the `*.js` files from the directory that contains the HTML page)
 
 Note that we're loading the `kotlin.js` runtime first and then loading our application.
