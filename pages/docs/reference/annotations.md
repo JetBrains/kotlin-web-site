@@ -230,7 +230,7 @@ class Tests {
 Since the order of parameters for an annotation written in Java is not defined, you can't use a regular function
 call syntax for passing the arguments. Instead, you need to use the named argument syntax:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" mode="java" theme="idea">
 ``` java
 // Java
 public @interface Ann {
@@ -249,7 +249,7 @@ public @interface Ann {
 
 Just like in Java, a special case is the `value` parameter; its value can be specified without an explicit name:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
 ``` java
 // Java
 public @interface AnnWithValue {
@@ -269,7 +269,7 @@ public @interface AnnWithValue {
 
 If the `value` argument in Java has an array type, it becomes a `vararg` parameter in Kotlin:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
 ``` java
 // Java
 public @interface AnnWithArrayValue {
@@ -288,7 +288,7 @@ public @interface AnnWithArrayValue {
 For other arguments that have an array type, you need to use the array literal syntax (since Kotlin 1.2) or 
 `arrayOf(...)`:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
 ``` java
 // Java
 public @interface AnnWithArrayMethod {
@@ -313,7 +313,7 @@ class D
 
 Values of an annotation instance are exposed as properties to Kotlin code:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
 ``` java
 // Java
 public @interface Ann {
