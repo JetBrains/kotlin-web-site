@@ -91,7 +91,6 @@ which has to be defined later:
 class Node<T>(val value: T, val next: () -> Node<T>)
 
 fun main(args: Array<String>) {
-    //sampleStart
     // A cycle of three nodes:
     lateinit var third: Node<Int>
 
@@ -99,7 +98,6 @@ fun main(args: Array<String>) {
     val first = Node(1, next = { second })
 
     third = Node(3, next = { first })
-    //sampleEnd
 
     val nodes = generateSequence(first) { it.next() }
     println("Values in the cycle: ${nodes.take(7).joinToString { it.value.toString() }}, ...")
@@ -464,8 +462,10 @@ previously an opt-in feature, has been enabled by default.
 The compiler now provides an option to treat all warnings as errors. Use `-Werror` on the command line, or the 
 following Gradle snippet:
 
+<div class="sample" markdown="1" mode="groovy" theme="idea">
 ```groovy
 compileKotlin {
     kotlinOptions.allWarningsAsErrors = true
 }
 ```
+</div>
