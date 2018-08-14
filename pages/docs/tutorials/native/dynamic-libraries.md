@@ -32,6 +32,9 @@ Let's create a tiny Kotlin library first and use it from C program
 than. 
 
 Let's create a library file in Kotlin and save it as `lib.kt`:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 package demo
 
@@ -48,6 +51,7 @@ fun strings(str: String) : String {
 
 val globalString = "A global String"
 ```
+</div>
 
 We need to have a Kotlin/Native compiler on our machines. 
 You may have a look at the
@@ -74,6 +78,9 @@ In the `demo_api.h` (with Kotlin/Native v0.8.1) you'll find the following code.
 We discuss the code in parts to understand it easier. 
 
 The very first part contains standard C/C++ header and footer:
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 #ifndef KONAN_DEMO_H
 #define KONAN_DEMO_H
@@ -88,8 +95,12 @@ extern "C" {
 #endif
 #endif  /* KONAN_DEMO_H */
 ```
+</div>
 
 After the rituals in the `demo_api.h` we have the block with common type definitions:
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 #ifdef __cplusplus
 typedef bool            demo_KBoolean;
@@ -106,6 +117,7 @@ typedef double          demo_KDouble;
 typedef void*           demo_KNativePtr;
 struct demo_KType;
 ``` 
+</div>
 
 Kotlin uses `demo_` prefix from the library name to make sure
 the symbols will not clash with other symbols in your C codebase.
@@ -117,6 +129,9 @@ which you may want to check out.
 The next part of the `demo_api.h` file contains definition of types
 that are used in the library:
 
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 struct demo_KType;
 typedef struct demo_KType demo_KType;
@@ -126,6 +141,7 @@ typedef struct {
 } demo_kref_demo_DemoClazz;
 
 ```
+</div>
 
 The `typedef struct { .. } TYPE_NAME` syntax is used in C language to declare a structure. 
 You may want to check [the thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions)
@@ -141,6 +157,9 @@ long names to avoid a possible clash with other symbols of your native project.
 
 The most significant part of definitions goes further in the `demo_api.h` file.
 It includes the definition of our Kotlin/Native library world:
+
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```c
 typedef struct {
@@ -167,6 +186,7 @@ typedef struct {
   } kotlin;
 } demo_ExportedSymbols;
 ```
+</div>
 
 The code uses anonymous structure declarations. The code `struct { .. } foo`
 declares a field in the outer struct of that 
@@ -183,11 +203,15 @@ all functions that Kotlin/Native and our library provides to us. It heavily uses
 nested anonymous structures to mimic packages.
 
 The `demo_ExportedSymbols` structure contains several helper functions:
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 void (*DisposeStablePointer)(demo_KNativePtr ptr);
 void (*DisposeString)(const char* string);
 demo_KBoolean (*IsInstance)(demo_KNativePtr ref, const demo_KType* type);
 ```
+</div>
 
 Those functions deals with Kotlin/Native objects. One calls 
 `DisposeStablePointer` to release a Kotlin object and `DisposeString` to release Kotlin String, 
@@ -250,6 +274,9 @@ per thread.
 
 The usage from C not complicated and strait forward. We create a `main.c` file with the following 
 code: 
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 #include "demo_api.h"
 #include "stdio.h"
@@ -278,6 +305,7 @@ int main(int argc, char** argv) {
   return 0;
 }
 ```
+</div>
 
 ## Compiling and Running the Example on Linux and macOS
 
