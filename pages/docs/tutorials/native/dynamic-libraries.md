@@ -64,7 +64,7 @@ Now we call the following command to compile the code into a dynamic library:
 kotlinc lib.kt -produce dynamic -output demo
 ```
 
-The `kotlinc` generates the following files, depending on the OS, 
+The `kotlinc` (with v0.8.2) generates the following files, depending on the OS, 
 where you run the compiler:
 - macOS: `demo_api.h` and `libdemo.dylib`
 - Linux: `demo_api.h` and `libdemo.so`
@@ -74,7 +74,7 @@ Let's check the C API for our Kotlin code in the `demo_api.h`
 
 ## Generated Headers File
 
-In the `demo_api.h` (with Kotlin/Native v0.8.1) you'll find the following code. 
+In the `demo_api.h` (with Kotlin/Native v0.8.2) you'll find the following code. 
 We discuss the code in parts to understand it easier. 
 
 The very first part contains standard C/C++ header and footer:
