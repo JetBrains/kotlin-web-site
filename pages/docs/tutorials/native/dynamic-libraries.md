@@ -64,7 +64,7 @@ The `kotlinc` generates the following files, depending on the OS,
 where you run the compiler:
 - macOS: `demo_api.h` and `libdemo.dylib`
 - Linux: `demo_api.h` and `libdemo.so`
-- Windows: `demo_api.h` and `demo.dll`
+- Windows: `demo_api.h`, `demo_symbols.def` and `demo.dll`
 
 Let's check the C API for our Kotlin code in the `demo_api.h` 
 
@@ -192,7 +192,8 @@ demo_KBoolean (*IsInstance)(demo_KNativePtr ref, const demo_KType* type);
 Those functions deals with Kotlin/Native objects. One calls 
 `DisposeStablePointer` to release a Kotlin object and `DisposeString` to release Kotlin String, 
 which has the `char*` type in C. One may use the `IsInstance` function to check, if a
-Kotlin type, a `demo_KNativePtr` is an instance of another type. 
+Kotlin type, a `demo_KNativePtr` is an instance of another type. The actual set of
+operations generated depend on the actual usage from your code.
  
 Kotlin/Native has garbage collection, but it does not help to deal
 with Kotlin objects from C language. Kotlin/Native has an interop with Objective-C and 
@@ -200,9 +201,12 @@ Swift, and integrates with their reference counters. You may want to find more d
 in the [documentation](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
 or to check the related [TUTORIAL_KOTLIN_macOS_FRAMEWORK_LINK].
 
+NOTE. It is possible to have several Kotlin/Native dynamic libraries in one application, 
+but it is NOT possible to share objects between them.
+
 ### Our Library Functions
 
-Let's take a look on the nests structure with path `kotlin.root.demo`. The path 
+Let's take a look on the `kotlin.root.demo` field, it
 mimics the package structure of our Kotlin code with `kotlin.root.` prefix.
 
 There is `kotlin.root.demo.DemoClazz` field, that 
@@ -251,7 +255,7 @@ code:
 #include "stdio.h"
 
 int main(int argc, char** argv) {
-  //initialize Kotlin/Native library
+  //obtain reference for calling Kotlin/Native functions
   demo_ExportedSymbols* lib = demo_symbols();
 
   //call functions
@@ -294,7 +298,7 @@ to let the application to load the `libdemo.so` library from the current folder.
 
 ## Compiling and Running the Example on Windows
 
-To start with, you'll need Microsoft Visual C++ compiler installed and support AMD x64 
+To start with, you'll need Microsoft Visual C++ compiler installed and support x64_64 
 target. The easiest way is to have a version of Microsoft Visual Studio installed on 
 your Windows machine. 
 
@@ -302,23 +306,15 @@ We will be using `x64 Native Tools Command Prompt <VERSION>` console. You'll see
 shortcut to open the console in the start menu. It comes with a Microsoft Visual Studio
 package.  
 
-On Windows Dynamic libraries are included either via a special static library wrappers,
+On Windows, Dynamic libraries are included either via a special static library wrappers,
 or via a manual code with the [LoadLibrary](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684175.aspx)
 function call. We will follow the first option and generate the static wrapper library
-by our owns.
+for the `demo.dll` by our owns.
  
-We need to create a `demo.def` file with the following content:
-```c
-EXPORTS
-demo_symbols
-```
-
-The `demo_symbols` here is the name of the library [entry point function](#the-entry-point)
-function from the `demo_api.h` file. The symbol name depends on the dynamic library name.
-
-We call `lib.exe` to generate the static library `demo.lib`:
+We call `lib.exe` from the toolchain to generate the static library 
+wrapper `demo.lib` that automates the DLL usage from the code:
 ```bash
-lib /def:demo.def /out:demo.lib
+lib /def:demo_symbols.def /out:demo.lib
 ```
 
 Now we are ready compile our `main.c` into an executable. We include the generated `demo.lib` into
