@@ -257,9 +257,13 @@ let ret = Demo.strings(str: "That is string")
 </div>
 
 The Kotlin code is turned into nearly the similar looking
-code in Swift. There are some small differences, so far. We create the Kotlin `object DemoObject`
-as a class in Swift to access it's methods. We may see from the Objective-C attributes 
-in `<Framework>/Headers/Demo.h` that it is the way to access the object. 
+code in Swift. There are some small differences, so far. In Kotlin any `object` has
+the only one instance. Kotlin `object DemoObject` is turned to have a
+constructor in Swift and we use the `DemoDemoObject()` syntax to access it.
+All the time we have the same instance in Swift, so that 
+`DemoDemoObject() === DemoDemoObject()` is true.
+We may see from the Objective-C attributes 
+in `<Framework>/Headers/Demo.h` that it is the way to access the object instance. 
 Methods and property names are translated as-is. Kotlin `String` is turned into Swift `String` too.
 
 # XCode and Framework Dependencies

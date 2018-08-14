@@ -115,7 +115,7 @@ Kotlin uses `demo_` prefix from the library name to make sure
 the symbols will not clash with other symbols in your C codebase.
 
 The definitions part shows how Kotlin primitive types map into C primitive types. 
-We discussed the opposite mapping the tutorial [INSERT THE LINK TO THE TUTORIAL FROM ANOTHER PULL REQUEST], 
+We discussed the opposite mapping the [Kotlin/Native as an Apple Framework](apple-framework.html) tutorial, 
 which you may want to check out. 
 
 The next part of the `demo_api.h` file contains definition of types
@@ -248,7 +248,7 @@ per thread.
 
 ## Using Generated Headers from C
 
-The usage from C not complicated and strait forward. We create a `main.c` file with the following 
+The usage from C not complicated and straightforward. We create a `main.c` file with the following 
 code: 
 ```c
 #include "demo_api.h"
@@ -271,7 +271,7 @@ int main(int argc, char** argv) {
   //create Kotlin object instance
   demo_kref_demo_DemoClazz newInstance 
           = lib->kotlin.root.demo.DemoClazz.DemoClazz();
-  long result = lib->kotlin.root.demo.DemoClazz.foo(newInstance, 42);
+  demo_KLong result = lib->kotlin.root.demo.DemoClazz.foo(newInstance, 42);
   printf("DemoClazz returned %ld\n", result);
   lib->DisposeStablePointer(newInstance.pinned);
 
@@ -284,7 +284,7 @@ int main(int argc, char** argv) {
 On macOS 10.13 with Xcode, we compile the C code and link it with the dynamic library
 with the following command:
 ```bash
-gcc main.c libdemo.dylib
+clang main.c libdemo.dylib
 ```
 
 On Linux we call the similar command: 
@@ -339,7 +339,7 @@ The command produces the `main.exe` file, which we may run.
 Dynamic libraries are the main ways to use Kotlin code from existing programs. 
 You may use them share your code with many platforms or languages, including JVM,
 [Python](https://github.com/JetBrains/kotlin-native/blob/master/samples/python_extension/src/main/c/kotlin_bridge.c),
-iOS, Android and others. There is the dedicated support for Objective-C, Swift interop[TUTORIAL_FOR_FRAMEWORKS_LINK]
+iOS, Android and others.
 
 Kotlin/Native also have tight integration with Objective-C and Swift. You 
 You may want to see the [Kotlin/Native as an Apple Framework](apple-framework.html)
