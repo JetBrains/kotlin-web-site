@@ -219,7 +219,7 @@ int main(int argc, const char * argv[]) {
     
     [Demo forIntegersB:1 s:1 i:3 l:4];
    
-    NSString* ret = [Demo stringsStr:(@"That is string")];
+    NSString* ret = [Demo stringsStr:@"That is string"];
     return 0;
 }
 ```
@@ -228,8 +228,9 @@ int main(int argc, const char * argv[]) {
 We call Kotlin classes directly from Objective-C code. Kotlin `object` has the class method 
 function `demoObject`, which allows us to get the only instance of the object and to call 
 `DemoObject` methods on it. 
-The standard pattern is used to create an instance of the `DemoClazz` class. We call
-the `[[ DemoDemoClazz alloc] init]` on Objective-C.
+The popular pattern is used to create an instance of the `DemoClazz` class. We call
+the `[[ DemoDemoClazz alloc] init]` on Objective-C. We may also use `[DemoDemoClazz new]`
+for constructors without parameters.
 Global functions from the Kotlin sources are scoped under the `Demo` class on Objective-C.
 All methods are turned into class methods of that class.
 The `strings` function is turned into `Demo.stringsStr` function in Objective-C, we are
