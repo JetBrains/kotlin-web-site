@@ -47,7 +47,7 @@ fun main(args: Array<String>) {
 We now need an HTML page to load the code, so we'll create a file called `index.html`. If you want more information on how Kotlin compiles to JavaScript and the output generated, check out the
 [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html) tutorial. 
 
-<div class="sample" markdown="1" theme="idea" mode="xml" data-highlight-only auto-indent="false">
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```html 
 <!DOCTYPE html>
     <html lang="en">

@@ -17,7 +17,7 @@ In order to use Gradle to target JavaScript, we need to use the `kotlin2js` plug
 
 Our `build.gradle` file should look like the following
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -54,7 +54,7 @@ In order to assemble an application, we also need to include the Kotlin standard
 
 By default, Gradle does not expand the JARs in the build process, so we need to add an additional step in our build to do so:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 task assembleWeb(type: Sync) {
     configurations.compile.each { File file ->
@@ -87,7 +87,7 @@ Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea
 
 In order to specify the module kind, we can add a configuration to our plugin as below
 
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 compileKotlin2Js {
     kotlinOptions.outputFile = "${projectDir}/web/output.js"
