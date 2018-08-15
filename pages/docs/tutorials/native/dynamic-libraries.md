@@ -79,7 +79,9 @@ Let's check the C API for our Kotlin code in the `demo_api.h`
 ## Generated Headers File
 
 In the `demo_api.h` (with Kotlin/Native v0.8.2) you'll find the following code. 
-We discuss the code in parts to understand it easier. 
+We discuss the code in parts to understand it easier.
+
+Note, the way Kotlin/Native exports symbols is subject to change without a notice.
 
 The very first part contains standard C/C++ header and footer:
 
