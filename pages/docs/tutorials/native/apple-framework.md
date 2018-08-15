@@ -43,22 +43,26 @@ We create a `lib.kt` file with the library contents:
 ```kotlin
 package demo
 
-object DemoObject {
+object Object {
   val field = "A"
 }
 
-class DemoClass {
-  fun foo() : Long = 42
+interface Interface {
+  fun iMember() {}
 }
 
-fun ints(b: Byte, s: Short, i: Int, l:Long) { }
-fun floats(f: Float, d: Double) { }
+class Clazz : Interface {
+  fun member(p: Int): Long? = 42
+}
 
-fun strings(str: String) : String {
+fun forIntegers(b: Byte, s: Short, i: Int, l: Long?) { }
+fun forFloats(f: Float, d: Double?) { }
+
+fun strings(str: String?) : String {
   return "That is '$str' from C"
 }
 
-val globalString = "A global String"
+fun acceptFun(f: (String) -> String?) = f("Kotlin/Native rocks!")
 ```
 </div>
 
@@ -71,7 +75,7 @@ Let's assume we have a console, where `kotlinc` command is available.
 Now we call the following commands to compile the code into Frameworks
 for macOS, iOS and iOS emulator respectively:
 ```bash
-kotlinc lib.kt -produce dynamic -output macOS/Demo
+kotlinc lib.kt -produce framework -target macos_x64 -output macOS/Demo
 kotlinc lib.kt -produce framework -target ios_arm64 -output iOS/Demo
 kotlinc lib.kt -produce framework -target ios_x64 -output iOS_emu/Demo
 ```
@@ -84,8 +88,13 @@ Let's see what is inside
 ## Generated Framework Headers
 
 Each of created frameworks contains the header file in `<Framework>/Headers/Demo.h`.
-The file does not depend on the target platform (at least with Kotlin/Native v.0.8.1).
-It contains the definitions for our Kotlin code and few Kotlin-wide declarations. Let's
+The file does not depend on the target platform (at least with Kotlin/Native v.0.8.2).
+It contains the definitions for our Kotlin code and few Kotlin-wide declarations.
+
+ 
+### Kotlin/Native Runtime Declarations
+
+Let's
 see Kotlin runtime declarations first:
 
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only auto-indent="false">
@@ -127,109 +136,124 @@ Most of collections are mapped to collections from the other side:
 |MutableMap|NSMutableDictionary|NSMutableDictionary|
 {:.wide.zebra}
 
-The second part of the `<Framework>/Headers/Demo.h` file contains the exact definitions for our Kotlin declarations.
-The code is full of Objective-C attributes, which are intended to help
-using the Framework from both Objective-C and Swift languages. 
+
+### Classes and Objects from Kotlin
+
+Let's see how `class` and `object` are mapped to Objective-C and Swift. 
+The generated `<Framework>/Headers/Demo.h` file contains the exact definitions for 
+`Class`, `Interface` and `Object`:
 
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```obj-c
-@class DemoDemoObject, DemoDemoClazz;
-
 NS_ASSUME_NONNULL_BEGIN
 
 __attribute__((objc_subclassing_restricted))
-@interface DemoDemoObject : KotlinBase
-
-+ (instancetype)alloc 
-      __attribute__((unavailable));
-      
-+ (instancetype)allocWithZone:
-     (struct _NSZone *)zone 
-     __attribute__((unavailable));
-     
-+ (instancetype)demoObject 
-     __attribute__((swift_name("init()")));
-     
+@interface DemoObject : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)object __attribute__((swift_name("init()")));
 @property (readonly) NSString *field;
 @end;
 
-__attribute__((objc_subclassing_restricted))
-@interface DemoDemoClazz : KotlinBase
-
-- (instancetype)init 
-     __attribute__((swift_name("init()"))) 
-     __attribute__((objc_designated_initializer));
-     
-+ (instancetype)new 
-     __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-     
-- (int64_t)memberFunctionP:(int32_t)p 
-     __attribute__((swift_name("memberFunction(p:)")));
+@protocol DemoInterface
+@required
+- (void)iMember __attribute__((swift_name("iMember()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
-@interface Demo : KotlinBase
-
-+ (void)forIntegersB:(int8_t)b s:(int16_t)s i:(int32_t)i l:(int64_t)l 
-     __attribute__((swift_name("forIntegers(b:s:i:l:)")));
-     
-+ (void)forFloatsF:(float)f d:(double)d 
-     __attribute__((swift_name("forFloats(f:d:)")));
-     
-+ (NSString *)stringsStr:(NSString *)str 
-     __attribute__((swift_name("strings(str:)")));
-     
-@property (class, readonly) NSString *globalString;
+@interface DemoClazz : KotlinBase <DemoInterface>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (NSNumber * _Nullable)memberP:(int32_t)p __attribute__((swift_name("member(p:)")));
 @end;
-
-NS_ASSUME_NONNULL_END
 ```
 </div>
 
-The name `DemoDemoClazz` and `DemoDemoObject` are created for `DemoClazz` and `DemoObject` 
-Kotlin classes. The `Demo` prefix comes from the `-output` parameter
-of the `kotlinc` compiler and the Framework name. All global functions from Kotlin
-are turned into `Demo` class in Objective-C/Swift, where `Demo` is the Framework name again.
-You may notice, that Kotlin `String` and Objective-C `NSString` are mapped transparently.
+The code is full of Objective-C attributes, which are intended to help
+using the Framework from both Objective-C and Swift languages.
+`DemoClazz`, `DemoInterface` and `DemoObject` are created for `Clazz`, `Interface` and `Object` 
+respectively. The `Interface` is turned into `@protocol`, both class and object are represented as
+`@interface`.
+The `Demo` prefix comes from the `-output` parameter
+of the `kotlinc` compiler and the Framework name. 
+You may spot that the nullable return type `Long?` is turned into `NSNumber*` in Objective-C.
+
+### Global Declarations from Kotlin
+
+All global functions from Kotlin
+are turned into `Demo` class in Objective-C/Swift, where `Demo` is the Framework name and set by
+the `-output` parameter of `kotlinc`.
+
+<div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```obj-c
+NS_ASSUME_NONNULL_BEGIN
+
+__attribute__((objc_subclassing_restricted))
+@interface Demo : KotlinBase
++ (void)forIntegersB:(int8_t)b s:(int16_t)s i:(int32_t)i l:(NSNumber * _Nullable)l __attribute__((swift_name("forIntegers(b:s:i:l:)")));
++ (void)forFloatsF:(float)f d:(NSNumber * _Nullable)d __attribute__((swift_name("forFloats(f:d:)")));
++ (NSString *)stringsStr:(NSString * _Nullable)str __attribute__((swift_name("strings(str:)")));
++ (NSString * _Nullable)acceptFunF:(NSString * _Nullable (^)(NSString *))f __attribute__((swift_name("acceptFun(f:)")));
+@end;
+```
+</div>
+
+You may notice, that Kotlin `String` and Objective-C `NSString*` are mapped transparently.
 Similarly, `Unit` type from Kotlin is mapped to `void`. We see primitive types
-are mapped directly.
+are mapped directly. Non-nullable primitive types are mapped transparently.
+Nullable primitive types are mapped into `NSNumber*`.
+You may see both higher order functions `acceptFunF` and `supplyFun` are included,
+and accept Objective-C lambdas.
 
 You may want to see [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
-documentation article to learn all other cases in detail.
+documentation article to learn all other types mapping details in detail.
+
+## Garbage Collection and Reference Counting
+
+Objective-C and Swift uses reference counting. Kotlin/Native uses garbage collection to dispose 
+unused objects. Kotlin/Native garbage collection is integrated with Objective-C/Swift reference
+counting. You do not need to use anything special to control Kotlin/Native instances lifetime
+from Swift of Objective-C.
 
 ## Using the Code from Objective-C
 
-Let's call the Kotlin Framework from Objective-C. For that we create the `main.m` file with 
+Let's call the Framework from Objective-C. For that we create the `main.m` file with 
 the following content:
 
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```obj-c 
-
 #import <Foundation/Foundation.h>
 #import <Demo/Demo.h>
 
 int main(int argc, const char * argv[]) {
-    
-    [[DemoDemoObject demoObject] field];
-    
-    DemoDemoClazz* clazz = [[ DemoDemoClazz alloc] init];
-    [clazz memberFunctionP:42];
-    
-    [Demo forIntegersB:1 s:1 i:3 l:4];
-   
-    NSString* ret = [Demo stringsStr:@"That is string"];
-    return 0;
+    @autoreleasepool {
+        [[DemoObject object] field];
+        
+        DemoClazz* clazz = [[ DemoClazz alloc] init];
+        [clazz memberP:42];
+        
+        [Demo forIntegersB:1 s:1 i:3 l:[NSNumber numberWithLongLong:4]];
+        [Demo forFloatsF:2.71 d:nil];
+        
+        NSString* ret = [Demo acceptFunF:^NSString * _Nullable(NSString * it) {
+            return [it stringByAppendingString:@" Kotlin is fun"];
+        }];
+        
+        NSLog(@"%@", ret);
+        return 0;
+    }
 }
 ```
 </div>
 
 We call Kotlin classes directly from Objective-C code. Kotlin `object` has the class method 
-function `demoObject`, which allows us to get the only instance of the object and to call 
-`DemoObject` methods on it. 
-The popular pattern is used to create an instance of the `DemoClazz` class. We call
-the `[[ DemoDemoClazz alloc] init]` on Objective-C. We may also use `[DemoDemoClazz new]`
+function `object`, which allows us to get the only instance of the object and to call 
+`Object` methods on it. 
+The popular pattern is used to create an instance of the `Clazz` class. We call
+the `[[ DemoClazz alloc] init]` on Objective-C. We may also use `[DemoClazz new]`
 for constructors without parameters.
 Global functions from the Kotlin sources are scoped under the `Demo` class on Objective-C.
 All methods are turned into class methods of that class.
@@ -245,34 +269,76 @@ into Swift. As the result we'll have the following code in `main.swift`:
 <div class="sample" markdown="1" mode="swift" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```swift
-let field = DemoDemoObject().field
+import Foundation
+import Demo
 
-let clazz = DemoDemoClazz()
-clazz.memberFunction(p: 42)
+let kotlinObject = DemoObject()
+assert(kotlinObject === DemoObject(), "Kotlin object has only one instance")
+
+let field = DemoObject().field
+
+let clazz = DemoClazz()
+clazz.member(p: 42)
 
 Demo.forIntegers(b: 1, s: 2, i: 3, l: 4)
+Demo.forFloats(f: 2.71, d: nil)
 
-let ret = Demo.strings(str: "That is string")
+let ret = Demo.acceptFun { "\($0) Kotlin is fun" }
+if (ret != nil) {
+  print(ret!)
+}
 ``` 
 </div>
 
 The Kotlin code is turned into nearly the similar looking
 code in Swift. There are some small differences, so far. In Kotlin any `object` has
-the only one instance. Kotlin `object DemoObject` is turned to have a
-constructor in Swift and we use the `DemoDemoObject()` syntax to access it.
-All the time we have the same instance in Swift, so that 
-`DemoDemoObject() === DemoDemoObject()` is true.
-We may see from the Objective-C attributes 
-in `<Framework>/Headers/Demo.h` that it is the way to access the object instance. 
+the only one instance. Kotlin `object Object` is turned to have a
+constructor in Swift and we use the `DemoObject()` syntax to access the only instance of it.
+The instance is always the same in Swift, so that 
+`DemoDemoObject() === DemoDemoObject()` is true. 
 Methods and property names are translated as-is. Kotlin `String` is turned into Swift `String` too.
+Swift hides `NSNumber*` boxing from us too. We pass Swift closure to Kotlin and are able
+to call Kotlin lambda function from Swift too. 
+
+You may want to see [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
+documentation article to learn all other types mapping details in detail.
 
 # XCode and Framework Dependencies
 
-It may turn out tricky to configure the Objective-C or Swift project in XCode or
-JetBrains AppCode. You should include the Framework into the *General* tab of Target settings
-of XCode project. Also, you may need to fix the `@rpath` to include our Framework folder in the 
-search path, for that
-just search for *Runpath Search Paths* in the *Build Settings* section of a target. 
+We need to configure XCode project to use out Framework. The configuration depends on the
+target platform. 
+
+## XCode for MacOS Target
+
+First we need to include the Framework in the `General` section of the *target*
+configuration. There is the `Linked Frameworks and Libraries` section to include
+out Framework. That will make XCode see our Framework and resolve imports both
+from Objective-C and Swift.
+
+The second step is to configure the Framework search path of the produced
+binary. It is also known as `rpath` or [run-time search path](https://en.wikipedia.org/wiki/Rpath).
+The binary uses the path to look for the required Frameworks. We do not recommend
+installing you frameworks to the OS without the need. You should understand the layout
+of your future application, for example, 
+you may have `Frameworks` folder under the application bundle with all frameworks you use. 
+The `@rpath` parameter can be configured in the XCode. You need to open
+*project* configuration and find the `Runpath Search Paths` section. There we specify
+the relative path to the compiled framework.
+
+You may also want to set XCode to create all project build files under the project
+root. It is done via `File | Project Settings` menu. That will simplify the way you
+pass the `rpath` to the executable. 
+
+## XCode for iOS Targets
+
+We add the Framework in the `Embedded Binaries` section of the `General` section of
+the *target* configuration. We need to fix the `Framework Search Paths` in the 
+`Build Settings` of the *target* configuration. We shall use the `iOS_emu` folder
+or the `ios_arm64` target for the run in the iOS emulator.  
+
+You may want to learn more about iOS Frameworks here
+[the Stack Overflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin).
+[CocoaPods](https://cocoapods.org/] package manager may be helpful too.
 
 # Next Steps
 
@@ -285,5 +351,5 @@ comes with a good set of pre-imported system Frameworks.
 
 Kotlin/Native supports C interop too. Checkout the [Kotlin/Native as a Dynamic Library](dynamic-libraries.html)
 tutorial for that, or have a look at the
-[C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md) documentation article
+[C Interop](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md) documentation article
 
