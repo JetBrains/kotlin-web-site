@@ -36,6 +36,9 @@ Let's create a tiny Kotlin library first and use it from C program
 than. 
 
 Let's create a library file in Kotlin and save it as `lib.kt`:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 package demo
 
@@ -52,6 +55,7 @@ fun strings(str: String) : String {
 
 val globalString = "A global String"
 ```
+</div>
 
 We need to have a Kotlin/Native compiler on our machines. 
 You may have a look at the
@@ -64,20 +68,23 @@ Now we call the following command to compile the code into a dynamic library:
 kotlinc lib.kt -produce dynamic -output demo
 ```
 
-The `kotlinc` generates the following files, depending on the OS, 
+The `kotlinc` (with v0.8.2) generates the following files, depending on the OS, 
 where you run the compiler:
 - macOS: `demo_api.h` and `libdemo.dylib`
 - Linux: `demo_api.h` and `libdemo.so`
-- Windows: `demo_api.h` and `demo.dll`
+- Windows: `demo_api.h`, `demo_symbols.def` and `demo.dll`
 
 Let's check the C API for our Kotlin code in the `demo_api.h` 
 
 ## Generated Headers File
 
-In the `demo_api.h` (with Kotlin/Native v0.8.1) you'll find the following code. 
+In the `demo_api.h` (with Kotlin/Native v0.8.2) you'll find the following code. 
 We discuss the code in parts to understand it easier. 
 
 The very first part contains standard C/C++ header and footer:
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 #ifndef KONAN_DEMO_H
 #define KONAN_DEMO_H
@@ -92,8 +99,12 @@ extern "C" {
 #endif
 #endif  /* KONAN_DEMO_H */
 ```
+</div>
 
 After the rituals in the `demo_api.h` we have the block with common type definitions:
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 #ifdef __cplusplus
 typedef bool            demo_KBoolean;
@@ -110,6 +121,7 @@ typedef double          demo_KDouble;
 typedef void*           demo_KNativePtr;
 struct demo_KType;
 ``` 
+</div>
 
 Kotlin uses `demo_` prefix from the library name to make sure
 the symbols will not clash with other symbols in your C codebase.
@@ -121,6 +133,9 @@ which you may want to check out.
 The next part of the `demo_api.h` file contains definition of types
 that are used in the library:
 
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 struct demo_KType;
 typedef struct demo_KType demo_KType;
@@ -130,6 +145,7 @@ typedef struct {
 } demo_kref_demo_DemoClazz;
 
 ```
+</div>
 
 The `typedef struct { .. } TYPE_NAME` syntax is used in C language to declare a structure. 
 You may want to check [the thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions)
@@ -145,6 +161,9 @@ long names to avoid a possible clash with other symbols of your native project.
 
 The most significant part of definitions goes further in the `demo_api.h` file.
 It includes the definition of our Kotlin/Native library world:
+
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```c
 typedef struct {
@@ -171,6 +190,7 @@ typedef struct {
   } kotlin;
 } demo_ExportedSymbols;
 ```
+</div>
 
 The code uses anonymous structure declarations. The code `struct { .. } foo`
 declares a field in the outer struct of that 
@@ -187,16 +207,21 @@ all functions that Kotlin/Native and our library provides to us. It heavily uses
 nested anonymous structures to mimic packages.
 
 The `demo_ExportedSymbols` structure contains several helper functions:
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 void (*DisposeStablePointer)(demo_KNativePtr ptr);
 void (*DisposeString)(const char* string);
 demo_KBoolean (*IsInstance)(demo_KNativePtr ref, const demo_KType* type);
 ```
+</div>
 
 Those functions deals with Kotlin/Native objects. One calls 
 `DisposeStablePointer` to release a Kotlin object and `DisposeString` to release Kotlin String, 
 which has the `char*` type in C. One may use the `IsInstance` function to check, if a
-Kotlin type, a `demo_KNativePtr` is an instance of another type. 
+Kotlin type, a `demo_KNativePtr` is an instance of another type. The actual set of
+operations generated depend on the actual usage from your code.
  
 Kotlin/Native has garbage collection, but it does not help to deal
 with Kotlin objects from C language. Kotlin/Native has an interop with Objective-C and 
@@ -204,9 +229,12 @@ Swift, and integrates with their reference counters. You may want to find more d
 in the [documentation](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
 or to check the related [TUTORIAL_KOTLIN_macOS_FRAMEWORK_LINK].
 
+NOTE. It is possible to have several Kotlin/Native dynamic libraries in one application, 
+but it is NOT possible to share objects between them.
+
 ### Our Library Functions
 
-Let's take a look on the nests structure with path `kotlin.root.demo`. The path 
+Let's take a look on the `kotlin.root.demo` field, it
 mimics the package structure of our Kotlin code with `kotlin.root.` prefix.
 
 There is `kotlin.root.demo.DemoClazz` field, that 
@@ -250,12 +278,15 @@ per thread.
 
 The usage from C not complicated and straightforward. We create a `main.c` file with the following 
 code: 
+
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 #include "demo_api.h"
 #include "stdio.h"
 
 int main(int argc, char** argv) {
-  //initialize Kotlin/Native library
+  //obtain reference for calling Kotlin/Native functions
   demo_ExportedSymbols* lib = demo_symbols();
 
   //call functions
@@ -278,6 +309,7 @@ int main(int argc, char** argv) {
   return 0;
 }
 ```
+</div>
 
 ## Compiling and Running the Example on Linux and macOS
 
@@ -298,7 +330,7 @@ to let the application to load the `libdemo.so` library from the current folder.
 
 ## Compiling and Running the Example on Windows
 
-To start with, you'll need Microsoft Visual C++ compiler installed and support AMD x64 
+To start with, you'll need Microsoft Visual C++ compiler installed and support x64_64 
 target. The easiest way is to have a version of Microsoft Visual Studio installed on 
 your Windows machine. 
 
@@ -306,23 +338,15 @@ We will be using `x64 Native Tools Command Prompt <VERSION>` console. You'll see
 shortcut to open the console in the start menu. It comes with a Microsoft Visual Studio
 package.  
 
-On Windows Dynamic libraries are included either via a special static library wrappers,
+On Windows, Dynamic libraries are included either via a special static library wrappers,
 or via a manual code with the [LoadLibrary](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684175.aspx)
 function call. We will follow the first option and generate the static wrapper library
-by our owns.
+for the `demo.dll` by our owns.
  
-We need to create a `demo.def` file with the following content:
-```c
-EXPORTS
-demo_symbols
-```
-
-The `demo_symbols` here is the name of the library [entry point function](#the-entry-point)
-function from the `demo_api.h` file. The symbol name depends on the dynamic library name.
-
-We call `lib.exe` to generate the static library `demo.lib`:
+We call `lib.exe` from the toolchain to generate the static library 
+wrapper `demo.lib` that automates the DLL usage from the code:
 ```bash
-lib /def:demo.def /out:demo.lib
+lib /def:demo_symbols.def /out:demo.lib
 ```
 
 Now we are ready compile our `main.c` into an executable. We include the generated `demo.lib` into
