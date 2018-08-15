@@ -118,12 +118,12 @@ var setterWithAnnotation: Any? = null
 
 ### Computed Properties
 
-When using a custom getter for a property (`get()`) the value is computed once and stored. However, when omitting the `get()`, the value is computed on every access.
+When using a custom getter for a `val` property (`get()`) the value is computed on every access. However, when omitting the `get()`, the value is calculated once and stored.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-val isEmpty get() = this.size == 0 // Computed once and stored.
-val isEmpty = this.size == 0 // Computed on every access.
+val isEmpty get() = this.size == 0 // Computed on every access.
+val isEmpty = this.size == 0 // Computed once and stored.
 ```
 </div>
 
