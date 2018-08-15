@@ -115,6 +115,28 @@ var setterWithAnnotation: Any? = null
 ```
 </div>
 
+
+### Computed Properties
+
+When using a custom getter for a property (`get()`) the value is computed once and stored. However, when omitting the `get()`, the value is computed on every access.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+``` kotlin
+val isEmpty get() = this.size == 0 // Computed once and stored.
+val isEmpty = this.size == 0 // Computed on every access.
+```
+</div>
+
+When using a `var` the behavior is the same in both cases. The value is computed on every access.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+``` kotlin
+var isEmpty get() = this.size == 0  // Computed on every access.
+var isEmpty = this.size == 0 // Computed on every access.
+```
+</div>
+
+
 ### Backing Fields
 
 Fields cannot be declared directly in Kotlin classes. However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in the accessors using the `field` identifier:
