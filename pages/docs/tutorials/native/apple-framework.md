@@ -19,18 +19,18 @@ tutorial.
 
 In that tutorial, we will see how to use Kotlin/Native code from
 Objective-C and Swift applications on macOS and iOS.
-We will build a Framework from a Kotlin code.
+We will build a framework from a Kotlin code.
 
 In the tutorial we'll: 
-- [create a Kotlin Library](#creating-a-kotlin-library) and compile it to a Framework
+- [create a Kotlin Library](#creating-a-kotlin-library) and compile it to a framework
 - examine generated [Objective-C and Swift API](#generated-framework-headers)
-- use the Framework from [Objective-C](#using-the-code-from-objective-c) and [Swift](#using-the-code-from-swift)
-- [Configure XCode](#xcode-and-framework-dependencies) to use the Framework for [macOS](#xcode-for-macos-target) and [iOS](#xcode-for-ios-targets)
+- use the framework from [Objective-C](#using-the-code-from-objective-c) and [Swift](#using-the-code-from-swift)
+- [Configure XCode](#xcode-and-framework-dependencies) to use the framework for [macOS](#xcode-for-macos-target) and [iOS](#xcode-for-ios-targets)
    
 ## Creating a Kotlin Library
 
-Kotlin/Native compiler can produce a Framework for macOS and iOS
-out of the Kotlin code. The created Framework contains all declarations
+Kotlin/Native compiler can produce a framework for macOS and iOS
+out of the Kotlin code. The created framework contains all declarations
 and binaries to use it with Objective-C and Swift.
 The best way to understand the techniques is to try those techniques. 
 Let's create a tiny Kotlin library first and use it from an Objective-C program.
@@ -72,7 +72,7 @@ You may have a look at the
 tutorial for more information on performing this step.
 Let's assume we have a console, where the `kotlinc` command is available. 
 
-Now let's call the following commands to compile the code into Frameworks
+Now let's call the following commands to compile the code into frameworks
 for macOS, iOS, and iOS emulator respectively:
 ```bash
 kotlinc lib.kt -produce framework -target macos_x64 -output macOS/Demo
@@ -80,14 +80,14 @@ kotlinc lib.kt -produce framework -target ios_arm64 -output iOS/Demo
 kotlinc lib.kt -produce framework -target ios_x64 -output iOS_emu/Demo
 ```
 
-The `kotlinc` generates three Frameworks for us, named `Demo.framework` under 
+The `kotlinc` generates three frameworks for us, named `Demo.framework` under 
 `macOS`, `iOS`, and `iOS_emu` folders respectively.
 
 Let's see what is inside
 
 ## Generated Framework Headers
 
-Each of the created Frameworks contains the header file in `<Framework>/Headers/Demo.h`.
+Each of the created frameworks contains the header file in `<Framework>/Headers/Demo.h`.
 The headers do not depend on the target platform (at least with Kotlin/Native v.0.8.2).
 It contains the definitions for our Kotlin code and few Kotlin-wide declarations.
 
@@ -172,18 +172,18 @@ __attribute__((objc_subclassing_restricted))
 </div>
 
 The code is full of Objective-C attributes, which are intended to help
-using the Framework from both Objective-C and Swift languages.
+using the framework from both Objective-C and Swift languages.
 `DemoClazz`, `DemoInterface`, and `DemoObject` are created for `Clazz`, `Interface`, and `Object` 
 respectively. The `Interface` is turned into `@protocol`, both a `class` and an `object` are represented as
 `@interface`.
 The `Demo` prefix comes from the `-output` parameter
-of the `kotlinc` compiler and the Framework name. 
+of the `kotlinc` compiler and the framework name. 
 You may spot that the nullable return type `Long?` is turned into `NSNumber*` in Objective-C.
 
 ### Global Declarations from Kotlin
 
 All global functions from Kotlin
-are turned into `Demo` class in Objective-C/Swift, where `Demo` is the Framework name and set by
+are turned into `Demo` class in Objective-C/Swift, where `Demo` is the framework name and set by
 the `-output` parameter of `kotlinc`.
 
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -221,7 +221,7 @@ from Swift or Objective-C.
 
 ## Using the Code from Objective-C
 
-Let's call the Framework from Objective-C. For that we create the `main.m` file with 
+Let's call the framework from Objective-C. For that we create the `main.m` file with 
 the following content:
 
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -264,7 +264,7 @@ pass `NSString` directly to it. The return is visible as `NSString` too.
 
 ## Using the Code from Swift
 
-The Framework that we compiled with Kotlin/Native has helper attributes to make it
+The framework that we compiled with Kotlin/Native has helper attributes to make it
 easier to with it from Swift. Let's convert the previous Objective-C example
 into Swift. As a result, we'll have the following code in `main.swift`:
 
@@ -307,25 +307,25 @@ documentation article to learn all other types mapping details in detail.
 
 # XCode and Framework Dependencies
 
-We need to configure XCode project to use out Framework. The configuration depends on the
+We need to configure XCode project to use out framework. The configuration depends on the
 target platform. 
 
 ## XCode for MacOS Target
 
-First, we need to include the Framework in the `General` section of the *target*
+First, we need to include the framework in the `General` section of the *target*
 configuration. There is the `Linked Frameworks and Libraries` section to include
-out Framework. That will make XCode see our Framework and resolve imports both
+out framework. That will make XCode see our framework and resolve imports both
 from Objective-C and Swift.
 
-The second step is to configure the Framework search path of the produced
+The second step is to configure the framework search path of the produced
 binary. It is also known as `rpath` or [run-time search path](https://en.wikipedia.org/wiki/Rpath).
-The binary uses the path to look for the required Frameworks. We do not recommend
-installing you Frameworks to the OS without the need. You should understand the layout
+The binary uses the path to look for the required frameworks. We do not recommend
+installing you frameworks to the OS without the need. You should understand the layout
 of your future application, for example, 
-you may have `Frameworks` folder under the application bundle with all Frameworks you use. 
+you may have `Frameworks` folder under the application bundle with all frameworks you use. 
 The `@rpath` parameter can be configured in the XCode. You need to open
 the *project* configuration and find the `Runpath Search Paths` section. There we specify
-the relative path to the compiled Framework.
+the relative path to the compiled framework.
 
 You may also want to set XCode to create all project build files under the project
 root. It is done via `File | Project Settings` menu. That will simplify the way you
@@ -333,17 +333,17 @@ pass the `rpath` to the executable.
 
 ## XCode for iOS Targets
 
-First, we need to include the compiled Framework into the XCode project. For
-that we add the Framework to the `Embedded Binaries` block of the `General` section of
+First, we need to include the compiled framework into the XCode project. For
+that we add the framework to the `Embedded Binaries` block of the `General` section of
 the *target* configuration page. 
 
-The second step is to include the Framework path into the `Framework Search Paths` block
+The second step is to include the framework path into the `Framework Search Paths` block
 of the `Build Settings` section of the *target* configuration page. One may use `$(PROJECT_DIR)`
 macro so simplify the setup.
  
-The iOS emulator requires a Framework compiled for the `ios_arm64` target, `iOS_emu` folder
+The iOS emulator requires a framework compiled for the `ios_arm64` target, `iOS_emu` folder
 in our case.
-You may want to learn more about iOS Frameworks from
+You may want to learn more about iOS frameworks from
 [the Stack Overflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin).
 [CocoaPods](https://cocoapods.org/] package manager may be helpful to automate the process too.
 
@@ -353,8 +353,8 @@ Kotlin/Native has bidirectional interop with Objective-C and Swift languages.
 Kotlin objects integrate with Objective-C/Swift reference counting. Unused Kotlin
 objects are automatically removed. You may want to see the detailed documentation on 
 the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md).
-Of course, it is possible to import an existing Framework and use it from Kotlin. Kotlin/Native
-comes with a good set of pre-imported system Frameworks.
+Of course, it is possible to import an existing framework and use it from Kotlin. Kotlin/Native
+comes with a good set of pre-imported system frameworks.
 
 Kotlin/Native supports C interop too. Check out the
 [Kotlin/Native as a Dynamic Library](dynamic-libraries.html)
