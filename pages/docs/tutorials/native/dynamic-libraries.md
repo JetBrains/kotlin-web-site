@@ -230,9 +230,6 @@ Swift and integrates with their reference counters. You may want to find more de
 in the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
 documentation or to check the related tutorial named [Kotlin/Native as an Apple Framework](apple-framework.html).
 
-NOTE. It is possible to have several Kotlin/Native dynamic libraries in one application, 
-but it is NOT possible to share objects between them.
-
 ### Our Library Functions
 
 Let's take a look on the `kotlin.root.demo` field, it

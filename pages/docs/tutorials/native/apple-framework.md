@@ -62,6 +62,7 @@ fun strings(str: String?) : String {
 }
 
 fun acceptFun(f: (String) -> String?) = f("Kotlin/Native rocks!")
+fun supplyFun() : FunFunction = { "$it is cool!" }
 ```
 </div>
 
@@ -196,6 +197,7 @@ __attribute__((objc_subclassing_restricted))
 + (void)forFloatsF:(float)f d:(NSNumber * _Nullable)d __attribute__((swift_name("forFloats(f:d:)")));
 + (NSString *)stringsStr:(NSString * _Nullable)str __attribute__((swift_name("strings(str:)")));
 + (NSString * _Nullable)acceptFunF:(NSString * _Nullable (^)(NSString *))f __attribute__((swift_name("acceptFun(f:)")));
++ (NSString * _Nullable (^)(NSString *))supplyFun __attribute__((swift_name("supplyFun()")));
 @end;
 ```
 </div>
@@ -205,7 +207,7 @@ Similarly, `Unit` type from Kotlin is mapped to `void`. We see primitive types
 are mapped directly. Non-nullable primitive types are mapped transparently.
 Nullable primitive types are mapped into `NSNumber*`.
 You may see both higher order functions `acceptFunF` and `supplyFun` are included,
-and accept Objective-C lambdas.
+and accept Objective-C blocks.
 
 You may want to see [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
 documentation article to learn all other types mapping details in detail.
@@ -297,7 +299,7 @@ constructor in Swift, and we use the `DemoObject()` syntax to access the only in
 The instance is always the same in Swift, so that 
 `DemoDemoObject() === DemoDemoObject()` is true. 
 Methods and property names are translated as-is. Kotlin `String` is turned into Swift `String` too.
-Swift hides `NSNumber*` boxing from us too. We pass Swift closure to Kotlin and call Kotlin 
+Swift hides `NSNumber*` boxing from us too. We pass Swift closure to Kotlin and call a Kotlin 
 lambda function from Swift too. 
 
 You may want to see [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
@@ -331,14 +333,19 @@ pass the `rpath` to the executable.
 
 ## XCode for iOS Targets
 
-We add the Framework in the `Embedded Binaries` section of the `General` section of
-the *target* configuration. We need to fix the `Framework Search Paths` in the 
-`Build Settings` of the *target* configuration. We shall use the `iOS_emu` folder
-or the `ios_arm64` target for the run in the iOS emulator.  
+First, we need to include the compiled Framework into the XCode project. For
+that we add the Framework to the `Embedded Binaries` block of the `General` section of
+the *target* configuration page. 
 
-You may want to learn more about iOS Frameworks here
+The second step is to include the Framework path into the `Framework Search Paths` block
+of the `Build Settings` section of the *target* configuration page. One may use `$(PROJECT_DIR)`
+macro so simplify the setup.
+ 
+The iOS emulator requires a Framework compiled for the `ios_arm64` target, `iOS_emu` folder
+in our case.
+You may want to learn more about iOS Frameworks from
 [the Stack Overflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin).
-[CocoaPods](https://cocoapods.org/] package manager may be helpful too.
+[CocoaPods](https://cocoapods.org/] package manager may be helpful to automate the process too.
 
 # Next Steps
 
