@@ -310,7 +310,7 @@ class MyStringCollection {
 
 ## Function Scope
 
-In Kotlin functions can be declared at top level in a file, meaning you do not need to create a class to hold a function, like languages such as Java, C# or Scala. In addition
+In Kotlin functions can be declared at top level in a file, meaning you do not need to create a class to hold a function, which you are required to do in languages such as Java, C# or Scala. In addition
 to top level functions, Kotlin functions can also be declared local, as member functions and extension functions.
 
 ### Local Functions
@@ -402,21 +402,25 @@ When a function is marked with the `tailrec` modifier and meets the required for
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ``` kotlin
+val eps = 1E-10 // "good enough", could be 10^-15
+
 tailrec fun findFixPoint(x: Double = 1.0): Double
-        = if (x == Math.cos(x)) x else findFixPoint(Math.cos(x))
+        = if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
 ```
 </div>
 
-This code calculates the fixpoint of cosine, which is a mathematical constant. It simply calls Math.cos repeatedly starting at 1.0 until the result doesn't change any more, yielding a result of 0.7390851332151607. The resulting code is equivalent to this more traditional style:
+This code calculates the fixpoint of cosine, which is a mathematical constant. It simply calls Math.cos repeatedly starting at 1.0 until the result doesn't change any more, yielding a result of 0.7390851332151611 for the specified `eps` precision. The resulting code is equivalent to this more traditional style:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
+val eps = 1E-10 // "good enough", could be 10^-15
+
 private fun findFixPoint(): Double {
     var x = 1.0
     while (true) {
         val y = Math.cos(x)
-        if (x == y) return x
-        x = y
+        if (Math.abs(x - y) < eps) return x
+        x = Math.cos(x)
     }
 }
 ```
