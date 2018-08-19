@@ -43,7 +43,7 @@ val items = listOf(1, 2, 3)
 
 Currently, the `listOf` method is implemented using an array list, but in future more memory-efficient fully immutable collection types could be returned that exploit the fact that they know they can't change.
 
-Note that the read-only types are [covariant](generics.html#variance). That means, you can take a `List<Rectangle>` and assign it to `List<Shape>` assuming Rectangle inherits from Shape. This wouldn't be allowed with the mutable collection types because it would allow for failures at runtime.
+Note that the read-only types are [covariant](generics.html#variance). That means, you can take a `List<Rectangle>` and assign it to `List<Shape>` assuming `Rectangle` inherits from `Shape` (the collection types have the same inheritance relationship as the element types). This wouldn't be allowed with the mutable collection types because it would allow for failures at runtime: you might add a `Circle` into the `List<Shape>`, creating a `List<Rectangle>` with a `Circle` in it somewhere else in the program.
 
 Sometimes you want to return to the caller a snapshot of a collection at a particular point in time, one that's guaranteed to not change:
 
