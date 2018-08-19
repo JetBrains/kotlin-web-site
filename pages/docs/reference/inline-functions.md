@@ -72,7 +72,7 @@ Note that if an inline function has no inlinable function parameters and no
 
 In Kotlin, we can only use a normal, unqualified `return` to exit a named function or an anonymous function.
 This means that to exit a lambda, we have to use a [label](returns.html#return-at-labels), and a bare `return` is forbidden
-inside a lambda, because a lambda can not make the enclosing function return:
+inside a lambda, because a lambda cannot make the enclosing function return:
 
 <div class="sample" markdown="1" theme="idea">
 ``` kotlin
@@ -82,7 +82,7 @@ fun ordinaryFunction(block: () -> Unit) {
 //sampleStart
 fun foo() {
     ordinaryFunction {
-        return // ERROR: can not make `foo` return here
+        return // ERROR: cannot make `foo` return here
     }
 }
 //sampleEnd
@@ -208,9 +208,9 @@ fun main(s: Array<String>) {
 ```
 </div>
 
-Normal functions (not marked as inline) can not have reified parameters.
+Normal functions (not marked as inline) cannot have reified parameters.
 A type that does not have a run-time representation (e.g. a non-reified type parameter or a fictitious type like `Nothing`)
-can not be used as an argument for a reified type parameter.
+cannot be used as an argument for a reified type parameter.
 
 For a low-level description, see the [spec document](https://github.com/JetBrains/kotlin/blob/master/spec-docs/reified-type-parameters.md).
 
