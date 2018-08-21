@@ -44,14 +44,14 @@ we include those declarations directly into the `lib.def` file, after `---` sepa
 
 typedef struct {
   int a;
-  const double b;
+  double b;
 } MyStruct;
 
 void struct_by_value(MyStruct s);
 void struct_by_pointer(MyStruct* s);
 
 typedef union {
-  const int a;
+  int a;
   MyStruct b;
   float c;
 } MyUnion;
