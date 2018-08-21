@@ -134,27 +134,26 @@ Let's assume `0` means it succeeded and the supplied buffer was big enough:
 
 ```kotlin
 fun sendString() {
-  val copiedStringFromC = memScoped {
-    val maxSize = 222
-    val buff = allocArray<ByteVar>(maxSize) { zeroValue<ByteVar>() }
-    if (copy_string(buff, maxSize) != 0) {
+  val buf = ByteArray(255)
+  buf.usePinned { pinned ->
+    if (copy_string(pinned.addressOf(0), buf.size - 1) != 0) {
       throw Error("Failed to read string from C")
     }
-
-    buff.toKString()
   }
-  
+
+  val copiedStringFromC = buf.stringFromUtf8()
   println("Message from C: $copiedStringFromC")
 }
 
 ``` 
 
-First of all, to pass a pointer to a C function we need to allocate a memory for it. We use `memScoped`
-to temporarily allocate and automatically release the memory. It is the `allocArray<ByteVar>(..)` function, 
-that we use to get the pointer to an allocated memory block. We call `copy_string` with the
-allocated pointer and check the exit code of it.
-`toKString()` extension function is used to turn a memory into Kotlin string, which we can 
-use either inside or outside of the `memScoped` block.
+First of all, we need to have a native pointer to pass
+to the C function. We use `usePinned` extension function
+to temporarily pin the native memory address of the
+byte array. The C function fills in the
+byte array with the data. We use another extension 
+function `ByteArray.stringFromUtf8()` to turn the byte 
+array into Kotlin `String`, assuming UTF-8 encoding. 
 
 ## Next Steps
 
