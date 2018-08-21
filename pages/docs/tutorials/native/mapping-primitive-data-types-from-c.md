@@ -37,6 +37,8 @@ The best way to see how C data types are visible in Kotlin is to try it
 ## An Example C Library
 
 We create a `lib.h` file to see how C functions are mapped into Kotlin:
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 #ifndef LIB2_H_INCLUDED
 #define LIB2_H_INCLUDED
@@ -46,6 +48,7 @@ void doubles(float a, double b);
 
 #endif
 ```
+</div>
 
 The file is missing the `extern "C"` block, which is not needed for our example, by may be 
 necessary if you use C++ and overloaded functions. For more details, you may check the 
@@ -89,10 +92,13 @@ command prints the API of the library to the console.
 
 From `cinterop` and `klib` calls we see the following API:
 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun doubles(a: Float, b: Double)
 fun ints(c: Byte, d: Short, e: Int, f: Long)
 ```
+</div>
 
 C types mapped in the expected way, note that `char` type is mapped to `kotlin.Byte` 
 as it is usually an 8-bit unsigned value.

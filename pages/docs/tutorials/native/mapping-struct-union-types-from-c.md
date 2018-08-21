@@ -36,6 +36,8 @@ you may check the [Interop with C Libraries](interop-with-c.html) tutorial.
 In [the previous tutorial](mapping-primitive-data-types-from-c.html) we created an `lib.h` file. This time, 
 we include those declarations directly into the `lib.def` file, after `---` separator line:
 
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 
 ---
@@ -58,6 +60,7 @@ void union_by_value(MyUnion u);
 void union_by_pointer(MyUnion* u);
 
 ``` 
+</div>
 
 Now we call:  
 ```bash
@@ -65,6 +68,8 @@ cinterop -def lib.def -o lib.klib
 klib contents lib.klib
 ```
 and it prints the following Kotlin API for our C library with `struct` and `union` inside:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun struct_by_value(s: CValue<MyStruct>)
@@ -86,6 +91,7 @@ class MyUnion constructor(rawPtr: NativePtr /* = NativePtr */) : CStructVar {
     companion object : CStructVar.Type
 }
 ```
+</div>
 
 We see that `cinterop` generated wrapper types for our `sturct` and `union` types. 
 For `MyStruct` and `MyUnion` type declarations in C, we have the Kotlin
@@ -126,6 +132,7 @@ fun <reified T : CStructVar> cValue(initialize: T.() -> Unit): CValue<T>
 ```
 
 Now it is time to see how one uses `cValue` and passes by-value parameters:
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun callValue() {
@@ -144,6 +151,7 @@ fun callValue() {
   union_by_value(cUnion)
 }
 ```
+</div>
 
 ### Creating Struct and Union as CValuesRef<T>
 
@@ -162,13 +170,19 @@ There are several implementations of `NativePlacement`. The global one is called
 and you shall not forget to call `nativeHeap.free(..)` function to free the memory after use.
  
 Another option is to use the
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun <R> memScoped(block: kotlinx.cinterop.MemScope.() -> R): R    
 ```
+</div>
+
 function. It helps to create a short-leaving memory allocation scope,
 and to all allocations be cleaned up automatically at the end of the `block`.
 
 Our code to call functions with pointers will look like that:
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun callRef() {
   memScoped {
@@ -188,6 +202,7 @@ fun callRef() {
 }
 
 ```
+</div>
 
 Note, here we use the extension property `ptr` which comes from `memScoped` lambda receiver type 
 to turn `MyStruct` and `MyUnion` instances into native pointers.
@@ -204,6 +219,8 @@ pass the same struct as a reference to the other call. It is possible in Kotlin/
 `NativePlacement` will be needed here. 
 
 Let's see now `CValue<T>` is turned to a pointer first:
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun callMix_ref() {
   val cStruct = cValue<MyStruct> {
@@ -216,6 +233,7 @@ fun callMix_ref() {
   }
 }
 ```  
+</div>
 
 Here we use the extension property `ptr` which comes from `memScoped` lambda receiver type 
 to turn `MyStruct` and `MyUnion` instances into native pointers. Those pointers are only valid
@@ -223,6 +241,8 @@ inside `memScoped` block.
 
 For the opposite conversion, to turn a pointer into a by-value variable, 
 we call `readValue()` extension function:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun callMix_value() {
@@ -235,6 +255,7 @@ fun callMix_value() {
   }
 }
 ```
+</div>
 
 ## Next Steps
 

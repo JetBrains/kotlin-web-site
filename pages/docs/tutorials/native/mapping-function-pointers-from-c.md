@@ -39,6 +39,8 @@ The shortest way to try C API mapping is to have all C declarations in the
 `lib.def` file, without creating any `.h` of `.c` files at all. One places C declarations 
 in `.def` file after the special `---` separator line:
 
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c 
 
 ---
@@ -49,6 +51,7 @@ void  accept_fun(MyFun f);
 MyFun supplies_fun();
 
 ``` 
+</div>
 
 Now we call:  
 ```bash
@@ -56,6 +59,8 @@ cinterop -def lib.def -o lib.klib
 klib contents lib.klib
 ```
 and it prints the following Kotlin API for our C library declarations:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun accept_fun(f: MyFun? /* = CPointer<CFunction<(Int) -> Int>>? */)
@@ -65,6 +70,7 @@ typealias MyFun = kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(kotlin.I
 
 typealias MyFunVar = kotlinx.cinterop.CPointerVarOf<lib.MyFun>
 ```
+</div>
 
 We see that our function typedef from C turned into Kotlin `typealias`. It uses `CPointer<..>` type
 to represent the pointer parameters, and `CFunction<(Int)->Int>` to represent the function signature. 
@@ -75,12 +81,15 @@ one is allowed to call it as any other function in Kotlin.
 
 It is the time to try using C Functions from our Kotlin program. Let's call the `accept_fun`
 function and pass C function pointer to a Kotlin lambda:
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun myFun() {
   accept_fun(staticCFunction<Int, Int> { it + 1 })
 }
 
 ```
+</div>
 
 Here we use `staticCFunction{..}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C Function pointer.
 It only allows to have an unbound and non-capturing lambda functions. For example, it is not allowed
@@ -91,6 +100,9 @@ throwing any sudden exception from it
 ## Using C Function Pointer from Kotlin
 
 The second step, we call a C function pointer from a C pointer we have from `supply_fun()` call:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun myFun2() {
   val functionFromC = supply_fun() ?: error("No function is returned")
@@ -99,6 +111,7 @@ fun myFun2() {
 }
 
 ```
+</div>
 
 Kotlin turns the function pointer return type into nullable `CPointer<CFunction<..>` object. One need
 to explicitly check for `null` first. We use [elvis operator](../reference/null-safety.html) for that.

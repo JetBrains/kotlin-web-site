@@ -40,6 +40,8 @@ The best way to understand the mapping between C and Kotlin languages is to try 
 a small library headers for that. First, we need to create `lib.h` file with the following
 declaration of functions that deals with C strings:
 
+<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c
 #ifndef LIB2_H_INCLUDED
 #define LIB2_H_INCLUDED
@@ -50,6 +52,7 @@ int copy_string(char* str, int size);
 
 #endif
 ```  
+</div>
 
 In the example we have the most popular ways one passes or receives a string in C language. We should
 take the return of `return_string` with care. In general, it is the best to make sure we
@@ -71,12 +74,15 @@ klib contents lib.klib
 ```
 and it prints the following Kotlin API for our C library declarations:
 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun pass_string(str: CValuesRef<ByteVar /* = ByteVarOf<Byte> */>?)
 fun return_string(): CPointer<ByteVar /* = ByteVarOf<Byte> */>?
 
 fun copy_string(str: CValuesRef<ByteVar /* = ByteVarOf<Byte> */>?, size: Int): Int
 ```
+</div>
 
 Those declarations look clear. All `char *` pointers are turned into `str: CValuesRef<ByteVar>?` for
 parameters and to `CPointer<ByteVar>?` in return types. Kotlin turns `char` type into `kotlin.Byte` type,
@@ -88,12 +94,16 @@ is nullable, and we can simply pass Kotlin `null` as the parameter value.
 ## Passing Kotlin string to C
 
 Let's try to use the API from Kotlin. Let's call `pass_string` first:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun passStringToC() {
   val str = "this is a Kotlin String"
   pass_string(str.cstr)
 }
 ```
+</div>
 
 Passing a Kotlin string to C is easy, thanks we have `String.cstr` 
 [extension property](../reference/extensions.html#extension-properties)
@@ -105,6 +115,8 @@ need UTF-16 wide characters.
 This time we turn a returned `char *` from `return_string` function into
 a Kotlin string. For that we do the following in Kotlin:
 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
 fun passStringToC() {
   val stringFromC = return_string()?.toKString()
@@ -112,14 +124,18 @@ fun passStringToC() {
   println("Returned from C: $stringFromC")
 }
 ``` 
+</div>
 
 we use `toKString()` extension function above. Please do not miss that one with
 `toString()` function. The `toKString()` have two overloaded extension functions in Kotlin:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun CPointer<ByteVar>.toKString(): String
 fun CPointer<ShortVar>.toKString(): String
 ```
+</div>
 
 The first one takes a `char *` as UTF-8 string and turns it into String.
 The second function does the same for wide, UTF-16 strings.
@@ -131,6 +147,8 @@ This time we ask a C function to write us a C string to a given buffer. The func
 is called `copy_string`. It takes a pointer to the location to write characters and 
 the allowed buffer size. The function returns something to indicate it succeeded of failed.
 Let's assume `0` means it succeeded and the supplied buffer was big enough:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun sendString() {
@@ -146,6 +164,7 @@ fun sendString() {
 }
 
 ``` 
+</div>
 
 First of all, we need to have a native pointer to pass
 to the C function. We use `usePinned` extension function
