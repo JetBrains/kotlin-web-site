@@ -9,9 +9,9 @@ showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-That is the second post in the series. You might want to begin with the very first tutorial 
+This is the second post in the series. If you haven't done so already, you may want to begin with the very first tutorial 
 of the series called [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html).
-There are also [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html) and 
+There are also the [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html) and 
 [Mapping Strings from C](mapping-strings-from-c.html) tutorials.
 
 In the tutorial you will learn:
@@ -19,22 +19,22 @@ In the tutorial you will learn:
 - [How to use Struct and Union type from Kotlin](#using-struct-and-union-types-from-kotlin)
 
 We need to have a Kotlin compiler on our machines.
-You may have a look at the
+You may want to take a look at the
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial for more information on performing this step.
-Let's assume, we have a console, where `kotlinc`, `cinterop` and `klib` commands are available. 
+Let's assume, we have a console, where the `kotlinc`, `cinterop`, and `klib` commands are available. 
 
 ## Mapping Struct and Union C types
 
 The best way to understand the mapping between Kotlin and C is to try a tiny 
-example. We declare a struct and an union in C language to see how they are mapped into Kotlin.
+example. We will declare a struct and an union in the C language to see how they are mapped into Kotlin.
 
-Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between C language and Kotlin.
+Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between the C language and Kotlin.
 It uses a `.def` file to specify a C library to import. For more details
-you may check the [Interop with C Libraries](interop-with-c.html) tutorial.
+you may want to check out the [Interop with C Libraries](interop-with-c.html) tutorial.
  
-In [the previous tutorial](mapping-primitive-data-types-from-c.html) we created an `lib.h` file. This time, 
-we include those declarations directly into the `lib.def` file, after `---` separator line:
+In [the previous tutorial](mapping-primitive-data-types-from-c.html) we created a `lib.h` file. This time, 
+we are going to include those declarations directly into the `lib.def` file, after the `---` separator line:
 
 <div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -93,45 +93,45 @@ class MyUnion constructor(rawPtr: NativePtr /* = NativePtr */) : CStructVar {
 ```
 </div>
 
-We see that `cinterop` generated wrapper types for our `sturct` and `union` types. 
+We see that `cinterop` generated wrapper types for our `struct` and `union` types. 
 For `MyStruct` and `MyUnion` type declarations in C, we have the Kotlin
 classes `MyStruct` and `MyUnion` generated respectively.
-The wrappers inherit from `CStructVar` base class and declare all fields as Kotlin properties.
+The wrappers inherit from the `CStructVar` base class and declare all fields as Kotlin properties.
 It uses `CValue<T>` to represent a by-value structure parameter and `CValuesRef<T>?`
-to represent passing a pointer to a structure or an union.
+to represent passing a pointer to a structure or a union.
 
 Technically, there is no difference between `struct` and `union` types on the 
-Kotlin side. One should note, that `a`, `b`, and `c` properties of `MyUnion` class in Kotlin use
+Kotlin side. We should note, that `a`, `b`, and `c` properties of `MyUnion` class in Kotlin use
 the same memory location to read/write their value just like `union` does in C language. 
 
-We may take a look at the 
+You may want to take a look at the 
 [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md#passing-and-receiving-structs-by-value)
 for more details.
 
 ## Using Struct and Union Types from Kotlin
 
-One may easily use the generated wrapper classes for C `struct` and `union` types from Kotlin. Thanks to the generated
-properties, it feels natural to use them in Kotlin code. The only question, so far, is how we create a new instance on those
+It is easy to use the generated wrapper classes for C `struct` and `union` types from Kotlin. Thanks to the generated
+properties, it feels natural to use them in Kotlin code. The only question, so far, is how do we create a new instance on those
 classes. As we see from the declarations of `MyStruct` and `MyUnion`, their constructors require a `NativePtr`.
-Of course, we are not willing to deal with pointers manually. Instead, we use Kotlin API to have those 
+Of course, we are not willing to deal with pointers manually. Instead, we can use Kotlin API to have those 
 objects instantiated for us. 
 
-Let's take a look at the generated functions that takes our `MyStruct` and `MyUnion` as parameters. We see that 
+Let's take a look at the generated functions that take our `MyStruct` and `MyUnion` as parameters. We see that 
 by-value parameters are represented as `kotlinx.cinterop.CValue<T>`. And for typed pointer parameters we 
 see `kotlinx.cinterop.CValuesRef<T>`.
-Kotlin provides us with API to deal with both types easily, let's try and see how it goes.
+Kotlin provides us with an API to deal with both types easily, let's try it and see.
 
 ### Creating a CValue<T>
 
 `CValue<T>` type is used to pass by-value parameters to a C function call.
 We use `cValue` function to create `CValue<T>` object instance. The function requires a
 [lambda function with a receiver](../../reference/lambdas.html#function-literals-with-receiver) 
-to initialize the underlying C type in-place. The function declared as follows:
+to initialize the underlying C type in-place. The function is declared as follows:
 ```kotlin
 fun <reified T : CStructVar> cValue(initialize: T.() -> Unit): CValue<T>
 ```
 
-Now it is time to see how one uses `cValue` and passes by-value parameters:
+Now it is time to see how to use `cValue` and pass by-value parameters:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -157,7 +157,7 @@ fun callValue() {
 
 `CValuesRef<T>` type is used in Kotlin to pass a typed pointer parameter of a C 
 function. First, we need an instance of 
-`MyStruct` and `MyUnion` classes. That time we create them directly in the native memory. 
+`MyStruct` and `MyUnion` classes. This time we create them directly in the native memory. 
 Let's use the    
 ```kotlin
 fun <reified T : kotlinx.cinterop.CVariable> alloc(): T   
@@ -167,7 +167,7 @@ type for that.
 
 `NativePlacement` represents native memory with functions similar to `malloc` and `free`. 
 There are several implementations of `NativePlacement`. The global one is called `kotlinx.cinterop.nativeHeap`
-and you shall not forget to call `nativeHeap.free(..)` function to free the memory after use.
+and don't forget to call `nativeHeap.free(..)` function to free the memory after use.
  
 Another option is to use the
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -177,10 +177,10 @@ fun <R> memScoped(block: kotlinx.cinterop.MemScope.() -> R): R
 ```
 </div>
 
-function. It helps to create a short-leaving memory allocation scope,
-and to all allocations be cleaned up automatically at the end of the `block`.
+function. It creates a short-living memory allocation scope,
+and all allocations will be cleaned up automatically at the end of the `block`.
 
-Our code to call functions with pointers will look like that:
+Our code to call functions with pointers will look like this:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -204,18 +204,18 @@ fun callRef() {
 ```
 </div>
 
-Note, here we use the extension property `ptr` which comes from `memScoped` lambda receiver type 
+Note, here we use the extension property `ptr` which comes from a`memScoped` lambda receiver type, 
 to turn `MyStruct` and `MyUnion` instances into native pointers.
 
-The `MyStruct` and `MyUnion` classes has the pointer to the native memory underneath. The memory will be released
-when `memScoped` function ends, which is equal to the end of its `block`. One should make sure, they do not need a
-pointer outside for the `memScoped` call. We may use `Arena()` or `nativeHeap` for pointers, that 
-should be available longer, and also for pointers, that are cached inside C library  
+The `MyStruct` and `MyUnion` classes have the pointer to the native memory underneath. The memory will be released
+when a `memScoped` function ends, which is equal to the end of its `block`. Be careful to make sure that a
+pointer outside is not needed for the `memScoped` call. We may use `Arena()` or `nativeHeap` for pointers that 
+should be available for longer, or are cached inside the C library.  
 
 ### Conversion between CValue<T> and CValuesRef<T>
 
-Of course, there are use cases, where we need to pass a struct as a value to one call, and than, to 
-pass the same struct as a reference to the other call. It is possible in Kotlin/Native too. A 
+Of course, there are use cases, where we need to pass a struct as a value to one call, and then, to 
+pass the same struct as a reference to another call. This is possible in Kotlin/Native too. A 
 `NativePlacement` will be needed here. 
 
 Let's see now `CValue<T>` is turned to a pointer first:
@@ -237,10 +237,10 @@ fun callMix_ref() {
 
 Here we use the extension property `ptr` which comes from `memScoped` lambda receiver type 
 to turn `MyStruct` and `MyUnion` instances into native pointers. Those pointers are only valid
-inside `memScoped` block.
+inside the `memScoped` block.
 
 For the opposite conversion, to turn a pointer into a by-value variable, 
-we call `readValue()` extension function:
+we call the `readValue()` extension function:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -259,11 +259,11 @@ fun callMix_value() {
 
 ## Next Steps
 
-Join us to continue exploring C language types and their representation in Kotlin/Native in the related tutorials:
+Join us to continue exploring the C language types and their representation in Kotlin/Native in the related tutorials:
 - [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 - [Mapping Strings from C](mapping-strings-from-c.html)
 
-You may also take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+You may also want to take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
 for more advanced scenarios.
 
