@@ -39,7 +39,7 @@ The quickest way to try out C API mapping is to have all C declarations in the
 `lib.def` file, without creating any `.h` of `.c` files at all. Then place the C declarations 
 in a `.def` file after the special `---` separator line:
 
-<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```c 
 
@@ -60,7 +60,7 @@ klib contents lib.klib
 ```
 and it prints the following Kotlin API for our C library declarations:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun accept_fun(f: MyFun? /* = CPointer<CFunction<(Int) -> Int>>? */)
@@ -81,7 +81,7 @@ it is possible to call it as you would call any other function in Kotlin.
 
 It is the time to try using C Functions from our Kotlin program. Let's call the `accept_fun`
 function and pass the C function pointer to a Kotlin lambda:
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun myFun() {
@@ -101,7 +101,7 @@ throwing any sudden exceptions from it
 
 The next step is to call a C function pointer from a C pointer that we have from the `supply_fun()` call:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun myFun2() {

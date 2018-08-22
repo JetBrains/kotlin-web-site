@@ -40,7 +40,7 @@ The best way to understand the mapping between C and Kotlin languages is to try 
 a small library headers for that. First, we need to create a `lib.h` file with the following
 declaration of functions that deal with the C strings:
 
-<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```c
 #ifndef LIB2_H_INCLUDED
@@ -63,9 +63,12 @@ C and Kotlin languages. It uses a `.def` file to specify a library headers to im
 you may check [Interop with C Libraries](interop-with-c.html) tutorial.
 We create the following `lib.def` file:
 
+<div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```c 
 headers = lib.h
 ``` 
+</div>
 
 Now we call:  
 ```bash
@@ -74,7 +77,7 @@ klib contents lib.klib
 ```
 and it prints the following Kotlin API for our C library declarations:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun pass_string(str: CValuesRef<ByteVar /* = ByteVarOf<Byte> */>?)
@@ -95,7 +98,7 @@ is nullable, and we can simply pass Kotlin `null` as the parameter value.
 
 Let's try to use the API from Kotlin. Let's call `pass_string` first:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun passStringToC() {
@@ -115,7 +118,7 @@ need UTF-16 wide characters.
 This time we take a returned `char *` from the `return_string` function and turn it into
 a Kotlin string. For that we do the following in Kotlin:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun passStringToC() {
@@ -129,7 +132,7 @@ fun passStringToC() {
 we use the `toKString()` extension function above. Please do not miss out the
 `toString()` function. The `toKString()` has two overloaded extension functions in Kotlin:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun CPointer<ByteVar>.toKString(): String
@@ -148,7 +151,7 @@ is called `copy_string`. It takes a pointer to the location writing characters a
 the allowed buffer size. The function returns something to indicate if it has succeeded or failed.
 Let's assume `0` means it succeeded and the supplied buffer was big enough:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun sendString() {
