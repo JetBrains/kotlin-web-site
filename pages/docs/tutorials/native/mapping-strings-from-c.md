@@ -16,29 +16,29 @@ There are also [Mapping Struct and Union Types from C](mapping-struct-union-type
  
 In that tutorial we see how to deal with C strings in Kotlin/Native.
 You will learn how to:
-- [pass Kotlin string to C](#passing-kotlin-string-to-c)
-- [read C string in Kotlin](#reading-c-string-in-kotlin)
-- [receive C string bytes into Kotlin string](#receiving-c-string-bytes-from-kotlin)
+- [Pass a Kotlin string to C](#passing-kotlin-string-to-c)
+- [Read a C string in Kotlin](#reading-c-string-in-kotlin)
+- [Receive C string bytes into a Kotlin string](#receiving-c-string-bytes-from-kotlin)
 
 We need to have a Kotlin compiler on our machines. 
-You may have a look at the
+You may want to take a look at the
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial for more information on performing this step.
-Let's assume we have a console, where `kotlinc`, `cinterop` and `klib` commands are available. 
+Let's assume we have a console, where the `kotlinc`, `cinterop`, and `klib` commands are available. 
 
 ## Working with C strings
 
 There is no dedicated type in C language for strings. A developer knows from a method 
-signature or documentation, if a given `char *` means a C string in the context. 
-Strings in C language are null-terminated, one adds a trailing zero character `\0` at the 
+signature or the documentation whether a given `char *` means a C string in the context. 
+Strings in the C language are null-terminated, a trailing zero character `\0` is added at the 
 end of a bytes sequence to mark a string termination.
-Usually, one uses [UTF-8 encoded strings](https://en.wikipedia.org/wiki/UTF-8). The UTF-8 encoding uses
+Usually, [UTF-8 encoded strings](https://en.wikipedia.org/wiki/UTF-8) are used. The UTF-8 encoding uses
 variable width characters and it is backward compatible with [ASCII](https://en.wikipedia.org/wiki/ASCII).
-Kotlin/Native uses UTF-8 character encoding my default.
+Kotlin/Native uses UTF-8 character encoding by default.
 
-The best way to understand the mapping between C and Kotlin languages is to try it on a small example. We create
-a small library headers for that. First, we need to create `lib.h` file with the following
-declaration of functions that deals with C strings:
+The best way to understand the mapping between C and Kotlin languages is to try it out on a small example. We create
+a small library headers for that. First, we need to create a `lib.h` file with the following
+declaration of functions that deal with the C strings:
 
 <div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -54,11 +54,11 @@ int copy_string(char* str, int size);
 ```  
 </div>
 
-In the example we have the most popular ways one passes or receives a string in C language. We should
-take the return of `return_string` with care. In general, it is the best to make sure we
+In the example we have the most popular ways to pass or receive a string in the C language. We should
+take the return of `return_string` with care. In general, it is best to make sure we
 use the right function to dispose the returned `char*` with the right `free(..)` function call.
 
-Kotlin/Native comes with the `cinterop` tool, the tool to generate bindings between 
+Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between 
 C and Kotlin languages. It uses a `.def` file to specify a library headers to import. For more details
 you may check [Interop with C Libraries](interop-with-c.html) tutorial.
 We create the following `lib.def` file:
@@ -84,7 +84,7 @@ fun copy_string(str: CValuesRef<ByteVar /* = ByteVarOf<Byte> */>?, size: Int): I
 ```
 </div>
 
-Those declarations look clear. All `char *` pointers are turned into `str: CValuesRef<ByteVar>?` for
+These declarations look clear. All `char *` pointers are turned into `str: CValuesRef<ByteVar>?` for
 parameters and to `CPointer<ByteVar>?` in return types. Kotlin turns `char` type into `kotlin.Byte` type,
 as it is usually an 8-bit unsigned value.
 
@@ -105,14 +105,14 @@ fun passStringToC() {
 ```
 </div>
 
-Passing a Kotlin string to C is easy, thanks we have `String.cstr` 
+Passing a Kotlin string to C is easy, thanks to the fact that we have `String.cstr` 
 [extension property](../reference/extensions.html#extension-properties)
-in Kotlin for it. There is also `String.wcstr` for the case you
+in Kotlin for it. There is also `String.wcstr` for cases where you
 need UTF-16 wide characters.
 
-## Reading C string in Kotlin
+## Reading C strings in Kotlin
 
-This time we turn a returned `char *` from `return_string` function into
+This time we take a returned `char *` from the `return_string` function and turn it into
 a Kotlin string. For that we do the following in Kotlin:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -126,8 +126,8 @@ fun passStringToC() {
 ``` 
 </div>
 
-we use `toKString()` extension function above. Please do not miss that one with
-`toString()` function. The `toKString()` have two overloaded extension functions in Kotlin:
+we use the `toKString()` extension function above. Please do not miss out the
+`toString()` function. The `toKString()` has two overloaded extension functions in Kotlin:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -137,15 +137,15 @@ fun CPointer<ShortVar>.toKString(): String
 ```
 </div>
 
-The first one takes a `char *` as UTF-8 string and turns it into String.
-The second function does the same for wide, UTF-16 strings.
+The first one takes a `char *` as a UTF-8 string and turns it into String.
+The second function does the same but for wide, UTF-16 strings.
 
 
 ## Receiving C string bytes from Kotlin
 
-This time we ask a C function to write us a C string to a given buffer. The function
-is called `copy_string`. It takes a pointer to the location to write characters and 
-the allowed buffer size. The function returns something to indicate it succeeded of failed.
+This time we will ask a C function to write us a C string to a given buffer. The function
+is called `copy_string`. It takes a pointer to the location writing characters and
+the allowed buffer size. The function returns something to indicate if it has succeeded or failed.
 Let's assume `0` means it succeeded and the supplied buffer was big enough:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -167,7 +167,7 @@ fun sendString() {
 </div>
 
 First of all, we need to have a native pointer to pass
-to the C function. We use `usePinned` extension function
+to the C function. We use the `usePinned` extension function
 to temporarily pin the native memory address of the
 byte array. The C function fills in the
 byte array with the data. We use another extension 
@@ -182,5 +182,5 @@ in previous tutorials:
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 
-You may also have a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+You may also want to have a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
 for more advanced scenarios.
