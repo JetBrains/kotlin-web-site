@@ -75,7 +75,7 @@ typealias MyFunVar = kotlinx.cinterop.CPointerVarOf<lib.MyFun>
 We see that our function typedef from C has been turned into Kotlin `typealias`. It uses `CPointer<..>` type
 to represent the pointer parameters, and `CFunction<(Int)->Int>` to represent the function signature. 
 There is an `invoke` operator extension function available for all `CPointer<CFunction<..>` types, so that 
-it is possible to call it as you would any other function in Kotlin. 
+it is possible to call it as you would call any other function in Kotlin. 
 
 ## Passing Kotlin Function as C Function Pointer
 

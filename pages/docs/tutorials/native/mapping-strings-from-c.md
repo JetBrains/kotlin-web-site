@@ -17,7 +17,7 @@ There are also [Mapping Struct and Union Types from C](mapping-struct-union-type
 In that tutorial we see how to deal with C strings in Kotlin/Native.
 You will learn how to:
 - [Pass a Kotlin string to C](#passing-kotlin-string-to-c)
-- [Read a C string in Kotlin](#reading-c-string-in-kotlin)
+- [Read a C string in Kotlin](#reading-c-strings-in-kotlin)
 - [Receive C string bytes into a Kotlin string](#receiving-c-string-bytes-from-kotlin)
 
 We need to have a Kotlin compiler on our machines. 
@@ -110,7 +110,7 @@ Passing a Kotlin string to C is easy, thanks to the fact that we have `String.cs
 in Kotlin for it. There is also `String.wcstr` for cases where you
 need UTF-16 wide characters.
 
-## Reading C strings in Kotlin
+## Reading C Strings in Kotlin
 
 This time we take a returned `char *` from the `return_string` function and turn it into
 a Kotlin string. For that we do the following in Kotlin:
