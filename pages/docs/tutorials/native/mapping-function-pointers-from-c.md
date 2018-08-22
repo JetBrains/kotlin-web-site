@@ -15,8 +15,8 @@ This is the third post in the series. You might want to begin with the very firs
 [Mapping Strings from C](mapping-strings-from-c.html) tutorials.
 
 In this tutorial you will learn how to:
-- [pass Kotlin function as C function pointer](#passing-kotlin-function-as-c-function-pointer)
-- [use C function pointer from Kotlin](#using-c-function-pointer-from-kotlin)
+- [Pass Kotlin function as C function pointer](#passing-kotlin-function-as-c-function-pointer)
+- [Use C function pointer from Kotlin](#using-c-function-pointer-from-kotlin)
 
 We need to have a Kotlin compiler on our machines. 
 You may want to have a look at the
