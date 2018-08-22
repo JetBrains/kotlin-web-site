@@ -37,7 +37,7 @@ The best way to see what C data types are visible in Kotlin is to try it
 ## An Example C Library
 
 We create a `lib.h` file to see how C functions are mapped into Kotlin:
-<div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```c
 #ifndef LIB2_H_INCLUDED
@@ -61,10 +61,12 @@ It is only necessary to have a `.h` file to run the `cinterop` tool. And we do n
 We still need to create a `.def` file to the `cinterop`. For more details on this,
 you may want to check out [Interop with C Libraries](interop-with-c.html). It is enough for
 the tutorial to create the `lib.def` file with the following content:
+<div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```c
 headers = lib.h
 ```
+</div>
 
 We could have avoided creating the `.h` file and placed declarations
 directly to the `.def` file. This is what we do in the [next tutorial](mapping-struct-union-types-from-c.html).
@@ -92,7 +94,7 @@ command prints the API of the library to the console.
 
 From `cinterop` and `klib` calls we see the following API:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
 fun doubles(a: Float, b: Double)
