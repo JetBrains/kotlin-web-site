@@ -109,7 +109,7 @@ fun passStringToC() {
 </div>
 
 Passing a Kotlin string to C is easy, thanks to the fact that we have `String.cstr` 
-[extension property](../reference/extensions.html#extension-properties)
+[extension property](../../reference/extensions.html#extension-properties)
 in Kotlin for it. There is also `String.wcstr` for cases where you
 need UTF-16 wide characters.
 
