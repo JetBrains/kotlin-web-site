@@ -114,7 +114,7 @@ fun myFun2() {
 </div>
 
 Kotlin turns the function pointer return type into a nullable `CPointer<CFunction<..>` object. There is the need
-to explicitly check for `null` first. We use [elvis operator](../reference/null-safety.html) for that.
+to explicitly check for `null` first. We use [elvis operator](../../reference/null-safety.html) for that.
 The `cinterop` tool helps us to turn a C function pointer into an easy to call object in Kotlin. That is
 what we did with the last line
 
