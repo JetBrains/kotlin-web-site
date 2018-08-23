@@ -16,7 +16,7 @@ This is the third post in the series. You might want to begin with the very firs
 
 In this tutorial you will learn how to:
 - [Pass Kotlin function as C function pointer](#passing-kotlin-function-as-c-function-pointer)
-- [Use C function pointer from Kotlin](#using-c-function-pointer-from-kotlin)
+- [Use C function pointer from Kotlin](#using-the-c-function-pointer-from-kotlin)
 
 We need to have a Kotlin compiler on our machines. 
 You may want to have a look at the
