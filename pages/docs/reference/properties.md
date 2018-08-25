@@ -131,7 +131,8 @@ When using a `var` the behavior is almost the same except that the computed valu
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-var isEmpty get() = this.size == 0  // Computed on every access.
+var isEmpty = false
+    get() = this.size == 0 // Computed on every access.
 var isEmpty = this.size == 0 // Computed at time of assignment and stored (until overwritten).
 ```
 </div>
