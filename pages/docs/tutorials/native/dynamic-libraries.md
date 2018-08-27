@@ -9,11 +9,11 @@ showAuthorInfo: false
 issue: EVAN-5371
 ---
 
-In the tutorial, we see how to use a Kotlin/Native code from
-existing native applications or libraries. For that, we 
+In this tutorial, we look at how we can use a Kotlin/Native code from
+existing native applications or libraries. For this, we need to
 compile our Kotlin code into a dynamic library, `.so`, `.dylib` and `.dll`.
 
-Do you target an Apple platform? You may want to see the 
+Do you target an Apple platform? You may want to check out the 
 [Kotlin/Native as an Apple Framework](apple-framework.html)
 tutorial.
 
@@ -28,14 +28,14 @@ In this tutorial, we will:
 
 Kotlin/Native compiler can produce a dynamic
 library out of the Kotlin code we have.
-A created dynamic library often comes with a header file, an `.h` file,
-which we use to call compiled code from C
+A dynamic library often comes with a header file, an `.h` file,
+which we will use to call compiled code from C
 
-The best way to understand the techniques is to try those techniques. 
-Let's create a tiny Kotlin library first and use it from C program 
+The best way to understand these techniques is to try them out. 
+Let's create a tiny Kotlin library first and use it from a C program 
 then. 
 
-Let's create a library file in Kotlin and save it as `lib.kt`:
+We can start by creating a library file in Kotlin and save it as `lib.kt`:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -58,12 +58,12 @@ val globalString = "A global String"
 </div>
 
 We need to have a Kotlin/Native compiler on our machines. 
-You may have a look at the
+You may want to have a look at the
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial for more information on performing this step.
-Let's assume we have a console, where the `kotlinc` command is available. 
+Let's assume that we have a console, where the `kotlinc` command is available. 
 
-Now we call the following command to compile the code into a dynamic library:
+Now we can call the following command to compile the code into a dynamic library:
 ```bash
 kotlinc lib.kt -produce dynamic -output demo
 ```
@@ -79,7 +79,7 @@ Let's check the C API for our Kotlin code in the `demo_api.h`
 ## Generated Headers File
 
 In the `demo_api.h` (with Kotlin/Native v0.8.2) you'll find the following code. 
-We discuss the code in parts to understand it easier.
+We will discuss the code in parts to make it easier to understand.
 
 Note, the way Kotlin/Native exports symbols is subject to change without notice.
 
@@ -94,7 +94,7 @@ The very first part contains the standard C/C++ header and footer:
 extern "C" {
 #endif
 
-/// HERE GOES THE REST OF THE GENERATED CODE
+/// THE REST OF THE GENERATED CODE GOES HERE
 
 #ifdef __cplusplus
 }  /* extern "C" */
@@ -103,7 +103,7 @@ extern "C" {
 ```
 </div>
 
-After the rituals in the `demo_api.h` we have the block with common type definitions:
+After the rituals in the `demo_api.h` we have a block with the common type definitions:
 
 <div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -125,11 +125,11 @@ struct demo_KType;
 ``` 
 </div>
 
-Kotlin uses `demo_` prefix from the library name to make sure
+Kotlin uses the `demo_` prefix from the library name to make sure
 the symbols will not clash with other symbols in your C codebase.
 
 The definitions part shows how Kotlin primitive types map into C primitive types. 
-We discussed the reverse mapping the [C TYPES TUTORIAL] tutorial, 
+We discussed reverse mapping in the [C TYPES TUTORIAL] tutorial, 
 which you may want to check out. 
 
 The next part of the `demo_api.h` file contains definitions of types
@@ -149,16 +149,16 @@ typedef struct {
 </div>
 
 The `typedef struct { .. } TYPE_NAME` syntax is used in C language to declare a structure. 
-You may want to check [the thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions)
+You may want to take a look at [the thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions)
 for an explanation of that pattern.
 
-We see from those definitions that Kotlin object `DemoObject` is mapped into
+We see from these definitions that the Kotlin object `DemoObject` is mapped into
 `demo_kref_demo_DemoObject` and `DemoClazz` is mapped into `demo_kref_demo_DemoClazz`.
 Both structs contain nothing but the `pinned` field with a pointer, the field type 
 `demo_KNativePtr` is defined as `void*` above. 
 
 There is no namespaces support in C so that Kotlin/Native compiler generates 
-long names to avoid a possible clash with other symbols of your native project.
+long names to avoid a possible clashes with other symbols from your native project.
 
 The most significant part of definitions goes further in the `demo_api.h` file.
 It includes the definition of our Kotlin/Native library world:
@@ -199,13 +199,13 @@ anonymous structure type, the type with no name.
 
 C does not support objects too. People use function pointers to mimic 
 object semantics. A function pointer is declared as follows `RETURN_TYPE (* FIELD_NAME)(PARAMETERS)`.
-It reads tricky, but we should be able to see function pointer fields in the structures above. 
+It is tricky to read, but we should be able to see function pointer fields in the structures above. 
 
 ### Runtime Functions
 
 The code reads as follows. We have the `demo_ExportedSymbols` structure which defines
-all functions that Kotlin/Native and our library provides to us. It heavily uses 
-nested anonymous structures to mimic packages.
+all the functions that Kotlin/Native and our library provides to us. It uses 
+nested anonymous structures heavily to mimic packages.
 
 The `demo_ExportedSymbols` structure contains several helper functions:
 
@@ -218,14 +218,14 @@ demo_KBoolean (*IsInstance)(demo_KNativePtr ref, const demo_KType* type);
 ```
 </div>
 
-Those functions deal with Kotlin/Native objects. One calls 
+These functions deal with Kotlin/Native objects. Call the 
 `DisposeStablePointer` to release a Kotlin object and `DisposeString` to release Kotlin String, 
-which has the `char*` type in C. One may use the `IsInstance` function to check, if a
-Kotlin type, a `demo_KNativePtr` is an instance of another type. The actual set of
+which has the `char*` type in C. It is possible to use the `IsInstance` function to check if a
+Kotlin type or a `demo_KNativePtr` is an instance of another type. The actual set of
 operations generated depend on the actual usage of your code.
  
-Kotlin/Native has garbage collection, but it does not help to deal
-with Kotlin objects from C language. Kotlin/Native has interop with Objective-C and 
+Kotlin/Native has garbage collection, but it does not help deal
+with Kotlin objects from the C language. Kotlin/Native has interop with Objective-C and 
 Swift and integrates with their reference counters. You may want to find more details
 in the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
 documentation or to check the related tutorial named [Kotlin/Native as an Apple Framework](apple-framework.html).
@@ -233,29 +233,29 @@ documentation or to check the related tutorial named [Kotlin/Native as an Apple 
 ### Our Library Functions
 
 Let's take a look on the `kotlin.root.demo` field, it
-mimics the package structure of our Kotlin code with `kotlin.root.` prefix.
+mimics the package structure of our Kotlin code with a `kotlin.root.` prefix.
 
-There is `kotlin.root.demo.DemoClazz` field that 
+There is a `kotlin.root.demo.DemoClazz` field that 
 represents the `DemoClazz` from Kotlin. The `DemoClazz#foo` is
 accessible with the `foo` field. The only difference is that 
 the `foo` accepts `this` reference as the first parameter. 
-C language does not support objects, and that is the reason to pass
+C language does not support objects, and that is the reason to pass a
 `this` pointer explicitly.
 
-There is constructor the `DemoClazz` field (aka `kotlin.root.demo.DemoClazz.DemoClazz`),
+There is a constructor in the `DemoClazz` field (aka `kotlin.root.demo.DemoClazz.DemoClazz`),
 which is the constructor function to create an instance of the `DemoClazz`.
 
 Properties are translated into functions too. The `get_` and `set_` prefix
 is used to name the getter and the setter functions respectively. For example, 
 the read-only property `globalString` from Kotlin is turned 
-into the `get_globalString` function in C. 
+into a `get_globalString` function in C. 
 
-Global functions `ints`, `floats` or `strings` are turned into functions pointers in
+Global functions `ints`, `floats`, or `strings` are turned into the functions pointers in
 the `kotlin.root.demo` anonymous struct.
  
 ### The Entry Point
 
-We see how API is created. To start with, we need to initialize the 
+We can see how the API is created. To start with, we need to initialize the 
 `demo_ExportedSymbols` structure. Let's take a look at the latest part 
 of the `demo_api.h` for that:
 
@@ -263,9 +263,9 @@ of the `demo_api.h` for that:
 extern demo_ExportedSymbols* demo_symbols(void);
 ```
 
-The function `demo_symbols` allows us to open the door from a native 
-code to Kotlin/Native library. That is the entry point we use. The 
-library name is used as the prefix for the function name. 
+The function `demo_symbols` allows us to open the door from the native 
+code to the Kotlin/Native library. That is the entry point we use. The 
+library name is used as a prefix for the function name. 
 
 
 Note, Kotlin/Native object references do not support multi-threaded access. 
@@ -274,7 +274,7 @@ per thread might be necessary.
 
 ## Using Generated Headers from C
 
-The usage from C not complicated and straightforward. We create a `main.c` file with the following 
+The usage from C is straightforward and uncomplicated. We create a `main.c` file with the following 
 code: 
 
 <div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -317,29 +317,29 @@ with the following command:
 clang main.c libdemo.dylib
 ```
 
-On Linux we call the similar command: 
+On Linux we call a similar command: 
 ```bash
 gcc main.c libdemo.so
 ```
 
-The compiler generates the executable called `a.out`. We run it to see Kotlin code
+The compiler generates an executable called `a.out`. We need to run it to see Kotlin code
 being executed from C library in action. On Linux, we'll need to include `.` into the `LD_LIBRARY_PATH`
-to let the application to load the `libdemo.so` library from the current folder.
+to let the application know to load the `libdemo.so` library from the current folder.
 
 ## Compiling and Running the Example on Windows
 
-To start with, you'll need Microsoft Visual C++ compiler installed and support x64_64 
-target. The easiest way is to have a version of Microsoft Visual Studio installed on 
+To start with, you'll need a Microsoft Visual C++ compiler installed that supports a x64_64 
+target. The easiest way to do this is to have a version of Microsoft Visual Studio installed on 
 your Windows machine. 
 
-We will be using `x64 Native Tools Command Prompt <VERSION>` console. You'll see the 
+We will be using the `x64 Native Tools Command Prompt <VERSION>` console. You'll see the 
 shortcut to open the console in the start menu. It comes with a Microsoft Visual Studio
 package.  
 
 On Windows, Dynamic libraries are included either via a generated static library wrapper
-or with a manual code which deals with the [LoadLibrary](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684175.aspx)
+or with manual code which deals with the [LoadLibrary](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684175.aspx)
 or similar Win32API functions. We will follow the first option and generate the static wrapper library
-for the `demo.dll` by our owns.
+for the `demo.dll` on our own.
  
 We call `lib.exe` from the toolchain to generate the static library 
 wrapper `demo.lib` that automates the DLL usage from the code:
@@ -353,16 +353,16 @@ the build command and start:
 cl.exe main.c demo.lib
 ```
 
-The command produces the `main.exe` file, which we may run.
+The command produces the `main.exe` file, which we can run.
  
 
 ## Next Steps
 
 Dynamic libraries are the main ways to use Kotlin code from existing programs. 
-You may use them share your code with many platforms or languages, including JVM,
+You may use them to share your code with many platforms or languages, including JVM,
 [Python](https://github.com/JetBrains/kotlin-native/blob/master/samples/python_extension/src/main/c/kotlin_bridge.c),
 iOS, Android, and others.
 
 Kotlin/Native also has tight integration with Objective-C and Swift. 
-You may want to check the [Kotlin/Native as an Apple Framework](apple-framework.html)
+You may want to check out the [Kotlin/Native as an Apple Framework](apple-framework.html)
 tutorial.
