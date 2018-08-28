@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title: "Mixing Java and Kotlin in one project"
-description: "This tutorials walks us through the process of using Java and Kotlin in a single IntelliJ IDEA project."
+description: "This tutorial walks us through the process of using Java and Kotlin in a single IntelliJ IDEA project."
 authors: Hadi Hariri
 showAuthorInfo: false
 date: 2014-09-23
