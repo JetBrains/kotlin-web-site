@@ -262,7 +262,7 @@ fun foo(param: Int) {
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun arrayOfMinusOnes(size: Int): IntArray {
-    return IntArray(size).apply { fill(-1) }
+    return IntArray(size) { -1 }
 }
 ```
 </div>
