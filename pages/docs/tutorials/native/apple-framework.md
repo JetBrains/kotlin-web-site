@@ -23,7 +23,7 @@ We will build a framework from Kotlin code.
 
 In this tutorial we'll: 
 - [create a Kotlin Library](#creating-a-kotlin-library) and compile it to a framework
-- examine the generated [Objective-C and Swift API](#generated-framework-headers)
+- examine the generated [Objective-C and Swift API](#generated-framework-headers) code
 - use the framework from [Objective-C](#using-the-code-from-objective-c) and [Swift](#using-the-code-from-swift)
 - [Configure XCode](#xcode-and-framework-dependencies) to use the framework for [macOS](#xcode-for-macos-target) and [iOS](#xcode-for-ios-targets)
    
