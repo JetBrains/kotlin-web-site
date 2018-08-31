@@ -62,7 +62,7 @@ fun strings(str: String?) : String {
 }
 
 fun acceptFun(f: (String) -> String?) = f("Kotlin/Native rocks!")
-fun supplyFun() : FunFunction = { "$it is cool!" }
+fun supplyFun() : (String) -> String? = { "$it is cool!" }
 ```
 </div>
 
