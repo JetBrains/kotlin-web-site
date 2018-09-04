@@ -345,7 +345,7 @@ The iOS emulator requires a framework compiled for the `ios_arm64` target, the `
 in our case.
 You may want to read up on iOS frameworks from
 [the Stack Overflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin).
-[CocoaPods](https://cocoapods.org/] package manager may be helpful to automate the process too.
+[CocoaPods](https://cocoapods.org/) package manager may be helpful to automate the process too.
 
 # Next Steps
 
