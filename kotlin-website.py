@@ -65,9 +65,43 @@ def get_site_data():
 site_data = get_site_data()
 
 
+def process_nav_includes(data):
+    if isinstance(data, list):
+        for item in data:
+            process_nav_includes(item)
+
+    if isinstance(data, dict):
+        include_key = '@include'
+        prefix_key = '@prefix'
+
+        if include_key in data:
+            include = data[include_key]
+            del data[include_key]
+
+            with open(path.join(root_folder, 'pages', include.lstrip("/"))) as stream:
+                patch = yaml.load(stream)
+                assert isinstance(patch, list)
+
+                if prefix_key in data:
+                    prefix = data[prefix_key]
+                    del data[prefix_key]
+                    for item in patch:
+                        if isinstance(item, dict) and 'url' in item:
+                            item['url'] = prefix.rstrip("/") + "/" + item['url'].lstrip("/")
+
+                data['content'] = patch
+
+        else:
+            for item in data.values():
+                process_nav_includes(item)
+
+
 def get_nav():
     with open(path.join(data_folder, "_nav.yml")) as stream:
-        return process_nav(yaml.load(stream))
+        nav = yaml.load(stream)
+        process_nav_includes(nav)
+        process_nav(nav)
+        return nav
 
 
 def get_kotlin_features():
