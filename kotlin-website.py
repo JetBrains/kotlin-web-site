@@ -222,8 +222,13 @@ def process_page(page_path):
         if page.meta['formatted_date'].startswith('0'):
             page.meta['formatted_date'] = page.meta['formatted_date'][1:]
 
-    edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + app.config[
-        'FLATPAGES_EXTENSION']
+    if 'github_edit_url' in page.meta:
+        edit_on_github_url = page.meta['github_edit_url']
+    else:
+        edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + app.config['FLATPAGES_EXTENSION']
+
+    assert edit_on_github_url.startswith('https://github.com/JetBrains/kotlin'), 'Check edit_on_github_url for ' + page_path
+
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):
         template += ".html"
