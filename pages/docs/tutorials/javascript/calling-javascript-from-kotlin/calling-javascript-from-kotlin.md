@@ -63,29 +63,30 @@ fun main(args: Array<String>) {
 
 which would set the HTML of the `div` with id `message`
 
+<div class="sample" markdown="1" theme="idea" mode="xml">
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sample</title>
-</head>
-<body>
-<div id="message">
-</div>
-    <script type="text/javascript" src="src/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="src/kotlin.js"></script>
-    <script type="text/javascript" src="src/main.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sample</title>
+    </head>
+    <body>
+        <div id="message" />
+        <script type="text/javascript" src="src/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="src/kotlin.js"></script>
+        <script type="text/javascript" src="src/main.js"></script>
+    </body>
 </html>
 ```
+</div>
 
 ## Invoking JavaScript-only members
 
 There are cases in which we want to invoke some method that only exists in JavaScript. For instance, let's assume we want to use the [DataTables](https://datatables.net/) jQuery plugin that creates a grid out of a table. This plugin requires
 us to invoke `Datatable()` on a DOM table element.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="js">
 ```javascript
     $('#table').DataTable();
 ```
@@ -117,7 +118,7 @@ fun main(args: Array<String>) {
 
 At runtime, the call will be mapped to the same member invocation.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="js">
 ```javascript
 var workingWithJavaScript = function (Kotlin) {
   'use strict';
