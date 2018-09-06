@@ -148,7 +148,10 @@ def process_nav_includes(data):
                 if not os.path.isdir(target_dir):
                     os.makedirs(target_dir, mode=0o777)
 
-                os.symlink(source_item, target_item)
+                if build_mode:
+                    shutil.copyfile(source_item, target_item)
+                else:
+                    os.symlink(source_item, target_item)
 
             pprint.pprint(content)
             data['content'] = content
