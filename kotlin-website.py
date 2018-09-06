@@ -41,6 +41,8 @@ url_adapter = app.create_url_adapter(None)
 root_folder = path.join(os.path.dirname(__file__))
 data_folder = path.join(os.path.dirname(__file__), "data")
 
+nav_cache = None
+
 
 def get_site_data():
     data = {}
@@ -159,21 +161,10 @@ def process_nav_includes(data):
             process_nav_includes(item)
 
 
-_nav_cache = None
-
-
 def get_nav():
-    if _nav_cache is not None:
-        return _nav_cache
+    if nav_cache is not None:
+        return nav_cache
 
-    nav = get_nav_impl()
-    if build_mode:
-        __nav_cache = nav
-
-    return nav
-
-
-def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
         nav = yaml.load(stream)
         process_nav_includes(nav)
@@ -443,6 +434,9 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         if sys.argv[1] == "build":
             build_mode = True
+
+            nav_cache = get_nav()
+
             urls = freezer.freeze()
             generate_sitemap(urls)
             if len(build_errors) > 0:
