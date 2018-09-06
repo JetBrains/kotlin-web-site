@@ -1,6 +1,9 @@
 import datetime
 import json
 import os
+import pprint
+import re
+import shutil
 import sys
 from os import path
 from urllib.parse import urlparse, urljoin
@@ -71,29 +74,86 @@ def process_nav_includes(data):
             process_nav_includes(item)
 
     if isinstance(data, dict):
-        include_key = '@include'
-        prefix_key = '@prefix'
+        external_key = 'external'
 
-        if include_key in data:
-            include = data[include_key]
-            del data[include_key]
+        if external_key in data:
+            external_spec = data[external_key]
 
-            with open(path.join(root_folder, 'pages', include.lstrip("/"))) as stream:
-                patch = yaml.load(stream)
-                assert isinstance(patch, list)
+            print("Detected external: ", external_spec)
+            external_base = external_spec['base']
+            external_path = external_spec['path']
+            external_nav = external_spec['nav']
+            external_repo = external_spec['repo']
+            del data[external_key]
 
-                if prefix_key in data:
-                    prefix = data[prefix_key]
-                    del data[prefix_key]
-                    for item in patch:
-                        if isinstance(item, dict) and 'url' in item:
-                            item['url'] = prefix.rstrip("/") + "/" + item['url'].lstrip("/")
+            target_external_path = path.join(root_folder, 'pages', external_base.lstrip("/"))
+            source_external_path = path.join(root_folder, 'external', external_path.lstrip("/"))
 
-                data['content'] = patch
+            nav_file = path.join(source_external_path, external_nav.lstrip("/"))
 
-        else:
-            for item in data.values():
-                process_nav_includes(item)
+            print("External repo:       ", external_repo)
+            print("External nav file:   ", nav_file)
+            print("External source dir: ", source_external_path)
+            print("External target dir: ", target_external_path)
+
+            if not os.path.isfile(nav_file):
+                if build_mode:
+                    raise "File " + nav_file + " is not found, clone " \
+                                               + external_repo + " to " + source_external_path
+                else:
+                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    print("!!!! Cannot locate external sources for path ")
+                    print("!!!! " + external_path)
+                    print("!!!! Please make sure you checked out the external repository")
+                    print("!!!! " + external_repo)
+                    print("!!!! to ")
+                    print("!!!! " + source_external_path)
+                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+            with open(nav_file) as stream:
+                external_yml = yaml.load(stream)
+                assert isinstance(external_yml, list)
+
+            if os.path.isdir(target_external_path):
+                print("Wipe target path: ", target_external_path)
+                shutil.rmtree(target_external_path)
+
+            content = []
+            for item in external_yml:
+                title: str = item['title']
+                url: str = item['url']
+                md: str = item['md']
+                html = external_base.rstrip("/") + "/" + url.lstrip("/")
+
+                assert md.endswith(".md"), "md path " + md + " must have `.md` extension"
+                assert url.endswith(".html"), "url path " + url + "must have `.html` extension, no matter you have " \
+                                                                  "`.md` file instead "
+
+                content.append({
+                    'url': html,
+                    'title': title
+                })
+
+                ext_fix = re.compile('\.html$')
+                source_item = path.join(source_external_path, md.lstrip('/'))
+                target_name = ext_fix.sub(".md", url.lstrip('/'))
+                target_item = path.join(target_external_path, target_name)
+                target_dir = os.path.dirname(target_item)
+
+                print("Copy external ", source_item)
+                print("         into ", target_item)
+                print("          for ", html)
+
+                if not os.path.isdir(target_dir):
+                    os.makedirs(target_dir, mode=0o777)
+
+                os.symlink(source_item, target_item)
+
+            pprint.pprint(content)
+            data['content'] = content
+
+        for item in data.values():
+            process_nav_includes(item)
 
 
 def get_nav():
