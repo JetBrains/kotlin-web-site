@@ -98,8 +98,8 @@ def process_nav_includes(data):
 
             if not os.path.isfile(nav_file):
                 if build_mode:
-                    raise "File " + nav_file + " is not found, clone " \
-                                               + external_repo + " to " + source_external_path
+                    raise Exception("File " + nav_file + " is not found, clone "
+                                    + external_repo + " to " + source_external_path)
                 else:
                     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                     print("!!!! Cannot locate external sources for path ")
