@@ -1,6 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
-
+<event>
+        <lang>en</lang>
+        <startDate>2018-10-05</startDate>
+        <endDate>2018-10-05</endDate>
+        <location>Krakow, Poland</location>
+        <speaker>Ivan Morgillo</speaker>
+        <title>MobiConf 2018</title>
+        <subject>Kotlin coroutines – A story of an old code base, dozens of reactive streams, a new language and a new way for concurrency.</subject>
+        <url>https://2018.mobiconf.org/schedule/</url>
+        <description>
+            <![CDATA[
+<p>In a world dominated by RX and Java based code bases, JetBrains introduced Kotlin and coroutines - a simpler way to do multithreading.</p>
+<p>This is the story of how I migrated an old project from a monolithic Java mess with improperly used RxJava to a cleaner architecture, based on Kotlin, coroutines and common sense.</p>
+]]>
+     </description>
+         </event>
    <event>
         <lang>en</lang>
         <startDate>2018-06-14</startDate>
