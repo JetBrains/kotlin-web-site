@@ -109,6 +109,7 @@ def process_nav_includes(data):
                     print("!!!! to ")
                     print("!!!! " + source_external_path)
                     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    return
 
             with open(nav_file) as stream:
                 external_yml = yaml.load(stream)
