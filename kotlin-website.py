@@ -320,6 +320,7 @@ def process_page(page_path):
             href = urlparse(urljoin('/' + page_path, link['href']))
             if href.scheme != '':
                 continue
+
             endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
             if endpoint != 'page' and endpoint != 'get_index_page':
                 response = app.test_client().get(href.path)
@@ -330,12 +331,15 @@ def process_page(page_path):
             referenced_page = pages.get(params['page_path'])
             if referenced_page is None:
                 build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
+                continue
+
             if href.fragment == '':
                 continue
 
             ids = map(lambda x: x['id'], referenced_page.parsed_html.select('h1,h2,h3,h4'))
             if href.fragment not in ids:
                 build_errors.append("Bad anchor: " + str(href.fragment) + " on page " + page_path)
+
     return render_template(
         template,
         page=page,
