@@ -141,9 +141,9 @@ def process_nav_includes(data):
                 target_item = path.join(target_external_path, target_name)
                 target_dir = os.path.dirname(target_item)
 
-                print("Copy external ", source_item)
-                print("         into ", target_item)
-                print("          for ", html)
+                # print("Copy external ", source_item)
+                # print("         into ", target_item)
+                # print("          for ", html)
 
                 if not os.path.isdir(target_dir):
                     os.makedirs(target_dir, mode=0o777)
@@ -153,14 +153,27 @@ def process_nav_includes(data):
                 else:
                     os.symlink(source_item, target_item)
 
-            pprint.pprint(content)
             data['content'] = content
 
         for item in data.values():
             process_nav_includes(item)
 
 
+_nav_cache = None
+
+
 def get_nav():
+    if _nav_cache is not None:
+        return _nav_cache
+
+    nav = get_nav_impl()
+    if build_mode:
+        __nav_cache = nav
+
+    return nav
+
+
+def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
         nav = yaml.load(stream)
         process_nav_includes(nav)
@@ -289,9 +302,11 @@ def process_page(page_path):
     if 'github_edit_url' in page.meta:
         edit_on_github_url = page.meta['github_edit_url']
     else:
-        edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + app.config['FLATPAGES_EXTENSION']
+        edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + \
+                             app.config['FLATPAGES_EXTENSION']
 
-    assert edit_on_github_url.startswith('https://github.com/JetBrains/kotlin'), 'Check edit_on_github_url for ' + page_path
+    assert edit_on_github_url.startswith(
+        'https://github.com/JetBrains/kotlin'), 'Check edit_on_github_url for ' + page_path
 
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):
