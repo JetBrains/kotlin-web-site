@@ -312,33 +312,43 @@ def process_page(page_path):
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):
         template += ".html"
-    if build_mode:
-        for link in page.parsed_html.select('a'):
-            if 'href' not in link.attrs:
-                continue
 
-            href = urlparse(urljoin('/' + page_path, link['href']))
-            if href.scheme != '':
-                continue
+    for link in page.parsed_html.select('a'):
+        if 'href' not in link.attrs:
+            continue
 
-            endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
-            if endpoint != 'page' and endpoint != 'get_index_page':
-                response = app.test_client().get(href.path)
-                if response.status_code == 404:
-                    build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
-                continue
+        href = urlparse(urljoin('/' + page_path, link['href']))
+        if href.scheme != '':
+            continue
 
-            referenced_page = pages.get(params['page_path'])
-            if referenced_page is None:
+        endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
+        if endpoint != 'page' and endpoint != 'get_index_page':
+            response = app.test_client().get(href.path)
+            if response.status_code == 404:
                 build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
-                continue
+            continue
 
-            if href.fragment == '':
-                continue
+        referenced_page = pages.get(params['page_path'])
+        if referenced_page is None:
+            build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
+            continue
 
-            ids = map(lambda x: x['id'], referenced_page.parsed_html.select('h1,h2,h3,h4'))
-            if href.fragment not in ids:
-                build_errors.append("Bad anchor: " + str(href.fragment) + " on page " + page_path)
+        if href.fragment == '':
+            continue
+
+        ids = map(lambda x: x['id'], referenced_page.parsed_html.select('h1,h2,h3,h4'))
+        if href.fragment not in ids:
+            build_errors.append("Bad anchor: " + str(href.fragment) + " on page " + page_path)
+
+    if not build_mode and len(build_errors) > 0:
+        errors_copy = []
+
+        for item in build_errors:
+            errors_copy.append(item)
+
+        build_errors.clear()
+        raise Exception("Validation errors " + str(len(errors_copy)) + ":\n\n" +
+                        "\n".join(str(item) for item in errors_copy))
 
     return render_template(
         template,
