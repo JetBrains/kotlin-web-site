@@ -37,3 +37,5 @@ google-credentials.json
 package-lock.json
 .env
 pages/api/
+external/
+pages/docs/reference/native/
