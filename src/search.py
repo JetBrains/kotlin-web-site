@@ -108,19 +108,19 @@ def group_small_content_pats(content_parts, start_index=0):
         del content_parts[size - 1]
 
 
-def get_valuable_content(content: Iterator[Tag]) -> List[str]:
+def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
     valuable_content = []
     for child in content:
         if not isinstance(child, Tag):
             continue
-        if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span']:
+        if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span', 'strong']:
             valuable_content.append(child.text)
         elif child.name in ['ul', 'ol', 'blockquote', 'div']:
-            valuable_content += get_valuable_content(child.children)
+            valuable_content += get_valuable_content(page_path, child.children)
         elif child.name in ['pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br']:
             continue
         else:
-            raise Exception('Unknown tag ' + child.name)
+            raise Exception('Unknown tag "' + child.name + '" in ' + page_path)
     group_small_content_pats(valuable_content)
     return valuable_content
 
@@ -128,7 +128,7 @@ def get_valuable_content(content: Iterator[Tag]) -> List[str]:
 def get_page_index_objects(content: Tag, url: str, page_path: str, title: str, page_type: str,
                            page_views: int) -> List[Dict]:
     index_objects = []
-    for ind, page_part in enumerate(get_valuable_content(content.children)):
+    for ind, page_part in enumerate(get_valuable_content(page_path, content.children)):
         page_info = {'url': url, 'objectID': page_path + '#' + str(ind), 'content': page_part,
                      'headings': title, 'type': page_type, 'pageViews': page_views}
         index_objects.append(page_info)
@@ -148,7 +148,7 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
     for child in children:
         if child.name in headers:
             if block_title != '':
-                for ind, page_part in enumerate(get_valuable_content(content)):
+                for ind, page_part in enumerate(get_valuable_content(page_path, content)):
                     page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
                                  'headings': block_title, 'pageTitle': title, 'type': page_type,
                                  'pageViews': page_views}
