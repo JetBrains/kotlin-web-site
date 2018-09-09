@@ -80,8 +80,7 @@ printFoo(D())
 This example will print "c", because the extension function being called depends only on the declared type of the
 parameter `c`, which is the `C` class.
 
-If a class has a member function, and an extension function is defined which has the same receiver type, the same name
-and is applicable to given arguments, the **member always wins**.
+If a class has a member function, and an extension function is defined which has the same receiver type, the same name is applicable to given arguments, the **member always wins**.
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
