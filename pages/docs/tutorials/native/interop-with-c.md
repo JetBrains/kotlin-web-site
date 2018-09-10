@@ -72,6 +72,7 @@ libcurl examples over to Kotlin.
 The code in question is from the [simple](https://curl.haxx.se/libcurl/c/simple.html) example (comments removed for brevity)
 
 <div class="sample" markdown="1" theme="idea" mode="c">
+
 ```c
 #include <stdio.h>
 #include <curl/curl.h>
@@ -100,8 +101,10 @@ int main(void)
 The first thing we'll need is a Kotlin file called `Main.kt` with the `main` function defined in it and then proceed to translate each line
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 import libcurl.*
+import kotlinx.cinterop.*
 
 fun main(args: Array<String>) {
     val curl = curl_easy_init()
