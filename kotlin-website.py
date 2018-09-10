@@ -1,14 +1,16 @@
+import copy
 import datetime
 import json
 import os
 import sys
+import threading
 from os import path
 from urllib.parse import urlparse, urljoin
 
 import xmltodict
 import yaml
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, Response, send_from_directory
+from flask import Flask, render_template, Response, send_from_directory, request
 from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 
@@ -40,6 +42,7 @@ root_folder = path.join(os.path.dirname(__file__))
 data_folder = path.join(os.path.dirname(__file__), "data")
 
 _nav_cache = None
+_nav_lock = threading.RLock()
 
 
 def get_site_data():
@@ -70,14 +73,21 @@ site_data = get_site_data()
 
 def get_nav():
     global _nav_cache
-    if _nav_cache is not None:
-        return _nav_cache
+    global _nav_lock
 
-    nav = get_nav_impl()
+    with _nav_lock:
+        if _nav_cache is not None:
+            nav = _nav_cache
+        else:
+            nav = get_nav_impl()
 
-    if build_mode:
-        _nav_cache = nav
+        nav = copy.deepcopy(nav)
 
+        if build_mode:
+            _nav_cache = copy.deepcopy(nav)
+
+    # NOTE. This call depends on `request.path`, cannot cache
+    process_nav(request.path, nav)
     return nav
 
 
@@ -85,7 +95,6 @@ def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
         nav = yaml.load(stream)
         process_nav_includes(build_mode, nav)
-        process_nav(nav)
         return nav
 
 
@@ -392,4 +401,4 @@ if __name__ == '__main__':
         elif sys.argv[1] == "index":
             build_search_indices(freezer._generate_all_urls(), pages)
     else:
-        app.run(host="0.0.0.0", debug=True, threaded=True)
+        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": set(["/src/"])})
