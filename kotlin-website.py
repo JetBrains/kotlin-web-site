@@ -2,6 +2,7 @@ import datetime
 import json
 import os
 import sys
+import threading
 from os import path
 from urllib.parse import urlparse, urljoin
 
@@ -40,6 +41,7 @@ root_folder = path.join(os.path.dirname(__file__))
 data_folder = path.join(os.path.dirname(__file__), "data")
 
 _nav_cache = None
+_nav_lock = threading.RLock()
 
 
 def get_site_data():
@@ -69,17 +71,19 @@ site_data = get_site_data()
 
 
 def get_nav():
-    # global _nav_cache
-    # if _nav_cache is not None:
-    #     return _nav_cache
-    #
-    return get_nav_impl()
-    #
-    # if build_mode:
-    #     _nav_cache = nav
-    #
-    # return nav
+    global _nav_cache
+    global _nav_lock
 
+    with _nav_lock:
+        if _nav_cache is not None:
+            return _nav_cache
+
+        nav = get_nav_impl()
+
+        if build_mode:
+            _nav_cache = nav
+
+        return nav
 
 def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
