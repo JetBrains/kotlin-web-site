@@ -83,12 +83,15 @@ def get_nav():
 
         nav = copy.deepcopy(nav)
 
+        if build_mode:
+            _nav_cache = copy.deepcopy(nav)
+
     # NOTE. This call depends on `request.path`, cannot cache
     process_nav(request.path, nav)
     return nav
 
 
-def get_nav_impl() -> dict:
+def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
         nav = yaml.load(stream)
         process_nav_includes(build_mode, nav)
