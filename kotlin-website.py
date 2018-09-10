@@ -69,16 +69,16 @@ site_data = get_site_data()
 
 
 def get_nav():
-    global _nav_cache
-    if _nav_cache is not None:
-        return _nav_cache
-
-    nav = get_nav_impl()
-
-    if build_mode:
-        _nav_cache = nav
-
-    return nav
+    # global _nav_cache
+    # if _nav_cache is not None:
+    #     return _nav_cache
+    #
+    return get_nav_impl()
+    #
+    # if build_mode:
+    #     _nav_cache = nav
+    #
+    # return nav
 
 
 def get_nav_impl():
