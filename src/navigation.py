@@ -1,19 +1,16 @@
 import re
 from typing import List, Dict
 
-from flask import request
 
-
-def process_nav(data: Dict) -> Dict:
+def process_nav(request_path: str, data: Dict):
     for item in data.values():
-        process_nav_item(item)
-    return data
+        process_nav_item(request_path, item)
 
 
-def process_nav_item(data: Dict) -> Dict:
+def process_nav_item(request_path: str, data: Dict):
     if 'content' in data:
         for item in data['content']:
-            process_nav_item(item)
+            process_nav_item(request_path, item)
         data['is_active'] = any([item['is_active'] for item in data['content']])
     else:
         if 'url' in data:
@@ -23,13 +20,11 @@ def process_nav_item(data: Dict) -> Dict:
             data['url'] = url
 
         if 'urlPattern' in data:
-            data['is_active'] = re.compile(data['urlPattern']).match(request.path)
+            data['is_active'] = re.compile(data['urlPattern']).match(request_path)
         elif 'url' in data:
-            data['is_active'] = request.path.startswith(data['url'])
+            data['is_active'] = request_path.startswith(data['url'])
         else:
             data['is_active'] = False
-
-    return data
 
 
 def process_video_nav(data: List[Dict]) -> List[Dict]:
