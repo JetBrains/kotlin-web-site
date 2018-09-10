@@ -82,7 +82,7 @@ def get_nav():
         nav = get_nav_impl()
 
         if build_mode:
-            _nav_cache = nav
+            _nav_cache = copy.deepcopy(nav)
 
         return nav
 
