@@ -29,20 +29,20 @@ We need to have a Kotlin/Native compiler on our machines.
 You may have a look at the
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial for more information on performing this step.
-Let's assume we have a console, where `kotlinc` (or the older `konanc`) command is available. 
+Let's assume we have a console, where `kotlinc-native` command is available. 
 
 ## Specifying a Target Platform
 
-The list of supported target platforms of `kotlinc` depends 
+The list of supported target platforms of `kotlinc-native` depends 
 on the operating system where you run it. We may list them via 
 
 ```bash
-kotlinc -list_targets
+kotlinc-native -list_targets
 ```
 
 command. For example, on macOS X with Kotlin/Native v0.8:
 ```
-> kotlinc -list_targets
+> kotlinc-native -list_targets
 macos_x64:                    (default) macbook, macos, imac
 ios_arm32:                              iphone32
 ios_arm64:                              iphone, ipad, ios
@@ -56,7 +56,7 @@ zephyr_stm32f4_disco:
 For Linux and Windows Subsystem for Linux (WSL) with Kotlin/Native v0.8 we have:
 
 ```
-> kotlinc -list_targets
+> kotlinc-native -list_targets
 linux_x64:                    (default) linux
 linux_arm32_hfp:                        raspberrypi
 linux_mips32:
@@ -69,7 +69,7 @@ zephyr_stm32f4_disco:
 
 On Windows with Kotlin/Native v0.8 it shows:
 ```
-> kotlinc -list_targets
+> kotlinc-native -list_targets
 mingw_x64:                    (default) mingw
 wasm32:
 zephyr_stm32f4_disco:
@@ -94,12 +94,12 @@ fun main(args: Array<String>) {
 ```
 </div>
 
-We use the `-target` argument of the `kotlinc` to specify the platform. It is also 
+We use the `-target` argument of the `kotlinc-native` to specify the platform. It is also 
 helpful to use `-output` to explicitly instruct
 the compiler on where to create the compiled binary, for example, to build for the iOS emulator on macOS we use:
 
 ```bash
-    kotlinc -target ios_x64 -output bin/ios_x64 main.kt
+    kotlinc-native -target ios_x64 -output bin/ios_x64 main.kt
 ``` 
 
 Native executable `bin/ios_x64.kexe` will be produced. We check that with the `file` command 
@@ -110,7 +110,7 @@ bin/ios_x64.kexe: Mach-O 64-bit executable x86_64
 
 We use the command 
 ```bash
-    kotlinc -target ios_arm64 -output bin/ios_arm64 main.kt
+    kotlinc-native -target ios_arm64 -output bin/ios_arm64 main.kt
 ```
 to create a binary for an iPhone supporting arm64. 
 
@@ -121,7 +121,7 @@ Running the compiler on Windows, macOS, and Linux is required to create a consol
 for those operating systems. On each of the operating systems we call the compiler:
 
 ```bash
-kotlinc main.kt -output bin/theTool
+kotlinc-native main.kt -output bin/theTool
 ```
 
 The `-target` parameter is optional. If it is not included, the binary will be produced for the 

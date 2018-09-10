@@ -70,17 +70,17 @@ We need to have a Kotlin/Native compiler on our machines.
 You may want to take a look at the
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial for more information on performing this step.
-Let's assume we have a console, where the `kotlinc` command is available. 
+Let's assume we have a console, where the `kotlinc-native` command is available. 
 
 Now let's call the following commands to compile the code into frameworks
 for macOS, iOS, and an iOS emulator respectively:
 ```bash
-kotlinc lib.kt -produce framework -target macos_x64 -output macOS/Demo
-kotlinc lib.kt -produce framework -target ios_arm64 -output iOS/Demo
-kotlinc lib.kt -produce framework -target ios_x64 -output iOS_emu/Demo
+kotlinc-native lib.kt -produce framework -target macos_x64 -output macOS/Demo
+kotlinc-native lib.kt -produce framework -target ios_arm64 -output iOS/Demo
+kotlinc-native lib.kt -produce framework -target ios_x64 -output iOS_emu/Demo
 ```
 
-The `kotlinc` generates three frameworks for us, named `Demo.framework` under 
+The `kotlinc-native` generates three frameworks for us, named `Demo.framework` under 
 `macOS`, `iOS`, and `iOS_emu` folders respectively.
 
 Let's see what is inside
@@ -177,14 +177,14 @@ the use of the framework from both Objective-C and Swift languages.
 respectively. The `Interface` is turned into `@protocol`, both a `class` and an `object` are represented as
 `@interface`.
 The `Demo` prefix comes from the `-output` parameter
-of the `kotlinc` compiler and the framework name. 
+of the `kotlinc-native` compiler and the framework name. 
 You may have spotted that the nullable return type `Long?` was turned into `NSNumber*` in Objective-C.
 
 ### Global Declarations from Kotlin
 
 All global functions from Kotlin
 are turned into `Demo` class in Objective-C/Swift, where `Demo` is the framework name and set by
-the `-output` parameter of `kotlinc`.
+the `-output` parameter of `kotlinc-native`.
 
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only="1" auto-indent="false">
 

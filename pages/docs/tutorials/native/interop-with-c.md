@@ -59,7 +59,7 @@ Once we have the definition file ready, we can invoke `cinterop` and have it gen
     cinterop -def libcurl.def -o build/c_interop/libcurl
     
 The output should be a Kotlin compiled library (extension `.klib`). We're also instructing `cinterop`
-to output the contents to the folder `build/c_interop/libcurl` which we'll later use as input by `konanc`. It's important this folder is created
+to output the contents to the folder `build/c_interop/libcurl` which we'll later use as input by `kotlinc-native`. It's important this folder is created
 beforehand as `cinterop` needs an existing folder. The *c_interop* is a convention that is followed for libraries that are for interop.
 
 
@@ -129,7 +129,7 @@ The next step is to compile our application. We already covered the basics of co
 The only difference in this case is that we have to include the library that `cinterop` generated for us. 
 
 ```bash
-konanc Main.kt -library build/c_interop/libcurl
+kotlinc-native Main.kt -library build/c_interop/libcurl
 ```
 
 We can see that we're passing in as `library` parameter the output path of `cinterop`. 

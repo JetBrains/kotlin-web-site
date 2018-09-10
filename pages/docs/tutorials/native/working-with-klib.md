@@ -73,12 +73,12 @@ fun printWarning(warning: String) {
 To create a library from this file, we can use the compiler with the parameter `-produce library` or `-p library` for short:
 
 ```bash
-konanc utils.kt -p library
+kotlinc-native utils.kt -p library
 ```
 By default, the output of the filename is `library.klib`. We can override it using the `-output` or `-o` parameter:
 
 ```bash
-konanc utils.kt -p library -o utils
+kotlinc-native utils.kt -p library -o utils
 ```
 
 The second way to create a library is using the `cinterop` tool which allows us to create a Kotlin/Native library from an existing
@@ -106,7 +106,7 @@ Notice how we need to import the necessary package from the library on the first
 In order for the compiler to correctly link in the library, we need to pass the library name using the `-library` or `-l` parameter
 
 ```bash
-konanc sample.kt -l utils
+kotlinc-native sample.kt -l utils
 ```
     
 This would then produce a single executable file with no runtime dependencies.    
@@ -114,7 +114,7 @@ This would then produce a single executable file with no runtime dependencies.
 ## Using and creating library repositories
 
 Often it is useful to use the same library across multiple applications. To avoid having various copies of the same library, the Kotlin
-compiler can search for libraries in what's called a library repository. The default repository is usually installed under the folder `~/konanc/klib` and we can 
+compiler can search for libraries in what's called a library repository. The default repository is usually installed under the folder `~/kotlinc-native/klib` and we can 
 add and remove our own libraries with a utility named `klib` that ships as part of the compiler tools.  
 
 ### Installing libraries to the default repository
@@ -129,7 +129,7 @@ This will copy and extract the necessary files to the proper locations in the de
 a specific library without needing to have the `klib` file in the project folder:
 
 ```bash
-konanc sample.kt -l utils
+kotlinc-native sample.kt -l utils
 ```
 
 We can of course also uninstall libraries at any point by issuing the command:
