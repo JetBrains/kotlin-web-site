@@ -1,3 +1,4 @@
+import copy
 import datetime
 import json
 import os
@@ -76,7 +77,7 @@ def get_nav():
 
     with _nav_lock:
         if _nav_cache is not None:
-            return _nav_cache
+            return copy.deepcopy(_nav_cache)
 
         nav = get_nav_impl()
 
@@ -85,7 +86,8 @@ def get_nav():
 
         return nav
 
-def get_nav_impl():
+
+def get_nav_impl() -> dict:
     with open(path.join(data_folder, "_nav.yml")) as stream:
         nav = yaml.load(stream)
         process_nav_includes(build_mode, nav)
