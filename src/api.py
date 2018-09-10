@@ -28,11 +28,18 @@ def load_api_titles():
         process_titles(yaml.load(title_files)[0], 'latest/kotlin.test', 'kotlin-test')
 
 
-def get_api_page(page_path):
+def get_api_page(build_mode: bool, page_path):
     if not page_path.endswith('.html'):
         page_path += '.html'
     if len(titles) == 0:
-        load_api_titles()
+        try:
+            load_api_titles()
+        except FileNotFoundError as e:
+            if build_mode:
+                raise e
+            else:
+                print("API module is not included: ", e)
+
     file_path = path.join(root_folder, 'api', page_path)
     if not path.exists(file_path):
         return None
