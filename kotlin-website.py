@@ -153,7 +153,7 @@ def get_cities():
 
 @app.route('/docs/reference/grammar.html')
 def grammar():
-    grammar = get_grammar()
+    grammar = get_grammar(build_mode)
     if grammar is None:
         return "Grammar file not found", 404
     return render_template('pages/grammar.html', kotlinGrammar=grammar)
@@ -171,7 +171,7 @@ def books_page():
 
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
-    return send_file(generate_pdf(pages, get_nav()['reference']))
+    return send_file(generate_pdf(build_mode, pages, get_nav()['reference']))
 
 
 @app.route('/docs/resources.html')
@@ -326,7 +326,7 @@ def api_page(page_path):
 def process_api_page(page_path):
     return render_template(
         'api.html',
-        page=get_api_page(page_path)
+        page=get_api_page(build_mode, page_path)
     )
 
 

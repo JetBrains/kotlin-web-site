@@ -33,10 +33,10 @@ PDF_TOC_CONFIG = {
 }
 
 
-def generate_pdf(pages, toc):
+def generate_pdf(build_mode: bool, pages, toc):
     tmp_file_path = path.join(pdf_folder_path, "tmp.html")
     with open(tmp_file_path, 'w', encoding="UTF-8") as tmp_file:
-        tmp_file.write(get_pdf_content(pages, toc))
+        tmp_file.write(get_pdf_content(build_mode, pages, toc))
         output_file_path = path.join(pdf_folder_path, 'kotlin-docs.pdf')
         arguments = ["wkhtmltopdf"]
         for name, value in PDF_CONFIG.items():
@@ -56,7 +56,7 @@ def generate_pdf(pages, toc):
         return output_file_path
 
 
-def get_pdf_content(pages: MyFlatPages, toc: Dict) -> str:
+def get_pdf_content(build_mode: bool, pages: MyFlatPages, toc: Dict) -> str:
     content = []
     for toc_section in toc['content']:
         section = {
@@ -72,7 +72,7 @@ def get_pdf_content(pages: MyFlatPages, toc: Dict) -> str:
                 url = url[:-5]
 
             if url == "docs/reference/grammar":
-                page_html = render_template('pages/grammar.html', kotlinGrammar=get_grammar()).replace("<br>", "<br/>")
+                page_html = render_template('pages/grammar.html', kotlinGrammar=get_grammar(build_mode)).replace("<br>", "<br/>")
                 document = BeautifulSoup(page_html, 'html.parser')
                 document = document.find("div", {"class": "grammar"})
                 page_id = "grammar"

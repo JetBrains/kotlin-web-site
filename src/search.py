@@ -193,7 +193,7 @@ def build_search_indices(site_structure, pages):
                 page_views
             )
         elif endpoint == "api_page":
-            page_info = get_api_page(page_path[4:])
+            page_info = get_api_page(True, page_path[4:])
             for table in page_info['content']('table'):
                 table.extract()
             for overload_group in page_info['content'].findAll("div", {"class": "signature"}):
