@@ -129,7 +129,7 @@ Kotlin uses the `demo_` prefix from the library name to make sure
 the symbols will not clash with other symbols in your C codebase.
 
 The definitions part shows how Kotlin primitive types map into C primitive types. 
-We discussed reverse mapping in the [C TYPES TUTORIAL] tutorial, 
+We discussed reverse mapping in the [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html) tutorial, 
 which you may want to check out. 
 
 The next part of the `demo_api.h` file contains definitions of types
