@@ -33,7 +33,7 @@ class ExternalMount:
 
 def _rant_if_external_nav_is_not_found(self: ExternalMount):
     if os.path.isfile(self.nav_file):
-        return
+        return True
 
     if self.build_mode:
         raise Exception("File " + self.nav_file + " is not found, clone "
@@ -47,6 +47,7 @@ def _rant_if_external_nav_is_not_found(self: ExternalMount):
         print("!!!! to ")
         print("!!!! " + self.source_external_path)
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        return False
 
 
 class ExternalItem:
@@ -132,7 +133,8 @@ def _process_external_key(build_mode, data):
     if 'external' not in data: return
     mount = ExternalMount(build_mode, data['external'])
 
-    _rant_if_external_nav_is_not_found(mount)
+    if not _rant_if_external_nav_is_not_found(mount):
+        return
 
     with open(mount.nav_file) as stream:
         external_yml = yaml.load(stream)
