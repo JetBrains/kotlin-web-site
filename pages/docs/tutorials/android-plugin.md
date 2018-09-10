@@ -88,6 +88,7 @@ activity.hello.text = "Hello World!"
 ```
 </div>
 
+**Using in fragments:** Be aware that in order to properly call the synthetic properties in fragments you should call them inside the onViewCreated method.
 
 ### Experimental Mode
 
