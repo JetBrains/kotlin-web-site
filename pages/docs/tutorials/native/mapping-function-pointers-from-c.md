@@ -22,7 +22,7 @@ We need to have a Kotlin compiler on our machines.
 You may want to have a look at the
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
 tutorial for more information on performing this step.
-Let's assume that we have a console, where the `kotlinc`, `cinterop`, and `klib` commands are available. 
+Let's assume that we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
 
 
 ## Mapping Function Pointer Types from C
