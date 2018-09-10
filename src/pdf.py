@@ -1,12 +1,14 @@
 import re
 import subprocess
 from os import path
+from typing import Dict
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 from flask import render_template
 
 from src.grammar import get_grammar
+from src.pages import MyFlatPages
 
 root_folder_path = path.dirname(path.dirname(__file__))
 pdf_folder_path = path.join(root_folder_path, 'pdf')
@@ -54,19 +56,15 @@ def generate_pdf(pages, toc):
         return output_file_path
 
 
-def get_pdf_content(pages, toc):
-    """
-    :type pages: flask.ext.flatpages.flatpages.FlatPages
-    :param pages:
-    """
+def get_pdf_content(pages: MyFlatPages, toc: Dict) -> str:
     content = []
-    for toc_section in toc:
+    for toc_section in toc['content']:
         section = {
             'id': toc_section['title'].replace(' ', '_'),
             'title': toc_section['title'],
             'content': []
         }
-        for reference in toc_section['items']:
+        for reference in toc_section['content']:
             url = reference['url']
             if url.startswith('/'):
                 url = url[1:]
@@ -99,7 +97,8 @@ def get_pdf_content(pages, toc):
                         if href.startswith('#'):
                             new_href = page_id + '_' + href[1:]
                         else:
-                            url_path = url.path[:-5] if url.path.endswith(".html") else url.path
+                            url_path = url.path.split("/")[-1]
+                            url_path = url_path[:-5] if url_path.endswith(".html") else url_path
                             new_href = url_path + ('_' + url.fragment if url.fragment != "" else "")
                         element.attrs['href'] = "#" + new_href
 

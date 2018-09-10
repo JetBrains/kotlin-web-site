@@ -21,7 +21,7 @@ Define the version of Kotlin you want to use via a *kotlin.version* property:
 
 ## Dependencies
 
-Kotlin has an extensive standard library that can be used in your applications. Configure the following dependency in the pom file
+Kotlin has an extensive standard library that can be used in your applications. Configure the following dependency in the pom file:
 
 ``` xml
 <dependencies>
@@ -34,8 +34,8 @@ Kotlin has an extensive standard library that can be used in your applications. 
 ```
 
 If you're targeting JDK 7 or JDK 8, you can use extended versions of the Kotlin standard library which contain
-additional extension functions for APIs added in new JDK versions. Instead of `kotlin-stdlib`, use `kotlin-stdlib-jre7`
-or `kotlin-stdlib-jre8`, depending on your JDK version.
+additional extension functions for APIs added in new JDK versions. Instead of `kotlin-stdlib`, use `kotlin-stdlib-jdk7`
+or `kotlin-stdlib-jdk8`, depending on your JDK version (for Kotlin 1.1.x, `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8`). 
 
 If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.full/index.html) or testing facilities, you need to add the corresponding dependencies as well.
 The artifact IDs are `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
@@ -81,7 +81,7 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 ## Compiling Kotlin and Java sources
 
 To compile mixed code applications Kotlin compiler should be invoked before Java compiler.
-In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin using the following method, making sure that the kotlin plugin is above the maven-compiler-plugin in your pom.xml file.
+In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin using the following method, making sure that the kotlin plugin is above the maven-compiler-plugin in your pom.xml file:
 
 ``` xml
 <build>
@@ -161,10 +161,21 @@ Alternatively, run your build with the `-Dkotlin.compiler.incremental=true` opti
 
 See the description of [Kotlin annotation processing tool](kapt.html) (`kapt`).
 
+## Coroutines support
+
+[Coroutines](coroutines.html) support is an experimental feature in Kotlin 1.2, so the Kotlin compiler reports a warning when you use coroutines in your project.
+To turn off the warning, add the following block to your `pom.xml` file:
+
+``` xml
+<configuration>
+    <experimentalCoroutines>enable</experimentalCoroutines>
+</configuration>
+```
+
 ## Jar file
 
 To create a small Jar file containing just the code from your module, include the following under `build->plugins` in your Maven pom.xml file,
-where `main.class` is defined as a property and points to the main Kotlin or Java class.
+where `main.class` is defined as a property and points to the main Kotlin or Java class:
 
 ``` xml
 <plugin>
@@ -185,7 +196,7 @@ where `main.class` is defined as a property and points to the main Kotlin or Jav
 ## Self-contained Jar file
 
 To create a self-contained Jar file containing the code from your module along with dependencies, include the following under `build->plugins` in your Maven pom.xml file,
-where `main.class` is defined as a property and points to the main Kotlin or Java class.
+where `main.class` is defined as a property and points to the main Kotlin or Java class:
 
 ``` xml
 <plugin>
@@ -261,7 +272,7 @@ tutorial for more information.
 
 ## Specifying compiler options
 
-Additional options for the compiler can be specified as tags under the `<configuration>` element of the
+Additional options and arguments for the compiler can be specified as tags under the `<configuration>` element of the
 Maven plugin node:
 
 ``` xml
@@ -272,6 +283,10 @@ Maven plugin node:
     <executions>...</executions>
     <configuration>
         <nowarn>true</nowarn>  <!-- Disable warnings -->
+        <args>
+            <arg>-Xjsr305=strict</arg> <!-- Enable strict mode for JSR-305 annotations -->
+            ...
+        </args>
     </configuration>
 </plugin>
 ```
@@ -293,8 +308,8 @@ The following attributes are supported:
 | Name | Property name | Description | Possible values |Default value |
 |------|---------------|-------------|-----------------|--------------|
 | nowarn | | Generate no warnings | true, false | false |
-| languageVersion | kotlin.compiler.languageVersion | Provide source compatibility with specified language version | "1.0", "1.1" | "1.1"
-| apiVersion | kotlin.compiler.apiVersion | Allow to use declarations only from the specified version of bundled libraries | "1.0", "1.1" | "1.1"
+| languageVersion | kotlin.compiler.languageVersion | Provide source compatibility with specified language version |"1.0", "1.1", "1.2", "1.3 (EXPERIMENTAL)" | 
+| apiVersion | kotlin.compiler.apiVersion | Allow to use declarations only from the specified version of bundled libraries | "1.0", "1.1", "1.2", "1.3 (EXPERIMENTAL)" | 
 | sourceDirs | | The directories containing the source files to compile | | The project source roots
 | compilerPlugins | | Enabled [compiler plugins](compiler-plugins.html)  | | []
 | pluginOptions | | Options for compiler plugins  | | []

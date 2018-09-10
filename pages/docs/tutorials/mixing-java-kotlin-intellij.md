@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title: "Mixing Java and Kotlin in one project"
-description: "This tutorials walks us through the process of using Java and Kotlin in a single IntelliJ IDEA project."
+description: "This tutorial walks us through the process of using Java and Kotlin in a single IntelliJ IDEA project."
 authors: Hadi Hariri
 showAuthorInfo: false
 date: 2014-09-23
@@ -22,6 +22,7 @@ To add a new Java class to a Kotlin project is very straightforward. All we need
 
 We can now consume the Java Class from Kotlin or vice versa without any further actions. For instance, adding the following Java class:
 
+<div class="sample" markdown="1" theme="idea" mode="java">
 ``` java
 public class Customer {
 
@@ -40,14 +41,17 @@ public class Customer {
     }
 }
 ```
+</div>
 
 allows us to call it from Kotlin like any other type in Kotlin.
 
-``` kotlin
-        val customer = Customer("Phase")
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+val customer = Customer("Phase")
 
-        println(customer.getName())
+println(customer.getName())
 ```
+</div>
 
 
 ### Adding Kotlin source code to an existing Java project

@@ -5,9 +5,6 @@
             <a class="global-header-logo" href="{{ baseurl }}/">Kotlin</a>
             {% include 'inc/nav/global-nav.html' %}
         </div>
-        <a class="conference-banner" href="https://kotlinconf.com/?utm_source=kotlinlang&utm_medium=web&utm_campaign=superearlybird">
-            <div class="conference-banner__img"></div>
-        </a>
     </div>
 
     <div class="g-layout">
@@ -24,12 +21,13 @@
                     Try Kotlin
                 </a>
             <span class="release-banner">
-                Now official on Android
+                KotlinConf 2018 is coming 
                 <a class="release-banner__link"
-                   href="https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official/">
-                    read more</a>
+                   href="https://kotlinconf.com/registration/?utm_source=kotlinlang&utm_medium=banner&utm_campaign=2018">
+                    register</a>
             </span>
             </div>
+            <div class="current-version">Version {{ site.data.releases.latest.version }}</div>
         {% endif %}
     </div>
 </header>

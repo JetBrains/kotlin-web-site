@@ -13,14 +13,15 @@ from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
-from src.Navigaton import Nav
+from src.navigation import process_video_nav, process_nav
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
+from src.externals import process_nav_includes
 from src.grammar import get_grammar
 from src.markdown.makrdown import jinja_aware_markdown
 from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
-from src.processors.processors import process_code_blocks, process_header_ids
+from src.processors.processors import process_code_blocks
 from src.search import build_search_indices
 from src.sitemap import generate_sitemap
 
@@ -37,6 +38,8 @@ url_adapter = app.create_url_adapter(None)
 
 root_folder = path.join(os.path.dirname(__file__))
 data_folder = path.join(os.path.dirname(__file__), "data")
+
+_nav_cache = None
 
 
 def get_site_data():
@@ -66,12 +69,24 @@ site_data = get_site_data()
 
 
 def get_nav():
+    global _nav_cache
+    if _nav_cache is not None:
+        return _nav_cache
+
+    nav = get_nav_impl()
+
+    if build_mode:
+        _nav_cache = nav
+
+    return nav
+
+
+def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
-        nav = Nav(yaml.load(stream))
+        nav = yaml.load(stream)
+        process_nav_includes(build_mode, nav)
+        process_nav(nav)
         return nav
-
-
-nav = get_nav()
 
 
 def get_kotlin_features():
@@ -99,7 +114,7 @@ def add_year_to_context():
 @app.context_processor
 def add_data_to_context():
     return {
-        'nav': nav,
+        'nav': get_nav(),
         'data': site_data,
         'site': {
             'pdf_url': app.config['PDF_URL'],
@@ -136,11 +151,6 @@ def get_cities():
     return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
-@app.route('/data/videos.json')
-def get_videos():
-    return Response(json.dumps(site_data['videos'], cls=DateAwareEncoder), mimetype='application/json')
-
-
 @app.route('/docs/reference/grammar.html')
 def grammar():
     grammar = get_grammar()
@@ -151,7 +161,7 @@ def grammar():
 
 @app.route('/docs/videos.html')
 def videos_page():
-    return render_template('pages/videos.html')
+    return render_template('pages/videos.html', videos=process_video_nav(site_data['videos']))
 
 
 @app.route('/docs/books.html')
@@ -161,7 +171,7 @@ def books_page():
 
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
-    return send_file(generate_pdf(pages, nav['reference']))
+    return send_file(generate_pdf(pages, get_nav()['reference']))
 
 
 @app.route('/docs/resources.html')
@@ -190,6 +200,11 @@ def index_page():
 
 
 def process_page(page_path):
+    # get_nav() has side effect to copy and patch files from the `external` folder
+    # under site folder. We need it for dev mode to make sure file is up-to-date
+    # TODO: extract get_nav and implement the explicit way to avoid side-effects
+    get_nav()
+
     page = pages.get_or_404(page_path)
 
     if 'date' in page.meta and page['date'] is not None:
@@ -197,35 +212,68 @@ def process_page(page_path):
         if page.meta['formatted_date'].startswith('0'):
             page.meta['formatted_date'] = page.meta['formatted_date'][1:]
 
-    edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + app.config[
-        'FLATPAGES_EXTENSION']
+    if 'github_edit_url' in page.meta:
+        edit_on_github_url = page.meta['github_edit_url']
+    else:
+        edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + \
+                             app.config['FLATPAGES_EXTENSION']
+
+    assert edit_on_github_url.startswith(
+        'https://github.com/JetBrains/kotlin'), 'Check edit_on_github_url for ' + page_path
+
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):
         template += ".html"
-    if build_mode:
-        for link in page.parsed_html.select('a'):
-            if 'href' not in link.attrs:
-                continue
 
-            href = urlparse(urljoin('/' + page_path, link['href']))
-            if href.scheme != '':
-                continue
-            endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
-            if endpoint != 'page' and endpoint != 'get_index_page':
-                response = app.test_client().get(href.path)
-                if response.status_code == 404:
-                    build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
-                continue
+    for link in page.parsed_html.select('a'):
+        if 'href' not in link.attrs:
+            continue
 
-            referenced_page = pages.get(params['page_path'])
-            if referenced_page is None:
+        href = urlparse(urljoin('/' + page_path, link['href']))
+        if href.scheme != '':
+            continue
+
+        endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
+        if endpoint != 'page' and endpoint != 'get_index_page':
+            response = app.test_client().get(href.path)
+            if response.status_code == 404:
                 build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
-            if href.fragment == '':
-                continue
+            continue
 
-            ids = map(lambda x: x['id'], referenced_page.parsed_html.select('h1,h2,h3,h4'))
-            if href.fragment not in ids:
-                build_errors.append("Bad anchor: " + str(href.fragment) + " on page " + page_path)
+        referenced_page = pages.get(params['page_path'])
+        if referenced_page is None:
+            build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
+            continue
+
+        if href.fragment == '':
+            continue
+
+        ids = []
+        for x in referenced_page.parsed_html.select('h1,h2,h3,h4'):
+            try:
+                ids.append(x['id'])
+            except KeyError:
+                pass
+
+        for x in referenced_page.parsed_html.select('a'):
+            try:
+                ids.append(x['name'])
+            except KeyError:
+                pass
+
+        if href.fragment not in ids:
+            build_errors.append("Bad anchor: " + str(href.fragment) + " on page " + page_path)
+
+    if not build_mode and len(build_errors) > 0:
+        errors_copy = []
+
+        for item in build_errors:
+            errors_copy.append(item)
+
+        build_errors.clear()
+        raise Exception("Validation errors " + str(len(errors_copy)) + ":\n\n" +
+                        "\n".join(str(item) for item in errors_copy))
+
     return render_template(
         template,
         page=page,
@@ -334,6 +382,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         if sys.argv[1] == "build":
             build_mode = True
+
             urls = freezer.freeze()
             generate_sitemap(urls)
             if len(build_errors) > 0:

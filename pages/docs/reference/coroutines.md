@@ -7,7 +7,7 @@ title: "Coroutines"
 
 # Coroutines
 
-> Coroutines are *experimental* in Kotlin 1.1. See details [below](#experimental-status-of-coroutines) 
+> Coroutines are *experimental* in Kotlin 1.1+. See details [below](#experimental-status-of-coroutines) 
 {:.note}
 
 Some APIs initiate long-running operations (such as network IO, file IO, CPU- or GPU-intensive work, etc) and require the caller to block until they complete. Coroutines provide a way to avoid blocking a thread and replace it with a cheaper and more controllable operation: *suspension* of a coroutine.
@@ -28,29 +28,38 @@ Another difference is that coroutines can not be suspended at random instruction
 
 A suspension happens when we call a function marked with the special modifier, `suspend`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin 
-suspend fun doSomething(foo: Foo): Bar {
-    ...
-}
+suspend fun doSomething(foo: Foo): Bar { ... }
 ```
+</div>
 
-Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions. In fact, to start a coroutine, there must be at least one suspending function, and it is usually anonymous (i.e. it is a suspending lambda). Let's look at an example, a simplified `async()` function (from the [`kotlinx.coroutines`](#generators-api-in-kotlincoroutines) library):
-    
+Such functions are called *suspending functions*, because calls to them may suspend a coroutine (the library can decide to proceed without suspension, if the result for the call in question is already available). Suspending functions can take parameters and return values in the same manner as regular functions, but they can only be called from coroutines and other suspending functions, as well as function literals inlined into those.
+
+In fact, to start a coroutine, there must be at least one suspending function, and it is usually a suspending lambda. Let's look at an example, a simplified `async()` function (from the [`kotlinx.coroutines`](#generators-api-in-kotlincoroutines) library):
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun <T> async(block: suspend () -> T)
-``` 
+```
+</div>
 
 Here, `async()` is a regular function (not a suspending function), but the `block` parameter has a function type with the `suspend` modifier: `suspend () -> T`. So, when we pass a lambda to `async()`, it is a *suspending lambda*, and we can call a suspending function from it:
-   
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 async {
     doSomething(foo)
     ...
 }
 ```
+</div>
+
+> **Note:** currently, suspending function types cannot be used as supertypes, and anonymous suspending functions are currently not supported.
 
 To continue the analogy, `await()` can be a suspending function (hence also callable from within an `async {}` block) that suspends a coroutine until some computation is done and returns its result:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 async {
     ...
@@ -58,19 +67,34 @@ async {
     ...
 }
 ```
+</div>
 
 More information on how actual `async/await` functions work in `kotlinx.coroutines` can be found [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md#composing-suspending-functions).
 
-Note that suspending functions `await()` and `doSomething()` can not be called from a regular function like `main()`:
+Note that suspending functions `await()` and `doSomething()` cannot be called from function literals that are not inlined into a suspending function body and from regular function like `main()`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun main(args: Array<String>) {
     doSomething() // ERROR: Suspending function called from a non-coroutine context 
+    
+    async { 
+        ...
+        computations.forEach { // `forEach` is an inline function, the lambda is inlined
+            it.await() // OK
+        }
+            
+        thread { // `thread` is not an inline function, so the lambda is not inlined
+            doSomething() // ERROR
+        }
+    }
 }
 ```
+</div>
 
 Also note that suspending functions can be virtual, and when overriding them, the `suspend` modifier has to be specified:
- 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 interface Base {
     suspend fun foo()
@@ -79,7 +103,8 @@ interface Base {
 class Derived: Base {
     override suspend fun foo() { ... }
 }
-``` 
+```
+</div>
 
 ### `@RestrictsSuspension` annotation
  
@@ -89,12 +114,12 @@ To achieve this, the [`@RestrictsSuspension`](/api/latest/jvm/stdlib/kotlin.coro
 
 This is relevant in the _rare_ cases when every suspension is handled in a special way in the library. For example, when implementing generators through the [`buildSequence()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/build-sequence.html) function described [below](#generators-api-in-kotlincoroutines), we need to make sure that any suspending call in the coroutine ends up calling either `yield()` or `yieldAll()` and not any other function. This is why [`SequenceBuilder`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/-sequence-builder/index.html) is annotated with `@RestrictsSuspension`:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 @RestrictsSuspension
-public abstract class SequenceBuilder<in T> {
-    ...
-}
+public abstract class SequenceBuilder<in T> { ... }
 ```
+</div>
  
 See the sources [on Github](https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/src/kotlin/coroutines/experimental/SequenceBuilder.kt).   
 
@@ -110,7 +135,7 @@ More details on how coroutines work may be found in [this design document](https
 
 ## Experimental status of coroutines
 
-The design of coroutines is [experimental](compatibility.html#experimental-features), which means that it may be changed in the upcoming releases. When compiling coroutines in Kotlin 1.1, a warning is reported by default: *The feature "coroutines" is experimental*. To remove the warning, you need to specify an [opt-in flag](/docs/diagnostics/experimental-coroutines.html).
+The design of coroutines is [experimental](compatibility.html#experimental-features), which means that it will be changed in the upcoming releases. When compiling coroutines in Kotlin 1.1+, a warning is reported by default: *The feature "coroutines" is experimental*. To remove the warning, you need to specify an [opt-in flag](/docs/diagnostics/experimental-coroutines.html).
 
 Due to its experimental status, the coroutine-related API in the Standard Library is put under the `kotlin.coroutines.experimental` package. When the design is finalized and the experimental status lifted, the final API will be moved to `kotlin.coroutines`, and the experimental package will be kept around (probably in a separate artifact) for backward compatibility. 
 
@@ -123,18 +148,18 @@ This will minimize migration issues for your users.
 ## Standard APIs
  
 Coroutines come in three main ingredients: 
- - language support (i.s. suspending functions, as described above),
- - low-level core API in the Kotlin Standard Library,
+ - language support (i.s. suspending functions, as described above);
+ - low-level core API in the Kotlin Standard Library;
  - high-level APIs that can be used directly in the user code.
  
 ### Low-level API: `kotlin.coroutines` 
 
 Low-level API is relatively small and should never be used other than for creating higher-level libraries. It consists of two main packages: 
-- [`kotlin.coroutines.experimental`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/index.html) with main types and primitives such as
-  - [`createCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/create-coroutine.html)
-  - [`startCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/start-coroutine.html)
-  - [`suspendCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/suspend-coroutine.html)
-- [`kotlin.coroutines.experimental.intrinsics`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/index.html) with even lower-level intrinsics such as [`suspendCoroutineOrReturn`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/suspend-coroutine-or-return.html)
+- [`kotlin.coroutines.experimental`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/index.html) with main types and primitives such as:
+  - [`createCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/create-coroutine.html),
+  - [`startCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/start-coroutine.html),
+  - [`suspendCoroutine()`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental/suspend-coroutine.html);
+- [`kotlin.coroutines.experimental.intrinsics`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/index.html) with even lower-level intrinsics such as [`suspendCoroutineOrReturn`](/api/latest/jvm/stdlib/kotlin.coroutines.experimental.intrinsics/suspend-coroutine-or-return.html).
  
  More details about the usage of these APIs can be found [here](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md).
 
@@ -146,7 +171,7 @@ The only "application-level" functions in `kotlin.coroutines.experimental` are
 
 These are shipped within `kotlin-stdlib` because they are related to sequences. In fact, these functions (and we can limit ourselves to `buildSequence()` alone here) implement _generators_, i.e. provide a way to cheaply build a lazy sequence:
  
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*
@@ -180,7 +205,7 @@ This generates a lazy, potentially infinite Fibonacci sequence by creating a cor
    
 To demonstrate the real laziness of such a sequence, let's print some debug output inside a call to `buildSequence()`:
   
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*
@@ -204,11 +229,11 @@ fun main(args: Array<String>) {
 
 </div>  
    
-Run the code above to see that if we print the first three elements, the numbers are interleaved with the `STEP`s the generating loop. This means that the computation is lazy indeed. To print `1` we only execute until the first `yield(i)`, and print `START` along the way. Then, to print `2` we need to proceed to the next `yield(i)`, and this prints `STEP`. Same for `3`. And the next `STEP` never gets printed (as well as `END`), because we never requested further elements of the sequence.   
+Running the code above prints the first three elements. The numbers are interleaved with `STEP`s in the generating loop. This means that the computation is lazy indeed. To print `1` we only execute until the first `yield(i)`, and print `START` along the way. Then, to print `2` we need to proceed to the next `yield(i)`, and this prints `STEP`. Same for `3`. And the next `STEP` never gets printed (as well as `END`), because we never requested further elements of the sequence.   
    
 To yield a collection (or sequence) of values at once, the `yieldAll()` function is available:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*
@@ -231,7 +256,7 @@ The `buildIterator()` works similarly to `buildSequence()`, but returns a lazy i
 
 One can add custom yielding logic to `buildSequence()` by writing suspending extensions to the `SequenceBuilder` class (that bears the `@RestrictsSuspension` annotation described [above](#restrictssuspension-annotation)):
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea">
 
 ``` kotlin
 import kotlin.coroutines.experimental.*
@@ -258,12 +283,12 @@ fun main(args: Array<String>) {
 Only core APIs related to coroutines are available from the Kotlin Standard Library. This mostly consists of core primitives and interfaces that all coroutine-based libraries are likely to use.   
 
 Most application-level APIs based on coroutines are released as a separate library: [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines). This library covers
- * Platform-agnostic asynchronous programming with `kotlinx-coroutines-core`
-   * this module includes Go-like channels that support `select` and other convenient primitives
-   * a comprehensive guide to this library is available [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md).
- * APIs based on `CompletableFuture` from JDK 8: `kotlinx-coroutines-jdk8`
- * Non-blocking IO (NIO) based on APIs from JDK 7 and higher: `kotlinx-coroutines-nio`
- * Support for Swing (`kotlinx-coroutines-swing`) and JavaFx (`kotlinx-coroutines-javafx`)
- * Support for RxJava: `kotlinx-coroutines-rx`
+ * Platform-agnostic asynchronous programming with `kotlinx-coroutines-core`:
+   * this module includes Go-like channels that support `select` and other convenient primitives,
+   * a comprehensive guide to this library is available [here](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md);
+ * APIs based on `CompletableFuture` from JDK 8: `kotlinx-coroutines-jdk8`;
+ * Non-blocking IO (NIO) based on APIs from JDK 7 and higher: `kotlinx-coroutines-nio`;
+ * Support for Swing (`kotlinx-coroutines-swing`) and JavaFx (`kotlinx-coroutines-javafx`);
+ * Support for RxJava: `kotlinx-coroutines-rx`.
  
 These libraries serve as both convenient APIs that make common tasks easy and end-to-end examples of how to build coroutine-based libraries. 

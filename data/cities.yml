@@ -1,3 +1,555 @@
+- name: Cape Town, South Africa
+  geo:
+    lat: -33.9248685
+    lng: 18.4240553
+- name: Bozeman, MT
+  geo:
+    lat: 45.6769979
+    lng: -111.0429339
+- name: Darmstadt, Germany
+  geo:
+    lat: 49.8728253
+    lng: 8.6511929
+- name: Brasília, Brazil
+  geo:
+    lat: -15.7942287
+    lng: -47.8821658
+- name: Gaborone, Botswana
+  geo:
+    lat: -24.6282079
+    lng: 25.9231471
+- name: Jihlava, Czech Republic
+  geo:
+    lat: 49.3983782
+    lng: 15.5870415
+- name: Villach, Austria
+  geo:
+    lat: 46.60856
+    lng: 13.85062
+- name: Edinburgh, United Kingdom
+  geo:
+    lat: 55.953252
+    lng: -3.188267
+- name: El Alto, Bolivia
+  geo:
+    lat: -16.5000936
+    lng: -68.2146857
+- name: Makassar, Indonesia
+  geo:
+    lat: -5.147665099999999
+    lng: 119.4327314
+- name: Ceuta, Spain
+  geo:
+    lat: 35.8893874
+    lng: -5.3213455
+- name: Hong Kong, China
+  geo:
+    lat: 22.396428
+    lng: 114.109497
+- name: Bogotá, Colombia
+  geo:
+    lat: 4.710988599999999
+    lng: -74.072092
+- name: Bhubaneswar, India
+  geo:
+    lat: 20.2960587
+    lng: 85.8245398
+- name: Murcia, Spain
+  geo:
+    lat: 37.9922399
+    lng: -1.1306544
+- name: Malang, Indonesia
+  geo:
+    lat: -7.9666204
+    lng: 112.6326321
+- name: Masqat, Oman
+  geo:
+    lat: 23.58589
+    lng: 58.4059227
+- name: Eschborn, Germany
+  geo:
+    lat: 50.1467469
+    lng: 8.561455500000001
+- name: Limerick, Ireland
+  geo:
+    lat: 52.6680204
+    lng: -8.6304976
+- name: Braunschweig, Germany
+  geo:
+    lat: 52.2688736
+    lng: 10.5267696
+- name: Dunedin, New Zealand
+  geo:
+    lat: -45.8787605
+    lng: 170.5027976
+- name: Columbia, MO
+  geo:
+    lat: 38.9517053
+    lng: -92.3340724
+- name: Linz, Austria
+  geo:
+    lat: 48.30694
+    lng: 14.28583
+- name: Divinópolis, Brazil
+  geo:
+    lat: -20.1451261
+    lng: -44.8916447
+- name: Alcalá de Henares, Spain
+  geo:
+    lat: 40.4819791
+    lng: -3.3635421
+- name: Herzliya, Israel
+  geo:
+    lat: 32.162413
+    lng: 34.844675
+- name: Semarang, Indonesia
+  geo:
+    lat: -7.0051453
+    lng: 110.4381254
+- name: Kranj, Slovenia
+  geo:
+    lat: 46.2428344
+    lng: 14.3555417
+- name: Levante, Italy
+  geo:
+    lat: 44.2763654
+    lng: 9.4008281
+- name: Delhi, India
+  geo:
+    lat: 28.7040592
+    lng: 77.10249019999999
+- name: Vanderbijlpark, South Africa
+  geo:
+    lat: -26.7034204
+    lng: 27.8076959
+- name: Kirkland, WA
+  geo:
+    lat: 47.6768927
+    lng: -122.2059833
+- name: Lahore, Pakistan
+  geo:
+    lat: 31.5203696
+    lng: 74.35874729999999
+- name: Görlitz, Germany
+  geo:
+    lat: 51.1506269
+    lng: 14.968707
+- name: Richmond, VA
+  geo:
+    lat: 37.5407246
+    lng: -77.4360481
+- name: Düzce, Turkey
+  geo:
+    lat: 40.83872
+    lng: 31.162609
+- name: Valbonne, France
+  geo:
+    lat: 43.64152
+    lng: 7.009186
+- name: Tanjah, Morocco
+  geo:
+    lat: 35.7594651
+    lng: -5.833954299999999
+- name: Cali, Colombia
+  geo:
+    lat: 3.4516467
+    lng: -76.5319854
+- name: Cascavel,Brasil
+  geo:
+    lat: -24.9577771
+    lng: -53.45951119999999
+- name: Rosario, Argentina
+  geo:
+    lat: -32.9442426
+    lng: -60.65053880000001
+- name: Brighton, United Kingdom
+  geo:
+    lat: 50.82253000000001
+    lng: -0.137163
+- name: Ondo, Nigeria
+  geo:
+    lat: 7.1000051
+    lng: 4.8416936
+- name: Oxford, United Kingdom
+  geo:
+    lat: 51.7520209
+    lng: -1.2577263
+- name: Weimar, Germany
+  geo:
+    lat: 50.9794934
+    lng: 11.3235439
+- name: Dallas, TX
+  geo:
+    lat: 32.7766642
+    lng: -96.79698789999999
+- name: Pisa, Italy
+  geo:
+    lat: 43.7228386
+    lng: 10.4016888
+- name: Kochi, India
+  geo:
+    lat: 9.9312328
+    lng: 76.26730409999999
+- name: Mason, OH
+  geo:
+    lat: 39.3600586
+    lng: -84.309939
+- name: Tiyarat, Algeria
+  geo:
+    lat: 36.4757929
+    lng: 2.8297576
+- name: San Pedro Sula, Honduras
+  geo:
+    lat: 15.5149204
+    lng: -87.9922684
+- name: Morgantown, WV
+  geo:
+    lat: 39.629526
+    lng: -79.95589679999999
+- name: Lille, France
+  geo:
+    lat: 50.62925
+    lng: 3.057256
+- name: Noida, India
+  geo:
+    lat: 28.5355161
+    lng: 77.3910265
+- name: San Diego, CA
+  geo:
+    lat: 32.715738
+    lng: -117.1610838
+- geo:
+    lat: 30.274084
+    lng: 120.15507
+  name: Hangzhou, China
+- geo:
+    lat: 54.35202520000001
+    lng: 18.6466384
+  name: Gdansk,Poland
+- geo:
+    lat: 49.9928617
+    lng: 8.2472526
+  name: Mainz,Germany
+- geo:
+    lat: 41.4489396
+    lng: -82.7079605
+  name: Sandusky, Ohio
+- geo:
+    lat: 36.9741171
+    lng: -122.0307963
+  name: Santa Cruz, CA
+- geo:
+    lat: 38.0293059
+    lng: -78.47667810000002
+  name: Charlottesville, VA
+- geo:
+    lat: 22.543096
+    lng: 114.057865
+  name: Shenzhen, China
+- geo:
+    lat: 28.4743879
+    lng: 77.50399039999999
+  name: Greater Noida, India
+- geo:
+    lat: 11.504776
+    lng: 77.2383942
+  name: Sathyamangalam, India
+- geo:
+    lat: 30.5972455
+    lng: 30.9876321
+  name: Menofeya, Egypt
+- geo:
+    lat: 63.8258471
+    lng: 20.2630354
+  name: Umeå, Sweden
+- geo:
+    lat: 35.4675602
+    lng: -97.5164276
+  name: Oklahoma City, OK
+- geo:
+    lat: 43.7101728
+    lng: 7.261953200000001
+  name: Nice, France
+- geo:
+    lat: 37.5078772
+    lng: 15.0830304
+  name: Catania, Italy
+- geo:
+    lat: 33.5731104
+    lng: -7.589843399999999
+  name: Casablanca, Morocco
+- geo:
+    lat: -17.9646772
+    lng: -67.1060353
+  name: Oruro, Bolivia
+- geo:
+    lat: 56.2965039
+    lng: 43.93605900000001
+  name: Nizhny Novgorod, Russia
+- geo:
+    lat: 23.022505
+    lng: 72.5713621
+  name: Ahmedabad, India
+- geo:
+    lat: 52.2574121
+    lng: 6.7927725
+  name: Hengelo, The Netherlands
+- geo:
+    lat: -1.2920659
+    lng: 36.8219462
+  name: Nairobi, Kenya
+- geo:
+    lat: 35.3387352
+    lng: 25.1442126
+  name: Heraklion, Greece
+- geo:
+    lat: 36.8968908
+    lng: 30.7133233
+  name: Antalya, Turkey
+- geo:
+    lat: 34.341574
+    lng: 108.93977
+  name: Xi'an,Shannxi, China
+- geo:
+    lat: 44.8004192
+    lng: 18.0602921
+  name: Doboj, Bosnia and Herzegovina
+- geo:
+    lat: 40.5621704
+    lng: -111.929658
+  name: South Jordan, UT
+- geo:
+    lat: 48.2920787
+    lng: 25.9358367
+  name: Chernivtsi, Ukraine
+- geo:
+    lat: 36.7212737
+    lng: -4.4213988
+  name: Málaga, Spain
+- geo:
+    lat: -25.5085286
+    lng: -54.6753231
+  name: Ciudad del Este, Paraguay
+- geo:
+    lat: 33.3061605
+    lng: -111.8412502
+  name: Chandler, AZ
+- geo:
+    lat: -22.314459
+    lng: -49.0586951
+  name: Bauru, Brasil
+- geo:
+    lat: 21.0277644
+    lng: 105.8341598
+  name: Hanoi, Vietnam
+- geo:
+    lat: 40.0992294
+    lng: -83.1140771
+  name: Dublin, OH
+- geo:
+    lat: 36.4757929
+    lng: 2.8297576
+  name: Blida, Algeria
+- geo:
+    lat: -33.4488897
+    lng: -70.6692655
+  name: Santiago, Chile
+- geo:
+    lat: 57.70887
+    lng: 11.97456
+  name: Göteborg, Sweden
+- geo:
+    lat: 40.8517746
+    lng: 14.2681244
+  name: Napoli, Italy
+- geo:
+    lat: 37.831316
+    lng: -122.2852473
+  name: Emeryville, CA
+- geo:
+    lat: 30.483997
+    lng: 76.5939516
+  name: Rajpura, India
+- geo:
+    lat: 9.0764785
+    lng: 7.398574
+  name: Abuja, Nigeria
+- geo:
+    lat: 40.2033145
+    lng: -8.4102573
+  name: Coimbra, Portugal
+- geo:
+    lat: 35.8245029
+    lng: 10.634584
+  name: Susah, Tunisia
+- geo:
+    lat: 50.2103605
+    lng: 15.825211
+  name: Hradec Králové, Czech Republic
+- geo:
+    lat: 20.6719563
+    lng: -103.416501
+  name: Zapopan, Mexico
+- geo:
+    lat: 6.827622799999999
+    lng: -5.2893433
+  name: Yamoussoukro­, Ivory Coast
+- geo:
+    lat: 51.1078852
+    lng: 17.0385376
+  name: Wroclaw, Poland
+- geo:
+    lat: 31.2000924
+    lng: 29.9187387
+  name: Alexandria, Egypt
+- geo:
+    lat: 42.3736158
+    lng: -71.10973349999999
+  name: Cambridge, MA
+- geo:
+    lat: 35.7642515
+    lng: 10.8112885
+  name: al-Munastir, Tunisia
+- geo:
+    lat: -7.7955798
+    lng: 110.3694896
+  name: Yogyakarta, Indonesia
+- geo:
+    lat: 47.5595986
+    lng: 7.5885761
+  name: Basel, Switzerland
+- geo:
+    lat: 38.9822282
+    lng: -94.6707917
+  name: Overland Park, KS
+- geo:
+    lat: 39.7667061
+    lng: 30.52563109999999
+  name: Eskisehir, Turkey
+- geo:
+    lat: 47.2357137
+    lng: 39.701505
+  name: Rostov-on-Don, Russia
+- geo:
+    lat: 44.8564798
+    lng: 24.8691824
+  name: Pitesti, Romania
+- geo:
+    lat: 39.0997265
+    lng: -94.5785667
+  name: Kansas City, MO
+- geo:
+    lat: 43.0831301
+    lng: -73.7845651
+  name: Saratoga Springs, NY
+- geo:
+    lat: -15.4996879
+    lng: -70.12965299999999
+  name: Juliaca, Peru
+- geo:
+    lat: 27.950575
+    lng: -82.4571776
+  name: Tampa, FL
+- geo:
+    lat: -22.3679387
+    lng: -46.9432454
+  name: Mogi Guaçu, Brazil
+- geo:
+    lat: 40.44062479999999
+    lng: -79.9958864
+  name: Pittsburgh, PA
+- geo:
+    lat: 47.218371
+    lng: -1.553621
+  name: Nantes, France
+- geo:
+    lat: 40.76754400000001
+    lng: 114.886335
+  name: Zhangjiakou, China
+- geo:
+    lat: 51.9851034
+    lng: 5.898729599999999
+  name: Arnhem, Netherlands
+- geo:
+    lat: 53.0137902
+    lng: 18.5984437
+  name: Torun, Poland
+- geo:
+    lat: 47.6062095
+    lng: -122.3320708
+  name: Seattle, WA
+- geo:
+    lat: 51.7189205
+    lng: 8.757509299999999
+  name: Paderborn, Germany
+- geo:
+    lat: 44.7721811
+    lng: 17.191
+  name: Banja Luka, Bosnia-Herzegovina
+- geo:
+    lat: 52.0302285
+    lng: 8.532470800000002
+  name: Bielefeld, Germany
+- geo:
+    lat: 52.1561113
+    lng: 5.387826599999999
+  name: Amersfoort, Netherlands
+- geo:
+    lat: 60.39126279999999
+    lng: 5.3220544
+  name: Bergen, Norway
+- geo:
+    lat: 28.0870967
+    lng: 30.7618397
+  name: Minia, Egypt
+- geo:
+    lat: 42.2808256
+    lng: -83.7430378
+  name: Ann Arbor, MI
+- geo:
+    lat: 43.0389025
+    lng: -87.9064736
+  name: Milwaukee, WI
+- geo:
+    lat: 52.1205333
+    lng: 11.6276237
+  name: Magdeburg, Germany
+- geo:
+    lat: 5.3599517
+    lng: -4.0082563
+  name: Abidjan, Ivory Coast
+- geo:
+    lat: 52.060669
+    lng: 4.494025
+  name: Zoetermeer, Netherlands
+- geo:
+    lat: 19.0759837
+    lng: 72.8776559
+  name: Mumbai, India
+- geo:
+    lat: -12.0463731
+    lng: -77.042754
+  name: Lima, Perú
+- geo:
+    lat: 47.2692124
+    lng: 11.4041024
+  name: Innsbruck, Austria
+- geo:
+    lat: -19.0195852
+    lng: -65.2619615
+  name: Sucre, Bolivia
+- geo:
+    lat: 35.0853336
+    lng: -106.6055534
+  name: Albuquerque, NM
+- geo:
+    lat: 53.4083714
+    lng: -2.9915726
+  name: Liverpool, United Kingdom
+- geo:
+    lat: -17.8251657
+    lng: 31.03351
+  name: Harare, Zimbabwe
 - geo:
     lat: 7.6124263
     lng: 5.237108699999999
@@ -1034,27 +1586,22 @@
   geo:
     lat: 33.745001
     lng: -84.38902
-
 - name: São Paulo, Brazil
   geo:
     lat: -23.600388
     lng: -46.624169
-
 - name: Dublin, Ireland
   geo:
     lat: 53.347199
     lng: -6.264249
-
 - name: Budapest, Hungary
   geo:
     lat: 47.49412
     lng: 19.050646
-
 - name: Vienna, Austria
   geo:
     lat: 48.205564
     lng: 16.367699
-
 - name: 兵庫県芦屋市業平町8番24号
   geo:
     lat: 34.732159

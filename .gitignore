@@ -24,7 +24,7 @@ build
 workspace.xml
 uiDesigner.xml
 *.css.map
-api/
+/api/
 .idea
 *.iml
 grammar.xml
@@ -34,3 +34,8 @@ pdf/kotlin-docs.pdf
 pdf/tmp.html
 *.pyc
 google-credentials.json
+package-lock.json
+.env
+pages/api/
+external/
+pages/docs/reference/native/

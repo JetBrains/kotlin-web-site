@@ -49,6 +49,7 @@ Kotlin also supports a conventional notation for floating-point numbers:
  
 You can use underscores to make number constants more readable:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val oneMillion = 1_000_000
 val creditCardNumber = 1234_5678_9012_3456L
@@ -56,6 +57,7 @@ val socialSecurityNumber = 999_99_9999L
 val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
 ```
+</div>
 
 ### Representation
 
@@ -64,51 +66,80 @@ In the latter cases numbers are boxed.
 
 Note that boxing of numbers does not necessarily preserve identity:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
-val a: Int = 10000
-print(a === a) // Prints 'true'
-val boxedA: Int? = a
-val anotherBoxedA: Int? = a
-print(boxedA === anotherBoxedA) // !!!Prints 'false'!!!
+fun main(args: Array<String>) {
+//sampleStart
+    val a: Int = 10000
+    println(a === a) // Prints 'true'
+    val boxedA: Int? = a
+    val anotherBoxedA: Int? = a
+    println(boxedA === anotherBoxedA) // !!!Prints 'false'!!!
+//sampleEnd
+}
 ```
+</div>
 
 On the other hand, it preserves equality:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
-val a: Int = 10000
-print(a == a) // Prints 'true'
-val boxedA: Int? = a
-val anotherBoxedA: Int? = a
-print(boxedA == anotherBoxedA) // Prints 'true'
+fun main(args: Array<String>) {
+//sampleStart
+    val a: Int = 10000
+    println(a == a) // Prints 'true'
+    val boxedA: Int? = a
+    val anotherBoxedA: Int? = a
+    println(boxedA == anotherBoxedA) // Prints 'true'
+//sampleEnd
+}
 ```
+</div>
 
 ### Explicit Conversions
 
 Due to different representations, smaller types are not subtypes of bigger ones.
 If they were, we would have troubles of the following sort:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 // Hypothetical code, does not actually compile:
 val a: Int? = 1 // A boxed Int (java.lang.Integer)
 val b: Long? = a // implicit conversion yields a boxed Long (java.lang.Long)
-print(a == b) // Surprise! This prints "false" as Long's equals() check for other part to be Long as well
+print(b == a) // Surprise! This prints "false" as Long's equals() checks whether the other is Long as well
 ```
+</div>
 
-So not only identity, but even equality would have been lost silently all over the place.
+So equality would have been lost silently all over the place, not to mention identity.
 
 As a consequence, smaller types are NOT implicitly converted to bigger types.
 This means that we cannot assign a value of type `Byte` to an `Int` variable without an explicit conversion
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
-val b: Byte = 1 // OK, literals are checked statically
-val i: Int = b // ERROR
+fun main(args: Array<String>) {
+//sampleStart
+    val b: Byte = 1 // OK, literals are checked statically
+    val i: Int = b // ERROR
+//sampleEnd
+}
 ```
+</div>
 
 We can use explicit conversions to widen numbers
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
-val i: Int = b.toInt() // OK: explicitly widened
+fun main(args: Array<String>) {
+    val b: Byte = 1
+//sampleStart
+    val i: Int = b.toInt() // OK: explicitly widened
+    print(i)
+//sampleEnd
+}
+
 ```
+</div>
 
 Every number type supports the following conversions:
 
@@ -122,9 +153,11 @@ Every number type supports the following conversions:
 
 Absence of implicit conversions is rarely noticeable because the type is inferred from the context, and arithmetical operations are overloaded for appropriate conversions, for example
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val l = 1L + 3 // Long + Int => Long
 ```
+</div>
 
 ### Operations
 
@@ -133,9 +166,11 @@ See [Operator overloading](operator-overloading.html).
 
 As of bitwise operations, there're no special characters for them, but just named functions that can be called in infix form, for example:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val x = (1 shl 2) and 0x000FF000
 ```
+</div>
 
 Here is the complete list of bitwise operations (available for `Int` and `Long` only):
 
@@ -147,10 +182,31 @@ Here is the complete list of bitwise operations (available for `Int` and `Long` 
 * `xor(bits)` – bitwise xor
 * `inv()` – bitwise inversion
 
+### Floating Point Numbers Comparison
+
+The operations on floating point numbers discussed in this section are:
+
+* Equality checks: `a == b` and `a != b`
+* Comparison operators: `a < b`, `a > b`, `a <= b`, `a >= b`
+* Range instantiation and range checks: `a..b`, `x in a..b`, `x !in a..b`
+
+When the operands `a` and `b` are statically known to be `Float` or `Double` or their nullable counterparts (the type is 
+declared or inferred or is a result of a [smart cast](typecasts.html#smart-casts)), the operations on the 
+numbers and the range that they form follow the IEEE 754 Standard for Floating-Point Arithmetic. 
+
+However, to support generic use cases and provide total ordering, when the operands are **not** statically typed as 
+floating point numbers (e.g. `Any`, `Comparable<...>`, a type parameter), the operations use the 
+`equals` and `compareTo` implementations for `Float` and `Double`, which disagree with the standard, so that:
+
+* `NaN` is considered equal to itself
+* `NaN` is considered greater than any other element including `POSITIVE_INFINITY`
+* `-0.0` is considered less than `0.0`
+
 ## Characters
 
 Characters are represented by the type `Char`. They can not be treated directly as numbers
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun check(c: Char) {
     if (c == 1) { // ERROR: incompatible types
@@ -158,6 +214,7 @@ fun check(c: Char) {
     }
 }
 ```
+</div>
 
 Character literals go in single quotes: `'1'`.
 Special characters can be escaped using a backslash.
@@ -166,6 +223,7 @@ To encode any other character, use the Unicode escape sequence syntax: `'\uFF00'
 
 We can explicitly convert a character to an `Int` number:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 fun decimalDigitValue(c: Char): Int {
     if (c !in '0'..'9')
@@ -173,6 +231,7 @@ fun decimalDigitValue(c: Char): Int {
     return c.toInt() - '0'.toInt() // Explicit conversions to numbers
 }
 ```
+</div>
 
 Like numbers, characters are boxed when a nullable reference is needed. Identity is not preserved by the boxing operation.
 
@@ -192,6 +251,7 @@ Built-in operations on booleans include
 
 Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` functions (that turn into `[]` by operator overloading conventions), and `size` property, along with a few other useful member functions:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 class Array<T> private constructor() {
     val size: Int
@@ -202,17 +262,25 @@ class Array<T> private constructor() {
     // ...
 }
 ```
+</div>
 
-To create an array, we can use a library function `arrayOf()` and pass the item values to it, so that `arrayOf(1, 2, 3)` creates an array [1, 2, 3].
+To create an array, we can use a library function `arrayOf()` and pass the item values to it, so that `arrayOf(1, 2, 3)` creates an array `[1, 2, 3]`.
 Alternatively, the `arrayOfNulls()` library function can be used to create an array of a given size filled with null elements.
 
-Another option is to use a factory function that takes the array size and the function that can return the initial value
+Another option is to use the `Array` constructor that takes the array size and the function that can return the initial value
 of each array element given its index:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
-// Creates an Array<String> with values ["0", "1", "4", "9", "16"]
-val asc = Array(5, { i -> (i * i).toString() })
+fun main(args: Array<String>) {
+//sampleStart
+    // Creates an Array<String> with values ["0", "1", "4", "9", "16"]
+    val asc = Array(5, { i -> (i * i).toString() })
+    asc.forEach { println(it) }
+//sampleEnd
+}
 ```
+</div>
 
 As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`.
 
@@ -224,10 +292,12 @@ Kotlin also has specialized classes to represent arrays of primitive types witho
 `ShortArray`, `IntArray` and so on. These classes have no inheritance relation to the `Array` class, but they
 have the same set of methods and properties. Each of them also has a corresponding factory function:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val x: IntArray = intArrayOf(1, 2, 3)
 x[0] = x[1] + x[2]
 ```
+</div>
 
 ## Strings
 
@@ -235,33 +305,61 @@ Strings are represented by the type `String`. Strings are immutable.
 Elements of a string are characters that can be accessed by the indexing operation: `s[i]`.
 A string can be iterated over with a *for*{: .keyword }-loop:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
+fun main(args: Array<String>) {
+val str = "abcd"
+//sampleStart
 for (c in str) {
     println(c)
 }
+//sampleEnd
+}
 ```
+</div>
+
+You can concatenate strings using the `+` operator. This also works for concatenating strings with values of other types, as long
+as the first element in the expression is a string:
+
+<div class="sample" markdown="1" theme="idea">
+``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
+val s = "abc" + 1
+println(s + "def")
+//sampleEnd
+}
+```
+</div>
+
+Note that in most cases using [string templates](#string-templates) or raw strings is preferable to string concatenation.
 
 ### String Literals
 
 Kotlin has two types of string literals: escaped strings that may have escaped characters in them and raw strings that can contain newlines and arbitrary text. An escaped string is very much like a Java string:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val s = "Hello, world!\n"
 ```
+</div>
 
 Escaping is done in the conventional way, with a backslash. See [Characters](#characters) above for the list of supported escape sequences.
 
 A raw string is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val text = """
     for (c in "foo")
         print(c)
 """
 ```
+</div>
 
 You can remove leading whitespace with [`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val text = """
     |Tell me and I forget.
@@ -270,6 +368,7 @@ val text = """
     |(Benjamin Franklin)
     """.trimMargin()
 ```
+</div>
 
 By default `|` is used as margin prefix, but you can choose another character and pass it as a parameter, like `trimMargin(">")`.
 
@@ -278,23 +377,37 @@ By default `|` is used as margin prefix, but you can choose another character an
 Strings may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string.
 A template expression starts with a dollar sign ($) and consists of either a simple name:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
 val i = 10
-val s = "i = $i" // evaluates to "i = 10"
+println("i = $i") // prints "i = 10"
+//sampleEnd
+}
 ```
+</div>
 
 or an arbitrary expression in curly braces:
 
+<div class="sample" markdown="1" theme="idea">
 ``` kotlin
+fun main(args: Array<String>) {
+//sampleStart
 val s = "abc"
-val str = "$s.length is ${s.length}" // evaluates to "abc.length is 3"
+println("$s.length is ${s.length}") // prints "abc.length is 3"
+//sampleEnd
+}
 ```
+</div>
 
 Templates are supported both inside raw strings and inside escaped strings.
 If you need to represent a literal `$` character in a raw string (which doesn't support backslash escaping), you can use the following syntax:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 val price = """
 ${'$'}9.99
 """
 ```
+</div>

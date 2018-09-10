@@ -4,7 +4,16 @@ import Instantsearch from "instantsearch.js";
 import resultTemaplate from "./search-result.mustache"
 import emptyResultsTemaplate from "./empty-result.mustache"
 import UrlUtils from "query-string"
+import debounce from 'debounce';
 
+const searchDelay = 300;
+
+const KEYS = {
+  UP: 38,
+  DOWN: 40,
+  ENTER: 13,
+  ESC: 27
+};
 
 $(document).ready(function () {
   const $searchButton = $('.search-button'),
@@ -12,20 +21,22 @@ $(document).ready(function () {
     $closeButton = $('.search-popup__close'),
     $layout = $('.global-layout');
 
+  let isInited = false;
 
   const search = Instantsearch({
     appId: '7961PKYRXV',
     apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
     indexName: indexName,
-    searchFunction: (helper) => {
+    searchFunction: debounce((helper) => {
       const searchResults = $('.search-popup__results');
+
       helper.search();
       if (helper.state.query === '') {
         searchResults.hide();
       } else {
         searchResults.show();
       }
-    },
+    }, searchDelay),
     urlSync: {
       trackedParameters: ['query', 'page']
     }
@@ -55,11 +66,14 @@ $(document).ready(function () {
     })
   );
 
-  search.start();
-
   const $input = $('.ais-search-box input');
 
   function openPopup() {
+    if (!isInited) {
+      search.start();
+      isInited = true;
+    }
+
     $searchPopup.removeClass('_hidden');
     $('body').addClass('_no-scroll');
     $('.ais-search-box--input').focus();
@@ -73,11 +87,15 @@ $(document).ready(function () {
   }
 
   $searchPopup.keyup(function (e) {
-    if (e.keyCode == 27) { // escape key
+    handlerKeysEvent();
+    if (e.keyCode === KEYS.ESC) { // escape key
       closePopup()
-    } else if (e.keyCode == 13) { //enter
-      window.location.href = $('.ais-infinite-hits--item._active a').attr('href')
-    } else if (e.keyCode == 40) { //arrow down
+    } else if (e.keyCode === KEYS.ENTER) { //enter
+      const searchRef = $('.ais-infinite-hits--item._active a').attr('href');
+      if (searchRef !== undefined) {
+        window.location.href = searchRef;
+      }
+    } else if (e.keyCode === KEYS.DOWN) { //arrow down
       const $activeElement = $('.ais-infinite-hits--item._active');
       const $nextElement = $activeElement.next();
       if ($nextElement.length > 0) {
@@ -89,7 +107,7 @@ $(document).ready(function () {
           $searchPopup.scrollTop($searchPopup.scrollTop() + popupTop);
         }
       }
-    } else if (e.keyCode == 38) { //arrow up
+    } else if (e.keyCode === 38) { //arrow up
       const $activeElement = $('.ais-infinite-hits--item._active');
       const $prevElement = $activeElement.prev();
       if ($prevElement.length > 0) {
@@ -108,14 +126,20 @@ $(document).ready(function () {
 
   $searchButton.on('click touch', openPopup);
 
-  $input.keydown(function (e) {
-    if (e.keyCode == 40 || e.keyCode == 38) {
-      e.preventDefault()
-    }
+  $(".search-popup").click(function () {
+    $(".ais-search-box--input").select();
   });
 
   const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));
-  if ('q' in urlParameters && urlParameters.q != '') {
+  if ('q' in urlParameters && urlParameters.q !== '') {
     openPopup();
   }
 });
+
+function handlerKeysEvent() {
+  $(".ais-search-box--input").keydown(function (e) {
+    if (e.keyCode === KEYS.DOWN || e.keyCode === KEYS.UP) {
+      e.preventDefault()
+    }
+  })
+}

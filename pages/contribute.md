@@ -33,7 +33,7 @@ If you've given or are giving presentations on Kotlin, let us know. We'll [featu
 ### Kotlin-x Projects and Community Projects
 
 Kotlin ships with a very small runtime and it's the aim to keep it that way. We believe other functionality that is missing from the standard runtime library can be developed
-as Kotlin Contributions under the [Kotlin-X](https://github.com/kotlinx/kotlinx) umbrella or as individual projects by community members. If you have a library that you think
+as Kotlin Contributions under the Kotlin-X umbrella or as individual projects by community members. If you have a library that you think
 others might find useful, let us know. If you want to contribute to any of the existing ones, check them out.
 
 ### Translations

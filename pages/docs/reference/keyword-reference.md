@@ -55,8 +55,8 @@ The following tokens are always interpreted as keywords and cannot be used as id
  * `true` specifies the 'true' value of the [Boolean type](/docs/reference/basic-types.html#booleans)
  * `try` [begins an exception handling block](/docs/reference/exceptions.html)
  * `typealias` declares a [type alias](/docs/reference/type-aliases.html)
- * `val` declares a read-only [property](/docs/reference/properties.html) or [local variable](/docs/reference/basic-syntax.html#defining-local-variables)
- * `var` declares a mutable [property](/docs/reference/properties.html) or [local variable](/docs/reference/basic-syntax.html#defining-local-variables)
+ * `val` declares a read-only [property](/docs/reference/properties.html) or [local variable](/docs/reference/basic-syntax.html#defining-variables)
+ * `var` declares a mutable [property](/docs/reference/properties.html) or [local variable](/docs/reference/basic-syntax.html#defining-variables)
  * `when` begins a [when expression](/docs/reference/control-flow.html#when-expression) (executes one of the given branches)
  * `while` begins a [while loop](/docs/reference/control-flow.html#while-loops) (loop with precondition)
 
@@ -94,6 +94,7 @@ as identifiers in other contexts:
 The following tokens act as keywords in modifier lists of declarations and can be used as identifiers
 in other contexts:
 
+ * `actual` denotes a platform-specific implementation in [multiplatform projects](/docs/reference/multiplatform.html)
  * `abstract` marks a class or member as [abstract](/docs/reference/classes.html#abstract-classes)
  * `annotation` declares an [annotation class](/docs/reference/annotations.html)
  * `companion` declares a [companion object](/docs/reference/object-declarations.html#companion-objects)
@@ -101,13 +102,14 @@ in other contexts:
  * `crossinline` forbids [non-local returns in a lambda passed to an inline function](/docs/reference/inline-functions.html#non-local-returns) 
  * `data` instructs the compiler to [generate canonical members for a class](/docs/reference/data-classes.html)
  * `enum` declares an [enumeration](/docs/reference/enum-classes.html)
+ * `expect` marks a declaration as [platform-specific](/docs/reference/multiplatform.html), expecting an implementation in platform modules.
  * `external` marks a declaration as implemented not in Kotlin (accessible through [JNI](/docs/reference/java-interop.html#using-jni-with-kotlin) or in [JavaScript](/docs/reference/js-interop.html#external-modifier)) 
  * `final` forbids [overriding a member](/docs/reference/classes.html#overriding-methods)
  * `infix` allows calling a function in [infix notation](/docs/reference/functions.html#infix-notation)
  * `inline` tells the compiler to [inline the function and the lambdas passed to it at the call site](/docs/reference/inline-functions.html)
  * `inner` allows referring to the outer class instance from a [nested class](/docs/reference/nested-classes.html)
  * `internal` marks a declaration as [visible in the current module](/docs/reference/visibility-modifiers.html)
- * `lateinit` allows initializing a [non-null property outside of a constructor](/docs/reference/properties.html#late-initialized-properties)
+ * `lateinit` allows initializing a [non-null property outside of a constructor](/docs/reference/properties.html#late-initialized-properties-and-variables)
  * `noinline` turns off [inlining of a lambda passed to an inline function](/docs/reference/inline-functions.html#noinline)
  * `open` allows [subclassing a class or overriding a member](/docs/reference/classes.html#inheritance)
  * `operator` marks a function as [overloading an operator or implementing a convention](/docs/reference/operator-overloading.html)

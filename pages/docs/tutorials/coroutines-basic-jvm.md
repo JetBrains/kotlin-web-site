@@ -22,6 +22,7 @@ Make sure it's configured for Kotlin 1.1 or higher.
 
 Since coroutines have the *experimental* status in Kotlin 1.1, by default the compiler reports a warning every time they are used. We can opt-in for the experimental feature and use it without a warning by adding this code to `build.gradle`:
 
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 apply plugin: 'kotlin'
 
@@ -31,23 +32,28 @@ kotlin {
     }
 }
 ```
+</div>
 
 Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), let's add its recent version to our dependencies:
 
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 dependencies {
     ...
-    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.16"
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.21"
 }
 ```
+</div>
 
 This library is published to Bintray JCenter repository, so let us add it:
- 
+
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ```groovy
 repositories {
     jcenter()
 }
 ```
+</div>
 
 That's it, we are good to go and write code under `src/main/kotlin`.
 
@@ -62,6 +68,7 @@ Make sure it's configured for Kotlin 1.1 or higher.
 
 Since coroutines have the *experimental* status in Kotlin 1.1, by default the compiler reports a warning every time they are used. We can opt-in for the experimental feature and use it without a warning by adding this code to `pom.xml`:
 
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
 <plugin>
     <groupId>org.jetbrains.kotlin</groupId>
@@ -74,22 +81,26 @@ Since coroutines have the *experimental* status in Kotlin 1.1, by default the co
     </configuration>
 </plugin>
 ```
+</div>
 
 Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), let's add its recent version to our dependencies:
 
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
 <dependencies>
     ...
     <dependency>
         <groupId>org.jetbrains.kotlinx</groupId>
         <artifactId>kotlinx-coroutines-core</artifactId>
-        <version>0.16</version>
+        <version>0.21</version>
     </dependency>
 </dependencies>
 ```
+</div>
 
 This library is published to Bintray JCenter repository, so let us add it:
- 
+
+<div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 ```xml
 <repositories>
     ...
@@ -99,6 +110,7 @@ This library is published to Bintray JCenter repository, so let us add it:
     </repository>
 </repositories>
 ```
+</div>
 
 That's it, we are good to go and write code under `src/main/kotlin`.
 
@@ -110,17 +122,21 @@ True threads, on the other hand, are expensive to start and keep around. A thous
 
 So, how do we start a coroutine? Let's use the `launch {}` function:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-launch(CommonPool) {
+launch {
     ...
 }
 ```
+</div>
 
-This starts a new coroutine on a given thread pool. In this case we are using `CommonPool` that uses `ForkJoinPool.commonPool()`. Threads still exist in a program based on coroutines, but one thread can run many coroutines, so there's no need for too many threads.
+This starts a new coroutine. By default, coroutines are run on a shared pool of threads. 
+Threads still exist in a program based on coroutines, but one thread can run many coroutines, so there's no need for 
+too many threads.
 
 Let's look at a full program that uses `launch`:
 
-
+<div class="sample" markdown="1" theme="idea">
 ```kotlin
 import kotlinx.coroutines.experimental.*
 
@@ -128,7 +144,7 @@ fun main(args: Array<String>) {
     println("Start")
 
     // Start a coroutine
-    launch(CommonPool) {
+    launch {
         delay(1000)
         println("Hello")
     }
@@ -137,6 +153,7 @@ fun main(args: Array<String>) {
     println("Stop")
 }
 ```
+</div>
 
 Here we start a coroutine that waits for 1 second and prints `Hello`.
 
@@ -153,11 +170,13 @@ _Exercise: try removing the `sleep()` from the program above and see the result.
 
 This is because we are not inside any coroutine. We can use delay if we wrap it into `runBlocking {}` that starts a coroutine and waits until it's done:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 runBlocking {
     delay(2000)
 }
 ```
+</div>
 
 So, first the resulting program prints `Start`, then it runs a coroutine through `launch {}`, then it runs another one through `runBlocking {}` and blocks until it's done, then prints `Stop`. Meanwhile the first coroutine completes and prints `Hello`. Just like threads, we told you :)
 
@@ -165,6 +184,7 @@ So, first the resulting program prints `Start`, then it runs a coroutine through
 
 Now, let's make sure that coroutines are really cheaper than threads. How about starting a million of them? Let's try starting a million threads first:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
 val c = AtomicInteger()
 
@@ -175,21 +195,24 @@ for (i in 1..1_000_000)
 
 println(c.get())
 ```
+</div>
 
 This runs a 1'000'000 threads each of which adds to a common counter. My patience runs out before this program completes on my machine (definitely over a minute).
 
 Let's try the same with coroutines:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
 val c = AtomicInteger()
 
 for (i in 1..1_000_000)
-    launch(CommonPool) {
+    launch {
         c.addAndGet(i)
     }
 
 println(c.get())
 ```
+</div>
 
 This example completes in less than a second for me, but it prints some arbitrary number, because some coroutines don't finish before `main()` prints the result. Let's fix that.
 
@@ -203,19 +226,23 @@ Another way of starting a coroutine is `async {}`. It is like `launch {}`, but r
 
 Let's create a million coroutines again, keeping their `Deferred` objects. Now there's no need in the atomic counter, as we can just return the numbers to be added from our coroutines:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
 val deferred = (1..1_000_000).map { n ->
-    async (CommonPool) {
+    async {
         n
     }
 }
 ```
+</div>
 
 All these have already started, all we need is collect the results:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 val sum = deferred.sumBy { it.await() }
 ```
+</div>
 
 We simply take every coroutine and await its result here, then all results are added together by the standard library function `sumBy()`. But the compiler rightfully complains:
 
@@ -223,25 +250,29 @@ We simply take every coroutine and await its result here, then all results are a
 
 `await()` can not be called outside a coroutine, because it needs to suspend until the computation finishes, and only coroutines can suspend in a non-blocking way. So, let's put this inside a coroutine:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 runBlocking {
     val sum = deferred.sumBy { it.await() }
     println("Sum: $sum")
 }
 ```
+</div>
 
 Now it prints something sensible: `1784293664`, because all coroutines complete.
 
 Let's also make sure that our coroutines actually run in parallel. If we add a 1-second `delay()` to each of the `async`'s, the resulting program won't run for 1'000'000 seconds (over 11,5 days):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
 val deferred = (1..1_000_000).map { n ->
-    async (CommonPool) {
+    async {
         delay(1000)
         n
     }
 }
 ```
+</div>
 
 This takes about 10 seconds on my machine, so yes, coroutines do run in parallel.
 
@@ -249,12 +280,14 @@ This takes about 10 seconds on my machine, so yes, coroutines do run in parallel
 
 Now, let's say we want to extract our _workload_ (which is "wait 1 second and return a number") into a separate function:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun workload(n: Int): Int {
     delay(1000)
     return n
 }
 ```
+</div>
 
 A familiar error pops up:
 
@@ -262,19 +295,23 @@ A familiar error pops up:
 
 Let's dig a little into what it means. The biggest merit of coroutines is that they can _suspend_ without blocking a thread. The compiler has to emit some special code to make this possible, so we have to mark functions that _may suspend_ explicitly in the code. We use the `suspend` modifier for it:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 suspend fun workload(n: Int): Int {
     delay(1000)
     return n
 }
 ```
+</div>
 
 Now when we call `workload()` from a coroutine, the compiler knows that it may suspend and will prepare accordingly:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-async (CommonPool) {
+async {
     workload(n)
 }
 ```
+</div>
 
 Our `workload()` function can be called from a coroutine (or another suspending function), but _can not_ be called from outside a coroutine. Naturally, `delay()` and `await()` that we used above are themselves declared as `suspend`, and this is why we had to put them inside `runBlocking {}`, `launch {}` or `async {}`.
