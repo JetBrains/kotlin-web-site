@@ -175,7 +175,7 @@ title: Kotlin User Groups
 * [Cairo Kotlin User Group](https://www.facebook.com/Kotlin.Cairo/), Egypt
 * [Cotonou Kotlin User Group](https://www.facebook.com/kotlinCotonou/), Benin
 * [Egypt Kotlin](https://www.facebook.com/kotlinegypt/), Egypt
-* [Enugu Kotlin User Group](kotlin-enuguusergroup.slack.com ), Nigeria
+* [Enugu Kotlin User Group](https://kotlin-enuguusergroup.slack.com/), Nigeria
 * [Fayoum Kotlin User Group](https://www.facebook.com/kdgfayoum/), Egypt
 * [Johannesburg Kotlin User Group](https://www.meetup.com/Kotlin-Software-Development-Meetup/), South Africa
 * [Lagos Kotlin User Group](https://www.meetup.com/Lagos-Kotlin-Meetup/), Nigeria
