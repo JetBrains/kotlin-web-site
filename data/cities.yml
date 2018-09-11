@@ -1,3 +1,11 @@
+- name: Luzern, Switzerland
+  geo:
+    lat: 47.05016819999999
+    lng: 8.3093072
+- name: Tysons, VA
+  geo:
+    lat: 38.9187222
+    lng: -77.2310925
 - name: Cape Town, South Africa
   geo:
     lat: -33.9248685
