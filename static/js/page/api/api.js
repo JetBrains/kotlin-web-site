@@ -25,13 +25,19 @@ function updateState(state) {
   const $versionDependentElements = $('[data-kotlin-version]');
   $versionDependentElements.removeClass('hidden');
   $platformDependentElements.removeClass('hidden');
+  $platformDependentElements.each((ind, element) => {
+    $(element).parent().parent().removeClass('hidden')
+  });
 
   if (state.platform.toLowerCase() != 'all') {
     $platformDependentElements.each((ind, element) => {
       const $element = $(element);
-      if ($element.attr('data-platform').toLowerCase() == state.platform.toLowerCase()) return;
-      $element.addClass('hidden')
-    })
+
+      let tags = $element.attr('data-platform').toLowerCase();
+
+      if (tags.includes(state.platform.toLowerCase())) return;
+      $element.addClass('hidden');
+      })
   }
 
   $versionDependentElements.each((ind, element) => {
@@ -40,7 +46,10 @@ function updateState(state) {
     const version = getVersion(element);
     const pureVersion = version.replace(/\+$/, '');
     if (pureVersion > stateVersion) {
-      $element.addClass('hidden');
+        $element.addClass('hidden');
+        if ($element.is("div") && $element.siblings().hasClass("hidden")) {
+          $element.parent().parent().addClass("hidden")
+        }
     } else if (version != pureVersion) {
       updateTagByKind($element, pureVersion == stateVersion ? pureVersion : version, 'kotlin-version');
     }
@@ -76,6 +85,7 @@ function initializeSelects() {
     items: {
       'all': 'All',
       'jvm': 'JVM',
+      'common': 'COMMON',
       'js': 'JS'
     },
     selected: state.platform,
@@ -104,13 +114,24 @@ function initializeSelects() {
   })
 }
 
-function addTag(rowElement, tag, kind) {
+function addTag(rowElement, tags, kind) {
   let $tagsElement = $(rowElement).find('.tags');
   if ($tagsElement.length == 0) {
     $tagsElement = $('<div class="tags"></div>');
-    $(rowElement).find('td:first').append($tagsElement);
+    let elementWithPlatforms = $(rowElement);
+    if (elementWithPlatforms.is("tr")) {
+        elementWithPlatforms.find('td:first').append($tagsElement);
+    } else {
+        elementWithPlatforms.find('.signature').after($tagsElement);
+    }
   }
-  $tagsElement.append(`<div class="tags__tag ${kind}">${tag}</div>`)
+
+  if (!$(rowElement).is("tr") && kind != 'platform')
+    return;
+
+  tags.split(',').forEach(tag => $tagsElement.append(`<div class="tags__tag ${kind}">${tag}</div>`));
+
+
 }
 
 function addTags() {
