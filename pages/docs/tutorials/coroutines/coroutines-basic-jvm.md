@@ -3,7 +3,7 @@ type: tutorial
 layout: tutorial
 title: "Introduction to Kotlin Coroutines on the JVM"
 description: "This tutorial walks us through setting up a project using coroutines, and writing code that uses them."
-authors:
+authors: Dmitry Jemerov
 showAuthorInfo: false
 ---
 
