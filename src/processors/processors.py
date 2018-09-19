@@ -5,6 +5,7 @@ languageMimeTypeMap = {
     "java": "text/x-java",
     "groovy": "text/x-groovy",
     "xml": "application/xml",
+    "yaml": "text/x-yaml",
     "bash": "text/x-sh",
     "html": "application/xml",
     "javascript": "text/javascript",
