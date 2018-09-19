@@ -7,6 +7,8 @@ languageMimeTypeMap = {
     "xml": "application/xml",
     "yaml": "text/x-yaml",
     "bash": "text/x-sh",
+    "shell": "text/x-sh",
+    "swift": "text/x-swift",
     "html": "application/xml",
     "javascript": "text/javascript",
     "json": "application/json",
