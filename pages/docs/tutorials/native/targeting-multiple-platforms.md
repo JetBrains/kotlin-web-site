@@ -10,7 +10,7 @@ issue: EVAN-5121
 ---
 
 With Kotlin/Native, you can compile a native binary for 
-the following platforms, including (as of Kotlin/Native v0.8): 
+the following platforms, including (as of Kotlin/Native v0.9.2): 
 - Windows (x86_64)
 - Linux (x86_64, arm32, MIPS, MIPS little endian)
 - MacOS (x86_64)
@@ -37,12 +37,12 @@ The list of supported target platforms of `kotlinc-native` depends
 on the operating system where you run it. We may list them via 
 
 ```bash
-kotlinc-native -list_targets
+kotlinc-native -list-targets
 ```
 
-command. For example, on macOS X with Kotlin/Native v0.8:
+command. For example, on macOS X with Kotlin/Native v0.9.2:
 ```
-> kotlinc-native -list_targets
+> kotlinc-native -list-targets
 macos_x64:                    (default) macbook, macos, imac
 ios_arm32:                              iphone32
 ios_arm64:                              iphone, ipad, ios
@@ -53,10 +53,10 @@ wasm32:
 zephyr_stm32f4_disco:
 ```
 
-For Linux and Windows Subsystem for Linux (WSL) with Kotlin/Native v0.8 we have:
+For Linux and Windows Subsystem for Linux (WSL) with Kotlin/Native v0.9.2 we have:
 
 ```
-> kotlinc-native -list_targets
+> kotlinc-native -list-targets
 linux_x64:                    (default) linux
 linux_arm32_hfp:                        raspberrypi
 linux_mips32:
@@ -67,9 +67,9 @@ wasm32:
 zephyr_stm32f4_disco:
 ```
 
-On Windows with Kotlin/Native v0.8 it shows:
+On Windows with Kotlin/Native v0.9.2 it shows:
 ```
-> kotlinc-native -list_targets
+> kotlinc-native -list-targets
 mingw_x64:                    (default) mingw
 wasm32:
 zephyr_stm32f4_disco:

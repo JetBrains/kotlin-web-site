@@ -40,7 +40,7 @@ We create the `lib.kt` file with the library contents:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
-package demo
+package example
 
 object Object {
   val field = "A"
@@ -51,10 +51,10 @@ interface Interface {
 }
 
 class Clazz : Interface {
-  fun member(p: Int): Long? = 42
+  fun member(p: Int): ULong? = 42UL
 }
 
-fun forIntegers(b: Byte, s: Short, i: Int, l: Long?) { }
+fun forIntegers(b: Byte, s: UShort, i: Int, l: ULong?) { }
 fun forFloats(f: Float, d: Double?) { }
 
 fun strings(str: String?) : String {
@@ -88,7 +88,7 @@ Let's see what is inside
 ## Generated Framework Headers
 
 Each of the created frameworks contains the header file in `<Framework>/Headers/Demo.h`.
-The headers do not depend on the target platform (at least with Kotlin/Native v.0.8.2).
+The headers do not depend on the target platform (at least with Kotlin/Native v.0.9.2).
 It contains the definitions for our Kotlin code and a few Kotlin-wide declarations.
 
 Note, the way Kotlin/Native exports symbols is subject to change without notice.
@@ -101,6 +101,8 @@ take a look at Kotlin runtime declarations first:
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only auto-indent="false">
 
 ```obj-c
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KotlinBase : NSObject
 - (instancetype)init __attribute__((unavailable));
 + (instancetype)new __attribute__((unavailable));
@@ -111,10 +113,12 @@ take a look at Kotlin runtime declarations first:
 @end;
 
 __attribute__((objc_runtime_name("KotlinMutableSet")))
+__attribute__((swift_name("KotlinMutableSet")))
 @interface DemoMutableSet<ObjectType> : NSMutableSet<ObjectType>
 @end;
 
 __attribute__((objc_runtime_name("KotlinMutableDictionary")))
+__attribute__((swift_name("KotlinMutableDictionary")))
 @interface DemoMutableDictionary<KeyType, ObjectType> : NSMutableDictionary<KeyType, ObjectType>
 @end;
 
@@ -138,6 +142,44 @@ Most of the collection types are mapped to similar collection types from the oth
 {:.wide.zebra}
 
 
+### Kotlin Numbers and NSNumber
+
+The next part of the `<Framework>/Headers/Demo.h` contains number type mappings
+between Kotlin/Native and `NSNumber`. We have the base class called `DemoNumber` in Objective-C
+and `KotlinNumber` in Swift. It extends `NSNumber`.
+There are also child classes per Kotlin number type:
+
+|Kotlin|Swift|Objective-C| Simple type |
+-------|-----|-----------|
+|`-`      |`KotlinNumber` |`<Package>Number` | `-` |
+|`Byte`   |`KotlinByte`   |`<Package>Byte`   | `char` |
+|`UByte`  |`KotlinUByte`  |`<Package>UByte`  | `unsigned char` |
+|`Short`  |`KotlinShort`  |`<Package>Short`  | `short` |
+|`UShort` |`KotlinUShort` |`<Package>UShort` | `unsigned short` |
+|`Int`    |`KotlinInt`    |`<Package>Int`    | `int` |
+|`UInt`   |`KotlinUInt`   |`<Package>UInt`   | `unsigned int` |
+|`Long`   |`KotlinLong`   |`<Package>Long`   | `long` |
+|`ULong`  |`KotlinULong`  |`<Package>ULong`  | `unsigned long` |
+|`Float`  |`KotlinFloat`  |`<Package>Float`  | `float` |
+|`Double` |`KotlinDouble` |`<Package>Double` | `double` |
+|`Boolean`|`KotlinBoolean`|`<Package>Boolean`| `BOOL/Bool` |
+{:.wide.zebra}
+
+Every number type has a class method to create a new instance from a simple type. Also, there are all instance methods
+to extract a simple value back. Schematically, declarations look like that,
+
+<div clacss="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only auto-indent="false">
+
+```obj-c
+- (instancetype)initWith__TYPE_:(__TYPE__)value __attribute__((unavailable));
++ (instancetype)numberWith__TYPE_:(__TYPE__)value __attribute__((unavailable));
+```
+
+</div>
+Where `__TYPE__` is one of the simple type names, capitalized if necessary, e.g. `initWithChar(char)`.
+
+These types are used to map boxed Kotlin number types into Objective-C and Swift.
+
 ### Classes and Objects from Kotlin
 
 Let's see how `class` and `object` are mapped to Objective-C and Swift. 
@@ -150,6 +192,7 @@ The generated `<Framework>/Headers/Demo.h` file contains the exact definitions f
 NS_ASSUME_NONNULL_BEGIN
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Object")))
 @interface DemoObject : KotlinBase
 + (instancetype)alloc __attribute__((unavailable));
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
@@ -157,16 +200,18 @@ __attribute__((objc_subclassing_restricted))
 @property (readonly) NSString *field;
 @end;
 
+__attribute__((swift_name("Interface")))
 @protocol DemoInterface
 @required
 - (void)iMember __attribute__((swift_name("iMember()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Clazz")))
 @interface DemoClazz : KotlinBase <DemoInterface>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (NSNumber * _Nullable)memberP:(int32_t)p __attribute__((swift_name("member(p:)")));
+- (DemoLong * _Nullable)memberP:(int32_t)p __attribute__((swift_name("member(p:)")));
 @end;
 ```
 </div>
@@ -178,12 +223,12 @@ respectively. The `Interface` is turned into `@protocol`, both a `class` and an 
 `@interface`.
 The `Demo` prefix comes from the `-output` parameter
 of the `kotlinc-native` compiler and the framework name. 
-You may have spotted that the nullable return type `Long?` was turned into `NSNumber*` in Objective-C.
+You may have spotted that the nullable return type `ULong?` was turned into `DemoLong*` in Objective-C.
 
 ### Global Declarations from Kotlin
 
 All global functions from Kotlin
-are turned into `Demo` class in Objective-C/Swift, where `Demo` is the framework name and set by
+are turned into `DemoLibKt` class in Objective-C/Swift, where `Demo` is the framework name and set by
 the `-output` parameter of `kotlinc-native`.
 
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -192,9 +237,10 @@ the `-output` parameter of `kotlinc-native`.
 NS_ASSUME_NONNULL_BEGIN
 
 __attribute__((objc_subclassing_restricted))
-@interface Demo : KotlinBase
-+ (void)forIntegersB:(int8_t)b s:(int16_t)s i:(int32_t)i l:(NSNumber * _Nullable)l __attribute__((swift_name("forIntegers(b:s:i:l:)")));
-+ (void)forFloatsF:(float)f d:(NSNumber * _Nullable)d __attribute__((swift_name("forFloats(f:d:)")));
+__attribute__((swift_name("LibKt")))
+@interface DemoLibKt : KotlinBase
++ (void)forIntegersB:(int8_t)b s:(int16_t)s i:(int32_t)i l:(DemoLong * _Nullable)l __attribute__((swift_name("forIntegers(b:s:i:l:)")));
++ (void)forFloatsF:(float)f d:(DemoDouble * _Nullable)d __attribute__((swift_name("forFloats(f:d:)")));
 + (NSString *)stringsStr:(NSString * _Nullable)str __attribute__((swift_name("strings(str:)")));
 + (NSString * _Nullable)acceptFunF:(NSString * _Nullable (^)(NSString *))f __attribute__((swift_name("acceptFun(f:)")));
 + (NSString * _Nullable (^)(NSString *))supplyFun __attribute__((swift_name("supplyFun()")));
@@ -205,7 +251,7 @@ __attribute__((objc_subclassing_restricted))
 You may have noticed, that Kotlin `String` and Objective-C `NSString*` are mapped transparently.
 Similarly, `Unit` type from Kotlin is mapped to `void`. We see primitive types
 are mapped directly. Non-nullable primitive types are mapped transparently.
-Nullable primitive types are mapped into `NSNumber*`.
+Nullable primitive types are mapped into `Kotlin<TYPE>*` types, as shown in the table [above](#kotlin-numbers-and-nsnumber). 
 You may have seen that both higher order functions `acceptFunF` and `supplyFun` are included,
 and accept Objective-C blocks.
 
@@ -237,10 +283,13 @@ int main(int argc, const char * argv[]) {
         DemoClazz* clazz = [[ DemoClazz alloc] init];
         [clazz memberP:42];
         
-        [Demo forIntegersB:1 s:1 i:3 l:[NSNumber numberWithLongLong:4]];
-        [Demo forFloatsF:2.71 d:nil];
+        [DemoLibKt forIntegersB:1 s:1 i:3 l:[DemoULong numberWithUnsignedLongLong:4]];
+        [DemoLibKt forIntegersB:1 s:1 i:3 l:nil];
         
-        NSString* ret = [Demo acceptFunF:^NSString * _Nullable(NSString * it) {
+        [DemoLibKt forFloatsF:2.71 d:[DemoDouble numberWithDouble:2.71]];
+        [DemoLibKt forFloatsF:2.71 d:nil];
+        
+        NSString* ret = [DemoLibKt acceptFunF:^NSString * _Nullable(NSString * it) {
             return [it stringByAppendingString:@" Kotlin is fun"];
         }];
         
@@ -257,9 +306,9 @@ function `object`, which allows us to get the only instance of the object and to
 The widespread pattern is used to create an instance of the `Clazz` class. We call
 the `[[ DemoClazz alloc] init]` on Objective-C. We may also use `[DemoClazz new]`
 for constructors without parameters.
-Global functions from the Kotlin sources are scoped under the `Demo` class on Objective-C.
+Global declarations from the Kotlin sources are scoped under the `DemoLibKt` class in Objective-C.
 All methods are turned into class methods of that class.
-The `strings` function is turned into `Demo.stringsStr` function in Objective-C, we can
+The `strings` function is turned into `DemoLibKt.stringsStr` function in Objective-C, we can
 pass `NSString` directly to it. The return is visible as `NSString` too.
 
 ## Using the Code from Swift
@@ -274,18 +323,18 @@ into Swift. As a result, we'll have the following code in `main.swift`:
 import Foundation
 import Demo
 
-let kotlinObject = DemoObject()
-assert(kotlinObject === DemoObject(), "Kotlin object has only one instance")
+let kotlinObject = Object()
+assert(kotlinObject === Object(), "Kotlin object has only one instance")
 
-let field = DemoObject().field
+let field = Object().field
 
-let clazz = DemoClazz()
+let clazz = Clazz()
 clazz.member(p: 42)
 
-Demo.forIntegers(b: 1, s: 2, i: 3, l: 4)
-Demo.forFloats(f: 2.71, d: nil)
+LibKt.forIntegers(b: 1, s: 2, i: 3, l: 4)
+LibKt.forFloats(f: 2.71, d: nil)
 
-let ret = Demo.acceptFun { "\($0) Kotlin is fun" }
+let ret = LibKt.acceptFun { "\($0) Kotlin is fun" }
 if (ret != nil) {
   print(ret!)
 }
@@ -295,9 +344,9 @@ if (ret != nil) {
 The Kotlin code is turned into very similar looking
 code in Swift. There are some small differences, though. In Kotlin any `object` has
 the only one instance. Kotlin `object Object` now has a
-constructor in Swift, and we use the `DemoObject()` syntax to access the only instance of it.
+constructor in Swift, and we use the `Object()` syntax to access the only instance of it.
 The instance is always the same in Swift, so that 
-`DemoDemoObject() === DemoDemoObject()` is true. 
+`Object() === Object()` is true. 
 Methods and property names are translated as-is. Kotlin `String` is turned into Swift `String` too.
 Swift hides `NSNumber*` boxing from us too. We pass Swift closure to Kotlin and call a Kotlin 
 lambda function from Swift too. 
