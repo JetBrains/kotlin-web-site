@@ -9,6 +9,7 @@ languageMimeTypeMap = {
     "bash": "text/x-sh",
     "shell": "text/x-sh",
     "swift": "text/x-swift",
+    "obj-c": "text/x-objectivec",
     "html": "application/xml",
     "javascript": "text/javascript",
     "json": "application/json",
