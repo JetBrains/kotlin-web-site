@@ -28,6 +28,7 @@ A `klib` file is a compressed archive in zip format with the following directory
 File `utils.klib`
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```
     targets/                    /* One or more target platforms */
     
@@ -57,6 +58,7 @@ There are two ways we can create a Kotlin/Native library. The first and most com
 we create a small library called `utils.kt` which contains the following two functions
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 package utils
 
@@ -114,7 +116,7 @@ This would then produce a single executable file with no runtime dependencies.
 ## Using and creating library repositories
 
 Often it is useful to use the same library across multiple applications. To avoid having various copies of the same library, the Kotlin
-compiler can search for libraries in what's called a library repository. The default repository is usually installed under the folder `~/kotlinc-native/klib` and we can 
+compiler can search for libraries in what's called a library repository. The default repository is usually installed under the folder `~/konanc/klib` and we can 
 add and remove our own libraries with a utility named `klib` that ships as part of the compiler tools.  
 
 ### Installing libraries to the default repository
