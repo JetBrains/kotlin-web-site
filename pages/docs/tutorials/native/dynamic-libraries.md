@@ -248,7 +248,7 @@ documentation or to check the related tutorial named [Kotlin/Native as an Apple 
 
 ### Our Library Functions
 
-Let's take a look on the `kotlin.root.example` field, it
+Let's take a look an the `kotlin.root.example` field, it
 mimics the package structure of our Kotlin code with a `kotlin.root.` prefix.
 
 There is a `kotlin.root.example.Clazz` field that 

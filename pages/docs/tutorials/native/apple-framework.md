@@ -178,7 +178,7 @@ to extract a simple value back. Schematically, declarations look like that,
 </div>
 Where `__TYPE__` is one of the simple type names, capitalized if necessary, e.g. `initWithChar(char)`.
 
-Those types are used to map boxed Kotlin number types into Objective-C and Swift.
+These types are used to map boxed Kotlin number types into Objective-C and Swift.
 
 ### Classes and Objects from Kotlin
 
