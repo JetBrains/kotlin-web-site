@@ -163,7 +163,7 @@ reference:
 
     - title: Core Libraries
       content:
-        - url: /api/latest/stdlib/index.html
+        - url: /api/latest/jvm/stdlib/index.html
           title: Standard Library
         - url: /api/latest/kotlin.test/index.html
           title: kotlin.test

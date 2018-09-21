@@ -20,9 +20,9 @@ def process_titles(row_titles, title_prefix, path_folder, suffix):
 
 
 def load_api_titles():
-    api_title_files_path = path.join(root_folder, 'api', 'latest', 'stdlib', 'index.yml')
+    api_title_files_path = path.join(root_folder, 'api', 'latest', 'jvm', 'stdlib', 'index.yml')
     with open(api_title_files_path) as title_files:
-        process_titles(yaml.load(title_files)[0], 'latest/stdlib', 'kotlin-stdlib', '')
+        process_titles(yaml.load(title_files)[0], 'latest/jvm/stdlib', 'kotlin-stdlib', '')
 
     test_title_files_path = path.join(root_folder, 'api', 'latest', 'kotlin.test', 'index.yml')
     with open(test_title_files_path) as title_files:
