@@ -115,8 +115,8 @@ as it is usually an 8-bit unsigned value.
 | unsigned short |  kotlin.UShort |
 | int   |  kotlin.Int |
 | unsigned int   |  kotlin.UInt |
-| long  |  kotlin.Long |
-| unsigned long  |  kotlin.ULong |
+| long long  |  kotlin.Long |
+| unsigned long long |  kotlin.ULong |
 | float |  kotlin.Float |
 | double | kotlin.Double |
 {:.zebra}

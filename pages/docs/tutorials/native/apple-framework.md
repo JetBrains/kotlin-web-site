@@ -158,27 +158,32 @@ There are also child classes per Kotlin number type:
 |`UShort` |`KotlinUShort` |`<Package>UShort` | `unsigned short` |
 |`Int`    |`KotlinInt`    |`<Package>Int`    | `int` |
 |`UInt`   |`KotlinUInt`   |`<Package>UInt`   | `unsigned int` |
-|`Long`   |`KotlinLong`   |`<Package>Long`   | `long` |
-|`ULong`  |`KotlinULong`  |`<Package>ULong`  | `unsigned long` |
+|`Long`   |`KotlinLong`   |`<Package>Long`   | `long long` |
+|`ULong`  |`KotlinULong`  |`<Package>ULong`  | `unsigned long long` |
 |`Float`  |`KotlinFloat`  |`<Package>Float`  | `float` |
 |`Double` |`KotlinDouble` |`<Package>Double` | `double` |
 |`Boolean`|`KotlinBoolean`|`<Package>Boolean`| `BOOL/Bool` |
 {:.wide.zebra}
 
-Every number type has a class method to create a new instance from a simple type. Also, there are all instance methods
-to extract a simple value back. Schematically, declarations look like that,
+Every number type has a class method to create a new instance from the related simple type. Also, there is an instance method
+to extract a simple value back. Schematically, declarations look like that:
 
 <div clacss="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only auto-indent="false">
 
 ```obj-c
-- (instancetype)initWith__TYPE_:(__TYPE__)value __attribute__((unavailable));
-+ (instancetype)numberWith__TYPE_:(__TYPE__)value __attribute__((unavailable));
+__attribute__((objc_runtime_name("Kotlin__TYPE__")))
+__attribute__((swift_name("Kotlin__TYPE__")))
+@interface Demo__TYPE__ : DemoNumber
+- (instancetype)initWith__TYPE__:(__CTYPE__)value;
++ (instancetype)numberWith__TYPE__:(__CTYPE__)value;
+@end;
 ```
 
 </div>
-Where `__TYPE__` is one of the simple type names, capitalized if necessary, e.g. `initWithChar(char)`.
+Where `__TYPE__` is one of the simple type names and `__CTYPE__` is the related Objective-C type, e.g. `initWithChar(char)`.
 
 These types are used to map boxed Kotlin number types into Objective-C and Swift.
+In Swift, you can simply call constructor to create an instance, e.g. `KotlinLong(value: 42)`.
 
 ### Classes and Objects from Kotlin
 
@@ -228,7 +233,7 @@ You may have spotted that the nullable return type `ULong?` was turned into `Dem
 ### Global Declarations from Kotlin
 
 All global functions from Kotlin
-are turned into `DemoLibKt` class in Objective-C/Swift, where `Demo` is the framework name and set by
+are turned into `DemoLibKt` in Objective-C and into `LibKt` in Swift, where `Demo` is the framework name and set by
 the `-output` parameter of `kotlinc-native`.
 
 <div class="sample" markdown="1" mode="obj-c" theme="idea" data-highlight-only="1" auto-indent="false">
