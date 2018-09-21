@@ -84,11 +84,12 @@ function initializeSelects() {
   addSelectToPanel(switchersPanel, "Platform", {
     items: {
       'all': 'All',
+      'common': 'common',
       'jre6': 'jre6',
       'jre7': 'jre7',
       'jre8': 'jre8',
-      'common': 'common',
-      'js': 'js'
+      'js': 'js',
+      'native': 'native'
     },
     selected: state.platform,
     onSelect: (platform) => {
