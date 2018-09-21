@@ -23,34 +23,8 @@ The concept of a library, a collection of functions and other resources such as 
 as a file with the extension `klib`. Kotlin/Native libraries are artifacts that are only available at compile time, i.e. we do not ship these as dependencies to our application
 (as we would for instance with DLL files on the Windows platform).
 
-A `klib` file is a compressed archive in zip format with the following directory structure:
-
-File `utils.klib`
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```
-    targets/                    /* One or more target platforms */
-    
-        macbook/                /* When targeting macbook, this entry would appear */
-        
-            kotlin/             /* Kotlin code compiled to LLVM bitcode */
-            
-            native/             /* Bitcode for additonal native objects */ 
-            
-        linux/                  /* When targeting Linux, this entry would appear */
-        
-            kotlin/
-            
-            native/
-            
-    linkdata/                   /* A set of [ProtoBuf](https://github.com/google/protobuf) files with serialised linkage metadata */ 
-    
-    resources/                  /* Resource files such as images, etc. */
-
-    manifest                    /* A file in Java Property Format describing the library */ 
-```
-</div>
+A `klib` file is a compressed archive in zip format with the specific layout. See
+the [reference](/docs/reference/native/libraries.html#the-library-format) for details.
  
 ## Creating a Kotlin/Native Libraries
 
@@ -90,15 +64,13 @@ C library. See the [Interop with C tutorial](interop-with-c.html) on how to acco
 
 Now that we have our library, we can use it in our application. In our case this is a simple file named `sample.kt` with the following contents:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
 ```kotlin
-//sampleStart
+import utils.printWarning
+
 fun main(args: Array<String>) {
     printWarning("App is about to shut down!")
-}
-//sampleEnd
-fun printWarning(warning: String) {
-    println("Warning: $warning")
 }
 ```
 </div>
@@ -139,8 +111,7 @@ We can of course also uninstall libraries at any point by issuing the command:
 ```bash
 klib remove utils
 ```
-    
-    
+
 ### Installing libraries to custom repositories
 
 In addition to using the default repository, we can also have libraries stored in custom repositories, which can be useful for instance
