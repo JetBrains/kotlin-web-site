@@ -1,0 +1,8 @@
+// Hide plain text before loading runnable examples
+.sample {
+    visibility: hidden;
+}
+// If scroll is 100% the blocks became too big
+.CodeMirror-scroll {
+    height: auto !important;
+}

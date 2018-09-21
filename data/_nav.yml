@@ -203,14 +203,14 @@ reference:
        - url: /docs/reference/javascript-dce.html
          title: JavaScript DCE
 
-#    - title: Native
-#      description: Using Kotlin/Native for iOS and Native
-#      external:
-#        path: kotlin-native
-#        nav: _nav_reference.yml
-#        base: /docs/reference/native
-#        repo: https://github.com/JetBrains/kotlin-native
-#        branch: master
+    - title: Native
+      description: Using Kotlin/Native for iOS and Native
+      external:
+        path: kotlin-native
+        nav: _nav_reference.yml
+        base: /docs/reference/native
+        repo: https://github.com/JetBrains/kotlin-native
+        branch: master
 
     - title: Tools
       description:

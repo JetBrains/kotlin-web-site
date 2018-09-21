@@ -44,6 +44,7 @@ We create a `lib.h` file to see how C functions are mapped into Kotlin:
 #define LIB2_H_INCLUDED
 
 void ints(char c, short d, int e, long f);
+void uints(unsigned char c, unsigned short d, unsigned int e, unsigned long f);
 void doubles(float a, double b);
 
 #endif
@@ -98,6 +99,7 @@ From `cinterop` and `klib` calls we see the following API:
 
 ```kotlin
 fun doubles(a: Float, b: Double)
+fun uints(c: UByte, d: UShort, e: UInt, f: ULong)
 fun ints(c: Byte, d: Short, e: Int, f: Long)
 ```
 </div>
@@ -108,15 +110,16 @@ as it is usually an 8-bit unsigned value.
 | C | Kotlin |
 |---|--------|
 | char  |  kotlin.Byte |
+| unsigned char  |  kotlin.UByte |
 | short |  kotlin.Short |
+| unsigned short |  kotlin.UShort |
 | int   |  kotlin.Int |
-| long  |  kotlin.Long |
+| unsigned int   |  kotlin.UInt |
+| long long  |  kotlin.Long |
+| unsigned long long |  kotlin.ULong |
 | float |  kotlin.Float |
 | double | kotlin.Double |
 {:.zebra}
-
-
-Kotlin cannot explicitly tell if they are `signed` and `unsigned` types right now. This may change in the future...
 
 ## Next Steps
 
