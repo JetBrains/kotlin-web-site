@@ -213,7 +213,7 @@ In most cases, Kotlin follows the Java coding conventions.
 Use 4 spaces for indentation. Do not use tabs.
 
 For curly braces, put the opening brace in the end of the line where the construct begins, and the closing brace
-on a separate line aligned vertically with the opening construct.
+on a separate line aligned horizontally with the opening construct.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
@@ -328,7 +328,7 @@ class Person(
 ```
 </div>
 
-For classes with a long supertype list, put a line break after the colon and align all supertype names vertically:
+For classes with a long supertype list, put a line break after the colon and align all supertype names horizontally:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
