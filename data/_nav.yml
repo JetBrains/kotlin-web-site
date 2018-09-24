@@ -58,7 +58,7 @@ reference:
         - url: /docs/reference/js-overview.html
           title: Kotlin for JavaScript
         - url: /docs/reference/native-overview.html
-          title: Kotlin/Native
+          title: Kotlin/Native for Native
         - url: /docs/reference/whatsnew11.html
           title: What's New in 1.1
         - url: /docs/reference/whatsnew12.html
