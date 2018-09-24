@@ -34,7 +34,7 @@ existing projects written in C, C++, Swift, Objective-C, and other languages.
 On the other hand, Kotlin/Native supports interoperability, and one may use their native library
 directly from Kotlin/Native. It supports:
 - [C Libraries](/docs/reference/native/c_interop.html), static or dynamic 
-- [Objective-C/Swift](/docs/reference/native/objc_interop.html) two-way interop especially for macOS and iOS apps
+- [Swift and Objective-C](/docs/reference/native/objc_interop.html) two-way interop especially for macOS and iOS apps
 
 That makes it easy to use an existing native code, libraries, frameworks, graphical engines, directly from Kotlin/Native.
 Popular platform libraries are available with the compiler out of the box. 
