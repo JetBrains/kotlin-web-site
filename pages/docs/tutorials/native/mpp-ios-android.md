@@ -80,6 +80,18 @@ into the `build.gradle` file under the both `buildscript { .. repositories { .. 
 In the IntelliJ IDEA, you may also need to make sure Gradle is running under JDK 1.8, otherwise, the project import
 may [fail](https://youtrack.jetbrains.com/issue/IDEA-199397).
 
+Kotlin/Native plugin requires newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
+and use the following `distrubutionUrl`:
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.2-all.zip
+```
+
+It is also necessary to add the line:
+```
+org.gradle.configureondemand=false
+```
+into the `gradle.properties` to make Android Studio use newer Gradle. We need to refresh Gradle settings
+from the Gradle tab to make Android Studio or IntellJ IDEA apply our changes.
 
 ## Running Android Project in Android Studio
 
@@ -122,7 +134,7 @@ Next, Let's include the following code into the `MainActivity` class into the en
 `onCreate` method:
 
 ```
-findViewById<TextView>(R.id.main_text).setText("Kotlin Rocks!")
+findViewById<TextView>(R.id.main_text).text = "Kotlin Rocks!"
 
 ```
 
@@ -206,6 +218,16 @@ actual fun platformName(): String {
 ```
 </div>
 
+Let's use the `createApplicationScreenMessage` from the Android app code. We need to re-patch the
+`MainActivity` files and replace the previously added line in the `onCreate` method with: 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```kotlin
+  findViewById<TextView>(R.id.main_text).text = createApplicationScreenMessage()
+```
+</div>
+ 
+
 That is the time to run our application and see the common code in action. For that we again use the
 *Run* button with the `:app` configuration:
 
@@ -236,4 +258,45 @@ for our applications, is helps to generate the text message, that our Android an
 show. That is the time to include Kotlin/Native and iOS. 
 
 # Setting up Kotlin/Native Target
+
+Let's create new sub-project called `native`, we need to add the file `native/build.gradle` with the following
+contents:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```groovy
+apply plugin: 'kotlin-platform-android'
+
+dependencies {
+    expectedBy project(':common')
+}
+
+sourceSets {
+    main {
+        component {
+            targets = ['macos_x64']
+        }
+    }
+}
+```
+</div>
+
+The new project has to be registered in the `settings.grale`, let's include the line in to the file:
+```
+include ':native'
+```
+
+Let's fill the gap. We need to provide the expected function`platformName()` in the `app` sub-project. For that,
+we create the file `native/src/main/kotlin/expectations.kt` with the following content:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```kotlin
+package com.jetbrains.jonnyzzz.common
+
+actual fun platformName(): String {
+  return "Native"
+}
+```
+</div>
 
