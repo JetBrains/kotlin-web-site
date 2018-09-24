@@ -59,6 +59,9 @@ There are several popular Kotlin/Native libraries:
 - [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/blob/master/native/README.md)
 - http?
 - serialization?
+- kotlinx.io
+- kotlinx.serialization
+- ktor-http-client
 
 The Kotlin/Native compiler comes with the set of pre-build Kotlin libraries for popular native
 packages:
