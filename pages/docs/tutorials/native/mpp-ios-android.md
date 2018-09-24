@@ -87,7 +87,12 @@ At that point we shall be able to compile and run the project. Let's click on th
 to have our project running either on a real Android Device or in the emulator. 
 
 
+![Start the Application]({{ url_for('tutorial_img', filename='native/mpp-ios-android/studio-start-app.png') }})
 
- 
 
-  
+# Setting up Multiplatform Project
+
+That is the best time for us to configuration the multiplatform project right now. The multiplatform project
+is the way to share code between Android, iOS and other platforms. We will have 100% Kotlin code that will
+be compiled both to Android and iOS. 
+
