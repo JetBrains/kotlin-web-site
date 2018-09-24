@@ -350,8 +350,8 @@ following the class header (as in the example above), or put the opening curly b
 class MyFavouriteVeryLongClassHolder :
     MyLongHolder<MyFavouriteVeryLongClass>(),
     SomeOtherInterface,
-    AndAnotherOne {
-
+    AndAnotherOne 
+{
     fun foo() { ... }
 }
 ```
