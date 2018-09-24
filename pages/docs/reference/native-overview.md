@@ -8,7 +8,7 @@ title: "Kotlin/Native"
 # What is Kotlin/Native?
 
 Kotlin/Native is a technology for compiling Kotlin code to native binaries, which run without any VM.
-It is a [LLVM](https://llvm.org/) based backend for the Kotlin compiler and a native implementation of the Kotlin standard
+It is an [LLVM](https://llvm.org/) based backend for the Kotlin compiler and a native implementation of the Kotlin standard
 library
 
 # Why Kotlin/Native?
@@ -21,17 +21,17 @@ self-contained program that does not require an additional runtime or virtual ma
 
 # Interoperability
 
-Kotlin/Native supports two-way interoperability with Native world. 
-From one hand the compiler creates
+Kotlin/Native supports two-way interoperability with the Native world. 
+On one hand the compiler creates
 - an executable,
 - a static library,
 - a [dynamic library](/docs/tutorials/native/dynamic-libraries.html),
 - an [Apple framework](/docs/tutorials/native/apple-framework.html) for Swift and Objective-C 
 
 That makes it easy to include the compiled Kotlin code from Kotlin/Native into
-existing projects written in C, C++, Swift, Objective-C and other languages.
+existing projects written in C, C++, Swift, Objective-C, and other languages.
 
-From the other hand, Kotlin/Native supports interoperability, and one may use their native library
+On the other hand, Kotlin/Native supports interoperability, and one may use their native library
 directly from Kotlin/Native. It supports:
 - [C Libraries](/docs/reference/native/c_interop.html), static or dynamic 
 - [Objective-C/Swift](/docs/reference/native/objc_interop.html) two-way interop especially for macOS and iOS apps
@@ -109,7 +109,7 @@ CoreData            CoreServices        GLUT                OpenGL              
 # Sharing Code with Other Platforms
 
 Most of the projects targeting to a set of platforms: Android, iOS, server-side, JVM, client-side, JavaScript, CSS, native.
-With Kotlin/Native and Kotlin multiplatform projects you may easily re-use Kotlin code between all those platforms. 
+With Kotlin/Native and Kotlin multiplatform projects, you may easily re-use Kotlin code between all those platforms. 
 See [__TODO___MULTIPLATFORM__LINK__](#) for more details to take a look at the [iOS and Android application tutorial].
 
 # How to Start?
