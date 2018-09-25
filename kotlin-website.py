@@ -15,6 +15,7 @@ from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 
 from src.Feature import Feature
+from src.github import assert_valid_git_hub_url
 from src.navigation import process_video_nav, process_nav
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
@@ -230,8 +231,7 @@ def process_page(page_path):
         edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + \
                              app.config['FLATPAGES_EXTENSION']
 
-    assert edit_on_github_url.startswith(
-        'https://github.com/JetBrains/kotlin'), 'Check edit_on_github_url for ' + page_path
+    assert_valid_git_hub_url(edit_on_github_url, page_path)
 
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):

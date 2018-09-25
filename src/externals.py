@@ -3,6 +3,8 @@ import re
 from os import path
 import yaml
 
+from src.github import assert_valid_git_hub_url
+
 root_folder = path.normpath(path.join(os.path.dirname(__file__), '..'))
 
 
@@ -18,7 +20,7 @@ class ExternalMount:
         self.external_repo: str = external_spec['repo']
         self.external_branch: str = external_spec['branch']
 
-        assert self.external_repo.startswith("https://github.com/JetBrains")
+        assert_valid_git_hub_url(self.external_repo, 'EXTERNAL MODULE: %s' % self.external_path)
 
         self.target_external_path = path.join(root_folder, 'pages', self.external_base.lstrip("/"))
         self.source_external_path = path.join(root_folder, 'external', self.external_path.lstrip("/"))
