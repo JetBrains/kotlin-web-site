@@ -1,7 +1,7 @@
 ---
 type: tutorial
 layout: tutorial
-title: "Introduction to Kotlin Coroutines on the JVM"
+title: "Your first coroutine with Kotlin"
 description: "This tutorial walks us through setting up a project using coroutines, and writing code that uses them."
 authors: Dmitry Jemerov
 showAuthorInfo: false
