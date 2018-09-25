@@ -137,6 +137,20 @@ when {
 ```
 </div>
 
+Since Kotlin 1.3, it is possible to capture *when*{: .keyword} subject in a variable using following syntax:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+``` kotlin
+fun Request.getBody() =
+        when (val response = executeRequest()) {
+            is Success -> response.body
+            is HttpError -> throw HttpException(response.status)
+        }
+```
+</div>
+
+Scope of variable, introduced in *when*{: .keyword} subject, is restricted to *when*{: .keyword} body.
+
 See the [grammar for *when*{: .keyword }](grammar.html#when).
 
 
