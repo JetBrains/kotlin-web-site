@@ -180,7 +180,10 @@ def books_page():
 
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
-    return send_file(generate_pdf(build_mode, pages, get_nav()['reference']))
+    if build_mode:
+        return send_file(generate_pdf(build_mode, pages, get_nav()['reference']))
+    else:
+        return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
 
 
 @app.route('/docs/resources.html')
