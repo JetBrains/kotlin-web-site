@@ -63,6 +63,10 @@ There are several popular Kotlin/Native libraries:
 - kotlinx.serialization
 - ktor-http-client
 
+
+Popular platform libraries are available with the compiler out of the box. 
+
+
 The Kotlin/Native compiler comes with the set of pre-build Kotlin libraries for popular native
 packages:
 
