@@ -212,6 +212,15 @@ reference:
         repo: https://github.com/JetBrains/kotlin-native
         branch: master
 
+    - title: Coroutines
+      description: Kotlin Coroutines Library
+      external:
+        path: kotlinx.coroutines/docs
+        nav: _nav.yml
+        base: /docs/reference/coroutines
+        repo: https://github.com/kotlin/kotlinx.coroutines
+        branch: master
+
     - title: Tools
       description:
       content:
