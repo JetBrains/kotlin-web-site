@@ -66,6 +66,8 @@ There are several popular Kotlin/Native libraries:
 - [ktor](https://ktor.io/)
 - [ktor-http-client](https://ktor.io/clients/http-client.html)
 
+Missing a library? You may easily [create your own](#)!
+
 Popular platform libraries and Apple frameworks are available with the compiler out of the box.
 It includes POSIX, gzip, OpenGL, Metal, Foundation and many more pre-imported libraries. 
 
