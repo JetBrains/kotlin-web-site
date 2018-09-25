@@ -120,7 +120,7 @@ See [__TODO___MULTIPLATFORM__LINK__](#) for more details to take a look at the [
 Check out [tutorials](/docs/tutorials/native/apple-framework.html) or [documentation](/docs/reference/native/multiplatform.html)
 for Kotlin/Native.
 
-Do you like to lean by example? There are example projects for you: 
+Do you like to learn by example? There are example projects for you: 
  * The [Kotlin/Native GitHub repository](https://github.com/JetBrains/kotlin-native/tree/master/samples) contains a number of sample projects;
  * The [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) is an iOS app
    with a UIKit-based UI, showcasing the Objective-C interop facilities of Kotlin/Native.
