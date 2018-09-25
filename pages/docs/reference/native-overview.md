@@ -23,21 +23,24 @@ self-contained program that does not require an additional runtime or virtual ma
 
 Kotlin/Native supports two-way interoperability with the Native world. 
 On one hand the compiler creates
-- an executable,
-- a static library,
-- a [dynamic library](/docs/tutorials/native/dynamic-libraries.html),
-- an [Apple framework](/docs/tutorials/native/apple-framework.html) for Swift and Objective-C 
+- an executable for many [platforms](#target-platforms)
+- a static library or [dynamic](/docs/tutorials/native/dynamic-libraries.html) library with C headers for C/C++ projects
+- an [Apple framework](/docs/tutorials/native/apple-framework.html) for Swift and Objective-C projects
 
-That makes it easy to include the compiled Kotlin code from Kotlin/Native into
+That makes it easy to include the compiled Kotlin code into
 existing projects written in C, C++, Swift, Objective-C, and other languages.
 
-On the other hand, Kotlin/Native supports interoperability, and one may use their native library
-directly from Kotlin/Native. It supports:
-- [C Libraries](/docs/reference/native/c_interop.html), static or dynamic 
-- [Swift and Objective-C](/docs/reference/native/objc_interop.html) two-way interop especially for macOS and iOS apps
+On the other hand, Kotlin/Native supports interoperability to use existing libraries
+directly from Kotlin/Native:
+- static or dynamic [C Libraries](/docs/reference/native/c_interop.html) 
+- C, [Swift, and Objective-C](/docs/reference/native/objc_interop.html) frameworks 
 
-That makes it easy to use an existing native code, libraries, frameworks, graphical engines, directly from Kotlin/Native.
-Popular platform libraries are available with the compiler out of the box. 
+That makes it easy to use an existing native code, libraries, frameworks, graphical engines, or anything else
+directly from Kotlin/Native. Thanks to the Swift and Objective-C Frameworks
+[interop](/docs/reference/native/objc_interop.html), one may easily use
+existing frameworks in their Kotlin/Native projects.
+
+Popular platform libraries and Apple frameworks are available with the compiler out of the box. 
 
 # Target Platforms
 
@@ -55,63 +58,16 @@ There are libraries for Kotlin/Native. That is the way to easily share common
 Kotlin/Native code between projects. A [klib](/docs/reference/native/platform_libs.html)
 library includes metadata and binary part for selected platforms.
 There are several popular Kotlin/Native libraries:
+
 - Kotlin stdlib
 - [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/blob/master/native/README.md)
-- http?
-- serialization?
-- kotlinx.io
-- kotlinx.serialization
-- ktor-http-client
+- [kotlinx.io](https://github.com/Kotlin/kotlinx-io)
+- [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+- [ktor](https://ktor.io/)
+- [ktor-http-client](https://ktor.io/clients/http-client.html)
 
-
-Popular platform libraries are available with the compiler out of the box. 
-
-
-The Kotlin/Native compiler comes with the set of pre-build Kotlin libraries for popular native
-packages:
-
-```
-android_arm32, android_arm64
-android  egl  gles  gles2  gles3  glesCommon  linux  media  omxal  posix  sles  zlib
-
-linux_arm32, linux_mips:
-iconv  linux  posix
-
-linux_x64
-iconv  linux  posix  zlib
-
-windows mingw_x64:
-gdiplus iconv opengl32 posix windows zlib
-
-ios_arm32, ios_arm64, ios_x86_64:
-ARKit                   CoreAudio               EAGL                    Intents                 NotificationCenter      SpriteKit
-AVFoundation            CoreAudioKit            EventKit                IntentsUI               OpenAL                  StoreKit
-AVKit                   CoreBluetooth           EventKitUI              LocalAuthentication     OpenGLES                SystemConfiguration
-Accelerate              CoreData                ExternalAccessory       MapKit                  OpenGLES2               Twitter
-Accounts                CoreFoundation          FileProvider            MediaAccessibility      OpenGLES3               UIKit
-AdSupport               CoreGraphics            FileProviderUI          MediaPlayer             OpenGLESCommon          UserNotifications
-AddressBook             CoreImage               Foundation              MediaToolbox            PDFKit                  UserNotificationsUI
-AddressBookUI           CoreLocation            GLKit                   MessageUI               PassKit                 VideoSubscriberAccount
-AssetsLibrary           CoreMIDI                GSS                     Messages                Photos                  VideoToolbox
-AudioToolbox            CoreML                  GameController          Metal                   PhotosUI                Vision
-AuthenticationServices  CoreMedia               GameKit                 MetalKit                PushKit                 WatchConnectivity
-BusinessChat            CoreMotion              GameplayKit             MetalPerformanceShaders QuartzCore              WatchKit
-CFNetwork               CoreNFC                 HealthKit               MobileCoreServices      QuickLook               WebKit
-CallKit                 CoreServices            HealthKitUI             ModelIO                 ReplayKit               darwin
-CarPlay                 CoreSpotlight           HomeKit                 MultipeerConnectivity   SafariServices          iAd
-ClassKit                CoreTelephony           IOSurface               NaturalLanguage         SceneKit                iconv
-CloudKit                CoreText                IdentityLookup          Network                 Security                objc
-Contacts                CoreVideo               IdentityLookupUI        NetworkExtension        Social                  posix
-ContactsUI              DeviceCheck             ImageIO                 NewsstandKit            Speech                  zlib
-
-macos_x64:
-Accelerate          CoreFoundation      CoreText            IOKit               OpenGL3             iconv               zlib
-AppKit              CoreGraphics        CoreVideo           IOSurface           OpenGLCommon        libkern
-ApplicationServices CoreImage           DiskArbitration     ImageIO             QuartzCore          objc
-CFNetwork           CoreML              Foundation          Metal               Security            osx
-CoreData            CoreServices        GLUT                OpenGL              darwin              posix
-```
- 
+Popular platform libraries and Apple frameworks are available with the compiler out of the box.
+It includes POSIX, gzip, OpenGL, Metal, Foundation and many more pre-imported libraries. 
 
 # Sharing Code with Other Platforms
 
