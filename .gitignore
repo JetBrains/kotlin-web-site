@@ -39,4 +39,5 @@ package-lock.json
 pages/api/
 external/
 pages/docs/reference/native/
+pages/docs/reference/coroutines/
 _teamcity
