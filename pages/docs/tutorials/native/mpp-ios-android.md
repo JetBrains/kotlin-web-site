@@ -19,35 +19,30 @@ In this tutorial you will:
    - Add XCode project for iOS
    - Configure IDEs to work with those projects
  - Create common code to share between platforms
- 
- 
 
 
 # Setting up Local Environment
 
-We will be using [IntelliJ Community Edition](https://jetbrains.com/idea) for the example. The same should work
-in IntelliJ Ultimate too. You need to make sure you have the latest version of 
-Kotlin plugin installed, 1.3.x or newer.
-More information you may in the settings dialog under *Language & Frameworks | Kotlin Updates*.
+We will be using [Android Studio](https://developer.android.com/studio/) for the Android part of the tutorial. 
+You shall have Android SDK installed, or Android Studio will help you to install one.
+It is possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate editions version too.
 
-For the iOS and macOS targets you also need to have XCode and XCode commandline tools installed and configured.
-You may download and install XCode from the [Apple Developer Site](https://developer.apple.com/xcode/).
+You should have the latest Kotlin plugin version 1.3.x installed in our Android Studio or IntelliJ IDEA. The tutorial
+uses features that are only available in Kotlin 1.3.x or newer. To check that, you may simply open
+*Language & Frameworks | Kotlin Updates* block in the *Settings* or *Preferences* of your IDE.
 
-For Android is it required to have JDK 1.8 (not newer) installed. You may download and install it
-from [Oracle](https://java.sun.com). 
-For Android application we need to install Android SDK is required to build Android applications. For that,
-you may refer to the [Google Android Studio](https://developer.android.com/studio/) site. There you may either
-download and install Android Studio, which will help you to install the SDK, or use the *Download Options*
-to download commandline tools.
+It is also required to have JDK 1.8 (**not** newer) installed. You may download and install it
+from the [Oracle](https://java.sun.com) website. 
 
+macOS host operation system is required to compile for iOS and macOS devices. We need to have the
+[XCode](https://developer.apple.com/xcode/) IDE and the tools installed and configured.
+Check the [Apple Developer Site](https://developer.apple.com/xcode/) site for more details. and install XCode from the 
 
+In the tutorial we will use IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0 RC, XCode 10.0, macOS 10.14.
+
+<!--
 You may need to install [cocoapods](https://cocoapods.org/).
-
-You need the following tools on your macOS machine for development. You need to have macOS
-machine to compile for iOS or macOS platform. It will still be possible to author code from
-every OS.
-
- 
+-->
 
 # Creating Android Project
 
