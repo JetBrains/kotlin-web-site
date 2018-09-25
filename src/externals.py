@@ -132,8 +132,10 @@ def _build_url_mappers(external_yml):
 def _process_external_key(build_mode, data):
     if 'external' not in data: return
     mount = ExternalMount(build_mode, data['external'])
+    del data['external']
 
     if not _rant_if_external_nav_is_not_found(mount):
+        data['content'] = [{ 'url': '/', 'title': 'external "%s" is it included' % mount.external_path}]
         return
 
     with open(mount.nav_file) as stream:
@@ -142,7 +144,6 @@ def _process_external_key(build_mode, data):
 
     url_mappers = _build_url_mappers(external_yml)
     data['content'] = [_process_external_entry(mount, url_mappers, item) for item in external_yml]
-    del data['external']
 
 
 def process_nav_includes(build_mode, data):
