@@ -56,11 +56,13 @@ pre-imported libraries
 
 # Sharing Code between Platforms
 
-Most of the projects targeting to a set of platforms, say Android, iOS, server-side, JVM, client-side, JavaScript, CSS, native.
-With Kotlin/Native and Kotlin multiplatform projects, you may easily re-use Kotlin code between all those platforms
-<!-- 
-See [__TODO___MULTIPLATFORM__LINK__](#) for more details to take a look at the [iOS and Android application tutorial].
--->
+[Multiplatform projects](/docs/reference/multiplatform.html) are supported between different Kotlin and
+Kotlin/Native targets.
+That is the way to share common Kotlin code between may platforms, including Android, iOS, server-side, JVM, client-side, 
+JavaScript, CSS, native.
+
+Kotlin multiplatform libraries provide the necessary APIs for the common Kotlin code and helps to develop
+shared parts of a project in Kotlin code once and share it with all target platforms. 
 
 # How to Start?
 
@@ -77,4 +79,4 @@ Do you like to learn by example? There are example projects for you:
      - mobile clients for iOS and Android, using OpenGL;
      - a WebAssembly-based browser frontend for viewing the game scores.
 
-Still have questions? Check out the [Community](/community/) page for more info
+Check out the [Community](/community/) page too!
