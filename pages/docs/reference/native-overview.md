@@ -64,7 +64,7 @@ JavaScript, CSS, native.
 Kotlin multiplatform libraries provide the necessary APIs for the common Kotlin code and helps to develop
 shared parts of a project in Kotlin code once and share it with all target platforms. 
 
-# How to Start?
+# How to Start
 
 Check out [tutorials](/docs/tutorials/native/apple-framework.html) or [documentation](/docs/reference/native/multiplatform.html)
 for Kotlin/Native.
