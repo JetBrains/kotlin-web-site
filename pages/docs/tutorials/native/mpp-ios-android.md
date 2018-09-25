@@ -68,12 +68,13 @@ for that we add the the line
 
 ```groovy
 maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+maven { url "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" }
 ```
 </div>
 into the `build.gradle` file under the both `buildscript { .. repositories { .. ` blocks.
 
 In the IntelliJ IDEA, you may also need to make sure Gradle is running under JDK 1.8, otherwise, the project import
-may [fail](https://youtrack.jetbrains.com/issue/IDEA-199397).
+may [fail](https://youtrack.jetbrains.com/issue/IDEA-199397). Check out the Gradle Settings to fix that.
 
 Kotlin/Native plugin requires newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
 and use the following `distrubutionUrl`:
