@@ -7,7 +7,7 @@ title: "Kotlin/Native"
 
 # What is Kotlin/Native?
 
-Kotlin/Native is a technology for compiling Kotlin code to native binaries, which run without any VM.
+Kotlin/Native is a technology for compiling Kotlin code to native binaries, which run without any virtual machine.
 It is an [LLVM](https://llvm.org/) based backend for the Kotlin compiler and a native implementation of the Kotlin standard
 library
 
@@ -18,6 +18,15 @@ desirable or possible, for example, embedded devices or iOS.
 It solves a developer needs to produce a 
 self-contained program that does not require an additional runtime or virtual machine.
 
+# Target Platforms
+
+Kotlin/Native supports the following platforms:
+   * iOS (arm32, arm64, emulator x86_64)
+   * MacOS (x86_64)
+   * Android (arm32, arm64)
+   * Windows (mingw x86_64)
+   * Linux (x86_64, arm32, MIPS, MIPS little endian)
+   * WebAssembly (wasm32)
 
 # Interoperability
 
@@ -40,42 +49,18 @@ directly from Kotlin/Native. Thanks to the Swift and Objective-C Frameworks
 [interop](/docs/reference/native/objc_interop.html), one may easily use
 existing frameworks in their Kotlin/Native projects.
 
-Popular platform libraries and Apple frameworks are available with the compiler out of the box. 
+There are Kotlin/Native [libraries]((/docs/reference/native/platform_libs.html) that helps one to share Kotlin
+and native code between projects. Popular platform libraries and Apple frameworks are available as Kotlin/Native
+libraries and included with the compiler. It includes POSIX, gzip, OpenGL, Metal, Foundation and many more
+pre-imported libraries
 
-# Target Platforms
+# Sharing Code between Platforms
 
-Kotlin/Native supports the following platforms:
-   * iOS (arm32, arm64, emulator x86_64)
-   * MacOS (x86_64)
-   * Android (arm32, arm64)
-   * Windows (mingw x86_64)
-   * Linux (x86_64, arm32, MIPS, MIPS little endian)
-   * WebAssembly (wasm32)
-
-# Libraries
-
-There are libraries for Kotlin/Native. That is the way to easily share common
-Kotlin/Native code between projects. A [klib](/docs/reference/native/platform_libs.html)
-library includes metadata and binary part for selected platforms.
-There are several popular Kotlin/Native libraries:
-
-- Kotlin stdlib
-- [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/blob/master/native/README.md)
-- [kotlinx.io](https://github.com/Kotlin/kotlinx-io)
-- [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
-- [ktor](https://ktor.io/)
-- [ktor-http-client](https://ktor.io/clients/http-client.html)
-
-Missing a library? You may easily [create your own](#)!
-
-Popular platform libraries and Apple frameworks are available with the compiler out of the box.
-It includes POSIX, gzip, OpenGL, Metal, Foundation and many more pre-imported libraries. 
-
-# Sharing Code with Other Platforms
-
-Most of the projects targeting to a set of platforms: Android, iOS, server-side, JVM, client-side, JavaScript, CSS, native.
-With Kotlin/Native and Kotlin multiplatform projects, you may easily re-use Kotlin code between all those platforms. 
+Most of the projects targeting to a set of platforms, say Android, iOS, server-side, JVM, client-side, JavaScript, CSS, native.
+With Kotlin/Native and Kotlin multiplatform projects, you may easily re-use Kotlin code between all those platforms
+<!-- 
 See [__TODO___MULTIPLATFORM__LINK__](#) for more details to take a look at the [iOS and Android application tutorial].
+-->
 
 # How to Start?
 
