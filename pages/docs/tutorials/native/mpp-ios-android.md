@@ -114,7 +114,7 @@ Here we have the root Gradle project, with `build.gradle` and `settings.gradle` 
 root of the project directory. The Android Studio wizard also created the `app` project and the
 `app/build.gradle` file with Android specifics.
 
-## Adding Common Module
+## Creating Common Module
 
 The goal of the tutorial is to demonstrate the code re-use between Android and iOS. Let's start
 with creating the `common` project with the code we share between platforms. 
@@ -124,8 +124,8 @@ several new files in our project.
 
 ### Adding Sources
 
-The idea is to make every platform to show the similar text, namely `Kotlin Rocks @ Android` and 
-`Kotlin Rocks @ iOS`, depending on the platform. We will reuse the way to generate the message. 
+The idea is to make every platform to show the similar text, namely `Kotlin Rocks on Android` and 
+`Kotlin Rocks on iOS`, depending on the platform. We will reuse the way to generate the message. 
 For first, let's create the main file under `common/commonMain/kotlin/common.kt`
 
 
@@ -137,7 +137,7 @@ package com.jetbrains.jonnyzzz.common
 expect fun platformName(): String
 
 fun createApplicationScreenMessage() : String {
-  return "Kotlin Rocks @ ${platformName()}"
+  return "Kotlin Rocks on ${platformName()}"
 }
 
 ```
@@ -241,7 +241,7 @@ or use the *Gradle* tool window and click `Refresh` from the context menu on the
 Let's click on the refresh twice.  
 Right after the update, you shall see Android Studio and IntelliJ IDEA now sees one new module `:common`.
 
-### Updated Project Layout
+### The Project Layout
 
 The project layout right now should be as follows:
 ```
@@ -323,13 +323,28 @@ to have our project running either on a real Android Device or in the emulator.
 
 And so we see the Application running in the Android emulator:
     
-![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-kotlin-rocks.png') }}){: width="30%"}
+![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-kotlin-rocks-android.png') }}){: width="30%"}
+
+
+# Creating iOS Application
 
 
 
 
 
 
+
+
+
+
+
+WIP
+----
+
+
+
+ЯЯЯЯЯЯ
+Z
 
 
 Now we are ready to patch the `MainActivity` class 
