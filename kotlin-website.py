@@ -301,6 +301,9 @@ def community_redirect():
 def events_redirect():
     return render_template('redirect.html', url=url_for('page', page_path='community/talks'))
 
+@app.route('/docs/reference/compatibility.html')
+def compatibility_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='/docs/reference/evolution/components-stability'))
 
 @freezer.register_generator
 def page():

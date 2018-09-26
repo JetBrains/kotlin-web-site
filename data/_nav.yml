@@ -175,8 +175,6 @@ reference:
           title: Keywords and Operators
         - url: /docs/reference/grammar.html
           title: Grammar
-        - url: /docs/reference/compatibility.html
-          title: Compatibility
 
 
     - title: Java Interop
@@ -230,6 +228,14 @@ reference:
           title: Kotlin and OSGi
         - url: /docs/reference/compiler-plugins.html
           title: Compiler plugins
+
+    - title: Evolution
+      description: Langauge evolution and compatibility
+      content:
+        - url: /docs/reference/evolution/kotlin-evolution.html
+          title: Kotlin Evolution
+        - url: /docs/reference/evolution/components-stability.html
+          title: Stability of different components
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.
@@ -341,7 +347,11 @@ tutorials:
 
 foundation:
   content:
-      - url: /foundation/task1.html
-        title: Foundation started
-      - url: /foundation/task2.html
-        title: Foundation ended
+      - url: /foundation/kotlin-foundation.html
+        title: Kotlin Foundation
+      - url: /foundation/language-committee-guidelines.html
+        title: Language Committee Guidelines
+      - url: /foundation/submitting-incompatible-changes.html
+        title: Submitting Incompatible Changes
+      - url: /foundation/faq.html
+        title: FAQ
