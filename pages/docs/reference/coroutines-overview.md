@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Introduction"
-title: "Kotlin for Server Side"
+title: "Coroutines Overview"
 ---
 
 # Coroutines for asynchronous programming and more
@@ -19,6 +19,6 @@ As a bonus, coroutines not only open the doors to asynchronous programming, but 
 
 Below are a series of tutorials and first steps that can get you on the right track when it comes to learning more about coroutines and how to develop applications using these in Kotlin.
 
-* [Asynchronous Programming](../tutorials/coroutines/async-programming.md). Explains the different approaches to non-blocking code and introduces you to the concept of Coroutines
-* [Your first coroutine with Kotlin](../tutorials/coroutines/coroutines-basic-jvm.md). Step by step tutorial on writing your first coroutine with Kotlin.
-* [Coroutines Guide](../reference/coroutines/coroutines-guide.md). A complete guide to everything you need to know about Kotlin coroutines.
+* [Asynchronous Programming](../tutorials/coroutines/async-programming.html). Explains the different approaches to non-blocking code and introduces you to the concept of Coroutines
+* [Your first coroutine with Kotlin](../tutorials/coroutines/coroutines-basic-jvm.html). Step by step tutorial on writing your first coroutine with Kotlin.
+* [Coroutines Guide](../reference/coroutines/coroutines-guide.html). A complete guide to everything you need to know about Kotlin coroutines.
