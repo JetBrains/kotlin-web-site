@@ -16,7 +16,7 @@ common code between our two applications.
 In this tutorial you will:
  - Create a multiplatform Gradle project 
    - Add Gradle sub-project for Android
-   - Add XCode project for iOS
+   - Add Xcode project for iOS
    - Configure IDEs to work with those projects
  - Create common code to share between platforms
 
@@ -35,10 +35,10 @@ It is also required to have JDK 1.8 (**not** newer) installed. You may download 
 from the [Oracle](https://java.sun.com) website. 
 
 macOS host operation system is required to compile for iOS and macOS devices. We need to have the
-[XCode](https://developer.apple.com/xcode/) IDE and the tools installed and configured.
-Check the [Apple Developer Site](https://developer.apple.com/xcode/) site for more details. and install XCode from the 
+[Xcode](https://developer.apple.com/xcode/) IDE and the tools installed and configured.
+Check the [Apple Developer Site](https://developer.apple.com/xcode/) site for more details. and install Xcode from the 
 
-In the tutorial we will use IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0 RC, XCode 10.0, macOS 10.14.
+In the tutorial we will use IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0 RC, Xcode 10.0, macOS 10.14.
 
 <!--
 You may need to install [cocoapods](https://cocoapods.org/).
@@ -328,13 +328,41 @@ And so we see the Application running in the Android emulator:
 
 # Creating iOS Application
 
+Let's create an iOS application in Xcode. Let's open Xcode and select *Create a new Xcode project* option. In 
+the dialog, wi select iOS target, and pick the *Single View App*. We fill the next next page with defaults, 
+I use the `Kotlin iOS` as the *Product Name*. Let's pick Swift as the language (it is possible to use
+Objective-C too). You should instruct Xcode to place the project into the `native` folder in our project. 
 
+Right now you you should be able to run the application in the iOS emulator or in the iOS device. The device
+may require to configure a developer account and to issue a developer certificate. Xcode does it best to guide
+you through the process. 
 
+Let's make sure we are able to run the application in the iPhone emulator. 
+ 
 
+## Settings up Framework Dependency 
 
+The `common` project in Android Studio generates Frameworks for the use in Xcode project. Let's turn back
+to the Android Studio and run the task `build` in the `common` project via the *Gradle* tool window. 
+Than you will see the `common/build/bin` folder with two Frameworks. One framework is compiled for 
+the `iPhone` emulator (x86_64 target), the second framework is create for the device (arm64 target).
 
+Let's switch to the Xcode and include those frameworks to the project. For that we need to open the
+target settings. Click on the root node in the *project navigator*. We will include our frameworks
+to the *Embedded Binaries* section. Let's click `+` there, and use *Add Other...* button to pick the 
+frameworks from the disk. There you pick the framework from the path: 
+```
+common/build/bin/iOSx64/main/debug/framework/common.framework
+```
+Select the *Create folder references* in the next dialog and click *Finish*.
 
-
+Let's repeat the action to include the second platform framework:
+```
+common/build/bin/iOS/main/debug/framework/common.framework
+```
+ 
+ 
+ 
 
 
 
