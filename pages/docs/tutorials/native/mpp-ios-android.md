@@ -92,9 +92,8 @@ And so we see the Application running in the Android emulator:
     
 ![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-hello-app.png') }}){: width="30%"}
 
-## Patching the Android Project
 
-Let's add more changes to the project to demonstrate code reuse between projects. 
+## Project Layout
 
 The generated sample application layout is as follows:
 ```
@@ -111,8 +110,183 @@ The generated sample application layout is as follows:
   settings.gralde     
 ```
 
-Let's change the example to set the custom text message from the code. 
-Later, we will share the way to generate the text between iOS and Android.
+Here we have the root Gradle project, with `build.gradle` and `settings.gradle` files in the
+root of the project directory. The Android Studio wizard also created the `app` project and the
+`app/build.gradle` file with Android specifics.
+
+## Adding Common Module
+
+The goal of the tutorial is to demonstrate the code re-use between Android and iOS. Let's start
+with creating the `common` project with the code we share between platforms. 
+You may did the step before and created the common project with `java` or or Kotlin/JVM plugins, 
+that time we will use the [multiplatform project](#) Kotlin plugin instead. We will need to create
+several new files in our project.
+
+### Adding Sources
+
+The idea is to make every platform to show the similar text, namely `Kotlin Rocks @ Android` and 
+`Kotlin Rocks @ iOS`, depending on the platform. We will reuse the way to generate the message. 
+For first, let's create the main file under `common/commonMain/kotlin/common.kt`
+
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```kotlin
+package com.jetbrains.jonnyzzz.common
+
+expect fun platformName(): String
+
+fun createApplicationScreenMessage() : String {
+  return "Kotlin Rocks @ ${platformName()}"
+}
+
+```
+</div>
+
+That is the common part. The code to generate the final message. It `expect`s the platform
+to provide the platform name from the `expect fun platformName(): String` function. 
+
+Now we create an implementation for Android in the `common/androidMain/kotlin/expect.kt`:
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```kotlin
+package com.jetbrains.jonnyzzz.common
+
+actual fun platformName(): String {
+  return "Android"
+}
+
+```
+</div>
+
+The similar file we create for the iOS target in the `common/iosMain/kotlin/expect.kt`:
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```kotlin
+package com.jetbrains.jonnyzzz.common
+
+import platform.UIKit.UIDevice
+
+actual fun platformName(): String {
+  return UIDevice.currentDevice.systemName() +
+         " " +
+         UIDevice.currentDevice.systemVersion
+}
+```
+</div>
+
+Here use use the [UIDevice](https://developer.apple.com/documentation/uikit/uidevice?language=objc)
+API from the Apple UIKit Framework, which is not available from Java, but useable from Swift and Objective-C.
+You may find more about Objective-C and Swift Interop [here](/docs/reference/native/objc_interop.html)
+
+### Updating Gradle Scripts
+
+The project should generate several artifacts for us:
+ - JAR file for Android project, from the `androidMain` source set
+ - Apple framework 
+   - for iPhone device and App Store (`arm64` target)
+   - for iPhone emulator (`x86_64` target)
+
+The only thing we miss so far are Gradle project files. Let's update Gradle scripts. 
+First, we add new projects into the `settings.gradle` file. Let's include the following line:
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```groovy
+include ':native'
+```
+</div>
+
+Next,
+we need to create the `common/build.gradle` file first with the following content:
+ 
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```groovy
+apply plugin: 'kotlin-multiplatform'
+
+kotlin {
+    targets {
+        fromPreset(presets.jvm, 'android')
+
+        fromPreset(presets.iosArm64, 'iOS') {
+            compilations.main.outputKinds('FRAMEWORK')
+        }
+
+        fromPreset(presets.iosX64, 'iOSx64') {
+            compilations.main.outputKinds('FRAMEWORK')
+        }
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            api 'org.jetbrains.kotlin:kotlin-stdlib-common'
+        }
+
+        androidMain.dependencies {
+            api 'org.jetbrains.kotlin:kotlin-stdlib'
+        }
+
+        iOSx64Main.dependsOn iOSMain
+    }
+}
+
+configurations {
+    compileClasspath
+}
+```
+</div>
+
+Now it is the time to refresh Gradle project. For that you may either click on the yellow stripe 
+or use the *Gradle* tool window and click `Refresh` from the context menu on the root Gradle project.
+Let's click on the refresh twice.  
+Right after the update, you shall see Android Studio and IntelliJ IDEA now sees one new module `:common`.
+
+### Updated Project Layout
+
+The project layout right now should be as follows:
+```
+  /app
+  |   /src
+  |   |   /androidTest/java/<package>
+  |   |   /main
+  |   |        /java/<package>/MainActivity.kt
+  |   |        /res
+  |   |   /test
+  |   build.gradle                        --- android application project
+  |   
+  /common
+  |   /src
+  |   |    /androidMain/kotlin/expect.kt  --- android expectations
+  |   |    /commonMain/kotlin/common.kt   --- common & shared code
+  |   |    /iOSMain/kotlin/expect.kt      --- apple expectations
+  |   build.gradle                        --- common project
+  |    
+  build.gradle                            --- root project
+  settings.gralde     
+```
+
+New we are ready to use the common library from our Android application project.
+
+# Using Common Library from Android
+
+There are several way to integrate Android Gradle project with multiplatform projects. 
+It is possible to use the `kotlin-multiplatform` plugin directly without `kotlin-android` plugin
+in the project. For that tutorial we decided to minimize Android project changes and
+created the `:common` project for that. You may want to learn more from the multiplatform projects [documentation](#). 
+
+Let's include the dependency on the `common` project from Android project. The `kotlin-multiplatform`
+plugin will resolve the the dependency to the android Jar for us. For that, we need to patch
+the `app/build.gradle` file and include the following line into the `dependencies { .. }` block:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```groovy
+    expectedBy project(':common')
+```
+</div>
+
+Remember, the idea to use common code to generate the text. Right now we need to
+assign the Id to the `TextView` control of our activity to access it from the code. 
 For that we need to open the
 `app/src/main/res/layout/activity_main.xml` file
 (the name may be different, if you changed it in the new project wizard).
@@ -124,15 +298,21 @@ We need to add several more attributes attribute to the `<TextView>` element:
         android:textAlignment="center"
 ```
 
-Next, let's include the following line of code into the `MainActivity` class, to 
+Next, let's include the following line of code into the `MainActivity` class
+from the `/app/src/main/java/<package>/MainActivity.kt` file, to 
 the end of the `onCreate` method:
 
 ```
-findViewById<TextView>(R.id.main_text).text = "Kotlin Rocks!"
+findViewById<TextView>(R.id.main_text).text = createApplicationScreenMessage()"
 ```
 
-We will replace the text with the function call in the next section.
+Please use the intention from the IDE to include the missing import line:
+```kotlin
+import com.jetbrains.jonnyzzz.common.createApplicationScreenMessage
+```
+into the same file. 
 
+That are all changes we needed. Let's see how it works. 
 
 ## Running Android Project in Android Studio
 
@@ -144,6 +324,38 @@ to have our project running either on a real Android Device or in the emulator.
 And so we see the Application running in the Android emulator:
     
 ![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-kotlin-rocks.png') }}){: width="30%"}
+
+
+
+
+
+
+
+
+Now we are ready to patch the `MainActivity` class 
+and include the API  
+
+ 
+project plugins 
+
+
+The project refresh ()
+
+Also we need to add several more files
+
+There are several thing we shall know about the multiplatform projects with Kotlin. First, you shall
+use the `kotlin-multiplatform` plugin.  
+
+Second, we declare two source sets - one for 
+
+## Patching the Android Project
+
+Let's add more changes to the project to demonstrate code reuse between projects. 
+
+Let's change the example to set the custom text message from the code. 
+Later, we will share the way to generate the text between iOS and Android.
+
+We will replace the text with the function call in the next section.
 
 
 # Adding Common Code Sub-Project
@@ -198,16 +410,6 @@ We need to update the Android project to include the dependency on our `common` 
 Let's update the `app/build.gradle` project file to add the dependency and a plugin, 
 near another `apply plugin: ` lines: 
 
-<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
-
-```groovy
-apply plugin: 'kotlin-platform-android'
-
-dependencies {
-    expectedBy project(':common')
-}
-```
-</div>
 
 Let's fill gaps. We need to provide the expected function`platformName()` in the `app` sub-project. For that,
 we create the file `app/src/java/<packages>/expectations.kt` with the following content:
