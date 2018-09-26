@@ -24,7 +24,7 @@ as a file with the extension `klib`. Kotlin/Native libraries are artifacts that 
 (as we would for instance with DLL files on the Windows platform).
 
 A `klib` file is a compressed archive in zip format with the specific layout. See
-the [reference](/docs/reference/native/libraries.html#the-library-format) for details.
+the [reference](https://github.com/JetBrains/kotlin-native/blob/master/LIBRARIES.md#the-library-format) for details.
  
 ## Creating a Kotlin/Native Libraries
 
