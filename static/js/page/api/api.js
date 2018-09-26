@@ -122,16 +122,16 @@ function initializeSelects() {
 }
 
 function addTag(rowElement, tags, kind) {
-  if ($(rowElement).hasClass("no-bubbles")) return;
   let tagsContainer = ($(rowElement).is("tr")) ? $(rowElement).find("td:first") : rowElement;
 
   let $tagsElement = $(tagsContainer).find(".tags");
 
   
   if ($tagsElement.length == 0) {
-    $tagsElement = $('<div class="tags"></div>');
-    let elementWithPlatforms = $(rowElement);
-    $(tagsContainer).append($tagsElement);
+    return;
+    // $tagsElement = $('<div class="tags"></div>');
+    // let elementWithPlatforms = $(rowElement);
+    // $(tagsContainer).append($tagsElement);
   }
 
   //if (!$(rowElement).is("tr") && kind != 'platform')
