@@ -60,18 +60,17 @@ your Android requirements. Defaults will work for the tutorial, so you may
 simply click through it. Similarly, on the third page, we select the *Empty Activity* option and click *Next*. 
 We agree on default names of the Activity on the next screen and click *Finish*.  
 
-It may fail opening the project with a Gradle import error. You may need to
+It may fail to open the project with a Gradle import error. You may need to
 [add Kotlin EAP repository](https://youtrack.jetbrains.com/issue/KT-18835#focus=streamItem-27-2718879-0-0), 
-for that we add the the line
+so we need to add the following line:
 
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```groovy
 maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-maven { url "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" }
 ```
 </div>
-into the `build.gradle` file under the both `buildscript { .. repositories { .. ` blocks.
+into the `build.gradle` file under the both `repositories { .. }` blocks.
 
 In the IntelliJ IDEA, you may also need to make sure Gradle is running under JDK 1.8, otherwise, the project import
 may [fail](https://youtrack.jetbrains.com/issue/IDEA-199397). Check out the Gradle Settings to fix that.
@@ -82,12 +81,58 @@ and use the following `distrubutionUrl`:
 distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.2-all.zip
 ```
 
-It is also necessary to add the line:
+We need to refresh Gradle settings via the `Sync Now` banner on every Gradle file,
+or via the Gradle tab and the refresh button on the toolbar in IntelliJ IDEA to apply our changes.
+
+At that point, we shall be able to compile and run the project. Let's click on the `App` run configuration
+to have our project running either on a real Android Device or in the emulator. 
+
+![Start the Application]({{ url_for('tutorial_img', filename='native/mpp-ios-android/studio-start-app.png') }})
+And so we see the Application running in the Android emulator:
+    
+![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-hello-app.png') }}){: width="30%"}
+
+## Patching the Android Project
+
+Let's add more changes to the project to demonstrate code reuse between projects. 
+
+The generated sample application layout is as follows:
 ```
-org.gradle.configureondemand=false
+  /app
+  |   /src
+  |   |   /androidTest/java/<package>
+  |   |   /main
+  |   |        /java/<package>/MainActivity.kt
+  |   |        /res
+  |   |   /test
+  |   build.gradle       --- android application sub-project `:app`
+  |   
+  build.gradle           --- root project
+  settings.gralde     
 ```
-into the `gradle.properties` to make Android Studio use newer Gradle. We need to refresh Gradle settings
-from the Gradle tab to make Android Studio or IntellJ IDEA apply our changes.
+
+Let's change the example to set the custom text message from the code. 
+Later, we will share the way to generate the text between iOS and Android.
+For that we need to open the
+`app/src/main/res/layout/activity_main.xml` file
+(the name may be different, if you changed it in the new project wizard).
+We need to add several more attributes attribute to the `<TextView>` element: 
+```
+        android:id="@+id/main_text"
+        android:textSize="42sp"
+        android:layout_margin="5sp"
+        android:textAlignment="center"
+```
+
+Next, let's include the following line of code into the `MainActivity` class, to 
+the end of the `onCreate` method:
+
+```
+findViewById<TextView>(R.id.main_text).text = "Kotlin Rocks!"
+```
+
+We will replace the text with the function call in the next section.
+
 
 ## Running Android Project in Android Studio
 
@@ -98,43 +143,7 @@ to have our project running either on a real Android Device or in the emulator.
 
 And so we see the Application running in the Android emulator:
     
-![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-hello-app.png') }}){: width="30%"}
-
-The application layout is as follows
-```
-  /app
-  |   /src
-  |   |   /androidTest
-  |   |   /main
-  |   |   /test
-  |   build.gradle --- android application sub-project
-  |   
-  build.gradle     --- root project
-  settings.gralde     
-```
-
-## Changing Example Code
-
-Let's change the example to set the text view from the code. For that we need to open the
-`app/src/main/res/layout/activity_main.xml` (the name may be different, depending
-on what you had in the new project wizard). We need to include the `id` attribute to the
-`<TextView>` element: 
-```
-        android:id="@+id/main_text"
-        android:textSize="42sp"
-        android:layout_margin="5sp"
-        android:textAlignment="center"
-```
-
-Next, Let's include the following code into the `MainActivity` class into the end of the
-`onCreate` method:
-
-```
-findViewById<TextView>(R.id.main_text).text = "Kotlin Rocks!"
-
-```
-
-We will replace the text with some other later in the tutorial.
+![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-kotlin-rocks.png') }}){: width="30%"}
 
 
 # Adding Common Code Sub-Project
