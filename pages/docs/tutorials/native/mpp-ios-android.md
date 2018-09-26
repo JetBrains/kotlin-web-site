@@ -117,8 +117,8 @@ root of the project directory. The Android Studio wizard also created the `app` 
 ## Creating Common Module
 
 The goal of the tutorial is to demonstrate the code re-use between Android and iOS. Let's start
-with creating the `common` project with the code we share between platforms. 
-You may did the step before and created the common project with `java` or or Kotlin/JVM plugins, 
+with creating the `SharedCode` project with the code we share between platforms. 
+You may did the step before and created the `SharedCode` project with `java` or or Kotlin/JVM plugins, 
 that time we will use the [multiplatform project](#) Kotlin plugin instead. We will need to create
 several new files in our project.
 
@@ -126,7 +126,7 @@ several new files in our project.
 
 The idea is to make every platform to show the similar text, namely `Kotlin Rocks on Android` and 
 `Kotlin Rocks on iOS`, depending on the platform. We will reuse the way to generate the message. 
-For first, let's create the main file under `common/commonMain/kotlin/common.kt`
+For first, let's create the main file under `SharedCode/commonMain/kotlin/common.kt`
 
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -146,7 +146,7 @@ fun createApplicationScreenMessage() : String {
 That is the common part. The code to generate the final message. It `expect`s the platform
 to provide the platform name from the `expect fun platformName(): String` function. 
 
-Now we create an implementation for Android in the `common/androidMain/kotlin/expect.kt`:
+Now we create an implementation for Android in the `SharedCode/androidMain/kotlin/expect.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -159,7 +159,7 @@ actual fun platformName(): String {
 ```
 </div>
 
-The similar file we create for the iOS target in the `common/iosMain/kotlin/expect.kt`:
+The similar file we create for the iOS target in the `SharedCode/iosMain/kotlin/expect.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -192,12 +192,12 @@ First, we add new projects into the `settings.gradle` file. Let's include the fo
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```groovy
-include ':common'
+include ':SharedCode'
 ```
 </div>
 
 Next,
-we need to create the `common/build.gradle` file first with the following content:
+we need to create the `SharedCode/build.gradle` file first with the following content:
  
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -239,7 +239,7 @@ configurations {
 Now it is the time to refresh Gradle project. For that you may either click on the yellow stripe 
 or use the *Gradle* tool window and click `Refresh` from the context menu on the root Gradle project.
 Let's click on the refresh twice.  
-Right after the update, you shall see Android Studio and IntelliJ IDEA now sees one new module `:common`.
+Right after the update, you shall see Android Studio and IntelliJ IDEA now sees one new module `:SharedCode`.
 
 ### The Project Layout
 
@@ -254,7 +254,7 @@ The project layout right now should be as follows:
   |   |   /test
   |   build.gradle                        --- android application project
   |   
-  /common
+  /SharedCode
   |   /src
   |   |    /androidMain/kotlin/expect.kt  --- android expectations
   |   |    /commonMain/kotlin/common.kt   --- common & shared code
@@ -272,16 +272,17 @@ New we are ready to use the common library from our Android application project.
 There are several way to integrate Android Gradle project with multiplatform projects. 
 It is possible to use the `kotlin-multiplatform` plugin directly without `kotlin-android` plugin
 in the project. For that tutorial we decided to minimize Android project changes and
-created the `:common` project for that. You may want to learn more from the multiplatform projects [documentation](#). 
+created the `:SharedCode` project for that. You may want to learn more from the
+multiplatform projects [documentation](#). 
 
-Let's include the dependency on the `common` project from Android project. The `kotlin-multiplatform`
+Let's include the dependency on the `SharedCode` project from Android project. The `kotlin-multiplatform`
 plugin will resolve the the dependency to the android Jar for us. For that, we need to patch
 the `app/build.gradle` file and include the following line into the `dependencies { .. }` block:
 
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```groovy
-    expectedBy project(':common')
+    expectedBy project(':SharedCode')
 ```
 </div>
 
@@ -342,9 +343,9 @@ Let's make sure we are able to run the application in the iPhone emulator.
 
 ## Settings up Framework Dependency 
 
-The `common` project in Android Studio generates Frameworks for the use in Xcode project. Let's turn back
-to the Android Studio and run the task `build` in the `common` project via the *Gradle* tool window. 
-Than you will see the `common/build/bin` folder with two Frameworks. One framework is compiled for 
+The `SharedCode` project in Android Studio generates Frameworks for the use in Xcode project. Let's turn back
+to the Android Studio and run the task `build` in the `SharedCode` project via the *Gradle* tool window. 
+Than you will see the `SharedCode/build/bin` folder with two Frameworks. One framework is compiled for 
 the `iPhone` emulator (x86_64 target), the second framework is create for the device (arm64 target).
 
 Let's switch to the Xcode and include those frameworks to the project. For that we need to open the
@@ -352,13 +353,13 @@ target settings. Click on the root node in the *project navigator*. We will incl
 to the *Embedded Binaries* section. Let's click `+` there, and use *Add Other...* button to pick the 
 frameworks from the disk. There you pick the framework from the path: 
 ```
-common/build/bin/iOSx64/main/debug/framework/common.framework
+SharedCode/build/bin/iOSx64/main/debug/framework/SharedCode.framework
 ```
 Select the *Create folder references* in the next dialog and click *Finish*.
 
 Let's repeat the action to include the second platform framework:
 ```
-common/build/bin/iOS/main/debug/framework/common.framework
+SharedCode/build/bin/iOS/main/debug/framework/SharedCode.framework
 ```
  
  
