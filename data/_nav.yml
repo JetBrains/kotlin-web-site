@@ -113,6 +113,8 @@ reference:
           title: Enum Classes
         - url: /docs/reference/object-declarations.html
           title: Objects
+        - url: /docs/reference/inline-classes.html
+          title: Inline Classes
         - url: /docs/reference/delegation.html
           title: Delegation
         - url: /docs/reference/delegated-properties.html
