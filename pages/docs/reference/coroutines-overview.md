@@ -21,4 +21,3 @@ Below are a series of tutorials and first steps that can get you on the right tr
 
 * [Asynchronous Programming](../tutorials/coroutines/async-programming.html). Explains the different approaches to non-blocking code and introduces you to the concept of Coroutines
 * [Your first coroutine with Kotlin](../tutorials/coroutines/coroutines-basic-jvm.html). Step by step tutorial on writing your first coroutine with Kotlin.
-* [Coroutines Guide](../reference/coroutines/coroutines-guide.html). A complete guide to everything you need to know about Kotlin coroutines.
