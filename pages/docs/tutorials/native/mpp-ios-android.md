@@ -192,7 +192,7 @@ First, we add new projects into the `settings.gradle` file. Let's include the fo
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```groovy
-include ':native'
+include ':common'
 ```
 </div>
 
