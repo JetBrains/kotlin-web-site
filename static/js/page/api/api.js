@@ -7,15 +7,18 @@ const DEFAULT_VERSION = '1.3';
 const LOCAL_STORAGE_KEY = 'targetApi';
 
 function getVersion(element) {
+
   let version = $(element).attr('data-kotlin-version');
   if (version.startsWith("Kotlin ")) {
     version = version.substring("Kotlin ".length)
   }
+  console.log($(element), version);
   return version
 }
 
 function updateTagByKind(rowElement, newTag, kind) {
-  let $tag = $(rowElement).find(`.tags__tag.${kind}`);
+  let tagsContainer = ($(rowElement).is("tr")) ? $(rowElement).find("td:first") : rowElement;
+  let $tag = $(tagsContainer).find(`.tags__tag.${kind}`);
   $tag.text(newTag);
 }
 
@@ -119,19 +122,20 @@ function initializeSelects() {
 }
 
 function addTag(rowElement, tags, kind) {
-  let $tagsElement = $(rowElement).find('.tags');
+  if ($(rowElement).hasClass("no-bubbles")) return;
+  let tagsContainer = ($(rowElement).is("tr")) ? $(rowElement).find("td:first") : rowElement;
+
+  let $tagsElement = $(tagsContainer).find(".tags");
+
+  
   if ($tagsElement.length == 0) {
     $tagsElement = $('<div class="tags"></div>');
     let elementWithPlatforms = $(rowElement);
-    if (elementWithPlatforms.is("tr")) {
-        elementWithPlatforms.find('td:first').append($tagsElement);
-    } else {
-        elementWithPlatforms.find('.signature').after($tagsElement);
-    }
+    $(tagsContainer).append($tagsElement);
   }
 
-  if (!$(rowElement).is("tr") && kind != 'platform')
-    return;
+  //if (!$(rowElement).is("tr") && kind != 'platform')
+  //  return;
 
   tags.split(',').forEach(tag => $tagsElement.append(`<div class="tags__tag ${kind}">${tag}</div>`));
 
