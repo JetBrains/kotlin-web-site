@@ -16,10 +16,10 @@ and Kotlin/Native is used for the iOS.
 
 In this tutorial you will:
  - Create an [Android app](#creating-android-project) with Android Studio
- - Create an iPhone app with Xcode
- - Create a Kotlin multiplatform project
-   - Use it from Android app
-   - Use it from iPhone app
+ - Create an [iPhone app](#creating-ios-application) with Xcode
+ - Create a [Kotlin multiplatform project](#multiproject-gradle-project)
+   - Use it [from Android app](#using-common-library-from-android)
+   - Use it [from iPhone app](#settings-up-framework-dependency)
 
 Nowadays, mobile applications can be huge, complicated and amazing. Our goal is to illustrate
 the principle and the mechanics of the Kotlin code sharing between Android and iOS. Let's simplify
