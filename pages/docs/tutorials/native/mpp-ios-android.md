@@ -22,16 +22,16 @@ In this tutorial you will:
    - Use it [from iOS app](#settings-up-framework-dependency)
 
 Nowadays, mobile applications can be huge, complicated and amazing. Our goal is to illustrate
-the principle and the mechanics of the Kotlin code sharing between Android and iOS. Let's simplify
-the applications to the bare minimum.
+the principle and the mechanics of the Kotlin code sharing between Android and iOS.
+Still, the applications that we create are especially simplified to the bare minimum to focus
+on the code re-use and multiplatform project aspects.
 
-We create an application for Android and iOS. It will show the text
+We create an applications for Android and iOS. It will show the text
 `Kotlin Rocks on Android` on Android and the `Kotlin Rocks on iOS <version>` on iOS.
-The goal is to share the code to generate that message. The common code is 
-something as easy as `"Kotlin Rocks on ${platformName()}"`, where the `platformName()` is 
-an `expect fun` function. 
-
-Let's see how it work!
+The goal is to share the code to generate that message. The common code is as easy
+as `"Kotlin Rocks on ${platformName()}"`, where the `platformName()` is 
+an `expect fun` function. The `platformName` function is implemented differently
+for each of the platforms.
 
 # Setting Up the Local Environment
 
