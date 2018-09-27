@@ -81,7 +81,8 @@ maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 into the `build.gradle` file under the both `repositories { .. }` blocks.
 
 In the IntelliJ IDEA, you may also need to make sure Gradle is running under JDK 1.8, otherwise, the project import
-may [fail](https://youtrack.jetbrains.com/issue/IDEA-199397). Check out the *Gradle Settings* to fix that.
+may [fail](https://youtrack.jetbrains.com/issue/IDEA-199397). Check out the *Gradle Settings* to fix that. We will
+need JDK in the system PATH to make the combined Xcode build work.
 
 Kotlin/Native plugin requires a newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
 and use the following `distrubutionUrl`:
@@ -240,27 +241,6 @@ configurations {
     compileClasspath
 }
 
-task packForXCode(type: Sync) {
-    final File frameworkDir = new File(buildDir, "xcode-frameworks")
-    final String mode = System.getenv('CONFIGURATION')?.toUpperCase() ?: 'DEBUG'
-    final String target = System.getenv('SDK_NAME')?.startsWith("iphoneos") ? 'iOS' : 'iOSx64'
-
-    inputs.property "target", target
-    inputs.property "mode", mode
-    outputs.dir frameworkDir
-    dependsOn kotlin.targets."$target".compilations.main.linkTaskName("FRAMEWORK", mode)
-
-    from { kotlin.targets."$target".compilations.main.getBinary("FRAMEWORK", mode).parentFile }
-    into frameworkDir
-
-    doLast {
-        new TreeMap(System.getenv()).forEach { k,v ->
-            println "  $k=$v"
-        }
-    }
-}
-
-tasks.build.dependsOn packForXCode
 ```
 </div>
 
@@ -411,29 +391,96 @@ SharedCode/build/bin/iOSx64/main/release/framework/SharedCode.framework
 SharedCode/build/bin/iOS/main/release/framework/SharedCode.framework
 ```
 
-It is only possible to use one of those binaries in the project to target either
-iOS emulator (x86_64) or the device (arm64), debug or release. You may to create
-[an universal framework](https://medium.com/swiftindia/build-a-custom-universal-framework-on-ios-swift-549c084de7c8)
-from those two frameworks to simplify local development.
-Let's focus on the emulator for now.
+### Tuning the Gradle Build Script
+We need to supply the right Framework depending on the selected target in the Xcode
+project. It also depends from the `Release` or `Debug` configuration. Lastly,
+we'd like to make Xcode to compile the Framework for us before the build.
+We need to include the additional task to the end of the `SharedCode/build.gradle` file:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```groovy
+task packForXCode(type: Sync) {
+    final File frameworkDir = new File(buildDir, "xcode-frameworks")
+    final String mode = System.getenv('CONFIGURATION')?.toUpperCase() ?: 'DEBUG'
+    final String target = System.getenv('SDK_NAME')?.startsWith("iphoneos") ? 'iOS' : 'iOSx64'
+
+    inputs.property "target", target
+    inputs.property "mode", mode
+    outputs.dir frameworkDir
+    dependsOn kotlin.targets."$target".compilations.main.linkTaskName("FRAMEWORK", mode)
+
+    from { kotlin.targets."$target".compilations.main.getBinary("FRAMEWORK", mode).parentFile }
+    into frameworkDir
+    
+    doLast {
+        new File(frameworkDir, 'gradlew').with {
+            text = "#!/bin/bash\nexport 'JAVA_HOME=${System.getProperty("java.home")}'\ncd '${rootProject.rootDir}'\n./gradlew \$@\n"
+            setExecutable(true)
+        }
+    }
+}
+
+tasks.build.dependsOn packForXCode
+```
+</div>
+
+Let's switch back to the Android Studio and execute the `build` target of the `SharedCode` project from
+the *Gradle* tool window. The task checks for environment variables set by the Xcode build and copies
+the right variant of the framework into the `SharedCode/build/xcode-frameworks` folder. We include the
+framework from the folder into the build:
 
 ### Setting up Xcode Dependency for iOS Emulator
 
-The next step is to include the `SharedCode` framework files into the Xcode project.
-For that let's click on the root node of the *project navigator* and select the *target* settings. 
+Let's add the `SharedCode` framework to the Xcode project.
+For that let's click on the root node of the *project navigator* and select the *target* settings.
 Next, we click on the `+` in the *Embedded Binaries* section, click *Add Other...* button in the dialog
 to pick the framework from the disk. We point to the following folder: 
 ```
-SharedCode/build/bin/iOSx64/main/debug/framework/SharedCode.framework
+SharedCode/build/xcode-frameworks/SharedCode.framework
 ```
 
-We have to list the same path in the *Build Settings* tag, under the *Search Paths | Framework Search Paths*
-section.
+You shall see something similar to this: 
+![Xcode General Screen]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-general.png') }})
 
+We need to disable the *Bitcode* feature in the project too. Kotlin/Native produces the fully native
+binaries, not the LLVM bitcode, so we switch to the *Build Settings* tab and type `bitcode` into
+the search field. Select `No` for the *Enable Bitcode* option.
+
+![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-bitcode.png') }})
+
+Now we need to explain Xcode, where to look for frameworks. We need to add the full path to the 
+`SharedCode/build/xcode-frameworks` into the *Search Paths | Framework Search Paths* section.
+
+![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-search-path.png') }})
+
+The final step is to make Xcode call our Gradle build to prepare the `SharedCode` framework.
+We open the *Build Phases* tab and click `+` to add the *New Run Script Phase* 
+
+Let's add the following code into it:
+
+<div class="sample" markdown="1" mode="bash" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```bash
+cd $SRCROOT/../../SharedCode/build/xcode-frameworks
+./gradlew :SharedCode:packForXCode
+```
+</div>
+
+Note, the `$SRCROOT/../..` is the way to switch find the project folder root. It may depend on the way
+you created your project in Xcode. 
+
+![Xcode Build Phases]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-run-script.png') }})
+
+You should drag the created build phase to the top of the list
+
+![Xcode Build Phases]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-run-script-order.png') }})
+
+We are ready now to start coding the iOS application and to use Kotlin code from it
 
 ### Calling Kotlin Code from Swift
 
-We need to show the same text message on the screen. As you see, our iOS application does not show
+Our goal was to show the text message on the screen. As you see, our iOS application does not show
 anything. Let's make it show the `UILabel` with the text message from Kotlin code. 
 It is the time to add few more lines into the `ViewController.swift` file, we replace the contents
 of the file with the following code:
