@@ -288,6 +288,11 @@ tutorials:
         - url: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
           title: Debugging Kotlin in browser
 
+    - title: Multiplatform Projects
+      content:
+        - url: /docs/tutorials/native/mpp-ios-android.html
+          title: "iOS and Android"
+
     - title: Native
       content:
         - url: /docs/tutorials/native/basic-kotlin-native-app.html
