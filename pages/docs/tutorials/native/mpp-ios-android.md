@@ -16,17 +16,17 @@ and Kotlin/Native is used for the iOS.
 
 In this tutorial you will:
  - Create an [Android app](#creating-android-project) with Android Studio
- - Create an [iPhone app](#creating-ios-application) with Xcode
+ - Create an [iOS app](#creating-ios-application) with Xcode
  - Create a [Kotlin multiplatform project](#multiproject-gradle-project)
    - Use it [from Android app](#using-common-library-from-android)
-   - Use it [from iPhone app](#settings-up-framework-dependency)
+   - Use it [from iOS app](#settings-up-framework-dependency)
 
 Nowadays, mobile applications can be huge, complicated and amazing. Our goal is to illustrate
 the principle and the mechanics of the Kotlin code sharing between Android and iOS. Let's simplify
 the applications to the bare minimum.
 
 We create an application for Android and iOS. It will show the text
-`Kotlin Rocks on Android` on Android and the `Kotlin Rocks on iOS <version>` on iPhone.
+`Kotlin Rocks on Android` on Android and the `Kotlin Rocks on iOS <version>` on iOS.
 The goal is to share the code to generate that message. The common code is 
 something as easy as `"Kotlin Rocks on ${platformName()}"`, where the `platformName()` is 
 an `expect fun` function. 
@@ -190,8 +190,8 @@ You may find more about Objective-C and Swift Interop [here](/docs/reference/nat
 The `SharedCode` project should generate several artifacts for us:
  - JAR file for Android project, from the `androidMain` source set
  - Apple framework 
-   - for iPhone device and App Store (`arm64` target)
-   - for iPhone emulator (`x86_64` target)
+   - for iOS device and App Store (`arm64` target)
+   - for iOS emulator (`x86_64` target)
 
 The only thing we miss so far are Gradle project files. Let's update Gradle scripts. 
 First, we add new project into the `settings.gradle` file, by adding the following line to the end of the file:
@@ -379,7 +379,7 @@ Let's turn back
 to the Android Studio and run the task `build` in the `SharedCode` project via the *Gradle* tool window.
 The task generates Frameworks for the use in Xcode project.
 Then, you will see the `SharedCode/build/bin` folder with Frameworks in it. One framework is compiled for 
-the `iPhone` emulator (x86_64 target), the second framework is create for the device (arm64 target).
+the `iOS` emulator (x86_64 target), the second framework is create for the device (arm64 target).
 
 The frameworks are in the following paths:
 ```
@@ -390,12 +390,12 @@ SharedCode/build/bin/iOS/main/release/framework/SharedCode.framework
 ```
 
 It is only possible to use one of those binaries in the project to target either
-iPhone emulator (x86_64) or the device (arm64), debug or release. You may to create
+iOS emulator (x86_64) or the device (arm64), debug or release. You may to create
 [an universal framework](https://medium.com/swiftindia/build-a-custom-universal-framework-on-ios-swift-549c084de7c8)
 from those two frameworks to simplify local development.
 Let's focus on the emulator for now.
 
-### Setting up Xcode Dependency for iPhone Emulator
+### Setting up Xcode Dependency for iOS Emulator
 
 The next step is to include the `SharedCode` framework files into the Xcode project.
 For that let's click on the root node of the *project navigator* and select the *target* settings. 
@@ -411,7 +411,7 @@ section.
 
 ### Calling Kotlin Code from Swift
 
-We need to show the same text message on the screen. As you see, our iPhone application does not show
+We need to show the same text message on the screen. As you see, our iOS application does not show
 anything. Let's make it show the `UILabel` with the text message from Kotlin code. 
 It is the time to add few more lines into the `ViewController.swift` file, we replace the contents
 of the file with the following code:
@@ -448,7 +448,7 @@ the framework before each run of the Xcode project.
 
 Right now, we are ready to start the application in the emulator
 
-## Running the iPhone Application
+## Running the iOS Application
 
 Let's click *Run* button in the Xcode and we see 
 
@@ -458,7 +458,7 @@ Let's click *Run* button in the Xcode and we see
 
 In the tutorial we:
  - created an Android application in Android Studio
- - created an iPhone application in Xcode
+ - created an iOS application in Xcode
  - added Kotlin multiplatform sub-project  
    - with shared Kotlin code
    - compiled it to Android Jar
