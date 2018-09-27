@@ -152,7 +152,7 @@ That is the common part. The code to generate the final message. It `expect`s th
 to provide the platform name from the `expect fun platformName(): String` function. We will use
 the `createApplicationScreenMessage` from both Android and iOS applications.
 
-Now, we create an implementation for Android in the `SharedCode/src/androidMain/kotlin/expect.kt`:
+Now, we create an implementation for Android in the `SharedCode/src/androidMain/kotlin/actual.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -165,7 +165,7 @@ actual fun platformName(): String {
 ```
 </div>
 
-The similar file we create for the iOS target in the `SharedCode/src/iosMain/kotlin/expect.kt`:
+The similar file we create for the iOS target in the `SharedCode/src/iosMain/kotlin/actual.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -239,6 +239,28 @@ kotlin {
 configurations {
     compileClasspath
 }
+
+task packForXCode(type: Sync) {
+    final File frameworkDir = new File(buildDir, "xcode-frameworks")
+    final String mode = System.getenv('CONFIGURATION')?.toUpperCase() ?: 'DEBUG'
+    final String target = System.getenv('SDK_NAME')?.startsWith("iphoneos") ? 'iOS' : 'iOSx64'
+
+    inputs.property "target", target
+    inputs.property "mode", mode
+    outputs.dir frameworkDir
+    dependsOn kotlin.targets."$target".compilations.main.linkTaskName("FRAMEWORK", mode)
+
+    from { kotlin.targets."$target".compilations.main.getBinary("FRAMEWORK", mode).parentFile }
+    into frameworkDir
+
+    doLast {
+        new TreeMap(System.getenv()).forEach { k,v ->
+            println "  $k=$v"
+        }
+    }
+}
+
+tasks.build.dependsOn packForXCode
 ```
 </div>
 
@@ -288,9 +310,9 @@ The project layout right now should be as follows:
   |   
   /SharedCode
   |   /src
-  |   |    /androidMain/kotlin/expect.kt  --- android expectations
+  |   |    /androidMain/kotlin/actual.kt  --- android expectations
   |   |    /commonMain/kotlin/common.kt   --- common & shared code
-  |   |    /iOSMain/kotlin/expect.kt      --- apple expectations
+  |   |    /iOSMain/kotlin/actual.kt      --- apple expectations
   |   build.gradle                        --- common project
   |    
   build.gradle                            --- root project
