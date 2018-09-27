@@ -243,6 +243,8 @@ reference:
           title: Kotlin and OSGi
         - url: /docs/reference/compiler-plugins.html
           title: Compiler plugins
+        - url: /docs/reference/code-style-migration-guide.html
+          title: Coding Conventions
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.
