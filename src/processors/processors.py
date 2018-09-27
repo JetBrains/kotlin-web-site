@@ -14,7 +14,8 @@ languageMimeTypeMap = {
     "javascript": "text/javascript",
     "json": "application/json",
     "js": "text/javascript",
-    "c": "text/x-csrc"
+    "c": "text/x-csrc",
+    "text": "text/plain"
 }
 
 
