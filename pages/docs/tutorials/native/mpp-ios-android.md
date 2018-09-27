@@ -50,7 +50,7 @@ macOS host operation system is required to compile for iOS and macOS devices. We
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured.
 Check out the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
-In the tutorial we will use IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0 RC, Xcode 10.0, macOS 10.14.
+In the tutorial we will use IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14.
 
 # Creating Android Project
 
