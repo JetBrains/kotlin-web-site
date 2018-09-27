@@ -37,7 +37,7 @@ for each of the platforms.
 
 We will be using [Android Studio](https://developer.android.com/studio/) for the Android part of the tutorial. 
 You shall have Android SDK installed, or Android Studio will help you to install one.
-It is possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate editions version too.
+It is possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate editions too.
 
 You should have the latest Kotlin plugin version 1.3.x installed in the Android Studio or IntelliJ IDEA. The tutorial
 uses features that are only available in Kotlin 1.3.x or newer. To check that, you may simply open
@@ -46,7 +46,7 @@ uses features that are only available in Kotlin 1.3.x or newer. To check that, y
 For those, who use IntelliJ IDEA through the tutorial. It is also required to have JDK 1.8 (**not** newer).
 You may download and install it from the [Oracle](https://java.sun.com) or other websites. 
 
-macOS host operation system is required to compile for iOS and macOS devices. We need to have the
+macOS host operation system is required to compile for iOS and macOS devices. We need to have
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured.
 Check out the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
@@ -384,7 +384,7 @@ Let's turn back
 to the Android Studio and run the task `build` in the `SharedCode` project via the *Gradle* tool window.
 The task generates Frameworks for the use in Xcode project.
 Then, you will see the `SharedCode/build/bin` folder with Frameworks in it. One framework is compiled for 
-the `iOS` emulator (x86_64 target), the second framework is create for the device (arm64 target).
+the `iOS` emulator (x86_64 target), the second framework is created for the device (arm64 target).
 
 The frameworks are in the following paths:
 ```
@@ -515,7 +515,7 @@ from it as `CommonKt.createApplicationScreenMessage()`. Follow the
 [Kotlin/Native as an Apple Framework](/docs/tutorials/native/apple-framework.html) tutorial for
 more details on the Kotlin/Native to Swift (or Objective-C) interop.
 
-You may want to call the `./gradlew :SharedCode:build` task from a Xcode *Build Phase* to compile or re-compile
+You may want to call the `./gradlew :SharedCode:build` task from an Xcode *Build Phase* to compile or re-compile
 the framework before each run of the Xcode project. 
 
 Right now, we are ready to start the application in the emulator
@@ -552,8 +552,8 @@ and Objective-C [documentation](/docs/reference/native/objc_interop.html).
 ## Kotlin Multiplatform Libraries
 
 Sharing code between platforms is the powerful technique, but it may be hard to
-accomplish without reach APIs that we have in Android, JVM or iOS platforms.
-You may use multiplatform libraries to fix that, and to have reach APIs
+accomplish without rich APIs that we have in Android, JVM or iOS platforms.
+You may use multiplatform libraries to fix that, and to have rich APIs
 directly in the common Kotlin code. There are several examples of such libraries:  
 
 - Kotlin stdlib
