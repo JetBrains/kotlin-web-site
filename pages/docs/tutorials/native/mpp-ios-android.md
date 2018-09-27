@@ -132,7 +132,7 @@ We will create several new files in our project.
 
 The idea is to make every platform to show the similar text: `Kotlin Rocks on Android` and 
 `Kotlin Rocks on iOS`, depending on the platform. We will reuse the way to generate the message. 
-For first, let's create the main file under `SharedCode/commonMain/kotlin/common.kt`
+For first, let's create the main file under `SharedCode/src/commonMain/kotlin/common.kt`
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -152,7 +152,7 @@ That is the common part. The code to generate the final message. It `expect`s th
 to provide the platform name from the `expect fun platformName(): String` function. We will use
 the `createApplicationScreenMessage` from both Android and iOS applications.
 
-Now, we create an implementation for Android in the `SharedCode/androidMain/kotlin/expect.kt`:
+Now, we create an implementation for Android in the `SharedCode/src/androidMain/kotlin/expect.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -165,7 +165,7 @@ actual fun platformName(): String {
 ```
 </div>
 
-The similar file we create for the iOS target in the `SharedCode/iosMain/kotlin/expect.kt`:
+The similar file we create for the iOS target in the `SharedCode/src/iosMain/kotlin/expect.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -188,7 +188,7 @@ You may find more about Objective-C and Swift Interop [here](/docs/reference/nat
 ### Updating Gradle Scripts
 
 The `SharedCode` project should generate several artifacts for us:
- - JAR file for Android project, from the `androidMain` source set
+ - JAR file for the Android project, from the `androidMain` source set
  - Apple framework 
    - for iOS device and App Store (`arm64` target)
    - for iOS emulator (`x86_64` target)
