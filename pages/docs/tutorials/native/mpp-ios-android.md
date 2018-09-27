@@ -68,9 +68,10 @@ your Android requirements. Defaults will work for the tutorial, so you may
 simply click through it. On the third page, we select the *Empty Activity* option and click *Next*. 
 We agree on default names of the Activity on the next screen and click *Finish*.  
 
-IntelliJ IDEA and Android Studio may fail to open the generated project with a Gradle import error. You may need to
+IntelliJ IDEA and Android Studio may fail to open the generated project with a Gradle import error
+if you use pre-release or EAP version of Kotlin plugin. In that case, you need to
 [add Kotlin EAP repository](https://youtrack.jetbrains.com/issue/KT-18835#focus=streamItem-27-2718879-0-0), 
-so we need to add the following line:
+or simply add the following line:
 
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -78,7 +79,7 @@ so we need to add the following line:
 maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 ```
 </div>
-into the `build.gradle` file under the both `repositories { .. }` blocks.
+into the `build.gradle` file *twice*, under the _both_ `repositories { .. }` blocks.
 
 In the IntelliJ IDEA, you may also need to make sure Gradle is running under JDK 1.8, otherwise, the project import
 may [fail](https://youtrack.jetbrains.com/issue/IDEA-199397). Check out the *Gradle Settings* to fix that. We will
