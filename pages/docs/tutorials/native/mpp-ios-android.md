@@ -184,6 +184,8 @@ actual fun platformName(): String {
 
 Here use use the [UIDevice](https://developer.apple.com/documentation/uikit/uidevice?language=objc)
 class from the Apple UIKit Framework, which is not available for Java, but only usable from Swift and Objective-C.
+Kotlin/Native compiler comes with a set of pre-imported frameworks, so that we may simply use
+the UIKit Framework without additional steps.
 You may find more about Objective-C and Swift Interop [here](/docs/reference/native/objc_interop.html)
 
 ### Updating Gradle Scripts
