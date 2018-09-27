@@ -25,6 +25,8 @@ Before explaining what coroutines are, let's briefly review some of the other so
 
 Threads are by far probably the most well-known approach to avoid applications from blocking.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun postItem(item: Item) {
     val token = preparePost()
@@ -36,8 +38,8 @@ fun preparePost(): Token {
     // makes a request and consequently blocks the main thread
     return token
 }
-
 ```
+</div>
 
 Let's assume in the code above that `preparePost` is a long-running process and consequently would block the user interface. What we can do is launch it in a separate thread. This would then
 allow us to avoid the UI from blocking. This is a very common technique, but has a series of drawbacks:
@@ -51,6 +53,8 @@ allow us to avoid the UI from blocking. This is a very common technique, but has
 ## Callbacks
 
 With callbacks, the idea is to pass one function as a parameter to another function, and have this one invoked once the process has completed.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 fun postItem(item: Item) {
@@ -67,6 +71,8 @@ fun preparePostAsync(callback: (Token) -> Unit) {
 }
 ```
 
+</div>
+
 This in principle feels like a much more elegant solution, but once again has several issues:
 
 * Difficulty of nested callbacks. Usually a function that is used as a callback, often ends up needing its own callback. This leads to a series of nested callbacks which
@@ -79,6 +85,8 @@ Callbacks are quite common in event-loop architectures such as JavaScript, but e
 
 The idea behind futures or promises (there are also other terms these can be referred to depending on language/platform), is that when we make a call, we're promised 
 that at some point it will return with an object called a Promise, which can then be operated on.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 fun postItem(item: Item) {
@@ -97,6 +105,8 @@ fun preparePostAsync(): Promise<Token> {
     return promise 
 }
 ```
+
+</div>
 
 This approach requires a series of changes in how we program, in particular
 
@@ -133,6 +143,8 @@ in itself doesn't really change.
 
 Take for instance the following code
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun postItem(item: Item) {
     launch {
@@ -147,6 +159,8 @@ suspend fun preparePost(): Token {
     return suspendCoroutine { /* ... */ } 
 }
 ```
+
+</div>
 
 This code will launch a long-running operation without blocking the main thread. The `preparePost` is what's called a 
 `suspendable function`, thus the keyword `suspend` prefixing it. What this means as stated above, is that the function will 
@@ -164,11 +178,3 @@ is that the way they're implemented in Kotlin, most of the functionality is dele
 languages such as C# that have `async` and `await` as part of the syntax. With Kotlin, these are just library functions.
 
 For more information regarding Coroutines and the different possibilities, check out the reference guide.
-
-
- 
-
-
-
-
-
