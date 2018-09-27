@@ -314,7 +314,7 @@ the `app/build.gradle` file and include the following line into the `dependencie
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```groovy
-    expectedBy project(':SharedCode')
+    implementation project(':SharedCode')
 ```
 </div>
 
