@@ -251,51 +251,6 @@ There are several ways to override the default setting:
 
 Note, that the first build won't be incremental.
 
-## Coroutines support
-
-[Coroutines](coroutines.html) support is an experimental feature in Kotlin 1.2, so the Kotlin compiler reports a warning when you use coroutines in your project.
-To turn off the warning, add the following block to your `build.gradle` file:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
-kotlin {
-    experimental {
-        coroutines 'enable'
-    }
-}
-```
-</div>
-
-Or, with Gradle Kotlin DSL:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-// ...
-
-kotlin.experimental.coroutines = Coroutines.ENABLE
-```
-</div>
-
-## Module names
-
-The Kotlin modules that the build produces are named accordingly to the `archivesBaseName` property of the project. If a project has a broad name like `lib` or `jvm`, which is common for subprojects, the Kotlin output files related to the module (`*.kotlin_module`) might clash with those from third-party modules with the same name. This causes problems when a project is packaged into a single archive (e.g. APK).
-
-To avoid this, consider setting a unique `archivesBaseName` manually:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
-archivesBaseName = 'myExampleProject_lib'
-```
-</div>
-
-With Gradle Kotlin DSL, it is:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
-setProperty("archivesBaseName", "myExampleProject_lib")
-```
-</div>
 
 ## Gradle Build Cache support (since 1.2.20)
 
