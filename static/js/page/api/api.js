@@ -9,9 +9,7 @@ const LOCAL_STORAGE_KEY = 'targetApi';
 function getVersion(element) {
 
   let version = $(element).attr('data-kotlin-version');
-  if (version.startsWith("Kotlin ")) {
-    version = version.substring("Kotlin ".length)
-  }
+
   console.log($(element), version);
   return version
 }
@@ -122,22 +120,22 @@ function initializeSelects() {
 }
 
 function addTag(rowElement, tags, kind) {
-  let tagsContainer = ($(rowElement).is("tr")) ? $(rowElement).find("td:first") : rowElement;
+  // let tagsContainer = ($(rowElement).is("tr")) ? $(rowElement).find("td:first") : rowElement;
 
-  let $tagsElement = $(tagsContainer).find(".tags");
+  // let $tagsElement = $(tagsContainer).find(".tags");
 
   
-  if ($tagsElement.length == 0) {
-    return;
-    // $tagsElement = $('<div class="tags"></div>');
-    // let elementWithPlatforms = $(rowElement);
-    // $(tagsContainer).append($tagsElement);
-  }
+  // if ($tagsElement.length == 0) {
+  //   return;
+  //   // $tagsElement = $('<div class="tags"></div>');
+  //   // let elementWithPlatforms = $(rowElement);
+  //   // $(tagsContainer).append($tagsElement);
+  // }
 
-  //if (!$(rowElement).is("tr") && kind != 'platform')
-  //  return;
+  // //if (!$(rowElement).is("tr") && kind != 'platform')
+  // //  return;
 
-  tags.split(',').forEach(tag => $tagsElement.append(`<div class="tags__tag ${kind}">${tag}</div>`));
+  // tags.split(',').forEach(tag => $tagsElement.append(`<div class="tags__tag ${kind}">${tag}</div>`));
 
 
 }
