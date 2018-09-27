@@ -534,6 +534,8 @@ In the tutorial we:
    - compiled it to iOS Framework
  - put it all together and re-used Kotlin code
  
+You may find the whole sources from that tutorial on [GitHub](https://github.com/jonnyzzz/kotlin-mpp-mobile).
+ 
 # Next Steps
 
 That is only the beginning and a small example on how one may share Kotlin code 
