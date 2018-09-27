@@ -12,7 +12,7 @@ issue: EVAN-6029
 In this tutorial we will create iOS and Android applications
 and re-use Kotlin code between them.
 Kotlin/JVM is used for Android, 
-and Kotlin/Native is used for the iOS. 
+and Kotlin/Native is used for iOS. 
 
 In this tutorial you will:
  - Create an [Android app](#creating-android-project) with Android Studio
@@ -48,7 +48,7 @@ You may download and install it from the [Oracle](https://java.sun.com) or other
 
 macOS host operation system is required to compile for iOS and macOS devices. We need to have the
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured.
-Check out the [Apple Developer Site](https://developer.apple.com/xcode/) site for more details. 
+Check out the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
 In the tutorial we will use IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0 RC, Xcode 10.0, macOS 10.14.
 
@@ -299,7 +299,7 @@ The project layout right now should be as follows:
   settings.gralde     
 ```
 
-New we are ready to use the common library from our Android application project.
+We are ready to use the common library from our Android application project.
 
 # Using Common Library from Android
 
