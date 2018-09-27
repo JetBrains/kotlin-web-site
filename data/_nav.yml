@@ -59,6 +59,8 @@ reference:
           title: Kotlin for JavaScript
         - url: /docs/reference/native-overview.html
           title: Kotlin/Native
+        - url: /docs/reference/coroutines-overview.html
+          title: Coroutines Overview
         - url: /docs/reference/whatsnew11.html
           title: What's New in 1.1
         - url: /docs/reference/whatsnew12.html
@@ -317,8 +319,11 @@ tutorials:
 
     - title: Coroutines
       content:
-        - url: /docs/tutorials/coroutines-basic-jvm.html
+        - url: /docs/tutorials/coroutines/async-programming.html
+          title: Asynchronous Programming
+        - url: /docs/tutorials/coroutines/coroutines-basic-jvm.html
           title: Introduction to Kotlin Coroutines on the JVM
+
 
     - title: Web Development
       content:
