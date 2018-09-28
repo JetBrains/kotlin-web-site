@@ -9,69 +9,53 @@ showAuthorInfo: false
 issue: EVAN-6029
 ---
 
-In the tutorial, we will create iOS and Android applications
-and re-use Kotlin code between them.
-Kotlin/JVM is used for Android, 
-and Kotlin/Native is used for iOS. 
+In the tutorial we will create an iOS and Android application, making use of Kotlin's code sharing features.
+For Android we'll be using Kotlin/JVM, while for iOS it will be Kotlin/Native. 
 
-In this tutorial you will:
+We'll see how to:
+
  - Create an [Android app](#creating-an-android-project) with Android Studio
  - Create an [iOS app](#creating-ios-application) with Xcode
- - Create a [Kotlin multiplatform project](#multiproject-gradle-project)
+ - Create a [Kotlin multi-platform project](#multiproject-gradle-project)
    - Use it [from Android app](#using-common-library-from-android)
    - Use it [from iOS app](#settings-up-framework-dependency)
 
-Nowadays, mobile applications can be huge, complicated and amazing. Our goal is to illustrate
-the principle and the mechanics of the Kotlin code sharing between Android and iOS.
-Still, the applications that we create are especially simplified to the bare minimum to focus
-on the code re-use and multiplatform project aspects.
+Our goal in this tutorial is to demonstrate the ability to share code with Kotlin and the benefits it provides. While 
+we'll be using a simplified application, what is show here can be applied to real world applications, independently of their size and complexity.
 
-We create applications for Android and iOS. It will show the text
-`Kotlin Rocks on Android` on Android and the `Kotlin Rocks on iOS <version>` on iOS.
-The goal is to share the code to generate that message. The common code is as easy
-as `"Kotlin Rocks on ${platformName()}"`, where the `platformName()` is 
-an `expect fun` function. The `platformName` function is implemented differently
-for each of the platforms.
+The application we're creating will simply show 
+`Kotlin Rocks on Android` on Android and  `Kotlin Rocks on iOS <version>` on iOS.
+The idea is to share the code that generates this message. 
+
+The common code is `"Kotlin Rocks on ${platformName()}"`, where `platformName()` is 
+a function that is declared using `expect`. The actual implementation will be specific to the platform.
 
 # Setting Up the Local Environment
 
-We will be using [Android Studio](https://developer.android.com/studio/) for the Android part of the tutorial. 
-You shall have Android SDK installed, or Android Studio will help you to install one.
-It is possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate editions too.
 
-You should have the latest Kotlin plugin version 1.3.x installed in the Android Studio or IntelliJ IDEA. The tutorial
-uses features that are only available in Kotlin 1.3.x or newer. To check that, you may open
-*Language & Frameworks | Kotlin Updates* block in the *Settings* or *Preferences* of your IDE.
+* We will be using [Android Studio](https://developer.android.com/studio/) for the Android part of the tutorial. 
+It's assume we have Android SDK installed. If not, Android Studio can install it during the installation process.
+Note that it's also possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate editions. In addition, Kotlin plugin 1.3.x or higher installed should be installed. This can be verified either via *Language & Frameworks | Kotlin Updates* in the *Settings* or *Preferences* of the IDE. If using IntelliJ IDEA, due to an [open issue]((https://youtrack.jetbrains.com/issue/IDEA-199397)), currently it only works with JDK 1.8.
 
-For those, who use IntelliJ IDEA through the tutorial. It is also required to have JDK 1.8 (**not** newer).
-You may download and install it from the [Oracle](https://java.sun.com) or other websites. 
+* macOS host operating system is required to compile for iOS and macOS devices. We need to have
+[Xcode](https://developer.apple.com/xcode/) and the tools installed and configured. Check out the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
-macOS host operating system is required to compile for iOS and macOS devices. We need to have
-[Xcode](https://developer.apple.com/xcode/) and the tools installed and configured.
-Check out the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
-
-In the tutorial, we will use IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14.
+*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14.*
 
 # Creating an Android Project
 
-Let's use Android Studio to create our Android project. You should have the latest version of it, and you
-should have the newest Kotlin plugin installed as well
-(check *Configure | Preferences | Language & Frameworks | Kotlin Updates* for that).
-
-We select the *Start New Android Project* item. If you are using IntelliJ IDEA, you need to select *Android* in 
-the list on the left. Android Studio will help to make sure Android SDK is installed.   
+We'll create a new Android project via *Start New Android Project* item. If using IntelliJ IDEA, we need to select *Android* in 
+the left panel of the *New Project* wizard. 
 
 ![New Project]({{ url_for('tutorial_img', filename='native/mpp-ios-android/new-android-project-studio.png') }}){: width="70%"}
 
-Do not forget to check the *Include Kotlin support* checkbox. On the next page, you may customize
-your Android requirements. Defaults will work for the tutorial, so you may
-click through it. On the third page, we select the *Empty Activity* option and click *Next*. 
-We agree on default names of the Activity on the next screen and click *Finish*.  
+It's important to make sure the *Include Kotlin support* is ticked. For now we can leave the default settings in the next step of the wizard. 
+We then proceed to select *Empty Activity* option and click *Next*, finally pressing *Finish*.  
 
-IntelliJ IDEA and Android Studio may fail to open the generated project with a Gradle import error
-if you use pre-release or EAP version of the Kotlin plugin. In that case, you need to
-[add the Kotlin EAP repository](https://youtrack.jetbrains.com/issue/KT-18835#focus=streamItem-27-2718879-0-0), 
-or add the following line:
+
+**Note** If using pre-release or EAP versions of the Kotlin plugin, the IDE may fail to open the generated project, giving a Gradle import error.
+This is because the right Maven repository isn't referenced in the `build.gradle` file, and it can be resolved adding the following entry
+*twice*, under each `repositories { .. }` block.
 
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -79,11 +63,6 @@ or add the following line:
 maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 ```
 </div>
-into the `build.gradle` file *twice*, under the _both_ `repositories { .. }` blocks.
-
-In the IntelliJ IDEA, you may also need to make sure Gradle is running under JDK 1.8. Otherwise, the project import
-may [fail](https://youtrack.jetbrains.com/issue/IDEA-199397). Check out the *Gradle Settings* to fix that. We will
-need JDK in the system PATH to make the combined Xcode build work.
 
 Kotlin/Native plugin requires a newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
 and use the following `distrubutionUrl`:
