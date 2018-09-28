@@ -451,8 +451,9 @@ the search field. Select `No` for the *Enable Bitcode* option.
 
 ![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-bitcode.png') }})
 
-Now we need to explain Xcode, where to look for frameworks. We need to add the full path to the 
-`SharedCode/build/xcode-frameworks` into the *Search Paths | Framework Search Paths* section.
+Now we need to explain Xcode, where to look for frameworks. We need to add the relative path 
+`$(SRCROOT)/../../SharedCode/build/xcode-frameworks` into the *Search Paths | Framework Search Paths* section.
+Xcode will show the substituted path in the UI for it.
 
 ![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-search-path.png') }})
 
