@@ -16,7 +16,7 @@ function getVersion(element) {
 
 function updateTagByKind(rowElement, newTag, kind) {
   let tagsContainer = ($(rowElement).is("tr")) ? $(rowElement).find("td:first") : rowElement;
-  let $tag = $(tagsContainer).find(`.tags__tag.${kind}`);
+  let $tag = $(tagsContainer).children(`.tags__tag.${kind}`);
   $tag.text(newTag);
 }
 
