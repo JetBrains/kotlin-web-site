@@ -36,7 +36,7 @@ Note that classes which extend subclasses of a sealed class (indirect inheritors
 the same file.
 
 The key benefit of using sealed classes comes into play when you use them in a [`when` expression](control-flow.html#when-expression). If it's possible
-to verify that the statement covers all cases, you don't need to add an `else` clause to the statement. However, this works only if you use `when` as an expression (using the result) and not as a statement.
+to verify that the statement covers all cases, you don't need to add an `else` clause to the statement.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
