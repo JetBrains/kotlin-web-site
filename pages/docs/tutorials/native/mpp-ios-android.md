@@ -37,7 +37,8 @@ a function that is declared using `expect` keyword. The `actual` implementation 
 
 * We will be using [Android Studio](https://developer.android.com/studio/) for the Android part of the tutorial. 
 It is also possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate edition.
-  * Kotlin plugin 1.3.x or higher should be installed. This can be verified via
+
+* Kotlin plugin 1.3.x or higher should be installed in the IDE. This can be verified via
 *Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) of the IDE.
 
 * macOS host operating system is required to compile for iOS and macOS devices. We need to have
@@ -78,27 +79,6 @@ We need to refresh Gradle Project settings to apply those changes. Click on the 
 use the *Gradle* tool window and click the refresh action from the context menu on the root Gradle project.
 
 At that point, we should be able to compile and run the Android application
-
-## Project Layout
-
-The generated sample application layout is as follows:
-```
-  /app
-  |   /src
-  |   |   /androidTest/java/<package>
-  |   |   /main
-  |   |        /java/<package>/MainActivity.kt
-  |   |        /res
-  |   |   /test
-  |   build.gradle       --- android application sub-project `:app`
-  |   
-  build.gradle           --- root project
-  settings.gralde     
-```
-
-Here we have the root Gradle project, with `build.gradle` and `settings.gradle` files in the
-root project directory. The Android Studio wizard also created the `app` project and the
-`app/build.gradle` file with Android specifics
 
 # Creating the SharedCode Module
 
