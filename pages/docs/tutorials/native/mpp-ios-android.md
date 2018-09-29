@@ -14,10 +14,13 @@ For Android we'll be using Kotlin/JVM, while for iOS it will be Kotlin/Native.
 
 We'll see how to:
  - Create an [Android app](#creating-an-android-project) with Android Studio
+ - Create a shared [Kotlin library](#creating-the-sharedcode-module)
+   - Use it [from Android app](#using-sharedcode-from-android)
+   - Start the [Android application](#running-the-android-application)
  - Create an [iOS app](#creating-ios-application) with Xcode
- - Create a [Kotlin multiplatform project](#multiproject-gradle-project)
-   - Use it [from Android app](#using-common-library-from-android)
-   - Use it [from iOS app](#settings-up-framework-dependency)
+   - Use the shared Kotlin library [from iOS app](#settings-up-framework-dependency)
+   - Use [Kotlin from Swift](#calling-kotlin-code-from-swift)
+   - Start the [iOS application](#running-the-ios-application)
 
 Our goal in this tutorial is to demonstrate the ability to share code with Kotlin and the benefits it provides. While 
 we'll be using a simplified application, what is shown here can be applied to real world applications,
@@ -25,23 +28,23 @@ independently of their size and complexity.
 
 The application we're creating will simply show 
 `Kotlin Rocks on Android` on Android and `Kotlin Rocks on iOS <version>` on iOS.
-The idea is to share the code that generates this message. 
+The idea is to share the code that generates this message.
 
 The common code is `"Kotlin Rocks on ${platformName()}"`, where `platformName()` is 
-a function that is declared using `expect` keyword. `actual` implementations will be specific to the platform.
+a function that is declared using `expect` keyword. The `actual` implementation will be specific to the platform.
 
 # Setting Up the Local Environment
 
 * We will be using [Android Studio](https://developer.android.com/studio/) for the Android part of the tutorial. 
 It is also possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate edition.
-In addition, Kotlin plugin 1.3.x or higher should be installed. This can be verified via
-*Language & Frameworks | Kotlin Updates* in the *Settings* (or *Preferences*) of the IDE.
+  * Kotlin plugin 1.3.x or higher should be installed. This can be verified via
+*Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) of the IDE.
 
 * macOS host operating system is required to compile for iOS and macOS devices. We need to have
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured. Check out
 the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
-*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14.*
+*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14*
 
 # Creating an Android Project
 
@@ -72,16 +75,9 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.2-all.zip
 ```
 
 We need to refresh Gradle Project settings to apply those changes. Click on the `Sync Now` link or 
-use the *Gradle* tool window and use the refresh action from the context menu on the root Gradle project.
+use the *Gradle* tool window and click the refresh action from the context menu on the root Gradle project.
 
-At that point, we should be able to compile and run the project. Let's click on the `App` run configuration
-to have our project running either on a real Android Device or on the emulator. 
-
-![Start the Application]({{ url_for('tutorial_img', filename='native/mpp-ios-android/studio-start-app.png') }})
-We will see the Application running in the Android emulator:
-    
-![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-hello-app.png') }}){: width="30%"}
-
+At that point, we should be able to compile and run the Android application
 
 ## Project Layout
 
@@ -101,16 +97,16 @@ The generated sample application layout is as follows:
 ```
 
 Here we have the root Gradle project, with `build.gradle` and `settings.gradle` files in the
-root of the project directory. The Android Studio wizard also created the `app` project and the
-`app/build.gradle` file with Android specifics.
+root project directory. The Android Studio wizard also created the `app` project and the
+`app/build.gradle` file with Android specifics
 
-## Creating the SharedCode Module
+# Creating the SharedCode Module
 
 The goal of the tutorial is to demonstrate Kotlin code re-use between Android and iOS. Let's start
 with creating the `SharedCode` project with the code we share between platforms. 
 We will create several new files in our project.
 
-### Adding Kotlin Sources
+## Adding Kotlin Sources
 
 The idea is to make every platform to show the similar text: `Kotlin Rocks on Android` and 
 `Kotlin Rocks on iOS`, depending on the platform. We will reuse the way to generate the message. 
@@ -169,7 +165,7 @@ Kotlin/Native compiler comes with a set of pre-imported frameworks, so that we m
 the UIKit Framework without additional steps.
 We may find more about Objective-C and Swift Interop [here](/docs/reference/native/objc_interop.html)
 
-### Updating Gradle Scripts
+## Updating Gradle Scripts
 
 The `SharedCode` project should generate several artifacts for us:
  - JAR file for the Android project, from the `androidMain` source set
@@ -227,7 +223,7 @@ configurations {
 ```
 </div>
 
-### Multiproject Gradle Project
+## Multiproject Gradle Project
 
 The `SharedCode/build.gradle` file uses `kotlin-multiplatform` plugin to implement 
 what we need. 
@@ -283,7 +279,7 @@ The project layout right now should be as follows:
 
 We are ready to use the common library from our Android application project.
 
-# Using Common Library from Android
+# Using SharedCode from Android
 
 There are several ways to integrate Android Gradle project with Kotlin multiplatform projects. 
 It is possible to use the `kotlin-multiplatform` plugin directly in the Android Gradle project,
@@ -331,7 +327,7 @@ into the same file.
 
 That are all the changes we needed. Let's see how it works. 
 
-## Running Android Project in Android Studio
+## Running the Android Application
 
 At that point, we should be able to compile and run the project. Let's click on the `App` run configuration
 to have our project running either on a real Android Device or on the emulator. 
@@ -463,7 +459,7 @@ We should drag the created build phase to the top of the list.
 
 We are ready now to start coding the iOS application and to use Kotlin code from it.
 
-### Calling Kotlin Code from Swift
+## Calling Kotlin Code from Swift
 
 Our goal was to show the text message on the screen. As we see, our iOS application does not draw
 anything on the screen. Let's make it show the `UILabel` with the text message from Kotlin code. 
