@@ -445,7 +445,7 @@ Let's add the following code into it:
 <div class="sample" markdown="1" mode="bash" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```bash
-cd $SRCROOT/../../SharedCode/build/xcode-frameworks
+cd "$SRCROOT/../../SharedCode/build/xcode-frameworks"
 ./gradlew :SharedCode:packForXCode
 ```
 </div>
