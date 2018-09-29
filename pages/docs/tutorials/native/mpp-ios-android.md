@@ -495,9 +495,6 @@ from it as `CommonKt.createApplicationScreenMessage()`. Follow the
 [Kotlin/Native as an Apple Framework](/docs/tutorials/native/apple-framework.html) tutorial for
 more details on the Kotlin/Native to Swift (or Objective-C) interop.
 
-You may want to call the `./gradlew :SharedCode:build` task from an Xcode *Build Phase* to compile or re-compile
-the framework before each run of the Xcode project. 
-
 Right now, we are ready to start the application in the emulator
 
 ## Running the iOS Application
