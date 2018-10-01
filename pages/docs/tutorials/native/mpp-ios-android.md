@@ -9,10 +9,10 @@ showAuthorInfo: false
 issue: EVAN-6029
 ---
 
-In the tutorial we will create an iOS and Android application, making use of Kotlin's code sharing features.
+In this tutorial we will create an iOS and Android application, by making use of Kotlin's code sharing features.
 For Android we'll be using Kotlin/JVM, while for iOS it will be Kotlin/Native. 
 
-We'll see how to:
+We'll learn how to:
  - Create an [Android app](#creating-an-android-project) with Android Studio
  - Create a shared [Kotlin library](#creating-the-shared-module)
    - Use it [from Android app](#using-sharedcode-from-android)
@@ -22,16 +22,16 @@ We'll see how to:
    - Use [Kotlin from Swift](#calling-kotlin-code-from-swift)
    - Start the [iOS application](#running-the-ios-application)
 
-Our goal in this tutorial is to demonstrate the ability to share code with Kotlin and the benefits it provides. While 
-we'll be using a simplified application, what is shown here can be applied to real world applications,
-independently of their size and complexity.
+Our goal of this tutorial is to demonstrate the ability to share code within Kotlin and the benefits it provides. While 
+what we'll be looking at is a simplified application, what is shown here can be applied to real world applications,
+independent of their size or complexity.
 
-The application we're creating will simply show 
+The application we're going to create will simply show 
 `Kotlin Rocks on Android` on Android and `Kotlin Rocks on iOS <version>` on iOS.
 The idea is to share the code that generates this message.
 
 The common code is `"Kotlin Rocks on ${platformName()}"`, where `platformName()` is 
-a function that is declared using `expect` keyword. The `actual` implementation will be specific to the platform.
+a function that is declared using the `expect` keyword. The `actual` implementation will be specific to the platform.
 
 # Setting Up the Local Environment
 
@@ -52,12 +52,12 @@ the [Apple Developer Site](https://developer.apple.com/xcode/) for more details.
 We'll create a new Android project via *Start New Android Project* item. If using IntelliJ IDEA, we need to select *Android* in 
 the left panel of the *New Project* wizard. 
 
-It's important to make sure the *Include Kotlin support* checkbox is ticked. For now we can leave the default settings 
-in the next step of the wizard. We then proceed to select *Empty Activity* option and click *Next*, finally pressing *Finish*.  
+It's important to make sure that the *Include Kotlin support* checkbox is ticked. For now we can leave the default settings 
+in the next step of the wizard. We then proceed to select the *Empty Activity* option and click *Next*, finally pressing *Finish*.  
 
 **Note** If using pre-release or EAP versions of the Kotlin plugin, the IDE may fail to open the generated project, 
 giving a Gradle import [error](https://youtrack.jetbrains.com/issue/KT-18835#focus=streamItem-27-2718879-0-0).
-This is because the right Maven repository isn't referenced in the `build.gradle` file, and it can be resolved adding 
+This is because the right Maven repository isn't referenced in the `build.gradle` file, it can be resolved by adding 
 the following entry *twice*, into each of the `repositories { .. }` blocks.
 
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -73,22 +73,22 @@ and use the following `distrubutionUrl`:
 distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.2-all.zip
 ```
 
-We need to refresh Gradle Project settings to apply those changes. Click on the `Sync Now` link or 
+We need to refresh the Gradle Project settings to apply these changes. Click on the `Sync Now` link or 
 use the *Gradle* tool window and click the refresh action from the context menu on the root Gradle project.
 
-At that point, we should be able to compile and run the Android application
+At this point, we should be able to compile and run the Android application
 
 # Creating the Shared Module
 
 The goal of the tutorial is to demonstrate Kotlin code re-use between Android and iOS. Let's start
-with creating the `SharedCode` project with the code we share between platforms. 
+by creating the `SharedCode` project with the code we will share between platforms. 
 We will create several new files in our project.
 
 ## Adding Kotlin Sources
 
-The idea is to make every platform to show the similar text: `Kotlin Rocks on Android` and 
-`Kotlin Rocks on iOS`, depending on the platform. We will reuse the way to generate the message. 
-For first, let's create the main file under `SharedCode/src/commonMain/kotlin/common.kt`
+The idea is to make every platform show similar text: `Kotlin Rocks on Android` and 
+`Kotlin Rocks on iOS`, depending on the platform. We will reuse the way we generate the message. 
+For starters, let's create the main file under `SharedCode/src/commonMain/kotlin/common.kt`
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -108,7 +108,7 @@ That is the common part. The code to generate the final message. It `expect`s th
 to provide the platform name from the `expect fun platformName(): String` function. We will use
 the `createApplicationScreenMessage` from both Android and iOS applications.
 
-Now, we create the implementation for Android in the `SharedCode/src/androidMain/kotlin/actual.kt`:
+Now, we need to create the implementation for Android in the `SharedCode/src/androidMain/kotlin/actual.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -121,7 +121,7 @@ actual fun platformName(): String {
 ```
 </div>
 
-The similar file we create for the iOS target in the `SharedCode/src/iosMain/kotlin/actual.kt`:
+We create a similar file for the iOS target in the `SharedCode/src/iosMain/kotlin/actual.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -137,11 +137,11 @@ actual fun platformName(): String {
 ```
 </div>
 
-Here we use the [UIDevice](https://developer.apple.com/documentation/uikit/uidevice?language=objc)
-class from the Apple UIKit Framework, which is not available from Java, but it is only usable from Swift and Objective-C.
-Kotlin/Native compiler comes with a set of pre-imported frameworks, so that we may use
+Here we can use the [UIDevice](https://developer.apple.com/documentation/uikit/uidevice?language=objc)
+class from the Apple UIKit Framework, which is not available in Java, it is only usable in Swift and Objective-C.
+Kotlin/Native compiler comes with a set of pre-imported frameworks, so we can use
 the UIKit Framework without additional steps.
-One may find more about Objective-C and Swift Interop [here](/docs/reference/native/objc_interop.html)
+You can find out more about the Objective-C and Swift Interop [here](/docs/reference/native/objc_interop.html)
 
 ## Updating Gradle Scripts
 
@@ -151,9 +151,9 @@ The `SharedCode` project should generate several artifacts for us:
    - for iOS device and App Store (`arm64` target)
    - for iOS emulator (`x86_64` target)
 
-Let's update Gradle scripts. 
+Let's update the Gradle scripts. 
 
-First, we add the new project into the `settings.gradle` file, by adding the following line to the end of the file:
+First, we add the new project into the `settings.gradle` file, simply by adding the following line to the end of the file:
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```groovy
@@ -205,13 +205,13 @@ configurations {
 
 ## Multiplatform Gradle Project
 
-The `SharedCode/build.gradle` file uses `kotlin-multiplatform` plugin to implement 
+The `SharedCode/build.gradle` file uses the `kotlin-multiplatform` plugin to implement 
 what we need. 
 In the file, we define several targets `common`, `android`, `iOSx64`, and `iOS`. Each
 target has its own platform. The `common` target contains the Kotlin common code 
 which is included into every platform compilation. It is allowed to have `expect` declarations.
-Other targets provides `actual` implementations for all `expect`-actions from the `common` target. 
-One may want to look through the documentation of [multiplatform projects](#).
+Other targets provide `actual` implementations for all `expect`-actions from the `common` target. 
+You may want to look through the documentation for [multiplatform projects](#).
 
 Let's summarize what we have in the table:
 
@@ -223,15 +223,15 @@ Let's summarize what we have in the table:
 | iOSx64 |  not used by us | iOS x86_64 | Apple framework |
 
 Now it is time to refresh the Gradle project again in Android Studio. Click *Sync Now* on the yellow stripe 
-or use the *Gradle* tool window and click `Refresh` action in the context menu on the root Gradle project.
-The `:SharedCode` project should be recognized be the IDE now.
+or use the *Gradle* tool window and click the `Refresh` action in the context menu on the root Gradle project.
+The `:SharedCode` project should be recognized by the IDE now.
 
 We are ready to use the `SharedCode` library from our Android and iOS applications.
 
 # Using SharedCode from Android
 
-For that tutorial, we minimize Android project changes so we add an ordinary dependency from that 
-project to the `SharedCode` project. One may want to learn more from the documentation of the
+For this tutorial, we want to minimize Android project changes, so we add an ordinary dependency from that 
+project to the `SharedCode` project. You may want to learn more from the documentation from
 [multiplatform projects](#). 
 It is also possible to use the `kotlin-multiplatform` plugin directly in an Android 
 Gradle project, instead of the `kotlin-android` plugin.  
@@ -267,24 +267,24 @@ the end of the `onCreate` method:
 findViewById<TextView>(R.id.main_text).text = createApplicationScreenMessage()"
 ```
 
-Use the intention from an IDE to include the missing import line:
+Use the intention from the IDE to include the missing import line:
 ```kotlin
 import com.jetbrains.jonnyzzz.common.createApplicationScreenMessage
 ```
 into the same file. 
 
-Now we have the `TextView` that will show the text created by the shared
-code function `createApplicationScreenMessage()`. It will show `Kotlin Rocks on Android`.
+Now we have the `TextView` that will show you the text created by the shared
+code function `createApplicationScreenMessage()`. It shows `Kotlin Rocks on Android`.
 Let's see how it works. 
 
 ## Running the Android Application
 
 Let's click on the `App` run configuration
-to have our project running either on a real Android Device or on the emulator. 
+to get our project running either on a real Android Device or on the emulator. 
 
 ![Start the Application]({{ url_for('tutorial_img', filename='native/mpp-ios-android/studio-start-app.png') }})
 
-And so we see the Application running in the Android emulator:
+And so now we can see the Application running in the Android emulator:
     
 ![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/android-emulator-kotlin-rocks-android.png') }}){: width="30%"}
 
@@ -306,9 +306,9 @@ Let's make sure we can to run the application on the iPhone emulator or device.
 
 # Setting up Framework Dependency in Xcode
 
-The `SharedCode` build generates iOS frameworks for the use with the Xcode project.
+The `SharedCode` build generates iOS frameworks for use with the Xcode project.
 All frameworks are in the `SharedCode/build/bin` folder. 
-It creates *debug* and *release* version for every framework target. We configured the build to
+It creates a *debug* and *release* version for every framework target. We have configured the build to
 have two targets:
 - `iOS` for an arm64 iOS device
 - `iOSx64` for the iOS emulator
@@ -354,9 +354,9 @@ tasks.build.dependsOn packForXCode
 ```
 </div>
 
-Let's switch back to the Android Studio and execute the `build` target of the `SharedCode` project from
-the *Gradle* tool window. The task checks for environment variables set by the Xcode build and copies
-the right variant of the framework into the `SharedCode/build/xcode-frameworks` folder. We include the
+Let's switch back to Android Studio and execute the `build` target of the `SharedCode` project from
+the *Gradle* tool window. The task looks for environment variables set by the Xcode build and copies
+the right variant of the framework into the `SharedCode/build/xcode-frameworks` folder. We then include the
 framework from that folder into the build
 
 ## Setting up Xcode
@@ -364,23 +364,23 @@ framework from that folder into the build
 We add the `SharedCode` framework to the Xcode project.
 For that let's click on the root node of the *project navigator* and select the *target* settings.
 Next, we click on the `+` in the *Embedded Binaries* section, click *Add Other...* button in the dialog
-to choose the framework from the disk. We point to the following folder: 
+to choose the framework from the disk. We can point to the following folder: 
 ```
 SharedCode/build/xcode-frameworks/SharedCode.framework
 ```
 
-We will see something similar to this: 
+We will then see something similar to this: 
 ![Xcode General Screen]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-general.png') }})
 
 We need to disable the *Bitcode* feature in the project too. Kotlin/Native produces the fully native
-binaries, not the LLVM bitcode, so we navigate to the *Build Settings* tab and type `bitcode` into
+binaries, not the LLVM bitcode, so we need to navigate to the *Build Settings* tab and type `bitcode` into
 the search field. Select `No` for the *Enable Bitcode* option.
 
 ![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-bitcode.png') }})
 
-Now we explain to Xcode, where to look for frameworks. We need to add the *relative* path 
+Now we need to explain to Xcode, where to look for frameworks. We need to add the *relative* path 
 `$(SRCROOT)/../../SharedCode/build/xcode-frameworks` into the *Search Paths | Framework Search Paths* section.
-Xcode will show the substituted path in the UI for it.
+Xcode will then show the substituted path in the UI for it.
 
 ![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-search-path.png') }})
 
@@ -395,9 +395,9 @@ cd "$SRCROOT/../../SharedCode/build/xcode-frameworks"
 ```
 </div>
 
-Note, here we use the `$SRCROOT/../..` as path to the root of our Gradle project.
-It may depend on the way how one created the project in Xcode. Also, we use the generated `gradlew` script, 
-it is assumed you run the Gradle build once, before using Xcode on a fresh machine
+Note, here we use the `$SRCROOT/../..` as the path to the root of our Gradle project.
+It can depend on the way you created the project in Xcode. Also, we use the generated `gradlew` script, 
+it is assumed that you run the Gradle build at least once, before using Xcode on a fresh machine
 
 ![Xcode Build Phases]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-run-script.png') }})
 
@@ -405,13 +405,13 @@ We should drag the created build phase to the top of the list
 
 ![Xcode Build Phases]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-run-script-order.png') }})
 
-We are ready now to start coding the iOS application and to use Kotlin code from it
+We are now ready to start coding the iOS application and to use the Kotlin code from it
 
 ## Calling Kotlin Code from Swift
 
 Remember, our goal is to show the text message on the screen. As we see, our iOS application does not draw
 anything on the screen. Let's make it show the `UILabel` with the text message. 
-We replace the contents
+We need to replace the contents
 of the `ViewController.swift` file with the following code:
  
 <div class="sample" markdown="1" mode="swift" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -441,11 +441,11 @@ Next, we call the Kotlin function from it as `CommonKt.createApplicationScreenMe
 [Kotlin/Native as an Apple Framework](/docs/tutorials/native/apple-framework.html) tutorial for
 more details on the Kotlin/Native to Swift (or Objective-C) interop.
 
-Right now, we are ready to start the application in the emulator or on a iOS device.
+Right now, we are ready to start the application in the emulator or on an iOS device.
 
 ## Running the iOS Application
 
-Let's click *Run* button in the Xcode, and we'll see our application running 
+Let's click the *Run* button in Xcode, and we'll see our application running 
 
 ![Emulator App]({{ url_for('tutorial_img', filename='native/mpp-ios-android/iPhone-emulator-kotlin-rocks.png') }}){: width="30%"}
 
@@ -464,18 +464,18 @@ We may find the whole sources from that tutorial on [GitHub](https://github.com/
  
 # Next Steps
 
-That is only the beginning and a small example of Kotlin code sharing
+This is only the beginning and a small example of Kotlin code sharing
 between iOS and Android (and other platforms) with Kotlin, Kotlin/Native
-and Kotlin multiplatform projects. The same approach works on real applications,
-independently on their size and complexity.
+and Kotlin multiplatform projects. The same approach works for real applications,
+independent of their size or complexity.
 
-One may want to learn more from the
-multiplatform projects [documentation](#) or checkout the Swift 
+You may want to learn more from the
+multiplatform projects [documentation](#) or check out the Swift 
 and Objective-C [documentation](/docs/reference/native/objc_interop.html).
 
-Sharing code between platforms is the powerful technique, but it may be hard to
-accomplish without rich APIs that we have in Android, JVM or iOS platforms.
-One may use multiplatform libraries to fix that and to have rich APIs
+Sharing code between platforms is a powerful technique, but it may be hard to
+accomplish without rich APIs that we have in Android, JVM, or iOS platforms.
+You may use multiplatform libraries to fix that, to have rich APIs
 directly in the common Kotlin code. There are several examples of such libraries:  
 
 - [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/blob/master/native/README.md)
