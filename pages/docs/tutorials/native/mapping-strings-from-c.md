@@ -185,5 +185,5 @@ in previous tutorials:
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 
-You may also want to have a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+You may also want to have a look at the [C Interop documentation](/docs/reference/native/c_interop.html)
 for more advanced scenarios.
