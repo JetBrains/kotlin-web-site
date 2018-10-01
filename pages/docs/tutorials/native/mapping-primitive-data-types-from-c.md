@@ -105,7 +105,7 @@ fun ints(c: Byte, d: Short, e: Int, f: Long)
 </div>
 
 C types are mapped in the way we would expect, note that `char` type is mapped to `kotlin.Byte` 
-as it is usually an 8-bit unsigned value.
+as it is usually an 8-bit signed value.
 
 | C | Kotlin |
 |---|--------|
@@ -129,5 +129,5 @@ in the next tutorials:
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 - [Mapping Strings from C](mapping-strings-from-c.html)
 
-The [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+The [C Interop documentation](/docs/reference/native/c_interop.html)
 documentation covers more advanced scenarios of the interop.
