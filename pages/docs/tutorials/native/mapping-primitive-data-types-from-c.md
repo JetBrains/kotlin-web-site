@@ -77,7 +77,7 @@ directly to the `.def` file. This is what we do in the [next tutorial](mapping-s
 We need to have a Kotlin compiler on our machines. 
 There is the
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-that covers in a more detailed way.
+that covers this in a more detail.
 Let's assume we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
 
 Now we are ready to compile the library and to import it into Kotlin. Let's 

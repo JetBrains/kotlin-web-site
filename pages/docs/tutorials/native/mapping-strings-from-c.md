@@ -140,7 +140,7 @@ fun CPointer<ShortVar>.toKString(): String
 ```
 </div>
 
-The first takes a `char *` as an UTF-8 string and turns it into a String.
+The first extension takes a `char *` as an UTF-8 string and turns it into a String.
 The second function does the same but for wide, UTF-16 strings.
 
 
