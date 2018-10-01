@@ -88,7 +88,7 @@ We will create several new files in our project.
 
 The idea is to make every platform show similar text: `Kotlin Rocks on Android` and 
 `Kotlin Rocks on iOS`, depending on the platform. We will reuse the way we generate the message. 
-For starters, let's create the main file under `SharedCode/src/commonMain/kotlin/common.kt`
+Let's create the main file under `SharedCode/src/commonMain/kotlin/common.kt`
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
