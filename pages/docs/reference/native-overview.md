@@ -46,8 +46,8 @@ directly from Kotlin/Native:
 
 That makes it easy to use the existing native code, libraries, frameworks, graphical engines, and anything else
 directly from Kotlin/Native. Thanks to the Swift and Objective-C Frameworks
-[interop](/docs/reference/native/objc_interop.html), you can easily use
-existing frameworks in your Kotlin/Native projects.
+[interop](/docs/reference/native/objc_interop.html), it is easy to use
+existing frameworks in Kotlin/Native projects.
 
 There are Kotlin/Native [libraries]((/docs/reference/native/platform_libs.html) that help share Kotlin
 and native code between projects. Popular platform libraries and Apple frameworks are available as Kotlin/Native
@@ -69,7 +69,7 @@ shared parts of a project in Kotlin code once and share it with all of the targe
 Check out the [tutorials](/docs/tutorials/native/apple-framework.html) or [documentation](/docs/reference/native/multiplatform.html)
 for Kotlin/Native.
 
-Do you like learning by example? Here are some example projects for you to look at: 
+Like learning from examples? Here are some more example projects: 
  * The [Kotlin/Native GitHub repository](https://github.com/JetBrains/kotlin-native/tree/master/samples) contains sample projects
  * The [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) is an iOS app
    with a UIKit-based UI, showcasing the Objective-C interop facilities of Kotlin/Native
