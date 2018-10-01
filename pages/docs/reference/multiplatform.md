@@ -79,7 +79,7 @@ internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
 
 </div>
 
-In 1.3 we reworked the entire multiplatform model. The [new DSL](building-mpp-with-gradle.md) we have for describing multiplatform Gradle 
+In 1.3 we reworked the entire multiplatform model. The [new DSL](building-mpp-with-gradle.html) we have for describing multiplatform Gradle 
 projects is much more flexible, and we'll keep working on it to make project configuration straightforward.
 
 ## Multiplatform Libraries
@@ -98,7 +98,7 @@ Sharing code between mobile platforms is one of the major Kotlin Multiplatform u
 possible to build mobile applications with parts of the code, such as business logic, connectivity, 
 and more, shared between Android and iOS.
 
-See: [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
+See: [Multiplatform Project: iOS and Android] TODO /docs/tutorials/native/mpp-ios-android.html
 
 ### Client — Server
 
@@ -111,8 +111,8 @@ The [Ktor framework](https://ktor.io/) can be used for building connected multip
 ## How to start
 
 * Tutorials and samples:
-    * [Multiplatform Kotlin Library](/docs/tutorials/multiplatform-library.html)
-    * [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
+    * [Multiplatform Kotlin Library] TODO /docs/tutorials/multiplatform-library.html
+    * [Multiplatform Project: iOS and Android] TODO /docs/tutorials/native/mpp-ios-android.html
     * [KotlinConf Schedule Application](https://github.com/JetBrains/kotlinconf-app)
 * Docs: 
     * [Setting up a Multiplatform Project](building-mpp-with-gradle.html#setting-up-a-multiplatform-project) 

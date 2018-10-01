@@ -169,7 +169,7 @@ kotlin {
 All of the targets may share some of the sources and may have platform-specific sources in their compilations as well. 
 See [Configuring source sets](#configuring-source-sets) for details.
 
-Some targets may require additional configuration. For Android and iOS examples, see the [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html) tutorial.
+Some targets may require additional configuration. For Android and iOS examples, see the [Multiplatform Project: iOS and Android] TODO /docs/tutorials/native/mpp-ios-android.html tutorial.
 
 ### Supported platforms
 
