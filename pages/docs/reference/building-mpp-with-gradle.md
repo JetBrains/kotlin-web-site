@@ -276,9 +276,8 @@ The source sets DSL can be used to define these connections between the source s
 
 </div>
 
-Custom source sets created in addition the [default ones](#default-project-layout) should be explicitly included into the dependencies hierarchy. 
-Most often, they need a `dependsOn commonMain` or `dependsOn commonTest` statement, and some platform-specific source sets should
-depend on the custom ones:
+Custom source sets created in addition to the [default ones](#default-project-layout) should be explicitly included into the dependencies hierarchy to be able to use declarations from other source sets and, most importantly, to take part in compilations. 
+Most often, they need a `dependsOn commonMain` or `dependsOn commonTest` statement, and some of the default platform-specific source sets should depend on the custom ones, directly or indirectly:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
