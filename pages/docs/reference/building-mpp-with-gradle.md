@@ -358,7 +358,7 @@ kotlin {
 ### Disambiguating Targets
 
 It is possible to have more than one target for a single platform in a multiplatform library. For example, these targets
-provide the same API and differ in the libraries they use at runtime, such as testing frameworks or logging solutions. 
+may provide the same API and differ in the libraries they use at runtime, such as testing frameworks or logging solutions. 
 
 However, dependencies on such a library may be ambiguous and thus may thus fail to resolve under certain conditions:
 
@@ -428,8 +428,8 @@ Then, once a target is added, default compilations are created for it:
 
 For each compilation, there is a default source set under the name composed as `<targetName><CompilationName>`. This default source
 set participates in the compilation, and thus it should be used for the platform-specific code and dependencies, and for adding other source
- sets to the compilation be the means of 'depends on'. For example, a project with
-targets `jvm6` (JVM) and `nodeJs` (JS) will have source sets: `jvm6Main`, `jvm6Test`, `nodeJsMain`, `nodeJsTest`.
+ sets to the compilation by the means of 'depends on'. For example, a project with
+targets `jvm6` (JVM) and `nodeJs` (JS) will have source sets: `commonMain`, `commonTest`, `jvm6Main`, `jvm6Test`, `nodeJsMain`, `nodeJsTest`.
 
 Numerous use cases are covered by just the default source sets and don't require custom source sets.
  
