@@ -102,11 +102,11 @@ See: [Multiplatform Project: iOS and Android] TODO /docs/tutorials/native/mpp-io
 
 ### Client — Server
 
-Another scneraio when code sharing may bring benefits is a connected application where the logic may be 
+Another scenario when code sharing may bring benefits is a connected application where the logic may be 
 reused on both the server and the client side running in the browser. This is covered by Kotlin 
 Multiplatform as well.
 
-The [Ktor framework](https://ktor.io/) can be used for building connected multiplatform applications.
+The [Ktor framework](https://ktor.io/) is suitable for building asynchronous servers and clients in connected systems.
 
 ## How to start
 
