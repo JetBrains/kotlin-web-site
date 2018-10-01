@@ -216,7 +216,8 @@ kotlin {
 
 > Note: creating a source set does not link it to any target. Some source sets are [predefined](#default-project-layout) 
 and thus compiled by default. However, custom source sets always need to be explicitly directed to the compilations. 
-See: [Depending on source sets](#depending-on-source-sets). {:.note}
+See: [Depending on source sets](#depending-on-source-sets). 
+{:.note}
 
 A source set by itself is platform-agnostic, but
 it can be considered platform-specific if it is only compiled for a single platform. A source set can, therefore, contain either
@@ -255,6 +256,8 @@ into the same target binary form, such as JVM class files or JS code;
 
 * the [language settings](#language-settings) of `foo` and `bar` should be consistent;
 
+Circular source set dependencies are prohibited.
+
 The source sets DSL can be used to define these connections between the source sets:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -275,7 +278,35 @@ The source sets DSL can be used to define these connections between the source s
 
 Custom source sets created in addition the [default ones](#default-project-layout) should be explicitly included into the dependencies hierarchy. 
 Most often, they need a `dependsOn commonMain` or `dependsOn commonTest` statement, and some platform-specific source sets should
-depend on the custom ones. Circular source set dependencies are prohibited. 
+depend on the custom ones:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin { 
+    targets {
+        fromPreset(presets.mingwX64, 'windows')
+        fromPreset(presets.linuxX64, 'linux')
+        /* ... */
+    }
+    sourceSets {
+        desktopTest { // custom source set with tests for the two targets
+            dependsOn commonTest
+            /* ... */
+        }
+        windowsTest { // default test source set for target 'windows'
+            dependsOn desktopTest
+            /* ... */
+        }
+        linuxTest { // default test source et for target 'linux'
+            dependsOn desktopTest
+        }
+        /* ... */
+    }
+}
+```
+
+</div>
 
 ### Adding Dependencies
 
@@ -377,7 +408,8 @@ The language settings are checked for consistency between source sets depending 
 ## Publishing a Multiplatform Library
 
 > The set of target platforms is defined by a multiplatform library author, and they should provide all of the platform-specific implementations for the library. 
-  Adding new targets for a multiplatform library at the consumer's side is not supported. {:.note} 
+> Adding new targets for a multiplatform library at the consumer's side is not supported. 
+{:.note} 
 
 A library built from a multiplatform project may be published to a Maven repository with the Gradle `maven-publish` plugin, which can be applied as follows:
 
@@ -432,7 +464,7 @@ An experimental publishing and dependency consumption mode can be enabled by add
 Future Gradle versions may fail to resolve a dependency to a library published with current versions of Gradle metadata.
 Library authors are recommended to use it to publish experimental versions of the library alongside with the stable publishing mechanism
 until the feature is considered stable. 
-{:note} 
+{:.note}
  
 If a library is published with Gradle metadata enabled and a consumer enables the metadata as well, the consumer may specify a
  single dependency on the library in a common source set, and a corresponding platform-specific variant will be chosen, if available, 
