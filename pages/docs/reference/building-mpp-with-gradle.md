@@ -542,10 +542,10 @@ the tests for all targets.
 As the `commonTest` [default source set](#default-project-layout) is added to all test compilations, tests and test tools that are needed
 on all target platforms may be placed there.
 
-The `kotlin.test` API is availble for multiplatform tests. Add the `kotlin-test-common` and `kotlin-test-annotations-common`
+The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/index.html) is availble for multiplatform tests. Add the `kotlin-test-common` and `kotlin-test-annotations-common`
 dependencies to `commonTest` to use `DefaultAsserter` and `@Test`/`@Ignore`/`@BeforeTest`/`@AfterTest` annotations in the common tests.
 
-For JVM targets, use `kotlin-test-junit`, or `kotlin-test-junit5`, or `kotlin-test-testng` for the corresponding asserter implementation and
+For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and
 annotations mapping.
 
 For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. At this point, test tasks for Kotlin/JS do not run tests by default 
