@@ -41,7 +41,7 @@ linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl
 
 A few things are going on in that file so let's see them one by one. The first entry is `headers` which is the list of header files that we want to generate 
 Kotlin stubs for. We can add multiple files to this entry, separating each one with `\` on a new line. In our case we only want `curl.h`. The files we reference
-need to be relative to the folder where the definition file is, or be available on the system path (in our case it would be `/usr/bin/curl`).
+need to be relative to the folder where the definition file is, or be available on the system path (in our case it would be `/usr/include/curl`).
 
 The second line is the `headerFilter`. This is used to denote what exactly we want included. In C, when one file references another file with the `#include` directive, 
 all the headers are also included. Sometimes this may not be needed, and we can use this parameter, [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)), to fine tune things. 

@@ -9,19 +9,19 @@ showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-This is the third post in the series. You might want to begin with the very first tutorial called
+This is the third post in the series. The very first tutorial is
 [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html). There are also
 [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html) and 
 [Mapping Strings from C](mapping-strings-from-c.html) tutorials.
 
-In this tutorial you will learn how to:
+In this tutorial We will learn how to:
 - [Pass Kotlin function as C function pointer](#passing-kotlin-function-as-c-function-pointer)
 - [Use C function pointer from Kotlin](#using-the-c-function-pointer-from-kotlin)
 
 We need to have a Kotlin compiler on our machines. 
-You may want to have a look at the
+The
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial for more information on performing this step.
+tutorial covers that step in details.
 Let's assume that we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
 
 
@@ -32,8 +32,8 @@ example. We declare a function that accepts a function pointer as a parameter an
 another function that returns a function pointer. 
 
 Kotlin/Native comes with the `cinterop` tool; the tool generates bindings between the C language and Kotlin.
-It uses a `.def` file to specify a C library to import. For more details on this
-you may want to check out the [Interop with C Libraries](interop-with-c.html) tutorial.
+It uses a `.def` file to specify a C library to import. More details on this are
+in the [Interop with C Libraries](interop-with-c.html) tutorial.
  
 The quickest way to try out C API mapping is to have all C declarations in the
 `lib.def` file, without creating any `.h` of `.c` files at all. Then place the C declarations 
@@ -75,7 +75,7 @@ typealias MyFunVar = kotlinx.cinterop.CPointerVarOf<lib.MyFun>
 We see that our function typedef from C has been turned into Kotlin `typealias`. It uses `CPointer<..>` type
 to represent the pointer parameters, and `CFunction<(Int)->Int>` to represent the function signature. 
 There is an `invoke` operator extension function available for all `CPointer<CFunction<..>` types, so that 
-it is possible to call it as you would call any other function in Kotlin. 
+it is possible to call it as we would call any other function in Kotlin. 
 
 ## Passing Kotlin Function as C Function Pointer
 
@@ -91,7 +91,7 @@ fun myFun() {
 ```
 </div>
 
-Here we use `staticCFunction{..}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C Function pointer.
+We use `staticCFunction{..}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C Function pointer.
 It only allows having unbound and non-capturing lambda functions. For example, it is not able
 to use a local variable from the function. We may only use globally visible declarations. Throwing exceptions
 from a `staticCFunction{..}` will end up in non-deterministic side-effects. It is vital to make sure that we are not 
@@ -120,12 +120,11 @@ what we did with the last line
 
 ## Next Steps
 
-You may continue exploring more C language types and their representation in Kotlin/Native
+We will continue exploring more C language types and their representation in Kotlin/Native
 in next tutorials:
 - [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html)
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
 - [Mapping Strings from C](mapping-strings-from-c.html)
 
-You may also have a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
-for more advanced scenarios.
-
+The [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+documentation covers more advanced scenarios of the interop.
