@@ -9,12 +9,12 @@ showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-That is the last tutorial in the series. The first tutorial of the series is
+This is the last tutorial in the series. The first tutorial of the series is
 [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html).
 There are also [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html) and 
 [Mapping Function Pointers from C](mapping-function-pointers-from-c.html) tutorials.
  
-In that tutorial we see how to deal with C strings in Kotlin/Native.
+In this tutorial we see how to deal with C strings in Kotlin/Native.
 We will learn how to:
 - [Pass a Kotlin string to C](#passing-kotlin-string-to-c)
 - [Read a C string in Kotlin](#reading-c-strings-in-kotlin)
@@ -23,7 +23,7 @@ We will learn how to:
 We need to have a Kotlin compiler on our machines. 
 The
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial explains that step in details.
+tutorial explains the steps in detail.
 Let's assume we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
 
 ## Working with C strings
@@ -36,7 +36,7 @@ Usually, [UTF-8 encoded strings](https://en.wikipedia.org/wiki/UTF-8) are used. 
 variable width characters and it is backward compatible with [ASCII](https://en.wikipedia.org/wiki/ASCII).
 Kotlin/Native uses UTF-8 character encoding by default.
 
-The best way to understand the mapping between C and Kotlin languages is to try it out on a small example. We create
+The best way to understand the mapping between C and Kotlin languages is to try it out on a small example. We will create
 a small library headers for that. First, we need to create a `lib.h` file with the following
 declaration of functions that deal with the C strings:
 
@@ -59,8 +59,8 @@ take the return of `return_string` with care. In general, it is best to make sur
 use the right function to dispose the returned `char*` with the right `free(..)` function call.
 
 Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between 
-C and Kotlin languages. It uses a `.def` file to specify a library headers to import. 
-The [Interop with C Libraries](interop-with-c.html) tutorial contains more details on that.
+C and Kotlin languages. It uses a `.def` file to specify the library headers to import. 
+The [Interop with C Libraries](interop-with-c.html) tutorial contains more details on this.
 We create the following `lib.def` file:
 
 <div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -140,7 +140,7 @@ fun CPointer<ShortVar>.toKString(): String
 ```
 </div>
 
-The first one takes a `char *` as a UTF-8 string and turns it into String.
+The first takes a `char *` as an UTF-8 string and turns it into a String.
 The second function does the same but for wide, UTF-16 strings.
 
 
