@@ -130,6 +130,16 @@ reference:
         - url: /docs/reference/inline-functions.html
           title: Inline Functions
 
+    - title: Multiplatform Programming
+      description: Reusing code across JVM, JS, and Native
+      content:
+        - url: /docs/reference/multiplatform.html
+          title: Introduction
+        - url: /docs/reference/platform-specific-declarations.html
+          title: Platform-Specific Declarations
+        - url: /docs/reference/building-mpp-with-gradle.html
+          title: Multiplatform Projects with Gradle
+
     - title: Other
       description: Various bits and bobs
       content:
@@ -159,9 +169,6 @@ reference:
           title: Type-Safe Builders
         - url: /docs/reference/type-aliases.html
           title: Type Aliases
-        - url: /docs/reference/multiplatform.html
-          title: Multiplatform Projects
-
 
     - title: Core Libraries
       content:
