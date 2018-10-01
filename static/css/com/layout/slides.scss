@@ -16,18 +16,18 @@
 
 .slide-item {
   cursor: pointer;
-  margin: 10px 0 10px 10px;
+  margin: 10px 5px 0;
   height: 150px;
-  width: 250px;
+  width: 300px;
 
   &:active {
     transform: scale(0.95, 0.95);
   }
 }
 
-.slide-item > a {
+.slide-item a {
   font-size: 24px;
-  font-family: $font-family-serif;
+  font-family: $font-family-sans-serif;
   display: flex;
   height: 100%;
   width: 100%;
@@ -37,8 +37,20 @@
   align-items: center;
 }
 
+.slide-item > div {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  line-height: normal;
+}
+
 .slide-1 {
   background-color: rgb(0, 17, 56);
+}
+
+.slide-item:hover div {
+  transform: scale(0.95, 0.95);
 }
 
 .slide-2 {
@@ -57,23 +69,6 @@
   background-color: rgb(214, 122, 29);
 }
 
-.slide-learn {
-  cursor: pointer;
-  margin-left: 40px;
-  height: 130px;
-  width: 220px;
+.slide-6 {
   background-color: rgb(56, 99, 159);
-
-}
-
-.slide-learn > a {
-  display: flex;
-  text-decoration: none;
-  color: white;
-  height: 100%;
-  width: 100%;
-  font-size: 24px;
-  font-family: $font-family-serif;
-  justify-content: center;
-  align-items: center;
 }
