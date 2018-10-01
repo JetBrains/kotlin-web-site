@@ -13,9 +13,9 @@ In this tutorial, we look at how we can use a Kotlin/Native code from
 existing native applications or libraries. For this, we need to
 compile our Kotlin code into a dynamic library, `.so`, `.dylib` and `.dll`.
 
-Do you target an Apple platform? You may want to check out the 
-[Kotlin/Native as an Apple Framework](apple-framework.html)
-tutorial.
+Kotlin/Native also has tight integration with Apple technologies.
+The [Kotlin/Native as an Apple Framework](apple-framework.html)
+tutorial explains how to compile Kotlin code into framework for Swift and Objective-C.
 
 In this tutorial, we will:
  - [Compile a Kotlin code to a dynamic library](#creating-a-kotlin-library)
@@ -61,10 +61,10 @@ val globalString = "A global String"
 ```
 </div>
 
-We need to have a Kotlin/Native compiler on our machines. 
-You may want to have a look at the
+We need to have a Kotlin/Native compiler on our machines.
+More information on performing this step can be found in the
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial for more information on performing this step.
+tutorial.
 Let's assume that we have a console, where the `kotlinc-native` command is available. 
 
 Now we can call the following command to compile the code into a dynamic library:
@@ -72,8 +72,7 @@ Now we can call the following command to compile the code into a dynamic library
 kotlinc-native lib.kt -produce dynamic -output demo
 ```
 
-The `kotlinc-native` (with v0.9.2) generates the following files, depending on the OS, 
-where you run the compiler:
+The `kotlinc-native` (with v0.9.2) generates the following files, depending on the host OS:
 - macOS: `demo_api.h` and `libdemo.dylib`
 - Linux: `demo_api.h` and `libdemo.so`
 - Windows: `demo_api.h`, `demo_symbols.def` and `demo.dll`
@@ -82,7 +81,7 @@ Let's check the C API for our Kotlin code in the `demo_api.h`
 
 ## Generated Headers File
 
-In the `demo_api.h` (with Kotlin/Native v0.9.2) you'll find the following code. 
+In the `demo_api.h` (with Kotlin/Native v0.9.2) we'll find the following code. 
 We will discuss the code in parts to make it easier to understand.
 
 Note, the way Kotlin/Native exports symbols is subject to change without notice.
@@ -133,11 +132,10 @@ typedef void*              demo_KNativePtr;
 </div>
 
 Kotlin uses the `demo_` prefix from the library name to make sure
-the symbols will not clash with other symbols in your C codebase.
+the symbols will not clash with other symbols in the project.
 
 The definitions part shows how Kotlin primitive types map into C primitive types. 
-We discussed reverse mapping in the [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html) tutorial, 
-which you may want to check out. 
+We discussed reverse mapping in the [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html) tutorial.
 
 The next part of the `demo_api.h` file contains definitions of types
 that are used in the library:
@@ -159,8 +157,8 @@ typedef struct {
 </div>
 
 The `typedef struct { .. } TYPE_NAME` syntax is used in C language to declare a structure. 
-You may want to take a look at [the thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions)
-for an explanation of that pattern.
+[The thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions)
+provides more explanations of that pattern.
 
 We see from these definitions that the Kotlin object `DemoObject` is mapped into
 `demo_kref_example_DemoObject` and `DemoClazz` is mapped into `demo_kref_example_DemoClazz`.
@@ -168,7 +166,7 @@ Both structs contain nothing but the `pinned` field with a pointer, the field ty
 `demo_KNativePtr` is defined as `void*` above. 
 
 There is no namespaces support in C so that Kotlin/Native compiler generates 
-long names to avoid a possible clashes with other symbols from your native project.
+long names to avoid a possible clashes with other symbols in existing native project.
 
 The most significant part of definitions goes further in the `demo_api.h` file.
 It includes the definition of our Kotlin/Native library world:
@@ -238,13 +236,14 @@ These functions deal with Kotlin/Native objects. Call the
 `DisposeStablePointer` to release a Kotlin object and `DisposeString` to release Kotlin String, 
 which has the `char*` type in C. It is possible to use the `IsInstance` function to check if a
 Kotlin type or a `demo_KNativePtr` is an instance of another type. The actual set of
-operations generated depend on the actual usage of your code.
+operations generated depend on the actual usages.
  
 Kotlin/Native has garbage collection, but it does not help deal
 with Kotlin objects from the C language. Kotlin/Native has interop with Objective-C and 
-Swift and integrates with their reference counters. You may want to find more details
-in the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
-documentation or to check the related tutorial named [Kotlin/Native as an Apple Framework](apple-framework.html).
+Swift and integrates with their reference counters. 
+The [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
+documentation article contains more more details on it. Also,
+there is the related tutorial named [Kotlin/Native as an Apple Framework](apple-framework.html).
 
 ### Our Library Functions
 
@@ -346,11 +345,11 @@ to let the application know to load the `libdemo.so` library from the current fo
 
 ## Compiling and Running the Example on Windows
 
-To start with, you'll need a Microsoft Visual C++ compiler installed that supports a x64_64 
+To start with, we'll need a Microsoft Visual C++ compiler installed that supports a x64_64 
 target. The easiest way to do this is to have a version of Microsoft Visual Studio installed on 
-your Windows machine. 
+the Windows machine. 
 
-We will be using the `x64 Native Tools Command Prompt <VERSION>` console. You'll see the 
+We will be using the `x64 Native Tools Command Prompt <VERSION>` console. We'll see the 
 shortcut to open the console in the start menu. It comes with a Microsoft Visual Studio
 package.  
 
@@ -377,10 +376,10 @@ The command produces the `main.exe` file, which we can run.
 ## Next Steps
 
 Dynamic libraries are the main ways to use Kotlin code from existing programs. 
-You may use them to share your code with many platforms or languages, including JVM,
+We may use them to share our code with many platforms or languages, including JVM,
 [Python](https://github.com/JetBrains/kotlin-native/blob/master/samples/python_extension/src/main/c/kotlin_bridge.c),
 iOS, Android, and others.
 
-Kotlin/Native also has tight integration with Objective-C and Swift. 
-You may want to check out the [Kotlin/Native as an Apple Framework](apple-framework.html)
+Kotlin/Native also has tight integration with Objective-C and Swift.
+It is covered in the [Kotlin/Native as an Apple Framework](apple-framework.html)
 tutorial.
