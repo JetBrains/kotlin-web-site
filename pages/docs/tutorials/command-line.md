@@ -125,3 +125,19 @@ To run a script, we just pass the `-script` option to the compiler with the corr
 ```bash
 $ kotlinc -script list_folders.kts <path_to_folder_to_inspect>
 ```
+
+Since 1.3.0 Kotlin has an experimental support for scripts customization, such as adding external properties, 
+providing static or dynamic dependencies, and so on. Customizations are defined by so-called *Script definitions* - 
+annotated kotlin classes with appropriate support code. The script filename extension is used to select appropriate
+definition.
+
+Properly prepared script definitions are detected and applied automatically when the appropriate jars are included
+in the compilation classpath. Alternatively, you can specify
+definitions manually using `-script-templates` option to the compiler:
+ 
+```bash
+$ kotlinc -script-templates org.example.CustomScriptDefinition -script custom.script1.kts
+```
+
+For additional details, please consult the [KEEP-75](https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md). 
+                                                                                          
