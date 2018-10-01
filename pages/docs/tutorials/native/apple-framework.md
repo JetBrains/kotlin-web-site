@@ -13,7 +13,7 @@ Kotlin/Native provides bi-directional interoperability with Objective-C/Swift.
 Objective-C frameworks and libraries can be used in Kotlin code.
 Kotlin modules can be used in Swift/Objective-C code too.
 Besides that, Kotlin/Native has
-[C Interop](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md).
+[C Interop](/docs/reference/native/c_interop.html).
 You may also want to take a look at the [Kotlin/Native as a Dynamic Library](dynamic-libraries.html)
 tutorial.
 
@@ -73,15 +73,15 @@ tutorial for more information on performing this step.
 Let's assume we have a console, where the `kotlinc-native` command is available. 
 
 Now let's call the following commands to compile the code into frameworks
-for macOS, iOS, and an iOS emulator respectively:
+for macOS, iOS, and an iOS simulator respectively:
 ```bash
 kotlinc-native lib.kt -produce framework -target macos_x64 -output macOS/Demo
 kotlinc-native lib.kt -produce framework -target ios_arm64 -output iOS/Demo
-kotlinc-native lib.kt -produce framework -target ios_x64 -output iOS_emu/Demo
+kotlinc-native lib.kt -produce framework -target ios_x64 -output iOS_sim/Demo
 ```
 
 The `kotlinc-native` generates three frameworks for us, named `Demo.framework` under 
-`macOS`, `iOS`, and `iOS_emu` folders respectively.
+`macOS`, `iOS`, and `iOS_sim` folders respectively.
 
 Let's see what is inside
 
@@ -260,7 +260,7 @@ Nullable primitive types are mapped into `Kotlin<TYPE>*` types, as shown in the 
 You may have seen that both higher order functions `acceptFunF` and `supplyFun` are included,
 and accept Objective-C blocks.
 
-You may want to look at the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
+You may want to look at the [Objective-C Interop](/docs/reference/native/objc_interop.html)
 documentation article to learn about all other types mapping details in detail.
 
 ## Garbage Collection and Reference Counting
@@ -356,7 +356,7 @@ Methods and property names are translated as-is. Kotlin `String` is turned into 
 Swift hides `NSNumber*` boxing from us too. We pass Swift closure to Kotlin and call a Kotlin 
 lambda function from Swift too. 
 
-You may want to take a look at the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
+You may want to take a look at the [Objective-C Interop](/docs/reference/native/objc_interop.html)
 documentation article to learn about all other types mapping details in detail.
 
 # XCode and Framework Dependencies
@@ -395,7 +395,7 @@ The second step is to then include the framework path into the `Framework Search
 of the `Build Settings` section of the *target* configuration page. It is possible to use `$(PROJECT_DIR)`
 macro so simplify the setup.
  
-The iOS emulator requires a framework compiled for the `ios_arm64` target, the `iOS_emu` folder
+The iOS simulator requires a framework compiled for the `ios_x64` target, the `iOS_sim` folder
 in our case.
 You may want to read up on iOS frameworks from
 [the Stack Overflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin).
@@ -406,12 +406,12 @@ You may want to read up on iOS frameworks from
 Kotlin/Native has bidirectional interop with Objective-C and Swift languages. 
 Kotlin objects integrate with Objective-C/Swift reference counting. Unused Kotlin
 objects are automatically removed. You may want to take a look at the detailed documentation on 
-the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md).
+the [Objective-C Interop](/docs/reference/native/objc_interop.html).
 Of course, it is possible to import an existing framework and use it from Kotlin. Kotlin/Native
 comes with a good set of pre-imported system frameworks.
 
 Kotlin/Native supports C interop too. Check out the
 [Kotlin/Native as a Dynamic Library](dynamic-libraries.html)
 tutorial for that, or have a look at the
-[C Interop](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md) documentation article
+[C Interop](/docs/reference/native/c_interop.html) documentation article
 
