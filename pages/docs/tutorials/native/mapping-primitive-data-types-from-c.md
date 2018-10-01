@@ -9,7 +9,7 @@ showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-In this tutorial, we learn what C data types are visible in Kotlin/Native and vice versa. You will: 
+In this tutorial, we learn what C data types are visible in Kotlin/Native and vice versa. We will: 
 - See what [Data Types are in C Language](#types-in-c-language)
 - Create a [tiny C Library](#an-example-c-library) that uses those types in exports
 - [Inspect Generated Kotlin APIs from a C library](#inspecting-generated-kotlin-apis-for-a-c-library)
@@ -52,15 +52,15 @@ void doubles(float a, double b);
 </div>
 
 The file is missing the `extern "C"` block, which is not needed for our example, but may be 
-necessary if you use C++ and overloaded functions. For more details on this, you may want to check out the 
+necessary if we use C++ and overloaded functions. The 
 [C++ compatibility](https://stackoverflow.com/questions/1041866/what-is-the-effect-of-extern-c-in-c)
-thread.
+thread contains more details on this.
 
 It is only necessary to have a `.h` file to run the `cinterop` tool. And we do not need to create a 
 `lib.c` file, unless we want to compile and run the example.
 
-We still need to create a `.def` file to the `cinterop`. For more details on this,
-you may want to check out [Interop with C Libraries](interop-with-c.html). It is enough for
+We still need to create a `.def` file to the `cinterop`. 
+More details on this are covered in the [Interop with C Libraries](interop-with-c.html) tutorial.
 the tutorial to create the `lib.def` file with the following content:
 <div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -75,9 +75,9 @@ directly to the `.def` file. This is what we do in the [next tutorial](mapping-s
 ## Inspecting Generated Kotlin APIs for a C library
 
 We need to have a Kotlin compiler on our machines. 
-You may want to have a look at the
+There is the
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial for more information on performing this step.
+that covers in a more detailed way.
 Let's assume we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
 
 Now we are ready to compile the library and to import it into Kotlin. Let's 
@@ -104,7 +104,7 @@ fun ints(c: Byte, d: Short, e: Int, f: Long)
 ```
 </div>
 
-C types are mapped in the way you would expect, note that `char` type is mapped to `kotlin.Byte` 
+C types are mapped in the way we would expect, note that `char` type is mapped to `kotlin.Byte` 
 as it is usually an 8-bit unsigned value.
 
 | C | Kotlin |
@@ -129,5 +129,5 @@ in the next tutorials:
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 - [Mapping Strings from C](mapping-strings-from-c.html)
 
-You may also like to take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
-for more advanced scenarios.
+The [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+documentation covers more advanced scenarios of the interop.

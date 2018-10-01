@@ -9,21 +9,21 @@ showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-That is the last post in the series. You might want to begin with the first tutorial called
+That is the last tutorial in the series. The first tutorial of the series is
 [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html).
 There are also [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html) and 
 [Mapping Function Pointers from C](mapping-function-pointers-from-c.html) tutorials.
  
 In that tutorial we see how to deal with C strings in Kotlin/Native.
-You will learn how to:
+We will learn how to:
 - [Pass a Kotlin string to C](#passing-kotlin-string-to-c)
 - [Read a C string in Kotlin](#reading-c-strings-in-kotlin)
 - [Receive C string bytes into a Kotlin string](#receiving-c-string-bytes-from-kotlin)
 
 We need to have a Kotlin compiler on our machines. 
-You may want to take a look at the
+The
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial for more information on performing this step.
+tutorial explains that step in details.
 Let's assume we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
 
 ## Working with C strings
@@ -59,8 +59,8 @@ take the return of `return_string` with care. In general, it is best to make sur
 use the right function to dispose the returned `char*` with the right `free(..)` function call.
 
 Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between 
-C and Kotlin languages. It uses a `.def` file to specify a library headers to import. For more details
-you may check [Interop with C Libraries](interop-with-c.html) tutorial.
+C and Kotlin languages. It uses a `.def` file to specify a library headers to import. 
+The [Interop with C Libraries](interop-with-c.html) tutorial contains more details on that.
 We create the following `lib.def` file:
 
 <div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -110,7 +110,7 @@ fun passStringToC() {
 
 Passing a Kotlin string to C is easy, thanks to the fact that we have `String.cstr` 
 [extension property](../../reference/extensions.html#extension-properties)
-in Kotlin for it. There is also `String.wcstr` for cases where you
+in Kotlin for it. There is also `String.wcstr` for cases where we
 need UTF-16 wide characters.
 
 ## Reading C Strings in Kotlin
@@ -179,11 +179,11 @@ array into Kotlin `String`, assuming UTF-8 encoding.
 
 ## Next Steps
 
-You may continue exploring more C language types and their representation in Kotlin/Native
+We continue exploring more C language types and their representation in Kotlin/Native
 in previous tutorials:
 - [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html)
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 
-You may also want to have a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
-for more advanced scenarios.
+The [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+documentation covers more advanced scenarios of the interop.

@@ -9,19 +9,19 @@ showAuthorInfo: false
 issue: EVAN-5343
 ---
 
-This is the second post in the series. If you haven't done so already, you may want to begin with the very first tutorial 
-of the series called [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html).
+This is the second post in the series. The very first tutorial 
+of the series is [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html).
 There are also the [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html) and 
 [Mapping Strings from C](mapping-strings-from-c.html) tutorials.
 
-In the tutorial you will learn:
+In the tutorial we will learn:
 - [How Struct and Union types are mapped](#mapping-struct-and-union-c-types)
 - [How to use Struct and Union type from Kotlin](#using-struct-and-union-types-from-kotlin)
 
 We need to have a Kotlin compiler on our machines.
-You may want to take a look at the
+The
 [A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial for more information on performing this step.
+tutorial contains more explanations for that step.
 Let's assume, we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
 
 ## Mapping Struct and Union C types
@@ -30,8 +30,8 @@ The best way to understand the mapping between Kotlin and C is to try a tiny
 example. We will declare a struct and an union in the C language to see how they are mapped into Kotlin.
 
 Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between the C language and Kotlin.
-It uses a `.def` file to specify a C library to import. For more details
-you may want to check out the [Interop with C Libraries](interop-with-c.html) tutorial.
+It uses a `.def` file to specify a C library to import. More details are discussed in the
+[Interop with C Libraries](interop-with-c.html) tutorial.
  
 In [the previous tutorial](mapping-primitive-data-types-from-c.html) we created a `lib.h` file. This time, 
 we are going to include those declarations directly into the `lib.def` file, after the `---` separator line:
@@ -104,9 +104,8 @@ Technically, there is no difference between `struct` and `union` types on the
 Kotlin side. We should note, that `a`, `b`, and `c` properties of `MyUnion` class in Kotlin use
 the same memory location to read/write their value just like `union` does in C language. 
 
-You may want to take a look at the 
+More details and advanced use-cases are presented in the  
 [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md#passing-and-receiving-structs-by-value)
-for more details.
 
 ## Using Struct and Union Types from Kotlin
 
@@ -211,7 +210,7 @@ fun callRef() {
 ```
 </div>
 
-Note, here we use the extension property `ptr` which comes from a `memScoped` lambda receiver type, 
+Note, we use the extension property `ptr` which comes from a `memScoped` lambda receiver type, 
 to turn `MyStruct` and `MyUnion` instances into native pointers.
 
 The `MyStruct` and `MyUnion` classes have the pointer to the native memory underneath. The memory will be released
@@ -242,7 +241,7 @@ fun callMix_ref() {
 ```  
 </div>
 
-Here we use the extension property `ptr` which comes from `memScoped` lambda receiver type 
+We use the extension property `ptr` which comes from `memScoped` lambda receiver type 
 to turn `MyStruct` and `MyUnion` instances into native pointers. Those pointers are only valid
 inside the `memScoped` block.
 
@@ -271,6 +270,6 @@ Join us to continue exploring the C language types and their representation in K
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 - [Mapping Strings from C](mapping-strings-from-c.html)
 
-You may also want to take a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
-for more advanced scenarios.
+The [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+documentation covers more advanced scenarios of the interop.
 
