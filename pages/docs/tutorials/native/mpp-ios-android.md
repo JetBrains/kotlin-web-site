@@ -209,7 +209,7 @@ target has its own platform. The `common` target contains the Kotlin common code
 which is included into every platform compilation. It is allowed to have `expect` declarations.
 Other targets provide `actual` implementations for all `expect`-actions from the `common` target. 
 The more detailed explanation of the multiplatform projects can be found on the
-[Multiplatform Projects](#) documentation page.
+[Multiplatform Projects](/docs/reference/multiplatform.html) documentation page.
 
 Let's summarize what we have in the table:
 
@@ -231,7 +231,7 @@ For this tutorial, we want to minimize Android project changes, so we add an ord
 project to the `SharedCode` project.
 It is also possible to use the `kotlin-multiplatform` plugin directly in an Android 
 Gradle project, instead of the `kotlin-android` plugin. For more information, please refer to the
-[Multiplatform Projects](#) documentation.  
+[Multiplatform Projects](/docs/reference/multiplatform.html) documentation.  
 
 Let's include the dependency from the `SharedCode` project to the Android project. We need to patch
 the `app/build.gradle` file and include the following line into the `dependencies { .. }` block:
@@ -468,7 +468,7 @@ Kotlin/Native interop with Swift and Objective-C is covered in the
 the same topic is covered in the [Kotlin/Native as an Apple Framework](apple-framework.html)
 tutorial.
 
-The multiplatform projects and multiplatform libraries are discussed in the [documentation](#) too.
+The multiplatform projects and multiplatform libraries are discussed in the [documentation](/docs/reference/multiplatform.html) too.
 
 Sharing code between platforms is a powerful technique, but it may be hard to
 accomplish without rich APIs that we have in Android, JVM, or iOS platforms.
@@ -481,4 +481,4 @@ directly in the common Kotlin code. There are several examples of such libraries
 - [ktor](https://ktor.io/)
 - [ktor-http-client](https://ktor.io/clients/http-client.html)
 
-Looking for more APIs? It is easy to create a [multiplatform library](#) and share it!
+Looking for more APIs? It is easy to create a [multiplatform library](/docs/reference/multiplatform.html) and share it!
