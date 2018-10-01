@@ -95,9 +95,9 @@ It is forbidden for inline classes to participate in classes hierarchy. This mea
 
 ## Representation
 
-In the generated code Kotlin compiler keeps a *wrapper* for each inline class. Inline classes instances can be represented at runtime either as wrappers or underlying type. This is similar to how `Int` can be [represented](basic-types.html#representation) either as primitive `int` or wrapper `Integer`.
+In generated code, the Kotlin compiler keeps a *wrapper* for each inline class. Inline classes instances can be represented at runtime either as wrappers or the underlying type. This is similar to how `Int` can be [represented](basic-types.html#representation) either as a primitive `int` or the wrapper `Integer`.
 
-Kotlin compiler will prefer using underlying types instead of wrappers to produce most performant and optimized code, but sometimes it is necessary to keep wrappers around. Rule of thumb: inline class is boxed whenever it is used as another type.
+The Kotlin compiler will prefer using underlying types instead of wrappers to produce the most performant and optimized code. However, sometimes it is necessary to keep wrappers around. The rule of thumb is, inline classes are boxed whenever they are used as another type.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -129,11 +129,11 @@ fun main() {
 
 </div>
 
-Because inline classes may be represented both as underlying value and as a wrapper, [referential equality](equality.html#referential-equality) is pointless for them and thus prohibited.
+Because inline classes may be represented both as the underlying value and as a wrapper, [referential equality](equality.html#referential-equality) is pointless for them and is therefore prohibited.
 
 ### Mangling
 
-The fact that inline classes are compiled to their underlying type may lead to various obscure errors, for example, unexpected platform signature clashes:
+That inline classes are compiled to their underlying type may lead to various obscure errors, for example, unexpected platform signature clashes:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -148,18 +148,18 @@ fun compute(x: UInt) { }
 
 </div>
 
-To mitigate such issues, functions which use inline classes are *mangled* by adding some stable hashcode to the function name. Therefore, actually `fun compute(x: UInt)` will be represented as `public final void compute-<hashcode>(int x)`, therefore solving clash problem.
+To mitigate such issues, functions which use inline classes are *mangled* by adding some stable hashcode to the function name. Therefore, `fun compute(x: UInt)` will be in fact represented as `public final void compute-<hashcode>(int x)`, which therefore solves the clash problem.
 
-> Note that `-` is *not valid* symbol in Java, meaning that it is impossible to call functions which accept inline classes from Java.  
+> Note that `-` is a *invalid* symbol in Java, meaning that it is impossible to call functions which accept inline classes from Java.
 {:.note}
 
 ## Inline classes vs type aliases
 
-Inline classes may appear very similar to [type aliases](type-aliases.html) from the first glance. Indeed, both appear to introduce new type and both will be represented as the underlying type at runtime. 
+At first sight, inline classes may appear to be very similar to [type aliases](type-aliases.html). Indeed, both appear to introduce a new type and both will be represented as the underlying type at runtime.
 
-However, crucial difference is that type aliases are *assignment-compatible* with their underlying type (and with other type aliases with the same underlying type), while inline classes are not. 
+However, the crucial difference is that type aliases are *assignment-compatible* with their underlying type (and with other type aliases with the same underlying type), while inline classes are not.
 
-In other words, inline classes introduce _new_ type, contrary to type aliases, which only introduce alternative name (alias) to the existing type:
+In other words, inline classes introduce a truly _new_ type, contrary to type aliases which only introduce an alternative name (alias) for an existing type:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -190,9 +190,9 @@ fun main() {
 
 ## Experimental status of inline classes
 
-The design of inline classes is experimental, meaning that this feature is *moving fast* and no compatibility guarantees are given. When using inline classes in Kotlin 1.3+, warning will be reported, indicating that this feature is experimental. 
+The design of inline classes is experimental, meaning that this feature is *moving fast* and no compatibility guarantees are given. When using inline classes in Kotlin 1.3+, a warning will be reported, indicating that this feature is experimental.
 
-To remove warning, you have to opt into usage of experimental feature by passing argument `-XXLanguage:+InlineClasses` to the `kotlinc`.
+To remove the warning, you have to opt into the usage of experimental features by passing the argument `-XXLanguage:+InlineClasses` to the `kotlinc`.
 
 ### Enabling inline classes in Gradle:
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -226,5 +226,5 @@ See [Compiler options in Maven](using-maven.html#specifying-compiler-options) fo
 
 ## Further discussion
 
-See [language proposal for inline classes](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md) for other technical details and discussion .
+See this [language proposal for inline classes](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md) for other technical details and discussion .
 
