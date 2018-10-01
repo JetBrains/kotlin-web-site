@@ -27,7 +27,7 @@ The code for the project is developed openly on GitHub. The Foundation has no de
 **Incompatible changes**. A special Language Committee appointed by the Foundation reviews the changes proposed by the Lead Language Designer and has the power to reject [_incompatible changes_](/docs/reference/evolution/kotlin-evolution.html#incompatible-changes) or require certain deprecation procedures to be carried out. The Language Committee has no power over compatible changes such as adding new features to the language. Compatible changes are made at the sole discretion of the Lead Language Designer. The Committee maintains a set of [guidelines](language-committee-guidelines.html) that are being consulted when making decisions. Meeting minutes of the Language Committee are available [online](https://docs.google.com/document/d/1ReH84Cw_ZhGOUM_MdMQbLjzB0edXIeaFuBUF5molsuI/preview).
 
 
-##Structure
+## Structure
 
 The Kotlin Foundation is a nonprofit nonstock corporation registered in the state of Delaware, USA. It was created in 2018 with backing from JetBrains and Google. The Foundation is governed by the Board of Directors that makes all decisions by voting. The Board appoints the the Lead Language Designer and the members of the Language Committee. 
 
