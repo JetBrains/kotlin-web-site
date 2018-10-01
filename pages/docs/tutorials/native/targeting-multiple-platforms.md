@@ -9,7 +9,7 @@ showAuthorInfo: false
 issue: EVAN-5121
 ---
 
-With Kotlin/Native, you can compile a native binary for 
+With Kotlin/Native, we can compile a native binary for 
 the following platforms, including (as of Kotlin/Native v0.9.2): 
 - Windows (x86_64)
 - Linux (x86_64, arm32, MIPS, MIPS little endian)
@@ -26,15 +26,15 @@ In this tutorial, we will see how to
 * [Build a Console Utility for several Operating Systems](#building-a-console-utility)
 
 We need to have a Kotlin/Native compiler on our machines. 
-You may have a look at the
+The
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial for more information on performing this step.
+tutorial covers that step in details
 Let's assume we have a console, where `kotlinc-native` command is available. 
 
 ## Specifying a Target Platform
 
 The list of supported target platforms of `kotlinc-native` depends 
-on the operating system where you run it. We may list them via 
+on the operating system where it is executed. We may list them via 
 
 ```bash
 kotlinc-native -list-targets
@@ -83,8 +83,9 @@ specified.
 ## Building for a Specific Platform
 
 Let's create a sample Kotlin/Native program and save it as `main.kt`. 
-You may want to have a look at the tutorial
-[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#creating-hello-kotlin) for more details.
+The
+[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#creating-hello-kotlin)
+tutorial explains that at more detailed level.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -131,7 +132,7 @@ may be used to automate and simplify the process.
 
 ## Next Steps
 
-Build tools help to deal with compiler arguments. You might want to consider 
-using [Gradle build system](gradle-for-kotlin-native.html) for your project. 
+Build tools help to deal with compiler arguments. 
+[Gradle build system](gradle-for-kotlin-native.html) can be a good choice for it. 
 Gradle with the Kotlin/Native plugin simplifies the setup for every operating system, downloads and runs 
-the Kotlin/Native compiler for you. It will be even more pleasant for you
+the Kotlin/Native compiler automatically.
