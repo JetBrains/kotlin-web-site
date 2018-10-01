@@ -91,7 +91,7 @@ fun main() {
 
 </div>
 
-It is forbidden for inline classes to participate in classes hierarchy, so inline class can not extend other classes and itself must be *final*{: .keyword }. 
+It is forbidden for inline classes to participate in classes hierarchy. This means inline classes cannot extend other classes and must be *final*{: .keyword }.
 
 ## Representation
 
