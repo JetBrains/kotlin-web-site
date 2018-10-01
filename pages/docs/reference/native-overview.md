@@ -7,7 +7,7 @@ title: "Kotlin/Native"
 
 # What is Kotlin/Native?
 
-Kotlin/Native is a technology for compiling Kotlin code to native binaries, which run without any virtual machine.
+Kotlin/Native is a technology for compiling Kotlin code to native binaries, which can run without a virtual machine.
 It is an [LLVM](https://llvm.org/) based backend for the Kotlin compiler and native implementation of the Kotlin standard
 library
 
@@ -15,7 +15,7 @@ library
 
 Kotlin/Native is primarily designed to allow compilation for platforms where *virtual machines* are not
 desirable or possible, for example, embedded devices or iOS.
-It solves a developer needs to produce a 
+It solves the situations when a developer needs to produce a 
 self-contained program that does not require an additional runtime or virtual machine.
 
 # Target Platforms
@@ -31,12 +31,12 @@ Kotlin/Native supports the following platforms:
 # Interoperability
 
 Kotlin/Native supports two-way interoperability with the Native world. 
-On the one hand, the compiler creates
+On the one hand, the compiler creates:
 - an executable for many [platforms](#target-platforms)
 - a static library or [dynamic](/docs/tutorials/native/dynamic-libraries.html) library with C headers for C/C++ projects
 - an [Apple framework](/docs/tutorials/native/apple-framework.html) for Swift and Objective-C projects
 
-That makes it easy to include the compiled Kotlin code into
+That makes it easy to include compiled Kotlin code into
 existing projects written in C, C++, Swift, Objective-C, and other languages.
 
 On the other hand, Kotlin/Native supports interoperability to use existing libraries
@@ -44,37 +44,37 @@ directly from Kotlin/Native:
 - static or dynamic [C Libraries](/docs/reference/native/c_interop.html) 
 - C, [Swift, and Objective-C](/docs/reference/native/objc_interop.html) frameworks 
 
-That makes it easy to use existing native code, libraries, frameworks, graphical engines, or anything else
+That makes it easy to use the existing native code, libraries, frameworks, graphical engines, and anything else
 directly from Kotlin/Native. Thanks to the Swift and Objective-C Frameworks
-[interop](/docs/reference/native/objc_interop.html), one may easily use
-existing frameworks in their Kotlin/Native projects.
+[interop](/docs/reference/native/objc_interop.html), you can easily use
+existing frameworks in your Kotlin/Native projects.
 
-There are Kotlin/Native [libraries]((/docs/reference/native/platform_libs.html) that helps one to share Kotlin
+There are Kotlin/Native [libraries]((/docs/reference/native/platform_libs.html) that help share Kotlin
 and native code between projects. Popular platform libraries and Apple frameworks are available as Kotlin/Native
-libraries and included with the compiler. It includes POSIX, gzip, OpenGL, Metal, Foundation and many more
+libraries and included with the compiler. It includes POSIX, gzip, OpenGL, Metal, Foundation, and many other
 pre-imported libraries
 
 # Sharing Code between Platforms
 
 [Multiplatform projects](/docs/reference/multiplatform.html) are supported between different Kotlin and
 Kotlin/Native targets.
-That is the way to share common Kotlin code between many platforms, including Android, iOS, server-side, JVM, client-side, 
-JavaScript, CSS, native.
+This is the way to share common Kotlin code between many platforms, including Android, iOS, server-side, JVM, client-side, 
+JavaScript, CSS, and native.
 
 Kotlin multiplatform libraries provide the necessary APIs for the common Kotlin code and help to develop
-shared parts of a project in Kotlin code once and share it with all target platforms. 
+shared parts of a project in Kotlin code once and share it with all of the target platforms. 
 
 # How to Start
 
-Check out [tutorials](/docs/tutorials/native/apple-framework.html) or [documentation](/docs/reference/native/multiplatform.html)
+Check out the [tutorials](/docs/tutorials/native/apple-framework.html) or [documentation](/docs/reference/native/multiplatform.html)
 for Kotlin/Native.
 
-Do you like to learn by example? There are example projects for you: 
+Do you like learning by example? Here are some example projects for you to look at: 
  * The [Kotlin/Native GitHub repository](https://github.com/JetBrains/kotlin-native/tree/master/samples) contains sample projects
  * The [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) is an iOS app
    with a UIKit-based UI, showcasing the Objective-C interop facilities of Kotlin/Native
  * The [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner) is a simple cross-platform 
-   mobile multiplayer game fully built in Kotlin/Native, consisting of the following components:
+   mobile multiplayer game built completely in Kotlin/Native, consisting of the following components:
      - a backend, using SQLite for data storage and exposing a REST/JSON API
      - mobile clients for iOS and Android, using OpenGL
      - a WebAssembly-based browser frontend for viewing the game scores
