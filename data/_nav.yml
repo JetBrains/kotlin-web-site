@@ -60,7 +60,9 @@ reference:
         - url: /docs/reference/native-overview.html
           title: Kotlin/Native
         - url: /docs/reference/coroutines-overview.html
-          title: Coroutines Overview
+          title: Coroutines
+        - url: /docs/reference/multiplatform.html
+          title: Multiplatform
         - url: /docs/reference/whatsnew11.html
           title: What's New in 1.1
         - url: /docs/reference/whatsnew12.html
@@ -133,12 +135,10 @@ reference:
     - title: Multiplatform Programming
       description: Reusing code across JVM, JS, and Native
       content:
-        - url: /docs/reference/multiplatform.html
-          title: Introduction
         - url: /docs/reference/platform-specific-declarations.html
           title: Platform-Specific Declarations
         - url: /docs/reference/building-mpp-with-gradle.html
-          title: Multiplatform Projects with Gradle
+          title: Building with Gradle
 
     - title: Other
       description: Various bits and bobs
