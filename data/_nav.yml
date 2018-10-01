@@ -113,6 +113,8 @@ reference:
           title: Enum Classes
         - url: /docs/reference/object-declarations.html
           title: Objects
+        - url: /docs/reference/inline-classes.html
+          title: Inline Classes
         - url: /docs/reference/delegation.html
           title: Delegation
         - url: /docs/reference/delegated-properties.html
@@ -127,8 +129,6 @@ reference:
           title: Lambdas
         - url: /docs/reference/inline-functions.html
           title: Inline Functions
-        - url: /docs/reference/coroutines.html
-          title: Coroutines
 
     - title: Other
       description: Various bits and bobs
@@ -241,6 +241,8 @@ reference:
           title: Kotlin and OSGi
         - url: /docs/reference/compiler-plugins.html
           title: Compiler plugins
+        - url: /docs/reference/code-style-migration-guide.html
+          title: Coding Conventions
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.
