@@ -7,7 +7,7 @@ title: "Language Committee Guidelines"
 
 # Language Committee Guidelines
 
-The Kotlin Language Committee has to approve every [incompatible change](/docs/reference/kotlin-evolution.html#incompatible-changes) before it lands in a stable version. The committee determines whether the change is appropriate and motivated enough to be introduced and what deprecation procedures have to be carried out to ensure comfortable migration for end users.
+The Kotlin Language Committee has to approve every [incompatible change](/docs/reference/evolution/kotlin-evolution.html#incompatible-changes) before it lands in a stable version. The committee determines whether the change is appropriate and motivated enough to be introduced and what deprecation procedures have to be carried out to ensure comfortable migration for end users.
 
 These guidelines describe the process the Committee follows and the criteria used for decision making. We realize that these criteria can not be fully formalized and treat them as general guidelines, not a mechanical set of rules.
 
