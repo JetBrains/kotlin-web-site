@@ -14,8 +14,8 @@ Objective-C frameworks and libraries can be used in Kotlin code.
 Kotlin modules can be used in Swift/Objective-C code too.
 Besides that, Kotlin/Native has
 [C Interop](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md).
-You may also want to take a look at the [Kotlin/Native as a Dynamic Library](dynamic-libraries.html)
-tutorial.
+There is also the [Kotlin/Native as a Dynamic Library](dynamic-libraries.html)
+tutorial for more information.
 
 In this tutorial, we will look at how to use Kotlin/Native code from
 Objective-C and Swift applications on macOS and iOS.
@@ -25,7 +25,7 @@ In this tutorial we'll:
 - [create a Kotlin Library](#creating-a-kotlin-library) and compile it to a framework
 - examine the generated [Objective-C and Swift API](#generated-framework-headers) code
 - use the framework from [Objective-C](#using-the-code-from-objective-c) and [Swift](#using-the-code-from-swift)
-- [Configure XCode](#xcode-and-framework-dependencies) to use the framework for [macOS](#xcode-for-macos-target) and [iOS](#xcode-for-ios-targets)
+- [Configure Xcode](#xcode-and-framework-dependencies) to use the framework for [macOS](#xcode-for-macos-target) and [iOS](#xcode-for-ios-targets)
    
 ## Creating a Kotlin Library
 
@@ -67,9 +67,9 @@ fun supplyFun() : (String) -> String? = { "$it is cool!" }
 </div>
 
 We need to have a Kotlin/Native compiler on our machines. 
-You may want to take a look at the
+More information on performing this step can be found in the
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial for more information on performing this step.
+tutorial.
 Let's assume we have a console, where the `kotlinc-native` command is available. 
 
 Now let's call the following commands to compile the code into frameworks
@@ -183,7 +183,7 @@ __attribute__((swift_name("Kotlin__TYPE__")))
 Where `__TYPE__` is one of the simple type names and `__CTYPE__` is the related Objective-C type, e.g. `initWithChar(char)`.
 
 These types are used to map boxed Kotlin number types into Objective-C and Swift.
-In Swift, you can simply call constructor to create an instance, e.g. `KotlinLong(value: 42)`.
+In Swift, we may simply call the constructor to create an instance, e.g. `KotlinLong(value: 42)`.
 
 ### Classes and Objects from Kotlin
 
@@ -228,7 +228,7 @@ respectively. The `Interface` is turned into `@protocol`, both a `class` and an 
 `@interface`.
 The `Demo` prefix comes from the `-output` parameter
 of the `kotlinc-native` compiler and the framework name. 
-You may have spotted that the nullable return type `ULong?` was turned into `DemoLong*` in Objective-C.
+We see here that the nullable return type `ULong?` is turned into `DemoLong*` in Objective-C.
 
 ### Global Declarations from Kotlin
 
@@ -253,21 +253,22 @@ __attribute__((swift_name("LibKt")))
 ```
 </div>
 
-You may have noticed, that Kotlin `String` and Objective-C `NSString*` are mapped transparently.
+We see that Kotlin `String` and Objective-C `NSString*` are mapped transparently.
 Similarly, `Unit` type from Kotlin is mapped to `void`. We see primitive types
 are mapped directly. Non-nullable primitive types are mapped transparently.
 Nullable primitive types are mapped into `Kotlin<TYPE>*` types, as shown in the table [above](#kotlin-numbers-and-nsnumber). 
-You may have seen that both higher order functions `acceptFunF` and `supplyFun` are included,
+Both higher order functions `acceptFunF` and `supplyFun` are included,
 and accept Objective-C blocks.
 
-You may want to look at the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
-documentation article to learn about all other types mapping details in detail.
+More information about all other types mapping details can be found in the
+[Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
+documentation article
 
 ## Garbage Collection and Reference Counting
 
 Objective-C and Swift use reference counting. Kotlin/Native has it's own garbage collection too.
 Kotlin/Native garbage collection is integrated with Objective-C/Swift reference
-counting. You do not need to use anything special to control the lifetime of Kotlin/Native instances
+counting. We do not need to use anything special to control the lifetime of Kotlin/Native instances
 from Swift or Objective-C.
 
 ## Using the Code from Objective-C
@@ -356,38 +357,35 @@ Methods and property names are translated as-is. Kotlin `String` is turned into 
 Swift hides `NSNumber*` boxing from us too. We pass Swift closure to Kotlin and call a Kotlin 
 lambda function from Swift too. 
 
-You may want to take a look at the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
-documentation article to learn about all other types mapping details in detail.
+More documentation on the types mapping can be found in the 
+[Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
+article.
 
-# XCode and Framework Dependencies
+# Xcode and Framework Dependencies
 
-We need to configure an XCode project to use our framework. The configuration depends on the
+We need to configure an Xcode project to use our framework. The configuration depends on the
 target platform. 
 
-## XCode for MacOS Target
+## Xcode for MacOS Target
 
 First, we need to include the framework in the `General` section of the *target*
 configuration. There is the `Linked Frameworks and Libraries` section to include
-our framework. That will make XCode look at our framework and resolve imports both
+our framework. That will make Xcode look at our framework and resolve imports both
 from Objective-C and Swift.
 
 The second step is to configure the framework search path of the produced
 binary. It is also known as `rpath` or [run-time search path](https://en.wikipedia.org/wiki/Rpath).
 The binary uses the path to look for the required frameworks. We do not recommend
-installing your frameworks to the OS if it is not needed. You should understand the layout
-of your future application, for example, 
-you may have the `Frameworks` folder under the application bundle with all the frameworks you use. 
-The `@rpath` parameter can be configured in the XCode. You need to open
+installing additional frameworks to the OS if it is not needed. We should understand the layout
+of our future application, for example, 
+we may have the `Frameworks` folder under the application bundle with all the frameworks we use. 
+The `@rpath` parameter can be configured in the Xcode. We need to open
 the *project* configuration and find the `Runpath Search Paths` section. There we specify
 the relative path to the compiled framework.
 
-You may also want to set XCode to create all project build files under the project
-root. It is done via `File | Project Settings` menu. That will simplify the way you
-pass the `rpath` to the executable. 
+## Xcode for iOS Targets
 
-## XCode for iOS Targets
-
-First, we need to include the compiled framework into the XCode project. For
+First, we need to include the compiled framework into the Xcode project. For
 that we add the framework to the `Embedded Binaries` block of the `General` section of
 the *target* configuration page. 
 
@@ -397,16 +395,18 @@ macro so simplify the setup.
  
 The iOS emulator requires a framework compiled for the `ios_arm64` target, the `iOS_emu` folder
 in our case.
-You may want to read up on iOS frameworks from
-[the Stack Overflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin).
+
+[The Stack Overflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin)
+contains few more recommendations. Also, 
 [CocoaPods](https://cocoapods.org/) package manager may be helpful to automate the process too.
 
 # Next Steps
 
 Kotlin/Native has bidirectional interop with Objective-C and Swift languages. 
 Kotlin objects integrate with Objective-C/Swift reference counting. Unused Kotlin
-objects are automatically removed. You may want to take a look at the detailed documentation on 
-the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md).
+objects are automatically removed. 
+The [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
+article contains more information on the interop implementation details.
 Of course, it is possible to import an existing framework and use it from Kotlin. Kotlin/Native
 comes with a good set of pre-imported system frameworks.
 
