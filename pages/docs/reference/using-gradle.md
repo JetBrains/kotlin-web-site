@@ -15,6 +15,7 @@ The `kotlin-gradle-plugin` compiles Kotlin sources and modules.
 The version of Kotlin to use is usually defined as the `kotlin_version` property:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` groovy
 buildscript {
     ext.kotlin_version = '{{ site.data.releases.latest.version }}'
@@ -31,6 +32,11 @@ buildscript {
 </div>
 
 This is not required when using Kotlin Gradle plugin 1.1.1 and above with the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block), and with [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl).
+
+## Building Kotlin Multiplatform Projects
+
+Using the `kotlin-multiplatform` plugin for building [multiplatform projects](multiplatform.html) is described in 
+[Building Multiplatform Projects with Gradle](building-mpp-with-gradle.html).
 
 ## Targeting the JVM
 
