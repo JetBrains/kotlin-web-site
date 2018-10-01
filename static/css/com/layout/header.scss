@@ -2,18 +2,17 @@
 @import '../../_utils';
 @import '../_icon/_icon';
 @import '../_bits/_button';
+@import 'slides';
 
 
 .global-header {
     @include clearfix;
-    @include linear-gradient($from: #6481A1, $to: #4E7196);
-    background-color: #6481A1;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background-color: #393939;
     background-size: cover;
 
     .g-layout {
-        position: relative;
+      position: relative;
+      height: 100%;
     }
 
     .try-kotlin-button {
@@ -93,9 +92,7 @@
 
 .page_index .global-header {
     box-sizing: border-box;
-    height: 530px;
-    background-image: url('images/index-page-header-bg.jpg');
-    background-position: top center;
+    height: 450px;
 
     .get-kotlin-button {
         @extend %button_call-to-action;
@@ -109,11 +106,8 @@
     box-sizing: border-box;
     padding: $unit 0;
     height: 60px;
-    background-color: #49525E;
-
     .page_index & {
-        background-color: #182333;
-        background-color: rgba(24, 35, 51, 0.7);
+      background-color: #393939;
     }
 }
 
