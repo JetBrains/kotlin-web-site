@@ -89,7 +89,7 @@ fun copy_string(str: CValuesRef<ByteVar /* = ByteVarOf<Byte> */>?, size: Int): I
 
 These declarations look clear. All `char *` pointers are turned into `str: CValuesRef<ByteVar>?` for
 parameters and to `CPointer<ByteVar>?` in return types. Kotlin turns `char` type into `kotlin.Byte` type,
-as it is usually an 8-bit unsigned value.
+as it is usually an 8-bit signed value.
 
 In the generated Kotlin declarations, we see that `str` is represented as `CValuesRef<ByteVar/>?`. The type
 is nullable, and we can simply pass Kotlin `null` as the parameter value. 
@@ -185,5 +185,5 @@ in previous tutorials:
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)
 
-You may also want to have a look at the [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
+You may also want to have a look at the [C Interop documentation](/docs/reference/native/c_interop.html)
 for more advanced scenarios.

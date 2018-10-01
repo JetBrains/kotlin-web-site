@@ -60,7 +60,7 @@ correctly added to the path, we should be able to invoke the compiler using
 which is telling the compiler to compile the source code `hello.kt`.
 
 The first time the compiler runs, it downloads a list of necessary requirements, thus first run does take longer. If everything runs correctly, the output 
-should be `hello.kexe`
+should be `program.kexe`
 
 The file is the actual binary produced for our target platform. The compiler provides us with a series of options, one of these
 being the ability to specify the output filename. In order to do this, we can use the -output (or -o) option
@@ -76,7 +76,7 @@ the usual system commands to rename files.
 
 To run the application, we can merely invoke it
 
-    /hello.kexe
+    ./program.kexe
 
 It's important to understand that this is now a native application, and no runtime or virtual machine is required. The output should be
 

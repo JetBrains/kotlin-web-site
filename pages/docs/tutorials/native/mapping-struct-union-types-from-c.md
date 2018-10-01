@@ -211,9 +211,6 @@ fun callRef() {
 ```
 </div>
 
-Note, here we use the extension property `ptr` which comes from a `memScoped` lambda receiver type, 
-to turn `MyStruct` and `MyUnion` instances into native pointers.
-
 The `MyStruct` and `MyUnion` classes have the pointer to the native memory underneath. The memory will be released
 when a `memScoped` function ends, which is equal to the end of its `block`. Be careful to make sure that a
 pointer outside is not needed for the `memScoped` call. We may use `Arena()` or `nativeHeap` for pointers that 
