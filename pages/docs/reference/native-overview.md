@@ -66,7 +66,7 @@ shared parts of a project in Kotlin code once and share it with all of the targe
 
 # How to Start
 
-Check out the [tutorials](/docs/tutorials/native/apple-framework.html) or [documentation](/docs/reference/native/multiplatform.html)
+Check out the [tutorials](/docs/tutorials/native/apple-framework.html) or [documentation](/docs/reference/multiplatform.html)
 for Kotlin/Native.
 
 Like learning from examples? Here are some more example projects: 
