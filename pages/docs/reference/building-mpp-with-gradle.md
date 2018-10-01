@@ -216,7 +216,7 @@ kotlin {
 
 > Note: creating a source set does not link it to any target. Some source sets are [predefined](#default-project-layout) 
 and thus compiled by default. However, custom source sets always need to be explicitly directed to the compilations. 
-See: [Depending on source sets](#depending-on-source-sets). 
+See: [Connecting source sets](#connecting-source-sets). 
 {:.note}
 
 A source set by itself is platform-agnostic, but
@@ -240,7 +240,7 @@ kotlin {
 
 </div>
 
-### Depending on source sets
+### Connecting source sets
 
 Kotlin source sets may be connected with the 'depends on' relation, so that if a source set `foo`  depends on a source set `bar` then:
 
@@ -614,5 +614,60 @@ kotlin {
 
 </div>
 
-This creates additional link tasks for the debug and release binaries. The tasks can be accessed from the compilation as, for example, 
-`getLinkTask('executable', 'release')` or `getLinkTaskName('static', 'debug')`. To get the binary file, use the `outputFile` property of the link task.
+This creates additional link tasks for the debug and release binaries. The tasks can be accessed after project evaluation from the compilation as, for example, 
+`getLinkTask('executable', 'release')` or `getLinkTaskName('static', 'debug')`. To get the binary file, use `getBinary`, for example, 
+ as `getBinary('executable', 'release')` or `getBinary('static', 'debug')`.
+
+### CInterop support
+
+Since Kotlin/Native provides [interoperability with native languages](/docs/reference/native/c_interop.html),
+there is a DSL allowing one to configure this feature for a specific compilation.
+
+A compilation can interact with several native libraries. Interoperability with each of them can be configured in
+the `cinterops` block of the compilation:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+// In the scope of a Kotlin/Native target's compilation:
+cinterops {
+    myInterop {
+        // Def-file describing the native API.
+        // The default path is src/nativeInterop/cinterop/<interop-name>.def
+        defFile project.file("def-file.def")
+
+        // Package to place the Kotlin API generated.
+        packageName 'org.sample'
+
+        // Options to be passed to compiler by cinterop tool.
+        compilerOpts '-Ipath/to/headers'
+
+        // Directories to look for headers.
+        includeDirs {
+            // Directories for header search (an analogue of the -I<path> compiler option).
+            allHeaders 'path1', 'path2'
+
+            // Additional directories to search headers listed in the 'headerFilter' def-file option.
+            // -headerFilterAdditionalSearchPrefix command line option analogue.
+            headerFilterOnly 'path1', 'path2'
+        }
+        // A shortcut for includeDirs.allHeaders.
+        includeDirs "include/directory", "another/directory"
+    }
+
+    anotherInterop { /* ... */ }
+}
+```
+</div>
+
+Often it's necessary to specify target-specific linker options for a binary which uses a native library. It can be
+done using the `linkerOpts` DSL method of a Kotlin/Native compilation:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+compilations.main {
+    linkerOpts '-L/lib/search/path -L/another/search/path -lmylib'
+}
+```
+</div>
