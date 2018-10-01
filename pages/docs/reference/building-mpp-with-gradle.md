@@ -122,7 +122,7 @@ kotlin {
     }
 }
 ``` 
-</div
+</div>
 
 A source set by itself is platform-agnostic, but
 it can be considered platform-specific if it is only compiled for a single platform. A source set can, therefore, contain either
@@ -262,7 +262,7 @@ kotlin {
     }
 }
 ```
-</div> 
+</div>
 
 Language settings of a source set affect how the sources are analyzed in the IDE. Due to the current limitations, in a Gradle build, only the language settings 
 of the compilation's default source set are used.
