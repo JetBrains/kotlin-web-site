@@ -404,6 +404,46 @@ The language settings are checked for consistency between source sets depending 
 * `foo` should enable all unstable language features that `bar` enabled (there's no such requirement for bugfix features);
 * `apiVersion`, bugfix language features, and `progressiveMode` can be set arbitrarily; 
 
+## Default Project Layout
+
+By default, each project contains two source sets, `commonMain` and `commonTest`, where one can place all the code that should be 
+shared between all of the target platforms. These source sets are added to each production and test compilation, respectively.
+
+Then, once a target is added, default compilations are created for it:
+
+* `main` and `test` compilations for JVM, JS, and Native targets;
+* a compilation per Android variant, for Android targets;
+
+For each compilation, there is a default source set under the name composed as `<targetName><CompilationName>`. This default source
+set participates in the compilation, and thus it should be used for the platform-specific code and dependencies, and for adding other source
+ sets to the compilation by the means of 'depends on'. For example, a project with
+targets `jvm6` (JVM) and `nodeJs` (JS) will have source sets: `commonMain`, `commonTest`, `jvm6Main`, `jvm6Test`, `nodeJsMain`, `nodeJsTest`.
+
+Numerous use cases are covered by just the default source sets and don't require custom source sets.
+ 
+Each source set by default has its Kotlin sources under `src/<sourceSetName>/kotlin` directory and the resources under `src/<sourceSetName>/resources`.
+
+In Android projects, additional Kotlin source sets are created for each Android source set. If the Android target has a name `foo`, the Android source set `bar` gets a Kotlin source set counterpart `fooBar`. The Kotlin compilations, however, are able to consume Kotlin sources from all of the directories `src/bar/java`, `src/bar/kotlin`, and `src/fooBar/kotlin`. Java sources are only read from the first of these directories.
+
+## Running Tests
+
+A test task is created under the name `<targetName>Test` for each target that is suitable for testing.  Run the `check` task to run 
+the tests for all targets.
+
+As the `commonTest` [default source set](#default-project-layout) is added to all test compilations, tests and test tools that are needed
+on all target platforms may be placed there.
+
+The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/index.html) is availble for multiplatform tests. Add the `kotlin-test-common` and `kotlin-test-annotations-common`
+dependencies to `commonTest` to use `DefaultAsserter` and `@Test`/`@Ignore`/`@BeforeTest`/`@AfterTest` annotations in the common tests.
+
+For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and
+annotations mapping.
+
+For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. At this point, test tasks for Kotlin/JS do not run tests by default 
+and should be manually configured to do so. 
+
+Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
+
 ## Publishing a Multiplatform Library
 
 > The set of target platforms is defined by a multiplatform library author, and they should provide all of the platform-specific implementations for the library. 
@@ -533,47 +573,6 @@ However, dependencies on such a multiplatform library may be ambiguous and may t
      ```
      
      </div>
-     
-## Running Tests
-
-A test task is created under the name `<targetName>Test` for each target that is suitable for testing.  Run the `check` task to run 
-the tests for all targets.
-
-As the `commonTest` [default source set](#default-project-layout) is added to all test compilations, tests and test tools that are needed
-on all target platforms may be placed there.
-
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/index.html) is availble for multiplatform tests. Add the `kotlin-test-common` and `kotlin-test-annotations-common`
-dependencies to `commonTest` to use `DefaultAsserter` and `@Test`/`@Ignore`/`@BeforeTest`/`@AfterTest` annotations in the common tests.
-
-For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and
-annotations mapping.
-
-For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. At this point, test tasks for Kotlin/JS do not run tests by default 
-and should be manually configured to do so. 
-
-Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
- 
-## Default Project Layout
-
-By default, each project contains two source sets, `commonMain` and `commonTest`, where one can place all the code that should be 
-shared between all of the target platforms. These source sets are added to each production and test compilation, respectively.
-
-Then, once a target is added, default compilations are created for it:
-
-* `main` and `test` compilations for JVM, JS, and Native targets;
-* a compilation per Android variant, for Android targets;
-
-For each compilation, there is a default source set under the name composed as `<targetName><CompilationName>`. This default source
-set participates in the compilation, and thus it should be used for the platform-specific code and dependencies, and for adding other source
- sets to the compilation by the means of 'depends on'. For example, a project with
-targets `jvm6` (JVM) and `nodeJs` (JS) will have source sets: `commonMain`, `commonTest`, `jvm6Main`, `jvm6Test`, `nodeJsMain`, `nodeJsTest`.
-
-Numerous use cases are covered by just the default source sets and don't require custom source sets.
- 
-Each source set by default has its Kotlin sources under `src/<sourceSetName>/kotlin` directory and the resources under `src/<sourceSetName>/resources`.
-
-In Android projects, additional Kotlin source sets are created for each Android source set. These Kotlin source sets can consume Kotlin sources
-from the `src/.../java` directory of the Android source set or its neighbor `src/.../kotlin` directory.
 
 ## Using Kotlin/Native Targets
 
