@@ -171,15 +171,14 @@ apply plugin: 'kotlin-multiplatform'
 
 kotlin {
     targets {
+        final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") \
+                              ? presets.iosArm64 : presets.iosX64
+
+        fromPreset(iOSTarget, 'iOS') {
+            compilations.main.outputKinds('FRAMEWORK')
+        }
+
         fromPreset(presets.jvm, 'android')
-
-        fromPreset(presets.iosArm64, 'iOS') {
-            compilations.main.outputKinds('FRAMEWORK')
-        }
-
-        fromPreset(presets.iosX64, 'iOSx64') {
-            compilations.main.outputKinds('FRAMEWORK')
-        }
     }
 
     sourceSets {
@@ -190,9 +189,6 @@ kotlin {
         androidMain.dependencies {
             api 'org.jetbrains.kotlin:kotlin-stdlib'
         }
-
-        //see https://youtrack.jetbrains.net/issue/KT-27320
-        iOSx64Main.dependsOn iOSMain
     }
 }
 
@@ -208,7 +204,7 @@ configurations {
 
 The `SharedCode/build.gradle` file uses the `kotlin-multiplatform` plugin to implement 
 what we need. 
-In the file, we define several targets `common`, `android`, `iOSx64`, and `iOS`. Each
+In the file, we define several targets `common`, `android`, and `iOS`. Each
 target has its own platform. The `common` target contains the Kotlin common code 
 which is included into every platform compilation. It is allowed to have `expect` declarations.
 Other targets provide `actual` implementations for all `expect`-actions from the `common` target. 
@@ -221,15 +217,11 @@ Let's summarize what we have in the table:
 |---|---|---|
 | common | `SharedCode/commonMain/kotlin` |  - | Kotlin metadata |
 | android | `SharedCode/androidMain/kotlin` | JVM 6 | `.jar` file or `.class` files |
-| iOS | `SharedCode/iOSMain` | iOS arm64 | Apple framework |
-| iOSx64 |  not used by us | iOS x86_64 | Apple framework |
+| iOS | `SharedCode/iOSMain` | iOS arm64 or x86_64| Apple framework |
 
 Now it is time to refresh the Gradle project again in Android Studio. Click *Sync Now* on the yellow stripe 
 or use the *Gradle* tool window and click the `Refresh` action in the context menu on the root Gradle project.
 The `:SharedCode` project should be recognized by the IDE now.
-
-*Note*. We use the experimental dependency between `iOSx64` and `iOS` targets. Project setup details
-may be changed in the future. Please watch or vote the [KT-27320](https://youtrack.jetbrains.net/issue/KT-27320) issue.
 
 We are ready to use the `SharedCode` library from our Android and iOS applications.
 
@@ -313,18 +305,15 @@ Let's make sure we can to run the application on the iPhone emulator or device.
 
 The `SharedCode` build generates iOS frameworks for use with the Xcode project.
 All frameworks are in the `SharedCode/build/bin` folder. 
-It creates a *debug* and *release* version for every framework target. We have configured the build to
-have two targets:
-- `iOS` for an arm64 iOS device
-- `iOSx64` for the iOS emulator
-
+It creates a *debug* and *release* version for every framework target.
 The frameworks are in the following paths:
 ```
-SharedCode/build/bin/iOSx64/main/debug/framework/SharedCode.framework
 SharedCode/build/bin/iOS/main/debug/framework/SharedCode.framework
-SharedCode/build/bin/iOSx64/main/release/framework/SharedCode.framework
 SharedCode/build/bin/iOS/main/release/framework/SharedCode.framework
 ```
+
+We use the condition in the Gradle script to select the target platform for the framework.
+It is either `iOS arm64` or `iOS x86_64` depending in environment variables.
 
 ## Tuning the Gradle Build Script
 We need to supply the right Framework out of those four depending on the selected target in the Xcode
@@ -338,15 +327,13 @@ We need to include the additional task to the end of the `SharedCode/build.gradl
 task packForXCode(type: Sync) {
     final File frameworkDir = new File(buildDir, "xcode-frameworks")
     final String mode = System.getenv('CONFIGURATION')?.toUpperCase() ?: 'DEBUG'
-    final String target = System.getenv('SDK_NAME')?.startsWith("iphoneos") ? 'iOS' : 'iOSx64'
 
-    inputs.property "target", target
     inputs.property "mode", mode
-    dependsOn kotlin.targets."$target".compilations.main.linkTaskName("FRAMEWORK", mode)
+    dependsOn kotlin.targets.iOS.compilations.main.linkTaskName("FRAMEWORK", mode)
 
-    from { kotlin.targets."$target".compilations.main.getBinary("FRAMEWORK", mode).parentFile }
+    from { kotlin.targets.iOS.compilations.main.getBinary("FRAMEWORK", mode).parentFile }
     into frameworkDir
-    
+
     doLast {
         new File(frameworkDir, 'gradlew').with {
             text = "#!/bin/bash\nexport 'JAVA_HOME=${System.getProperty("java.home")}'\ncd '${rootProject.rootDir}'\n./gradlew \$@\n"
