@@ -1,5 +1,69 @@
 @import "../../../css/config/font";
 
+$color-common: #75e1ff;
+$color-common-fg: #004052;
+$color-jvm: #79bf2d;
+$color-native: #6d6dff;
+$color-js: #ffb100;
+
+$color-select-off: #d3d6d9;
+$color-select-off-fg: #222222;
+$color-select-on-pressed: #e4e6e8;
+
+$platforms: (
+    common: (
+        bg: #75e1ff,
+        fg: #004052,
+        select-hover: #3ad4ff
+    ),
+    jvm: (
+        bg: #79bf2d,
+        select-hover: #6bac25
+    ),
+    js: (
+        bg: #ffb100,
+        select-hover: #ff9b00
+    ), 
+    native: (
+        bg: #6d6dff,
+        select-hover: #4b4bff
+    )
+);
+
+@each $platform, $params in $platforms {
+    .api-panel_toggle { 
+        .toggle-platform.#{$platform} {
+            background-color: map-get($params, bg);
+            @if map-has-key($params, fg) {
+                color: map-get($params, fg);
+            }
+        }   
+        .toggle-platform.#{$platform}:hover {
+            background-color: map-get($params, select-hover);
+        }
+
+        .toggle-platform.off.#{$platform}:hover {
+            background-color: map-get($params, select-hover);
+            @if map-has-key($params, fg) {
+                color: map-get($params, fg);
+            } @else {
+                color: white;
+            }
+        }   
+    }   
+
+
+
+    .tags .platform.tag-value-#{$platform} {
+        background-color: map-get($params, bg);
+        @if map-has-key($params, fg) {
+            color: map-get($params, fg);
+        }
+    }
+}
+
+
+
 .api-page-panel {
     display: flex;
 }
@@ -14,6 +78,42 @@
 
 .api-panel__switchers {
     display: flex;
+}
+
+.api-panel_toggle {
+    display: flex;
+    .toggle-platform {
+        height: 24px;
+        border-radius: 12px;
+
+        font-family: InterUI-Regular;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 24px;
+        letter-spacing: normal;
+        text-align: center;
+        color: #ffffff;
+
+        margin-left: 8px;
+        padding: 0 16px;
+
+    }
+
+    .toggle-platform.off {
+        background-color: $color-select-off;
+        color: $color-select-off-fg;
+        span {
+            opacity: 0.4;
+        }
+    }
+
+    .toggle-platform.off:hover {
+        span {
+            opacity: 1;
+        }
+    }
 }
 
 .api-panel__select {
@@ -94,27 +194,6 @@
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-}
-
-.platform.tag-value-common {
-    background-color: #00c8ff;
-    text-transform: capitalize;
-    color: #004052;
-}
-
-.platform.tag-value-jvm {
-    background-color: #79bf2d;
-    text-transform: uppercase;
-}
-
-.platform.tag-value-native {
-    background-color: #6d6dff;
-    text-transform: capitalize;
-}
-
-.platform.tag-value-js {
-    background-color: #ffb100;
-    text-transform: uppercase;
 }
 
 .declarations:hover {

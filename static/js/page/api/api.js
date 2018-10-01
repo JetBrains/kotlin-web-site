@@ -10,7 +10,7 @@ function getVersion(element) {
 
   let version = $(element).attr('data-kotlin-version');
 
-  console.log($(element), version);
+
   return version
 }
 
@@ -30,16 +30,15 @@ function updateState(state) {
     $(element).parent().parent().removeClass('hidden')
   });
 
-  if (state.platform.toLowerCase() != 'all') {
+  //if (state.platform.toLowerCase() != 'all') {
     $platformDependentElements.each((ind, element) => {
       const $element = $(element);
 
-      let tags = $element.attr('data-platform').toLowerCase();
-
-      if (tags.includes(state.platform.toLowerCase())) return;
+      let tags = $element.attr('data-platform').toLowerCase().split(", ");
+      if (tags.some(tag => state.platform.includes(tag))) return;
       $element.addClass('hidden');
-      })
-  }
+    })
+  //}
 
   $versionDependentElements.each((ind, element) => {
     const $element = $(element);
@@ -63,6 +62,23 @@ function addSelectToPanel(panelElement, title, config) {
   new Dropdown(selectElement, config);
 }
 
+function addPlatformSelectToPanel(panelElement, config) {
+  const selectElement = $(`<div class="api-panel_toggle"></div>`);
+  $.each(config.items, (value, item) => {
+    const itemElement = $(`<div class="toggle-platform `+value+`"><span>`+item+`</span></div>`);
+    selectElement.append(itemElement);
+    if (!config.selected.includes(value)) {
+      itemElement.addClass('off');
+    }
+    itemElement.click(() => {
+      itemElement.toggleClass('off');
+      config.onSelect(value);
+    });
+  })
+  $(panelElement).append(selectElement);
+
+}
+
 function initializeSelects() {
   const $breadcrumbs = $('.api-docs-breadcrumbs');
   if ($breadcrumbs.length > 0) {
@@ -80,22 +96,30 @@ function initializeSelects() {
     {
       platform: 'all'
     };
+  if (state.platform == 'all') {
+    state.platform = ['common', 'jvm', 'js', 'native'];
+  }
   updateState(state);
 
-  addSelectToPanel(switchersPanel, "Platform", {
+  addPlatformSelectToPanel(switchersPanel, {
     items: {
-      'all': 'All',
-      'common': 'common',
-      'jre6': 'jre6',
-      'jre7': 'jre7',
-      'jre8': 'jre8',
-      'js': 'js',
-      'native': 'native'
+      'common': 'Common',
+      'jvm': 'JVM',
+      'js': 'JS',
+      'native': 'Native'
     },
     selected: state.platform,
     onSelect: (platform) => {
-      state.platform = platform;
-      updateState(state)
+      const index = state.platform.indexOf(platform);
+      if (index !== -1) {
+        state.platform.splice(index, 1);
+      } else {
+        state.platform.push(platform);
+      }
+      console.log(platform);
+      console.log(state);
+      
+      updateState(state);
     }
   });
 
