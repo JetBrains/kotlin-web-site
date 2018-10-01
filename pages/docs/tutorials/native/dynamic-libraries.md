@@ -243,7 +243,7 @@ operations generated depend on the actual usage of your code.
 Kotlin/Native has garbage collection, but it does not help deal
 with Kotlin objects from the C language. Kotlin/Native has interop with Objective-C and 
 Swift and integrates with their reference counters. You may want to find more details
-in the [Objective-C Interop](https://github.com/JetBrains/kotlin-native/blob/master/OBJC_INTEROP.md)
+in the [Objective-C Interop](/docs/reference/native/objc_interop.html)
 documentation or to check the related tutorial named [Kotlin/Native as an Apple Framework](apple-framework.html).
 
 ### Our Library Functions
