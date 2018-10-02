@@ -93,7 +93,7 @@ Let's create the main file under `SharedCode/src/commonMain/kotlin/common.kt`
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
-package com.jetbrains.jonnyzzz.common
+package org.kotlin.mpp.mobile
 
 expect fun platformName(): String
 
@@ -112,7 +112,7 @@ Now, we need to create the implementation for Android in the `SharedCode/src/and
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
-package com.jetbrains.jonnyzzz.common
+package org.kotlin.mpp.mobile
 
 actual fun platformName(): String {
   return "Android"
@@ -125,7 +125,7 @@ We create a similar file for the iOS target in the `SharedCode/src/iosMain/kotli
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
-package com.jetbrains.jonnyzzz.common
+package org.kotlin.mpp.mobile
 
 import platform.UIKit.UIDevice
 
@@ -261,12 +261,12 @@ from the `/app/src/main/java/<package>/MainActivity.kt` file, to
 the end of the `onCreate` method:
 
 ```
-findViewById<TextView>(R.id.main_text).text = createApplicationScreenMessage()"
+findViewById<TextView>(R.id.main_text).text = createApplicationScreenMessage()
 ```
 
 Use the intention from the IDE to include the missing import line:
 ```kotlin
-import com.jetbrains.jonnyzzz.common.createApplicationScreenMessage
+import org.kotlin.mpp.mobile.createApplicationScreenMessage
 ```
 into the same file. 
 
