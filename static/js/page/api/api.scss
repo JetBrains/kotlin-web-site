@@ -23,7 +23,7 @@ $platforms: (
     js: (
         bg: #ffb100,
         select-hover: #ff9b00
-    ), 
+    ),
     native: (
         bg: #6d6dff,
         select-hover: #4b4bff
@@ -31,13 +31,13 @@ $platforms: (
 );
 
 @each $platform, $params in $platforms {
-    .api-panel_toggle { 
+    .api-panel_toggle {
         .toggle-platform.#{$platform} {
             background-color: map-get($params, bg);
             @if map-has-key($params, fg) {
                 color: map-get($params, fg);
             }
-        }   
+        }
         .toggle-platform.#{$platform}:hover {
             background-color: map-get($params, select-hover);
         }
@@ -49,8 +49,8 @@ $platforms: (
             } @else {
                 color: white;
             }
-        }   
-    }   
+        }
+    }
 
 
 
@@ -145,7 +145,7 @@ $platforms: (
 
     margin-left: 14px;
 
-    // center vertically 
+    // center vertically
     margin-top: auto;
     margin-bottom: auto;
 
@@ -163,7 +163,7 @@ $platforms: (
     color: white;
 }
 
-.declarations:hover .tags__tag.platform {
+.declarations:hover .tags__tag.platform, .tags:hover .tags__tag.platform {
         //Make text visible
         text-indent: 0%;
         white-space: nowrap;
@@ -204,6 +204,15 @@ $platforms: (
     }
 }
 
+:not(.declarations) > .tags {
+    margin-bottom: 8px;
+    margin-top: 20px;
+
+    .tags__tag:first-child {
+        margin-left: auto;
+    }
+}
+
 .declarations {
     background-color: #ffffff;
     border: solid 1px rgba(0, 0, 0, 0.1);
@@ -233,12 +242,5 @@ $platforms: (
         margin-right: 24px;
     }
 
-    div .tags {
-        margin-bottom: 8px;
-        margin-top: 20px;
 
-        .tags__tag:first-child {
-            margin-left: auto;
-        }
-    }
 }
