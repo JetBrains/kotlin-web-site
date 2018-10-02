@@ -8,21 +8,21 @@ title: "What's Coming in Kotlin 1.3"
 
 ## Coroutines release
 
-After long and extensive battle testing, coroutines API is now released! It means that since Kotlin 1.3 API will remain stable on par with other released features. Check the new [coroutines overview](coroutines-overview.html) page
+After some long and extensive battle testing, the coroutines API is now released! It means that from Kotlin 1.3 the API will remain stable on par with other released features. Check out the new [coroutines overview](coroutines-overview.html) page
 
-Kotlin 1.3 introduces callable references on suspend-functions, as well as support of Coroutines in the Reflection API
+Kotlin 1.3 introduces callable references on suspend-functions and support of Coroutines in the Reflection API
 
 ## Kotlin/native
 
-Kotlin 1.3 continues to improve and polish Native target. See [Kotlin/Native overview](native-overview.html) for details 
+Kotlin 1.3 continues to improve and polish the Native target. See the [Kotlin/Native overview](native-overview.html) for details 
 
 ## Multiplatform Projects
 
-In 1.3, we've completely reworked model of multiplatform projects in order to improve expressiveness and flexibility, and to make sharing common code easier. Also, Kotlin/Native is now supported as one of the targets! See all details [here](multiplatform.html)
+In 1.3, we've completely reworked the model of multiplatform projects in order to improve expressiveness and flexibility, and to make sharing common code easier. Also, Kotlin/Native is now supported as one of the targets! Find all the details [here](multiplatform.html)
 
 ## Contracts
 
-Kotlin compiler does extensive static analysis to provide warnings and reduce boilerplate. One of the notable features is smartcasts — ability to perform cast automatically based on performed type checks:
+The Kotlin compiler does extensive static analysis to provide warnings and reduce boilerplate. One of the most notable features is smartcasts — with the ability to perform a cast automatically based on the performed type checks:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -34,7 +34,7 @@ fun foo(x: String?) {
 
 </div>
 
-However, as soon as those checks are extracted in a separate function, all smartcasts immediately disappear:
+However, as soon as these checks are extracted in a separate function, all the smartcasts immediately disappear:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -48,11 +48,11 @@ fun foo(x: String?) {
 
 </div>
 
-To improve behavior in such cases, Kotlin 1.3 introduces experimental mechanism called *contracts*.
+To improve the behavior in such cases, Kotlin 1.3 introduces experimental mechanism called *contracts*.
 
-*Contracts* allow function to explicitly describe its behavior in a way which is understood by the compiler. Currently, two wide classes of cases are supported:
+*Contracts* allow a function to explicitly describe its behavior in a way which is understood by the compiler. Currently, two wide classes of cases are supported:
 
-* Improving smartcasts analysis by declaring relation between function's call outcome and passed arguments values:
+* Improving smartcasts analysis by declaring the relation between a function's call outcome and the passed arguments values:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -73,7 +73,7 @@ fun foo(x: String?) {
 
 </div>
 
-* Improving variable initialization analysis in presence of high-order functions:
+* Improving the variable initialization analysis in the presence of high-order functions:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -99,7 +99,7 @@ fun foo() {
 
 ### Contracts in stdlib
 
-`stdlib` already makes use of contracts, which leads to improvements in analyses described above.  This part of contracts is **stable**, meaning that you can benefit from improved analysis right now without any additional opt-ins:
+`stdlib` already makes use of contracts, which leads to improvements in the analyses described above.  This part of contracts is **stable**, meaning that you can benefit from the improved analysis right now without any additional opt-ins:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -115,7 +115,7 @@ fun bar(x: String?) {
 
 ### Custom Contracts
 
-It is possible to declare contracts for your own functions, but this feature is **experimental,** as current syntax is in the state of early prototype and most probably will be changed. Also, please note, that currently Kotlin compiler does not verify contracts, so it's programmer's responsibility to write correct and sound contracts. 
+It is possible to declare contracts for your own functions, but this feature is **experimental,** as the current syntax is in a state of early prototype and will most probably be changed. Also, please note, that currently the Kotlin compiler does not verify contracts, so it's a programmer's responsibility to write correct and sound contracts. 
 
 Custom contracts are introduced by the call to `contract` stdlib function, which provides DSL scope:
 
@@ -132,11 +132,11 @@ fun String?.isNullOrEmpty(): Boolean {
 
 </div>
 
-See the details on syntax as well as compatibility notice in the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/kotlin-contracts.md)
+See the details on the syntax as well as the compatibility notice in the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/kotlin-contracts.md)
 
 ## Capturing `when` subject in a variable
 
-In Kotlin 1.3 it is now possible to capture `when` subject into variable:
+In Kotlin 1.3, it is now possible to capture the `when` subject into variable:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -150,11 +150,11 @@ fun Request.getBody() =
 
 </div>
 
-While it was already possible to extract that variable just before `when` , `val` in `when` has its scope properly restricted to the body of `when`, thus preventing namespace pollution. See full documentation on `when` [here](control-flow.html#when-expression)
+While it was already possible to extract this variable just before `when` , `val` in `when` has its scope properly restricted to the body of `when`, and so preventing namespace pollution. See the full documentation on `when` [here](control-flow.html#when-expression)
 
 ## @JvmStatic and @JvmField in companion of interfaces
 
-Since Kotlin 1.3, it is possible to mark members of `companion` object of interfaces with annotations `@JvmStatic` and `@JvmField`. In the classfile, such members will be lifted to the corresponding interface and marked as `static`
+With Kotlin 1.3, it is possible to mark members of a `companion` object of interfaces with annotations `@JvmStatic` and `@JvmField`. In the classfile, such members will be lifted to the corresponding interface and marked as `static`
 
 For example, the following Kotlin code:
 
@@ -176,7 +176,7 @@ interface Foo {
 
 </div>
 
-Is equivalent to this Java code:
+It is equivalent to this Java code:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -193,7 +193,7 @@ interface Foo {
 
 ## Nested declarations in annotation classes
 
-In Kotlin 1.3 it is possible for annotations to have nested classes, interfaces, objects and companions:
+In Kotlin 1.3 it is possible for annotations to have nested classes, interfaces, objects, and companions:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -214,9 +214,9 @@ annotation class Foo {
 
 ## Parameterless `main`
 
-By convention, entry point of Kotlin program is a function with signature like `main(args: Array<String>)`, where `args` represent command-line arguments passed to the program. However, not every application supports command-line arguments, so this parameter often ends up being unused. 
+By convention, the entry point of a Kotlin program is a function with a signature like `main(args: Array<String>)`, where `args` represent the command-line arguments passed to the program. However, not every application supports command-line arguments, so this parameter often ends up not being used. 
 
-Kotlin 1.3 introduced simpler form of `main` which takes no parameters. Now “Hello, World” in Kotlin is 19 characters shorter!
+Kotlin 1.3 introduced a simpler form of `main` which takes no parameters. Now “Hello, World” in Kotlin is 19 characters shorter!
 
 <div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
@@ -230,7 +230,7 @@ fun main() {
 
 ## Functions with big arity
 
-In Kotlin, functional types are represented as generic classes taking different number of parameters: `Function0<R>`, `Function1<P0, R>`, `Function2<P0, P1, R>`, ... This approach has a problem in that this list is finite, and it currently ends with `Function22`. 
+In Kotlin, functional types are represented as generic classes taking a different number of parameters: `Function0<R>`, `Function1<P0, R>`, `Function2<P0, P1, R>`, ... This approach has a problem in that this list is finite, and it currently ends with `Function22`. 
 
 Kotlin 1.3 relaxes this limitation and adds support for functions with bigger arity:
 
@@ -246,17 +246,17 @@ fun trueEnterpriseComesToKotlin(block: (Any, Any, ... /* 42 more */, Any) -> Any
 
 ## Progressive mode
 
-Kotlin cares a lot about stability and backward compatibility of code: Kotlin compatibility policy says that "breaking changes" (e.g. change which makes code that used to compile fine to not compile anymore) can be introduced only in the major releases (1.2, 1.3, etc.)  
+Kotlin cares a lot about stability and backward compatibility of code: Kotlin compatibility policy says that "breaking changes" (e.g., a change which makes the code that used to compile fine, not compile anymore) can be introduced only in the major releases (1.2, 1.3, etc.)  
 
-We believe that a lot of users could use much faster cycle, where critical compiler bug fixes arrive immediately, making code more safe and correct. Thus, Kotlin 1.3 introduces *progressive* compiler mode, which can be enabled by  passing argument `-progressive` to the compiler.
+We believe that a lot of users could use a much faster cycle, where critical compiler bug fixes arrive immediately, making the code more safe and correct. So, Kotlin 1.3 introduces *progressive* compiler mode, which can be enabled by passing the argument `-progressive` to the compiler.
 
-In progressive mode, some fixes in language semantics can arrive immedeately. All those fixes have two important properties:
+In progressive mode, some fixes in language semantics can arrive immediately. All these fixes have two important properties:
 
-* they preserve backward-compatibility of source code with older compilers, meaning that all code which is compilable by progressive compiler will be compiled fine by non-progressive one
-* they only make code *safer* in some sense — e.g., some unsound smartcast can be forbidden, behavior of generated code may be changed to be more predictable/stable, and so on.
+* they preserve backward-compatibility of source code with older compilers, meaning that all the code which is compilable by the progressive compiler will be compiled fine by non-progressive one
+* they only make code *safer* in some sense — e.g., some unsound smartcast can be forbidden, behavior of the generated code may be changed to be more predictable/stable, and so on.
 
-Enabling progressive mode can require you to rewrite some of your code, but it shouldn't be too much — all fixes which are enabled under progressive are carefully handpicked, reviewed and provided with tooling migration assistance. 
-We expect that progressive mode should be a nice choice for actively maintained codebases which are updated to the latest language versions quickly.
+Enabling the progressive mode can require you to rewrite some of your code, but it shouldn't be too much — all the fixes which are enabled under progressive are carefully handpicked, reviewed, and provided with tooling migration assistance. 
+We expect that the progressive mode will be a nice choice for any actively maintained codebases which are updated to the latest language versions quickly.
 
 ## Inline classes
 
@@ -264,7 +264,7 @@ We expect that progressive mode should be a nice choice for actively maintained 
 {:.note}
 
 
-Kotlin 1.3 introduces new declaration kind — `inline class`. Inline classes can be viewed as a restricted version of usual classes: in particular, inline classes must have exactly one property:
+Kotlin 1.3 introduces a new kind of declaration — `inline class`. Inline classes can be viewed as a restricted version of the usual classes, in particular, inline classes must have exactly one property:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -274,7 +274,7 @@ inline class Name(val s: String)
 
 </div>
 
-Kotlin compiler will use that restriction to aggressively optimize runtime representation of inline classes and substitute their instances with the value of underlying property where possible, removing constructor calls, GC pressure and enabling other optimizations:
+The Kotlin compiler will use this restriction to aggressively optimize runtime representation of inline classes and substitute their instances with the value of the underlying property where possible removing constructor calls, GC pressure, and enabling other optimizations:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -303,7 +303,7 @@ Kotlin 1.3 introduces unsigned integer types:
 * `kotlin.UInt`: an unsigned 32-bit integer, ranges from 0 to 2^32 - 1
 * `kotlin.ULong`: an unsigned 64-bit integer, ranges from 0 to 2^64 - 1
 
-Most of the functionality of signed types supported for unsigned counterparts too:
+Most of the functionality of signed types are supported for unsigned counterparts too:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -329,13 +329,13 @@ See [reference](basic-types.html#unsigned-integers) for details.
 
 ## @JvmDefault
 
-> `@JvmDefault` is available only since Kotlin 1.3 and currently is *experimental*. See details in the [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html)
+> `@JvmDefault` is only available since Kotlin 1.3 and currently is *experimental*. See details in the [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html)
 {:.note}
 
 
-Kotlin targets wide range of the Java versions, including Java 6 and Java 7, where default methods in interfaces are not allowed. For your convenience, Kotlin compiler workarounds that limitation, but this workaround isn't compatible with `default` methods, introduced in Java 8. 
+Kotlin targets a wide range of the Java versions, including Java 6 and Java 7, where default methods in the interfaces are not allowed. For your convenience, the Kotlin compiler works around that limitation, but this workaround isn't compatible with the `default` methods, introduced in Java 8. 
 
-This could be an issue for Java-interoperability, so Kotlin 1.3 introduces `@JvmDefault` annotation. Methods, annotated with this annotation will be generated as `default` methods for JVM:
+This could be an issue for Java-interoperability, so Kotlin 1.3 introduces the `@JvmDefault` annotation. Methods, annotated with this annotation will be generated as `default` methods for JVM:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -356,7 +356,7 @@ interface Foo {
 
 ## Multiplatform `Random`
 
-Prior to Kotlin 1.3, there were no uniform way to generate random numbers on all platforms — one had to resort to platform specific solutions, like `java.util.Random` on JVM. This releases fixes this issue by introducing class `kotlin.random.Random`, which is available on all platforms:
+Prior to Kotlin 1.3, there was no uniform way to generate random numbers on all platforms — we had to resort to platform specific solutions, like `java.util.Random` on JVM. This release fixes this issue by introducing the class `kotlin.random.Random`, which is available on all platforms:
 
 <div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
@@ -375,8 +375,8 @@ fun main() {
 
 ## isNullOrEmpty/orEmpty extensions
 
-`isNullOrEmpty` and `orEmpty` extensions for some types already present in stdlib . The first one returns `true` if the receiver is `null` or empty, and the second one falls back to an empty instance if the receiver is `null`.
-Kotlin 1.3 provides similar extensions on collections, maps and arrays of objects.
+`isNullOrEmpty` and `orEmpty` extensions for some types are already present in stdlib . The first one returns `true` if the receiver is `null` or empty, and the second one falls back to an empty instance if the receiver is `null`.
+Kotlin 1.3 provides similar extensions on collections, maps, and arrays of objects.
 
 ## Copying elements between two existing arrays
 
@@ -401,7 +401,7 @@ fun main() {
 
 ## associateWith
 
-It is quite common situation when you have a list of keys and you want to build a map by associating each of these keys with some value. It was possible to do it before with the `associate { it to getValue(it) }` function, but now we’re introducing a more efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`
+It is quite a common situation to have a list of keys and want to build a map by associating each of these keys with some value. It was possible to do it before with the `associate { it to getValue(it) }` function, but now we’re introducing a more efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`
 
 <div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
@@ -419,7 +419,7 @@ fun main() {
 
 ## ifEmpty and ifBlank functions
 
-Collections, maps, object arrays, char sequences and sequences now have `ifEmpty` function, which allows to specify a fallback value that will be used instead of the receiver if it is empty:
+Collections, maps, object arrays, char sequences, and sequences now have an `ifEmpty` function, which allows specifying a fallback value that will be used instead of the receiver if it is empty:
 
 <div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
@@ -441,7 +441,7 @@ fun main() {
 
 </div>
 
-Char sequences and strings in addition have `ifBlank` extension that does the same thing as `ifEmpty`, but checks for the string being all whitespace instead of empty.
+Char sequences and strings in addition have an `ifBlank` extension that does the same thing as `ifEmpty`, but checks for a string being all whitespace instead of empty.
 
 <div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
@@ -459,7 +459,7 @@ fun main() {
 
 ## Sealed classes in reflection
 
-We’ve added a new API to `kotlin-reflect` that can be used to enumerate all direct subtypes of a `sealed` class, namely `KClass.sealedSubclasses`.
+We’ve added a new API to `kotlin-reflect` that can be used to enumerate all the direct subtypes of a `sealed` class, namely `KClass.sealedSubclasses`.
 
 ## Smaller changes
 
@@ -471,29 +471,29 @@ We’ve added a new API to `kotlin-reflect` that can be used to enumerate all di
 
 ## Code Style Support in IDE
 
-Kotlin 1.3 introduces support for the [recommended code style](coding-conventions.html) in the IDE. Check [this page](code-style-migration-guide.html) for migration guidelines
+Kotlin 1.3 introduces support for the [recommended code style](coding-conventions.html) in the IDE. Check out [this page](code-style-migration-guide.html) for the migration guidelines.
 
 ## kotlinx.serialization
 
-[kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) is a library which provides multiplatform support for (de)serializing objects in Kotlin. Previously, it was a separate project, but since Kotlin 1.3, it ships with Kotlin compiler distribution on par with other compiler plugins. The main difference is that you don't need to manually watch for Serialization IDE Plugin to be compatible with Kotlin IDE Plugin version you're using: now Kotlin IDE Plugin already includes serialization!
+[kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) is a library which provides multiplatform support for (de)serializing objects in Kotlin. Previously, it was a separate project, but since Kotlin 1.3, it ships with the Kotlin compiler distribution on par with the other compiler plugins. The main difference is that you don't need to manually watch out for the Serialization IDE Plugin being compatible with the Kotlin IDE Plugin version you're using: now the Kotlin IDE Plugin already includes serialization!
 
 See here for [details](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/eap13.md)
 
-> Please, note, that even though kotlinx.serialization now ships with Kotlin Compiler distribution, it is still considered to be an experimental feature. 
+> Please, note, that even though kotlinx.serialization now ships with the Kotlin Compiler distribution, it is still considered to be an experimental feature. 
 {:.note}
 
 ## Scripting update
 
-> Please, note, that scripting is experimental feature, meaning that no compatibility guarantees on API are given.
+> Please note, that scripting is an experimental feature, meaning that no compatibility guarantees on the API are given.
 {:.note}
 
-Kotlin 1.3 continues to evolve and improve scripting API, introducing an experimental support for scripts customization, such as adding external properties, providing static or dynamic dependencies, and so on. 
+Kotlin 1.3 continues to evolve and improve scripting API, introducing some experimental support for scripts customization, such as adding external properties, providing static or dynamic dependencies, and so on. 
 
 For additional details, please consult the [KEEP-75](https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md). 
 
 ## Scratches support
 
-Kotlin 1.3 introduces support for runnable Kotlin *scratch files*. *Scratch file* is a kotlin script file with .kts extension which you can run and get evaluation results directly in the editor. 
+Kotlin 1.3 introduces support for runnable Kotlin *scratch files*. *Scratch file* is a kotlin script file with a .kts extension which you can run and get evaluation results directly in the editor. 
 
 Consult the general [Scratches documentation](https://www.jetbrains.com/help/idea/scratches.html) for details
 
