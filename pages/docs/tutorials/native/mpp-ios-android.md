@@ -45,7 +45,7 @@ It is also possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured. Check out
 the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
-*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14*
+*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14, Gradle 4.10.2*
 
 # Creating an Android Project
 
@@ -67,6 +67,7 @@ maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 ```
 </div>
 
+<a name="gradle-upgrade"/>
 Kotlin/Native plugin requires a newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
 and use the following `distrubutionUrl`:
 ```
@@ -346,7 +347,11 @@ tasks.build.dependsOn packForXCode
 ```
 </div>
 
-Let's switch back to Android Studio and execute the `build` target of the `SharedCode` project from
+Note, the task may not work [correctly](https://github.com/gradle/gradle/issues/6330)
+if you use Gradle older than 4.10. 
+In this tutorial we have already [upgraded it to 4.10.2](#gradle-upgrade).
+
+Let's switch back to the Android Studio and execute the `build` target of the `SharedCode` project from
 the *Gradle* tool window. The task looks for environment variables set by the Xcode build and copies
 the right variant of the framework into the `SharedCode/build/xcode-frameworks` folder. We then include the
 framework from that folder into the build
@@ -365,13 +370,15 @@ We will then see something similar to this:
 ![Xcode General Screen]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-general.png') }})
 
 We need to disable the *Bitcode* feature in the project too. Kotlin/Native produces the fully native
-binaries, not the LLVM bitcode, so we need to navigate to the *Build Settings* tab and type `bitcode` into
+binaries, not the LLVM bitcode, so we need to navigate to the *Build Settings* tab, pick the *All* sub-tab below, and type `bitcode` into
 the search field. Select `No` for the *Enable Bitcode* option.
 
 ![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-bitcode.png') }})
 
 Now we need to explain to Xcode, where to look for frameworks. We need to add the *relative* path 
 `$(SRCROOT)/../../SharedCode/build/xcode-frameworks` into the *Search Paths | Framework Search Paths* section.
+Open the *Build Settings* tab again, pick the *All* sub-tab below, and type the *Framework Search Paths* into
+the search field to easily find the option.
 Xcode will then show the substituted path in the UI for it.
 
 ![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-search-path.png') }})
