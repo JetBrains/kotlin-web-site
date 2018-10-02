@@ -308,6 +308,11 @@ tutorials:
         - url: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
           title: Debugging Kotlin in browser
 
+    - title: Multiplatform Projects
+      content:
+        - url: /docs/tutorials/native/mpp-ios-android.html
+          title: "iOS and Android"
+
     - title: Native
       content:
         - url: /docs/tutorials/native/basic-kotlin-native-app.html
@@ -330,10 +335,12 @@ tutorials:
           title: Kotlin/Native as a Dynamic Library
         - url: /docs/tutorials/native/apple-framework.html
           title: Kotlin/Native as an Apple Framework
-        - url: /docs/tutorials/native/kotlin-native-with-clion.html
-          title: Kotlin/Native with CLion
+#        - url: /docs/tutorials/native/kotlin-native-with-clion.html
+#          title: Kotlin/Native with CLion
         - url: /docs/tutorials/native/gradle-for-kotlin-native.html
           title: Gradle for Kotlin/Native
+        - url: /docs/tutorials/native/mpp-ios-android.html
+          title: "Multiplatform Project: iOS and Android"
 
     - title: Coroutines
       content:

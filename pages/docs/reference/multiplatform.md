@@ -98,7 +98,7 @@ Sharing code between mobile platforms is one of the major Kotlin Multiplatform u
 possible to build mobile applications with parts of the code, such as business logic, connectivity, 
 and more, shared between Android and iOS.
 
-See: [Multiplatform Project: iOS and Android] TODO /docs/tutorials/native/mpp-ios-android.html
+See: [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
 
 ### Client — Server
 
@@ -112,7 +112,7 @@ The [Ktor framework](https://ktor.io/) is suitable for building asynchronous ser
 
 * Tutorials and samples:
     * [Multiplatform Kotlin Library] TODO /docs/tutorials/multiplatform-library.html
-    * [Multiplatform Project: iOS and Android] TODO /docs/tutorials/native/mpp-ios-android.html
+    * [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
     * [KotlinConf Schedule Application](https://github.com/JetBrains/kotlinconf-app)
 * Docs: 
     * [Setting up a Multiplatform Project](building-mpp-with-gradle.html#setting-up-a-multiplatform-project) 
