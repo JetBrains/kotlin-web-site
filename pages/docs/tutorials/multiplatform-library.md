@@ -9,40 +9,40 @@ showAuthorInfo: false
 issue: EVAN-6031
 ---
 
-During this tutorial, we will build a small library available from JVM, JS and Native worlds. 
-You will learn how to step-by-step create a multiplatform library which can be used from any other common code (e.g. one shared with Android and iOS), 
-write tests which will be executed on all platforms and use efficient implementation provided by the concrete platform.
+In this tutorial, we will build a small library available from the worlds of JVM, JS, and Native. 
+You will learn step-by-step how to create a multiplatform library which can be used from any other common code (e.g., one shared with Android and iOS), 
+and how to write tests which will be executed on all platforms and use an efficient implementation provided by the concrete platform.
 
 # What are we building?
 
-Our goal is to build a small multiplatform library to demonstrate the ability of sharing the code between the platforms and its benefits.
+Our goal is to build a small multiplatform library to demonstrate the ability to share the code between the platforms and its benefits.
 In order to have a small implementation to focus on the multiplatform machinery, we will write a library which
-converts raw data (strings and byte arrays) to the [Base64](https://en.wikipedia.org/wiki/Base64) format and can be used on JVM, JS and any available K/N platform.
+converts raw data (strings and byte arrays) to the [Base64](https://en.wikipedia.org/wiki/Base64) format which can be used on JVM, JS, and any available K/N platform.
 On JVM implementation will be using [`java.util.Base64`](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html) which is known to be extremely efficient 
 because JVM is aware of this particular class and compiles it in a special way.
-On JS we will be using native [Buffer](https://nodejs.org/docs/latest/api/buffer.html) API and on Kotlin/Native we will write our own implementation.
-We will cover this functionality by common tests and then publish resulting library to Maven.
+On JS we will be using the native [Buffer](https://nodejs.org/docs/latest/api/buffer.html) API and on Kotlin/Native we will write our own implementation.
+We will cover this functionality with common tests and then publish the resulting library to Maven.
 
 
 # Setting up the local environment
 
-We will be using IntelliJ Community Edition for this tutorial, though using Ultimate edition is possible as well. Kotlin plugin 1.3.x or higher should be installed in the IDE. 
-This can be verified via *Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) of the IDE.
+We will be using IntelliJ IDEA Community Edition for this tutorial, though using Ultimate edition is possible as well. The Kotlin plugin 1.3.x or higher should be installed in the IDE. 
+This can be verified via the *Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) of the IDE.
 Native part of this project is written using Mac OS X, but don't worry if you are using another platform, the platform affects only directory names in this particular tutorial.
 
 # Creating a project
 
 (TODO links on Sergei article)
-We will be using IntelliJ Community Edition for the example. You need to make sure you have the latest version of Kotlin plugin installed, 1.3.x or newer.
-We select *File | New | Project*, select *Kotlin | Kotlin (Multiplatform Library)* and configure the project in the way you want. 
+We will be using IntelliJ IDEA Community Edition for the example. You need to make sure you have the latest version of the Kotlin plugin installed, 1.3.x or newer.
+We select *File | New | Project*, select *Kotlin | Kotlin (Multiplatform Library)* and configure the project in the way we want. 
 The only limitation is to use Gradle 4.10 for Kotlin/Native plugin. Let's patch the `gradle/wrapper/gradle-wrapper.properties` and specify gradle version 4.10. 
 TODO Mikhail should fix bugs with wrapper and this part can be removed
 
 
 ![Wizard]({{ url_for('tutorial_img', filename='multiplatform/wizard.png') }})
 
-Multiplatform sample library is now created and imported into IDEA. Let's go to any `.kt` file and rename the package with IDEA action *Refactor | Rename* action to `org.jetbrains.base64`
-Let's do a checkpoint here, a project structure should be:
+A multiplatform sample library is now created and imported into IntelliJ IDEA. Let's go to any `.kt` file and rename the package with the IntelliJ IDEA action *Refactor | Rename* action to `org.jetbrains.base64`
+Let's just check everything is right with the project so far, the project structure should be:
 
 ```
 └── src
@@ -64,12 +64,12 @@ Let's do a checkpoint here, a project structure should be:
 └── kotlin
 ```
 
-And `kotlin` folder should contain `org.jetbrains.base64` subfolder.
+And the `kotlin` folder should contain an `org.jetbrains.base64` subfolder.
 
 # Common part
 
-Now we should define the classes and interfaces we want to implement. Create file `Base64.kt` in `commonMain/kotlin/jetbrains/base64` folder.
-Core primitive will be `Base64Encoder` interface which knows how to convert bytes to bytes in `Base64` format:
+Now we need to define the classes and interfaces we want to implement. Create the file `Base64.kt` in the `commonMain/kotlin/jetbrains/base64` folder.
+Core primitive will be the `Base64Encoder` interface which knows how to convert bytes to bytes in `Base64` format:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -80,7 +80,7 @@ interface Base64Encoder {
 ```
 </div>
 
-But common code should somehow get an instance of this interface, for that purpose we define factory object `Base64Factory`:
+But the common code should somehow get an instance of this interface, for that purpose we define the factory object `Base64Factory`:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -91,14 +91,14 @@ expect object Base64Factory {
 ```
 </div>
 
-Our factory is marked with `expect` keyword. `expect` is a mechanism to define a requirement, which every platform should provide in order to common part to work properly.
-So on each platform we should provide `actual` `Base64Factory` which knows how to create platform-specific encoder.
+Our factory is marked with the `expect` keyword. `expect` is a mechanism to define a requirement, which every platform should provide in order for the common part to work properly.
+So on each platform we should provide the `actual` `Base64Factory` which knows how to create the platform-specific encoder.
 You can read more about platform specific declarations [here](/docs/reference/multiplatform.html#platform-specific-declarations)
 
 
 # Platform-specific implementations
 
-Now it is a time to provide  an `actual` implementation of `Base64Factory` for every platform.
+Now it is time to provide an `actual` implementation of `Base64Factory` for every platform.
 
 
 ## JVM
@@ -118,7 +118,7 @@ object JvmBase64Encoder : Base64Encoder {
 ```
 </div>
 
-Pretty simple, isn't it? We provided a platform-specific implementation, but used straightforward delegation to the implementation someone else has written!
+Pretty simple, isn't it? We have provided a platform-specific implementation, but used a straightforward delegation to an implementation someone else has written!
 
 
 ## JS
@@ -145,7 +145,7 @@ object JsBase64Encoder : Base64Encoder {
 
 ## Native
 
-On generic Native platform we don't have luxury to use someone's implementation, so we will write one by ourselves. I won't explain implementation details here,
+On the generic Native platform we don't have the luxury to use someone else's implementation, so we will have to write one ourselves. I won't explain the implementation details here,
 but it's pretty straightforward and follows Base64 format description without any optimizations:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -190,18 +190,18 @@ object NativeBase64Encoder : Base64Encoder {
 ```
 </div>
 
-Now we have implementations on all platforms and it is time to move to testing of our library.
+Now we have implementations on all the platforms and it is time to move to testing of our library.
 
 # Testing
 
-To make library complete we should write some tests, but we have three independent implementations and it will be a waste to write duplicates tests for each one.
-Good thing about common code is that it can be covered with common tests, which later are compiled and executed on *every* platform.
- All the bits for testing are already generated by the project Wizard. TODO link to Sergei article to avoid explanation of `test` source sets and dependencies.
+To make the library complete we should write some tests, but we have three independent implementations and it is a waste of time to write duplicate tests for each one.
+The good thing about common code is that it can be covered with common tests, which later are compiled and executed on *every* platform.
+All the bits for testing are already generated by the project Wizard. TODO link to Sergei article to avoid explanation of `test` source sets and dependencies.
 
-Let's create class `Base64Test` in `commonTest/kotlin/jetbrains/base64` folder and write a basic tests for Base64.
+Let's create the class `Base64Test` in `commonTest/kotlin/jetbrains/base64` folder and write the basic tests for Base64.
 
-But as you remember, our API converts byte arrays to byte arrays and it's not quite handy to test byte arrays.
-So before we start writing a test, let's add a method `encodeToString` with a default implementation to our `Base64Encoder` interface:
+But as you remember, our API converts byte arrays to byte arrays and it's not useful to test byte arrays.
+So before we start writing a test, let's add the method `encodeToString` with a default implementation to our `Base64Encoder` interface:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -219,7 +219,7 @@ interface Base64Encoder {
 ```
 </div>
 
-Notice that implementation on *every* platform can encode byte arrays to string. If we want we can provide more efficient implementation for this method, 
+Notice that the implementation on *every* platform can encode byte arrays to a string. If we want we can provide a more efficient implementation for this method, 
 for example, let's specialize it on the JVM:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -232,7 +232,7 @@ object JvmBase64Encoder : Base64Encoder {
 ```
 </div>
 
-Default implementations with optional more specialized overrides is another goodie of multiplatform library. Now, when we have a string-based API, let's cover it with basic tests:
+Default implementations with optional more specialized overrides is another bonus of the multiplatform library. Now, when we have a string-based API, we can cover it with basic tests:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -263,10 +263,10 @@ class Base64Test {
 ```
 </div>
 
-Execute `./gradlew check` and you will see that tests are ran three times, on JVM, on JS and on Native!
+Execute `./gradlew check` and you will see that the tests are run three times, on JVM, on JS, and on Native!
 
-If we want, we can add tests to specific platform, then it will be executed only as part of this platform tests.
-For example, we can add UTF-16 tests on JVM. Just follow the same steps, but create file in `jvmTest/kotlin/jetbrains/base64`:
+If we want, we can add tests to a specific platform, then it will be executed only as part of these platform tests.
+For example, we can add UTF-16 tests on JVM. Just follow the same steps as before, but create file in `jvmTest/kotlin/jetbrains/base64`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -280,12 +280,12 @@ class Base64JvmTest {
 }
 ```
 </div>
-This test will be automatically executed on JVM target additionally to the common part.
+This test will be automatically executed on the JVM target in addition to the common part.
 
 ## Publishing library to Maven
 
-Our first multiplatform library is almost ready. The last step is to publish it, so other projects can depend on our library.
-To make publishing mechanism work, you should enable the experimental Gradle feature in `settings.gradle`:
+Our first multiplatform library is almost ready. The last step is to publish it, so other projects can then depend on our library.
+To make the publishing mechanism work, you should enable the experimental Gradle feature in `settings.gradle`:
 
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -295,8 +295,8 @@ enableFeaturePreview('GRADLE_METADATA')
 </div>
 
 
-Now classic `maven-publish` Gradle [plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) can be used.
-Don't forget to specify group and version of your library along with plugin in `build.gradle`:
+Now the classic `maven-publish` Gradle [plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) can be used.
+Don't forget to specify the group and version of your library along with the plugin in `build.gradle`:
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```groovy
@@ -306,16 +306,16 @@ version '1.0.0'
 ```
 </div>
 
-Now check it with command `./gradlew publishToMavenLocal` and you should see a successful build. 
-That's it, our library is successfully published and any Kotlin project can depend on it, whether it is an another common library, JVM, JS or Naive application.
+Now check it with the command `./gradlew publishToMavenLocal` and you should see a successful build. 
+That's it, our library is now successfully published and any Kotlin project can depend on it, whether it is another common library, JVM, JS, or Native application.
 
 
 # Summary
 
-In this tutorial we
-- created a multiplatform library with platform-specific implementations
-- provided default implementation for common part and specialized it on JVM
-- have written common tests which are executed on every platform
-- published the final library to Maven repository
+In this tutorial we have:
+- Created a multiplatform library with platform-specific implementations.
+- Provided default implementation for common part and specialized it on JVM.
+- Written common tests which are executed on every platform.
+- Published the final library to Maven repository.
 
-We may find the whole sources from that tutorial on [GitHub] TODO where should sources be?
+We may find all the sources from this tutorial on [GitHub] TODO where should sources be?
