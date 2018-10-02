@@ -102,7 +102,7 @@ The [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios
 of a multiplatorm project with iOS and Android apps, server side and web frontend. 
 
 A multiplayer game built completely in Kotlin/Native with backend, SQLite, iOS, Android apps,
-OpenGL and a WebAssembly-based browser frontend. You may remember the  
+OpenGL and a WebAssembly-based browser frontend. You may remember the
 [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner) from KotlinConf 2017.
 
 Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples).
