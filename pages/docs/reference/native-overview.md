@@ -62,7 +62,7 @@ Kotlin/Native targets.
 This is the way to share common Kotlin code between many platforms, including Android, iOS, server-side, JVM, client-side, 
 JavaScript, CSS, and native.
 
-[Kotlin multiplatform libraries](/docs/reference/multiplatform.html#multiplatform-libraries)
+[Multiplatform libraries](/docs/reference/multiplatform.html#multiplatform-libraries)
 provide the necessary APIs for the common Kotlin code and help to develop
 shared parts of a project in Kotlin code once and share it with all of the target platforms. 
 
@@ -75,21 +75,17 @@ shared parts of a project in Kotlin code once and share it with all of the targe
 
 New to Kotlin? Take a look at the [Getting Started](/docs/reference/basic-syntax.html) page.
 
-Check out the [C interop](/docs/reference/native/c_interop.html), 
-[Swift/Objective-C interop](/docs/reference/native/objc_interop.html), and other
-reference pages to learn more on the Kotlin/Native.
+Documentation pages:
+- [C interop](/docs/reference/native/c_interop.html)
+- [Swift/Objective-C interop](/docs/reference/native/objc_interop.html)
 
-A basic Kotlin/Native application is covered in 
-[the tutorial](/docs/tutorials/native/basic-kotlin-native-app.html). 
-The [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html) page
-demonstrates how to share Kotlin code between Android and iOS applications via a multiplatform project.
-[Types mapping between C and Kotlin/Native](/docs/tutorials/native/mapping-primitive-data-types-from-c.html)
-topic is discussed.
-Building a [dynamic library](/docs/tutorials/native/dynamic-libraries.html) or
-an [Apple framework](/docs/tutorials/native/apple-framework.html) from Kotlin sources are essential topics
-to cover and to elaborate.
+Tutorials:
+- [A basic Kotlin/Native application](/docs/tutorials/native/basic-kotlin-native-app.html) 
+- [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
+- [Types mapping between C and Kotlin/Native](/docs/tutorials/native/mapping-primitive-data-types-from-c.html)
+- [Kotlin/Native as a Dynamic Library](/docs/tutorials/native/dynamic-libraries.html) 
+- [Kotlin/Native as a Apple Framework](/docs/tutorials/native/apple-framework.html)
 
- 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
     <img src="{{ url_for('asset', path='images/landing/native/try.png') }}" height="38p" width="55" style="margin-right: 10px;">
     <b>Example Projects</b>
@@ -101,8 +97,8 @@ contains sample projects and the sources of the Kotlin/Native compiler.
 The [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) is an example
 of a multiplatorm project with iOS and Android apps, server side and web frontend. 
 
-A multiplayer game built completely in Kotlin/Native with backend, SQLite, iOS, Android apps,
-OpenGL and a WebAssembly-based browser frontend. You may remember the
+A multiplayer game built completely in Kotlin/Native with backend, SQLite, iOS and Android apps,
+OpenGL, and a WebAssembly-based browser frontend. You may remember the
 [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner) from KotlinConf 2017.
 
 Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples).
