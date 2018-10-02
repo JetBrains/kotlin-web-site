@@ -75,11 +75,11 @@ shared parts of a project in Kotlin code once and share it with all of the targe
 
 New to Kotlin? Take a look at the [Getting Started](/docs/reference/basic-syntax.html) page.
 
-Documentation pages:
+Suggested documentation pages:
 - [C interop](/docs/reference/native/c_interop.html)
 - [Swift/Objective-C interop](/docs/reference/native/objc_interop.html)
 
-Tutorials:
+Recommended tutorials:
 - [A basic Kotlin/Native application](/docs/tutorials/native/basic-kotlin-native-app.html) 
 - [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
 - [Types mapping between C and Kotlin/Native](/docs/tutorials/native/mapping-primitive-data-types-from-c.html)
