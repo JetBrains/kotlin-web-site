@@ -298,7 +298,7 @@ The created iOS application is ready to run on the iOS emulator or on the iOS de
 may require an Apple developer account and to issue a developer certificate. Xcode does its
 best to guide us through the process. 
 
-Let's make sure we can to run the application on the iPhone emulator or device. 
+Let's make sure we can run the application on the iPhone emulator or device. 
 
 
 # Setting up Framework Dependency in Xcode
