@@ -76,17 +76,17 @@ shared parts of a project in Kotlin code once and share it with all of the targe
 New to Kotlin? Take a look at the [Getting Started](/docs/reference/basic-syntax.html) page.
 
 Check out the [C interop](/docs/reference/native/c_interop.html), 
-[Swift/Objective-C interop](/docs/reference/native/objc_interop.html), or other
+[Swift/Objective-C interop](/docs/reference/native/objc_interop.html), and other
 reference pages to learn more on the Kotlin/Native.
 
-A basics Kotlin/Native application is explained in 
+A basic Kotlin/Native application is covered in 
 [the tutorial](/docs/tutorials/native/basic-kotlin-native-app.html). 
 The [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html) page
 demonstrates how to share Kotlin code between Android and iOS applications via a multiplatform project.
 [Types mapping between C and Kotlin/Native](/docs/tutorials/native/mapping-primitive-data-types-from-c.html)
-topic is discussed in the series of four articles.
-Building [a dynamic library](/docs/tutorials/native/dynamic-libraries.html) or
-[an Apple framework](/docs/tutorials/native/apple-framework.html) from Kotlin sources are essential topics
+topic is discussed.
+Building a [dynamic library](/docs/tutorials/native/dynamic-libraries.html) or
+an [Apple framework](/docs/tutorials/native/apple-framework.html) from Kotlin sources are essential topics
 to cover and to elaborate.
 
  
