@@ -114,11 +114,27 @@ The [Ktor framework](https://ktor.io/) is suitable for building asynchronous ser
 
 ## How to start
 
-* Tutorials and samples:
-    * [Multiplatform Kotlin Library](/docs/tutorials/multiplatform-library.html)
-    * [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
-    * [KotlinConf Schedule Application](https://github.com/JetBrains/kotlinconf-app)
-* Docs: 
-    * [Setting up a Multiplatform Project](building-mpp-with-gradle.html#setting-up-a-multiplatform-project) 
-    * [Platform-Specific Declarations](platform-specific-declarations.html) 
+<div style="display: flex; align-items: center; margin-bottom: 20px">
+    <img src="{{ url_for('asset', path='images/landing/native/book.png') }}" height="38p" width="55" style="margin-right: 10px;">
+    <b>Tutorials and Documentation</b>
+</div>
+
+New to Kotlin? Take a look at the [Getting Started](/docs/reference/basic-syntax.html) page.
+
+Suggested documentation pages: 
+- [Setting up a Multiplatform Project](building-mpp-with-gradle.html#setting-up-a-multiplatform-project) 
+- [Platform-Specific Declarations](platform-specific-declarations.html) 
+
+Recommended tutorials:
+- [Multiplatform Kotlin Library](/docs/tutorials/multiplatform-library.html)
+- [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
   
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <img src="{{ url_for('asset', path='images/landing/native/try.png') }}" height="38p" width="55" style="margin-right: 10px;">
+    <b>Example Projects</b>
+</div>
+
+- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) 
+- [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
+
+Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples).
