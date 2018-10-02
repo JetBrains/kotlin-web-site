@@ -209,7 +209,7 @@ target has its own platform. The `common` target contains the Kotlin common code
 which is included into every platform compilation. It is allowed to have `expect` declarations.
 Other targets provide `actual` implementations for all `expect`-actions from the `common` target. 
 The more detailed explanation of the multiplatform projects can be found on the
-[Multiplatform Projects](/docs/reference/multiplatform.html) documentation page.
+[Multiplatform Projects](/docs/reference/building-mpp-with-gradle.html) documentation page.
 
 Let's summarize what we have in the table:
 
