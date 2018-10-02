@@ -45,7 +45,7 @@ directly from Kotlin/Native:
 
 It is easy to include a compiled Kotlin code into
 existing projects written in C, C++, Swift, Objective-C, and other languages.
-Also, it is easy to use existing native code, 
+It is also easy to use existing native code, 
 static or dynamic [C libraries](/docs/reference/native/c_interop.html),
 Swift/Objective-C [frameworks](/docs/reference/native/objc_interop.html),
 graphical engines, and anything else directly from Kotlin/Native.
