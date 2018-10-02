@@ -29,7 +29,10 @@
     }
 
     .kotlin-info {
-        padding-top: 120px;
+        background-color: white;
+        border-radius: 5px;
+        padding-top: 60px;
+        padding-bottom: 30px;
         text-align: left;
     }
 
@@ -91,7 +94,7 @@
 
 .page_index .global-header {
     box-sizing: border-box;
-    height: 450px;
+    height: 620px;
 
     .get-kotlin-button {
         @extend %button_call-to-action;

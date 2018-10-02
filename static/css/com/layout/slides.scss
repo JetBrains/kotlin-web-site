@@ -3,6 +3,7 @@
 .kotlin-slides {
   display: flex;
   height: 100%;
+  padding-top: 30px;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -16,9 +17,9 @@
 
 .slide-item {
   cursor: pointer;
-  margin: 10px 5px 0;
-  height: 150px;
-  width: 300px;
+  margin: 10px 15px 0;
+  height: 130px;
+  width: 180px;
 
   &:active {
     transform: scale(0.95, 0.95);
@@ -26,8 +27,8 @@
 }
 
 .slide-item a {
-  font-size: 24px;
-  font-family: $font-family-sans-serif;
+  font-size: 18px;
+  font-family: $font-family-serif;
   display: flex;
   height: 100%;
   width: 100%;
@@ -46,7 +47,7 @@
 }
 
 .slide-1 {
-  background-color: rgb(0, 17, 56);
+  background-color: rgb(38, 38, 38);
 }
 
 .slide-item:hover div {
@@ -54,21 +55,13 @@
 }
 
 .slide-2 {
-  background-color: rgb(23, 147, 195);
+  background-color: rgb(38, 38, 38);
 }
 
 .slide-3 {
-  background-color: rgb(85, 73, 225);
+  background-color: rgb(60, 101, 169);
 }
 
 .slide-4 {
-  background-color: rgb(169, 63, 150);
-}
-
-.slide-5 {
-  background-color: rgb(214, 122, 29);
-}
-
-.slide-6 {
-  background-color: rgb(56, 99, 159);
+  background-color: rgb(38, 38, 38);
 }
