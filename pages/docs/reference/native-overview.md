@@ -4,48 +4,118 @@ layout: reference
 category: "Introduction"
 title: "Kotlin/Native"
 ---
+<script>
+function switchDisplay(element, targetClass) {
+    if(!element.classList.contains(targetClass)) {
+       element.style.display = "none";
+    } else {
+       element.style.display = "list-item";
+    }
+}
+window.onload = function () {
+    const material = document.getElementById('material');
+    const start = document.getElementById('start');
+    const migrate = document.getElementById('migrate');
+    const selectedBorder = '1px solid #5585B8';
+    
+    material.style.border = selectedBorder;
 
-# Kotlin/Native
+    const elements = Array.from(document.querySelectorAll(".a, .b"));
+    material.addEventListener('click', function (event) {
+        event.target.style.border = selectedBorder;
+        [start, migrate].forEach(el => el.style.border = 'none');
+        elements.forEach(el => {
+            el.style.display = "list-item"
+        })
+    });
 
-[Kotlin/Native](https://github.com/JetBrains/kotlin-native/) is a technology for compiling Kotlin to native binaries that run without any VM.
-It comprises a LLVM-based backend for the Kotlin compiler and a native implementation of the Kotlin runtime
-library. Kotlin/Native is primarily designed to allow compilation for platforms where virtual machines 
-are not desirable or possible (such as iOS, embedded targets), or where a developer needs to produce 
-a reasonably-sized self-contained program that does not require an additional runtime.
+    start.addEventListener('click', function (event) {
+        event.target.style.border = selectedBorder;
+        [material, migrate].forEach(el => el.style.border = 'none');
+        elements.forEach(el => switchDisplay(el,"a"));
+    });
 
-Kotlin/Native fully supports interoperability with native code. For platform libraries, the corresponding
-interop libraries are available out of the box. For other libraries, we provide a 
-[tool to generate an interop library](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md) 
-from a C header file, with full support for all C language features. 
-On macOS and iOS, interoperability with Objective-C code is also supported.
+    migrate.addEventListener('click', function (event) {
+        event.target.style.border = selectedBorder;
+        [start, material].forEach(el => el.style.border = 'none');
+        elements.forEach(el => switchDisplay(el,"b"));
+    })
+};
+</script>
+# **Learn Kotlin**
+<div style="display: inline-flex; border: 1px solid rgb(229, 229, 229); border-radius: 40px;" >
+ <div id="material" style="padding: 1rem 2rem;border-radius: 40px; border: 1px solid transparent;" >All Materials</div>
+ <div id="start" style="padding: 1rem 2rem;border-radius: 40px;">Getting Started</div>
+ <div id="migrate" style="padding: 1rem 2rem;border-radius: 40px;">Migrating from Java</div>
+</div>
+<div style="display:grid; grid-template-columns: 1fr 1fr;">
+    <div >
+        <h3 style="font-weight: bold">Documentation</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+        <ul>
+            <li class="a" > <a style="text-decoration: none;">Docs</a> </li>
+            <li class="a"> <a style="text-decoration: none;">Interop</a>  </li>
+            <li class="a b"> <a style="text-decoration: none;">Basics and Idioms</a> </li>
+        </ul>
+    </div>
+     <div >
+         <h3 style="font-weight: bold">IDE</h3>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+         <ul>
+             <li class="a"> <a style="text-decoration: none;">Kotlin Educational Plugin</a> </li>
+             <li class="b"> <a style="text-decoration: none;">Java2Kotlin converter</a>  </li>
+         </ul>
+     </div>
+      <div >
+          <h3 style="font-weight: bold">Ask community</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <ul>
+              <li class="a"> <a style="text-decoration: none;">Slack</a> </li>
+              <li class="a"> <a style="text-decoration: none;">Forum</a>  </li>
+              <li class="b"> <a style="text-decoration: none;">Stack overflow</a> </li>
+          </ul>
+      </div>
+      <div >
+          <h3 style="font-weight: bold">Learn Kotlin</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <ul>
+              <li class="b"> <a style="text-decoration: none;">Playground</a> </li>
+              <li class="b"> <a style="text-decoration: none;">Kotlin Examples</a>  </li>
+              <li class="a"> <a style="text-decoration: none;">Koans</a> </li>
+          </ul>
+      </div>
+      <div >
+          <h3 style="font-weight: bold">Books</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <ul>
+              <li class="b"> <a style="text-decoration: none;">Atomic Kotlin</a> </li>
+              <li class="a"> <a style="text-decoration: none;">Forum</a>  </li>
+          </ul>
+      </div>
+      <div >
+          <h3 style="font-weight: bold">Coursera</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <ul>
+              <li class="b"> <a style="text-decoration: none;">Kotlin (RU)</a> </li>
+              <li class="a"> <a style="text-decoration: none;">Kotlin for Java Developers</a>  </li>
+          </ul>
+      </div>
+      <div >
+          <h3 style="font-weight: bold">Get Certified Training</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <ul>
+              <li class="a b"> <a style="text-decoration: none;">Link</a></li>
+          </ul>
+      </div>
+      <div >
+          <h3 style="font-weight: bold">Helpful resources</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <ul>
+              <li class="a b"> <a style="text-decoration: none;">kotlin.link</a></li>
+          </ul>
+      </div>
+            
+</div>
 
-Kotlin/Native is currently in development; preview releases are available for you to try. IDE support
-for Kotlin/Native is available as plugins for [CLion](https://www.jetbrains.com/clion/) and [AppCode](https://www.jetbrains.com/objc/), both require the plugin to be installed via *Plugins | Install JetBrains plugin...* in the IDE preferences.
-
-### Target Platforms
-
-Kotlin/Native currently supports the following platforms:
-
-   * Windows (x86_64 only at the moment)
-   * Linux (x86_64, arm32, MIPS, MIPS little endian)
-   * MacOS (x86_64)
-   * iOS (arm32 and arm64)
-   * Android (arm32 and arm64)
-   * WebAssembly (wasm32 only)
-
-### Sample Projects
-
-We've built a number of sample projects to showcase the possibilities of Kotlin/Native:
-
- * The [Kotlin/Native GitHub repository](https://github.com/JetBrains/kotlin-native/tree/master/samples) contains a number of sample projects;
- * The [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner) is a simple cross-platform 
-   mobile multiplayer game fully built in Kotlin/Native, consisting of the following components:
-     - a backend, using SQLite for data storage and exposing a REST/JSON API;
-     - mobile clients for iOS and Android, using OpenGL;
-     - a WebAssembly-based browser frontend for viewing the game scores.
- * The [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) is an iOS app
-   with a UIKit-based UI, showcasing the Objective-C interop facilities of Kotlin/Native.
-
-       
 
 
