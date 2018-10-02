@@ -5,20 +5,22 @@ category: "Introduction"
 title: "Kotlin/Native"
 ---
 
-# What is Kotlin/Native?
+# Kotlin/Native
+
+![Compiler Diagram]({{ url_for('asset', path='images/landing/native/native_overview.png')}})
 
 Kotlin/Native is a technology for compiling Kotlin code to native binaries, which can run without a virtual machine.
 It is an [LLVM](https://llvm.org/) based backend for the Kotlin compiler and native implementation of the Kotlin standard
 library
 
-# Why Kotlin/Native?
+## Why Kotlin/Native?
 
 Kotlin/Native is primarily designed to allow compilation for platforms where *virtual machines* are not
 desirable or possible, for example, embedded devices or iOS.
 It solves the situations when a developer needs to produce a 
 self-contained program that does not require an additional runtime or virtual machine.
 
-# Target Platforms
+## Target Platforms
 
 Kotlin/Native supports the following platforms:
    * iOS (arm32, arm64, emulator x86_64)
@@ -28,7 +30,7 @@ Kotlin/Native supports the following platforms:
    * Linux (x86_64, arm32, MIPS, MIPS little endian)
    * WebAssembly (wasm32)
 
-# Interoperability
+## Interoperability
 
 Kotlin/Native supports two-way interoperability with the Native world. 
 On the one hand, the compiler creates:
@@ -41,12 +43,12 @@ existing projects written in C, C++, Swift, Objective-C, and other languages.
 
 On the other hand, Kotlin/Native supports interoperability to use existing libraries
 directly from Kotlin/Native:
-- static or dynamic [C Libraries](/docs/reference/native/c_interop.html) 
-- C, [Swift, and Objective-C](/docs/reference/native/objc_interop.html) frameworks 
+- static or dynamic [C Libraries](/docs/reference/native/c_interop.html)
+- C, [Swift, and Objective-C](/docs/reference/native/objc_interop.html) frameworks
 
 That makes it easy to use the existing native code, libraries, frameworks, graphical engines, and anything else
 directly from Kotlin/Native. Thanks to the Swift and Objective-C Frameworks
-[interop](/docs/reference/native/objc_interop.html), it is easy to use
+[interop], it is easy to use
 existing frameworks in Kotlin/Native projects.
 
 There are Kotlin/Native [libraries]((/docs/reference/native/platform_libs.html) that help share Kotlin
@@ -64,12 +66,20 @@ JavaScript, CSS, and native.
 Kotlin multiplatform libraries provide the necessary APIs for the common Kotlin code and help to develop
 shared parts of a project in Kotlin code once and share it with all of the target platforms. 
 
-# How to Start
+## How to Start?
 
-Check out the [tutorials](/docs/tutorials/native/apple-framework.html) or [documentation](/docs/reference/multiplatform.html)
-for Kotlin/Native.
+<div style="display: flex; align-items: center; margin-bottom: 20px">
+    <img src="{{ url_for('asset', path='images/landing/native/book.png') }}" height="38p" width="55" style="margin-right: 10px;">
+    <b>Check out tutorials or documentation <br />for Kotlin/native.
+     </b>
+</div>
 
-Like learning from examples? Here are some more example projects: 
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <img src="{{ url_for('asset', path='images/landing/native/try.png') }}" height="38p" width="55" style="margin-right: 10px;">
+    <b>Do you like learning by examples?</b>
+</div>
+
+Here are some more example projects:
  * The [Kotlin/Native GitHub repository](https://github.com/JetBrains/kotlin-native/tree/master/samples) contains sample projects
  * The [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) is an iOS app
    with a UIKit-based UI, showcasing the Objective-C interop facilities of Kotlin/Native
@@ -79,4 +89,8 @@ Like learning from examples? Here are some more example projects:
      - mobile clients for iOS and Android, using OpenGL
      - a WebAssembly-based browser frontend for viewing the game scores
 
-Check out the [Community](/community/) page too!
+<div style="display: flex; align-items: center; margin-top: 10px">
+    <img src="{{ url_for('asset', path='images/landing/native/community.png') }}" style="margin-right: 10px; height: 38px; width: 55pх">
+    <b>Check out the
+     <a style="text-decoration: none" href="https://kotlinlang.org/community/">Community page</a> for more info!</b>
+</div>
