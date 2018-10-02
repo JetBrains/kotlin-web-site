@@ -461,7 +461,7 @@ In the tutorial we:
    - compiled it to iOS Framework
  - put it all together and re-used Kotlin code
  
-We may find the whole sources from that tutorial on [GitHub](https://github.com/jonnyzzz/kotlin-mpp-mobile).
+We may find the whole sources from that tutorial on [GitHub](https://github.com/JetBrains/kotlin-examples/tree/master/tutorials/mpp-iOS-Android).
 
 # Next Steps
 
