@@ -38,23 +38,22 @@ On the one hand, the compiler creates:
 - a static library or [dynamic](/docs/tutorials/native/dynamic-libraries.html) library with C headers for C/C++ projects
 - an [Apple framework](/docs/tutorials/native/apple-framework.html) for Swift and Objective-C projects
 
-That makes it easy to include compiled Kotlin code into
-existing projects written in C, C++, Swift, Objective-C, and other languages.
-
 On the other hand, Kotlin/Native supports interoperability to use existing libraries
 directly from Kotlin/Native:
 - static or dynamic [C Libraries](/docs/reference/native/c_interop.html)
 - C, [Swift, and Objective-C](/docs/reference/native/objc_interop.html) frameworks
 
-That makes it easy to use the existing native code, libraries, frameworks, graphical engines, and anything else
-directly from Kotlin/Native. Thanks to the Swift and Objective-C Frameworks
-[interop], it is easy to use
-existing frameworks in Kotlin/Native projects.
+It is easy to include a compiled Kotlin code into
+existing projects written in C, C++, Swift, Objective-C, and other languages.
+Also, it is easy to use existing native code, 
+static or dynamic [C libraries](/docs/reference/native/c_interop.html),
+Swift/Objective-C [frameworks](/docs/reference/native/objc_interop.html),
+graphical engines, and anything else directly from Kotlin/Native.
 
-There are Kotlin/Native [libraries]((/docs/reference/native/platform_libs.html) that help share Kotlin
-and native code between projects. Popular platform libraries and Apple frameworks are available as Kotlin/Native
-libraries and included with the compiler. It includes POSIX, gzip, OpenGL, Metal, Foundation, and many other
-pre-imported libraries
+Kotlin/Native [libraries](/docs/reference/native/platform_libs.html) help to share Kotlin
+code between projects.
+POSIX, gzip, OpenGL, Metal, Foundation, and many other popular libraries and Apple frameworks
+are pre-imported and included as Kotlin/Native libraries into the compiler package
 
 # Sharing Code between Platforms
 
@@ -66,7 +65,7 @@ JavaScript, CSS, and native.
 Kotlin multiplatform libraries provide the necessary APIs for the common Kotlin code and help to develop
 shared parts of a project in Kotlin code once and share it with all of the target platforms. 
 
-## How to Start?
+## How to Start
 
 <div style="display: flex; align-items: center; margin-bottom: 20px">
     <img src="{{ url_for('asset', path='images/landing/native/book.png') }}" height="38p" width="55" style="margin-right: 10px;">
