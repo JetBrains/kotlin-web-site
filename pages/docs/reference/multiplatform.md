@@ -115,7 +115,7 @@ The [Ktor framework](https://ktor.io/) is suitable for building asynchronous ser
 ## How to start
 
 * Tutorials and samples:
-    * [Multiplatform Kotlin Library] TODO /docs/tutorials/multiplatform-library.html
+    * [Multiplatform Kotlin Library](/docs/tutorials/multiplatform-library.html)
     * [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
     * [KotlinConf Schedule Application](https://github.com/JetBrains/kotlinconf-app)
 * Docs: 
