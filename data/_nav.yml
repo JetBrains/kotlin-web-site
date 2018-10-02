@@ -315,7 +315,7 @@ tutorials:
         - url: /docs/tutorials/native/mpp-ios-android.html
           title: "iOS and Android"
         - url: /docs/tutorials/multiplatform-library.html
-          title: Multiplatform library
+          title: Multiplatform Library
 
     - title: Native
       content:
