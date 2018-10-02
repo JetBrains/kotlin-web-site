@@ -20,25 +20,29 @@ function updateTagByKind(rowElement, newTag, kind) {
   $tag.text(newTag);
 }
 
-function updateState(state) {
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
-  const $platformDependentElements = $('[data-platform]');
-  const $versionDependentElements = $('[data-kotlin-version]');
-  $versionDependentElements.removeClass('hidden');
-  $platformDependentElements.removeClass('hidden');
-  $platformDependentElements.each((ind, element) => {
-    $(element).parent().parent().removeClass('hidden')
-  });
-
-  //if (state.platform.toLowerCase() != 'all') {
-    $platformDependentElements.each((ind, element) => {
+function hideByTags($elements, state, checkTags) {
+  $elements.removeClass('hidden');
+  $elements.each((ind, element) => {
       const $element = $(element);
 
-      let tags = $element.attr('data-platform').toLowerCase().split(", ");
-      if (tags.some(tag => state.platform.includes(tag))) return;
+      if(checkTags($element, state.platform)) return;
       $element.addClass('hidden');
-    })
-  //}
+  });
+}
+
+function updateState(state) {
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
+
+  const $versionDependentElements = $('[data-kotlin-version]');
+  $versionDependentElements.removeClass('hidden');
+
+  hideByTags($('[data-platform]'), state, ($element, platform) =>
+      $element.attr('data-platform').toLowerCase().split(", ").some((tag) => platform.includes(tag))
+  );
+  hideByTags($('.tags__tag.platform'), state, ($element, platform) => 
+    $element.attr("class").split(' ').some((cls) => platform.includes(cls.replace("tag-value-", "").toLowerCase()))
+  );
+
 
   $versionDependentElements.each((ind, element) => {
     const $element = $(element);
