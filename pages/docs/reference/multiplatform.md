@@ -28,23 +28,27 @@ through the [`expect`/`actual` mechanism](platform-specific-declarations.html) p
 Here's an example of code sharing and interaction between the common and platform logic in a minimalistic 
 logging framework. The common code would look like this:
 
+<div style="display:flex">
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-```
-// compiled for all platforms:
+```kotlin
 enum class LogLevel {
     DEBUG, WARN, ERROR
 }
 
-// expected platform-specific API:
 internal expect fun writeLogMessage(message: String, logLevel: LogLevel)
 
-// expected API can be used in the common code:
 fun logDebug(message: String) = writeLogMessage(message, LogLevel.DEBUG)
 fun logWarn(message: String) = writeLogMessage(message, LogLevel.WARN)
 fun logError(message: String) = writeLogMessage(message, LogLevel.ERROR)
 ```
 
+</div>
+<div style="margin-left: 5px;white-space: pre-line; line-height: 18px; font-family: Tahoma;">
+    <div style="display:flex">├<i style="margin-left:5px">compiled for all platforms</i></div>
+    <div style="display:flex">├<i style="margin-left:5px">expected platform-specific API</i></div>
+    <div style="display:flex">├<i style="margin-left:5px">expected API can be used in the common code</i></div>
+</div>
 </div>
 
 It expects the targets to provide platform-specific implementations for `writeLogMessage`, and the common code can 
@@ -54,7 +58,7 @@ On the JVM, one could provide an implementation that writes the log to the stand
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-```
+```kotlin
 internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
     println("[$logLevel]: $message")
 }
@@ -67,7 +71,7 @@ so one could instead implement logging to the console:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-```
+```kotlin
 internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
     when (logLevel) {
         LogLevel.DEBUG -> console.log(message)
