@@ -60,6 +60,16 @@ $platforms: (
                 opacity: 0.6;
             }
         }
+
+        .toggle-platform.disabled.#{$platform},
+        .toggle-platform.disabled.#{$platform}:hover {
+            cursor: default;
+            background-color: $color-select-off;
+            color: $color-select-off-fg;
+            span {
+                opacity: 0.4;
+            }
+        }
     }
 
 

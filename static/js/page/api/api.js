@@ -6,58 +6,76 @@ import './api.scss'
 const DEFAULT_VERSION = '1.3';
 const LOCAL_STORAGE_KEY = 'targetApi';
 
-function getVersion(element) {
-
-  let version = $(element).attr('data-kotlin-version');
-
-
-  return version
-}
-
-function updateTagByKind(rowElement, newTag, kind) {
-  let tagsContainer = ($(rowElement).is("tr")) ? $(rowElement).find("td:first") : rowElement;
-  let $tag = $(tagsContainer).children(`.tags__tag.${kind}`);
-  $tag.text(newTag);
-}
-
 function hideByTags($elements, state, checkTags) {
   $elements.removeClass('hidden');
   $elements.each((ind, element) => {
       const $element = $(element);
 
-      if(checkTags($element, state.platform)) return;
+      if(checkTags($element)) return;
       $element.addClass('hidden');
   });
+}
+
+function getMinVersion(a, b) {
+  if (a > b) return b;
+  return a;
 }
 
 function updateState(state) {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
 
-  const $versionDependentElements = $('[data-kotlin-version]');
-  $versionDependentElements.removeClass('hidden');
+  const platformAvailability = {
+    'jvm': '1.0',
+    'common': '1.1',
+    'js': '1.1',
+    'native': '1.3'
+  };
+  const stateVersion = state.version ? state.version : DEFAULT_VERSION;
+  const statePlatforms = state.platform.filter((platform) => platformAvailability[platform] <= stateVersion);
+  for (const platform in platformAvailability) {
+    const $toggleElement = $(".toggle-platform." + platform);
+    $toggleElement.toggleClass("disabled", platformAvailability[platform] > stateVersion)
+  }
+  const minVersion = statePlatforms.map((platform) => platformAvailability[platform]).reduce(getMinVersion);
 
-  hideByTags($('[data-platform]'), state, ($element, platform) =>
-      $element.attr('data-platform').toLowerCase().split(", ").some((tag) => platform.includes(tag))
-  );
-  hideByTags($('.tags__tag.platform'), state, ($element, platform) => 
-    $element.attr("class").split(' ').some((cls) => platform.includes(cls.replace("tag-value-", "").toLowerCase()))
-  );
+
+  hideByTags($('[data-platform]'), state, ($element) => {
+    const versions = $element.attr('data-kotlin-version')
+        .toLowerCase()
+        .split(", ");
+    return $element.attr('data-platform')
+        .toLowerCase()
+        .split(", ")
+        .filter((tag, index) => versions[index] <= stateVersion)
+        .some((tag) => statePlatforms.includes(tag))
+  });
+  hideByTags($('.tags__tag.platform'), state, ($element) => {
+    if ($element.attr('data-tag-version') > stateVersion) return false;
+
+    return $element
+        .attr("class")
+        .split(' ')
+        .map((cls) => (cls.replace("tag-value-", "").toLowerCase()))
+        .some((tag) => statePlatforms.includes(tag))
+  });
 
 
-  $versionDependentElements.each((ind, element) => {
-    const $element = $(element);
-    const stateVersion = state.version ? state.version : DEFAULT_VERSION;
-    const version = getVersion(element);
-    const pureVersion = version.replace(/\+$/, '');
-    if (pureVersion > stateVersion) {
-        $element.addClass('hidden');
-        if ($element.is("div") && $element.siblings().hasClass("hidden")) {
-          $element.parent().parent().addClass("hidden")
-        }
-    } else if (version != pureVersion) {
-      updateTagByKind($element, pureVersion == stateVersion ? pureVersion : version, 'kotlin-version');
+
+  $(".tags").each(
+    (index, element) => {
+
+      const $element = $(element);
+      console.log(element);
+      const activeVersions =
+          $.map($element.find(".tags__tag:not(.hidden)"), (versionContainer) => $(versionContainer).attr('data-tag-version'));
+      if (activeVersions.length === 0) return;
+      const minVersion = activeVersions.reduce(getMinVersion);
+
+      $element.children(".kotlin-version").text(minVersion);
     }
-  })
+  );
+
+  hideByTags($('.tags__tag.kotlin-version'), state, ($element) => $element.text() > minVersion);
 }
 
 function addSelectToPanel(panelElement, title, config) {
@@ -75,6 +93,7 @@ function addPlatformSelectToPanel(panelElement, config) {
       itemElement.addClass('off');
     }
     itemElement.click(() => {
+      if (itemElement.hasClass('disabled')) return;
       itemElement.toggleClass('off');
       itemElement.addClass("pressed")
           .delay(200)
@@ -143,53 +162,20 @@ function initializeSelects() {
     },
     selected: state.version != null ? state.version : DEFAULT_VERSION,
     onSelect: (version) => {
-      if(version != DEFAULT_VERSION){
+      if(version !== DEFAULT_VERSION){
         state.version = version;
       } else {
         delete state.version;
       }
+
       updateState(state)
     }
-  })
-}
-
-function addTag(rowElement, tags, kind) {
-  // let tagsContainer = ($(rowElement).is("tr")) ? $(rowElement).find("td:first") : rowElement;
-
-  // let $tagsElement = $(tagsContainer).find(".tags");
-
-  
-  // if ($tagsElement.length == 0) {
-  //   return;
-  //   // $tagsElement = $('<div class="tags"></div>');
-  //   // let elementWithPlatforms = $(rowElement);
-  //   // $(tagsContainer).append($tagsElement);
-  // }
-
-  // //if (!$(rowElement).is("tr") && kind != 'platform')
-  // //  return;
-
-  // tags.split(',').forEach(tag => $tagsElement.append(`<div class="tags__tag ${kind}">${tag}</div>`));
-
-
-}
-
-function addTags() {
-  $('[data-platform]').each((ind, element) => {
-    const platform = element.getAttribute('data-platform');
-    addTag(element, platform, 'platform')
   });
 
-  $('[data-kotlin-version]').each((ind, element) => addTag(element, getVersion(element), 'kotlin-version'));
-
-  $('[data-jre-version]').each((ind, element) => {
-    const version = element.getAttribute('data-jre-version');
-    addTag(element, version, 'jre-version')
-  });
+  updateState(state);
 }
 
 $(document).ready(() => {
-  addTags();
   initializeSelects();
   new NavTree(document.querySelector('.js-side-tree-nav'));
 });
