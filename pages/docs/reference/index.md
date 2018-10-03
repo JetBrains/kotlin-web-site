@@ -12,7 +12,7 @@ title: "Reference"
 <div style="display:grid; grid-template-columns: 1fr 1fr;">
     <div style="padding: 5px;">
         <h3 style="font-weight: bold">Documentation</h3>
-        <p>Kotlin documentation is a good step to start, check out those links for the beginning:</p>
+        <p>Kotlin documentation is a good step to start, check out these links for the beginning:</p>
         <ul>
             <li class="start">   <a style="text-decoration: none;" href="/docs/reference/basic-syntax.html">Basics</a> </li>
             <li class="migrate"> <a style="text-decoration: none;" href="/docs/reference/idioms.html">Idioms</a> </li>
@@ -48,7 +48,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Books</h3>
-          <p>All Kotlin aspects are well covered in <a>Books</a>, check out those books to start:</p>
+          <p>All Kotlin aspects are well covered in <a>Books</a>, check out these books to start:</p>
           <ul>
               <li class="start"> <a style="text-decoration: none;" href="https://www.amazon.com/Kotlin-Programming-Nerd-Ranch-Guide/dp/0135161630">Kotlin Programming: The Big Nerd Ranch Guide</a> </li>
               <li class="migrate"> <a style="text-decoration: none;" href="https://leanpub.com/kotlin-for-android-developers">Kotlin for Android Developers</a> </li>
@@ -76,7 +76,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Community Resources</h3>
-          <p>Check out those community resources for more information</p>
+          <p>Check out these community resources for more information</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://kotlin.link">kotlin.link</a></li>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://superkotlin.com/blog/">superkotlin blog</a></li>
