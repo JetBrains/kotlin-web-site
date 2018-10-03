@@ -235,9 +235,10 @@ $platforms: (
 
 .tags__tag.kotlin-version {
     margin-left: 14px;
+    width: 20px;
     font-size: 12px;
     font-family: InterUI-Bold;
-
+    text-align: right;
 
     font-weight: bold;
     font-style: normal;
@@ -290,7 +291,7 @@ $platforms: (
         top: 0px;
         right: 0px;
         margin-top: 9px;
-        margin-right: 24px;
+        margin-right: 26px;
     }
 
 
