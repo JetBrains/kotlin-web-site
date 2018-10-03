@@ -20,44 +20,6 @@ If you are not sure how to solve a Koan, or you're looking for a more elegant so
 ### Browse Offline
 You can download the entire reference documentation as a single [PDF file]({{ site.pdf_url }}).
 
-<script>
-function switchDisplay(element, targetClass) {
-    if(!element.classList.contains(targetClass)) {
-       element.style.display = "none";
-    } else {
-       element.style.display = "list-item";
-    }
-}
-window.onload = function () {
-    const material = document.getElementById('material');
-    const start = document.getElementById('start');
-    const migrate = document.getElementById('migrate');
-    const selectedBorder = '1px solid #5585B8';
-    
-    material.style.border = selectedBorder;
-
-    const elements = Array.from(document.querySelectorAll(".a, .b"));
-    material.addEventListener('click', function (event) {
-        event.target.style.border = selectedBorder;
-        [start, migrate].forEach(el => el.style.border = 'none');
-        elements.forEach(el => {
-            el.style.display = "list-item"
-        })
-    });
-
-    start.addEventListener('click', function (event) {
-        event.target.style.border = selectedBorder;
-        [material, migrate].forEach(el => el.style.border = 'none');
-        elements.forEach(el => switchDisplay(el,"a"));
-    });
-
-    migrate.addEventListener('click', function (event) {
-        event.target.style.border = selectedBorder;
-        [start, material].forEach(el => el.style.border = 'none');
-        elements.forEach(el => switchDisplay(el,"b"));
-    })
-};
-</script>
 # **Learn Kotlin**
 <div style="display: inline-flex; border: 1px solid rgb(229, 229, 229); border-radius: 40px;" >
  <div id="material" style="padding: 1rem 2rem;border-radius: 40px; border: 1px solid transparent;" >All Materials</div>
@@ -132,3 +94,46 @@ window.onload = function () {
       </div>
             
 </div>
+
+
+
+
+<script>
+function switchDisplay(element, targetClass) {
+    if(!element.classList.contains(targetClass)) {
+       element.style.display = "none";
+    } else {
+       element.style.display = "list-item";
+    }
+}
+window.onload = function () {
+    const material = document.getElementById('material');
+    const start = document.getElementById('start');
+    const migrate = document.getElementById('migrate');
+    const selectedBorder = '1px solid #5585B8';
+    
+    material.style.border = selectedBorder;
+
+    const elements = Array.from(document.querySelectorAll(".a, .b"));
+    material.addEventListener('click', function (event) {
+        event.target.style.border = selectedBorder;
+        [start, migrate].forEach(el => el.style.border = 'none');
+        elements.forEach(el => {
+            el.style.display = "list-item"
+        })
+    });
+
+    start.addEventListener('click', function (event) {
+        event.target.style.border = selectedBorder;
+        [material, migrate].forEach(el => el.style.border = 'none');
+        elements.forEach(el => switchDisplay(el,"a"));
+    });
+
+    migrate.addEventListener('click', function (event) {
+        event.target.style.border = selectedBorder;
+        [start, material].forEach(el => el.style.border = 'none');
+        elements.forEach(el => switchDisplay(el,"b"));
+    })
+};
+</script>
+
