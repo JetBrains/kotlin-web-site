@@ -12,7 +12,7 @@ After some long and extensive battle testing, the coroutines API is now released
 
 Kotlin 1.3 introduces callable references on suspend-functions and support of Coroutines in the Reflection API
 
-## Kotlin/native
+## Kotlin/Native
 
 Kotlin 1.3 continues to improve and polish the Native target. See the [Kotlin/Native overview](native-overview.html) for details 
 
