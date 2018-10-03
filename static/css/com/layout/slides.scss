@@ -17,9 +17,9 @@
 
 .slide-item {
   cursor: pointer;
-  margin: $unit $unit 0;
   height: 140px;
-  width: 220px;
+  width: 230px;
+  border-radius: 5px;
 
   &:active {
     transform: scale(0.95, 0.95);
@@ -39,14 +39,6 @@
   flex-direction: column;
 }
 
-.slide-item > div {
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  border-radius: 5px;
-  line-height: normal;
-}
-
 .slide-footer {
   font-family: $font-family-sans-serif;
   font-size: 14px;
@@ -54,18 +46,21 @@
 }
 
 .slide-1 {
+  margin-right: 5px;
   background-color: rgb(38, 38, 38);
 }
 
-.slide-item:hover div {
+.slide-item:hover {
   background-color: rgb(61, 100, 154);
 }
 
 .slide-2 {
+  margin-right: 5px;
   background-color: rgb(38, 38, 38);
 }
 
 .slide-3 {
+  margin-right: 5px;
   background-color: rgb(38, 38, 38);
 }
 
