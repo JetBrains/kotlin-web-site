@@ -7,7 +7,7 @@ const DEFAULT_VERSION = '1.3';
 const LOCAL_STORAGE_KEY = 'targetApi';
 const PLATFORM_AVAILABILITY = {
     'jvm': '1.0',
-    'common': '1.1',
+    'common': '1.2',
     'js': '1.1',
     'native': '1.3'
   };
