@@ -50,6 +50,16 @@ $platforms: (
                 color: white;
             }
         }
+        .toggle-platform.pressed.#{$platform} {
+            background-color: map-get($params, bg);
+        }
+        .toggle-platform.off.pressed.#{$platform} {
+            background-color: $color-select-off;
+            color: $color-select-off-fg;
+            span {
+                opacity: 0.6;
+            }
+        }
     }
 
 

@@ -76,9 +76,15 @@ function addPlatformSelectToPanel(panelElement, config) {
     }
     itemElement.click(() => {
       itemElement.toggleClass('off');
+      itemElement.addClass("pressed")
+          .delay(200)
+          .queue((next) => {
+            itemElement.removeClass("pressed");
+            next()
+          });
       config.onSelect(value);
     });
-  })
+  });
   $(panelElement).append(selectElement);
 
 }
