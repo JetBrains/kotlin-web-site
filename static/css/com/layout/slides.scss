@@ -17,9 +17,9 @@
 
 .slide-item {
   cursor: pointer;
-  margin: 10px 15px 0;
-  height: 130px;
-  width: 180px;
+  margin: 10px 10px 0;
+  height: 140px;
+  width: 220px;
 
   &:active {
     transform: scale(0.95, 0.95);
@@ -36,6 +36,7 @@
   color: white;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .slide-item > div {
@@ -48,7 +49,6 @@
 
 .slide-footer {
   font-family: $font-family-sans-serif;
-  display: contents;
   font-size: 14px;
   font-weight: 200;
 }
