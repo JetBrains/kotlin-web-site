@@ -19,6 +19,14 @@
         top: -1px;
     }
 
+    .banner-header {
+        font-family: $font-family-serif;
+        text-align: center;
+        padding-top: 50px;
+        color: white;
+        font-size: 24px;
+    }
+
     .get-kotlin-button {
         @extend %button_default;
         top: -2px;
@@ -28,12 +36,33 @@
         }
     }
 
+    .kotlin-button-banner {
+      font-size: 20px;
+      padding: 10px 15px;
+      margin-left: 4*$unit;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color: rgb(169, 169, 169);
+      color: rgb(41, 57, 72);
+
+     &:hover {
+        opacity:.9;
+      }
+    }
+
+  .banner-link {
+    color: black;
+    text-decoration: none;
+  }
+
     .kotlin-info {
-        background-color: white;
-        border-radius: 5px;
-        padding-top: 60px;
-        padding-bottom: 30px;
-        text-align: left;
+      margin-top: 20px;
+      border-radius: 5px;
+      padding-top: 60px;
+      padding-bottom: 30px;
+      text-align: left;
+      background: white url('images/banner-image.png') no-repeat right;
+      background-size: contain;
     }
 
     .release-banner {
@@ -66,14 +95,11 @@
     }
 
     .kotlin-info-description {
-        margin-bottom: $unit*3;
-        color: #fff;
-        font-size: $unit*6;
+        margin-bottom: $unit*8;
+        margin-left: $unit*4;
+        font-size: $unit*7;
         line-height: $unit*6 + 2px;
-        font-family: $font-family-serif;
-        text-shadow:
-            1px 1px 0px rgba(0, 0, 0, 0.2),
-            -1px 2px 1px rgba(0, 0, 0, 0.2);
+        font-family: $font-family-serif-bold;
     }
 
     .kotlin-info-description-extra {

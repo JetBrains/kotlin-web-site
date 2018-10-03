@@ -27,8 +27,8 @@
 }
 
 .slide-item a {
-  font-size: 18px;
-  font-family: $font-family-serif;
+  font-size: 20px;
+  font-family: $font-family-serif-bold;
   display: flex;
   height: 100%;
   width: 100%;
@@ -46,12 +46,19 @@
   line-height: normal;
 }
 
+.slide-footer {
+  font-family: $font-family-sans-serif;
+  display: contents;
+  font-size: 14px;
+  font-weight: 200;
+}
+
 .slide-1 {
   background-color: rgb(38, 38, 38);
 }
 
 .slide-item:hover div {
-  transform: scale(0.95, 0.95);
+  background-color: rgb(61, 100, 154);
 }
 
 .slide-2 {
@@ -59,7 +66,7 @@
 }
 
 .slide-3 {
-  background-color: rgb(60, 101, 169);
+  background-color: rgb(38, 38, 38);
 }
 
 .slide-4 {
