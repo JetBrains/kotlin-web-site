@@ -21,7 +21,7 @@ title: "Reference"
     </div>
      <div style="padding: 5px;">
          <h3 style="font-weight: bold">IDE</h3>
-         <p>Kotlin is supported in many IDEs which help writing idiomatic Kotlin code:</p>
+         <p>Kotlin is supported in many IDEs, it helps writing idiomatic Kotlin code:</p>
          <ul>
              <li class="start">         <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">Kotlin Educational Plugin</a> </li>
              <li class="migrate start"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
