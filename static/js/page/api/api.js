@@ -204,7 +204,7 @@ function initializeSelects() {
 
 function initializeSections() {
   $(".declarations").click((event) => {
-    window.location.href = $(event.currentTarget).find("p:first-of-type a").attr("href")
+    window.location.href = $(event.currentTarget).find("a:first").attr("href")
   });
 }
 

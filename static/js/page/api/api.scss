@@ -257,7 +257,8 @@ $jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
 .declarations:hover {
     border: solid 1px rgba(0, 0, 0, 0.2);
 
-    > p:first-of-type > a {
+    > h4:first-of-type > a,
+    > h5:first-of-type > a {
         color: #497bb7;
     }
 }
@@ -284,13 +285,21 @@ $jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
     font-family: InterUI-Regular;
 
 
-    > p:first-of-type {
+    > h4:first-of-type, > h5:first-of-type {
+        font-family: InterUI-Regular;
+        font-weight: normal;
+        margin-top: 0;
         margin-bottom: 13px;
+        line-height: 24px;
+
         > a {
             text-decoration: none;
             color: #222222;
             font-size: 24px;
         }
+    }
+    > h5:first-of-type > a {
+        font-size: 18px;
     }
 
     > .tags {
