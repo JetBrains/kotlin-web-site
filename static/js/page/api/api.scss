@@ -133,7 +133,28 @@ $platforms: (
 }
 
 .api-panel__select {
-    padding-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 40px;
+
+   .dropdown-selected-value {
+
+     height: 24px;
+     border-radius: 12px;
+     background-color: #ffffff;
+     border: solid 1px rgba(34, 34, 34, 0.2);
+
+     font-family: InterUI-Regular;
+     box-sizing: border-box;
+     line-height: 24px;
+
+     padding-left: 15px;
+     padding-right: 25px;
+   }
+  .dropdown-selected-value:after {
+    top: 10px;
+    right: 10px;
+  }
 }
 
 .tags {
