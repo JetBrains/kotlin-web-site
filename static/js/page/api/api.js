@@ -75,7 +75,7 @@ function updateState(state) {
     }
   );
 
-  hideByTags($('.tags__tag.kotlin-version'), state, ($element) => $element.text() > minVersion);
+  hideByTags($('.tags__tag.kotlin-version'), state, ($element) => $element.text() > minVersion, 'hidden-version');
 }
 
 function addSelectToPanel(panelElement, title, config) {

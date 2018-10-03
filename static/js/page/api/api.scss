@@ -302,3 +302,7 @@ $platforms: (
     margin-bottom: 10px;
   }
 }
+
+.tags__tag.kotlin-version.hidden-version {
+  visibility: hidden;
+}
