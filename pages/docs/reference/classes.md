@@ -239,11 +239,6 @@ class Derived(p: Int) : Base(p)
 ```
 </div>
 
-> The *open*{: .keyword } annotation on a class is the opposite of Java's *final*{: .keyword }: it allows others
-to inherit from this class. By default, all classes in Kotlin are final, which
-corresponds to [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
-Item 19: *Design and document for inheritance or else prohibit it*.
-
 If the derived class has a primary constructor, the base class can (and must) be initialized right there,
 using the parameters of the primary constructor.
 

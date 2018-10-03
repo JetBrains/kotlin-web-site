@@ -2,23 +2,29 @@
 @import '../../_utils';
 @import '../_icon/_icon';
 @import '../_bits/_button';
+@import 'slides';
 
 
 .global-header {
     @include clearfix;
-    @include linear-gradient($from: #6481A1, $to: #4E7196);
-    background-color: #6481A1;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background-color: #393939;
     background-size: cover;
 
     .g-layout {
-        position: relative;
+      position: relative;
     }
 
     .try-kotlin-button {
         @extend %button_default;
         top: -1px;
+    }
+
+    .banner-header {
+        font-family: $font-family-serif;
+        text-align: center;
+        padding-top: 50px;
+        color: white;
+        font-size: 35px;
     }
 
     .get-kotlin-button {
@@ -30,9 +36,34 @@
         }
     }
 
+    .kotlin-button-banner {
+      font-size: 20px;
+      width: 130px;
+      padding: 10px 15px;
+      margin-left: 4*$unit;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color: rgb(169, 169, 169);
+      color: rgb(41, 57, 72);
+
+     &:hover {
+        opacity:.9;
+      }
+    }
+
+  .banner-link {
+    color: black;
+    text-decoration: none;
+  }
+
     .kotlin-info {
-        padding-top: 120px;
-        text-align: left;
+      margin-top: 20px;
+      border-radius: 2px;
+      padding-top: 60px;
+      padding-bottom: 30px;
+      text-align: left;
+      background: white url('images/banner-image.png') no-repeat right;
+      background-size: contain;
     }
 
     .release-banner {
@@ -65,14 +96,11 @@
     }
 
     .kotlin-info-description {
-        margin-bottom: $unit*3;
-        color: #fff;
-        font-size: $unit*6;
+        margin-bottom: $unit*8;
+        margin-left: $unit*4;
+        font-size: $unit*7;
         line-height: $unit*6 + 2px;
-        font-family: $font-family-serif;
-        text-shadow:
-            1px 1px 0px rgba(0, 0, 0, 0.2),
-            -1px 2px 1px rgba(0, 0, 0, 0.2);
+        font-family: $font-family-serif-bold;
     }
 
     .kotlin-info-description-extra {
@@ -93,9 +121,7 @@
 
 .page_index .global-header {
     box-sizing: border-box;
-    height: 530px;
-    background-image: url('images/index-page-header-bg.jpg');
-    background-position: top center;
+    height: 620px;
 
     .get-kotlin-button {
         @extend %button_call-to-action;
@@ -109,11 +135,8 @@
     box-sizing: border-box;
     padding: $unit 0;
     height: 60px;
-    background-color: #49525E;
-
     .page_index & {
-        background-color: #182333;
-        background-color: rgba(24, 35, 51, 0.7);
+      background-color: #393939;
     }
 }
 

@@ -126,6 +126,6 @@ klib install utils -repository jetbrains
 but this time adding the parameter `-repository` with the value `jetbrains`. This installs the `utils` library into a custom repository located in a subdirecty named `jetbrains` relative to where we execute the command. For instance if our project is located under the directory `/home/kotlin/projects/`, the above command would install the library to the directory `/home/kotlin/projects/jetbrains/utils`. 
 
 
-For more information about the commands available for `klib` as well as the sequence when searching for libraries, please see the [README](https://github.com/JetBrains/kotlin-native/blob/master/LIBRARIES.md#advanced-topics)
+For more information about the commands available for `klib` as well as the sequence when searching for libraries, please see the [README](/docs/reference/native/libraries.html#advanced-topics)
 
 
