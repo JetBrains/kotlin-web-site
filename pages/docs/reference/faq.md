@@ -112,7 +112,7 @@ Kotlin is primarily developed by a team of engineers at JetBrains (current team 
 ### Where can I learn more about Kotlin?
 
 The best place to start is [this website](https://kotlinlang.org). From there you can download the compiler, 
-[try it online](https://try.kotlinlang.org) as well as get access to resources, [reference documentation](/docs/reference/index.html) 
+[try it online](https://play.kotlinlang.org) as well as get access to resources, [reference documentation](/docs/reference/index.html)
 and [tutorials](/docs/tutorials/index.html). 
 
 ### Are there any books on Kotlin?

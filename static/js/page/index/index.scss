@@ -31,7 +31,7 @@
 
     .section-header {
         margin-bottom: 3 * $unit;
-        font-size: 32px;
+        font-size: 24px;
     }
 
     .works-on-list {
@@ -106,8 +106,8 @@
 }
 
 .kotlin-overview-section._features {
-    $item-width: 240px;
-    $item-margin: 24px;
+    $item-width: 220px;
+    $item-margin: 20px;
     $item-count: 4;
     @extend %kotlin-overview-section-background-image%default;
     position: relative;
