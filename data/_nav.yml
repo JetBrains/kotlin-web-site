@@ -165,8 +165,8 @@ reference:
       content:
         - url: /api/latest/jvm/stdlib/index.html
           title: Standard Library
-        - url: /api/latest/kotlin.test/index.html
-          title: kotlin.test
+#        - url: /api/latest/kotlin.test/index.html
+#          title: kotlin.test
 
     - title: Reference
       description: Grammar and other information
