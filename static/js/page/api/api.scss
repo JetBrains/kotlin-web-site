@@ -281,3 +281,10 @@ $platforms: (
 
 
 }
+
+.summary-group {
+  margin-bottom: 20px;
+  > p:last-of-type {
+    margin-bottom: 10px;
+  }
+}
