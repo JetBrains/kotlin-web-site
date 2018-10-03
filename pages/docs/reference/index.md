@@ -3,23 +3,6 @@ layout: reference
 title: "Reference"
 ---
 
-# Reference
-
-Provides a complete reference to the Kotlin language and the [standard library](/api/latest/jvm/stdlib/index.html).
-
-### Where to Begin
-
-This reference is designed for you to easily learn Kotlin in a matter of hours.
-Start with the [basic syntax](basic-syntax.html), then proceed to more advanced topics.
-While reading, you can try out the examples in the [online IDE](https://play.kotlinlang.org).
-
-Once you get an idea of what Kotlin looks like, try solving some [Kotlin Koans](/docs/tutorials/koans.html) - interactive programming exercises.
-If you are not sure how to solve a Koan, or you're looking for a more elegant solution, check out [Kotlin idioms](idioms.html).
-
-
-### Browse Offline
-You can download the entire reference documentation as a single [PDF file]({{ site.pdf_url }}).
-
 # **Learn Kotlin**
 <div style="display: inline-flex; border: 1px solid rgb(229, 229, 229); border-radius: 40px;" >
  <div id="material" style="padding: 1rem 2rem;border-radius: 40px; border: 1px solid transparent;" >All Materials</div>
@@ -27,69 +10,75 @@ You can download the entire reference documentation as a single [PDF file]({{ si
  <div id="migrate" style="padding: 1rem 2rem;border-radius: 40px;">Migrating from Java</div>
 </div>
 <div style="display:grid; grid-template-columns: 1fr 1fr;">
-    <div >
+    <div style="padding: 5px;">
         <h3 style="font-weight: bold">Documentation</h3>
-        <p></p>
+        <p>Kotlin documentation is a good step to start, check out those links for the beginning:</p>
         <ul>
-            <li class="migrate" > <a style="text-decoration: none;">Docs</a> </li>
-            <li class="migrate"> <a style="text-decoration: none;">Interop</a>  </li>
-            <li class="migrate start"> <a style="text-decoration: none;">Basics and Idioms</a> </li>
+            <li class="start">   <a style="text-decoration: none;" href="/docs/reference/basic-syntax.html">Basics</a> </li>
+            <li class="migrate"> <a style="text-decoration: none;" href="/docs/reference/idioms.html">Idioms</a> </li>
+            <li class="migrate"> <a style="text-decoration: none;" href="/docs/reference/java-interop.html">Interop with Java</a>  </li>
         </ul>
     </div>
-     <div >
+     <div style="padding: 5px;">
          <h3 style="font-weight: bold">IDE</h3>
-         <p></p>
+         <p>Kotlin is supported in many IDEs which help writing ideomatic Kotlin code:</p>
          <ul>
-             <li class="start"> <a style="text-decoration: none;">Kotlin Educational Plugin</a> </li>
-             <li class="migrate start"> <a style="text-decoration: none;">Java2Kotlin converter</a>  </li>
+             <li class="start">         <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">Kotlin Educational Plugin</a> </li>
+             <li class="migrate start"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
          </ul>
      </div>
-      <div >
+      <div style="padding: 5px;">
           <h3 style="font-weight: bold">Ask community</h3>
-          <p></p>
+          <p>Kotlin community is open, helpful and welcoming. Don't hasirate to join and ask on any platform you like:</p>
           <ul>
-              <li class="start"> <a style="text-decoration: none;">Slack</a> </li>
-              <li class="start"> <a style="text-decoration: none;">Forum</a>  </li>
-              <li class="migrate"> <a style="text-decoration: none;">Stack overflow</a> </li>
+              <li class="migrate"> <a style="text-decoration: none;" href="https://blog.jetbrains.com/kotlin/">Blog</a> </li>
+              <li class="start"> <a style="text-decoration: none;" href="https://discuss.kotlinlang.org/">Forum</a>  </li>
+              <li class="start migrate"> <a style="text-decoration: none;" href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up">Slack</a> </li>
+              <li class="start migrate"> <a style="text-decoration: none;" href="https://stackoverflow.com/questions/tagged/kotlin">Stack overflow</a> </li>
           </ul>
       </div>
-      <div >
-          <h3 style="font-weight: bold">Learn Kotlin</h3>
-          <p></p>
+      <div style="padding: 5px;">
+          <h3 style="font-weight: bold">Playground</h3>
+          <p>Heads on experience is the way to master your Kotlin skills on real examples right in the browser</p>
           <ul>
-              <li class="migrate"> <a style="text-decoration: none;">Playground</a> </li>
-              <li class="migrate"> <a style="text-decoration: none;">Kotlin Examples</a>  </li>
-              <li class="start"> <a style="text-decoration: none;">Koans</a> </li>
+              <li class="start migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org">Playground</a> </li>
+              <li class="migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org/byExample">Kotlin Examples</a>  </li>
+              <li class="start"> <a style="text-decoration: none;" href="https://play.kotlinlang.org/koans">Koans</a> </li>
           </ul>
       </div>
-      <div >
+      <div style="padding: 5px;">
           <h3 style="font-weight: bold">Books</h3>
-          <p></p>
+          <p>All Kotlin aspekts are well covered in <a>Books</a>, check out the those books to start:</p>
           <ul>
-              <li class="migrate"> <a style="text-decoration: none;">Atomic Kotlin</a> </li>
-              <li class="start"> <a style="text-decoration: none;">Forum</a>  </li>
+              <li class="start"> <a style="text-decoration: none;" href="https://www.amazon.com/Kotlin-Programming-Nerd-Ranch-Guide/dp/0135161630">Kotlin Programming: The Big Nerd Ranch Guide</a> </li>
+              <li class="migrate"> <a style="text-decoration: none;" href="https://leanpub.com/kotlin-for-android-developers">Kotlin for Android Developers</a> </li>
+              <li class="start"> <a style="text-decoration: none;" href="https://www.atomickotlin.com/atomickotlin/">Atomic Kotlin</a> </li>
+              <li class="migrate">   <a style="text-decoration: none;" href="https://www.manning.com/books/kotlin-in-action">Kotlin in Action</a> </li>
           </ul>
       </div>
-      <div >
+      <div style="padding: 5px;">
           <h3 style="font-weight: bold">Online Courses</h3>
-          <p></p>
+          <p>Kotlin is well coverted in online courses, check out recommended cuourses here</p>
           <ul>
-              <li class="migrate"> <a style="text-decoration: none;">Kotlin (RU)</a> </li>
-              <li class="start"> <a style="text-decoration: none;">Kotlin for Java Developers</a>  </li>
+            <li class="start">   <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052982.do">Introduction to Kotlin Programming</a></li>
+            <li class="migrate"> <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052999.do">Advanced Kotlin Programming</a></li>
+            <li class="start">   <a style="text-decoration: none;" href="https://www.coursera.org/learn/vvedenie-v-yazyk-kotlin">Introduction to Kotlin (in russian)</a></li>
+            <li class="migrate"> <a style="text-decoration: none;" href="https://coursera.org/learn/kotlin-for-java-developers">Kotlin for Java Developers</a></li>
           </ul>
       </div>
-      <div >
+      <div style="padding: 5px;">
           <h3 style="font-weight: bold">Certified Training</h3>
-          <p></p>
+          <p>Certified by JetBrains is a program created to work with training providers to verify their existing Kotlin training programs and at the same time, build a trusted network of global partners. </p>
           <ul>
-              <li class="start migrate"> <a style="text-decoration: none;">Link</a></li>
+              <li class="start migrate"> <a style="text-decoration: none;" href="https://www.jetbrains.com/company/partners/kotlin/">Training Partners</a></li>
           </ul>
       </div>
-      <div >
-          <h3 style="font-weight: bold">Helpful resources</h3>
-          <p></p>
+      <div style="padding: 5px;">
+          <h3 style="font-weight: bold">Community Resources</h3>
+          <p>Check out those community resourese for more information</p>
           <ul>
-              <li class="start migrate"> <a style="text-decoration: none;">kotlin.link</a></li>
+              <li class="start migrate"> <a style="text-decoration: none;" href="https://kotlin.link">kotlin.link</a></li>
+              <li class="start migrate"> <a style="text-decoration: none;" href="https://superkotlin.com/blog/">superkotlin blog</a></li>
           </ul>
       </div>
             
