@@ -15,9 +15,32 @@ level and delegating most of the functionality to libraries, much inline with Ko
 
 As a bonus, coroutines not only open the doors to asynchronous programming, but also provide a wealth of other possibilities such as concurrency, actors, etc.
 
-# Getting Started
 
-Below are a series of tutorials and first steps that can get you on the right track when it comes to learning more about coroutines and how to develop applications using these in Kotlin.
+## How to Start
 
-* [Asynchronous Programming](../tutorials/coroutines/async-programming.html). Explains the different approaches to non-blocking code and introduces you to the concept of Coroutines
-* [Your first coroutine with Kotlin](../tutorials/coroutines/coroutines-basic-jvm.html). Step by step tutorial on writing your first coroutine with Kotlin.
+<div style="display: flex; align-items: center; margin-bottom: 20px">
+    <img src="{{ url_for('asset', path='images/landing/native/book.png') }}" height="38p" width="55" style="margin-right: 10px;">
+    <b>Tutorials and Documentation</b>
+</div>
+
+New to Kotlin? Take a look at the [Getting Started](/docs/reference/basic-syntax.html) page.
+
+Selected documentation pages:
+- [Coroutines Guide](/docs/reference/coroutines/coroutines-guide.html)
+- [Basics](/docs/reference/coroutines/basics.html)
+- [Channels](/docs/reference/coroutines/channels.html)
+- [Coroutine Context and Dispatchers](/docs/reference/coroutines/coroutine-context-and-dispatchers.html)
+- [Shared Mutable State and Concurrency](/docs/reference/coroutines/shared-mutable-state-and-concurrency.html)
+Recommended tutorials:
+- [Your first coroutine with Kotlin](../tutorials/coroutines/coroutines-basic-jvm.html)
+- [Asynchronous Programming](../tutorials/coroutines/async-programming.html)
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <img src="{{ url_for('asset', path='images/landing/native/try.png') }}" height="38p" width="55" style="margin-right: 10px;">
+    <b>Example Projects</b>
+</div>
+
+- [kotlinx.coroutines Examples and Sources](https://github.com/Kotlin/kotlin-coroutines/tree/master/examples)
+- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) 
+
+Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples)
