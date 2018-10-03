@@ -94,9 +94,9 @@ function initializeSelects() {
   if ($breadcrumbs.length > 0) {
     $breadcrumbs
       .wrap('<div class="api-page-panel"></div>')
-      .after('<div class="api-panel__switchers"></div>');
+      .before('<div class="api-panel__switchers"></div>');
   } else {
-    $('.page-content').prepend('<div class="api-page-panel"><div class="api-docs-breadcrumbs"></div><div class="api-panel__switchers"></div></div>');
+    $('.page-content').prepend('<div class="api-page-panel"><div class="api-panel__switchers"></div><div class="api-docs-breadcrumbs"></div></div>');
   }
 
   const switchersPanel = $('.api-panel__switchers')[0];

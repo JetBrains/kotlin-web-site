@@ -76,6 +76,7 @@ $platforms: (
 
 .api-page-panel {
     display: flex;
+    flex-direction: column;
 }
 
 .api-docs-breadcrumbs {
@@ -88,9 +89,14 @@ $platforms: (
 
 .api-panel__switchers {
     display: flex;
+    margin-left: auto;
+    margin-right: 0;
+    padding-bottom: 10px;
+    padding-right: 0;
 }
 
 .api-panel_toggle {
+    margin-left: auto;
     display: flex;
     .toggle-platform {
         height: 24px;
