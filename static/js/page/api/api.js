@@ -157,7 +157,9 @@ function initializeSelects() {
   if (state.platform === 'all') {
     state.platform = ['common', 'jvm', 'js', 'native'];
   }
-  updateState(state);
+  if ((typeof state.platform) === 'string') {
+      state.platform = [state.platform];
+  }
 
   addPlatformSelectToPanel(switchersPanel, {
     items: {
