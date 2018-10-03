@@ -1,3 +1,4 @@
+
 <header class="global-header">
 
     <div class="global-header-panel">
@@ -9,45 +10,25 @@
 
     <div class="g-layout">
         {% if is_index_page %}
-            <a href="https://kotlinconf.com/" class="banner-link">
-                <div class="kotlin-info">
-                    <div class="kotlin-info-description">
-                        KotlinConf 2018<br>
-                        Online
-                    </div>
-                    <div class="kotlin-button-banner">
-                        Watch online
-                    </div>
+            <div class="kotlin-info">
+                <div class="kotlin-info-description">
+                    Statically typed programming language<br>
+                    for modern multiplatform applications
                 </div>
-            </a>
-
-            <h2 class="banner-header">Kotlin 1.3. What's coming</h2>
-            <div class="kotlin-slides">
-                <div class="slides-container">
-                    <div class="slide-item slide-1">
-                        <a href="https://kotlinlang.org/docs/reference/native-overview.html">Kotlin/Native
-                            <div class="slide-footer">reached beta</div>
-                        </a>
-                    </div>
-                    <div class="slide-item slide-2">
-                        <a href="https://kotlinlang.org/docs/reference/coroutines-overview.html">Coroutines
-                            <div class="slide-footer">are now stable</div>
-                        </a>
-                    </div>
-                    <div class="slide-item slide-3">
-
-                        <a href="https://kotlinlang.org/docs/reference/multiplatform.html">Multiplatform
-                            <div class="slide-footer">code reuse</div>
-                        </a>
-                    </div>
-                    <div class="slide-item slide-4">
-                        <a href="https://kotlinlang.org/docs/reference/">Learning Kits
-                            <div class="slide-footer">start easily</div>
-                        </a>
-                    </div>
+                <div class="kotlin-info-description-extra">
+                    100% interoperable with Java™ and Android™
                 </div>
+                <a href="http://try.kotlinlang.org" class="get-kotlin-button">
+                    Try Kotlin
+                </a>
+            <span class="release-banner">
+                Watch KotlinConf 2018 Online 
+                <a class="release-banner__link"
+                   href="https://kotlinconf.com/?utm_source=organic&utm_medium=kotlinlang&utm_campaign=KotlinConf%20Live">
+                    sign up</a>
+            </span>
             </div>
-
+            <div class="current-version">Version {{ site.data.releases.latest.version }}</div>
         {% endif %}
     </div>
 </header>

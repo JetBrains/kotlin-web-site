@@ -8,7 +8,7 @@ main:
     - url: /community/
       title: Community
 
-    - url: https://play.kotlinlang.org
+    - url: http://try.kotlinlang.org
       title: Try Online
 
 
