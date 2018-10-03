@@ -29,7 +29,7 @@ You can download the entire reference documentation as a single [PDF file]({{ si
 <div style="display:grid; grid-template-columns: 1fr 1fr;">
     <div >
         <h3 style="font-weight: bold">Documentation</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+        <p></p>
         <ul>
             <li class="migrate" > <a style="text-decoration: none;">Docs</a> </li>
             <li class="migrate"> <a style="text-decoration: none;">Interop</a>  </li>
@@ -38,7 +38,7 @@ You can download the entire reference documentation as a single [PDF file]({{ si
     </div>
      <div >
          <h3 style="font-weight: bold">IDE</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+         <p></p>
          <ul>
              <li class="start"> <a style="text-decoration: none;">Kotlin Educational Plugin</a> </li>
              <li class="migrate start"> <a style="text-decoration: none;">Java2Kotlin converter</a>  </li>
@@ -46,7 +46,7 @@ You can download the entire reference documentation as a single [PDF file]({{ si
      </div>
       <div >
           <h3 style="font-weight: bold">Ask community</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <p></p>
           <ul>
               <li class="start"> <a style="text-decoration: none;">Slack</a> </li>
               <li class="start"> <a style="text-decoration: none;">Forum</a>  </li>
@@ -55,7 +55,7 @@ You can download the entire reference documentation as a single [PDF file]({{ si
       </div>
       <div >
           <h3 style="font-weight: bold">Learn Kotlin</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <p></p>
           <ul>
               <li class="migrate"> <a style="text-decoration: none;">Playground</a> </li>
               <li class="migrate"> <a style="text-decoration: none;">Kotlin Examples</a>  </li>
@@ -64,7 +64,7 @@ You can download the entire reference documentation as a single [PDF file]({{ si
       </div>
       <div >
           <h3 style="font-weight: bold">Books</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <p></p>
           <ul>
               <li class="migrate"> <a style="text-decoration: none;">Atomic Kotlin</a> </li>
               <li class="start"> <a style="text-decoration: none;">Forum</a>  </li>
@@ -72,7 +72,7 @@ You can download the entire reference documentation as a single [PDF file]({{ si
       </div>
       <div >
           <h3 style="font-weight: bold">Online Courses</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <p></p>
           <ul>
               <li class="migrate"> <a style="text-decoration: none;">Kotlin (RU)</a> </li>
               <li class="start"> <a style="text-decoration: none;">Kotlin for Java Developers</a>  </li>
@@ -80,14 +80,14 @@ You can download the entire reference documentation as a single [PDF file]({{ si
       </div>
       <div >
           <h3 style="font-weight: bold">Certified Training</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <p></p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;">Link</a></li>
           </ul>
       </div>
       <div >
           <h3 style="font-weight: bold">Helpful resources</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <p></p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;">kotlin.link</a></li>
           </ul>
