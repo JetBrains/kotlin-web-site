@@ -99,14 +99,15 @@ You can download the entire reference documentation as a single [PDF file]({{ si
 
 
 <script>
-function switchDisplay(element, targetClass) {
-    if(!element.classList.contains(targetClass)) {
-       element.style.display = "none";
-    } else {
-       element.style.display = "list-item";
+window.addEventListener('load', function () {
+    function switchDisplay(element, targetClass) {
+        if(!element.classList.contains(targetClass)) {
+           element.style.display = "none";
+        } else {
+           element.style.display = "list-item";
+        }
     }
-}
-window.onload = function () {
+    
     const material = document.getElementById('material');
     const start = document.getElementById('start');
     const migrate = document.getElementById('migrate');
@@ -133,7 +134,7 @@ window.onload = function () {
         event.target.style.border = selectedBorder;
         [start, material].forEach(el => el.style.border = 'none');
         elements.forEach(el => switchDisplay(el,"b"));
-    })
-};
+    });
+});
 </script>
 
