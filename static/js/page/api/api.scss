@@ -200,7 +200,10 @@ $platforms: (
     color: white;
 }
 
-.declarations:hover .tags__tag.platform, .tags:hover .tags__tag.platform {
+.declarations:hover .tags__tag.platform,
+.tags:hover > .tags__tag.platform,
+.overload-group:hover .tags__tag.platform,
+.node-page-main:hover .tags__tag.platform {
         //Make text visible
         text-indent: 0%;
         white-space: nowrap;
