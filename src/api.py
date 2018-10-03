@@ -10,8 +10,8 @@ root_folder = path.dirname(path.dirname(__file__))
 titles = {}
 
 
-def process_titles(row_titles, title_prefix, path_folder, suffix):
-    url = title_prefix + row_titles["url"].split(path_folder, 1)[1] + suffix
+def process_titles(row_titles, title_prefix, suffix):
+    url = title_prefix + "/" + row_titles["url"].replace("./", "") + suffix
     titles[url] = row_titles["title"]
     if "content" not in row_titles:
         return
@@ -22,11 +22,11 @@ def process_titles(row_titles, title_prefix, path_folder, suffix):
 def load_api_titles():
     api_title_files_path = path.join(root_folder, 'api', 'latest', 'jvm', 'stdlib', 'index.yml')
     with open(api_title_files_path) as title_files:
-        process_titles(yaml.load(title_files)[0], 'latest/jvm/stdlib', 'kotlin-stdlib', '')
+        process_titles(yaml.load(title_files)[0], 'latest/jvm/stdlib', '')
 
     test_title_files_path = path.join(root_folder, 'api', 'latest', 'kotlin.test', 'index.yml')
     with open(test_title_files_path) as title_files:
-        process_titles(yaml.load(title_files)[0], 'latest/kotlin.test', 'kotlin-test', '.html')
+        process_titles(yaml.load(title_files)[0], 'latest/kotlin.test', '.html')
 
 
 def get_api_page(build_mode: bool, page_path):
