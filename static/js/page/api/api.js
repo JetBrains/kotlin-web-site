@@ -106,7 +106,7 @@ function initializeSelects() {
     {
       platform: 'all'
     };
-  if (state.platform == 'all') {
+  if (state.platform === 'all') {
     state.platform = ['common', 'jvm', 'js', 'native'];
   }
   updateState(state);
