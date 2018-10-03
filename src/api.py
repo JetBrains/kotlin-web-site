@@ -24,9 +24,9 @@ def load_api_titles():
     with open(api_title_files_path) as title_files:
         process_titles(yaml.load(title_files)[0], 'latest/jvm/stdlib', '')
 
-    test_title_files_path = path.join(root_folder, 'api', 'latest', 'kotlin.test', 'index.yml')
-    with open(test_title_files_path) as title_files:
-        process_titles(yaml.load(title_files)[0], 'latest/kotlin.test', '.html')
+    #test_title_files_path = path.join(root_folder, 'api', 'latest', 'kotlin.test', 'index.yml')
+    #with open(test_title_files_path) as title_files:
+    #    process_titles(yaml.load(title_files)[0], 'latest/kotlin.test', '.html')
 
 
 def get_api_page(build_mode: bool, page_path):
