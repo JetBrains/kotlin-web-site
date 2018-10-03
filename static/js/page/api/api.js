@@ -12,6 +12,10 @@ const PLATFORM_AVAILABILITY = {
     'native': '1.3'
   };
 
+const PLATFORM_ENRICH = {
+    'jvm': ['JUnit', 'JUnit5', 'testng', 'JRE7', 'JRE8'].map((tag) => tag.toLowerCase())
+};
+
 function hideByTags($elements, state, checkTags, cls) {
   $elements.each((ind, element) => {
       const $element = $(element);
@@ -38,7 +42,17 @@ function updateState(state) {
 
 
   const stateVersion = state.version ? state.version : DEFAULT_VERSION;
-  const statePlatforms = state.platform.filter((platform) => PLATFORM_AVAILABILITY[platform] <= stateVersion);
+  const statePlatforms =
+      state.platform
+          .filter((platform) => PLATFORM_AVAILABILITY[platform] <= stateVersion)
+          .reduce((acc, platform) => {
+              const enrich = PLATFORM_ENRICH[platform];
+              if (enrich) {
+                  return acc.concat([platform, ...enrich]);
+              }
+              return acc.concat([platform]);
+          }, []);
+
   for (const platform in PLATFORM_AVAILABILITY) {
     const $toggleElement = $(".toggle-platform." + platform);
     $toggleElement.toggleClass("disabled", PLATFORM_AVAILABILITY[platform] > stateVersion)

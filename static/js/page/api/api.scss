@@ -82,7 +82,14 @@ $platforms: (
     }
 }
 
-
+//Enrichment:
+$color-jvm-enrich: #62aa13;
+$jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
+@each $enrich in $jvm-enrichment {
+  .tags .platform.tag-value-#{$enrich} {
+    background-color: $color-jvm-enrich;
+  }
+}
 
 .api-page-panel {
     display: flex;
