@@ -58,9 +58,9 @@ reference:
         - url: /docs/reference/js-overview.html
           title: Kotlin for JavaScript
         - url: /docs/reference/native-overview.html
-          title: Kotlin/Native for Native
+          title: Kotlin for Native
         - url: /docs/reference/coroutines-overview.html
-          title: Coroutines Overview
+          title: Coroutines
         - url: /docs/reference/multiplatform.html
           title: Multiplatform
         - url: /docs/reference/whatsnew11.html

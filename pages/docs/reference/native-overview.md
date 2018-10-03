@@ -55,7 +55,7 @@ code between projects.
 POSIX, gzip, OpenGL, Metal, Foundation, and many other popular libraries and Apple frameworks
 are pre-imported and included as Kotlin/Native libraries into the compiler package
 
-# Sharing Code between Platforms
+## Sharing Code between Platforms
 
 [Multiplatform projects](/docs/reference/multiplatform.html) are supported between different Kotlin and
 Kotlin/Native targets.
