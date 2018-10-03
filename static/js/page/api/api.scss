@@ -245,8 +245,8 @@ $platforms: (
     margin-bottom: 8px;
     margin-top: 20px;
 
-    .tags__tag:first-child {
-        margin-left: auto;
+    .spacer {
+      flex-grow: 1;
     }
 }
 
