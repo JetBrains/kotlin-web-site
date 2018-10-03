@@ -83,7 +83,7 @@ function updateState(state) {
 
       const $element = $(element);
       const activeVersions =
-          $.map($element.find(".tags__tag:not(.hidden)"), (versionContainer) => $(versionContainer).attr('data-tag-version'));
+          $.map($element.find(".tags__tag:not(.hidden-version)"), (versionContainer) => $(versionContainer).attr('data-tag-version'));
       if (activeVersions.length === 0) return;
       const minVersion = activeVersions.reduce(getMinVersion);
 
