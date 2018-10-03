@@ -188,8 +188,15 @@ function initializeSelects() {
   updateState(state);
 }
 
+function initializeSections() {
+  $(".declarations").click((event) => {
+    window.location.href = $(event.currentTarget).find("p:first-of-type a").attr("href")
+  });
+}
+
 $(document).ready(() => {
   fixPlatformsAvailability();
   initializeSelects();
+  initializeSections();
   new NavTree(document.querySelector('.js-side-tree-nav'));
 });
