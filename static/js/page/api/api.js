@@ -68,7 +68,6 @@ function updateState(state) {
     (index, element) => {
 
       const $element = $(element);
-      console.log(element);
       const activeVersions =
           $.map($element.find(".tags__tag:not(.hidden)"), (versionContainer) => $(versionContainer).attr('data-tag-version'));
       if (activeVersions.length === 0) return;
@@ -161,8 +160,6 @@ function initializeSelects() {
       } else {
         state.platform.push(platform);
       }
-      console.log(platform);
-      console.log(state);
       
       updateState(state);
     }
