@@ -16,7 +16,7 @@ def process_titles(row_titles, title_prefix, suffix):
     if "content" not in row_titles:
         return
     for child_titles in row_titles["content"]:
-        process_titles(child_titles, title_prefix, path_folder, suffix)
+        process_titles(child_titles, title_prefix, suffix)
 
 
 def load_api_titles():
