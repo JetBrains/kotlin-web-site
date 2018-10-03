@@ -5,14 +5,17 @@ import './api.scss'
 
 const DEFAULT_VERSION = '1.3';
 const LOCAL_STORAGE_KEY = 'targetApi';
+const PLATFORM_AVAILABILITY = {
+    'jvm': '1.0',
+    'common': '1.1',
+    'js': '1.1',
+    'native': '1.3'
+  };
 
-function hideByTags($elements, state, checkTags) {
-  $elements.removeClass('hidden');
+function hideByTags($elements, state, checkTags, cls) {
   $elements.each((ind, element) => {
       const $element = $(element);
-
-      if(checkTags($element)) return;
-      $element.addClass('hidden');
+      $element.toggleClass(cls ? cls : 'hidden', !checkTags($element));
   });
 }
 
@@ -21,22 +24,26 @@ function getMinVersion(a, b) {
   return a;
 }
 
+function getTagPlatformName($tagElement) {
+    return $tagElement
+        .attr("class")
+        .split(' ')
+        .find((cls) => cls.startsWith('tag-value-'))
+        .replace('tag-value-', '')
+        .toLowerCase()
+}
+
 function updateState(state) {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
 
-  const platformAvailability = {
-    'jvm': '1.0',
-    'common': '1.1',
-    'js': '1.1',
-    'native': '1.3'
-  };
+
   const stateVersion = state.version ? state.version : DEFAULT_VERSION;
-  const statePlatforms = state.platform.filter((platform) => platformAvailability[platform] <= stateVersion);
-  for (const platform in platformAvailability) {
+  const statePlatforms = state.platform.filter((platform) => PLATFORM_AVAILABILITY[platform] <= stateVersion);
+  for (const platform in PLATFORM_AVAILABILITY) {
     const $toggleElement = $(".toggle-platform." + platform);
-    $toggleElement.toggleClass("disabled", platformAvailability[platform] > stateVersion)
+    $toggleElement.toggleClass("disabled", PLATFORM_AVAILABILITY[platform] > stateVersion)
   }
-  const minVersion = statePlatforms.map((platform) => platformAvailability[platform]).reduce(getMinVersion);
+  const minVersion = statePlatforms.map((platform) => PLATFORM_AVAILABILITY[platform]).reduce(getMinVersion, '1.0');
 
 
   hideByTags($('[data-platform]'), state, ($element) => {
@@ -52,11 +59,7 @@ function updateState(state) {
   hideByTags($('.tags__tag.platform'), state, ($element) => {
     if ($element.attr('data-tag-version') > stateVersion) return false;
 
-    return $element
-        .attr("class")
-        .split(' ')
-        .map((cls) => (cls.replace("tag-value-", "").toLowerCase()))
-        .some((tag) => statePlatforms.includes(tag))
+    return statePlatforms.includes(getTagPlatformName($element))
   });
 
 
