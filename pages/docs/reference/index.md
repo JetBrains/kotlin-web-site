@@ -109,7 +109,7 @@ window.onload = function () {
           </ul>
       </div>
       <div >
-          <h3 style="font-weight: bold">Coursera</h3>
+          <h3 style="font-weight: bold">Online Courses</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
           <ul>
               <li class="b"> <a style="text-decoration: none;">Kotlin (RU)</a> </li>
@@ -117,7 +117,7 @@ window.onload = function () {
           </ul>
       </div>
       <div >
-          <h3 style="font-weight: bold">Get Certified Training</h3>
+          <h3 style="font-weight: bold">Certified Training</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
           <ul>
               <li class="a b"> <a style="text-decoration: none;">Link</a></li>
