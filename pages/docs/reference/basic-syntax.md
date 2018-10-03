@@ -98,7 +98,7 @@ See [Functions](functions.html).
 
 ## Defining variables
 
-Assign-once (read-only) local variable:
+Immutable (assign-once, read-only) local values are defined using the keyword `val`:
 
 <div class="sample" markdown="1" theme="idea">
 
@@ -115,7 +115,7 @@ fun main(args: Array<String>) {
 ```
 </div>
 
-Mutable variable:
+Mutable variables are defined using the keyword `var`:
 
 <div class="sample" markdown="1" theme="idea">
 
