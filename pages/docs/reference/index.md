@@ -21,7 +21,7 @@ title: "Reference"
     </div>
      <div style="padding: 5px;">
          <h3 style="font-weight: bold">IDE</h3>
-         <p>Kotlin is supported in many IDEs which help writing ideomatic Kotlin code:</p>
+         <p>Kotlin is supported in many IDEs which help writing idiomatic Kotlin code:</p>
          <ul>
              <li class="start">         <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">Kotlin Educational Plugin</a> </li>
              <li class="migrate start"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
@@ -29,7 +29,7 @@ title: "Reference"
      </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Ask community</h3>
-          <p>Kotlin community is open, helpful and welcoming. Don't hasirate to join and ask on any platform you like:</p>
+          <p>Kotlin community is open, helpful and welcoming. Don't hesitate to join and ask on any platform you like:</p>
           <ul>
               <li class="migrate"> <a style="text-decoration: none;" href="https://blog.jetbrains.com/kotlin/">Blog</a> </li>
               <li class="start"> <a style="text-decoration: none;" href="https://discuss.kotlinlang.org/">Forum</a>  </li>
@@ -48,7 +48,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Books</h3>
-          <p>All Kotlin aspekts are well covered in <a>Books</a>, check out the those books to start:</p>
+          <p>All Kotlin aspects are well covered in <a>Books</a>, check out those books to start:</p>
           <ul>
               <li class="start"> <a style="text-decoration: none;" href="https://www.amazon.com/Kotlin-Programming-Nerd-Ranch-Guide/dp/0135161630">Kotlin Programming: The Big Nerd Ranch Guide</a> </li>
               <li class="migrate"> <a style="text-decoration: none;" href="https://leanpub.com/kotlin-for-android-developers">Kotlin for Android Developers</a> </li>
@@ -58,7 +58,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Online Courses</h3>
-          <p>Kotlin is well coverted in online courses, check out recommended cuourses here</p>
+          <p>Kotlin is well covered in online courses, check out recommended courses here</p>
           <ul>
             <li class="start">   <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052982.do">Introduction to Kotlin Programming</a></li>
             <li class="migrate"> <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052999.do">Advanced Kotlin Programming</a></li>
@@ -68,20 +68,20 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Certified Training</h3>
-          <p>Certified by JetBrains is a program created to work with training providers to verify their existing Kotlin training programs and at the same time, build a trusted network of global partners. </p>
+          <p>Certified by JetBrains is a program created to work with training providers to verify their existing Kotlin training programs and at the same time, 
+             build a trusted network of global partners:</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://www.jetbrains.com/company/partners/kotlin/">Training Partners</a></li>
           </ul>
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Community Resources</h3>
-          <p>Check out those community resourese for more information</p>
+          <p>Check out those community resources for more information</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://kotlin.link">kotlin.link</a></li>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://superkotlin.com/blog/">superkotlin blog</a></li>
           </ul>
       </div>
-            
 </div>
 
 
