@@ -29,7 +29,7 @@ def load_api_titles():
 
     test_title_files_path = path.join(root_folder, 'api', 'latest', 'kotlin.test', 'index.yml')
     with open(test_title_files_path) as title_files:
-        process_titles(yaml.load(title_files)[0], 'latest/kotlin.test',  'kotlin-test', '.html')
+        process_titles(yaml.load(title_files)[0], 'latest/kotlin.test',  '.', '')
 
 
 def get_api_page(build_mode: bool, page_path):
