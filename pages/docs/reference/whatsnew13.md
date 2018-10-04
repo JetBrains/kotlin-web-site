@@ -101,13 +101,19 @@ fun foo() {
 
 `stdlib` already makes use of contracts, which leads to improvements in the analyses described above.  This part of contracts is **stable**, meaning that you can benefit from the improved analysis right now without any additional opt-ins:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
 ```kotlin
+//sampleStart
 fun bar(x: String?) {
     if (!x.isNullOrEmpty()) {
-        println(x.length) // Yay, smartcasted to not-null!
+        println("length of '$x' is ${x.length}") // Yay, smartcasted to not-null!
     }
+}
+//sampleEnd
+fun main() {
+    bar(null)
+    bar("42")
 }
 ```
 
