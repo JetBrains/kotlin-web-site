@@ -39,7 +39,7 @@ However, as soon as these checks are extracted in a separate function, all the s
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun String.isNotNull(): Boolean = this != null
+fun String?.isNotNull(): Boolean = this != null
 
 fun foo(s: String?) {
     if (s.isNotNull()) s.length // No smartcast :(
