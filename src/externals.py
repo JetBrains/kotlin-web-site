@@ -3,6 +3,8 @@ import re
 from os import path
 import yaml
 
+from src.github import assert_valid_git_hub_url
+
 root_folder = path.normpath(path.join(os.path.dirname(__file__), '..'))
 
 
@@ -18,10 +20,12 @@ class ExternalMount:
         self.external_repo: str = external_spec['repo']
         self.external_branch: str = external_spec['branch']
 
-        assert self.external_repo.startswith("https://github.com/JetBrains")
+        assert_valid_git_hub_url(self.external_repo, 'EXTERNAL MODULE: %s' % self.external_path)
 
         self.target_external_path = path.join(root_folder, 'pages', self.external_base.lstrip("/"))
         self.source_external_path = path.join(root_folder, 'external', self.external_path.lstrip("/"))
+        # assuming external folder contains only sub repositories
+        self.source_checkout_root = path.join(root_folder, 'external', self.external_path.split("/")[0])
 
         self.nav_file = path.join(self.source_external_path, self.external_nav.lstrip("/"))
 
@@ -29,6 +33,9 @@ class ExternalMount:
         print("External nav file:   ", self.nav_file)
         print("External source dir: ", self.source_external_path)
         print("External target dir: ", self.target_external_path)
+
+    def github_view_url(self, file: str) -> str:
+        return self.external_repo + "/blob/" + self.external_branch + "/" + file.lstrip("/")
 
 
 def _rant_if_external_nav_is_not_found(self: ExternalMount):
@@ -104,9 +111,7 @@ def _process_external_entry(self: ExternalMount, url_mappers, entry: dict):
         source_text = file.read()
 
     # TODO: check `---` headers at the beginning of the original file and WARN or MERGE
-
-    for mapper in url_mappers:
-        source_text = mapper(source_text)
+    source_text = url_mappers(source_text, item.source_item)
 
     template = item.generate_header()
 
@@ -121,28 +126,45 @@ def _process_external_entry(self: ExternalMount, url_mappers, entry: dict):
     }
 
 
-def _build_url_mappers(external_yml):
-    def _url_replace_function(source_url, target_url):
-        pattern = "\\]\\("        "(" + re.escape(source_url) + ")"           "(#[^\\)]+)?"     "\\)"
-        return lambda text: re.compile(pattern).sub("](" + target_url + "\\2)", text)
+def _build_url_mappers(external_yml, mount: ExternalMount):
+    r = re.compile("\\]\\("        "([^#)]+)?"           "(#[^)]+)?"     "\\)")
 
-    return [_url_replace_function(item['md'], item['url']) for item in external_yml]
+    known_urls = {item['md']: item['url'] for item in external_yml}
 
+    def patch_the_text(text, source_item):
+        def handle_match(m):
+            url = m.group(1) or ''
+            anchor = m.group(2) or ''
+
+            if url in known_urls:
+                url = known_urls[url]
+            elif not url.startswith("http://") and not url.startswith("https://"):
+                real_path = path.normpath(path.join(path.dirname(source_item), url))
+                if path.isfile(real_path):
+                    rel_path = path.relpath(real_path, mount.source_checkout_root)
+                    url = mount.github_view_url(rel_path)
+
+            return "](" + url + anchor + ")"
+
+        return r.sub(handle_match, text)
+
+    return patch_the_text
 
 def _process_external_key(build_mode, data):
     if 'external' not in data: return
     mount = ExternalMount(build_mode, data['external'])
+    del data['external']
 
     if not _rant_if_external_nav_is_not_found(mount):
+        data['content'] = [{ 'url': '/', 'title': 'external "%s" is it included' % mount.external_path}]
         return
 
     with open(mount.nav_file) as stream:
         external_yml = yaml.load(stream)
         assert isinstance(external_yml, list)
 
-    url_mappers = _build_url_mappers(external_yml)
+    url_mappers = _build_url_mappers(external_yml, mount)
     data['content'] = [_process_external_entry(mount, url_mappers, item) for item in external_yml]
-    del data['external']
 
 
 def process_nav_includes(build_mode, data):

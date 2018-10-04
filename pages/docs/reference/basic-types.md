@@ -299,6 +299,83 @@ x[0] = x[1] + x[2]
 ```
 </div>
 
+## Unsigned integers
+
+> Unsigned types are available only since Kotlin 1.3 and currently are *experimental*. See details [below](#experimental-status-of-unsigned-integers) 
+{:.note}
+
+Kotlin introduces following types for unsigned integers:
+
+* `kotlin.UByte`: an unsigned 8-bit integer, ranges from 0 to 255
+* `kotlin.UShort`: an unsigned 16-bit integer, ranges from 0 to 65535
+* `kotlin.UInt`: an unsigned 32-bit integer, ranges from 0 to 2^32 - 1
+* `kotlin.ULong`: an unsigned 64-bit integer, ranges from 0 to 2^64 - 1
+
+Unsigned types support most of the operations of their signed counterparts.
+
+> Note that changing type from unsigned type to signed counterpart (and vice versa) is a *binary incompatible* change
+{:.note}
+
+Unsigned types are implemented using another experimental feature, namely [inline classes](inline-classes.html).
+
+### Specialized classes 
+
+Same as for primitives, each of unsigned type has corresponding type that represents array, specialized for that unsigned type:
+
+* `kotlin.UByteArray`: an array of unsigned bytes
+* `kotlin.UShortArray`: an array of unsigned shorts
+* `kotlin.UIntArray`: an array of unsigned ints
+* `kotlin.ULongArray`: an array of unsigned longs
+
+Same as for signed integer arrays, they provide similar API to `Array` class without boxing overhead. 
+
+Also, [ranges and progressions](ranges.html) supported for `UInt` and `ULong` by classes `kotlin.ranges.UIntRange`, `kotlin.ranges.UIntProgression`, `kotlin.ranges.ULongRange`, `kotlin.ranges.ULongProgression` 
+
+### Literals
+
+To make unsigned integers easier to use, Kotlin provides an ability to tag an integer literal with a suffix indicating a specific unsigned type (similarly to Float/Long):
+* suffixes `u` and `U` tag literal as unsigned. Exact type will be determined based on the expected type. If no expected type is provided, `UInt` or `ULong` will be chosen based on the size of literal 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+``` kotlin
+val b: UByte = 1u  // UByte, expected type provided
+val s: UShort = 1u // UShort, expected type provided
+val l: ULong = 1u  // ULong, expected type provided
+
+val a1 = 42u // UInt: no expected type provided, constant fits in UInt
+val a2 = 0xFFFF_FFFF_FFFFu // ULong: no expected type provided, constant doesn't fit in UInt
+```
+
+</div> 
+
+* suffixes `uL` and `UL` explicitly tag literal as unsigned long.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+``` kotlin
+val a = 1UL // ULong, even though no expected type provided and constant fits into UInt
+```
+
+</div>
+
+### Experimental status of unsigned integers
+
+The design of unsigned types is experimental, meaning that this feature is moving fast and no compatibility guarantees are given. When using unsigned arithmetics in Kotlin 1.3+, warning will be reported, indicating that this feature is experimental. To remove warning, you have to opt-in for experimental usage of unsigned types. 
+
+There are two possible ways to opt-in for unsigned types: with marking your API as experimental too, or without doing that.
+
+- to propagate experimentality, either annotate declarations which use unsigned integers with `@ExperimentalUnsignedTypes` or pass `-Xexperimental=kotlin.ExperimentalUnsignedTypes` to the compiler (note that the latter will make *all* declaration in compiled module experimental)
+- to opt-in without propagating experimentality, either annotate declarations with `@UseExperimental(ExperimentalUnsignedTypes::class)` or pass `-Xuse-experimental=kotlin.ExperimentalUnsignedTypes`
+
+It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but bear in mind that unsigned types are an experimental feature, so API which uses them can be suddenly broken due to changes in language. 
+
+See also or Experimental API [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/experimental.md) for technical details.
+
+### Further discussion
+
+See [language proposal for unsigned types](https://github.com/Kotlin/KEEP/blob/master/proposals/unsigned-types.md) for technical details and further discussion.
+
 ## Strings
 
 Strings are represented by the type `String`. Strings are immutable.
