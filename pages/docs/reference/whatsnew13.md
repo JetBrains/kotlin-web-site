@@ -480,9 +480,10 @@ We’ve added a new API to `kotlin-reflect` that can be used to enumerate all th
 
 ## Smaller changes
 
-* `Boolean` type now has companion
-* Introduced `Any?.hashCode()` extension which returns 0 for `null`
-* `Char` now provides `MIN_VALUE`/`MAX_VALUE` constants
+* `Boolean` type now has companion.
+* `Any?.hashCode()` extension, which returns 0 for `null`.
+* `Char` now provides `MIN_VALUE`/`MAX_VALUE` constants.
+* `SIZE_BYTES` and `SIZE_BITS` constants in primitive type companions.
 
 # Tooling
 
