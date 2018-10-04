@@ -276,15 +276,18 @@ inline class Name(val s: String)
 
 The Kotlin compiler will use this restriction to aggressively optimize runtime representation of inline classes and substitute their instances with the value of the underlying property where possible removing constructor calls, GC pressure, and enabling other optimizations:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
 ```kotlin
+inline class Name(val s: String)
+//sampleStart
 fun main() {
     // In the next line no constructor call happens, and
     // at the runtime 'name' contains just string "Kotlin"
     val name = Name("Kotlin")
     println(name.s) 
 }
+//sampleEnd
 ```
 
 </div>
@@ -305,22 +308,30 @@ Kotlin 1.3 introduces unsigned integer types:
 
 Most of the functionality of signed types are supported for unsigned counterparts too:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
 ```kotlin
+fun main() {
+//sampleStart
 // You can define unsigned types using literal suffixes
-val uInt = 42u 
-val uLong = 42uL
+val uint = 42u 
+val ulong = 42uL
+val ubyte: UByte = 255u
 
-// You can convert signed types to unsigned and vice versa via stdlb extensions:
-val sInt = uint.toInt()
-val uLong2 = sInt.toULong()
+// You can convert signed types to unsigned and vice versa via stdlib extensions:
+val int = uint.toInt()
+val byte = ubyte.toByte()
+val ulong2 = byte.toULong()
 
 // Unsigned types support similar operators:
-val x = 20u + 22u 
-val y = 1 shl 8 
-val z = "42".toUInt()
-val range = 1u .. 5u
+val x = 20u + 22u
+val y = 1u shl 8
+val z = "128".toUByte()
+val range = 1u..5u
+//sampleEnd
+println("ubyte: $ubyte, byte: $byte, ulong2: $ulong2")
+println("x: $x, y: $y, z: $z, range: $range")
+}
 ```
 
 </div>
