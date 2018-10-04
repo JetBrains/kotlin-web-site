@@ -27,8 +27,8 @@ The Kotlin compiler does extensive static analysis to provide warnings and reduc
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun foo(x: String?) {
-    if (x != null) s.length // Compiler automatically casts 's' to 'String'
+fun foo(s: String?) {
+    if (s != null) s.length // Compiler automatically casts 's' to 'String'
 }
 ```
 
@@ -41,8 +41,8 @@ However, as soon as these checks are extracted in a separate function, all the s
 ```kotlin
 fun String.isNotNull(): Boolean = this != null
 
-fun foo(x: String?) {
-    if (x.isNotNull()) s.length // No smartcast :(
+fun foo(s: String?) {
+    if (s.isNotNull()) s.length // No smartcast :(
 }
 ```
 
@@ -64,8 +64,8 @@ fun require(condition: Boolean) {
     if (!condition) throw IllegalArgumentException(...)
 }
 
-fun foo(x: String?) {
-    require(x is String)
+fun foo(s: String?) {
+    require(s is String)
     // x is smartcasted to 'String' here, because otherwise 
     // 'require' would have throw an exception
 }
