@@ -186,8 +186,6 @@ reference:
           title: Keywords and Operators
         - url: /docs/reference/grammar.html
           title: Grammar
-        - url: /docs/reference/compatibility.html
-          title: Compatibility
 
 
     - title: Java Interop
@@ -252,6 +250,14 @@ reference:
           title: Compiler plugins
         - url: /docs/reference/code-style-migration-guide.html
           title: Coding Conventions
+
+    - title: Evolution
+      description: Langauge evolution and compatibility
+      content:
+        - url: /docs/reference/evolution/kotlin-evolution.html
+          title: Kotlin Evolution
+        - url: /docs/reference/evolution/components-stability.html
+          title: Stability of different components
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.
@@ -372,3 +378,14 @@ tutorials:
           title: Learning Kotlin with EduTools plugin
         - url: /docs/tutorials/edu-tools-educator.html
           title: Teaching Kotlin with EduTools plugin
+
+foundation:
+  content:
+      - url: /foundation/kotlin-foundation.html
+        title: Kotlin Foundation
+      - url: /foundation/language-committee-guidelines.html
+        title: Language Committee Guidelines
+      - url: /foundation/submitting-incompatible-changes.html
+        title: Submitting Incompatible Changes
+      - url: /foundation/faq.html
+        title: FAQ
