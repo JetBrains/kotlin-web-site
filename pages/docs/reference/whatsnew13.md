@@ -66,7 +66,7 @@ fun require(condition: Boolean) {
 
 fun foo(s: String?) {
     require(s is String)
-    // x is smartcasted to 'String' here, because otherwise 
+    // s is smartcasted to 'String' here, because otherwise
     // 'require' would have throw an exception
 }
 ```
