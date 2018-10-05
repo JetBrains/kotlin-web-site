@@ -51,7 +51,7 @@ for writing [AWS Lambda](https://aws.amazon.com/lambda/) functions.
 
 ## Users of Kotlin on the Server Side
 
-[Corda](https://www.corda.net/2017/01/10/kotlin/) is an open-source distributed ledger platform, supported by major
+[Corda](https://www.corda.net/) is an open-source distributed ledger platform, supported by major
 banks, and built entirely in Kotlin.
 
 [JetBrains Account](https://account.jetbrains.com/), the system responsible for the entire license sales and validation
