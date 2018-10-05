@@ -495,7 +495,7 @@ kotlin {
 ### Experimental metadata publishing mode
 
 An experimental publishing and dependency consumption mode can be enabled by adding 
-`enableFeaturePreview('GRADLE_METADATA)` to the `settings.gradle` file. With Gradle metadata enabled,
+`enableFeaturePreview('GRADLE_METADATA')` to the `settings.gradle` file. With Gradle metadata enabled,
  an additional publication is added which references the target publications as its variants. The artifact ID of this publication
  matches the project name.
  
