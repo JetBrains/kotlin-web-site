@@ -5,9 +5,9 @@ title: "Reference"
 
 # **Learn Kotlin**
 <div style="display: inline-flex; border: 1px solid rgb(229, 229, 229); border-radius: 40px;" >
- <div id="material" style="padding: 1rem 2rem;border-radius: 40px; border: 1px solid transparent;" >All Materials</div>
- <div id="start" style="padding: 1rem 2rem;border-radius: 40px;">Getting Started</div>
- <div id="migrate" style="padding: 1rem 2rem;border-radius: 40px;">Migrating from Java</div>
+ <div id="material" onmouseover="this.style.backgroundColor='#F0F0F0'" onmouseout="this.style.backgroundColor=''" style="cursor: pointer; padding: 1rem 2rem;border-radius: 40px; border: 1px solid transparent;" >All Materials</div>
+ <div id="start" onmouseover="this.style.backgroundColor='#F0F0F0'" onmouseout="this.style.backgroundColor=''" style="cursor: pointer; padding: 1rem 2rem;border-radius: 40px;">Getting Started</div>
+ <div id="migrate" onmouseover="this.style.backgroundColor='#F0F0F0'" onmouseout="this.style.backgroundColor=''" style="cursor: pointer; padding: 1rem 2rem;border-radius: 40px;">Migrating from Java</div>
 </div>
 <div style="display:grid; grid-template-columns: 1fr 1fr;">
     <div style="padding: 5px;">
