@@ -92,7 +92,7 @@ Recommended tutorials:
 </div>
 
 - [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin-native/tree/master/samples) 
-- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) 
+- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 
 Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples)

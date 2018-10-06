@@ -42,6 +42,6 @@ Recommended tutorials:
 </div>
 
 - [kotlinx.coroutines Examples and Sources](https://github.com/Kotlin/kotlin-coroutines/tree/master/examples)
-- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) 
+- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 
 Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples)

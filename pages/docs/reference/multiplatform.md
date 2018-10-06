@@ -134,7 +134,7 @@ Recommended tutorials:
     <b>Example Projects</b>
 </div>
 
-- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app/tree/master/ios) 
+- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 
 Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples)
