@@ -1,5 +1,7 @@
 # Kotlin website
-[![Official project][project-badge]][project-url] [![Slack][slack-badge]][slack-url] 
+[![Official project][project-badge]][project-url]
+[![Slack][slack-badge]][slack-url]
+[![JetBrains community Discord](https://goo.gl/xe5fjk)](https://discord.gg/zzgKagV)
 
 This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
@@ -127,4 +129,5 @@ Click [here to report an issue](http://youtrack.jetbrains.com/newIssue?project=K
 [project-url]: https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub
 [project-badge]: http://jb.gg/badges/official.svg
 [slack-url]: http://slack.kotlinlang.org
-[slack-badge]: http://slack.kotlinlang.org/badge.svg
+[slack-badge-broken]: http://slack.kotlinlang.org/badge.svg
+[slack-badge]: https://goo.gl/6v9NMJ
