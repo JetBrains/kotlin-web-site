@@ -11,7 +11,7 @@ Asynchronous or non-blocking programming is the new reality. Whether we're creat
 that we provide an experience that is not only fluid from the user's perspective, but scalable when needed.
 
 There are many approaches to this problem, and in Kotlin we take a very flexible one by providing [Coroutine](https://en.wikipedia.org/wiki/Coroutine) support at the language 
-level and delegating most of the functionality to libraries, much inline with Kotlin's philosophy. 
+level and delegating most of the functionality to libraries, much in line with Kotlin's philosophy. 
 
 As a bonus, coroutines not only open the doors to asynchronous programming, but also provide a wealth of other possibilities such as concurrency, actors, etc.
 
