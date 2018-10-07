@@ -1,7 +1,8 @@
-# Kotlin website
 [![Official project][project-badge]][project-url]
 [![Slack][slack-badge]][slack-url]
 [![JetBrains community Discord](https://goo.gl/xe5fjk)](https://discord.gg/zzgKagV)
+
+# Kotlin website
 
 This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
