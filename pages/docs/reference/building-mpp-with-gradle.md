@@ -169,7 +169,7 @@ kotlin {
 All of the targets may share some of the sources and may have platform-specific sources in their compilations as well. 
 See [Configuring source sets](#configuring-source-sets) for details.
 
-Some targets may require additional configuration. For Android and iOS examples, see the [Multiplatform Project: iOS and Android] TODO /docs/tutorials/native/mpp-ios-android.html tutorial.
+Some targets may require additional configuration. For Android and iOS examples, see the [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html) tutorial.
 
 ### Supported platforms
 
@@ -297,7 +297,7 @@ kotlin {
             dependsOn desktopTest
             /* ... */
         }
-        linuxTest { // default test source et for target 'linux'
+        linuxTest { // default test source set for target 'linux'
             dependsOn desktopTest
         }
         /* ... */
@@ -312,8 +312,8 @@ kotlin {
 To add a dependency to a source set, use a `dependencies { ... }` block of the source sets DSL. Four kinds of dependencies
 are supported:
 
-* `api` dependencies are used both during compilation and at runtime and are exported to a library consumers. If any types 
-  from a dependency are used in the public API, then it should be an `api` dependency;
+* `api` dependencies are used both during compilation and at runtime and are exported to library consumers. If any types 
+  from a dependency are used in the public API of the current module, then it should be an `api` dependency;
   
 * `implementation` dependencies are used during compilation and at runtime for the current module, but are not exposed for compilation 
   of other modules depending on the one with the `implementation` dependency. The`implementation` dependency kind should be used for 
@@ -325,7 +325,7 @@ are supported:
   
 * `runtimeOnly` dependencies are available at runtime but are not visible during compilation of any module.
 
-They are specified per source set as follows: 
+Dependencies are specified per source set as follows: 
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
@@ -401,7 +401,7 @@ of the compilation's default source set are used.
 The language settings are checked for consistency between source sets depending on each other. Namely, if `foo` depends on `bar`:
 
 * `foo` should set `languageVersion` that is greater than or equal to that of `bar`;
-* `foo` should enable all unstable language features that `bar` enabled (there's no such requirement for bugfix features);
+* `foo` should enable all unstable language features that `bar` enables (there's no such requirement for bugfix features);
 * `apiVersion`, bugfix language features, and `progressiveMode` can be set arbitrarily; 
 
 ## Default Project Layout
@@ -554,18 +554,18 @@ However, dependencies on such a multiplatform library may be ambiguous and may t
      <div class="sample" markdown="1" theme="idea" mode='groovy'>
      
      ```groovy
-     def testFrameworkAttribte = Attribute.of('com.example.testFramework', String)
+     def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
       
      kotlin {
          targets {
              fromPreset(presets.jvm, 'junit') {
                  attributes {
-                     attribute(testingFrameworkAttribte, 'junit')
+                     attribute(testingFrameworkAttribute, 'junit')
                  }
              }
              fromPreset(presets.jvm, 'testng') {
                  attributes {
-                     attribute(testingFrameworkAttribte, 'testng')
+                     attribute(testingFrameworkAttribute, 'testng')
                  }
              }
          }
