@@ -11,7 +11,7 @@ title: "Kotlin/Native"
 
 Kotlin/Native is a technology for compiling Kotlin code to native binaries, which can run without a virtual machine.
 It is an [LLVM](https://llvm.org/) based backend for the Kotlin compiler and native implementation of the Kotlin standard
-library
+library.
 
 ## Why Kotlin/Native?
 
@@ -53,7 +53,7 @@ graphical engines, and anything else directly from Kotlin/Native.
 Kotlin/Native [libraries](/docs/reference/native/platform_libs.html) help to share Kotlin
 code between projects.
 POSIX, gzip, OpenGL, Metal, Foundation, and many other popular libraries and Apple frameworks
-are pre-imported and included as Kotlin/Native libraries into the compiler package
+are pre-imported and included as Kotlin/Native libraries into the compiler package.
 
 ## Sharing Code between Platforms
 
@@ -95,5 +95,5 @@ Recommended tutorials:
 - [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 
-Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples)
+Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples).
 
