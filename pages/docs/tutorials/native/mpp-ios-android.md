@@ -488,4 +488,4 @@ directly in the common Kotlin code. There are several examples of such libraries
 - [ktor](https://ktor.io/)
 - [ktor-http-client](https://ktor.io/clients/http-client.html)
 
-Looking for more APIs? It is easy to create a [multiplatform library](/docs/reference/multiplatform.html) and share it!
+Looking for more APIs? It is easy to create a [multiplatform library](/docs/tutorials/multiplatform-library.html) and share it!
