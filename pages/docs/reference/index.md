@@ -12,7 +12,7 @@ title: "Reference"
 <div style="display:grid; grid-template-columns: 1fr 1fr;">
     <div style="padding: 5px;">
         <h3 style="font-weight: bold">Documentation</h3>
-        <p>Kotlin documentation is a good step to start, check out these links for the beginning:</p>
+        <p>Kotlin documentation is a good place to start, check out these links to get your feet wet:</p>
         <ul>
             <li class="start">   <a style="text-decoration: none;" href="/docs/reference/basic-syntax.html">Basics</a> </li>
             <li class="migrate"> <a style="text-decoration: none;" href="/docs/reference/idioms.html">Idioms</a> </li>
@@ -21,7 +21,7 @@ title: "Reference"
     </div>
      <div style="padding: 5px;">
          <h3 style="font-weight: bold">IDE</h3>
-         <p>Kotlin is supported in many IDEs, it helps writing idiomatic Kotlin code:</p>
+         <p>Kotlin is supported in many IDEs and they help in writing idiomatic Kotlin code:</p>
          <ul>
              <li class="start">         <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">Kotlin Educational Plugin</a> </li>
              <li class="migrate start"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
@@ -39,7 +39,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Playground</h3>
-          <p>Heads on experience is the way to master your Kotlin skills on real examples right in the browser</p>
+          <p>Heads-on experience is <b>the</b> way to master your Kotlin skills on real examples right in the browser:</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org">Playground</a> </li>
               <li class="migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org/byExample">Kotlin Examples</a>  </li>
@@ -48,7 +48,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Books</h3>
-          <p>All Kotlin aspects are well covered in <a>Books</a>, check out these books to start:</p>
+          <p>All Kotlin aspects are well covered in <a href="/docs/books.html">Books</a>, check out these books to start:</p>
           <ul>
               <li class="start"> <a style="text-decoration: none;" href="https://www.amazon.com/Kotlin-Programming-Nerd-Ranch-Guide/dp/0135161630">Kotlin Programming: The Big Nerd Ranch Guide</a> </li>
               <li class="migrate"> <a style="text-decoration: none;" href="https://leanpub.com/kotlin-for-android-developers">Kotlin for Android Developers</a> </li>
@@ -58,7 +58,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Online Courses</h3>
-          <p>Kotlin is well covered in online courses, check out recommended courses here</p>
+          <p>Kotlin is well covered in online courses, check out recommended courses here:</p>
           <ul>
             <li class="start">   <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052982.do">Introduction to Kotlin Programming</a></li>
             <li class="migrate"> <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052999.do">Advanced Kotlin Programming</a></li>
@@ -68,7 +68,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Certified Training</h3>
-          <p>Certified by JetBrains is a program created to work with training providers to verify their existing Kotlin training programs and at the same time, 
+          <p>"Certified by JetBrains" is a program created to work with training providers to verify their existing Kotlin training programs, and at the same time 
              build a trusted network of global partners:</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://www.jetbrains.com/company/partners/kotlin/">Training Partners</a></li>
@@ -76,7 +76,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Community Resources</h3>
-          <p>Check out these community resources for more information</p>
+          <p>Check out these community resources for more information:</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://kotlin.link">kotlin.link</a></li>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://superkotlin.com/blog/">superkotlin blog</a></li>
