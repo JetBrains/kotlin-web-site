@@ -118,7 +118,7 @@ such as loops, exception handling, etc. usually are no longer valid in this mode
 
 ## Reactive Extensions
 
-Reactive Extensions (Rx) where introduced to C# by [Erik Meijer](https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist). While it was definitely used on the .NET platform
+Reactive Extensions (Rx) where introduced to C# by [Erik Meijer](https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)). While it was definitely used on the .NET platform
 it really didn't reach mainstream adoption until Netflix ported it over to Java, naming it RxJava. From then on, numerous ports have been provided for a variety of platforms including JavaScript (RxJS).
 
 The idea behind Rx is to move towards what's called `observable streams` where by we now think of data is streams (infinite amounts of data) and these streams can be observed. In practical terms, Rx is simply 
