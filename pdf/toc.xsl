@@ -14,6 +14,7 @@
           * {
             padding: 0;
             margin: 0;
+            letter-spacing: normal;
             font-family: Arial, Helvetica, sans-serif;
           }
 
