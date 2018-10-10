@@ -41,23 +41,8 @@
     text-decoration: none;
   }
 
-    .kotlin-button-banner {
-      font-size: 20px;
-      width: 130px;
-      padding: 10px 15px;
-      margin-left: 4*$unit;
-      text-decoration: none;
-      border-radius: 5px;
-      background-color: rgb(169, 169, 169);
-      color: rgb(41, 57, 72);
-
-     &:hover {
-        opacity:.9;
-      }
-    }
-
   .banner-link {
-    color: black;
+    color: white;
     text-decoration: none;
   }
 
@@ -68,7 +53,7 @@
       padding-bottom: 30px;
       text-align: left;
       background: white url('images/banner-image.png') no-repeat right;
-      background-size: contain;
+      background-size: cover;
     }
 
     .release-banner {
@@ -101,12 +86,26 @@
     }
 
     .kotlin-info-description {
-        margin-bottom: $unit*8;
-        margin-left: $unit*4;
-        font-size: $unit*7;
-        line-height: $unit*6 + 2px;
-        font-family: $font-family-serif-bold;
+      display: flex;
+      align-items: center;
+      width: 55%;
+      margin-left: auto;
+      margin-bottom: $unit*4;
+      font-size: $unit*5;
+      line-height: $unit*6 + 2px;
+      font-family: $font-family-serif-bold;
     }
+
+  .play-video {
+    background: url('images/play.svg') no-repeat;
+    margin-right: 40px;
+    width: 90px;
+    height: 90px;
+
+    &:active {
+      transform: scale(1.2, 1.2);
+    }
+  }
 
     .kotlin-info-description-extra {
         position: relative;
