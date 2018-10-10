@@ -40,7 +40,7 @@ This is the main feature of inline classes, which inspired the name "inline": da
 
 Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties and functions:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 inline class Name(val s: String) {
@@ -72,7 +72,7 @@ However, there are some restrictions for inline class members:
 
 Inline classes are allowed to inherit from interfaces:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 interface Printable {
