@@ -148,7 +148,7 @@ kotlin {
 
 Building a target requires compiling Kotlin once or multiple times. Each Kotlin compilation of a target may serve a 
 different purpose (e.g. production code, tests) and incorporate different [source sets](#configuring-source-sets). The compilations
-of a target may be acccessed in the DSL, for example, to get the task names, dependency files and compilation outputs:
+of a target may be accessed in the DSL, for example, to get the task names, dependency files and compilation outputs:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
