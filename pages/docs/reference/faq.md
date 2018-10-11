@@ -140,7 +140,8 @@ In addition there are community organised [Kotlin Nights](/community/kotlin-nigh
 
 ### Is there a Kotlin conference?
 
-Yes. The second official [KotlinConf](https://kotlinconf.com), taking place in Amsterdam 4-5 October 2018. 
+Yes. The official annual [KotlinConf](https://kotlinconf.com/) is hosted by JetBrains.
+It has taken place in San-Francisco in [2017](https://kotlinconf.com/2017/) and in Amsterdam in 2018.
 Kotlin is also being covered in different conferences worldwide. You can find a list of [upcoming talks on the web site](/community/talks.html?time=upcoming).
 
 ### Is Kotlin on Social Media?
