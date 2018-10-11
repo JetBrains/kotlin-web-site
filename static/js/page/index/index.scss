@@ -262,6 +262,8 @@
     background-repeat: repeat;
 
     .section-content {
+        display: flex;
+        flex-direction: column;
         text-align: center;
     }
 
@@ -286,14 +288,38 @@
 .kotlin-overview-code-example {
     $legend-width: 180px;
     $legend-spacing: 10px;
-
-    display: inline-block;
     position: relative;
     max-width: $overview-section-width;
     margin: $unit*4 auto $unit*5;
 
+  .cm-s-darcula.CodeMirror {
+    background: transparent;
+  }
+  .CodeMirror pre {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .CodeMirror-gutters {
+    background: none !important;
+    border-right: none !important;
+  }
+
+  .output-wrapper.darcula {
+      background-color: transparent;
+  }
+
+  .executable-fragment.darcula {
+    border: none;
+    background-color: transparent;
+  }
+
+  .compiler-info {
+    display: none;
+  }
+
     &.is_hidden {
-        display: none;
+      position: absolute; top: -9999px; left: -9999px;
     }
 
     .code-line {

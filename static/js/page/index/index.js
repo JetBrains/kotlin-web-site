@@ -6,9 +6,9 @@ const initTabs = function () {
   const $tabs = $('.js-tab');
 
   $tabs.on('click', function () {
+
     const $tab = $(this),
       tabId = $tab.attr('data-tab-id');
-
     if ($tab.hasClass('is_active')) {
       return;
     }
@@ -21,7 +21,9 @@ const initTabs = function () {
       if (tabId === currentTabId) {
         $currentTab.addClass('is_active');
         $tabContentNode.removeClass('is_hidden');
+        $tabContentNode.click();
       } else {
+        console.log( $currentTab)
         $currentTab.removeClass('is_active');
         $tabContentNode.addClass('is_hidden');
       }
