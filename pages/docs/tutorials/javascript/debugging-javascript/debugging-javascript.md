@@ -18,6 +18,8 @@ Before reading this tutorial, please, look through
 To debug Kotlin sources in the browser, you should tell the compiler to generate source map file.
 Add following lines to the Gradle configuration:
 
+<div class="sample" markdown="1" theme="idea" mode="groovy">
+
 ``` groovy
 compileKotlin2Js {
     kotlinOptions.sourceMap = true
@@ -26,6 +28,8 @@ compileKotlin2Js {
     // remaining configuration options
 } 
 ```
+
+</div>
 
 Now, if you rebuild the project, you should see both `.js` and `.js.map` files generated.
 
