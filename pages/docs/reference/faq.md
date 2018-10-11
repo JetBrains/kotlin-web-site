@@ -119,7 +119,7 @@ and [tutorials](/docs/tutorials/index.html).
 
 There are already [a number of books](/docs/books.html) available for Kotlin, including [Kotlin in Action](https://www.manning.com/books/kotlin-in-action) which is by Kotlin team members Dmitry Jemerov and Svetlana Isakova, 
 [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers) targeted at Android developers. 
-
+
 ### Are there any online courses available for Kotlin?
 
 There are a few courses available for Kotlin, including a [Pluralsight Kotlin Course](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones, 
@@ -131,7 +131,7 @@ There are also many recordings of [Kotlin talks](http://kotlinlang.org/community
 
 Yes. Kotlin has a very vibrant community. Kotlin developers hang out on the [Kotlin forums](http://discuss.kotlinlang.org), 
 [StackOverflow](http://stackoverflow.com/questions/tagged/kotlin) and more actively on the [Kotlin Slack](http://slack.kotlinlang.org) 
-(with close to 7000 members as of May 2017). 
+(with close to 20000 members as of October 2018). 
 
 ### Are there Kotlin events?
  
@@ -140,7 +140,7 @@ In addition there are community organised [Kotlin Nights](/community/kotlin-nigh
 
 ### Is there a Kotlin conference?
 
-Yes. The first official [KotlinConf](https://kotlinconf.com), taking place in San Francisco 2-3 November 2017. 
+Yes. The second official [KotlinConf](https://kotlinconf.com), taking place in Amsterdam 4-5 October 2018. 
 Kotlin is also being covered in different conferences worldwide. You can find a list of [upcoming talks on the web site](/community/talks.html?time=upcoming).
 
 ### Is Kotlin on Social Media?
