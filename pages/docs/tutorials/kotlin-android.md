@@ -9,7 +9,7 @@ showAuthorInfo: false
 
 ### Installing the Kotlin plugin
 
-The Kotlin plugin is bundled with Android Studio starting from [version 3.0](https://developer.android.com/studio/preview/index.html). If you use an earlier version, you'll need to install the Kotlin plugin.
+The Kotlin plugin is bundled with Android Studio starting from [version 3.0](https://developer.android.com/studio/). If you use an earlier version, you'll need to install the Kotlin plugin.
 Go to _File \| Settings \| Plugins \| Install JetBrains plugin..._ and then search for and install *Kotlin*.
 If you are looking at the "Welcome to Android Studio" screen, choose _Configure \| Plugins \| Install JetBrains plugin..._
 You'll need to restart the IDE after this completes.
