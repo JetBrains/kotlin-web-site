@@ -87,7 +87,7 @@ These types have a special notation that corresponds to the signatures of the fu
 * All function types have a parenthesized parameter types list and a return type: `(A, B) -> C` denotes a type that
  represents functions taking two arguments of types `A` and `B` and returning a value of type `C`. 
  The parameter types list may be empty, as in `() -> A`. The [`Unit` return type](functions.html#unit-returning-functions) 
- cannot be omitted. 
+ cannot be omitted. Note: `Unit` type is also known as 'empty tuple', but since Kotlin have no support for tuples, `Unit` is not a valid parameter types list, and thus `()` and `Unit` are not interchangeable, for example, `Unit -> Unit` and `Unit -> ()` are invalid.
  
 * Function types can optionally have an additional *receiver* type, which is specified before a dot in the notation:
  the type `A.(B) -> C` represents functions that can be called on a receiver object of `A` with a parameter of `B` and
