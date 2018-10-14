@@ -215,7 +215,7 @@ The more detailed explanation of the multiplatform projects can be found on the
 Let's summarize what we have in the table:
 
 | name | source folder | target | artifact |
-|---|---|---|
+|---|---|---|---|
 | common | `SharedCode/commonMain/kotlin` |  - | Kotlin metadata |
 | android | `SharedCode/androidMain/kotlin` | JVM 6 | `.jar` file or `.class` files |
 | iOS | `SharedCode/iOSMain` | iOS arm64 or x86_64| Apple framework |
