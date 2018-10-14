@@ -26,7 +26,7 @@ we're going to compile for the same operating system we're running on. In our ca
 We can obtain the latest version of the compiler from the [GitHub releases page](https://github.com/JetBrains/kotlin-native/releases).
 
 Once downloaded, we can uncompress it in any folder, e.g. ~/kotlin-native. For convenience it's useful to add the `bin` folder to the system path so that we can invoke the 
-compiler from any location. If we uncompressed to ~/kotlin-native, this would be ~/kotlin-native/bin) 
+compiler from any location. (If we uncompressed to ~/kotlin-native, this would be ~/kotlin-native/bin) 
 
 While the output by the compiler does not have any dependencies, the compiler itself does require Java 8, which should be on the system. If we're using macOS, we also need the macOS SDK which can be installed by installing Xcode. 
 
