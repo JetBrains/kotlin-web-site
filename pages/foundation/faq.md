@@ -22,7 +22,7 @@ The Foundation is governed by the Board of Directors, who then appoint a preside
 Yes, to cover the operational and administrative expenses. 
 
 ### Does the foundation generate any revenue?
-No, Kotlin is a non-profit entity whose operational costs are covered by JetBrains and Google. 
+No, Kotlin Foundation is a non-profit entity whose operational costs are covered by JetBrains and Google. 
  
 ### Can I license the Kotlin trademark? 
 Currently we do not offer trademark licensing. We are working to provide a set of Trademark Usage Guidelines, and will provide updates here when it becomes available.
