@@ -203,6 +203,12 @@ def community_page():
 def coroutines_redirect():
     return render_template('redirect.html', url=url_for('page', page_path='docs/reference/coroutines-overview'))
 
+
+@app.route('/docs/tutorials/coroutines-basic-jvm.html')
+def coroutines_tutor_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='docs/tutorials/coroutines/coroutines-basic'
+                                                                          '-jvm'))
+
 @app.route('/')
 def index_page():
     features = get_kotlin_features()
