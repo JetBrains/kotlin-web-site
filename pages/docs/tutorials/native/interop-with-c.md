@@ -48,7 +48,7 @@ all the headers are also included. Sometimes this may not be needed, and we can 
 Note, that `headerFilter` is an optional argument and mostly only used when the library we're using is being installed as a system library and we do not want to fetch external dependencies 
 (such as system `stdint.h` header) into our interop library. It may be important for both optimising library size and fixing potential conflicts between system and the Kotlin/Native provided compilation environment.
 
-The third and forth lines are about providing linker options, which can vary based on different target platforms. In our cause we are defining it for macOS and Linux. 
+The third and fourth lines are about providing linker options, which can vary based on different target platforms. In our cause we are defining it for macOS and Linux. 
 Compiler options can also be specific, albeit in this case it is not necessary. 
 
 The convention that is followed is that each library gets its own definition file, usually named the same as the library. For more information on all
