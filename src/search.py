@@ -205,7 +205,7 @@ def build_search_indices(site_structure, pages):
                 if "kotlin-stdlib" in full_name_parts:
                     full_name_parts.remove("kotlin-stdlib")
                 else:
-                    full_name_parts.remove("kotlin-test")
+                    full_name_parts.remove("kotlin.test")
                 full_name = " › ".join(full_name_parts).replace('<', '&lt;').replace('>', '&gt;')
                 breadcrumbs.extract()
             type = "Standard Library" if "jvm/stdlib" in url else "Kotlin Test"
