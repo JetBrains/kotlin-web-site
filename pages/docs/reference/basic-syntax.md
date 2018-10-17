@@ -29,7 +29,7 @@ See [Packages](packages.html).
 
 Function having two `Int` parameters with `Int` return type:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
@@ -38,7 +38,7 @@ fun sum(a: Int, b: Int): Int {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     print("sum of 3 and 5 is ")
     println(sum(3, 5))
 }
@@ -47,14 +47,14 @@ fun main(args: Array<String>) {
 
 Function with an expression body and inferred return type:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
 fun sum(a: Int, b: Int) = a + b
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     println("sum of 19 and 23 is ${sum(19, 23)}")
 }
 ```
@@ -62,7 +62,7 @@ fun main(args: Array<String>) {
 
 Function returning no meaningful value:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
@@ -71,7 +71,7 @@ fun printSum(a: Int, b: Int): Unit {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     printSum(-1, 8)
 }
 ```
@@ -79,7 +79,7 @@ fun main(args: Array<String>) {
 
 `Unit` return type can be omitted:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
@@ -88,7 +88,7 @@ fun printSum(a: Int, b: Int) {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     printSum(-1, 8)
 }
 ```
@@ -100,10 +100,10 @@ See [Functions](functions.html).
 
 Assign-once (read-only) local variable:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val a: Int = 1  // immediate assignment
     val b = 2   // `Int` type is inferred
@@ -117,10 +117,10 @@ fun main(args: Array<String>) {
 
 Mutable variable:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     var x = 5 // `Int` type is inferred
     x += 1
@@ -132,7 +132,7 @@ fun main(args: Array<String>) {
 
 Top-level variables:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 ``` kotlin
 //sampleStart
 val PI = 3.14
@@ -143,7 +143,7 @@ fun incrementX() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     println("x = $x; PI = $PI")
     incrementX()
     println("incrementX()")
@@ -172,10 +172,10 @@ See [Documenting Kotlin Code](kotlin-doc.html) for information on the documentat
 
 ## Using string templates
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     var a = 1
     // simple name in template:
@@ -195,7 +195,7 @@ See [String templates](basic-types.html#string-templates).
 ## Using conditional expressions
 
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
@@ -208,7 +208,7 @@ fun maxOf(a: Int, b: Int): Int {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     println("max of 0 and 42 is ${maxOf(0, 42)}")
 }
 ```
@@ -217,14 +217,14 @@ fun main(args: Array<String>) {
 
 Using *if*{: .keyword } as an expression:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
 fun maxOf(a: Int, b: Int) = if (a > b) a else b
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     println("max of 0 and 42 is ${maxOf(0, 42)}")
 }
 ```
@@ -249,7 +249,7 @@ fun parseInt(str: String): Int? {
 Use a function returning nullable value:
 
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -273,7 +273,7 @@ fun printProduct(arg1: String, arg2: String) {
 //sampleEnd
 
 
-fun main(args: Array<String>) {
+fun main() {
     printProduct("6", "7")
     printProduct("a", "7")
     printProduct("a", "b")
@@ -284,7 +284,7 @@ fun main(args: Array<String>) {
 or
 
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -311,7 +311,7 @@ fun printProduct(arg1: String, arg2: String) {
 //sampleEnd
 }
 
-fun main(args: Array<String>) {
+fun main() {
     printProduct("6", "7")
     printProduct("a", "7")
     printProduct("99", "b")
@@ -327,7 +327,7 @@ The *is*{: .keyword } operator checks if an expression is an instance of a type.
 If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
 
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
@@ -343,7 +343,7 @@ fun getStringLength(obj: Any): Int? {
 //sampleEnd
 
 
-fun main(args: Array<String>) {
+fun main() {
     fun printLength(obj: Any) {
         println("'$obj' string length is ${getStringLength(obj) ?: "... err, not a string"} ")
     }
@@ -356,7 +356,7 @@ fun main(args: Array<String>) {
 
 or
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
@@ -369,7 +369,7 @@ fun getStringLength(obj: Any): Int? {
 //sampleEnd
 
 
-fun main(args: Array<String>) {
+fun main() {
     fun printLength(obj: Any) {
         println("'$obj' string length is ${getStringLength(obj) ?: "... err, not a string"} ")
     }
@@ -382,7 +382,7 @@ fun main(args: Array<String>) {
 
 or even
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
@@ -397,7 +397,7 @@ fun getStringLength(obj: Any): Int? {
 //sampleEnd
 
 
-fun main(args: Array<String>) {
+fun main() {
     fun printLength(obj: Any) {
         println("'$obj' string length is ${getStringLength(obj) ?: "... err, is empty or not a string at all"} ")
     }
@@ -412,10 +412,10 @@ See [Classes](classes.html) and [Type casts](typecasts.html).
 
 ## Using a `for` loop
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val items = listOf("apple", "banana", "kiwifruit")
     for (item in items) {
@@ -428,10 +428,10 @@ fun main(args: Array<String>) {
 
 or
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val items = listOf("apple", "banana", "kiwifruit")
     for (index in items.indices) {
@@ -447,10 +447,10 @@ See [for loop](control-flow.html#for-loops).
 
 ## Using a `while` loop
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val items = listOf("apple", "banana", "kiwifruit")
     var index = 0
@@ -468,7 +468,7 @@ See [while loop](control-flow.html#while-loops).
 
 ## Using `when` expression
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
 //sampleStart
@@ -482,7 +482,7 @@ fun describe(obj: Any): String =
     }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     println(describe(1))
     println(describe("Hello"))
     println(describe(1000L))
@@ -499,10 +499,10 @@ See [when expression](control-flow.html#when-expression).
 
 Check if a number is within a range using *in*{: .keyword } operator:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val x = 10
     val y = 9
@@ -517,10 +517,10 @@ fun main(args: Array<String>) {
 
 Check if a number is out of range:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val list = listOf("a", "b", "c")
     
@@ -538,10 +538,10 @@ fun main(args: Array<String>) {
 
 Iterating over a range:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     for (x in 1..5) {
         print(x)
@@ -553,10 +553,10 @@ fun main(args: Array<String>) {
 
 or over a progression:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     for (x in 1..10 step 2) {
         print(x)
@@ -576,10 +576,10 @@ See [Ranges](ranges.html).
 
 Iterating over a collection:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
     val items = listOf("apple", "banana", "kiwifruit")
 //sampleStart
     for (item in items) {
@@ -593,10 +593,10 @@ fun main(args: Array<String>) {
 
 Checking if a collection contains an object using *in*{: .keyword } operator:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
     val items = setOf("apple", "banana", "kiwifruit")
 //sampleStart
     when {
@@ -615,7 +615,7 @@ Using lambda expressions to filter and map collections:
 <div class="sample" markdown="1" theme="idea" auto-indent="false" indent="2">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
   val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
   fruits
@@ -632,10 +632,10 @@ See [Higher-order functions and Lambdas](lambdas.html).
 
 ## Creating basic classes and their instances:
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ``` kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val rectangle = Rectangle(5.0, 2.0) //no 'new' keyword required
     val triangle = Triangle(3.0, 4.0, 5.0)
