@@ -8,7 +8,7 @@ title: "What's Coming in Kotlin 1.3"
 
 ## Coroutines release
 
-After some long and extensive battle testing, the coroutines API is now released! It means that from Kotlin 1.3 the API will remain stable on par with other released features. Check out the new [coroutines overview](coroutines-overview.html) page
+After some long and extensive battle testing, coroutines are now released! It means that from Kotlin 1.3 the language support and the API are [fully stable](evolution/components-stability.html). Check out the new [coroutines overview](coroutines-overview.html) page
 
 Kotlin 1.3 introduces callable references on suspend-functions and support of Coroutines in the Reflection API
 
