@@ -45,7 +45,7 @@ It is also possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured. Check out
 the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
-*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14, Gradle 4.10.2*
+*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14, Gradle 4.7*
 
 # Creating an Android Project
 
@@ -71,7 +71,7 @@ maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 Kotlin/Native plugin requires a newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
 and use the following `distrubutionUrl`:
 ```
-distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.2-all.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-4.7-all.zip
 ```
 
 We need to refresh the Gradle Project settings to apply these changes. Click on the `Sync Now` link or 
@@ -327,7 +327,7 @@ We need to include the additional task to the end of the `SharedCode/build.gradl
 ```groovy
 task packForXCode(type: Sync) {
     final File frameworkDir = new File(buildDir, "xcode-frameworks")
-    final String mode = System.getenv('CONFIGURATION')?.toUpperCase() ?: 'DEBUG'
+    final String mode = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
 
     inputs.property "mode", mode
     dependsOn kotlin.targets.iOS.compilations.main.linkTaskName("FRAMEWORK", mode)
@@ -349,7 +349,7 @@ tasks.build.dependsOn packForXCode
 
 Note, the task may not work [correctly](https://github.com/gradle/gradle/issues/6330)
 if you use Gradle older than 4.10. 
-In this tutorial we have already [upgraded it to 4.10.2](#gradle-upgrade).
+In this tutorial we have already [upgraded it to 4.7](#gradle-upgrade).
 
 Let's switch back to the Android Studio and execute the `build` target of the `SharedCode` project from
 the *Gradle* tool window. The task looks for environment variables set by the Xcode build and copies
@@ -390,7 +390,7 @@ We open the *Build Phases* tab and click `+` to add the *New Run Script Phase* a
 
 ```bash
 cd "$SRCROOT/../../SharedCode/build/xcode-frameworks"
-./gradlew :SharedCode:packForXCode
+./gradlew :SharedCode:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION}
 ```
 </div>
 
