@@ -614,9 +614,8 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 
 ### wait()/notify()
 
-[Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html) Item 81 kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
-Thus, these methods are not available on references of type `Any`.
-If you really need to call them, you can cast to `java.lang.Object`:
+Methods `wait()` and `notify()` are not available on references of type `Any`. Their usage is generally discouraged in favor of `java.utl.concurrent`.
+If you really need to call these methods, you can cast to `java.lang.Object`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
