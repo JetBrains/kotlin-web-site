@@ -13,6 +13,7 @@ Java rather smoothly as well. In this section we describe some details about cal
 Pretty much all Java code can be used without any issues:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 import java.util.*
 
@@ -28,6 +29,7 @@ fun demo(source: List<Int>) {
     }
 }
 ```
+
 </div>
 
 ## Getters and Setters
@@ -40,6 +42,7 @@ are represented as properties which have the same name as the getter method.
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 import java.util.Calendar
 
@@ -53,6 +56,7 @@ fun calendarDemo() {
     }
 }
 ```
+
 </div>
 
 Note that, if the Java class only has a setter, it will not be visible as a property in Kotlin, because Kotlin does not support set-only properties at this time.
@@ -70,9 +74,11 @@ If a Java library uses a Kotlin keyword for a method, you can still call the met
 escaping it with the backtick (`) character:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 foo.`is`(bar)
 ```
+
 </div>
 
 ## Null-Safety and Platform Types
@@ -84,12 +90,14 @@ so that safety guarantees for them are the same as in Java (see more [below](#ma
 Consider the following examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val list = ArrayList<String>() // non-null (constructor result)
 list.add("Item")
 val size = list.size // non-null (primitive int)
 val item = list[0] // platform type inferred (ordinary Java object)
 ```
+
 </div>
 
 When we call methods on variables of platform types, Kotlin does not issue nullability errors at compile time,
@@ -97,9 +105,11 @@ but the call may fail at runtime, because of a null-pointer exception or an asse
 prevent nulls from propagating:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 item.substring(1) // allowed, may throw an exception if item == null
 ```
+
 </div>
 
 Platform types are *non-denotable*, meaning that one can not write them down explicitly in the language.
@@ -107,10 +117,12 @@ When a platform value is assigned to a Kotlin variable, we can rely on type infe
  as `item` has in the example above), or we can choose the type that we expect (both nullable and non-null types are allowed):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val nullable: String? = item // allowed, always works
 val notNull: String = item // allowed, may fail at runtime
 ```
+
 </div>
 
 If we choose a non-null type, the compiler will emit an assertion upon assignment. This prevents Kotlin's non-null variables from holding
@@ -147,56 +159,63 @@ You can find the full list in the [Kotlin compiler source code](https://github.c
 
 It is possible to annotate type arguments of generic types to provide nullability information for them as well. For example, consider these annotations on a Java declaration:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
+
 ```java
 @NotNull
 Set<@NotNull String> toSet(@NotNull Collection<@NotNull String> elements) { ... }
 ```
+
 </div>
 
 It leads to the following signature seen in Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String>) : (Mutable)Set<String> { ... }
 ```
+
 </div>
 
 Note the `@NotNull` annotations on `String` type arguments. Without them, we get platform types in the type arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
 ```
+
 </div>
 
 Annotating type arguments works with Java 8 target or higher and requires the nullability annotations to support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above).
 
 ### JSR-305 Support
 
-The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined 
+The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined
 in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nullability of Java types.
 
-If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-null; `When.MAYBE` and 
+If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-null; `When.MAYBE` and
 `When.NEVER` denote a nullable type; and `When.UNKNOWN` forces the type to be [platform one](#null-safety-and-platform-types).
 
 A library can be compiled against the JSR-305 annotations, but there's no need to make the annotations artifact (e.g. `jsr305.jar`)
-a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library without the annotations 
+a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library without the annotations
 present on the classpath.
 
-Since Kotlin 1.1.50, 
-[custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/41091f1cc7045142181d8c89645059f4a15cc91a/proposals/jsr-305-custom-nullability-qualifiers.md) 
+Since Kotlin 1.1.50,
+[custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/41091f1cc7045142181d8c89645059f4a15cc91a/proposals/jsr-305-custom-nullability-qualifiers.md)
 are also supported (see below).
 
 #### Type qualifier nicknames (since 1.1.50)
 
 If an annotation type is annotated with both
-[`@TypeQualifierNickname`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierNickname.html) 
-and JSR-305 `@Nonnull` (or its another nickname, such as `@CheckForNull`), then the annotation type is itself used for 
+[`@TypeQualifierNickname`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierNickname.html)
+and JSR-305 `@Nonnull` (or its another nickname, such as `@CheckForNull`), then the annotation type is itself used for
 retrieving precise nullability and has the same meaning as that nullability annotation:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` java
+<div class="sample" markdown="1" theme="idea" mode="java">
+
+```java
 @TypeQualifierNickname
 @Nonnull(when = When.ALWAYS)
 @Retention(RetentionPolicy.RUNTIME)
@@ -210,22 +229,23 @@ public @interface MyNullable {
 }
 
 interface A {
-    @MyNullable String foo(@MyNonnull String x); 
+    @MyNullable String foo(@MyNonnull String x);
     // in Kotlin (strict mode): `fun foo(x: String): String?`
-    
-    String bar(List<@MyNonnull String> x);       
+
+    String bar(List<@MyNonnull String> x);
     // in Kotlin (strict mode): `fun bar(x: List<String>!): String!`
 }
 ```
+
 </div>
 
 #### Type qualifier defaults (since 1.1.50)
 
-[`@TypeQualifierDefault`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierDefault.html) 
-allows introducing annotations that, when being applied, define the default nullability within the scope of the annotated 
+[`@TypeQualifierDefault`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierDefault.html)
+allows introducing annotations that, when being applied, define the default nullability within the scope of the annotated
 element.
 
-Such annotation type should itself be annotated with both `@Nonnull` (or its nickname) and `@TypeQualifierDefault(...)` 
+Such annotation type should itself be annotated with both `@Nonnull` (or its nickname) and `@TypeQualifierDefault(...)`
 with one or more `ElementType` values:
 * `ElementType.METHOD` for return types of methods;
 * `ElementType.PARAMETER` for value parameters;
@@ -234,10 +254,11 @@ with one or more `ElementType` values:
 
 
 The default nullability is used when a type itself is not annotated by a nullability annotation, and the default is
-determined by the innermost enclosing element annotated with a type qualifier default annotation with the 
+determined by the innermost enclosing element annotated with a type qualifier default annotation with the
 `ElementType` matching the type usage.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
+
 ```java
 @Nonnull
 @TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
@@ -252,12 +273,12 @@ public @interface NullableApi {
 @NullableApi
 interface A {
     String foo(String x); // fun foo(x: String?): String?
- 
+
     @NotNullApi // overriding default from the interface
-    String bar(String x, @Nullable String y); // fun bar(x: String, y: String?): String 
-    
+    String bar(String x, @Nullable String y); // fun bar(x: String, y: String?): String
+
     // The List<String> type argument is seen as nullable because of `@NullableApi`
-    // having the `TYPE_USE` element type: 
+    // having the `TYPE_USE` element type:
     String baz(List<String> x); // fun baz(List<String?>?): String?
 
     // The type of `x` parameter remains platform because there's an explicit
@@ -265,39 +286,43 @@ interface A {
     String qux(@Nonnull(when = When.UNKNOWN) String x); // fun baz(x: String!): String?
 }
 ```
+
 </div>
 
 > Note: the types in this example only take place with the strict mode enabled, otherwise, the platform types remain. See the [`@UnderMigration` annotation](#undermigration-annotation-since-1160) and [Compiler configuration](#compiler-configuration) sections.
 
 Package-level default nullability is also supported:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
+
 ```java
 // FILE: test/package-info.java
 @NonNullApi // declaring all types in package 'test' as non-nullable by default
 package test;
 ```
+
 </div>
 
 #### `@UnderMigration` annotation (since 1.1.60)
 
-The `@UnderMigration` annotation (provided in a separate artifact `kotlin-annotations-jvm`) can be used by library 
+The `@UnderMigration` annotation (provided in a separate artifact `kotlin-annotations-jvm`) can be used by library
 maintainers to define the migration status for the nullability type qualifiers.
 
-The status value in `@UnderMigration(status = ...)` specifies how the compiler treats inappropriate usages of the 
+The status value in `@UnderMigration(status = ...)` specifies how the compiler treats inappropriate usages of the
 annotated types in Kotlin (e.g. using a `@MyNullable`-annotated type value as non-null):
 
-* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. report errors for 
+* `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. report errors for
 the inappropriate usages and affect the types in the annotated declarations as they are seen in Kotlin;
 
-* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors, 
+* with `MigrationStatus.WARN`, the inappropriate usages are reported as compilation warnings instead of errors,
 but the types in the annotated declarations remain platform; and
 
 * `MigrationStatus.IGNORE` makes the compiler ignore the nullability annotation completely.
 
-A library maintainer can add `@UnderMigration` status to both type qualifier nicknames and type qualifier defaults:  
+A library maintainer can add `@UnderMigration` status to both type qualifier nicknames and type qualifier defaults:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
+
 ```java
 @Nonnull(when = When.ALWAYS)
 @TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
@@ -307,32 +332,33 @@ public @interface NonNullApi {
 
 // The types in the class are non-null, but only warnings are reported
 // because `@NonNullApi` is annotated `@UnderMigration(status = MigrationStatus.WARN)`
-@NonNullApi 
+@NonNullApi
 public class Test {}
 ```
+
 </div>
 
 Note: the migration status of a nullability annotation is not inherited by its type qualifier nicknames but is applied
 to its usages in default type qualifiers.
 
 If a default type qualifier uses a type qualifier nickname and they are both `@UnderMigration`, the status
-from the default type qualifier is used. 
+from the default type qualifier is used.
 
 #### Compiler configuration
 
 The JSR-305 checks can be configured by adding the `-Xjsr305` compiler flag with the following options (and their combination):
 
 * `-Xjsr305={strict|warn|ignore}` to set up the behavior for non-`@UnderMigration` annotations.
-Custom nullability qualifiers, especially 
-`@TypeQualifierDefault`, are already spread among many well-known libraries, and users may need to migrate smoothly when 
+Custom nullability qualifiers, especially
+`@TypeQualifierDefault`, are already spread among many well-known libraries, and users may need to migrate smoothly when
 updating to the Kotlin version containing JSR-305 support. Since Kotlin 1.1.60, this flag only affects non-`@UnderMigration` annotations.
 
 * `-Xjsr305=under-migration:{strict|warn|ignore}` (since 1.1.60) to override the behavior for the `@UnderMigration` annotations.
-Users may have different view on the migration status for the libraries: 
-they may want to have errors while the official migration status is `WARN`, or vice versa, 
+Users may have different view on the migration status for the libraries:
+they may want to have errors while the official migration status is `WARN`, or vice versa,
 they may wish to postpone errors reporting for some until they complete their migration.
 
-* `-Xjsr305=@<fq.name>:{strict|warn|ignore}` (since 1.1.60) to override the behavior for a single annotation, where `<fq.name>` 
+* `-Xjsr305=@<fq.name>:{strict|warn|ignore}` (since 1.1.60) to override the behavior for a single annotation, where `<fq.name>`
 is the fully qualified class name of the annotation. May appear several times for different annotations. This is useful
 for managing the migration state for a particular library.
 
@@ -340,9 +366,9 @@ The `strict`, `warn` and `ignore` values have the same meaning as those of `Migr
 
 > Note: the built-in JSR-305 annotations [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html), [`@Nullable`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nullable.html) and [`@CheckForNull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/CheckForNull.html) are always enabled and affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
 
-For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the 
-compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by 
-`@org.library.MyNullable` and ignore all other JSR-305 annotations. 
+For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the
+compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by
+`@org.library.MyNullable` and ignore all other JSR-305 annotations.
 
 For kotlin versions 1.1.50+/1.2, the default behavior is the same to `-Xjsr305=warn`. The
 `strict` value should be considered experimental (more checks may be added to it in the future).
@@ -440,11 +466,13 @@ This makes it impossible to perform *is*{: .keyword }-checks that take generics 
 Kotlin only allows *is*{: .keyword }-checks for star-projected generic types:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
 // but
 if (a is List<*>) // OK: no guarantees about the contents of the list
 ```
+
 </div>
 
 ## Java Arrays
@@ -460,7 +488,8 @@ They are not related to the `Array` class and are compiled down to Java's primit
 
 Suppose there is a Java method that accepts an int array of indices:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+<div class="sample" markdown="1" theme="idea" mode="java">
 ``` java
 public class JavaArrayExample {
 
@@ -469,21 +498,25 @@ public class JavaArrayExample {
     }
 }
 ```
+
 </div>
 
 To pass an array of primitive values you can do the following in Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndices(array)  // passes int[] to method
 ```
+
 </div>
 
 When compiling to JVM byte codes, the compiler optimizes access to arrays so that there's no overhead introduced:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val array = arrayOf(1, 2, 3, 4)
 array[1] = array[1] * 2 // no actual calls to get() and set() generated
@@ -491,33 +524,39 @@ for (x in array) { // no iterator created
     print(x)
 }
 ```
+
 </div>
 
 Even when we navigate with an index, it does not introduce any overhead:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 for (i in array.indices) { // no iterator created
     array[i] += 2
 }
 ```
+
 </div>
 
 Finally, *in*{: .keyword }-checks have no overhead either:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 if (i in array.indices) { // same as (i >= 0 && i < array.size)
     print(array[i])
 }
 ```
+
 </div>
 
 ## Java Varargs
 
 Java classes sometimes use a method declaration for the indices with a variable number of arguments (varargs):
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
+
 ``` java
 public class JavaArrayExample {
 
@@ -526,16 +565,19 @@ public class JavaArrayExample {
     }
 }
 ```
+
 </div>
 
 In that case you need to use the spread operator `*` to pass the `IntArray`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
 ```
+
 </div>
 
 It's currently not possible to pass *null*{: .keyword } to a method that is declared as varargs.
@@ -553,6 +595,7 @@ In Kotlin, all exceptions are unchecked, meaning that the compiler does not forc
 So, when you call a Java method that declares a checked exception, Kotlin does not force you to do anything:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 fun render(list: List<*>, to: Appendable) {
     for (item in list) {
@@ -560,6 +603,7 @@ fun render(list: List<*>, to: Appendable) {
     }
 }
 ```
+
 </div>
 
 ## Object Methods
@@ -570,14 +614,16 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 
 ### wait()/notify()
 
-Methods `wait()` and `notify()` are not available on references of type `Any`. Their usage is generally discouraged in favor of `java.utl.concurrent`.
-
-If you really need to call these methods, you can cast to `java.lang.Object`:
+[Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html) Item 81 kindly suggests to prefer concurrency utilities to `wait()` and `notify()`.
+Thus, these methods are not available on references of type `Any`.
+If you really need to call them, you can cast to `java.lang.Object`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 (foo as java.lang.Object).wait()
 ```
+
 </div>
 
 ### getClass()
@@ -585,17 +631,21 @@ If you really need to call these methods, you can cast to `java.lang.Object`:
 To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.html#class-references):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val fooClass = foo::class.java
 ```
+
 </div>
 
 The code above uses a [bound class reference](reflection.html#bound-class-references-since-11), which is supported since Kotlin 1.1. You can also use the `javaClass` extension property:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val fooClass = foo.javaClass
 ```
+
 </div>
 
 ### clone()
@@ -603,11 +653,13 @@ val fooClass = foo.javaClass
 To override `clone()`, your class needs to extend `kotlin.Cloneable`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class Example : Cloneable {
     override fun clone(): Any { ... }
 }
 ```
+
 </div>
 
  Do not forget about [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 13: *Override clone judiciously*.
@@ -617,6 +669,7 @@ class Example : Cloneable {
 To override `finalize()`, all you need to do is simply declare it, without using the *override*{:.keyword} keyword:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class C {
     protected fun finalize() {
@@ -624,6 +677,7 @@ class C {
     }
 }
 ```
+
 </div>
 
 According to Java's rules, `finalize()` must not be *private*{: .keyword }.
@@ -638,9 +692,11 @@ Static members of Java classes form "companion objects" for these classes. We ca
 but can access the members explicitly, for example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 if (Character.isLetter(a)) { ... }
 ```
+
 </div>
 
 To access static members of a Java type that is [mapped](#mapped-types) to a Kotlin type, use the full qualified name of the Java type: `java.lang.Integer.bitCount(foo)`.
@@ -661,19 +717,23 @@ method match the parameter types of the Kotlin function.
 You can use this for creating instances of SAM interfaces:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val runnable = Runnable { println("This runs in a runnable") }
 ```
+
 </div>
 
 ...and in method calls:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 val executor = ThreadPoolExecutor()
 // Java signature: void execute(Runnable command)
 executor.execute { println("This runs in a thread pool") }
 ```
+
 </div>
 
 If the Java class has multiple methods taking functional interfaces, you can choose the one you need to call by
@@ -681,9 +741,11 @@ using an adapter function that converts a lambda to a specific SAM type. Those a
 by the compiler when needed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 executor.execute(Runnable { println("This runs in a thread pool") })
 ```
+
 </div>
 
 Note that SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
@@ -697,9 +759,11 @@ of functions into implementations of Kotlin interfaces is unnecessary and theref
 To declare a function that is implemented in native (C or C++) code, you need to mark it with the `external` modifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 external fun foo(x: Int): Double
 ```
+
 </div>
 
 The rest of the procedure works in exactly the same way as in Java.
