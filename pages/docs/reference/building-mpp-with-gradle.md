@@ -166,6 +166,39 @@ kotlin {
 
 </div>
 
+To modify [the Kotlin compiler options](using-gradle.html#compiler-options) of a compilation, use the compilation's task which
+can be found by its name:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {
+    targets {
+        fromPreset(presets.jvm, 'jvm8') {
+            // Configure a single target's compilations (main and test)
+            compilations.all {
+                tasks[compileKotlinTaskName].kotlinOptions { 
+                    jvmTarget = '1.8'
+                }
+            }
+        }
+        
+        /* ... */
+        
+        // Configure all compilations of all targets:
+        all { 
+            compilations.all {
+                tasks[compileKotlinTaskName].kotlinOptions {
+                    allWarningsAsErrors = true
+                }
+            }
+        }
+    }
+}
+```
+
+</div>
+
 All of the targets may share some of the sources and may have platform-specific sources in their compilations as well. 
 See [Configuring source sets](#configuring-source-sets) for details.
 
@@ -218,6 +251,9 @@ kotlin {
 and thus compiled by default. However, custom source sets always need to be explicitly directed to the compilations. 
 See: [Connecting source sets](#connecting-source-sets). 
 {:.note}
+
+The source set names are case-sensitive. When referring to a default source set, make sure the name prefix matches a target's 
+name, for example, a source set `iosX64Main` for a target `iosX64`. 
 
 A source set by itself is platform-agnostic, but
 it can be considered platform-specific if it is only compiled for a single platform. A source set can, therefore, contain either
@@ -276,8 +312,12 @@ The source sets DSL can be used to define these connections between the source s
 
 </div>
 
-Custom source sets created in addition to the [default ones](#default-project-layout) should be explicitly included into the dependencies hierarchy to be able to use declarations from other source sets and, most importantly, to take part in compilations. 
-Most often, they need a `dependsOn commonMain` or `dependsOn commonTest` statement, and some of the default platform-specific source sets should depend on the custom ones, directly or indirectly:
+Custom source sets created in addition to the [default ones](#default-project-layout) should be explicitly included into
+ the dependencies hierarchy to be able to use declarations from other source sets and, most importantly, to take part 
+ in compilations. 
+Most often, they need a `dependsOn commonMain` or `dependsOn commonTest` statement, and some of the default platform-specific
+ source sets should depend on the custom ones, 
+ directly or indirectly:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
@@ -348,15 +388,21 @@ kotlin {
 
 </div>
 
-Note that for the IDE to correctly analyze the dependencies of the common sources, the common source sets need to have corresponding dependencies on the Kotlin 
-metadata packages in addition to the platform-specific artifact dependencies of the platform-specific source sets. Usually, an artifact with a suffix 
-`-common` (as in `kotlin-stdlib-common`) or `-metadata` is required.
+Note that for the IDE to correctly analyze the dependencies of the common sources, the common source sets need to have 
+corresponding dependencies on the Kotlin metadata packages in addition to the platform-specific artifact dependencies 
+of the platform-specific source sets. Usually, an artifact with a suffix 
+`-common` (as in `kotlin-stdlib-common`) or `-metadata` is required when using a published library (unless it is 
+published with Gradle metadata, as described below).
 
-If a multiplatform library is published in the experimental [metadata publishing mode](#experimental-metadata-publishing-mode) and the project 
-is set up to consume it, then 
-it is enough to specify the corresponding dependency once for the common source set. Otherwise, each platform-specific source set should be 
-provided with a corresponding platform module of the library, in addition to the common module, as shown above. A `project('...')` dependency
-on another multiplatform project is likewise resolved to an appropriate target, even with experimental metadata disabled.
+However, a `project('...')` dependency on another multiplatform project is resolved to an appropriate target
+automatically. It is enough to specify a single `project('...')` dependency in a source set's dependencies, 
+and the compilations that include the source set will receive a corresponding platform-specific artifact of 
+that project, given that it has a compatible target.
+
+Likewise, if a multiplatform library is published in the experimental [Gradle metadata publishing mode](#experimental-metadata-publishing-mode) and the project 
+is set up to consume the metadata as well, then it is enough to specify a dependency only once, for the common source set. 
+Otherwise, each platform-specific source set should be 
+provided with a corresponding platform module of the library, in addition to the common module, as shown above.
 
 An alternative way to specify the dependencies is to use the Gradle built-in DSL at the top level with the configuration names following the 
 pattern `<sourceSetName><DependencyKind>`:
@@ -385,7 +431,8 @@ kotlin {
             languageSettings {
                 languageVersion = '1.3' // possible values: '1.0', '1.1', '1.2', '1.3'
                 apiVersion = '1.3' // possible values: '1.0', '1.1', '1.2', '1.3'
-                enableLanguageFeatures('InlineClasses') 
+                enableLanguageFeature('InlineClasses') // language feature name
+                useExperimentalAnnotation('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
                 progressiveMode = true // false by default
             }
         }
@@ -395,6 +442,21 @@ kotlin {
 
 </div>
 
+It is possible to configure the language settings of all source sets at once:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin.sourceSets.all {
+    languageSettings {
+        progressiveMode = true
+    }
+}
+```
+
+</div>
+
+
 Language settings of a source set affect how the sources are analyzed in the IDE. Due to the current limitations, in a Gradle build, only the language settings 
 of the compilation's default source set are used.
 
@@ -402,6 +464,7 @@ The language settings are checked for consistency between source sets depending 
 
 * `foo` should set `languageVersion` that is greater than or equal to that of `bar`;
 * `foo` should enable all unstable language features that `bar` enables (there's no such requirement for bugfix features);
+* `foo` should use all experimental annotations that `bar` uses;
 * `apiVersion`, bugfix language features, and `progressiveMode` can be set arbitrarily; 
 
 ## Default Project Layout
@@ -427,8 +490,12 @@ In Android projects, additional Kotlin source sets are created for each Android 
 
 ## Running Tests
 
-A test task is created under the name `<targetName>Test` for each target that is suitable for testing.  Run the `check` task to run 
-the tests for all targets.
+Running tests in a Gradle build is currently supported by default for JVM, Android, Linux, Windows and macOS; 
+JS and other Kotlin/Native targets
+need to be manually configured to run the tests with an appropriate environment, an emulator or a test framework.  
+
+A test task is created under the name `<targetName>Test` for each target that is suitable for testing. Run the `check` task to run 
+the tests for all targets. 
 
 As the `commonTest` [default source set](#default-project-layout) is added to all test compilations, tests and test tools that are needed
 on all target platforms may be placed there.
@@ -439,8 +506,8 @@ dependencies to `commonTest` to use `DefaultAsserter` and `@Test`/`@Ignore`/`@Be
 For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and
 annotations mapping.
 
-For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. At this point, test tasks for Kotlin/JS do not run tests by default 
-and should be manually configured to do so. 
+For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. At this point, test tasks for Kotlin/JS are created 
+but do not run tests by default; they should be manually configured to run the tests with a JavaScript test framework. 
 
 Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
@@ -495,7 +562,7 @@ kotlin {
 ### Experimental metadata publishing mode
 
 An experimental publishing and dependency consumption mode can be enabled by adding 
-`enableFeaturePreview('GRADLE_METADATA')` to the `settings.gradle` file. With Gradle metadata enabled,
+`enableFeaturePreview('GRADLE_METADATA')` to the root project's `settings.gradle` file. With Gradle metadata enabled,
  an additional publication is added which references the target publications as its variants. The artifact ID of this publication
  matches the project name.
  
@@ -559,14 +626,10 @@ However, dependencies on such a multiplatform library may be ambiguous and may t
      kotlin {
          targets {
              fromPreset(presets.jvm, 'junit') {
-                 attributes {
-                     attribute(testingFrameworkAttribute, 'junit')
-                 }
+                 attributes.attribute(testingFrameworkAttribute, 'junit')
              }
              fromPreset(presets.jvm, 'testng') {
-                 attributes {
-                     attribute(testingFrameworkAttribute, 'testng')
-                 }
+                 attributes.attribute(testingFrameworkAttribute, 'testng')
              }
          }
      }
