@@ -293,10 +293,11 @@
   }
 
   .more-examples-icon {
-    height: 20px;
-    width: 48px;
+    height: 12px;
+    width: 26px;
     margin-left: 2 * $unit;
-    background: url("./images/arrow_right.svg");
+    background: url("./images/arrow_right.svg") no-repeat;
+    background-size: cover;
   }
 }
 

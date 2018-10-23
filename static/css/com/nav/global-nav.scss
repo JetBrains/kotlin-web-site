@@ -135,11 +135,21 @@
     line-height: 43px;
     text-decoration: none;
   }
+
+  .icon {
+    height: 24px;
+    width: 24px;
+    background: url('../layout/images/icon_play.svg') no-repeat;
+  }
+
   .banner-container {
     width: 100%;
   }
   .banner-text {
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
   }
 
   .title {
