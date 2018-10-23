@@ -88,7 +88,7 @@ projects is much more flexible, and we'll keep working on it to make project con
 
 ## Multiplatform Libraries
 
-Common code can rely on a set of libraries that cover everyday tasks such as [HTTP](http://ktor.io/clients/index.html), [serialization](https://github.com/Kotlin/kotlinx.serialization), and [managing 
+Common code can rely on a set of libraries that cover everyday tasks such as [HTTP](http://ktor.io/clients/http-client/multiplatform.html), [serialization](https://github.com/Kotlin/kotlinx.serialization), and [managing 
 coroutines](https://github.com/Kotlin/kotlinx.coroutines). Also, an extensive standard library is available on all platforms. 
 
 You can always write your 
