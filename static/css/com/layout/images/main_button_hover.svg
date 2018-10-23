@@ -1,0 +1,11 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="150.40806" height="41.52652"
+     viewBox="0 0 150.40806 41.52652">
+    <title>main</title>
+    <rect x="0.5" y="0.5" width="149.40806" height="40.52652" rx="2.58766" fill="#ff5b00" stroke="#ff5b00"
+          stroke-miterlimit="10"/>
+    <text transform="translate(18.31783 26.28782)" font-size="13.04901" fill="#fff" font-family="Menlo-Regular, Menlo">
+        Learn More
+    </text>
+    <line x1="105.58214" y1="21.48113" x2="128.62645" y2="21.48113" fill="none" stroke="#fff" stroke-miterlimit="10"/>
+    <polyline points="123.389 16.244 128.626 21.481 123.389 26.718" fill="none" stroke="#fff" stroke-miterlimit="10"/>
+</svg>
