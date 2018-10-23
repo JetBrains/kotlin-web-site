@@ -270,7 +270,7 @@
 }
 
 .overview-header {
-  padding-top: $unit * 5;
+  padding-top: $unit * 8;
   padding-bottom: $unit * 5;
   font-size: 48px;
   text-align: center;
@@ -282,7 +282,7 @@
 
 .overview-group {
   opacity: .9;
-  border-bottom: 1px solid rgba(255, 255, 255, .5);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
 
   .overview-examples {
     display: flex !important;
@@ -314,7 +314,8 @@
 .try-button {
   @extend %button_default;
   font-size: 14px;
-  width: 100px;
+  width: 120px;
+  font-weight: 300;
   font-family: $font-family-sans-serif;
   background-color: rgb(75, 124, 186);
   color: white;
@@ -332,25 +333,32 @@
   .cm-s-darcula.CodeMirror {
     background: transparent;
   }
+
+  .CodeMirror {
+    overflow: auto;
+    height: 400px;
+  }
+
   .CodeMirror pre {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 25px;
+    line-height: 35px;
   }
 
   .run-button {
     margin-top: 10px;
+    margin-right: 10px;
     background: rgb(22, 125, 255) url("./images/run_icon.svg") center center no-repeat;
-    height: 24px;
-    width: 24px;
+    height: 36px;
+    width: 36px;
     border-radius: 50%;
-    padding: 8px;
+    padding: 2 * $unit;
     &:active {
       transform: scale(0.9, 0.9);
     }
   }
 
   .ERRORgutter, .WARNINGgutter {
-    margin-top: $unit;
+    margin-top: 2 * $unit;
   }
 
   .CodeMirror-gutters {
@@ -360,6 +368,7 @@
 
   .output-wrapper.darcula {
     min-height: 120px;
+    font-size: 24px;
     background-color: transparent;
     border-bottom: 1px solid grey;
   }
@@ -582,6 +591,7 @@
   align-items: center;
 
   .kotlin-version {
+    margin-right: 2 * $unit;
     margin-bottom: $unit*2;
     font-size: 16px;
     color: #fff;

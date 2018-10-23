@@ -125,6 +125,8 @@
 }
 
 .banner-nav {
+  padding: 0;
+  height: auto;
   background-color: rgb(34, 129, 251) !important;
   .banner-item {
     display: inline-block;
@@ -146,6 +148,7 @@
     width: 100%;
   }
   .banner-text {
+    letter-spacing: 0.5px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -154,7 +157,7 @@
 
   .title {
     font-family: $font-family-serif;
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .close-head-banner {
