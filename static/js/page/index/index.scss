@@ -289,7 +289,7 @@
     align-items: center;
     float: right;
     text-decoration: none;
-    color: white;
+    color: white !important;
   }
 
   .more-examples-icon {
@@ -313,8 +313,8 @@
 .try-button {
   @extend %button_default;
   font-size: 14px;
+  width: 100px;
   font-family: $font-family-sans-serif;
-  height: initial;
   background-color: rgb(75, 124, 186);
   color: white;
   margin-bottom: 60px;
@@ -332,8 +332,8 @@
     background: transparent;
   }
   .CodeMirror pre {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 20px;
+    line-height: 28px;
   }
 
   .run-button {
@@ -348,17 +348,23 @@
     }
   }
 
+  .ERRORgutter, .WARNINGgutter {
+    margin-top: $unit;
+  }
+
   .CodeMirror-gutters {
     background: none !important;
     border-right: none !important;
   }
 
   .output-wrapper.darcula {
+    min-height: 120px;
     background-color: transparent;
     border-bottom: 1px solid grey;
   }
 
   .executable-fragment.darcula {
+    margin-top: 20px;
     border: none;
     background-color: transparent;
   }
