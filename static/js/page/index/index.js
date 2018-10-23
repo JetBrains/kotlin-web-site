@@ -1,4 +1,5 @@
 import '../../com/search/search';
+import '../../com/head-banner'
 import $ from 'jquery';
 import './index.scss';
 

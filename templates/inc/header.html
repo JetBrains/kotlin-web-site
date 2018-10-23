@@ -1,4 +1,11 @@
 <header class="global-header">
+    {% if is_index_page %}
+        <div class="global-header-panel banner-nav">
+            <div class="g-layout">
+                {% include 'inc/nav/header-banner-nav.html' %}
+            </div>
+        </div>
+    {% endif %}
 
     <div class="global-header-panel">
         <div class="g-layout">
@@ -12,7 +19,7 @@
             <a href="https://www.youtube.com/watch?v=PsaFVLr8t4E" class="banner-link" target="_blank">
                 <div class="kotlin-info">
                     <div class="kotlin-info-description">
-                        <div class="play-video" ></div>
+                        <div class="play-video"></div>
                         <div>
                             Watch<br>
                             KotlinConf 2018<br>
