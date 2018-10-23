@@ -33,7 +33,7 @@
   .kotlin-info {
     margin-top: 20px;
     border-radius: 2px;
-    height: 400px;
+    height: 320px;
     text-align: left;
     position: relative;
     background: url('images/banner-image.gif') no-repeat;
@@ -41,7 +41,7 @@
 
     .kotlin-info-button {
       bottom: 20px;
-      right: 15px;
+      right: 0;
       position: absolute;
       cursor: pointer;
       height: 50px;
@@ -58,7 +58,7 @@
 
 .page_index .global-header {
   box-sizing: border-box;
-  height: 750px;
+  height: 650px;
 
   .get-kotlin-button {
     @extend %button_call-to-action;
