@@ -42,22 +42,22 @@ Let's just check everything is right with the project so far, the project struct
 
 ```
 └── src
-├── commonMain
-│   └── kotlin
-├── commonTest
-│   └── kotlin
-├── jsMain
-│   └── kotlin
-├── jsTest
-│   └── kotlin
-├── jvmMain
-│   └── kotlin
-├── jvmTest
-│   └── kotlin
-├── macosMain
-│   └── kotlin
-└── macosTest
-└── kotlin
+    ├── commonMain
+    │   └── kotlin
+    ├── commonTest
+    │   └── kotlin
+    ├── jsMain
+    │   └── kotlin
+    ├── jsTest
+    │   └── kotlin
+    ├── jvmMain
+    │   └── kotlin
+    ├── jvmTest
+    │   └── kotlin
+    ├── macosMain
+    │   └── kotlin
+    └── macosTest
+        └── kotlin
 ```
 
 And the `kotlin` folder should contain an `org.jetbrains.base64` subfolder.
