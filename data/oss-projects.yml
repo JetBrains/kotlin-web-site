@@ -272,3 +272,8 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+
+- name: Kotlin Utilities
+  description: Kotlin utility types based on Scala: Option, Either, Try
+  type: Library
+  link: https://github.com/sczerwinski/kotlin-util
