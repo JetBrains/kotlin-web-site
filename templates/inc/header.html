@@ -14,13 +14,20 @@
         </div>
     </div>
 
+    {% if is_index_page %}
+        <div class="banner-main">
+            <div class="g-layout">
+                <div class="kotlin-info">
+                    <a class="kotlin-info-button"></a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="g-layout">
         {% if is_index_page %}
-            <div class="kotlin-info">
-                <a class="kotlin-info-button"></a>
-            </div>
-
-            <h2 class="banner-header">Kotlin 1.3. <a href="/docs/reference/whatsnew13.html" class="kotlin-whats">Released</a></h2>
+            <h2 class="banner-header">Kotlin 1.3. <a href="/docs/reference/whatsnew13.html" class="kotlin-whats">Released</a>
+            </h2>
             <div class="kotlin-slides">
                 <div class="slides-container">
                     <div class="slide-item slide-1">
