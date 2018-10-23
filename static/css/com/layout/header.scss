@@ -4,37 +4,36 @@
 @import '../_bits/_button';
 @import 'slides';
 
-
 .global-header {
-    @include clearfix;
-    background-color: #393939;
-    background-size: cover;
+  @include clearfix;
+  background-color: #393939;
+  background-size: cover;
 
-    .g-layout {
-      position: relative;
+  .g-layout {
+    position: relative;
+  }
+
+  .try-kotlin-button {
+    @extend %button_default;
+    top: -1px;
+  }
+
+  .banner-header {
+    font-family: $font-family-serif;
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+    font-size: 35px;
+  }
+
+  .get-kotlin-button {
+    @extend %button_default;
+    top: -2px;
+
+    .version {
+      font-size: 12px;
     }
-
-    .try-kotlin-button {
-        @extend %button_default;
-        top: -1px;
-    }
-
-    .banner-header {
-        font-family: $font-family-serif;
-        text-align: center;
-        padding-top: 50px;
-        color: white;
-        font-size: 35px;
-    }
-
-    .get-kotlin-button {
-        @extend %button_default;
-        top: -2px;
-
-        .version {
-            font-size: 12px;
-        }
-    }
+  }
 
   .kotlin-whats {
     color: white;
@@ -46,117 +45,80 @@
     text-decoration: none;
   }
 
-    .kotlin-info {
-      margin-top: 20px;
-      border-radius: 2px;
-      padding-top: 70px;
-      padding-bottom: 60px;
-      text-align: left;
-      background: white url('images/banner-image.png') no-repeat right;
-      background-size: cover;
-    }
-
-    .release-banner {
-        display: inline-block;
-        color: white;
-        background: rgba(103, 133, 163, 0.4);
-        opacity: 0.9;
-        height: 54px;
-        line-height: 52px;
-        padding: 0 50px;
-        margin-left: 250px;
-        font-family: $font-family-serif;
-        font-size: 28px;
-        border-radius: 3px;
-    }
-
-    .release-banner__link {
-        color: white;
-        margin-left: 15px;
-        font-size: 18px;
-    }
-
-    .current-version {
-        display: inline-block;
-        line-height: 32px;
-        height: 34px;
-        padding: 0 32px;
-        text-align: center;
-        color: white;
-    }
-
-    .kotlin-info-description {
-      display: flex;
-      align-items: center;
-      width: 55%;
-      margin-left: auto;
-      margin-bottom: $unit*4;
-      font-size: $unit*5;
-      line-height: $unit*6 + 2px;
-      font-family: $font-family-serif-bold;
-    }
-
-  .play-video {
-    background: url('images/play.svg') no-repeat;
-    margin-right: 40px;
-    width: 90px;
-    height: 90px;
-
-    &:hover {
-      transform: scale(1.1, 1.1);
-    }
+  .kotlin-info {
+    margin-top: 20px;
+    border-radius: 2px;
+    height: 300px;
+    text-align: left;
+    background: white url('images/banner-image.gif') no-repeat right;
+    background-size: cover;
   }
 
-    .kotlin-info-description-extra {
-        position: relative;
-        margin-bottom: $unit*9;
-        font-size: 16px;
-        line-height: 16px;
-        color: #fff;
-        text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.4);
+  .release-banner {
+    display: inline-block;
+    color: white;
+    background: rgba(103, 133, 163, 0.4);
+    opacity: 0.9;
+    height: 54px;
+    line-height: 52px;
+    padding: 0 50px;
+    margin-left: 250px;
+    font-family: $font-family-serif;
+    font-size: 28px;
+    border-radius: 3px;
+  }
 
-        @media (max-width: 810px) {
-            & {
-                margin-bottom: $unit*5;
-            }
-        }
-    }
+  .release-banner__link {
+    color: white;
+    margin-left: 15px;
+    font-size: 18px;
+  }
+
+  .current-version {
+    display: inline-block;
+    line-height: 32px;
+    height: 34px;
+    padding: 0 32px;
+    text-align: center;
+    color: white;
+  }
+
 }
 
 .page_index .global-header {
-    box-sizing: border-box;
-    height: 680px;
+  box-sizing: border-box;
+  height: 680px;
 
-    .get-kotlin-button {
-        @extend %button_call-to-action;
-        @extend %button_call-to-action%size_big;
-        text-transform: uppercase;
-    }
+  .get-kotlin-button {
+    @extend %button_call-to-action;
+    @extend %button_call-to-action%size_big;
+    text-transform: uppercase;
+  }
 }
 
 .global-header-panel {
-    @include clearfix;
-    box-sizing: border-box;
-    padding: $unit 0;
-    height: 60px;
-    .page_index & {
-      background-color: #393939;
-    }
+  @include clearfix;
+  box-sizing: border-box;
+  padding: $unit 0;
+  height: 60px;
+  .page_index & {
+    background-color: #393939;
+  }
 }
 
 .global-header-logo {
-    @include transition(0.3s all);
-    position: relative;
-    top: 12px;
-    float: left;
-    width: 103px;
-    height: 22px;
-    background: url('images/logos-sprite.png') no-repeat;
-    font-size: 0;
-    text-decoration: none;
+  @include transition(0.3s all);
+  position: relative;
+  top: 12px;
+  float: left;
+  width: 103px;
+  height: 22px;
+  background: url('images/logos-sprite.png') no-repeat;
+  font-size: 0;
+  text-decoration: none;
 
-    @include adapt_retina {
-        background-image: url('images/logos-sprite@2x.png');
-        background-size: 200px 100px;
-    }
+  @include adapt_retina {
+    background-image: url('images/logos-sprite@2x.png');
+    background-size: 200px 100px;
+  }
 }
