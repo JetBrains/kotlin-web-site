@@ -337,6 +337,7 @@
   .CodeMirror {
     overflow: auto;
     height: 400px;
+    border-bottom: 1px solid grey;
   }
 
   .CodeMirror pre {
@@ -370,6 +371,7 @@
     min-height: 120px;
     font-size: 24px;
     background-color: transparent;
+    border-top: none;
     border-bottom: 1px solid grey;
   }
 

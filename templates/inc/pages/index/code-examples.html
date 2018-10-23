@@ -8,8 +8,8 @@
             <div class="tab js-tab" data-tab-id="kotlin-code-example-object-oriented">
                 <div class="tab-text">An Object-oriented Hello</div>
             </div>
-            <div class="tab js-tab" data-tab-id="kotlin-code-example-android">
-                <div class="tab-text">Android Activity</div>
+            <div class="tab js-tab" data-tab-id="kotlin-code-example-coroutine">
+                <div class="tab-text">Coroutines</div>
             </div>
             <a class="tab overview-examples" href="https://play.kotlinlang.org/byExample/overview">
                 <div class="tab-text">More examples</div>
@@ -43,20 +43,19 @@
             </div>
         </div>
         <!-- code example -->
-        <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-android">
-            <div theme="darcula" class="sample" auto-indent="true" data-highlight-only>
-                import kotlinx.android.synthetic.main.activity_main.fab
-
-                class MainActivity : AppCompatActivity() {
-                override fun onCreate(savedInstanceState: Bundle?) {
-                ...
-                fab.setOnClickListener {
-                Lambdas for concise event handlers
-                toast("Hello!")
+        <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-coroutine">
+            <div theme="darcula" class="sample" auto-indent="true" folded-button="false" data-min-compiler-version="1.3">
+                import kotlinx.coroutines.*
+                //sampleStart
+                suspend fun main() = coroutineScope {
+                    repeat(10) {
+                        launch {
+                            delay(10)
+                            print("❤️")
+                        }
+                    }
                 }
-                Terse wrappers for common Android APIs
-                }
-                }
+                //sampleEnd
             </div>
         </div>
     </div>
@@ -64,5 +63,5 @@
 <div class="section-description">
     Explore Kotlin code samples<br/>and solve problems
     directly in the browser<br/>
-    <a href="https://play.kotlinlang.org" class="try-button">Try online</a>
+    <a href="https://play.kotlinlang.org" class="try-button" target="_blank">Try online</a>
 </div>
