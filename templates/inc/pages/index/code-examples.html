@@ -48,10 +48,10 @@
                 import kotlinx.coroutines.*
                 //sampleStart
                 suspend fun main() = coroutineScope {
-                    for(it in 0 until 10) {
+                    for(i in 0 until 10) {
                         launch {
-                            delay(1000 - it * 10)
-                            print("❤️#${it}")
+                            delay(1000 - i * 10)
+                            print("❤️$i ")
                         }
                     }
                 }
