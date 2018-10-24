@@ -32,15 +32,12 @@
 
   .kotlin-info {
     margin-top: 20px;
-    border-radius: 2px;
-    height: 320px;
-    text-align: left;
-    position: relative;
+    height: 350px;
     background: url('images/banner-image.gif') no-repeat;
-    background-size: cover;
+    background-size: contain;
 
     .kotlin-info-button {
-      bottom: 20px;
+      bottom: 4 * $unit;
       right: 5px;
       position: absolute;
       cursor: pointer;
