@@ -47,17 +47,14 @@
             <div theme="darcula" class="sample" auto-indent="true" folded-button="false" data-min-compiler-version="1.3">
                 import kotlinx.coroutines.*
                 //sampleStart
-                import kotlinx.coroutines.*
-
                 suspend fun main() = coroutineScope {
                     for(it in 0 until 10) {
                         launch {
-                            delay(1000 - n * 10)
+                            delay(1000 - it * 10)
                             print("❤️#${it}")
                         }
                     }
                 }
-
                 //sampleEnd
             </div>
         </div>

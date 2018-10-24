@@ -335,7 +335,6 @@
   }
 
   .CodeMirror {
-    overflow-y: auto;
     height: 400px;
     border-bottom: 1px solid grey;
   }
@@ -343,6 +342,10 @@
   .CodeMirror pre {
     font-size: 25px;
     line-height: 35px;
+  }
+
+  .CodeMirror-scroll {
+    height: 400px !important;
   }
 
   .run-button {
@@ -365,6 +368,10 @@
   .CodeMirror-gutters {
     background: none !important;
     border-right: none !important;
+  }
+
+  .code-output {
+    overflow-y: hidden;
   }
 
   .output-wrapper.darcula {
