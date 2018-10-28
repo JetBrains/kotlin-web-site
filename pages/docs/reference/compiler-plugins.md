@@ -114,7 +114,7 @@ As with all-open, add the plugin to the buildscript dependencies:
 ``` groovy
 buildscript {
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-spring:$kotlin_version"
     }
 }
 
