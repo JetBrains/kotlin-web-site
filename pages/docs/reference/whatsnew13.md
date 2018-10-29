@@ -10,7 +10,7 @@ title: "What's Coming in Kotlin 1.3"
 
 After some long and extensive battle testing, coroutines are now released! It means that from Kotlin 1.3 the language support and the API are [fully stable](evolution/components-stability.html). Check out the new [coroutines overview](coroutines-overview.html) page
 
-Kotlin 1.3 introduces callable references on suspend-functions and support of Coroutines in the Reflection API
+Kotlin 1.3 introduces callable references on suspend-functions and support of Coroutines in the Reflection API.
 
 ## Kotlin/Native
 
@@ -18,7 +18,16 @@ Kotlin 1.3 continues to improve and polish the Native target. See the [Kotlin/Na
 
 ## Multiplatform Projects
 
-In 1.3, we've completely reworked the model of multiplatform projects in order to improve expressiveness and flexibility, and to make sharing common code easier. Also, Kotlin/Native is now supported as one of the targets! Find all the details [here](multiplatform.html)
+In 1.3, we've completely reworked the model of multiplatform projects in order to improve expressiveness and flexibility, and to make sharing common code easier. Also, Kotlin/Native is now supported as one of the targets!
+
+The key differences to the old model are:
+
+  * In the old model, common and platform-specific code needed to be placed in separate modules, linked by `expectedBy` dependencies.
+    Now, common and platform-specific code is placed in different source roots of the same module, making projects easier to configure.
+  * There is now a large number of [preset platform configurations](/docs/reference/building-mpp-with-gradle.html#supported-platforms) for different supported platforms.
+  * We've added new support for [publishing multiplatform libraries](/docs/reference/building-mpp-with-gradle.html#publishing-a-multiplatform-library).
+
+For more information, please refer to the [Multiplatform Programming documentation](/docs/reference/multiplatform.html).
 
 ## Contracts
 
