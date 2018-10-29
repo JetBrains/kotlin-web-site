@@ -69,6 +69,8 @@ reference:
           title: What's New in 1.2
         - url: /docs/reference/whatsnew13.html
           title: What's New in 1.3
+        - url: /docs/reference/compatibility-guide-13.html
+          title: Compatibility Guide for Kotlin 1.3
 
     - title: Getting Started
       description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
