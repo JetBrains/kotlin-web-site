@@ -1,5 +1,11 @@
+{% if is_index_page %}
+    <div class="global-header-panel banner-nav">
+        <div class="g-layout">
+            {% include 'inc/nav/header-banner-nav.html' %}
+        </div>
+    </div>
+{% endif %}
 <header class="global-header">
-
     <div class="global-header-panel">
         <div class="g-layout">
             <a class="global-header-logo" href="{{ baseurl }}/">Kotlin</a>
@@ -7,23 +13,21 @@
         </div>
     </div>
 
+    {% if is_index_page %}
+        <div class="banner-main">
+            <div class="g-layout">
+                <div class="kotlin-info">
+                    <a href="https://blog.jetbrains.com/kotlin/2018/10/kotlin-1-3/" class="kotlin-info-button"></a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="g-layout">
         {% if is_index_page %}
-            <a href="https://www.youtube.com/watch?v=PsaFVLr8t4E" class="banner-link" target="_blank">
-                <div class="kotlin-info">
-                    <div class="kotlin-info-description">
-                        <div class="play-video" ></div>
-                        <div>
-                            Watch<br>
-                            KotlinConf 2018<br>
-                            Opening Keynote
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <h2 class="banner-header">Kotlin 1.3. <a href="/docs/reference/whatsnew13.html" class="kotlin-whats">What's
-                coming</a></h2>
+            <h2 class="banner-header">Kotlin 1.3 <a href="/docs/reference/whatsnew13.html"
+                                                    class="kotlin-whats">Released</a>
+            </h2>
             <div class="kotlin-slides">
                 <div class="slides-container">
                     <div class="slide-item slide-1">

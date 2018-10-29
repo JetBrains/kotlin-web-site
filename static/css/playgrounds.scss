@@ -1,8 +1,15 @@
 // Hide plain text before loading runnable examples
 .sample {
-    visibility: hidden;
+  visibility: hidden;
 }
+
 // If scroll is 100% the blocks became too big
 .CodeMirror-scroll {
-    height: auto !important;
+  height: auto !important;
+}
+
+// pretty print autocomplete
+.CodeMirror-hint {
+  height: 20px;
+  max-width: 600px;
 }

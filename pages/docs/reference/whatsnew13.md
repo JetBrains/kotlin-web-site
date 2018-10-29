@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: reference
-title: "What's Coming in Kotlin 1.3"
+title: "What's New in Kotlin 1.3"
 ---
 
 # What's Coming in Kotlin 1.3

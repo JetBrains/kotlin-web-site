@@ -1,4 +1,5 @@
 import '../../com/search/search';
+import '../../com/head-banner'
 import $ from 'jquery';
 import './index.scss';
 
@@ -8,7 +9,6 @@ const initTabs = function () {
   $tabs.on('click', function () {
     const $tab = $(this),
       tabId = $tab.attr('data-tab-id');
-
     if ($tab.hasClass('is_active')) {
       return;
     }

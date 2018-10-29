@@ -94,6 +94,8 @@ Recommended tutorials:
 - [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin-native/tree/master/samples) 
 - [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
+- [Kotlin/Native sources and examples (.tgz)](https://download.jetbrains.com/kotlin/native/kotlin-native-samples-1.0.1.tar.gz)
+- [Kotlin/Native sources and examples (.zip)](https://download.jetbrains.com/kotlin/native/kotlin-native-samples-1.0.1.zip)
 
 Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples).
 
