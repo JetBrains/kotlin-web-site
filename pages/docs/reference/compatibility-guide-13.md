@@ -16,7 +16,7 @@ In this document we introduce several kinds of compatibility:
 
 - Source: source-incompatible change stops code that used to compile fine (without errors or warnings) from compiling anymore
 - Binary: two binary artifacts are said to be binary-compatible if interchanging them doesn't lead to loading or linkage errors 
-- behavioral: change is said to be behavioral-incompatible if one and the same program demonstrates different behavior before and after applying change
+- Behavioral: a change is said to be behavioral-incompatible if one and the same program demonstrates different behavior before and after applying the change
 
 One has to remember that those definitions are given only for pure Kotlin. Compatibility of Kotlin code from the other languages perspective (e.g. from Java) is out of the scope of this document.
 
@@ -33,7 +33,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 **Deprecation cycle**: 
 
 - <1.3: old behavior (see details in the Issue)
-- \>= 1.3: behavior changed
+- \>= 1.3: behavior changed,
   `-Xnormalize-constructor-calls=disable` can be used to temporarily revert to pre-1.3 behavior. Support for this flag is going to be removed in the next major release.
 
 ### Missing getter-targeted annotations on annotation constructor parameters
@@ -64,8 +64,8 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 **Deprecation cycle**:
 
 - <1.2: compilation errors in getter-target annotations were not reported, causing incorrect code to be compiled fine.
-- 1.2.x: errors reported only by tooling, compiler still compiles such code without any warnings
-- \>=1.3: errors reported by compiler too, causing erroneous code to be rejected
+- 1.2.x: errors reported only by tooling, the compiler still compiles such code without any warnings
+- \>=1.3: errors reported by the compiler too, causing erroneous code to be rejected
 
 ### Nullability assertions on access to Java types annotated with `@NotNull`
 
@@ -79,8 +79,8 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 **Deprecation cycle**:
 
-- <1.3: compiler could miss such assertions when type inference was involved, allowing potential `null` propagation during compilation against binaries (see Issue for details).
-- \>=1.3: compiler generates missed assertions. This can case code which was (erroneously) passing `null`s here fail faster.  
+- <1.3: the compiler could miss such assertions when type inference was involved, allowing potential `null` propagation during compilation against binaries (see Issue for details).
+- \>=1.3: the compiler generates missed assertions. This can case code which was (erroneously) passing `null`s here fail faster.  
  `-XXLanguage:-StrictJavaNullabilityAssertions` can be used to temporarily return to the pre-1.3 behavior. Support for this flag will be removed in the next major release.
 
 ### Unsound smartcasts on enum members
@@ -111,7 +111,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 **Deprecation cycle**:
 
-- <1.2: Kotlin compiler allowed to modify backing field of `val` in its getter. Not it only violates Kotlin semantic, but also generates ill-behaved JVM bytecode which reassigns `final` field.
+- <1.2: Kotlin compiler allowed to modify backing field of `val` in its getter. Not only it violates Kotlin semantic, but also generates ill-behaved JVM bytecode which reassigns `final` field.
 - 1.2.X: deprecation warning is reported on code which reassigns backing field of `val`
 - \>=1.3: deprecation warnings are elevated to errors 
 
@@ -194,7 +194,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 - <1.2: old visibility rules (see Issue for details)
 - 1.2.X: deprecation warnings reported on short names which are not going to be accessible anymore. Tooling suggests automated migration by adding full name.  
-- \>=1.3: deprecation warnings elevated to errors. Offended code should add full qualifiers or explicit imports
+- \>=1.3: deprecation warnings elevated to errors. Offending code should add full qualifiers or explicit imports
 
 ### Non-constant vararg annotation parameters
 
@@ -208,7 +208,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 **Deprecation cycle**:
 
-- <1.2: compiler allows to pass non-constant value for vararg annotation parameter, but actually drops that value during bytecode generation, leading to non-obvious behavior
+- <1.2: the compiler allows to pass non-constant value for vararg annotation parameter, but actually drops that value during bytecode generation, leading to non-obvious behavior
 - 1.2.X: deprecation warnings reported on such code patterns
 - \>=1.3: deprecation warnings elevated to errors
 
@@ -224,7 +224,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 **Deprecation cycle**:
 
-- <1.2: compiler compiled local annotation classes fine
+- <1.2: the compiler compiled local annotation classes fine
 - 1.2.X: deprecation warnings reported on local annotation classes
 - \>=1.3: deprecation warnings elevated to errors
 
@@ -240,8 +240,8 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 **Deprecation cycle**:
 
-- <1.2: compiler allowed to smartcast local delegated property, which could lead to unsound smartcast in case of ill-behaved delegates
-- 1.2.X: smartcasts on local delegated properries are reported as deprecated (compiler issues warnings)
+- <1.2: the compiler allowed to smartcast local delegated property, which could lead to unsound smartcast in case of ill-behaved delegates
+- 1.2.X: smartcasts on local delegated properries are reported as deprecated (the compiler issues warnings)
 - \>=1.3: deprecation warnings elevated to errors
 
 ### `mod` operator convention
@@ -272,7 +272,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 **Deprecation cycle**:
 
-- <1.2: assigning one value element to vararg in named form compiles fine and treated as assigning *single* element to array, causing non-obvious behavior when assigning array to vararg
+- <1.2: assigning one value element to vararg in named form compiles fine and is treated as assigning *single* element to array, causing non-obvious behavior when assigning array to vararg
 - 1.2.X: deprecation warnings are reported on such assignments, users are suggested to switch to consecutive spread and array construction.
 - 1.3.X: warnings are elevated to errors
 - \>= 1.4: change semantic of assigning single element to vararg, making assignment of array equivalent to the assignment of a spread of an array 
@@ -332,7 +332,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 **Incompatible change type**: Behavioral
 
-**Short summary**: since Kotlin 1.3, prohibit step value for integer progressions being minimum negative value of its integer type (`Long` or `Int`), so that calling `IntProgression.fromClosedRange(0, 1, step = Int.MIN_VALUE)` will throw `IllegalArgumentException` 
+**Short summary**: since Kotlin 1.3, prohibit step value for integer progressions being the minimum negative value of its integer type (`Long` or `Int`), so that calling `IntProgression.fromClosedRange(0, 1, step = Int.MIN_VALUE)` will throw `IllegalArgumentException` 
 
 **Deprecation cycle**:
 
@@ -378,12 +378,13 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 **Incompatible change type**: Binary
 
 **Short summary**: in Kotlin 1.3, rename `buildSequence` and `buildIterator` to `sequence` and `iterator` correspondingly
+
 **Deprecation cycle**:
 
 - <1.3: stdlib provides `buildSequence` and `buildIterator`
 - \>=1.3: stdlib provides equivalent `sequence` and `iterator`; old declarations are marked with `@Deprecated(HIDDEN)`
 
-### Discontinued deprecated artifacts in compiler distribution
+### Discontinued deprecated artifacts in the compiler distribution
 
 **Issue**: [KT-23799](https://youtrack.jetbrains.com/issue/KT-23799)
 
@@ -398,7 +399,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
  
 **Deprecation cycle**:
 
-- 1.2.X: the artifacts were marked as deprecated, compiler had been reporting warning on usage of those artifacts
+- 1.2.X: the artifacts were marked as deprecated, the compiler reported warning on usage of those artifacts
 - \>=1.3: the artifacts are discontinued
 
 ### Annotations in stdlib
@@ -409,7 +410,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 **Incompatible change type**: Binary
 
-**Short summary**: Kotlin 1.3 removes annotations from the package `org.jetbrains.annotations` from stdlib and moves them to the separate artifacts shipped with compiler: `annotations-13.0.jar` and `mutability-annotations-compat.jar`
+**Short summary**: Kotlin 1.3 removes annotations from the package `org.jetbrains.annotations` from stdlib and moves them to the separate artifacts shipped with the compiler: `annotations-13.0.jar` and `mutability-annotations-compat.jar`
  
 **Deprecation cycle**:
 
