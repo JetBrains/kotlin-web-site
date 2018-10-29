@@ -10,7 +10,7 @@ title: "Packages and Imports"
 A source file may start with a package declaration:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 package foo.bar
 
 fun baz() { ... }
@@ -55,7 +55,7 @@ Syntax for imports is described in the [grammar](grammar.html#import).
 We can import either a single name, e.g.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 import foo.Bar // Bar is now accessible without qualification
 ```
 </div>
@@ -63,7 +63,7 @@ import foo.Bar // Bar is now accessible without qualification
 or all the accessible contents of a scope (package, class, object etc):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 import foo.* // everything in 'foo' becomes accessible
 ```
 </div>
@@ -71,7 +71,7 @@ import foo.* // everything in 'foo' becomes accessible
 If there is a name clash, we can disambiguate by using *as*{: .keyword } keyword to locally rename the clashing entity:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 import foo.Bar // Bar is accessible
 import bar.Bar as bBar // bBar stands for 'bar.Bar'
 ```

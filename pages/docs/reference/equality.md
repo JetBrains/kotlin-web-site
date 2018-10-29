@@ -17,7 +17,7 @@ In Kotlin there are two types of equality:
 Structural equality is checked by the `==` operation (and its negated counterpart `!=`). By convention, an expression like `a == b` is translated to:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 a?.equals(b) ?: (b === null)
 ```
 </div>

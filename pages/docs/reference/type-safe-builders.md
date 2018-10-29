@@ -20,10 +20,10 @@ Type-safe builders allow creating Kotlin-based domain-specific languages (DSLs) 
 Consider the following code:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 import com.example.html.* // see declarations below
 
-fun result(args: Array<String>) =
+fun result() =
     html {
         head {
             title {+"XML encoding with Kotlin"}
@@ -69,7 +69,7 @@ For example, `HTML` is a class that describes the `<html>` tag, i.e. it defines 
 Now, let's recall why we can say something like this in the code:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 html {
  // ...
 }
@@ -80,7 +80,7 @@ html {
 This function is defined as follows:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun html(init: HTML.() -> Unit): HTML {
     val html = HTML()
     html.init()
@@ -96,7 +96,7 @@ and we can call members of that instance inside the function.
 The receiver can be accessed through the *this*{: .keyword } keyword:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 html {
     this.head { ... }
     this.body { ... }
@@ -109,7 +109,7 @@ html {
 Now, *this*{: .keyword } can be omitted, as usual, and we get something that looks very much like a builder already:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 html {
     head { ... }
     body { ... }
@@ -126,7 +126,7 @@ The `head` and `body` functions in the `HTML` class are defined similarly to `ht
 The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun head(init: Head.() -> Unit) : Head {
     val head = Head()
     head.init()
@@ -146,7 +146,7 @@ fun body(init: Body.() -> Unit) : Body {
 Actually these two functions do just the same thing, so we can have a generic version, `initTag`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
     tag.init()
     children.add(tag)
@@ -158,7 +158,7 @@ protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
 So, now our functions are very simple:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun head(init: Head.() -> Unit) = initTag(Head(), init)
 
 fun body(init: Body.() -> Unit) = initTag(Body(), init)
@@ -171,7 +171,7 @@ And we can use them to build `<head>` and `<body>` tags.
 One other thing to be discussed here is how we add text to tag bodies. In the example above we say something like:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 html {
     head {
         title {+"XML encoding with Kotlin"}
@@ -186,7 +186,7 @@ so it is a function call that invokes a prefix `unaryPlus()` operation.
 That operation is actually defined by an extension function `unaryPlus()` that is a member of the `TagWithText` abstract class (a parent of `Title`):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 operator fun String.unaryPlus() {
     children.add(TextElement(this))
 }
@@ -205,7 +205,7 @@ When using DSLs, one might have come across the problem that too many functions 
 We can call methods of every available implicit receiver inside a lambda and therefore get an inconsistent result, like the tag `head` inside another `head`: 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 html {
     head {
         head {} // should be forbidden
@@ -223,7 +223,7 @@ To make the compiler start controlling scopes we only have to annotate the types
 For instance, for HTML Builders we declare an annotation `@HTMLTagMarker`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @DslMarker
 annotation class HtmlTagMarker
 ```
@@ -235,7 +235,7 @@ In our DSL all the tag classes extend the same superclass `Tag`.
 It's enough to annotate only the superclass with `@HtmlTagMarker` and after that the Kotlin compiler will treat all the inherited classes as annotated:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @HtmlTagMarker
 abstract class Tag(val name: String) { ... }
 ```
@@ -253,7 +253,7 @@ class Head() : Tag("head") { ... }
 After we've added this annotation, the Kotlin compiler knows which implicit receivers are part of the same DSL and allows to call members of the nearest receivers only: 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 html {
     head {
         head { } // error: a member of outer receiver
@@ -266,7 +266,7 @@ html {
 Note that it's still possible to call the members of the outer receiver, but to do that you have to specify this receiver explicitly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 html {
     head {
         this@html.head { } // possible
@@ -287,7 +287,7 @@ Note that the `@DslMarker` annotation is available only since Kotlin 1.1.
 <a name='declarations'></a>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 package com.example.html
 
 interface Element {

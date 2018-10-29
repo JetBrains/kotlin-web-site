@@ -14,7 +14,7 @@ It's useful to shorten long generic types.
 For instance, it's often tempting to shrink collection types:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 typealias NodeSet = Set<Network.Node>
 
 typealias FileTable<K> = MutableMap<K, MutableList<File>>
@@ -24,7 +24,7 @@ typealias FileTable<K> = MutableMap<K, MutableList<File>>
 You can provide different aliases for function types:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 typealias MyHandler = (Int, String, Any) -> Unit
 
 typealias Predicate<T> = (T) -> Boolean
@@ -34,7 +34,7 @@ typealias Predicate<T> = (T) -> Boolean
 You can have new names for inner and nested classes:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class A {
     inner class Inner
 }
@@ -53,12 +53,12 @@ When you add `typealias Predicate<T>` and use `Predicate<Int>` in your code, the
 Thus you can pass a variable of your type whenever a general function type is required and vice versa:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 typealias Predicate<T> = (T) -> Boolean
 
 fun foo(p: Predicate<Int>) = p(42)
 
-fun main(args: Array<String>) {
+fun main() {
     val f: (Int) -> Boolean = { it > 0 }
     println(foo(f)) // prints "true"
 

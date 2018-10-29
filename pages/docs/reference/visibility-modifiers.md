@@ -19,7 +19,7 @@ Below please find explanations of how the modifiers apply to different types of 
 Functions, properties and classes, objects and interfaces can be declared on the "top-level", i.e. directly inside a package:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // file name: example.kt
 package foo
 
@@ -39,7 +39,7 @@ Note: to use a visible top-level declaration from another package, you should st
 Examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // file name: example.kt
 package foo
 
@@ -68,7 +68,7 @@ If you override a `protected` member and do not specify the visibility explicitl
 Examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 open class Outer {
     private val a = 1
     protected open val b = 2
@@ -102,7 +102,7 @@ To specify a visibility of the primary constructor of a class, use the following
 explicit *constructor*{: .keyword } keyword):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class C private constructor(a: Int) { ... }
 ```
 </div>

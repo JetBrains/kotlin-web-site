@@ -10,7 +10,7 @@ title: "Enum Classes"
 The most basic usage of enum classes is implementing type-safe enums:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 enum class Direction {
     NORTH, SOUTH, WEST, EAST
 }
@@ -24,7 +24,7 @@ Each enum constant is an object. Enum constants are separated with commas.
 Since each enum is an instance of the enum class, they can be initialized as:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 enum class Color(val rgb: Int) {
         RED(0xFF0000),
         GREEN(0x00FF00),
@@ -38,7 +38,7 @@ enum class Color(val rgb: Int) {
 Enum constants can also declare their own anonymous classes:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 enum class ProtocolState {
     WAITING {
         override fun signal() = TALKING
@@ -65,7 +65,7 @@ An enum class may implement an interface (but not derive from a class), providin
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 import java.util.function.BinaryOperator
 import java.util.function.IntBinaryOperator
 
@@ -82,7 +82,7 @@ enum class IntArithmetics : BinaryOperator<Int>, IntBinaryOperator {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     val a = 13
     val b = 31
     for (f in IntArithmetics.values()) {
@@ -99,7 +99,7 @@ the defined enum constants and to get an enum constant by its name. The signatur
 of these methods are as follows (assuming the name of the enum class is `EnumClass`):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 EnumClass.valueOf(value: String): EnumClass
 EnumClass.values(): Array<EnumClass>
 ```
@@ -112,7 +112,7 @@ Since Kotlin 1.1, it's possible to access the constants in an enum class in a ge
 the `enumValues<T>()` and `enumValueOf<T>()` functions:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 enum class RGB { RED, GREEN, BLUE }
 
 inline fun <reified T : Enum<T>> printAllValues() {
@@ -126,7 +126,7 @@ printAllValues<RGB>() // prints RED, GREEN, BLUE
 Every enum constant has properties to obtain its name and position in the enum class declaration:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val name: String
 val ordinal: Int
 ```

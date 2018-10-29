@@ -91,7 +91,7 @@ module.exports.sayHello = function(name) { alert("Hello, " + name); }
 You should declare it like this in Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @JsModule("hello")
 external fun sayHello(name: String)
 ```
@@ -106,7 +106,7 @@ Importing these packages as Kotlin objects often looks unnatural.
 The compiler allows to map imported JavaScript packages to Kotlin packages, using the following notation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @file:JsModule("extModule")
 package ext.jspackage.name
 
@@ -131,7 +131,7 @@ Important: files marked with `@file:JsModule` annotation can't declare non-exter
 The example below produces compile-time error:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @file:JsModule("extModule")
 package ext.jspackage.name
 

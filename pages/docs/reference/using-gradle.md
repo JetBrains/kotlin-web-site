@@ -202,7 +202,7 @@ compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 With Gradle Kotlin DSL, the following notation for the dependencies is equivalent:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 dependencies {
     compile(kotlin("stdlib"))
     // or one of:
@@ -304,7 +304,7 @@ compileKotlin {
 With Gradle Kotlin DSL, get the task from the project's `tasks` first:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 // ...
 

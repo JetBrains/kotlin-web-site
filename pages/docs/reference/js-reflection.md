@@ -21,7 +21,7 @@ This can be used to interoperate with JS functions that expect a reference to a 
 Examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class A
 class B
 class C

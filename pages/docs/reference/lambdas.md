@@ -24,7 +24,7 @@ for collections, which takes an initial accumulator value and a combining functi
 consecutively combining current accumulator value with each collection element, replacing the accumulator:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun <T, R> Collection<T>.fold(
     initial: R, 
     combine: (acc: R, nextElement: T) -> R
@@ -49,7 +49,7 @@ this purpose at higher-order function call sites:
 <div class="sample" markdown="1" theme="idea">
 
 ```kotlin
-fun main(args: Array<String>) {
+fun main() {
     //sampleStart
     val items = listOf(1, 2, 3, 4, 5)
     
@@ -158,8 +158,8 @@ for the first parameter, and vice versa. For instance, a value of type `(A, B) -
  
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
     //sampleStart
     val repeatFun: String.(Int) -> String = { times -> this.repeat(times) }
     val twoParameters: (String, Int) -> String = repeatFun // OK
@@ -190,8 +190,8 @@ Example:
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
     //sampleStart
     val stringPlus: (String, String) -> String = String::plus
     val intPlus: Int.(Int) -> Int = Int::plus
@@ -218,7 +218,7 @@ Lambda expressions and anonymous functions are 'function literals', i.e. functio
 but passed immediately as an expression. Consider the following example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 max(strings, { a, b -> a.length < b.length })
 ```
 </div>
@@ -228,7 +228,7 @@ This second argument is an expression that is itself a function, i.e. a function
 the following named function:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun compare(a: String, b: String): Boolean = a.length < b.length
 ```
 </div>
@@ -238,7 +238,7 @@ fun compare(a: String, b: String): Boolean = a.length < b.length
 The full syntactic form of lambda expressions is as follows:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val sum = { x: Int, y: Int -> x + y }
 ```
 </div>
@@ -250,7 +250,7 @@ the body goes after an `->` sign. If the inferred return type of the lambda is n
 If we leave all the optional annotations out, what's left looks like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val sum: (Int, Int) -> Int = { x, y -> x + y }
 ```
 </div>
@@ -261,7 +261,7 @@ In Kotlin, there is a convention that if the last parameter of a function accept
 passed as the corresponding argument can be placed outside the parentheses:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val product = items.fold(1) { acc, e -> acc * e }
 ```
 </div>
@@ -269,7 +269,7 @@ val product = items.fold(1) { acc, e -> acc * e }
 If the lambda is the only argument to that call, the parentheses can be omitted entirely: 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 run { println("...") }
 ```
 </div>
@@ -282,7 +282,7 @@ If the compiler can figure the signature out itself, it is allowed not to declar
 The parameter will be implicitly declared under the name `it`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 ints.filter { it > 0 } // this literal is of type '(it: Int) -> Boolean'
 ```
 </div>
@@ -295,7 +295,7 @@ Otherwise, the value of the last expression is implicitly returned.
 Therefore, the two following snippets are equivalent:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 ints.filter {
     val shouldFilter = it > 0 
     shouldFilter
@@ -312,7 +312,7 @@ This convention, along with [passing a lambda expression outside parentheses](#p
 [LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 strings.filter { it.length == 5 }.sortedBy { it }.map { it.toUpperCase() }
 ```
 </div>
@@ -322,7 +322,7 @@ strings.filter { it.length == 5 }.sortedBy { it }.map { it.toUpperCase() }
 If the lambda parameter is unused, you can place an underscore instead of its name:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 map.forEach { _, value -> println("$value!") }
 ```
 </div>
@@ -338,7 +338,7 @@ function. In most cases, this is unnecessary because the return type can be infe
 do need to specify it explicitly, you can use an alternative syntax: an _anonymous function_.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun(x: Int, y: Int): Int = x + y
 ```
 </div>
@@ -347,7 +347,7 @@ An anonymous function looks very much like a regular function declaration, excep
 can be either an expression (as shown above) or a block:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun(x: Int, y: Int): Int {
     return x + y
 }
@@ -358,7 +358,7 @@ The parameters and the return type are specified in the same way as for regular 
 types can be omitted if they can be inferred from context:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 ints.filter(fun(item) = item > 0)
 ```
 </div>
@@ -382,7 +382,7 @@ A lambda expression or anonymous function (as well as a [local function](functio
 can access its _closure_, i.e. the variables declared in the outer scope. Unlike Java, the variables captured in the closure can be modified:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 var sum = 0
 ints.filter { it > 0 }.forEach {
     sum += it
@@ -409,7 +409,7 @@ Here is an example of a function literal with receiver along with its type, wher
 receiver object:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val sum: Int.(Int) -> Int = { other -> plus(other) } 
 ```
 </div>
@@ -418,7 +418,7 @@ The anonymous function syntax allows you to specify the receiver type of a funct
 This can be useful if you need to declare a variable of a function type with receiver, and to use it later.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val sum = fun Int.(other: Int): Int = this + other
 ```
 </div>
@@ -427,7 +427,7 @@ Lambda expressions can be used as function literals with receiver when the recei
 One of the most important examples of their usage is [type-safe builders](type-safe-builders.html):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class HTML {
     fun body() { ... }
 }

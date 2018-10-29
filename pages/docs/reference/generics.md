@@ -11,7 +11,7 @@ As in Java, classes in Kotlin may have type parameters:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 class Box<T>(t: T) {
     var value = t
 }
@@ -23,7 +23,7 @@ In general, to create an instance of such a class, we need to provide the type a
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val box: Box<Int> = Box<Int>(1)
 ```
 
@@ -33,7 +33,7 @@ But if the parameters may be inferred, e.g. from the constructor arguments or by
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val box = Box(1) // 1 has type Int, so the compiler figures out that we are talking about Box<Int>
 ```
 
@@ -164,7 +164,7 @@ To do this we provide the **out** modifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 interface Source<out T> {
     fun nextT(): T
 }
@@ -191,7 +191,7 @@ produced. A good example of a contravariant type is `Comparable`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 interface Comparable<in T> {
     operator fun compareTo(other: T): Int
 }
@@ -219,7 +219,7 @@ A good example of this is Array:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 class Array<T>(val size: Int) {
     fun get(index: Int): T { ... }
     fun set(index: Int, value: T) { ... }
@@ -232,7 +232,7 @@ This class cannot be either co\- or contravariant in `T`. And this imposes certa
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 fun copy(from: Array<Any>, to: Array<Any>) {
     assert(from.size == to.size)
     for (i in from.indices)
@@ -246,7 +246,7 @@ This function is supposed to copy items from one array to another. Let's try to 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val ints: Array<Int> = arrayOf(1, 2, 3)
 val any = Array<Any>(3) { "" } 
 copy(ints, any)
@@ -263,7 +263,7 @@ Then, the only thing we want to ensure is that `copy()` does not do any bad thin
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 fun copy(from: Array<out Any>, to: Array<Any>) { ... }
 ```
 
@@ -277,7 +277,7 @@ You can project a type with **in** as well:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 fun fill(dest: Array<in String>, value: String) { ... }
 ```
 
@@ -311,7 +311,7 @@ Not only classes can have type parameters. Functions can, too. Type parameters a
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 fun <T> singletonList(item: T): List<T> {
     // ...
 }
@@ -327,7 +327,7 @@ To call a generic function, specify the type arguments at the call site **after*
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val l = singletonList<Int>(1)
 ```
 
@@ -337,7 +337,7 @@ Type arguments can be omitted if they can be inferred from the context, so the f
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val l = singletonList(1)
 ```
 
@@ -353,7 +353,7 @@ The most common type of constraint is an **upper bound** that corresponds to Jav
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 fun <T : Comparable<T>> sort(list: List<T>) {  ... }
 ```
 
@@ -363,7 +363,7 @@ The type specified after a colon is the **upper bound**: only a subtype of `Comp
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 sort(listOf(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
 sort(listOf(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
 ```
@@ -375,7 +375,7 @@ If the same type parameter needs more than one upper bound, we need a separate *
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
-``` kotlin
+```kotlin
 fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
     where T : CharSequence,
           T : Comparable<T> {

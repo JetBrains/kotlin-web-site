@@ -17,7 +17,7 @@ would be very nice to implement once and for all, and put into a library. Exampl
 To cover these (and other) cases, Kotlin supports _delegated properties_:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Example {
     var p: String by Delegate()
 }
@@ -30,7 +30,7 @@ Property delegates don’t have to implement any interface, but they have to pro
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Delegate {
     operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
         return "$thisRef, thank you for delegating '${property.name}' to me!"
@@ -48,7 +48,7 @@ so that its first parameter is the object we read `p` from and the second parame
 (e.g. you can take its name). For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val e = Example()
 println(e.p)
 ```
@@ -63,7 +63,7 @@ Example@33a17727, thank you for delegating ‘p’ to me!
 Similarly, when we assign to `p`, the `setValue()` function is called. The first two parameters are the same, and the third holds the value being assigned:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 e.p = "NEW"
 ```
 </div>
@@ -90,13 +90,13 @@ the first call to `get()` executes the lambda passed to `lazy()` and remembers t
 subsequent calls to `get()` simply return the remembered result. 
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 val lazyValue: String by lazy {
     println("computed!")
     "Hello"
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println(lazyValue)
     println(lazyValue)
 }
@@ -117,7 +117,7 @@ The handler gets called every time we assign to the property (_after_ the assign
 parameters: a property being assigned to, the old value and the new one:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 import kotlin.properties.Delegates
 
 class User {
@@ -127,7 +127,7 @@ class User {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val user = User()
     user.name = "first"
     user.name = "second"
@@ -145,7 +145,7 @@ This comes up often in applications like parsing JSON or doing other “dynamic�
 In this case, you can use the map instance itself as the delegate for a delegated property.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class User(val map: Map<String, Any?>) {
     val name: String by map
     val age: Int     by map
@@ -156,7 +156,7 @@ class User(val map: Map<String, Any?>) {
 In this example, the constructor takes a map:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val user = User(mapOf(
     "name" to "John Doe",
     "age"  to 25
@@ -167,13 +167,13 @@ val user = User(mapOf(
 Delegated properties take values from this map (by the string keys --– names of properties):
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 class User(val map: Map<String, Any?>) {
     val name: String by map
     val age: Int     by map
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val user = User(mapOf(
         "name" to "John Doe",
         "age"  to 25
@@ -189,7 +189,7 @@ fun main(args: Array<String>) {
 This works also for *var*{:.keyword}’s properties if you use a `MutableMap` instead of read-only `Map`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class MutableUser(val map: MutableMap<String, Any?>) {
     var name: String by map
     var age: Int     by map
@@ -203,7 +203,7 @@ You can declare local variables as delegated properties.
 For instance, you can make a local variable lazy:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun example(computeFoo: () -> Foo) {
     val memoizedFoo by lazy(computeFoo)
 
@@ -242,7 +242,7 @@ The delegate class may implement one of the interfaces `ReadOnlyProperty` and `R
 These interfaces are declared in the Kotlin standard library:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 interface ReadOnlyProperty<in R, out T> {
     operator fun getValue(thisRef: R, property: KProperty<*>): T
 }
@@ -260,7 +260,7 @@ Under the hood for every delegated property the Kotlin compiler generates an aux
 For instance, for the property `prop` the hidden property `prop$delegate` is generated, and the code of the accessors simply delegates to this additional property:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 class C {
     var prop: Type by MyDelegate()
 }
@@ -290,7 +290,7 @@ One of the possible use cases of `provideDelegate` is to check property consiste
 For example, if you want to check the property name before binding, you can write something like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class ResourceDelegate<T> : ReadOnlyProperty<MyUI, T> {
     override fun getValue(thisRef: MyUI, property: KProperty<*>): T { ... }
 }
@@ -328,7 +328,7 @@ Without this ability to intercept the binding between the property and its deleg
 you'd have to pass the property name explicitly, which isn't very convenient:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Checking the property name without "provideDelegate" functionality
 class MyUI {
     val image by bindResource(ResourceID.image_id, "image")
@@ -350,7 +350,7 @@ Compare the generated code for the property declaration `val prop: Type by MyDel
 [above](delegated-properties.html#translation-rules) (when the `provideDelegate` method is not present):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 class C {
     var prop: Type by MyDelegate()
 }

@@ -31,7 +31,7 @@ Every block tag begins on a new line and starts with the `@` character.
 Here's an example of a class documented using KDoc:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 /**
  * A group of *members*.
  *

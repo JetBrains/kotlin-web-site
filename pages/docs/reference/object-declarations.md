@@ -16,7 +16,7 @@ Kotlin slightly generalizes this concept with *object expressions* and *object d
 To create an object of an anonymous class that inherits from some type (or types), we write:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 window.addMouseListener(object : MouseAdapter() {
     override fun mouseClicked(e: MouseEvent) { ... }
 
@@ -29,7 +29,7 @@ If a supertype has a constructor, appropriate constructor parameters must be pas
 Many supertypes may be specified as a comma-separated list after the colon:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 open class A(x: Int) {
     public open val y: Int = x
 }
@@ -45,7 +45,7 @@ val ab: A = object : A(1), B {
 If, by any chance, we need "just an object", with no nontrivial supertypes, we can simply say:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo() {
     val adHoc = object {
         var x: Int = 0
@@ -62,7 +62,7 @@ will be the declared supertype of the anonymous object, or `Any` if you didn't d
 in the anonymous object will not be accessible.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class C {
     // Private function, so the return type is the anonymous object type
     private fun foo() = object {
@@ -86,7 +86,7 @@ Just like Java's anonymous inner classes, code in object expressions can access 
 (Unlike Java, this is not restricted to final variables.)
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun countClicks(window: JComponent) {
     var clickCount = 0
     var enterCount = 0
@@ -111,7 +111,7 @@ fun countClicks(window: JComponent) {
 and Kotlin (after Scala) makes it easy to declare singletons:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 object DataProviderManager {
     fun registerDataProvider(provider: DataProvider) {
         // ...
@@ -131,7 +131,7 @@ Object declaration's initialization is thread-safe.
 To refer to the object, we use its name directly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 DataProviderManager.registerDataProvider(...)
 ```
 </div>
@@ -139,7 +139,7 @@ DataProviderManager.registerDataProvider(...)
 Such objects can have supertypes:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 object DefaultListener : MouseAdapter() {
     override fun mouseClicked(e: MouseEvent) { ... }
 
@@ -156,7 +156,7 @@ object DefaultListener : MouseAdapter() {
 An object declaration inside a class can be marked with the *companion*{: .keyword } keyword:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class MyClass {
     companion object Factory {
         fun create(): MyClass = MyClass()
@@ -168,7 +168,7 @@ class MyClass {
 Members of the companion object can be called by using simply the class name as the qualifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val instance = MyClass.create()
 ```
 </div>
@@ -176,7 +176,7 @@ val instance = MyClass.create()
 The name of the companion object can be omitted, in which case the name `Companion` will be used:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class MyClass {
     companion object { }
 }
@@ -189,7 +189,7 @@ Note that, even though the members of companion objects look like static members
 are still instance members of real objects, and can, for example, implement interfaces:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 interface Factory<T> {
     fun create(): T
 }

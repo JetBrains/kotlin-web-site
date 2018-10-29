@@ -19,7 +19,7 @@ A class `Derived` can implement an interface `Base` by delegating all of its pub
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 interface Base {
     fun print()
 }
@@ -30,7 +30,7 @@ class BaseImpl(val x: Int) : Base {
 
 class Derived(b: Base) : Base by b
 
-fun main(args: Array<String>) {
+fun main() {
     val b = BaseImpl(10)
     Derived(b).print()
 }
@@ -48,7 +48,7 @@ implementations instead of those in the delegate object. If we were to add `over
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 interface Base {
     fun printMessage()
     fun printMessageLine()
@@ -63,7 +63,7 @@ class Derived(b: Base) : Base by b {
     override fun printMessage() { print("abc") }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val b = BaseImpl(10)
     Derived(b).printMessage()
     Derived(b).printMessageLine()
@@ -76,7 +76,7 @@ delegate object, which can only access its own implementations of the interface 
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 interface Base {
     val message: String
     fun print()
@@ -92,7 +92,7 @@ class Derived(b: Base) : Base by b {
     override val message = "Message of Derived"
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val b = BaseImpl(10)
     val derived = Derived(b)
     derived.print()

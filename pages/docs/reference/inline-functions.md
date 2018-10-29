@@ -16,7 +16,7 @@ The functions shown below are good examples of this situation. I.e., the `lock()
 Consider the following case:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 lock(l) { foo() }
 ```
 </div>
@@ -24,7 +24,7 @@ lock(l) { foo() }
 Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 l.lock()
 try {
     foo()
@@ -40,7 +40,7 @@ Isn't it what we wanted from the very beginning?
 To make the compiler do this, we need to mark the `lock()` function with the `inline` modifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 inline fun <T> lock(lock: Lock, body: () -> T): T { ... }
 ```
 </div>
@@ -56,7 +56,7 @@ In case you want only some of the lambdas passed to an inline function to be inl
 parameters with the `noinline` modifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) { ... }
 ```
 </div>
@@ -75,7 +75,7 @@ This means that to exit a lambda, we have to use a [label](returns.html#return-a
 inside a lambda, because a lambda cannot make the enclosing function return:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 fun ordinaryFunction(block: () -> Unit) {
     println("hi!")
 }
@@ -86,7 +86,7 @@ fun foo() {
     }
 }
 //sampleEnd
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -98,7 +98,7 @@ But if the function the lambda is passed to is inlined, the return can be inline
 inline fun inlined(block: () -> Unit) {
     println("hi!")
 }
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     inlined {
@@ -106,7 +106,7 @@ fun foo() {
     }
 }
 //sampleEnd
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -116,7 +116,7 @@ Such returns (located in a lambda, but exiting the enclosing function) are calle
 this sort of construct in loops, which inline functions often enclose:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun hasZeros(ints: List<Int>): Boolean {
     ints.forEach {
         if (it == 0) return true // returns from hasZeros
@@ -132,7 +132,7 @@ is also not allowed in the lambdas. To indicate that, the lambda parameter needs
 the `crossinline` modifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 inline fun f(crossinline body: () -> Unit) {
     val f = object: Runnable {
         override fun run() = body()
@@ -149,7 +149,7 @@ inline fun f(crossinline body: () -> Unit) {
 Sometimes we need to access a type passed to us as a parameter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun <T> TreeNode.findParentOfType(clazz: Class<T>): T? {
     var p = parent
     while (p != null && !clazz.isInstance(p)) {
@@ -165,7 +165,7 @@ Here, we walk up a tree and use reflection to check if a node has a certain type
 It’s all fine, but the call site is not very pretty:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 treeNode.findParentOfType(MyTreeNode::class.java)
 ```
 </div>
@@ -173,7 +173,7 @@ treeNode.findParentOfType(MyTreeNode::class.java)
 What we actually want is simply pass a type to this function, i.e. call it like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 treeNode.findParentOfType<MyTreeNode>()
 ```
 </div>
@@ -181,7 +181,7 @@ treeNode.findParentOfType<MyTreeNode>()
 To enable this, inline functions support *reified type parameters*, so we can write something like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 inline fun <reified T> TreeNode.findParentOfType(): T? {
     var p = parent
     while (p != null && p !is T) {
@@ -199,7 +199,7 @@ and `as` are working now. Also, we can call it as mentioned above: `myTree.findP
 Though reflection may not be needed in many cases, we can still use it with a reified type parameter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 inline fun <reified T> membersOf() = T::class.members
 
 fun main(s: Array<String>) {
@@ -222,7 +222,7 @@ The `inline` modifier can be used on accessors of properties that don't have a b
 You can annotate individual property accessors:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val foo: Foo
     inline get() = Foo()
 
@@ -235,7 +235,7 @@ var bar: Bar
 You can also annotate an entire property, which marks both of its accessors as inline:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 inline var bar: Bar
     get() = ...
     set(v) { ... }

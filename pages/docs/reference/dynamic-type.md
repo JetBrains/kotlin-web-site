@@ -14,7 +14,7 @@ Being a statically typed language, Kotlin still has to interoperate with untyped
 such as the JavaScript ecosystem. To facilitate these use cases, the `dynamic` type is available in the language:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val dyn: dynamic = ...
 ```
 </div>
@@ -29,7 +29,7 @@ The most peculiar feature of `dynamic` is that we are allowed to call **any** pr
 on a `dynamic` variable:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 dyn.whatever(1, "foo", dyn) // 'whatever' is not defined anywhere
 dyn.whatever(*arrayOf(1, 2, 3))
 ```
@@ -45,7 +45,7 @@ to assign well-defined names to the functions that you need to call.
 A dynamic call always returns `dynamic` as a result, so we can chain such calls freely:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 dyn.foo().bar.baz()
 ```
 </div>
@@ -53,7 +53,7 @@ dyn.foo().bar.baz()
 When we pass a lambda to a dynamic call, all of its parameters by default have the type `dynamic`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 dyn.foo {
     x -> x.bar() // x is dynamic
 }

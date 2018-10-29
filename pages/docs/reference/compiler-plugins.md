@@ -58,7 +58,7 @@ If the class (or any of its superclasses) is annotated with `com.my.Annotation`,
 It also works with meta-annotations:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @com.my.Annotation
 annotation class MyFrameworkAnnotation
 

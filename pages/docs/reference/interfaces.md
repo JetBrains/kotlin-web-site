@@ -14,7 +14,7 @@ properties but these need to be abstract or to provide accessor implementations.
 An interface is defined using the keyword *interface*{: .keyword }
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 interface MyInterface {
     fun bar()
     fun foo() {
@@ -29,7 +29,7 @@ interface MyInterface {
 A class or object can implement one or more interfaces
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Child : MyInterface {
     override fun bar() {
         // body
@@ -45,7 +45,7 @@ implementations for accessors. Properties declared in interfaces can't have back
 declared in interfaces can't reference them.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 interface MyInterface {
     val prop: Int // abstract
 
@@ -68,7 +68,7 @@ class Child : MyInterface {
 An interface can derive from other interfaces and thus both provide implementations for their members and declare new functions and properties. Quite naturally, classes implementing such an interface are only required to define the missing implementations:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 interface Named {
     val name: String
 }
@@ -94,7 +94,7 @@ data class Employee(
 When we declare many types in our supertype list, it may appear that we inherit more than one implementation of the same method. For example
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 interface A {
     fun foo() { print("A") }
     fun bar()

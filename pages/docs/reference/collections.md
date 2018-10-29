@@ -16,7 +16,8 @@ The Kotlin `List<out T>` type is an interface that provides read-only operations
 We can see basic usage of the list and set types below:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+
+```kotlin
 val numbers: MutableList<Int> = mutableListOf(1, 2, 3)
 val readOnlyView: List<Int> = numbers
 println(numbers)        // prints "[1, 2, 3]"
@@ -27,6 +28,7 @@ readOnlyView.clear()    // -> does not compile
 val strings = hashSetOf("a", "b", "c", "c")
 assert(strings.size == 3)
 ```
+
 </div>
 
 Kotlin does not have dedicated syntax constructs for creating lists or sets. Use methods from the standard library, such as
@@ -36,9 +38,11 @@ Map creation in NOT performance-critical code can be accomplished with a simple 
 Note that the `readOnlyView` variable points to the same list and changes as the underlying list changes. If the only references that exist to a list are of the read-only variety, we can consider the collection fully immutable. A simple way to create such a collection is like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+
+```kotlin
 val items = listOf(1, 2, 3)
 ```
+
 </div>
 
 Currently, the `listOf` method is implemented using an array list, but in future more memory-efficient fully immutable collection types could be returned that exploit the fact that they know they can't change.
@@ -48,12 +52,14 @@ Note that the read-only types are [covariant](generics.html#variance). That mean
 Sometimes you want to return to the caller a snapshot of a collection at a particular point in time, one that's guaranteed to not change:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+
+```kotlin
 class Controller {
     private val _items = mutableListOf<String>()
     val items: List<String> get() = _items.toList()
 }
 ```
+
 </div>
 
 The `toList` extension method just duplicates the lists items, thus, the returned list is guaranteed to never change.
@@ -61,7 +67,8 @@ The `toList` extension method just duplicates the lists items, thus, the returne
 There are various useful extension methods on lists and sets that are worth being familiar with:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+
+```kotlin
 val items = listOf(1, 2, 3, 4)
 items.first() == 1
 items.last() == 4
@@ -72,6 +79,7 @@ rwList.requireNoNulls()        // returns [1, 2, 3]
 if (rwList.none { it > 6 }) println("No items above 6")  // prints "No items above 6"
 val item = rwList.firstOrNull()
 ```
+
 </div>
 
 ... as well as all the utilities you would expect such as sort, zip, fold, reduce and so on.
@@ -79,9 +87,11 @@ val item = rwList.firstOrNull()
 Maps follow the same pattern. They can be easily instantiated and accessed like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+
+```kotlin
 val readWriteMap = hashMapOf("foo" to 1, "bar" to 2)
 println(readWriteMap["foo"])  // prints "1"
 val snapshot: Map<String, Int> = HashMap(readWriteMap)
 ```
+
 </div>

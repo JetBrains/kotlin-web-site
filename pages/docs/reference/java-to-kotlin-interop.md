@@ -43,7 +43,7 @@ This rule applies for properties of any type, not just `Boolean`.
 All the functions and properties declared in a file `example.kt` inside a package `org.foo.bar`, including extension functions,
 are compiled into static methods of a Java class named `org.foo.bar.ExampleKt`.
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // example.kt
 package demo
 
@@ -65,7 +65,7 @@ demo.ExampleKt.bar();
 The name of the generated Java class can be changed using the `@JvmName` annotation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @file:JvmName("DemoUtils")
 
 package demo
@@ -91,7 +91,7 @@ class which has the specified name and contains all the declarations from all th
 To enable the generation of such a facade, use the @JvmMultifileClass annotation in all of the files.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // oldutils.kt
 @file:JvmName("Utils")
 @file:JvmMultifileClass
@@ -103,7 +103,7 @@ fun foo() { ... }
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // newutils.kt
 @file:JvmName("Utils")
 @file:JvmMultifileClass
@@ -129,7 +129,7 @@ The field will have the same visibility as the underlying property. You can anno
 if it has a backing field, is not private, does not have `open`, `override` or `const` modifiers, and is not a delegated property.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class C(id: String) {
     @JvmField val ID = id
 }
@@ -164,7 +164,7 @@ Usually these fields are private but they can be exposed in one of the following
 Annotating such a property with `@JvmField` makes it a static field with the same visibility as the property itself.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Key(val value: Int) {
     companion object {
         @JvmField
@@ -186,7 +186,7 @@ A [late-initialized](properties.html#late-initialized-properties-and-variables) 
 has a static backing field with the same visibility as the property setter.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 object Singleton {
     lateinit var provider: Provider
 }
@@ -204,7 +204,7 @@ Singleton.provider = new Provider();
 Properties annotated with `const` (in classes as well as at the top level) are turned into static fields in Java:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // file example.kt
 
 object Obj {
@@ -239,7 +239,7 @@ If you use this annotation, the compiler will generate both a static method in t
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class C {
     companion object {
         @JvmStatic fun foo() {}
@@ -263,7 +263,7 @@ C.Companion.bar(); // the only way it works
 Same for named objects:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 object Obj {
     @JvmStatic fun foo() {}
     fun bar() {}
@@ -316,7 +316,7 @@ Sometimes we have a named function in Kotlin, for which we need a different JVM 
 The most prominent example happens due to *type erasure*:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun List<String>.filterValid(): List<String>
 fun List<Int>.filterValid(): List<Int>
 ```
@@ -326,7 +326,7 @@ These two functions can not be defined side-by-side, because their JVM signature
 If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with `@JvmName` and specify a different name as an argument:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun List<String>.filterValid(): List<String>
 
 @JvmName("filterValidInt")
@@ -339,7 +339,7 @@ From Kotlin they will be accessible by the same name `filterValid`, but from Jav
 The same trick applies when we need to have a property `x` alongside with a function `getX()`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val x: Int
     @JvmName("getX_prop")
     get() = 15
@@ -351,7 +351,7 @@ fun getX() = 10
 To change the names of generated accessor methods for properties without explicitly implemented getters and setters, you can use `@get:JvmName` and `@set:JvmName`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @get:JvmName("x")
 @set:JvmName("changeX")
 var x: Int = 23
@@ -368,7 +368,7 @@ The annotation also works for constructors, static methods etc. It can't be used
 defined in interfaces.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Foo @JvmOverloads constructor(x: Int, y: Double = 0.0) {
     @JvmOverloads fun f(a: String, b: Int = 0, c: String = "abc") { ... }
 }
@@ -404,7 +404,7 @@ So, normally, the Java signatures of Kotlin functions do not declare exceptions 
 Thus if we have a function in Kotlin like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // example.kt
 package demo
 
@@ -432,7 +432,7 @@ we get an error message from the Java compiler, because `foo()` does not declare
 To work around this problem, use the `@Throws` annotation in Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @Throws(IOException::class)
 fun foo() {
     throw IOException()
@@ -452,7 +452,7 @@ When Kotlin classes make use of [declaration-site variance](generics.html#declar
 options of how their usages are seen from the Java code. Let's say we have the following class and two functions that use it:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Box<out T>(val value: T)
 
 interface Base
@@ -506,7 +506,7 @@ NOTE: when the argument type is final, there's usually no point in generating th
 If we need wildcards where they are not generated by default, we can use the `@JvmWildcard` annotation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun boxDerived(value: Derived): Box<@JvmWildcard Derived> = Box(value)
 // is translated to 
 // Box<? extends Derived> boxDerived(Derived value) { ... }
@@ -516,7 +516,7 @@ fun boxDerived(value: Derived): Box<@JvmWildcard Derived> = Box(value)
 On the other hand, if we don't need wildcards where they are generated, we can use `@JvmSuppressWildcards`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun unboxBase(box: Box<@JvmSuppressWildcards Base>): Base = box.value
 // is translated to 
 // Base unboxBase(Box<Base> box) { ... }
@@ -533,7 +533,7 @@ The type [`Nothing`](exceptions.html#the-nothing-type) is special, because it ha
 represented in the Java world. This is why Kotlin generates a raw type where an argument of type `Nothing` is used:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun emptyList(): List<Nothing> = listOf()
 // is translated to
 // List emptyList() { ... }

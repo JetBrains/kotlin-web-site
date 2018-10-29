@@ -20,7 +20,7 @@ You can inline some JavaScript code into your Kotlin code using the [js("...")](
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun jsTypeOf(o: Any): String {
     return js("typeof o")
 }
@@ -30,7 +30,7 @@ fun jsTypeOf(o: Any): String {
 The parameter of `js` is required to be a string constant. So, the following code is incorrect:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun jsTypeOf(o: Any): String {
     return js(getTypeof() + " o") // error reported here
 }
@@ -47,7 +47,7 @@ property is provided by the developer, and therefore does not try to generate an
 This means that you should omit bodies of `external` declarations. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 external fun alert(message: Any?): Unit
 
 external class Node {
@@ -87,7 +87,7 @@ of `external` class in a special way: instead of expecting an object, it assumes
 to be members of the class itself. To describe `MyClass` from the example above, you can write:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 external class MyClass {
     companion object {
         fun sharedMember()
@@ -107,7 +107,7 @@ thus it's impossible to use the usual syntax to declare such parameters in Kotli
 You should use the following syntax:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 external fun myFunWithOptionalArgs(x: Int,
     y: String = definedExternally,
     z: Long = definedExternally)
@@ -124,7 +124,7 @@ You can easily extend JavaScript classes as they were Kotlin classes. Just defin
 extend it by non-`external` class. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 external open class HTMLElement : Element() {
     /* members */
 }
@@ -152,7 +152,7 @@ and `bar` methods, you just pass objects that actually have these methods. You c
 for statically-typed Kotlin, for example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 external interface HasFooAndBar {
     fun foo()
 
@@ -166,7 +166,7 @@ external fun myFunction(p: HasFooAndBar)
 Another use case for external interfaces is to describe settings objects. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 external interface JQueryAjaxSettings {
     var async: Boolean
 

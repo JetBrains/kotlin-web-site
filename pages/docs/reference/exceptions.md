@@ -15,9 +15,9 @@ Every exception has a message, stack trace and an optional cause.
 To throw an exception object, use the *throw*{: .keyword }-expression:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     throw Exception("Hi There!")
 //sampleEnd
@@ -28,7 +28,7 @@ fun main(args: Array<String>) {
 To catch an exception, use the *try*{: .keyword }-expression:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 try {
     // some code
 }
@@ -49,7 +49,7 @@ However at least one *catch*{: .keyword } or *finally*{: .keyword } block should
 *try*{: .keyword } is an expression, i.e. it may have a return value:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val a: Int? = try { parseInt(input) } catch (e: NumberFormatException) { null }
 ```
 </div>
@@ -75,7 +75,7 @@ I have to catch those `IOExceptions`. Why? Because it might be performing IO (`W
 So it results into this kind of code all over the place:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 try {
     log.append(message)
 }
@@ -101,7 +101,7 @@ Other citations of this sort:
 `throw` is an expression in Kotlin, so you can use it, for example, as part of an Elvis expression:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val s = person.name ?: throw IllegalArgumentException("Name required")
 ```
 </div>
@@ -111,7 +111,7 @@ The type has no values and is used to mark code locations that can never be reac
 In your own code, you can use `Nothing` to mark a function that never returns:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun fail(message: String): Nothing {
     throw IllegalArgumentException(message)
 }
@@ -121,7 +121,7 @@ fun fail(message: String): Nothing {
 When you call this function, the compiler will know that the execution doesn't continue beyond the call:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val s = person.name ?: fail("Name required")
 println(s)     // 's' is known to be initialized at this point
 ```
@@ -133,7 +133,7 @@ a value of an inferred type and there's no other information that can be used to
 specific type, the compiler will infer the `Nothing?` type:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val x = null           // 'x' has type `Nothing?`
 val l = listOf(null)   // 'l' has type `List<Nothing?>
 ```

@@ -13,7 +13,7 @@ Classes in Kotlin can have properties.
 These can be declared as mutable, using the *var*{: .keyword } keyword or read-only using the *val*{: .keyword } keyword.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Address {
     var name: String = ...
     var street: String = ...
@@ -27,7 +27,7 @@ class Address {
 To use a property, we simply refer to it by name, as if it were a field in Java:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun copyAddress(address: Address): Address {
     val result = Address() // there's no 'new' keyword in Kotlin
     result.name = address.name // accessors are called
@@ -43,7 +43,7 @@ fun copyAddress(address: Address): Address {
 The full syntax for declaring a property is
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 var <propertyName>[: <PropertyType>] [= <property_initializer>]
     [<getter>]
     [<setter>]
@@ -56,7 +56,7 @@ The initializer, getter and setter are optional. Property type is optional if it
 Examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 var allByDefault: Int? // error: explicit initializer required, default getter and setter implied
 var initialized = 1 // has type Int, default getter and setter
 ```
@@ -65,7 +65,7 @@ var initialized = 1 // has type Int, default getter and setter
 The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with `val` instead of `var` and does not allow a setter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val simple: Int? // has type Int, default getter, must be initialized in constructor
 val inferredType = 1 // has type Int and a default getter
 ```
@@ -74,7 +74,7 @@ val inferredType = 1 // has type Int and a default getter
 We can write custom accessors, very much like ordinary functions, right inside a property declaration. Here's an example of a custom getter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val isEmpty: Boolean
     get() = this.size == 0
 ```
@@ -83,7 +83,7 @@ val isEmpty: Boolean
 A custom setter looks like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 var stringRepresentation: String
     get() = this.toString()
     set(value) {
@@ -97,7 +97,7 @@ By convention, the name of the setter parameter is `value`, but you can choose a
 Since Kotlin 1.1, you can omit the property type if it can be inferred from the getter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val isEmpty get() = this.size == 0  // has type Boolean
 ```
 </div>
@@ -106,7 +106,7 @@ If you need to change the visibility of an accessor or to annotate it, but don't
 you can define the accessor without defining its body:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 var setterVisibility: String = "abc"
     private set // the setter is private and has the default implementation
 
@@ -120,7 +120,7 @@ var setterWithAnnotation: Any? = null
 Fields cannot be declared directly in Kotlin classes. However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in the accessors using the `field` identifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 var counter = 0 // Note: the initializer assigns the backing field directly
     set(value) {
         if (value >= 0) field = value
@@ -135,7 +135,7 @@ A backing field will be generated for a property if it uses the default implemen
 For example, in the following case there will be no backing field:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val isEmpty: Boolean
     get() = this.size == 0
 ```
@@ -146,7 +146,7 @@ val isEmpty: Boolean
 If you want to do something that does not fit into this "implicit backing field" scheme, you can always fall back to having a *backing property*:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 private var _table: Map<String, Int>? = null
 public val table: Map<String, Int>
     get() {
@@ -173,7 +173,7 @@ Such properties need to fulfil the following requirements:
 Such properties can be used in annotations:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
 
 @Deprecated(SUBSYSTEM_DEPRECATED) fun foo() { ... }
@@ -191,7 +191,7 @@ but you still want to avoid null checks when referencing the property inside the
 To handle this case, you can mark the property with the `lateinit` modifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 public class MyTest {
     lateinit var subject: TestSubject
 

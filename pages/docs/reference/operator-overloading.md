@@ -36,14 +36,14 @@ This table says that when the compiler processes, for example, an expression `+a
 As an example, here's how you can overload the unary minus operator:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 data class Point(val x: Int, val y: Int)
 
 operator fun Point.unaryMinus() = Point(-x, -y)
 
 val point = Point(10, 20)
 
-fun main(args: Array<String>) {
+fun main() {
    println(-point)  // prints "Point(x=-10, y=-20)"
 }
 
@@ -104,7 +104,7 @@ in Kotlin 1.1.
 
 Below is an example Counter class that starts at a given value and can be incremented using the overloaded `+` operator:
 
-``` kotlin
+```kotlin
 data class Counter(val dayIndex: Int) {
     operator fun plus(increment: Int): Counter {
         return Counter(dayIndex + increment)

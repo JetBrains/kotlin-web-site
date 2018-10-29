@@ -98,7 +98,7 @@ or use camel humps (`org.example.myProject`).
 Names of classes and objects start with an upper case letter and use camel humps:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 open class DeclarationProcessor { ... }
 
 object EmptyDeclarationProcessor : DeclarationProcessor() { ... }
@@ -110,7 +110,7 @@ object EmptyDeclarationProcessor : DeclarationProcessor() { ... }
 Names of functions, properties and local variables start with a lower case letter and use camel humps and no underscores:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun processDeclarations() { ... }
 var declarationCount = ...
 ```
@@ -119,7 +119,7 @@ var declarationCount = ...
 Exception: factory functions used to create instances of classes can have the same name as the class being created:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 abstract class Foo { ... }
 
 class FooImpl : Foo { ... }
@@ -135,7 +135,7 @@ In tests (and only in tests), it's acceptable to use method names with spaces en
 also allowed in test code.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class MyTestCase {
      @Test fun `ensure everything works`() { ... }
      
@@ -150,7 +150,7 @@ Names of constants (properties marked with `const`, or top-level or object `val`
 that hold deeply immutable data) should use uppercase underscore-separated names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 const val MAX_COUNT = 8
 val USER_NAME_FIELD = "UserName"
 ```
@@ -159,7 +159,7 @@ val USER_NAME_FIELD = "UserName"
 Names of top-level or object properties which hold objects with behavior or mutable data should use regular camel-hump names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val mutableCollection: MutableSet<String> = HashSet()
 ```
 </div>
@@ -167,7 +167,7 @@ val mutableCollection: MutableSet<String> = HashSet()
 Names of properties holding references to singleton objects can use the same naming style as `object` declarations:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val PersonComparator: Comparator<Person> = ...
 ```
 </div>
@@ -181,7 +181,7 @@ If a class has two properties which are conceptually the same but one is part of
 detail, use an underscore as the prefix for the name of the private property:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class C {
     private val _elementList = mutableListOf<Element>()
 
@@ -216,7 +216,7 @@ For curly braces, put the opening brace in the end of the line where the constru
 on a separate line aligned horizontally with the opening construct.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 if (elements != null) {
     for (element in elements) {
         // ...
@@ -278,7 +278,7 @@ Don't put a space before `:` when it separates a declaration and its type.
 Always put a space after `:`.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 abstract class Foo<out T : Any> : IFoo {
     abstract fun foo(a: Int): T
 }
@@ -367,7 +367,7 @@ Use regular indent (4 spaces) for constructor parameters.
 If a declaration has multiple modifiers, always put them in the following order:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 public / protected / private / internal
 expect / actual
 final / open / abstract / sealed / const
@@ -390,7 +390,7 @@ data
 Place all annotations before modifiers:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @Named("Foo")
 private val foo: Foo
 ```
@@ -403,7 +403,7 @@ Unless you're working on a library, omit redundant modifiers (e.g. `public`).
 Annotations are typically placed on separate lines, before the declaration to which they are attached, and with the same indentation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @Target(AnnotationTarget.PROPERTY)
 annotation class JsonExclude
 ```
@@ -412,7 +412,7 @@ annotation class JsonExclude
 Annotations without arguments may be placed on the same line:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @JsonExclude @JvmField
 var x: String
 ```
@@ -421,7 +421,7 @@ var x: String
 A single annotation without arguments may be placed on the same line as the corresponding declaration:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @Test fun foo() { ... }
 ```
 </div>
@@ -431,7 +431,7 @@ A single annotation without arguments may be placed on the same line as the corr
 File annotations are placed after the file comment (if any), before the `package` statement, and are separated from `package` with a blank line (to emphasize the fact that they target the file and not the package).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 /** License, copyright and whatever */
 @file:JvmName("FooBar")
 
@@ -444,7 +444,7 @@ package foo.bar
 If the function signature doesn't fit on a single line, use the following syntax:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun longMethodName(
     argument: ArgumentType = defaultValue,
     argument2: AnotherArgumentType
@@ -461,7 +461,7 @@ Use regular indent (4 spaces) for function parameters.
 Prefer using an expression body for functions with the body consisting of a single expression.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo(): Int {     // bad
     return 1 
 }
@@ -476,7 +476,7 @@ If the function has an expression body that doesn't fit in the same line as the 
 Indent the expression body by 4 spaces.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 fun f(x: String) =
     x.length
 ```
@@ -518,7 +518,7 @@ Indent each subsequent line of the condition by 4 spaces relative to statement b
 Put the closing parentheses of the condition together with the opening curly brace on a separate line:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 if (!component.isSyncing &&
     !hasAnyKotlinRuntimeInScope(module)
 ) {
@@ -533,7 +533,7 @@ Put the `else`, `catch`, `finally` keywords, as well as the `while` keyword of a
 preceding curly brace:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 if (condition) {
     // body
 } else {
@@ -551,7 +551,7 @@ try {
 In a `when` statement, if a branch is more than a single line, consider separating it from adjacent case blocks with a blank line:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 private fun parsePropertyValue(propName: String, token: Token) {
     when (token) {
         is Token.ValueToken ->
@@ -567,7 +567,7 @@ private fun parsePropertyValue(propName: String, token: Token) {
 Put short branches on the same line as the condition, without braces.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 when (foo) {
     true -> bar() // good
     false -> { baz() } // bad
@@ -582,7 +582,7 @@ In long argument lists, put a line break after the opening parenthesis. Indent a
 Group multiple closely related arguments on the same line.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 drawSquare(
     x = 10, y = 10,
     width = 100, height = 100,
@@ -598,7 +598,7 @@ Put spaces around the `=` sign separating the argument name and value.
 When wrapping chained calls, put the `.` character or the `?.` operator on the next line, with a single indent:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val anchor = owner
     ?.firstChild!!
     .siblings(forward = true)
@@ -614,7 +614,7 @@ In lambda expressions, spaces should be used around the curly braces, as well as
 from the body. If a call takes a single lambda, it should be passed outside of parentheses whenever possible.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 list.filter { it > 10 }
 ```
 </div>
@@ -622,7 +622,7 @@ list.filter { it > 10 }
 If assigning a label for a lambda, do not put a space between the label and the opening curly brace:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo() {
     ints.forEach lit@{
         // ...
@@ -634,7 +634,7 @@ fun foo() {
 When declaring parameter names in a multiline lambda, put the names on the first line, followed by the arrow and the newline:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 appendCommaSeparated(properties) { prop ->
     val propertyValue = prop.get(obj)  // ...
 }
@@ -644,7 +644,7 @@ appendCommaSeparated(properties) { prop ->
 If the parameter list is too long to fit on a line, put the arrow on a separate line:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 foo {
    context: Context,
    environment: Env
@@ -660,7 +660,7 @@ For longer documentation comments, place the opening `/**` on a separate line an
 with an asterisk:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 /**
  * This is a documentation comment
  * on multiple lines.
@@ -671,7 +671,7 @@ with an asterisk:
 Short comments can be placed on a single line:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 /** This is a short documentation comment. */
 ```
 </div>
@@ -681,7 +681,7 @@ directly into the documentation comment, and add links to parameters wherever th
 `@return` only when a lengthy description is required which doesn't fit into the flow of the main text.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Avoid doing this:
 
 /**
@@ -711,7 +711,7 @@ just "for clarity".
 If a function returns Unit, the return type should be omitted:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo() { // ": Unit" is omitted here
 
 }
@@ -727,7 +727,7 @@ Omit semicolons whenever possible.
 Don't use curly braces when inserting a simple variable into a string template. Use curly braces only for longer expressions.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 println("$name has ${children.size} children")
 ```
 </div>
@@ -745,7 +745,7 @@ mutated. When using factory functions to create collection instances, always use
 collection types when possible:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Bad: use of mutable collection type for value which will not be mutated
 fun validateValue(actualValue: String, allowedValues: HashSet<String>) { ... }
 
@@ -765,7 +765,7 @@ val allowedValues = listOf("a", "b", "c")
 Prefer declaring functions with default parameter values to declaring overloaded functions.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Bad
 fun foo() = foo("a")
 fun foo(a: String) { ... }
@@ -806,7 +806,7 @@ Use the named argument syntax when a method takes multiple parameters of the sam
 unless the meaning of all parameters is absolutely clear from context.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 drawSquare(x = 10, y = 10, width = 100, height = 100, fill = true)
 ```
 </div>
@@ -816,7 +816,7 @@ drawSquare(x = 10, y = 10, width = 100, height = 100, fill = true)
 Prefer using the expression form of `try`, `if` and `when`. Examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 return if (x) foo() else bar()
 
 return when(x) {
@@ -829,7 +829,7 @@ return when(x) {
 The above is preferable to:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 if (x)
     return foo()
 else
@@ -847,7 +847,7 @@ when(x) {
 Prefer using `if` for binary conditions instead of `when`. Instead of
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 when (x) {
     null -> ...
     else -> ...
@@ -892,7 +892,7 @@ To maintain indentation in multiline strings, use `trimIndent` when the resultin
 indentation, or `trimMargin` when internal indentation is required:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 assertEquals(
     """
     Foo
@@ -941,7 +941,7 @@ you can use the same name as the class.
 Example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Point(val x: Double, val y: Double) {
     companion object {
         fun fromPolar(angle: Double, radius: Double) = Point(...)
@@ -959,7 +959,7 @@ factory functions.
 A public function/method returning an expression of a platform type must declare its Kotlin type explicitly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun apiCall(): String = MyJavaApi.getProperty("name")
 ```
 </div>
@@ -967,7 +967,7 @@ fun apiCall(): String = MyJavaApi.getProperty("name")
 Any property (package-level or class-level) initialised with an expression of a platform type must declare its Kotlin type explicitly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Person {
     val name: String = MyJavaApi.getProperty("name")
 }
@@ -977,8 +977,8 @@ class Person {
 A local value initialised with an expression of a platform type may or may not have a type declaration:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
     val name = MyJavaApi.getProperty("name")
     println(name)
 }
@@ -995,7 +995,7 @@ function, consider the following:
     not `this` (`also` or `let`). Use `also` if the receiver is not used at all in the block.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Context object is 'it'
 class Baz {
     var currentBar: Bar?
@@ -1026,7 +1026,7 @@ class Baz {
     If you need to return a value from the block, use `with`, `let` or `run`
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Return value is context object
 class Baz {
     val foo: Bar = createBar().apply {
@@ -1048,7 +1048,7 @@ class Baz {
     Otherwise, use `with` or `also`.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Context object is nullable
 person.email?.let { sendEmail(it) }
 

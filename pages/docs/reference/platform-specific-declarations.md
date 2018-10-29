@@ -26,14 +26,14 @@ To see how this works, let's look at an example first. This code is part of a co
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 package org.jetbrains.foo
 
 expect class Foo(bar: String) {
     fun frob()
 }
 
-fun main(args: Array<String>) {
+fun main() {
     Foo("Hello").frob()
 }
 ```
@@ -43,7 +43,7 @@ And this is the corresponding JVM module:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 package org.jetbrains.foo
 
 actual class Foo actual constructor(val bar: String) {
@@ -71,7 +71,7 @@ annotations:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 // Common
 expect fun formatString(source: String, vararg args: Any): String
 
@@ -95,7 +95,7 @@ declaration:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 expect class AtomicRef<V>(value: V) {
   fun get(): V
   fun set(value: V)

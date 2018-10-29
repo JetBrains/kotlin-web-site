@@ -23,7 +23,7 @@ The most basic reflection feature is getting the runtime reference to a Kotlin c
 statically known Kotlin class, you can use the _class literal_ syntax:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val c = MyClass::class
 ```
 </div>
@@ -38,7 +38,7 @@ use the `.java` property on a `KClass` instance.
 You can get the reference to a class of a specific object with the same `::class` syntax by using the object as a receiver:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val widget: Widget = ...
 assert(widget is GoodWidget) { "Bad widget: ${widget::class.qualifiedName}" }
 ```
@@ -59,7 +59,7 @@ where `R` is the return value type, which is the property type for properties, a
 When we have a named function declared like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun isOdd(x: Int) = x % 2 != 0
 ```
 </div>
@@ -68,10 +68,10 @@ We can easily call it directly (`isOdd(5)`), but we can also use it as a functio
 to another function. To do this, we use the `::` operator:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 fun isOdd(x: Int) = x % 2 != 0
 
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val numbers = listOf(1, 2, 3)
     println(numbers.filter(::isOdd))
@@ -89,8 +89,8 @@ subtypes, depending on the parameter count, e.g. `KFunction3<T1, T2, T3, R>`.
 For example:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
     //sampleStart
     fun isOdd(x: Int) = x % 2 != 0
     fun isOdd(s: String) = s == "brillig" || s == "slithy" || s == "tove"
@@ -105,7 +105,7 @@ fun main(args: Array<String>) {
 Alternatively, you can provide the necessary context by storing the method reference in a variable with an explicitly specified type:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val predicate: (String) -> Boolean = ::isOdd   // refers to isOdd(x: String)
 ```
 </div>
@@ -117,7 +117,7 @@ have no receiver (it will have an additional parameter accepting a receiver obje
 with receiver instead, specify the type explicitly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val isEmptyStringList: List<String>.() -> Boolean = List::isEmpty 
 ```
 </div>
@@ -127,7 +127,7 @@ val isEmptyStringList: List<String>.() -> Boolean = List::isEmpty
 Consider the following function:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
     return { x -> f(g(x)) }
 }
@@ -138,14 +138,14 @@ It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))
 Now, you can apply it to callable references:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
     return { x -> f(g(x)) }
 }
 
 fun isOdd(x: Int) = x % 2 != 0
 
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     fun length(s: String) = s.length
     
@@ -163,10 +163,10 @@ fun main(args: Array<String>) {
 To access properties as first-class objects in Kotlin, we can also use the `::` operator:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 val x = 1
 
-fun main(args: Array<String>) {
+fun main() {
     println(::x.get())
     println(::x.name) 
 }
@@ -181,10 +181,10 @@ For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutab
 which has a `set()` method:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 var y = 1
 
-fun main(args: Array<String>) {
+fun main() {
     ::y.set(2)
     println(y)
 }
@@ -194,8 +194,8 @@ fun main(args: Array<String>) {
 A property reference can be used where a function with one parameter is expected:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     val strs = listOf("a", "bc", "def")
     println(strs.map(String::length))
@@ -207,8 +207,8 @@ fun main(args: Array<String>) {
 To access a property that is a member of a class, we qualify it:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     class A(val p: Int)
     val prop = A::p
@@ -221,11 +221,11 @@ fun main(args: Array<String>) {
 For an extension property:
 
 <div class="sample" markdown="1" theme="idea" auto-indent="false">
-``` kotlin
+```kotlin
 val String.lastChar: Char
     get() = this[length - 1]
 
-fun main(args: Array<String>) {
+fun main() {
     println(String::lastChar.get("abc"))
 }
 ```
@@ -238,12 +238,12 @@ On the Java platform, standard library contains extensions for reflection classe
 For example, to find a backing field or a Java method that serves as a getter for a Kotlin property, you can say something like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 import kotlin.reflect.jvm.*
  
 class A(val p: Int)
  
-fun main(args: Array<String>) {
+fun main() {
     println(A::p.javaGetter) // prints "public final int A.getP()"
     println(A::p.javaField)  // prints "private final int A.p"
 }
@@ -253,7 +253,7 @@ fun main(args: Array<String>) {
 To get the Kotlin class corresponding to a Java class, use the `.kotlin` extension property:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun getKClass(o: Any): KClass<Any> = o.javaClass.kotlin
 ```
 </div>
@@ -266,7 +266,7 @@ Constructors are referenced by using the `::` operator and adding the class name
 that expects a function parameter with no parameters and return type `Foo`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Foo
 
 fun function(factory: () -> Foo) {
@@ -278,7 +278,7 @@ fun function(factory: () -> Foo) {
 Using `::Foo`, the zero-argument constructor of the class Foo, we can simply call it like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 function(::Foo)
 ```
 </div>
@@ -292,8 +292,8 @@ Callable references to constructors are typed as one of the
 You can refer to an instance method of a particular object:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin 
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     val numberRegex = "\\d+".toRegex()
     println(numberRegex.matches("29"))
@@ -310,8 +310,8 @@ Such reference is bound to its receiver.
 It can be called directly (like in the example above) or used whenever an expression of function type is expected:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin 
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     val numberRegex = "\\d+".toRegex()
     val strings = listOf("abc", "124", "a70")
@@ -325,7 +325,7 @@ Compare the types of bound and the corresponding unbound references.
 Bound callable reference has its receiver "attached" to it, so the type of the receiver is no longer a parameter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val isNumber: (CharSequence) -> Boolean = numberRegex::matches
 
 val matches: (Regex, CharSequence) -> Boolean = Regex::matches
@@ -335,8 +335,8 @@ val matches: (Regex, CharSequence) -> Boolean = Regex::matches
 Property reference can be bound as well:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin 
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     val prop = "abc"::length
     println(prop.get())

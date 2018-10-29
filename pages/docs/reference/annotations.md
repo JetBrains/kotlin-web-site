@@ -11,7 +11,7 @@ title: "Annotations"
 Annotations are means of attaching metadata to code. To declare an annotation, put the *annotation*{: .keyword } modifier in front of a class:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 annotation class Fancy
 ```
 </div>
@@ -42,7 +42,7 @@ annotation class Fancy
 ### Usage
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @Fancy class Foo {
     @Fancy fun baz(@Fancy foo: Int): Int {
         return (@Fancy 1)
@@ -55,7 +55,7 @@ If you need to annotate the primary constructor of a class, you need to add the 
 to the constructor declaration, and add the annotations before it:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Foo @Inject constructor(dependency: MyDependency) { ... }
 ```
 </div>
@@ -63,7 +63,7 @@ class Foo @Inject constructor(dependency: MyDependency) { ... }
 You can also annotate property accessors:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 class Foo {
     var x: MyDependency? = null
         @Inject set
@@ -76,7 +76,7 @@ class Foo {
 Annotations may have constructors that take parameters.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 annotation class Special(val why: String)
 
 @Special("example") class Foo {}
@@ -98,7 +98,7 @@ of an annotation attribute.
 If an annotation is used as a parameter of another annotation, its name is not prefixed with the @ character:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 annotation class ReplaceWith(val expression: String)
 
 annotation class Deprecated(
@@ -132,7 +132,7 @@ of the lambda is generated. This is useful for frameworks like [Quasar](http://w
 which uses annotations for concurrency control.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 annotation class Suspendable
 
 val f = @Suspendable { Fiber.sleep(10) }
@@ -146,7 +146,7 @@ generated from the corresponding Kotlin element, and therefore multiple possible
 the generated Java bytecode. To specify how exactly the annotation should be generated, use the following syntax:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Example(@field:Ann val foo,    // annotate Java field
               @get:Ann val bar,      // annotate Java getter
               @param:Ann val quux)   // annotate Java constructor parameter
@@ -157,7 +157,7 @@ The same syntax can be used to annotate the entire file. To do this, put an anno
 the top level of a file, before the package directive or before all imports if the file is in the default package:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @file:JvmName("Foo")
 
 package org.jetbrains.demo
@@ -191,7 +191,7 @@ The full list of supported use-site targets is:
 To annotate the receiver parameter of an extension function, use the following syntax:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun @receiver:Fancy String.myExtension() { ... }
 ```
 </div>
@@ -209,7 +209,7 @@ being used. If there are multiple applicable targets, the first applicable targe
 Java annotations are 100% compatible with Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Rule
@@ -241,7 +241,7 @@ public @interface Ann {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Kotlin
 @Ann(intValue = 1, stringValue = "abc") class C
 ```
@@ -259,7 +259,7 @@ public @interface AnnWithValue {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Kotlin
 @AnnWithValue("abc") class C
 ```
@@ -279,7 +279,7 @@ public @interface AnnWithArrayValue {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Kotlin
 @AnnWithArrayValue("abc", "foo", "bar") class C
 ```
@@ -298,7 +298,7 @@ public @interface AnnWithArrayMethod {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Kotlin 1.2+:
 @AnnWithArrayMethod(names = ["abc", "foo", "bar"]) 
 class C
@@ -323,7 +323,7 @@ public @interface Ann {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Kotlin
 fun foo(ann: Ann) {
     val i = ann.value

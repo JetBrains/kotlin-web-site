@@ -12,7 +12,7 @@ A collection of random and frequently used idioms in Kotlin. If you have a favor
 ### Creating DTOs (POJOs/POCOs)
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 data class Customer(val name: String, val email: String)
 ```
 </div>
@@ -30,7 +30,7 @@ provides a `Customer` class with the following functionality:
 ### Default values for function parameters
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo(a: Int = 0, b: String = "") { ... }
 ```
 </div>
@@ -38,7 +38,7 @@ fun foo(a: Int = 0, b: String = "") { ... }
 ### Filtering a list
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val positives = list.filter { x -> x > 0 }
 ```
 </div>
@@ -46,7 +46,7 @@ val positives = list.filter { x -> x > 0 }
 Or alternatively, even shorter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val positives = list.filter { it > 0 }
 ```
 </div>
@@ -54,7 +54,7 @@ val positives = list.filter { it > 0 }
 ### String Interpolation
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 println("Name $name")
 ```
 </div>
@@ -62,7 +62,7 @@ println("Name $name")
 ### Instance Checks
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 when (x) {
     is Foo -> ...
     is Bar -> ...
@@ -74,7 +74,7 @@ when (x) {
 ### Traversing a map/list of pairs
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 for ((k, v) in map) {
     println("$k -> $v")
 }
@@ -86,7 +86,7 @@ for ((k, v) in map) {
 ### Using ranges
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 for (i in 1..100) { ... }  // closed range: includes 100
 for (i in 1 until 100) { ... } // half-open range: does not include 100
 for (x in 2..10 step 2) { ... }
@@ -98,7 +98,7 @@ if (x in 1..10) { ... }
 ### Read-only list
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val list = listOf("a", "b", "c")
 ```
 </div>
@@ -106,7 +106,7 @@ val list = listOf("a", "b", "c")
 ### Read-only map
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val map = mapOf("a" to 1, "b" to 2, "c" to 3)
 ```
 </div>
@@ -114,7 +114,7 @@ val map = mapOf("a" to 1, "b" to 2, "c" to 3)
 ### Accessing a map
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 println(map["key"])
 map["key"] = value
 ```
@@ -123,7 +123,7 @@ map["key"] = value
 ### Lazy property
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val p: String by lazy {
     // compute the string
 }
@@ -133,7 +133,7 @@ val p: String by lazy {
 ### Extension Functions
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun String.spaceToCamelCase() { ... }
 
 "Convert this to camelcase".spaceToCamelCase()
@@ -143,7 +143,7 @@ fun String.spaceToCamelCase() { ... }
 ### Creating a singleton
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 object Resource {
     val name = "Name"
 }
@@ -153,7 +153,7 @@ object Resource {
 ### If not null shorthand
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val files = File("Test").listFiles()
 
 println(files?.size)
@@ -163,7 +163,7 @@ println(files?.size)
 ### If not null and else shorthand
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val files = File("Test").listFiles()
 
 println(files?.size ?: "empty")
@@ -173,7 +173,7 @@ println(files?.size ?: "empty")
 ### Executing a statement if null
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val values = ...
 val email = values["email"] ?: throw IllegalStateException("Email is missing!")
 ```
@@ -182,7 +182,7 @@ val email = values["email"] ?: throw IllegalStateException("Email is missing!")
 ### Get first item of a possibly empty collection
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val emails = ... // might be empty
 val mainEmail = emails.firstOrNull() ?: ""
 ```
@@ -191,7 +191,7 @@ val mainEmail = emails.firstOrNull() ?: ""
 ### Execute if not null
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val value = ...
 
 value?.let {
@@ -203,7 +203,7 @@ value?.let {
 ### Map nullable value if not null
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val value = ...
 
 val mapped = value?.let { transformValue(it) } ?: defaultValueIfValueIsNull
@@ -213,7 +213,7 @@ val mapped = value?.let { transformValue(it) } ?: defaultValueIfValueIsNull
 ### Return on when statement
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun transform(color: String): Int {
     return when (color) {
         "Red" -> 0
@@ -228,7 +228,7 @@ fun transform(color: String): Int {
 ### 'try/catch' expression
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun test() {
     val result = try {
         count()
@@ -244,7 +244,7 @@ fun test() {
 ### 'if' expression
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo(param: Int) {
     val result = if (param == 1) {
         "one"
@@ -260,7 +260,7 @@ fun foo(param: Int) {
 ### Builder-style usage of methods that return `Unit`
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun arrayOfMinusOnes(size: Int): IntArray {
     return IntArray(size).apply { fill(-1) }
 }
@@ -271,7 +271,7 @@ fun arrayOfMinusOnes(size: Int): IntArray {
 ### Single-expression functions
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun theAnswer() = 42
 ```
 </div>
@@ -279,7 +279,7 @@ fun theAnswer() = 42
 This is equivalent to
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun theAnswer(): Int {
     return 42
 }
@@ -289,7 +289,7 @@ fun theAnswer(): Int {
 This can be effectively combined with other idioms, leading to shorter code. E.g. with the *when*{: .keyword }-expression:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun transform(color: String): Int = when (color) {
     "Red" -> 0
     "Green" -> 1
@@ -302,7 +302,7 @@ fun transform(color: String): Int = when (color) {
 ### Calling multiple methods on an object instance ('with')
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Turtle {
     fun penDown()
     fun penUp()
@@ -325,7 +325,7 @@ with(myTurtle) { //draw a 100 pix square
 ### Java 7's try with resources
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val stream = Files.newInputStream(Paths.get("/some/file.txt"))
 stream.buffered().reader().use { reader ->
     println(reader.readText())
@@ -336,7 +336,7 @@ stream.buffered().reader().use { reader ->
 ### Convenient form for a generic function that requires the generic type information
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 //  public final class Gson {
 //     ...
 //     public <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
@@ -349,7 +349,7 @@ inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(
 ### Consuming a nullable Boolean
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val b: Boolean? = ...
 if (b == true) {
     ...

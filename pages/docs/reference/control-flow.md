@@ -14,7 +14,7 @@ Therefore there is no ternary operator (condition ? then : else), because ordina
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 // Traditional usage 
 var max = a 
 if (a < b) max = b
@@ -37,7 +37,7 @@ val max = if (a > b) a else b
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val max = if (a > b) {
     print("Choose a")
     a
@@ -60,7 +60,7 @@ See the [grammar for *if*{: .keyword }](grammar.html#if).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 when (x) {
     1 -> print("x == 1")
     2 -> print("x == 2")
@@ -86,7 +86,7 @@ If many cases should be handled in the same way, the branch conditions may be co
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 when (x) {
     0, 1 -> print("x == 0 or x == 1")
     else -> print("otherwise")
@@ -99,7 +99,7 @@ We can use arbitrary expressions (not only constants) as branch conditions
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 when (x) {
     parseInt(s) -> print("s encodes x")
     else -> print("s does not encode x")
@@ -112,7 +112,7 @@ We can also check a value for being *in*{: .keyword } or *!in*{: .keyword } a [r
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 when (x) {
     in 1..10 -> print("x is in the range")
     in validNumbers -> print("x is valid")
@@ -143,7 +143,7 @@ If no argument is supplied, the branch conditions are simply boolean expressions
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 when {
     x.isOdd() -> print("x is odd")
     x.isEven() -> print("x is even")
@@ -157,7 +157,7 @@ Since Kotlin 1.3, it is possible to capture *when*{: .keyword} subject in a vari
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 fun Request.getBody() =
         when (val response = executeRequest()) {
             is Success -> response.body
@@ -179,7 +179,7 @@ to the `foreach` loop in languages like C#. The syntax is as follows:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 for (item in collection) print(item)
 ```
 
@@ -189,7 +189,7 @@ The body can be a block.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 for (item: Int in ints) {
     // ...
 }
@@ -209,8 +209,8 @@ To iterate over a range of numbers, use a [range expression](ranges.html):
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
 for (i in 1..3) {
     println(i)
@@ -230,8 +230,8 @@ If you want to iterate through an array or a list with an index, you can do it t
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 val array = arrayOf("a", "b", "c")
 //sampleStart
 for (i in array.indices) {
@@ -247,8 +247,8 @@ Alternatively, you can use the `withIndex` library function:
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 val array = arrayOf("a", "b", "c")
 //sampleStart
 for ((index, value) in array.withIndex()) {
@@ -268,7 +268,7 @@ See the [grammar for *for*{: .keyword }](grammar.html#for).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 while (x > 0) {
     x--
 }

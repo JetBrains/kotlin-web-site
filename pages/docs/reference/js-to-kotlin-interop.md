@@ -17,7 +17,7 @@ from the current module. So if you name your module as `myModule`, all declarati
 via `myModule` object. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo() = "Hello"
 ```
 </div>
@@ -47,7 +47,7 @@ Kotlin exposes its package structure to JavaScript, so unless you define your de
 you have to use fully-qualified names in JavaScript. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 package my.qualified.packagename
 
 fun foo() = "Hello"
@@ -69,7 +69,7 @@ In some cases (for example, to support overloads), Kotlin compiler mangles names
 in JavaScript code. To control the generated names, you can use the `@JsName` annotation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // Module 'kjs'
 class Person(val name: String) {
     fun hello() {
@@ -106,7 +106,7 @@ The compiler will report an error on any attempt to pass non-identifier string t
 The following example produces a compile-time error:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 @JsName("new C()")   // error here
 external fun newC()
 ```
@@ -119,7 +119,7 @@ external fun newC()
 * `kotlin.Char` is mapped to JavaScript Number representing character code.
 * Kotlin can't distinguish between numeric types at run time (except for `kotlin.Long`), i.e. the following code works:
   <div class="sample" markdown="1" theme="idea" data-highlight-only>
-  ``` kotlin
+  ```kotlin
   fun f() {
       val x: Int = 23
       val y: Any = x

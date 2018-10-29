@@ -29,8 +29,8 @@ In Kotlin, the type system distinguishes between references that can hold *null*
 For example, a regular variable of type `String` can not hold *null*{: .keyword }:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     var a: String = "abc"
     a = null // compilation error
@@ -42,8 +42,8 @@ fun main(args: Array<String>) {
 To allow nulls, we can declare a variable as nullable string, written `String?`:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     var b: String? = "abc"
     b = null // ok
@@ -56,7 +56,7 @@ fun main(args: Array<String>) {
 Now, if you call a method or access a property on `a`, it's guaranteed not to cause an NPE, so you can safely say:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val l = a.length
 ```
 </div>
@@ -64,7 +64,7 @@ val l = a.length
 But if you want to access the same property on `b`, that would not be safe, and the compiler reports an error:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val l = b.length // error: variable 'b' can be null
 ```
 </div>
@@ -76,7 +76,7 @@ But we still need to access that property, right? There are a few ways of doing 
 First, you can explicitly check if `b` is *null*{: .keyword }, and handle the two options separately:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val l = if (b != null) b.length else -1
 ```
 </div>
@@ -85,8 +85,8 @@ The compiler tracks the information about the check you performed, and allows th
 More complex conditions are supported as well:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     val b = "Kotlin"
     if (b != null && b.length > 0) {
@@ -109,8 +109,8 @@ happen that `b` changes to *null*{: .keyword } after the check.
 Your second option is the safe call operator, written `?.`:
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     val a = "Kotlin"
     val b: String? = null
@@ -127,7 +127,7 @@ Safe calls are useful in chains. For example, if Bob, an Employee, may be assign
 that in turn may have another Employee as a department head, then to obtain the name of Bob's department head (if any), we write the following:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 bob?.department?.head?.name
 ```
 </div>
@@ -137,8 +137,8 @@ Such a chain returns *null*{: .keyword } if any of the properties in it is null.
 To perform a certain operation only for non-null values, you can use the safe call operator together with [`let`](/api/latest/jvm/stdlib/kotlin/let.html):
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
-fun main(args: Array<String>) {
+```kotlin
+fun main() {
 //sampleStart
     val listWithNulls: List<String?> = listOf("Kotlin", null)
     for (item in listWithNulls) {
@@ -152,7 +152,7 @@ fun main(args: Array<String>) {
 A safe call can also be placed on the left side of an assignment. Then, if one of the receivers in the safe calls chain is null, the assignment is skipped, and the expression on the right is not evaluated at all:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 // If either `person` or `person.department` is null, the function is not called:
 person?.department?.head = managersPool.getManager()
 ```
@@ -163,7 +163,7 @@ person?.department?.head = managersPool.getManager()
 When we have a nullable reference `r`, we can say "if `r` is not null, use it, otherwise use some non-null value `x`":
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val l: Int = if (b != null) b.length else -1
 ```
 </div>
@@ -171,7 +171,7 @@ val l: Int = if (b != null) b.length else -1
 Along with the complete *if*{: .keyword }-expression, this can be expressed with the Elvis operator, written `?:`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val l = b?.length ?: -1
 ```
 </div>
@@ -183,7 +183,7 @@ Note that, since *throw*{: .keyword } and *return*{: .keyword } are expressions 
 the right hand side of the elvis operator. This can be very handy, for example, for checking function arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo(node: Node): String? {
     val parent = node.getParent() ?: return null
     val name = node.getName() ?: throw IllegalArgumentException("name expected")
@@ -199,7 +199,7 @@ type and throws an exception if the value is null. We can write `b!!`, and this 
 (e.g., a `String` in our example) or throw an NPE if `b` is null:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val l = b!!.length
 ```
 </div>
@@ -212,7 +212,7 @@ Regular casts may result into a `ClassCastException` if the object is not of the
 Another option is to use safe casts that return *null*{: .keyword } if the attempt was not successful:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val aInt: Int? = a as? Int
 ```
 </div>
@@ -222,7 +222,7 @@ val aInt: Int? = a as? Int
 If you have a collection of elements of a nullable type and want to filter non-null elements, you can do so by using `filterNotNull`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val nullableList: List<Int?> = listOf(1, 2, null, 4)
 val intList: List<Int> = nullableList.filterNotNull()
 ```

@@ -16,7 +16,7 @@ Kotlin has three structural jump expressions:
 All of these expressions can be used as part of larger expressions:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val s = person.name ?: return
 ```
 </div>
@@ -30,7 +30,7 @@ Labels have the form of an identifier followed by the `@` sign, for example: `ab
 To label an expression, we just put a label in front of it
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 loop@ for (i in 1..100) {
     // ...
 }
@@ -40,7 +40,7 @@ loop@ for (i in 1..100) {
 Now, we can qualify a *break*{: .keyword } or a *continue*{: .keyword } with a label:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 loop@ for (i in 1..100) {
     for (j in 1..100) {
         if (...) break@loop
@@ -61,7 +61,7 @@ The most important use case is returning from a lambda expression. Recall that w
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach {
@@ -72,7 +72,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -84,7 +84,7 @@ If we need to return from a lambda expression, we have to label it and qualify t
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach lit@{
@@ -95,7 +95,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -106,7 +106,7 @@ such a label has the same name as the function to which the lambda is passed.
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach {
@@ -117,7 +117,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -128,7 +128,7 @@ A *return*{: .keyword } statement in an anonymous function will return from the 
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach(fun(value: Int) {
@@ -139,7 +139,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -149,7 +149,7 @@ Note that the use of local returns in previous three examples is similar to the 
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     run loop@{
@@ -162,7 +162,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -171,7 +171,7 @@ fun main(args: Array<String>) {
 When returning a value, the parser gives preference to the qualified return, i.e.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 return@a 1
 ```
 </div>

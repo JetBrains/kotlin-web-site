@@ -12,7 +12,7 @@ In such a class some standard functionality and utility functions are often mech
 derivable from the data. In Kotlin, this is called a _data class_ and is marked as `data`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 data class User(val name: String, val age: Int)
 ```
 </div>
@@ -49,7 +49,7 @@ On the JVM, if the generated class needs to have a parameterless constructor, de
 (see [Constructors](classes.html#constructors)).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 data class User(val name: String = "", val age: Int = 0)
 ```
 </div>
@@ -70,11 +70,11 @@ Only the property `name` will be used inside the `toString()`, `equals()`, `hash
 
 <div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 data class Person(val name: String) {
     var age: Int = 0
 }
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
     val person1 = Person("John")
     val person2 = Person("John")
@@ -94,7 +94,7 @@ It's often the case that we need to copy an object altering _some_ of its proper
 This is what `copy()` function is generated for. For the `User` class above, its implementation would be as follows:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun copy(name: String = this.name, age: Int = this.age) = User(name, age)     
 ```
 </div>
@@ -102,7 +102,7 @@ fun copy(name: String = this.name, age: Int = this.age) = User(name, age)
 This allows us to write:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val jack = User(name = "Jack", age = 1)
 val olderJack = jack.copy(age = 2)
 ```
@@ -113,7 +113,7 @@ val olderJack = jack.copy(age = 2)
 _Component functions_ generated for data classes enable their use in [destructuring declarations](multi-declarations.html):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val jane = User("Jane", 35) 
 val (name, age) = jane
 println("$name, $age years of age") // prints "Jane, 35 years of age"

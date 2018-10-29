@@ -14,7 +14,7 @@ Pretty much all Java code can be used without any issues:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 import java.util.*
 
 fun demo(source: List<Int>) {
@@ -43,7 +43,7 @@ For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 import java.util.Calendar
 
 fun calendarDemo() {
@@ -75,7 +75,7 @@ escaping it with the backtick (`) character:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 foo.`is`(bar)
 ```
 
@@ -91,7 +91,7 @@ Consider the following examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val list = ArrayList<String>() // non-null (constructor result)
 list.add("Item")
 val size = list.size // non-null (primitive int)
@@ -106,7 +106,7 @@ prevent nulls from propagating:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 item.substring(1) // allowed, may throw an exception if item == null
 ```
 
@@ -118,7 +118,7 @@ When a platform value is assigned to a Kotlin variable, we can rely on type infe
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val nullable: String? = item // allowed, always works
 val notNull: String = item // allowed, may fail at runtime
 ```
@@ -467,7 +467,7 @@ Kotlin only allows *is*{: .keyword }-checks for star-projected generic types:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
 // but
 if (a is List<*>) // OK: no guarantees about the contents of the list
@@ -505,7 +505,7 @@ To pass an array of primitive values you can do the following in Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndices(array)  // passes int[] to method
@@ -517,7 +517,7 @@ When compiling to JVM byte codes, the compiler optimizes access to arrays so tha
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val array = arrayOf(1, 2, 3, 4)
 array[1] = array[1] * 2 // no actual calls to get() and set() generated
 for (x in array) { // no iterator created
@@ -531,7 +531,7 @@ Even when we navigate with an index, it does not introduce any overhead:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 for (i in array.indices) { // no iterator created
     array[i] += 2
 }
@@ -543,7 +543,7 @@ Finally, *in*{: .keyword }-checks have no overhead either:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 if (i in array.indices) { // same as (i >= 0 && i < array.size)
     print(array[i])
 }
@@ -572,7 +572,7 @@ In that case you need to use the spread operator `*` to pass the `IntArray`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
@@ -596,7 +596,7 @@ So, when you call a Java method that declares a checked exception, Kotlin does n
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 fun render(list: List<*>, to: Appendable) {
     for (item in list) {
         to.append(item.toString()) // Java would require us to catch IOException here
@@ -631,7 +631,7 @@ To retrieve the Java class of an object, use the `java` extension property on a 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val fooClass = foo::class.java
 ```
 
@@ -641,7 +641,7 @@ The code above uses a [bound class reference](reflection.html#bound-class-refere
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val fooClass = foo.javaClass
 ```
 
@@ -692,7 +692,7 @@ but can access the members explicitly, for example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 if (Character.isLetter(a)) { ... }
 ```
 
@@ -717,7 +717,7 @@ You can use this for creating instances of SAM interfaces:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val runnable = Runnable { println("This runs in a runnable") }
 ```
 
@@ -727,7 +727,7 @@ val runnable = Runnable { println("This runs in a runnable") }
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 val executor = ThreadPoolExecutor()
 // Java signature: void execute(Runnable command)
 executor.execute { println("This runs in a thread pool") }
@@ -741,7 +741,7 @@ by the compiler when needed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 executor.execute(Runnable { println("This runs in a thread pool") })
 ```
 
@@ -759,7 +759,7 @@ To declare a function that is implemented in native (C or C++) code, you need to
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-``` kotlin
+```kotlin
 external fun foo(x: Int): Double
 ```
 

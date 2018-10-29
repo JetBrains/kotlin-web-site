@@ -16,7 +16,7 @@ To declare an extension function, we need to prefix its name with a _receiver ty
 The following adds a `swap` function to `MutableList<Int>`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun MutableList<Int>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
     this[index1] = this[index2]
@@ -29,7 +29,7 @@ The *this*{: .keyword } keyword inside an extension function corresponds to the 
 Now, we can call such a function on any `MutableList<Int>`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val l = mutableListOf(1, 2, 3)
 l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
 ```
@@ -38,7 +38,7 @@ l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
 Of course, this function makes sense for any `MutableList<T>`, and we can make it generic:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
     this[index1] = this[index2]
@@ -60,7 +60,7 @@ This means that the extension function being called is determined by the type of
 not by the type of the result of evaluating that expression at runtime. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 open class C
 
 class D: C()
@@ -84,7 +84,7 @@ If a class has a member function, and an extension function is defined which has
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class C {
     fun foo() { println("member") }
 }
@@ -117,7 +117,7 @@ even if its value is null, and can check for `this == null` inside the body. Thi
 to call toString() in Kotlin without checking for null: the check happens inside the extension function.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun Any?.toString(): String {
     if (this == null) return "null"
     // after the null check, 'this' is autocast to a non-null type, so the toString() below
@@ -132,7 +132,7 @@ fun Any?.toString(): String {
 Similarly to functions, Kotlin supports extension properties:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val <T> List<T>.lastIndex: Int
     get() = size - 1
 ```
@@ -145,7 +145,7 @@ extension properties**. Their behavior can only be defined by explicitly providi
 Example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val Foo.bar = 1 // error: initializers are not allowed for extension properties
 ```
 </div>
@@ -157,7 +157,7 @@ If a class has a [companion object](object-declarations.html#companion-objects) 
 functions and properties for the companion object:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class MyClass {
     companion object { }  // will be called "Companion"
 }
@@ -169,7 +169,7 @@ fun MyClass.Companion.foo() { ... }
 Just like regular members of the companion object, they can be called using only the class name as the qualifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 MyClass.foo()
 ```
 </div>
@@ -180,7 +180,7 @@ MyClass.foo()
 Most of the time we define extensions on the top level, i.e. directly under packages:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 package foo.bar
  
 fun Baz.goo() { ... } 
@@ -190,7 +190,7 @@ fun Baz.goo() { ... }
 To use such an extension outside its declaring package, we need to import it at the call site:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 package com.example.usage
 
 import foo.bar.goo // importing all extensions by name "goo"
@@ -213,7 +213,7 @@ objects members of which can be accessed without a qualifier. The instance of th
 _dispatch receiver_, and the instance of the receiver type of the extension method is called _extension receiver_.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class D {
     fun bar() { ... }
 }
@@ -237,7 +237,7 @@ In case of a name conflict between the members of the dispatch receiver and the 
 precedence. To refer to the member of the dispatch receiver you can use the [qualified `this` syntax](this-expressions.html#qualified).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class C {
     fun D.foo() {
         toString()         // calls D.toString()
@@ -251,7 +251,7 @@ Extensions declared as members can be declared as `open` and overridden in subcl
 functions is virtual with regard to the dispatch receiver type, but static with regard to the extension receiver type.
 
 <div class="sample" markdown="1" theme="idea">
-``` kotlin
+```kotlin
 open class D { }
 
 class D1 : D() { }
@@ -280,7 +280,7 @@ class C1 : C() {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     C().caller(D())   // prints "D.foo in C"
     C1().caller(D())  // prints "D.foo in C1" - dispatch receiver is resolved virtually
     C().caller(D1())  // prints "D.foo in C" - extension receiver is resolved statically

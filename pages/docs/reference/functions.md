@@ -12,7 +12,7 @@ title: "Functions: infix, vararg, tailrec"
 Functions in Kotlin are declared using the *fun*{: .keyword } keyword:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun double(x: Int): Int {
     return 2 * x
 }
@@ -24,7 +24,7 @@ fun double(x: Int): Int {
 Calling functions uses the traditional approach:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val result = double(2)
 ```
 </div>
@@ -33,7 +33,7 @@ val result = double(2)
 Calling member functions uses the dot notation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 Sample().foo() // create instance of class Sample and call foo
 ```
 </div>
@@ -43,7 +43,7 @@ Sample().foo() // create instance of class Sample and call foo
 Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun powerOf(number: Int, exponent: Int) { ... }
 ```
 </div>
@@ -54,7 +54,7 @@ Function parameters can have default values, which are used when a corresponding
 other languages:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) { ... }
 ```
 </div>
@@ -65,7 +65,7 @@ Overriding methods always use the same default parameter values as the base meth
 When overriding a method with default parameters values, the default parameter values must be omitted from the signature:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 open class A {
     open fun foo(i: Int = 10) { ... }
 }
@@ -79,7 +79,7 @@ class B : A() {
 If a default parameter precedes a parameter with no default value, the default value can be used only by calling the function with [named arguments](#named-arguments):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo(bar: Int = 0, baz: Int) { ... }
 
 foo(baz = 1) // The default value bar = 0 is used
@@ -89,7 +89,7 @@ foo(baz = 1) // The default value bar = 0 is used
 But if a last argument [lambda](lambdas.html#lambda-expression-syntax) is passed to a function call outside the parentheses, passing no values for the default parameters is allowed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { ... }
 
 foo(1) { println("hello") } // Uses the default value baz = 1 
@@ -104,7 +104,7 @@ Function parameters can be named when calling functions. This is very convenient
 Given the following function:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 fun reformat(str: String,
              normalizeCase: Boolean = true,
              upperCaseFirstLetter: Boolean = true,
@@ -118,7 +118,7 @@ fun reformat(str: String,
 we could call this using default arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 reformat(str)
 ```
 </div>
@@ -126,7 +126,7 @@ reformat(str)
 However, when calling it with non-default, the call would look something like:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 reformat(str, true, true, false, '_')
 ```
 </div>
@@ -134,7 +134,7 @@ reformat(str, true, true, false, '_')
 With named arguments we can make the code much more readable:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 reformat(str,
     normalizeCase = true,
     upperCaseFirstLetter = true,
@@ -147,7 +147,7 @@ reformat(str,
 and if we do not need all arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 reformat(str, wordSeparator = '_')
 ```
 </div>
@@ -157,7 +157,7 @@ When a function is called with both positional and named arguments, all the posi
 [Variable number of arguments (*vararg*{: .keyword })](#variable-number-of-arguments-varargs) can be passed in the named form by using the **spread** operator:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun foo(vararg strings: String) { ... }
 
 foo(strings = *arrayOf("a", "b", "c"))
@@ -173,7 +173,7 @@ If a function does not return any useful value, its return type is `Unit`. `Unit
 value does not have to be returned explicitly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun printHello(name: String?): Unit {
     if (name != null)
         println("Hello ${name}")
@@ -187,7 +187,7 @@ fun printHello(name: String?): Unit {
 The `Unit` return type declaration is also optional. The above code is equivalent to:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun printHello(name: String?) { ... }
 ```
 </div>
@@ -197,7 +197,7 @@ fun printHello(name: String?) { ... }
 When a function returns a single expression, the curly braces can be omitted and the body is specified after a **=** symbol:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun double(x: Int): Int = x * 2
 ```
 </div>
@@ -205,7 +205,7 @@ fun double(x: Int): Int = x * 2
 Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun double(x: Int) = x * 2
 ```
 </div>
@@ -222,7 +222,7 @@ type will be non-obvious to the reader (and sometimes even for the compiler).
 A parameter of a function (normally the last one) may be marked with `vararg` modifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 fun <T> asList(vararg ts: T): List<T> {
     val result = ArrayList<T>()
     for (t in ts) // ts is an Array
@@ -235,7 +235,7 @@ fun <T> asList(vararg ts: T): List<T> {
 allowing a variable number of arguments to be passed to the function:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val list = asList(1, 2, 3)
 ```
 </div>
@@ -265,7 +265,7 @@ Functions marked with the *infix*{: .keyword } keyword can also be called using 
 * The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have no [default value](#default-arguments).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 infix fun Int.shl(x: Int): Int { ... }
 
 // calling the function using the infix notation
@@ -318,7 +318,7 @@ to top level functions, Kotlin functions can also be declared local, as member f
 Kotlin supports local functions, i.e. a function inside another function:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 fun dfs(graph: Graph) {
     fun dfs(current: Vertex, visited: Set<Vertex>) {
         if (!visited.add(current)) return
@@ -334,7 +334,7 @@ fun dfs(graph: Graph) {
 Local function can access local variables of outer functions (i.e. the closure), so in the case above, the *visited* can be a local variable:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 fun dfs(graph: Graph) {
     val visited = HashSet<Vertex>()
     fun dfs(current: Vertex) {
@@ -353,7 +353,7 @@ fun dfs(graph: Graph) {
 A member function is a function that is defined inside a class or object:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 class Sample() {
     fun foo() { print("Foo") }
 }
@@ -363,7 +363,7 @@ class Sample() {
 Member functions are called with dot notation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 Sample().foo() // creates instance of class Sample and calls foo
 ```
 </div>
@@ -375,7 +375,7 @@ For more information on classes and overriding members see [Classes](classes.htm
 Functions can have generic parameters which are specified using angle brackets before the function name:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 fun <T> singletonList(item: T): List<T> { ... }
 ```
 </div>
@@ -401,7 +401,7 @@ This allows some algorithms that would normally be written using loops to instea
 When a function is marked with the `tailrec` modifier and meets the required form, the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 val eps = 1E-10 // "good enough", could be 10^-15
 
 tailrec fun findFixPoint(x: Double = 1.0): Double
@@ -412,7 +412,7 @@ tailrec fun findFixPoint(x: Double = 1.0): Double
 This code calculates the fixpoint of cosine, which is a mathematical constant. It simply calls Math.cos repeatedly starting at 1.0 until the result doesn't change any more, yielding a result of 0.7390851332151611 for the specified `eps` precision. The resulting code is equivalent to this more traditional style:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
+```kotlin
 val eps = 1E-10 // "good enough", could be 10^-15
 
 private fun findFixPoint(): Double {

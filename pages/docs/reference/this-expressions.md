@@ -23,7 +23,7 @@ or labeled [function literal with receiver](lambdas.html#function-literals-with-
 on the scope *this*{: .keyword } is meant to be from:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
-``` kotlin
+```kotlin
 class A { // implicit label @A
     inner class B { // implicit label @B
         fun Int.foo() { // implicit label @foo
