@@ -84,7 +84,7 @@ Recommended tutorials:
 - [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
 - [Types mapping between C and Kotlin/Native](/docs/tutorials/native/mapping-primitive-data-types-from-c.html)
 - [Kotlin/Native as a Dynamic Library](/docs/tutorials/native/dynamic-libraries.html) 
-- [Kotlin/Native as a Apple Framework](/docs/tutorials/native/apple-framework.html)
+- [Kotlin/Native as an Apple Framework](/docs/tutorials/native/apple-framework.html)
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
     <img src="{{ url_for('asset', path='images/landing/native/try.png') }}" height="38p" width="55" style="margin-right: 10px;">
