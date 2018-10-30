@@ -79,7 +79,7 @@ expect annotation class Test
 
 // JVM
 actual fun formatString(source: String, vararg args: Any) =
-    String.format(source, args)
+    String.format(source, *args)
     
 actual typealias Test = org.junit.Test
 ```
