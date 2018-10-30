@@ -344,9 +344,9 @@ With Gradle Kotlin DSL, get the task from the project's `tasks` first:
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 // ...
 
-val kotlinCompile: KotlinCompile by tasks
+val compileKotlin: KotlinCompile by tasks
 
-kotlinCompile.kotlinOptions.suppressWarnings = true
+compileKotlin.kotlinOptions.suppressWarnings = true
 ```
 
 </div>
