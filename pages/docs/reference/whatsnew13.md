@@ -25,7 +25,9 @@ The key differences to the old model are:
   * In the old model, common and platform-specific code needed to be placed in separate modules, linked by `expectedBy` dependencies.
     Now, common and platform-specific code is placed in different source roots of the same module, making projects easier to configure.
   * There is now a large number of [preset platform configurations](/docs/reference/building-mpp-with-gradle.html#supported-platforms) for different supported platforms.
-  * We've added new support for [publishing multiplatform libraries](/docs/reference/building-mpp-with-gradle.html#publishing-a-multiplatform-library).
+  * The [dependencies configuration](/docs/reference/building-mpp-with-gradle.html#adding-dependencies) has been changed; dependencies are now specified separately for each source root.
+  * Source sets can now be shared between an arbitrary subset of platforms (for example, in a module that targets JS, Android and iOS, you can have a source set that is shared only between Android and iOS).
+  * [Publishing multiplatform libraries](/docs/reference/building-mpp-with-gradle.html#publishing-a-multiplatform-library) is now supported.
 
 For more information, please refer to the [Multiplatform Programming documentation](/docs/reference/multiplatform.html).
 
