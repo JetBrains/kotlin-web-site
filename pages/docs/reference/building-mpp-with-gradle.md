@@ -218,9 +218,10 @@ following target platforms:
   
     * `androidNativeArm32` and `androidNativeArm64` for Android NDK;
     * `iosArm32`, `iosArm64`, `iosX64` for iOS;
-    * `linuxArm32Hfp`, `linuxMips32`, `linuxMipsel32`, `linuxX64` for Linux
-    * `macosX64` for MacOS
-    * `mingwX64` for Windows
+    * `linuxArm32Hfp`, `linuxMips32`, `linuxMipsel32`, `linuxX64` for Linux;
+    * `macosX64` for MacOS;
+    * `mingwX64` for Windows;
+    * `wasm32` for WebAssembly.
     
     Note that some of the Kotlin/Native targets require an [appropriate host machine](#using-kotlinnative-targets) to build on.
     
