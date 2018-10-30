@@ -118,10 +118,10 @@ such as loops, exception handling, etc. usually are no longer valid in this mode
 
 ## Reactive Extensions
 
-Reactive Extensions (Rx) where introduced to C# by [Erik Meijer](https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)). While it was definitely used on the .NET platform
+Reactive Extensions (Rx) were introduced to C# by [Erik Meijer](https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)). While it was definitely used on the .NET platform
 it really didn't reach mainstream adoption until Netflix ported it over to Java, naming it RxJava. From then on, numerous ports have been provided for a variety of platforms including JavaScript (RxJS).
 
-The idea behind Rx is to move towards what's called `observable streams` where by we now think of data is streams (infinite amounts of data) and these streams can be observed. In practical terms, Rx is simply 
+The idea behind Rx is to move towards what's called `observable streams` where by we now think of data as streams (infinite amounts of data) and these streams can be observed. In practical terms, Rx is simply 
 the [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) with a series of extensions which allow us to operate on the data.
 
 In approach it's quite similar to Futures, but one can think of a Future as returning a discrete element, whereby Rx returns a stream. However, similar to the previous, it also introduces 
