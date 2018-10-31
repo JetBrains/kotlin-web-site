@@ -26,8 +26,6 @@ The compiler takes care of converting this analogously to Java's indexed *for*{:
 fun main() {
 //sampleStart
 for (i in 1..4) print(i)
-
-for (i in 4..1) print(i)
 //sampleEnd
 }
 ```
