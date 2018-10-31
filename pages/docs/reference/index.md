@@ -51,7 +51,7 @@ title: "Reference"
           <p>All Kotlin aspects are well covered in <a href="/docs/books.html">Books</a>, check out these books to start:</p>
           <ul>
               <li class="start"> <a style="text-decoration: none;" href="https://www.amazon.com/Kotlin-Programming-Nerd-Ranch-Guide/dp/0135161630">Kotlin Programming: The Big Nerd Ranch Guide</a> </li>
-              <li class="migrate"> <a style="text-decoration: none;" href="https://leanpub.com/kotlin-for-android-developers">Kotlin for Android Developers</a> </li>
+              <li class="migrate"> <a style="text-decoration: none;" href="https://antonioleiva.com/kotlin-android-developers-book/">Kotlin for Android Developers</a> </li>
               <li class="start"> <a style="text-decoration: none;" href="https://www.atomickotlin.com/atomickotlin/">Atomic Kotlin</a> </li>
               <li class="migrate">   <a style="text-decoration: none;" href="https://www.manning.com/books/kotlin-in-action">Kotlin in Action</a> </li>
           </ul>
@@ -64,6 +64,7 @@ title: "Reference"
             <li class="migrate"> <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052999.do">Advanced Kotlin Programming</a></li>
             <li class="start">   <a style="text-decoration: none;" href="https://www.coursera.org/learn/vvedenie-v-yazyk-kotlin">Introduction to Kotlin (in russian)</a></li>
             <li class="migrate"> <a style="text-decoration: none;" href="https://coursera.org/learn/kotlin-for-java-developers">Kotlin for Java Developers</a></li>
+             <li class="migrate"> <a style="text-decoration: none;" href="https://antonioleiva.com/online-course">Kotlin for Android Developers</a></li>
           </ul>
       </div>
       <div style="padding: 5px;">
@@ -80,6 +81,7 @@ title: "Reference"
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://kotlin.link">kotlin.link</a></li>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://superkotlin.com/blog/">superkotlin blog</a></li>
+              <li class="start migrate"> <a style="text-decoration: none;" href="https://antonioleiva.com/kotlin">antonioleiva.com - Kotlin for Android Developers</a></li>
           </ul>
       </div>
 </div>
