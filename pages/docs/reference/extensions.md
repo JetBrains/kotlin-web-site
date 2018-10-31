@@ -16,6 +16,7 @@ To declare an extension function, we need to prefix its name with a _receiver ty
 The following adds a `swap` function to `MutableList<Int>`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun MutableList<Int>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
@@ -23,21 +24,25 @@ fun MutableList<Int>.swap(index1: Int, index2: Int) {
     this[index2] = tmp
 }
 ```
+
 </div>
 
 The *this*{: .keyword } keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot). 
 Now, we can call such a function on any `MutableList<Int>`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val l = mutableListOf(1, 2, 3)
 l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
 ```
+
 </div>
 
 Of course, this function makes sense for any `MutableList<T>`, and we can make it generic:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
@@ -45,6 +50,7 @@ fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
     this[index2] = tmp
 }
 ```
+
 </div>
 
 We declare the generic type parameter before the function name for it to be available in the receiver type expression. 
@@ -60,6 +66,7 @@ This means that the extension function being called is determined by the type of
 not by the type of the result of evaluating that expression at runtime. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 open class C
 
@@ -75,6 +82,7 @@ fun printFoo(c: C) {
 
 printFoo(D())
 ```
+
 </div>
 
 This example will print "c", because the extension function being called depends only on the declared type of the
@@ -84,6 +92,7 @@ If a class has a member function, and an extension function is defined which has
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class C {
     fun foo() { println("member") }
@@ -91,6 +100,7 @@ class C {
 
 fun C.foo() { println("extension") }
 ```
+
 </div>
 
 If we call `c.foo()` of any `c` of type `C`, it will print "member", not "extension".
@@ -98,6 +108,7 @@ If we call `c.foo()` of any `c` of type `C`, it will print "member", not "extens
 However, it's perfectly OK for extension functions to overload member functions which have the same name but a different signature:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class C {
     fun foo() { println("member") }
@@ -105,6 +116,7 @@ class C {
 
 fun C.foo(i: Int) { println("extension") }
 ```
+
 </div>
 
 The call to `C().foo(1)` will print "extension".
@@ -117,6 +129,7 @@ even if its value is null, and can check for `this == null` inside the body. Thi
 to call toString() in Kotlin without checking for null: the check happens inside the extension function.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun Any?.toString(): String {
     if (this == null) return "null"
@@ -125,17 +138,20 @@ fun Any?.toString(): String {
     return toString()
 }
 ```
+
 </div>
 
 ## Extension Properties
 
 Similarly to functions, Kotlin supports extension properties:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val <T> List<T>.lastIndex: Int
     get() = size - 1
 ```
+
 </div>
 
 Note that, since extensions do not actually insert members into classes, there's no efficient way for an extension 
@@ -145,6 +161,7 @@ extension properties**. Their behavior can only be defined by explicitly providi
 Example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val Foo.bar = 1 // error: initializers are not allowed for extension properties
 ```
@@ -157,6 +174,7 @@ If a class has a [companion object](object-declarations.html#companion-objects) 
 functions and properties for the companion object:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class MyClass {
     companion object { }  // will be called "Companion"
@@ -164,14 +182,17 @@ class MyClass {
 
 fun MyClass.Companion.foo() { ... }
 ```
+
 </div>
 
 Just like regular members of the companion object, they can be called using only the class name as the qualifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 MyClass.foo()
 ```
+
 </div>
 
 
@@ -180,16 +201,19 @@ MyClass.foo()
 Most of the time we define extensions on the top level, i.e. directly under packages:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 package foo.bar
  
 fun Baz.goo() { ... } 
 ```
+
 </div>
 
 To use such an extension outside its declaring package, we need to import it at the call site:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 package com.example.usage
 
@@ -202,6 +226,7 @@ fun usage(baz: Baz) {
 }
 
 ```
+
 </div>
 
 See [Imports](packages.html#imports) for more information.
@@ -213,6 +238,7 @@ objects members of which can be accessed without a qualifier. The instance of th
 _dispatch receiver_, and the instance of the receiver type of the extension method is called _extension receiver_.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class D {
     fun bar() { ... }
@@ -231,12 +257,14 @@ class C {
     }
 }
 ```
+
 </div>
 
 In case of a name conflict between the members of the dispatch receiver and the extension receiver, the extension receiver takes
 precedence. To refer to the member of the dispatch receiver you can use the [qualified `this` syntax](this-expressions.html#qualified).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class C {
     fun D.foo() {
@@ -245,12 +273,14 @@ class C {
     }
 }
 ```
+
 </div>
 
 Extensions declared as members can be declared as `open` and overridden in subclasses. This means that the dispatch of such
 functions is virtual with regard to the dispatch receiver type, but static with regard to the extension receiver type.
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 open class D { }
 
@@ -286,6 +316,7 @@ fun main() {
     C().caller(D1())  // prints "D.foo in C" - extension receiver is resolved statically
 }
 ```
+
 </div>
 
 ## Note on visibility
@@ -300,27 +331,32 @@ Extensions utilize the same [visibility of other entities](visibility-modifiers.
 In Java, we are used to classes named "\*Utils": `FileUtils`, `StringUtils` and so on. The famous `java.util.Collections` belongs to the same breed.
 And the unpleasant part about these Utils-classes is that the code that uses them looks like this:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+<div class="sample" markdown="1" theme="idea" mode="java" auto-indent="false">
+
 ```java
 // Java
 Collections.swap(list, Collections.binarySearch(list,
     Collections.max(otherList)),
     Collections.max(list));
 ```
+
 </div>
 
 Those class names are always getting in the way. We can use static imports and get this:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
+
 ```java
 // Java
 swap(list, binarySearch(list, max(otherList)), max(list));
 ```
+
 </div>
 
 This is a little better, but we have no or little help from the powerful code completion of the IDE. It would be so much better if we could say:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" mode="java">
+
 ```java
 // Java
 list.swap(list.binarySearch(otherList.max()), list.max());

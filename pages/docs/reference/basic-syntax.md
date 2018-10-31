@@ -12,6 +12,7 @@ title: "Basic Syntax"
 Package specification should be at the top of the source file:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 package my.demo
 
@@ -19,6 +20,7 @@ import java.util.*
 
 // ...
 ```
+
 </div>
 
 It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
@@ -43,6 +45,7 @@ fun main() {
     println(sum(3, 5))
 }
 ```
+
 </div>
 
 Function with an expression body and inferred return type:
@@ -58,6 +61,7 @@ fun main() {
     println("sum of 19 and 23 is ${sum(19, 23)}")
 }
 ```
+
 </div>
 
 Function returning no meaningful value:
@@ -75,6 +79,7 @@ fun main() {
     printSum(-1, 8)
 }
 ```
+
 </div>
 
 `Unit` return type can be omitted:
@@ -92,6 +97,7 @@ fun main() {
     printSum(-1, 8)
 }
 ```
+
 </div>
 
 See [Functions](functions.html).
@@ -113,6 +119,7 @@ fun main() {
     println("a = $a, b = $b, c = $c")
 }
 ```
+
 </div>
 
 Mutable variable:
@@ -128,11 +135,13 @@ fun main() {
     println("x = $x")
 }
 ```
+
 </div>
 
 Top-level variables:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
 ```kotlin
 //sampleStart
 val PI = 3.14
@@ -150,6 +159,7 @@ fun main() {
     println("x = $x; PI = $PI")
 }
 ```
+
 </div>
 
 See also [Properties And Fields](properties.html).
@@ -159,12 +169,16 @@ See also [Properties And Fields](properties.html).
 
 Just like Java and JavaScript, Kotlin supports end-of-line and block comments.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // This is an end-of-line comment
 
 /* This is a block comment
    on multiple lines. */
 ```
+
+</div>
 
 Unlike Java, block comments in Kotlin can be nested.
 
@@ -188,6 +202,7 @@ fun main() {
     println(s2)
 }
 ```
+
 </div>
 
 See [String templates](basic-types.html#string-templates).
@@ -212,6 +227,7 @@ fun main() {
     println("max of 0 and 42 is ${maxOf(0, 42)}")
 }
 ```
+
 </div>
 
 
@@ -228,6 +244,7 @@ fun main() {
     println("max of 0 and 42 is ${maxOf(0, 42)}")
 }
 ```
+
 </div>
 
 See [*if*{: .keyword }-expressions](control-flow.html#if-expression).
@@ -239,11 +256,13 @@ A reference must be explicitly marked as nullable when *null*{: .keyword } value
 Return *null*{: .keyword } if `str` does not hold an integer:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun parseInt(str: String): Int? {
     // ...
 }
 ```
+
 </div>
 
 Use a function returning nullable value:
@@ -279,6 +298,7 @@ fun main() {
     printProduct("a", "b")
 }
 ```
+
 </div>
 
 or
@@ -317,6 +337,7 @@ fun main() {
     printProduct("99", "b")
 }
 ```
+
 </div>
 
 See [Null-safety](null-safety.html).
@@ -352,6 +373,7 @@ fun main() {
     printLength(listOf(Any()))
 }
 ```
+
 </div>
 
 or
@@ -378,6 +400,7 @@ fun main() {
     printLength(listOf(Any()))
 }
 ```
+
 </div>
 
 or even
@@ -406,6 +429,7 @@ fun main() {
     printLength(1000)
 }
 ```
+
 </div>
 
 See [Classes](classes.html) and [Type casts](typecasts.html).
@@ -424,6 +448,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 or
@@ -440,6 +465,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 
@@ -461,6 +487,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 
@@ -490,6 +517,7 @@ fun main() {
     println(describe("other"))
 }
 ```
+
 </div>
 
 
@@ -512,6 +540,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 
@@ -533,6 +562,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 
@@ -549,6 +579,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 or over a progression:
@@ -568,6 +599,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 See [Ranges](ranges.html).
@@ -588,6 +620,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 
@@ -606,6 +639,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 
@@ -626,6 +660,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 See [Higher-order functions and Lambdas](lambdas.html).
@@ -672,6 +707,7 @@ class Triangle(
     }
 }
 ```
+
 </div>
 
 See [classes](classes.html) and [objects and instances](object-declarations.html).
