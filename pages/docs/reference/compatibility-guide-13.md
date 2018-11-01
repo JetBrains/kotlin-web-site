@@ -129,8 +129,7 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 
 - <1.2: described code patterns are compiled fine, but updates to local variable affect loop execution
 - 1.2.X: deprecation warning reported if a range expression in a for-loop is an array-typed local variable which is assigned in a loop body
-- 1.3.X: deprecation warnings are elevated to errors 
-- 1.4: remove errors and change behavior in such cases to be consistent with other containers
+- 1.3: change behavior in such cases to be consistent with other containers 
 
 ### Nested classifiers in enum entries
 
