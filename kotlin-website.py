@@ -333,6 +333,14 @@ def api_page():
             yield {'page_path': path.join(path.relpath(root, api_folder), file).replace(os.sep, '/')}
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('pages/404.html'), 404
+
+
+app.register_error_handler(404, page_not_found)
+
+
 @app.route('/api/<path:page_path>')
 def api_page(page_path):
     if page_path.endswith('.html'):
