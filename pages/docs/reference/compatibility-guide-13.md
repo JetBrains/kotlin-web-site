@@ -368,21 +368,6 @@ One has to remember that those definitions are given only for pure Kotlin. Compa
 > - <1.3: behavior of described calls is different when comparing JS, JRE 6, JRE 7 versus JRE 8+
 > - \>=1.3: unify behavior across the platforms
 
-### Rename `buildSequence` and `buildIterator`
-
-> **Issue**: [KT-26678](https://youtrack.jetbrains.com/issue/KT-26678)
->
-> **Component**: kotlin-stdlib (JVM)
->
-> **Incompatible change type**: Binary
->
-> **Short summary**: in Kotlin 1.3, rename `buildSequence` and `buildIterator` to `sequence` and `iterator` correspondingly
->
-> **Deprecation cycle**:
->
-> - <1.3: stdlib provides `buildSequence` and `buildIterator`
-> - \>=1.3: stdlib provides equivalent `sequence` and `iterator`; old declarations are marked with `@Deprecated(HIDDEN)`
-
 ### Discontinued deprecated artifacts in the compiler distribution
 
 > **Issue**: [KT-23799](https://youtrack.jetbrains.com/issue/KT-23799)
