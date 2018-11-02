@@ -8,13 +8,13 @@ title: "What's New in Kotlin 1.3"
 
 ## Coroutines release
 
-After some long and extensive battle testing, coroutines are now released! It means that from Kotlin 1.3 the language support and the API are [fully stable](evolution/components-stability.html). Check out the new [coroutines overview](coroutines-overview.html) page
+After some long and extensive battle testing, coroutines are now released! It means that from Kotlin 1.3 the language support and the API are [fully stable](evolution/components-stability.html). Check out the new [coroutines overview](coroutines-overview.html) page.
 
 Kotlin 1.3 introduces callable references on suspend-functions and support of Coroutines in the Reflection API.
 
 ## Kotlin/Native
 
-Kotlin 1.3 continues to improve and polish the Native target. See the [Kotlin/Native overview](native-overview.html) for details 
+Kotlin 1.3 continues to improve and polish the Native target. See the [Kotlin/Native overview](native-overview.html) for details.
 
 ## Multiplatform Projects
 
@@ -149,7 +149,7 @@ fun String?.isNullOrEmpty(): Boolean {
 
 </div>
 
-See the details on the syntax as well as the compatibility notice in the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/kotlin-contracts.md)
+See the details on the syntax as well as the compatibility notice in the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/kotlin-contracts.md).
 
 ## Capturing `when` subject in a variable
 
@@ -167,11 +167,11 @@ fun Request.getBody() =
 
 </div>
 
-While it was already possible to extract this variable just before `when` , `val` in `when` has its scope properly restricted to the body of `when`, and so preventing namespace pollution. See the full documentation on `when` [here](control-flow.html#when-expression)
+While it was already possible to extract this variable just before `when` , `val` in `when` has its scope properly restricted to the body of `when`, and so preventing namespace pollution. See the full documentation on `when` [here](control-flow.html#when-expression).
 
 ## @JvmStatic and @JvmField in companion of interfaces
 
-With Kotlin 1.3, it is possible to mark members of a `companion` object of interfaces with annotations `@JvmStatic` and `@JvmField`. In the classfile, such members will be lifted to the corresponding interface and marked as `static`
+With Kotlin 1.3, it is possible to mark members of a `companion` object of interfaces with annotations `@JvmStatic` and `@JvmField`. In the classfile, such members will be lifted to the corresponding interface and marked as `static`.
 
 For example, the following Kotlin code:
 
@@ -263,13 +263,13 @@ fun trueEnterpriseComesToKotlin(block: (Any, Any, ... /* 42 more */, Any) -> Any
 
 ## Progressive mode
 
-Kotlin cares a lot about stability and backward compatibility of code: Kotlin compatibility policy says that "breaking changes" (e.g., a change which makes the code that used to compile fine, not compile anymore) can be introduced only in the major releases (1.2, 1.3, etc.)  
+Kotlin cares a lot about stability and backward compatibility of code: Kotlin compatibility policy says that "breaking changes" (e.g., a change which makes the code that used to compile fine, not compile anymore) can be introduced only in the major releases (1.2, 1.3, etc.).
 
 We believe that a lot of users could use a much faster cycle, where critical compiler bug fixes arrive immediately, making the code more safe and correct. So, Kotlin 1.3 introduces *progressive* compiler mode, which can be enabled by passing the argument `-progressive` to the compiler.
 
 In progressive mode, some fixes in language semantics can arrive immediately. All these fixes have two important properties:
 
-* they preserve backward-compatibility of source code with older compilers, meaning that all the code which is compilable by the progressive compiler will be compiled fine by non-progressive one
+* they preserve backward-compatibility of source code with older compilers, meaning that all the code which is compilable by the progressive compiler will be compiled fine by non-progressive one.
 * they only make code *safer* in some sense — e.g., some unsound smartcast can be forbidden, behavior of the generated code may be changed to be more predictable/stable, and so on.
 
 Enabling the progressive mode can require you to rewrite some of your code, but it shouldn't be too much — all the fixes which are enabled under progressive are carefully handpicked, reviewed, and provided with tooling migration assistance. 
@@ -277,7 +277,7 @@ We expect that the progressive mode will be a nice choice for any actively maint
 
 ## Inline classes
 
-> Inline classes are available only since Kotlin 1.3 and currently are *experimental*. See details in the [reference](inline-classes.html#experimental-status-of-inline-classes)
+> Inline classes are available only since Kotlin 1.3 and currently are *experimental*. See details in the [reference](inline-classes.html#experimental-status-of-inline-classes).
 {:.note}
 
 
@@ -309,11 +309,11 @@ fun main() {
 
 </div>
 
-See [reference](inline-classes.html) for inline classes for details 
+See [reference](inline-classes.html) for inline classes for details.
 
 ## Unsigned integers
 
-> Unsigned integers are available only since Kotlin 1.3 and currently are *experimental*. See details in the [reference](basic-types.html#experimental-status-of-unsigned-integers)
+> Unsigned integers are available only since Kotlin 1.3 and currently are *experimental*. See details in the [reference](basic-types.html#experimental-status-of-unsigned-integers).
 {:.note}
 
 Kotlin 1.3 introduces unsigned integer types:
@@ -357,7 +357,7 @@ See [reference](basic-types.html#unsigned-integers) for details.
 
 ## @JvmDefault
 
-> `@JvmDefault` is only available since Kotlin 1.3 and currently is *experimental*. See details in the [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html)
+> `@JvmDefault` is only available since Kotlin 1.3 and currently is *experimental*. See details in the [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html).
 {:.note}
 
 
@@ -377,7 +377,7 @@ interface Foo {
 
 </div>
 
-> Warning! Annotating your API with `@JvmDefault` has serious implications on binary compatibility. Make sure to carefully read the [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html) before using `@JvmDefault` in production
+> Warning! Annotating your API with `@JvmDefault` has serious implications on binary compatibility. Make sure to carefully read the [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html) before using `@JvmDefault` in production.
 {:.note}
 
 # Standard library
@@ -429,7 +429,7 @@ fun main() {
 
 ## associateWith
 
-It is quite a common situation to have a list of keys and want to build a map by associating each of these keys with some value. It was possible to do it before with the `associate { it to getValue(it) }` function, but now we’re introducing a more efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`
+It is quite a common situation to have a list of keys and want to build a map by associating each of these keys with some value. It was possible to do it before with the `associate { it to getValue(it) }` function, but now we’re introducing a more efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`.
 
 <div class="sample" data-min-compiler-version="1.3" markdown="1" theme="idea">
 
@@ -506,7 +506,7 @@ Kotlin 1.3 introduces support for the [recommended code style](coding-convention
 
 [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) is a library which provides multiplatform support for (de)serializing objects in Kotlin. Previously, it was a separate project, but since Kotlin 1.3, it ships with the Kotlin compiler distribution on par with the other compiler plugins. The main difference is that you don't need to manually watch out for the Serialization IDE Plugin being compatible with the Kotlin IDE Plugin version you're using: now the Kotlin IDE Plugin already includes serialization!
 
-See here for [details](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/eap13.md)
+See here for [details](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/eap13.md).
 
 > Please, note, that even though kotlinx.serialization now ships with the Kotlin Compiler distribution, it is still considered to be an experimental feature. 
 {:.note}
@@ -524,5 +524,5 @@ For additional details, please consult the [KEEP-75](https://github.com/Kotlin/K
 
 Kotlin 1.3 introduces support for runnable Kotlin *scratch files*. *Scratch file* is a kotlin script file with a .kts extension which you can run and get evaluation results directly in the editor. 
 
-Consult the general [Scratches documentation](https://www.jetbrains.com/help/idea/scratches.html) for details
+Consult the general [Scratches documentation](https://www.jetbrains.com/help/idea/scratches.html) for details.
 
