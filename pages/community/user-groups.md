@@ -2,13 +2,14 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (159)
+# Kotlin User Groups (160)
  
 <div class="g-grid">
 <div class="g-6" markdown="1">
 
 ### Europe
 
+ * [Aachen Kotlin User Group](https://www.facebook.com/groups/KUGAachen/), Germany
  * [Amsterdam Kotlin User Group](https://www.meetup.com/kotlin-amsterdam/), Netherlands
  * [Amsterdam High-performance Kotlin User Group](https://www.meetup.com/High-performance-Kotlin/), Netherlands
  * [Athens Kotlin User Group](https://www.meetup.com/Kotlin-Athens/), Greece
@@ -43,6 +44,7 @@ title: Kotlin User Groups
  * [Munich Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Munich/), Germany
  * [Paris Kotlin User Group](https://www.meetup.com/Kotlin-Paris-Meetup/), France
  * [Rhein-Main Kotlin](https://www.meetup.com/de-DE/Kotlin-Rhein-Main/), Germany
+ * [Rostov Kotlin User Group](https://vk.com/rndkotlin), Russia
  * [St. Petersburg Kotlin User Group](https://www.meetup.com/St-Petersburg-Kotlin-User-Group/), Russia
  * [Serbia Kotlin User Group](https://www.meetup.com/Serbia-Kotlin-User-Group/), Serbia
  * [Stockholm Kotlin User Group](https://www.meetup.com/Sweden-Kotlin-User-Group/), Sweden
@@ -115,7 +117,6 @@ title: Kotlin User Groups
 ### North America
 
 * [Albuquerque Kotlin User Group](https://www.meetup.com/Kotlin-ABQ/), USA
-* [Bay Area Kotlin User Group](http://www.meetup.com/Bay-Area-Kotlin-User-Group/), USA
 * [Brooklyn (NY) Kotlin User Group](https://www.meetup.com/Brooklyn-Kotlin/), USA
 * [Cambridge Kotlin Office Hours](https://www.meetup.com/kotlin-office-hours/), USA
 * [Chicago Kotlin Users Group](http://www.meetup.com/Chicago-Kotlin/), USA
