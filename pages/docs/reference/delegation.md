@@ -35,6 +35,7 @@ fun main() {
     Derived(b).print()
 }
 ```
+
 </div>
 
 The *by*{: .keyword }-clause in the supertype list for `Derived` indicates that `b` will be stored internally in objects 
@@ -69,6 +70,7 @@ fun main() {
     Derived(b).printMessageLine()
 }
 ```
+
 </div>
 
 Note, however, that members overridden in this way do not get called from the members of the 
@@ -99,4 +101,5 @@ fun main() {
     println(derived.message)
 }
 ```
+
 </div>
