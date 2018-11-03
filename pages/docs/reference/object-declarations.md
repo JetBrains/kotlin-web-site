@@ -185,6 +185,24 @@ val x = MyClass.Companion
 ```
 </div>
 
+Or just use the class name to refer to its companion object (whether named or not):
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+class MyClass1 {
+    companion object Named { }
+}
+
+val x = MyClass1
+
+class MyClass2 {
+    companion object { }
+}
+
+val y = MyClass2
+```
+</div>
+
 Note that, even though the members of companion objects look like static members in other languages, at runtime those
 are still instance members of real objects, and can, for example, implement interfaces:
 
