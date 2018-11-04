@@ -35,6 +35,7 @@ to make some HTTP calls, so we'll create a file named `libcurl.def` with the fol
 ```
 headers = curl/curl.h
 headerFilter = curl/*
+compilerOpts.linux = -I/usr/include -I/usr/include/x86_64-linux-gnu
 linkerOpts.osx = -L/opt/local/lib -L/usr/local/opt/curl/lib -lcurl
 linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl
 ```
