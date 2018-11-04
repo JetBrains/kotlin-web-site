@@ -98,7 +98,7 @@ Since Kotlin 1.1, you can omit the property type if it can be inferred from the 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-val isEmpty get() = this.size == 0  // has type Boolean
+val isEmpty get() = this.size == 0  // has type Int
 ```
 </div>
 
