@@ -2,7 +2,7 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (160)
+# Kotlin User Groups (161)
  
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -45,6 +45,7 @@ title: Kotlin User Groups
  * [Paris Kotlin User Group](https://www.meetup.com/Kotlin-Paris-Meetup/), France
  * [Rhein-Main Kotlin](https://www.meetup.com/de-DE/Kotlin-Rhein-Main/), Germany
  * [Rostov Kotlin User Group](https://vk.com/rndkotlin), Russia
+ * [Samara Kotlin User Group](https://sitc.community/communities/kug/), Russia
  * [St. Petersburg Kotlin User Group](https://www.meetup.com/St-Petersburg-Kotlin-User-Group/), Russia
  * [Serbia Kotlin User Group](https://www.meetup.com/Serbia-Kotlin-User-Group/), Serbia
  * [Stockholm Kotlin User Group](https://www.meetup.com/Sweden-Kotlin-User-Group/), Sweden
