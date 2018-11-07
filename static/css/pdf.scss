@@ -1,8 +1,8 @@
 @import "reset";
 @import "com/page-content/page-content";
 
-p, li {
-  font-family: 'Open Sans', sans-serif;
+p, ul, li {
+  font-family: 'Open Sans', sans-serif !important;
   font-weight: normal;
 }
 
