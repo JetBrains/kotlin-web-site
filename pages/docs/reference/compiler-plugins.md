@@ -376,7 +376,7 @@ public interface TaskRunner {
 
 ```kotlin
 fun test(context: TaskContext) {
-    val handler = TaskHandler { 
+    val runner = TaskRunner { 
         // Here 'this' is an instance of 'Task'
         
         println("$name is started")
