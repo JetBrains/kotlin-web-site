@@ -1,7 +1,11 @@
 @import "reset";
 @import "com/page-content/page-content";
 
-p {
+p, li {
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
+}
+
+a {
+  margin-left: 1px;
 }
