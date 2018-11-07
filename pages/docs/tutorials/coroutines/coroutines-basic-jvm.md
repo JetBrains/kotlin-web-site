@@ -189,7 +189,7 @@ Now, let's make sure that coroutines are really cheaper than threads. How about 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-val c = AtomicInteger()
+val c = AtomicLong()
 
 for (i in 1..1_000_000)
     thread(start = true) {
@@ -208,7 +208,7 @@ Let's try the same with coroutines:
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-val c = AtomicInteger()
+val c = AtomicLong()
 
 for (i in 1..1_000_000)
     launch {
