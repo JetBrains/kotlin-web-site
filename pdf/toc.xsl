@@ -15,7 +15,7 @@
             padding: 0;
             margin: 0;
             letter-spacing: .5px;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
           }
 
           .book-toc-title {
