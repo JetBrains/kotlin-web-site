@@ -2,7 +2,7 @@
 @import "com/page-content/page-content";
 
 p, ul, li {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: $font-family-sans-serif;
   font-weight: normal;
 }
 
