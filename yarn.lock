@@ -278,10 +278,6 @@ asap@^2.0.3, asap@~2.0.3:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
 
-asciitree@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/asciitree/-/asciitree-1.0.2.tgz#e0db0e1d23db24744276abc6f3a93cc8c5f67100"
-
 asn1.js@^4.0.0:
   version "4.9.2"
   resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-4.9.2.tgz#8117ef4f7ed87cd8f89044b5bff97ac243a16c9a"
@@ -2026,10 +2022,6 @@ dns-txt@^2.0.2:
   resolved "https://registry.yarnpkg.com/dns-txt/-/dns-txt-2.0.2.tgz#b91d806f5d27188e4ab3e7d107d881a1cc4642b6"
   dependencies:
     buffer-indexof "^1.0.0"
-
-dom-delegate@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/dom-delegate/-/dom-delegate-2.0.3.tgz#0adb664ef4d2e099e7f4a176fa9448c821a2bb8c"
 
 dom-serializer@0:
   version "0.1.0"
@@ -4018,30 +4010,6 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
-
-monkberry-directives@4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/monkberry-directives/-/monkberry-directives-4.0.8.tgz#51f554e3e5c3dec43699975c76e319d53011914a"
-
-monkberry-events@4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/monkberry-events/-/monkberry-events-4.0.8.tgz#0dbfad2ba6a44c73ab6615e0203468e13a75549b"
-  dependencies:
-    dom-delegate "^2.0.3"
-
-monkberry-loader@4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/monkberry-loader/-/monkberry-loader-4.0.8.tgz#532f3188b73dc9f1f304d649ae8f3509146b1dd6"
-  dependencies:
-    loader-utils "^0.2.15"
-
-monkberry@4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/monkberry/-/monkberry-4.0.8.tgz#0b1c55753c6ea435dd36dd953c10c3995267c537"
-  dependencies:
-    asciitree "^1.0.2"
-    commander "^2.9.0"
-    source-map "^0.5.6"
 
 ms@0.7.1:
   version "0.7.1"
