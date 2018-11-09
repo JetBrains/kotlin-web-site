@@ -1,9 +1,30 @@
 @import "reset";
 @import "com/page-content/page-content";
 
-p, ul, li {
+p, ul, li, h4 {
   font-family: $font-family-sans-serif;
   font-weight: normal;
+}
+
+p {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 20px !important;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+ul {
+  & > li {
+    font-size: 18px;
+    &:before {
+      margin-left: -24px;
+    }
+  }
 }
 
 a {
