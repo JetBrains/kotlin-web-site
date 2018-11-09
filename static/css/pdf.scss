@@ -11,12 +11,19 @@ p {
 }
 
 h4 {
-   font-size: 20px !important;
+  font-size: 20px !important;
+}
+
+h3 {
+  font-weight: bold;
 }
 
 ul {
   & > li {
     font-size: 18px;
+    &:before {
+      margin-left: -24px;
+    }
   }
 }
 
