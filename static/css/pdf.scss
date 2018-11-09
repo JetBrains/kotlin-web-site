@@ -1,13 +1,17 @@
 @import "reset";
 @import "com/page-content/page-content";
 
-p, ul, li {
+p, ul, li, h4 {
   font-family: $font-family-sans-serif;
   font-weight: normal;
 }
 
 p {
   font-size: 18px;
+}
+
+h4 {
+   font-size: 20px !important;
 }
 
 ul {
