@@ -6,6 +6,16 @@ p, ul, li {
   font-weight: normal;
 }
 
+p {
+  font-size: 18px;
+}
+
+ul {
+  & > li {
+    font-size: 18px;
+  }
+}
+
 a {
   margin-left: 1px;
 }

@@ -21,11 +21,12 @@ PDF_CONFIG = {
     'margin-bottom': '0.8in',
     'margin-left': '0.7in',
     'print-media-type': '',
+    'no-images': '',
     'footer-center': '[page]',
     'footer-font-size': '9',
     'footer-spacing': '7',
     'enable-smart-shrinking': '',
-    'zoom': '1.3'
+    'zoom': '1.2'
 }
 
 PDF_TOC_CONFIG = {
