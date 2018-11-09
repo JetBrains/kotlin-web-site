@@ -25,7 +25,7 @@ PDF_CONFIG = {
     'footer-font-size': '9',
     'footer-spacing': '7',
     'enable-smart-shrinking': '',
-    'zoom': '0.9'
+    'zoom': '1.5'
 }
 
 PDF_TOC_CONFIG = {
