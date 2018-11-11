@@ -45,7 +45,7 @@ of `Derived` and the compiler will generate all the methods of `Base` that forwa
 
 [Overrides](classes.html#overriding-methods) work as you might expect: the compiler will use your `override` 
 implementations instead of those in the delegate object. If we were to add `override fun printMessage() { print("abc") }` to 
-`Derived`, the program would print "abc" instead of "10" when `print` is called:
+`Derived`, the program would print "abc" instead of "10" when `printMessage` is called:
 
 <div class="sample" markdown="1" theme="idea">
 
