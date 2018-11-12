@@ -325,6 +325,11 @@ def page(page_path):
     return process_page(page_path)
 
 
+@app.route('/404.html')
+def page_404():
+    return render_template('pages/404.html')
+
+
 @freezer.register_generator
 def api_page():
     api_folder = path.join(root_folder, 'api')
