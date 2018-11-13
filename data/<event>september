@@ -1,0 +1,91 @@
+<event>
+        <lang>en</lang>
+        <startDate>2018-09-11</startDate>
+        <endDate>2018-09-11</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Hadi Hariri</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>Functional Programming in Kotlin</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/252022603/</url>
+        <description>
+            <![CDATA[
+<p>In this talk we'll explain the basics of functional programming, where it fits in with the Object Orientation paradigm and how we can use functional programming in our every day work. We’ll cover important concepts functional programming such as: Lambdas, Higher Order Functions, Partial Functions, Monads and more, and see how we can apply these in a series of functional patterns to cut down our codebase and at the same time make sure we keep it maintainable.
+</p>
+]]>
+     </description>
+         </event>
+
+
+<event>
+        <lang>hg</lang>
+        <startDate>2018-09-11</startDate>
+        <endDate>2018-09-11</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Arold Ádám</speaker>
+        <title>HWSW free!</title>
+        <subject>Beszéljünk a Kotlin Standard Libraryről</subject>
+        <url>https://www.meetup.com/hwswfree/events/254035451/</url>
+        <description>
+            <![CDATA[
+<p> </p>
+]]>
+     </description>
+         </event>
+
+
+
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-09-11</startDate>
+        <endDate>2018-09-11</endDate>
+        <location>Scotch Plains, NJ</location>
+        <speaker>Barry Burd</speaker>
+        <title>Amateur Computer Group of New Jersey (ACGNJ)</title>
+        <subject> Kotlin 101</subject>
+        <url>https://www.meetup.com/Amateur-Computer-Group-of-New-Jersey-ACGNJ/events/252481273/</url>
+        <description>
+            <![CDATA[
+<p>The Kotlin language, developed by JetBrains, has been adopted as a first-class platform for Android application development. In this talk, Barry will introduce Kotlin programming and compare features of Kotlin with their counterparts in Java. He will also demonstrate the creation of simple apps for Android phones.</p>
+]]>
+     </description>
+         </event>
+
+
+
+
+<event>
+        <lang>es</lang>
+        <startDate>2018-09-11</startDate>
+        <endDate>2018-09-11</endDate>
+        <location>Guadalajara, Mexico</location>
+        <speaker>Sier Violencia</speaker>
+        <title>Guadalajara Kotlin User Group</title>
+        <subject>Workshop v0.2: Kotlin Koans</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-GDL/events/254244630/</url>
+        <description>
+            <![CDATA[
+<p> </p>
+]]>
+     </description>
+         </event>
+
+
+
+
+<event>
+        <lang>en</lang>
+        <startDate>2018-09-12</startDate>
+        <endDate>2018-09-12</endDate>
+        <location>Kitchener, ON</location>
+        <speaker>Dan Rusu</speaker>
+        <title>Kotlin Waterloo P2P</title>
+        <subject>Introduction to Kotli</subject>
+        <url>https://www.meetup.com/Kotlin-Waterloo-P2P/events/252746912/</url>
+        <description>
+            <![CDATA[
+<p>This is an introduction to the Kotlin programming language. We'll include a brief look at some awesome features of this modern language as well as the many benefits.</p>
+<p>Kotlin is a free and open source programming language designed by JetBrains. It can be used for Android, JVM server back-end, javascript, as well as native development such as IOS.</p>
+]]>
+     </description>
+         </event>
