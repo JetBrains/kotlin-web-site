@@ -95,7 +95,7 @@ In Java you specify `Dagger` as `annotationProcessor` (or `apt`) dependency:
 ```groovy
 dependencies {
   ...
-  annotationProcessor "com.google.dagger:dagger-compiler:$dagger-version"
+  annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 }
 ```
 </div>
@@ -107,7 +107,7 @@ In Kotlin you have to add the `kotlin-kapt` plugin to enable `kapt`, and then re
 apply plugin: 'kotlin-kapt'
 dependencies {
     ...
-    kapt "com.google.dagger:dagger-compiler:$dagger-version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }
 ```
 </div>
@@ -137,8 +137,8 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     ...
-    compile "com.jakewharton:butterknife:$butterknife-version"
-    kapt "com.jakewharton:butterknife-compiler:$butterknife-version"
+    compile "com.jakewharton:butterknife:$butterknife_version"
+    kapt "com.jakewharton:butterknife-compiler:$butterknife_version"
 }
 ```
 </div>
@@ -395,7 +395,7 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     ...
-    kapt "frankiesardo:auto-parcel:$latest-version"
+    kapt "frankiesardo:auto-parcel:$latest_version"
 }
 ```
 </div>
