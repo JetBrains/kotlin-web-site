@@ -54,7 +54,7 @@ abstract class PumpModule {
     abstract fun providePump(pump: Thermosiphon): Pump
 }
 
-@Module(includes = arrayOf(PumpModule::class))
+@Module(includes = [PumpModule::class])
 class DripCoffeeModule {
     @Provides @Singleton
     fun provideHeater(): Heater = ElectricHeater()
@@ -63,7 +63,7 @@ class DripCoffeeModule {
 </div>
 
 `@Module`-annotated classes define how to provide different objects.
-Note that when you pass an annotation argument as a vararg argument, you have to explicitly wrap it into `arrayOf`, like in `@Module(includes = arrayOf(PumpModule::class))` above.
+Note that when you pass an annotation argument as a vararg argument, you have to explicitly wrap it into an [array literal](/docs/reference/annotations.html#arrays-as-annotation-parameters) `[...]`, like in `@Module(includes = [PumpModule::class])` above.`
 
 To have a dependency-injected implementation generated for the type, annotate it with `@Component`.
 The generated class will have the name of this type prepended with Dagger, like `DaggerCoffeeShop` below:
@@ -71,7 +71,7 @@ The generated class will have the name of this type prepended with Dagger, like 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @Singleton
-@Component(modules = arrayOf(DripCoffeeModule::class))
+@Component(modules = [DripCoffeeModule::class])
 interface CoffeeShop {
     fun maker(): CoffeeMaker
 }
