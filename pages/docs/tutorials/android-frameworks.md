@@ -63,7 +63,7 @@ class DripCoffeeModule {
 </div>
 
 `@Module`-annotated classes define how to provide different objects.
-Note that when you pass an annotation argument as a vararg argument, you have to explicitly wrap it into `array literal [...]`, like in `@Module(includes = [PumpModule::class])` above.
+Note that when you pass an annotation argument as a vararg argument, you have to explicitly wrap it into an [array literal](/docs/reference/annotations.html#arrays-as-annotation-parameters) `[...]`, like in `@Module(includes = [PumpModule::class])` above.`
 
 To have a dependency-injected implementation generated for the type, annotate it with `@Component`.
 The generated class will have the name of this type prepended with Dagger, like `DaggerCoffeeShop` below:
