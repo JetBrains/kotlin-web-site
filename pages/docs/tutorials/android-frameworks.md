@@ -395,6 +395,7 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     ...
+    compileOnly "frankiesardo:auto-parcel:$latest_version"
     kapt "frankiesardo:auto-parcel:$latest_version"
 }
 ```
