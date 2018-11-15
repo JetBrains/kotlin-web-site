@@ -107,7 +107,7 @@ however, TypeScript does. The [Definitely Typed repository](https://github.com/D
 Using the tool `ts2kt` (TypeScript to Kotlin) we can convert any `d.ts` files to Kotlin. To install the tool we can use `npm`
 
 ```bash
-npm install ts2kt
+npm -g install ts2kt
 ```
 
 To convert a file we simply provide the input file, and optionally an output directory. The command below will convert the file `jquery.d.ts` in the current folder, which we've previously
