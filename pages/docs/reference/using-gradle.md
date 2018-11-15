@@ -380,8 +380,8 @@ A complete list of options for the Gradle tasks follows:
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
-| `apiVersion` | Allow to use declarations only from the specified version of bundled libraries | "1.0", "1.1", "1.2", "1.3 (EXPERIMENTAL)" |  |
-| `languageVersion` | Provide source compatibility with specified language version | "1.0", "1.1", "1.2", "1.3 (EXPERIMENTAL)" |  |
+| `apiVersion` | Allow to use declarations only from the specified version of bundled libraries | "1.0", "1.1", "1.2", "1.3", "1.4 (EXPERIMENTAL)" |  |
+| `languageVersion` | Provide source compatibility with specified language version | "1.0", "1.1", "1.2", "1.3", "1.4 (EXPERIMENTAL)" |  |
 
 ### Attributes specific for JVM
 
