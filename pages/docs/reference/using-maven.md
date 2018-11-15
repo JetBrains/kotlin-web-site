@@ -360,8 +360,8 @@ The following attributes are supported:
 | Name | Property name | Description | Possible values |Default value |
 |------|---------------|-------------|-----------------|--------------|
 | nowarn | | Generate no warnings | true, false | false |
-| languageVersion | kotlin.compiler.languageVersion | Provide source compatibility with specified language version |"1.0", "1.1", "1.2", "1.3 (EXPERIMENTAL)" | 
-| apiVersion | kotlin.compiler.apiVersion | Allow to use declarations only from the specified version of bundled libraries | "1.0", "1.1", "1.2", "1.3 (EXPERIMENTAL)" | 
+| languageVersion | kotlin.compiler.languageVersion | Provide source compatibility with specified language version |"1.0", "1.1", "1.2", "1.3", "1.4 (EXPERIMENTAL)" | 
+| apiVersion | kotlin.compiler.apiVersion | Allow to use declarations only from the specified version of bundled libraries | "1.0", "1.1", "1.2", "1.3", "1.4 (EXPERIMENTAL)" | 
 | sourceDirs | | The directories containing the source files to compile | | The project source roots
 | compilerPlugins | | Enabled [compiler plugins](compiler-plugins.html)  | | []
 | pluginOptions | | Options for compiler plugins  | | []
