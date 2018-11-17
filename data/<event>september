@@ -89,3 +89,39 @@
 ]]>
      </description>
          </event>
+         
+         
+         
+<event>
+        <lang>ru</lang>
+        <startDate>2018-12-01</startDate>
+        <endDate>2018-12-01</endDate>
+        <location>Samara, Russia</location>
+        <speaker>Nikita Puzankov</speaker>
+        <title>Kotlin Samara User Group</title>
+        <subject>Kotlin for Hackathons</subject>
+        <url>https://samara-it-community.timepad.ru/event/845193/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a good language in many aspects. This talk will tell you about the main features that make it the right choice in case of fast development or prototyping. The real example of a hackathon project in Kotlin and comparison with equivalent parts of code in Java.</p>
+]]>
+     </description>
+         </event>
+
+
+
+<event>
+        <lang>ru</lang>
+        <startDate>2018-12-01</startDate>
+        <endDate>2018-12-01</endDate>
+        <location>Samara, Russia</location>
+        <speaker>Nikita Fedyunin</speaker>
+        <title>Kotlin Samara User Group</title>
+        <subject>Kotlin. Is it broken or .. improved?</subject>
+        <url>https://samara-it-community.timepad.ru/event/845193/</url>
+        <description>
+            <![CDATA[
+<p>A story about how we fixed ugly api of android sdk (before google did it with KTX) and completely ruined an average library for integration tests.</p>
+]]>
+     </description>
+         </event>
