@@ -60,7 +60,7 @@ It is only necessary to have a `.h` file to run the `cinterop` tool. And we do n
 `lib.c` file, unless we want to compile and run the example.
 
 We still need to create a `.def` file to the `cinterop`. 
-More details on this are covered in the [Interop with C Libraries](interop-with-c.html) tutorial.
+More details on this are covered in the [Interop with C Libraries](interop-with-c.html) tutorial. It is enough for
 the tutorial to create the `lib.def` file with the following content:
 <div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
 
