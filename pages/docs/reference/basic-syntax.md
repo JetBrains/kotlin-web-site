@@ -104,7 +104,7 @@ See [Functions](functions.html).
 
 ## Defining variables
 
-Assign-once (read-only) local variable:
+Read-only local variables are defined using the keyword `val`. They can be assigned a value only once.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -122,7 +122,7 @@ fun main() {
 
 </div>
 
-Mutable variable:
+Variables that can be reassigned use the `var` keyword:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
