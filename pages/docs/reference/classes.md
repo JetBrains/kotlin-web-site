@@ -289,7 +289,7 @@ class MyView : View {
 ### Overriding Methods
 
 As we mentioned before, we stick to making things explicit in Kotlin. And unlike Java, Kotlin requires explicit
-annotations for overridable members (we call them *open*) and for overrides:
+modifiers for overridable members (we call them *open*) and for overrides:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -305,9 +305,9 @@ class Derived() : Base() {
 
 </div>
 
-The *override*{: .keyword } annotation is required for `Derived.v()`. If it were missing, the compiler would complain.
-If there is no *open*{: .keyword } annotation on a function, like `Base.nv()`, declaring a method with the same signature in a subclass is illegal,
-either with *override*{: .keyword } or without it. The *open*{: .keyword } annotation has no effect when added on members of a final class (e.g. a class with no *open*{: .keyword } annotation).
+The *override*{: .keyword } modifier is required for `Derived.v()`. If it were missing, the compiler would complain.
+If there is no *open*{: .keyword } modifier on a function, like `Base.nv()`, declaring a method with the same signature in a subclass is illegal,
+either with *override*{: .keyword } or without it. The *open*{: .keyword } modifier has no effect when added on members of a final class (i.e.. a class with no *open*{: .keyword } modifier).
 
 A member marked *override*{: .keyword } is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use *final*{: .keyword }:
 
