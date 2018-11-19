@@ -185,6 +185,25 @@ val x = MyClass.Companion
 ```
 </div>
 
+The name of a class used by itself (not as a qualifier to another name) acts as a reference to the companion
+object of the class (whether named or not):
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+class MyClass1 {
+    companion object Named { }
+}
+
+val x = MyClass1
+
+class MyClass2 {
+    companion object { }
+}
+
+val y = MyClass2
+```
+</div>
+
 Note that, even though the members of companion objects look like static members in other languages, at runtime those
 are still instance members of real objects, and can, for example, implement interfaces:
 
@@ -199,6 +218,8 @@ class MyClass {
         override fun create(): MyClass = MyClass()
     }
 }
+
+val f: Factory<MyClass> = MyClass
 ```
 </div>
 
