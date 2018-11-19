@@ -307,7 +307,7 @@ class Derived() : Base() {
 
 The *override*{: .keyword } annotation is required for `Derived.v()`. If it were missing, the compiler would complain.
 If there is no *open*{: .keyword } annotation on a function, like `Base.nv()`, declaring a method with the same signature in a subclass is illegal,
-either with *override*{: .keyword } or without it. In a final class (e.g. a class with no *open*{: .keyword } annotation), open members are prohibited.
+either with *override*{: .keyword } or without it. The *open*{: .keyword } annotation has no effect when added on members of a final class (e.g. a class with no *open*{: .keyword } annotation).
 
 A member marked *override*{: .keyword } is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use *final*{: .keyword }:
 
