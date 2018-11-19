@@ -55,7 +55,9 @@ represented by a bitcode file, which is a bitstream file format.
 We now need to compile our application, which is done using the compiler downloaded in the first step. If we have the `bin` folder
 correctly added to the path, we should be able to invoke the compiler using
 
-    kotlinc-native hello.kt
+```bash
+kotlinc-native hello.kt
+```
 
 which is telling the compiler to compile the source code `hello.kt`.
 
@@ -65,7 +67,9 @@ should be `program.kexe`
 The file is the actual binary produced for our target platform. The compiler provides us with a series of options, one of these
 being the ability to specify the output filename. In order to do this, we can use the -output (or -o) option
 
-    kotlinc-native -o first hello.kt
+```bash
+kotlinc-native -o first hello.kt
+```
 
 which would produce `first.kexe`
 
@@ -76,14 +80,12 @@ the usual system commands to rename files.
 
 To run the application, we can merely invoke it
 
-    ./program.kexe
+```bash
+./program.kexe
+```
 
 It's important to understand that this is now a native application, and no runtime or virtual machine is required. The output should be
 
-```
+```bash
 Hello Kotlin/Native!
 ```
-
-
-
-
