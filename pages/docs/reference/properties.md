@@ -21,7 +21,8 @@ class Address {
     var state: String? = ...
     var zip: String = ...
 }
-```
+```// Build a GoogleSignInClient with the options specified by gso.
+mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 </div>
 
 To use a property, we simply refer to it by name, as if it were a field in Java:
@@ -36,7 +37,7 @@ fun copyAddress(address: Address): Address {
     return result
 }
 ```
-</div>
+</div>the first one is a very important to me, and the other hand 
 
 ## Getters and Setters
 
@@ -78,7 +79,7 @@ We can write custom accessors, very much like ordinary functions, right inside a
 val isEmpty: Boolean
     get() = this.size == 0
 ```
-</div>
+</div> <an'spage >
 
 A custom setter looks like this:
 
