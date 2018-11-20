@@ -47,8 +47,8 @@ typedef struct {
   double b;
 } MyStruct;
 
-void struct_by_value(MyStruct s);
-void struct_by_pointer(MyStruct* s);
+void struct_by_value(MyStruct s) {}
+void struct_by_pointer(MyStruct* s) {}
 
 typedef union {
   int a;
@@ -56,8 +56,8 @@ typedef union {
   float c;
 } MyUnion;
 
-void union_by_value(MyUnion u);
-void union_by_pointer(MyUnion* u);
+void union_by_value(MyUnion u) {}
+void union_by_pointer(MyUnion* u) {}
 
 ``` 
 </div>
