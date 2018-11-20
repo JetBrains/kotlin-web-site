@@ -2,7 +2,7 @@
 title: Kotlin User Groups
 ---
 
-# Kotlin User Groups (161)
+# Kotlin User Groups (163)
  
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -22,6 +22,7 @@ title: Kotlin User Groups
  * [Bucharest Kotlin User Group](https://www.meetup.com/kug-bucharest/), Romania
  * [Budapest Kotlin User Group](https://www.facebook.com/groups/KotlinBudapest/), Hungary
  * [Cologne Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref), Germany
+ * [Copenhagen Kotlin User Group](https://www.meetup.com/Kotlin-Copenhagen/), Denmark
  * [Cosenza Kotlin User Group](https://www.facebook.com/groups/251720265392355), Italy
  * [Croatia Kotlin User Group](https://www.meetup.com/Croatia-Kotlin-User-Group-Meetup/), Croatia
  * [Czech Kotlin User Group](https://www.facebook.com/czkug/), Czech Republic
@@ -118,6 +119,7 @@ title: Kotlin User Groups
 ### North America
 
 * [Albuquerque Kotlin User Group](https://www.meetup.com/Kotlin-ABQ/), USA
+* [Austin Kotlin User Group](https://www.meetup.com/Austin-Kotlin-Meetup/), USA 
 * [Brooklyn (NY) Kotlin User Group](https://www.meetup.com/Brooklyn-Kotlin/), USA
 * [Cambridge Kotlin Office Hours](https://www.meetup.com/kotlin-office-hours/), USA
 * [Chicago Kotlin Users Group](http://www.meetup.com/Chicago-Kotlin/), USA
