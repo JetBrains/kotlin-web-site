@@ -2,6 +2,419 @@
 <events>
 
     <event>
+        <lang>ru</lang>
+        <startDate>2018-12-01</startDate>
+        <endDate>2018-12-01</endDate>
+        <location>Samara, Russia</location>
+        <speaker>Nikita Puzankov</speaker>
+        <title>Kotlin Samara User Group</title>
+        <subject>Kotlin for Hackathons</subject>
+        <url>https://samara-it-community.timepad.ru/event/845193/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a good language in many aspects. This talk will tell you about the main features that make it the right choice in case of fast development or prototyping. The real example of a hackathon project in Kotlin and comparison with equivalent parts of code in Java.</p>
+]]>
+        </description>
+    </event>
+    <event>
+        <lang>ru</lang>
+        <startDate>2018-12-01</startDate>
+        <endDate>2018-12-01</endDate>
+        <location>Samara, Russia</location>
+        <speaker>Nikita Fedyunin</speaker>
+        <title>Kotlin Samara User Group</title>
+        <subject>Kotlin. Is it broken or .. improved?</subject>
+        <url>https://samara-it-community.timepad.ru/event/845193/</url>
+        <description>
+            <![CDATA[
+<p>A story about how we fixed ugly api of android sdk (before google did it with KTX) and completely ruined an average library for integration tests.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-09-12</startDate>
+        <endDate>2018-09-12</endDate>
+        <location>Kitchener, ON</location>
+        <speaker>Dan Rusu, Kyle Platt</speaker>
+        <title>Kotlin Waterloo P2P</title>
+        <subject>Introduction to Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-Waterloo-P2P/events/252746912/</url>
+        <content>
+            <slides>https://speakerdeck.com/determinant/intro-to-kotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p>This is an introduction to the Kotlin programming language. We'll include a brief look at some awesome features of this modern language as well as the many benefits. Kotlin is a free and open source programming language designed by JetBrains. It can be used for Android, JVM server back-end, javascript, as well as native development such as IOS. Come and enjoy some refreshments while we discuss Kotlin, objectives, and plans for this group.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2018-08-23</startDate>
+        <endDate>2018-08-23</endDate>
+        <location>Novosibirsk, Russia</location>
+        <speaker>Ilya Matveyev</speaker>
+        <title>JUGNsk</title>
+        <subject>Kotlin вообще и Native в частности</subject>
+        <url>https://www.meetup.com/JUGNsk/events/253327525/</url>
+        <content>
+            <slides>
+                https://speakerdeck.com/jugnsk/jugnsk-meetup-number-3-il-ia-matvieiev-kotlin-voobshchie-i-native-v-chastnosti-1
+            </slides>
+        </content>
+        <description>
+            <![CDATA[
+<p>Наверняка многие слышали о таком языке для JVM, как Котлин. Однако далеко не все знают, что он также компилируется в JavaScript или в нативный код для различных платформ. В этом докладе мы постараемся пролить свет на поддержку мультиплатформенных проектов, а также расскажем о том, как мы компилируем Котлин в машинный код, какие сложности при этом встречаются и какие возможности дает это пользователю.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2018-08-23</startDate>
+        <endDate>2018-08-23</endDate>
+        <location>Almaty, Kazakhstan</location>
+        <speaker>Janibek Marshal</speaker>
+        <title>JDrinkUp Almaty</title>
+        <subject>Почему Android разработчики переходят на Kotlin</subject>
+        <url>https://www.meetup.com/DrinkUp-Almaty/events/253866558/</url>
+        <content>
+            <slides>https://speakerdeck.com/johnmars/pochiemu-android-razrabotchiki-pieriekhodiat-na-kotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-10-04</startDate>
+        <endDate>2018-10-04</endDate>
+        <location>Krakow, Poland</location>
+        <speaker>Piotr Ślesarew</speaker>
+        <title>MobiConf 2018</title>
+        <subject>Magic sugars that can make your Kotlin codebase happier</subject>
+        <url>https://2018.mobiconf.org/schedule/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=BGrZbMm1aHY</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Kotlin language brings tons of new concepts and features to your miserable programming life and it is really hard to use all of them in your daily duties. After almost two years of using Kotlin in production, the language itself can give me joy and satisfaction.</p>
+<p>How is it possible? Because of its many small sweet sugars 🍰. In this talk, I would like to share with you my favorite Kotlin candies that I discovered when I was in need of writing robust and concise components for Android applications.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-10-04</startDate>
+        <endDate>2018-10-04</endDate>
+        <location>Krakow, Poland</location>
+        <speaker>Ivan Morgillo</speaker>
+        <title>MobiConf 2018</title>
+        <subject>Kotlin coroutines – A story of an old code base, dozens of reactive streams, a new language and a new
+            way for concurrency.
+        </subject>
+        <url>https://2018.mobiconf.org/schedule/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=tOjdn1NDULM</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>In a world dominated by RX and Java based code bases, JetBrains introduced Kotlin and coroutines - a simpler way to do multithreading.</p>
+<p>This is the story of how I migrated an old project from a monolithic Java mess with improperly used RxJava to a cleaner architecture, based on Kotlin, coroutines and common sense.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2018-08-25</startDate>
+        <endDate>2018-08-25</endDate>
+        <location>Tokio, Japan</location>
+        <speaker>Toshihiro Yagi</speaker>
+        <title>Kotlin Fest 2018</title>
+        <subject>Kotlin コルーチンを 理解しよう</subject>
+        <url>https://kotlin.connpass.com/event/91666/</url>
+        <content>
+            <slides>https://speakerdeck.com/sys1yagi/kotlin-korutinwo-li-jie-siyou</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2018-08-25</startDate>
+        <endDate>2018-08-25</endDate>
+        <location>Tokio, Japan</location>
+        <speaker>Akinori Yamada</speaker>
+        <title>Kotlin Fest 2018</title>
+        <subject>Kotlin で愛でる Microservices</subject>
+        <url>https://kotlin.connpass.com/event/91666/</url>
+        <content>
+            <slides>https://speakerdeck.com/stormcat24/kotlin-fest</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-08-29</startDate>
+        <endDate>2018-08-29</endDate>
+        <location>Tallinn, Estonia</location>
+        <speaker>Anton Arhipov</speaker>
+        <title>Advanced Java Estonia</title>
+        <subject>Kotlin DSL in 60 minutes</subject>
+        <url>https://www.meetup.com/Advanced-Java-Estonia/events/253565335/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=lLUo5daDgAc</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Learn how to create type-safe and statically typed DSLs in Kotlin. The session starts with an introduction to DSL related Kotlin language features. Next, we create a simple DSL in a live coding session and then continue adding expressiveness and language features. We cover a number of examples, like JSON or XML builder's, data binding, configuration & template engines</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-09-13</startDate>
+        <endDate>2018-09-13</endDate>
+        <location>Tel Aviv-Yafo, Israel</location>
+        <speaker>Ohad Shai</speaker>
+        <title>KotlinTLV</title>
+        <subject>Klean that Code, Boil those Boilerplates</subject>
+        <url>https://www.meetup.com/KotlinTLV/events/254246117/</url>
+        <content>
+            <slides>https://speakerdeck.com/oshai/klean-that-code-boil-those-boilerplates</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-09-13</startDate>
+        <endDate>2018-09-13</endDate>
+        <location>Tel Aviv-Yafo, Israel</location>
+        <speaker>Yair Palti</speaker>
+        <title>KotlinTLV</title>
+        <subject>Static &amp; Singleton in Java vs Kotlin</subject>
+        <url>https://www.meetup.com/KotlinTLV/events/254246117/</url>
+        <content>
+            <slides>https://speakerdeck.com/yairp/static-and-singleton-in-java-vs-kotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-10-20</startDate>
+        <endDate>2018-10-20</endDate>
+        <location>Lugano (Ticino), Switzerland</location>
+        <speaker>Marharyta Nedzelska</speaker>
+        <title>Voxxed Days Ticino 2018</title>
+        <subject>Kotlin: lazy language for lazy people</subject>
+        <url>https://cfpvdt18.confinabox.com/talk/HIC-9228</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=xTYKuI4HSWc</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>A few years ago you had to work hard to succeed in some fields. Nowadays you don’t need to work hard but to work smart. So this means that most of the time laziness (of course not extremely) is useful for our productivity. On the other hand, laziness is extremely important when you work with a large amount of data and reduced space or power. In this talk we will try to cover all aspects of laziness in Kotlin: starting from lazy initialization of properties using delegates, lazy collections, sequences and, finally, laziness with coroutines. The main thing we would like to talk about is how to use this laziness and be productive with it. To see one more benefit of laziness in Kotlin we’ll refactor a real application to use lazy calculations.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-09-18</startDate>
+        <endDate>2018-09-18</endDate>
+        <location>Utrecht, Netherlands</location>
+        <speaker>Paulien van Alst</speaker>
+        <title>Utrecht Java User Group</title>
+        <subject>How to build a Kotlin enterprise application.</subject>
+        <url>https://www.meetup.com/Utrecht-Java-User-Group/events/250843631/</url>
+        <content>
+            <slides>https://github.com/utrechtjug/slides/blob/master/180918_KotlinWorkshop.pdf</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p>Kotlin is the new JVM language where all the best practices of programming come together. Looking forward to discover a language that will support you in writing readable and understandable code in the fewest lines possible? Without any help of any extra libraries such as Lombok, Guava and even more, Kotlin will challenge you to write code that even the business analyst should be able to understand. With Kotlin you can finally focus on the business features you want to implement instead working on the language itself. In this workshop, you will build a simple webservice in Kotlin and hopefully see how easy it can be to write new business functionality.
+- Exercise 1 : (data) classes, collections and types
+- Exercise 2 : inheritance, interfaces and extension functions
+- Exercise 3 : how to integrate Kotlin with Spring</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2018-09-11</startDate>
+        <endDate>2018-09-11</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Taro Nagasava</speaker>
+        <title>Kotlin Fest 2018</title>
+        <subject>How to Test Server-side Kotlin</subject>
+        <url>https://connpass.com/event/100752/</url>
+        <content>
+            <slides>https://speakerdeck.com/ntaro/how-to-test-server-side-kotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-09-17</startDate>
+        <endDate>2018-09-17</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Tomás Hanley</speaker>
+        <title>Dublin Kotlin User Group</title>
+        <subject>Asynchronous Kotlin Web Server with Ktor</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/</url>
+        <content>
+            <slides>https://slides.com/tomashanley/kotlin-intro-starting-the-koans-4-7-8/#/</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p>In this session, we’re going to explore how to create a standalone server application using Ktor. We'll work through a series of exercises to get familiar with Ktor, with the idea of build a web service for ordering food for our drone delivery app.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-09-22</startDate>
+        <endDate>2018-09-22</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Lukas Lechner</speaker>
+        <title>droidcon Vienna 2018</title>
+        <subject>How 'Effective Java' influenced Kotlin</subject>
+        <url>https://droidcon.at/schedule/#session-112</url>
+        <content>
+            <slides>https://speakerdeck.com/lukle/how-effective-java-influenced-kotlin</slides>
+        </content>
+        <description>
+            <![CDATA[
+<p>One of the most popular Java books is 'Effective Java' from Joshua Bloch, which describes how to avoid common mistakes, how to deal with Java's weaknesses, and how best practices for the language look like. When Jetbrains started to create a 'better Java' with Kotlin, a lot of ideas about how to make a better language came from the information of 'Effective Java' and lots of design decisions are based on the book. In this talk the audience will learn how the book influenced the language design and the compiler of Kotlin and in what way the book is deeply ingrained into the language.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2018-10-07</startDate>
+        <endDate>2018-10-07</endDate>
+        <location>Minsk, Belarus</location>
+        <speaker>Marcin Moskala</speaker>
+        <title>Mobile Optimazed 2018</title>
+        <subject>Kotlin Coroutines in action</subject>
+        <url>https://moconf.by/#talk_android_moskala</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Coroutines fascinate from its early beta. They are a new way to write asynchronous and non-blocking code. They can be thought of as light-weight threads without having to deal with all the problems that threads bring to the table.</p>
+<p>In this talk Marcin will show how to use Kotlin Coroutines and what makes them so special and so efficient. He will also discuss if they are an alternative to RxJava.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2018-09-06</startDate>
+        <endDate>2018-09-06</endDate>
+        <location>Minsk, Belarus</location>
+        <speaker>Sergey Kryukov</speaker>
+        <title>Belarus Kotlin User Group</title>
+        <subject>Введение в OPENRNDR</subject>
+        <url>https://bkug.by/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=5UPO553U-w4</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Продолжаю тему “нецелевого” использования языка Kotlin. В этот раз поговорим об OPENRNDR — фреймворке для креативного программирования, как убеждают его авторы. Так ли это? Проверим на практике.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2018-09-06</startDate>
+        <endDate>2018-09-06</endDate>
+        <location>Minsk, Belarus</location>
+        <speaker>Roman Artemiev</speaker>
+        <title>Belarus Kotlin User Group</title>
+        <subject>Kotlin/JS</subject>
+        <url>https://bkug.by/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=X4-GgdAG0ZM</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>В докладе речь пойдет про Kotlin/JS, я расскажу что это такое и зачем нужно в контексте Kotlin MPP (Multiplatform Projects). Покопаемся под капотом у компилятора, познакомимся с полезными инструментами для разработки на Kotlin/JS. Немного затронем будущее этого направления языка, а также постараемся ответить на самые волнующие сообщество вопросы. Приходите, будет интересно!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2018-10-03</startDate>
+        <endDate>2018-10-03</endDate>
+        <location>Paris, France</location>
+        <speaker>Sergio Dos Santos, Benjamin Lacroix</speaker>
+        <title>Le Mois Du Kotlin</title>
+        <subject>Kotlin ? D’accord, mais aide moi à convaincre mon PO !</subject>
+        <url>https://le-mois-du-kotlin.xebia.fr/#schedule</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=LdHVbhcPxNc</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Kotlin fait petit à petit son chemin dans les entreprises, et pas seulement sur Android ! Quels sont les avantages du langage par rapport à Java, par rapport aux autres langages back-end et même par rapport à Javascript ? D'où vient Kotlin ? Faut-il migrer les applications et former les équipiers ? Peut-on réaliser des applications de qualité, qui dureront dans le temps ? Quels sont les outils à notre disposition ?
+Si vous vous posez toutes ces questions, ou si vous souhaitez seulement en savoir plus sur ce prochain langage d'importance, venez, cette conférence est faite pour vous !</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2018-10-03</startDate>
+        <endDate>2018-10-03</endDate>
+        <location>Paris, France</location>
+        <speaker>Simone Civetta</speaker>
+        <title>Le Mois Du Kotlin</title>
+        <subject>Frameworks multi-plateformes partagés avec Kotlin / Native</subject>
+        <url>https://le-mois-du-kotlin.xebia.fr/#schedule</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=avGd1PJqKZE</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Bien que la création d'applications inter-plates-formes complètes puisse souvent s'avérer être une mauvaise idée, une logique spécifique à un client peut grandement bénéficier d'un code unique, permettant à la fois d'écrire et de tester le code. Depuis fin 2016, Kotlin/Native peut compiler du code Kotlin sous une forme binaire, qui peut ensuite être intégrée dans une application native. Dans cette présentation, vous apprendrez pourquoi il est logique et efficace d'exploiter ces fonctionnalités expérimentales et de créer un module multi-plateforme réutilisable sur Android et iOS.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2018-06-14</startDate>
         <endDate>2018-06-14</endDate>
