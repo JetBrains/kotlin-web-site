@@ -53,7 +53,9 @@ apply plugin: "kotlin"
 
 Or, starting with Kotlin 1.1.1, the plugin can be applied using the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block):
 
-<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only>
 
 ```groovy
 plugins {
@@ -62,12 +64,10 @@ plugins {
 ```
 
 </div>
+</div>
 
-The `version` should be literal in this block, and it cannot be applied from another build script.
-
-With Gradle Kotlin DSL, apply the plugin as follows:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
 plugins {
@@ -76,6 +76,9 @@ plugins {
 ```
 
 </div>
+</div>
+
+The `version` should be literal in this block, and it cannot be applied from another build script.
 
 Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
 
@@ -93,7 +96,8 @@ project
 
 The corresponding *sourceSets* property should be updated if not using the default convention:
 
-<div class="sample" markdown="1" mode="groovy" theme="idea">
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
 sourceSets {
@@ -102,6 +106,20 @@ sourceSets {
 }
 ```
 
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+sourceSets {
+    main.kotlin.srcDir("src/main/myKotlin")
+    main.java.srcDir("src/main/myJava")
+}
+```
+
+</div>
 </div>
 
 With Gradle Kotlin DSL, configure source sets with `java.sourceSets { ... }` instead.
