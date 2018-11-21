@@ -46,7 +46,7 @@ konanArtifacts {
 ```
 </div>
 
-The `buildscript` section defines the repositories and dependencies required for the Gradle plugin for Kotlin/Native which is `konan`. Then come the actual parameters for compiling:
+The `plugins` block enables the Gradle plugin for Kotlin/Native which is `konan`. Then come the actual parameters for compiling:
 
 1. The `konan.targets` can contain one or more target platforms.
 
