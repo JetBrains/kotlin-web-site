@@ -190,6 +190,9 @@ fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... 
 
 Annotating type arguments works with Java 8 target or higher and requires the nullability annotations to support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above).
 
+> Note: due to the current technical limitations, the IDE does not correctly recognize these annotations on type arguments in compiled Java libraries that are used as dependencies.
+{:.note}
+
 ### JSR-305 Support
 
 The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined
