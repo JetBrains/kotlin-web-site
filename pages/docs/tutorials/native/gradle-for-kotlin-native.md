@@ -36,7 +36,8 @@ plugins {
   id 'org.jetbrains.kotlin.konan' version '0.9.1'
 }
 
-konan.targets = [ 'macos_x64' ]
+// optinally specify the target (e.g. for iOS)
+// konan.targets = [ 'macos_x64' ]
 
 konanArtifacts {
   program("app") {
@@ -100,8 +101,6 @@ In Gradle we can combine all of this in a single script:
 plugins {
   id 'org.jetbrains.kotlin.konan' version '0.9.1'
 }
-
-konan.targets = [ 'macos_x64' ]
 
 konanArtifacts {
     library('utils') {
