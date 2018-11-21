@@ -72,7 +72,30 @@ Once we run the application (using this previous run configuration), and on succ
 
 ![Browser Run]({{ url_for('tutorial_img', filename='httpservlets/browser.png') }})
 
+We can also run the project from the command line, without using IntelliJ IDEA Ultimate, if we apply the gretty plugin.
+In order to do this, we need to make the following changes to build.gradle:
 
+<div class="sample" markdown="1" theme="idea" mode="groovy">
+``` groovy
+buildscript {
+    dependencies {
+        ...
+        classpath 'org.akhikhl.gretty:gretty:+'   // Add this line
+    }
+}
+...
+apply plugin: 'org.akhikhl.gretty'  // Add this line
+...
 
+gretty {   // Add these lines
+    contextPath = '/'
+    servletContainer = 'jetty9'
+}
 
+```
+</div>
+
+Once we do that, we can start the app by running the following command
+
+    gradle appStart
 
