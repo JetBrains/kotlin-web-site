@@ -47,8 +47,8 @@ in a `.def` file after the special `---` separator line:
 
 typedef int  (*MyFun)(int);
 
-void  accept_fun(MyFun f);
-MyFun supplies_fun();
+void  accept_fun(MyFun f) {}
+MyFun supplies_fun() {}
 
 ``` 
 </div>
