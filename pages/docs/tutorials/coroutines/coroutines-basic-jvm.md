@@ -191,7 +191,7 @@ Now, let's make sure that coroutines are really cheaper than threads. How about 
 ```kotlin
 val c = AtomicLong()
 
-for (i in 1..1_000_000)
+for (i in 1..1_000_000L)
     thread(start = true) {
         c.addAndGet(i)
     }
@@ -210,8 +210,8 @@ Let's try the same with coroutines:
 ```kotlin
 val c = AtomicLong()
 
-for (i in 1..1_000_000)
-    launch {
+for (i in 1..1_000_000L)
+    GlobalScope.launch {
         c.addAndGet(i)
     }
 
@@ -236,7 +236,7 @@ Let's create a million coroutines again, keeping their `Deferred` objects. Now t
 
 ```kotlin
 val deferred = (1..1_000_000).map { n ->
-    async {
+    GlobalScope.async {
         n
     }
 }
@@ -279,7 +279,7 @@ Let's also make sure that our coroutines actually run in parallel. If we add a 1
 
 ```kotlin
 val deferred = (1..1_000_000).map { n ->
-    async {
+    GlobalScope.async {
         delay(1000)
         n
     }
@@ -327,7 +327,7 @@ Now when we call `workload()` from a coroutine, the compiler knows that it may s
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-async {
+GlobalScope.async {
     workload(n)
 }
 ```
