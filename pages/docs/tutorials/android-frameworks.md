@@ -12,7 +12,7 @@ The Android world has many popular frameworks simplifying development.
 You can use the same frameworks if you develop in Kotlin, often as easily as you'd do that in Java. 
 This tutorial provides examples and highlights the differences in settings.
 
-We'll look at [Dagger](android-frameworks.html#dagger), [Butterknife](android-frameworks.html#butterknife), [Data Binding](android-frameworks.html#data-binding), [Auto-parcel](android-frameworks.html#auto-parcel) and [DBFlow](android-frameworks.html#dbflow) (other frameworks can be set up similarly).
+We'll look at [Dagger](android-frameworks.html#dagger), [Butterknife](android-frameworks.html#butterknife), [Data Binding](android-frameworks.html#data-binding) and [DBFlow](android-frameworks.html#dbflow) (other frameworks can be set up similarly).
 All these frameworks work through annotation processing: you annotate the code to have the boiler-plate code generated for you.
 Annotations allow to hide all the verbosity and keep your code simple, and if you need to understand what actually happens at runtime, you can look at the generated code.
 Note that all these frameworks generate source code in Java, not Kotlin.
@@ -382,57 +382,3 @@ Read all the details [here](https://agrosner.gitbooks.io/dbflow/content/KotlinSu
 
 You can browse the converted [sample application](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-dbflow).
 
-
-### Auto-Parcel
-
-[Auto-Parcel](https://github.com/frankiesardo/auto-parcel) allows to generate `Parcelable` values for classes annotated with `@AutoValue`.
-
-When you specify the dependency you again use `kapt` as annotation processor to take care of Kotlin files: 
-
-<div class="sample" markdown="1" theme="idea" mode="groovy">
-```groovy
-apply plugin: 'kotlin-kapt'
-
-dependencies {
-    ...
-    kapt "frankiesardo:auto-parcel:$latest_version"
-}
-```
-</div>
-
-The converted [sample](https://github.com/frankiesardo/auto-parcel/tree/master/sample) can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-auto-parcel).
-
-You can annotate Kotlin classes with `@AutoValue`.
-Let's look at the converted [`Address`](https://github.com/frankiesardo/auto-parcel/blob/master/sample/src/main/java/model2/Address.java) class for which the `Parcelable` implementation will be generated:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
-@AutoValue
-abstract class Address : Parcelable {
-    abstract fun coordinates(): DoubleArray
-    abstract fun cityName(): String
-
-    companion object {
-        fun create(coordinates: DoubleArray, cityName: String): Address {
-            return builder().coordinates(coordinates).cityName(cityName).build()
-        }
-        
-        fun builder(): Builder = `$AutoValue_Address`.Builder()
-    }
-    
-    @AutoValue.Builder
-    interface Builder {
-        fun coordinates(x: DoubleArray): Builder
-        fun cityName(x: String): Builder
-        fun build(): Address
-    }
-}
-```
-</div>
-
-Kotlin doesn't have `static` methods, so they should be place inside a [`companion object`](/docs/reference/object-declarations.html#companion-objects).
-If you still want to use them from Java code, annotate them with [`@JvmStatic`](/docs/reference/java-to-kotlin-interop.html#static-methods).
-
-If you need to access a Java class or method with a name that is not a valid identifier in Kotlin, you can [escape the name](/docs/reference/java-interop.html#escaping-for-java-identifiers-that-are-keywords-in-kotlin) with the  backtick (\`) character, like in accessing the generated class \``$AutoValue_Address`\`.
-  
-Overall the converted code looks very similar to the original Java code.
