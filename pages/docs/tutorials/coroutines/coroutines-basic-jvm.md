@@ -142,7 +142,7 @@ fun main(args: Array<String>) {
     println("Start")
 
     // Start a coroutine
-    launch {
+    GlobalScope.launch {
         delay(1000)
         println("Hello")
     }
