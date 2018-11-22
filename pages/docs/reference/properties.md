@@ -71,7 +71,8 @@ val inferredType = 1 // has type Int and a default getter
 ```
 </div>
 
-We can write custom accessors, very much like ordinary functions, right inside a property declaration. Here's an example of a custom getter:
+We can define custom accessors for a property. If we define a custom getter, it will be called every time we access
+the property (this allows us to implement a computed property). Here's an example of a custom getter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
@@ -80,7 +81,7 @@ val isEmpty: Boolean
 ```
 </div>
 
-A custom setter looks like this:
+If we define a custom setter, it will be called every time we assign a value to the property. A custom setter looks like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
