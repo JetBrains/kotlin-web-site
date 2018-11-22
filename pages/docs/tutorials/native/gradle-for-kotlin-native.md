@@ -125,8 +125,9 @@ The output structure after running `gradle build` should be:
 
 We can execute our application by referencing it directly or use Gradle via:
 
+```bash
     gradle run
-
+```
     
 resulting in:
     
