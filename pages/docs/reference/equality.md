@@ -26,6 +26,8 @@ I.e. if `a` is not `null`, it calls the `equals(Any?)` function, otherwise (i.e.
 
 Note that there's no point in optimizing your code when comparing to `null` explicitly: `a == null` will be automatically translated to `a === null`.
 
+Structural equality has nothing to do with comparison defined by the `Comparable<...>` interface, so only a custom `equals(Any?)` implementation may affect the behavior of the operator.
+
 ## Floating point numbers equality
 
 When an equality check operands are statically known to be `Float` or `Double` (nullable or not), the check follows the IEEE 754 
