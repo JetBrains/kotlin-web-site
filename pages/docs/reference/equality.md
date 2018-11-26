@@ -26,7 +26,7 @@ I.e. if `a` is not `null`, it calls the `equals(Any?)` function, otherwise (i.e.
 
 Note that there's no point in optimizing your code when comparing to `null` explicitly: `a == null` will be automatically translated to `a === null`.
 
-To provide a custom equals check implementation, override the [`equal(other: Any?): Boolean`](/api/latest/jvm/stdlib/kotlin/-any/equals.html) function. Functions with the same name and other signatures, like `equals(other: Foo)`, don't affect equality checks with the operators `==` and `!=`.
+To provide a custom equals check implementation, override the [`equals(other: Any?): Boolean`](/api/latest/jvm/stdlib/kotlin/-any/equals.html) function. Functions with the same name and other signatures, like `equals(other: Foo)`, don't affect equality checks with the operators `==` and `!=`.
 
 Structural equality has nothing to do with comparison defined by the `Comparable<...>` interface, so only a custom `equals(Any?)` implementation may affect the behavior of the operator. 
 
