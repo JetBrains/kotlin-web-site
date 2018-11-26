@@ -82,8 +82,9 @@ At this point, we should be able to compile and run the Android application
 # Creating the Shared Module
 
 The goal of the tutorial is to demonstrate Kotlin code re-use between Android and iOS. Let's start
-by creating the `SharedCode` project with the code we will share between platforms. 
-We will create several new files in our project.
+by creating the `SharedCode` sub-project in our Gradle project. The source code from the `SharedCode`
+project will be shared between platforms.
+We will create several new files in our project to implement that.
 
 ## Adding Kotlin Sources
 
