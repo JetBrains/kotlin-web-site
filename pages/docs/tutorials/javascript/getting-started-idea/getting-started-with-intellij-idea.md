@@ -74,6 +74,8 @@ in the console debug window.
 
 ## Debugging the application
 
+`This feature is only supported in the Ultimate edition.`
+
 In order to debug the application using IntelliJ IDEA, we need to perform two steps:
 
 1. Install the [JetBrains Chrome Extension](https://chrome.google.com/webstore/detail/jetbrains-ide-support/hmhgeddbohgjknpmjagkdomcpobmllji?hl=en) which allows debugging inside IntelliJ IDEA via Chrome. This is useful for any type
