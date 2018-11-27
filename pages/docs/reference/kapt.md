@@ -16,30 +16,36 @@ Please read below about how to apply the *kapt* plugin to your Gradle/Maven buil
 
 Apply the `kotlin-kapt` Gradle plugin:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
 ```groovy
 apply plugin: 'kotlin-kapt'
 ```
+
 </div>
 
 Or you can apply it using the plugins DSL:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
 ```groovy
 plugins {
     id "org.jetbrains.kotlin.kapt" version "{{ site.data.releases.latest.version }}"
 }
 ```
+
 </div>
 
 Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
 dependencies {
     kapt 'groupId:artifactId:version'
 }
 ```
+
 </div>
 
 If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config) for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`. If your project contains Java classes, `kapt` will also take care of them.
@@ -50,14 +56,16 @@ If you use annotation processors for your `androidTest` or `test` sources, the r
 
 Use `arguments {}` block to pass arguments to annotation processors:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
 kapt {
     arguments {
         arg("key", "value")
     }
 }
 ```
+
 </div>
 
 ## Java Compiler Options
@@ -65,8 +73,9 @@ kapt {
 Kapt uses Java compiler to run annotation processors.  
 Here is how you can pass arbitrary options to javac:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
 kapt {
     javacOptions {
         // Increase the max count of errors from annotation processors.
@@ -75,23 +84,28 @@ kapt {
     }
 }
 ```
+
 </div>
 
 ## Non Existent Type Correction
 
 Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures. By default, Kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`, but you can change this behavior. Add the additional flag to the `build.gradle` file to enable error type inferring in stubs:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
 kapt {
     correctErrorTypes = true
 }
 ```
+
 </div>
 
 ## Using in Maven
 
 Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`: 
+
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
 
 ```xml
 <execution>
@@ -115,6 +129,8 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
     </configuration>
 </execution>
 ```
+
+</div>
  
 You can find a complete sample project showing the use of Kotlin, Maven and Dagger in the
 [Kotlin examples repository](https://github.com/JetBrains/kotlin-examples/tree/master/maven/dagger-maven-example).
@@ -128,9 +144,13 @@ Kapt compiler plugin is available in the binary distribution of the Kotlin compi
 
 You can attach the plugin by providing the path to its JAR file using the `Xplugin` kotlinc option:
 
+<div class="sample" markdown="1" mode="shell" theme="idea">
+
 ```bash
 -Xplugin=$KOTLIN_HOME/lib/kotlin-annotation-processing.jar
 ```
+
+</div>
 
 Here is a list of the available options:
 
@@ -153,6 +173,8 @@ The plugin option format is: `-P plugin:<plugin id>:<key>=<value>`. Options can 
 
 An example:
 
+<div class="sample" markdown="1" mode="shell" theme="idea">
+
 ```bash
 -P plugin:org.jetbrains.kotlin.kapt3:sources=build/kapt/sources
 -P plugin:org.jetbrains.kotlin.kapt3:classes=build/kapt/classes
@@ -164,6 +186,7 @@ An example:
 -P plugin:org.jetbrains.kotlin.kapt3:correctErrorTypes=true
 ```
 
+</div>
 
 ## Generating Kotlin Sources
 
@@ -180,6 +203,7 @@ Note that Kapt does not support multiple rounds for the generated Kotlin files.
 Here is how you can encode options by yourself:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun encodeList(options: Map<String, String>): String {
     val os = ByteArrayOutputStream()
@@ -195,4 +219,5 @@ fun encodeList(options: Map<String, String>): String {
     return Base64.getEncoder().encodeToString(os.toByteArray())
 }
 ```
+
 </div>
