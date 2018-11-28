@@ -10,19 +10,48 @@ title: "Building Multiplatform Projects with Gradle"
 and tooling features described in this document are subject to change in future Kotlin versions.
 {:.note}
 
-This document describes how [Kotlin multiplatform projects](multiplatform.html) are configured and built using 
-Gradle. Only Gradle versions 4.7 and above can be used, older Gradle versions are not supported.
+This document explains the structure of [Kotlin multiplatform projects](multiplatform.html) and describes how 
+those are configured and built using Gradle. Only Gradle versions 4.7 and above can be used, older Gradle versions are 
+not supported.
 
-Gradle Kotlin DSL support has not been implemented yet for multiplatform projects, it will be added in the future 
-updates. Please use the Groovy DSL in the build scripts.
+## Project structure
+
+The layout of a Kotlin multiplatform project is constructed out of the following building blocks:
+
+* A [target](#setting-up-targets) is a part of the build that is responsible for building, [testing](#running-tests), 
+and packaging a complete piece of software for one of the platforms. Therefore, a multiplatform project usually contains 
+multiple targets.
+
+* Building each target involves compiling one or more sets of Kotlin sources. In other words, a target may have one or 
+more *compilations*, for example, one for production sources, the other for tests.
+
+* The Kotlin sources are arranged into [source sets](#configuring-source-sets). In addition to source files and resources, each source set may 
+have its own dependencies. Source sets form a hierarchy that is built with the *depends on* relation. 
+
+Each compilation has a default source set, which is the place for sources and dependencies that are specific to that 
+compilation. The default source set is also used for directing other source sets to the compilation.
+
+Here's an illustration of what a project targeting the JVM and JS looks like:
+
+![Project structure]({{ url_for('asset', path='images/reference/building-mpp-with-gradle/mpp-structure-default-jvm-js.png') }})
+
+Here, the two targets, `jvm` and `js`, each compile the production and test sources, and some of the sources are shared.
+The production sources for the JVM target are compiled by its `main` compilation and therefore include the sources and 
+dependencies from the source sets `jvmMain` and `commonMain` (due to the *depends on* relation). 
+
+This layout is achieved by just creating the two targets, with no additional configuration for the compilations and 
+source sets: those are [created by default](#default-project-layout) for these targets.
+
+In further sections, these concepts are described in more detail along with their available options.
 
 ## Setting up a Multiplatform Project
 
 You can create a new multiplatform project in the IDE by selecting one of the multiplatform project templates in the 
 New Project dialog under the "Kotlin" section. 
 
-For example, if you choose "Kotlin (Multiplatform Library)", a library project is created that has three [targets](#setting-up-targets), one 
-for the JVM, one for JS, and one for the Native platform that you are using. These are configured in the `build.gradle`
+For example, if you choose "Kotlin (Multiplatform Library)", a library project is created that has three 
+[targets](#setting-up-targets), one for the JVM, one for JS, and one for the Native platform that you are using. 
+These are configured in the `build.gradle`
 script in the following way:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
