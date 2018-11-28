@@ -22,6 +22,7 @@ PDF_CONFIG = {
     'margin-left': '0.7in',
     'print-media-type': '',
     'no-images': '',
+    'dpi': '96',
     'footer-center': '[page]',
     'footer-font-size': '9',
     'footer-spacing': '7',
