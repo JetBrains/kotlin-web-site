@@ -118,7 +118,7 @@ with receiver instead, specify the type explicitly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-val isEmptyStringList: List<String>.() -> Boolean = List::isEmpty 
+val isEmptyStringList: List<String>.() -> Boolean = List<String>::isEmpty 
 ```
 </div>
 
