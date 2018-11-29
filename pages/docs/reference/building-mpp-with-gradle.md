@@ -25,8 +25,9 @@ multiple targets.
 * Building each target involves compiling one or more sets of Kotlin sources. In other words, a target may have one or 
 more *compilations*, for example, one for production sources, the other for tests.
 
-* The Kotlin sources are arranged into [source sets](#configuring-source-sets). In addition to source files and resources, each source set may 
-have its own dependencies. Source sets form a hierarchy that is built with the *depends on* relation. 
+* The Kotlin sources are arranged into [source sets](#configuring-source-sets). In addition to Kotlin source files and 
+resources, each source set may have its own dependencies. Source sets form a hierarchy that is built with 
+the *depends on* relation. 
 
 Each compilation has a default source set, which is the place for sources and dependencies that are specific to that 
 compilation. The default source set is also used for directing other source sets to the compilation.
@@ -36,11 +37,13 @@ Here's an illustration of what a project targeting the JVM and JS looks like:
 ![Project structure]({{ url_for('asset', path='images/reference/building-mpp-with-gradle/mpp-structure-default-jvm-js.png') }})
 
 Here, the two targets, `jvm` and `js`, each compile the production and test sources, and some of the sources are shared.
-The production sources for the JVM target are compiled by its `main` compilation and therefore include the sources and 
-dependencies from the source sets `jvmMain` and `commonMain` (due to the *depends on* relation). 
-
 This layout is achieved by just creating the two targets, with no additional configuration for the compilations and 
 source sets: those are [created by default](#default-project-layout) for these targets.
+
+In the example above, the production sources for the JVM target are compiled by its `main` compilation and therefore 
+include the sources and dependencies from the source sets `jvmMain` and `commonMain` (due to the *depends on* relation):
+
+![Project structure]({{ url_for('asset', path='images/reference/building-mpp-with-gradle/mpp-one-compilation.png') }})
 
 In further sections, these concepts are described in more detail along with their available options.
 
