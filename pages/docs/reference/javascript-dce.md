@@ -90,6 +90,7 @@ can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gra
 
 ## Notes
 
+* As for 1.3.x versions, DCE tool is an experimental feature. This does not mean we are going to remove it, or that it's unusable for production. This means that we can change names of configuration parameters, default settings, etc.
 * Currently you should not use DCE tool if your project is a shared library.
   It's only applicable when you are developing an application (which may use shared libraries).
    The reason is: DCE does not know which parts of the library are going to be used by the user's application.
