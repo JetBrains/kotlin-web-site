@@ -71,7 +71,7 @@ maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 Kotlin/Native plugin requires a newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
 and use the following `distrubutionUrl`:
 ```
-distributionUrl=https\://services.gradle.org/distributions/gradle-4.7-all.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.2-all.zip
 ```
 
 We need to refresh the Gradle Project settings to apply these changes. Click on the `Sync Now` link or 
@@ -171,6 +171,7 @@ we need to create the `SharedCode/build.gradle` file with the following content:
 ```groovy
 apply plugin: 'kotlin-multiplatform'
 
+
 kotlin {
     targets {
         final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") \
@@ -198,6 +199,27 @@ kotlin {
 configurations {
     compileClasspath
 }
+
+task packForXCode(type: Sync) {
+    final File frameworkDir = new File(buildDir, "xcode-frameworks")
+    final String mode = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
+
+    inputs.property "mode", mode
+    dependsOn kotlin.targets.iOS.compilations.main.linkTaskName("FRAMEWORK", mode)
+
+    from { kotlin.targets.iOS.compilations.main.getBinary("FRAMEWORK", mode).parentFile }
+    into frameworkDir
+
+    doLast {
+        new File(frameworkDir, 'gradlew').with {
+            text = "#!/bin/bash\nexport 'JAVA_HOME=${System.getProperty("java.home")}'\ncd '${rootProject.rootDir}'\n./gradlew \$@\n"
+            setExecutable(true)
+        }
+    }
+}
+
+tasks.build.dependsOn packForXCode
+
 
 ```
 </div>
@@ -396,7 +418,7 @@ cd "$SRCROOT/../../SharedCode/build/xcode-frameworks"
 </div>
 
 Note, here we use the `$SRCROOT/../..` as the path to the root of our Gradle project.
-It can depend on the way the Xcode project was created created. Also, we use the generated
+It can depend on the way the Xcode project was created. Also, we use the generated
 `SharedCode/build/xcode-frameworks/gradlew` script,
 the `packForXCode` task generates it. We assumed that the Gradle build is executed at least once,
 before opening the Xcode project on a fresh machine
