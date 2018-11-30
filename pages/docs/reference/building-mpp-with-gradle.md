@@ -18,19 +18,21 @@ not supported.
 
 The layout of a Kotlin multiplatform project is constructed out of the following building blocks:
 
-* A [target](#setting-up-targets) is a part of the build that is responsible for building, [testing](#running-tests), 
+* A [target](#setting-up-targets) is a part of the build that is responsible for building, testing, 
 and packaging a complete piece of software for one of the platforms. Therefore, a multiplatform project usually contains 
-multiple targets.
+multiple targets. 
 
-* Building each target involves compiling one or more sets of Kotlin sources. In other words, a target may have one or 
-more *compilations*, for example, one for production sources, the other for tests.
+* Building each target involves compiling Kotlin sources once or multiple times. In other words, a target may have one or 
+more [compilations](#configuring-compilations). For example, one compilation for production sources, the other for tests.
 
 * The Kotlin sources are arranged into [source sets](#configuring-source-sets). In addition to Kotlin source files and 
 resources, each source set may have its own dependencies. Source sets form a hierarchy that is built with 
-the *depends on* relation. 
+the *"depends on"* relation. A source set by itself is platform agnostic, but it may contain platform-specific code and 
+dependencies if it's only compiled for a single platform.
 
 Each compilation has a default source set, which is the place for sources and dependencies that are specific to that 
-compilation. The default source set is also used for directing other source sets to the compilation.
+compilation. The default source set is also used for directing other source sets to the compilation by the means of the 
+"depends on" relation.
 
 Here's an illustration of what a project targeting the JVM and JS looks like:
 
@@ -43,14 +45,17 @@ source sets: those are [created by default](#default-project-layout) for these t
 In the example above, the production sources for the JVM target are compiled by its `main` compilation and therefore 
 include the sources and dependencies from the source sets `jvmMain` and `commonMain` (due to the *depends on* relation):
 
-![Project structure]({{ url_for('asset', path='images/reference/building-mpp-with-gradle/mpp-one-compilation.png') }})
+![Source sets and compilation]({{ url_for('asset', path='images/reference/building-mpp-with-gradle/mpp-one-compilation.png') }})
 
-In further sections, these concepts are described in more detail along with their available options.
+Here, the `jvmMain` source set provides [plaform-specific implementations](platform-specific-declarations.md) for the 
+expected API in the shared `commonMain` sources. 
+
+In further sections, these concepts are described in more detail along with the DSL to configure them in a project.
 
 ## Setting up a Multiplatform Project
 
 You can create a new multiplatform project in the IDE by selecting one of the multiplatform project templates in the 
-New Project dialog under the "Kotlin" section. 
+New Project dialog under the "Kotlin" section.
 
 For example, if you choose "Kotlin (Multiplatform Library)", a library project is created that has three 
 [targets](#setting-up-targets), one for the JVM, one for JS, and one for the Native platform that you are using. 
@@ -136,7 +141,8 @@ The details on project structure and the DSL can be found in the following secti
 
 ## Gradle Plugin
 
-To setup a multiplatform project from scratch, first, apply the `kotlin-multiplatform` plugin to the project by adding the following to the
+To setup a multiplatform project from scratch in a Gradle project, first, apply the 
+`kotlin-multiplatform` plugin to the project by adding the following to the
 `build.gradle` file:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -159,6 +165,8 @@ This creates the `kotlin` extension at the top level. You can then access it in 
 A target is a part of the build responsible for compiling, testing, and packaging a piece of software aimed for
 one of the [supported platforms](#supported-platforms).
 
+All of the targets may share some of the sources and may have platform-specific sources as well.
+
 As the platforms are different, targets are built in different ways as well and have various platform-specific 
 settings. The Gradle plugin bundles a number of presets for the supported platforms. A preset can be used to 
 create a target by just providing a name as follows:
@@ -178,9 +186,35 @@ kotlin {
 ``` 
 </div>
 
+### Supported platforms
+
+There are target presets that one can apply using `fromPreset(presets.<presetName>, '<targetName>')`, as described above, for the
+following target platforms:
+
+* `jvm` for Kotlin/JVM. Note: `jvm` targets do not compile Java;
+* `js` for Kotlin/JS;
+* `android` for Android applications and libraries. Note that one of the Android Gradle 
+   plugins should be applied before the target is created;
+  
+*  Kotlin/Native target presets (see the [notes](#using-kotlinnative-targets) below):
+  
+    * `androidNativeArm32` and `androidNativeArm64` for Android NDK;
+    * `iosArm32`, `iosArm64`, `iosX64` for iOS;
+    * `linuxArm32Hfp`, `linuxMips32`, `linuxMipsel32`, `linuxX64` for Linux;
+    * `macosX64` for MacOS;
+    * `mingwX64` for Windows;
+    * `wasm32` for WebAssembly.
+    
+    Note that some of the Kotlin/Native targets require an [appropriate host machine](#using-kotlinnative-targets) to build on.
+    
+Some targets may require additional configuration. For Android and iOS examples, see 
+the [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html) tutorial.
+
+### Configuring compilations
+
 Building a target requires compiling Kotlin once or multiple times. Each Kotlin compilation of a target may serve a 
-different purpose (e.g. production code, tests) and incorporate different [source sets](#configuring-source-sets). The compilations
-of a target may be accessed in the DSL, for example, to get the task names, dependency files and compilation outputs:
+different purpose (e.g. production code, tests) and incorporate different [source sets](#configuring-source-sets). 
+The compilations of a target may be accessed in the DSL, for example, to get the task names, dependency files and compilation outputs:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
@@ -190,7 +224,8 @@ kotlin {
         fromPreset(presets.jvm, 'jvm6') { 
             def mainKotlinTaskName = compilations.main.compileKotlinTaskName
             def mainOutputs = compilations.main.output
-            def testRuntimeClasspath = compilations.test.runtimeDependencyFiles            
+            def testRuntimeClasspath = compilations.test.runtimeDependencyFiles
+            /* ... */            
         }
     }
 }
@@ -230,32 +265,6 @@ kotlin {
 ```
 
 </div>
-
-All of the targets may share some of the sources and may have platform-specific sources in their compilations as well. 
-See [Configuring source sets](#configuring-source-sets) for details.
-
-Some targets may require additional configuration. For Android and iOS examples, see the [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html) tutorial.
-
-### Supported platforms
-
-There are target presets that one can apply using `fromPreset(presets.<presetName>, '<targetName>')`, as described above, for the
-following target platforms:
-
-* `jvm` for Kotlin/JVM. Note: `jvm` targets do not compile Java;
-* `js` for Kotlin/JS;
-* `android` for Android applications and libraries. Note that one of the Android Gradle 
-   plugins should be applied as well;
-  
-*  Kotlin/Native target presets (see the [notes](#using-kotlinnative-targets) below):
-  
-    * `androidNativeArm32` and `androidNativeArm64` for Android NDK;
-    * `iosArm32`, `iosArm64`, `iosX64` for iOS;
-    * `linuxArm32Hfp`, `linuxMips32`, `linuxMipsel32`, `linuxX64` for Linux;
-    * `macosX64` for MacOS;
-    * `mingwX64` for Windows;
-    * `wasm32` for WebAssembly.
-    
-    Note that some of the Kotlin/Native targets require an [appropriate host machine](#using-kotlinnative-targets) to build on.
     
 ## Configuring source sets
 
@@ -430,7 +439,21 @@ published with Gradle metadata, as described below).
 However, a `project('...')` dependency on another multiplatform project is resolved to an appropriate target
 automatically. It is enough to specify a single `project('...')` dependency in a source set's dependencies, 
 and the compilations that include the source set will receive a corresponding platform-specific artifact of 
-that project, given that it has a compatible target.
+that project, given that it has a compatible target:
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                // All of the compilations that include source set 'commonMain'
+                // will get this dependency resolved to a compatible target, if any:
+                api project(':foo-lib')
+            }
+        }
+    }
+}
+```
 
 Likewise, if a multiplatform library is published in the experimental [Gradle metadata publishing mode](#experimental-metadata-publishing-mode) and the project 
 is set up to consume the metadata as well, then it is enough to specify a dependency only once, for the common source set. 
@@ -636,39 +659,56 @@ kotlin {
 It is possible to have more than one target for a single platform in a multiplatform library. For example, these targets
 may provide the same API and differ in the libraries they cooperate with at runtime, like testing frameworks or logging solutions. 
 
-However, dependencies on such a multiplatform library may be ambiguous and may thus fail to resolve under certain conditions:
+However, dependencies on such a multiplatform library may be ambiguous and may thus fail to resolve because there is not
+enough information to decide which of the targets to choose.
 
-* A `project('...')` dependency on a multiplatform library is used. Replace it with a `project(path: '...', configuration: '...')` dependency. 
-  Use the appropriate target's runtime elements configuration, such as `jvm6RuntimeElements`. Due to the current limitations, this dependency should
-  be placed in a top-level `dependencies { ... }` block rather than in a source set's dependencies.
-  
-* A published library dependency is used. If a library is published with experimental Gradle metadata, one can still replace the single dependency with
-  unambiguous dependencies on its separate target modules, as if it had no experimental Gradle metadata.   
-  
-* In both of the cases above, another solution is to mark the targets with a custom attribute. This, however, must be done on both the library author
- and the consumer sides, and it's the library author's responsibility to communicate the attribute and its values to the consumers;
+The solution is to mark the targets with a custom attribute, which is taken into account by Gradle during dependency 
+resolution. This, however, must be done on both the library author and the consumer sides, 
+and it's the library author's responsibility to communicate the attribute and its possible values to the consumers.
  
-     Add the following symmetrically, to both the library and the consumer projects. The consumer may only need to mark 
-     a single target with the attribute:
+Adding attributes is done symmetrically, to both the library and the consumer projects, as follows:
      
-     <div class="sample" markdown="1" theme="idea" mode='groovy'>
-     
-     ```groovy
-     def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
-      
-     kotlin {
-         targets {
-             fromPreset(presets.jvm, 'junit') {
-                 attributes.attribute(testingFrameworkAttribute, 'junit')
-             }
-             fromPreset(presets.jvm, 'testng') {
-                 attributes.attribute(testingFrameworkAttribute, 'testng')
-             }
-         }
-     }
-     ```
-     
-     </div>
+ <div class="sample" markdown="1" theme="idea" mode='groovy'>
+ 
+```groovy
+def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
+  
+kotlin {
+    targets {
+        fromPreset(presets.jvm, 'junit') {
+            attributes.attribute(testingFrameworkAttribute, 'junit')
+        }
+        fromPreset(presets.jvm, 'testng') {
+            attributes.attribute(testingFrameworkAttribute, 'testng')
+        }
+    }
+}
+```
+ 
+ </div>
+ 
+The consumer may only need to mark a single target where the ambiguity arises.
+ 
+If the same kind of ambiguity arises when a dependency is added to a custom configuration rather than one of the 
+configurations created by the plugin, you can add the attributes to the configuration in the same way:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
+
+configurations {
+    myConfiguration {
+        attributes.attribute(testFrameworkAttribute, 'junit')
+    }
+}  
+```
+
+</div>
+
+Alternatively, if a dependency library is published with experimental Gradle metadata, one can still replace the 
+single dependency with unambiguous dependencies on its separate target modules, as if it had no experimental 
+Gradle metadata.    
 
 ## Using Kotlin/Native Targets
 
