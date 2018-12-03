@@ -27,7 +27,8 @@ Detection and Migration modes: <see guide below>
 > 1. (Minimal) code example
 > 2. What's wrong with it
 > 3. Detailed explanation of why and how this happens
-> 4. Any known reasoning behind such behavior 
+> 4. Any known reasoning behind such behavior
+> 5. Affected versions: when did the problem appear first? 
 
 # Proposed changes
 > 1. Proposed changes
@@ -43,6 +44,7 @@ Detection and Migration modes: <see guide below>
 
 # Migration plan
 > Provide a detailed step-by-step migration plan
+> Can the proposed changes be implemented immediately in the progressive mode?
 ```
 
 
