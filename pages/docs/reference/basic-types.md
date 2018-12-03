@@ -494,8 +494,8 @@ A template expression starts with a dollar sign ($) and consists of either a sim
 ```kotlin
 fun main() {
 //sampleStart
-val i = 10
-println("i = $i") // prints "i = 10"
+    val i = 10
+    println("i = $i") // prints "i = 10"
 //sampleEnd
 }
 ```
@@ -509,8 +509,8 @@ or an arbitrary expression in curly braces:
 ```kotlin
 fun main() {
 //sampleStart
-val s = "abc"
-println("$s.length is ${s.length}") // prints "abc.length is 3"
+    val s = "abc"
+    println("$s.length is ${s.length}") // prints "abc.length is 3"
 //sampleEnd
 }
 ```
