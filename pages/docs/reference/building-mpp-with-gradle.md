@@ -74,11 +74,9 @@ repositories {
 }
 
 kotlin {
-    targets {
-        fromPreset(presets.jvm, 'jvm')
-        fromPreset(presets.js, 'js')
-        fromPreset(presets.mingwX64, 'mingw')
-    }
+    jvm() // Creates a JVM target with the default name 'jvm'
+    js()  // JS target named 'js'
+    mingwX64("mingw") // Windows (MinGW X64) target named 'mingw'
     
     sourceSets { /* ... */ }
 }
@@ -86,8 +84,8 @@ kotlin {
 
 </div>
 
-The three targets are created from the presets that provide some [default configuration](#default-project-layout). 
-There are presets for each of the [supported platforms](#supported-platforms).
+The three targets are created with the preset functions `jvm()`, `js()`, and `mingwX64()` that provide some 
+[default configuration](#default-project-layout). There are presets for each of the [supported platforms](#supported-platforms).
 
 The [source sets](#configuring-source-sets) and their [dependencies](#adding-dependencies) are then configured as follows:
 
@@ -99,7 +97,7 @@ plugins { /* ... */ }
 kotlin {
     targets { /* ... */ }
 
-    sourceSets { 
+    sourceSets {
         commonMain {
             dependencies {
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
@@ -111,39 +109,43 @@ kotlin {
                 implementation 'org.jetbrains.kotlin:kotlin-test-annotations-common'
             }
         }
-        jvmMain {
+        
+        // Default source set for JVM-specific sources and dependencies.
+        // Alternatively, jvmMain { ... } would work as well:
+        jvm().compilations.main.defaultSourceSet {
             dependencies {
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
             }
         }
-        jvmTest {
+        // JVM-specific tests and their dependencies:
+        jvm().compilations.test.defaultSourceSet {
             dependencies {
                 implementation 'org.jetbrains.kotlin:kotlin-test'
                 implementation 'org.jetbrains.kotlin:kotlin-test-junit'
             }
         }
-        jsMain { /* ... */ }
-        jsTest { /* ... */ }
-        mingwMain { /* ... */ }
-        mingwTest { /* ... */ }
+        
+        js().compilations.main.defaultSourceSet  { /* ... */ }
+        js().compilations.test.defaultSourceSet { /* ... */ }
+        
+        mingwX64('mingw').compilations.main.defaultSourceSet { /* ... */ }
+        mingwX64('mingw').compilations.test.defaultSourceSet { /* ... */ }
     }
 }
 ```
 
 </div>
 
-These are the [default source set names](#default-project-layout) for the production and test sources for the targets configured above. The source 
-sets `commonMain` and `commonTest` are included into production and test compilations, respectively, of all targets. 
+These are the [default source set names](#default-project-layout) for the production and test sources for the targets 
+configured above. The source sets `commonMain` and `commonTest` are included into production and test compilations, respectively, of all targets. 
 Note that the dependencies for common source sets `commonMain` and `commonTest` are the common artifacts, and the 
 platform libraries go to the source sets of the specific targets.
 
-The details on project structure and the DSL can be found in the following sections.
-
 ## Gradle Plugin
 
-To setup a multiplatform project from scratch in a Gradle project, first, apply the 
+To setup a multiplatform project from scratch in a Gradle project, first apply the 
 `kotlin-multiplatform` plugin to the project by adding the following to the
-`build.gradle` file:
+beginning of the `build.gradle` file:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
@@ -168,27 +170,86 @@ one of the [supported platforms](#supported-platforms).
 All of the targets may share some of the sources and may have platform-specific sources as well.
 
 As the platforms are different, targets are built in different ways as well and have various platform-specific 
-settings. The Gradle plugin bundles a number of presets for the supported platforms. A preset can be used to 
-create a target by just providing a name as follows:
+settings. The Gradle plugin bundles a number of presets for the supported platforms. 
+
+To create a target, use one of the preset functions, which are named according to the target platforms and optionally 
+accept the target name and a configuring code block:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ``` groovy
 kotlin {
-    targets {
-        fromPreset(presets.jvm, 'jvm6') // Create a JVM target by the name 'jvm6'
+    jvm() // Create a JVM target with the default name 'jvm'
+    js('nodeJs') // Create a JS target with a custom name 'nodeJs'
         
-        fromPreset(presets.linuxX64, 'linux') { 
-            /* You can specify additional settings for the 'linux' target here */
-        } 
+    linuxX64('linux') {
+        /* Specify additional settings for the 'linux' target here */
     }
 }
 ``` 
 </div>
 
+The preset functions return an existing target if it exists. This can be used to configure an existing target:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {
+    /* ... */
+    
+    jvm('jvm6').attributes { /* ... */ }
+}
+```
+
+</div>
+
+Note that both the target platform and the name matter: if a target was created as `jvm('jvm6')`, using `jvm()` will
+create a separate target (with the default name `jvm`).
+
+The targets created from presets are added to the `kotlin.targets` domain object collection, which can be used to 
+access them by their names or configure all targets:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {
+    jvm()
+    js('nodeJs')
+    
+    println(targets.names) // Prints: [jvm, nodeJs]
+    
+    targets.all {
+        compilations.main.defaultSourceSet { /* ... */ }
+    }
+}
+```
+
+</div>
+
+To create or access several targets from multiple presets dynamically, you can use the `targetFromPreset` function which
+accepts a preset (those are contained in the `kotlin.presets` domain object collection) and, optionally, a target name 
+and a configuration code block.
+
+For example, to create a target for each of the Kotlin/Native supported platforms (see below), use this code:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {
+    presets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTargetPreset).each {
+        targetFromPreset(it, it.name) { 
+            /* Configure each of the created targets */
+        }
+    }
+}
+```
+
+</div>
+
+
 ### Supported platforms
 
-There are target presets that one can apply using `fromPreset(presets.<presetName>, '<targetName>')`, as described above, for the
+There are target presets that one can apply using the preset functions, as shown above, for the
 following target platforms:
 
 * `jvm` for Kotlin/JVM. Note: `jvm` targets do not compile Java;
@@ -214,64 +275,76 @@ the [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-andr
 
 Building a target requires compiling Kotlin once or multiple times. Each Kotlin compilation of a target may serve a 
 different purpose (e.g. production code, tests) and incorporate different [source sets](#configuring-source-sets). 
-The compilations of a target may be accessed in the DSL, for example, to get the task names, dependency files and compilation outputs:
+The compilations of a target may be accessed in the DSL, for example, to get the tasks, configure 
+[the Kotlin compiler options](using-gradle.html#compiler-options) or get the dependency files and compilation outputs:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
 kotlin {
-    targets {
-        fromPreset(presets.jvm, 'jvm6') { 
-            def mainKotlinTaskName = compilations.main.compileKotlinTaskName
-            def mainOutputs = compilations.main.output
-            def testRuntimeClasspath = compilations.test.runtimeDependencyFiles
-            /* ... */            
-        }
-    }
-}
-```
-
-</div>
-
-To modify [the Kotlin compiler options](using-gradle.html#compiler-options) of a compilation, use the compilation's task which
-can be found by its name:
-
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-kotlin {
-    targets {
-        fromPreset(presets.jvm, 'jvm8') {
-            // Configure a single target's compilations (main and test)
-            compilations.all {
-                tasks[compileKotlinTaskName].kotlinOptions { 
-                    jvmTarget = '1.8'
-                }
-            }
+    jvm {
+        compilations.main.kotlinOptions { 
+            // Setup the Kotlin compiler options for the 'main' compilation:
+            jvmTarget = '1.8'
         }
         
-        /* ... */
-        
-        // Configure all compilations of all targets:
-        all { 
-            compilations.all {
-                tasks[compileKotlinTaskName].kotlinOptions {
-                    allWarningsAsErrors = true
-                }
-            }
-        }
+        compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
+        compilations.main.output // get the main compilation output
+        compilations.test.runtimeDependencyFiles // get the test runtime classpath
     }
-}
-```
-
-</div>
     
+    // Configure all compilations of all targets:
+    targets.all {
+        compilations.all {
+            kotlinOptions {
+                allWarningsAsErrors = true
+            }
+        }
+    }
+}
+```
+
+</div>
+
+Each compilation is accompanied with a default [source set](#configuring-source-sets), which is created automatically 
+and should be used for sources and dependencies that are specific to that compilation. The default source set for a 
+compilation `foo` or a target `bar` has the name `barFoo`. It can also be accessed from a compilation using 
+`defaultSourceSet`:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {
+    jvm()
+    
+    sourceSets {
+        // The default source set for the 'main` compilation of the 'jvm' target:
+        jvmMain {
+            /* ... */
+        }
+    }
+    
+    // Alternatively, access it from the compilation:
+    jvm().compilations.main.defaultSourceSet { 
+        /* ... */
+    }
+}
+```
+
+</div> 
+
 ## Configuring source sets
 
 A Kotlin source set is a collection of Kotlin sources, along with their resources, dependencies, and language settings, 
 which may take part in Kotlin compilations of one or more [targets](#setting-up-targets).
 
-If you apply a target preset, some source sets are created and configured by default. See [Default Project Layout](#default-project-layout).
+A source set is not bound to be platform-specific or "shared"; what it's allowed to content depends on its usage: 
+a source set added to multiple compilations is limited to the common language features and dependencies, while a source 
+set that is only used by a single target can have platform-specific dependencies, and it's code may use language 
+features specific to that target's platform. 
+
+Some source sets are created and configured by default: `commonMain`, `commonTest`, and the default source sets for the
+ compilations. See [Default Project Layout](#default-project-layout).
 
 The source sets are configured within a `sourceSets { ... }` block of the `kotlin { ... }` extension:
 
@@ -279,14 +352,13 @@ The source sets are configured within a `sourceSets { ... }` block of the `kotli
 
 ```groovy
 kotlin { 
-    targets { /* ... */ }
-    
     sourceSets { 
         foo { /* ... */ } // create or configure a source set by the name 'foo' 
         bar { /* ... */ }
     }
 }
 ``` 
+
 </div>
 
 > Note: creating a source set does not link it to any target. Some source sets are [predefined](#default-project-layout) 
@@ -294,8 +366,8 @@ and thus compiled by default. However, custom source sets always need to be expl
 See: [Connecting source sets](#connecting-source-sets). 
 {:.note}
 
-The source set names are case-sensitive. When referring to a default source set, make sure the name prefix matches a target's 
-name, for example, a source set `iosX64Main` for a target `iosX64`. 
+The source set names are case-sensitive. When referring to a default source set by its name, make sure the name prefix 
+matches a target's name, for example, a source set `iosX64Main` for a target `iosX64`. 
 
 A source set by itself is platform-agnostic, but
 it can be considered platform-specific if it is only compiled for a single platform. A source set can, therefore, contain either
@@ -320,17 +392,18 @@ kotlin {
 
 ### Connecting source sets
 
-Kotlin source sets may be connected with the 'depends on' relation, so that if a source set `foo`  depends on a source set `bar` then:
+Kotlin source sets may be connected with the *'depends on'* relation, so that if a source set `foo`  depends on a 
+source set `bar` then:
 
 * whenever `foo` is compiled for a certain target, `bar` takes part in that compilation as well and is also compiled 
 into the same target binary form, such as JVM class files or JS code;
 
-* the resources of `bar` are always processed and copied along with the resources of `foo`;
-
 * sources of `foo` 'see' the declarations of `bar`, including the `internal` ones, and the [dependencies](#adding-dependencies) of `bar`, even those
  specified as `implementation` dependencies;
-  
+ 
 * `foo` may contain [platform-specific implementations](platform-specific-declarations.html) for the expected declarations of `bar`;
+
+* the resources of `bar` are always processed and copied along with the resources of `foo`;
 
 * the [language settings](#language-settings) of `foo` and `bar` should be consistent;
 
@@ -341,15 +414,15 @@ The source sets DSL can be used to define these connections between the source s
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
- kotlin { 
-     sourceSets { 
-         commonMain { /* ... */ }
-         allJvm {
-             dependsOn commonMain
-             /* ... */
-         } 
-     }
- }
+kotlin { 
+    sourceSets { 
+        commonMain { /* ... */ }
+        allJvm {
+            dependsOn commonMain
+            /* ... */
+        } 
+    }
+}
 ```
 
 </div>
@@ -357,7 +430,7 @@ The source sets DSL can be used to define these connections between the source s
 Custom source sets created in addition to the [default ones](#default-project-layout) should be explicitly included into
  the dependencies hierarchy to be able to use declarations from other source sets and, most importantly, to take part 
  in compilations. 
-Most often, they need a `dependsOn commonMain` or `dependsOn commonTest` statement, and some of the default platform-specific
+Most often, they need a `dependsOn(commonMain)` or `dependsOn(commonTest)` statement, and some of the default platform-specific
  source sets should depend on the custom ones, 
  directly or indirectly:
 
@@ -365,24 +438,24 @@ Most often, they need a `dependsOn commonMain` or `dependsOn commonTest` stateme
 
 ```groovy
 kotlin { 
-    targets {
-        fromPreset(presets.mingwX64, 'windows')
-        fromPreset(presets.linuxX64, 'linux')
-        /* ... */
-    }
+    mingwX64()
+    linuxX64()
+    
     sourceSets {
         desktopTest { // custom source set with tests for the two targets
             dependsOn commonTest
             /* ... */
         }
-        windowsTest { // default test source set for target 'windows'
+        // Make the 'windows' default test source set for depend on 'desktopTest'
+        mingwX64().compilations.test.defaultSourceSet { 
             dependsOn desktopTest
             /* ... */
         }
-        linuxTest { // default test source set for target 'linux'
+        // And do the same for the other target:
+        linuxX64().compilations.test.defaultSourceSet {
             dependsOn desktopTest
+            /* ... */
         }
-        /* ... */
     }
 }
 ```
@@ -573,7 +646,9 @@ Kotlin/Native targets do not require additional test dependencies, and the `kotl
 > Adding new targets for a multiplatform library at the consumer's side is not supported. 
 {:.note} 
 
-A library built from a multiplatform project may be published to a Maven repository with the Gradle `maven-publish` plugin, which can be applied as follows:
+A library built from a multiplatform project may be published to a Maven repository with the Gradle 
+[`maven-publish` plugin](https://docs.gradle.org/current/userguide/publishing_maven.html), which can be applied as 
+follows:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
@@ -587,13 +662,27 @@ plugins {
 </div>
 
 Once this plugin is applied, default publications are created for each of the targets that can be built on the current host. This requires `group` and 
-`version` to be set in the project. The default artifact IDs follow the pattern `<projectName>-<targetNameToLowerCase>`, for example `sample-lib-nodejs` for a target named `nodeJs` in a project 
+`version` to be set in the project:
+
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+plugins { /* ... */ }
+
+group 'com.example.my.library'
+version '0.0.1'
+ ```
+ 
+</div>
+
+ 
+The default artifact IDs follow the pattern `<projectName>-<targetNameToLowerCase>`, for example `sample-lib-nodejs` for a target named `nodeJs` in a project 
 `sample-lib`. 
 
 Also, an additional publication is added by default which contains serialized Kotlin declarations and is used by the IDE to analyze multiplatform libraries.
 
-By default, a sources JAR is added to each publication in addition to its main artifact. The sources JAR contains the sources used by the `main` compilation
-of the target.
+By default, a sources JAR is added to each publication in addition to its main artifact. The sources JAR contains the 
+sources used by the `main` compilation of the target.
 
 The Maven coordinates can be altered and additional artifact files may be added to the publication within the `targets { ... }` block:
 
@@ -601,14 +690,16 @@ The Maven coordinates can be altered and additional artifact files may be added 
 
 ```groovy
 kotlin {
-    targets {
-        fromPreset(presets.jvm, 'jvm6') {
-            /* ... */
-            mavenPublication { 
-                artifactId = 'sample-lib-jvm'
-                artifact(jvmJavadocJar)
-            }
+    jvm('jvm6') {
+        mavenPublication {
+            // The default artifactId was 'foo-jvm6', change it:  
+            artifactId = 'foo-jvm'
+            // Add a docs JAR artifact (it should be a custom task): 
+            artifact(jvmDocsJar)
         }
+    }
+    targets {
+        
     }
 }
 ```
@@ -637,10 +728,9 @@ If a library is published with Gradle metadata enabled and a consumer enables th
 
 ```groovy
 kotlin {
-    targets {
-        fromPreset(presets.jvm, 'jvm6')
-        fromPreset(presets.js, 'nodeJs')
-    }
+    jvm('jvm6')
+    js('nodeJs')
+        
     sourceSets {
         commonMain {
             dependencies {
@@ -674,18 +764,16 @@ Adding attributes is done symmetrically, to both the library and the consumer pr
 def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
   
 kotlin {
-    targets {
-        fromPreset(presets.jvm, 'junit') {
-            attributes.attribute(testingFrameworkAttribute, 'junit')
-        }
-        fromPreset(presets.jvm, 'testng') {
-            attributes.attribute(testingFrameworkAttribute, 'testng')
-        }
+    jvm('junit') {
+        attributes.attribute(testingFrameworkAttribute, 'junit')
+    }
+    jvm('testng') {
+        attributes.attribute(testingFrameworkAttribute, 'testng')
     }
 }
 ```
  
- </div>
+</div>
  
 The consumer may only need to mark a single target where the ambiguity arises.
  
@@ -740,10 +828,8 @@ This can be done as follows:
 
 ```groovy
 kotlin {
-    targets {
-        fromPreset(presets.linuxX64, 'linux') {
-            compilations.main.outputKinds 'executable' // could be 'static', 'dynamic'
-        }
+    linuxX64() { // Use your target instead
+        compilations.main.outputKinds 'executable' // could be 'static', 'dynamic'
     }
 }
 ```
@@ -794,6 +880,7 @@ cinterops {
     anotherInterop { /* ... */ }
 }
 ```
+
 </div>
 
 Often it's necessary to specify target-specific linker options for a binary which uses a native library. It can be
@@ -806,4 +893,5 @@ compilations.main {
     linkerOpts '-L/lib/search/path -L/another/search/path -lmylib'
 }
 ```
+
 </div>
