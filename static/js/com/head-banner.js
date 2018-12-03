@@ -1,9 +1,9 @@
 import $ from "jquery";
 
-const KC_KEY = 'kotlin-conf-2018';
+const BANNER_KEY = 'kotlin-webinar-5-12-18';
 
 $(document).ready(() => {
-  const isClosed = window.localStorage.getItem(KC_KEY);
+  const isClosed = window.localStorage.getItem(BANNER_KEY);
   if (!isClosed) {
     const $banner = $('.banner-nav');
     $banner.css("display", "block");
@@ -14,6 +14,6 @@ $(document).ready(() => {
   function closeBanner() {
     const $banner = $('.banner-nav');
     $banner.css("display", "none");
-    window.localStorage.setItem(KC_KEY, "true");
+    window.localStorage.setItem(BANNER_KEY, "true");
   }
 });
