@@ -48,7 +48,8 @@ include the sources and dependencies from the source sets `jvmMain` and `commonM
 ![Source sets and compilation]({{ url_for('asset', path='images/reference/building-mpp-with-gradle/mpp-one-compilation.png') }})
 
 Here, the `jvmMain` source set provides [plaform-specific implementations](platform-specific-declarations.md) for the 
-expected API in the shared `commonMain` sources. 
+expected API in the shared `commonMain` sources. This is how the code is shared between the platforms in a flexible way
+with platform-specific implementations where needed.
 
 In further sections, these concepts are described in more detail along with the DSL to configure them in a project.
 
@@ -189,7 +190,7 @@ kotlin {
 ``` 
 </div>
 
-The preset functions return an existing target if it exists. This can be used to configure an existing target:
+The preset functions return an existing target if there is one. This can be used to configure an existing target:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
@@ -197,6 +198,7 @@ The preset functions return an existing target if it exists. This can be used to
 kotlin {
     /* ... */
     
+    // Configure the attributes of the 'jvm6' target:
     jvm('jvm6').attributes { /* ... */ }
 }
 ```
@@ -204,7 +206,8 @@ kotlin {
 </div>
 
 Note that both the target platform and the name matter: if a target was created as `jvm('jvm6')`, using `jvm()` will
-create a separate target (with the default name `jvm`).
+create a separate target (with the default name `jvm`). If the preset function used to create the target under that name
+was different, an error is reported.
 
 The targets created from presets are added to the `kotlin.targets` domain object collection, which can be used to 
 access them by their names or configure all targets:
@@ -218,6 +221,7 @@ kotlin {
     
     println(targets.names) // Prints: [jvm, nodeJs]
     
+    // Configure all targets, including those which will be added later:
     targets.all {
         compilations.main.defaultSourceSet { /* ... */ }
     }
@@ -514,6 +518,8 @@ automatically. It is enough to specify a single `project('...')` dependency in a
 and the compilations that include the source set will receive a corresponding platform-specific artifact of 
 that project, given that it has a compatible target:
 
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
 ```groovy
 kotlin {
     sourceSets {
@@ -527,6 +533,8 @@ kotlin {
     }
 }
 ```
+
+</div>  
 
 Likewise, if a multiplatform library is published in the experimental [Gradle metadata publishing mode](#experimental-metadata-publishing-mode) and the project 
 is set up to consume the metadata as well, then it is enough to specify a dependency only once, for the common source set. 
@@ -586,8 +594,9 @@ kotlin.sourceSets.all {
 </div>
 
 
-Language settings of a source set affect how the sources are analyzed in the IDE. Due to the current limitations, in a Gradle build, only the language settings 
-of the compilation's default source set are used.
+Language settings of a source set affect how the sources are analyzed in the IDE. Due to the current limitations, in a 
+Gradle build, only the language settings of the compilation's default source set are used and are applied to all of the
+sources participating in the compilation.
 
 The language settings are checked for consistency between source sets depending on each other. Namely, if `foo` depends on `bar`:
 
@@ -604,7 +613,7 @@ shared between all of the target platforms. These source sets are added to each 
 Then, once a target is added, default compilations are created for it:
 
 * `main` and `test` compilations for JVM, JS, and Native targets;
-* a compilation per Android variant, for Android targets;
+* a compilation per [Android build variant](https://developer.android.com/studio/build/build-variants), for Android targets;
 
 For each compilation, there is a default source set under the name composed as `<targetName><CompilationName>`. This default source
 set participates in the compilation, and thus it should be used for the platform-specific code and dependencies, and for adding other source
@@ -615,7 +624,10 @@ Numerous use cases are covered by just the default source sets and don't require
  
 Each source set by default has its Kotlin sources under `src/<sourceSetName>/kotlin` directory and the resources under `src/<sourceSetName>/resources`.
 
-In Android projects, additional Kotlin source sets are created for each Android source set. If the Android target has a name `foo`, the Android source set `bar` gets a Kotlin source set counterpart `fooBar`. The Kotlin compilations, however, are able to consume Kotlin sources from all of the directories `src/bar/java`, `src/bar/kotlin`, and `src/fooBar/kotlin`. Java sources are only read from the first of these directories.
+In Android projects, additional Kotlin source sets are created for each [Android source set](https://developer.android.com/studio/build/#sourcesets). 
+If the Android target has a name `foo`, the Android source set `bar` gets a Kotlin source set counterpart `fooBar`. 
+The Kotlin compilations, however, are able to consume Kotlin sources from all of the directories `src/bar/java`, 
+`src/bar/kotlin`, and `src/fooBar/kotlin`. Java sources are only read from the first of these directories.
 
 ## Running Tests
 
@@ -646,8 +658,8 @@ Kotlin/Native targets do not require additional test dependencies, and the `kotl
 > Adding new targets for a multiplatform library at the consumer's side is not supported. 
 {:.note} 
 
-A library built from a multiplatform project may be published to a Maven repository with the Gradle 
-[`maven-publish` plugin](https://docs.gradle.org/current/userguide/publishing_maven.html), which can be applied as 
+A library built from a multiplatform project may be published to a Maven repository with the 
+[`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html), which can be applied as 
 follows:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -679,27 +691,34 @@ version '0.0.1'
 The default artifact IDs follow the pattern `<projectName>-<targetNameToLowerCase>`, for example `sample-lib-nodejs` for a target named `nodeJs` in a project 
 `sample-lib`. 
 
-Also, an additional publication is added by default which contains serialized Kotlin declarations and is used by the IDE to analyze multiplatform libraries.
-
 By default, a sources JAR is added to each publication in addition to its main artifact. The sources JAR contains the 
 sources used by the `main` compilation of the target.
 
-The Maven coordinates can be altered and additional artifact files may be added to the publication within the `targets { ... }` block:
+Also, an additional publication under the name `metadata` is added by default which contains serialized Kotlin 
+declarations and is used by the IDE to analyze multiplatform libraries.
+
+The Maven coordinates can be altered and additional artifact files may be added to the publication within the 
+`targets { ... }` block or using the `publishing { ... }` DSL:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
 kotlin {
     jvm('jvm6') {
-        mavenPublication {
+        mavenPublication { // Setup the publication for target 'jvm6'
             // The default artifactId was 'foo-jvm6', change it:  
             artifactId = 'foo-jvm'
             // Add a docs JAR artifact (it should be a custom task): 
             artifact(jvmDocsJar)
         }
     }
-    targets {
-        
+}
+
+// Alternatively, configure the publications with the `publishing { ... }` DSL:
+publishing {
+    publications {
+        jvm6 { /* Setup the publication for target 'jvm6' */ }
+        metadata { /* Setup the publication for Kotlin metadata */ }
     }
 }
 ```
@@ -709,9 +728,10 @@ kotlin {
 ### Experimental metadata publishing mode
 
 An experimental publishing and dependency consumption mode can be enabled by adding 
-`enableFeaturePreview('GRADLE_METADATA')` to the root project's `settings.gradle` file. With Gradle metadata enabled,
- an additional publication is added which references the target publications as its variants. The artifact ID of this publication
- matches the project name.
+`enableFeaturePreview('GRADLE_METADATA')` to the root project's `settings.gradle` file. 
+
+With Gradle metadata enabled, an additional publication `kotlinMultiplatform` is added which references the target 
+publications as its variants. The default artifact ID of this publication matches the project name.
  
 > Gradle metadata publishing is an experimental Gradle feature which is not guaranteed to be backward-compatible. 
 Future Gradle versions may fail to resolve a dependency to a library published with current versions of Gradle metadata.
@@ -734,8 +754,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                // Resolved to the appropriate target modules, 
+                // for example, `sample-lib-jvm6` for JVM, `sample-lib-js` for JS:
                 api 'com.example:sample-lib:1.0' 
-                // is resolved to `sample-lib-jvm` for JVM, `sample-lib-js` for JS 
             }
         }
     }
