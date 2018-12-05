@@ -287,6 +287,15 @@ tutorials:
           title: Working with Build Tools
         - url: /docs/tutorials/koans.html
           title: Koans
+        - external:
+            path: kotlin-for-python-developers
+            nav: ../kotlin-for-python-developers-nav.yml
+            base: /docs/tutorials/kotlin-for-py
+            branch: master
+            repo: https://github.com/Khan/kotlin-for-python-developers
+            inline: true
+            type: tutorial
+            # wrap_code_snippets: False #it works too slow for that huge page
     - title: Android
       content:
         - url: /docs/tutorials/kotlin-android.html
