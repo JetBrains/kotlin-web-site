@@ -148,7 +148,6 @@ kotlin {
         // JVM-specific tests and their dependencies:
         jvm().compilations.test.defaultSourceSet {
             dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-test'
                 implementation 'org.jetbrains.kotlin:kotlin-test-junit'
             }
         }
@@ -188,24 +187,23 @@ kotlin {
         }
         
         // Default source set for JVM-specific sources and dependencies:
-        jvm().compilations.main.defaultSourceSet {
+        jvm().compilations["main"].defaultSourceSet {
             dependencies {
                 implementation(kotlin("stdlib-jdk8"))
             }
         }
         // JVM-specific tests and their dependencies:
-        jvm().compilations.test.defaultSourceSet {
+        jvm().compilations["test"].defaultSourceSet {
             dependencies {
-                implementation(kotlin("kotlin-test"))
                 implementation(kotlin("test-junit"))
             }
         }
         
-        js().compilations.main.defaultSourceSet  { /* ... */ }
-        js().compilations.test.defaultSourceSet { /* ... */ }
+        js().compilations["main"].defaultSourceSet  { /* ... */ }
+        js().compilations["test"].defaultSourceSet { /* ... */ }
         
-        mingwX64("mingw").compilations.main.defaultSourceSet { /* ... */ }
-        mingwX64("mingw").compilations.test.defaultSourceSet { /* ... */ }
+        mingwX64("mingw").compilations["main"].defaultSourceSet { /* ... */ }
+        mingwX64("mingw").compilations["test"].defaultSourceSet { /* ... */ }
     }
 }
 ```
@@ -309,7 +307,7 @@ kotlin {
     jvm()
     js("nodeJs")
     
-    println(targets.names) // Prints: [jvm, nodeJs]
+    println(targets.names) // Prints: [jvm, metadata, nodeJs]
     
     // Configure all targets, including those which will be added later:
     targets.all {
@@ -676,7 +674,8 @@ kotlin {
     linuxX64()
     
     sourceSets {
-        desktopTest { // custom source set with tests for the two targets
+        // custom source set with tests for the two targets
+        desktopTest { 
             dependsOn commonTest
             /* ... */
         }
@@ -708,16 +707,16 @@ kotlin {
     sourceSets {
         // custom source set with tests for the two targets
         val desktopTest by creating { 
-            dependsOn commonTest
+            dependsOn(getByName("commonTest"))
             /* ... */
         }
         // Make the 'windows' default test source set for depend on 'desktopTest'
-        mingwX64().compilations.test.defaultSourceSet { 
+        mingwX64().compilations["test"].defaultSourceSet { 
             dependsOn(desktopTest)
             /* ... */
         }
         // And do the same for the other target:
-        linuxX64().compilations.test.defaultSourceSet {
+        linuxX64().compilations["test"].defaultSourceSet {
             dependsOn(desktopTest)
             /* ... */
         }
@@ -895,7 +894,7 @@ kotlin {
 kotlin {
     sourceSets {
         val commonMain by getting {
-            languageSettings {
+            languageSettings.apply {
                 languageVersion = "1.3" // possible values: '1.0', '1.1', '1.2', '1.3'
                 apiVersion = "1.3" // possible values: '1.0', '1.1', '1.2', '1.3'
                 enableLanguageFeature("InlineClasses") // language feature name
@@ -917,9 +916,7 @@ It is possible to configure the language settings of all source sets at once:
 
 ```groovy
 kotlin.sourceSets.all {
-    languageSettings {
-        progressiveMode = true
-    }
+    languageSettings.progressiveMode = true
 }
 ```
 
@@ -1078,7 +1075,7 @@ kotlin {
 
 // Alternatively, configure the publications with the `publishing { ... }` DSL:
 publishing {
-    publications {
+    publications.withType<MavenPublication>().apply {
         val jvm6 by getting { /* Setup the publication for target 'jvm6' */ }
         val metadata by getting { /* Setup the publication for Kotlin metadata */ }
     }
@@ -1316,17 +1313,15 @@ cinterops {
         // Options to be passed to compiler by cinterop tool.
         compilerOpts '-Ipath/to/headers'
 
-        // Directories to look for headers.
-        includeDirs {
-            // Directories for header search (an analogue of the -I<path> compiler option).
-            allHeaders 'path1', 'path2'
+        // Directories for header search (an analogue of the -I<path> compiler option).
+        includeDirs.allHeaders("path1", "path2")
 
-            // Additional directories to search headers listed in the 'headerFilter' def-file option.
-            // -headerFilterAdditionalSearchPrefix command line option analogue.
-            headerFilterOnly 'path1', 'path2'
-        }
+        // Additional directories to search headers listed in the 'headerFilter' def-file option.
+        // -headerFilterAdditionalSearchPrefix command line option analogue.
+        includeDirs.headerFilterOnly("path1", "path2")
+        
         // A shortcut for includeDirs.allHeaders.
-        includeDirs "include/directory", "another/directory"
+        includeDirs("include/directory", "another/directory")
     }
 
     anotherInterop { /* ... */ }
