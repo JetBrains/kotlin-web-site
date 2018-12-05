@@ -8,11 +8,11 @@ The path MUST be listed in the `.gitignore` to avoid side effects with git repos
 The following code is used to enable an external in `data/_nav.yml`:
 ```
   - title: Native
-      external:
-        path: kotlin-native
-        nav: _nav_reference.yml
-        base: /docs/reference/native
-        repo: https://github.com/JetBrains/kotlin-native
+    external:
+      path: kotlin-native
+      nav: _nav_reference.yml
+      base: /docs/reference/native
+      repo: https://github.com/JetBrains/kotlin-native
 ```
 where:
 `path` is the checkout path under the `external` folder 
