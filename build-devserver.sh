@@ -34,13 +34,12 @@ while true; do
            -v $(pwd):/src  \
            -p 5000:5000    \
            kotlin-web-site \
-           python /src/kotlin-website.py $@
-
-    EXIT_CODE=$?
+           python /src/kotlin-website.py $@ || true
 
     echo ""
-    echo "Python existed with $EXIT_CODE"
+    echo "Python exited"
     echo "Restarting..."
+    echo ""
     sleep 5
 done
 
