@@ -20,6 +20,7 @@ class ExternalMount:
         self.external_repo: str = external_spec['repo']
         self.external_branch: str = external_spec['branch']
         self.inline: bool = bool(external_spec['inline'] or 'False') if 'inline' in external_spec else False
+        self.wrap_code_snippets: bool = bool(external_spec['wrap_code_snippets'] or 'False') if 'wrap_code_snippets' in external_spec else False
 
         if self.external_base.startswith("/docs/reference/"):
             self.page_type: str = 'doc'
@@ -127,6 +128,15 @@ def _process_external_entry(self: ExternalMount, url_mappers, entry: dict):
 
     # TODO: check `---` headers at the beginning of the original file and WARN or MERGE
     source_text = url_mappers(source_text, item.source_item)
+
+    if self.wrap_code_snippets:
+        def handle_match(m):
+            if m.group(1).lower() == 'kotlin':
+                return '\n\n<div class="sample" markdown="1" theme="idea" data-highlight-only>' + m.group(0) + '\n</div>\n\n'
+            else:
+                return '\n\n<div class="sample" markdown="1" theme="idea" mode="' + m.group(1) + '">' + m.group(0) + '\n</div>\n\n'
+
+        source_text = re.compile("[\\r\\n]+```([^\\r\\n]+)([\\r\\n]+[^`][^\\r\\n]*)+[\\r\\n]+```").sub(handle_match, source_text)
 
     template = item.generate_header()
 
