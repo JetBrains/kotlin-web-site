@@ -22,6 +22,8 @@ where:
    **NOTE** the base path is REMOVED and re-created on every reload!
 - `branch` branch in the repository for *edit on GitHub* links
 - `repo` is a string, that is used in warning and informational messages 
+- `wrap_code_snippets` to automatically wrap ` ``` ` blocks into our special `<div>` (only for Kotlin right now)
+- `inline` to make all pages included replacing the current element
 
 The `docker-compose up` command allows running without `externals` checked out.
 That is done so to simplify the process for everyone who is working on the
