@@ -23,6 +23,8 @@ fi
 # build kotlin-web-site container here
 docker build --pull -t kotlin-web-site .
 
+## Use the `kotlin-web-site` container name in PyCharm/IntelliJ IDEA to setup python interpreter
+
 while true; do
     echo ""
     echo "Running Python web server..."
