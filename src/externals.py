@@ -19,6 +19,16 @@ class ExternalMount:
         self.external_nav: str = external_spec['nav']
         self.external_repo: str = external_spec['repo']
         self.external_branch: str = external_spec['branch']
+        self.inline: bool = bool(external_spec['inline'] or 'False') if 'inline' in external_spec else False
+
+        if self.external_base.startswith("/docs/reference/"):
+            self.page_type: str = 'doc'
+            self.page_layout: str = 'reference'
+        elif self.external_base.startswith("/docs/tutorials/"):
+            self.page_type: str = 'tutorial'
+            self.page_layout: str = 'tutorial'
+        else:
+            raise Exception("Unknown external path %s in %s" % (self.external_path, self.external_base))
 
         assert_valid_git_hub_url(self.external_repo, 'EXTERNAL MODULE: %s' % self.external_path)
 
@@ -66,7 +76,7 @@ def _rant_if_external_nav_is_not_found(self: ExternalMount):
 
 class ExternalItem:
 
-    def __init__(self, module, url_mappers, item):
+    def __init__(self, module: ExternalMount, url_mappers, item):
         self.module = module
         self.url_mappers = url_mappers
 
@@ -98,8 +108,8 @@ class ExternalItem:
                "##################################################\n" \
                "\n"                                                   \
                "---\n"                                                \
-               "type: doc \n"                                         \
-               "layout: reference \n"                                 \
+               "type: " + self.module.page_type + " \n"               \
+               "layout: " + self.module.page_layout + " \n"           \
                "title: \"" + self.title + "\"\n"                      \
                "github_edit_url: " + self.github_edit_url + "\n"      \
                "---\n\n"                                              \
@@ -156,32 +166,59 @@ def _build_url_mappers(external_yml, mount: ExternalMount):
     return patch_the_text
 
 
-def _process_external_key(build_mode, data):
+def _process_external_key(build_mode, data) -> list:
+    '''
+    :param build_mode: current build mode
+    :param data: the element from the _nav.yml to process
+    :return: the _list_ of items to replace the data item with
+    '''
+    if not isinstance(data, dict):
+        return [data]
+
     if 'external' not in data:
-        return
+        return [data]
 
     mount = ExternalMount(build_mode, data['external'])
     del data['external']
 
     if not _rant_if_external_nav_is_not_found(mount):
+        # TODO: side effect
         data['content'] = [{'url': '/', 'title': 'external "%s" is it included' % mount.external_path}]
-        return
+        return [data]
 
     with open(mount.nav_file) as stream:
         external_yml = yaml.load(stream)
         assert isinstance(external_yml, list)
 
     url_mappers = _build_url_mappers(external_yml, mount)
-    data['content'] = [_process_external_entry(mount, url_mappers, item) for item in external_yml]
+    contents = [_process_external_entry(mount, url_mappers, item) for item in external_yml]
+
+    if mount.inline:
+        return contents
+    else:
+        # TODO: side effect
+        data['content'] = contents
+        return [data]
 
 
 def process_nav_includes(build_mode, data):
     if isinstance(data, list):
-        for item in data:
+        children = [
             process_nav_includes(build_mode, item)
+            for item in data
+        ]
+
+        # flatten the results of the _process_external_key call
+        return [
+            entry
+            for item in children
+            for entry in _process_external_key(build_mode, item)
+        ]
 
     if isinstance(data, dict):
-        _process_external_key(build_mode, data)
+        return {
+            key: process_nav_includes(build_mode, item)
+            for key, item in data.items()
+        }
 
-        for item in data.values():
-            process_nav_includes(build_mode, item)
+    return data
