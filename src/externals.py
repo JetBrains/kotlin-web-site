@@ -53,11 +53,13 @@ def _rant_if_external_nav_is_not_found(self: ExternalMount):
     else:
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         print("!!!! Cannot locate external sources for path ")
-        print("!!!! " + self.external_path)
+        print("!!!!   " + self.external_path)
+        print("!!!! Cannot locate NAV file for path")
+        print("!!!!   " + self.nav_file)
         print("!!!! Please make sure you checked out the external repository")
-        print("!!!! " + self.external_repo)
+        print("!!!!   " + self.external_repo)
         print("!!!! to ")
-        print("!!!! " + self.source_external_path)
+        print("!!!!   " + self.source_external_path)
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         return False
 
