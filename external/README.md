@@ -12,14 +12,16 @@ The following code is used to enable an external in `data/_nav.yml`:
       path: kotlin-native
       nav: _nav_reference.yml
       base: /docs/reference/native
+      branch: master
       repo: https://github.com/JetBrains/kotlin-native
 ```
 where:
-`path` is the checkout path under the `external` folder 
-`nav` means the file, relative to the `path` with the YAML spec (see blow)  
-`base` selects base URL for all resources that are included from the `nav`  
+- `path` is the checkout path under the `external` folder 
+- `nav` means the file, relative to the `path` with the YAML spec (see blow)  
+- `base` selects base URL for all resources that are included from the `nav`  
    **NOTE** the base path is REMOVED and re-created on every reload!
-`repo` is a string, that is used in warning and informational messages 
+- `branch` branch in the repository for *edit on GitHub* links
+- `repo` is a string, that is used in warning and informational messages 
 
 The `docker-compose up` command allows running without `externals` checked out.
 That is done so to simplify the process for everyone who is working on the
@@ -33,10 +35,10 @@ The `nav` format is a list of:
   title: "Immutability"
 ```
 
-where
-`md` is the name of the original markdown file to include 
-`url` is the URL at the resulting site 
-`title` is the title 
+where:
+- `md` is the name of the original markdown file to include 
+- `url` is the URL at the resulting site 
+- `title` is the title 
 
 Those parameters are translated into the `content` element under the original `_nav.yml` file. Thanks to the separated `md` and `url` fields one is able to setup alias names for resources.
 
