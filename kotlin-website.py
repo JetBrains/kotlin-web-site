@@ -426,4 +426,4 @@ if __name__ == '__main__':
         elif sys.argv[1] == "index":
             build_search_indices(freezer._generate_all_urls(), pages)
     else:
-        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": set(["/src/"])})
+        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {"/src/"}})
