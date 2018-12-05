@@ -42,6 +42,15 @@ where:
 - `url` is the URL at the resulting site 
 - `title` is the title 
 
+Optionally for every item replacements are supported:
+```
+  replace:
+    - regex: '\[data class\]\(data-classes\)'
+      with:  '[data class](\#data-classes)'
+```
+The code uses regular expression for Python re package to replace text entries with `.sub` function.
+
+
 Those parameters are translated into the `content` element under the original `_nav.yml` file. Thanks to the separated `md` and `url` fields one is able to setup alias names for resources.
 
 ## Implementation details

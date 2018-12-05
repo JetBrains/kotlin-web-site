@@ -85,6 +85,26 @@ class ExternalItem:
         self.url: str = item['url']
         self.md: str = item['md']
         self.html = module.external_base.rstrip("/") + "/" + self.url.lstrip("/")
+        self.replacements: list = []
+
+        if 'replace' in item and isinstance(item['replace'], list):
+            for it in item['replace']:
+
+                def process(it):
+                    re_text = it['regex']
+                    replace = it['with']
+
+                    try:
+                        re_compile = re.compile(re_text)
+                    except BaseException as e:
+                        raise Exception("Failed to parse regex %s for %s." % (re_text, self.md)) from e
+
+                    def replace_function(text):
+                        return re_compile.sub(replace, text)
+
+                    return replace_function
+
+                self.replacements.append(process(it))
 
         assert self.md.endswith(".md"), "md path " + self.md + " must have `.md` extension"
         assert self.url.endswith(".html"), "url path " + self.url + "must have `.html` " \
@@ -128,6 +148,9 @@ def _process_external_entry(self: ExternalMount, url_mappers, entry: dict):
 
     # TODO: check `---` headers at the beginning of the original file and WARN or MERGE
     source_text = url_mappers(source_text, item.source_item)
+
+    for repl in item.replacements:
+        source_text = repl(source_text)
 
     if self.wrap_code_snippets:
         def handle_match(m):
