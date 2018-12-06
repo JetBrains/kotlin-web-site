@@ -200,11 +200,11 @@ def _build_url_mappers(external_yml, mount: ExternalMount):
 
 
 def _process_external_key(build_mode, data) -> list:
-    '''
+    """
     :param build_mode: current build mode
     :param data: the element from the _nav.yml to process
     :return: the _list_ of items to replace the data item with
-    '''
+    """
     if not isinstance(data, dict):
         return [data]
 
