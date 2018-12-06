@@ -111,7 +111,7 @@ class ExternalItem:
                                                                     "extension, no matter you have " \
                                                                     "`.md` file instead "
 
-        self.ext_fix = re.compile('\.html$')
+        self.ext_fix = re.compile('\\.html$')
         self.source_item = path.join(module.source_external_path, self.md.lstrip('/'))
         self.target_name = self.ext_fix.sub(".md", self.url.lstrip('/'))
         self.target_item = path.join(module.target_external_path, self.target_name)
