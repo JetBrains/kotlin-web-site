@@ -770,6 +770,29 @@ kotlin {
 </div>
 </div>
 
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```groovy
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                api("com.example:foo-metadata:1.0")
+            }
+        }
+        val jvm6Main by getting {
+            dependencies {
+                api("com.example:foo-jvm6:1.0")
+            }
+        }
+    }
+}
+```
+
+</div>
+</div>
+
 Note that for the IDE to correctly analyze the dependencies of the common sources, the common source sets need to have 
 corresponding dependencies on the Kotlin metadata packages in addition to the platform-specific artifact dependencies 
 of the platform-specific source sets. Usually, an artifact with a suffix 
