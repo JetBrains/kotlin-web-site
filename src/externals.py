@@ -137,7 +137,7 @@ class ExternalItem:
 
 
 
-def _process_external_entry(self: ExternalMount, url_mappers, entry: dict):
+def _process_external_entry(self: ExternalMount, url_mappers, entry: dict) -> list:
     item = ExternalItem(self, url_mappers, entry)
 
     if not os.path.isdir(item.target_dir):
@@ -168,10 +168,10 @@ def _process_external_entry(self: ExternalMount, url_mappers, entry: dict):
     with open(item.target_item, 'w') as file:
         file.write(source_text)
 
-    return {
+    return [{
         'url': item.html,
         'title': item.title
-    }
+    }]
 
 
 def _build_url_mappers(external_yml, mount: ExternalMount):
@@ -224,7 +224,11 @@ def _process_external_key(build_mode, data) -> list:
         assert isinstance(external_yml, list)
 
     url_mappers = _build_url_mappers(external_yml, mount)
-    contents = [_process_external_entry(mount, url_mappers, item) for item in external_yml]
+    contents = [
+        entry
+        for item in external_yml
+        for entry in _process_external_entry(mount, url_mappers, item)
+    ]
 
     if mount.inline:
         return contents
