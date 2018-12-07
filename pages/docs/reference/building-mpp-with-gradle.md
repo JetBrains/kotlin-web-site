@@ -455,7 +455,7 @@ kotlin {
 </div>
 </div>
 
-Each compilation is accompanied with a default [source set](#configuring-source-sets), which is created automatically 
+Each compilation is accompanied by a default [source set](#configuring-source-sets), which is created automatically 
 and should be used for sources and dependencies that are specific to that compilation. The default source set for a 
 compilation `foo` or a target `bar` has the name `barFoo`. It can also be accessed from a compilation using 
 `defaultSourceSet`:
@@ -507,6 +507,85 @@ kotlin {
 
 </div>
 </div> 
+
+For some specific use cases, creating a custom compilation may be required. This can be done within the target's `compilations` 
+domain object collection. Note that the dependencies need to be set up manually for all custom compilations, and the 
+usage of a custom compilation's outputs is up to the build author. For example, consider a custom compilation for integration tests
+of a `jvm()` target:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {
+    jvm() {
+        compilations.create('integrationTest') {
+            defaultSourceSet {
+                dependencies {
+                    def main = compilations.main
+                    // Compile against the main compilation's compile classpath and outputs:
+                    implementation(main.compileDependencyFiles + main.output.classesDirs)
+                    implementation 'junit:junit:4.12'
+                    /* ... */
+                }
+            }
+
+            // Create a test task to run the tests produced by this compilation:
+            tasks.create('jvmIntegrationTest', Test) {
+                // Run the tests with the classpath containing the compile dependencies (including 'main'),
+                // runtime dependencies, and the outputs of this compilation:
+                classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
+
+                // Run only the tests from this compilation's outputs:
+                testClassesDirs = output.classesDirs
+            }
+        }
+    }
+}
+```
+
+</div> 
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {
+    jvm() {
+        compilations {
+            val main by getting
+
+            val integrationTest by compilations.creating {
+                defaultSourceSet {
+                    dependencies {
+                        // Compile against the main compilation's compile classpath and outputs:
+                        implementation(main.compileDependencyFiles + main.output.classesDirs)
+                        implementation("junit:junit:4.12")
+                        /* ... */
+                    }
+                }
+
+                // Create a test task to run the tests produced by this compilation:
+                tasks.create<Test>("integrationTest") {
+                    // Run the tests with the classpath containing the compile dependencies (including 'main'),
+                    // runtime dependencies, and the outputs of this compilation:
+                    classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
+
+                    // Run only the tests from this compilation's outputs:
+                    testClassesDirs = output.classesDirs
+                }
+            }
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+Also note that the default source set of a custom compilation depends on neither `commonMain` nor `commonTest` by 
+default.
 
 ## Configuring source sets
 
@@ -753,14 +832,14 @@ Dependencies are specified per source set as follows:
 ```groovy
 kotlin {
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
-                api("com.example:foo-metadata:1.0")
+                api 'com.example:foo-metadata:1.0'
             }
         }
-        val jvm6Main by getting {
+        jvm6Main {
             dependencies {
-                api("com.example:foo-jvm6:1.0")
+                api 'com.example:foo-jvm6:1.0'
             }
         }
     }
