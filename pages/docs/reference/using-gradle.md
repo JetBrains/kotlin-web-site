@@ -203,7 +203,7 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
 }
 ```
 
@@ -218,8 +218,8 @@ following dependencies:
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ``` groovy
-compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
-compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 ```
 
 </div>
@@ -230,10 +230,10 @@ With Gradle Kotlin DSL, the following notation for the dependencies is equivalen
 
 ``` kotlin
 dependencies {
-    compile(kotlin("stdlib"))
+    implementation(kotlin("stdlib"))
     // or one of:
-    compile(kotlin("stdlib-jdk7"))
-    compile(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib-jdk7"))
+    implementation(kotlin("stdlib-jdk8"))
 }
 ```
 
@@ -246,9 +246,9 @@ If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.f
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-compile "org.jetbrains.kotlin:kotlin-reflect"
-testCompile "org.jetbrains.kotlin:kotlin-test"
-testCompile "org.jetbrains.kotlin:kotlin-test-junit"
+implementation "org.jetbrains.kotlin:kotlin-reflect"
+testImplementation "org.jetbrains.kotlin:kotlin-test"
+testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 ```
 
 </div>
@@ -258,9 +258,9 @@ Or, with Gradle Kotlin DSL:
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-compile(kotlin("reflect"))
-testCompile(kotlin("test"))
-testCompile(kotlin("test-junit"))
+implementation(kotlin("reflect"))
+testImplementation(kotlin("test"))
+testImplementation(kotlin("test-junit"))
 ```
 
 </div>
