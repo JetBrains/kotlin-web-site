@@ -164,10 +164,10 @@ In all respects, this is just the same as in Java since access to private proper
 
 ## Compile-Time Constants
 
-Properties the value of which is known at compile time can be marked as _compile time constants_ using the `const` modifier.
+Properties the value of which is known at compile time can be marked as _compile time constants_ using the *const*{: .keyword } modifier.
 Such properties need to fulfil the following requirements:
 
-  * Top-level or member of an `object`
+  * Top-level, or member of an [*object*{: .keyword } declaration](object-declarations.html#object-declarations) or [a *companion object*{: .keyword }](object-declarations.html#companion-objects).
   * Initialized with a value of type `String` or a primitive type
   * No custom getter
 
