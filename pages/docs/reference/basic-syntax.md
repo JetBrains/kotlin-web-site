@@ -259,7 +259,12 @@ Return *null*{: .keyword } if `str` does not hold an integer:
 
 ```kotlin
 fun parseInt(str: String): Int? {
-    // ...
+    // type conversion str to Int type
+    try { // try to convert str(input) to Int type
+        return str.toInt()
+    } catch (e: NumberFormatException) { // NumberFormatException, return null
+        return null
+    }
 }
 ```
 
