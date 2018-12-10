@@ -12,7 +12,7 @@ Range is defined for any comparable type, but for integral primitive types it ha
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-if (i in 1..10) { // equivalent of 1 <= i && i <= 10
+for (i in 1..10) { // equivalent of 1 <= i && i <= 10
     println(i)
 }
 ```
