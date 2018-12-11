@@ -1,8 +1,0 @@
-- md: README.md
-  url: kotlin-for-python-developers.html
-  title: "Kotlin for Python Developers"
-  replace:
-    - regex: '\[data class\]\(data-classes\)'
-      with:  '[data class](#data-classes)'
-    - regex: '# Kotlin for Python developers'
-      with: ''
