@@ -380,7 +380,7 @@ tutorials:
           title: Learning Kotlin with EduTools plugin
         - url: /docs/tutorials/edu-tools-educator.html
           title: Teaching Kotlin with EduTools plugin
-    - title: Kotlin for Python Developers
+    - title: Migrating from Python
       external:
         path: kotlin-for-python-developers
         nav: kotlinlang.org.yaml
