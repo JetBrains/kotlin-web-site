@@ -1072,8 +1072,10 @@ the tests for all targets.
 As the `commonTest` [default source set](#default-project-layout) is added to all test compilations, tests and test tools that are needed
 on all target platforms may be placed there.
 
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/index.html) is availble for multiplatform tests. Add the `kotlin-test-common` and `kotlin-test-annotations-common`
-dependencies to `commonTest` to use `DefaultAsserter` and `@Test`/`@Ignore`/`@BeforeTest`/`@AfterTest` annotations in the common tests.
+The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/index.html) is availble for multiplatform tests. 
+Add the `kotlin-test-common` and `kotlin-test-annotations-common` dependencies to `commonTest` to use the assertion 
+functions like `kotlin.test.assertTrue(...)`  
+and `@Test`/`@Ignore`/`@BeforeTest`/`@AfterTest` annotations in the common tests.
 
 For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and
 annotations mapping.
@@ -1180,6 +1182,71 @@ publishing {
     publications.withType<MavenPublication>().apply {
         val jvm6 by getting { /* Setup the publication for target 'jvm6' */ }
         val metadata by getting { /* Setup the publication for Kotlin metadata */ }
+    }
+}
+```
+
+</div>
+</div>
+
+As assembling Kotlin/Native artifacts requires several builds to run on different host platforms, publishing a 
+multiplatform library that includes Kotlin/Native targets needs to be done with that same set of host machines. To avoid
+duplicate publications of modules that can be built on more than one of the platforms 
+(like JVM, JS, Kotlin metadata, WebAssembly), the publishing tasks for these modules may be configured to run 
+conditionally, for example:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {
+    jvm()
+    js()
+    mingwX64()
+    linuxX64()
+    
+    // Given that `-PisLinux=true` command line argument is passed when running on Linux,
+    // these targets get published only from a Linux machine.
+    // Note that the Kotlin metadata is here, too. 
+    // The mingwx64() target is automatically skipped as incompatible in Linux builds.
+    configure([targets["metadata"], jvm(), js()]) {
+        mavenPublication { linuxOnlyPublication ->
+            tasks.withType(AbstractPublishToMaven).all {
+                onlyIf { 
+                    publication != linuxOnlyPublication || findProperty("isLinux") == "true"
+                }
+            }            
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    mingwX64()
+    linuxX64()
+    
+    // Given that `-PisLinux=true` command line argument is passed when running on Linux,
+    // these targets get published only from a Linux machine.
+    // Note that the Kotlin metadata is here, too. 
+    // The mingwx64() target is automatically skipped as incompatible in Linux builds.
+    configure(listOf(metadata(), jvm(), js())) {
+        mavenPublication { 
+            val linuxOnlyPublication = this@mavenPublication
+            tasks.withType<AbstractPublishToMaven>().all {
+                onlyIf { 
+                    publication != linuxOnlyPublication || findProperty("isLinux") == "true"
+                }
+            }            
+        }
     }
 }
 ```

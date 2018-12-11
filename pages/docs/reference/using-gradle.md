@@ -10,26 +10,52 @@ In order to build Kotlin with Gradle you should [set up the *kotlin-gradle* plug
 
 ## Plugin and Versions
 
-The `kotlin-gradle-plugin` compiles Kotlin sources and modules.
+Apply the Kotlin plugin by using [the Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block),
+replacing the placeholder with one of the plugin names that can be found in further sections:
 
-The version of Kotlin to use is usually defined as the `kotlin_version` property:
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
 
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.<...>' version '{{ site.data.releases.latest.version }}'
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+plugins {
+    kotlin("<...>") version "{{ site.data.releases.latest.version }}"
+}
+```
+
+</div>
+</div>
+
+Alternatively, apply plugin by adding the `kotlin-gradle-plugin` dependency to the build script classpath:
+
+<div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ``` groovy
 buildscript {
-    ext.kotlin_version = '{{ site.data.releases.latest.version }}'
-
     repositories {
         mavenCentral()
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:{{ site.data.releases.latest.version }}"
     }
 }
-```
 
+apply plugin: 'org.jetbrains.kotlin.<...>'
+```
+</div>
 </div>
 
 This is not required when using Kotlin Gradle plugin 1.1.1 and above with the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block), and with [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl).
