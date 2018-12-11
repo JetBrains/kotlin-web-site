@@ -64,6 +64,7 @@ class ExternalMount:
 
         self.nav_file = path.join(self.source_external_path, self.external_nav.lstrip("/"))
         self.replacements = _parse_replacements(external_spec, self.external_nav)
+        self.explicit_github_edit_page = external_spec['github_edit_page'] if 'github_edit_page' in external_spec else None
 
         print("External repo:       ", self.external_repo)
         print("External nav file:   ", self.nav_file)
@@ -75,7 +76,11 @@ class ExternalMount:
         return self.external_repo.rstrip('/') + "/blob/" + self.external_branch + "/" + file.lstrip("/")
 
     def github_edit_url(self, real_path: str) -> str:
-        file = path.relpath(real_path, self.source_checkout_root)
+        if self.explicit_github_edit_page is None:
+            file = path.relpath(real_path, self.source_checkout_root)
+        else:
+            file = self.explicit_github_edit_page
+
         return self.external_repo.rstrip('/') + "/edit/" + self.external_branch + "/" + file.lstrip("/")
 
 
