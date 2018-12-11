@@ -95,7 +95,7 @@ def get_nav():
 def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
         nav = yaml.load(stream)
-        process_nav_includes(build_mode, nav)
+        nav = process_nav_includes(build_mode, nav)
         return nav
 
 
