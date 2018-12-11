@@ -8,6 +8,30 @@ from src.github import assert_valid_git_hub_url
 root_folder = path.normpath(path.join(os.path.dirname(__file__), '..'))
 
 
+def _parse_replacements(item : dict, context) -> list:
+    replacements: list = []
+
+    if 'replace' in item and isinstance(item['replace'], list):
+        for it in item['replace']:
+
+            def process(it):
+                re_text = it['regex']
+                replace = it['with']
+
+                try:
+                    re_compile = re.compile(re_text)
+                except BaseException as e:
+                    raise Exception("Failed to parse regex %s for %s." % (re_text, context)) from e
+
+                def replace_function(text):
+                    return re_compile.sub(replace, text)
+
+                return replace_function
+
+            replacements.append(process(it))
+
+    return replacements
+
 class ExternalMount:
 
     def __init__(self, build_mode, external_spec):
@@ -39,6 +63,7 @@ class ExternalMount:
         self.source_checkout_root = path.join(root_folder, 'external', self.external_path.split("/")[0])
 
         self.nav_file = path.join(self.source_external_path, self.external_nav.lstrip("/"))
+        self.replacements = _parse_replacements(external_spec, self.external_nav)
 
         print("External repo:       ", self.external_repo)
         print("External nav file:   ", self.nav_file)
@@ -85,26 +110,7 @@ class ExternalItem:
         self.url: str = item['url']
         self.md: str = item['md']
         self.html = module.external_base.rstrip("/") + "/" + self.url.lstrip("/")
-        self.replacements: list = []
-
-        if 'replace' in item and isinstance(item['replace'], list):
-            for it in item['replace']:
-
-                def process(it):
-                    re_text = it['regex']
-                    replace = it['with']
-
-                    try:
-                        re_compile = re.compile(re_text)
-                    except BaseException as e:
-                        raise Exception("Failed to parse regex %s for %s." % (re_text, self.md)) from e
-
-                    def replace_function(text):
-                        return re_compile.sub(replace, text)
-
-                    return replace_function
-
-                self.replacements.append(process(it))
+        self.replacements = _parse_replacements(item, self.md) + module.replacements
 
         assert self.md.endswith(".md"), "md path " + self.md + " must have `.md` extension"
         assert self.url.endswith(".html"), "url path " + self.url + "must have `.html` " \
