@@ -383,13 +383,12 @@ tutorials:
     - title: Kotlin for Python Developers
       external:
         path: kotlin-for-python-developers
-        nav: ../kotlin-for-python-developers-nav.yml
+        nav: kotlinlang.org.yaml
         base: /docs/tutorials/kotlin-for-py
         branch: master
         repo: https://github.com/Khan/kotlin-for-python-developers
-#        inline: true
         type: tutorial
-        # wrap_code_snippets: False #it works too slow for that huge page
+        wrap_code_snippets: True 
 
 foundation:
   content:
