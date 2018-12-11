@@ -457,7 +457,7 @@ kotlin {
 
 Each compilation is accompanied by a default [source set](#configuring-source-sets), which is created automatically 
 and should be used for sources and dependencies that are specific to that compilation. The default source set for a 
-compilation `foo` or a target `bar` has the name `barFoo`. It can also be accessed from a compilation using 
+compilation `foo` of a target `bar` has the name `barFoo`. It can also be accessed from a compilation using 
 `defaultSourceSet`:
 
 <div class="multi-language-sample" data-lang="groovy">
