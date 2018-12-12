@@ -11,10 +11,26 @@ and tooling features described in this document are subject to change in future 
 {:.note}
 
 This document explains the structure of [Kotlin multiplatform projects](multiplatform.html) and describes how 
-those are configured and built using Gradle. Only Gradle versions 4.7 and above can be used, older Gradle versions are 
-not supported.
+those are configured and built using Gradle.
 
-## Project structure
+## Table of Contents
+
+* [Project Structure](#project-structure)
+* [Setting up a Multiplatform Project](#setting-up-a-multiplatform-project)
+* [Gradle Plugin](#gradle-plugin)
+* [Setting up Targets](#setting-up-targets)
+    * [Supported platforms](#supported-platforms)
+    * [Configuring compilations](#configuring-compilations)
+* [Configuring Source Sets](#configuring-source-sets)
+    * [Connecting source sets](#connecting-source-sets)
+    * [Adding dependencies](#adding-dependencies)
+    * [Language settings](#language-settings)
+* [Default Project Layout](#default-project-layout)
+* [Runnign Tests](#running-tests)
+* [Publishing a Multiplatform Library](#publishing-a-multiplatform-library)
+* [Using Kotlin/Native Targets](#using-kotlinnative-targets)
+
+## Project Structure
 
 The layout of a Kotlin multiplatform project is constructed out of the following building blocks:
 
@@ -217,6 +233,8 @@ Note that the dependencies for common source sets `commonMain` and `commonTest` 
 platform libraries go to the source sets of the specific targets.
 
 ## Gradle Plugin
+
+Kotlin Multiplatform projects require Gradle version 4.7 and above, older Gradle versions are not supported.
 
 To setup a multiplatform project from scratch in a Gradle project, first apply the 
 `kotlin-multiplatform` plugin to the project by adding the following to the
@@ -587,7 +605,7 @@ kotlin {
 Also note that the default source set of a custom compilation depends on neither `commonMain` nor `commonTest` by 
 default.
 
-## Configuring source sets
+## Configuring Source Sets
 
 A Kotlin source set is a collection of Kotlin sources, along with their resources, dependencies, and language settings, 
 which may take part in Kotlin compilations of one or more [targets](#setting-up-targets).
@@ -644,7 +662,8 @@ A source set by itself is platform-agnostic, but
 it can be considered platform-specific if it is only compiled for a single platform. A source set can, therefore, contain either
 common code shared between the platforms or platform-specific code.
 
-To add Kotlin source directories and resources to a source set, use its `kotlin` and `resources` `SourceDirectorySet`s:
+Each source set has a default source directory for Kotlin sources: `src/<source set name>/kotlin`. To add Kotlin source 
+directories and resources to a source set, use its `kotlin` and `resources` `SourceDirectorySet`s:
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -1319,7 +1338,7 @@ kotlin {
 </div>
 </div>
 
-### Disambiguating Targets
+### Disambiguating targets
 
 It is possible to have more than one target for a single platform in a multiplatform library. For example, these targets
 may provide the same API and differ in the libraries they cooperate with at runtime, like testing frameworks or logging solutions. 
