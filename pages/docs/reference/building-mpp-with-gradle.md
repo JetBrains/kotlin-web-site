@@ -139,18 +139,18 @@ The [source sets](#configuring-source-sets) and their [dependencies](#adding-dep
 plugins { /* ... */ }
 
 kotlin {
-    targets { /* ... */ }
+    /* Targets declarations omitted */
 
     sourceSets {
         commonMain {
             dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
+                implementation kotlin('stdlib-common')
             }
         }
         commonTest {
             dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-test-common'
-                implementation 'org.jetbrains.kotlin:kotlin-test-annotations-common'
+                implementation kotlin('test-common')
+                implementation kotlin('test-annotations-common')
             }
         }
         
@@ -158,13 +158,13 @@ kotlin {
         // Alternatively, jvmMain { ... } would work as well:
         jvm().compilations.main.defaultSourceSet {
             dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+                implementation kotlin('stdlib-jdk8')
             }
         }
         // JVM-specific tests and their dependencies:
         jvm().compilations.test.defaultSourceSet {
             dependencies {
-                implementation 'org.jetbrains.kotlin:kotlin-test-junit'
+                implementation kotlin('test-junit')
             }
         }
         
@@ -187,7 +187,7 @@ kotlin {
 plugins { /* ... */ }
 
 kotlin {
-    targets { /* ... */ }
+    /* Targets declarations omitted */
 
     sourceSets {
         val commonMain by getting {
@@ -543,7 +543,7 @@ kotlin {
                     def main = compilations.main
                     // Compile against the main compilation's compile classpath and outputs:
                     implementation(main.compileDependencyFiles + main.output.classesDirs)
-                    implementation 'junit:junit:4.12'
+                    implementation kotlin('test-junit')
                     /* ... */
                 }
             }
@@ -579,7 +579,7 @@ kotlin {
                     dependencies {
                         // Compile against the main compilation's compile classpath and outputs:
                         implementation(main.compileDependencyFiles + main.output.classesDirs)
-                        implementation("junit:junit:4.12")
+                        implementation(kotlin("test-junit"))
                         /* ... */
                     }
                 }
