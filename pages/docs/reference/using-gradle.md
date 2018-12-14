@@ -53,7 +53,9 @@ buildscript {
     }
 }
 
-apply plugin: 'org.jetbrains.kotlin.<...>'
+plugins {
+    id "org.jetbrains.kotlin.<...>" version "{{ site.data.releases.latest.version }}"
+}
 ```
 </div>
 </div>
@@ -88,17 +90,7 @@ Using the `kotlin-multiplatform` plugin for building [multiplatform projects](mu
 
 ## Targeting the JVM
 
-To target the JVM, the Kotlin plugin needs to be applied:
-
-<div class="sample" markdown="1" mode="groovy" theme="idea">
-
-``` groovy
-apply plugin: "kotlin"
-```
-
-</div>
-
-Or, starting with Kotlin 1.1.1, the plugin can be applied using the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block):
+To target the JVM, apply the Kotlin JVM plugin. Starting with Kotlin 1.1.1, the plugin can be applied using the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block):
 
 
 <div class="multi-language-sample" data-lang="groovy">
@@ -126,6 +118,18 @@ plugins {
 </div>
 
 The `version` should be literal in this block, and it cannot be applied from another build script.
+
+Alternatively, you can use the older `apply plugin` approach:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+apply plugin: 'kotlin'
+```
+
+</div>
+
+It's not recommended to apply Kotlin plugins with `apply` in Gradle Kotlin DSL. The details are provided [below](#using-gradle-kotlin-dsl).
 
 Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:
 
@@ -192,11 +196,27 @@ plugins {
 
 ```kotlin
 plugins {
-    kotlin("js") version "{{ site.data.releases.latest.version }}"
+    id("kotlin2js") version "{{ site.data.releases.latest.version }}"
 }
 ```
 
 </div>
+</div>
+
+Note that this way of applying the Kotlin/JS plugin requires adding the following code to Gradle settings file (`settings.gradle`):
+<div class="sample" markdown="1" mode="groovy" theme="idea" auto-indent="false">
+
+```groovy
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "kotlin2js") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+        }
+    }
+}
+```
 </div>
 
 This plugin only works for Kotlin files so it is recommended to keep Kotlin and Java files separate (in case if the same project contains Java files). As with
@@ -272,11 +292,15 @@ buildscript {
     ...
 
     dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 ```
 
 </div>
@@ -288,12 +312,13 @@ apply plugin: 'kotlin-android'
 ```kotlin
 buildscript {
     dependencies {
+        classpath("com.android.tools.build:gradle:3.2.1")
         classpath(kotlin("gradle-plugin", version = "{{ site.data.releases.latest.version }}'"))
     }
 }
 plugins {
     id("com.android.application")
-    kotlin("android")
+    id("kotlin-android")
 }
 ```
 
@@ -374,10 +399,9 @@ dependencies {
 
 </div>
 </div>
-
-To run applications that use `kotlin-stdlib`, JDK 6 is required. On JDK 7, 8, or later, you can use extended versions of the Kotlin standard library which contain
-additional extension functions for APIs added in these JDK versions. Instead of `kotlin-stdlib`, use one of the
-following dependencies:
+ 
+The Kotlin standard library `kotlin-stdlib` targets Java 6 and above. There are extended versions of the standard library that add support for some of the features of JDK 7 and JDK 8. To use these versions, add one of the
+following dependencies instead of `kotlin-stdlib`:
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
@@ -500,7 +524,7 @@ The Kotlin plugin supports [Gradle Build Cache](https://guides.gradle.org/using-
 
 To disable the caching for all Kotlin tasks, set the system property flag `kotlin.caching.enabled` to `false` (run the build with the argument `-Dkotlin.caching.enabled=false`).
 
-If you use [kapt](kapt.html), note that the kapt annotation processing tasks are not cached by default. However, you can enable caching for them manually. See the [kapt page](kapt.html) for details. 
+If you use [kapt](kapt.html), note that the kapt annotation processing tasks are not cached by default. However, you can enable caching for them manually. See the [kapt page](kapt.html#gradle-build-cache-support-since-1220) for details. 
 
 ## Compiler Options
 
