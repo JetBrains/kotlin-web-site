@@ -506,7 +506,7 @@ Kotlin 1.3 introduces support for the [recommended code style](coding-convention
 
 [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) is a library which provides multiplatform support for (de)serializing objects in Kotlin. Previously, it was a separate project, but since Kotlin 1.3, it ships with the Kotlin compiler distribution on par with the other compiler plugins. The main difference is that you don't need to manually watch out for the Serialization IDE Plugin being compatible with the Kotlin IDE Plugin version you're using: now the Kotlin IDE Plugin already includes serialization!
 
-See here for [details](https://github.com/Kotlin/kotlinx.serialization/tree/master/docs).
+See here for [details](https://github.com/Kotlin/kotlinx.serialization#current-project-status).
 
 > Please, note, that even though kotlinx.serialization now ships with the Kotlin Compiler distribution, it is still considered to be an experimental feature. 
 {:.note}
