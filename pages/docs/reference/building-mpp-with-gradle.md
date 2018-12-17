@@ -26,7 +26,7 @@ those are configured and built using Gradle.
     * [Adding dependencies](#adding-dependencies)
     * [Language settings](#language-settings)
 * [Default Project Layout](#default-project-layout)
-* [Runnign Tests](#running-tests)
+* [Running Tests](#running-tests)
 * [Publishing a Multiplatform Library](#publishing-a-multiplatform-library)
 * [Using Kotlin/Native Targets](#using-kotlinnative-targets)
 
