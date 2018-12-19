@@ -283,6 +283,8 @@ tutorials:
           title: Getting Started with Eclipse
         - url: /docs/tutorials/command-line.html
           title: Working with the Command Line Compiler
+        - url: /docs/tutorials/quick-run.html
+          title: Quick Ways to Run Kotlin Code
         - url: /docs/tutorials/build-tools.html
           title: Working with Build Tools
         - url: /docs/tutorials/koans.html
