@@ -84,7 +84,7 @@ val item = rwList.firstOrNull()
 
 ... as well as all the utilities you would expect such as sort, zip, fold, reduce and so on.
 
-It's important to note, that the operations on readonly collections which return a modified collection (like `+`, `filter`, `drop`, etc.) do not create their results atomically, therefore the results are not safe to use from a different thread without proper synchronization. 
+It's important to note, that the operations on readonly collections which return a modified collection (like `+`, `filter`, `drop`, etc.) do not create their results atomically, therefore the results are not safe to use from a different thread without proper synchronization. This is true even if the original collection have a completely immutable backing collection which can't change. For detailed explanation please see this [comment](https://github.com/JetBrains/kotlin-web-site/pull/1238/files#r243049877).
 
 Maps follow the same pattern. They can be easily instantiated and accessed like this:
 
