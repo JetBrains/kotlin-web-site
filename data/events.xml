@@ -3,6 +3,236 @@
 
     <event>
         <lang>en</lang>
+        <startDate>2019-01-19</startDate>
+        <endDate>2019-01-19</endDate>
+        <location>Orlando, FL, USA</location>
+        <speaker>Kevin Galligan</speaker>
+        <title>GDG DevFest Florida</title>
+        <subject>Kotlin Multiplatform in Production</subject>
+        <url>https://devfestflorida.org/schedule/2019-19-01?sessionId=207</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform tooling, language, and libraries have been emerging rapidly since mid-2018, and some major applications are launching into production. As Kotlin Multiplatform enters the mainstream, it will become increasingly valuable for mobile developers to understand what it is, how to think about shared architecture, what the status of the community currently is, and what to watch for updates on where the ecosystem goes in the future.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-19</startDate>
+        <endDate>2019-01-19</endDate>
+        <location>Orlando, FL, USA</location>
+        <speaker>Ian Thomas</speaker>
+        <title>GDG DevFest Florida</title>
+        <subject>Exploring Kotlin Multiplatform</subject>
+        <url>https://devfestflorida.org/schedule/2019-19-01?sessionId=200</url>
+        <description>
+            <![CDATA[
+<p>Developing for multiple platforms is expensive and requires multiple disciplines. Kotlin Multiplatform provides a sane, cheap, and fast method to target multiple environments with the same codebase. Leveraging direct compilation to target environments, Kotlin Multiplatform can save you time and money sharing your business logic between your target platforms. By using a common build tool, you also save considerable learning costs typically associated with writing platform native code. In this talk, we will explore these possibilities and demonstrate how a single multiplatform project can be deployed to multiple target environments.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-19</startDate>
+        <endDate>2019-01-19</endDate>
+        <location>Orlando, FL, USA</location>
+        <speaker>Sam Edwards</speaker>
+        <title>GDG DevFest Florida</title>
+        <subject>DIY Dependency Injection with Kotlin</subject>
+        <url>https://devfestflorida.org/schedule/2019-19-01?sessionId=200</url>
+        <description>
+            <![CDATA[
+<p>Dependency Injection seems like this SUPER complex topic that only the most senior developers understand. At the end of the day, it’s just “inversion of control” where instances of objects/classes are provided to you, instead of created by you. Kotlin’s language features allow us to do this concisely, without a library, and in this talk I’ll show you how to DO IT YOURSELF. This talk will demystify dependency injection and help you understand the huge benefits it provides for testing, maintainability and modularity.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2018-12-19</startDate>
+        <endDate>2018-12-19</endDate>
+        <location>Paris, France</location>
+        <speaker>Daniel Marin</speaker>
+        <title>Kotlin Paris Meetup</title>
+        <subject>Kotlin Native et Kotlin Multiplatform</subject>
+        <url>https://www.meetup.com/Kotlin-Paris-Meetup/events/256817682/</url>
+    </event>
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2018-12-19</startDate>
+        <endDate>2018-12-19</endDate>
+        <location>Paris, France</location>
+        <speaker>Benjamin Lacroix, Paul-Guillaume Dejardin</speaker>
+        <title>Kotlin Paris Meetup</title>
+        <subject>Koltin Dans Ton Cloud</subject>
+        <url>https://www.meetup.com/Kotlin-Paris-Meetup/events/256817682/</url>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2019-01-18</startDate>
+        <endDate>2019-01-18</endDate>
+        <location>Moscow, Russia</location>
+        <speaker>Alexander Nosik, Ilnur Usmanov</speaker>
+        <title>Kotlin Moscow User Group</title>
+        <subject>Новогодний Kotlin - JavaFX, TornadoFX и корутины</subject>
+        <url>https://devsday.ru/event/details/324</url>
+        <description>
+            <![CDATA[
+<p>Будет продемонстрирована работа с TornadoFX в Kotlin-стиле. Также будет демо 3D-визуализации и мультиплатформенного использования TornadoFX и JS.</p>
+<p>корутины - как они устроены внутри, какие преобразования делает компилятор, чтобы синхронный код превратить в асинхронный, как на низком уровне реализованы корутины и что на самом деле делают функции suspendCoroutine и resume.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2018-12-20</startDate>
+        <endDate>2018-12-20</endDate>
+        <location>Santiago, Chile</location>
+        <speaker>Felipe López</speaker>
+        <title>Kotlin Santiago User Group</title>
+        <subject>Kotlin + Spring</subject>
+        <url>https://www.meetup.com/KotlinSantiago/events/256580057/</url>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2018-12-20</startDate>
+        <endDate>2018-12-20</endDate>
+        <location>Santiago, Chile</location>
+        <speaker>Roberto Osorio</speaker>
+        <title>Kotlin Santiago User Group</title>
+        <subject>Kotlin + Vertx</subject>
+        <url>https://www.meetup.com/KotlinSantiago/events/256580057/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-02</startDate>
+        <endDate>2019-01-02</endDate>
+        <location>San Diego, CA, USA</location>
+        <speaker>Ian Brandt</speaker>
+        <title>Kotlin Santiago User Group</title>
+        <subject>Monthly Kotlin!</subject>
+        <url>https://www.meetup.com/sd-kotlin/events/hxkqbqyzcbdb/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-17</startDate>
+        <endDate>2019-01-17</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Ayelen Chavez, JB Lorenzo</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>Fast Prototypes with Flutter + Kotlin/Native</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/tvhffpyzcbwb/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-22</startDate>
+        <endDate>2019-01-22</endDate>
+        <location>Amsterdam, Netherlands</location>
+        <speaker>Alexey Soshin</speaker>
+        <title>Amsterdam Java User Group</title>
+        <subject>Kotlin Design Patterns</subject>
+        <url>https://www.meetup.com/Amsterdam-Java-User-Group/events/257307488/</url>
+        <description>
+            <![CDATA[
+<p>Design patterns are just missing language features? In this talk we'll cover how different design patterns from "Gang of Four" are applied in Kotlin. Which are built in, which are easy to implement, and also some that are not necessary
+now</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-31</startDate>
+        <endDate>2019-01-31</endDate>
+        <location>Limerick, Ireland</location>
+        <speaker>Tom Prior</speaker>
+        <title>Kotlin Limerick User Group</title>
+        <subject>Introducing Kotlin</subject>
+        <url>https://www.meetup.com/kotlinlimerick/events/256998956/</url>
+        <description>
+            <![CDATA[
+<p>This talk will be an intro talk to the Kotlin Limerick group and also to Kotlin itself and its ecosystem. It will give a high level overview of the language all the exciting things that are happening in the Kotlin ecosystem from Kotin on the JVM to Kotlin Native.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-31</startDate>
+        <endDate>2019-01-31</endDate>
+        <location>Limerick, Ireland</location>
+        <speaker>Tiernan Scully</speaker>
+        <title>Kotlin Limerick User Group</title>
+        <subject>Migrating from Java to Kotlin in Enterprise</subject>
+        <url>https://www.meetup.com/kotlinlimerick/events/256998956/</url>
+        <description>
+            <![CDATA[
+<p>This talk will focus on how Teckro moved from using Java 8 to Kotlin in our spring boot microservices platform. We'll touch on how it happened, the benefits gained by switching and the lessons we learned along the way.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-31</startDate>
+        <endDate>2019-01-31</endDate>
+        <location>Minneapolis, MN, USA</location>
+        <speaker>Sean McQuillan</speaker>
+        <title>Twin Cities Kotlin User Group</title>
+        <subject>Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/Twin-Cities-Kotlin-User-Group/events/256748699/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin coroutines are a new way to manage async operations on Android. Stable with Kotlin 1.3, now is a great time to explore using coroutines in your app. In this talk, you'll learn about the history of coroutines, how they work in Kotlin, and effective patterns for using coroutines on Android. The talk will also cover how to avoid common pitfalls and mistakes with using coroutines. After this talk you will have a good understanding of Kotlin coroutines and how to effectively use them on Android!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-02-05</startDate>
+        <endDate>2019-02-05</endDate>
+        <location>Portland, OR, USA</location>
+        <speaker>Sean Massie</speaker>
+        <title>Kotlin Portland User Group</title>
+        <subject>Kotlin, standing on the shoulders of Giants.</subject>
+        <url>https://www.meetup.com/Kotlin-Portland-User-Group/events/ttbqjqyzdbhb/</url>
+        <description>
+            <![CDATA[
+<p>This talk will be a discussion on the wonders of Java and what Kotlin has done to build on them.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-01-31</startDate>
+        <endDate>2019-01-31</endDate>
+        <location>Arnhem, Netherlands</location>
+        <speaker>Coen Smid</speaker>
+        <title>Avisi Techdays</title>
+        <subject>Kotlin Multiplatform</subject>
+        <url>https://www.meetup.com/Avisi-Techdays-Arnhem/events/256627293/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a booming language. Its usage is skyrocketing in both apps and serverside applications. Frontend Kotlin is also emerging. And now (since Kotlin 1.2) Kotlin multiplatform has been announced and is currently in experimental. The philosophy: Write web, desktop, backend, Android and iOS apps in the same language and share code between your apps.
+<p>There are lots of advantages to this, many of which will be discussed during this Techday. Of course, we want to be at the front of this new development!</p>
+<p>So software developers, come and play. You will be supplied with a working base project, the knowledge to use it and lots of sparring partners and will build an application during the hands-on.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2018-12-10</startDate>
         <endDate>2018-12-10</endDate>
         <location>Munich, Germany</location>
