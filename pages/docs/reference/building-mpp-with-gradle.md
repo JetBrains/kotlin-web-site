@@ -642,9 +642,9 @@ However, dependencies on such a multiplatform library may be ambiguous and may t
 
 It is important to note that some of the [Kotlin/Native targets](#supported-platforms) may only be built with an appropriate host machine:
 
-* Linux targets may only be built on a Linux host;
+* Linux targets require a Linux host;
 * Windows targets require a Windows host;
-* macOS and iOS targets can only be built on a macOS host;
+* macOS and iOS targets require a macOS host;
 * Android Native targets require a Linux or macOS host; 
 
 A target that is not supported by the current host is ignored during build and therefore not published. A library author may want to set up
