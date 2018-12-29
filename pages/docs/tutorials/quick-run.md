@@ -28,6 +28,14 @@ In your scratch, you can write any valid Kotlin code, including new functions an
 
 Write your code in the scratch and click __Run__. The execution results will appear opposite the lines of your code.
 
+Example:
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <img
+    src="{{ url_for('asset', path='images/tutorials/quick-run/scratch-repl.png') }}"
+    data-gif-src="{{ url_for('asset', path='images/tutorials/quick-run/scratch-run.gif') }}"
+    class="gif-image">
+</div>
+
 ![Scratch run]({{ url_for('tutorial_img', filename='quick-run/scratch-run.gif') }})
 
 To use classes or functions from a project in the scratch, import them into the scratch file as usual with the `import` statement. Then write your code and run it with the appropriate module selected in __Use classpath of module__ list. To rebuild the module automatically before running the scratch, select __Make before Run__.
