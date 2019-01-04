@@ -49,7 +49,7 @@ typealias BInner = B.Inner
 
 Type aliases do not introduce new types. 
 They are equivalent to the corresponding underlying types.
-When you add `typealias Predicate<T>` and use `Predicate<Int>` in your code, the Kotlin compiler always expand it to `(Int) -> Boolean`. 
+When you add `typealias Predicate<T>` and use `Predicate<Int>` in your code, the Kotlin compiler always expands it to `(Int) -> Boolean`. 
 Thus you can pass a variable of your type whenever a general function type is required and vice versa:
 
 <div class="sample" markdown="1" theme="idea">
