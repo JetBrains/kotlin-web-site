@@ -272,3 +272,13 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+  
+- name: Zircon
+  description: An extensible, multiplatform and user-friendly tile engine.
+  type: Library
+  link: https://hexworks.org/projects/zircon/
+  
+- name: Mixite
+  description: A multiplatform GUI-agonostic hexagonal grid library.
+  type: Library
+  link: https://github.com/Hexworks/mixite
