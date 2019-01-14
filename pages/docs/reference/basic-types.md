@@ -329,17 +329,16 @@ x[0] = x[1] + x[2]
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-// Array of int of a size of N
-val arr = IntArray(N)
+// Array of int of size 5 with values [0, 0, 0, 0, 0]
+val arr = IntArray(5)
 
 // e.g. initialise the values in the array with a constant
-// Array of int of a size of N with values initialised to 42
-val arr = IntArray(N, 42)
+// Array of int of size 5 with values [42, 42, 42, 42, 42]
+val arr = IntArray(5, { 42 })
 
 // e.g. initialise the values in the array using a lambda
-// Array of int of a size of N with values initialised to their index value
-var arr = IntArray(size, { it * 1 } ) 
-
+// Array of int of size 5 with values [0, 1, 2, 3, 4] (values initialised to their index value)
+var arr = IntArray(5, { it * 1 }) 
 ```
 
 </div>
