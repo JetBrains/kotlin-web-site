@@ -311,6 +311,8 @@ Note: unlike Java, arrays in Kotlin are invariant. This means that Kotlin does n
 to an `Array<Any>`, which prevents a possible runtime failure (but you can use `Array<out Any>`, 
 see [Type Projections](generics.html#type-projections)).
 
+### Primitive type arrays
+
 Kotlin also has specialized classes to represent arrays of primitive types without boxing overhead: `ByteArray`,
 `ShortArray`, `IntArray` and so on. These classes have no inheritance relation to the `Array` class, but they
 have the same set of methods and properties. Each of them also has a corresponding factory function:
@@ -323,6 +325,25 @@ x[0] = x[1] + x[2]
 ```
 
 </div>
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+// Array of int of a size of N
+val arr = IntArray(N)
+
+// e.g. initialise the values in the array with a constant
+// Array of int of a size of N with values initialised to 42
+val arr = IntArray(N, 42)
+
+// e.g. initialise the values in the array using a lambda
+// Array of int of a size of N with values initialised to their index value
+var arr = IntArray(size, { it * 1 } ) 
+
+```
+
+</div>
+
 
 ## Unsigned integers
 
