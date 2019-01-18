@@ -4,12 +4,16 @@ layout: groups
 title: "Branding"
 ---
 
-## Guidelines
-* User groups provide activities to support professionals interested in a technology
-* Try to meet up regularly. It is the best way to increase Kotlin excellence for all members of the user group
-* All the events and materials should be public and available for people of any different backgrounds
-* All communication should be appropriate for the professional audience
-* Follow simple rules to collaborate efficiently: be kind, be someone that other people want to be around, do not insult or bring down other attendees. Collaboration and respect would help you to achieve your personal goals and create proper environment for the fellows.
+## Branding
+We provide a logo for Kotlin user groups that is specifically designed to be recognizable and convey a reference to Kotlin.
+
+- The  Kotlin logo is associated with the language itself and should not be used otherwise to avoid confusion. The same applies to its close derivatives;
+- User groups logo also means to reflect that the opinions and actions of the community are independent from the Kotlin team;
+- Your opinion doesn't have to agree with ours and we think this is the most benefitial model for a creative and strong community.
+
+So, please use the user group logos and other branding [according to these guidelines](https://blog.jetbrains.com/kotlin/2017/05/new-style-for-user-groups/), which are a part of our community support program
+
+Disclaimer: Kotlin User Groups are not affiliated with JetBrains nor Google. They are independently run organisations.
 
 ## New Style for User Groups
 

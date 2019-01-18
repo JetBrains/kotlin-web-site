@@ -14,3 +14,10 @@ title: "Support from JetBrains"
 
 
 If you feel like you need more ideas or advice on user group launch, contact [alina@jetbrains.com](mailto:alina@jetbrains.com)
+
+## Guidelines
+* User groups provide activities to support professionals interested in a technology
+* Try to meet up regularly. It is the best way to increase Kotlin excellence for all members of the user group
+* All the events and materials should be public and available for people of any different backgrounds
+* All communication should be appropriate for the professional audience
+* Follow simple rules to collaborate efficiently: be kind, be someone that other people want to be around, do not insult or bring down other attendees. Collaboration and respect would help you to achieve your personal goals and create proper environment for the fellows.
