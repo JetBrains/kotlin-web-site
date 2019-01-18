@@ -38,6 +38,8 @@ module.exports = (params = {}) => {
 
     devtool: sourcemaps ? 'source-map' : false,
 
+    mode: env,
+
     module: {
       rules: [
         {

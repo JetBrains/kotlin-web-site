@@ -60,6 +60,6 @@
     "build": "webpack --bail",
     "build:production": "NODE_ENV=production webpack --bail -p",
     "postinstall": "cd node_modules/codemirror && rollup -c",
-    "start": "webpack-dev-server --optimize-minimize"
+    "start": "webpack-dev-server"
   }
 }
