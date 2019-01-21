@@ -576,7 +576,7 @@ until the feature is considered stable.
 If a library is published with Gradle metadata enabled and a consumer enables the metadata as well, the consumer may specify a
  single dependency on the library in a common source set, and a corresponding platform-specific variant will be chosen, if available, 
  for each of the compilations. Consider a `sample-lib` library built for the JVM and JS and published with experimental Gradle metadata.
- Then it is enough for the consumers to add `enableFeaturePreview('GRADLE_METADATA)` and specify a single dependency:
+ Then it is enough for the consumers to add `enableFeaturePreview('GRADLE_METADATA')` and specify a single dependency:
  
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
