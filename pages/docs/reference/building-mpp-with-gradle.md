@@ -31,6 +31,7 @@ those are configured and built using Gradle.
 * [Android Support](#android-support)
     * [Publishing Android libraries](#publishing-android-libraries)
 * [Using Kotlin/Native Targets](#using-kotlinnative-targets)
+    * [Building final native binaries](#building-final-native-binaries)
 
 ## Project Structure
 
