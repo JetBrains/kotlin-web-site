@@ -1446,12 +1446,141 @@ It is important to note that some of the [Kotlin/Native targets](#supported-plat
 A target that is not supported by the current host is ignored during build and therefore not published. A library author may want to set up
 builds and publishing from different hosts as required by the library target platforms.
 
-### Kotlin/Native output kinds
+### Building final native binaries
 
-By default, a Kotlin/Native target is compiled down to a `*.klib` library artifact, which can be consumed by Kotlin/Native itself as a dependency but
-cannot be run or used as a native library.
+By default, a Kotlin/Native target is compiled down to a `*.klib` library artifact, which can be consumed by Kotlin/Native itself as a
+dependency but cannot be executed or used as a native library. To declare final native binaries like executables or shared libraries a `binaries`
+property of a native target is used. This property represents a collection of native binaries built for this target in addition to the
+default `*.klib` artifact and provides a set of methods for declaring and configuring them.
 
-To link a binary in addition to the Kotlin/Native library, add one or more of the `outputKinds`, which can be:
+Note that the `kotlin-multiplaform` plugin doesn't create any production binaries by default. The only binary available by default
+is a debug executable allowing one to run tests from the `test` compilation.
+
+#### Declaring binaries
+
+A set of factory methods is used for declaring elements of the `binaries` collection. These methods allow one to specify what kinds of binaries are to be created and configure them. The following binary kinds are supported (note that not all the kinds are available for
+all native platforms):
+
+|**Factory method**|**Binary kind**|**Available for**|
+| --- | --- | --- |
+|`executable` |an executable program    |all native targets|
+|`sharedLib`  |a shared native library |all native targets except `wasm32`|
+|`staticLib`  |a static native library  |all native targets except `wasm32`|
+|`framework`  |an Objective-C framework |macOS and iOS targets only|
+
+Each factory method exists in several versions. Consider them by example of the `executable` method. All the same versions are available
+for all other factory methods. 
+
+The simplest version doesn't require any additional parameters and creates one binary for each build type.
+Currently there a two build types available: `DEBUG` (produces a not optimized binary with a debug information) and `RELEASE` (produces
+an optimized binary without debug information). Consequently the following snippet creates two executable binaries: debug and release.
+
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {
+    linuxX64 { // Use your target instead.
+        binaries {
+            executable {
+                // Binary configuration.
+            }
+        }
+    }
+}
+```
+
+</div>
+
+A lambda expression accepted by the `executable` method in the example above is applied to each binary created and allows one to configure the binary
+(see the [corresponding section](#configuring-binaries)). Note that this lambda can be dropped if there is no need for additional configuration:
+
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+binaries {
+    executable()
+}
+```
+
+</div>
+
+It is possible to specify which build types will be used to create binaries and which won't. In the following example only debug executable is created.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+binaries {
+    executable([DEBUG]) {
+        // Binary configuration.
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+binaries {
+    executable(listOf(DEBUG)) {
+        // Binary configuration.
+    }
+}
+```
+
+</div>
+</div>
+
+Finally the last factory method version allows customizing the binary name.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+binaries {
+    executable('foo', [DEBUG]) {
+        // Binary configuration.
+    }
+
+    // It's possible to drop the list of build types (all the available build types will be used in this case).
+    executable('bar') {
+        // Binary configuration.
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+binaries {
+    executable("foo", listOf(DEBUG)) {
+        // Binary configuration.
+    }
+
+    // It's possible to drop the list of build types (all the available build types will be used in this case).
+    executable("bar") {
+        // Binary configuration.
+    }
+}
+```
+
+</div>
+</div>
+
+The first argument in this example allows one to set a name prefix for the created binaries which is used to access them in the buildscript (see the ["Accessing binaries"](#accessing-binaries) section).
+Also this prefix is used as a default name for the binary file. For example on Windows the sample above produces files `foo.exe` and `bar.exe`.
+
+#### Using binary declaration APIs introduced in 1.3
+
+It is possible to use the binary declaration APIs introduced in 1.3 in addition to the binaries DSL. One can specify one or more of
+the `outputKinds` for a compilation using these APIs. The following output kinds are available:
 
 * `executable` for an executable program;
 * `dynamic` for a dynamic library;
@@ -1460,21 +1589,333 @@ To link a binary in addition to the Kotlin/Native library, add one or more of th
 
 This can be done as follows:
 
+<div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
 kotlin {
-    linuxX64() { // Use your target instead
-        compilations["main"].outputKinds("executable") // could also be "static", "dynamic"
+    linuxX64 { // Use your target instead
+        compilations.main.outputKinds("executable") // could also be "static", "dynamic" or "framework".
     }
 }
 ```
 
 </div>
+</div>
 
-This creates additional link tasks for the debug and release binaries. The tasks can be accessed after project evaluation from the compilation as, for example, 
-`getLinkTask("executable", "release")` or `getLinkTaskName("static", "debug")`. To get the binary file, use `getBinary`, for example, 
- as `getBinary("executable", "release")` or `getBinary("static", "debug")`.
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {
+    linuxX64 { // Use your target instead
+        compilations["main"].outputKinds("executable") // could also be "static", "dynamic" or "framework".
+    }
+}
+```
+
+</div>
+</div>
+
+This creates binaries with corresponding types and the compilation name as name prefixes in the `binaries` container. But note that such
+binaries are created after project evaluation so they are available only in an `afterEvaluate` code block.
+
+> Despite the fact that this approach is supported in 1.3.20, it will be eventually deprecated. So it's recommended to use the binaries
+DSL instead.
+
+#### Accessing binaries
+
+The binaries DSL allows not only creating binaries but also accessing already created ones to configure them or get their properties
+(e.g. path to an output file). The `binaries` collection implements the
+[`DomainObjectSet`](https://docs.gradle.org/current/javadoc/org/gradle/api/DomainObjectSet.html) interface and provides methods like
+`all` or `matching` allowing configuring groups of elements .
+
+Also it's possible to get a certain element of the collection. There are two ways to do this. First, each binary has a unique 
+name. This name is based on the name prefix (if it's specified), build type and binary kind according to the following pattern:
+`<optional-name-prefix><build-type><binary-kind>`, e.g. `releaseFramework` or `testDebugExecutable`.
+
+> Note: static and shared libraries has suffixes `static` and `shared` respectively, e.g. `fooDebugStatic` or `barReleaseShared`
+
+This name can be used to access the binary:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+// Fails if there is no such a binary.
+binaries['fooDebugExecutable']
+binaries.fooDebugExecutable
+binaries.getByName('fooDebugExecutable')
+
+ // Returns null if there is no such a binary.
+binaries.findByName('fooDebugExecutable')
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+// Fails if there is no such a binary.
+binaries["fooDebugExecutable"]
+binaries.getByName("fooDebugExecutable")
+
+ // Returns null if there is no such a binary.
+binaries.findByName("fooDebugExecutable")
+```
+
+</div>
+</div>
+
+The second way is using typed getters. These getters allow one to access a binary of a certain type by its name prefix and build type.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+// Fails if there is no such a binary.
+binaries.getExecutable('foo', DEBUG)
+binaries.getExecutable('', DEBUG)    // Use an empty string if the name prefix isn't set.
+
+// Similar getters are available for other binary kinds:
+// getFramework, getStaticLib and getSharedLib.
+
+// Returns null if there is no such a binary.
+binaries.findExecutable('foo', DEBUG)
+
+// Similar getters are available for other binary kinds:
+// findFramework, findStaticLib and findSharedLib.
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+// Fails if there is no such a binary.
+binaries.getExecutable("foo", DEBUG)
+binaries.getExecutable("", DEBUG)    // Use an empty string if the name prefix isn't set.
+
+// Similar getters are available for other binary kinds:
+// getFramework, getStaticLib and getSharedLib.
+
+// Returns null if there is no such a binary.
+binaries.findExecutable("foo", DEBUG)
+
+// Similar getters are available for other binary kinds:
+// findFramework, findStaticLib and findSharedLib.
+```
+
+</div>
+</div>
+
+
+#### Configuring binaries
+
+Binaries have a set of properties allowing one to configure them. The following options are available:
+
+ - **Compilation.** Each binary is built on basis of some compilation available in the same target. The `main` compilation is used by
+ default but a user can specify another one.
+ - **Linker options.** Options passed to a system linker during binary building. One can use this setting to link against some native library.
+ - **Output file name.** By default the output file name is based on binary name prefix or, if the name prefix isn't specified, on a project name.
+ But it's possible to configure the output file name independently using the `baseName` property. Note that final file name will be formed
+ by adding system-dependent prefix and postfix to this base name. E.g. a `libfoo.so` is produced for a Linux shared library with the base name `foo`.
+ - **Entry point** (for executable binaries only). By default the entry point for Kotlin/Native programs is a `main` function located in the root
+ package. This setting allows one to change this default and use a custom function as an entry point. For example it can be used to move the `main`
+ function from the root package.
+ - **Access to the output file.**
+ - **Access to a link task.** 
+ - **Access to a run task** (for executable binaries only). The `kotlin-multiplatform` plugin creates run tasks for all executable binaries of host
+ platforms (Windows, Linux and macOS). Names of such tasks are based on binary names, e.g. `runReleaseExecutable<target-name>`
+ or `runFooDebugExecutable<target-name>`. A run task can be accessed using the `runTask` property of an executable binary.
+ 
+The following example shows how to use these settings.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+binaries {
+    executable('test', [RELEASE]) {
+        // Build a binary on the basis of the test compilation.
+        compilation = compilations.test
+
+        // Custom command line options for the linker.
+        linkerOpts = ['-L/lib/search/path', '-L/another/search/path', '-lmylib']
+
+        // Base name for the output file.
+        baseName = 'foo'
+
+        // Custom entry point function.
+        entryPoint = 'org.example.main'
+
+        // Accessing the output file.
+        println("Executable path: ${outputFile.absolutePath}")
+
+        // Accessing the link task.
+        linkTask.dependsOn(additionalPreprocessingTask)
+
+        // Accessing the run task.
+        // Note that the runTask is null for non-host platforms.
+        runTask?.dependsOn(prepareForRun)
+    }
+}
+
+// Note that the test task created by default is also a run task.
+// So you can access it using the same property.
+def testTask = binaries.getExecutable("test", DEBUG).runTask
+task processTests {
+    dependsOn(testTask)
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+binaries {
+    executable("test", listOf(RELEASE)) {
+        // Build a binary on the basis of the test compilation.
+        compilation = compilations["test"]
+
+        // Custom command line options for the linker.
+        linkerOpts = mutableListOf("-L/lib/search/path", "-L/another/search/path", "-lmylib")
+
+        // Base name for the output file.
+        baseName = "foo"
+
+        // Custom entry point function.
+        entryPoint = "org.example.main"
+
+        // Accessing the output file.
+        println("Executable path: ${outputFile.absolutePath}")
+
+        // Accessing the link task.
+        linkTask.dependsOn(additionalPreprocessingTask)
+
+        // Accessing the run task.
+        // Note that the runTask is null for non-host platforms.
+        runTask?.dependsOn(prepareForRun)
+    }
+}
+
+// Note that the test task created by default is also a run task.
+// So you can access it using the same property.
+val testTask = binaries.getExecutable("test", DEBUG).runTask
+val processTests by tasks.creating
+processTests.dependsOn(testTask)
+```
+
+</div>
+</div>
+
+#### Exporting dependencies in frameworks
+
+When building an Objective-C framework, it is often necessary to pack not just the classes of the current project,
+but also the classes of some of its dependencies. The Binaries DSL allows one to specify which dependencies will be exported
+in the framework using the `export` method.  Note that only API dependencies of a corresponding source set can be exported.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {
+    sourceSets {
+        macosMain.dependencies {
+            // Will be exported in the framework.
+            api project(':dependency')
+            api 'org.example:exported-library:1.0'
+
+            // Will not be exported in the framework.
+            api 'org.example:not-exported-library:1.0'
+        }
+    }
+
+    macosX64("macos").binaries {
+        framework {
+            export project(':dependency')
+            export 'org.example:exported-library:1.0'
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {
+    sourceSets {
+        macosMain.dependencies {
+            // Will be exported in the framework.
+            api(project(":dependency"))
+            api("org.example:exported-library:1.0")
+
+            // Will not be exported in the framework.
+            api("org.example:not-exported-library:1.0")
+        }
+    }
+
+    macosX64("macos").binaries {
+        framework {
+            export(project(":dependency"))
+            export("org.example:exported-library:1.0")
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+> As shown in this example, maven dependency also can be exported. But due to current limitations of Gradle metadata such a dependency
+should be either a platform one (e.g. `kotlinx-coroutines-core-native_debug_macos_x64` instead of `kotlinx-coroutines-core-native`)
+or be exported transitively (see below).
+
+By default, export works non-transitively. If a library `foo` depending on library `bar` is exported, only methods of `foo` will
+be added in the output framework. This behaviour can by changed by the `transitiveExport` flag.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+binaries {
+    framework {
+        export project(':dependency')
+        // Export transitively.
+        transitiveExport = true
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+binaries {
+    framework {
+        export(project(":dependency"))
+        // Export transitively.
+        transitiveExport = true
+    }
+}
+```
+
+</div>
+</div>
 
 ### CInterop support
 
@@ -1488,31 +1929,36 @@ the `cinterops` block of the compilation:
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
-// In the scope of a Kotlin/Native target's compilation:
-cinterops {
-    myInterop {
-        // Def-file describing the native API.
-        // The default path is src/nativeInterop/cinterop/<interop-name>.def
-        defFile project.file("def-file.def")
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.main {
+            cinterops {
+                myInterop {
+                    // Def-file describing the native API.
+                    // The default path is src/nativeInterop/cinterop/<interop-name>.def
+                    defFile project.file("def-file.def")
 
-        // Package to place the Kotlin API generated.
-        packageName 'org.sample'
+                    // Package to place the Kotlin API generated.
+                    packageName 'org.sample'
 
-        // Options to be passed to compiler by cinterop tool.
-        compilerOpts '-Ipath/to/headers'
+                    // Options to be passed to compiler by cinterop tool.
+                    compilerOpts '-Ipath/to/headers'
 
-        // Directories for header search (an analogue of the -I<path> compiler option).
-        includeDirs.allHeaders("path1", "path2")
+                    // Directories for header search (an analogue of the -I<path> compiler option).
+                    includeDirs.allHeaders("path1", "path2")
 
-        // Additional directories to search headers listed in the 'headerFilter' def-file option.
-        // -headerFilterAdditionalSearchPrefix command line option analogue.
-        includeDirs.headerFilterOnly("path1", "path2")
-        
-        // A shortcut for includeDirs.allHeaders.
-        includeDirs("include/directory", "another/directory")
+                    // Additional directories to search headers listed in the 'headerFilter' def-file option.
+                    // -headerFilterAdditionalSearchPrefix command line option analogue.
+                    includeDirs.headerFilterOnly("path1", "path2")
+
+                    // A shortcut for includeDirs.allHeaders.
+                    includeDirs("include/directory", "another/directory")
+                }
+
+                anotherInterop { /* ... */ }
+            }
+        }
     }
-
-    anotherInterop { /* ... */ }
 }
 ```
 
@@ -1523,60 +1969,42 @@ cinterops {
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
 
 ```kotlin
-// In the scope of a Kotlin/Native target's compilation:
-val myInterop by cinterops.creating {
-    // Def-file describing the native API.
-    // The default path is src/nativeInterop/cinterop/<interop-name>.def
-    defFile(project.file("def-file.def"))
+kotlin {
+    linuxX64 {  // Replace with a target you need.
+        compilations.getByName("main") {
+            val myInterop by cinterops.creating {
+                // Def-file describing the native API.
+                // The default path is src/nativeInterop/cinterop/<interop-name>.def
+                defFile(project.file("def-file.def"))
 
-    // Package to place the Kotlin API generated.
-    packageName("org.sample")
+                // Package to place the Kotlin API generated.
+                packageName("org.sample")
 
-    // Options to be passed to compiler by cinterop tool.
-    compilerOpts("-Ipath/to/headers")
+                // Options to be passed to compiler by cinterop tool.
+                compilerOpts("-Ipath/to/headers")
 
-    // Directories to look for headers.
-    includeDirs {
-        // Directories for header search (an analogue of the -I<path> compiler option).
-        allHeaders("path1", "path2")
+                // Directories to look for headers.
+                includeDirs.apply {
+                    // Directories for header search (an analogue of the -I<path> compiler option).
+                    allHeaders("path1", "path2")
 
-        // Additional directories to search headers listed in the 'headerFilter' def-file option.
-        // -headerFilterAdditionalSearchPrefix command line option analogue.
-        headerFilterOnly("path1", "path2")
+                    // Additional directories to search headers listed in the 'headerFilter' def-file option.
+                    // -headerFilterAdditionalSearchPrefix command line option analogue.
+                    headerFilterOnly("path1", "path2")
+                }
+                // A shortcut for includeDirs.allHeaders.
+                includeDirs("include/directory", "another/directory")
+            }
+
+            val anotherInterop by cinterops.creating { /* ... */ }
+        }
     }
-    // A shortcut for includeDirs.allHeaders.
-    includeDirs("include/directory", "another/directory")
 }
 
-val anotherInterop by cinterops.creating { /* ... */ }
 ```
 
 </div>
 </div>
 
-Often it's necessary to specify target-specific linker options for a binary which uses a native library. It can be
-done using the `linkerOpts` DSL method of a Kotlin/Native compilation:
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-compilations.main {
-    linkerOpts '-L/lib/search/path -L/another/search/path -lmylib'
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
-
-```kotlin
-compilations["main"].apply {
-    linkerOpts("-L/lib/search/path", "-L/another/search/path -lmylib")
-}
-```
-
-</div>
-</div>
+Often it's necessary to specify target-specific linker options for a binary which uses a native library. It can by done
+using the `linkerOpts` property of the binary. See the [Configuring binaries](#configuring-binaries) section for details.
