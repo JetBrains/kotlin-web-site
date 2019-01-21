@@ -139,17 +139,17 @@ There are several ways to obtain an instance of a function type:
    
 * Using instances of a custom class that implements a function type as an interface: 
 
-    <div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
-    ```kotlin
-    class IntTransformer: (Int) -> Int {
-        override operator fun invoke(x: Int): Int = TODO()
-    }
-    
-    val intFunction: (Int) -> Int = IntTransformer() 
-    ```
+```kotlin
+class IntTransformer: (Int) -> Int {
+    override operator fun invoke(x: Int): Int = TODO()
+}
 
-    </div>
+val intFunction: (Int) -> Int = IntTransformer()
+```
+
+</div>
 
 The compiler can infer the function types for variables if there is enough information:
 

@@ -396,7 +396,7 @@ cd "$SRCROOT/../../SharedCode/build/xcode-frameworks"
 </div>
 
 Note, here we use the `$SRCROOT/../..` as the path to the root of our Gradle project.
-It can depend on the way the Xcode project was created created. Also, we use the generated
+It can depend on the way the Xcode project was created. Also, we use the generated
 `SharedCode/build/xcode-frameworks/gradlew` script,
 the `packForXCode` task generates it. We assumed that the Gradle build is executed at least once,
 before opening the Xcode project on a fresh machine

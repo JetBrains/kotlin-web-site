@@ -29,6 +29,7 @@ A key feature of the multiplatform project support is the possibility to express
 In common code:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // expected platform-specific API:
 expect fun hello(world: String): String
@@ -44,11 +45,13 @@ expect class URL(spec: String) {
     open fun getPath(): String
 }
 ```
+
 </div>
 
 In JVM platform code:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 actual fun hello(world: String): String =
     "Hello, $world, on the JVM platform!"
@@ -56,6 +59,7 @@ actual fun hello(world: String): String =
 // using existing platform-specific implementation:
 actual typealias URL = java.net.URL
 ```
+
 </div>
 
 See the [documentation](http://kotlinlang.org/docs/reference/multiplatform.html) for details and steps to build a 
@@ -69,12 +73,14 @@ Starting with Kotlin 1.2, array arguments for annotations can be passed with the
 of the `arrayOf` function:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @CacheConfig(cacheNames = ["books", "default"])
 public class BookRepositoryImpl {
     // ...
 }
 ```
+
 </div>
 
 The array literal syntax is constrained to annotation arguments.
@@ -103,6 +109,7 @@ fun main(args: Array<String>) {
     println("Values in the cycle: ${nodes.take(7).joinToString { it.value.toString() }}, ...")
 }
 ```
+
 </div>
 
 ### Checking whether a lateinit var is initialized
@@ -116,11 +123,11 @@ class Foo {
     lateinit var lateinitVar: String
 
     fun initializationLogic() {
-        //sampleStart
+//sampleStart
         println("isInitialized before assignment: " + this::lateinitVar.isInitialized)
         lateinitVar = "value"
         println("isInitialized after assignment: " + this::lateinitVar.isInitialized)
-        //sampleEnd
+//sampleEnd
     }
 }
 
@@ -128,6 +135,7 @@ fun main(args: Array<String>) {
 	Foo().initializationLogic()
 }
 ```
+
 </div>
 
 ### Inline functions with default functional parameters
@@ -150,6 +158,7 @@ fun main(args: Array<String>) {
     println("customStrings = $customStrings")
 }
 ```
+
 </div>
 
 ### Information from explicit casts is used for type inference
@@ -162,9 +171,11 @@ This is particularly important for Android developers, since the compiler can no
 `findViewById` calls in Android API level 26:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val button = findViewById(R.id.button) as Button
 ```
+
 </div>
 
 ### Smart cast improvements
@@ -177,12 +188,12 @@ the safe call receiver as well:
 ```kotlin
 fun countFirst(s: Any): Int {
 //sampleStart
-  val firstChar = (s as? CharSequence)?.firstOrNull()
-  if (firstChar != null)
+    val firstChar = (s as? CharSequence)?.firstOrNull()
+    if (firstChar != null)
     return s.count { it == firstChar } // s: Any is smart cast to CharSequence
-    
-  val firstItem = (s as? Iterable<*>)?.firstOrNull()
-  if (firstItem != null)
+
+    val firstItem = (s as? Iterable<*>)?.firstOrNull()
+    if (firstItem != null)
     return s.count { it == firstItem } // s: Any is smart cast to Iterable<*>
 //sampleEnd
     return -1
@@ -198,6 +209,7 @@ fun main(args: Array<String>) {
   println("called on $list: $countInList")
 }
 ```
+
 </div>
 
 Also, smart casts in a lambda are now allowed for local variables that are only modified before the lambda:
@@ -206,7 +218,7 @@ Also, smart casts in a lambda are now allowed for local variables that are only 
 
 ```kotlin
 fun main(args: Array<String>) {
-    //sampleStart
+//sampleStart
     val flag = args.size == 0
     var x: String? = null
     if (flag) x = "Yahoo!"
@@ -216,9 +228,10 @@ fun main(args: Array<String>) {
             println(x.length) // x is smart cast to String
         }
     }
-    //sampleEnd
+//sampleEnd
 }
 ```
+
 </div>
 
 ### Support for  ::foo as a shorthand for this::foo
@@ -257,9 +270,11 @@ form (`foo(items = i)`) has been deprecated. Please use the spread operator with
 array factory functions:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 foo(items = *intArrayOf(1))
 ```
+
 </div>
 
 There is an optimization that removes redundant arrays creation in such cases, which prevents performance degradation.
@@ -301,7 +316,7 @@ of subsequent items (`zipWithNext`):
 
 ```kotlin
 fun main(args: Array<String>) {
-    //sampleStart
+//sampleStart
     val items = (1..9).map { it * it }
 
     val chunkedIntoLists = items.chunked(4)
@@ -309,7 +324,7 @@ fun main(args: Array<String>) {
     val windowed = items.windowed(4)
     val slidingAverage = items.windowed(4) { it.average() }
     val pairwiseDifferences = items.zipWithNext { a, b -> b - a }
-    //sampleEnd
+//sampleEnd
 
     println("items: $items\n")
 
@@ -320,6 +335,7 @@ fun main(args: Array<String>) {
     println("pairwise differences: $pairwiseDifferences")
 }
 ```
+
 </div>
 
 ### fill, replaceAll, shuffle/shuffled
@@ -331,7 +347,7 @@ and `shuffled` for read-only `List`:
 
 ```kotlin
 fun main(args: Array<String>) {
-    //sampleStart
+//sampleStart
     val items = (1..5).toMutableList()
     
     items.shuffle()
@@ -342,9 +358,10 @@ fun main(args: Array<String>) {
     
     items.fill(5)
     println("Items filled with 5: $items")
-    //sampleEnd
+//sampleEnd
 }
 ```
+
 </div>
 
 ### Math operations in kotlin-stdlib
@@ -463,9 +480,11 @@ The compiler now provides an option to treat all warnings as errors. Use `-Werro
 following Gradle snippet:
 
 <div class="sample" markdown="1" mode="groovy" theme="idea">
+
 ```groovy
 compileKotlin {
     kotlinOptions.allWarningsAsErrors = true
 }
 ```
+
 </div>

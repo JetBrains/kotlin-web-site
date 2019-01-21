@@ -66,7 +66,7 @@
 - name: Stew
   description: A simple Android app for soup.io
   type: Android App
-  url: https://github.com/exviva/stew
+  link: https://github.com/exviva/stew
 
 - name: RxKotlin 
   description: Kotlin Bindings for RxJava

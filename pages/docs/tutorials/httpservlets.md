@@ -27,7 +27,7 @@ We also need to use the *war* plugin that helps us generate the corresponding WA
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
 ``` groovy
-apply plugin: war
+apply plugin: 'war'
 ```
 </div>
 

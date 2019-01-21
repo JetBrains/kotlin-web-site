@@ -18,7 +18,7 @@ In IntelliJ IDEA go to *File -> New > Project...*:
 <img src="{{ url_for('tutorial_img', filename='coroutines-basic-jvm/new_gradle_project_jvm.png')}}"/>
 
 Then follow the wizard steps. You'll have a `build.gradle` file created with Kotlin configured according to [this document](/docs/reference/using-gradle.html).
-Make sure it's configured for Kotlin 1.1 or higher.
+Make sure it's configured for Kotlin 1.3 or higher.
 
 Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), let's add its recent version to our dependencies:
 
@@ -27,7 +27,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
 ```groovy
 dependencies {
     ...
-    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.26"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1"
 }
 ```
 
@@ -54,7 +54,7 @@ In IntelliJ IDEA go to *File -> New > Project...* and check the *Create from arc
 <img src="{{ url_for('tutorial_img', filename='coroutines-basic-jvm/new_mvn_project_jvm.png')}}"/>
 
 Then follow the wizard steps. You'll have a `pom.xml`  file created with Kotlin configured according to [this document](/docs/reference/using-maven.html).
-Make sure it's configured for Kotlin 1.1 or higher.
+Make sure it's configured for Kotlin 1.3 or higher.
 
 <div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
 
@@ -83,7 +83,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
     <dependency>
         <groupId>org.jetbrains.kotlinx</groupId>
         <artifactId>kotlinx-coroutines-core</artifactId>
-        <version>0.26</version>
+        <version>1.0.1</version>
     </dependency>
 </dependencies>
 ```

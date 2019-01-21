@@ -63,7 +63,6 @@ fun main() {
 
 However, there are some restrictions for inline class members:
 * inline classes cannot have *init*{: .keyword } blocks
-* inline classes cannot have *inner*{: .keyword } classes
 * inline class properties cannot have [backing fields](properties.html#backing-fields)
     * it follows that inline classes can only have simple computable properties (no lateinit/delegated properties)
 

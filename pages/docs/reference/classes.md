@@ -205,9 +205,14 @@ class DontCreateMe private constructor () { ... }
 > **NOTE**: On the JVM, if all of the parameters of the primary constructor have default values, the compiler will
 > generate an additional parameterless constructor which will use the default values. This makes it easier to use
 > Kotlin with libraries such as Jackson or JPA that create class instances through parameterless constructors.
-> <div class="sample" markdown="1" theme="idea" data-highlight-only>
-> class Customer(val customerName: String = "")
-> </div>
+
+><div class="sample" markdown="1" theme="idea" data-highlight-only>
+>
+>```kotlin
+>class Customer(val customerName: String = "")
+>```
+>
+></div>
 
 {:.info}
 

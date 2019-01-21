@@ -651,8 +651,8 @@ Using lambda expressions to filter and map collections:
 ```kotlin
 fun main() {
 //sampleStart
-  val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
-  fruits
+    val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
+    fruits
       .filter { it.startsWith("a") }
       .sortedBy { it }
       .map { it.toUpperCase() }

@@ -212,12 +212,12 @@ To iterate over a range of numbers, use a [range expression](ranges.html):
 ```kotlin
 fun main() {
 //sampleStart
-for (i in 1..3) {
-    println(i)
-}
-for (i in 6 downTo 0 step 2) {
-    println(i)
-}
+    for (i in 1..3) {
+        println(i)
+    }
+    for (i in 6 downTo 0 step 2) {
+        println(i)
+    }
 //sampleEnd
 }
 ```
@@ -234,9 +234,9 @@ If you want to iterate through an array or a list with an index, you can do it t
 fun main() {
 val array = arrayOf("a", "b", "c")
 //sampleStart
-for (i in array.indices) {
-    println(array[i])
-}
+    for (i in array.indices) {
+        println(array[i])
+    }
 //sampleEnd
 }
 ```
@@ -249,11 +249,11 @@ Alternatively, you can use the `withIndex` library function:
 
 ```kotlin
 fun main() {
-val array = arrayOf("a", "b", "c")
+    val array = arrayOf("a", "b", "c")
 //sampleStart
-for ((index, value) in array.withIndex()) {
-    println("the element at $index is $value")
-}
+    for ((index, value) in array.withIndex()) {
+        println("the element at $index is $value")
+    }
 //sampleEnd
 }
 ```

@@ -52,7 +52,7 @@ The `plugins` block enables the Gradle plugin for Kotlin/Native which is `konan`
 1. The `konan.targets` can contain one or more target platforms.
 
 2. The `konanArtifacts` contains the actual instructions telling Gradle what to build. In our case we're saying we want to build an 
-executable called `hello`. 
+executable called `app`. 
 
 An important aspect for this build script to work is that we follow the default convention of where our source
 files are located, which is `src/main/kotlin`. We can of course change this behaviour by defining the `srcFiles`, which we'll see further down. 
