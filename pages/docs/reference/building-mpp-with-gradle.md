@@ -28,6 +28,8 @@ those are configured and built using Gradle.
 * [Default Project Layout](#default-project-layout)
 * [Running Tests](#running-tests)
 * [Publishing a Multiplatform Library](#publishing-a-multiplatform-library)
+* [Android Support](#android-support)
+    * [Publishing Android libraries](#publishing-android-libraries)
 * [Using Kotlin/Native Targets](#using-kotlinnative-targets)
 
 ## Project Structure
@@ -525,6 +527,9 @@ kotlin {
 
 </div>
 </div> 
+
+To collect all source sets participating in a compilation, including those added via the depends-on relation, one can
+use the property `allKotlinSourceSets`. 
 
 For some specific use cases, creating a custom compilation may be required. This can be done within the target's `compilations` 
 domain object collection. Note that the dependencies need to be set up manually for all custom compilations, and the 
@@ -1125,8 +1130,8 @@ plugins {
 
 </div>
 
-Once this plugin is applied, default publications are created for each of the targets that can be built on the current host. This requires `group` and 
-`version` to be set in the project:
+Once this plugin is applied, default publications are created for each of the targets that can be built on the current host. 
+This requires `group` and `version` to be set in the project:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
@@ -1139,6 +1144,8 @@ version = "0.0.1"
  
 </div>
 
+Android library targets, however, don't have any artifacts published by default and need an additional step to configure 
+publishing, see [Publishing Android libraries](#publishing-android-libraries).
  
 The default artifact IDs follow the pattern `<projectName>-<targetNameToLowerCase>`, for example `sample-lib-nodejs` 
 for a target named `nodeJs` in a project `sample-lib`. 
@@ -1433,6 +1440,171 @@ Alternatively, if a dependency library is published with experimental Gradle met
 single dependency with unambiguous dependencies on its separate target modules, as if it had no experimental 
 Gradle metadata. This way, the dependency will also be published in the specified way, so the consumers won't encounter
 any ambiguity.
+
+## Android Support
+
+Kotlin Multiplatform projects support the Android platform by providing the `android` preset. 
+Creating an Android target requires that one of the Android Gradle plugins, like `com.android.application` or 
+`com.android.library` is manually applied to the project. Only one Android target may be created per Gradle subproject:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.multiplatform").version("{{ site.data.releases.latest.version }}")
+}
+
+android { /* ... */ }
+
+kotlin {
+    android { // Create the Android target
+        // Provide additional configuration if necessary
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+plugins {
+    id("com.android.library")
+    kotlin("multiplatform").version("{{ site.data.releases.latest.version }}")
+}
+
+android { /* ... */ }
+
+kotlin {
+    android { // Create the Android target
+        // Provide additional configuration if necessary
+    }
+} 
+```
+
+</div>
+</div>
+
+An Android target's compilations created by default are tied to [Android build variants](https://developer.android.com/studio/build/build-variants): 
+for each build variant, a Kotlin compilation is created under the same name.
+
+Then, for each [Android source set](https://developer.android.com/studio/build/build-variants#sourcesets) compiled by 
+the variants, a Kotlin source set is created under that source set name 
+prepended by the target name, like Kotlin source set `androidDebug` for an Android source set `debug` and the Kotlin target 
+named `android`. These Kotlin source sets are added to the variants compilations accordingly. 
+
+The default source set `commonMain` is added to each production (application or library) variant's compilation. The 
+`commonTest` source set is, similarly, added to the compilations of unit test and instrumented test variants.
+
+Annotation processing with [kapt](/docs/reference/kapt.html) is also supported but, due to the current limitations, 
+it requires that the Android target is created before the `kapt` dependencies are configured, which needs 
+to be done in a top-level `dependencies { ... }` block rather than within Kotlin source sets dependencies.
+
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+// ...
+
+kotlin {
+    android { /* ... */ }
+}
+
+dependencies {
+    kapt("com.my.annotation:processor:1.0.0")
+}
+```
+
+</div>
+
+### Publishing Android libraries
+
+To publish an Android library as a part of a multiplatform library, one needs to 
+[setup publishing for the library](#publishing-a-multiplatform-library) and provide additional configuration for the
+Android library target.
+
+By default, no artifacts of an Android library are published. To publish artifacts produced by a set of 
+[Android variants](https://developer.android.com/studio/build/build-variants), specify the variant names in the Android 
+target block as follows:
+
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {
+    android {
+        publishLibraryVariants("release", "debug")
+    }
+}
+```
+
+</div>
+
+The example above will work for Android libraries with no product flavors. For a library with product flavors, the 
+variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
+
+Note that if a library consumer defines variants that are missing in the library, they need to provide 
+[matching fallbacks](https://developer.android.com/studio/build/dependencies#resolve_matching_errors). For example, if 
+a library does not have or does not publish a `staging` build type, it will be necessary to provide a fallback for the
+consumers who have such a build type, specifying at least one of the build types that the library publishes:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+android {
+    buildTypes {
+        staging {
+            // ...
+            matchingFallbacks = ['release', 'debug'] 
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+android {
+    buildTypes {
+        val staging by creating {
+            // ...
+            matchingFallbacks = listOf("release", "debug") 
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+Similarly, a library consumer may need to provide matching fallbacks for custom product flavors if some are missing in
+the library publications.
+
+There is an option to publish variants grouped by the product flavor, so that the outputs of the different build
+types are placed in a single module, with the build type becoming a classifier for the artifacts (the release build
+type is still published with no classifier). This mode is disabled by default and can be enabled as follows:
+
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```groovy
+kotlin {
+    android {
+        publishLibraryVariantsGroupedByFlavor = true
+    }
+}
+```
+
+</div>
+
+It is not recommended to publish variants grouped by the product flavor in case they have different dependencies, as 
+those will be merged into one dependencies list.
 
 ## Using Kotlin/Native Targets
 
