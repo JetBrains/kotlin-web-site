@@ -1,5 +1,6 @@
 import copy
 import datetime
+import glob
 import json
 import os
 import sys
@@ -413,6 +414,9 @@ def add_header(request):
 
 
 if __name__ == '__main__':
+    with (open(path.join(root_folder, "_nav-mapped.yml"), 'w')) as output:
+        yaml.dump(get_nav_impl(), output)
+
     if len(sys.argv) > 1:
         if sys.argv[1] == "build":
             build_mode = True
@@ -426,4 +430,8 @@ if __name__ == '__main__':
         elif sys.argv[1] == "index":
             build_search_indices(freezer._generate_all_urls(), pages)
     else:
-        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {"/src/"}})
+        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {
+            "/src",
+            "/src/data/_nav.yml",
+            *glob.glob("/src/external/**/*", recursive=True)
+        }})
