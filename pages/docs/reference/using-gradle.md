@@ -377,7 +377,7 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
 }
 ```
 
@@ -393,7 +393,7 @@ repositories {
 }
 
 dependencies {
-    compile(kotlin("stdlib"))
+    implementation(kotlin("stdlib"))
 }
 ```
 
@@ -407,8 +407,8 @@ following dependencies instead of `kotlin-stdlib`:
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
-compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 ```
 
 </div>
@@ -418,8 +418,8 @@ compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-compile(kotlin("stdlib-jdk7"))
-compile(kotlin("stdlib-jdk8"))
+implementation(kotlin("stdlib-jdk7"))
+implementation(kotlin("stdlib-jdk8"))
 ```
 
 </div>
@@ -433,7 +433,7 @@ If you target JavaScript, use the `stdlib-js` dependency.
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-compile "org.jetbrains.kotlin:kotlin-stdlib-js"
+implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
 ```
 
 </div>
@@ -443,7 +443,7 @@ compile "org.jetbrains.kotlin:kotlin-stdlib-js"
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-compile(kotlin("stdlib-js"))
+implementation(kotlin("stdlib-js"))
 ```
 
 </div>
@@ -455,9 +455,9 @@ If your project uses [Kotlin reflection](/api/latest/jvm/stdlib/kotlin.reflect.f
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-compile "org.jetbrains.kotlin:kotlin-reflect"
-testCompile "org.jetbrains.kotlin:kotlin-test"
-testCompile "org.jetbrains.kotlin:kotlin-test-junit"
+implementation "org.jetbrains.kotlin:kotlin-reflect"
+testImplementation "org.jetbrains.kotlin:kotlin-test"
+testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 ```
 
 </div>
@@ -467,9 +467,9 @@ testCompile "org.jetbrains.kotlin:kotlin-test-junit"
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-compile(kotlin("reflect"))
-testCompile(kotlin("test"))
-testCompile(kotlin("test-junit"))
+implementation(kotlin("reflect"))
+testImplementation(kotlin("test"))
+testImplementation(kotlin("test-junit"))
 ```
 
 </div>
@@ -482,7 +482,7 @@ taken from the applied plugin. You can provide the version manually using the fu
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
  
  ```groovy
-compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
  ```
  
 </div>
@@ -492,7 +492,7 @@ compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
  
  ```kotlin
- compile(kotlin("stdlib", kotlinVersion))
+ implementation(kotlin("stdlib", kotlinVersion))
  ```
  
 </div>
