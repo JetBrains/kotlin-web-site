@@ -504,18 +504,17 @@ Kotlin supports annonation processing via the _Kotlin annotation processing tool
 
 ## Incremental Compilation
 
-Kotlin supports optional incremental compilation in Gradle.
-Incremental compilation tracks changes of source files between builds so only files affected by these changes would be compiled.
+The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes of source files between builds so only files affected by these changes would be compiled.
 
-Starting with Kotlin 1.1.1, incremental compilation is enabled by default.
+Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects. It's enabled by default since Kotlin 1.1.1 for Kotlin/JVM and 1.3.20 for Kotlin/JS. 
 
 There are several ways to override the default setting:
 
-  1. Add `kotlin.incremental=true` or `kotlin.incremental=false` line either to a `gradle.properties` or to a `local.properties` file;
+* In Gradle configuration files: add the line `kotlin.incremental=<value>` for Kotlin/JVM or `kotlin.incremental.js=<value>` for Kotlin/JS projects either to `gradle.properties` or to `local.properties` file. `<value>` is a boolean value reflecting the usage of incremental compilation. 
 
-  2. Add `-Pkotlin.incremental=true` or `-Pkotlin.incremental=false` to Gradle command line parameters. Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental compilation invalidates incremental caches.
+* In Gradle command line parameters: add the parameter `-Pkotlin.incremental` or `-Pkotlin.incremental.js` with the boolean value reflecting the usage of incremental compilation. Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental compilation invalidates incremental caches.
 
-Note, that the first build won't be incremental.
+Note that the first build isn't incremental in any case.
 
 
 ## Gradle Build Cache Support (since 1.2.20)
