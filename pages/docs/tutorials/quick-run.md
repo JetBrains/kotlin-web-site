@@ -22,7 +22,7 @@ Sometimes you may need to quickly write and execute some code outside of a proje
 
 Kotlin plugin for IntelliJ IDEA supports [scratches](https://www.jetbrains.com/help/idea/scratches.html). Scratches let you create code drafts in the same IDE window with your project and run them on the fly. Scratches are not tied to projects; you can access and run all your scratches from any IntelliJ IDEA window on your OS. 
 
-To create a Kotlin scratch, click __File | New | Scratch file__ and select the __Kotlin__ type.
+To create a Kotlin scratch, click __File \| New \| Scratch file__ and select the __Kotlin__ type.
 
 In your scratch, you can write any valid Kotlin code, including new functions and classes. Syntax highlighting, auto-completion, and other code editing features of IntelliJ IDEA are supported in scratches.
 
@@ -47,7 +47,7 @@ To evaluate each particular expression in a scratch, run it with __Use REPL__ se
 
 _REPL_ (_Read-Eval-Print-Loop_) is a tool for running Kotlin code interactively. REPL lets you evaluate expressions and code chunks without creating projects or even functions if you don't need them. 
 
-To run REPL in IntelliJ IDEA, open __Tools | Kotlin | Kotlin REPL__.
+To run REPL in IntelliJ IDEA, open __Tools \| Kotlin \| Kotlin REPL__.
 
 To run REPL in the OS command line, open __/bin/kotlinc-jvm__ from the directory of standalone Kotlin compiler.
 
