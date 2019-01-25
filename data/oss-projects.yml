@@ -272,3 +272,8 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+
+- name: kompile-testing
+  description: Testing tools for kotlinc and kapt
+  type: Library
+  link: https://github.com/permissions-dispatcher/kompile-testing
