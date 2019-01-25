@@ -7,7 +7,7 @@ title: "Kotlin for Server Side"
 
 # Using Kotlin for Server-side Development
 
-Kotlin is a great fit for developing server-side applications, allowing to write concise and expressive code while
+Kotlin is a great fit for developing server-side applications, allowing you to write concise and expressive code while
 maintaining full compatibility with existing Java-based technology stacks and a smooth learning curve:
 
  * **Expressiveness**: Kotlin's innovative language features, such as its support for [type-safe builders](/docs/reference/type-safe-builders.html)
@@ -25,7 +25,7 @@ maintaining full compatibility with existing Java-based technology stacks and a 
 ## Frameworks for Server-side Development with Kotlin
 
  * [Spring](https://spring.io) makes use of Kotlin's language features to offer [more concise APIs](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0),
-starting with version 5.0. The [online project generator](https://start.spring.io/#!language=kotlin) allows to quickly generate a new project in Kotlin.
+starting with version 5.0. The [online project generator](https://start.spring.io/#!language=kotlin) allows you to quickly generate a new project in Kotlin.
 
  * [Vert.x](http://vertx.io), a framework for building reactive Web applications on the JVM, offers [dedicated support](https://github.com/vert-x3/vertx-lang-kotlin)
 for Kotlin, including [full documentation](http://vertx.io/docs/vertx-core/kotlin/).
