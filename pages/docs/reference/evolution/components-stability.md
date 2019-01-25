@@ -16,7 +16,7 @@ There can be different modes of stability depending of how quickly a component i
 *   **Stable Incremental Releases (SIR)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Any changes can be made in a [feature release](kotlin-evolution.html#feature-releases-and-incremental-releases).
 
 <a name="fully-stable"></a>
-*   **Fully Stable (FS)**: incremental releases are fully compatible, feature releases are backwards compatible.
+*   **Fully Stable (FS)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Feature releases are backwards compatible.
 
 Source and binary compatibility may have different modes for the same component, e.g. the source language can reach full stability before the binary format stabilizes, or vice versa.
 

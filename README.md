@@ -32,13 +32,13 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
 ### Data
 
-All data is stored in the \*.yml files in folder `_data`:
+All data is stored in the \*.yml files in folder `data`:
 
-- [_nav.yml](_data/_nav.yml) site navigation and PDF building.
-- [releases.yml](_data/releases.yml) info about releases.
-- [videos.yml](_data/videos.yml) data for the Videos page. The `content` property is used to create categories.
+- [_nav.yml](data/_nav.yml) site navigation and PDF building.
+- [releases.yml](data/releases.yml) info about releases.
+- [videos.yml](data/videos.yml) data for the Videos page. The `content` property is used to create categories.
   It contains a list of videos or other categories. Maximum tree depth level is 3.
-- [events.yml](_data/events.yml) event data.
+- [events.xml](data/events.xml) event data.
 
 ### Templates
 
