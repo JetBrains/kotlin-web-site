@@ -235,7 +235,7 @@ Let's create a million coroutines again, keeping their `Deferred` objects. Now t
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-val deferred = (1..1_000_000).map { n ->
+val deferred = (1..1_000_000L).map { n ->
     GlobalScope.async {
         n
     }
@@ -249,12 +249,12 @@ All these have already started, all we need is collect the results:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum = deferred.sumBy { it.await() }
+val sum = deferred.fold(0L) { sum, element -> element.await() + sum }
 ```
 
 </div>
 
-We simply take every coroutine and await its result here, then all results are added together by the standard library function `sumBy()`. But the compiler rightfully complains:
+We simply take every coroutine and await its result here, then all results are added together by folding the values together. But the compiler rightfully complains:
 
 > Suspend functions are only allowed to be called from a coroutine or another suspend function
 
@@ -264,21 +264,21 @@ We simply take every coroutine and await its result here, then all results are a
 
 ```kotlin
 runBlocking {
-    val sum = deferred.sumBy { it.await() }
+    val sum = deferred.fold(0L) { sum, element -> element.await() + sum }
     println("Sum: $sum")
 }
 ```
 
 </div>
 
-Now it prints something sensible: `1784293664`, because all coroutines complete.
+Now it prints the correct answer of: `500000500000`, because all coroutines complete.
 
 Let's also make sure that our coroutines actually run in parallel. If we add a 1-second `delay()` to each of the `async`'s, the resulting program won't run for 1'000'000 seconds (over 11,5 days):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-val deferred = (1..1_000_000).map { n ->
+val deferred = (1..1_000_000L).map { n ->
     GlobalScope.async {
         delay(1000)
         n
@@ -297,7 +297,7 @@ Now, let's say we want to extract our _workload_ (which is "wait 1 second and re
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun workload(n: Int): Int {
+fun workload(n: Long): Long {
     delay(1000)
     return n
 }
@@ -314,7 +314,7 @@ Let's dig a little into what it means. The biggest merit of coroutines is that t
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-suspend fun workload(n: Int): Int {
+suspend fun workload(n: Long): Long {
     delay(1000)
     return n
 }
