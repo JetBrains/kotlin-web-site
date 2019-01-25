@@ -235,7 +235,7 @@ Let's create a million coroutines again, keeping their `Deferred` objects. Now t
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-val deferred = (1..1_000_000L).map { n ->
+val deferred = (1..1_000_000).map { n ->
     GlobalScope.async {
         n
     }
@@ -249,7 +249,7 @@ All these have already started, all we need is collect the results:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum = deferred.fold(0L) { sum, element -> element.await() + sum }
+val sum = deferred.fold(0L) { sum, element -> element.await().toLong() + sum }
 ```
 
 </div>
@@ -264,7 +264,7 @@ We simply take every coroutine and await its result here, then all results are a
 
 ```kotlin
 runBlocking {
-    val sum = deferred.fold(0L) { sum, element -> element.await() + sum }
+    val sum = deferred.fold(0L) { sum, element -> element.await().toLong() + sum }
     println("Sum: $sum")
 }
 ```
@@ -278,7 +278,7 @@ Let's also make sure that our coroutines actually run in parallel. If we add a 1
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-val deferred = (1..1_000_000L).map { n ->
+val deferred = (1..1_000_000).map { n ->
     GlobalScope.async {
         delay(1000)
         n
@@ -297,7 +297,7 @@ Now, let's say we want to extract our _workload_ (which is "wait 1 second and re
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun workload(n: Long): Long {
+fun workload(n: Int): Int {
     delay(1000)
     return n
 }
@@ -314,7 +314,7 @@ Let's dig a little into what it means. The biggest merit of coroutines is that t
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-suspend fun workload(n: Long): Long {
+suspend fun workload(n: Int): Int {
     delay(1000)
     return n
 }
