@@ -21,3 +21,5 @@ If you feel like you need more ideas or advice on user group launch, contact [al
 * All the events and materials should be public and available for people of any different backgrounds
 * All communication should be appropriate for the professional audience
 * Follow simple rules to collaborate efficiently: be kind, be someone that other people want to be around, do not insult or bring down other attendees. Collaboration and respect would help you to achieve your personal goals and create proper environment for the fellows.
+
+Disclaimer: Kotlin User Groups are not affiliated with JetBrains nor Google. They are independently run organisations.
