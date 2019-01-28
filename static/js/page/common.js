@@ -39,6 +39,8 @@ $(document).ready(function () {
     referenceElement.href = "#" + id;
     this.appendChild(referenceElement);
   });
-
-  new GifPlayer(".gif-image")
+  const elements = document.getElementsByClassName("gif-image");
+  Array.prototype.forEach.call(elements, function(el) {
+    new GifPlayer(el)
+  });
 });
