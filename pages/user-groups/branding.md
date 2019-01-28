@@ -30,7 +30,7 @@ The logo and the profile picture are the first steps. We are planning to design 
 
 ## Create the logo of your user group
 
-<div style="margin-bottom: 20px">
+<div style="margin-bottom: 20px; margin-top: 40px">
     <img src="{{ url_for('asset', path='images/user-group/kotlin-user-group-avatar.png')}}" height="200" width="200" style="margin: 0 auto">
     <div style="text-align: center; font-style: italic;">Belarusian Kotlin User Group Profile Picture sample</div>
 </div>
