@@ -180,8 +180,8 @@ fun main() {
     acceptString(nameInlineClass) // Not OK: can't pass inline class instead of underlying type
 
     // And vice versa:
-    acceptNameTypeAlias("") // OK: pass underlying type instead of alias
-    acceptNameInlineClass("") // Not OK: can't pass underlying type instead of inline class
+    acceptNameTypeAlias(string) // OK: pass underlying type instead of alias
+    acceptNameInlineClass(string) // Not OK: can't pass underlying type instead of inline class
 }
 ```
 
