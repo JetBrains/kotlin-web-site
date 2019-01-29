@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: groups
-title: "Kotlin User Groups"
+title: "Kotlin User Groups List"
 ---
 
 # Kotlin User Groups (167)

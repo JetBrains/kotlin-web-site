@@ -26,32 +26,32 @@ There are 2 main reasons why we are doing it. Firstly, we received numerous requ
 
 ## Create the logo of your user group
 
-<div style="margin-bottom: 20px; margin-top: 40px">
+1. Copy the Kotlin user group logo file to your Google drive (you have to be signed into your Google account).
+2. Replace the ‘Groupname’ text with the name of your user group.
+3. Download the picture and use it for the user group materials.
+
+Feel free to create your unique style based on it or add any fine tuning but we prefer that you don’t change the general shape too radically since it’s the official symbol of the Kotlin community program.
+
+ <div style="margin-bottom: 20px; margin-top: 40px">
     <img src="{{ url_for('asset', path='images/user-group/kotlin-user-group-avatar.png')}}" height="200" width="200" style="margin: 0 auto">
     <div style="text-align: center; font-style: italic;">Belarusian Kotlin User Group Profile Picture sample</div>
 </div>
-
-1. Copy the Kotlin user group logo file to your Google drive (you have to be signed into your Google account)
-2. Replace the ‘Groupname’ text with the name of your user group
-3. Download the picture and use it for the user group materials
-
-Feel free to create your unique style based on it or add any fine tuning but we prefer that you don’t change the general shape too radically since it’s the official symbol of the Kotlin community program.
 
 You can download a [set of graphics](https://drive.google.com/drive/folders/0B3Zi34svOj1RZ2sxZExhblRJc1k) including vector graphics and samples of cover pictures for social networks.
 
 ## Create your group’s profile picture for different platforms
 
 1. To create your group’s profile picture, make a copy of [the Kotlin user group profile picture file](https://docs
-.google.com/drawings/d/19AG_SwcAUF-Te9Nv-Gw2U6Rtma--l1MI2napQwX5u1o/edit) to your Google Drive (you have to be signed into your Google account);
-2. Add a shortened name of the user group’s location (up to 4 capital symbols according to our default sample);
+.google.com/drawings/d/19AG_SwcAUF-Te9Nv-Gw2U6Rtma--l1MI2napQwX5u1o/edit) to your Google Drive (you have to be signed into your Google account).
+2. Add a shortened name of the user group’s location (up to 4 capital symbols according to our default sample).
 3. Download the picture and use it for your profiles on Facebook, Twitter, or any other platform.
 
 ## Create meetup.com cover photo
 
 1. To create a cover photo with a group's logo for meetup.com, make a copy of the [picture file](https://docs.google.com/drawings/d/19vj9i4UJz9TPv2RUxa-d3Ex_9XY3R4ypnCMhXJYPa1s/edit) to your Google 
-Drive (you have to be signed into your Google account);
+Drive (you have to be signed into your Google account).
 2. Add a shortened name of the user group’s location to the logo on the right upper corner of the picture. If you want to replace the general pattern with a custom picture click on
- the background pattern-picture, choose 'Replace Image' then 'Upload from Computer' or any other source;
+ the background pattern-picture, choose 'Replace Image' then 'Upload from Computer' or any other source.
 3. Download the picture and use it for your profile on meetup.com.
 
 ![User Group examples]({{ url_for('asset', path='images/user-group/kotlin-user-group.png')}})
