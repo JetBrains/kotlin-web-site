@@ -203,8 +203,8 @@ title: "Kotlin User Groups List"
 </div>
 
 
-## If there is no KUG in your area, make a new one.
+## If there is no Kotlin User Group in your area, why not start a new one.
 
-If you are a leader of active user group and it’s not in a list, please, let us know that there is a Kotlin User Group. We will share the information with others on this site.
+If you are the leader of an active user group and it’s not on the list, please, let us know about your Kotlin User Group. We will share the information with others on this site.
 
 **[Submit a New Kotlin User Group](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group)**
