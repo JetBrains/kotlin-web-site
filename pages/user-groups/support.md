@@ -14,8 +14,6 @@ title: "Support and Guidelines"
 * If you are looking for monetary support or any other type of sponsorship, please contact us at 
 sponsorships@jetbrains.com.
 
-If you feel like you need more ideas or advice on launching a user group, contact [alina@jetbrains.com](mailto:alina@jetbrains.com).
-
 ## Guidelines
 * User groups provide activities to support professionals interested in the technology.
 * Try to meet up regularly. It is the best way to increase Kotlin excellence for all members of the user group.

@@ -3,6 +3,9 @@ type: doc
 layout: groups
 title: "Kotlin User Groups List"
 ---
+Kotlin User Groups are a great place to share your experience with the community. There is no set format for a user group; they can exist in whatever way works for the organizers, be it meetups, lectures, hackathons, or informal get-togethers at a bar. Communication is key, so feel free to use any channels which work for the group. 
+
+The most common way to begin one is to find a few like-minded people and to get together and organize regular meetups for spreading knowledge on software development with Kotlin. If you feel like you need more ideas or advice on launching a user group, contact [alina@jetbrains.com](mailto:alina@jetbrains.com).
 
 # Kotlin User Groups (167)
 
