@@ -35,7 +35,8 @@ subnav:
           urlPattern: ^/community/$
           title: Community Overview
 
-        - url: /community/user-groups.html
+        - url: /user-groups/user-group-list.html
+          urlPattern: /user-groups*
           title: User Groups
 
         - url: /community/kotlin-nights.html
@@ -395,11 +396,20 @@ tutorials:
 
 foundation:
   content:
-      - url: /foundation/kotlin-foundation.html
-        title: Kotlin Foundation
-      - url: /foundation/language-committee-guidelines.html
-        title: Language Committee Guidelines
-      - url: /foundation/submitting-incompatible-changes.html
-        title: Submitting Incompatible Changes
-      - url: /foundation/faq.html
-        title: FAQ
+    - url: /foundation/kotlin-foundation.html
+      title: Kotlin Foundation
+    - url: /foundation/language-committee-guidelines.html
+      title: Language Committee Guidelines
+    - url: /foundation/submitting-incompatible-changes.html
+      title: Submitting Incompatible Changes
+    - url: /foundation/faq.html
+      title: FAQ
+
+groups:
+  content:
+    - url: /user-groups/user-group-list.html
+      title: Kotlin User Groups List
+    - url: /user-groups/support.html
+      title: Support and Guidelines
+    - url: /user-groups/branding.html
+      title: Branding
