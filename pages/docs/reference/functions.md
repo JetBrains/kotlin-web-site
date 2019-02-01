@@ -368,6 +368,27 @@ Sample().foo() // creates instance of class Sample and calls foo
 ```
 </div>
 
+When the member function is invoked on [this](this-expressions.md), the `this.` can be left off. Use this with caution, however, because when a non-member function is defined with the same name, it will be called instead:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+fun b() = "Gotcha!"
+
+class A {
+    fun a() = "Nice."
+    fun b() = "Okay?"
+    fun aa(omitThis: Boolean = false) : String { return if (omitThis) a() else this.a() }
+    fun bb(omitThis: Boolean = false) : String { return if (omitThis) b() else this.b() }
+}
+
+println(A().aa())      // Nice.
+println(A().aa(true))  // Nice.
+println(A().bb())      // Okay?
+println(A().bb(true))  // Gotcha!
+```
+</div>
+
+
 For more information on classes and overriding members see [Classes](classes.html) and [Inheritance](classes.html#inheritance).
 
 ## Generic Functions
