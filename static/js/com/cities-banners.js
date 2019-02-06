@@ -13,7 +13,7 @@ $(document).ready(function () {
     $.ajax({
       url: "https://data.services.jetbrains.com/geo",
     }).done(function (data) {
-      if (data.code = COUNTRY_CODE) {
+      if (data.code === COUNTRY_CODE) {
         let template = `<a class="link-banner" href="${COUNTRY_LINK}"></a>`;
         bannersRotator.createBanner({
           id: "banner-default-country",
