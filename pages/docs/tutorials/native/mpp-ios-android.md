@@ -180,7 +180,7 @@ kotlin {
             compilations.main.outputKinds('FRAMEWORK')
         }
 
-        fromPreset(presets.jvm, 'android')
+        fromPreset(presets.android, 'android')
     }
 
     sourceSets {
