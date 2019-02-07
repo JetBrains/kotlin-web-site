@@ -583,7 +583,7 @@ It is also possible to configure all Kotlin compilation tasks in the project:
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).all {
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile.class).all {
     kotlinOptions { ... }
 }
 ```
