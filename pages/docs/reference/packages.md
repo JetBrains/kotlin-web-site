@@ -50,7 +50,7 @@ Additional packages are imported depending on the target platform:
 ## Imports
 
 Apart from the default imports, each file may contain its own import directives.
-Syntax for imports is described in the [grammar](grammar.html#import).
+Syntax for imports is described in the [grammar](grammar.html#importHeader).
 
 We can import either a single name, e.g.
 

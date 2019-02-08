@@ -26,7 +26,7 @@ The type of these expressions is the [Nothing type](exceptions.html#the-nothing-
 ## Break and Continue Labels
 
 Any expression in Kotlin may be marked with a *label*{: .keyword }.
-Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#labelReference)).
+Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#label)).
 To label an expression, we just put a label in front of it
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
