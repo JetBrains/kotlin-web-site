@@ -52,7 +52,7 @@ val max = if (a > b) {
 If you're using *if*{: .keyword } as an expression rather than a statement (for example, returning its value or
 assigning it to a variable), the expression is required to have an `else` branch.
 
-See the [grammar for *if*{: .keyword }](grammar.html#if).
+See the [grammar for *if*{: .keyword }](grammar.html#ifExpression).
 
 ## When Expression
 
