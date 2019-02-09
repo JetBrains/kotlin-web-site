@@ -72,8 +72,8 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 <build>
     <plugins>
         <plugin>
-            <artifactId>kotlin-maven-plugin</artifactId>
             <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
 
             <executions>
@@ -105,8 +105,8 @@ In maven terms that means kotlin-maven-plugin should be run before maven-compile
 <build>
     <plugins>
         <plugin>
-            <artifactId>kotlin-maven-plugin</artifactId>
             <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
             <executions>
                 <execution>
@@ -324,8 +324,8 @@ Maven plugin node:
 
 ```xml
 <plugin>
-    <artifactId>kotlin-maven-plugin</artifactId>
     <groupId>org.jetbrains.kotlin</groupId>
+    <artifactId>kotlin-maven-plugin</artifactId>
     <version>${kotlin.version}</version>
     <executions>...</executions>
     <configuration>
