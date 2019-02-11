@@ -226,17 +226,17 @@ For instance, you can make a local variable lazy:
 
 ```kotlin
 fun example(computeFoo: () -> Foo) {
-    val memoizedFoo by lazy(computeFoo)
+    val memorizedFoo by lazy(computeFoo)
 
-    if (someCondition && memoizedFoo.isValid()) {
-        memoizedFoo.doSomething()
+    if (someCondition && memorizedFoo.isValid()) {
+        memorizedFoo.doSomething()
     }
 }
 ```
 
 </div>
 
-The `memoizedFoo` variable will be computed on the first access only.
+The `memorizedFoo` variable will be computed on the first access only.
 If `someCondition` fails, the variable won't be computed at all.
 
 ## Property Delegate Requirements
