@@ -89,7 +89,7 @@ More specifically, smart casts are applicable according to the following rules:
 ## "Unsafe" cast operator
 
 Usually, the cast operator throws an exception if the cast is not possible. Thus, we call it *unsafe*.
-The unsafe cast in Kotlin is done by the infix operator *as*{: .keyword } (see [operator precedence](grammar.html#precedence)):
+The unsafe cast in Kotlin is done by the infix operator *as*{: .keyword } (see [operator precedence](grammar.html#expressions)):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
