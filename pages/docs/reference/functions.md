@@ -286,7 +286,7 @@ infix fun Int.shl(x: Int): Int { ... }
 > * `a && b xor c` and `a && (b xor c)`
 > * `a xor b in c` and `(a xor b) in c`
 > 
-> See the [Grammar reference](grammar.html#precedence) for the complete operators precedence hierarchy.
+> See the [Grammar reference](grammar.html#expressions) for the complete operators precedence hierarchy.
 {:.note}
 
 Note that infix functions always require both the receiver and the parameter to be specified. When you're
