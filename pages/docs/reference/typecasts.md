@@ -45,8 +45,9 @@ The compiler is smart enough to know a cast to be safe if a negative check leads
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-    if (x !is String) return
-    print(x.length) // x is automatically cast to String
+if (x !is String) return
+
+print(x.length) // x is automatically cast to String
 ```
 </div>
 
@@ -54,13 +55,13 @@ or in the right-hand side of `&&` and `||`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-    // x is automatically cast to string on the right-hand side of `||`
-    if (x !is String || x.length == 0) return
+// x is automatically cast to string on the right-hand side of `||`
+if (x !is String || x.length == 0) return
 
-    // x is automatically cast to string on the right-hand side of `&&`
-    if (x is String && x.length > 0) {
-        print(x.length) // x is automatically cast to String
-    }
+// x is automatically cast to string on the right-hand side of `&&`
+if (x is String && x.length > 0) {
+    print(x.length) // x is automatically cast to String
+}
 ```
 </div>
 
