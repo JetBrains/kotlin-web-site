@@ -49,6 +49,9 @@ To deploy Kotlin applications on [Heroku](https://www.heroku.com), you can follo
 AWS Labs provides a [sample project](https://github.com/awslabs/serverless-photo-recognition) showing the use of Kotlin
 for writing [AWS Lambda](https://aws.amazon.com/lambda/) functions.
 
+Google Cloud Platform offers a series of tutorials for deploying Kotlin applications to GCP, both for [Ktor and App Engine](https://cloud.google.com/community/tutorials/kotlin-ktor-app-engine-java8) and [Spring and App engine](https://cloud.google.com/community/tutorials/kotlin-springboot-app-engine-java8). In addition
+there is an [interactive code lab](https://codelabs.developers.google.com/codelabs/cloud-spring-cloud-gcp-kotlin) for deploying a Kotlin Spring application. 
+
 ## Users of Kotlin on the Server Side
 
 [Corda](https://www.corda.net/) is an open-source distributed ledger platform, supported by major
