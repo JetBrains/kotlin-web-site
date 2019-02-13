@@ -38,14 +38,14 @@ a function that is declared using the `expect` keyword. The `actual` implementat
 * We will be using [Android Studio](https://developer.android.com/studio/) for the Android part of the tutorial. 
 It is also possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate edition.
 
-* Kotlin plugin 1.3.x or higher should be installed in the IDE. This can be verified via
+* Kotlin plugin 1.3.21 or higher should be installed in the IDE. This can be verified via
 *Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) of the IDE.
 
 * macOS host operating system is required to compile for iOS and macOS devices. We need to have
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured. Check out
 the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
-*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.0, Xcode 10.0, macOS 10.14, Gradle 4.7*
+*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.21, Xcode 10.0, macOS 10.14, Gradle 4.7*
 
 # Creating an Android Project
 
@@ -177,7 +177,9 @@ kotlin {
                               ? presets.iosArm64 : presets.iosX64
 
         fromPreset(iOSTarget, 'iOS') {
-            compilations.main.outputKinds('FRAMEWORK')
+             binaries {
+                framework('SharedCode')
+            }
         }
 
         fromPreset(presets.jvm, 'android')
@@ -329,11 +331,12 @@ We need to include the additional task to the end of the `SharedCode/build.gradl
 task packForXCode(type: Sync) {
     final File frameworkDir = new File(buildDir, "xcode-frameworks")
     final String mode = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
+    final def framework = kotlin.targets.iOS.binaries.getFramework("SharedCode", mode)
 
     inputs.property "mode", mode
-    dependsOn kotlin.targets.iOS.compilations.main.linkTaskName("FRAMEWORK", mode)
+    dependsOn framework.linkTask
 
-    from { kotlin.targets.iOS.compilations.main.getBinary("FRAMEWORK", mode).parentFile }
+    from { framework.outputFile.parentFile }
     into frameworkDir
 
     doLast {
@@ -343,7 +346,6 @@ task packForXCode(type: Sync) {
         }
     }
 }
-
 tasks.build.dependsOn packForXCode
 ```
 </div>
