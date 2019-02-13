@@ -88,7 +88,7 @@ More complex conditions are supported as well:
 ```kotlin
 fun main() {
 //sampleStart
-    val b = "Kotlin"
+    val b: String? = "Kotlin"
     if (b != null && b.length > 0) {
         print("String of length ${b.length}")
     } else {
@@ -115,7 +115,7 @@ fun main() {
     val a = "Kotlin"
     val b: String? = null
     println(b?.length)
-    println(a?.length)
+    println(a?.length) // Unnecessary safe call
 //sampleEnd
 }
 ```
