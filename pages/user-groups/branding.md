@@ -26,7 +26,7 @@ There are 2 main reasons why we are doing it. Firstly, we received numerous requ
 
 ## Create the logo of your user group
 
-1. Copy the Kotlin user group logo file to your Google drive (you have to be signed into your Google account).
+1. Copy the [Kotlin user group logo file](https://docs.google.com/drawings/d/1CQ5CrEuQhYubcPkAjTBcy6lnY7mcrgd8pUr2NAh0qE8/edit) to your Google drive (you have to be signed into your Google account).
 2. Replace the ‘Groupname’ text with the name of your user group.
 3. Download the picture and use it for the user group materials.
 
