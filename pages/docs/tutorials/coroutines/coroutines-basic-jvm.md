@@ -249,7 +249,7 @@ All these have already started, all we need is collect the results:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum = deferred.sumBy { it.await() }
+val sum = deferred.map { it.await() }.sum()
 ```
 
 </div>
@@ -264,14 +264,14 @@ We simply take every coroutine and await its result here, then all results are a
 
 ```kotlin
 runBlocking {
-    val sum = deferred.sumBy { it.await() }
+    val sum = deferred.map { it.await() }.sum()
     println("Sum: $sum")
 }
 ```
 
 </div>
 
-Now it prints something sensible: `1784293664`, because all coroutines complete.
+Now it prints something sensible: `500000500000`, because all coroutines complete.
 
 Let's also make sure that our coroutines actually run in parallel. If we add a 1-second `delay()` to each of the `async`'s, the resulting program won't run for 1'000'000 seconds (over 11,5 days):
 
