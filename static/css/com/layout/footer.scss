@@ -4,7 +4,6 @@
 
 .global-footer {
   height: $footer-height;
-  background-color: #1a1a1a;
   color: #b2b2b2;
 
   .header {
@@ -19,6 +18,7 @@
   @include box-sizing;
   @include clearfix;
   padding: $unit*3 0;
+  background-color: #1a1a1a;
 
   .global-footer-container {
     display: flex;
