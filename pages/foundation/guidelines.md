@@ -1,6 +1,6 @@
 ---
 type: doc
-layout: groups
+layout: foundation
 title: "Kotlin Brand Usage Guidelines"
 ---
 
