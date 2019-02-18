@@ -2,65 +2,65 @@
 @import '../../_utils';
 @import '../_icon/_icon';
 
-
 .global-footer {
-    height: $footer-height;
-    background-color: #1a1a1a;
-    color: #b2b2b2;
+  height: $footer-height;
+  background-color: #1a1a1a;
+  color: #b2b2b2;
 
-    .header {
-        font-family: $font-family-serif;
-        font-size: 24px;
-        color: #7c7979;
-        margin-bottom: $unit*3;
-    }
+  .header {
+    font-family: $font-family-serif;
+    font-size: 24px;
+    color: #7c7979;
+    margin-bottom: $unit*3;
+  }
 }
 
 .global-footer-terms {
-    @include box-sizing;
-    @include clearfix;
-    padding: $unit*3 0;
+  @include box-sizing;
+  @include clearfix;
+  padding: $unit*3 0;
 
-    .terms-copyright {
-        float: left;
-        line-height: 40px;
-        height: 40px;
+  .global-footer-container {
+    display: flex;
+    flex-direction: row;
+  }
 
-        a {
-            color: #fff;
-
-            &:hover {
-                color: $base-link-hover-color;
-            }
-        }
-
+  .global-footer-row {
+    width: 50%;
+    a {
+      color: #fff;
+      &:hover {
+        color: $base-link-hover-color;
+      }
     }
+  }
 
-    .terms-sponsor {
-        position: relative;
-        float: right;
-        right: 0;
-        line-height: 40px;
-        height: 40px;
+  .terms-copyright {
+  }
 
-        .sponsor_jetbrains {
-            opacity: 0.7;
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 3px;
-            width: 48px;
-            height: 48px;
-            background: url('../layout/images/logos-sprite.png') no-repeat 0 -50px;
-            font-size: 0;
+  .terms-sponsor {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
-            @include adapt_retina {
-                background-image: url('../layout/images/logos-sprite@2x.png');
-                background-size: 200px 100px;
-            }
+    .sponsor_jetbrains {
+      opacity: 0.7;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 3px;
+      width: 48px;
+      height: 48px;
+      background: url('../layout/images/logos-sprite.png') no-repeat 0 -50px;
+      font-size: 0;
 
-            &:hover {
-                opacity: 0.9;
-            }
-        }
+      @include adapt_retina {
+        background-image: url('../layout/images/logos-sprite@2x.png');
+        background-size: 200px 100px;
+      }
+
+      &:hover {
+        opacity: 0.9;
+      }
     }
+  }
 }
