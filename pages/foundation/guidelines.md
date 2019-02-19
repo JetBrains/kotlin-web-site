@@ -8,7 +8,11 @@ title: "Kotlin Brand Usage Guidelines"
 
 One of the goals of The Kotlin Foundation is to protect the use of the Kotlin word and to make sure it is not misused. The following guidelines provide guidance on how to reference the Kotlin word trademark (“Trademark”) in an approved manner while ensuring the Trademark remains subject to protection under applicable laws around the world, and continues to serve as a source indicator for the Kotlin programming language and related offerings.  
 
-Any use of the Trademark other than those described in these Guidelines must be approved in advance. Please contact the Kotlin Foundation to request an express trademark license if you desire to use the Kotlin trademark, or a derivative of the Kotlin trademark, in a manner not permitted under these Guidelines. To submit a usage request, please use the email kotlin-foundation-trademark-subcommittee@googlegroups.com, clearly describing the intended usage and duration. 
+Any use of the Trademark other than those described in these Guidelines must be approved in advance. Please contact 
+the Kotlin Foundation to request an express trademark license if you desire to use the Kotlin trademark, or a 
+derivative of the Kotlin trademark, in a manner not permitted under these Guidelines. To submit a usage request, 
+please [contact us](https://surveys.jetbrains.com/s3/request-for-permission-of-kotlin-trademark-usage), clearly 
+describing the intended usage and duration. 
 
 ## General Goals
 
