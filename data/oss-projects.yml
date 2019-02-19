@@ -272,3 +272,8 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+
+- name: Arrow
+  description: A library for Typed Functional Programming in Kotlin
+  type: Library
+  link: https://arrow-kt.io/
