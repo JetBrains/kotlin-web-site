@@ -82,7 +82,7 @@ Note that smart casts do not work when the compiler cannot guarantee that the va
 More specifically, smart casts are applicable according to the following rules:
 
   * *val*{: .keyword } local variables - always except for [local delegated properties](delegated-properties.html#local-delegated-properties-since-11);
-  * *val*{: .keyword } properties - if the property is private or internal or the check is performed in the same module where the property is declared. Smart casts aren't applicable to open properties or properties that have custom getters;
+  * *val*{: .keyword } properties - if the property is private or internal or the check is performed in the same [module](visibility-modifiers.html#modules) where the property is declared. Smart casts aren't applicable to open properties or properties that have custom getters;
   * *var*{: .keyword } local variables - if the variable is not modified between the check and the usage, is not captured in a lambda that modifies it, and is not a local delegated property;
   * *var*{: .keyword } properties - never (because the variable can be modified at any time by other code).
 
