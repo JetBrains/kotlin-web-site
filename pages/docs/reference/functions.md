@@ -62,7 +62,7 @@ fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) { ... }
 Default values are defined using the **=** after type along with the value.
 
 Overriding methods always use the same default parameter values as the base method.
-When overriding a method with default parameters values, the default parameter values must be omitted from the signature:
+When overriding a method with default parameter values, the default parameter values must be omitted from the signature:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -76,7 +76,7 @@ class B : A() {
 ```
 </div>
 
-If a default parameter precedes a parameter with no default value, the default value can be used only by calling the function with [named arguments](#named-arguments):
+If a default parameter precedes a parameter with no default value, the default value can only be used by calling the function with [named arguments](#named-arguments):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -86,14 +86,15 @@ foo(baz = 1) // The default value bar = 0 is used
 ```
 </div>
 
-But if a last argument [lambda](lambdas.html#lambda-expression-syntax) is passed to a function call outside the parentheses, passing no values for the default parameters is allowed:
+If the last argument after default parameters is a [lambda](lambdas.html#lambda-expression-syntax), it can be passed in either as a named argument or [outside the parentheses](lambdas.html#passing-a-lambda-to-the-last-parameter):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { ... }
 
-foo(1) { println("hello") } // Uses the default value baz = 1 
-foo { println("hello") }    // Uses both default values bar = 0 and baz = 1
+foo(1) { println("hello") }     // Uses the default value baz = 1
+foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1 
+foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
 ```
 </div>
 
@@ -115,7 +116,7 @@ fun reformat(str: String,
 ```
 </div>
 
-we could call this using default arguments:
+We could call this using default arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
