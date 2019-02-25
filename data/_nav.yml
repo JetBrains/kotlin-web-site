@@ -118,6 +118,8 @@ reference:
           title: Enum Classes
         - url: /docs/reference/object-declarations.html
           title: Objects
+        - url: /docs/reference/type-aliases.html
+          title: Type Aliases
         - url: /docs/reference/inline-classes.html
           title: Inline Classes
         - url: /docs/reference/delegation.html
@@ -170,8 +172,6 @@ reference:
           title: Reflection
         - url: /docs/reference/type-safe-builders.html
           title: Type-Safe Builders
-        - url: /docs/reference/type-aliases.html
-          title: Type Aliases
 
     - title: Core Libraries
       content:
