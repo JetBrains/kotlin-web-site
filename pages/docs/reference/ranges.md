@@ -85,11 +85,11 @@ Progressions are defined by the `first` element, the `last` element and a non-ze
 The first element is `first`, subsequent elements are the previous element plus `step`. The `last` element is always hit by iteration unless the progression is empty.
 
 A progression is a subtype of `Iterable<N>`, where `N` is `Int`, `Long` or `Char` respectively, so it can be used in *for*{: .keyword }-loops and functions like `map`, `filter`, etc.
-Iteration over `Progression` is equivalent to an indexed *for*{: .keyword }-loop in Java/JavaScript:
+Iteration over a `Progression` with a positive `step` is equivalent to an indexed *for*{: .keyword }-loop in Java/JavaScript:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```java
-for (int i = first; i != last; i += step) {
+for (int i = first; i <= last; i += step) {
   // ...
 }
 ```
