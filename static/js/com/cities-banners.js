@@ -5,7 +5,7 @@ const COUNTRY_CODE = "PL";
 const COUNTRY_CODE_RU = "RU";
 
 const COUNTRY_LINK = "https://info.jetbrains.com/jetbrains-trip-poland-2019.html";
-const COUNTRY_LINK_RU = "https://info.jetbrains.com/jetbrains-night-moscow-2019.html";
+const COUNTRY_LINK_RU = "https://jetbrains-ev-org.timepad.ru/event/892726/?";
 
 $(document).ready(function () {
 
