@@ -1,3 +1,27 @@
+- name: Haifa, Israel
+  geo:
+    lat: 32.816049
+    lng: 35.003125
+- name: Salerno, Italy
+  geo:
+    lat: 40.419616
+    lng: 15.310293
+- name: Benin, Nigeria
+  geo:
+    lat: 6.350029
+    lng: 5.636569
+- name: Bangladesh, India
+  geo:
+    lat: 37.406605
+    lng: -5.915846
+- name: Samara, Russia
+  geo:
+    lat: 53.195538
+    lng: 50.101783
+- name: Taganrog, Russia
+  geo:
+    lat: 47.220983
+    lng: 38.9173
 - name: Pescara, Italy
   geo:
     lat: 42.464778
