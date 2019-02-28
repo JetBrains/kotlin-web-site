@@ -616,10 +616,10 @@ default.
 A Kotlin source set is a collection of Kotlin sources, along with their resources, dependencies, and language settings, 
 which may take part in Kotlin compilations of one or more [targets](#setting-up-targets).
 
-A source set is not bound to be platform-specific or "shared"; what it's allowed to content depends on its usage: 
+A source set is not bound to be platform-specific or "shared"; what it's allowed to contain depends on its usage: 
 a source set added to multiple compilations is limited to the common language features and dependencies, while a source 
-set that is only used by a single target can have platform-specific dependencies, and it's code may use language 
-features specific to that target's platform. 
+set that is only used by a single target can have platform-specific dependencies, and its code may use language 
+features specific to that target's platform.
 
 Some source sets are created and configured by default: `commonMain`, `commonTest`, and the default source sets for the
  compilations. See [Default Project Layout](#default-project-layout).
