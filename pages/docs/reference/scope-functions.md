@@ -57,8 +57,8 @@ Due to the similar nature of scope functions, choosing the right one for your ca
 ## Distinctions
 
 Because the scope functions are all quite similar in nature, it's important to understand the differences between them. There are two main differences between each scope function: 
-* The way to refer to the context object.
-* The return value. 
+* The way to refer to the context object
+* The return value.
 
 ### Context object: `this` or `it`
 
@@ -220,7 +220,7 @@ To help you choose the right scope function for your case, we'll describe them i
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
-    val *resultList = numbers.map {it.length}.filter {it > 3}
+    val resultList = numbers.map {it.length}.filter {it > 3}
     println(resultList)    
 //sampleEnd
 }
@@ -296,7 +296,7 @@ fun main() {
 
 A non-extension function: **the context object** is passed as an argument, but inside the lambda, it's available as a receiver (`this`). **The return value** is the lambda result. 
 
-We recommend with for calling functions on the context object without providing the lambda result. In the code, with can be read as “_with this object, do the following._”
+We recommend with for calling functions on the context object without providing the lambda result. In the code, `with` can be read as “_with this object, do the following._”
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -386,7 +386,6 @@ data class Person(var name: String, var age: Int = 0, var city: String = "")
 
 fun main() {
 //sampleStart
-fun main() {
     val adam = Person("Adam").apply {
         age = 32
         city = "London"        
@@ -412,7 +411,6 @@ fun String.foo() {}
 
 fun main() {
 //sampleStart
-fun main() {
     val str: String = "Hello"
     str.also {
         println("Calling foo() on the string $it")
