@@ -15,7 +15,7 @@ The Kotlin standard library provides developers with a mechanism for creating an
 If a class or a function from a library is marked by its author as experimental, using it in your code produces warnings or compilation errors unless you explicitly accept their experimental status. 
 There are several ways to accept the experimental status of API elements; all of them are applicable without technical limitations. You are free to choose any way that you find best for your case. 
 
-### propagating use
+### Propagating use
 
 When you use an experimental API in the code intended for third-party use (a library), you can mark your API experimental as well. To do this, annotate your declaration with the _experimental marker annotation_ of the API used in its body. This enables you to use the API elements annotated with this marker.
 
@@ -53,7 +53,7 @@ To use multiple experimental APIs, annotate the declaration with all their marke
 
 ### Non-propagating use
 
-In modules that don't provide their own API, such as application modules, you can use experimental APIs without propagating the experimental status to your code. In this case, mark your code with the [@UseExperimental(Marker::class)](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-use-experimental/index.html) annotation specifying the marker annotation of the experimental API:
+In modules that don't provide their own API, such as application modules, you can use experimental APIs without propagating the experimental status to your code. In this case, mark your code with the [@UseExperimental(Marker::class)](/api/latest/jvm/stdlib/kotlin/-use-experimental/index.html) annotation specifying the marker annotation of the experimental API:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -164,8 +164,8 @@ annotation class ShinyNewAPI
 </div>
 
 Experimental marker annotations should meet several requirements:
-* `BINARY` [retention](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-retention/index.html).
-* No `EXPRESSION` and `FILE` among [targets](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/index.html).
+* `BINARY` [retention](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-retention/index.html)
+* No `EXPRESSION` and `FILE` among [targets](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/index.html)
 * No parameters.
 
 A marker annotation can have one of two severity [levels](/api/latest/jvm/stdlib/kotlin/-experimental/-level/index.html) of informing about experimental API usage:
