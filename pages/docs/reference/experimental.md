@@ -9,11 +9,17 @@ title: "Experimental API Markers"
 > The annotations for marking and using experimental APIs (`@Experimental` and `@UseExperimental`) are *experimental* in Kotlin 1.3. See details [below](#experimental-status-of-experimental-markers-api).
 
 The Kotlin standard library provides developers with a mechanism for creating and using _experimental_ APIs. This mechanism lets library authors inform users that certain components of their API, such as classes or functions, are unstable and likely to change in the future. Such changes may require rewriting and recompiling the client code. To prevent potential compatibility issues, the compiler warns users of such APIs about the experimental status and may require explicit acceptance to use the API.
-# Using Experimental API
+
+## Using experimental APIs
+
 If a class or a function from a library is marked by its author as experimental, using it in your code produces warnings or compilation errors unless you explicitly accept their experimental status. 
 There are several ways to accept the experimental status of API elements; all of them are applicable without technical limitations. You are free to choose any way that you find best for your case. 
-## Propagating Use
+
+### propagating use
+
 When you use an experimental API in the code intended for third-party use (a library), you can mark your API experimental as well. To do this, annotate your declaration with the _experimental marker annotation_ of the API used in its body. This enables you to use the API elements annotated with this marker.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 // library code
 @Experimental
@@ -24,7 +30,9 @@ annotation class ShinyNewAPI            // Experimental API marker
 @ShinyNewAPI                            
 class NewClass                              // Experimental class
 ```
+</div>
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 // client code
 fun useNewClass( myObject: NewClass) { } // error: NewClass is experimental
@@ -38,10 +46,16 @@ fun usePropagatingFunction() {
     useWithPropagation() // error: useWithPropagation() is experimental, acceptance is required
 }
 ```
+</div>
+
 As you see in the example, the annotated function appears to be a part of the `@ShinyNewAPI` experimental API. So, the described way of acceptance propagates the experimental status to the code that uses an experimental API; its clients will be required to accept it as well.
 To use multiple experimental APIs, annotate the declaration with all their markers.
-## Non-Propagating Use
+
+### Non-propagating use
+
 In modules that don't provide their own API, such as application modules, you can use experimental APIs without propagating the experimental status to your code. In this case, mark your code with the [@UseExperimental(Marker::class)](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-use-experimental/index.html) annotation specifying the marker annotation of the experimental API:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 // library code
 @Experimental
@@ -52,7 +66,9 @@ annotation class ShinyNewAPI            // Experimental API marker
 @ShinyNewAPI                            
 class NewClass                              // Experimental class
 ```
+</div>
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 //client code
 @UseExperimental(ShinyNewAPI::class)
@@ -64,12 +80,18 @@ fun useNonPropagatingFunction() {
     useWithoutPropagation()                     // OK: useWithoutPropagation() is not experimental
 }
 ```
-When somebody calls the function `doSomething`, they won't be informed about the experimental API used in its body. 
-## Module-Wide Use
+</div>
+
+When somebody calls the function `useWithoutPropagation()`, they won't be informed about the experimental API used in its body. 
+
+### Module-wide use
+
 If you don't want to annotate every usage of experimental APIs in your code, you can accept the experimental status for your whole module. Module-wide use of experimental APIs can be propagating and non-propagating as well:
 * To accept and propagate the experimental status to your whole module, compile the module with the argument `-Xexperimental=org.foo.ShinyNewAPI`, where `org.foo.ShinyNewAPI` is the fully qualified name of the marker annotation. Note that in this case, _every declaration_ in the module becomes experimental. The use of the module requires the acceptance of its experimental status as well.
 * To accept the experimental status without propagation, compile the module with the argument `Xuse-experimental`, specifying the marker of the API used in the module: `-Xuse-experimental=org.foo.ShinyNewApi`. Compilation with this argument has the same effect as if every declaration in the module had the annotation`@UseExperimental(ShinyNewAPI::class)`.
+
 If you build your module with Gradle, you can add the arguments like that:
+
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
@@ -101,6 +123,7 @@ compileKotlin.kotlinOptions.freeCompilerArgs += "-Xexperimental=org.foo.ShinyNew
 
 For Maven, this would be:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```xml
 <build>
 <plugins>
@@ -121,35 +144,51 @@ For Maven, this would be:
 </plugins>
 </build>
 ```
+</div>
 
 To accept the usage of multiple experimental APIs on the module level, add one of the described agruments for each experimental API marker used in your module.
-# Marking Experimental API 
-## Creating Marker Annotations
-If you want to declare your module's API experimental, create an annotation class to use as its _experimental marker_. This class must be annotated with [@Experimental](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-experimental/index.html):
+
+## Marking experimental API 
+
+### Creating marker annotations
+
+If you want to declare your module's API experimental, create an annotation class to use as its _experimental marker_. This class must be annotated with [@Experimental](/api/latest/jvm/stdlib/kotlin/-experimental/index.html):
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @Experimental
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 annotation class ShinyNewAPI
 ```
+</div>
+
 Experimental marker annotations should meet several requirements:
-* `BINARY` [retention](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-annotation-retention/index.html).
-* No `EXPRESSION` and `FILE` among [targets](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/index.html).
+* `BINARY` [retention](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-retention/index.html).
+* No `EXPRESSION` and `FILE` among [targets](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/index.html).
 * No parameters.
 
-A marker annotation can have one of two severity [levels](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-experimental/-level/index.html) of informing about experimental API usage:
+A marker annotation can have one of two severity [levels](/api/latest/jvm/stdlib/kotlin/-experimental/-level/index.html) of informing about experimental API usage:
 * `Experimental.Level.ERROR`. Acceptance is required. Otherwise, the code that uses marked API wouldn't compile. This level is used by default.
 * `Experimental.Level.WARNING`. Acceptance is not required. Without it, the compiler raises a warning.
 To set the desired level, specify the `level` parameter of the `@Experimental` annotation.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @Experimental(level = Experimental.Level.WARNING)
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 annotation class ShinyNewAPI
 ```
+</div>
+
 If you publish several features in the experimental state, declare an own marker for each. Separate markers make the use of experimental features safer for your clients: they'll be able to use only the features that they accept explicitly.
-## Marking API Elements
+
+### Marking API elements
+
 To mark an API element experimental, annotate its declaration with your experimental marker annotation:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 @ShinyNewAPI
 class Foo
@@ -157,11 +196,13 @@ class Foo
 @ShinyNewAPI
 fun bar() {}
 ```
+</div>
 
-## Module-Wide Markers
+### Module-wide markers
 If you consider all APIs of your module experimental, you can mark the entire module as such. To build an experimental module, declare an experimental API marker and compile the module with the command line argument `-Xexperimental=org.foo.ShinyNewAPI`, where `org.foo.ShinyNewAPI` is the fully qualified name of the marker. The compilation with this argument has the same effect as if every declaration in the module had the annotation `@ShinyNewAPI`. 
 
-# Graduation of Experimental API
+## Graduation of experimental API
 Once your experimental API graduates and releases in its final state, remove its marker annotation from declarations so that the clients can use it without restrictions. However, you should leave the marker classes in modules so that the existing client code remains compatible. To let the API users update their modules correspondingly (remove the markers from their code and recompile), complete a deprecation cycle for marker classes.
-# Experimental Status of Experimental Markers API
+
+## Experimental status of experimental API markers
 The described mechanism for marking and using experimental APIs is itself experimental in Kotlin 1.3. This means that it may be changed incompatibly in future releases. To make all users of annotations `@Experimental` and `UseExperimental` aware of their experimental status, the compiler raises warnings when compiling the code with these annotations. To remove the warnings, specify the compiler argument `-Xuse-experimental=kotlin.Experimental`.
