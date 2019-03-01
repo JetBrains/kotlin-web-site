@@ -1178,6 +1178,7 @@ with(person) {
 
 </div>
 
+For detailed information about the scope functions, see [Scope Functions](scope-functions.html). 
 
 ## Coding conventions for libraries
 
