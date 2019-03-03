@@ -44,8 +44,7 @@ files in "org.example.kotlin.foo.bar" should be in the "foo/bar" subdirectory of
 
 If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
 as the name of the class, with the .kt extension appended. If a file contains multiple classes, or only top-level declarations,
-choose a name describing what the file contains, and name the file accordingly. Use PascalCase for the file name
-(e.g. `ProcessDeclarations.kt`).
+choose a name describing what the file contains, and name the file accordingly. Use PascalCase for the file name (e.g. `ProcessDeclarations.kt`).
 
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as "Util" in file names.
