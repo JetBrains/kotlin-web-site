@@ -16,7 +16,7 @@ Here's a typical usage of a scope function:
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-data class Person(var name: String, var age, var city) {
+data class Person(var name: String, var age: Int, var city: String) {
     fun moveTo(newCity: String) { city = newCity }
     fun incrementAge() { age++ }
 }
@@ -38,7 +38,7 @@ If you write the same without `let`, you'll have to introduce a new variable and
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-data class Person(var name: String, var age, var city) {
+data class Person(var name: String, var age: Int, var city: String) {
     fun moveTo(newCity: String) { city = newCity }
     fun incrementAge() { age++ }
 }
@@ -496,7 +496,7 @@ fun main() {
     }
     
     println(findSubstringPosition("010000011", "11"))
-    println(findSubstringPosition("010000011", "12"))
+    //println(findSubstringPosition("010000011", "12")) // throws an exception
 //sampleEnd
 }
 ```
@@ -517,7 +517,7 @@ fun main() {
     }
     
     println(findSubstringPosition("010000011", "11"))
-    println(findSubstringPosition("010000011", "12"))
+    //println(findSubstringPosition("010000011", "12")) // throws an exception
 //sampleEnd
 }
 ```
