@@ -7,7 +7,7 @@ Kotlin User Groups are a great place to share your experience with the community
 
 The most common way to begin one is to find a few like-minded people and to get together and organize regular meetups for spreading knowledge on software development with Kotlin. If you feel like you need more ideas or advice on launching a user group, contact [alina@jetbrains.com](mailto:alina@jetbrains.com).
 
-## Kotlin User Groups (173)
+## Kotlin User Groups (174)
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -147,6 +147,7 @@ The most common way to begin one is to find a few like-minded people and to get 
 * [Norfolk Kotlin User Group](mailto:robert.chrzanowski@gmail.com), USA
 * [Orange County Kotlin Meetup](https://www.meetup.com/oc-kotlin-meetup/), USA
 * [San Diego Kotlin User Group](https://www.meetup.com/sd-kotlin/), USA
+* [San Francisco Kotlin Meetup](https://www.meetup.com/San-Francisco-Kotlin-Meetup/), USA
 * [Santa Cruz Kotlin User Group](https://www.meetup.com/Santa-Cruz-Kotlin-User-Group/events/245895831/), USA
 * [South Florida Kotlin User Group](https://www.meetup.com/Kotlin-South-Florida-Users-Group/), USA
 * [Toronto Kotlin](https://www.meetup.com/Kotlin-Toronto/events/235740293/), Canada
