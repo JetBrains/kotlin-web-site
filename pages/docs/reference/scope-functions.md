@@ -16,35 +16,40 @@ Here's a typical usage of a scope function:
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-fun foo(str: String) {}
+data class Person(var name: String, var age, var city) {
+    fun moveTo(newCity: String) { city = newCity }
+    fun incrementAge() { age++ }
+}
 
 fun main() {
 //sampleStart
-    val str: String = "Hello".let {
-        println("Using let on $it")
-        foo(it)
-        it + " world!"
+    Person("Alice", 20, "Amsterdam").let {
+        println("Calling run()")
+        it.moveTo("London")
+        it.incrementAge()
+        println(it)
     }
-    println(str)
 //sampleEnd
 }
 ```
 </div>
 
-If you write the same without let, you'll have to introduce a new variable and repeat its name whenever you use it. 
+If you write the same without `let`, you'll have to introduce a new variable and repeat its name whenever you use it. 
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-fun foo(str: String) {}
+data class Person(var name: String, var age, var city) {
+    fun moveTo(newCity: String) { city = newCity }
+    fun incrementAge() { age++ }
+}
 
 fun main() {
 //sampleStart
-    val hello = "Hello"
-    println("Not using let on $hello")
-    foo(hello)
-    
-    val str = hello + " world!"
-    println(str)
+    val alice = Person("Alice", 20, "Amsterdam")
+    println("Without run()")
+    alice.moveTo("London")
+    alice.incrementAge()
+    println(alice)
 //sampleEnd
 }
 ```
@@ -107,15 +112,15 @@ In turn, `let` and `also` have the context object as a lambda argument. If the a
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-fun foo(str: String) {}
-fun bar(s: String) {}
+fun writeToLog(str: String) {}
+fun writeToFile(str: String) {}
 
 fun main() {
 //sampleStart
     "Hello".also {
         println("Also called on the string $it")
-        foo(it)
-        bar(it)
+        writeToLog(it)
+        writeToFile(it)
     }
 //sampleEnd
 }
@@ -126,13 +131,13 @@ Additionally, when you pass the context object as an argument, you can provide a
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-fun foo(str: String) {}
+fun writeToLog(str: String) {}
 
 fun main() {
 //sampleStart
     "Hello".also { myString -> 
         println("Also called on the string $myString")
-        foo(myString)
+        writeToLog(myString)
     }
 //sampleEnd
 }
@@ -220,7 +225,7 @@ To help you choose the right scope function for your case, we'll describe them i
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
-    val resultList = numbers.map {it.length}.filter {it > 3}
+    val resultList = numbers.map { it.length }.filter { it > 3 }
     println(resultList)    
 //sampleEnd
 }
@@ -234,7 +239,7 @@ With `let`, you can rewrite it:
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
-    numbers.map {it.length}.filter {it > 3}.let { 
+    numbers.map { it.length }.filter { it > 3 }.let { 
         println(it)
         // and more function calls if needed
     } 
@@ -250,7 +255,7 @@ If the code block contains a single function with `it` as an argument, you can u
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
-    numbers.map {it.length}.filter {it > 3}.let(::println)
+    numbers.map { it.length }.filter { it > 3 }.let(::println)
 //sampleEnd
 }
 ```
@@ -260,15 +265,15 @@ fun main() {
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-fun foo(str: String) {}
+fun processNonNullString(str: String) {}
 
 fun main() {
 //sampleStart
     val str: String? = "Hello"   
-    //foo(str)       //compilation error: str is nullable
+    //processNonNullString(str)       // compilation error: str can be null
     val length = str?.let { 
-        println("let is called on $it")        
-        foo(it)      // OK: foo() is called only on non-nulls
+        println("let() called on $it")        
+        processNonNullString(it)      // OK: the function is called only on non-nulls
         it.length
     }
 //sampleEnd
@@ -283,8 +288,8 @@ Another case for using `let` is introducing local variables for improving code r
 fun main() {
 //sampleStart
     val str: String = "Hello"   
-    val length = str.let {myString ->
-        println("let called on $myString")
+    val length = str.let { myString ->
+        println("let() called on $myString")
         myString.length
     }
 //sampleEnd
@@ -296,7 +301,7 @@ fun main() {
 
 A non-extension function: **the context object** is passed as an argument, but inside the lambda, it's available as a receiver (`this`). **The return value** is the lambda result. 
 
-We recommend with for calling functions on the context object without providing the lambda result. In the code, `with` can be read as “_with this object, do the following._”
+We recommend `with` for calling functions on the context object without providing the lambda result. In the code, `with` can be read as “_with this object, do the following._”
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -407,14 +412,12 @@ When you see `also` in the code, you can read it as “_and also do the followin
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-fun String.foo() {}
-
 fun main() {
 //sampleStart
-    val str: String = "Hello"
-    str.also {
-        println("Calling foo() on the string $it")
-    }.foo()
+    val numbers = mutableListOf("one", "two", "three")
+    numbers.also {
+        println("Adding new element to the list")
+    }.add("four")
 //sampleEnd
 }
 ```
@@ -488,14 +491,12 @@ fun main() {
 ```kotlin
 fun main() {
 //sampleStart
-    fun checkEmpty(str: String) {
-        str.takeIf { it.isNotEmpty() }?.let {
-            println("The given string \"$it\" is not empty.")
-        }
+    fun findSubstringPosition(input: String, sub: String): Int {
+        return input.indexOf(sub).takeIf { it >= 0 } ?: error("Substring not found")
     }
     
-    checkEmpty("Hello")
-    checkEmpty("")
+    println(findSubstringPosition("010000011", "11"))
+    println(findSubstringPosition("010000011", "12"))
 //sampleEnd
 }
 ```
@@ -507,14 +508,16 @@ This how the same function looks without the standard library functions:
 ```kotlin
 fun main() {
 //sampleStart
-     fun checkEmpty(str: String) {
-        if (str.isNotEmpty()) {
-            println("The given string \"$str\" is not empty.")
-        }        
+    fun findSubstringPosition(input: String, sub: String): Int {
+        if (input.indexOf(sub) >= 0) {
+            return input.indexOf(sub)
+        } else {
+            error("Substring not found")
+        }
     }
-
-    checkEmpty("Hello")
-    checkEmpty("")
+    
+    println(findSubstringPosition("010000011", "11"))
+    println(findSubstringPosition("010000011", "12"))
 //sampleEnd
 }
 ```
