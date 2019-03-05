@@ -119,7 +119,7 @@ Sometimes a task is repetitive enough that it seems like you shouldn’t actuall
     </event>
 
     <event>
-        <lang>en</lang>
+        <lang>ko</lang>
         <startDate>2019-04-08</startDate>
         <endDate>2019-04-08</endDate>
         <location>Seoul, Korea</location>
@@ -137,11 +137,11 @@ In this session, we will go over the rules of the 'Effective Java' and share how
     </event>
 
     <event>
-        <lang>en</lang>
+        <lang>ko</lang>
         <startDate>2019-04-08</startDate>
         <endDate>2019-04-08</endDate>
         <location>Seoul, Korea</location>
-        <speaker>SK Nam</speaker>
+        <speaker>SH Lee</speaker>
         <title>Kotlin Night Seoul</title>
         <subject>Create elegant code using Kotlin</subject>
         <url>https://www.meetup.com/kotlinkr/events/259457837/</url>
@@ -153,7 +153,7 @@ In this session, we will go over the rules of the 'Effective Java' and share how
     </event>
 
     <event>
-        <lang>en</lang>
+        <lang>ko</lang>
         <startDate>2019-04-08</startDate>
         <endDate>2019-04-08</endDate>
         <location>Seoul, Korea</location>
@@ -169,7 +169,7 @@ In this session, we will go over the rules of the 'Effective Java' and share how
     </event>
 
     <event>
-        <lang>en</lang>
+        <lang>ko</lang>
         <startDate>2019-04-08</startDate>
         <endDate>2019-04-08</endDate>
         <location>Seoul, Korea</location>
