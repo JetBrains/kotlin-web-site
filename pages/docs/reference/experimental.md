@@ -84,7 +84,7 @@ fun useGetDate() {
 ```
 </div>
 
-When somebody calls the function `useWithoutPropagation()`, they won't be informed about the experimental API used in its body. 
+When somebody calls the function `getDate()`, they won't be informed about the experimental API used in its body. 
 
 To use an experimental API in all functions and classes in a file, add the file-level annotation `@file:UseExperimental` to the top of the file before the package specification and imports.
  <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -173,13 +173,13 @@ annotation class ExperimentalDateTime
 ```
 </div>
 
-Experimental marker annotations should meet several requirements:
+Experimental marker annotations must meet several requirements:
 * `BINARY` [retention](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-retention/index.html)
 * No `EXPRESSION` and `FILE` among [targets](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/index.html)
 * No parameters.
 
 A marker annotation can have one of two severity [levels](/api/latest/jvm/stdlib/kotlin/-experimental/-level/index.html) of informing about experimental API usage:
-* `Experimental.Level.ERROR`. Acceptance is required. Otherwise, the code that uses marked API wouldn't compile. This level is used by default.
+* `Experimental.Level.ERROR`. Acceptance is required. Otherwise, the code that uses marked API won't compile. This level is used by default.
 * `Experimental.Level.WARNING`. Acceptance is not required. Without it, the compiler raises a warning.
 To set the desired level, specify the `level` parameter of the `@Experimental` annotation.
 
@@ -223,5 +223,7 @@ annotation class NewAPI
 
 ## Experimental status of experimental API markers
 The described mechanism for marking and using experimental APIs is itself experimental in Kotlin 1.3. This means that in future releases it may be changed in ways that make it incompatible. To make the users of annotations `@Experimental` and `UseExperimental` aware of their experimental status, the compiler raises warnings when compiling the code with these annotations:
- ```This class can only be used with the compiler argument '-Xuse-experimental=kotlin.Experimental'```
+
+```This class can only be used with the compiler argument '-Xuse-experimental=kotlin.Experimental'```
+
  To remove the warnings, add the compiler argument `-Xuse-experimental=kotlin.Experimental`.
