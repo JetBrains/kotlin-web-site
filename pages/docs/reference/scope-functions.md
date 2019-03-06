@@ -454,17 +454,17 @@ Although the scope functions are a way of making the code more concise, avoid ov
 
 In addition to scope functions, the standard library contains the functions `takeIf` and `takeUnless`. These functions let you embed checks of the object state in call chains. 
 
-When called on an object with a predicate provided, `takeIf` returns this object if it matches the predicate. Otherwise, it returns `null`. In turn, `takeUnless` returns the object if it doesn't match the predicate and `null` if it does. The object is available as a lambda argument (`it`).
+When called on an object with a predicate provided, `takeIf` returns this object if it matches the predicate. Otherwise, it returns `null`. So, `takeIf` is a filtering function for a single object. In turn, `takeUnless` returns the object if it doesn't match the predicate and `null` if it does. The object is available as a lambda argument (`it`).
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
 fun main() {
 //sampleStart
-    val str = "Hello"
-    val emptyStr = ""
+    val number = Random.nextInt(100)
 
-    val definitelyNotEmpty = str.takeIf { it.isNotEmpty() }
-    val nullForEmpty = emptyStr.takeUnless { it.isEmpty() }
+    val evenOrNull = number.takeIf { it % 2 == 0 }
+    val oddOrNull = number.takeUnless { it % 2 == 0 }
+    println("even: $evenOrNull, odd: $oddOrNull")
 //sampleEnd
 }
 ```
@@ -485,18 +485,20 @@ fun main() {
 ```
 </div>
 
-`takeIf` and `takeUnless` are especially useful together with scope functions. A good case is chaining them with `let` for running a code block on objects that match the given predicate. To do this, call `takeIf` on the object and then call `let` with a safe call (`?`). For objects that don't match the predicate, `takeIf` returns null and `let` isn't invoked.
+`takeIf` and `takeUnless` are especially useful together with scope functions. A good case is chaining them with `let` for running a code block on objects that match the given predicate. To do this, call `takeIf` on the object and then call `let` with a safe call (`?`). For objects that don't match the predicate, `takeIf` returns `null` and `let` isn't invoked.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
 fun main() {
 //sampleStart
-    fun findSubstringPosition(input: String, sub: String): Int {
-        return input.indexOf(sub).takeIf { it >= 0 } ?: error("Substring not found")
+    fun displaySubstringPosition(input: String, sub: String) {
+        input.indexOf(sub).takeIf { it >= 0 }?.let {
+            println("The substring $sub is found in $input.")
+            println("Its start position is $index.")        }
     }
-    
-    println(findSubstringPosition("010000011", "11"))
-    //println(findSubstringPosition("010000011", "12")) // throws an exception
+
+    displaySubstringPosition("010000011", "11")
+    displaySubstringPosition("010000011", "12")
 //sampleEnd
 }
 ```
@@ -508,16 +510,15 @@ This how the same function looks without the standard library functions:
 ```kotlin
 fun main() {
 //sampleStart
-    fun findSubstringPosition(input: String, sub: String): Int {
-        if (input.indexOf(sub) >= 0) {
-            return input.indexOf(sub)
-        } else {
-            error("Substring not found")
-        }
+    fun displaySubstringPosition(input: String, sub: String) {
+        val index = input.indexOf(sub)
+        if (index >= 0) {
+            println("The substring $sub is found in $input.")
+            println("Its start position is $index.")        }
     }
-    
-    println(findSubstringPosition("010000011", "11"))
-    //println(findSubstringPosition("010000011", "12")) // throws an exception
+
+    displaySubstringPosition("010000011", "11")
+    displaySubstringPosition("010000011", "12")
 //sampleEnd
 }
 ```
