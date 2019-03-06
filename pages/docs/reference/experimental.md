@@ -35,11 +35,14 @@ class DateProvider                              // Experimental class
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 // client code
-fun getDate(dateProvider: DateProvider) { } // error: DateProvider is experimental
+fun getYear(): Int {  
+    val dateProvider: DateProvider // error: DateProvider is experimental
+    // ...
+}
 
 @ExperimentalDateTime
 fun getDate(): Date {  
-    var dateProvider: DateProvider // OK: the function is marked as experimental
+    val dateProvider: DateProvider // OK: the function is marked as experimental
     // ...
 }
 
@@ -74,7 +77,7 @@ class DateProvider                              // Experimental class
 //client code
 @UseExperimental(ExperimentalDateTime::class)
 fun getDate(): Date {              // uses DateProvider; doesn't expose the experimental status
-    var dateProvider: DateProvider
+    val dateProvider: DateProvider
     // ...
 }
 
@@ -209,7 +212,7 @@ fun getTime(): Time {}
 </div>
 
 ### Module-wide markers
-If you consider all the APIs of your module experimental, you can mark the entire module as such with the argument `-Xexperimental` as described in [Module-wide use](#module-wide-use). 
+If you consider all the APIs of your module experimental, you can mark the entire module as such with the compiler argument `-Xexperimental` as described in [Module-wide use](#module-wide-use). 
 
 ## Graduation of experimental API
 Once your experimental API graduates and is released in its final state, remove its marker annotation from declarations so that the clients can use it without restriction. However, you should leave the marker classes in modules so that the existing client code remains compatible. To let the API users update their modules accordingly (remove the markers from their code and recompile), mark the annotations as [`@Deprecated`](/api/latest/jvm/stdlib/kotlin/-deprecated/index.html) and provide the explanation in its message.
