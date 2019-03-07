@@ -41,7 +41,7 @@ finally {
 ```
 </div>
 
-There may be zero or more *catch*{: .keyword } blocks. *finally*{: .keyword } blocks may be omitted.
+There may be zero or more *catch*{: .keyword } blocks. *finally*{: .keyword } block may be omitted.
 However at least one *catch*{: .keyword } or *finally*{: .keyword } block should be present.
 
 ### Try is an expression
