@@ -112,6 +112,8 @@ In turn, `let` and `also` have the context object as a lambda argument. If the a
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+import kotlin.random.Random
+
 fun writeToLog(message: String) {
     println("INFO: $message")
 }
@@ -134,6 +136,8 @@ Additionally, when you pass the context object as an argument, you can provide a
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+import kotlin.random.Random
+
 fun writeToLog(message: String) {
     println("INFO: $message")
 }
@@ -297,10 +301,10 @@ fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
     val modifiedFirstItem = numbers.first().let { firstItem ->
-        println("Ths first item of the list is $firstItem")
+        println("The first item of the list is '$firstItem'")
         if (firstItem.length >= 5) firstItem else "!" + firstItem + "!"
     }.toUpperCase()
-    println("First item after modifications: $modifiedFirstItem")
+    println("First item after modifications: '$modifiedFirstItem'")
 //sampleEnd
 }
 ```
@@ -318,7 +322,7 @@ fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
     with(numbers) {
-        println("With called with argument $this")
+        println("'with' is called with argument $this")
         println("It contains $size elements")
     }
 //sampleEnd
