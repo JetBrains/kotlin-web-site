@@ -358,3 +358,14 @@ if (b == true) {
 }
 ```
 </div>
+
+### Swapping two variables
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+var a = 1
+var b = 2
+a = b.also { b = a }
+```
+</div>
+
