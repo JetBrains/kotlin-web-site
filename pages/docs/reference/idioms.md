@@ -322,8 +322,6 @@ with(myTurtle) { //draw a 100 pix square
 ```
 </div>
 
-For more details about `with` and other similar functions, see [Scope Functions](scope-functions.html). 
-
 
 ### Java 7's try with resources
 

@@ -24,7 +24,7 @@ data class Person(var name: String, var age: Int, var city: String) {
 fun main() {
 //sampleStart
     Person("Alice", 20, "Amsterdam").let {
-        println("Calling run()")
+        println(it)
         it.moveTo("London")
         it.incrementAge()
         println(it)
@@ -46,7 +46,7 @@ data class Person(var name: String, var age: Int, var city: String) {
 fun main() {
 //sampleStart
     val alice = Person("Alice", 20, "Amsterdam")
-    println("Without run()")
+    println(alice)
     alice.moveTo("London")
     alice.incrementAge()
     println(alice)
@@ -67,7 +67,7 @@ Because the scope functions are all quite similar in nature, it's important to u
 
 ### Context object: `this` or `it`
 
-Each scope function uses one of two ways to access the context object in the passed lambda function: as a lambda receiver (`this`) or as a lambda argument (`it`). Both provide the same technical capabilities, so we'll describe the pros and cons of each for different cases and provide recommendations on their use.
+Inside the lambda of a scope function, the context object is available by a short reference instead of its actual name. Each scope function uses one of two ways to access the context object: as a lambda [receiver](lambdas.html#function-literals-with-receiver) (`this`) or as a lambda argument (`it`). Both provide the same capabilities, so we'll describe the pros and cons of each for different cases and provide recommendations on their use.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -89,7 +89,7 @@ fun main() {
 
 #### this
 
-`run`, `with`, and `apply` refer to the context object as a lambda receiver - by keyword `this`. Hence, in their lambdas, the object is available as it would be in ordinary class functions. In most cases, you can omit `this` when accessing the members of the receiver object, making the code shorter. On the other hand, if `this` is omitted, it can be hard to distinguish between the receiver members and external objects or functions. So, having the context object as a receiver (`this`) is recommended for lambdas that mainly operate the object members: call its functions or assign properties.
+`run`, `with`, and `apply` refer to the context object as a lambda receiver - by keyword `this`. Hence, in their lambdas, the object is available as it would be in ordinary class functions. In most cases, you can omit `this` when accessing the members of the receiver object, making the code shorter. On the other hand, if `this` is omitted, it can be hard to distinguish between the receiver members and external objects or functions. So, having the context object as a receiver (`this`) is recommended for lambdas that mainly operate on the object members: call its functions or assign properties.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -108,20 +108,23 @@ fun main() {
 
 #### it
 
-In turn, `let` and `also` have the context object as a lambda argument. If the argument name is not specified, the object is accessed by the implicit default name `it`. `it` is shorter than `this` and expressions with `it` are usually easier for reading. However, you can't omit the argument name, so there is no way to shorten calls to the object functions or properties. Hence, having the context object as `it` is better when the object is mostly used as an argument in function calls. `it` is also better if you operate multiple variables in the code block.
+In turn, `let` and `also` have the context object as a lambda argument. If the argument name is not specified, the object is accessed by the implicit default name `it`. `it` is shorter than `this` and expressions with `it` are usually easier for reading. However, when calling the object functions or properties you don't have the object available implicitly like `this`. Hence, having the context object as `it` is better when the object is mostly used as an argument in function calls. `it` is also better if you use multiple variables in the code block.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-fun writeToLog(str: String) {}
-fun writeToFile(str: String) {}
+fun writeToLog(message: String) {
+    println("INFO: $message")
+}
 
 fun main() {
 //sampleStart
-    "Hello".also {
-        println("Also called on the string $it")
-        writeToLog(it)
-        writeToFile(it)
+    fun getRandomInt(): Int {
+        return Random.nextInt(100).also {
+            writeToLog("getRandomInt() generated value $it")
+        }
     }
+    
+    val i = getRandomInt()
 //sampleEnd
 }
 ```
@@ -131,14 +134,19 @@ Additionally, when you pass the context object as an argument, you can provide a
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-fun writeToLog(str: String) {}
+fun writeToLog(message: String) {
+    println("INFO: $message")
+}
 
 fun main() {
 //sampleStart
-    "Hello".also { myString -> 
-        println("Also called on the string $myString")
-        writeToLog(myString)
+    fun getRandomInt(): Int {
+        return Random.nextInt(100).also { value ->
+            writeToLog("getRandomInt() generated value $value")
+        }
     }
+    
+    val i = getRandomInt()
 //sampleEnd
 }
 ```
@@ -157,7 +165,7 @@ Having the object itself as a return value is useful for chaining other operatio
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
 data class Person(var name: String, var age: Int = 0, var city: String = "") {
-    fun moveTo(newCity: String) { city = newCity}
+    fun moveTo(newCity: String) { city = newCity }
 }
 
 fun main() {
@@ -261,7 +269,7 @@ fun main() {
 ```
 </div>
 
-`let` is often used for executing a code block only with non-null values. To perform actions on a non-null object, use the safe call operator `?` on it and call `let` with the actions in its lambda.
+`let` is often used for executing a code block only with non-null values. To perform actions on a non-null object, use the safe call operator `?.` on it and call `let` with the actions in its lambda.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -281,17 +289,18 @@ fun main() {
 ```
 </div>
 
-Another case for using `let` is introducing local variables for improving code readability. To define a variable, provide its name as the lambda argument so that it can be used instead of the default `it`.
+Another case for using `let` is introducing local variables with a limited scope for improving code readability. To define a new variable for the context object, provide its name as the lambda argument so that it can be used instead of the default `it`.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
 fun main() {
 //sampleStart
-    val str: String = "Hello"   
-    val length = str.let { myString ->
-        println("let() called on $myString")
-        myString.length
-    }
+    val numbers = listOf("one", "two", "three", "four")
+    val modifiedFirstItem = numbers.first().let { firstItem ->
+        println("Ths first item of the list is $firstItem")
+        if (firstItem.length >= 5) firstItem else "!" + firstItem + "!"
+    }.toUpperCase()
+    println("First item after modifications: $modifiedFirstItem")
 //sampleEnd
 }
 ```
@@ -383,7 +392,7 @@ fun main() {
 
 **The context object** is available as a receiver (`this`). **The return value** is the object itself.
 
-Use `apply` for code blocks that don't return a value and mainly operate the members of the receiver object. The common case for `apply` is the object configuration. Such calls can be read as “_apply the following assignments to the object._”
+Use `apply` for code blocks that don't return a value and mainly operate on the members of the receiver object. The common case for `apply` is the object configuration. Such calls can be read as “_apply the following assignments to the object._”
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -415,9 +424,9 @@ When you see `also` in the code, you can read it as “_and also do the followin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
-    numbers.also {
-        println("Adding new element to the list")
-    }.add("four")
+    numbers
+        .also { println("The list elements before adding new one: $it") }
+        .add("four")
 //sampleEnd
 }
 ```
@@ -458,6 +467,8 @@ When called on an object with a predicate provided, `takeIf` returns this object
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+import kotlin.random.*
+
 fun main() {
 //sampleStart
     val number = Random.nextInt(100)
@@ -470,7 +481,7 @@ fun main() {
 ```
 </div>
 
-When chaining other functions after `takeIf` and `takeUnless`, don't forget to perform the null check or the safe call (`?`) because their return value is nullable.
+When chaining other functions after `takeIf` and `takeUnless`, don't forget to perform the null check or the safe call (`?.`) because their return value is nullable.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -494,7 +505,8 @@ fun main() {
     fun displaySubstringPosition(input: String, sub: String) {
         input.indexOf(sub).takeIf { it >= 0 }?.let {
             println("The substring $sub is found in $input.")
-            println("Its start position is $it.")        }
+            println("Its start position is $it.")
+        }
     }
 
     displaySubstringPosition("010000011", "11")
@@ -514,7 +526,8 @@ fun main() {
         val index = input.indexOf(sub)
         if (index >= 0) {
             println("The substring $sub is found in $input.")
-            println("Its start position is $index.")        }
+            println("Its start position is $index.")
+        }
     }
 
     displaySubstringPosition("010000011", "11")
