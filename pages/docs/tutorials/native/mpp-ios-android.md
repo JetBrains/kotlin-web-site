@@ -176,7 +176,7 @@ kotlin {
         final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") \
                               ? presets.iosArm64 : presets.iosX64
 
-        fromPreset(iOSTarget, 'iOS') {
+        fromPreset(iOSTarget, 'ios') {
              binaries {
                 framework('SharedCode')
             }
@@ -221,7 +221,7 @@ Let's summarize what we have in the table:
 |---|---|---|---|
 | common | `SharedCode/commonMain/kotlin` |  - | Kotlin metadata |
 | android | `SharedCode/androidMain/kotlin` | JVM 6 | `.jar` file or `.class` files |
-| iOS | `SharedCode/iOSMain` | iOS arm64 or x86_64| Apple framework |
+| iOS | `SharedCode/iosMain` | iOS arm64 or x86_64| Apple framework |
 
 Now it is time to refresh the Gradle project again in Android Studio. Click *Sync Now* on the yellow stripe 
 or use the *Gradle* tool window and click the `Refresh` action in the context menu on the root Gradle project.
@@ -331,7 +331,7 @@ We need to include the additional task to the end of the `SharedCode/build.gradl
 task packForXCode(type: Sync) {
     final File frameworkDir = new File(buildDir, "xcode-frameworks")
     final String mode = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
-    final def framework = kotlin.targets.iOS.binaries.getFramework("SharedCode", mode)
+    final def framework = kotlin.targets.ios.binaries.getFramework("SharedCode", mode)
 
     inputs.property "mode", mode
     dependsOn framework.linkTask
