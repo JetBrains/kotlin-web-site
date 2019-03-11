@@ -9,7 +9,7 @@ category: "Syntax"
 
 Kotlin allows us to provide implementations for a predefined set of operators on our types. These operators have fixed symbolic representation
 (like `+` or `*`) and fixed [precedence](grammar.html#precedence). To implement an operator, we provide a [member function](functions.html#member-functions)
-or an [extension function](extensions.html) with a fixed name, for the corresponding type, i.e. left-hand side type for binary operations and argument type for unary ones.
+or an [extension function](extensions.html) with a fixed name, for the corresponding type, i.e. left-hand side type for unary operations and argument type for binary ones.
 Functions that overload operators need to be marked with the `operator` modifier.
 
 Further we describe the conventions that regulate operator overloading for different operators.
