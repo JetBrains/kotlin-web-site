@@ -158,13 +158,16 @@ fun main() {
 
 ### Return value
 
-Scope functions return different values:
+The scope functions differ by the result they return:
 * `apply` and `also` return the context object.
 * `let`, `run`, and `with` return the lambda result.
 
 These two options let you choose the proper function depending on what you do next in your code.
 
-Having the object itself as a return value is useful for chaining other operations on it.
+#### Context object 
+
+The return value of `apply` and `also` is the context object itself. Hence, they can be used as steps in chains of function calls on the object.  
+
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -184,7 +187,33 @@ fun main() {
 ```
 </div>
 
-The lambda result is generally better for other purposes: assigning it to a variable, chaining operations on the result, and so on.
+They also can be used in return statements of functions returning the context object.
+
+<div class="sample" markdown="1" theme="idea">
+```kotlin
+import kotlin.random.Random
+
+fun writeToLog(message: String) {
+    println("INFO: $message")
+}
+
+fun main() {
+//sampleStart
+    fun getRandomInt(): Int {
+        return Random.nextInt(100).also {
+            writeToLog("getRandomInt() generated value $it")
+        }
+    }
+    
+    val i = getRandomInt()
+//sampleEnd
+}
+```
+</div>
+
+#### Lambda result
+
+`let`, `run`, and `with` return the lambda result. So, you can use them when assigning the result to a variable, chaining operations on the result, and so on.
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -436,7 +465,7 @@ fun main() {
 ```
 </div>
 
-## Function Selection
+## Function selection
 
 To help you choose the right scope function for your purpose, we provide the table of key differences between them. 
 
