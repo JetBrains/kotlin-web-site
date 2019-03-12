@@ -123,7 +123,7 @@ compileKotlin {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-tasks.withType<KotlinCompile> {
+tasks.withType<KotlinCompile>().all {
     kotlinOptions.freeCompilerArgs += "-Xuse-experimental=org.mylibrary.ExperimentalMarker"
 }
 ```
