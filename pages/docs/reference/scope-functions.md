@@ -75,8 +75,8 @@ fun main() {
     val str = "Hello"
     // this
     str.run {
-        println("The receiver string's length is $length")
-        //println("The receiver string's length is ${this.length}") // does the same
+        println("The receiver string length: $length")
+        //println("The receiver string length: ${this.length}") // does the same
     }
 
     // it
@@ -166,23 +166,23 @@ These two options let you choose the proper function depending on what you do ne
 
 #### Context object 
 
-The return value of `apply` and `also` is the context object itself. Hence, they can be used as steps in chains of function calls on the object.  
-
+The return value of `apply` and `also` is the context object itself. Hence, they can be included into call chains as _side steps_: you can continue chaining function calls on the same object after them.  
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-data class Person(var name: String, var age: Int = 0, var city: String = "") {
-    fun moveTo(newCity: String) { city = newCity }
-}
-
 fun main() {
 //sampleStart
-    val adam = Person("Adam")
-    adam.apply {
-        age = 32
-        city = "London"
-    }.moveTo("Manchester")
+    val numberList = mutableListOf<Double>()
+    numberList.also { println("Populating the list") }
+        .apply {
+            add(2.71)
+            add(3.14)
+            add(1.0)
+        }
+        .also { println("Sorting the list") }
+        .sort()
 //sampleEnd
+    println(numberList)
 }
 ```
 </div>
@@ -386,17 +386,28 @@ fun main() {
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
-data class Person(var name: String, var age: Int = 0, var city: String = "")
+class MultiportService(var url: String, var port: Int) {
+    fun prepareRequest(): String = "Default request"
+    fun query(request: String): String = "Result for query '$request'"
+}
 
 fun main() {
 //sampleStart
-    val isTeenager = Person("Adam").run {
-        age = 32
-        city = "London"
-        age > 12 && age < 20
+    val service = MultiportService("https://example.kotlinlang.org", 80)
+
+    val result = service.run {
+        port = 8080
+        query(prepareRequest() + " to port $port")
     }
-    println("Is Adam a teenager? $isTeenager")
+    
+    // this is shorter than the same written with let() function:
+    val letResult = service.let {
+        it.port = 8080
+        it.query(it.prepareRequest() + " to port ${it.port}")
+    }
 //sampleEnd
+    println(result)
+    println(letResult)
 }
 ```
 </div>
