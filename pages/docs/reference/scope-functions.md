@@ -231,7 +231,7 @@ fun main() {
 ```
 </div>
 
-Additionally, you can ignore the return value and use a scope function for creating a temporary scope. 
+Additionally, you can ignore the return value and use a scope function to create a temporary scope for variables. 
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
@@ -239,12 +239,11 @@ data class Person(var name: String, var age: Int, var city: String)
 
 fun main() {
 //sampleStart
-    val adam = Person("Adam", 20, "London")
-    val length = run {
-        val hello = "Hello"
-        val greeting = "$hello, ${adam.name}"
-        val length = greeting.length             // the variables are available only within the lambda
-        length
+    val numbers = mutableListOf("one", "two", "three")
+    numbers.run {
+        val firstItem = first()
+        val lastItem = last()        
+        println("First item: $firstItem, last item: $lastItem")
     }
 //sampleEnd
 }
@@ -314,7 +313,7 @@ fun main() {
     //processNonNullString(str)       // compilation error: str can be null
     val length = str?.let { 
         println("let() called on $it")        
-        processNonNullString(it)      // OK: the function is called only on non-nulls
+        processNonNullString(it)      // OK: 'it' is not null inside '?.let { }'
         it.length
     }
 //sampleEnd
