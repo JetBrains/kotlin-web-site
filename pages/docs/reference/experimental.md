@@ -123,12 +123,9 @@ compileKotlin {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-// ...
-
-val compileKotlin: KotlinCompile by tasks
-
-compileKotlin.kotlinOptions.freeCompilerArgs += "-Xuse-experimental=org.mylibrary.ExperimentalMarker"
+tasks.withType<KotlinCompile> {
+    kotlinOptions.freeCompilerArgs += "-Xuse-experimental=org.mylibrary.ExperimentalMarker"
+}
 ```
 
 </div>
