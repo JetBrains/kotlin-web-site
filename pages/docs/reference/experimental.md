@@ -100,7 +100,7 @@ To use an experimental API in all functions and classes in a file, add the file-
 ### Module-wide use
 
 If you don't want to annotate every usage of experimental APIs in your code, you can accept the experimental status for your whole module. Module-wide use of experimental APIs can be propagating and non-propagating as well:
-* To accept the experimental status without propagation, compile the module with the argument `Xuse-experimental`, specifying the fully qualified name of the experimental API marker you use: `-Xuse-experimental=org.mylibrary.ExperimentalMarker`. Compiling with this argument has the same effect as if every declaration in the module having the annotation`@UseExperimental(ExperimentalMarker::class)`.
+* To accept the experimental status without propagation, compile the module with the argument `Xuse-experimental`, specifying the fully qualified name of the experimental API marker you use: `-Xuse-experimental=org.mylibrary.ExperimentalMarker`. Compiling with this argument has the same effect as if every declaration in the module had the annotation`@UseExperimental(ExperimentalMarker::class)`.
 * To accept and propagate the experimental status to your whole module, compile the module with the argument `-Xexperimental=org.mylibrary.ExperimentalMarker`. In this case, _every declaration_ in the module becomes experimental. The use of the module requires the acceptance of its experimental status as well.
 
 If you build your module with Gradle, you can add arguments like this:
@@ -139,22 +139,19 @@ For Maven, it would be:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```xml
 <build>
-<plugins>
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
-            <forceJavacCompilerUse>true</forceJavacCompilerUse>
-            <fork>true</fork>
-            <compilerArgs>
-                <arg>-Xuse-experimental=org.mylibrary.ExperimentalMarker</arg>
-            </compilerArgs>
-        </configuration>
-    </plugin>
-</plugins>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <version>${kotlin.version}</version>
+            <executions>...</executions>
+            <configuration>
+                <args>
+                    <arg>-Xuse-experimental=org.mylibrary.ExperimentalMarker</arg>                    
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
 </build>
 ```
 </div>
@@ -182,8 +179,8 @@ Experimental marker annotations must meet several requirements:
 * No parameters.
 
 A marker annotation can have one of two severity [levels](/api/latest/jvm/stdlib/kotlin/-experimental/-level/index.html) of informing about experimental API usage:
-* `Experimental.Level.ERROR`. Acceptance is required. Otherwise, the code that uses marked API won't compile. This level is used by default.
-* `Experimental.Level.WARNING`. Acceptance is not required. Without it, the compiler raises a warning.
+* `Experimental.Level.ERROR`. Acceptance is mandatory. Otherwise, the code that uses marked API won't compile. This level is used by default.
+* `Experimental.Level.WARNING`. Acceptance is not mandatory, but advisable. Without it, the compiler raises a warning.
 To set the desired level, specify the `level` parameter of the `@Experimental` annotation.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -195,7 +192,7 @@ annotation class ExperimentalDateTime
 ```
 </div>
 
-If you publish several features in the experimental state, declare a marker for each. Separate markers make the use of experimental features safer for your clients: they'll be able to use only the features that they explicitly accept.
+If you publish several features in the experimental state, declare a marker for each. Separate markers make the use of experimental features safer for your clients: they'll be able to use only the features that they explicitly accept. This also lets you graduate the features to stable independently.
 
 ### Marking API elements
 
