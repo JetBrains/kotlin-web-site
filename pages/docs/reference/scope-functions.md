@@ -16,6 +16,7 @@ Here's a typical usage of a scope function:
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 data class Person(var name: String, var age: Int, var city: String) {
     fun moveTo(newCity: String) { city = newCity }
     fun incrementAge() { age++ }
@@ -38,6 +39,7 @@ If you write the same without `let`, you'll have to introduce a new variable and
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 data class Person(var name: String, var age: Int, var city: String) {
     fun moveTo(newCity: String) { city = newCity }
     fun incrementAge() { age++ }
@@ -71,6 +73,7 @@ Inside the lambda of a scope function, the context object is available by a shor
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
     val str = "Hello"
     // this
@@ -93,6 +96,7 @@ fun main() {
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 data class Person(var name: String, var age: Int = 0, var city: String = "")
 
 fun main() {
@@ -112,6 +116,7 @@ In turn, `let` and `also` have the context object as a lambda argument. If the a
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -136,6 +141,7 @@ Additionally, when you pass the context object as an argument, you can provide a
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -170,6 +176,7 @@ The return value of `apply` and `also` is the context object itself. Hence, they
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numberList = mutableListOf<Double>()
@@ -191,6 +198,7 @@ They also can be used in return statements of functions returning the context ob
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -217,6 +225,7 @@ fun main() {
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -235,6 +244,7 @@ Additionally, you can ignore the return value and use a scope function to create
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 data class Person(var name: String, var age: Int, var city: String)
 
 fun main() {
@@ -262,6 +272,7 @@ To help you choose the right scope function for your case, we'll describe them i
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -276,6 +287,7 @@ With `let`, you can rewrite it:
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -292,6 +304,7 @@ If the code block contains a single function with `it` as an argument, you can u
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -305,6 +318,7 @@ fun main() {
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun processNonNullString(str: String) {}
 
 fun main() {
@@ -325,6 +339,7 @@ Another case for using `let` is introducing local variables with a limited scope
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -346,6 +361,7 @@ We recommend `with` for calling functions on the context object without providin
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -362,6 +378,7 @@ Another use case for `with` is introducing a helper object whose properties or f
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -385,6 +402,7 @@ fun main() {
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 class MultiportService(var url: String, var port: Int) {
     fun prepareRequest(): String = "Default request"
     fun query(request: String): String = "Result for query '$request'"
@@ -415,6 +433,7 @@ Besides calling `run` on a receiver object, you can use it as a non-extension fu
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -439,6 +458,7 @@ Use `apply` for code blocks that don't return a value and mainly operate on the 
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 data class Person(var name: String, var age: Int = 0, var city: String = "")
 
 fun main() {
@@ -464,6 +484,7 @@ When you see `also` in the code, you can read it as “_and also do the followin
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -510,6 +531,7 @@ When called on an object with a predicate provided, `takeIf` returns this object
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 import kotlin.random.*
 
 fun main() {
@@ -528,6 +550,7 @@ When chaining other functions after `takeIf` and `takeUnless`, don't forget to p
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     val str = "Hello"
@@ -543,6 +566,7 @@ fun main() {
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     fun displaySubstringPosition(input: String, sub: String) {
@@ -563,6 +587,7 @@ This how the same function looks without the standard library functions:
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
+
 fun main() {
 //sampleStart
     fun displaySubstringPosition(input: String, sub: String) {
