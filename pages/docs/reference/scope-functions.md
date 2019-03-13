@@ -13,10 +13,9 @@ Basically, these functions do the same: execute a block of code on an object. Wh
 
 Here's a typical usage of a scope function:
 
-
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 data class Person(var name: String, var age: Int, var city: String) {
     fun moveTo(newCity: String) { city = newCity }
     fun incrementAge() { age++ }
@@ -33,13 +32,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 If you write the same without `let`, you'll have to introduce a new variable and repeat its name whenever you use it. 
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 data class Person(var name: String, var age: Int, var city: String) {
     fun moveTo(newCity: String) { city = newCity }
     fun incrementAge() { age++ }
@@ -55,6 +55,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 The scope functions do not introduce any new technical capabilities, but they can make your code more concise and readable.
@@ -72,8 +73,8 @@ Because the scope functions are all quite similar in nature, it's important to u
 Inside the lambda of a scope function, the context object is available by a short reference instead of its actual name. Each scope function uses one of two ways to access the context object: as a lambda [receiver](lambdas.html#function-literals-with-receiver) (`this`) or as a lambda argument (`it`). Both provide the same capabilities, so we'll describe the pros and cons of each for different cases and provide recommendations on their use.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
     val str = "Hello"
     // this
@@ -88,6 +89,7 @@ fun main() {
     }
 }
 ```
+
 </div>
 
 #### this
@@ -95,8 +97,8 @@ fun main() {
 `run`, `with`, and `apply` refer to the context object as a lambda receiver - by keyword `this`. Hence, in their lambdas, the object is available as it would be in ordinary class functions. In most cases, you can omit `this` when accessing the members of the receiver object, making the code shorter. On the other hand, if `this` is omitted, it can be hard to distinguish between the receiver members and external objects or functions. So, having the context object as a receiver (`this`) is recommended for lambdas that mainly operate on the object members: call its functions or assign properties.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 data class Person(var name: String, var age: Int = 0, var city: String = "")
 
 fun main() {
@@ -108,6 +110,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 #### it
@@ -115,8 +118,8 @@ fun main() {
 In turn, `let` and `also` have the context object as a lambda argument. If the argument name is not specified, the object is accessed by the implicit default name `it`. `it` is shorter than `this` and expressions with `it` are usually easier for reading. However, when calling the object functions or properties you don't have the object available implicitly like `this`. Hence, having the context object as `it` is better when the object is mostly used as an argument in function calls. `it` is also better if you use multiple variables in the code block.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -135,13 +138,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 Additionally, when you pass the context object as an argument, you can provide a custom name for the context object inside the scope.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -160,6 +164,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 ### Return value
@@ -175,8 +180,8 @@ These two options let you choose the proper function depending on what you do ne
 The return value of `apply` and `also` is the context object itself. Hence, they can be included into call chains as _side steps_: you can continue chaining function calls on the same object after them.  
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numberList = mutableListOf<Double>()
@@ -192,13 +197,14 @@ fun main() {
     println(numberList)
 }
 ```
+
 </div>
 
 They also can be used in return statements of functions returning the context object.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -217,6 +223,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 #### Lambda result
@@ -224,8 +231,8 @@ fun main() {
 `let`, `run`, and `with` return the lambda result. So, you can use them when assigning the result to a variable, chaining operations on the result, and so on.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -238,13 +245,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 Additionally, you can ignore the return value and use a scope function to create a temporary scope for variables. 
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 data class Person(var name: String, var age: Int, var city: String)
 
 fun main() {
@@ -258,6 +266,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 ## Functions
@@ -271,8 +280,8 @@ To help you choose the right scope function for your case, we'll describe them i
 `let` can be used to invoke one or more functions on results of call chains. For example, the following code prints the results of two operations on a collection:
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -281,13 +290,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 With `let`, you can rewrite it:
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -298,13 +308,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 If the code block contains a single function with `it` as an argument, you can use the method reference (`::`) instead of the lambda:
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -312,13 +323,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 `let` is often used for executing a code block only with non-null values. To perform actions on a non-null object, use the safe call operator `?.` on it and call `let` with the actions in its lambda.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun processNonNullString(str: String) {}
 
 fun main() {
@@ -333,13 +345,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 Another case for using `let` is introducing local variables with a limited scope for improving code readability. To define a new variable for the context object, provide its name as the lambda argument so that it can be used instead of the default `it`.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -351,6 +364,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 ### `with`
@@ -360,8 +374,8 @@ A non-extension function: **the context object** is passed as an argument, but i
 We recommend `with` for calling functions on the context object without providing the lambda result. In the code, `with` can be read as “_with this object, do the following._”
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -372,13 +386,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 Another use case for `with` is introducing a helper object whose properties or functions will be used for calculating a value.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -390,6 +405,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 ### `run`
@@ -401,8 +417,8 @@ fun main() {
 `run` is useful when your lambda contains both the object initialization and the computation of the return value.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 class MultiportService(var url: String, var port: Int) {
     fun prepareRequest(): String = "Default request"
     fun query(request: String): String = "Result for query '$request'"
@@ -427,13 +443,14 @@ fun main() {
     println(letResult)
 }
 ```
+
 </div>
 
 Besides calling `run` on a receiver object, you can use it as a non-extension function. Non-extension `run` lets you execute a block of several statements where an expression is required.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -448,6 +465,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 ### `apply`
@@ -457,8 +475,8 @@ fun main() {
 Use `apply` for code blocks that don't return a value and mainly operate on the members of the receiver object. The common case for `apply` is the object configuration. Such calls can be read as “_apply the following assignments to the object._”
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 data class Person(var name: String, var age: Int = 0, var city: String = "")
 
 fun main() {
@@ -470,6 +488,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 Having the receiver as the return value, you can easily include `apply` into call chains for more complex processing.
@@ -483,8 +502,8 @@ Having the receiver as the return value, you can easily include `apply` into cal
 When you see `also` in the code, you can read it as “_and also do the following_”.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -494,6 +513,7 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 ## Function selection
@@ -530,8 +550,8 @@ In addition to scope functions, the standard library contains the functions `tak
 When called on an object with a predicate provided, `takeIf` returns this object if it matches the predicate. Otherwise, it returns `null`. So, `takeIf` is a filtering function for a single object. In turn, `takeUnless` returns the object if it doesn't match the predicate and `null` if it does. The object is available as a lambda argument (`it`).
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 import kotlin.random.*
 
 fun main() {
@@ -544,13 +564,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 When chaining other functions after `takeIf` and `takeUnless`, don't forget to perform the null check or the safe call (`?.`) because their return value is nullable.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     val str = "Hello"
@@ -560,13 +581,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 `takeIf` and `takeUnless` are especially useful together with scope functions. A good case is chaining them with `let` for running a code block on objects that match the given predicate. To do this, call `takeIf` on the object and then call `let` with a safe call (`?`). For objects that don't match the predicate, `takeIf` returns `null` and `let` isn't invoked.
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     fun displaySubstringPosition(input: String, sub: String) {
@@ -581,13 +603,14 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
 
 This how the same function looks without the standard library functions:
 
 <div class="sample" markdown="1" theme="idea">
-```kotlin
 
+```kotlin
 fun main() {
 //sampleStart
     fun displaySubstringPosition(input: String, sub: String) {
@@ -603,9 +626,5 @@ fun main() {
 //sampleEnd
 }
 ```
+
 </div>
-
-
-
-
-
