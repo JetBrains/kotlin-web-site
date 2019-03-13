@@ -20,8 +20,8 @@ There are several ways to accept the experimental status of API elements; all of
 When you use an experimental API in the code intended for third-party use (a library), you can mark your API as experimental as well. To do this, annotate your declaration with the _experimental marker annotation_ of the API used in its body. This enables you to use the API elements annotated with this marker.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 
+```kotlin
 // library code
 @Experimental
 @Retention(AnnotationRetention.BINARY)
@@ -31,11 +31,12 @@ annotation class ExperimentalDateTime            // Experimental API marker
 @ExperimentalDateTime                            
 class DateProvider                              // Experimental class
 ```
+
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 
+```kotlin
 // client code
 fun getYear(): Int {  
     val dateProvider: DateProvider // error: DateProvider is experimental
@@ -52,6 +53,7 @@ fun displayDate() {
     println(getDate()) // error: getDate() is experimental, acceptance is required
 }
 ```
+
 </div>
 
 As you can see in this example, the annotated function appears to be a part of the `@ExperimentalDateTime` experimental API. So, the described way of acceptance propagates the experimental status to the code that uses an experimental API; its clients will be required to accept it as well.
@@ -62,8 +64,8 @@ To use multiple experimental APIs, annotate the declaration with all their marke
 In modules that don't provide their own API, such as application modules, you can use experimental APIs without propagating the experimental status to your code. In this case, mark your code with the [@UseExperimental(Marker::class)](/api/latest/jvm/stdlib/kotlin/-use-experimental/index.html) annotation specifying the marker annotation of the experimental API:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 
+```kotlin
 // library code
 @Experimental
 @Retention(AnnotationRetention.BINARY)
@@ -73,11 +75,12 @@ annotation class ExperimentalDateTime            // Experimental API marker
 @ExperimentalDateTime                            
 class DateProvider                              // Experimental class
 ```
+
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 
+```kotlin
 //client code
 @UseExperimental(ExperimentalDateTime::class)
 fun getDate(): Date {              // uses DateProvider; doesn't expose the experimental status
@@ -89,6 +92,7 @@ fun displayDate() {
     println(getDate())                     // OK: getDate() is not experimental
 }
 ```
+
 </div>
 
 When somebody calls the function `getDate()`, they won't be informed about the experimental API used in its body. 
@@ -96,11 +100,12 @@ When somebody calls the function `getDate()`, they won't be informed about the e
 To use an experimental API in all functions and classes in a file, add the file-level annotation `@file:UseExperimental` to the top of the file before the package specification and imports.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
- ```kotlin
  
+ ```kotlin
  //client code
  @file:UseExperimental(ExperimentalDateTime::class)
  ```
+ 
  </div>
 
 ### Module-wide use
@@ -113,8 +118,8 @@ If you build your module with Gradle, you can add arguments like this:
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
-```groovy
 
+```groovy
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs += "-Xuse-experimental=org.mylibrary.ExperimentalMarker"
@@ -127,8 +132,8 @@ compileKotlin {
 
 <div class="multi-language-sample" data-lang="kotlin">
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
-```kotlin
 
+```kotlin
 tasks.withType<KotlinCompile>().all {
     kotlinOptions.freeCompilerArgs += "-Xuse-experimental=org.mylibrary.ExperimentalMarker"
 }
@@ -140,8 +145,8 @@ tasks.withType<KotlinCompile>().all {
 For Maven, it would be:
 
 <div class="sample" markdown="1" mode="xml" theme="idea" data-highlight-only>
-```xml
 
+```xml
 <build>
     <plugins>
         <plugin>
@@ -158,6 +163,7 @@ For Maven, it would be:
     </plugins>
 </build>
 ```
+
 </div>
 
 To accept the usage of multiple experimental APIs on the module level, add one of the described arguments for each experimental API marker used in your module.
@@ -169,13 +175,14 @@ To accept the usage of multiple experimental APIs on the module level, add one o
 If you want to declare your module's API as experimental, create an annotation class to use as its _experimental marker_. This class must be annotated with [@Experimental](/api/latest/jvm/stdlib/kotlin/-experimental/index.html):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 
+```kotlin
 @Experimental
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 annotation class ExperimentalDateTime
 ```
+
 </div>
 
 Experimental marker annotations must meet several requirements:
@@ -189,13 +196,14 @@ A marker annotation can have one of two severity [levels](/api/latest/jvm/stdlib
 To set the desired level, specify the `level` parameter of the `@Experimental` annotation.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 
+```kotlin
 @Experimental(level = Experimental.Level.WARNING)
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 annotation class ExperimentalDateTime
 ```
+
 </div>
 
 If you publish several features in the experimental state, declare a marker for each. Separate markers make the use of experimental features safer for your clients: they'll be able to use only the features that they explicitly accept. This also lets you graduate the features to stable independently.
@@ -205,14 +213,15 @@ If you publish several features in the experimental state, declare a marker for 
 To mark an API element as experimental, annotate its declaration with your experimental marker annotation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 
+```kotlin
 @ExperimentalDateTime
 class DateProvider
 
 @ExperimentalDateTime
 fun getTime(): Time {}
 ```
+
 </div>
 
 ### Module-wide markers
@@ -222,12 +231,13 @@ If you consider all the APIs of your module experimental, you can mark the entir
 Once your experimental API graduates and is released in its final state, remove its marker annotation from declarations so that the clients can use it without restriction. However, you should leave the marker classes in modules so that the existing client code remains compatible. To let the API users update their modules accordingly (remove the markers from their code and recompile), mark the annotations as [`@Deprecated`](/api/latest/jvm/stdlib/kotlin/-deprecated/index.html) and provide the explanation in its message.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 
+```kotlin
 @Deprecated("This experimental API marker is not used anymore. Remove its usages from your code.")
 @Experimental
 annotation class ExperimentalDateTime
 ```
+
 </div>
 
 ## Experimental status of experimental API markers
