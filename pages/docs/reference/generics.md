@@ -385,6 +385,8 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 
 </div>
 
+A where clause creates an intersection type; each sub-clause must be satisfied.  In the above example, the threshold and all list items must implement *both* CharSequence and Comparable.
+
 ## Type erasure
 
 The type safety checks that Kotlin performs for generic declaration usages are only done at compile time.
