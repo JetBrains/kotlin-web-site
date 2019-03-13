@@ -299,7 +299,7 @@ fun transform(color: String): Int = when (color) {
 ```
 </div>
 
-### Calling multiple methods on an object instance ('with')
+### Calling multiple methods on an object instance (`with`)
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -321,6 +321,7 @@ with(myTurtle) { //draw a 100 pix square
 }
 ```
 </div>
+
 
 ### Java 7's try with resources
 
