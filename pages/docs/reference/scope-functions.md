@@ -606,7 +606,7 @@ fun main() {
 
 </div>
 
-This how the same function looks without the standard library functions:
+This is how the same function looks without the standard library functions:
 
 <div class="sample" markdown="1" theme="idea">
 
