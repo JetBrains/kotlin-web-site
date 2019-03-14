@@ -317,7 +317,7 @@ SharedCode/build/bin/iOS/main/release/framework/SharedCode.framework
 ```
 
 We use the condition in the Gradle script to select the target platform for the framework.
-It is either `iOS arm64` or `iOS x86_64` depending in environment variables.
+It is either `iOS arm64` or `iOS x86_64` depending on environment variables.
 
 ## Tuning the Gradle Build Script
 We need to supply the right Framework out of those four depending on the selected target in the Xcode

@@ -170,6 +170,8 @@ reference:
           title: Annotations
         - url: /docs/reference/reflection.html
           title: Reflection
+        - url: /docs/reference/scope-functions.html
+          title: Scope Functions
         - url: /docs/reference/type-safe-builders.html
           title: Type-Safe Builders
         - url: /docs/reference/experimental.html

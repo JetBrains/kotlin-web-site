@@ -1099,85 +1099,8 @@ fun main() {
 
 ### Using scope functions apply/with/run/also/let
 
-Kotlin provides a variety of functions to execute a block of code in the context of a given object. To choose the correct
-function, consider the following:
-
-  * Are you calling methods on multiple objects in the block, or passing the instance of the context object as an 
-    argument? If you are, use one of the functions that allows you to access the context object as `it`,
-    not `this` (`also` or `let`). Use `also` if the receiver is not used at all in the block.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-// Context object is 'it'
-class Baz {
-    var currentBar: Bar?
-    val observable: Observable
-
-    val foo = createBar().also {
-        currentBar = it                    // Accessing property of Baz
-        observable.registerCallback(it)    // Passing context object as argument
-    }
-}
-
-// Receiver not used in the block
-val foo = createBar().also {
-    LOG.info("Bar created")
-}
-
-// Context object is 'this'
-class Baz {
-    val foo: Bar = createBar().apply {
-        color = RED    // Accessing only properties of Bar
-        text = "Foo"
-    }
-}
-```
-
-</div>
-    
-  * What should the result of the call be? If the result needs to be the context object, use `apply` or `also`.
-    If you need to return a value from the block, use `with`, `let` or `run`
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-// Return value is context object
-class Baz {
-    val foo: Bar = createBar().apply {
-        color = RED    // Accessing only properties of Bar
-        text = "Foo"
-    }
-}
-
-
-// Return value is block result
-class Baz {
-    val foo: Bar = createNetworkConnection().let {
-        loadBar()
-    }
-}
-```
-
-</div>
-
-  * Is the context object nullable, or is it evaluated as a result of a call chain? If it is, use `apply`, `let` or `run`.
-    Otherwise, use `with` or `also`.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-// Context object is nullable
-person.email?.let { sendEmail(it) }
-
-// Context object is non-null and accessible directly
-with(person) {
-    println("First name: $firstName, last name: $lastName")
-}
-```
-
-</div>
-
+Kotlin provides a variety of functions to execute a block of code in the context of a given object: `let`, `run`, `with`, `apply`, and `also`.
+For the guidance on choosing the right scope function for your case, refer to [Scope Functions](scope-functions.html).
 
 ## Coding conventions for libraries
 

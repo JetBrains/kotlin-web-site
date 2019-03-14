@@ -146,7 +146,7 @@ Kotlin is also being covered in different conferences worldwide. You can find a 
 
 ### Is Kotlin on Social Media?
 
-Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin). There is also a [Google+ group](https://plus.google.com/communities/104597899765146112928). 
+Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin).
 
 ### Any other online Kotlin resources?
 
