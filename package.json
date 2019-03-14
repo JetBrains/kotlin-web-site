@@ -5,7 +5,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@jetbrains/babel-preset-jetbrains": "^1.0.1",
-    "advanced-url-loader": "0.0.3",
     "aos": "2.1.1",
     "autoprefixer": "6.3.1",
     "babel-core": "6.18.2",
