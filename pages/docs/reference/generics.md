@@ -385,7 +385,7 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 
 </div>
 
-A where clause creates an intersection type; each sub-clause must be satisfied.  In the above example, the threshold and all list items must implement *both* CharSequence and Comparable.
+The passed type must satisfy all conditions of the `where` clause simultaneously. In the above example, the `T` type must implement *both* `CharSequence` and `Comparable`.
 
 ## Type erasure
 
