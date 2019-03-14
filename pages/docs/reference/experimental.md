@@ -111,7 +111,7 @@ To use an experimental API in all functions and classes in a file, add the file-
 ### Module-wide use
 
 If you don't want to annotate every usage of experimental APIs in your code, you can accept the experimental status for your whole module. Module-wide use of experimental APIs can be propagating and non-propagating as well:
-* To accept the experimental status without propagation, compile the module with the argument `Xuse-experimental`, specifying the fully qualified name of the experimental API marker you use: `-Xuse-experimental=org.mylibrary.ExperimentalMarker`. Compiling with this argument has the same effect as if every declaration in the module had the annotation`@UseExperimental(ExperimentalMarker::class)`.
+* To accept the experimental status without propagation, compile the module with the argument `-Xuse-experimental`, specifying the fully qualified name of the experimental API marker you use: `-Xuse-experimental=org.mylibrary.ExperimentalMarker`. Compiling with this argument has the same effect as if every declaration in the module had the annotation`@UseExperimental(ExperimentalMarker::class)`.
 * To accept and propagate the experimental status to your whole module, compile the module with the argument `-Xexperimental=org.mylibrary.ExperimentalMarker`. In this case, _every declaration_ in the module becomes experimental. The use of the module requires the acceptance of its experimental status as well.
 
 If you build your module with Gradle, you can add arguments like this:
