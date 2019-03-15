@@ -12,6 +12,239 @@
         <url>https://romania.voxxeddays.com/2019/02/03/desugaring-kotlin-features-and-their-performance-impact/</url>
         <description>
             <![CDATA[
+<p>In this presentation I will try to demystify a few Kotlin language features and to present how they are compiled
+into the bytecode in order to have a better understanding about what happens under the hood.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-07</startDate>
+        <endDate>2019-03-07</endDate>
+        <location>Rochester, NY</location>
+        <speaker>George Adams, Stephen Byrne</speaker>
+        <title>Kotlin Night Rochester</title>
+        <subject>Kotlin - A brief introduction to the language.</subject>
+        <url>https://www.meetup.com/RocDev/events/258581233/</url>
+        <description>
+            <![CDATA[
+<p>We will cover enough of the structure andsyntax that hopefully everybody will be able to follow along for the rest of the evening.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-07</startDate>
+        <endDate>2019-03-07</endDate>
+        <location>Rochester, NY</location>
+        <speaker>George Adams, Stephen Byrne</speaker>
+        <title>Kotlin Night Rochester</title>
+        <subject>Web Services - Comparison of the leading Kotlin-based web frameworks - Ktor andJavalin</subject>
+        <url>https://www.meetup.com/RocDev/events/258581233/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-07</startDate>
+        <endDate>2019-03-07</endDate>
+        <location>Rochester, NY</location>
+        <speaker>George Adams, Stephen Byrne</speaker>
+        <title>Kotlin Night Rochester</title>
+        <subject>Desktop GUIs</subject>
+        <url>https://www.meetup.com/RocDev/events/258581233/</url>
+        <description>
+            <![CDATA[
+<p>TornadoFX, a JavaFX framework for Kotlin that uses type-safe buildersto make building views easy and readable.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-07</startDate>
+        <endDate>2019-03-07</endDate>
+        <location>Rochester, NY</location>
+        <speaker>George Adams, Stephen Byrne</speaker>
+        <title>Kotlin Night Rochester</title>
+        <subject>Coroutines - Asynchronous programming without expensive threads and context switches.</subject>
+        <url>https://www.meetup.com/RocDev/events/258581233/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-06</startDate>
+        <endDate>2019-03-06</endDate>
+        <location>Atlanta, USA</location>
+        <speaker>Venkat Subramaniam, Josh Long</speaker>
+        <title>DevNexus 2019</title>
+        <subject>Kotlin jumpstart with Venkat and Josh, part 1</subject>
+        <url>https://devnexus.com/presentations/3545/</url>
+        <description>
+            <![CDATA[
+<p>A two hour, live-coded, presentation on getting you on the road to Kotlin with Josh Long and Venkat S!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-06</startDate>
+        <endDate>2019-03-06</endDate>
+        <location>Atlanta, USA</location>
+        <speaker>Dev Gupta</speaker>
+        <title>DevNexus 2019</title>
+        <subject>Spring Boot and Kotlin</subject>
+        <url>https://devnexus.com/presentations/3211/</url>
+        <description>
+            <![CDATA[
+<p>Let’s showcase how Kotlin makes Java developers lives easier in Spring Boot</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-06</startDate>
+        <endDate>2019-03-06</endDate>
+        <location>Atlanta, USA</location>
+        <speaker>Venkat Subramaniam</speaker>
+        <title>DevNexus 2019</title>
+        <subject>Developing Micronaut Applications with Kotlin</subject>
+        <url>https://devnexus.com/presentations/3509/</url>
+        <description>
+            <![CDATA[
+<p>If you’re developing with Kotlin or getting started with the language, come to this talk to find out how to program your Micronaut application with Kotlin. Kotlin brings a variety of interesting features for fluency, type safety, and asynchronous programming. Learn how to leverage those capacities of the language in the context of Micronaut.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pl</lang>
+        <startDate>2019-03-16</startDate>
+        <endDate>2019-03-16</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Pavel Vlodarskiy</speaker>
+        <title>SegFault University</title>
+        <subject>Kotlin plus Spring minus Adnotacje</subject>
+        <url>http://segfault.events/sites/gdansk2019/abstracts/kotlin-spring/</url>
+        <description>
+            <![CDATA[
+<p>Spring 5 dostał natywne wsparcie dla Kotlina z wygodnym DSLem i wygląda na to, że już po ludzku można ogarnąć konfigurację w trakcie kompilacji bez żadnych adnotacji, dziwnych CGlib proxy i majstrowania w runtime.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pl</lang>
+        <startDate>2019-03-14</startDate>
+        <endDate>2019-03-14</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Marcin Moskala</speaker>
+        <title>SegFault University</title>
+        <subject>Kotlin for Java developers</subject>
+        <url>http://segfault.events/sites/gdansk2019/abstracts/kotlin-for-java-developers/</url>
+        <description>
+            <![CDATA[
+<p>What’s all the fuss about Kotlin? On this workshop, you will discover it yourself. It will cover the most important Kotlin features. Show null-safety, extension functions and why collection processing in Kotlin is so good.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-22</startDate>
+        <endDate>2019-03-22</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Dmitry Kandalov</speaker>
+        <title>Voxxed Days Bucharest 2019</title>
+        <subject>Live Coding Kotlin/Native Snake</subject>
+        <url>https://romania.voxxeddays.com/2019/02/26/live-coding-kotlin-native-snake/</url>
+        <description>
+            <![CDATA[
+<p>Dmitry Kandalov has been programming and trying to get better at it since DOS times. The last 10 years or so he spent in Java and JVM languages land, most recently focusing on Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-29</startDate>
+        <endDate>2019-03-29</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Victor Rentea</speaker>
+        <title>Kotlin Kindergarten</title>
+        <subject>Kotlin Kindergarten ep #02</subject>
+        <url>https://eventil.com/events/kotlin-kindergarten-ep-02</url>
+        <description>
+            <![CDATA[
+<p>Sick of Java? Let’s try Kotlin : probably the next de-facto standard for Android apps, and a cool compact language to write your JUnit tests in.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-11</startDate>
+        <endDate>2019-03-11</endDate>
+        <location>Hamburg, Germany</location>
+        <speaker>Mathias Düsterhöft</speaker>
+        <title>Serverless Hamburg</title>
+        <subject>Fighting cold startup issues for your Kotlin Lambda with GraalVM</subject>
+        <url>https://www.meetup.com/Serverless-Hamburg/events/258959816/</url>
+        <description>
+            <![CDATA[
+<p>how we can fight cold startup times for Kotlin or Java functions on AWS Lambda using GraalVM and the AWS newly announced Custom Lambda Runtimes.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-12</startDate>
+        <endDate>2019-03-12</endDate>
+        <location>Chicago, USA</location>
+        <speaker>Mathias Düsterhöft</speaker>
+        <title>Chicago Kotlin User Group</title>
+        <subject>Building and Using Kotlin DSL's</subject>
+        <url>https://www.meetup.com/Chicago-Kotlin/events/259395990/</url>
+        <description>
+            <![CDATA[
+<p>Join us as we hear from two of our regular attendees, John Burns and Jonathan Bisson as they speak about building and utilizing Domain Specific Languages (DSLs for short) in Kotlin. Domain specific languages are subsets of functions in a programming language designed specifically to ease development and communicate intention more effectively within a particular problem-space.</p>
+<p>John Burns will kick things off around 6pm by examining how Kotlin's language features enable us to construct a DSL for building static websites.</p>
+<p>Jonathan Bisson will follow up speaking about how he utilizes Kotlin in his daily professional life and he will explore some of the applications he has built, some of the libraries used (SpringBoot, TornadoFX) and the science surrounding them.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-13</startDate>
+        <endDate>2019-03-13</endDate>
+        <location>Kitchener, Canada</location>
+        <speaker>Ersin Ertan</speaker>
+        <title>Kotlin Waterloo P2P</title>
+        <subject>Kotlin coroutines</subject>
+        <url>https://www.meetup.com/Kotlin-Waterloo-P2P/events/259552403/</url>
+        <description>
+            <![CDATA[
+<p>Coroutines have large benefits over the regular threading model of Java. Most threads wait on IO 99% of the time and coroutines make use of this time to perform real work. Scalability is dramatically increased and memory consumption is reduced.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2019-03-22</startDate>
+        <endDate>2019-03-22</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Ionut Balosin</speaker>
+        <title>Voxxed Days Bucharest 2019</title>
+        <subject>Desugaring Kotlin features and their performance impact</subject>
+        <url>https://romania.voxxeddays.com/2019/02/03/desugaring-kotlin-features-and-their-performance-impact/</url>
+        <description>
+            <![CDATA[
 <p>In this presentation I will try to demystify few Kotlin language features and to present how they are compiled into the bytecode in order to have a better understanding about what happens under the hood.</p>
 ]]>
         </description>
