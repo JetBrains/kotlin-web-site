@@ -431,7 +431,7 @@ fun main() {
         query(prepareRequest() + " to port $port")
     }
     
-    // this is shorter than the same written with let() function:
+    // the same code written with let() function:
     val letResult = service.let {
         it.port = 8080
         it.query(it.prepareRequest() + " to port ${it.port}")
