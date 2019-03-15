@@ -236,12 +236,12 @@ fun main() {
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
-    val resultSize = numbers.run { 
+    val countEndsWithE = numbers.run { 
         add("four")
         add("five")
-        filter { it.endsWith("e") }.size        
+        count { it.endsWith("e") }
     }
-    println("There are $resultSize elements that end with e.")
+    println("There are $countEndsWithE elements that end with e.")
 //sampleEnd
 }
 ```
@@ -253,12 +253,10 @@ Additionally, you can ignore the return value and use a scope function to create
 <div class="sample" markdown="1" theme="idea">
 
 ```kotlin
-data class Person(var name: String, var age: Int, var city: String)
-
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
-    numbers.run {
+    with(numbers) {
         val firstItem = first()
         val lastItem = last()        
         println("First item: $firstItem, last item: $lastItem")
@@ -433,7 +431,7 @@ fun main() {
         query(prepareRequest() + " to port $port")
     }
     
-    // this is shorter than the same written with let() function:
+    // the same code written with let() function:
     val letResult = service.let {
         it.port = 8080
         it.query(it.prepareRequest() + " to port ${it.port}")
@@ -453,15 +451,17 @@ Besides calling `run` on a receiver object, you can use it as a non-extension fu
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers = mutableListOf("one", "two", "three")
-    val numbers2 = mutableListOf("four", "five")
-
-    val resultSize = run {
-        println("run called without receiver.")
-        for (str in numbers2) numbers.add(str)
-        numbers.size
+    val hexNumberRegex = run {
+        val digits = "0-9"
+        val hexDigits = "A-Fa-f"
+        val sign = "+-"
+        
+        Regex("[$sign]?[$digits$hexDigits]+")
     }
-    println("The list size is $resultSize")
+    
+    for (match in hexNumberRegex.findAll("+1234 -FFFF not-a-number")) {
+        println(match.value)
+    }
 //sampleEnd
 }
 ```
