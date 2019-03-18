@@ -38,12 +38,14 @@
     background-size: contain;
 
     .kotlin-info-button {
-      bottom: 4 * $unit;
-      right: 5px;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      bottom: 0;
+      right: 0;
       position: absolute;
       cursor: pointer;
-      height: 50px;
-      width: 150px;
+      height: 48px;
+      width: 168px;
       display: inline-flex;
       background: transparent url('images/main_button_default.svg') no-repeat;
       &:hover {
