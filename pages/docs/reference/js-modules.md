@@ -44,8 +44,8 @@ To select module system when compiling via Maven, you should set `moduleKind` co
 
 ``` xml
 <plugin>
-    <artifactId>kotlin-maven-plugin</artifactId>
     <groupId>org.jetbrains.kotlin</groupId>
+    <artifactId>kotlin-maven-plugin</artifactId>
     <version>${kotlin.version}</version>
     <executions>
         <execution>

@@ -16,17 +16,8 @@ Please read below about how to apply the *kapt* plugin to your Gradle/Maven buil
 
 Apply the `kotlin-kapt` Gradle plugin:
 
-<div class="sample" markdown="1" mode="groovy" theme="idea">
-
-```groovy
-apply plugin: 'kotlin-kapt'
-```
-
-</div>
-
-Or you can apply it using the plugins DSL:
-
-<div class="sample" markdown="1" mode="groovy" theme="idea">
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
 plugins {
@@ -35,10 +26,34 @@ plugins {
 ```
 
 </div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+plugins {
+    kotlin("kapt") version "{{ site.data.releases.latest.version }}"
+}
+```
+
+</div>
+</div>
+
+Alternatively, you can use the `apply plugin` syntax:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+apply plugin: 'kotlin-kapt'
+```
+
+</div>
 
 Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 
-<div class="sample" markdown="1" mode="groovy" theme="idea">
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
 dependencies {
@@ -46,6 +61,19 @@ dependencies {
 }
 ```
 
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+dependencies {
+    kapt("groupId:artifactId:version")
+}
+```
+
+</div>
 </div>
 
 If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config) for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`. If your project contains Java classes, `kapt` will also take care of them.
@@ -63,6 +91,20 @@ kapt {
     arguments {
         arg("key", "value")
     }
+}
+```
+
+</div>
+
+## Gradle Build Cache Support (since 1.2.20)
+
+The kapt annotation processing tasks are not [cached in Gradle](https://guides.gradle.org/using-build-cache/) by default. Annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs, might access and modify the files that are not tracked by Gradle etc. To enable caching for kapt anyway, add the following lines to the build script:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kapt {
+    useBuildCache = true
 }
 ```
 
@@ -90,6 +132,7 @@ kapt {
 ## Non Existent Type Correction
 
 Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures. By default, Kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`, but you can change this behavior. Add the additional flag to the `build.gradle` file to enable error type inferring in stubs:
+
 
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 

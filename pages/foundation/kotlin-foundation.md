@@ -18,7 +18,10 @@ The main functions of the Kotlin Foundation are:
 
 **Development**. The code for the project is developed openly on GitHub primarily by the team employed at JetBrains, with contributions from Google and others. The Foundation has no developers on its payroll. The respective contributors hold the copyright for the code they author. The code is distributed under the [Apache License, Version 2.0](https://github.com/JetBrains/kotlin/tree/master/license).
 
-**Trademarks**.  The Kotlin trademark and associated marks, logos and domain names belong to the Kotlin Foundation. The Foundation permits the usage of the trademarks according to the Kotlin Brand Usage Guidelines (to be published soon). All usages not permitted automatically, and require explicit written permission from the Foundation.
+**Trademarks**.  The Kotlin trademark and associated marks, logos and domain names belong to the Kotlin Foundation. 
+The Foundation permits the usage of the trademarks according to 
+[the Kotlin Brand Usage Guidelines](http://kotlinlang.org/foundation/guidelines.html). All usages not 
+permitted automatically, require explicit written permission from the Foundation.
 
 <a name="lead-designer"></a>
 **Lead Language Designer** is in charge of all decisions regarding the development of the project and evolution of the language. The Foundation appoints the Lead Language Designer, but does not directly make decisions about the course of the project. 

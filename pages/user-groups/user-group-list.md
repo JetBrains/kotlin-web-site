@@ -1,9 +1,14 @@
 ---
-title: Kotlin User Groups
+type: doc
+layout: groups
+title: "Kotlin User Groups List"
 ---
+Kotlin User Groups are a great place to share your experience with the community. There is no set format for a user group; they can exist in whatever way works for the organizers, be it meetups, lectures, hackathons, or informal get-togethers at a bar. Communication is key, so feel free to use any channels which work for the group. 
 
-# Kotlin User Groups (167)
- 
+The most common way to begin one is to find a few like-minded people and to get together and organize regular meetups for spreading knowledge on software development with Kotlin. If you feel like you need more ideas or advice on launching a user group, contact [alina@jetbrains.com](mailto:alina@jetbrains.com).
+
+## Kotlin User Groups (176)
+
 <div class="g-grid">
 <div class="g-6" markdown="1">
 
@@ -16,9 +21,10 @@ title: Kotlin User Groups
  * [Barcelona, KotlinBCN](https://www.meetup.com/kotlinbcn/), Spain
  * [Basel Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Basel/), Switzerland
  * [Belarus Kotlin User Group](https://bkug.by/), Belarus
+ * [Belfast Kotlin User Group](https://www.meetup.com/kotlin-belfast/), Northern Ireland
  * [Belgium Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Belgium/), Belgium
  * [Berlin Kotlin User Group](https://www.meetup.com/kotlin-berlin/), Germany
- * [Bielefelder Kotlin User Group](https://www.meetup.com/Bielefelder-Kotlin-User-Group/), 
+ * [Bielefelder Kotlin User Group](https://www.meetup.com/Bielefelder-Kotlin-User-Group/),
  * [Bosnia Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Bosnia/), Bosnia and Herzegovina
  * [Bucharest Kotlin User Group](https://www.meetup.com/kug-bucharest/), Romania
  * [Budapest Kotlin User Group](https://www.facebook.com/groups/KotlinBudapest/), Hungary
@@ -39,6 +45,7 @@ title: Kotlin User Groups
  * [Kyiv Kotlin User Group](https://www.meetup.com/KyivKUG), Ukraine
  * [Krakow Kotlin User Group](https://www.meetup.com/krakow-kotlin/), Poland
  * [Limerick Kotlin User Group](https://www.meetup.com/kotlinlimerick/), Ireland
+ * [Lisboa Kotlin User Group](https://meetup.com/kotlin-lisboa/), Portugal
  * [London Kotlin](http://www.meetup.com/kotlin-london/), United Kingdom
  * [Lviv Kotlin User Group](https://www.facebook.com/groups/1395212093948927/), Ukraine
  * [Lyon Kotlin User Group](http://www.meetup.com/Lyon-Kotlin-User-Group/), France
@@ -56,6 +63,7 @@ title: Kotlin User Groups
  * [Stockholm Kotlin User Group](https://www.meetup.com/Sweden-Kotlin-User-Group/), Sweden
  * [Stuttgart Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Stuttgart/), Germany
  * [Swiss Kotlin User Group](https://www.meetup.com/Kotlin-Swiss-User-Group/), Switzerland
+ * [Taganrog Kotlin User Group](https://vk.com/kotlintgn), Russia
  * [Toulouse Kotlin User Group](https://www.meetup.com/fr-FR/Toulouse-Kotlin-User-Group/), France
  * [Utrecht Kotlin User Group](https://www.meetup.com/meetup-group-YgJEOzCn/), Netherlands
  * [Uzhgorod Kotlin User Group](https://www.facebook.com/groups/135578123824203/), Ukraine
@@ -70,6 +78,7 @@ title: Kotlin User Groups
  * [Allahabad Kotlin User Group](https://www.facebook.com/Kotlin-Allahabad-User-Group-967463300076405/), India
  * [Azerbaijan Kotlin User Group](https://www.facebook.com/groups/395337754167951/), Azerbaijan
  * [Bangladesh Kotlin User Group](https://www.facebook.com/KotlinBangladesh/), Bangladesh
+ * [Batam Kotlin User Group](https://t.me/KotlinDevBatam), Indonesia
  * [Bengaluru Kotlin User Group](https://www.facebook.com/KotlinBengaluru/), India
  * [Bengaluru Kotlin 'BlrKotlin' Meetup ](https://www.meetup.com/BlrKotlin/), India
  * [Beijing Kotlin User Group](http://www.kotliner.cn/), China
@@ -122,7 +131,7 @@ title: Kotlin User Groups
 ### North America
 
 * [Albuquerque Kotlin User Group](https://www.meetup.com/Kotlin-ABQ/), USA
-* [Austin Kotlin User Group](https://www.meetup.com/Austin-Kotlin-Meetup/), USA 
+* [Austin Kotlin User Group](https://www.meetup.com/Austin-Kotlin-Meetup/), USA
 * [Brooklyn (NY) Kotlin User Group](https://www.meetup.com/Brooklyn-Kotlin/), USA
 * [Cambridge Kotlin Office Hours](https://www.meetup.com/kotlin-office-hours/), USA
 * [Chicago Kotlin Users Group](http://www.meetup.com/Chicago-Kotlin/), USA
@@ -138,6 +147,7 @@ title: Kotlin User Groups
 * [Norfolk Kotlin User Group](mailto:robert.chrzanowski@gmail.com), USA
 * [Orange County Kotlin Meetup](https://www.meetup.com/oc-kotlin-meetup/), USA
 * [San Diego Kotlin User Group](https://www.meetup.com/sd-kotlin/), USA
+* [San Francisco Kotlin Meetup](https://www.meetup.com/San-Francisco-Kotlin-Meetup/), USA
 * [Santa Cruz Kotlin User Group](https://www.meetup.com/Santa-Cruz-Kotlin-User-Group/events/245895831/), USA
 * [South Florida Kotlin User Group](https://www.meetup.com/Kotlin-South-Florida-Users-Group/), USA
 * [Toronto Kotlin](https://www.meetup.com/Kotlin-Toronto/events/235740293/), Canada
@@ -174,11 +184,13 @@ title: Kotlin User Groups
 
 * [Abidjan Kotlin User Group](https://www.facebook.com/groups/778398068995641/), Cote d'Ivoire
 * [Abuja Kotlin User Group](https://www.meetup.com/Kotlin-Abuja-User-Group-Nigeria/), Nigeria
-* [Agadir Kotlin User Group](https://www.meetup.com/Agadir-Kotlin-User-Group/), Morocco
 * [Ado-Ekiti Kotlin User Group](https://web.facebook.com/groups/1598555973529998/?ref=group_header), Nigeria
+* [Agadir Kotlin User Group](https://www.meetup.com/Agadir-Kotlin-User-Group/), Morocco
+* [Algeria Kotlin User Group](https://web.facebook.com/groups/383147662448461/), Algeria
 * [Angola Kotlin User Group](https://www.facebook.com/groups/405177603231134/about/), Angola
 * [Bauchi Kotlin User Group](https://www.facebook.com/groups/kotlinbauchi/), Nigeria
 * [Beira Kotlin User Group](https://www.facebook.com/groups/470398203308975/), Mozambique
+* [Benin Kotlin User Group](https://www.meetup.com/Kotlin-Benin-User-group/), Nigeria
 * [Brazza Kotlin User Group](https://www.facebook.com/groups/KotlinBrazza/), Congo
 * [Cairo Kotlin User Group](https://www.facebook.com/Kotlin.Cairo/), Egypt
 * [Cotonou Kotlin User Group](https://www.facebook.com/kotlinCotonou/), Benin
@@ -186,13 +198,15 @@ title: Kotlin User Groups
 * [Enugu Kotlin User Group](https://kotlin-enuguusergroup.slack.com/), Nigeria
 * [Fayoum Kotlin User Group](https://www.facebook.com/kdgfayoum/), Egypt
 * [Johannesburg Kotlin User Group](https://www.meetup.com/Kotlin-Software-Development-Meetup/), South Africa
+* [Kano Kotlin User Group](https://www.meetup.com/Kotlin-Kano-User-Group-Nigeria/), Nigeria
 * [Lagos Kotlin User Group](https://www.meetup.com/Lagos-Kotlin-Meetup/), Nigeria
 * [Lome Kotlin User Group](https://www.facebook.com/groups/1825278611119862/), Togo
+* [Minna Kotlin User Group](https://www.meetup.com/Kotlin-Minna-User-Group-Nigeria/), Nigeria
 * [Minya Kotlin User Group](https://www.facebook.com/kotlinminya/), Egypt
 * [Nairobi Kotlin User Group](https://www.meetup.com/KotlinKenya/), Kenya
 * [Noun Kotlin User Group](https://www.meetup.com/Noun-Kotlin-User-Group/), Cameroon
 * [Ondo Kotlin User Group](https://www.meetup.com/Kotlin-Ondo-User-Group/), Nigeria
-* [Ouagadougou Kotlin User Group](https://www.facebook.com/groups/649651491892414/), Burkina Faso 
+* [Ouagadougou Kotlin User Group](https://www.facebook.com/groups/649651491892414/), Burkina Faso
 * [Rabat Kotlin User Group](https://www.meetup.com/Rabat-Kotlin-User-Group/), Morocco
 * [Tunisia Kotlin User Group](https://www.facebook.com/groups/1501353116571104), Tunisia
 * [Uganda Kotlin User Group](https://www.facebook.com/Uganda-Kotlin-User-Group-613707548753658/), Uganda
@@ -201,36 +215,8 @@ title: Kotlin User Groups
 </div>
 
 
-## If there is no KUG in your area, make a new one.
+## If there is no Kotlin User Group in your area, why not start a new one.
 
-If you are a leader of active user group and it’s not in a list, please, let us know that there is a Kotlin User Group. We will share the information with others on this site. 
+If you are the leader of an active user group and it’s not on the list, please, let us know about your Kotlin User Group. We will share the information with others on this site.
 
 **[Submit a New Kotlin User Group](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group)**
-
-## Guidelines
-* User groups provide activities to support professionals interested in a technology
-* Try to meet up regularly. It is the best way to increase Kotlin excellence for all members of the user group
-* All the events and materials should be public and available for people of any different backgrounds
-* All communication should be appropriate for the professional audience
-* Follow simple rules to collaborate efficiently: be kind, be someone that other people want to be around, do not insult or bring down other attendees. Collaboration and respect would help you to achieve your personal goals and create proper environment for the fellows. 
-
-## JetBrains Provides Support
-* Kotlin swag for the attendees of your user group;
-* Design materials – logos, design, promo materials; 
-* Spreading the word about your user group in Kotlin official media channels and our network (speakers and regional partners recommendations could be possible);
-* JetBrains product licenses to raffle out at your meetups. To receive free licenses, please, [fill out the form](https://www.jetbrains.com/community/support/?fromMenu#section=communities);
-* If you are looking for monetary support or any other type of sponsorships, please contact us at sponsorships@jetbrains.com
-
-
-If you feel like you need more ideas or advice on user group launch, contact [alina@jetbrains.com](mailto:alina@jetbrains.com)
-
-## Branding
-We provide a logo for Kotlin user groups that is specifically designed to be recognizable and convey a reference to Kotlin. 
-
-- The  Kotlin logo is associated with the language itself and should not be used otherwise to avoid confusion. The same applies to its close derivatives;
-- User groups logo also means to reflect that the opinions and actions of the community are independent from the Kotlin team;
-- Your opinion doesn't have to agree with ours and we think this is the most benefitial model for a creative and strong community.
-
-So, please use the user group logos and other branding [according to these guidelines](https://blog.jetbrains.com/kotlin/2017/05/new-style-for-user-groups/), which are a part of our community support program
-
-Disclaimer: Kotlin User Groups are not affiliated with JetBrains nor Google. They are independently run organisations.

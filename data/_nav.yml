@@ -35,7 +35,8 @@ subnav:
           urlPattern: ^/community/$
           title: Community Overview
 
-        - url: /community/user-groups.html
+        - url: /user-groups/user-group-list.html
+          urlPattern: /user-groups*
           title: User Groups
 
         - url: /community/kotlin-nights.html
@@ -117,6 +118,8 @@ reference:
           title: Enum Classes
         - url: /docs/reference/object-declarations.html
           title: Objects
+        - url: /docs/reference/type-aliases.html
+          title: Type Aliases
         - url: /docs/reference/inline-classes.html
           title: Inline Classes
         - url: /docs/reference/delegation.html
@@ -167,10 +170,12 @@ reference:
           title: Annotations
         - url: /docs/reference/reflection.html
           title: Reflection
+        - url: /docs/reference/scope-functions.html
+          title: Scope Functions
         - url: /docs/reference/type-safe-builders.html
           title: Type-Safe Builders
-        - url: /docs/reference/type-aliases.html
-          title: Type Aliases
+        - url: /docs/reference/experimental.html
+          title: Experimental API Markers
 
     - title: Core Libraries
       content:
@@ -219,7 +224,7 @@ reference:
         nav: _nav_reference.yml
         base: /docs/reference/native
         repo: https://github.com/JetBrains/kotlin-native
-        branch: master
+        branch: v1.1.0-fixes
 
     - title: Coroutines
       description: Kotlin Coroutines Library
@@ -283,6 +288,8 @@ tutorials:
           title: Getting Started with Eclipse
         - url: /docs/tutorials/command-line.html
           title: Working with the Command Line Compiler
+        - url: /docs/tutorials/quick-run.html
+          title: Running Code Snippets
         - url: /docs/tutorials/build-tools.html
           title: Working with Build Tools
         - url: /docs/tutorials/koans.html
@@ -393,11 +400,22 @@ tutorials:
 
 foundation:
   content:
-      - url: /foundation/kotlin-foundation.html
-        title: Kotlin Foundation
-      - url: /foundation/language-committee-guidelines.html
-        title: Language Committee Guidelines
-      - url: /foundation/submitting-incompatible-changes.html
-        title: Submitting Incompatible Changes
-      - url: /foundation/faq.html
-        title: FAQ
+    - url: /foundation/kotlin-foundation.html
+      title: Kotlin Foundation
+    - url: /foundation/language-committee-guidelines.html
+      title: Language Committee Guidelines
+    - url: /foundation/submitting-incompatible-changes.html
+      title: Submitting Incompatible Changes
+    - url: /foundation/guidelines.html
+      title: Kotlin Brand Usage Guidelines
+    - url: /foundation/faq.html
+      title: FAQ
+
+groups:
+  content:
+    - url: /user-groups/user-group-list.html
+      title: Kotlin User Groups List
+    - url: /user-groups/support.html
+      title: Support and Guidelines
+    - url: /user-groups/branding.html
+      title: Branding

@@ -52,7 +52,7 @@ val max = if (a > b) {
 If you're using *if*{: .keyword } as an expression rather than a statement (for example, returning its value or
 assigning it to a variable), the expression is required to have an `else` branch.
 
-See the [grammar for *if*{: .keyword }](grammar.html#if).
+See the [grammar for *if*{: .keyword }](grammar.html#ifExpression).
 
 ## When Expression
 
@@ -169,7 +169,7 @@ fun Request.getBody() =
 
 Scope of variable, introduced in *when*{: .keyword} subject, is restricted to *when*{: .keyword} body.
 
-See the [grammar for *when*{: .keyword }](grammar.html#when).
+See the [grammar for *when*{: .keyword }](grammar.html#whenExpression).
 
 
 ## For Loops
@@ -260,7 +260,7 @@ fun main() {
 
 </div>
 
-See the [grammar for *for*{: .keyword }](grammar.html#for).
+See the [grammar for *for*{: .keyword }](grammar.html#forStatement).
 
 ## While Loops
 
@@ -280,7 +280,7 @@ do {
 
 </div>
 
-See the [grammar for *while*{: .keyword }](grammar.html#while).
+See the [grammar for *while*{: .keyword }](grammar.html#whileStatement).
 
 ## Break and continue in loops
 

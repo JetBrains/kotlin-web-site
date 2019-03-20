@@ -143,7 +143,7 @@ module.exports = (params = {}) => {
     stats: 'minimal',
 
     devServer: {
-      port: 9000,
+      port: 9005,
       proxy: {
         '/**': {
           target: `http://${siteHost}`,

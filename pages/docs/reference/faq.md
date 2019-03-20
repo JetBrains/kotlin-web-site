@@ -106,8 +106,8 @@ There are too many companies using Kotlin to list, but some more visible compani
  
 ### Who develops Kotlin?
 
-Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 40+). The lead language designer is 
-[Andrey Breslav](https://twitter.com/abreslav). In addition to the core team, there are also over 100 external contributors on GitHub. 
+Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 50+). The lead language designer is 
+[Andrey Breslav](https://twitter.com/abreslav). In addition to the core team, there are also over 250 external contributors on GitHub. 
 
 ### Where can I learn more about Kotlin?
 
@@ -135,7 +135,7 @@ Yes. Kotlin has a very vibrant community. Kotlin developers hang out on the [Kot
 
 ### Are there Kotlin events?
  
-Yes. There are many User Groups and Meetups now focused exclusively around Kotlin. You can find [a list on the web site](/community/user-groups.html). 
+Yes. There are many User Groups and Meetups now focused exclusively around Kotlin. You can find [a list on the web site](/user-groups/user-group-list.html).
 In addition there are community organised [Kotlin Nights](/community/kotlin-nights.html) events around the world.
 
 ### Is there a Kotlin conference?
@@ -146,7 +146,7 @@ Kotlin is also being covered in different conferences worldwide. You can find a 
 
 ### Is Kotlin on Social Media?
 
-Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin). There is also a [Google+ group](https://plus.google.com/communities/104597899765146112928). 
+Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin).
 
 ### Any other online Kotlin resources?
 

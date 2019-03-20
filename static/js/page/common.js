@@ -5,6 +5,7 @@ import 'whatwg-fetch';
 import '../com/search/search';
 import '../com/cookie-banner';
 import '../com/cities-banners';
+import GifPlayer from '../com/gif-player/gif-player';
 import CodeMirror from '../com/codemirror/CodeMirror';
 
 $(document).ready(function () {
@@ -37,5 +38,9 @@ $(document).ready(function () {
     referenceElement.className = "anchor";
     referenceElement.href = "#" + id;
     this.appendChild(referenceElement);
+  });
+  const elements = document.getElementsByClassName("gif-image");
+  Array.prototype.forEach.call(elements, function(el) {
+    new GifPlayer(el)
   });
 });

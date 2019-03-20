@@ -45,8 +45,9 @@ The compiler is smart enough to know a cast to be safe if a negative check leads
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-    if (x !is String) return
-    print(x.length) // x is automatically cast to String
+if (x !is String) return
+
+print(x.length) // x is automatically cast to String
 ```
 </div>
 
@@ -54,13 +55,13 @@ or in the right-hand side of `&&` and `||`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-    // x is automatically cast to string on the right-hand side of `||`
-    if (x !is String || x.length == 0) return
+// x is automatically cast to string on the right-hand side of `||`
+if (x !is String || x.length == 0) return
 
-    // x is automatically cast to string on the right-hand side of `&&`
-    if (x is String && x.length > 0) {
-        print(x.length) // x is automatically cast to String
-    }
+// x is automatically cast to string on the right-hand side of `&&`
+if (x is String && x.length > 0) {
+    print(x.length) // x is automatically cast to String
+}
 ```
 </div>
 
@@ -81,7 +82,7 @@ Note that smart casts do not work when the compiler cannot guarantee that the va
 More specifically, smart casts are applicable according to the following rules:
 
   * *val*{: .keyword } local variables - always except for [local delegated properties](delegated-properties.html#local-delegated-properties-since-11);
-  * *val*{: .keyword } properties - if the property is private or internal or the check is performed in the same module where the property is declared. Smart casts aren't applicable to open properties or properties that have custom getters;
+  * *val*{: .keyword } properties - if the property is private or internal or the check is performed in the same [module](visibility-modifiers.html#modules) where the property is declared. Smart casts aren't applicable to open properties or properties that have custom getters;
   * *var*{: .keyword } local variables - if the variable is not modified between the check and the usage, is not captured in a lambda that modifies it, and is not a local delegated property;
   * *var*{: .keyword } properties - never (because the variable can be modified at any time by other code).
 

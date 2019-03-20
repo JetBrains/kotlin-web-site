@@ -316,7 +316,7 @@ fun <T> singletonList(item: T): List<T> {
     // ...
 }
 
-fun <T> T.basicToString() : String {  // extension function
+fun <T> T.basicToString(): String {  // extension function
     // ...
 }
 ```
@@ -384,6 +384,8 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 ```
 
 </div>
+
+The passed type must satisfy all conditions of the `where` clause simultaneously. In the above example, the `T` type must implement *both* `CharSequence` and `Comparable`.
 
 ## Type erasure
 

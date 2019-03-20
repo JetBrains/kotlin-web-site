@@ -1,5 +1,6 @@
 import copy
 import datetime
+import glob
 import json
 import os
 import sys
@@ -137,17 +138,6 @@ def add_data_to_context():
     }
 
 
-@app.context_processor
-def override_url_for():
-    return {'url_for': versioned_url_for}
-
-
-def versioned_url_for(endpoint, **values):
-    if 'BUILD_NUMBER' in os.environ and endpoint == 'static':
-        values['build'] = os.environ['BUILD_NUMBER']
-        return url_for(endpoint, **values)
-    return url_for(endpoint, **values)
-
 
 @app.route('/data/events.json')
 def get_events():
@@ -202,6 +192,11 @@ def community_page():
 @app.route('/docs/reference/coroutines.html')
 def coroutines_redirect():
     return render_template('redirect.html', url=url_for('page', page_path='docs/reference/coroutines-overview'))
+
+
+@app.route('/community/user-groups.html')
+def community_user_groups_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='user-groups/user-group-list'))
 
 
 @app.route('/docs/tutorials/coroutines-basic-jvm.html')
@@ -413,6 +408,9 @@ def add_header(request):
 
 
 if __name__ == '__main__':
+    with (open(path.join(root_folder, "_nav-mapped.yml"), 'w')) as output:
+        yaml.dump(get_nav_impl(), output)
+
     if len(sys.argv) > 1:
         if sys.argv[1] == "build":
             build_mode = True
@@ -426,4 +424,8 @@ if __name__ == '__main__':
         elif sys.argv[1] == "index":
             build_search_indices(freezer._generate_all_urls(), pages)
     else:
-        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {"/src/"}})
+        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {
+            "/src",
+            "/src/data/_nav.yml",
+            *glob.glob("/src/external/**/*", recursive=True)
+        }})
