@@ -27,8 +27,7 @@ def find_closest_tag(element, tagname):
 
 
 def process_code_blocks(tree):
-    code_elements = tree.select('pre > code')
-    for element in code_elements:
+    for element in tree.select('pre > code'):
         class_names = element.get("class")
         lang = None
         if class_names is not None:
