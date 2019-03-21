@@ -26,6 +26,7 @@ from src.markdown.makrdown import jinja_aware_markdown
 from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
 from src.processors.processors import process_code_blocks
+from src.processors.processors import set_replace_simple_code
 from src.search import build_search_indices
 from src.sitemap import generate_sitemap
 
@@ -436,6 +437,8 @@ if __name__ == '__main__':
     print("build_check_links: " + str(build_check_links))
     print("build_contenteditable: " + str(build_contenteditable))
     print("\n\n")
+
+    set_replace_simple_code(build_contenteditable)
 
     with (open(path.join(root_folder, "_nav-mapped.yml"), 'w')) as output:
         yaml.dump(get_nav_impl(), output)

@@ -1,5 +1,7 @@
 import re
 
+replace_simple_code = False
+
 languageMimeTypeMap = {
     "kotlin": "text/x-kotlin",
     "java": "text/x-java",
@@ -19,6 +21,11 @@ languageMimeTypeMap = {
 }
 
 
+def set_replace_simple_code(v: bool):
+    global replace_simple_code
+    replace_simple_code = v
+
+
 def find_closest_tag(element, tagname):
     current_element = element.parent
     while current_element is not None and current_element.name != tagname:
@@ -27,6 +34,15 @@ def find_closest_tag(element, tagname):
 
 
 def process_code_blocks(tree):
+    if replace_simple_code:
+        # some spellcheckers may not know what to do with <code> elements,
+        # we replace in-line code blocks with span to improve spellcheckers
+        # TODO: avoid global variable hack here and pass the parameter explicitly
+        for element in tree.select("code"):
+            if len(element.attrs) == 0:
+                element.name = "span"
+                element['style'] = "font-style: italic; text-decoration: underline;"
+
     for element in tree.select('pre > code'):
         class_names = element.get("class")
         lang = None
