@@ -1,10 +1,8 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractCssPlugin = require('mini-css-extract-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 module.exports = (params = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -40,6 +38,8 @@ module.exports = (params = {}) => {
 
     devtool: sourcemaps ? 'source-map' : false,
 
+    mode: env,
+
     module: {
       rules: [
         {
@@ -51,30 +51,37 @@ module.exports = (params = {}) => {
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract({
-            use: [
-              'css-loader',
-              {
-                loader: 'resolve-url-loader',
-                options: {
-                  keepQuery: true
-                }
-              },
-              'svg-fill-loader/encodeSharp',
-              {
-                loader: 'postcss-loader',
-                options: {
-                  sourceMap: true
-                }
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true
-                }
+          use: [
+            ExtractCssPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2
               }
-            ]
-          })
+            },
+            {
+              loader: 'resolve-url-loader',
+              options: {
+                keepQuery: true
+              }
+            },
+            {
+              loader: 'svg-transform-loader/encode-query'
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
+
         },
         {
           test: /\.twig$/,
@@ -92,7 +99,7 @@ module.exports = (params = {}) => {
           test: /\.svg/,
           use: [
             'url-loader',
-            'svg-fill-loader'
+            'svg-transform-loader'
           ]
         },
         {
@@ -114,11 +121,8 @@ module.exports = (params = {}) => {
     },
 
     plugins: [
-      new ExtractTextPlugin('[name].css'),
-
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'default',
-        minChunks: 3
+      new ExtractCssPlugin({
+        filename: '[name].css'
       }),
 
       new webpack.ProvidePlugin({
@@ -136,11 +140,10 @@ module.exports = (params = {}) => {
       })
     ],
 
-    stats: 'errors-only',
+    stats: 'minimal',
 
     devServer: {
       port: 9000,
-      stats: 'errors-only',
       proxy: {
         '/**': {
           target: `http://${siteHost}`,
@@ -156,13 +159,6 @@ module.exports = (params = {}) => {
 
   if (!isServer) {
     plugins.push(new CleanPlugin(['_assets']))
-  }
-
-  if (isProduction) {
-    const minimizePlugin = new UglifyJsPlugin({ sourceMap: sourcemaps });
-    const minimizeLoaderOptionPlugin = new LoaderOptionsPlugin({ minimize: true });
-    plugins.push(minimizePlugin);
-    plugins.push(minimizeLoaderOptionPlugin);
   }
 
   return config;
