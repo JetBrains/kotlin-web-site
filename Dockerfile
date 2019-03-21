@@ -17,4 +17,4 @@ COPY requirements.txt /tmp
 RUN pip install -r /tmp/requirements.txt
 
 EXPOSE 5000
-ENTRYPOINT python /src/kotlin-website.py
+ENTRYPOINT ["python", "/src/kotlin-website.py"]

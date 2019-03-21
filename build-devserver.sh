@@ -47,7 +47,7 @@ while true; do
            -v $(pwd):/src  \
            -p 5000:5000    \
            kotlin-web-site \
-           python /src/kotlin-website.py $@ || true
+           "$@" || true
 
     echo ""
     echo "Python exited"

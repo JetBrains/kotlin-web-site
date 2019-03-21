@@ -35,8 +35,10 @@ app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 pages = MyFlatPages(app)
 freezer = Freezer(app)
-ignore_stdlib = "--ignore-stdlib" in sys.argv
+ignore_stdlib = False
 build_mode = False
+build_contenteditable = False
+build_check_links = True
 build_errors = []
 url_adapter = app.create_url_adapter(None)
 
@@ -133,7 +135,8 @@ def add_data_to_context():
             'site_github_url': app.config['SITE_GITHUB_URL'],
             'data': site_data,
             'text_using_gradle': app.config['TEXT_USING_GRADLE'],
-            'code_baseurl': app.config['CODE_URL']
+            'code_baseurl': app.config['CODE_URL'],
+            'contenteditable': build_contenteditable
         }
     }
 
@@ -238,6 +241,19 @@ def process_page(page_path):
     if not template.endswith(".html"):
         template += ".html"
 
+    if build_check_links:
+        validate_links_weak(page, page_path)
+
+    return render_template(
+        template,
+        page=page,
+        baseurl="",
+        edit_on_github_url=edit_on_github_url,
+
+    )
+
+
+def validate_links_weak(page, page_path):
     for link in page.parsed_html.select('a'):
         if 'href' not in link.attrs:
             continue
@@ -286,14 +302,6 @@ def process_page(page_path):
         build_errors.clear()
         raise Exception("Validation errors " + str(len(errors_copy)) + ":\n\n" +
                         "\n".join(str(item) for item in errors_copy))
-
-    return render_template(
-        template,
-        page=page,
-        baseurl="",
-        edit_on_github_url=edit_on_github_url,
-
-    )
 
 
 @app.route('/community.html')
@@ -408,11 +416,32 @@ def add_header(request):
 
 
 if __name__ == '__main__':
+    print("\n\n\nRunning new KotlinWebSite generator/dev-mode:\n")
+
+    argv_copy = []
+    for arg in sys.argv:
+        print("arg: " + arg)
+
+        if arg == "--ignore-stdlib":
+            ignore_stdlib = True
+        elif arg == "--no-check-links":
+            build_check_links = False
+        elif arg == "--editable":
+            build_contenteditable = True
+        else:
+            argv_copy.append(arg)
+
+    print("\n\n")
+    print("ignore_stdlib: " + str(ignore_stdlib))
+    print("build_check_links: " + str(build_check_links))
+    print("build_contenteditable: " + str(build_contenteditable))
+    print("\n\n")
+
     with (open(path.join(root_folder, "_nav-mapped.yml"), 'w')) as output:
         yaml.dump(get_nav_impl(), output)
 
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "build":
+    if len(argv_copy) > 1:
+        if argv_copy[1] == "build":
             build_mode = True
 
             urls = freezer.freeze()
@@ -421,8 +450,11 @@ if __name__ == '__main__':
                 for error in build_errors:
                     sys.stderr.write(error + '\n')
                 sys.exit(-1)
-        elif sys.argv[1] == "index":
+        elif argv_copy[1] == "index":
             build_search_indices(freezer._generate_all_urls(), pages)
+        else:
+            print("Unknown argument: " + argv_copy[1])
+            sys.exit(1)
     else:
         app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {
             "/src",
