@@ -15,7 +15,7 @@
             </div>
         </aside>
 
-        <article role="main" class="page-content g-9">
+        <article role="main" class="page-content g-9"{%- if site.contenteditable -%} contenteditable="true"{%- endif -%}>
             {% include 'inc/edit-on-github-link.html' %}
 
             <h1>
