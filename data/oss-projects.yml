@@ -18,11 +18,6 @@
   type: Library
   link: https://github.com/Kotlin/anko
 
-- name: Kara
-  description: An MVC Framework
-  type: Framework
-  link: http://www.karaframework.com
-
 - name: Humanizer for JVM
   description: Humanizer Library
   type: Library
@@ -32,7 +27,12 @@
   description: NoSQL MongoDB access for Kotlin
   type: Library
   link: https://github.com/cheptsov/kotlin-nosql
-
+  
+- name: Exposed
+  description: Kotlin SQL DSL and DAO Library
+  type: Library
+  link: https://github.com/JetBrains/Exposed
+ 
 - name: FunKtionale
   description: Functional Helpers for Kotlin
   type: Library
