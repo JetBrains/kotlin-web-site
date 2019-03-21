@@ -25,6 +25,19 @@ docker build --pull -t kotlin-web-site .
 
 ## Use the `kotlin-web-site` container name in PyCharm/IntelliJ IDEA to setup python interpreter
 
+if [[ "${1:-}" == "bash" ]]; then
+  ## use 'bash' to debug container internals
+
+  docker run -it --rm    \
+           -v $(pwd):/src  \
+           -p 5000:5000    \
+           --entrypoint bash \
+           kotlin-web-site
+
+  exit $?
+fi
+
+
 while true; do
     echo ""
     echo "Running Python web server..."
