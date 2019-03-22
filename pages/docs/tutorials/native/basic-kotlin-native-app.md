@@ -48,21 +48,22 @@ There are several IDEs from JetBrains that provides first-level support for Kotl
 | [IntelliJ IDEA Ultimate Edition](https://jetbrains.com/idea) | Commercial | Kotlin plugin is bundled |
 | [CLion](https://jetbrains.com/clion) | Commercial | Install [Kotlin/Native for CLion](https://plugins.jetbrains.com/plugin/10454-kotlin-native-for-clion) plugin |
 | [AppCode](https://jetbrains.com/clion) | Commercial | Install [Kotlin/Native for AppCode](https://plugins.jetbrains.com/plugin/10619-kotlin-native-for-appcode) plugin |
+| [Android Studio](https://developer.android.com/studio/) | Free | Kotlin plugin is bundled |
 {:.zebra}
 
 
-IntelliJ IDEA Community and Ultimate editions comes with bundled Kotlin plugin and it supports opening
-Kotlin/Native projects out of the box.
+IntelliJ IDEA Community and Ultimate editions and Android Studio has bundled Kotlin plugin which provides
+support for Kotlin/Native projects out of the box.
 For advanced scenarios like C, Swift and Objective-C support, native debugger, one may use
 [CLion](https://jetbrains.com/clion) or 
-[AppCode](https://jetbrains.com/appcode). AppCode also provides Xcode integration
-for Kotlin/Native and Objective-C/Swift projects.
+[AppCode](https://jetbrains.com/appcode). AppCode also provides smoother Xcode integration
+for Kotlin/Native and Objective-C/Swift projects for macOS and iOS targets.
 
 ## Creating Hello Kotlin
 
 Our first application is going to simply print some text on the standard output. In our case, this will be "Hello Kotlin/Native"
  
-We can open up our favorite IDE or editor and write the following code in a file named `hello.kt` 
+We can open up our favorite [IDE](#kotlinnative-ide-support) or an editor and write the following code in a file named `hello.kt` 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
