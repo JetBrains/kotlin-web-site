@@ -25,7 +25,8 @@ Yes, to cover the operational and administrative expenses.
 No, Kotlin Foundation is a non-profit entity whose operational costs are covered by JetBrains and Google. 
  
 ### Can I license the Kotlin trademark? 
-Currently we do not offer trademark licensing. We are working to provide a set of Trademark Usage Guidelines, and will provide updates here when it becomes available.
+Yes. You are free to use the Kotlin trademark in accordance with our [Kotlin Brand Usage Guidelines](https://kotlinlang.org/foundation/guidelines.html). Any use of the Trademark other than those described in the 
+Guidelines must be approved in advance. If you need a specific license, please [refer to the request form](https://surveys.jetbrains.com/s3/request-for-permission-of-kotlin-trademark-usage)
 
 ### How can a company or an individual join the foundation?
 We are discussing possible ways for companies and individuals to participate, and will provide updates here in the future.
