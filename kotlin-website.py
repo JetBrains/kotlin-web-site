@@ -459,8 +459,4 @@ if __name__ == '__main__':
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)
     else:
-        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {
-            "/src",
-            "/src/data/_nav.yml",
-            *glob.glob("/src/external/**/*", recursive=True)
-        }})
+        app.run(host="0.0.0.0", debug=True, threaded=True)
