@@ -11,6 +11,7 @@
     padding-left: 2.3em;
 }
 
+.multi-os-selector .language-option,
 .multi-language-selector .language-option {
     cursor: pointer;
     display: inline-block;
@@ -24,12 +25,14 @@
     opacity: 0.7;
 }
 
+.multi-os-selector .language-option.selected,
 .multi-language-selector .language-option.selected {
     background-color: #ebebec;
     filter: none;
     opacity: 1;
 }
 
+.multi-os-selector ~ .multi-os-sample.hide,
 .multi-language-selector ~ .multi-language-sample.hide {
     position: absolute;
     top: -9999px;
