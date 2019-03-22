@@ -29,19 +29,34 @@ The best way to use Kotlin/Native compiler is to rely on
 Gradle build system and use the [kotlin-multiplatform](../reference/building-mpp-with-gradle.html) Gradle plugin.
 The build configuration helps to download Kotlin/Native compiler binaries, caches the binaries, 
 configure Kotlin/Native compiler call and run the compiler, cache compilation results. It also provides IDE support.
-IntelliJ IDEA Community and Ultimate comes with bundled Kotlin plugin and it supports openning Kotlin/Native projects out of the box.
-[CLion](https://jetbrains.com/clion) with the
-[Kotlin/Native for CLion](https://plugins.jetbrains.com/plugin/10454-kotlin-native-for-clion) plugin
-and [AppCode](https://jetbrains.com/appcode) with the
-[Kotlin/Native for AppCode](https://plugins.jetbrains.com/plugin/10619-kotlin-native-for-appcode) plugin
-can be used for more advanced support which includes a debugger or Xcode integration.
 
 We may still obtain the latest version of the Kotlin/Native compiler manually from the
 [GitHub releases page](https://github.com/JetBrains/kotlin-native/releases). In the tutorial we will focus on using
 Gradle builds instead of the command line. 
 
-While the output by the compiler does not have any dependencies, the compiler itself and Gradle build system require Java 8 (or newer),
-which should be on the system. If we're using macOS, we also need the macOS SDK which can be installed by installing Xcode. 
+While the output by the compiler does not have any dependencies, the compiler itself and Gradle build system
+require [Java](https://java.sun.com) 8 (or newer),
+which should be on the system.
+On a macOS we also need the macOS SDK which can be installed by installing Xcode.
+
+## Kotlin/Native IDE support
+There are several IDEs from JetBrains that provides first-level support for Kotlin/Native:
+
+|IDE|Type|Remark|
+|---|----|----|
+| [IntelliJ IDEA Community Edition](https://jetbrains.com/idea) | Free | Kotlin plugin is bundled |
+| [IntelliJ IDEA Ultimate Edition](https://jetbrains.com/idea) | Commercial | Kotlin plugin is bundled |
+| [CLion](https://jetbrains.com/clion) | Commercial | Install [Kotlin/Native for CLion](https://plugins.jetbrains.com/plugin/10454-kotlin-native-for-clion) plugin |
+| [AppCode](https://jetbrains.com/clion) | Commercial | Install [Kotlin/Native for AppCode](https://plugins.jetbrains.com/plugin/10619-kotlin-native-for-appcode) plugin |
+{:.zebra}
+
+
+IntelliJ IDEA Community and Ultimate editions comes with bundled Kotlin plugin and it supports opening
+Kotlin/Native projects out of the box.
+For advanced scenarios like C, Swift and Objective-C support, native debugger, one may use
+[CLion](https://jetbrains.com/clion) or 
+[AppCode](https://jetbrains.com/appcode). AppCode also provides Xcode integration
+for Kotlin/Native and Objective-C/Swift projects.
 
 ## Creating Hello Kotlin
 
@@ -70,7 +85,7 @@ kotlinc-native hello.kt
 
 It requires few more efforts to start with a Gradle project builds, and we'd have IDE support in exchange.
 We may use a _New Project_ wizard in IntelliJ IDEA, or in CLion or AppCode IDEs with Kotlin/Native plugin.
-In the tutorial we create a simple project manually for better understanding of the approach.
+In the tutorial, we create a simple project manually for the better understanding of the approach.
 
 Let's create a project folder. All paths below will be relative to that folder. Sometimes
 you may need to create missing directories to create files.
@@ -92,7 +107,19 @@ repositories {
 }
 
 kotlin {
-    
+  // uncomment the next line for Windows  
+  //mingwX64("native") {
+
+  // uncomment the next line for Linux 
+  //linuxX64("native) { 
+
+  // uncomment the next line for macOS
+  //macosX64("native") {
+
+    binaries {
+      executable()
+    }
+  }
 }
 ```
 
@@ -112,16 +139,15 @@ repositories {
 }
 
 kotlin {
-  
   // uncomment the next line for Windows  
   //mingwX64("native") {
-  
+
   // uncomment the next line for Linux 
   //linuxX64("native) { 
-  
+
   // uncomment the next line for macOS
   //macosX64("native") {
-  
+
     binaries {
       executable()
     }
@@ -149,16 +175,50 @@ documentation in the Kotlin plugin.
 ## Running the application
 
 To run the application, we can invoke it with a Gradle task `runDebugExecutableNative` or `runReleaseExecutableNative`:
+<div class="multi-language-sample" data-lang="Linux and macOS">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
 ./gradlew runDebugExecutableNative
 ```
+</div>
+</div>
+<div class="multi-language-sample" data-lang="Windows">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+
+```bash
+gradlew.bat runDebugExecutableNative
+```
+</div>
+</div>
 
 It's important to understand that this is now a native application, and no runtime or virtual machine is required. The output should be
 
-```bash
+```
+> Task :runDebugExecutableNative
 Hello Kotlin/Native!
+
+BUILD SUCCESSFUL
 ```
 
-The binary file is generated by build tool into the `bin/native/debugExecutable` or `bin/native/releaseExecutable`
-folders. The file has `.kexe` extension on Linux and macOS and `.exe` extension on Windows.
+The binary file is generated by the build tool into the `bin/native/debugExecutable` or `bin/native/releaseExecutable`
+folders. The file has `.kexe` extension on Linux and macOS and `.exe` extension on Windows. Use the following command
+to instruct our Gradle to build program binaries
+
+<div class="multi-language-sample" data-lang="Linux and macOS">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+
+```bash
+./gradlew build
+```
+</div>
+</div>
+<div class="multi-language-sample" data-lang="Windows">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+
+```bash
+gradlew.bat build
+```
+</div>
+</div>
+
