@@ -60,12 +60,6 @@ fun main(args: Array<String>) {
 
 ## Compiling the code 
 
-The Kotlin compiler uses a technology known as [LLVM](https://en.wikipedia.org/wiki/LLVM) to target multiple platforms. LLVM requires as input what's known as intermediate representation or IR. This IR is
-represented by a bitcode file, which is a bitstream file format. 
-
-![Compiler Diagram]({{ url_for('tutorial_img', filename='native/basic-kotlin-native/llvm-diagram.png')}})
-
-
 The manual way to compile the application is to call the download compiler command to generate
 `hello.kexe` (Linux and macOS) or `hello.exe` (windows)
 binary file for you:
