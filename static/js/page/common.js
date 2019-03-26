@@ -1,6 +1,7 @@
 import kotlinPlayground from 'kotlin-playground';
 import $ from 'jquery';
 import 'whatwg-fetch';
+import '../com/search/search';
 import '../com/cities-banners';
 import GifPlayer from '../com/gif-player/gif-player';
 import CodeMirror from '../com/codemirror/CodeMirror';
