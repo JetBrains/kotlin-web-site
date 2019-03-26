@@ -15,7 +15,7 @@
   }
 
   .banner-main {
-    background-color: black;
+    background-color: rgb(241, 241, 241);
   }
 
   .banner-header {
@@ -32,18 +32,30 @@
   }
 
   .kotlin-info {
+    display: flex;
+    flex-direction: row;
     margin-top: $unit;
-    height: 350px;
-    background: url('images/banner-image.gif') no-repeat;
+    height: 315px;
+    background: url('images/kotlinlang_banner.png') no-repeat;
     background-size: contain;
 
+    .info-row-1 {
+      display: flex;
+      width: 30%;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin-bottom: 70px;
+    }
+    .info-row-2 {
+      display: flex;
+      width: 70%;
+    }
+
     .kotlin-info-button {
-      bottom: 4 * $unit;
-      right: 5px;
-      position: absolute;
       cursor: pointer;
-      height: 50px;
-      width: 150px;
+      height: 40px;
+      width: 155px;
+      margin-left: 95px;
       display: inline-flex;
       background: transparent url('images/main_button_default.svg') no-repeat;
       &:hover {
