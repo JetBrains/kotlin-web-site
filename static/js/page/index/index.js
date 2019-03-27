@@ -1,5 +1,6 @@
 import '../../com/search/search';
 import '../../com/head-banner'
+import kotlinPlayground from 'kotlin-playground';
 import $ from 'jquery';
 import './index.scss';
 
@@ -85,6 +86,7 @@ const initPopups = function () {
 };
 
 $(document).ready(function () {
+  kotlinPlayground('.sample')
   initPopups();
   initTabs();
 });
