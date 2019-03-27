@@ -41,21 +41,21 @@
 
     .info-row-1 {
       display: flex;
-      width: 30%;
-      justify-content: flex-start;
+      width: 40%;
+      justify-content: flex-end;
       align-items: flex-end;
       margin-bottom: 70px;
     }
     .info-row-2 {
       display: flex;
-      width: 70%;
+      width: 60%;
     }
 
     .kotlin-info-button {
       cursor: pointer;
-      height: 40px;
-      width: 155px;
-      margin-left: 95px;
+      height: 36px;
+      margin-right: 35px;
+      width: 130px;
       display: inline-flex;
       background: transparent url('images/main_button_default.svg') no-repeat;
       &:hover {
