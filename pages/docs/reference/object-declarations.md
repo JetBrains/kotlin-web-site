@@ -83,7 +83,7 @@ class C {
 </div>
 
 Just like Java's anonymous inner classes, code in object expressions can access variables from the enclosing scope.
-(Unlike Java, this is not restricted to final variables.)
+(Unlike Java, this is not restricted to final or effectively final variables.)
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
