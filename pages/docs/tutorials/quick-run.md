@@ -37,7 +37,7 @@ Write your code in the scratch and click __Run__. The execution results will app
 
 ### Interactive mode
 
-IntelliJ IDEA can run your scratches automatically. To get the execution results once you stop typing for one second, switch on the __Interactive mode__.
+IntelliJ IDEA can run your scratches automatically. To get the execution results once you stop typing for a short time, switch on the __Interactive mode__.
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
     <img
@@ -54,7 +54,7 @@ To use classes or functions from a project in the scratch, import them into the 
 
 ### Running as REPL 
 
-To evaluate each particular expression in a scratch, run it with __Use REPL__ selected. The scratch will be executed the same way as in [REPL](#repl): the code lines will run subsequently, providing results of each call. You can later refer to the results by the names `res*` that are shown in the corresponding lines.
+To evaluate each particular expression in a scratch, run it with __Use REPL__ selected. The scratch will be executed the same way as in [REPL](#repl): the code lines will run subsequently, providing results of each call. You can later refer to the results by the names `res*` shown in the corresponding lines.
 
 ![Scratch REPL]({{ url_for('tutorial_img', filename='quick-run/scratch-repl.png') }})
 
