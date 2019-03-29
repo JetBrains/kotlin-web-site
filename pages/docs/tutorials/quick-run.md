@@ -11,11 +11,11 @@ related:
 ---
 
 Sometimes you may need to quickly write and execute some code outside of a project or an application. This may be useful, for example, when learning Kotlin or evaluating expressions. Let's have a look through two handy ways to quickly run Kotlin code:
-* [Scratches](#using-scratches) let you write and run code in a temporary file outside your project in IDE.
-* [REPL](#running-in-repl) (_Read-Eval-Print-Loop_) runs code interactively in a console.     
+* [Scratches](#scratches) let you write and run code in a temporary file outside your project in IDE.
+* [REPL](#repl) (_Read-Eval-Print-Loop_) runs code interactively in a console.     
 
 
-## Using Scratches
+## Scratches
 
 > Currently, scratches are supported only in Kotlin/JVM projects.
 {:.note}
@@ -35,15 +35,30 @@ Write your code in the scratch and click __Run__. The execution results will app
     class="gif-image">
 </div>
 
+### Interactive mode
+
+IntelliJ IDEA can run your scratches automatically. To get the execution results once you stop typing for one second, switch on the __Interactive mode__.
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <img
+    src="{{ url_for('asset', path='images/tutorials/quick-run/scratch-interactive.png') }}"
+    data-gif-src="{{ url_for('asset', path='images/tutorials/quick-run/scratch-interactive.gif') }}"
+    class="gif-image">
+</div>
+
+### Using modules
+
 To use classes or functions from a project in the scratch, import them into the scratch file as usual with the `import` statement. Then write your code and run it with the appropriate module selected in __Use classpath of module__ list. To rebuild the module automatically before running the scratch, select __Make before Run__.
 
 ![Scratch select module]({{ url_for('tutorial_img', filename='quick-run/scratch-select-module.png') }})
 
-To evaluate each particular expression in a scratch, run it with __Use REPL__ selected. The scratch will be executed the same way as in [REPL](#running-in-repl): the code will run subsequently, providing results of each call. You can later refer to the results by the names `res*` that are shown in the corresponding lines.
+### Running as REPL 
+
+To evaluate each particular expression in a scratch, run it with __Use REPL__ selected. The scratch will be executed the same way as in [REPL](#repl): the code lines will run subsequently, providing results of each call. You can later refer to the results by the names `res*` that are shown in the corresponding lines.
 
 ![Scratch REPL]({{ url_for('tutorial_img', filename='quick-run/scratch-repl.png') }})
 
-## Running in REPL
+## REPL
 
 _REPL_ (_Read-Eval-Print-Loop_) is a tool for running Kotlin code interactively. REPL lets you evaluate expressions and code chunks without creating projects or even functions if you don't need them. 
 
