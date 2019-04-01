@@ -96,7 +96,7 @@ We create either `build.gradle.kts` (for Kotlin, recommended) or `build.gradle` 
 Note, there must be only one file, preferably
 `build.gradle.kts`. 
 
-<div class="multi-language-sample" data-lang="groovy">
+<div class="multi-language-sample" data-lang="groovy" data-os="macos">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
@@ -109,15 +109,7 @@ repositories {
 }
 
 kotlin {
-  // uncomment the next line for Windows  
-  //mingwX64("native") {
-
-  // uncomment the next line for Linux 
-  //linuxX64("native) { 
-
-  // uncomment the next line for macOS
-  //macosX64("native") {
-
+  macosX64("native") {
     binaries {
       executable()
     }
@@ -128,7 +120,55 @@ kotlin {
 </div>
 </div>
 
-<div class="multi-language-sample" data-lang="kotlin">
+<div class="multi-language-sample" data-lang="groovy" data-os="linux">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '{{ site.data.releases.latest.version }}'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  linuxX64("native") {
+    binaries {
+      executable()
+    }
+  }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="groovy" data-os="windows">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '{{ site.data.releases.latest.version }}'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  mingwX64("native") {
+    binaries {
+      executable()
+    }
+  }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin" data-os="macos">
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
 
 ```kotlin
@@ -141,15 +181,52 @@ repositories {
 }
 
 kotlin {
-  // uncomment the next line for Windows  
-  //mingwX64("native") {
+  macosX64("native") {
+    binaries {
+      executable()
+    }
+  }
+}
+```
+</div>
+</div>
+<div class="multi-language-sample" data-lang="kotlin" data-os="linux">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
 
-  // uncomment the next line for Linux 
-  //linuxX64("native) { 
+```kotlin
+plugins {
+    kotlin("multiplatform") version "{{ site.data.releases.latest.version }}"
+}
 
-  // uncomment the next line for macOS
-  //macosX64("native") {
+repositories {
+    mavenCentral()
+}
 
+kotlin {
+  linuxX64("native") {
+    binaries {
+      executable()
+    }
+  }
+}
+```
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin" data-os="windows">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "{{ site.data.releases.latest.version }}"
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  mingwX64("native") {
     binaries {
       executable()
     }
@@ -181,7 +258,7 @@ Select _Use gradle 'wrapper' task configuration in the Gradle import dialog to c
 
 To run the application, we can invoke it with a Gradle `runDebugExecutableNative` or
 `runReleaseExecutableNative` task:
-<div class="multi-os-sample" data-os="linux">
+<div class="multi-language-sample" data-os="linux">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
@@ -190,7 +267,7 @@ To run the application, we can invoke it with a Gradle `runDebugExecutableNative
 </div>
 </div>
 
-<div class="multi-os-sample" data-os="macOS">
+<div class="multi-language-sample" data-os="macos">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
@@ -199,7 +276,7 @@ To run the application, we can invoke it with a Gradle `runDebugExecutableNative
 </div>
 </div>
 
-<div class="multi-os-sample" data-os="windows">
+<div class="multi-language-sample" data-os="windows">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
@@ -224,7 +301,7 @@ The binary files are created in the `bin/native/debugExecutable` or `bin/native/
 folders respectively. The file has `.kexe` extension on Linux and macOS and `.exe` extension on Windows. Use the following command
 to instruct the build to produce binaries:
 
-<div class="multi-os-sample" data-os="linux">
+<div class="multi-language-sample" data-os="linux">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
@@ -233,7 +310,7 @@ to instruct the build to produce binaries:
 </div>
 </div>
 
-<div class="multi-os-sample" data-os="macOS">
+<div class="multi-language-sample" data-os="macos">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
@@ -242,7 +319,7 @@ to instruct the build to produce binaries:
 </div>
 </div>
 
-<div class="multi-os-sample" data-os="windows">
+<div class="multi-language-sample" data-os="windows">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
