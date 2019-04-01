@@ -15,7 +15,7 @@ In this tutorial, we'll see how to
 
 * [Obtain the Kotlin/Native compiler and IDE](#obtaining-the-compiler)
 * [Write the application](#creating-hello-kotlin)
-* [Compile the code](#compiling-the-code)
+* [Setting up an IDE](#setting-up-an-ide)
 * [Run the application](#running-the-application)
 
 
@@ -46,12 +46,6 @@ for the best JRE, openjdk, or JDK distribution.
 
 On a macOS we also need the macOS SDK which can be installed by installing Xcode.
 
-## Setting up an IDE
-
-We need [IntelliJ IDEA](https://jetbrains.com/idea) Ultimate or Community edition for the tutorial.
-It includes Kotlin plugin by default, please make sure Kotlin plugin version is {{ site.data.releases.latest.version }}.
-Check out the version in the IntelliJ IDEA _Settings_ or _Preferences_ menu | Language & Frameworks | Kotlin section.
-
 ## Creating Hello Kotlin
 
 Our first application is going to simply print some text on the standard output. In our case, this will be "Hello Kotlin/Native"
@@ -67,25 +61,39 @@ fun main(args: Array<String>) {
 ```
 </div>
 
-## Compiling the code 
+## Compiling the code from console 
 
 The manual way to compile the application is to call the download compiler command to generate
 `hello.kexe` (Linux and macOS) or `hello.exe` (windows)
-binary file for you:
+binary file:
 
 ```bash
 kotlinc-native hello.kt
 ```
 
-It requires few more efforts to start with a Gradle project builds, and we'd have IDE support in exchange.
-We may use a _New Project_ wizard in IntelliJ IDEA, or in CLion or AppCode IDEs with Kotlin/Native plugin.
-In the tutorial, we create a simple project manually for the better understanding of the approach.
+## Setting up an IDE
 
+We will use [IntelliJ IDEA](https://jetbrains.com/idea) Ultimate or Community edition for the tutorial.
+We may download and install it from [https://jetbrains.com/idea](https://jetbrains.com/idea) if necessary.
+Kotlin plugin is included in IntelliJ IDEA by default, still we need to make sure Kotlin plugin version
+is {{ site.data.releases.latest.version }} (or newer) in the _Settings_ or _Preferences_ dialog, under
+the Language & Frameworks | Kotlin section.
+
+It requires few more efforts to start with a Gradle project builds, and we'd have IDE support in exchange.
+The shortest path could be to use the _New Project_ wizard in IntelliJ IDEA and select Kotlin | Native | Gradle
+in the list of new project templates. 
+
+For the better understanding and explanation in the tutorial, we'll create a simple project manually.
 Let's create a project folder. All paths below will be relative to that folder. Sometimes
 you may need to create missing directories to create files.
 
-We need to create an empty `settings.gradle.kts` file in the project root directory. Then, we
-create **either** `build.gradle.kts` or `build.gradle` file. Note, there must be only one file, preferably
+We need to create an empty `settings.gradle.kts` file in the project root directory.
+Gradle support two types of build scripts, where the oldest one uses Groovy programming
+language in `build.gradle` files. Kotlin language can be used on Gradle build script files too,
+name such files as `build.gradle.kts`.
+
+We create either `build.gradle.kts` (for Kotlin, recommended) or `build.gradle` (Groovy) Gradle build file.
+Note, there must be only one file, preferably
 `build.gradle.kts`. 
 
 <div class="multi-language-sample" data-lang="groovy">
@@ -154,7 +162,7 @@ kotlin {
 Let's move the created `hello.kt` file onto the `src/nativeMain/kotlin` folder under the project
 root.
 
-At that point we the Gradle project that is ready to be opened in an IDE.
+At that point we created the Gradle project and that is ready to be opened in an IDE.
 IntelliJ IDEA, CLion and AppCode will help to generate
 [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
 scripts for our project. To continue without an IDE, we'll need to download 
@@ -165,6 +173,9 @@ For advanced scenarios with Kotlin, it is recommended to refer to the
 [the more detailed](/docs/reference/building-mpp-with-gradle.html#setting-up-a-multiplatform-project)
 documentation in the Kotlin plugin.
 
+Now let's open the project in IntelliJ IDEA. For that we click on the File | Open... and select
+our `build.gradle.kts` (or `build.gradle`) project file. Confirm to open the file _as Project_.
+Select _Use gradle 'wrapper' task configuration in the Gradle import dialog to complete the import. 
 
 ## Running the application
 
