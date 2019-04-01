@@ -177,7 +177,7 @@ documentation in the Kotlin plugin.
 
 To run the application, we can invoke it with a Gradle `runDebugExecutableNative` or
 `runReleaseExecutableNative` task:
-<div class="multi-os-sample" data-os="Linux and macOS">
+<div class="multi-os-sample" data-os="linux">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
@@ -186,7 +186,16 @@ To run the application, we can invoke it with a Gradle `runDebugExecutableNative
 </div>
 </div>
 
-<div class="multi-os-sample" data-os="Windows">
+<div class="multi-os-sample" data-os="macOS">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+
+```bash
+./gradlew runDebugExecutableNative
+```
+</div>
+</div>
+
+<div class="multi-os-sample" data-os="windows">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
@@ -211,7 +220,7 @@ The binary files are created in the `bin/native/debugExecutable` or `bin/native/
 folders respectively. The file has `.kexe` extension on Linux and macOS and `.exe` extension on Windows. Use the following command
 to instruct the build to produce binaries:
 
-<div class="multi-os-sample" data-os="Linux and macOS">
+<div class="multi-os-sample" data-os="linux">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash
@@ -220,7 +229,16 @@ to instruct the build to produce binaries:
 </div>
 </div>
 
-<div class="multi-os-sample" data-os="Windows">
+<div class="multi-os-sample" data-os="macOS">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+
+```bash
+./gradlew build
+```
+</div>
+</div>
+
+<div class="multi-os-sample" data-os="windows">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
 ```bash

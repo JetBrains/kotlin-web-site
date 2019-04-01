@@ -1,6 +1,6 @@
 $(document).ready(() => {
-  function capitalizeFirstLetter(string) {
-    if (string === "macOS") return string;
+  function tabCaptionForSelectedLanguage(string) {
+    if (string.toLowerCase() === "macos") return "macOS";
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
@@ -8,8 +8,7 @@ $(document).ready(() => {
     function processSampleEl(sampleEl, prefLangId) {
       const expectLang = (prefLangId || 'ann').toLowerCase();
       const elementLang = (sampleEl.getAttribute(dataField) || 'NAN').toLowerCase();
-      ///we may mix linux and macOS in the name, both should work
-      if (!expectLang.includes(elementLang) && !elementLang.includes(expectLang)) {
+      if (expectLang !== elementLang) {
         sampleEl.classList.add("hide");
       } else {
         sampleEl.classList.remove("hide");
@@ -53,7 +52,7 @@ $(document).ready(() => {
 
           optionEl.classList.add("language-option");
 
-          optionEl.innerText = capitalizeFirstLetter(sampleLanguage);
+          optionEl.innerText = tabCaptionForSelectedLanguage(sampleLanguage);
 
           optionEl.addEventListener("click", function updatePreferredLanguage(evt) {
             const preferredLanguageId = optionEl.getAttribute(dataField);
@@ -82,20 +81,33 @@ $(document).ready(() => {
     });
   }
 
-  var GRADLE_DSLs = ["groovy", "kotlin"];
   // Ensure preferred DSL is valid, defaulting to Groovy DSL
   const gradleDslKey = "preferred-gradle-dsl";
   const osKey = "preferred-os";
 
   function initPreferredBuildScriptLanguage() {
-    let lang = window.localStorage.getItem(gradleDslKey);
-    if (GRADLE_DSLs.indexOf(lang) === -1) {
-      window.localStorage.setItem(gradleDslKey, "groovy");
-      lang = "groovy";
+    let lang = window.localStorage.getItem(gradleDslKey) || 'nan';
+    if (["groovy", "kotlin"].indexOf(lang) === -1) {
+      lang = "kotlin";
+      window.localStorage.setItem(gradleDslKey, lang);
     }
     return lang;
   }
 
+  function initPreferredOSLanguage() {
+    let osName = window.localStorage.getItem(osKey) || 'nan';
+    if (["windows", "linux", "macOS"].indexOf(osName) === -1) {
+      osName = "macOS";
+      const appVersion = (navigator || {}).appVersion || '';
+      if (appVersion.indexOf("Win") !== -1) osName = "windows";
+      if (appVersion.indexOf("Mac") !== -1) osName = "macOS";
+      if (appVersion.indexOf("X11") !== -1) osName = "linux";
+      if (appVersion.indexOf("Linux") !== -1) osName = "linux";
+      window.localStorage.setItem(osKey, osName);
+    }
+    return osName;
+  }
+
   switchSampleLanguage("multi-language-sample", "multi-language-selector", "data-lang", gradleDslKey, initPreferredBuildScriptLanguage());
-  switchSampleLanguage("multi-os-sample", "multi-os-selector", "data-os", osKey, window.localStorage.getItem(osKey) || 'macOS');
+  switchSampleLanguage("multi-os-sample", "multi-os-selector", "data-os", osKey, initPreferredOSLanguage());
 });
