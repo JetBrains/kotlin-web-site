@@ -59,7 +59,7 @@ apply plugin: 'kotlin-android-extensions'
 
 ### Enabling experimental features
 
-Android Extensions plugin includes several experimental features such as [`LayoutContainer` support](#layoutcontainer-support) and [flavour support](#flavor-support). These features are not considered production ready yet, so you need to turn on the _experimental mode_ in `build.gradle` in order to use them:
+Android Extensions plugin includes several experimental features such as [`LayoutContainer` support](#layoutcontainer-support) and [flavor support](#flavor-support). These features are not considered production ready yet, so you need to turn on the _experimental mode_ in `build.gradle` in order to use them:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
 
