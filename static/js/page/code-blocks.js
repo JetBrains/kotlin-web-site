@@ -126,7 +126,7 @@ $(document).ready(() => {
       optionEl.setAttribute("role", "button");
 
       optionEl.classList.add("language-option");
-      optionEl.innerText = opt;
+      optionEl.innerText = opt.charAt(0).toUpperCase() + opt.slice(1);
 
       group.gradleTabs.push({
         updateSelected: state => {
