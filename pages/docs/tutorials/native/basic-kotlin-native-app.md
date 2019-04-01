@@ -13,57 +13,50 @@ showAuthorInfo: false
 
 In this tutorial, we'll see how to
 
-* [Obtain the Kotlin/Native compiler](#obtaining-the-compiler)
+* [Obtain the Kotlin/Native compiler and IDE](#obtaining-the-compiler)
 * [Write the application](#creating-hello-kotlin)
 * [Compile the code](#compiling-the-code)
 * [Run the application](#running-the-application)
 
 
-## Obtaining the compiler
+## Obtaining the compiler and IDE
+<a name="obtaining-the-compiler"></a>
 
-Kotlin/Native is available for macOS, Linux and Windows. Depending on the operating system we're working on, we'll need to download
-the correct compiler. While cross-platform compilation is possible (i.e. using one platform to compile for another), in this first tutorial
+Kotlin/Native is available for macOS, Linux and Windows. While cross-platform compilation is possible
+(i.e. using one platform to compile for another), in this first tutorial
 we're going to compile for the same operating system we're running on. 
 
-The best way to use Kotlin/Native compiler is to rely on
-Gradle build system and use the [kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html) Gradle plugin.
-The build configuration helps to download Kotlin/Native compiler binaries, caches the binaries, 
-configure Kotlin/Native compiler call and run the compiler, cache compilation results. It also provides IDE support.
+The best way to use Kotlin/Native compiler is to rely on a build system.
+It helps to download and cache Kotlin/Native compiler binaries,
+it run the compiler for us, helps to start tests. Compilation results are cached too.
+Lastly, a build system is used to explain our project to an IDE.
 
-We may still obtain the latest version of the Kotlin/Native compiler manually from the
-[GitHub releases page](https://github.com/JetBrains/kotlin-native/releases). In the tutorial we will focus on using
-Gradle builds instead of the command line. 
+Kotlin/Native uses Gradle build system through the
+[kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html) Gradle plugin.
+We'll see how to configure a Gradle build for us below.
 
-While the output by the compiler does not have any dependencies, the compiler itself and Gradle build system
-require [Java](https://java.sun.com) 8 (or newer),
-which should be on the system.
+For some corner cases, Kotlin/Native compiler can still be obtained manually (but not recommended) from the
+[Kotlin releases page on GitHub](https://github.com/JetBrains/kotlin/releases).
+In the tutorial we will focus on using the Gradle builds instead of the command line. 
+
+While the output of the compiler does not have any dependencies or virtual machine requirements,
+the compiler itself and the Gradle build system require Java runtime 1.8 or 11. Checkout the 
+[https://jdk.java.net/11](https://jdk.java.net/11/) or [https://adoptopenjdk.net/](https://adoptopenjdk.net/)
+for the best JRE, openjdk, or JDK distribution.
+
 On a macOS we also need the macOS SDK which can be installed by installing Xcode.
 
-## Kotlin/Native IDE support
-There are several IDEs from JetBrains that provides first-level support for Kotlin/Native:
+## Setting up an IDE
 
-|IDE|Type|Remark|
-|---|----|----|
-| [IntelliJ IDEA Community Edition](https://jetbrains.com/idea) | Free | Kotlin plugin is bundled |
-| [IntelliJ IDEA Ultimate Edition](https://jetbrains.com/idea) | Commercial | Kotlin plugin is bundled |
-| [CLion](https://jetbrains.com/clion) | Commercial | Install [Kotlin/Native for CLion](https://plugins.jetbrains.com/plugin/10454-kotlin-native-for-clion) plugin |
-| [AppCode](https://jetbrains.com/clion) | Commercial | Install [Kotlin/Native for AppCode](https://plugins.jetbrains.com/plugin/10619-kotlin-native-for-appcode) plugin |
-| [Android Studio](https://developer.android.com/studio/) | Free | Kotlin plugin is bundled |
-{:.zebra}
-
-
-IntelliJ IDEA Community and Ultimate editions and Android Studio has bundled Kotlin plugin which provides
-support for Kotlin/Native projects out of the box.
-For advanced scenarios like C, Swift and Objective-C support, native debugger, one may use
-[CLion](https://jetbrains.com/clion) or 
-[AppCode](https://jetbrains.com/appcode). AppCode also provides smoother Xcode integration
-for Kotlin/Native and Objective-C/Swift projects for macOS and iOS targets.
+We need [IntelliJ IDEA](https://jetbrains.com/idea) Ultimate or Community edition for the tutorial.
+It includes Kotlin plugin by default, please make sure Kotlin plugin version is {{ site.data.releases.latest.version }}.
+Check out the version in the IntelliJ IDEA _Settings_ or _Preferences_ menu | Language & Frameworks | Kotlin section.
 
 ## Creating Hello Kotlin
 
 Our first application is going to simply print some text on the standard output. In our case, this will be "Hello Kotlin/Native"
  
-We can open up our favorite [IDE](#kotlinnative-ide-support) or an editor and write the following code in a file named `hello.kt` 
+We can open up our favorite IDE or an editor and write the following code in a file named `hello.kt` 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
