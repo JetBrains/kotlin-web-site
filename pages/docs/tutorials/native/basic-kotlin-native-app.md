@@ -92,11 +92,11 @@ the Language & Frameworks | Kotlin section.
 
 The _New Project_ wizard can be used to start a new Kotlin/Native project in one click. 
 Check out the _Kotlin_ section and select _Native | Gradle_ option to have the
-project generated. 
+project generated.
+For the better understanding and explanation in the tutorial, we'll create a simple project manually.
 
 ## Creating Kotlin/Native Gradle project
 
-For the better understanding and explanation in the tutorial, we'll create a simple project manually.
 Let's create a project folder first. All paths in the tutorial will be relative to that folder. Sometimes
 missing directories has to be created before new files are added.
 
