@@ -108,7 +108,7 @@ options:
 Groovy language is the oldest supported scripting language for Gradle, 
 it leverages the power of dynamic typing and runtime features of the language.
 Sometimes it is harder to maintain Groovy build scripts. IDEs are struggling
-to get through the dynamism of Groovy to provide helpful insides or
+to get through the dynamism of Groovy to provide helpful insights or
 code completion.
 
 Kotlin as a statically typed programming language plays well for writing
