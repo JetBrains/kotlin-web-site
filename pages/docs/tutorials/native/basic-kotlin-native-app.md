@@ -27,20 +27,21 @@ Kotlin/Native is available for macOS, Linux and Windows. While cross-platform co
 we're going to compile for the same operating system we're running on. 
 
 The best way to use Kotlin/Native compiler is to rely on a build system.
-It helps to download and cache Kotlin/Native compiler binaries,
-it run the compiler for us, helps to start tests. Compilation results are cached too.
-Lastly, a build system is used to explain our project to an IDE.
+It helps to download and cache Kotlin/Native compiler binaries and libraries with
+transitive dependencies, it runs the compiler and tests.
+Compilation results are cached too.
+Lastly, a build system is used by an IDE to understand project layout.
 
-Kotlin/Native uses Gradle build system through the
-[kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html) Gradle plugin.
-We'll see how to configure a Gradle build for us below.
+Kotlin/Native uses [Gradle](https://gradle.org) build system through the
+[kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html) plugin.
+We'll see how to configure a Gradle build below.
 
-For some corner cases, Kotlin/Native compiler can still be obtained manually (but not recommended) from the
-[Kotlin releases page on GitHub](https://github.com/JetBrains/kotlin/releases).
-In the tutorial we will focus on using the Gradle builds instead of the command line. 
+For some corner cases, Kotlin/Native compiler can still be obtained manually (not recommended)
+from the [Kotlin releases page on GitHub](https://github.com/JetBrains/kotlin/releases).
+In the tutorial, we will focus on using the Gradle builds. 
 
 While the output of the compiler does not have any dependencies or virtual machine requirements,
-the compiler itself and the Gradle build system require Java runtime 1.8 or 11. Checkout the 
+the compiler itself and the Gradle build system require Java 1.8 or 11 runtime. Checkout the 
 [https://jdk.java.net/11](https://jdk.java.net/11/) or [https://adoptopenjdk.net/](https://adoptopenjdk.net/)
 for the best JRE, openjdk, or JDK distribution.
 
@@ -71,30 +72,59 @@ binary file:
 kotlinc-native hello.kt
 ```
 
+While compilation from the console looks easy and clear, we should notice, that it
+does not scale well enough for bigger projects with hundreds of files and libraries.
+In addition to that, the command line approach does not explain an IDE how the project
+is to be loaded, what dependencies (if any) are used, how to download dependencies and so on. 
+Let's configure an IDE for our project 
+
 ## Setting up an IDE
 
-We will use [IntelliJ IDEA](https://jetbrains.com/idea) Ultimate or Community edition for the tutorial.
-We may download and install it from [https://jetbrains.com/idea](https://jetbrains.com/idea) if necessary.
+We will use [IntelliJ IDEA](https://jetbrains.com/idea) for the tutorial.
+Both the [free and open source](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html)
+IntelliJ IDEA [Community edition](https://www.jetbrains.com/idea/download) and IntelliJ IDEA Ultimate Edition
+are compatible with the tutorial. 
+We may download and install it from [https://jetbrains.com/idea](https://jetbrains.com/idea/downlaod) if necessary.
 Kotlin plugin is included in IntelliJ IDEA by default, still we need to make sure Kotlin plugin version
-is {{ site.data.releases.latest.version }} (or newer) in the _Settings_ or _Preferences_ dialog, under
+is {{ site.data.releases.latest.version }} (or newer) in the _Settings_ or _Preferences_ dialog, under the
 the Language & Frameworks | Kotlin section.
 
-It requires few more efforts to start with a Gradle project builds, and we'd have IDE support in exchange.
-The shortest path could be to use the _New Project_ wizard in IntelliJ IDEA and select Kotlin | Native | Gradle
-in the list of new project templates. 
+The _New Project_ wizard can be used to start a new Kotlin/Native project in one click. 
+Check out the _Kotlin_ section and select _Native | Gradle_ option to have the
+project generated. 
+
+## Creating Kotlin/Native Gradle project
 
 For the better understanding and explanation in the tutorial, we'll create a simple project manually.
-Let's create a project folder. All paths below will be relative to that folder. Sometimes
-you may need to create missing directories to create files.
+Let's create a project folder first. All paths in the tutorial will be relative to that folder. Sometimes
+missing directories has to be created before new files are added.
 
-We need to create an empty `settings.gradle.kts` file in the project root directory.
-Gradle support two types of build scripts, where the oldest one uses Groovy programming
-language in `build.gradle` files. Kotlin language can be used on Gradle build script files too,
-name such files as `build.gradle.kts`.
+Gradle supports two languages for the build scripts. We have the following
+options:
+- Groovy scripts in `build.gradle` files
+- Kotlin scripts in `build.gradle.kts` files
 
-We create either `build.gradle.kts` (for Kotlin, recommended) or `build.gradle` (Groovy) Gradle build file.
-Note, there must be only one file, preferably
-`build.gradle.kts`. 
+Groovy language is the oldest supported scripting language for Gradle, 
+it leverages the power of dynamic typing and runtime features of the language.
+Sometimes it is harder to maintain Groovy build scripts. IDEs are struggling
+to get through the dynamism of Groovy to provide helpful insides or
+code completion.
+
+Kotlin as a statically typed programming language plays well for writing
+Gradle build scripts.
+Thanks to static types, the Kotlin compiler detects errors earlier and
+shows helpful compilation error messages and warnings.
+Both an IDE and the compiler use the information about types to infer
+available functions and properties in a given scope. 
+
+We create
+<span class="multi-language-span" data-lang="groovy">
+`build.gradle` 
+</span>
+<span class="multi-language-span" data-lang="kotlin">
+`build.gradle.kts` 
+</span>
+Gradle build file with the following contents 
 
 <div class="multi-language-sample" data-lang="groovy" data-os="macos">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -114,6 +144,11 @@ kotlin {
       executable()
     }
   }
+}
+
+wrapper {
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = "ALL"
 }
 ```
 
@@ -139,6 +174,11 @@ kotlin {
     }
   }
 }
+
+wrapper {
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = "ALL"
+}
 ```
 
 </div>
@@ -162,6 +202,11 @@ kotlin {
       executable()
     }
   }
+}
+
+wrapper {
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = "ALL"
 }
 ```
 
@@ -187,6 +232,11 @@ kotlin {
     }
   }
 }
+
+tasks.withType<Wrapper> {
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = Wrapper.DistributionType.ALL
+}
 ```
 </div>
 </div>
@@ -208,6 +258,11 @@ kotlin {
       executable()
     }
   }
+}
+
+tasks.withType<Wrapper> {
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = Wrapper.DistributionType.ALL
 }
 ```
 </div>
@@ -232,27 +287,66 @@ kotlin {
     }
   }
 }
+
+tasks.withType<Wrapper> {
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = Wrapper.DistributionType.ALL
+}
 ```
 </div>
 </div>
 
+We need to create an empty
+<span class="multi-language-span" data-lang="kotlin">
+`settings.gradle.kts` 
+</span><span class="multi-language-span" data-lang="groovy">
+`settings.gradle`
+</span>
+file in the project root directory.
 Let's move the created `hello.kt` file onto the `src/nativeMain/kotlin` folder under the project
 root.
 
-At that point we created the Gradle project and that is ready to be opened in an IDE.
-IntelliJ IDEA, CLion and AppCode will help to generate
-[Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
-scripts for our project. To continue without an IDE, we'll need to download 
-[Gradle](https://gradle.org) and run `gradle wrapper` command.
-[Getting Started with Gradle](https://docs.gradle.org/current/userguide/getting_started.html) article
-explains more details on how to start using Gradle projects.
-For advanced scenarios with Kotlin, it is recommended to refer to the
+The project is ready. The next step is to open in IntelliJ IDEA. For advanced build scenarios,
+it is recommended to refer to the
 [the more detailed](/docs/reference/building-mpp-with-gradle.html#setting-up-a-multiplatform-project)
-documentation in the Kotlin plugin.
+documentation.
+
+For those who want to continue without an IDE, the 
+[Gradle](https://gradle.org) build tool has to be downloaded and installed.
+Make sure you use the actual version of Gradle (e.g. {{ site.data.releases.tutorials.native.gradle_version }} or newer).
+Running the `gradle wrapper` command will complete the project creation.
+[Getting Started with Gradle](https://docs.gradle.org/current/userguide/getting_started.html) article
+explains more details on how to start using Gradle projects. 
+
+## Opening the Project in IDE
+
+At that point we have the Gradle project that is ready to be opened in an IDE.
+IntelliJ IDEA (CLion, AppCode or AndroidStudio) will help to generate
+[Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
+scripts for our project. 
 
 Now let's open the project in IntelliJ IDEA. For that we click on the File | Open... and select
-our `build.gradle.kts` (or `build.gradle`) project file. Confirm to open the file _as Project_.
-Select _Use gradle 'wrapper' task configuration in the Gradle import dialog to complete the import. 
+our 
+<span class="multi-language-span" data-lang="kotlin">
+`build.gradle.kts` 
+</span><span class="multi-language-span" data-lang="groovy">
+`build.gradle`
+</span>
+project file. 
+
+![Open Project Dialog]({{ url_for('tutorial_img', filename='native/basic-kotlin-native/idea-open-as-project.png')}}){: width="70%"}
+
+Confirm to open the file _as Project_.
+
+![Gradle Import Dialog]({{ url_for('tutorial_img', filename='native/basic-kotlin-native/idea-import-gradle.png')}})
+
+Select _Use gradle 'wrapper' task configuration_ option in the Gradle import dialog to complete the import.
+For existing projects which already have Gradle wrapper scripts, the _Use default Gradle wrapper_
+option should be selected instead.
+
+Use the path to the Java 1.8 or 11 runtime for the _Gradle JVM_ field. Checkout the 
+[https://jdk.java.net/11](https://jdk.java.net/11/) or [https://adoptopenjdk.net/](https://adoptopenjdk.net/)
+for the best JRE, openjdk, or JDK distribution.  
 
 ## Running the application
 
@@ -297,7 +391,7 @@ BUILD SUCCESSFUL
 
 Usually, a native binary can be compiled as _debug_ with more debug information and less optimizations and _release_,
 where optimizations are enabled and less to none debug information is available.  
-The binary files are created in the `bin/native/debugExecutable` or `bin/native/releaseExecutable`
+The binary files are created in the `build/bin/native/debugExecutable` or `build/bin/native/releaseExecutable`
 folders respectively. The file has `.kexe` extension on Linux and macOS and `.exe` extension on Windows. Use the following command
 to instruct the build to produce binaries:
 

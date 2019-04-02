@@ -5,3 +5,9 @@ latest:
   url: https://github.com/JetBrains/kotlin/releases/tag/v1.3.31
   runtime_size: 964KB
   date: April 25, 2019
+
+
+tutorials:
+  native:
+    gradle_version: 5.4.1
+
