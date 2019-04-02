@@ -38,11 +38,11 @@ const saveState = ({osValue = '', gradleValue = ''} = {}) => {
   return loadInitialState();
 };
 
-$(document).ready(() => {
-  const multiLanguageSampleClass = 'multi-language-sample';
-  const dataSelectedGroupId = 'data-selector-group';
 
-  // select code sections and group neighbours to same groups
+const multiLanguageSampleClass = 'multi-language-sample';
+const dataSelectedGroupId = 'data-selector-group';
+
+const locateCodeElements = ($) => {
   const selectorGroups = {};
   [].slice.call(document.querySelectorAll("." + multiLanguageSampleClass)).forEach((divElement, index) => {
     const prevSibling = divElement.previousElementSibling;
@@ -51,7 +51,7 @@ $(document).ready(() => {
     if (prevSibling !== null && prevSibling.classList.contains(multiLanguageSampleClass)) {
        groupId = prevSibling.getAttribute(dataSelectedGroupId);
     } else {
-       groupId = "group-" + index;
+       groupId = "snippet-" + index;
     }
 
     divElement.setAttribute(dataSelectedGroupId, groupId);
@@ -87,30 +87,12 @@ $(document).ready(() => {
     });
   });
 
-  const updateState = (newStatePatch) => {
-    //update local storage
-    const state = saveState(newStatePatch);
+  return selectorGroups;
+};
 
-    for (const groupKey in selectorGroups) {
-      if (!selectorGroups.hasOwnProperty(groupKey)) continue;
 
-      const group = selectorGroups[groupKey];
-
-      group.snippets.forEach(snippet => {
-        snippet.updateSelected(state);
-      });
-
-      group.gradleTabs.forEach(tab => {
-        tab.updateSelected(state);
-      });
-
-      group.osTabs.forEach(tab => {
-        tab.updateSelected(state);
-      })
-    }
-  };
-
-  //generate tabs section
+const generateTabs = ($, selectorGroups, updateState) => {
+   //generate tabs section
   for (const groupKey in selectorGroups) {
     if (!selectorGroups.hasOwnProperty(groupKey)) continue;
     const group = selectorGroups[groupKey];
@@ -176,6 +158,38 @@ $(document).ready(() => {
 
     firstCodeBlockNode.parentNode.insertBefore(languageSelectorFragment, firstCodeBlockNode);
   }
+};
+
+
+$(document).ready(($) => {
+
+  // select code sections and group neighbours to same groups
+  const selectorGroups = locateCodeElements($);
+
+  const updateState = (newStatePatch) => {
+    //update local storage
+    const state = saveState(newStatePatch);
+
+    for (const groupKey in selectorGroups) {
+      if (!selectorGroups.hasOwnProperty(groupKey)) continue;
+
+      const group = selectorGroups[groupKey];
+
+      group.snippets.forEach(snippet => {
+        snippet.updateSelected(state);
+      });
+
+      group.gradleTabs.forEach(tab => {
+        tab.updateSelected(state);
+      });
+
+      group.osTabs.forEach(tab => {
+        tab.updateSelected(state);
+      })
+    }
+  };
+
+  generateTabs($, selectorGroups, updateState);
 
   updateState()
 });
