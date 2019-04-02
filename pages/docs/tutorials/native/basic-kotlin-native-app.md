@@ -13,8 +13,9 @@ showAuthorInfo: false
 
 In this tutorial, we'll see how to
 
-* [Obtain the Kotlin/Native compiler and IDE](#obtaining-the-compiler)
+* [Obtain the Kotlin/Native compiler and IDE](#obtaining-the-compiler-and-ide)
 * [Write the application](#creating-hello-kotlin)
+* [Creating build files](#creating-kotlinnative-gradle-project)
 * [Setting up an IDE](#setting-up-an-ide)
 * [Run the application](#running-the-application)
 
