@@ -56,7 +56,7 @@ const locateCodeElements = ($) => {
 
     divElement.setAttribute(dataSelectedGroupId, groupId);
 
-    const groupMembers  = (selectorGroups[groupId] || {snippets: [], gradleOptions: [], osOptions: [], gradleTabs : [], osTabs: []} );
+    const groupMembers  = (selectorGroups[groupId] || {tabsAnchor: divElement, snippets: [], gradleOptions: [], osOptions: [], gradleTabs : [], osTabs: []} );
     selectorGroups[groupId] = groupMembers;
 
     const osValue = (divElement.getAttribute("data-os") || '').toLowerCase();
@@ -70,20 +70,17 @@ const locateCodeElements = ($) => {
       groupMembers.gradleOptions.push(gradleValue)
     }
 
-    const updateSelected = state => {
-      const selectedOs = osValue === '' || osValue === state.osValue;
-      const selectedGradle = gradleValue === '' || gradleValue === state.gradleValue;
-
-      if (selectedOs && selectedGradle) {
-        divElement.classList.remove("hide")
-      } else {
-        divElement.classList.add("hide")
-      }
-    };
-
     groupMembers.snippets.push({
-      updateSelected,
-      code: divElement
+      updateSelected : state => {
+          const selectedOs = osValue === '' || osValue === state.osValue;
+          const selectedGradle = gradleValue === '' || gradleValue === state.gradleValue;
+
+          if (selectedOs && selectedGradle) {
+            divElement.classList.remove("hide")
+          } else {
+            divElement.classList.add("hide")
+          }
+        }
     });
   });
 
@@ -96,7 +93,11 @@ const generateTabs = ($, selectorGroups, updateState) => {
   for (const groupKey in selectorGroups) {
     if (!selectorGroups.hasOwnProperty(groupKey)) continue;
     const group = selectorGroups[groupKey];
-    const firstCodeBlockNode = group.snippets[0].code;
+
+    //in-line code snippets do not have tabs
+    const firstCodeBlockNode = group.tabsAnchor;
+    if (!firstCodeBlockNode) continue;
+
     const languageSelectorFragment = document.createDocumentFragment();
     const multiLanguageSelectorElement = document.createElement("div");
     multiLanguageSelectorElement.classList.add("multi-language-selector");
