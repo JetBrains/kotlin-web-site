@@ -4,10 +4,43 @@ import $ from 'jquery';
 const gradleKey = "preferred-gradle-dsl";
 const osKey = "preferred-os";
 
+
+///the order is used for presentation
+const allOsNames = [
+  "macos",
+  "linux",
+  "windows"
+];
+
+///the order is used for presentation
+const allGradleNames = [
+    "groovy",
+    "kotlin"
+];
+
+const sortAsListedToSet = (fullList, names) => {
+  const result = [];
+  fullList.forEach(name => {
+    if (name === '') {
+      return;
+    }
+
+    if(names.indexOf(name) === -1) {
+      console.log("Unknown language " + name + " for " + JSON.stringify(fullList) + " will be ignored");
+      return;
+    }
+
+    if (result.indexOf(name) === -1) {
+      result.push(name);
+    }
+  });
+  return result;
+};
+
 const loadInitialState = () => {
   function initPreferredBuildScriptLanguage() {
     let lang = window.localStorage.getItem(gradleKey) || 'nan';
-    if (["groovy", "kotlin"].indexOf(lang) === -1) {
+    if (allGradleNames.indexOf(lang) === -1) {
       lang = "kotlin";
     }
     return lang;
@@ -15,7 +48,7 @@ const loadInitialState = () => {
 
   function initPreferredOSLanguage() {
     let osName = window.localStorage.getItem(osKey) || 'nan';
-    if (["windows", "linux", "macos"].indexOf(osName) === -1) {
+    if (allOsNames.indexOf(osName) === -1) {
       osName = "macos";
       const appVersion = (navigator || {}).appVersion || '';
       if (appVersion.indexOf("Win") !== -1) osName = "windows";
@@ -88,14 +121,8 @@ const locateCodeElements = ($) => {
     const info = createSnippetInfo($, divElement);
 
     const  {osValue, gradleValue} = info;
-    if (osValue !== '' && groupMembers.osOptions.indexOf(osValue) === -1) {
-      groupMembers.osOptions.push(osValue)
-    }
-
-    if (gradleValue !== '' && groupMembers.gradleOptions.indexOf(gradleValue) === -1) {
-      groupMembers.gradleOptions.push(gradleValue)
-    }
-
+    groupMembers.osOptions.push(osValue);
+    groupMembers.gradleOptions.push(gradleValue);
     groupMembers.snippets.push(info);
   });
 
@@ -126,7 +153,7 @@ const generateTabs = ($, selectorGroups, updateState) => {
     multiLanguageSelectorElement.classList.add("multi-language-selector");
     languageSelectorFragment.appendChild(multiLanguageSelectorElement);
 
-    group.gradleOptions.forEach(opt => {
+    sortAsListedToSet(allGradleNames, group.gradleOptions).forEach(opt => {
       const optionEl = document.createElement("code");
       optionEl.setAttribute("data-lang", opt);
       optionEl.setAttribute("role", "button");
@@ -151,7 +178,7 @@ const generateTabs = ($, selectorGroups, updateState) => {
       multiLanguageSelectorElement.appendChild(optionEl);
     });
 
-    group.osOptions.forEach(opt => {
+    sortAsListedToSet(allOsNames, group.osOptions).reverse().forEach(opt => {
       const optionEl = document.createElement("code");
       optionEl.setAttribute("data-os", opt);
       optionEl.setAttribute("role", "button");
