@@ -297,6 +297,11 @@ tasks.withType<Wrapper> {
 </div>
 </div>
 
+Depending on the platform, we use different [functions](/docs/reference/building-mpp-with-gradle.html),
+e.g. `macosX64`, `mingwX64`, `linuxX64`,
+to create the Kotlin target. These functions take the target name as the parameter, `"native"`
+in our case. It is used in the task and folder names below.
+
 We need to create an empty
 <span class="multi-language-span" data-lang="kotlin">
 `settings.gradle.kts` 
@@ -305,7 +310,8 @@ We need to create an empty
 </span>
 file in the project root directory.
 Let's move the created `hello.kt` file onto the `src/nativeMain/kotlin` folder under the project
-root.
+root, where `native` comes from the target name, and `Main` refers to the main sources set.
+It also defines `nativeTest` folder for test sources which we will not cover in the tutorial.
 
 The project is ready. The next step is to open in IntelliJ IDEA. For advanced build scenarios,
 it is recommended to refer to the
@@ -351,8 +357,69 @@ for the best JRE, openjdk, or JDK distribution.
 
 ## Running the application
 
-To run the application, we can invoke it with a Gradle `runDebugExecutableNative` or
-`runReleaseExecutableNative` task:
+Usually, a native binary can be compiled as _debug_ with more debug information and less optimizations and _release_,
+where optimizations are enabled and less to none debug information is available.  
+The binary files are created in the `build/bin/native/debugExecutable` or `build/bin/native/releaseExecutable`
+folders respectively. The file has `.kexe` extension on Linux and macOS and `.exe` extension on Windows. Use the following command
+to instruct the build to produce binaries:
+
+<div class="multi-language-sample" data-os="linux">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+
+```bash
+./gradlew build
+```
+</div>
+</div>
+
+<div class="multi-language-sample" data-os="macos">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+
+```bash
+./gradlew build
+```
+</div>
+</div>
+
+<div class="multi-language-sample" data-os="windows">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+
+```bash
+gradlew.bat build
+```
+</div>
+</div>
+
+We may run the compiled binary from the console now:
+
+```
+> Task :runDebugExecutableNative
+Hello Kotlin/Native!
+
+BUILD SUCCESSFUL
+```
+
+It's important to understand that this is now a native application, and no runtime or virtual machine
+is required. The output should be
+
+
+In addition to the build tasks, the Gradle build includes a convenient
+tasks to run the application directory form the build via
+`runDebugExecutableNative` and `runReleaseExecutableNative` tasks.
+Names of these tasks created from the formula:
+```
+run[Debug|Release]Executable[TargetName]
+```
+where `TargetName` the name, `native` in our case, that we specified in the
+<span class="multi-language-span" data-lang="kotlin">
+`build.gradle.kts` 
+</span><span class="multi-language-span" data-lang="groovy">
+`build.gradle`
+</span>
+file out our build.
+
+Let's run the task from console (or IDE) to see how it works:
+
 <div class="multi-language-sample" data-os="linux">
 <div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
 
@@ -390,36 +457,19 @@ Hello Kotlin/Native!
 BUILD SUCCESSFUL
 ```
 
-Usually, a native binary can be compiled as _debug_ with more debug information and less optimizations and _release_,
-where optimizations are enabled and less to none debug information is available.  
-The binary files are created in the `build/bin/native/debugExecutable` or `build/bin/native/releaseExecutable`
-folders respectively. The file has `.kexe` extension on Linux and macOS and `.exe` extension on Windows. Use the following command
-to instruct the build to produce binaries:
+## Next Steps
 
-<div class="multi-language-sample" data-os="linux">
-<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+Kotlin/Native can be used for many 
+[targets](targeting-multiple-platforms.html) and applications,
+including, but not limited to
+macOS, Windows, Linux, and [iOS](/docs/tutorials/native/mpp-ios-android.html).
 
-```bash
-./gradlew build
-```
-</div>
-</div>
+Calling C, Objective-C, or Swift from Kotlin/Native is easy. Take a look at
+the [C Interop documentation](/docs/reference/native/c_interop.html) or
+[Objective-C and Swift](/docs/reference/native/objc_interop.html) interop
+documentation or check out one of our tutorials.
 
-<div class="multi-language-sample" data-os="macos">
-<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
-
-```bash
-./gradlew build
-```
-</div>
-</div>
-
-<div class="multi-language-sample" data-os="windows">
-<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
-
-```bash
-gradlew.bat build
-```
-</div>
-</div>
-
+With Kotlin [multiplatform](/docs/reference/multiplatform.html) projects, one may
+share the same Kotlin code between all supported platforms. 
+Check out the [sharing Kotlin code between iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
+tutorial or have a look at how to build own [multiplatform library](/docs/tutorials/multiplatform-library.html).
