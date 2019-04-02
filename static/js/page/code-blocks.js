@@ -42,6 +42,32 @@ const saveState = ({osValue = '', gradleValue = ''} = {}) => {
 const multiLanguageSampleClass = 'multi-language-sample';
 const dataSelectedGroupId = 'data-selector-group';
 
+const newGroup = (tabsAnchor) => {
+  const r = {tabsAnchor: null, snippets: [], gradleOptions: [], osOptions: [], gradleTabs: [], osTabs: []};
+  if (tabsAnchor) r.tabsAnchor = tabsAnchor;
+  return r;
+};
+
+const createSnippetInfo = ($, divElement) => {
+    const osValue = (divElement.getAttribute("data-os") || '').toLowerCase();
+    const gradleValue = (divElement.getAttribute("data-lang") || '').toLowerCase();
+
+    return {
+      osValue,
+      gradleValue,
+      updateSelected : state => {
+          const selectedOs = osValue === '' || osValue === state.osValue;
+          const selectedGradle = gradleValue === '' || gradleValue === state.gradleValue;
+
+          if (selectedOs && selectedGradle) {
+            divElement.classList.remove("hide")
+          } else {
+            divElement.classList.add("hide")
+          }
+        }
+    };
+};
+
 const locateCodeElements = ($) => {
   const selectorGroups = {};
   [].slice.call(document.querySelectorAll("." + multiLanguageSampleClass)).forEach((divElement, index) => {
@@ -56,12 +82,12 @@ const locateCodeElements = ($) => {
 
     divElement.setAttribute(dataSelectedGroupId, groupId);
 
-    const groupMembers  = (selectorGroups[groupId] || {tabsAnchor: divElement, snippets: [], gradleOptions: [], osOptions: [], gradleTabs : [], osTabs: []} );
+    const groupMembers = (selectorGroups[groupId] || newGroup(divElement) );
     selectorGroups[groupId] = groupMembers;
 
-    const osValue = (divElement.getAttribute("data-os") || '').toLowerCase();
-    const gradleValue = (divElement.getAttribute("data-lang") || '').toLowerCase();
+    const info = createSnippetInfo($, divElement);
 
+    const  {osValue, gradleValue} = info;
     if (osValue !== '' && groupMembers.osOptions.indexOf(osValue) === -1) {
       groupMembers.osOptions.push(osValue)
     }
@@ -70,18 +96,15 @@ const locateCodeElements = ($) => {
       groupMembers.gradleOptions.push(gradleValue)
     }
 
-    groupMembers.snippets.push({
-      updateSelected : state => {
-          const selectedOs = osValue === '' || osValue === state.osValue;
-          const selectedGradle = gradleValue === '' || gradleValue === state.gradleValue;
+    groupMembers.snippets.push(info);
+  });
 
-          if (selectedOs && selectedGradle) {
-            divElement.classList.remove("hide")
-          } else {
-            divElement.classList.add("hide")
-          }
-        }
-    });
+  [].slice.call(document.querySelectorAll(".multi-language-span[data-os], .multi-language-span[data-lang]")).forEach((divElement, index) => {
+    const groupMembers = newGroup();
+    selectorGroups["span-" + index] = groupMembers;
+
+    const info = createSnippetInfo($, divElement);
+    groupMembers.snippets.push(info);
   });
 
   return selectorGroups;
@@ -186,7 +209,7 @@ $(document).ready(($) => {
 
       group.osTabs.forEach(tab => {
         tab.updateSelected(state);
-      })
+      });
     }
   };
 

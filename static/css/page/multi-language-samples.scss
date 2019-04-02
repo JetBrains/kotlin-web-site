@@ -69,6 +69,10 @@
     opacity: 1;
 }
 
+.multi-language-span.hide {
+    display: none;
+}
+
 .multi-language-selector ~ .multi-language-sample.hide {
     position: absolute;
     top: -9999px;
