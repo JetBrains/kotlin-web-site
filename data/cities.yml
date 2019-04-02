@@ -1,3 +1,11 @@
+- name: Kassel, Germany
+  geo:
+    lat: 51.318446
+    lng: 9.51059
+- name: Izmir, Turkey
+  geo:
+    lat: 38.428822
+    lng: 27.134556
 - name: Haifa, Israel
   geo:
     lat: 32.816049
