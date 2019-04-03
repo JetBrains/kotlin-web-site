@@ -227,7 +227,7 @@ fun MyActivity.a() {
 
 ### Parcelable
 
-Starting from Kotlin 1.1.4, Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator.
+Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator.
 
 #### How to use
 
