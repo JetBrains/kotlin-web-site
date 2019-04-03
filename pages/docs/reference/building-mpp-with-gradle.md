@@ -1752,6 +1752,8 @@ Also this prefix is used as a default name for the binary file. For example on W
 
 #### Using binary declaration APIs introduced in 1.3
 
+> __Important:__ The approach described in this section is deprecated in Kotlin 1.3.30 and will not be available since Kotlin 1.3.40. Consider using the [`binaries`](#declaring-binaries) block instead.
+
 It is possible to use the binary declaration APIs introduced in 1.3 in addition to the binaries DSL. One can specify one or more of
 the `outputKinds` for a compilation using these APIs. The following output kinds are available:
 
@@ -1792,9 +1794,6 @@ kotlin {
 
 This creates binaries with corresponding types and the compilation name as name prefixes in the `binaries` container. But note that such
 binaries are created after project evaluation so they are available only in an `afterEvaluate` code block.
-
-> Despite the fact that this approach is supported in 1.3.20, it will be eventually deprecated. So it's recommended to use the binaries
-DSL instead.
 
 #### Accessing binaries
 
