@@ -1611,10 +1611,10 @@ those will be merged into one dependencies list.
 
 It is important to note that some of the [Kotlin/Native targets](#supported-platforms) may only be built with an appropriate host machine:
 
-* Linux targets may only be built on a Linux host;
+* Linux MIPS targets (`linuxMips32` and `linuxMipsel32`) require a Linux host. Other Linux targets can be built on any supported host;
 * Windows targets require a Windows host;
 * macOS and iOS targets can only be built on a macOS host;
-* Android Native targets require a Linux or macOS host; 
+* The 64-bit Android Native target require a Linux or macOS host;
 
 A target that is not supported by the current host is ignored during build and therefore not published. A library author may want to set up
 builds and publishing from different hosts as required by the library target platforms.
