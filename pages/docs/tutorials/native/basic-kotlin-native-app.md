@@ -51,7 +51,7 @@ We can open up our favorite IDE or an editor and write the following code in a f
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun main(args: Array<String>) {
+fun main() {
     println("Hello Kotlin/Native!")
 }
 ```
@@ -60,11 +60,11 @@ fun main(args: Array<String>) {
 ## Compiling the code from console 
 
 The manual way to compile the application is to call the download compiler command to generate
-`hello.kexe` (Linux and macOS) or `hello.exe` (windows)
+`hello.kexe` (Linux and macOS) or `hello.exe` (Windows)
 binary file:
 
 ```bash
-kotlinc-native hello.kt
+kotlinc-native hello.kt -o hello
 ```
 
 While compilation from the console looks easy and clear, we should notice, that it
