@@ -7,92 +7,66 @@ authors:
 showAuthorInfo: false
 ---
 
-### Installing the Kotlin plugin
-
-The Kotlin plugin is bundled with Android Studio starting from [version 3.0](https://developer.android.com/studio/). If you use an earlier version, you'll need to install the Kotlin plugin.
-Go to _File \| Settings \| Plugins \| Install JetBrains plugin..._ and then search for and install *Kotlin*.
-If you are looking at the "Welcome to Android Studio" screen, choose _Configure \| Plugins \| Install JetBrains plugin..._
-You'll need to restart the IDE after this completes.
+It’s extremely easy to start using Kotlin for Android development.
+In this tutorial we’ll follow the warming up process with Android Studio. If you're using Intellij IDEA with Android, the process is almost the same.
 
 ### Creating a project
 
-It’s extremely easy to start using Kotlin for Android development.
-In this tutorial we’ll follow the warming up process with Android Studio.
-If using Intellij IDEA with Android, the process is almost the same.
+First, create a new Kotlin Android Project for your future application:
 
-First let's create a new project. Choose **Start a new Android Studio project** or **File | New project**.
-The following dialogs walk you through the process of new project creation.
-You need to name the project and choose which Android SDK version you have installed. Most options can be left with their default values, so you can press 'Enter' several times.
+1. Click **Start a new Android Studio project** on the welcome screen or **File \| New \| New project**.
 
-Name the project:
-![New Project]({{ url_for('tutorial_img', filename='kotlin-android/0-create-new-project.png') }})
+2. Select an [activity](https://developer.android.com/guide/components/activities/intro-activities) that defines the behavior of your application. For your first "Hello world" application, select __Empty Activity__ that just shows a screen, and click __Next__.
 
-Android Studio offers an option to enable Kotlin support on this screen. You can check this option and skip the
-"Configuring Kotlin in the project" step below.
+![Choosing empty activity]({{ url_for('tutorial_img', filename='kotlin-android/0-create-new-project.png') }}) 
 
-Choose the Android version:
+3. In the next dialog, provide the project details:
+   * name and package
+   * location
+   * language: select __Kotlin__
 
-![Target Android Devices]({{ url_for('tutorial_img', filename='kotlin-android/1-create-new-project.png') }})
+   Leave other options with their default values and click __Finish__.
 
-Choose creating an activity that will be generated for you:
+![Project configuration]({{ url_for('tutorial_img', filename='kotlin-android/1-create-new-project.png') }})
 
-![Add an Activity to Mobile]({{ url_for('tutorial_img', filename='kotlin-android/2-create-new-project.png') }})
+Once you complete the steps, Android Studio creates a project. The project already contains all the code and resources required for building an application for running it on your Android device or an emulator.
 
-Name the activity:
+### Building and running the application
 
-![Customize the Activity]({{ url_for('tutorial_img', filename='kotlin-android/3-create-new-project.png') }})
+The process of building and publishing the Kotlin application in Android Studio is exactly the same as with Java.
 
-In Android Studio, you can choose to create the activity in Kotlin right away, so you can skip the "Converting
-Java code to Kotlin" step. Earlier versions will create an activity in Java, and you can use the automated converter tool
-to convert it.
+To build and run your application on an emulator:
+1. Run the predefined __app__ configuration by clicking __Run__ on the toolbar or __Run \| Run 'app'__.
+2. Select __Create New Virtual Device__.
 
-In general, the easiest way to start using Kotlin is by converting the Java activity into Kotlin one automatically.
-Please note that anytime instead of looking through documentation for a new way to express an old pattern,
-you can write it in Java, then copy-paste Java code into Kotlin file, and IntelliJ IDEA (or Android Studio) will suggest to convert it.
+![Select target]({{ url_for('tutorial_img', filename='kotlin-android/select-target.png') }})
 
-#### Converting Java code to Kotlin
+3. Select a device you like and click __Next__.
 
-Open `MainActivity.java` file. Then invoke action **Convert Java File to Kotlin File**. You can do it by several ways.
-The easiest one is to invoke [Find Action](https://www.jetbrains.com/idea/help/navigating-to-action.html) and start typing an action name (like in a screencast below).
-Alternatively you can call this option via the _Code \| Convert Java File to Kotlin File_  menu entry or by using the corresponding shortcut (you can find it at the menu entry).
+![Select device]({{ url_for('tutorial_img', filename='kotlin-android/select-device.png') }})
 
-![Convert Java to Kotlin file]({{ url_for('tutorial_img', filename='kotlin-android/convert-java-to-kotlin.png') }})
+4. Select a system version and download its image.
 
-After the conversion you should have an activity written in Kotlin.
+![System image]({{ url_for('tutorial_img', filename='kotlin-android/system-image.png') }})
 
-![Converted Activity with Kotlin]({{ url_for('tutorial_img', filename='kotlin-android/converted-code.png') }})
+5. Verify the emulator configuration and click __Finish__.
 
-#### Configuring Kotlin in the project
+![Verify configuration]({{ url_for('tutorial_img', filename='kotlin-android/verify-config.png') }})
 
-If you start editing this file, Android Studio shows you a prompt that Kotlin is not configured, so you can configure it.
-Alternatively, you can invoke the configuration by selecting _Tools \| Kotlin \| Configure Kotlin in Project_ from the main menu.
+Here it is - your first Kotlin application for Andoid!
 
-![Configure Kotlin in project]({{ url_for('tutorial_img', filename='kotlin-android/kotlin-not-configured.png') }})
-
-You are then prompted for the version of Kotlin. Choose the latest available from the list of installed versions.
-
-![Choose Kotlin version]({{ url_for('tutorial_img', filename='kotlin-android/configure-kotlin-in-project-details.png') }})
-
-After you configure Kotlin, build.gradle file for the application should be updated.
-Now you can see that _apply plugin: 'kotlin-android'_ and the `kotlin-stdlib` dependency were added.
-
-*(For more details how to set up gradle for your project, please check [Using Gradle](/docs/reference/using-gradle.html#targeting-android))*
-
-![Add kotlin-android plugin to your build.gradle]({{ url_for('tutorial_img', filename='kotlin-android/sync-project-with-gradle.png') }})
-
-The last thing to do is to sync the project. You can press 'Sync Now' in a prompt or invoke an action **Sync Project with Gradle Files**.
-
-![Sync Project with Gradle Files]({{ url_for('tutorial_img', filename='kotlin-android/sync-project-with-gradle-2.png') }})
-
-### Building and publishing the Kotlin application for Android
-
-You are now ready to build the application and run it on an emulator or device.
-This works in exactly the same way as in Java.
-You can make a release of the application and sign it similarly to what you do for an Android application written in Java.
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <img
+    src="{{ url_for('asset', path='images/tutorials/kotlin-android/hello-app.png') }}"
+    data-gif-src="{{ url_for('asset', path='images/tutorials/kotlin-android/hello-app.png') }}"
+    class="gif-image">
+</div>
 
 Kotlin has a rather small runtime file size: the library is approximately {{ site.data.releases.latest.runtime_size }} (as of {{ site.data.releases.latest.version }}). This means Kotlin adds just a little to .apk file size.
 
 Kotlin compiler produces byte-code, thus there really is no difference in terms of look and feel of Kotlin applications versus those written in Java.
+
+If you want to customize your builds or run configuration, refer to the Android Studio [documentation](https://developer.android.com/studio/run).
 
 ### What's next?
 
