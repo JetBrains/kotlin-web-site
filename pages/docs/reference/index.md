@@ -21,15 +21,15 @@ title: "Reference"
     </div>
      <div style="padding: 5px;">
          <h3 style="font-weight: bold">IDE</h3>
-         <p>Kotlin is supported in many IDEs and they help in writing idiomatic Kotlin code:</p>
+         <p>Many modern IDEs support Kotlin and help in writing idiomatic Kotlin code:</p>
          <ul>
              <li class="start">         <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">Kotlin Educational Plugin</a> </li>
              <li class="migrate start"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
          </ul>
      </div>
       <div style="padding: 5px;">
-          <h3 style="font-weight: bold">Ask community</h3>
-          <p>Kotlin community is open, helpful and welcoming. Don't hesitate to join and ask on any platform you like:</p>
+          <h3 style="font-weight: bold">Community</h3>
+          <p>Kotlin community is open, helpful, and welcoming. Don't hesitate to join and ask on any platform you like:</p>
           <ul>
               <li class="migrate"> <a style="text-decoration: none;" href="https://blog.jetbrains.com/kotlin/">Blog</a> </li>
               <li class="start"> <a style="text-decoration: none;" href="https://discuss.kotlinlang.org/">Forum</a>  </li>
@@ -39,7 +39,7 @@ title: "Reference"
       </div>
       <div style="padding: 5px;">
           <h3 style="font-weight: bold">Playground</h3>
-          <p>Heads-on experience is <b>the</b> way to master your Kotlin skills on real examples right in the browser:</p>
+          <p>Hands-on experience is the way to master your Kotlin skills on real examples right in the browser:</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org">Playground</a> </li>
               <li class="migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org/byExample">Kotlin Examples</a>  </li>
@@ -62,7 +62,7 @@ title: "Reference"
           <ul>
             <li class="start">   <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052982.do">Introduction to Kotlin Programming</a></li>
             <li class="migrate"> <a style="text-decoration: none;" href="http://shop.oreilly.com/product/0636920052999.do">Advanced Kotlin Programming</a></li>
-            <li class="start">   <a style="text-decoration: none;" href="https://www.coursera.org/learn/vvedenie-v-yazyk-kotlin">Introduction to Kotlin (in russian)</a></li>
+            <li class="start">   <a style="text-decoration: none;" href="https://www.coursera.org/learn/vvedenie-v-yazyk-kotlin">Introduction to Kotlin (in Russian)</a></li>
             <li class="migrate"> <a style="text-decoration: none;" href="https://coursera.org/learn/kotlin-for-java-developers">Kotlin for Java Developers</a></li>
           </ul>
       </div>
