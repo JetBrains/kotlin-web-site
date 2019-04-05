@@ -1904,6 +1904,8 @@ Binaries have a set of properties allowing one to configure them. The following 
  - **Access to a run task** (for executable binaries only). The `kotlin-multiplatform` plugin creates run tasks for all executable binaries of host
  platforms (Windows, Linux and macOS). Names of such tasks are based on binary names, e.g. `runReleaseExecutable<target-name>`
  or `runFooDebugExecutable<target-name>`. A run task can be accessed using the `runTask` property of an executable binary.
+ - **Framework type** (only for Objective-C frameworks). By default a framework built by Kotlin/Native contains a dynamic library. But it's possible
+ to replace it with a static library.
  
 The following example shows how to use these settings.
 
@@ -1934,6 +1936,11 @@ binaries {
         // Accessing the run task.
         // Note that the runTask is null for non-host platforms.
         runTask?.dependsOn(prepareForRun)
+    }
+
+    framework('my_framework' [RELEASE]) {
+        // Include a static library instead of a dynamic one into the framework.
+        isStatic = true
     }
 }
 
@@ -1975,6 +1982,11 @@ binaries {
         // Accessing the run task.
         // Note that the runTask is null for non-host platforms.
         runTask?.dependsOn(prepareForRun)
+    }
+
+    framework("my_framework" listOf(RELEASE)) {
+        // Include a static library instead of a dynamic one into the framework.
+        isStatic = true
     }
 }
 
