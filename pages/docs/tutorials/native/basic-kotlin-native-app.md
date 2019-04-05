@@ -22,12 +22,12 @@ In this tutorial, we'll look at how to
 ## Obtaining the Compiler
 
 Kotlin/Native is available for macOS, Linux, and Windows. While cross-platform compilation is possible
-(i.e. using one platform to compile for another), in this first tutorial
-we will only compile for the operating system we're running on. 
+(i.e., using one platform to compile for another), in this first tutorial
+we are only compiling for the operating system we're running on. 
 
 The best way to use the Kotlin/Native compiler is with a build system.
 It helps by downloading and caching the Kotlin/Native compiler binaries and libraries with
-transitive dependencies, and it runs the compiler and tests.
+transitive dependencies, and running the compiler and tests.
 The compilation results are cached too.
 A build system can also be used by an IDE to understand the project layout.
 
@@ -36,7 +36,7 @@ Kotlin/Native uses the [Gradle](https://gradle.org) build system through the
 We'll look at how to configure a Gradle build below.
 For some corner cases, a Kotlin/Native compiler can still be obtained manually (not recommended)
 from the [Kotlin releases page on GitHub](https://github.com/JetBrains/kotlin/releases).
-In the tutorial, we will focus on using the Gradle builds. 
+In the tutorial, we are focussing on using the Gradle builds. 
 
 While the output of the compiler does not have any dependencies or virtual machine requirements,
 the compiler itself and the Gradle build system require a Java 1.8 or 11 runtime. Check out the 
@@ -45,7 +45,7 @@ for the best JRE, OpenJDK, or JDK distribution.
 
 ## Creating Hello Kotlin
 
-Our first application is simply going to print some text on the standard output. In our case, this text will be "Hello Kotlin/Native". 
+Our first application is simply going to print some text on the standard output. In our case, this text is "Hello Kotlin/Native". 
 We can open up our favorite IDE or editor and write the following code in a file named `hello.kt`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -69,15 +69,15 @@ kotlinc-native hello.kt -o hello
 
 While compilation from the console seems to be easy and clear, we should notice, that it
 does not scale well for bigger projects with hundreds of files and libraries.
-In addition to this, the command line approach does not explain to an IDE how to open such project,
+In addition to this, the command line approach does not explain to an IDE how to open such a project,
 where the sources are located, what dependencies are used, or how the dependencies are downloaded and so on.  
 
 ## Setting up an IDE
 
-We will use [IntelliJ IDEA](https://jetbrains.com/idea) for this tutorial.
+We are using [IntelliJ IDEA](https://jetbrains.com/idea) for this tutorial.
 Both the [free and open source](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html)
 IntelliJ IDEA [Community Edition](https://www.jetbrains.com/idea/download) and
-IntelliJ IDEA Ultimate Edition will work for the tutorial. 
+IntelliJ IDEA Ultimate Edition work for this tutorial. 
 We can download and install both of them from [https://jetbrains.com/idea/download](https://jetbrains.com/idea/download) if necessary.
 The Kotlin plugin is included with IntelliJ IDEA by default, but still, we need to make sure the Kotlin plugin version
 is {{ site.data.releases.latest.version }} (or newer) in the _Settings_ or _Preferences_ dialog, under
@@ -106,7 +106,7 @@ code completion.
 Kotlin as a statically typed programming language plays well for writing
 Gradle build scripts.
 Thanks to the static type inference, the Kotlin compiler detects errors earlier and
-shows helpful compilation error messages and warnings.
+shows important compilation error messages and warnings.
 Both an IDE and the compiler can use the information about types to infer
 the available functions and properties in a given scope. 
 
@@ -292,8 +292,8 @@ tasks.withType<Wrapper> {
 Depending on the target platform, we use different [functions](/docs/reference/building-mpp-with-gradle.html),
 e.g. `macosX64`, `mingwX64`, `linuxX64`,
 to create the Kotlin target. The function name is the platform which we compile our code for. 
-These functions optionally take the target name as a parameter, which is `"native"`
-in our case. The specified target name is used to generate the source paths and task names in the project.  
+These functions optionally take the target name as a parameter, which is `"native"` in our case. 
+The specified target name is used to generate the source paths and task names in the project.  
 
 We need to create an empty
 <span class="multi-language-span" data-lang="kotlin">
@@ -306,24 +306,24 @@ file in the project root directory.
 By the convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` folders.
 It creates _main_ and _test_ source sets for every target. Let's place the `hello.kt`
 we previously created into the _main_ source set folder, which is `src/nativeMain/kotlin`. 
-The `nativeMain` folder comes from the `"native"` target name, that we specified in the build script above.
+The `nativeMain` folder comes from the `"native"` target name which we specified in the build script above.
 
 The project is ready. The next step is to open it in IntelliJ IDEA. For advanced build scenarios,
 it is recommended to refer to the
 [more detailed](/docs/reference/building-mpp-with-gradle.html#setting-up-a-multiplatform-project)
 documentation.
 
-For anyone wanting to continue on without an IDE, the 
-[Gradle](https://gradle.org) build tool will need to be downloaded and installed.
-Make sure you use the right version of Gradle (e.g. {{ site.data.releases.tutorials.native.gradle_version }} or newer).
+Anyone wanting to continue on without an IDE, will need to download and install the
+[Gradle](https://gradle.org) build tool.
+Make sure to use the right version of Gradle (e.g. {{ site.data.releases.tutorials.native.gradle_version }} or newer).
 Running the `gradle wrapper` command will complete the project creation.
 [Getting Started with Gradle](https://docs.gradle.org/current/userguide/getting_started.html)
-explains more details on how to start using Gradle projects. 
+explains in detail how to start using Gradle projects. 
 
 ## Opening the Project in IDE
 
 At this point, we should have a Gradle project that is ready to be opened in an IDE.
-IntelliJ IDEA (CLion, AppCode, or AndroidStudio) will help us to generate the
+IntelliJ IDEA (CLion, AppCode, or AndroidStudio) helps us to generate the
 [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
 scripts for our project. 
 
@@ -352,8 +352,8 @@ for the best JRE, OpenJDK, or JDK distribution.
 
 ## Running the application
 
-Usually, a native binary can be compiled as _debug_ with more debug information and less optimizations and _release_,
-where optimizations are enabled and there is no (or at least less) debug information available.  
+Usually, a native binary can be compiled as _debug_ with more debug information and fewer optimizations and _release_,
+where optimizations are enabled, and there is no (or at least less) debug information available.  
 The binary files are created in the `build/bin/native/debugExecutable` or `build/bin/native/releaseExecutable`
 folders respectively. The file has a `.kexe` extension on Linux and macOS and an `.exe` extension on Windows. Use the following command
 to instruct the build to produce binaries:
