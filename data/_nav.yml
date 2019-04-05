@@ -336,8 +336,9 @@ tutorials:
       content:
         - url: /docs/tutorials/native/basic-kotlin-native-app.html
           title: Basic Kotlin/Native Application
-        - url: /docs/tutorials/native/gradle-for-kotlin-native.html
-          title: Gradle for Kotlin/Native
+#        - url: /docs/tutorials/native/gradle-for-kotlin-native.html
+#          title: Gradle for Kotlin/Native
+#          TODO: include Gradle + Kotlin/Native library tutorial
         - url: /docs/tutorials/native/targeting-multiple-platforms.html
           title: Targeting Multiple Platforms
         - url: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
