@@ -224,6 +224,8 @@ def process_page(page_path):
     get_nav()
 
     page = pages.get_or_404(page_path)
+    if 'redirect_path' in page.meta and page.meta['redirect_path'] is not None:
+        return render_template('redirect.html', url=url_for('page', page_path=page.meta['redirect_path']))
 
     if 'date' in page.meta and page['date'] is not None:
         page.meta['formatted_date'] = page.meta['date'].strftime('%d %B %Y')
