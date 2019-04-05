@@ -78,7 +78,7 @@ We will use [IntelliJ IDEA](https://jetbrains.com/idea) for this tutorial.
 Both the [free and open source](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html)
 IntelliJ IDEA [Community Edition](https://www.jetbrains.com/idea/download) and
 IntelliJ IDEA Ultimate Edition will work for the tutorial. 
-We can download and install both of them from [https://jetbrains.com/idea](https://jetbrains.com/idea/download) if necessary.
+We can download and install both of them from [https://jetbrains.com/idea/download](https://jetbrains.com/idea/download) if necessary.
 The Kotlin plugin is included with IntelliJ IDEA by default, but still, we need to make sure the Kotlin plugin version
 is {{ site.data.releases.latest.version }} (or newer) in the _Settings_ or _Preferences_ dialog, under
 the Language & Frameworks | Kotlin section.
