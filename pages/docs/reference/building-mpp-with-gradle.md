@@ -2101,6 +2101,91 @@ binaries {
 </div>
 </div>
 
+#### Building universal frameworks
+
+By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, such frameworks can be merged
+into a single universal (fat) binary using the `lipo` utility. Particularly, such an operation makes sense for 32-bit and 64-bit iOS
+frameworks. In this case the resulting universal framework can be used on both 32-bit and 64-bit devices.
+
+The Gradle plugin provides a separate task that creates a universal framework for iOS targets from several regular ones.
+The example below shows how to use this task. Note that the fat framework must have the same base name as the initial frameworks.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
+
+kotlin {
+    // Create and configure the targets.
+    targets {
+        iosArm32("ios32")
+        iosArm64("ios64")
+
+        configure([ios32, ios64]) {
+            binaries.framework {
+                baseName = "my_framework"
+            }
+        }
+    }
+
+    // Create a task building a fat framework.
+    task debugFatFramework(type: FatFrameworkTask) {
+        // The fat framework must have the same base name as the initial frameworks.
+        baseName = "my_framework"
+
+        // The default destination directory is '<build directory>/fat-framework'.
+        destinationDir = file("$buildDir/fat-framework/debug")
+
+        // Specify the frameworks to be merged.
+        from(
+            targets.ios32.binaries.getFramework("DEBUG"),
+            targets.ios64.binaries.getFramework("DEBUG")
+        )
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
+
+kotlin {
+    // Create and configure the targets.
+    val ios32 = iosArm32("ios32")
+    val ios64 = iosArm64("ios64")
+
+    configure(listOf(ios32, ios64)) {
+        binaries.framework {
+            baseName = "my_framework"
+        }
+    }
+
+    // Create a task building a fat framework.
+    tasks.create("debugFatFramework", FatFrameworkTask::class) {
+        // The fat framework must have the same base name as the initial frameworks.
+        baseName = "my_framework"
+
+        // The default destination directory is '<build directory>/fat-framework'.
+        destinationDir = buildDir.resolve("fat-framework/debug")
+
+        // Specify the frameworks to be merged.
+        from(
+            ios32.binaries.getFramework("DEBUG"),
+            ios64.binaries.getFramework("DEBUG")
+        )
+    }
+}
+```
+
+</div>
+</div>
+
 ### CInterop support
 
 Since Kotlin/Native provides [interoperability with native languages](/docs/reference/native/c_interop.html),
