@@ -321,6 +321,7 @@ Running the `gradle wrapper` command will complete the project creation.
 explains in detail how to start using Gradle projects. 
 
 ## Opening the Project in IDE
+<a name="openning-in-ide"></a>
 
 At this point, we should have a Gradle project that is ready to be opened in an IDE.
 IntelliJ IDEA (CLion, AppCode, or AndroidStudio) helps us to generate the
