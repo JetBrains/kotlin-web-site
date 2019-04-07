@@ -27,6 +27,13 @@ It is not required to match directories and packages: source files can be placed
 
 See [Packages](packages.html).
 
+## Entrance of program
+```kotlin
+fun main() {
+    println("Hello World!")
+}
+```
+
 ## Defining functions
 
 Function having two `Int` parameters with `Int` return type:
