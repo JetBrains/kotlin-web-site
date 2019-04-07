@@ -7,7 +7,7 @@ title: "Collections: List, Set, Map"
 
 # Collections: List, Set, Map
 
-Unlike many languages, Kotlin distinguishes between mutable and immutable collections (lists, sets, maps, etc). Precise control over exactly when collections can be edited is useful for eliminating bugs, and for designing good APIs.
+Unlike many languages, Kotlin distinguishes between mutable and immutable views of collections (lists, sets, maps, etc). Precise control over exactly when collections can be edited is useful for eliminating bugs, and for designing good APIs.
 
 It is important to understand up front the difference between a read-only _view_ of a mutable collection, and an actually immutable collection. Both are easy to create, but the type system doesn't express the difference, so keeping track of that (if it's relevant) is up to you.
 
