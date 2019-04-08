@@ -1,0 +1,20 @@
+plugins {
+    kotlin("multiplatform") version "{{ site.data.releases.latest.version }}"
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  macosX64("native") {
+    binaries {
+      executable()
+    }
+  }
+}
+
+tasks.withType<Wrapper> {
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = Wrapper.DistributionType.ALL
+}
