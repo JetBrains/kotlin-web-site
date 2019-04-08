@@ -289,6 +289,26 @@ tasks.withType<Wrapper> {
 </div>
 </div>
 
+You may also download prepared project sources directly from 
+<span class="multi-language-span" data-lang="kotlin" data-os="windows">
+[GitHub](https://github.com/JetBrains/kotlin-web-site-samples/archive/mpp-kn-app-kotlin-windows.zip)
+</span>
+<span class="multi-language-span" data-lang="kotlin" data-os="linux">
+[GitHub](https://github.com/JetBrains/kotlin-web-site-samples/archive/mpp-kn-app-kotlin-linux.zip)
+</span>
+<span class="multi-language-span" data-lang="kotlin" data-os="macos">
+[GitHub](https://github.com/JetBrains/kotlin-web-site-samples/archive/mpp-kn-app-kotlin-macos.zip)
+</span>
+<span class="multi-language-span" data-lang="groovy" data-os="windows">
+[GitHub](https://github.com/JetBrains/kotlin-web-site-samples/archive/mpp-kn-app-groovy-windows.zip)
+</span>
+<span class="multi-language-span" data-lang="groovy" data-os="linux">
+[GitHub](https://github.com/JetBrains/kotlin-web-site-samples/archive/mpp-kn-app-groovy-linux.zip)
+</span>
+<span class="multi-language-span" data-lang="groovy" data-os="macos">
+[GitHub](https://github.com/JetBrains/kotlin-web-site-samples/archive/mpp-kn-app-groovy-macos.zip)
+</span>
+
 Depending on the target platform, we use different [functions](/docs/reference/building-mpp-with-gradle.html),
 e.g. `macosX64`, `mingwX64`, `linuxX64`,
 to create the Kotlin target. The function name is the platform which we compile our code for. 
