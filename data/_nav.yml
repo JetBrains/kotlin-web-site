@@ -336,8 +336,6 @@ tutorials:
       content:
         - url: /docs/tutorials/native/basic-kotlin-native-app.html
           title: Basic Kotlin/Native Application
-        - url: /docs/tutorials/native/targeting-multiple-platforms.html
-          title: Targeting Multiple Platforms
         - url: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
           title: Mapping Primitive Data Types from C
         - url: /docs/tutorials/native/mapping-struct-union-types-from-c.html
