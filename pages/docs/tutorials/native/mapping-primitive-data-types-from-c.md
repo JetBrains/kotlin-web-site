@@ -91,7 +91,7 @@ void doubles(float a, double b) { }
 ```
 </div>
 
-The `lib-with-code.def` file is enough to compile and run the application or open it in an IDE.
+The `interop.def` file is enough to compile and run the application or open it in an IDE.
 Now it is time to create project files, open the project in
 [IntelliJ IDEA](https://jetbrains.com/idea) and run it. 
 
