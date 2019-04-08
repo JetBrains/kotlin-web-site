@@ -1,5 +1,6 @@
 from src.markdown.makrdown import jinja_aware_markdown
 
+CACHE_TYPE = "null"
 PREFERRED_URL_SCHEME = 'http'
 SERVER_NAME = 'localhost:5000'
 FLATPAGES_EXTENSION = '.md'

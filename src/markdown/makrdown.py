@@ -56,7 +56,8 @@ def customized_markdown(text):
     return html
 
 
-def jinja_aware_markdown(text, flatPages):
+def jinja_aware_markdown(text, flatPages, page):
+
     text = include_contents_from_files(text)
     app = flatPages.app
     template_context = {}
