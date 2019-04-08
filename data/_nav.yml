@@ -353,9 +353,9 @@ tutorials:
         - url: /docs/tutorials/multiplatform-library.html
           title: Publishing a Kotlin/Native Library
         - url: /docs/tutorials/native/curl.html
-          title: "Using C Interop and libcurl for an App"
+          title: Using C Interop and libcurl for an App
         - url: /docs/tutorials/native/mpp-ios-android.html
-          title: "Building iOS and Android App"
+          title: Building iOS and Android App
 
     - title: Coroutines
       content:
