@@ -9,9 +9,9 @@ showAuthorInfo: false
 issue: EVAN-5121
 ---
 
-With Kotlin/Native, we can compile a native binary for 
-the following platforms, including (as of Kotlin/Native v0.9.2): 
-- Windows (x86_64)
+With Kotlin/Native {{ site.data.releases.latest.version }}, we can compile a native binary for 
+the following platforms, including: 
+- Windows (mingw x86_64 and x86)
 - Linux (x86_64, arm32, MIPS, MIPS little endian)
 - MacOS (x86_64)
 - iOS (arm32, arm64, x64)
@@ -19,17 +19,23 @@ the following platforms, including (as of Kotlin/Native v0.9.2):
 - STM32
 - WebAssembly (wasm32)
 
+Kotlin/Native supports cross compilation for Linux x86-64 and arm32 targets
+on Windows and macOS hosts.
+
 In this tutorial, we will see how to
 
 * [Specify a Target Platform](#specifying-a-target-platform)
 * [Build for a Specific Platform](#building-for-a-specific-platform)
 * [Build a Console Utility for several Operating Systems](#building-a-console-utility)
 
-We need to have a Kotlin/Native compiler on our machines. 
-The
-[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial covers that step in details
-Let's assume we have a console, where `kotlinc-native` command is available. 
+We need to download and open a basic Kotlin/Native project. The project
+uses the Gradle build system and it is ready to open in an
+[IntelliJ IDEA](https://jetbrains.com/idea) or other IDEs.
+For more detailed description, we may check out
+The [A Basic Kotlin/Native Application](basic-kotlin-native-app.html)
+tutorial. Let's assume we have the sample project opened in
+IntelliJ IDEA. 
+
 
 ## Specifying a Target Platform
 
