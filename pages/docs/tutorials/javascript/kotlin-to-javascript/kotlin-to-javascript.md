@@ -66,7 +66,7 @@ var ConsoleOutput = function (_, Kotlin) {
 ```
 </div>
 
-This is the JS code generated for the `main` function. You can see that it declares a function and assigns it to a variable named `ConsoleOutput` (the module name). 
+This is the JS code generated for the Kotlin code above (the `main` function). You can see that it declares a function and assigns it to a variable named `ConsoleOutput`, which is the module name. 
 
 Next, it defines the variable `println` that refers to the `kotlin.io.println` function from the passed in parameter `Kotlin`. 
 
