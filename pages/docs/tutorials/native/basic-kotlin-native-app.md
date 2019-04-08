@@ -52,7 +52,7 @@ We can open up our favorite IDE or editor and write the following code in a file
 
 ```kotlin
 fun main() {
-    println("Hello Kotlin/Native!")
+  println("Hello Kotlin/Native!")
 }
 ```
 </div>
