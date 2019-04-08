@@ -1,5 +1,32 @@
 import subprocess
 import hashlib
+import re
+import os
+
+root_folder = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+include_regex = re.compile("^\\s*\\[\\[\\s*(import|include)\\s+([^\\]]+)\\s*\\]\\]\\s*$", re.MULTILINE)
+
+
+def handle_match(m):
+    include_file: str = m.group(2).strip()
+
+    if not include_file.startswith('pages/') and \
+            not include_file.startswith('pages-includes/') and \
+            not include_file.startswith('externals/'):
+        raise Exception("Invalid [[include ]] for path: " + include_file +
+                        ", only 'externals/', 'pages-includes/', or 'pages/' are allowed")
+
+    include_path = os.path.join(root_folder, include_file)
+
+    with open(include_path, 'r', encoding="UTF-8") as f:
+        include_text = f.read()
+
+    return include_contents_from_files(include_text)
+
+
+def include_contents_from_files(text: str) -> str:
+    return include_regex.sub(handle_match, text)
+
 
 def customized_markdown(text):
 
@@ -30,6 +57,7 @@ def customized_markdown(text):
 
 
 def jinja_aware_markdown(text, flatPages):
+    text = include_contents_from_files(text)
     app = flatPages.app
     template_context = {}
     app.update_template_context(template_context)
