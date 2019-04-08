@@ -31,10 +31,10 @@ example. We will declare a struct and an union in the C language to see how they
 
 Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between the C language and Kotlin.
 It uses a `.def` file to specify a C library to import. More details are discussed in the
-[Interop with C Libraries](interop-with-c.html) tutorial.
+[Interop with C Libraries](/docs/reference/native/c_interop.html) tutorial.
  
 In [the previous tutorial](mapping-primitive-data-types-from-c.html) we created a `lib.h` file. This time, 
-we are going to include those declarations directly into the `lib.def` file, after the `---` separator line:
+we are going to include those declarations directly into the `interop.def` file, after the `---` separator line:
 
 <div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -62,12 +62,42 @@ void union_by_pointer(MyUnion* u) {}
 ``` 
 </div>
 
-Now we call:  
-```bash
-cinterop -def lib.def -o lib.klib
-klib contents lib.klib
+The `interop.def` file is enough to compile and run the application or open it in an IDE.
+Now it is time to create project files, open the project in
+[IntelliJ IDEA](https://jetbrains.com/idea) and run it. 
+
+## Inspecting Generated Kotlin APIs for a C library
+
+[[include pages-includes/docs/tutorials/native/mapping-primitive-data-types-gradle.md]]
+
+Let's create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
+to see how our C declarations are visible from Kotlin:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+import interop.*
+
+fun main() {
+  println("Hello Kotlin/Native!")
+  
+  struct_by_value(/* fix me*/)
+  struct_by_pointer(/* fix me*/)
+  union_by_value(/* fix me*/)
+  union_by_pointer(/* fix me*/)
+}
 ```
-and it prints the following Kotlin API for our C library with `struct` and `union` inside:
+</div>
+
+Now we are ready to
+[open the project in IntelliJ IDEA](basic-kotlin-native-app.html#open-in-ide)
+and to see how to fix the example project. While doing that,
+we'll examine how C primitive types are mapped into Kotlin/Native.
+
+## Primitive Types in Kotlin
+
+With the help of IntelliJ IDEA's _Goto Declaration_ or
+compiler errors we see the following generated API for our C functions, `struct`, and `union`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -262,6 +292,11 @@ fun callMix_value() {
 }
 ```
 </div>
+
+## Running the Code
+
+We may run the code via the following command to experiment with our implementations:
+[[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 ## Next Steps
 
