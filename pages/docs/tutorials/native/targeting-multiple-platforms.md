@@ -5,9 +5,13 @@ title:  "Targeting Multiple Platforms"
 description: "Compiling with Kotlin/Native for different platforms"
 authors: Eugene Petrenko
 date: 2018-07-10
-showAuthorInfo: false
 issue: EVAN-5121
+redirect_path: docs/tutorials/native/basic-kotlin-native-app
 ---
+
+
+THIS TEXT IS NOT SHOWN, WE REDIRECT
+
 
 With Kotlin/Native {{ site.data.releases.latest.version }}, we can compile a native binary for 
 the following platforms, including: 
