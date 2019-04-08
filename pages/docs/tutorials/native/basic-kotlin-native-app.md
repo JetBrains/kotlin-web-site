@@ -15,7 +15,7 @@ In this tutorial, we'll look at how to
 * [Obtain the Kotlin/Native compiler](#obtaining-the-compiler)
 * [Write the application](#creating-hello-kotlin)
 * [Create build files](#creating-a-kotlinnative-gradle-project)
-* [Set up an IDE](#setting-up-an-ide)
+* [Set up an IDE](#open-in-ide)
 * [Run the application](#running-the-application)
 
 
@@ -72,22 +72,12 @@ does not scale well for bigger projects with hundreds of files and libraries.
 In addition to this, the command line approach does not explain to an IDE how to open such a project,
 where the sources are located, what dependencies are used, or how the dependencies are downloaded and so on.  
 
-## Setting up an IDE
-
-We are using [IntelliJ IDEA](https://jetbrains.com/idea) for this tutorial.
-Both the [free and open source](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html)
-IntelliJ IDEA [Community Edition](https://www.jetbrains.com/idea/download) and
-IntelliJ IDEA Ultimate Edition work for this tutorial. 
-We can download and install both of them from [https://jetbrains.com/idea/download](https://jetbrains.com/idea/download) if necessary.
-The Kotlin plugin is included with IntelliJ IDEA by default, but still, we need to make sure the Kotlin plugin version
-is {{ site.data.releases.latest.version }} (or newer) in the _Settings_ or _Preferences_ dialog, under
-the Language & Frameworks | Kotlin section.
+## Creating a Kotlin/Native Gradle project
+<a name="create-gradle-project"></a>
 
 The _New Project_ wizard can be used to start a new Kotlin/Native project with just one click. 
 Check out the _Kotlin_ section and select the _Native | Gradle_ option to generate the project.
 For a better understanding and to explain what's happening, in this tutorial we'll create the project manually.
-
-## Creating a Kotlin/Native Gradle project
 
 Let's first create a project folder. All the paths in this tutorial will be relative to this folder. Sometimes
 the missing directories will have to be created before new files are added.
@@ -153,7 +143,17 @@ Running the `gradle wrapper` command will complete the project creation.
 explains in detail how to start using Gradle projects. 
 
 ## Opening the Project in IDE
-<a name="openning-in-ide"></a>
+<a name="open-in-ide"></a>
+
+We are using [IntelliJ IDEA](https://jetbrains.com/idea) for this tutorial.
+Both the [free and open source](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html)
+IntelliJ IDEA [Community Edition](https://www.jetbrains.com/idea/download) and
+IntelliJ IDEA Ultimate Edition work for this tutorial. 
+We can download and install both of them from [https://jetbrains.com/idea/download](https://jetbrains.com/idea/download) if necessary.
+The Kotlin plugin is included with IntelliJ IDEA by default, but still, we need to make sure the Kotlin plugin version
+is {{ site.data.releases.latest.version }} (or newer) in the _Settings_ or _Preferences_ dialog, under
+the Language & Frameworks | Kotlin section.
+
 
 At this point, we should have a Gradle project that is ready to be opened in an IDE.
 IntelliJ IDEA (CLion, AppCode, or AndroidStudio) helps us to generate the
@@ -244,32 +244,7 @@ where `target name` is the capitalized target name that we specified in the
 file out of our build, `"native"` in our case.
 Let's run the task from the console (or IDE) to see how it works:
 
-<div class="multi-language-sample" data-os="linux">
-<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
-
-```bash
-./gradlew runDebugExecutableNative
-```
-</div>
-</div>
-
-<div class="multi-language-sample" data-os="macos">
-<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
-
-```bash
-./gradlew runDebugExecutableNative
-```
-</div>
-</div>
-
-<div class="multi-language-sample" data-os="windows">
-<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
-
-```bash
-gradlew.bat runDebugExecutableNative
-```
-</div>
-</div>
+[[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 The output should be:
 

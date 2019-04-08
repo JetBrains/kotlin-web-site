@@ -60,3 +60,11 @@ generate_code_block "basic-kotlin-native-app-codeblocks" mpp-kn-app-kotlin-macos
 generate_code_block "basic-kotlin-native-app-codeblocks" mpp-kn-app-kotlin-linux   kotlin linux   build.gradle.kts
 generate_code_block "basic-kotlin-native-app-codeblocks" mpp-kn-app-kotlin-windows kotlin windows build.gradle.kts
 
+
+generate_code_block "mapping-primitive-data-types-from-c" mpp-kn-app-groovy-macos-c   groovy macos   build.gradle
+generate_code_block "mapping-primitive-data-types-from-c" mpp-kn-app-groovy-linux-c   groovy linux   build.gradle
+generate_code_block "mapping-primitive-data-types-from-c" mpp-kn-app-groovy-windows-c groovy windows build.gradle
+
+generate_code_block "mapping-primitive-data-types-from-c" mpp-kn-app-kotlin-macos-c   kotlin macos   build.gradle.kts
+generate_code_block "mapping-primitive-data-types-from-c" mpp-kn-app-kotlin-linux-c   kotlin linux   build.gradle.kts
+generate_code_block "mapping-primitive-data-types-from-c" mpp-kn-app-kotlin-windows-c kotlin windows build.gradle.kts
