@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Mapping Primitive Data Types from C"
 description: "Primitive Data types from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
-date: 2018-07-23
+date: 2019-04-04
 showAuthorInfo: false
 issue: EVAN-5343
 ---

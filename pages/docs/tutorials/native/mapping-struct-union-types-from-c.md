@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Mapping Struct and Union Types from C"
 description: "Struct and Union types from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
-date: 2018-07-23
+date: 2019-04-04
 showAuthorInfo: false
 issue: EVAN-5343
 ---
@@ -295,8 +295,50 @@ fun callMix_value() {
 
 ## Running the Code
 
-We may run the code via the following command to experiment with our implementations:
+We learned how to use C declarations in our code, we are ready to try
+it on a real example. Let's fix our code and see how it runs via the
+following command:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
+
+
+The final code in the `hello.kt` file may look like that:
+ 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+import interop.*
+import kotlinx.cinterop.alloc
+import kotlinx.cinterop.cValue
+import kotlinx.cinterop.memScoped
+import kotlinx.cinterop.ptr
+import kotlinx.cinterop.readValue
+
+fun main() {
+  println("Hello Kotlin/Native!")
+
+  val cUnion = cValue<MyUnion> {
+    b.a = 5
+    b.b = 2.7182
+  }
+
+  memScoped {
+    union_by_value(cUnion)
+    union_by_pointer(cUnion.ptr)
+  }
+
+  memScoped {
+    val cStruct = alloc<MyStruct> {
+      a = 42
+      b = 3.14
+    }
+
+    struct_by_value(cStruct.readValue())
+    struct_by_pointer(cStruct.ptr)
+  }
+}
+```
+</div>
+
 
 ## Next Steps
 
@@ -306,5 +348,5 @@ Join us to continue exploring the C language types and their representation in K
 - [Mapping Strings from C](mapping-strings-from-c.html)
 
 The [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
-documentation covers more advanced scenarios of the interop.
+documentation covers more advanced scenarios of the interop
 
