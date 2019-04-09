@@ -67,14 +67,14 @@ var ConsoleOutput = function (_, Kotlin) {
 </div>
 
 This is the JS code generated for the Kotlin code above (the `main` function). Let's have a closer look at it.
-* `if (typeof kotlin === 'undefined') { ... }`: this `if` statement checks the existence of the `kotlin` object which is defined in `kotlin.js` and provides access to declarations from the Kotlin runtime and standard library.
-* `var ConsoleOutput = function (_, Kotlin) { ... }`: this is the variable named after your Kotlin module. Its value is the result of an anonymous function call.
+* `if (typeof kotlin === 'undefined') { ... }` checks the existence of the `kotlin` object defined in `kotlin.js`. This object provides access to declarations from the Kotlin runtime and standard library.
+* `var ConsoleOutput = function (_, Kotlin) { ... }`: this is the variable named after your Kotlin module. Its value is the result of an anonymous function call. The rest of the code is the function body.
 * `var println = Kotlin.kotlin.io.println_s8jyv4$;`: a variable that refers to the `kotlin.io.println` function from the passed in parameter `Kotlin`. This is a way to import the standard `println` function defined in `kotlin.js`.
 * `function main(args) { ... }`: your `main` function.
 * `_.main_kand9s$ = main;` exports the declared `main` function to the variable for future use. On the left side, 
 the compiler is suffixing `main` with a mangled word (`kand9s$`). 
-This happens due to the possibility to have overloaded functions in `Kotlin` and there needs to be a way to translate these to their corresponding JavaScript ones.
-To define a custom function name in the generated JS code, use the [`@JsName` annotation](/docs/reference/js-to-kotlin-interop.html#jsname-annotation).
+This happens because you can have overloaded functions in Kotlin and need a way to translate them to their corresponding JavaScript ones.
+To change the generated function name with a custom name, use the [`@JsName` annotation](/docs/reference/js-to-kotlin-interop.html#jsname-annotation).
 * `main([]);`: a call of the `main` function.
 * `(typeof ConsoleOutput === 'undefined' ? {} : ConsoleOutput, kotlin);` checks the existence of `ConsoleOutput`. If such a variable already exists in the scope, the new declarations will be added to it. 
 
