@@ -156,7 +156,7 @@ as it is usually an 8-bit signed value.
 
 ## Fixing the Code
 
-We see all definitions and it is the time to fix the code. We may run the code via the following
+We've seen all definitions and it is the time to fix the code. We may run the code via the following
 command:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
