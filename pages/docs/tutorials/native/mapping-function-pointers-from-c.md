@@ -33,7 +33,7 @@ another function that returns a function pointer.
 
 Kotlin/Native comes with the `cinterop` tool; the tool generates bindings between the C language and Kotlin.
 It uses a `.def` file to specify a C library to import. More details on this are
-in the [Interop with C Libraries](interop-with-c.html) tutorial.
+in the [Interop with C Libraries](/docs/reference/native/c_interop.html) tutorial.
  
 The quickest way to try out C API mapping is to have all C declarations in the
 `interop.def` file, without creating any `.h` of `.c` files at all. Then place the C declarations 
