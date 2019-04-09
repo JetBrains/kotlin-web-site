@@ -66,27 +66,32 @@ var ConsoleOutput = function (_, Kotlin) {
 ```
 </div>
 
-This is the JS code generated for the Kotlin code above (the `main` function). You can see that it declares a function and assigns it to a variable named `ConsoleOutput`, which is the module name. 
+This is the JS code generated for the Kotlin code above (the `main` function). Let's have a closer look at it.
+* `if (typeof kotlin === 'undefined') { ... }`: this `if` statement checks the existence of the `kotlin` object which is defined in `kotlin.js` and provides access to declarations from the Kotlin runtime and standard library.
+* `var ConsoleOutput = function (_, Kotlin) { ... }`: this is the variable named after your Kotlin module. Its value is the result of an anonymous function call.
+* `var println = Kotlin.kotlin.io.println_s8jyv4$;`: a variable that refers to the `kotlin.io.println` function from the passed in parameter `Kotlin`. This is a way to import the standard `println` function defined in `kotlin.js`.
+* `function main(args) { ... }`: your `main` function.
+* `_.main_kand9s$ = main;` exports the declared `main` function to the variable for future use. On the left side, 
+the compiler is suffixing `main` with a mangled word (`kand9s$`). 
+This happens due to the possibility to have overloaded functions in `Kotlin` and there needs to be a way to translate these to their corresponding JavaScript ones.
+To define a custom function name in the generated JS code, use the [`@JsName` annotation](/docs/reference/js-to-kotlin-interop.html#jsname-annotation).
+* `main([]);`: a call of the `main` function.
+* `(typeof ConsoleOutput === 'undefined' ? {} : ConsoleOutput, kotlin);` checks the existence of `ConsoleOutput`. If such a variable already exists in the scope, the new declarations will be added to it. 
 
-Next, it defines the variable `println` that refers to the `kotlin.io.println` function from the passed in parameter `Kotlin`. 
+Since the entire anonymous function is self-executing, it will execute as soon as the code is loaded. Its argument will be the object `kotlin` from `kotlin.js`.
 
-Then goes the `main` function. If you declared the code in a package, `main` would be followed by a package definition part. For example, this is generated if you put the `main` function in the `org.example.hellojs` package:
+If you declare you Kotlin code in a package, `main` would be followed by a package definition part. For example, this is goes after the `main` declaration if you put your `main` function in the `org.example.hellojs` package:
  
- <div class="sample" markdown="1" theme="idea" mode="js">
+<div class="sample" markdown="1" theme="idea" mode="js">
  
- ```javascript
+```javascript
   var package$org = _.org || (_.org = {});
   var package$example = package$org.example || (package$org.example = {});
   var package$hellojs = package$example.hellojs || (package$example.hellojs = {});
+  package$hellojs.main_kand9s$ = main;
 ```
 </div>
 
-The compiler is suffixing `main` with a mangled word (`kand9s$`). This happens due to the possibility to have overloaded functions in `Kotlin` and there needs to be a way to
-translate these to their corresponding JavaScript ones. To define a custom function name in the generated JS code, use the [`@JsName` annotation](/docs/reference/js-to-kotlin-interop.html#jsname-annotation). 
-
-Finally, the code defines the module with the `defineModule` function. 
-
-Given this is a self-executing-function, as soon as the code is loaded, it will execute, taking in as parameter the object `kotlin` which is defined in `kotlin.js` and provides access to all the functions used.
 
 
 #### Running the code
