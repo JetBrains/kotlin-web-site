@@ -114,7 +114,7 @@ In "clever words", the wildcard with an **extends**\-bound (**upper** bound) mak
 
 The key to understanding why this trick works is rather simple: if you can only **take** items from a collection, then using a collection of `String`s
 and reading `Object`s from it is fine. Conversely, if you can only _put_ items into the collection, it's OK to take a collection of
-`Object`s and put `String`s into it: in Java we have `List<? super String>` a **supertype** of `List<Object>`.
+`Object`s and put `String`s into it: in Java we have `List<? super String>` a **supertype** of `List<String>`.
  
 The latter is called **contravariance**, and you can only call methods that take String as an argument on `List<? super String>` 
 (e.g., you can call `add(String)` or `set(int, String)`), while 
