@@ -107,9 +107,12 @@ We create
 <span class="multi-language-span" data-lang="kotlin">
 `build.gradle.kts` 
 </span>
-Gradle build file with the following contents:
 
-[[include pages-includes/docs/tutorials/native/basic-kotlin-native-app-code.md]]
+Gradle build file with the following contents:
+[[include pages-includes/docs/tutorials/native/basic-kotlin-native-app-codeblocks-code.md]]
+
+You may also download prepared project sources directly from 
+[[include pages-includes/docs/tutorials/native/basic-kotlin-native-app-codeblocks-link.md]]
 
 Depending on the target platform, we use different [functions](/docs/reference/building-mpp-with-gradle.html),
 e.g. `macosX64`, `mingwX64`, `linuxX64`,
