@@ -1,4 +1,4 @@
-[[include pages-includes/docs/tutorials/native/lets0create-gradle-build.md]]
+[[include pages-includes/docs/tutorials/native/lets-create-gradle-build.md]]
 [[include pages-includes/docs/tutorials/native/mapping-primitive-data-types-from-c-code.md]]
 
 You may also download the project skeleton directly from 
