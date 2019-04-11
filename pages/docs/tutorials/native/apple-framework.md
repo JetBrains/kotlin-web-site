@@ -35,7 +35,7 @@ and binaries needed to use it with Objective-C and Swift.
 The best way to understand the techniques is to try it for ourselves. 
 Let's create a tiny Kotlin library first and use it from an Objective-C program.
 
-We create the `lib.kt` file with the library contents:
+We create the `hello.kt` file with the library contents:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -66,23 +66,49 @@ fun supplyFun() : (String) -> String? = { "$it is cool!" }
 ```
 </div>
 
-We need to have a Kotlin/Native compiler on our machines. 
-More information on performing this step can be found in the
-[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial.
-Let's assume we have a console, where the `kotlinc-native` command is available. 
 
-Now let's call the following commands to compile the code into frameworks
-for macOS, iOS, and an iOS simulator respectively:
-```bash
-kotlinc-native lib.kt -produce framework -target macos_x64 -output macOS/Demo
-kotlinc-native lib.kt -produce framework -target ios_arm64 -output iOS/Demo
-kotlinc-native lib.kt -produce framework -target ios_x64 -output iOS_sim/Demo
+[[include pages-includes/docs/tutorials/native/lets-create-gradle-build.md]]
+[[include pages-includes/docs/tutorials/native/apple-framework-code.md]]
+
+You may also download the project skeleton directly from 
+[[include pages-includes/docs/tutorials/native/apple-framework-link.md]]
+
+Let's move the sources file into the `src/nativeMain/kotlin` folder under
+the project. That is the default path, where sources are located, when
+the [kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html)
+plugin is used. We use the following block to instruct configure the project
+to generate a dynamic or shared library for us: 
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+binaries {
+  framework {
+    baseName = "Demo"
+  }  
+}
 ```
+</div>
 
-The `kotlinc-native` generates three frameworks for us, named `Demo.framework` under 
-`macOS`, `iOS`, and `iOS_sim` folders respectively.
+Along with `macOS X64`, Kotlin/Native supports iOS `arm32`, `arm64` and `X64`
+targets. We may replace the `macosX64` with respective functions as shown
+in the table:
 
+| Target platform/device | Gradle function |
+|------------------------|-----------------|
+| macOS x86_64           | `macosX64`      | 
+| iOS ARM 32             | `iosArm32`      | 
+| iOS ARM 64             | `iosArm64`      | 
+| iOS Simulator (x86_64) | `iosX64`        |
+{:.zebra}
+ 
+
+Depending on the variant, the build generates the framework
+into the
+`build/bin/native/debugFramework`
+and
+`build/bin/native/releaseFramework`
+folders.
 Let's see what is inside
 
 ## Generated Framework Headers

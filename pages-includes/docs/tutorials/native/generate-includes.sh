@@ -78,3 +78,6 @@ generate_code_block "dynamic-library"  mpp-kn-shared-lib-groovy-windows groovy w
 generate_code_block "dynamic-library"  mpp-kn-shared-lib-kotlin-linux   kotlin macos   build.gradle.kts
 generate_code_block "dynamic-library"  mpp-kn-shared-lib-kotlin-macos   kotlin linux   build.gradle.kts
 generate_code_block "dynamic-library"  mpp-kn-shared-lib-kotlin-windows kotlin windows build.gradle.kts
+
+generate_code_block "apple-framework"  mpp-kn-framework-groovy-macos-mac      groovy macos   build.gradle
+generate_code_block "apple-framework"  mpp-kn-framework-kotlin-macos-mac      kotlin macos   build.gradle.kts
