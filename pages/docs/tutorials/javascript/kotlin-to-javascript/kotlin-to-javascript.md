@@ -71,8 +71,7 @@ This is the JS code generated for the Kotlin code above (the `main` function). L
 * `var ConsoleOutput = function (_, Kotlin) { ... }`: this is the variable named after your Kotlin module. Its value is the result of an anonymous function call. The rest of the code is the function body.
 * `var println = Kotlin.kotlin.io.println_s8jyv4$;`: a variable that refers to the `kotlin.io.println` function from the passed in parameter `Kotlin`. This is a way to import the standard `println` function defined in `kotlin.js`.
 * `function main(args) { ... }`: your `main` function.
-* `_.main_kand9s$ = main;` exports the declared `main` function to the variable for future use. On the left side, 
-the compiler is suffixing `main` with a mangled word (`kand9s$`). 
+* `_.main_kand9s$ = main;` exports the declared `main` function. The name on the left-hand side will be used to access to the function from outside the module. The name contains a mangled word (`kand9s$`). 
 This happens because you can have overloaded functions in Kotlin and need a way to translate them to their corresponding JavaScript ones.
 To change the generated function name with a custom name, use the [`@JsName` annotation](/docs/reference/js-to-kotlin-interop.html#jsname-annotation).
 * `main([]);`: a call of the `main` function.
@@ -91,8 +90,6 @@ If you declare you Kotlin code in a package, `main` would be followed by a packa
   package$hellojs.main_kand9s$ = main;
 ```
 </div>
-
-
 
 #### Running the code
 
