@@ -59,7 +59,11 @@ apply plugin: 'kotlin-android-extensions'
 
 ### Enabling experimental features
 
-Android Extensions plugin includes several experimental features such as [`LayoutContainer` support](#layoutcontainer-support) and [flavor support](#flavor-support). These features are not considered production ready yet, so you need to turn on the _experimental mode_ in `build.gradle` in order to use them:
+Android Extensions plugin includes several experimental features:
+* [`LayoutContainer` support](#layoutcontainer-support)
+* [`Parcelable` implementation generator](#parcelable)
+* [Flavor support](#flavor-support)
+These features are not considered production ready yet, so you need to turn on the _experimental mode_ in `build.gradle` in order to use them:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
 
@@ -227,7 +231,11 @@ fun MyActivity.a() {
 
 ### Parcelable
 
-Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator.
+Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator as an experimental feature.
+
+### Enabling Parcelable support
+
+Apply the `kotlin-android-extensions` Gradle plugin as described [above](#configuring-the-dependency) and [turn on](#enabling-experimental-features) the experimental flag.
 
 #### How to use
 
