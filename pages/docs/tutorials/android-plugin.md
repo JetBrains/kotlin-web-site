@@ -59,7 +59,12 @@ apply plugin: 'kotlin-android-extensions'
 
 ### Enabling experimental features
 
-Android Extensions plugin includes several experimental features such as [`LayoutContainer` support](#layoutcontainer-support) and [flavor support](#flavor-support). These features are not considered production ready yet, so you need to turn on the _experimental mode_ in `build.gradle` in order to use them:
+Android Extensions plugin includes several experimental features:
+* [`LayoutContainer` support](#layoutcontainer-support) 
+* [Flavor support](#flavor-support)
+* [`Parcelable` implementation generator](#parcelable-implementations-generator)
+
+These features are not considered production ready yet, so you need to turn on the _experimental mode_ in `build.gradle` in order to use them:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
 
@@ -205,7 +210,7 @@ androidExtensions {
 ```
 </div>
 
-By default, Android Extensions plugin uses `HashMap` as a backing storage, but you can switch to the `SparseArray` implementation, or just switch off caching. The latter is especially useful when you use only the [Parcelable](#parcelable) part of Android Extensions.
+By default, Android Extensions plugin uses `HashMap` as a backing storage, but you can switch to the `SparseArray` implementation, or just switch off caching. The latter is especially useful when you use only the [Parcelable](#parcelable-implementations-generator) part of Android Extensions.
 
 Also, you can annotate a container with `@ContainerOptions` to change its caching strategy:
 
@@ -225,9 +230,10 @@ fun MyActivity.a() {
 ```
 </div>
 
-### Parcelable
+### `Parcelable` implementations generator
 
-Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator.
+Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator as an experimental feature.
+To be able to use it, [turn on](#enabling-experimental-features) the experimental flag.
 
 #### How to use
 
