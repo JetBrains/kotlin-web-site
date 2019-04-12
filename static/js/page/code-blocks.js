@@ -242,7 +242,16 @@ $(document).ready(($) => {
 
   generateTabs($, selectorGroups, updateState);
 
-  updateState()
+  updateState();
+
+  ///The page is updated white code elements are formatted or hidden,
+  ///the code ensures the page is finally scrolled to the anchor/hash
+  setTimeout(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      window.location.hash = hash;
+    }
+  }, 10);
 });
 
 
