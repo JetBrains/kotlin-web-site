@@ -60,7 +60,7 @@ apply plugin: 'kotlin-android-extensions'
 ### Enabling experimental features
 
 Android Extensions plugin includes several experimental features:
-* [`LayoutContainer` support](#layoutcontainer-support)* 
+* [`LayoutContainer` support](#layoutcontainer-support) 
 * [Flavor support](#flavor-support)
 * [`Parcelable` implementation generator](#parcelable-implementations-generator)
 
