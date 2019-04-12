@@ -228,8 +228,8 @@ array into Kotlin `String`, assuming UTF-8 encoding.
 
 ## Fixing the Code
 
-We've seen all definitions and it is the time to fix the code. We may run the code via the following
-command:
+We've seen all definitions and it is the time to fix the code. 
+Let's run the `runDebugExecutableNative` Gradle task in IDE or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 The final code in the `hello.kt` file may look like that:

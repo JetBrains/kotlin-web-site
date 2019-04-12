@@ -296,8 +296,8 @@ fun callMix_value() {
 ## Running the Code
 
 We learned how to use C declarations in our code, we are ready to try
-it on a real example. Let's fix our code and see how it runs via the
-following command:
+it on a real example. Let's fix our code and see how it runs by calling the 
+`runDebugExecutableNative` Gradle task in IDE or via the following console command:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 

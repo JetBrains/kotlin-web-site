@@ -21,7 +21,11 @@ In this tutorial, we'll look at how to
 
 ## Obtaining the Compiler
 
-Kotlin/Native is available for macOS, Linux, and Windows. While cross-platform compilation is possible
+Kotlin/Native compiler is available for macOS, Linux, and Windows. It support
+different targets including iOS (arm32, arm64, simulator x86_64), Windows (mingw32 and x86_64),
+Linux (x86_64, arm64, MIPS), macOS (x86_64), Raspberry PI, SMT32, WASM. For the full list of targets
+we may refer to the [Kotlin/Native overview](/docs/reference/native-overview.html).
+While cross-platform compilation is possible
 (i.e., using one platform to compile for another), in this first tutorial
 we are only compiling for the operating system we're running on. 
 
@@ -40,7 +44,7 @@ In the tutorial, we are focussing on using the Gradle builds.
 
 While the output of the compiler does not have any dependencies or virtual machine requirements,
 the compiler itself and the Gradle build system require a Java 1.8 or 11 runtime. Check out the 
-[https://jdk.java.net/11](https://jdk.java.net/11/) or [https://adoptopenjdk.net/](https://adoptopenjdk.net/)
+[https://jdk.java.net/11](https://jdk.java.net/11/) or another resource 
 for the best JRE, OpenJDK, or JDK distribution.
 
 ## Creating Hello Kotlin
@@ -75,7 +79,7 @@ where the sources are located, what dependencies are used, or how the dependenci
 ## Creating a Kotlin/Native Gradle project
 <a name="create-gradle-project"></a>
 
-The _New Project_ wizard can be used to start a new Kotlin/Native project with just one click. 
+The _New Project_ wizard in IntelliJ IDEA can be used to start a new Kotlin/Native project with just one click. 
 Check out the _Kotlin_ section and select the _Native | Gradle_ option to generate the project.
 For a better understanding and to explain what's happening, in this tutorial we'll create the project manually.
 
@@ -245,8 +249,11 @@ where `target name` is the capitalized target name that we specified in the
 `build.gradle`
 </span>
 file out of our build, `"native"` in our case.
-Let's run the task from the console (or IDE) to see how it works:
+Let's run the task in the IDE. For that, let's open the Gradle Tool Window
+and find the task in the list: 
+![Gradle Import Dialog]({{ url_for('tutorial_img', filename='native/basic-kotlin-native/idea-run-gradle-task.png')}})
 
+Alternatively, we may call the following command from the console:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 The output should be:
