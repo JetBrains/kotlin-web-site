@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Kotlin/Native as a Dynamic Library"
 description: "Compiling Kotlin/Native code to a dynamic library"
 authors: Eugene Petrenko
-date: 2019-04-12
+date: 2019-04-15
 showAuthorInfo: false
 issue: EVAN-5371
 ---
@@ -64,7 +64,7 @@ val globalString = "A global String"
 [[include pages-includes/docs/tutorials/native/lets-create-gradle-build.md]]
 [[include pages-includes/docs/tutorials/native/dynamic-library-code.md]]
 
-You may also download the project skeleton directly from 
+The prepared project sources can be directly downloaded from 
 [[include pages-includes/docs/tutorials/native/dynamic-library-link.md]]
 
 Let's move the sources file into the `src/nativeMain/kotlin` folder under
@@ -119,8 +119,9 @@ Now we are ready to
 and to see how to fix the example project. While doing that,
 we'll examine how C functions are mapped into Kotlin/Native declarations.
 
-Let's run the `linkNative` task to build the library in the IDE or
-by calling the following command:
+Let's run the `linkNative` Gradle task to build the library 
+[in IDE](basic-kotlin-native-app.html#run-in-ide) 
+or by calling the following console command:
 [[include pages-includes/docs/tutorials/native/linkNative.md]]
 
 The build generates the following files under the `build/bin/native/debugShared`

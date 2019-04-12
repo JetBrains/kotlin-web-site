@@ -1,6 +1,6 @@
 
 While it is possible to use the command line, either directly or
-by combining it with a script file (i.e., bash or bat file), we should notice,
+by combining it with a script file (i.e., sh or bat file), we should notice,
 that it does not scale well for big projects that have hundreds of files and libraries.
 It is then better to use the Kotlin/Native compiler with a build system, as it
 helps download and cache the Kotlin/Native compiler binaries and libraries with

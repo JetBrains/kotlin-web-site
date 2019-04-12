@@ -6,7 +6,7 @@ description: "A look at how to compile our first Kotlin/Native application and o
 authors: 
   - Hadi Hariri
   - Eugene Petrenko 
-date: 2019-04-05
+date: 2019-04-15
 ---
 
 
@@ -63,8 +63,8 @@ fun main() {
 
 ## Compiling the code from the console 
 
-The way to manually compile the application is to call the download compiler command to generate
-`hello.kexe` (Linux and macOS) or `hello.exe` (Windows)
+The way to manually compile the application is to call the [downloaded](https://github.com/JetBrains/kotlin/releases)
+compiler to generate `hello.kexe` (Linux and macOS) or `hello.exe` (Windows)
 binary file:
 
 ```bash
@@ -76,8 +76,8 @@ does not scale well for bigger projects with hundreds of files and libraries.
 In addition to this, the command line approach does not explain to an IDE how to open such a project,
 where the sources are located, what dependencies are used, or how the dependencies are downloaded and so on.  
 
-## Creating a Kotlin/Native Gradle project
 <a name="create-gradle-project"></a>
+## Creating a Kotlin/Native Gradle project
 
 The _New Project_ wizard in IntelliJ IDEA can be used to start a new Kotlin/Native project with just one click. 
 Check out the _Kotlin_ section and select the _Native | Gradle_ option to generate the project.
@@ -111,26 +111,25 @@ We create
 <span class="multi-language-span" data-lang="kotlin">
 `build.gradle.kts` 
 </span>
-
 Gradle build file with the following contents:
 [[include pages-includes/docs/tutorials/native/basic-kotlin-native-app-codeblocks-code.md]]
 
-You may also download prepared project sources directly from 
+The prepared project sources can be directly downloaded from 
 [[include pages-includes/docs/tutorials/native/basic-kotlin-native-app-codeblocks-link.md]]
 
-Depending on the target platform, we use different [functions](/docs/reference/building-mpp-with-gradle.html),
-e.g. `macosX64`, `mingwX64`, `linuxX64`,
-to create the Kotlin target. The function name is the platform which we compile our code for. 
-These functions optionally take the target name as a parameter, which is `"native"` in our case. 
-The specified target name is used to generate the source paths and task names in the project.  
-
-We need to create an empty
+Now need to create an empty
 <span class="multi-language-span" data-lang="kotlin">
 `settings.gradle.kts` 
 </span><span class="multi-language-span" data-lang="groovy">
 `settings.gradle`
 </span>
 file in the project root directory.
+
+Depending on the target platform, we use different [functions](/docs/reference/building-mpp-with-gradle.html),
+e.g. `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
+to create the Kotlin target. The function name is the platform which we compile our code for. 
+These functions optionally take the target name as a parameter, which is `"native"` in our case. 
+The specified _target name_ is used to generate the source paths and task names in the project.  
 
 By the convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` folders.
 It creates _main_ and _test_ source sets for every target. Let's place the `hello.kt`
@@ -149,8 +148,8 @@ Running the `gradle wrapper` command will complete the project creation.
 [Getting Started with Gradle](https://docs.gradle.org/current/userguide/getting_started.html)
 explains in detail how to start using Gradle projects. 
 
-## Opening the Project in IDE
 <a name="open-in-ide"></a>
+## Opening the Project in IDE
 
 We are using [IntelliJ IDEA](https://jetbrains.com/idea) for this tutorial.
 Both the [free and open source](https://www.jetbrains.com/idea/features/editions_comparison_matrix.html)
@@ -190,6 +189,7 @@ Use the path to the Java runtime version 1.8 or 11 for the _Gradle JVM_ field. C
 [https://jdk.java.net/11](https://jdk.java.net/11/) or [https://adoptopenjdk.net/](https://adoptopenjdk.net/)
 for the best JRE, OpenJDK, or JDK distribution.  
 
+<a name="run-in-ide"></a>
 ## Running the application
 
 Usually, a native binary can be compiled as _debug_ with more debug information and fewer optimizations and _release_,

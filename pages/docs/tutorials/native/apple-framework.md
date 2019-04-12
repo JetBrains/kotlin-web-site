@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Kotlin/Native as an Apple Framework"
 description: "Compiling Kotlin/Native code and use it from Objective-C and Swift"
 authors: Eugene Petrenko
-date: 2018-08-05
+date: 2019-04-15
 showAuthorInfo: false
 issue: EVAN-5132
 ---
@@ -70,7 +70,7 @@ fun supplyFun() : (String) -> String? = { "$it is cool!" }
 [[include pages-includes/docs/tutorials/native/lets-create-gradle-build.md]]
 [[include pages-includes/docs/tutorials/native/apple-framework-code.md]]
 
-You may also download the project skeleton directly from 
+The prepared project sources can be directly downloaded from 
 [[include pages-includes/docs/tutorials/native/apple-framework-link.md]]
 
 Let's move the sources file into the `src/nativeMain/kotlin` folder under
@@ -96,12 +96,16 @@ in the table:
 
 | Target platform/device | Gradle function |
 |------------------------|-----------------|
-| macOS x86_64           | `macosX64`      | 
-| iOS ARM 32             | `iosArm32`      | 
-| iOS ARM 64             | `iosArm64`      | 
-| iOS Simulator (x86_64) | `iosX64`        |
+| macOS x86_64           | `macosX64()`    | 
+| iOS ARM 32             | `iosArm32()`    | 
+| iOS ARM 64             | `iosArm64()`    | 
+| iOS Simulator (x86_64) | `iosX64()`      |
 {:.zebra}
  
+Let's run the `linkNative` Gradle task to build the library 
+[in IDE](basic-kotlin-native-app.html#run-in-ide) 
+or by calling the following console command:
+[[include pages-includes/docs/tutorials/native/linkNative.md]]
 
 Depending on the variant, the build generates the framework
 into the

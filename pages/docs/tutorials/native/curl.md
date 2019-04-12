@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Using C Interop and libcurl for an App"
 description: "Using C library from Kotlin/Native"
 authors: Hadi Hariri 
-date: 2018-11-20
+date: 2019-04-15
 showAuthorInfo: false
 ---
 
@@ -63,8 +63,6 @@ Once we have the definition file ready, we can
 create project files and open the project in an IDE.
 
 [[include pages-includes/docs/tutorials/native/mapping-primitive-data-types-gradle.md]]
-
-TODO: build/c_interop/libcurl
 
 
 ### curl on Windows

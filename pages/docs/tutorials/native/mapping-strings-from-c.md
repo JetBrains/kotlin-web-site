@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Mapping Strings from C"
 description: "Strings from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
-date: 2018-07-23
+date: 2019-04-15
 showAuthorInfo: false
 issue: EVAN-5343
 ---
@@ -229,7 +229,8 @@ array into Kotlin `String`, assuming UTF-8 encoding.
 ## Fixing the Code
 
 We've seen all definitions and it is the time to fix the code. 
-Let's run the `runDebugExecutableNative` Gradle task in IDE or use the following command to run the code:
+Let's run the `runDebugExecutableNative` Gradle task [in IDE](basic-kotlin-native-app.html#run-in-ide)
+or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 The final code in the `hello.kt` file may look like that:

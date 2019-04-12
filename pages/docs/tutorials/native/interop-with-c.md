@@ -7,3 +7,6 @@ authors: Hadi Hariri
 date: 2018-11-20
 redirect_path: docs/tutorials/native/curl
 ---
+
+
+The page is moved

@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Mapping Struct and Union Types from C"
 description: "Struct and Union types from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
-date: 2019-04-04
+date: 2019-04-15
 showAuthorInfo: false
 issue: EVAN-5343
 ---
@@ -297,7 +297,8 @@ fun callMix_value() {
 
 We learned how to use C declarations in our code, we are ready to try
 it on a real example. Let's fix our code and see how it runs by calling the 
-`runDebugExecutableNative` Gradle task in IDE or via the following console command:
+`runDebugExecutableNative` Gradle task [in IDE](basic-kotlin-native-app.html#run-in-ide)
+or via the following console command:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 

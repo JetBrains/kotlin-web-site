@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Mapping Primitive Data Types from C"
 description: "Primitive Data types from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
-date: 2019-04-04
+date: 2019-04-15
 showAuthorInfo: false
 issue: EVAN-5343
 ---
@@ -157,7 +157,8 @@ as it is usually an 8-bit signed value.
 ## Fixing the Code
 
 We've seen all definitions and it is the time to fix the code.
-Let's run the `runDebugExecutableNative` Gradle task in IDE or use the following command to run the code:
+Let's run the `runDebugExecutableNative` Gradle task [in IDE](basic-kotlin-native-app.html#run-in-ide)
+or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 The final code in the `hello.kt` file may look like that:
