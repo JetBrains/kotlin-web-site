@@ -1614,7 +1614,7 @@ It is important to note that some of the [Kotlin/Native targets](#supported-plat
 * Linux MIPS targets (`linuxMips32` and `linuxMipsel32`) require a Linux host. Other Linux targets can be built on any supported host;
 * Windows targets require a Windows host;
 * macOS and iOS targets can only be built on a macOS host;
-* The 64-bit Android Native target require a Linux or macOS host;
+* The 64-bit Android Native target require a Linux or macOS host. The 32-bit Android Native target can be built on any supported host.
 
 A target that is not supported by the current host is ignored during build and therefore not published. A library author may want to set up
 builds and publishing from different hosts as required by the library target platforms.
