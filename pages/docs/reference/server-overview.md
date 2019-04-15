@@ -32,6 +32,8 @@ for Kotlin, including [full documentation](http://vertx.io/docs/vertx-core/kotli
 
  * [Ktor](https://github.com/kotlin/ktor) is a framework built by JetBrains for creating Web applications in Kotlin, making use of coroutines for high scalability and offering an easy-to-use and idiomatic API.
 
+ * [Kweb](https://kweb.io/) is a framework built on top of Ktor to make it easy to build rich server-driven webapps in Kotlin.
+
  * [kotlinx.html](https://github.com/kotlin/kotlinx.html) is a DSL that can be used to build HTML in a Web application.
 It serves as an alternative to traditional templating systems such as JSP and FreeMarker.
 
