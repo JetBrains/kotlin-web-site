@@ -29,11 +29,11 @@ Let's assume we have a console, where the `kotlinc-native`, `cinterop`, and `kli
 ## Working with C strings
 
 There is no dedicated type in C language for strings. A developer knows from a method 
-signature or the documentation whether a given `char *` means a C string in the context. 
+signature or the documentation, whether a given `char *` means a C string in the context. 
 Strings in the C language are null-terminated, a trailing zero character `\0` is added at the 
 end of a bytes sequence to mark a string termination.
 Usually, [UTF-8 encoded strings](https://en.wikipedia.org/wiki/UTF-8) are used. The UTF-8 encoding uses
-variable width characters and it is backward compatible with [ASCII](https://en.wikipedia.org/wiki/ASCII).
+variable width characters, and it is backward compatible with [ASCII](https://en.wikipedia.org/wiki/ASCII).
 Kotlin/Native uses UTF-8 character encoding by default.
 
 The best way to understand the mapping between C and Kotlin languages is to try it out on a small example. We will create
@@ -189,8 +189,8 @@ fun CPointer<ShortVar>.toKString(): String
 ```
 </div>
 
-The first extension takes a `char *` as an UTF-8 string and turns it into a String.
-The second function does the same but for wide, UTF-16 strings.
+The first extension takes a `char *` as a UTF-8 string and turns it into a String.
+The second function does the same but for wide UTF-16 strings.
 
 
 ## Receiving C string bytes from Kotlin
@@ -198,7 +198,7 @@ The second function does the same but for wide, UTF-16 strings.
 This time we will ask a C function to write us a C string to a given buffer. The function
 is called `copy_string`. It takes a pointer to the location writing characters and
 the allowed buffer size. The function returns something to indicate if it has succeeded or failed.
-Let's assume `0` means it succeeded and the supplied buffer was big enough:
+Let's assume `0` means it succeeded, and the supplied buffer was big enough:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -222,18 +222,18 @@ First of all, we need to have a native pointer to pass
 to the C function. We use the `usePinned` extension function
 to temporarily pin the native memory address of the
 byte array. The C function fills in the
-byte array with the data. We use another extension 
+byte array with data. We use another extension 
 function `ByteArray.stringFromUtf8()` to turn the byte 
-array into Kotlin `String`, assuming UTF-8 encoding. 
+array into a Kotlin `String`, assuming UTF-8 encoding. 
 
 ## Fixing the Code
 
-We've seen all definitions and it is the time to fix the code. 
-Let's run the `runDebugExecutableNative` Gradle task [in IDE](basic-kotlin-native-app.html#run-in-ide)
+We've now seen all the definitions and it is time to fix the code. 
+Let's run the `runDebugExecutableNative` Gradle task [in the IDE](basic-kotlin-native-app.html#run-in-ide)
 or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
-The final code in the `hello.kt` file may look like that:
+The code in the final `hello.kt` file may look like this:
  
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -263,8 +263,8 @@ fun main() {
 </div>
 ## Next Steps
 
-We continue exploring more C language types and their representation in Kotlin/Native
-in previous tutorials:
+We continue to explore more C language types and their representation in Kotlin/Native
+in our other tutorials:
 - [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html)
 - [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html)
 - [Mapping Function Pointers from C](mapping-function-pointers-from-c.html)

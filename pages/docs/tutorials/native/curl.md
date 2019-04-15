@@ -25,8 +25,8 @@ In this tutorial however, we'll see how to use some specific libraries, such as 
 
 ## Generating Bindings
 
-An ideal scenario for interop is to call C functions as if we were calling Kotlin functions, that is, following the same signature and conventions. And that is precisely what the 
-`cinterop` tool provides us with. It takes a C library and generates the corresponding Kotlin bindings for it, which then allow us
+An ideal scenario for interop is to call C functions as if we were calling Kotlin functions, that is, following the same signature and conventions. This is precisely what the 
+`cinterop` tool provides us with. It takes a C library and generates the corresponding Kotlin bindings for it, which then allows us
 to use the library as if it were Kotlin code. 
 
 In order to generate these bindings, we need to create a library definition `.def` file that contains some information about the headers we need to generate. In our case we want to use the famous `libcurl` library
@@ -44,17 +44,17 @@ linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl
 ```
 </div>
 
-A few things are going on in that file so let's see them one by one. The first entry is `headers` which is the list of header files that we want to generate 
-Kotlin stubs for. We can add multiple files to this entry, separating each one with `\` on a new line. In our case we only want `curl.h`. The files we reference
+A few things are going on in this file, let's go through them one by one. The first entry is `headers` which is the list of header files that we want to generate 
+Kotlin stubs for. We can add multiple files to this entry, separating each one with a `\` on a new line. In our case we only want `curl.h`. The files we are referencing
 need to be relative to the folder where the definition file is, or be available on the system path (in our case it would be `/usr/include/curl`).
 
 The second line is the `headerFilter`. This is used to denote what exactly we want included. In C, when one file references another file with the `#include` directive, 
 all the headers are also included. Sometimes this may not be needed, and we can use this parameter, [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)), to fine tune things. 
-Note, that `headerFilter` is an optional argument and mostly only used when the library we're using is being installed as a system library and we do not want to fetch external dependencies 
-(such as system `stdint.h` header) into our interop library. It may be important for both optimising library size and fixing potential conflicts between system and the Kotlin/Native provided compilation environment.
+Note, that `headerFilter` is an optional argument and mostly only used when the library we're using is being installed as a system library, and we do not want to fetch external dependencies 
+(such as system `stdint.h` header) into our interop library. It may be important for both optimizing the library size and fixing potential conflicts between the system and the Kotlin/Native provided compilation environment.
 
-The next lines are about providing linker and compiler options, which can vary based on different target platforms. In our cause, we are defining it for macOS (the `.osx` suffix) and Linux (the `.linux` suffix).
-Parameters without suffix is also possible (e.g. `linkerOpts=`) and will be applied to all platforms. 
+The next lines are about providing linker and compiler options, which can vary depending on different target platforms. In our case, we are defining it for macOS (the `.osx` suffix) and Linux (the `.linux` suffix).
+Parameters without a suffix is also possible (e.g. `linkerOpts=`) and will be applied to all platforms. 
 
 The convention that is followed is that each library gets its own definition file, usually named the same as the library. For more information on all
 the options available to `cinterop`, see [the Interop documentation](/docs/reference/native/c_interop.html)
@@ -70,11 +70,11 @@ create project files and open the project in an IDE.
 You should have the `curl` library binaries on Windows to make the sample work.
 You may build `curl` from [sources](https://curl.haxx.se/download.html) on Windows (you'll need Visual Studio or Windows SDK Commandline tools), for more
 details, see the [related blog post](https://jonnyzzz.com/blog/2018/10/29/kn-libcurl-windows/).
-Alternatively, you may also consider a [MinGW/MSYS2](https://www.msys2.org/) `curl` binary.
+Alternatively, you may also want to consider a [MinGW/MSYS2](https://www.msys2.org/) `curl` binary.
 
 ## Consuming the Kotlin API
 
-Now that we have our library and Kotlin stubs, we can consume them from our application. To keep things simple, in this tutorial we're going to convert one of the simplest 
+Now we have our library and Kotlin stubs, we can consume them from our application. To keep things simple, in this tutorial we're going to convert one of the simplest 
 `libcurl` examples over to Kotlin. 
 
 The code in question is from the [simple](https://curl.haxx.se/libcurl/c/simple.html) example (comments removed for brevity)
@@ -130,14 +130,14 @@ fun main(args: Array<String>) {
 </div>
 
 As we can see, we've eliminated the explicit variable declarations in the Kotlin version, but everything else is pretty much verbatim to the C version. All the calls we'd
-expect in the `libcurl` library are available in their Kotlin version.
+expect in the `libcurl` library are available in their Kotlin equivalent.
 
 Note that for the purpose of this tutorial, we've done a line by line literal translation. Obviously we could write this in a more Kotlin idiomatic way.
 
 ## Compiling and Linking the library
 
 The next step is to compile our application. We already covered the basics of compiling a Kotlin/Native application from the command line in the [A Basic Kotlin/Native application](basic-kotlin-native-app.html) tutorial.
-The only difference in this case is that a `cinterop` generated part is implicitly included into the build:
+The only difference in this case is that the `cinterop` generated part is implicitly included into the build:
 Let's call the following command:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
  

@@ -27,7 +27,7 @@ Let's assume, we have a console, where the `kotlinc-native`, `cinterop`, and `kl
 ## Mapping Struct and Union C types
 
 The best way to understand the mapping between Kotlin and C is to try a tiny 
-example. We will declare a struct and an union in the C language to see how they are mapped into Kotlin.
+example. We will declare a struct and a union in the C language, to see how they are mapped into Kotlin.
 
 Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between the C language and Kotlin.
 It uses a `.def` file to specify a C library to import. More details are discussed in the
@@ -199,11 +199,11 @@ fun <reified T : kotlinx.cinterop.CVariable> alloc(): T
 </div>
 
 extension function on `kotlinx.cinterop.NativePlacement`
-type for that.
+type for this.
 
 `NativePlacement` represents native memory with functions similar to `malloc` and `free`. 
-There are several implementations of `NativePlacement`. The global one is called `kotlinx.cinterop.nativeHeap`
-and don't forget to call `nativeHeap.free(..)` function to free the memory after use.
+There are several implementations of `NativePlacement`. The global one is called with `kotlinx.cinterop.nativeHeap`
+and don't forget to call the `nativeHeap.free(..)` function to free the memory after use.
  
 Another option is to use the
 <div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -213,7 +213,7 @@ fun <R> memScoped(block: kotlinx.cinterop.MemScope.() -> R): R
 ```
 </div>
 
-function. It creates a short-living memory allocation scope,
+function. It creates a short-lived memory allocation scope,
 and all allocations will be cleaned up automatically at the end of the `block`.
 
 Our code to call functions with pointers will look like this:
@@ -295,14 +295,14 @@ fun callMix_value() {
 
 ## Running the Code
 
-We learned how to use C declarations in our code, we are ready to try
-it on a real example. Let's fix our code and see how it runs by calling the 
-`runDebugExecutableNative` Gradle task [in IDE](basic-kotlin-native-app.html#run-in-ide)
-or via the following console command:
+Now we have learned how to use C declarations in our code, we are ready to try
+it out on a real example. Let's fix our code and see how it runs by calling the 
+`runDebugExecutableNative` Gradle task [in the IDE](basic-kotlin-native-app.html#run-in-ide)
+or by using the following console command:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
 
-The final code in the `hello.kt` file may look like that:
+The final code in the `hello.kt` file may look like this:
  
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 

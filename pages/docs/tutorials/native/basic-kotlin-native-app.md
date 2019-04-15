@@ -21,10 +21,10 @@ In this tutorial, we'll look at how to
 
 ## Obtaining the Compiler
 
-Kotlin/Native compiler is available for macOS, Linux, and Windows. It support
+Kotlin/Native compiler is available for macOS, Linux, and Windows. It supports
 different targets including iOS (arm32, arm64, simulator x86_64), Windows (mingw32 and x86_64),
 Linux (x86_64, arm64, MIPS), macOS (x86_64), Raspberry PI, SMT32, WASM. For the full list of targets
-we may refer to the [Kotlin/Native overview](/docs/reference/native-overview.html).
+we can refer to the [Kotlin/Native overview](/docs/reference/native-overview.html).
 While cross-platform compilation is possible
 (i.e., using one platform to compile for another), in this first tutorial
 we are only compiling for the operating system we're running on. 
@@ -32,7 +32,7 @@ we are only compiling for the operating system we're running on.
 The best way to use the Kotlin/Native compiler is with a build system.
 It helps by downloading and caching the Kotlin/Native compiler binaries and libraries with
 transitive dependencies, and running the compiler and tests.
-The compilation results are cached too.
+It caches the compilation results too.
 A build system can also be used by an IDE to understand the project layout.
 
 Kotlin/Native uses the [Gradle](https://gradle.org) build system through the
@@ -40,7 +40,7 @@ Kotlin/Native uses the [Gradle](https://gradle.org) build system through the
 We'll look at how to configure a Gradle build below.
 For some corner cases, a Kotlin/Native compiler can still be obtained manually (not recommended)
 from the [Kotlin releases page on GitHub](https://github.com/JetBrains/kotlin/releases).
-In the tutorial, we are focussing on using the Gradle builds. 
+In the tutorial, we are focusing on using the Gradle builds. 
 
 While the output of the compiler does not have any dependencies or virtual machine requirements,
 the compiler itself and the Gradle build system require a Java 1.8 or 11 runtime. Check out the 
@@ -63,8 +63,8 @@ fun main() {
 
 ## Compiling the code from the console 
 
-The way to manually compile the application is to call the [downloaded](https://github.com/JetBrains/kotlin/releases)
-compiler to generate `hello.kexe` (Linux and macOS) or `hello.exe` (Windows)
+To manually compile the application call the [downloaded](https://github.com/JetBrains/kotlin/releases)
+compiler and generate a `hello.kexe` (Linux and macOS) or `hello.exe` (Windows)
 binary file:
 
 ```bash
@@ -127,14 +127,14 @@ file in the project root directory.
 
 Depending on the target platform, we use different [functions](/docs/reference/building-mpp-with-gradle.html),
 e.g. `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
-to create the Kotlin target. The function name is the platform which we compile our code for. 
+to create the Kotlin target. The function name is the platform which we are compiling our code for. 
 These functions optionally take the target name as a parameter, which is `"native"` in our case. 
 The specified _target name_ is used to generate the source paths and task names in the project.  
 
 By the convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` folders.
 It creates _main_ and _test_ source sets for every target. Let's place the `hello.kt`
 we previously created into the _main_ source set folder, which is `src/nativeMain/kotlin`. 
-The `nativeMain` folder comes from the `"native"` target name which we specified in the build script above.
+The `nativeMain` folder comes from the `"native"` target name, which we specified in the build script above.
 
 The project is ready. The next step is to open it in IntelliJ IDEA. For advanced build scenarios,
 it is recommended to refer to the
@@ -192,8 +192,8 @@ for the best JRE, OpenJDK, or JDK distribution.
 <a name="run-in-ide"></a>
 ## Running the application
 
-Usually, a native binary can be compiled as _debug_ with more debug information and fewer optimizations and _release_,
-where optimizations are enabled, and there is no (or at least less) debug information available.  
+Usually, a native binary can be compiled as _debug_ with more debug information and fewer optimizations, and _release_
+where optimizations are enabled and there is no (or at least less) debug information available.  
 The binary files are created in the `build/bin/native/debugExecutable` or `build/bin/native/releaseExecutable`
 folders respectively. The file has a `.kexe` extension on Linux and macOS and an `.exe` extension on Windows. Use the following command
 to instruct the build to produce binaries:
@@ -278,6 +278,6 @@ the [C Interop documentation](/docs/reference/native/c_interop.html) or
 documentation or check out one of our tutorials.
 
 With Kotlin [multiplatform](/docs/reference/multiplatform.html) projects, it is possible to
-share the same Kotlin code between all supported platforms. 
-Check out the [sharing Kotlin code between iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
-tutorial or have a look at how to build your own [multiplatform library](/docs/tutorials/multiplatform-library.html).
+share the same Kotlin code between all the supported platforms. 
+Check out the tutorial on [sharing Kotlin code between iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
+or have a look at how to build your own [multiplatform library](/docs/tutorials/multiplatform-library.html).

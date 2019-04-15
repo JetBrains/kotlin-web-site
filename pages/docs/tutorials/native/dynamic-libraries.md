@@ -9,13 +9,13 @@ showAuthorInfo: false
 issue: EVAN-5371
 ---
 
-In this tutorial, we look at how we can use a Kotlin/Native code from
+In this tutorial, we look at how we can use the Kotlin/Native code from
 existing native applications or libraries. For this, we need to
-compile our Kotlin code into a dynamic library, `.so`, `.dylib` and `.dll`.
+compile our Kotlin code into a dynamic library, `.so`, `.dylib`, and `.dll`.
 
 Kotlin/Native also has tight integration with Apple technologies.
 The [Kotlin/Native as an Apple Framework](apple-framework.html)
-tutorial explains how to compile Kotlin code into framework for Swift and Objective-C.
+tutorial explains how to compile Kotlin code into a framework for Swift and Objective-C.
 
 In this tutorial, we will:
  - [Compile a Kotlin code to a dynamic library](#creating-a-kotlin-library)
@@ -28,12 +28,11 @@ In this tutorial, we will:
 
 Kotlin/Native compiler can produce a dynamic
 library out of the Kotlin code we have.
-A dynamic library often comes with a header file, an `.h` file,
-which we will use to call compiled code from C
+A dynamic library often comes with a header file, a `.h` file,
+which we will use to call compiled code from C.
 
 The best way to understand these techniques is to try them out. 
-Let's create a tiny Kotlin library first and use it from a C program 
-then. 
+Let's create a first tiny Kotlin library and use it from a C program. 
 
 We can start by creating a library file in Kotlin and save it as `hello.kt`:
 
@@ -68,9 +67,9 @@ The prepared project sources can be directly downloaded from
 [[include pages-includes/docs/tutorials/native/dynamic-library-link.md]]
 
 Let's move the sources file into the `src/nativeMain/kotlin` folder under
-the project. That is the default path, where sources are located, when
+the project. This is the default path, for where sources are located, when
 the [kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html)
-plugin is used. We use the following block to instruct configure the project
+plugin is used. We use the following block to instruct and configure the project
 to generate a dynamic or shared library for us: 
 
 <div class="multi-language-sample" data-os="macos">
@@ -116,11 +115,11 @@ header file.
 
 Now we are ready to
 [open the project in IntelliJ IDEA](basic-kotlin-native-app.html#open-in-ide)
-and to see how to fix the example project. While doing that,
+and to see how to fix the example project. While doing this,
 we'll examine how C functions are mapped into Kotlin/Native declarations.
 
 Let's run the `linkNative` Gradle task to build the library 
-[in IDE](basic-kotlin-native-app.html#run-in-ide) 
+[in the IDE](basic-kotlin-native-app.html#run-in-ide) 
 or by calling the following console command:
 [[include pages-includes/docs/tutorials/native/linkNative.md]]
 
@@ -161,7 +160,7 @@ extern "C" {
 ```
 </div>
 
-After the rituals in the `libnative_api.h` we have a block with the common type definitions:
+After the rituals in the `libnative_api.h`, we have a block with the common type definitions:
 
 <div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -211,7 +210,7 @@ the mapping of the types in a more readable way:
 The definitions part shows how Kotlin primitive types map into C primitive types. 
 We discussed reverse mapping in the [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html) tutorial.
 
-The next part of the `libnative_api.h` file contains definitions of types
+The next part of the `libnative_api.h` file contains definitions of the types
 that are used in the library:
 
 <div class="sample" markdown="1" mode="C" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -235,14 +234,14 @@ The `typedef struct { .. } TYPE_NAME` syntax is used in C language to declare a 
 provides more explanations of that pattern.
 
 We see from these definitions that the Kotlin object `Object` is mapped into
-`libnative_kref_example_Object` and `Clazz` is mapped into `libnative_kref_example_Clazz`.
+`libnative_kref_example_Object`, and `Clazz` is mapped into `libnative_kref_example_Clazz`.
 Both structs contain nothing but the `pinned` field with a pointer, the field type 
 `libnative_KNativePtr` is defined as `void*` above. 
 
-There is no namespaces support in C so that Kotlin/Native compiler generates 
-long names to avoid a possible clashes with other symbols in existing native project.
+There is no namespaces support in C, so the Kotlin/Native compiler generates 
+long names to avoid any possible clashes with other symbols in the existing native project.
 
-The most significant part of definitions goes further in the `libnative_api.h` file.
+A significant part of the definitions goes in the `libnative_api.h` file.
 It includes the definition of our Kotlin/Native library world:
 
 
@@ -284,14 +283,14 @@ The code uses anonymous structure declarations. The code `struct { .. } foo`
 declares a field in the outer struct of that 
 anonymous structure type, the type with no name. 
 
-C does not support objects too. People use function pointers to mimic 
+C does not support objects either. People use function pointers to mimic 
 object semantics. A function pointer is declared as follows `RETURN_TYPE (* FIELD_NAME)(PARAMETERS)`.
 It is tricky to read, but we should be able to see function pointer fields in the structures above. 
 
 ### Runtime Functions
 
-The code reads as follows. We have the `libnative_ExportedSymbols` structure which defines
-all the functions that Kotlin/Native and our library provides to us. It uses 
+The code reads as follows. We have the `libnative_ExportedSymbols` structure, which defines
+all the functions that Kotlin/Native and our library provides us. It uses 
 nested anonymous structures heavily to mimic packages. The `libnative_` prefix comes from the
 library name.
 
@@ -307,28 +306,28 @@ libnative_KBoolean (*IsInstance)(libnative_KNativePtr ref, const libnative_KType
 </div>
 
 These functions deal with Kotlin/Native objects. Call the 
-`DisposeStablePointer` to release a Kotlin object and `DisposeString` to release Kotlin String, 
+`DisposeStablePointer` to release a Kotlin object and `DisposeString` to release a Kotlin String, 
 which has the `char*` type in C. It is possible to use the `IsInstance` function to check if a
 Kotlin type or a `libnative_KNativePtr` is an instance of another type. The actual set of
-operations generated depend on the actual usages.
+operations generated depends on the actual usages.
  
-Kotlin/Native has garbage collection, but it does not help deal
+Kotlin/Native has garbage collection, but it does not help us deal
 with Kotlin objects from the C language. Kotlin/Native has interop with Objective-C and 
 Swift and integrates with their reference counters. 
 The [Objective-C Interop](/docs/reference/native/objc_interop.html)
-documentation article contains more more details on it. Also,
-there is the related tutorial named [Kotlin/Native as an Apple Framework](apple-framework.html).
+documentation article contains more details on it. Also,
+there is the tutorial [Kotlin/Native as an Apple Framework](apple-framework.html).
 
 ### Our Library Functions
 
-Let's take a look an the `kotlin.root.example` field, it
+Let's take a look at the `kotlin.root.example` field, it
 mimics the package structure of our Kotlin code with a `kotlin.root.` prefix.
 
 There is a `kotlin.root.example.Clazz` field that 
 represents the `Clazz` from Kotlin. The `Clazz#memberFunction` is
 accessible with the `memberFunction` field. The only difference is that 
-the `memberFunction` accepts `this` reference as the first parameter. 
-C language does not support objects, and that is the reason to pass a
+the `memberFunction` accepts a `this` reference as the first parameter. 
+The C language does not support objects, and this is the reason to pass a
 `this` pointer explicitly.
 
 There is a constructor in the `Clazz` field (aka `kotlin.root.example.Clazz.Clazz`),
@@ -349,14 +348,14 @@ the `kotlin.root.example` anonymous struct.
 
 We can see how the API is created. To start with, we need to initialize the 
 `libnative_ExportedSymbols` structure. Let's take a look at the latest part 
-of the `libnative_api.h` for that:
+of the `libnative_api.h` for this:
 
 ```c
 extern libnative_ExportedSymbols* libnative_symbols(void);
 ```
 
-The function `libnative_symbols` allows us to open the door from the native 
-code to the Kotlin/Native library. That is the entry point we use. The 
+The function `libnative_symbols` allows us to open the way from the native 
+code to the Kotlin/Native library. This is the entry point we use. The 
 library name is used as a prefix for the function name. 
 
 
@@ -413,22 +412,22 @@ On Linux we call a similar command:
 gcc main.c libnative.so
 ```
 
-The compiler generates an executable called `a.out`. We need to run it to see Kotlin code
-being executed from C library in action. On Linux, we'll need to include `.` into the `LD_LIBRARY_PATH`
+The compiler generates an executable called `a.out`. We need to run it to see in action the Kotlin code
+being executed from C library. On Linux, we'll need to include `.` into the `LD_LIBRARY_PATH`
 to let the application know to load the `libnative.so` library from the current folder.
 
 ## Compiling and Running the Example on Windows
 
 To start with, we'll need a Microsoft Visual C++ compiler installed that supports a x64_64 
 target. The easiest way to do this is to have a version of Microsoft Visual Studio installed on 
-the Windows machine. 
+a Windows machine. 
 
 We will be using the `x64 Native Tools Command Prompt <VERSION>` console. We'll see the 
 shortcut to open the console in the start menu. It comes with a Microsoft Visual Studio
 package.  
 
 On Windows, Dynamic libraries are included either via a generated static library wrapper
-or with manual code which deals with the [LoadLibrary](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684175.aspx)
+or with manual code, which deals with the [LoadLibrary](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684175.aspx)
 or similar Win32API functions. We will follow the first option and generate the static wrapper library
 for the `libnative.dll` on our own.
  
@@ -449,8 +448,8 @@ The command produces the `main.exe` file, which we can run.
 
 ## Next Steps
 
-Dynamic libraries are the main ways to use Kotlin code from existing programs. 
-We may use them to share our code with many platforms or languages, including JVM,
+Dynamic libraries are the main way to use Kotlin code from existing programs. 
+We can use them to share our code with many platforms or languages, including JVM,
 [Python](https://github.com/JetBrains/kotlin-native/blob/master/samples/python_extension/src/main/c/kotlin_bridge.c),
 iOS, Android, and others.
 

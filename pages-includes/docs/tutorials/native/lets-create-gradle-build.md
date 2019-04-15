@@ -3,7 +3,7 @@ While it is possible to use the command line, either directly or
 by combining it with a script file (i.e., sh or bat file), we should notice,
 that it does not scale well for big projects that have hundreds of files and libraries.
 It is then better to use the Kotlin/Native compiler with a build system, as it
-helps download and cache the Kotlin/Native compiler binaries and libraries with
+helps to download and cache the Kotlin/Native compiler binaries and libraries with
 transitive dependencies and run the compiler and tests.
 Kotlin/Native can use the [Gradle](https://gradle.org) build system through the
 [kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html) plugin.
@@ -12,7 +12,7 @@ We covered the basics of setting up an IDE compatible project with Gradle in the
 [A Basic Kotlin/Native Application](basic-kotlin-native-app.html#create-gradle-project)
 tutorial. Please check it out if you are looking for detailed first steps
 and instructions on how to start a new Kotlin/Native project and open it in IntelliJ IDEA.
-In this tutorial, we'll look at the advanced C interop related usages of the Kotlin/Native 
+In this tutorial, we'll look at the advanced C interop related usages of Kotlin/Native 
 and
 [multiplatform](/docs/reference/building-mpp-with-gradle.html)
 builds with Gradle.

@@ -130,11 +130,11 @@ fun myFun() {
 ```
 </div>
 
-We use `staticCFunction{..}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C Function pointer.
+We use the `staticCFunction{..}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C function pointer.
 It only allows having unbound and non-capturing lambda functions. For example, it is not able
 to use a local variable from the function. We may only use globally visible declarations. Throwing exceptions
 from a `staticCFunction{..}` will end up in non-deterministic side-effects. It is vital to make sure that we are not 
-throwing any sudden exceptions from it
+throwing any sudden exceptions from it.
 
 ## Using the C Function Pointer from Kotlin
 
@@ -154,18 +154,18 @@ fun myFun2() {
 
 Kotlin turns the function pointer return type into a nullable `CPointer<CFunction<..>` object. There is the need
 to explicitly check for `null` first. We use [elvis operator](../../reference/null-safety.html) for that.
-The `cinterop` tool helps us to turn a C function pointer into an easy to call object in Kotlin. That is
-what we did with the last line
+The `cinterop` tool helps us to turn a C function pointer into an easy to call object in Kotlin. This is
+what we did on the last line.
 
 
 ## Fixing the Code
 
-We've seen all definitions and it is the time to fix and run the code.
-Let's run the `runDebugExecutableNative` Gradle task [in IDE](basic-kotlin-native-app.html#run-in-ide)
+We've seen all definitions and it is time to fix and run the code.
+Let's run the `runDebugExecutableNative` Gradle task [in the IDE](basic-kotlin-native-app.html#run-in-ide)
 or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
-The final code in the `hello.kt` file may look like that:
+The code in the `hello.kt` file may look like this:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
