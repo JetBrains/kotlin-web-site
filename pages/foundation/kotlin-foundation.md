@@ -40,7 +40,7 @@ The President and the Secretary are elected by the Board of Directors as well. T
 
 President: Andrey Breslav (JetBrains)
 
-Secretary: James Lau (Google)
+Secretary: Max Sills (Google)
 
 Board of Directors:
 *   Andrey Breslav (JetBrains)
