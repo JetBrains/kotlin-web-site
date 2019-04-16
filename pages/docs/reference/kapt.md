@@ -8,7 +8,7 @@ title: "Using kapt"
 
 Annotation processors (see [JSR 269](https://jcp.org/en/jsr/detail?id=269)) are supported in Kotlin with the *kapt* compiler plugin.
 
-Being short, you can use libraries such as [Dagger](https://google.github.io/dagger/) or [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html) in your Kotlin projects.
+In a nutshell, you can use libraries such as [Dagger](https://google.github.io/dagger/) or [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html) in your Kotlin projects.
 
 Please read below about how to apply the *kapt* plugin to your Gradle/Maven build.
 
