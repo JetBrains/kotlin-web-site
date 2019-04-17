@@ -137,6 +137,20 @@ reference:
         - url: /docs/reference/inline-functions.html
           title: Inline Functions
 
+    - title: Collections
+        description: Kotlin stlib collections
+        content:
+          - url: /docs/reference/collections-overview.html
+            title: Collections Overview
+          - url: /docs/reference/constructing-collections.html
+            title: Constructing collections
+          - url: /docs/reference/iterators.html
+            title: Iterators
+          - url: /docs/reference/ranges.html
+            title: Ranges
+          - url: /docs/reference/sequences.html
+            title: Sequences
+
     - title: Multiplatform Programming
       description: Reusing code across JVM, JS, and Native
       content:
@@ -150,10 +164,6 @@ reference:
       content:
         - url: /docs/reference/multi-declarations.html
           title: Destructuring Declarations
-        - url: /docs/reference/collections.html
-          title: Collections
-        - url: /docs/reference/ranges.html
-          title: Ranges
         - url: /docs/reference/typecasts.html
           title: Type Checks and Casts
         - url: /docs/reference/this-expressions.html
