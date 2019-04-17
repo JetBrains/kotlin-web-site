@@ -137,7 +137,7 @@ For example, in the following case there will be no backing field:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
-val isEmpty: Boolean
+val isEmpty: Boolean // Note: val don't have setter
     get() = this.size == 0
 ```
 </div>
