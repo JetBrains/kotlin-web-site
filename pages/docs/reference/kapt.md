@@ -128,8 +128,8 @@ kapt.use.worker.api=true
 
 ## Compile avoidance for kapt (since 1.3.20)
 
-Another way to improve the annotation processing performance is Gradle [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
-With compile avoidance enabled, Gradle skips annotation processing when building projects if the only changes are in method bodies and the kapt stubs remain unchanged.
+To improve the times of incremental builds with kapt, you can use Gradle [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
+With compile avoidance enabled, Gradle skips annotation processing if source files are unchanged and only method bodies are changed in dependencies. 
 
 To enable compile avoidance for kapt, add this line to your `gradle.properties` file:
 
