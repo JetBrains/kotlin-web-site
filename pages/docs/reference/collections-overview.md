@@ -34,16 +34,15 @@ A pair of interfaces represent each collection type:
 Note that altering a mutable collection doesn't require it to be a [`var`](basic-syntax.html#defining-variables): write operations modify the same mutable collection object, so the reference doesn't change.
 Although, if you try to reassign a `val` collection, you'll get a compilation error.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
-    numbers.add("five")   // this is OK
-//sampleEnd    
-// numbers = mutableListOf("six", "seven")      // compilation error
-
+    numbers.add("five")   // this is OK    
+//    numbers = mutableListOf("six", "seven")      // compilation error
+//sampleEnd
 }
 ```
 
@@ -66,7 +65,7 @@ Let's walk through the interfaces and their implementations.
 `Collection<T>` is the root of the collection hierarchy. This interface represents the common behavior of a read-only collection: retrieving size, checking item membership, and so on.
 `Collection` inherits from the `Iterable<T>` interface that defines the operations for iterating elements. You can use `Collection` as a parameter of a function that applies to different collection types. For more specific cases, use the `Collection`'s inheritors: `Set` and `List`.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun printAll(strings: Collection<String>) {
@@ -86,7 +85,7 @@ fun main() {
 
 `MutableCollection` is a `Collection` with write operations, such as add and remove.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun List<String>.getShortWordsTo(shortWords: MutableList<String>, maxLength: Int) {
@@ -110,7 +109,7 @@ fun main() {
 
 `List<T>` stores elements in a specified order and provides indexed access to them. Indices start from zero – the index of the first element – and go to `lastIndex` which is the `(list size - 1)`. 
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -128,7 +127,7 @@ fun main() {
 List elements (including nulls) can duplicate: a list can contain any number of equal objects or occurrences of a single object.
 Two lists are considered equal if they have the same sizes and [structurally equal](equality.html#structural-equality) elements at the same positions. 
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 data class Person(var name: String, var age: Int)
@@ -148,7 +147,7 @@ fun main() {
 
 `MutableList` is a `List` with list-specific write operations, for example, to add or remove an element at a specific position.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -173,7 +172,7 @@ In Kotlin, the default implementation of `List` is `ArrayList` which you can thi
 
 `Set<T>` stores unique elements; their order is generally undefined. `null` elements are unique as well: a `Set` can contain only one `null`.  Two sets are equal if they have the same size, and for each element of a set there is an equal element in the other set. 
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -194,7 +193,7 @@ fun main() {
 The default implementation of `Set` – `LinkedHashSet` – preserves the order of elements insertion.
 Hence, the functions that rely on the order, such as `first()` or `last()`, return predictable results on such sets.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -216,7 +215,7 @@ An alternative implementation – `HashSet` – says nothing about the elements 
 `Map<K, V>` is not an inheritor of the `Collection` interface; however, it's a Kotlin collection type as well.
 A `Map` stores _key-value_ pairs (or _entries_); keys are unique, but different keys can be paired with equal values. The `Map` interface provides specific functions, such as access to value by key, searching keys and values, and so on.  
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -235,7 +234,7 @@ fun main() {
 
 Two maps containing the equal pairs are equal regardless of the pair order.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -251,7 +250,7 @@ fun main() {
 
 `MutableMap` is a `Map` with map write operations, for example, you can add a new key-value pair or updating the value associated with the given key.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {

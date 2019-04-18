@@ -53,7 +53,7 @@ To build a sequence based on a function, call `generateSequence()` with this fun
 Optionally, you can specify the first element as an explicit value or a result of a function call.
 The sequence generation stops when the provided function returns `null`. So, the sequence in the example below is infinite.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -68,7 +68,7 @@ fun main() {
 
 To create a finite sequence with `generateSequence()`, provide a function that returns `null` after the last element you need.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -87,7 +87,7 @@ This function takes a lambda expression containing calls of `yield()` and `yield
 They return an element to the sequence consumer and suspend the execution of `sequence()` until the next element is requested by the consumer.
 `yield()` takes a single element as an argument; `yieldAll()` can take an `Iterable` object, an `Iterator`, or another `Sequence`. A `Sequence` argument of `yieldAll()` can be infinite. However, such a call must be the last: all subsequent calls will never be executed.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
@@ -103,13 +103,15 @@ fun main() {
 ```
 </div>
 
-## Sequence processing example
+## Collection processing example
 
 Let's take a look at the difference between `Iterable` and `Sequence` with an example. 
 
+### Iterable
+
 Assume that you have a list of words. The code below filters the words longer than three characters and prints the lengths of first four such words.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {    
@@ -132,9 +134,11 @@ This is how the list processing goes:
 
 ![List processing]({{ url_for('asset', path='images/reference/sequences/list-processing.png') }})
 
+### Sequence
+
 Now let's write the same with sequences:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
