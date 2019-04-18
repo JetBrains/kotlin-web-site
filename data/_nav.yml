@@ -138,18 +138,18 @@ reference:
           title: Inline Functions
 
     - title: Collections
-        description: Kotlin stlib collections
-        content:
-          - url: /docs/reference/collections-overview.html
-            title: Collections Overview
-          - url: /docs/reference/constructing-collections.html
-            title: Constructing collections
-          - url: /docs/reference/iterators.html
-            title: Iterators
-          - url: /docs/reference/ranges.html
-            title: Ranges
-          - url: /docs/reference/sequences.html
-            title: Sequences
+      description: Kotlin stlib collections
+      content:
+        - url: /docs/reference/collections-overview.html
+          title: Collections Overview
+        - url: /docs/reference/constructing-collections.html
+          title: Constructing collections
+        - url: /docs/reference/iterators.html
+          title: Iterators
+        - url: /docs/reference/ranges.html
+          title: Ranges
+        - url: /docs/reference/sequences.html
+          title: Sequences
 
     - title: Multiplatform Programming
       description: Reusing code across JVM, JS, and Native
