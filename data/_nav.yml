@@ -150,6 +150,10 @@ reference:
           title: Ranges
         - url: /docs/reference/sequences.html
           title: Sequences
+        - url: /docs/reference/collection-operations.html
+          title: Operations Overview
+        - url: /docs/reference/collection-transformations.html
+          title: Transformations
 
     - title: Multiplatform Programming
       description: Reusing code across JVM, JS, and Native

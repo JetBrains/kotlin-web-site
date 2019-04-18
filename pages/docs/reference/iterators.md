@@ -18,7 +18,7 @@ Once the iterator passes through the last element, it can no longer be used for 
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = listOf("one", "two", "three", "four")
     val numbersIterator = numbers.iterator()
     while (numbersIterator.hasNext())
@@ -49,7 +49,7 @@ Finally, there is a useful `forEach()` function that lets you automatically iter
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf("one", "two", "three", "four")
     numbers.forEach {
         println(it)
@@ -68,10 +68,10 @@ Backward iteration is implemented by the functions `hasPrevious()` and `previous
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf("one", "two", "three", "four")
     val listIterator = numbers.listIterator()
-    while (listIterator.hasNext())listIterator.next()
+    while (listIterator.hasNext()) listIterator.next()
     println("Iterating backwards:")
     while (listIterator.hasPrevious()) {
         print("Index: ${listIterator.previousIndex()}")
@@ -93,7 +93,7 @@ For iterating mutable collections, there is `MutableIterator` that extends `Iter
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers = listOf("one", "two", "three", "four") 
+    val numbers = mutableListOf("one", "two", "three", "four") 
     val mutableIterator = numbers.iterator()
     
     mutableIterator.next()

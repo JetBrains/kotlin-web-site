@@ -177,12 +177,12 @@ In Kotlin, the default implementation of `List` is `ArrayList` which you can thi
 ```kotlin
 fun main() {
 //sampleStart
-    val mySet = setOf(1, 2, 3, 4)
-    println("Number of elements: ${mySet.size}")
-    if (mySet.contains(1)) println("1 is in the set")
+    val numbers = setOf(1, 2, 3, 4)
+    println("Number of elements: ${numbers.size}")
+    if (numbers.contains(1)) println("1 is in the set")
 
     val anotherSet = setOf(4, 3, 2, 1)
-    println("The sets are equal: ${mySet.equals(anotherSet)}")
+    println("The sets are equal: ${numbers.equals(anotherSet)}")
 //sampleEnd
 }
 ```
@@ -257,7 +257,7 @@ fun main() {
 //sampleStart
     val myMap = mutableMapOf("one" to 1, "two" to 2)
     myMap.put("three", 3)
-    myMap.set("one", 11)
+    myMap["one"] = 11
 
     println(myMap)
 //sampleEnd

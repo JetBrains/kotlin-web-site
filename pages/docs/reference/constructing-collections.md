@@ -29,7 +29,7 @@ val myMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
 ```
 </div>
 
-Note that the to notation creates a short-living `Pair` object, so it's recommended that you use it only if performance isn't critical.
+Note that the `to` notation creates a short-living `Pair` object, so it's recommended that you use it only if performance isn't critical.
 To avoid excessive memory usage, use alternative ways. For example, you can create a mutable map and populate it using the write operations.
 The `apply()` function can help to keep the initialization fluent here.
 
@@ -60,7 +60,7 @@ For lists, there is a constructor that takes the list size and the initializer f
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val myList = List(3, { it * 2 })  // or MutableList if you want to change its content later
     println(myList)
 //sampleEnd
@@ -77,9 +77,9 @@ Similar constructors are available for implementations of `Set` and `Map`.
 
 ```kotlin
 fun main() {
-//sampleStart    
-    val myList = LinkedList<String>(listOf("one", "two", "three"))
-    val mySortedSet = HashSet<Int>(3)
+//sampleStart
+    val myArrayList = ArrayList<String>(setOf("one", "two", "three"))    
+    val myHashSet = HashSet<Int>(3)
 //sampleEnd
 }
 ```
