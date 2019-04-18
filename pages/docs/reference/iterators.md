@@ -17,11 +17,13 @@ Once the iterator passes through the last element, it can no longer be used for 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun main() {   
+fun main() {
+//sampleStart   
     val numbers = listOf("one", "two", "three", "four")
     val numbersIterator = numbers.iterator()
     while (numbersIterator.hasNext())
         println(numbersIterator.next())
+//sampleEnd
 }
 ```
 </div>
@@ -32,9 +34,11 @@ Another way to go through an `Iterable` collection is the well-known `for` loop.
 
 ```kotlin
 fun main() {   
+//sampleStart
     val numbers = listOf("one", "two", "three", "four")
     for (item in numbers)
         println(item)
+//sampleEnd
 }
 ```
 </div>
@@ -45,10 +49,12 @@ Finally, there is a useful `forEach()` function that lets you automatically iter
 
 ```kotlin
 fun main() {   
+//sampleStart    
     val numbers = listOf("one", "two", "three", "four")
     numbers.forEach {
         println(it)
     }
+//sampleEnd
 }
 ```
 </div>
@@ -62,6 +68,7 @@ Backward iteration is implemented by the functions `hasPrevious()` and `previous
 
 ```kotlin
 fun main() {   
+//sampleStart    
     val numbers = listOf("one", "two", "three", "four")
     val listIterator = numbers.listIterator()
     while (listIterator.hasNext())listIterator.next()
@@ -70,6 +77,7 @@ fun main() {
         print("Index: ${listIterator.previousIndex()}")
         println(", value: ${listIterator.previous()}")
     }
+//sampleEnd
 }
 ```
 </div>
@@ -78,18 +86,20 @@ Having the ability to iterate in both directions, means the `ListIterator` can s
 
 ## Mutable iterators
 
-For iterating mutable collections, there is `MutableIterator` that extends `Iterator` with the element removal function remove(). So, you can remove elements from a collection while iterating it. 
+For iterating mutable collections, there is `MutableIterator` that extends `Iterator` with the element removal function `remove()`. So, you can remove elements from a collection while iterating it. 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 fun main() {   
+//sampleStart
     val numbers = listOf("one", "two", "three", "four") 
     val mutableIterator = numbers.iterator()
     
     mutableIterator.next()
     mutableIterator.remove()    
     println("After removal: $numbers")
+//sampleEnd
 }
 ```
 </div>
@@ -100,6 +110,7 @@ In addition to removing elements, the `MutableListIterator` can also insert and 
 
 ```kotlin
 fun main() {   
+//sampleStart
     val numbers = mutableListOf("one", "four", "four") 
     val mutableListIterator = numbers.listIterator()
     
@@ -108,6 +119,7 @@ fun main() {
     mutableListIterator.next()
     mutableListIterator.set("three")   
     println(numbers)
+//sampleEnd
 }
 ```
 </div>

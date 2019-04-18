@@ -47,9 +47,11 @@ For lists, there is a constructor that takes the list size and the initializer f
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun main() {   
+fun main() {
+//sampleStart   
     val myList = List(3, { it * 2 })  // or MutableList if you want to change its content later
     println(myList)
+//sampleEnd
 }
 ```
 </div>
@@ -63,8 +65,10 @@ Similar constructors are available for implementations of `Set` and `Map`.
 
 ```kotlin
 fun main() {   
+//sampleStart    
     val myList = LinkedList<String>(listOf("one", "two", "three"))
     val mySortedSet = HashSet<Int>(3)
+//sampleEnd
 }
 ```
 </div>
@@ -77,6 +81,7 @@ Collection copying functions, such as `toList()`, `toMutableList()`, `toSet()` a
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
+//sampleStart
 fun main() {   
     val sourceList = mutableListOf(1, 2, 3)
     val copyList = sourceList.toMutableList()
@@ -86,6 +91,7 @@ fun main() {
     
     //readOnlyCopyList.add(4)             // compilation error
     println("Read-only copy size: ${copyList.size}")
+//sampleEnd
 }
 ```
 </div>
@@ -96,11 +102,13 @@ These functions can also be used for converting collections to other types, for 
 
 ```kotlin
 fun main() {   
+//sampleStart
     val sourceList = mutableListOf(1, 2, 3)    
     val copySet = sourceList.toMutableSet()
     copySet.add(3)
     copySet.add(4)    
     println(copySet)
+//sampleEnd
 }
 ```
 </div>
@@ -112,10 +120,12 @@ So, when the collection instance is altered through a reference, the changes are
 
 ```kotlin
 fun main() {   
+//sampleStart
     val sourceList = mutableListOf(1, 2, 3)
     val referenceList = sourceList
     referenceList.add(4)
     println("Source size: ${sourceList.size}")
+//sampleEnd
 }
 ```
 </div>
@@ -125,12 +135,14 @@ Collection initialization can be used for restricting mutability. For example, i
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun main() {   
+fun main() {
+//sampleStart 
     val sourceList = mutableListOf(1, 2, 3)
     val referenceList: List<Int> = sourceList
     //referenceList.add(4)            //compilation error
     sourceList.add(4)
     println(referenceList) // shows the current state of sourceList
+//sampleEnd
 }
 ```
 </div>
