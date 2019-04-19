@@ -27,10 +27,10 @@ Common operations are available for both [read-only and mutable collections](col
 * [Filtering](collection-filtering.html)
 * [`plus` and `minus` operators](collection-plus-minus.html)
 * [Grouping](collection-grouping.html)
-* [Retrieving collection parts](collection-parts.hmtl)
+* [Retrieving collection parts](collection-parts.html)
 * [Retrieving single elements](collection-elements.html)
-* [Ordering](collection-ordering.hmtl)
-* [Aggregate operations](collection-aggregate.hmtl)
+* [Ordering](collection-ordering.html)
+* [Aggregate operations](collection-aggregate.html)
 
 Operations described on these pages return their results without affecting the original collection. For example, a filtering operation produces a _new collection_ that contains all the elements matching the filtering predicate.
 Results of such operations should be either stored in variables, or used in some other way, for example, passed in other functions.

@@ -90,9 +90,9 @@ println(listOf("aaa", "bb", "c").sortedWith(compareBy { it.length }))
 </div>
 
 The Kotlin collections package provides functions for sorting collections in natural, custom, and even random orders.
-On this page, we'll describe sorting functions that apply to [read-only](collections-overview.hmtl#collection-types) collections.
+On this page, we'll describe sorting functions that apply to [read-only](collections-overview.html#collection-types) collections.
 These functions return their result as a new collection containing the elements of the original collection in the requested order.
-To learn about functions for sorting [mutable](collections-overview.hmtl#collection-types) collections in place, see the [List specific operations](list-operations.hmtl#sorting).
+To learn about functions for sorting [mutable](collections-overview.html#collection-types) collections in place, see the [List specific operations](list-operations.html#sorting).
 
 ## Natural order
 
