@@ -13,7 +13,7 @@ title: "List Specific Operations"
 
 Lists support all common operations for element retrieval: `elementAt()`, `first()`, `last()`, and others listed in [Retrieving single elements](collection-elements.html).
 What is specific for lists is index access to the elements, so the simplest way to read an element is retrieving it by index.
-That is done with the `get()` function with the index passed in the argument or the shorthand \[index\] syntax.
+That is done with the `get()` function with the index passed in the argument or the shorthand `[index]` syntax.
 
 If the list size is less than the specified index, an exception is thrown.
 There are two other functions that help you avoid such exceptions: 
@@ -47,9 +47,9 @@ Thus, if an element of the original collection changes, it also changes in the p
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = (0..13).toList()
-    println(numbers.sublist(3, 6))
+    println(numbers.subList(3, 6))
 //sampleEnd
 }
 
@@ -68,7 +68,7 @@ If there are no such elements, both functions return `-1`.
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = listOf(1, 2, 3, 4, 2, 5)
     println(numbers.indexOf(2))
     println(numbers.lastIndexOf(2))
@@ -87,7 +87,7 @@ There is also a pair of functions that take a predicate and search for elements 
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = mutableListOf(1, 2, 3, 4)
     println(numbers.indexOfFirst { it > 2})
     println(numbers.indexOfLast { it % 2 == 1})
@@ -113,7 +113,7 @@ You can also specify an index range to search in: in this case, the function sea
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
     numbers.sort()
     println(numbers)
@@ -131,13 +131,13 @@ fun main() {
 When list elements aren't `Comparable`, you should provide a [`Comparator`](collection-ordering.html) to use in the binary search.
 The list must be sorted in ascending order according to this `Comparator`. Let's have a look at an example:
 
-data class Product(val name: String, val price: Double)
-
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
+data class Product(val name: String, val price: Double)
+
 fun main() {
-//sampleStart   
+//sampleStart
     val productList = listOf(
         Product("WebStorm", 49.0),
         Product("AppCode", 99.0),
@@ -160,7 +160,7 @@ Custom comparators are also handy when a list uses an order different from natur
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val colors = listOf("Blue", "green", "ORANGE", "Red", "yellow")
     println(colors.binarySearch("RED", String.CASE_INSENSITIVE_ORDER)) // 3
 //sampleEnd
@@ -178,7 +178,8 @@ The list must be sorted in the ascending order according to the provided functio
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-//sampleStart   
+import kotlin.math.sign
+//sampleStart
 data class Product(val name: String, val price: Double)
 
 fun priceComparison( o1: Product, price: Double) = sign(o1.price - price).toInt()
@@ -191,9 +192,8 @@ fun main() {
         Product("ReSharper", 149.0))
 
     println(productList.binarySearch { priceComparison(it, 99.0) })
-//sampleEnd
 }
-
+//sampleEnd
 ```
 </div>
 
@@ -213,7 +213,7 @@ All elements that come after the position shift to the right.
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = mutableListOf("one", "five", "six")
     numbers.add(1, "two")
     numbers.addAll(2, listOf("three", "four"))
@@ -232,7 +232,7 @@ Lists also offer a function to replace an element at a given position - `set()`.
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = mutableListOf("one", "five", "three")
     numbers.set(1, "two")
     println(numbers)
@@ -251,7 +251,7 @@ All indices of elements that come after the element being removed will decrease 
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = mutableListOf(1, 2, 3, 4, 3)    
     numbers.removeAt(1)
 //sampleEnd
@@ -278,8 +278,8 @@ The following example lists them all:
 
 ```kotlin
 fun main() {
-//sampleStart   
-    val numbers = listOf("one", "two", "three", "four")
+//sampleStart
+    val numbers = mutableListOf("one", "two", "three", "four")
 
     numbers.sort()
     println("Sort into ascending: $numbers")

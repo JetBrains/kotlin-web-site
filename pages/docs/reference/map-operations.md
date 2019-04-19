@@ -25,13 +25,13 @@ Additionally, you have two more options to handle the key absence:
 
 ```kotlin
 fun main() {
-//sampleStart  
+//sampleStart
     val numberMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
     println(numberMap.get("one"))
     println(numberMap["one"])
     println(numberMap.getOrDefault("four", 10))
     println(numberMap.get("five"))               // null
-    //myMap.getValue("six")      // exception!
+    //numberMap.getValue("six")      // exception!
 //sampleEnd
 }
 
@@ -44,7 +44,7 @@ To perform operations on all keys or all values of a map, you can retrieve them 
 
 ```kotlin
 fun main() {
-//sampleStart  
+//sampleStart
     val numberMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
     println(numberMap.keys)
     println(numberMap.values)
@@ -64,7 +64,7 @@ This enables you to use both the key and the value in the filtering predicate.
 
 ```kotlin
 fun main() {
-//sampleStart  
+//sampleStart
     val numberMap = mutableMapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
     val filteredMap = numberMap.filter { (key, value) -> key.endsWith("1") && value > 10}
     println(filteredMap)
@@ -83,10 +83,10 @@ The predicate for `filterKeys()` checks only the element keys, the one for `filt
 
 ```kotlin
 fun main() {
-//sampleStart  
-    val myMap = mutableMapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
-    val filteredKeysMap = myMap.filterKeys { it.endsWith("1") }
-    val filteredValuesMap = myMap.filterValues { it < 10 }
+//sampleStart
+    val numberMap = mutableMapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
+    val filteredKeysMap = numberMap.filterKeys { it.endsWith("1") }
+    val filteredValuesMap = numberMap.filterValues { it < 10 }
 
     println(filteredKeysMap)
     println(filteredValuesMap)
@@ -106,11 +106,11 @@ When the right-hand side operand contains entries with keys present in the left-
 
 ```kotlin
 fun main() {
-//sampleStart  
-    val myMap = mapOf("one" to 1, "two" to 2, "three" to 3)
-    println(myMap + Pair("four", 4))
-    println(myMap + Pair("one", 10))
-    println(myMap + mapOf("five" to 5, "one" to 11))
+//sampleStart
+    val numberMap = mapOf("one" to 1, "two" to 2, "three" to 3)
+    println(numberMap + Pair("four", 4))
+    println(numberMap + Pair("one", 10))
+    println(numberMap + mapOf("five" to 5, "one" to 11))
 //sampleEnd
 }
 
@@ -124,10 +124,10 @@ So, the right-hand side operand can be either a single key or a collection of ke
 
 ```kotlin
 fun main() {
-//sampleStart  
-    val myMap = mapOf("one" to 1, "two" to 2, "three" to 3)
-    println(myMap - "one")
-    println(myMap - listOf("two", "four"))
+//sampleStart
+    val numberMap = mapOf("one" to 1, "two" to 2, "three" to 3)
+    println(numberMap - "one")
+    println(numberMap - listOf("two", "four"))
 //sampleEnd
 }
 
@@ -158,10 +158,10 @@ In sorted maps, the positions of new elements are defined by the order of their 
 
 ```kotlin
 fun main() {
-//sampleStart  
+//sampleStart
     val numberMap = mutableMapOf("one" to 1, "two" to 2)
-    myMap.put("three", 3)
-    println(myMap)
+    numberMap.put("three", 3)
+    println(numberMap)
 //sampleEnd
 }
 
@@ -174,10 +174,10 @@ To add multiple entries at a time, use `putAll()`. Its argument can be a `Map` o
 
 ```kotlin
 fun main() {
-//sampleStart  
-    val myMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
-    myMap.putAll(setOf("four" to 4, "five" to 5))
-    println(myMap)
+//sampleStart
+    val numberMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
+    numberMap.putAll(setOf("four" to 4, "five" to 5))
+    println(numberMap)
 //sampleEnd
 }
 
@@ -190,10 +190,10 @@ Both `put()` and `putAll()` overwrite the values if the given keys already exist
 
 ```kotlin
 fun main() {
-//sampleStart  
-    val myMap = mutableMapOf("one" to 1, "two" to 2)
-    myMap.set("one", 11)
-    println(myMap)
+//sampleStart
+    val numberMap = mutableMapOf("one" to 1, "two" to 2)
+    numberMap.set("one", 11)
+    println(numberMap)
 //sampleEnd
 }
 
@@ -209,11 +209,11 @@ You can also add new entries to maps using the shorthand operator form. There ar
 
 ```kotlin
 fun main() {
-//sampleStart  
+//sampleStart
     val numberMap = mutableMapOf("one" to 1, "two" to 2)
-    myMap["three"] = 3     // calls myMap.set("three", 3)
+    numberMap["three"] = 3     // calls numberMap.set("three", 3)
     mapOf("four" to 4, "five" to 5)
-    println(myMap)
+    println(numberMap)
 //sampleEnd
 }
 
@@ -232,7 +232,7 @@ If you specify both the key and value, the element with this key will be removed
 
 ```kotlin
 fun main() {
-//sampleStart  
+//sampleStart
     val myMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
     myMap.remove("one")
     println(myMap)
@@ -250,7 +250,7 @@ The `-=` (`minusAssign`) operator is also available for mutable maps.
 
 ```kotlin
 fun main() {
-//sampleStart  
+//sampleStart
     val myMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
     myMap -= "two"
     println(myMap)

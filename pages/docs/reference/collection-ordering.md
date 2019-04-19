@@ -32,7 +32,6 @@ Below is a class that can be used for ordering versions that consist of the majo
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-//sampleStart
 class Version(val major: Int, val minor: Int): Comparable<Version> {
     override fun compareTo(other: Version): Int {
         if (this.major != other.major) {
@@ -46,9 +45,7 @@ class Version(val major: Int, val minor: Int): Comparable<Version> {
 fun main() {    
     println(Version(1, 2) > Version(1, 3))
     println(Version(2, 0) > Version(1, 5))
-//sampleEnd
 }
-
 ```
 </div>
 
@@ -123,12 +120,12 @@ They take a selector function that maps collection elements to `Comparable` valu
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf("one", "two", "three", "four")
 
     val sortedNumbers = numbers.sortedBy { it.length }
     println("Sorted by length ascending: $sortedNumbers")
-    val sortedbyLast = numbers.sortByDescending { it.last() }
+    val sortedbyLast = numbers.sortedByDescending { it.last() }
     println("Sorted by the last letter descending: $sortedbyLast")
 //sampleEnd
 }
@@ -161,7 +158,7 @@ You can retrieve the collection in the reversed order using the `reversed()` fun
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf("one", "two", "three", "four")
     println(numbers.reversed())
 //sampleEnd
@@ -179,7 +176,7 @@ Another reversing function - `asReversed()` - returns a reversed view of the sam
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf("one", "two", "three", "four")
     val reversedNumbers = numbers.asReversed()
     println(reversedNumbers)
@@ -195,7 +192,7 @@ If the original list is mutable, all its changes reflect in its reversed views a
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
 
     val reversedNumbers = numbers.asReversed()

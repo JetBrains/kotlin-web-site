@@ -174,7 +174,7 @@ reference:
           title: List Specific Operations
         - url: /docs/reference/set-operations.html
           title: Set Specific Operations
-        - url: /docs/reference/Map-operations.html
+        - url: /docs/reference/map-operations.html
           title: Map Specific Operations
 
     - title: Multiplatform Programming
