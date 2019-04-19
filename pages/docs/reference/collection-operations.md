@@ -84,7 +84,7 @@ Functions with destination are available for filtering, association, grouping, f
 
 ## Write operations
 
-For mutable collections, there are also _write operations_ that change the collection state. Such operations include adding, removing, and updating elements. Write operations are listed in the [Write operations](#TODO) and corresponding sections of [List specific operations](#TODO) and [Map specific operations](#TODO).
+For mutable collections, there are also _write operations_ that change the collection state. Such operations include adding, removing, and updating elements. Write operations are listed in the [Write operations](collection-write.html) and corresponding sections of [List specific operations](list-operations.html) and [Map specific operations](map-operations.hmtl).
 
 For certain operations, there are pairs of functions for performing the same operation: one applies the operation in-place and the other returns the result as a separate collection.
 For example, `sort()` sorts a mutable collection in-place, so it's state changes; `sorted()` creates a new collection that contains the same elements in the sorted order.

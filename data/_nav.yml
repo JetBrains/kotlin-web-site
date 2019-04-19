@@ -154,6 +154,10 @@ reference:
           title: Operations Overview
         - url: /docs/reference/collection-transformations.html
           title: Transformations
+        - url: /docs/reference/collection-filtering.html
+          title: Transformation
+        - url: /docs/reference/collection-plus-minus.html
+          title: Plus and Minus Operators
 
     - title: Multiplatform Programming
       description: Reusing code across JVM, JS, and Native
