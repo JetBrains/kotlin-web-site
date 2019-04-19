@@ -10,12 +10,12 @@ title: "Retrieving Single Elements"
 Kotlin collections provide a set of functions for retrieving single elements from collections.
 Functions described on this page apply to both lists and sets.
 
-As the definition of the list says, a list is an ordered collection.
+As the [list definition](collections-overview.html) says, a list is an ordered collection.
 Hence, every element of a list has its position that you can use for referring.
 In addition to functions described on this page, lists offer a wider set of ways to retrieve and search for elements by indices.
 For more details, see [List specific operations](list-operations.html).
 
-In turn, set is not an ordered collection by definition.
+In turn, set is not an ordered collection by [definition](collections-overview.html).
 However, the Kotlin `Set` stores elements in certain orders.
 These can be the order of insertion (in `LinkedHashSet`), natural sorting order (in `SortedSet`), or another order.
 The order of a set of elements can also be unknown.
@@ -34,7 +34,7 @@ However, such results are unpredictable to the caller unless they know the speci
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four", "five")
-    println(numbers.elementAt(6))    
+    println(numbers.elementAt(3))    
 
     val numbersSortedSet = sortedSetOf("one", "two", "three", "four")
     println(numbersSortedSet.elementAt(0)) // element are stored in the ascending order
@@ -97,7 +97,7 @@ fun main() {
 </div>
 
 If no elements match the predicate, both functions throw exceptions.
-To avoid them, use `firstOrNull()` and `lastOrNull()` instead: they return null if no matching elements are found.
+To avoid them, use `firstOrNull()` and `lastOrNull()` instead: they return `null` if no matching elements are found.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -182,7 +182,7 @@ fun main() {
     println(numbers.isNotEmpty())
     
     val emptyCollection = emptyList<String>()
-    println(numbemptyCollection.isEmpty())
+    println(emptyCollection.isEmpty())
     println(emptyCollection.isNotEmpty())
 //sampleEnd
 }

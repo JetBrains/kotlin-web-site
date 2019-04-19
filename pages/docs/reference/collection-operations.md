@@ -21,16 +21,16 @@ Other collection operations are declared as extension functions. These are filte
 
 ## Common operations
 
-Common operations are available for both read-only and mutable collections. Common operations fall into these groups:
+Common operations are available for both [read-only and mutable collections](collections-overview.html#collection-types). Common operations fall into these groups:
 
-* Transformations
-* Filtering
-* plus and minus operators
-* Grouping
-* Retrieving collection parts
-* Retrieving single elements
-* Ordering
-* Aggregate operations
+* [Transformations](collection-transformations.html)
+* [Filtering](collection-filtering.html)
+* [`plus` and `minus` operators](collection-plus-minus.html)
+* [Grouping](collection-grouping.html)
+* [Retrieving collection parts](collection-parts.hmtl)
+* [Retrieving single elements](collection-elements.html)
+* [Ordering](collection-ordering.hmtl)
+* [Aggregate operations](collection-aggregate.hmtl)
 
 Operations described on these pages return their results without affecting the original collection. For example, a filtering operation produces a _new collection_ that contains all the elements matching the filtering predicate.
 Results of such operations should be either stored in variables, or used in some other way, for example, passed in other functions.
@@ -58,7 +58,7 @@ These functions take the destination collection as an additional parameter.
 
 ```kotlin
 fun main() {
-////sampleStart
+//sampleStart
     val numbers = listOf("one", "two", "three", "four")
     val filterResults = mutableListOf<String>()  //destination object
     numbers.filterTo(filterResults) { it.length > 3 }
@@ -74,9 +74,14 @@ For convenience, these functions return the destination collection back, so you 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-// filter numbers right into a new hash set, 
-// thus eliminating duplicates in the result
-val result = numbers.filterTo(HashSet()) { it.length > 3 }
+fun main() {
+    val numbers = listOf("one", "two", "three", "four")
+//sampleStart
+    // filter numbers right into a new hash set, 
+    // thus eliminating duplicates in the result
+    val result = numbers.filterTo(HashSet()) { it.length > 3 }
+//sampleEnd
+}
 ```
 </div>
 
@@ -93,12 +98,13 @@ For example, `sort()` sorts a mutable collection in-place, so it's state changes
 
 ```kotlin
 fun main() {
+//sampleStart
     val myList = mutableListOf("one", "two", "three", "four")
-
     val sortedAsc = myList.sorted()
     println(myList.equals(sortedAsc))  // false
     myList.sort()
     println(myList.equals(sortedAsc))  // true
+//sampleEnd
 }
 ```
 </div>

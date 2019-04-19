@@ -11,12 +11,12 @@ Filtering is one of the most popular tasks in the collection processing.
 In Kotlin, filtering conditions are defined by _predicates_ – lambda functions that take a collection element and return a boolean value: `true` means that the given element matches the predicate, `false` means the opposite.
 
 The standard library contains a group of extension functions that let you filter collections in a single call.
-These functions leave the original collection unchanged, so they are available for both mutable and read-only collections.
+These functions leave the original collection unchanged, so they are available for both [mutable and read-only](collections-overview.html#collection-types) collections.
 To operate the filtering result, you should assign it to a variable or chain the functions after filtering.
 
 ## Filtering by predicate
 
-The basic filtering function is `filter()`. When called with a predicate, `filter()` returns a list of collection elements matching it.
+The basic filtering function is `filter()`. When called with a predicate, `filter()` returns the collection elements that match it.
 For both `List` and `Set`, the resulting collection is a `List`, for `Map` it's a `Map` as well.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -96,7 +96,7 @@ fun main() {
 ## Partitioning
 
 Another filtering function – `partition()` – filters a collection by a predicate and keeps the elements that don't match it in a separate list.
-So, you have a `Pair` of `List`s as a return value: the first List containing elements that match the predicate and the second one containing everything else from the original collection.
+So, you have a `Pair` of `List`s as a return value: the first list containing elements that match the predicate and the second one containing everything else from the original collection.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

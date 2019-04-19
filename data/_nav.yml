@@ -155,9 +155,11 @@ reference:
         - url: /docs/reference/collection-transformations.html
           title: Transformations
         - url: /docs/reference/collection-filtering.html
-          title: Transformation
+          title: Filtering
         - url: /docs/reference/collection-plus-minus.html
           title: Plus and Minus Operators
+        - url: /docs/reference/collection-grouping.html
+          title: Grouping
         - url: /docs/reference/collection-parts.html
           title: Retrieving Collection Parts
         - url: /docs/reference/collection-elements.html

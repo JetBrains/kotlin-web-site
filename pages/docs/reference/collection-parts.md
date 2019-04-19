@@ -114,7 +114,7 @@ fun main() {
 You can retrieve all possible ranges of the collection elements of a given size.
 The function for getting them is called `windowed()`: it returns a list of element ranges that you would see if you were looking at the collection through a sliding window of the given size.
 Unlike `chunked()`,  `windowed()` returns element ranges starting from *each* collection element.
-All the ranges are returned as elements of a single List.
+All the ranges are returned as elements of a single `List`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -151,7 +151,7 @@ fun main() {
 
 To build two-element windows, there is a separate function - `zipWithNext()`.
 It creates pairs of adjacent elements of the receiver collection.
-Note that `zipWithNext()` doesn't break the collection into pairs; it creates a `Pair` for _each_ element except the last one, so its result on `\[1, 2, 3, 4\]` is `\[\[1, 2], \[2, 3\], \[3, 4\]\]`, not `\[\[1, 2`], `[3, 4\]\]`.
+Note that `zipWithNext()` doesn't break the collection into pairs; it creates a `Pair` for _each_ element except the last one, so its result on `[1, 2, 3, 4]` is `[[1, 2], [2, 3], [3, 4]]`, not `[[1, 2`], `[3, 4]]`.
 `zipWithNext()` can be called with a transformation function as well; it should take two elements of the receiver collection as arguments.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">

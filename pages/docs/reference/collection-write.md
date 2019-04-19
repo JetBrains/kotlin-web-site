@@ -7,7 +7,7 @@ title: "Collection Write Operations"
 
 # Collection Write Operations
 
-[Mutable collections](collections-overview.html) support operations for changing the collection contents, for example, adding or removing elements.
+[Mutable collections](collections-overview.html#collection-types) support operations for changing the collection contents, for example, adding or removing elements.
 On this page, we'll describe write operations available for all implementations of `MutableCollection`.
 For more specific operations available for `List` and `Map`, see [List Specific Operations](list-operations.html) and [Map Specific Operations](map-operations.html) respectively.
 
@@ -29,8 +29,9 @@ fun main() {
 </div>
 
 `addAll()` adds every element of the argument object to a list or a set.
-The argument can be any `Collection`, for example, you can add all items from a `Set` to a` List`.
+The argument can be any `Collection`, for example, you can add all items from a `Set` to a `List`.
 Moreover, `addAll()` can accept any `Iterable`, `Sequence`, or `Array`.
+
 For lists, you can also specify the index where the elements should be inserted.
 Other elements of the argument collection will follow it preserving their order.
 
@@ -57,7 +58,7 @@ You can also add elements using the in-place version of the [`plus` operator](co
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers = listOf("one", "two")
+    val numbers = mutableListOf("one", "two")
     numbers += "three"
     println(numbers)
     numbers += listOf("four", "five")    
@@ -109,7 +110,7 @@ fun main() {
 
     val numbersSet = mutableSetOf("one", "two", "three", "four")
     numbersSet.removeAll(setOf("one", "two"))
-    println(numberSet)
+    println(numbersSet)
 //sampleEnd
 }
 ```
@@ -127,7 +128,7 @@ The second operand can contain elements that are not present in the collection. 
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers = listOf("one", "two", "three", "three", "four")
+    val numbers = mutableListOf("one", "two", "three", "three", "four")
     numbers -= "three"
     println(numbers)
     numbers -= listOf("four", "five")    
@@ -157,6 +158,7 @@ fun main() {
     
     val numbersMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
     numbersMap.replaceAll { k, v -> v * 2}
+    println(numbersMap)
 //sampleEnd
 }
 ```

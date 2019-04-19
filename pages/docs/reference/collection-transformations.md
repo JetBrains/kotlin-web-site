@@ -31,7 +31,7 @@ fun main() {
 ```
 </div>
 
-If the transformation produces null on certain elements, you can filter out the null elements from the result collection by calling the `mapNotNull()` function instead of `map()`, or `mapIndexedNotNull()` instead of `mapIndexed()`.
+If the transformation produces `null` on certain elements, you can filter out the `null`s from the result collection by calling the `mapNotNull()` function instead of `map()`, or `mapIndexedNotNull()` instead of `mapIndexed()`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -65,12 +65,12 @@ fun main() {
 
 ## Zipping
 
-Zipping transformation is building pairs from elements with the same positions in both collections.
+_Zipping_ transformation is building pairs from elements with the same positions in both collections.
 In the Kotlin standard library, this is done by the `zip()` extension function.
 When called on a collection or an array with another collection (array) as an argument, `zip()` returns the `List` of `Pair` objects.
 The elements of the receiver collection are the first elements in these pairs.
 If the collections have different sizes, the result of the `zip()` is the smaller size; the last elements of the larger collection are not included in the result.
-`zip()` can also be called in the infix form.
+`zip()` can also be called in the infix form `a zip b`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -107,7 +107,7 @@ fun main() {
 
 When you have a `List` of `Pair`s, you can do the reverse transformation – _unzipping_ – that builds two lists from these `Pairs`:
 
-* The first list contains the first elements of each Pair in the original list. 
+* The first list contains the first elements of each `Pair` in the original list. 
 * The second list contains the second elements.
 
 To unzip a list of pairs, call `unzip()`.
@@ -126,8 +126,8 @@ fun main() {
 
 ## Association
 
-_Association_ transformations allow building maps from the collection elements with certain values associated with them.
-In different association types, elements can be either keys or values in the association map.
+_Association_ transformations allow building maps from the collection elements and certain values associated with them.
+In different association types, the elements can be either keys or values in the association map.
 
 The basic association function `associateWith()` creates a `Map` in which the elements of the original collection are keys, and values are produced from them by the given transformation function.
 If two elements are equal, only the last one remains in the map.
@@ -223,10 +223,10 @@ fun main() {
 
 If you need to retrieve the collection content in a readable format, use functions that transform the collections to strings: `joinToString()` and `joinTo()`.
 
-`joinToString()` builds a single String from the collection elements based on the provided arguments.
+`joinToString()` builds a single `String` from the collection elements based on the provided arguments.
 `joinTo()` does the same but appends the result to the given `Appendable` object.
 
-When called with the default arguments, have the same result as calling `toString()` on the collection: a `String` of elements' string representations separated by commas with spaces. 
+When called with the default arguments, the functions return the result similar to calling `toString()` on the collection: a `String` of elements' string representations separated by commas with spaces. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -236,7 +236,7 @@ fun main() {
     val numbers = listOf("one", "two", "three", "four")
     
     println(numbers)         
-    println(numbers.joinToString()) // same output
+    println(numbers.joinToString())
     
     val listString = StringBuffer("The list of numbers: ")
     numbers.joinTo(listString)

@@ -91,7 +91,9 @@ fun main() {
     val sumDoubled = numbers.fold(0) { sum, element -> sum + element * 2 }
     println(sumDoubled)
 
-    //val sumDoubledReduce = numbers.fold(0) { sum, element -> sum + element * 2 } //incorrect value
+    //val sumDoubledReduce = numbers.reduce { sum, element -> sum + element * 2 } //incorrect value
+    //println(sumDoubledReduce)
+
 //sampleEnd
 }
 ```
@@ -108,9 +110,11 @@ Note that when folding or reducing right, the operation arguments change their o
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf(5, 2, 10, 4)
     val sumDoubledRight = numbers .foldRight(0) { element, sum -> sum + element * 2 }
+    println(sumDoubledRight)
+
 //sampleEnd
 }
 ```
