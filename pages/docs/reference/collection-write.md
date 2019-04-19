@@ -9,7 +9,7 @@ title: "Collection Write Operations"
 
 [Mutable collections](collections-overview.html) support operations for changing the collection contents, for example, adding or removing elements.
 On this page, we'll describe write operations available for all implementations of `MutableCollection`.
-For more specific operations available for `List` and `Map`, see [List Specific Operations](list-operations.hmtl) and [Map Specific Operations](map-operations.hmtl) respectively.
+For more specific operations available for `List` and `Map`, see [List Specific Operations](list-operations.html) and [Map Specific Operations](map-operations.html) respectively.
 
 ## Adding elements
 
