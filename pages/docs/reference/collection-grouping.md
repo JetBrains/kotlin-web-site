@@ -36,7 +36,7 @@ The `Grouping` instance stores all the returned groups together and lets you eas
 Namely, `Grouping` supports the following operations:
 
 * `eachCount()` counts the elements in each group. 
-* `fold()` and `reduce()` perform [fold and reduce](collection-aggregate.hrml) operations on each group as a separate collection and return the results.
+* `fold()` and `reduce()` perform [fold and reduce](collection-aggregate.hrml#fold-and-reduce) operations on each group as a separate collection and return the results.
 * `aggregate()` applies a given operation subsequently to all the elements in each group and returns the result.
    This is the generic way to perform any operations on a `Grouping`. Use it to implement custom operations when fold or reduce are not enough.
 

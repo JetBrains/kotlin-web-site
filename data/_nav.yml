@@ -158,6 +158,22 @@ reference:
           title: Transformation
         - url: /docs/reference/collection-plus-minus.html
           title: Plus and Minus Operators
+        - url: /docs/reference/collection-parts.html
+          title: Retrieving Collection Parts
+        - url: /docs/reference/collection-elements.html
+          title: Retrieving Single Elements
+        - url: /docs/reference/collection-ordering.html
+          title: Ordering
+        - url: /docs/reference/collection-aggregate.html
+          title: Aggregate Operations
+        - url: /docs/reference/collection-write.html
+          title: Collection Write Operations
+        - url: /docs/reference/list-operations.html
+          title: List Specific Operations
+        - url: /docs/reference/set-operations.html
+          title: Set Specific Operations
+        - url: /docs/reference/Map-operations.html
+          title: Map Specific Operations
 
     - title: Multiplatform Programming
       description: Reusing code across JVM, JS, and Native
