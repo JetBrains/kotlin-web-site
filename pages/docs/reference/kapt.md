@@ -130,12 +130,12 @@ kapt.use.worker.api=true
 
 To improve the times of incremental builds with kapt, it can use the Gradle [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
 With compile avoidance enabled, Gradle can skip annotation processing when rebuilding a project. Particularly, annotation processing is skipped when:
-* the project's source files are unchanged 
-* the changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)-compatible. For example, the only changes are in method bodies. 
+* The project's source files are unchanged.
+* The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) compatible. For example, the only changes are in method bodies. 
 
 However, compile avoidance can't be used for annotation processors discovered in the compile classpath since _any changes_ in them require running the annotation processing tasks. 
 
-Thus, to run kapt with compile avoidance:
+To run kapt with compile avoidance:
 * Add the annotation processor dependencies to the `kapt*` configurations manually as described [above](#using-in-gradle).
 * Turn off the discovery of annotation processors in the compile classpath by adding this line to your `gradle.properties` file:
 
