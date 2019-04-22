@@ -221,7 +221,7 @@ Let's summarize what we have in the table:
 |---|---|---|---|
 | common | `SharedCode/commonMain/kotlin` |  - | Kotlin metadata |
 | android | `SharedCode/androidMain/kotlin` | JVM 6 | `.jar` file or `.class` files |
-| iOS | `SharedCode/iOSMain` | iOS arm64 or x86_64| Apple framework |
+| iOS | `SharedCode/iOSMain/kotlin` | iOS arm64 or x86_64| Apple framework |
 
 Now it is time to refresh the Gradle project again in Android Studio. Click *Sync Now* on the yellow stripe 
 or use the *Gradle* tool window and click the `Refresh` action in the context menu on the root Gradle project.
