@@ -485,7 +485,7 @@ accomplish without rich APIs that we have in Android, JVM, or iOS platforms.
 Multiplatform libraries can be used to fix that. They bring rich APIs
 directly in the common Kotlin code. There are several examples of such libraries:  
 
-- [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/blob/master/native/README.md)
+- [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines#native)
 - [kotlinx.io](https://github.com/Kotlin/kotlinx-io)
 - [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
 - [ktor](https://ktor.io/)
