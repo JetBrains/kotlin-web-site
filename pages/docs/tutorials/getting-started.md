@@ -24,27 +24,27 @@ If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](h
 
    ![Kotlin Project Name]({{ url_for('tutorial_img', filename='getting-started/project_name.png') }})
 
-4. Now you have the new project created with the following folder structure:
+   Now you have the new project created with the following folder structure:
 
    ![Kotlin Folder Structure]({{ url_for('tutorial_img', filename='getting-started/folders.png') }})
 
-5. Create a new Kotlin file under the source folder. It can be named anything. Let's call it *app*.
+4. Create a new Kotlin file under the source folder. It can be named anything. Let's call it *app*.
 
    ![Kotlin New File]({{ url_for('tutorial_img', filename='getting-started/new_file.png') }})
 
-6. Once the file is created, add the `main` function which is the entry point to a Kotlin application. IntelliJ IDEA offers a template to do this quickly. Just type *main* and press tab.
+5. Once the file is created, add the `main` function which is the entry point to a Kotlin application. IntelliJ IDEA offers a template to do this quickly. Just type *main* and press tab.
 
    ![Kotlin Main Fun]({{ url_for('tutorial_img', filename='getting-started/main.png') }})
 
-7. Now add a line of code to print out 'Hello, World!'.
+6. Add a line of code to print out 'Hello, World!'.
 
    ![Kotlin Hello World]({{ url_for('tutorial_img', filename='getting-started/hello_world.png') }})
 
-8. Now the application is ready to run. The easiest way is to click on the Kotlin icon in the gutter and select __Run 'AppKt'__.
+   Now the application is ready to run. The easiest way is to click on the Kotlin icon in the gutter and select __Run 'AppKt'__.
 
    ![Kotlin Run App]({{ url_for('tutorial_img', filename='getting-started/run_default.png') }})
 
-9. If everything went well, we should now see the result in the **Run** tool window.
+If everything went well, you'll see the result in the **Run** tool window.
 
    ![Kotlin Run Output]({{ url_for('tutorial_img', filename='getting-started/run_window.png') }})
 
