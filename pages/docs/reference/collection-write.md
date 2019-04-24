@@ -13,7 +13,7 @@ For more specific operations available for `List` and `Map`, see [List Specific 
 
 ## Adding elements
 
-To add a single element to a list or a set, use the `add()` function. The specified object is attached to the end of the collection.
+To add a single element to a list or a set, use the `add()` function. The specified object is appended to the end of the collection.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -34,6 +34,13 @@ Moreover, `addAll()` can accept any `Iterable`, `Sequence`, or `Array`.
 
 For lists, you can also specify the index where the elements should be inserted.
 Other elements of the argument collection will follow it preserving their order.
+
+
+`addAll()` adds every element of the argument object to a list or a set. The argument can be an `Iterable`, a `Sequence`, or an `Array`.
+The types of the receiver and the argument may be different, for example, you can add all items from a `Set` to a `List`.
+
+When called on lists, `addAll()` adds elements in the same order as they go in the argument. Additionally, you can specify the position where the first element of the argument should be inserted.
+Starting from this position, the elements of the receiver will be shifted to the end to let the argument elements follow the first of them. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
