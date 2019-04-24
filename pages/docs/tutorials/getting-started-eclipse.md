@@ -14,7 +14,7 @@ You can download its latest version from [download page](https://www.eclipse.org
 
 To add the Kotlin support to your Eclipse IDE, install the _Kotlin Plugin for Eclipse_.
 We recommend installing the Kotlin plugin from [Eclipse Marketplace](http://marketplace.eclipse.org/content/kotlin-plugin-eclipse). 
-One option is to drag-and-drop this button into a running Eclipse window:
+One option is to drag this button into a running Eclipse window:
 
 <a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=2257536" class="drag" title="Drag to your running Eclipse workspace."><img class="img-responsive" src="http://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse workspace." /></a>
 
@@ -57,7 +57,7 @@ code to the same project.
    
    ![New Kotlin File Wizard]({{ url_for('tutorial_img', filename='getting-started-eclipse/file-name.png') }})
 
-3. Once you have a source file, add the `main` function which is the entry point to a Kotlin application. You
+3. Once you have a source file, add the `main` function - the entry point to a Kotlin application. You
 can simply type `main` and invoke code completion by hitting `Ctrl + Space`.
 
    ![Main Template]({{ url_for('tutorial_img', filename='getting-started-eclipse/main.png') }})

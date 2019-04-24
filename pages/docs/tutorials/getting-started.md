@@ -45,7 +45,7 @@ Once you have IntelliJ IDEA installed, it's time to create your first Kotlin app
 
 ## Running the application
 
-Now the application is ready to run. The easiest way is to click on the Kotlin icon in the gutter and select __Run 'AppKt'__.
+Now the application is ready to run. The easiest way is to click the green __Run__ icon in the gutter and select __Run 'AppKt'__.
 
    ![Kotlin Run App]({{ url_for('tutorial_img', filename='getting-started/run_default.png') }})
 
