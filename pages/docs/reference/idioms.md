@@ -51,6 +51,22 @@ val positives = list.filter { it > 0 }
 ```
 </div>
 
+### Check if collection contains an element
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+val emails = ... // can be a list, set, map, sequence
+
+if ("john@example.com" in emails) {
+    ...
+}
+
+if ("jane@example.com" !in emails) {
+    ...
+}
+```
+</div>
+
 ### String Interpolation
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
