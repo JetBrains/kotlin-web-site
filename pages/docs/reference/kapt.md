@@ -142,7 +142,7 @@ To run kapt with compile avoidance:
 <div class="sample" markdown="1" mode="xml" theme="idea">
 
 ```
-kapt.include.complie.classpath=false
+kapt.include.compile.classpath=false
 ```
 
 </div>
