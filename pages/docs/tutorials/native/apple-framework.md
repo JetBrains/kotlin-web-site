@@ -348,8 +348,8 @@ if (ret != nil) {
 </div>
 
 The Kotlin code is turned into very similar looking
-code in Swift. There are some small differences, though. In Kotlin any `object` has
-the only one instance. Kotlin `object Object` now has a
+code in Swift. There are some small differences, though. In Kotlin any `object` has 
+only one instance. Kotlin `object Object` now has a
 constructor in Swift, and we use the `Object()` syntax to access the only instance of it.
 The instance is always the same in Swift, so that 
 `Object() === Object()` is true. 
