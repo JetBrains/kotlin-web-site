@@ -79,7 +79,7 @@ To change the generated function name with a custom name, use the [`@JsName` ann
 
 Since the entire anonymous function is self-executing, it will execute as soon as the code is loaded. Its argument will be the object `kotlin` from `kotlin.js`.
 
-If you declare you Kotlin code in a package, `main` would be followed by a package definition part. For example, this is goes after the `main` declaration if you put your `main` function in the `org.example.hellojs` package:
+If you declare your Kotlin code in a package, `main` would be followed by a package definition part. For example, this goes after the `main` declaration if you put your `main` function in the `org.example.hellojs` package:
  
 <div class="sample" markdown="1" theme="idea" mode="js">
  
@@ -105,19 +105,18 @@ The purpose of this code is to write out some text in the console. In order to u
         <title>Console Output</title>
     </head>
     <body>
-
-    <script type="text/javascript" src="out/production/ConsoleOutput/lib/kotlin.js"></script>
-    <script type="text/javascript" src="out/production/ConsoleOutput/ConsoleOutput.js"></script>
+        <script type="text/javascript" src="out/production/ConsoleOutput/lib/kotlin.js"></script>
+        <script type="text/javascript" src="out/production/ConsoleOutput/ConsoleOutput.js"></script>
     </body>
 </html>
 ```
 </div>
 
-(Use the relative paths to the `*.js` files from the directory that contains the HTML page)
+(Use the relative paths to the `*.js` files from the directory that contains the HTML page.)
 
-Make sure that you load the `kotlin.js` runtime first and then your application.
+Make sure that you load the `kotlin.js` runtime first, and then your application.
 
-The output of this is a blank page that prints `Hello JavaScript` to the console.
+The output of this is a blank page that prints `Hello JavaScript!` to the console.
 
    ![Application Output]({{ url_for('tutorial_img', filename='javascript/kotlin-to-javascript/app-output.png')}})
 
