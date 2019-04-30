@@ -372,12 +372,6 @@ SharedCode/build/xcode-frameworks/SharedCode.framework
 We will then see something similar to this: 
 ![Xcode General Screen]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-general.png') }})
 
-We need to disable the *Bitcode* feature in the project too. Kotlin/Native produces the fully native
-binaries, not the LLVM bitcode, so we need to navigate to the *Build Settings* tab, pick the *All* sub-tab below, and type `bitcode` into
-the search field. Select `No` for the *Enable Bitcode* option.
-
-![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-bitcode.png') }})
-
 Now we need to explain to Xcode, where to look for frameworks. We need to add the *relative* path 
 `$(SRCROOT)/../../SharedCode/build/xcode-frameworks` into the *Search Paths | Framework Search Paths* section.
 Open the *Build Settings* tab again, pick the *All* sub-tab below, and type the *Framework Search Paths* into
