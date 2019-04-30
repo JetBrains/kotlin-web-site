@@ -41,7 +41,7 @@ fun main() {
 ## Retrieving list parts
 
 In addition to common operations for [Retrieving collection parts](collection-parts.html), lists provide the `subList()` function that returns a view of the specified elements range as a list.
-Thus, if an element of the original collection changes, it also changes in the previously created sublists.
+Thus, if an element of the original collection changes, it also changes in the previously created sublists and vice versa.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -60,7 +60,7 @@ fun main() {
 
 ### Linear search
 
-In any lists, you can find the position of an instance using the functions `indexOf()` and `lastIndexOf()`.
+In any lists, you can find the position of an element using the functions `indexOf()` and `lastIndexOf()`.
 They return the first and the last position of an element equal to the given argument in the list.
 If there are no such elements, both functions return `-1`.
 
@@ -144,7 +144,7 @@ fun main() {
         Product("DotTrace", 129.0),
         Product("ReSharper", 149.0))
 
-    println(productList.binarySearch(Product("AppCode", 99.0), compareBy { it.price })) // 1
+    println(productList.binarySearch(Product("AppCode", 99.0), compareBy<Product> { it.price }.thenBy { it.name }))
 //sampleEnd
 }
 
@@ -242,6 +242,23 @@ fun main() {
 ```
 </div>
 
+`fill()` simply replaces all the collection elements with the specified value.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+//sampleStart
+    val numbers = mutableListOf(1, 2, 3, 4)
+    numbers.fill(3)
+    println(numbers)
+//sampleEnd
+}
+
+```
+</div>
+
+
 ### Removing
 
 To remove an element at a specific position from a list, use the `removeAt()` function providing the position as an argument.
@@ -272,7 +289,9 @@ The in-place sorting functions have similar names to the functions that apply to
 * `shuffle()` instead of `shuffled()`.
 * `reverse()` instead of `reversed()`.
 
-The following example lists them all:
+[`asReversed()`](collection-ordering.html#reverse-order) called on a mutable list returns another mutable list which is a reversed view of the original list. Changes in that view are reflected in the original list.
+The following example shows sorting functions for mutable lists:
+
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

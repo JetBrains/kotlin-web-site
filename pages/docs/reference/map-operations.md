@@ -233,16 +233,37 @@ If you specify both the key and value, the element with this key will be removed
 ```kotlin
 fun main() {
 //sampleStart
-    val myMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
-    myMap.remove("one")
-    println(myMap)
-    myMap.remove("three", 4)            //doesn't remove anything
-    println(myMap)
+    val numberMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
+    numberMap.remove("one")
+    println(numberMap)
+    numberMap.remove("three", 4)            //doesn't remove anything
+    println(numberMap)
 //sampleEnd
 }
 
 ```
 </div>
+
+You can also remove entries from a mutable map by their keys or values.
+To do this, call `remove()` on the map's keys or values providing the key or the value of an entry.
+When called on values, `remove()` removes only the first entry with the given value.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+//sampleStart
+    val numberMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3, "threeAgain" to 3)
+    numberMap.keys.remove("one")
+    println(numberMap)
+    numberMap.values.remove(3)
+    println(numberMap)
+//sampleEnd
+}
+
+```
+</div>
+
 
 The `-=` (`minusAssign`) operator is also available for mutable maps. 
 
@@ -251,11 +272,11 @@ The `-=` (`minusAssign`) operator is also available for mutable maps.
 ```kotlin
 fun main() {
 //sampleStart
-    val myMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
-    myMap -= "two"
-    println(myMap)
-    myMap -= "five"             //doesn't remove anything
-    println(myMap)
+    val numberMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
+    numberMap -= "two"
+    println(numberMap)
+    numberMap -= "five"             //doesn't remove anything
+    println(numberMap)
 //sampleEnd
 }
 

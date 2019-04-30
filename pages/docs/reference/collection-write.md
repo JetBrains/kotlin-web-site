@@ -148,26 +148,7 @@ fun main() {
 
 ## Updating elements
 
-Finally, there are functions for updating collection elements : 
-
-* `replaceAll()` applies the specified transformation for each element and replaces it with the transform result.
-   For maps, `replaceAll()` is available only on JVM starting from JDK 8: it replaces only the values leaving the keys unchanged.
-* `fill()` simply replaces all the collection elements with the specified value.
-
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
-
-```kotlin
-fun main() {
-//sampleStart
-    val numbers = mutableListOf(1, 2, 3, 4)
-    numbers.fill(3)
-    println(numbers)
-    
-    val numbersMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
-    numbersMap.replaceAll { k, v -> v * 2}
-    println(numbersMap)
-//sampleEnd
-}
-```
-</div>
+Lists and sets also provide operations for updating elements.
+They are described in [List Specific Operations](list-operations.html) and [Map Specific Operations](map-operations.html).
+For sets, updating doesn't make sense since it's actually removing an element and adding another one.
 
