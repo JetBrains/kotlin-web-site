@@ -272,3 +272,8 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+
+- name: DroidFeed
+  description: Aggregated news, articles, podcasts and conferences about Android Development
+  type: Android App
+  link: https://github.com/dgngulcan/droid-feed
