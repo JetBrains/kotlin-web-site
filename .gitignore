@@ -1,4 +1,5 @@
 _nav-mapped.yml
+.DS_Store
 obj/
 _ReSharper.*
 out/

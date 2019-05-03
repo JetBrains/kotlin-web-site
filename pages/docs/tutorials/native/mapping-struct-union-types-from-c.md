@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Mapping Struct and Union Types from C"
 description: "Struct and Union types from C and how they look in Kotlin/Native"
 authors: Eugene Petrenko 
-date: 2018-07-23
+date: 2019-04-15
 showAuthorInfo: false
 issue: EVAN-5343
 ---
@@ -27,14 +27,14 @@ Let's assume, we have a console, where the `kotlinc-native`, `cinterop`, and `kl
 ## Mapping Struct and Union C types
 
 The best way to understand the mapping between Kotlin and C is to try a tiny 
-example. We will declare a struct and an union in the C language to see how they are mapped into Kotlin.
+example. We will declare a struct and a union in the C language, to see how they are mapped into Kotlin.
 
 Kotlin/Native comes with the `cinterop` tool, the tool generates bindings between the C language and Kotlin.
 It uses a `.def` file to specify a C library to import. More details are discussed in the
-[Interop with C Libraries](interop-with-c.html) tutorial.
+[Interop with C Libraries](/docs/reference/native/c_interop.html) tutorial.
  
 In [the previous tutorial](mapping-primitive-data-types-from-c.html) we created a `lib.h` file. This time, 
-we are going to include those declarations directly into the `lib.def` file, after the `---` separator line:
+we are going to include those declarations directly into the `interop.def` file, after the `---` separator line:
 
 <div class="sample" markdown="1" mode="c" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -62,12 +62,42 @@ void union_by_pointer(MyUnion* u) {}
 ``` 
 </div>
 
-Now we call:  
-```bash
-cinterop -def lib.def -o lib.klib
-klib contents lib.klib
+The `interop.def` file is enough to compile and run the application or open it in an IDE.
+Now it is time to create project files, open the project in
+[IntelliJ IDEA](https://jetbrains.com/idea) and run it. 
+
+## Inspecting Generated Kotlin APIs for a C library
+
+[[include pages-includes/docs/tutorials/native/mapping-primitive-data-types-gradle.md]]
+
+Let's create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
+to see how our C declarations are visible from Kotlin:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+import interop.*
+
+fun main() {
+  println("Hello Kotlin/Native!")
+  
+  struct_by_value(/* fix me*/)
+  struct_by_pointer(/* fix me*/)
+  union_by_value(/* fix me*/)
+  union_by_pointer(/* fix me*/)
+}
 ```
-and it prints the following Kotlin API for our C library with `struct` and `union` inside:
+</div>
+
+Now we are ready to
+[open the project in IntelliJ IDEA](basic-kotlin-native-app.html#open-in-ide)
+and to see how to fix the example project. While doing that,
+we'll examine how C primitive types are mapped into Kotlin/Native.
+
+## Primitive Types in Kotlin
+
+With the help of IntelliJ IDEA's _Goto Declaration_ or
+compiler errors we see the following generated API for our C functions, `struct`, and `union`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -169,11 +199,11 @@ fun <reified T : kotlinx.cinterop.CVariable> alloc(): T
 </div>
 
 extension function on `kotlinx.cinterop.NativePlacement`
-type for that.
+type for this.
 
 `NativePlacement` represents native memory with functions similar to `malloc` and `free`. 
-There are several implementations of `NativePlacement`. The global one is called `kotlinx.cinterop.nativeHeap`
-and don't forget to call `nativeHeap.free(..)` function to free the memory after use.
+There are several implementations of `NativePlacement`. The global one is called with `kotlinx.cinterop.nativeHeap`
+and don't forget to call the `nativeHeap.free(..)` function to free the memory after use.
  
 Another option is to use the
 <div class="sample" markdown="1" theme="idea" data-highlight-only="1" auto-indent="false">
@@ -183,7 +213,7 @@ fun <R> memScoped(block: kotlinx.cinterop.MemScope.() -> R): R
 ```
 </div>
 
-function. It creates a short-living memory allocation scope,
+function. It creates a short-lived memory allocation scope,
 and all allocations will be cleaned up automatically at the end of the `block`.
 
 Our code to call functions with pointers will look like this:
@@ -263,6 +293,54 @@ fun callMix_value() {
 ```
 </div>
 
+## Running the Code
+
+Now we have learned how to use C declarations in our code, we are ready to try
+it out on a real example. Let's fix our code and see how it runs by calling the 
+`runDebugExecutableNative` Gradle task [in the IDE](basic-kotlin-native-app.html#run-in-ide)
+or by using the following console command:
+[[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
+
+
+The final code in the `hello.kt` file may look like this:
+ 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+import interop.*
+import kotlinx.cinterop.alloc
+import kotlinx.cinterop.cValue
+import kotlinx.cinterop.memScoped
+import kotlinx.cinterop.ptr
+import kotlinx.cinterop.readValue
+
+fun main() {
+  println("Hello Kotlin/Native!")
+
+  val cUnion = cValue<MyUnion> {
+    b.a = 5
+    b.b = 2.7182
+  }
+
+  memScoped {
+    union_by_value(cUnion)
+    union_by_pointer(cUnion.ptr)
+  }
+
+  memScoped {
+    val cStruct = alloc<MyStruct> {
+      a = 42
+      b = 3.14
+    }
+
+    struct_by_value(cStruct.readValue())
+    struct_by_pointer(cStruct.ptr)
+  }
+}
+```
+</div>
+
+
 ## Next Steps
 
 Join us to continue exploring the C language types and their representation in Kotlin/Native in the related tutorials:
@@ -271,5 +349,5 @@ Join us to continue exploring the C language types and their representation in K
 - [Mapping Strings from C](mapping-strings-from-c.html)
 
 The [C Interop documentation](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md)
-documentation covers more advanced scenarios of the interop.
+documentation covers more advanced scenarios of the interop
 

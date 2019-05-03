@@ -74,6 +74,7 @@ code {
     @extend %code-span;
 }
 
+.multi-language-span > code,
 p > code,
 li > code {
     @extend %code-span%_decorated;
