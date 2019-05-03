@@ -230,10 +230,7 @@ runtime or virtual machine is required.
 We can now run the compiled binary from the console:
 
 ```
-> Task :runDebugExecutableNative
 Hello Kotlin/Native!
-
-BUILD SUCCESSFUL
 ```
 
 In addition to the build tasks, the Gradle build includes helpful
