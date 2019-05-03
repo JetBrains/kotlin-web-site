@@ -21,7 +21,7 @@ In this tutorial, we'll look at how to
 
 ## Obtaining the Compiler
 
-Kotlin/Native compiler is available for macOS, Linux, and Windows. It supports
+The Kotlin/Native compiler is available for macOS, Linux, and Windows. It supports
 different targets including iOS (arm32, arm64, simulator x86_64), Windows (mingw32 and x86_64),
 Linux (x86_64, arm64, MIPS), macOS (x86_64), Raspberry PI, SMT32, WASM. For the full list of targets
 we can refer to the [Kotlin/Native overview](/docs/reference/native-overview.html).
