@@ -20,5 +20,6 @@ sponsorships@jetbrains.com.
 * All the events and materials should be public and available for people of any background.
 * All communication should be appropriate for a professional audience.
 * Follow these simple rules to collaborate efficiently: be kind, be someone that other people want to be around, do not insult or be rude to other attendees. Collaboration and respect will help you to achieve your personal goals and create a welcoming environment for new members.
+* We recommend setting out a Code of Conduct in your Kotlin User Group to help encourage inclusive behavior.
 
 Disclaimer: Kotlin User Groups are not affiliates of JetBrains nor Google. They are independently run organizations.
