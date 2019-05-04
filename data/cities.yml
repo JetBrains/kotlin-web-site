@@ -1,3 +1,15 @@
+- name: Chambéry, France
+  geo:
+    lat: 45.570904
+    lng: 5.918442
+- name: Waukesha, USA
+  geo:
+    lat: 43.033481
+    lng: -88.202173
+- name: Cáceres, Spain
+  geo:
+    lat: 39.468447
+    lng: -6.380545
 - name: Kassel, Germany
   geo:
     lat: 51.318446
