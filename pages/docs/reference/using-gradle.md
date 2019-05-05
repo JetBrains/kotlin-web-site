@@ -300,10 +300,8 @@ buildscript {
     }
 }
 
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 ```
 
 </div>
@@ -313,12 +311,27 @@ plugins {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-buildscript {
-    dependencies {
-        classpath("com.android.tools.build:gradle:3.2.1")
-        classpath(kotlin("gradle-plugin", version = "{{ site.data.releases.latest.version }}"))
+// settings.gradle.kts
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+    }
+
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id in setOf("kotlin-android", "kotlin-kapt", "kotlin-android-extensions")) {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+
+            if (requested.id.id in setOf("com.android.application", "com.android.feature")) {
+                useModule("com.android.tools.build:gradle:${requested.version}")
+            }
+        }
     }
 }
+
+// build.gradle.kts
 plugins {
     id("com.android.application")
     id("kotlin-android")
