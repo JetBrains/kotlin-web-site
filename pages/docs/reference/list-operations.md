@@ -182,7 +182,7 @@ import kotlin.math.sign
 //sampleStart
 data class Product(val name: String, val price: Double)
 
-fun priceComparison( o1: Product, price: Double) = sign(o1.price - price).toInt()
+fun priceComparison(product: Product, price: Double) = sign(product.price - price).toInt()
 
 fun main() {
     val productList = listOf(
@@ -226,7 +226,7 @@ fun main() {
 
 ### Updating
 
-Lists also offer a function to replace an element at a given position - `set()`. `set()` doesn't change the indexes of other elements.
+Lists also offer a function to replace an element at a given position - `set()` and its operator form `[]`. `set()` doesn't change the indexes of other elements.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -234,7 +234,7 @@ Lists also offer a function to replace an element at a given position - `set()`.
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "five", "three")
-    numbers.set(1, "two")
+    numbers[1] =  "two"
     println(numbers)
 //sampleEnd
 }

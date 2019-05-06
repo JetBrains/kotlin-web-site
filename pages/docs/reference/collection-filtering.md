@@ -28,8 +28,8 @@ fun main() {
     val longerThan3 = numbers.filter { it.length > 3 }
     println(longerThan3)
 
-    val myMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
-    val filteredMap = myMap.filter { (key, value) -> key.endsWith("1") && value > 10}
+    val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
+    val filteredMap = numbersMap.filter { (key, value) -> key.endsWith("1") && value > 10}
     println(filteredMap)
 //sampleEnd
 }
@@ -84,8 +84,8 @@ fun main() {
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers321 = listOf(null, "one", "two", null)
-    numbers321.filterNotNull().forEach {
+    val numbers = listOf(null, "one", "two", null)
+    numbers.filterNotNull().forEach {
         println(it.length)   // length is unavailable for nullable Strings
     }
 //sampleEnd

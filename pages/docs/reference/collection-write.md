@@ -35,12 +35,13 @@ Moreover, `addAll()` can accept any `Iterable`, `Sequence`, or `Array`.
 For lists, you can also specify the index where the elements should be inserted.
 Other elements of the argument collection will follow it preserving their order.
 
-
 `addAll()` adds every element of the argument object to a list or a set. The argument can be an `Iterable`, a `Sequence`, or an `Array`.
 The types of the receiver and the argument may be different, for example, you can add all items from a `Set` to a `List`.
 
-When called on lists, `addAll()` adds elements in the same order as they go in the argument. Additionally, you can specify the position where the first element of the argument should be inserted.
-Starting from this position, the elements of the receiver will be shifted to the end to let the argument elements follow the first of them. 
+When called on lists, `addAll()` adds new elements in the same order as they go in the argument.
+You can also call `addAll()` specifying an element position as the first argument.
+The first element of the argument collection will be inserted at this position.
+Other elements of the argument collection will follow it, shifting the receiver elements to the end. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

@@ -181,9 +181,9 @@ fun main() {
     println(numbers.isEmpty())
     println(numbers.isNotEmpty())
     
-    val emptyCollection = emptyList<String>()
-    println(emptyCollection.isEmpty())
-    println(emptyCollection.isNotEmpty())
+    val empty = emptyList<String>()
+    println(empty.isEmpty())
+    println(empty.isNotEmpty())
 //sampleEnd
 }
 ```

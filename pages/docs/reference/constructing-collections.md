@@ -15,8 +15,8 @@ If you provide a comma-separated list of collection elements as arguments, the c
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val mySet = setOf("one", "two", "three", "four")
-val myMutableSet = mutableSetOf<String>()
+val numbersSet = setOf("one", "two", "three", "four")
+val emptySet = mutableSetOf<String>()
 ```
 </div>
 
@@ -25,7 +25,7 @@ The same is available for maps with the functions `mapOf()` and `mutableMapOf()`
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val myMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
+val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
 ```
 </div>
 
@@ -36,7 +36,7 @@ The `apply()` function can help to keep the initialization fluent here.
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val myMap = mutableMapOf<String, String>().apply { this["one"] = "1"; this["two"] = "2" }
+val numbersMap = mutableMapOf<String, String>().apply { this["one"] = "1"; this["two"] = "2" }
 ```
 </div>
 
@@ -61,8 +61,8 @@ For lists, there is a constructor that takes the list size and the initializer f
 ```kotlin
 fun main() {
 //sampleStart
-    val myList = List(3, { it * 2 })  // or MutableList if you want to change its content later
-    println(myList)
+    val doubled = List(3, { it * 2 })  // or MutableList if you want to change its content later
+    println(doubled)
 //sampleEnd
 }
 ```
@@ -78,8 +78,8 @@ Similar constructors are available for implementations of `Set` and `Map`.
 ```kotlin
 fun main() {
 //sampleStart
-    val myArrayList = ArrayList<String>(setOf("one", "two", "three"))    
-    val myHashSet = HashSet<Int>(3)
+val linkedList = LinkedList<String>(listOf("one", "two", "three"))
+val presizedSet = HashSet<Int>(32)
 //sampleEnd
 }
 ```

@@ -114,11 +114,11 @@ fun main() {
 ```kotlin
 fun main() {
 //sampleStart
-    val myList = listOf("one", "two", "three", "four")
-    println("Number of elements: ${myList.size}")
-    println("Third element: ${myList.get(2)}")
-    println("Fourth element: ${myList[3]}")
-    println("Index of element \"two\" ${myList.indexOf("two")}")
+    val numbers  = listOf("one", "two", "three", "four")
+    println("Number of elements: ${numbers.size}")
+    println("Third element: ${numbers.get(2)}")
+    println("Fourth element: ${numbers[3]}")
+    println("Index of element \"two\" ${numbers.indexOf("two")}")
 //sampleEnd
 }
 ```
@@ -181,8 +181,8 @@ fun main() {
     println("Number of elements: ${numbers.size}")
     if (numbers.contains(1)) println("1 is in the set")
 
-    val anotherSet = setOf(4, 3, 2, 1)
-    println("The sets are equal: ${numbers.equals(anotherSet)}")
+    val numbersBackwards = setOf(4, 3, 2, 1)
+    println("The sets are equal: ${numbers.equals(numbersBackwards)}")
 //sampleEnd
 }
 ```
@@ -198,11 +198,11 @@ Hence, the functions that rely on the order, such as `first()` or `last()`, retu
 ```kotlin
 fun main() {
 //sampleStart
-    val mySet = setOf(1, 2, 3, 4)  // LinkedHashSet is the default implementation
-    val anotherSet = setOf(4, 3, 2, 1)
+    val numbers = setOf(1, 2, 3, 4)  // LinkedHashSet is the default implementation
+    val numbersBackwards = setOf(4, 3, 2, 1)
     
-    println(mySet.first() == anotherSet.first())
-    println(mySet.first() == anotherSet.last())
+    println(numbers.first() == numbersBackwards.first())
+    println(numbers.first() == numbersBackwards.last())
 //sampleEnd
 }
 ```
@@ -220,13 +220,13 @@ A `Map` stores _key-value_ pairs (or _entries_); keys are unique, but different 
 ```kotlin
 fun main() {
 //sampleStart
-    val myMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
+    val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
     
-    println("All keys: ${myMap.keys}")
-    println("All values: ${myMap.values}")
-    if ("key2" in myMap) println("Value by key \"key2\": ${myMap["key2"]}")    
-    if(1 in myMap.values) println("The value 1 is in the map")
-    if(myMap.containsValue(1)) println("The value 1 is in the map") // same as previous
+    println("All keys: ${numbersMap.keys}")
+    println("All values: ${numbersMap.values}")
+    if ("key2" in numbersMap) println("Value by key \"key2\": ${numbersMap["key2"]}")    
+    if(1 in numbersMap.values) println("The value 1 is in the map")
+    if(numbersMap.containsValue(1)) println("The value 1 is in the map") // same as previous
 //sampleEnd
 }
 ```
@@ -239,10 +239,10 @@ Two maps containing the equal pairs are equal regardless of the pair order.
 ```kotlin
 fun main() {
 //sampleStart
-    val myMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)    
+    val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)    
     val anotherMap = mapOf("key2" to 2, "key1" to 1, "key4" to 1, "key3" to 3)
     
-    println("The maps are equal: ${myMap.equals(anotherMap)}")
+    println("The maps are equal: ${numbersMap.equals(anotherMap)}")
 //sampleEnd
 }
 ```
@@ -255,11 +255,11 @@ fun main() {
 ```kotlin
 fun main() {
 //sampleStart
-    val myMap = mutableMapOf("one" to 1, "two" to 2)
-    myMap.put("three", 3)
-    myMap["one"] = 11
+    val numbersMap = mutableMapOf("one" to 1, "two" to 2)
+    numbersMap.put("three", 3)
+    numbersMap["one"] = 11
 
-    println(myMap)
+    println(numbersMap)
 //sampleEnd
 }
 ```

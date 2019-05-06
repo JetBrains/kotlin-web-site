@@ -99,11 +99,11 @@ For example, `sort()` sorts a mutable collection in-place, so it's state changes
 ```kotlin
 fun main() {
 //sampleStart
-    val myList = mutableListOf("one", "two", "three", "four")
-    val sortedAsc = myList.sorted()
-    println(myList.equals(sortedAsc))  // false
-    myList.sort()
-    println(myList.equals(sortedAsc))  // true
+    val numbers = mutableListOf("one", "two", "three", "four")
+    val sortedNumbers = numbers.sorted()
+    println(numbers.equals(sortedNumbers))  // false
+    numbers.sort()
+    println(numbers.equals(sortedNumbers))  // true
 //sampleEnd
 }
 ```

@@ -55,9 +55,9 @@ Both functions use the transformations that take a map entry as an argument, so 
 ```kotlin
 fun main() {
 //sampleStart
-    val myMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
-    println(myMap.mapKeys { it.key.toUpperCase() })
-    println(myMap.mapValues { it.value + it.key.length })
+    val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
+    println(numbersMap.mapKeys { it.key.toUpperCase() })
+    println(numbersMap.mapValues { it.value + it.key.length })
 //sampleEnd
 }
 ```

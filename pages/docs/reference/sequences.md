@@ -31,7 +31,7 @@ To create a sequence, call the `sequenceOf()` function listing the elements as i
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val mySequence = sequenceOf("four", "three", "two", "one")
+val numbersSequence = sequenceOf("four", "three", "two", "one")
 ```
 </div>
 
@@ -41,8 +41,8 @@ If you already have an `Iterable` object (such as a `List` or a `Set`), you can 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val myList = listOf("one", "two", "three", "four")
-val myListSequence = myList.asSequence()
+val numbers = listOf("one", "two", "three", "four")
+val numbersSequence = myList.asSequence()
 
 ```
 </div>

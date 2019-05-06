@@ -125,8 +125,8 @@ fun main() {
 
     val sortedNumbers = numbers.sortedBy { it.length }
     println("Sorted by length ascending: $sortedNumbers")
-    val sortedbyLast = numbers.sortedByDescending { it.last() }
-    println("Sorted by the last letter descending: $sortedbyLast")
+    val sortedByLast = numbers.sortedByDescending { it.last() }
+    println("Sorted by the last letter descending: $sortedByLast")
 //sampleEnd
 }
 

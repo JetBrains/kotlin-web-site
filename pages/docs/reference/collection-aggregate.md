@@ -46,8 +46,8 @@ fun main() {
     val min3Remainder = numbers.minBy { it % 3 }
     println(min3Remainder)
 
-    val myStringList = listOf("one", "two", "three", "four")
-    val longestString = myStringList.maxWith(compareBy { it.length })
+    val strings = listOf("one", "two", "three", "four")
+    val longestString = strings.maxWith(compareBy { it.length })
     println(longestString)
 //sampleEnd
 }
