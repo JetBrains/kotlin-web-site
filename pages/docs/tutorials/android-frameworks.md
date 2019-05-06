@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Android Frameworks Using Annotation Processing"
-description: "This tutorial describes how to use in Kotlin popular Android frameworks and libraries that rely on annotation processing."
+description: "This tutorial describes how to use Kotlin in popular Android frameworks and libraries that rely on annotation processing."
 authors: Svetlana Isakova
 showAuthorInfo: false
 source:
