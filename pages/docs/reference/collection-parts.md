@@ -64,7 +64,7 @@ There are four functions similar to the ones described above:
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf("one", "two", "three", "four", "five", "six")
     println(numbers.takeWhile { !it.startsWith('f') })
     println(numbers.takeLastWhile { it != "three" })
@@ -86,7 +86,7 @@ The last chunk may have a smaller size.
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = (0..13).toList()
     println(numbers.chunked(3))
 //sampleEnd
@@ -101,7 +101,7 @@ To do this, provide the transformation as a lambda function when calling `chunke
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = (0..13).toList() 
     println(numbers.chunked(3) { it.sum() })  // `it` is a chunk of the original collection
 //sampleEnd
@@ -140,7 +140,7 @@ To do this, provide the transformation as a lambda function when calling `window
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = (1..10).toList()
     println(numbers.windowed(3, step = 2, partialWindows = true))
     println(numbers.windowed(3) { it.sum() })
@@ -158,7 +158,7 @@ Note that `zipWithNext()` doesn't break the collection into pairs; it creates a 
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf("one", "two", "three", "four", "five")    
     println(numbers.zipWithNext())
     println(numbers.zipWithNext() { s1, s2 -> s1.length > s2.length})

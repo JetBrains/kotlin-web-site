@@ -26,11 +26,11 @@ Additionally, you have two more options to handle the key absence:
 ```kotlin
 fun main() {
 //sampleStart
-    val numbersMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
+    val numbersMap = mapOf("one" to 1, "two" to 2, "three" to 3)
     println(numbersMap.get("one"))
     println(numbersMap["one"])
     println(numbersMap.getOrDefault("four", 10))
-    println(numbersMap.get("five"))               // null
+    println(numbersMap["five"])               // null
     //numbersMap.getValue("six")      // exception!
 //sampleEnd
 }
@@ -45,7 +45,7 @@ To perform operations on all keys or all values of a map, you can retrieve them 
 ```kotlin
 fun main() {
 //sampleStart
-    val numbersMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
+    val numbersMap = mapOf("one" to 1, "two" to 2, "three" to 3)
     println(numbersMap.keys)
     println(numbersMap.values)
 //sampleEnd
@@ -65,7 +65,7 @@ This enables you to use both the key and the value in the filtering predicate.
 ```kotlin
 fun main() {
 //sampleStart
-    val numbersMap = mutableMapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
+    val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
     val filteredMap = numbersMap.filter { (key, value) -> key.endsWith("1") && value > 10}
     println(filteredMap)
 //sampleEnd
@@ -84,7 +84,7 @@ The predicate for `filterKeys()` checks only the element keys, the one for `filt
 ```kotlin
 fun main() {
 //sampleStart
-    val numbersMap = mutableMapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
+    val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
     val filteredKeysMap = numbersMap.filterKeys { it.endsWith("1") }
     val filteredValuesMap = numbersMap.filterValues { it < 10 }
 

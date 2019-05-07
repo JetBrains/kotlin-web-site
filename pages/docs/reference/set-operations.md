@@ -14,7 +14,7 @@ Note that for ordered collections the order of the operands is important: in the
 
 To find an intersection between two collections (elements present in both of them), use `intersect()`.
 To find collection elements not present in another collection, use `subtract()`. 
-Both these functions have the infix form as well.
+Both these functions have the infix form as well, for example, `a union b`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -29,22 +29,6 @@ fun main() {
     println(numbers intersect setOf("two", "one"))
     println(numbers subtract setOf("three", "four"))
     println(numbers subtract setOf("four", "three")) // same output
-//sampleEnd
-}
-```
-</div>
-
-All three set operations can be used as binary operators: `a union b`
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
-
-```kotlin
-fun main() {
-//sampleStart
-    val numbers = setOf("one", "two", "three")
-
-    println(numbers union setOf("four", "five"))
-    println(numbers intersect setOf("two", "one"))
-    println(numbers subtract setOf("three", "four"))
 //sampleEnd
 }
 ```

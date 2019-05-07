@@ -28,8 +28,8 @@ The collection interfaces and related functions are located in the kotlin.collec
 The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.
 A pair of interfaces represent each collection type: 
 
-* A `read-only` interface that provides operations for accessing collection elements.
-* A `mutable` interface that extends the corresponding read-only interface with write operations: adding, removing, and updating its elements.
+* A _read-only_ interface that provides operations for accessing collection elements.
+* A _mutable_ interface that extends the corresponding read-only interface with write operations: adding, removing, and updating its elements.
 
 Note that altering a mutable collection doesn't require it to be a [`var`](basic-syntax.html#defining-variables): write operations modify the same mutable collection object, so the reference doesn't change.
 Although, if you try to reassign a `val` collection, you'll get a compilation error.
@@ -41,7 +41,7 @@ fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
     numbers.add("five")   // this is OK    
-//    numbers = mutableListOf("six", "seven")      // compilation error
+    //numbers = mutableListOf("six", "seven")      // compilation error
 //sampleEnd
 }
 ```
@@ -155,7 +155,7 @@ fun main() {
     val numbers = mutableListOf(1, 2, 3, 4)
     numbers.add(5)
     numbers.removeAt(1)
-    numbers.set(0, 0)
+    numbers[0]= 0
     numbers.shuffle()
     println(numbers)
 //sampleEnd

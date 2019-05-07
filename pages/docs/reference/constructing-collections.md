@@ -31,7 +31,7 @@ val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
 
 Note that the `to` notation creates a short-living `Pair` object, so it's recommended that you use it only if performance isn't critical.
 To avoid excessive memory usage, use alternative ways. For example, you can create a mutable map and populate it using the write operations.
-The `apply()` function can help to keep the initialization fluent here.
+The [`apply()`](scope-functions.html#apply) function can help to keep the initialization fluent here.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -73,15 +73,11 @@ fun main() {
 To create a concrete type collection, such as an `ArrayList` or `LinkedList`, you can use the available constructors for these types.
 Similar constructors are available for implementations of `Set` and `Map`.
 
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun main() {
-//sampleStart
 val linkedList = LinkedList<String>(listOf("one", "two", "three"))
 val presizedSet = HashSet<Int>(32)
-//sampleEnd
-}
 ```
 </div>
 

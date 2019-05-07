@@ -60,7 +60,7 @@ The result is interpreted in the same way as the result of a `compareTo()` as is
 ```kotlin
 fun main() {
 //sampleStart
-    val lengthComparator = Comparator { o1: String, o2: String -> o1.length - o2.length }
+    val lengthComparator = Comparator { str1: String, str2: String -> str1.length - str2.length }
     println(listOf("aaa", "bb", "c").sortedWith(lengthComparator))
 //sampleEnd
 }
@@ -68,11 +68,11 @@ fun main() {
 ```
 </div>
 
-Having the `lengthComparator`, you are able to arrange strings by their length instead of the default alphanumeric order.
+Having the `lengthComparator`, you are able to arrange strings by their length instead of the default lexicographical order.
 
 A shorter way to define a `Comparator` is the `compareBy()` function from the standard library.
 `compareBy()` takes a lambda function that produces a `Comparable` value from an instance and defines the custom order as the natural order of the produced values.
-With `compareBy()`, the comparator from the example above looks like this:
+With `compareBy()`, the length comparator from the example above looks like this:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -89,7 +89,7 @@ println(listOf("aaa", "bb", "c").sortedWith(compareBy { it.length }))
 The Kotlin collections package provides functions for sorting collections in natural, custom, and even random orders.
 On this page, we'll describe sorting functions that apply to [read-only](collections-overview.html#collection-types) collections.
 These functions return their result as a new collection containing the elements of the original collection in the requested order.
-To learn about functions for sorting [mutable](collections-overview.html#collection-types) collections in place, see the [List specific operations](list-operations.html#sorting).
+To learn about functions for sorting [mutable](collections-overview.html#collection-types) collections in place, see the [List Specific Operations](list-operations.html#sorting).
 
 ## Natural order
 
@@ -194,7 +194,6 @@ If the original list is mutable, all its changes reflect in its reversed views a
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
-
     val reversedNumbers = numbers.asReversed()
     println(reversedNumbers)
     numbers.add("five")
@@ -215,7 +214,7 @@ Finally, there is a shuffle function that retrieves all collection elements in a
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
      val numbers = listOf("one", "two", "three", "four")
      println(numbers.shuffled())
 //sampleEnd

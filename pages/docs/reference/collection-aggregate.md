@@ -41,7 +41,7 @@ There are also functions for retrieving the smallest and the largest elements by
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf(5, 42, 10, 4)
     val min3Remainder = numbers.minBy { it % 3 }
     println(min3Remainder)
@@ -93,7 +93,6 @@ fun main() {
 
     //val sumDoubledReduce = numbers.reduce { sum, element -> sum + element * 2 } //incorrect value
     //println(sumDoubledReduce)
-
 //sampleEnd
 }
 ```
@@ -114,7 +113,6 @@ fun main() {
     val numbers = listOf(5, 2, 10, 4)
     val sumDoubledRight = numbers .foldRight(0) { element, sum -> sum + element * 2 }
     println(sumDoubledRight)
-
 //sampleEnd
 }
 ```

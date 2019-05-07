@@ -10,23 +10,18 @@ title: "Ranges and Progressions"
 Kotlin lets you easily create ranges of values using the `rangeTo()` function from the `kotlin.ranges` package and its operator form `..`.
 Usually, `rangeTo()` is complemented by `in` or `!in` functions.
 
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+<div class="sample" markdown="1" theme="idea"  data-highlight-only>
 
 ```kotlin
-fun main() {
-//sampleStart
-    if (i in 1..4) {  // equivalent of 1 <= i && i <= 10
-        print(i)
-    }
-//sampleEnd
+if (i in 1..4) {  // equivalent of 1 <= i && i <= 10
+    print(i)
 }
-
 ```
 </div>
 
 Integral type ranges (`IntRange`, `LongRange`, `CharRange`) have an extra feature: they can be iterated over.
 These ranges are also [progressions](https://en.wikipedia.org/wiki/Arithmetic_progression) of the corresponding integral types.
-Such ranges are generally used for iteration on the `for` loops.
+Such ranges are generally used for iteration in the `for` loops.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -61,8 +56,9 @@ It is also possible to iterate over numbers with an arbitrary step (not necessar
 ```kotlin
 fun main() {
 //sampleStart
-    for (i in 1..4 step 2) print(i)
-    for (i in 4 downTo 1 step 2) print(i)
+    for (i in 1..8 step 2) print(i)
+    println()
+    for (i in 8 downTo 1 step 2) print(i)
 //sampleEnd
 }
 
@@ -77,7 +73,7 @@ To iterate a number range which does not include its end element, use the `until
 fun main() {
 //sampleStart
     for (i in 1 until 10) {       // i in [1, 10), 10 is excluded
-        println(i)
+        print(i)
     }
 //sampleEnd
 }
@@ -89,14 +85,13 @@ fun main() {
 
 A range defines a closed interval in the mathematical sense: it is defined by its two endpoint values which are both included in the range.
 Ranges are defined for comparable types: having an order, you can define whether an arbitrary instance is in the range between two given instances.
-The main operation is `contains`, which is usually used in the form of `in` and `!in` operators.
+The main operation on ranges is `contains`, which is usually used in the form of `in` and `!in` operators.
  
 To create a range for your class, call the `rangeTo()` function on the range start value and provide the end value as an argument.
+`rangeTo()` is often called in its operator form `..`.
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-
-//sampleStart
 class Version(val major: Int, val minor: Int): Comparable<Version> {
     override fun compareTo(other: Version): Int {
         if (this.major != other.major) {
@@ -108,6 +103,7 @@ class Version(val major: Int, val minor: Int): Comparable<Version> {
 }
 
 fun main() {
+//sampleStart
     val versionRange = Version(1, 11)..Version(1, 30)
     println(Version(0, 9) in versionRange)
     println(Version(1, 20) in versionRange)
@@ -157,7 +153,7 @@ To define a custom progression step, use the `step()` function on a range.
 ```kotlin
 fun main() {
 //sampleStart
-    for (i in 1..4 step 2) print(i)
+    for (i in 1..8 step 2) print(i)
 //sampleEnd
 }
 
@@ -165,6 +161,7 @@ fun main() {
 </div>
 
 The last element of the progression is calculated to find the maximum value not greater than the end value for a positive step or the minimum value not less than the end value for a negative step such that `(last - first) % step == 0`.
+
 To create a progression for iterating in reverse order, use `downTo` instead of `..` when defining the range for it.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">

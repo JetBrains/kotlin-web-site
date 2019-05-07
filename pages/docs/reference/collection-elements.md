@@ -13,7 +13,7 @@ Functions described on this page apply to both lists and sets.
 As the [list definition](collections-overview.html) says, a list is an ordered collection.
 Hence, every element of a list has its position that you can use for referring.
 In addition to functions described on this page, lists offer a wider set of ways to retrieve and search for elements by indices.
-For more details, see [List specific operations](list-operations.html).
+For more details, see [List Specific Operations](list-operations.html).
 
 In turn, set is not an ordered collection by [definition](collections-overview.html).
 However, the Kotlin `Set` stores elements in certain orders.
@@ -37,7 +37,7 @@ fun main() {
     println(numbers.elementAt(3))    
 
     val numbersSortedSet = sortedSetOf("one", "two", "three", "four")
-    println(numbersSortedSet.elementAt(0)) // element are stored in the ascending order
+    println(numbersSortedSet.elementAt(0)) // elements are stored in the ascending order
 //sampleEnd
 }
 ```
@@ -71,7 +71,7 @@ fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four", "five")
     println(numbers.elementAtOrNull(5))
-    println(numbers.elementAtOrElse(5) { index -> "The default value for index $index"})
+    println(numbers.elementAtOrElse(5) { index -> "The value for index $index is undefined"})
 //sampleEnd
 }
 ```

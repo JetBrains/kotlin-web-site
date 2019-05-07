@@ -42,7 +42,7 @@ If you already have an `Iterable` object (such as a `List` or a `Set`), you can 
 
 ```kotlin
 val numbers = listOf("one", "two", "three", "four")
-val numbersSequence = myList.asSequence()
+val numbersSequence = numbers.asSequence()
 
 ```
 </div>

@@ -11,7 +11,7 @@ title: "List Specific Operations"
 
 ## Retrieving elements by index
 
-Lists support all common operations for element retrieval: `elementAt()`, `first()`, `last()`, and others listed in [Retrieving single elements](collection-elements.html).
+Lists support all common operations for element retrieval: `elementAt()`, `first()`, `last()`, and others listed in [Retrieving Single Elements](collection-elements.html).
 What is specific for lists is index access to the elements, so the simplest way to read an element is retrieving it by index.
 That is done with the `get()` function with the index passed in the argument or the shorthand `[index]` syntax.
 
@@ -25,7 +25,7 @@ There are two other functions that help you avoid such exceptions:
 
 ```kotlin
 fun main() {
-//sampleStart   
+//sampleStart
     val numbers = listOf(1, 2, 3, 4)
     println(numbers.get(0))
     println(numbers[0])
@@ -40,7 +40,7 @@ fun main() {
 
 ## Retrieving list parts
 
-In addition to common operations for [Retrieving collection parts](collection-parts.html), lists provide the `subList()` function that returns a view of the specified elements range as a list.
+In addition to common operations for [Retrieving Collection Parts](collection-parts.html), lists provide the `subList()` function that returns a view of the specified elements range as a list.
 Thus, if an element of the original collection changes, it also changes in the previously created sublists and vice versa.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -201,7 +201,7 @@ Both comparator and comparison binary search can be performed for list ranges as
 
 ## List write operations
 
-In addition to the collection modification operations described in [Write operations](collection-write.html), [mutable](collections-overview.html#collection-types) lists support specific write operations.
+In addition to the collection modification operations described in [Collection Write Operations](collection-write.html), [mutable](collections-overview.html#collection-types) lists support specific write operations.
 Such operations use the index to access elements to broaden the list modification capabilities.
 
 ### Adding
@@ -279,7 +279,7 @@ fun main() {
 
 ### Sorting
 
-In [Ordering](collection-ordering.html), we describe operations that retrieve collection elements in specific orders.
+In [Collection Ordering](collection-ordering.html), we describe operations that retrieve collection elements in specific orders.
 For mutable lists, the standard library offers similar extension functions that perform the same ordering operations in place.
 When you apply such an operation to a list instance, it changes the order of elements in that exact instance.
 

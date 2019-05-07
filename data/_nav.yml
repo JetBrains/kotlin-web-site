@@ -147,7 +147,7 @@ reference:
         - url: /docs/reference/iterators.html
           title: Iterators
         - url: /docs/reference/ranges.html
-          title: Ranges
+          title: Ranges and Progressions
         - url: /docs/reference/sequences.html
           title: Sequences
         - url: /docs/reference/collection-operations.html
