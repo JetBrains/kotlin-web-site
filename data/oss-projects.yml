@@ -272,3 +272,8 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+
+- name: Atrium
+  description: Multiplatform assertion library
+  type: Library:
+  link: https://atriumlib.org
