@@ -10,16 +10,13 @@ title: "Sequences"
 Along with collections, the Kotlin standard library contains another container type – _sequences_ (`Sequence<T>`).
 Sequences offer the same functions as `Iterable` but implement another approach to multi-step collection processing.
 
-When the processing of an `Iterable` includes multiple steps, they are executed _eagerly_: each intermediate step completes and returns its result – an intermediate collection.
-The following step executes on this collection.
-
-In turn, multi-step processing of sequences is executed _lazily_ when possible: actual computing happens only on calling a terminal operation that returns the result of the whole processing chain, such as `toList()` or `sum()`.
-If the processing chain doesn't include terminal operations, its result is a new `Sequence`. However, you can retrieve its elements only with terminal operations.
+When the processing of an `Iterable` includes multiple steps, they are executed eagerly: each processing step completes and returns its result – an intermediate collection.
+The following step executes on this collection. In turn, multi-step processing of sequences is executed lazily when possible: actual computing happens only when the result of the whole processing chain is requested. 
 
 The order of operations execution is different as well: `Sequence` performs all the processing steps one-by-one for every single element.
 In turn, `Iterable` completes each step for the whole collection and then proceeds to the next step. 
-So, the sequences let you avoid building results of intermediate steps, therefore improving the performance of the whole collection processing chain.
 
+So, the sequences let you avoid building results of intermediate steps, therefore improving the performance of the whole collection processing chain.
 However, the lazy nature of sequences adds some overhead which may be significant when processing smaller collections or doing simpler computations.
 Hence, you should consider both `Sequence` and `Iterable` and decide which one is better for your case.
 
@@ -103,7 +100,20 @@ fun main() {
 ```
 </div>
 
-## Collection processing example
+## Sequence operations
+
+The sequence operations can be classified into the following groups regarding their state requirements:
+
+* _Stateless_ operations require no state and process each element independently, for example, [`map()`](collection-transformations.html#mapping) or [`filter()`](collection-filtering.html).
+   Stateless operations can also require a small constant amount of state to process an element, for example, [`take()` or `drop()`](collection-parts.html).
+* _Stateful_ operations require a significant amount of state, usually proportional to the number of elements in a sequence.
+
+If a sequence operation returns another sequence, which is produced lazily, it's called _intermediate_.
+Otherwise, the operation is _terminal_. Examples of terminal operations are `toList()` or `sum()`.Sequence elements can be retrieved only with terminal operations.
+
+Sequences can be iterated multiple times; however some sequence implementations might constrain themselves to be iterated only once. That is mentioned specifically in their documentation.
+
+## Sequence processing example
 
 Let's take a look at the difference between `Iterable` and `Sequence` with an example. 
 

@@ -155,3 +155,50 @@ fun main() {
 ```
 </div>
 
+## Invoking functions on other collections
+
+Collections can be created in result of various operations on other collections. For example, [filtering](collection-filtering.html) a list creates a new list of elements that match the filter:
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+//sampleStart 
+    val numbers = listOf("one", "two", "three", "four")  
+    val longerThan3 = numbers.filter { it.length > 3 }
+    println(longerThan3)
+//sampleEnd
+}
+```
+</div>
+
+[Mapping](collection-transformations.html#mapping) produces a list of a transformation results:
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+//sampleStart 
+    val numbers = setOf(1, 2, 3)
+    println(numbers.map { it * 3 })
+    println(numbers.mapIndexed { idx, value -> value * idx })
+//sampleEnd
+}
+```
+</div>
+
+[Association](collection-transformations.html#association) produces maps:
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+//sampleStart
+    val numbers = listOf("one", "two", "three", "four")
+    println(numbers.associateWith { it.length })
+//sampleEnd
+}
+```
+</div>
+
+For more information about operations on collections in Kotlin, see [Collection Operations Overview](collection-operations.html).

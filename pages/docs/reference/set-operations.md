@@ -14,7 +14,7 @@ Note that for ordered collections the order of the operands is important: in the
 
 To find an intersection between two collections (elements present in both of them), use `intersect()`.
 To find collection elements not present in another collection, use `subtract()`. 
-Both these functions have the infix form as well, for example, `a intersect b`.
+Both these functions can be called in the infix form as well, for example, `a intersect b`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
