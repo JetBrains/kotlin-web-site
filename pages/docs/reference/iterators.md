@@ -37,8 +37,9 @@ Another way to go through an `Iterable` collection is the well-known `for` loop.
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
-    for (item in numbers)
+    for (item in numbers) {
         println(item)
+    }
 //sampleEnd
 }
 ```
