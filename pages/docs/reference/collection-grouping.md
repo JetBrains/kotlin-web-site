@@ -31,7 +31,7 @@ fun main() {
 
 If you want to group elements and then apply an operation to all groups at one time, use the function `groupingBy()`.
 It returns an instance of the `Grouping` type.
-The `Grouping` instance stores all the returned groups together and lets you easily apply operations to them all.
+The `Grouping` instance lets you apply operations to all groups in a lazy manner: the groups are actually built right before the operation execution.
 
 Namely, `Grouping` supports the following operations:
 
