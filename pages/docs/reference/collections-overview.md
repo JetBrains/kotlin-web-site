@@ -48,7 +48,7 @@ fun main() {
 
 </div>
 
-Note that the read-only types are [covariant](generics.html#variance).
+The read-only collection types are [covariant](generics.html#variance).
 This means that, if a `Rectangle` class inherits from `Shape`, you can use a `List<Rectangle>` anywhere the `List<Shape>` is required.
 In other words, the collection types have the same subtyping relationship as the element types. Maps are covariant on the value type, but not on the key type.
 
@@ -83,7 +83,7 @@ fun main() {
 ```
 </div>
 
-`MutableCollection` is a `Collection` with write operations, such as add and remove.
+`MutableCollection` is a `Collection` with write operations, such as `add` and `remove`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -107,14 +107,14 @@ fun main() {
 
 ### List
 
-`List<T>` stores elements in a specified order and provides indexed access to them. Indices start from zero – the index of the first element – and go to `lastIndex` which is the `(list size - 1)`. 
+`List<T>` stores elements in a specified order and provides indexed access to them. Indices start from zero – the index of the first element – and go to `lastIndex` which is the `(list.size - 1)`. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers  = listOf("one", "two", "three", "four")
+    val numbers = listOf("one", "two", "three", "four")
     println("Number of elements: ${numbers.size}")
     println("Third element: ${numbers.get(2)}")
     println("Fourth element: ${numbers[3]}")
@@ -155,7 +155,7 @@ fun main() {
     val numbers = mutableListOf(1, 2, 3, 4)
     numbers.add(5)
     numbers.removeAt(1)
-    numbers[0]= 0
+    numbers[0] = 0
     numbers.shuffle()
     println(numbers)
 //sampleEnd
@@ -182,7 +182,7 @@ fun main() {
     if (numbers.contains(1)) println("1 is in the set")
 
     val numbersBackwards = setOf(4, 3, 2, 1)
-    println("The sets are equal: ${numbers.equals(numbersBackwards)}")
+    println("The sets are equal: ${numbers == numbersBackwards}")
 //sampleEnd
 }
 ```
@@ -225,8 +225,8 @@ fun main() {
     println("All keys: ${numbersMap.keys}")
     println("All values: ${numbersMap.values}")
     if ("key2" in numbersMap) println("Value by key \"key2\": ${numbersMap["key2"]}")    
-    if(1 in numbersMap.values) println("The value 1 is in the map")
-    if(numbersMap.containsValue(1)) println("The value 1 is in the map") // same as previous
+    if (1 in numbersMap.values) println("The value 1 is in the map")
+    if (numbersMap.containsValue(1)) println("The value 1 is in the map") // same as previous
 //sampleEnd
 }
 ```
@@ -242,13 +242,13 @@ fun main() {
     val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)    
     val anotherMap = mapOf("key2" to 2, "key1" to 1, "key4" to 1, "key3" to 3)
     
-    println("The maps are equal: ${numbersMap.equals(anotherMap)}")
+    println("The maps are equal: ${numbersMap == anotherMap}")
 //sampleEnd
 }
 ```
 </div>
 
-`MutableMap` is a `Map` with map write operations, for example, you can add a new key-value pair or updating the value associated with the given key.
+`MutableMap` is a `Map` with map write operations, for example, you can add a new key-value pair or update the value associated with the given key.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
