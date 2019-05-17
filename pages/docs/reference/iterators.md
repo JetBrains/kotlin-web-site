@@ -89,7 +89,7 @@ Having the ability to iterate in both directions, means the `ListIterator` can s
 
 ## Mutable iterators
 
-For iterating mutable collections, there is [`MutableIterator`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterator/index.html) that extends `Iterator` with the element removal function `remove()`. So, you can remove elements from a collection while iterating it. 
+For iterating mutable collections, there is [`MutableIterator`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterator/index.html) that extends `Iterator` with the element removal function [`remove()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterator/remove.html). So, you can remove elements from a collection while iterating it. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

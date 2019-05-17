@@ -46,7 +46,7 @@ val numbersSequence = numbers.asSequence()
 
 ### From function
 One more way to create a sequence is by building it with a function that calculates its elements.
-To build a sequence based on a function, call [`generateSequence()`](/api/latest/jvm/stdlib/kotlin.sequences/generate-sequence.htm) with this function as an argument.
+To build a sequence based on a function, call [`generateSequence()`](/api/latest/jvm/stdlib/kotlin.sequences/generate-sequence.html) with this function as an argument.
 Optionally, you can specify the first element as an explicit value or a result of a function call.
 The sequence generation stops when the provided function returns `null`. So, the sequence in the example below is infinite.
 

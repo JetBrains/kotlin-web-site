@@ -98,7 +98,7 @@ fun main() {
 
 ## `plus` and `minus` operators
 
-Due to the key access to elements, [`+`](/api/latest/jvm/stdlib/kotlin.collections/plus.html) (`plus`) and [`-`](/api/latest/jvm/stdlib/kotlin.collections/minus.html) (`minus`) operators work for maps differently than for other collections. 
+Due to the key access to elements, [`plus`](/api/latest/jvm/stdlib/kotlin.collections/plus.html) (`+`) and [`minus`](/api/latest/jvm/stdlib/kotlin.collections/minus.html) (`-`) operators work for maps differently than for other collections. 
 `plus` returns a `Map` that contains elements of its both operands: a `Map` on the left and a `Pair` or another `Map` on the right.
 When the right-hand side operand contains entries with keys present in the left-hand side `Map`, the result map contains the entries from the right side.
 
@@ -134,7 +134,7 @@ fun main() {
 ```
 </div>
 
-For details on using [`+=`](/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`plusAssign`) and [`-=`](/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html) (`minusAssign`) operators on mutable maps, see [Map write operations](#map-write-operations) below.
+For details on using [`plusAssign`](/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`) and [`minusAssign`](/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html) (`-=`) operators on mutable maps, see [Map write operations](#map-write-operations) below.
 
 ## Map write operations
 
@@ -202,7 +202,7 @@ fun main() {
 
 You can also add new entries to maps using the shorthand operator form. There are two ways:
 
-* [`+=`](/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`plusAssign`) operator.
+* [`plusAssign`](/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`) operator.
 * the `[]` operator alias for `put()`.  
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -265,7 +265,7 @@ fun main() {
 </div>
 
 
-The [`-=`](/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html) (`minusAssign`) operator is also available for mutable maps. 
+The [`minusAssign`](/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html) (`-=`) operator is also available for mutable maps. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

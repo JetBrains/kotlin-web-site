@@ -102,7 +102,7 @@ For removing multiple elements at once, there are the following functions :
    Alternatively, you can call it with a predicate as an argument; in this case the function removes all elements for which the predicate yields `true`.
 * [`retainAll()`](/api/latest/jvm/stdlib/kotlin.collections/retain-all.html) is the opposite of `removeAll()`: it removes all elements except the ones from the argument collection.
    When used with a predicate, it leaves only elements that match it.
-* [`clear()`](/api/latest/jvm/stdlib/kotlin.collections/clear.html) removes all elements and makes the collection empty.
+* [`clear()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/clear.html) removes all elements from a list and leaves it empty.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

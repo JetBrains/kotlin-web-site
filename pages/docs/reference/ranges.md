@@ -35,7 +35,7 @@ fun main() {
 ```
 </div>
 
-To iterate numbers in reverse order, use the [`downTo()`](/api/latest/jvm/stdlib/kotlin.ranges/down-to.html) function instead of `..`.
+To iterate numbers in reverse order, use the [`downTo`](/api/latest/jvm/stdlib/kotlin.ranges/down-to.html) function instead of `..`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -49,7 +49,7 @@ fun main() {
 ```
 </div>
 
-It is also possible to iterate over numbers with an arbitrary step (not necessarily 1). This is done via the [`step()`](/api/latest/jvm/stdlib/kotlin.ranges/step.html) function.
+It is also possible to iterate over numbers with an arbitrary step (not necessarily 1). This is done via the [`step`](/api/latest/jvm/stdlib/kotlin.ranges/step.html) function.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -146,7 +146,7 @@ fun main() {
 ```
 </div>
 
-To define a custom progression step, use the `step()` function on a range.
+To define a custom progression step, use the `step` function on a range.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

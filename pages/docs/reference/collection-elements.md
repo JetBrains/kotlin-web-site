@@ -10,7 +10,7 @@ title: "Retrieving Single Elements"
 Kotlin collections provide a set of functions for retrieving single elements from collections.
 Functions described on this page apply to both lists and sets.
 
-As the [list definition](collections-overview.html) says, a list is an ordered collection.
+As the [definition of list](collections-overview.html) says, a list is an ordered collection.
 Hence, every element of a list has its position that you can use for referring.
 In addition to functions described on this page, lists offer a wider set of ways to retrieve and search for elements by indices.
 For more details, see [List Specific Operations](list-operations.html).
