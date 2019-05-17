@@ -12,7 +12,7 @@ For example, two lists of the same elements are not equal if their elements are 
 
 In Kotlin, the orders of objects can be defined in several ways.
 
-First, there is _natural_ order. It is defined for inheritors of the `Comparable` interface.
+First, there is _natural_ order. It is defined for inheritors of the [`Comparable`](/api/latest/jvm/stdlib/kotlin/-comparable/index.html) interface.
 Natural order is used for sorting them when no other order is specified.
 
 Most built-in types are comparable:
@@ -51,7 +51,7 @@ fun main() {
 
 _Custom_ orders let you sort instances of any type in a way you like.
 Particularly, you can define an order for non-comparable objects or define an order other than natural for a comparable type.
-To define a custom order for a type, create a `Comparator` for it.
+To define a custom order for a type, create a [`Comparator`](/api/latest/jvm/stdlib/kotlin/-comparator/index.html) for it.
 `Comparator` contains the `compare()` function: it takes two instances of a class and returns the integer result of the comparison between them.
 The result is interpreted in the same way as the result of a `compareTo()` as is described above. 
 
@@ -70,7 +70,7 @@ fun main() {
 
 Having the `lengthComparator`, you are able to arrange strings by their length instead of the default lexicographical order.
 
-A shorter way to define a `Comparator` is the `compareBy()` function from the standard library.
+A shorter way to define a `Comparator` is the [`compareBy()`](/api/latest/jvm/stdlib/kotlin.comparisons/compare-by.html) function from the standard library.
 `compareBy()` takes a lambda function that produces a `Comparable` value from an instance and defines the custom order as the natural order of the produced values.
 With `compareBy()`, the length comparator from the example above looks like this:
 
@@ -93,7 +93,7 @@ To learn about functions for sorting [mutable](collections-overview.html#collect
 
 ## Natural order
 
-The basic functions `sorted()` and `sortedDescending()` return elements of a collection sorted into ascending and descending sequence according to their natural order.
+The basic functions [`sorted()`](/api/latest/jvm/stdlib/kotlin.collections/sorted.html) and [`sortedDescending()`](/api/latest/jvm/stdlib/kotlin.collections/sorted-descending.html) return elements of a collection sorted into ascending and descending sequence according to their natural order.
 These functions apply to collections of `Comparable` elements.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -113,7 +113,7 @@ fun main() {
 
 ## Custom orders
  
-For sorting in custom orders or sorting non-comparable objects, there are the functions `sortedBy()` and `sortedByDescending()`.
+For sorting in custom orders or sorting non-comparable objects, there are the functions [`sortedBy()`](/api/latest/jvm/stdlib/kotlin.collections/sorted-by.html) and [`sortedByDescending()`](/api/latest/jvm/stdlib/kotlin.collections/sorted-by-descending.html).
 They take a selector function that maps collection elements to `Comparable` values and sort the collection in natural order of that values.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -134,7 +134,7 @@ fun main() {
 </div>
 
 To define a custom order for the collection sorting, you can provide your own `Comparator`.
-To do this, call the `sortedWith()` function passing in your `Comparator`.
+To do this, call the [`sortedWith()`](/api/latest/jvm/stdlib/kotlin.collections/sorted-with.html) function passing in your `Comparator`.
 With this function, sorting strings by their length looks like this:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -152,7 +152,7 @@ fun main() {
 
 ## Reverse order
 
-You can retrieve the collection in the reversed order using the `reversed()` function. 
+You can retrieve the collection in the reversed order using the [`reversed()`](/api/latest/jvm/stdlib/kotlin.collections/reversed.html) function. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -170,7 +170,7 @@ fun main() {
 `reversed()` returns a new collection with the copies of the elements.
 So, if you change the original collection later, this won't affect the previously obtained results of `reversed()`.
 
-Another reversing function - `asReversed()` - returns a reversed view of the same collection instance, so it may be more lightweight and preferable than `reversed()` if the original list is not going to change. 
+Another reversing function - [`asReversed()`](/api/latest/jvm/stdlib/kotlin.collections/as-reversed.html) - returns a reversed view of the same collection instance, so it may be more lightweight and preferable than `reversed()` if the original list is not going to change. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -208,7 +208,8 @@ However, if the mutability of the list is unknown or the source is not a list at
 
 ## Random order
 
-Finally, there is a shuffle function that retrieves all collection elements in a random order - `shuffled()`. You can call it without arguments or with a `Random` object.
+Finally, there is a shuffle function that retrieves all collection elements in a random order - [`shuffled()`](/api/latest/jvm/stdlib/kotlin.collections/shuffled.html).
+You can call it without arguments or with a [`Random`](/api/latest/jvm/stdlib/kotlin.random/-random/index.html) object.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

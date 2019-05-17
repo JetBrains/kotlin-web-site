@@ -7,8 +7,8 @@ title: "Sequences"
 
 # Sequences
 
-Along with collections, the Kotlin standard library contains another container type – _sequences_ (`Sequence<T>`).
-Sequences offer the same functions as `Iterable` but implement another approach to multi-step collection processing.
+Along with collections, the Kotlin standard library contains another container type – _sequences_ ([`Sequence<T>`](/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html)).
+Sequences offer the same functions as [`Iterable`](/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html) but implement another approach to multi-step collection processing.
 
 When the processing of an `Iterable` includes multiple steps, they are executed eagerly: each processing step completes and returns its result – an intermediate collection.
 The following step executes on this collection. In turn, multi-step processing of sequences is executed lazily when possible: actual computing happens only when the result of the whole processing chain is requested. 
@@ -23,7 +23,7 @@ Hence, you should consider both `Sequence` and `Iterable` and decide which one i
 ## Constructing
 
 ### From elements
-To create a sequence, call the `sequenceOf()` function listing the elements as its arguments.
+To create a sequence, call the [`sequenceOf()`](/api/latest/jvm/stdlib/kotlin.sequences/sequence-of.html) function listing the elements as its arguments.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -33,7 +33,7 @@ val numbersSequence = sequenceOf("four", "three", "two", "one")
 </div>
 
 ### From `Iterable`
-If you already have an `Iterable` object (such as a `List` or a `Set`), you can create a sequence from it by calling `asSequence()`.
+If you already have an `Iterable` object (such as a `List` or a `Set`), you can create a sequence from it by calling [`asSequence()`](/api/latest/jvm/stdlib/kotlin.collections/as-sequence.html).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -46,7 +46,7 @@ val numbersSequence = numbers.asSequence()
 
 ### From function
 One more way to create a sequence is by building it with a function that calculates its elements.
-To build a sequence based on a function, call `generateSequence()` with this function as an argument.
+To build a sequence based on a function, call [`generateSequence()`](/api/latest/jvm/stdlib/kotlin.sequences/generate-sequence.htm) with this function as an argument.
 Optionally, you can specify the first element as an explicit value or a result of a function call.
 The sequence generation stops when the provided function returns `null`. So, the sequence in the example below is infinite.
 
@@ -79,8 +79,8 @@ fun main() {
 
 ### From chunks
 
-Finally, there is a function that lets you produce sequence elements one by one or by chunks of arbitrary sizes – the `sequence()` function.
-This function takes a lambda expression containing calls of `yield()` and `yieldAll()` functions.
+Finally, there is a function that lets you produce sequence elements one by one or by chunks of arbitrary sizes – the [`sequence()`](/api/latest/jvm/stdlib/kotlin.sequences/sequence.html) function.
+This function takes a lambda expression containing calls of [`yield()`](/api/latest/jvm/stdlib/kotlin.sequences/-sequence-scope/yield.html) and [`yieldAll()`](/api/latest/jvm/stdlib/kotlin.sequences/-sequence-scope/yield-all.html) functions.
 They return an element to the sequence consumer and suspend the execution of `sequence()` until the next element is requested by the consumer.
 `yield()` takes a single element as an argument; `yieldAll()` can take an `Iterable` object, an `Iterator`, or another `Sequence`. A `Sequence` argument of `yieldAll()` can be infinite. However, such a call must be the last: all subsequent calls will never be executed.
 
@@ -109,7 +109,7 @@ The sequence operations can be classified into the following groups regarding th
 * _Stateful_ operations require a significant amount of state, usually proportional to the number of elements in a sequence.
 
 If a sequence operation returns another sequence, which is produced lazily, it's called _intermediate_.
-Otherwise, the operation is _terminal_. Examples of terminal operations are `toList()` or `sum()`.Sequence elements can be retrieved only with terminal operations.
+Otherwise, the operation is _terminal_. Examples of terminal operations are [`toList()`](constructing-collections.html#copying) or [`sum()`](collection-aggregate.html). Sequence elements can be retrieved only with terminal operations.
 
 Sequences can be iterated multiple times; however some sequence implementations might constrain themselves to be iterated only once. That is mentioned specifically in their documentation.
 

@@ -13,13 +13,13 @@ title: "List Specific Operations"
 
 Lists support all common operations for element retrieval: `elementAt()`, `first()`, `last()`, and others listed in [Retrieving Single Elements](collection-elements.html).
 What is specific for lists is index access to the elements, so the simplest way to read an element is retrieving it by index.
-That is done with the `get()` function with the index passed in the argument or the shorthand `[index]` syntax.
+That is done with the [`get()`](/api/latest/jvm/stdlib/kotlin.collections/-list/get.html) function with the index passed in the argument or the shorthand `[index]` syntax.
 
 If the list size is less than the specified index, an exception is thrown.
 There are two other functions that help you avoid such exceptions: 
 
-* `getOrElse()` lets you provide the function for calculating the default value to return if the index isn't present in the collection.
-* `getOrNull()` returns `null` as the default value. 
+* [`getOrElse()`](/api/latest/jvm/stdlib/kotlin.collections/get-or-else.html) lets you provide the function for calculating the default value to return if the index isn't present in the collection.
+* [`getOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/get-or-null.html) returns `null` as the default value. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -40,7 +40,7 @@ fun main() {
 
 ## Retrieving list parts
 
-In addition to common operations for [Retrieving Collection Parts](collection-parts.html), lists provide the `subList()` function that returns a view of the specified elements range as a list.
+In addition to common operations for [Retrieving Collection Parts](collection-parts.html), lists provide the [`subList()`](/api/latest/jvm/stdlib/kotlin.collections/-list/sub-list.html) function that returns a view of the specified elements range as a list.
 Thus, if an element of the original collection changes, it also changes in the previously created sublists and vice versa.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -60,7 +60,7 @@ fun main() {
 
 ### Linear search
 
-In any lists, you can find the position of an element using the functions `indexOf()` and `lastIndexOf()`.
+In any lists, you can find the position of an element using the functions [`indexOf()`](/api/latest/jvm/stdlib/kotlin.collections/index-of.html) and [`lastIndexOf()`](/api/latest/jvm/stdlib/kotlin.collections/last-index-of.html).
 They return the first and the last position of an element equal to the given argument in the list.
 If there are no such elements, both functions return `-1`.
 
@@ -80,8 +80,8 @@ fun main() {
 
 There is also a pair of functions that take a predicate and search for elements matching it:
 
-* `indexOfFirst()` returns the *index of the first* element matching the predicate or `-1` if there are no such elements.
-* `indexOfLast()` returns the *index of the last* element matching the predicate or `-1` if there are no such elements.
+* [`indexOfFirst()`](/api/latest/jvm/stdlib/kotlin.collections/index-of-first.html) returns the *index of the first* element matching the predicate or `-1` if there are no such elements.
+* [`indexOfLast()`](/api/latest/jvm/stdlib/kotlin.collections/index-of-last.html) returns the *index of the last* element matching the predicate or `-1` if there are no such elements.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -103,7 +103,7 @@ There is one more way to search elements in lists – [binary search](https://en
 It works significantly faster than other built-in search functions but *requires the list to be [sorted](collection-ordering.html)* in ascending order according to a certain ordering: natural or another one provided in the function parameter.
 Otherwise, the result is undefined. 
 
-To search an element in a sorted list, call the `binarySearch()` function passing the value as an argument.
+To search an element in a sorted list, call the [`binarySearch()`](/api/latest/jvm/stdlib/kotlin.collections/binary-search.html) function passing the value as an argument.
 If such an element exists, the function returns its index; otherwise, it returns `(- insertionPoint - 1`) where `insertionPoint` is the index where this element should be inserted so that the list remains sorted.
 If there is more than one element with the given value, the search can return any of their indices.
 
@@ -128,7 +128,7 @@ fun main() {
 
 #### Comparator binary search
 
-When list elements aren't `Comparable`, you should provide a [`Comparator`](collection-ordering.html) to use in the binary search.
+When list elements aren't `Comparable`, you should provide a [`Comparator`](/api/latest/jvm/stdlib/kotlin/-comparator.html) to use in the binary search.
 The list must be sorted in ascending order according to this `Comparator`. Let's have a look at an example:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -151,7 +151,7 @@ fun main() {
 ```
 </div>
 
-Here's a list of `Product` instances that aren't `Comparable` and a `Comparator` that defines the order: product `o1` precedes product `o2` if` o1`'s  price is less than `o2`'s price.
+Here's a list of `Product` instances that aren't `Comparable` and a `Comparator` that defines the order: product `p1` precedes product `p2` if `p1`'s  price is less than `p2`'s price.
 So, having a list sorted ascending according to this order, we use `binarySearch()` to find the index of the specified `Product`.
 
 Custom comparators are also handy when a list uses an order different from natural one, for example, a case-insensitive order for `String` elements. 
@@ -206,7 +206,7 @@ Such operations use the index to access elements to broaden the list modificatio
 
 ### Adding
 
-To add elements to a specific position in a list, use `add()` and `addAll()` providing the position for element insertion as an additional argument.
+To add elements to a specific position in a list, use [`add()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html) and [`addAll()`](/api/latest/jvm/stdlib/kotlin.collections/add-all.html) providing the position for element insertion as an additional argument.
 All elements that come after the position shift to the right.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -226,7 +226,7 @@ fun main() {
 
 ### Updating
 
-Lists also offer a function to replace an element at a given position - `set()` and its operator form `[]`. `set()` doesn't change the indexes of other elements.
+Lists also offer a function to replace an element at a given position - [`set()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/set.html) and its operator form `[]`. `set()` doesn't change the indexes of other elements.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -242,7 +242,7 @@ fun main() {
 ```
 </div>
 
-`fill()` simply replaces all the collection elements with the specified value.
+[`fill()`](/api/latest/jvm/stdlib/kotlin.collections/fill.html) simply replaces all the collection elements with the specified value.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -261,7 +261,7 @@ fun main() {
 
 ### Removing
 
-To remove an element at a specific position from a list, use the `removeAt()` function providing the position as an argument.
+To remove an element at a specific position from a list, use the [`removeAt()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-at.html) function providing the position as an argument.
 All indices of elements that come after the element being removed will decrease by one.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -285,11 +285,11 @@ When you apply such an operation to a list instance, it changes the order of ele
 
 The in-place sorting functions have similar names to the functions that apply to read-only lists, but without the `ed/d` suffix:
 
-*  `sort*` instead of `sorted*` in the names of all sorting functions: `sort()`, `sortDescending()`, `sortBy()`, and so on.
-* `shuffle()` instead of `shuffled()`.
-* `reverse()` instead of `reversed()`.
+*  `sort*` instead of `sorted*` in the names of all sorting functions: [`sort()`](/api/latest/jvm/stdlib/kotlin.collections/sort.html), [`sortDescending()`](/api/latest/jvm/stdlib/kotlin.collections/sort-descending.html), [`sortBy()`](/api/latest/jvm/stdlib/kotlin.collections/sort-by.html), and so on.
+* [`shuffle()`](/api/latest/jvm/stdlib/kotlin.collections/shuffle.html) instead of `shuffled()`.
+* [`reverse()`](/api/latest/jvm/stdlib/kotlin.collections/reverse.html) instead of `reversed()`.
 
-[`asReversed()`](collection-ordering.html#reverse-order) called on a mutable list returns another mutable list which is a reversed view of the original list. Changes in that view are reflected in the original list.
+[`asReversed()`](/api/latest/jvm/stdlib/kotlin.collections/as-reversed.html) called on a mutable list returns another mutable list which is a reversed view of the original list. Changes in that view are reflected in the original list.
 The following example shows sorting functions for mutable lists:
 
 

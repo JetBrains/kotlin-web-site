@@ -63,7 +63,7 @@ Let's walk through the interfaces and their implementations.
 ### Collection
 
 [`Collection<T>`](/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html) is the root of the collection hierarchy. This interface represents the common behavior of a read-only collection: retrieving size, checking item membership, and so on.
-`Collection` inherits from the `Iterable<T>` interface that defines the operations for iterating elements. You can use `Collection` as a parameter of a function that applies to different collection types. For more specific cases, use the `Collection`'s inheritors: [`Set`](/api/latest/jvm/stdlib/kotlin.collections/-set/index.html) and [`List`](/api/latest/jvm/stdlib/kotlin.collections/-list/index.html).
+`Collection` inherits from the `Iterable<T>` interface that defines the operations for iterating elements. You can use `Collection` as a parameter of a function that applies to different collection types. For more specific cases, use the `Collection`'s inheritors: [`List`](/api/latest/jvm/stdlib/kotlin.collections/-list/index.html) and [`Set`](/api/latest/jvm/stdlib/kotlin.collections/-set/index.html).
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

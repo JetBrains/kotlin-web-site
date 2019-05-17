@@ -13,9 +13,10 @@ The Kotlin standard library offers a broad variety of functions for performing o
 
 Collection operations are declared in the standard library in two ways: [member functions](classes.html#class-members) of collection interfaces and [extension functions](extensions.html#extension-functions). 
 
-Member functions define operations that are essential for a collection type. For example, `Collection` contains the function `isEmpty()` for checking its emptiness; `List` contains `get()` for index access to elements, and so on.
+Member functions define operations that are essential for a collection type. For example, [`Collection`](/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html) contains the function [`isEmpty()`](/api/latest/jvm/stdlib/kotlin.collections/-collection/is-empty.html) for checking its emptiness; [`List`](/api/latest/jvm/stdlib/kotlin.collections/-list/index.html) contains [`get()`](/api/latest/jvm/stdlib/kotlin.collections/-list/get.html) for index access to elements, and so on.
 
-When you create own implementations of collection interfaces, you must implement their member functions. To make the creation of new implementations easier, use the skeletal implementations of collection interfaces from the standard library: `AbstractCollection`, `AbstractList`, `AbstractSet`, `AbstractMap`, and their mutable counterparts.
+When you create own implementations of collection interfaces, you must implement their member functions.
+To make the creation of new implementations easier, use the skeletal implementations of collection interfaces from the standard library: [`AbstractCollection`](/api/latest/jvm/stdlib/kotlin.collections/-abstract-collection/index.html), [`AbstractList`](/api/latest/jvm/stdlib/kotlin.collections/-abstract-list/index.html), [`AbstractSet`](/api/latest/jvm/stdlib/kotlin.collections/-abstract-set/index.html), [`AbstractMap`](/api/latest/jvm/stdlib/kotlin.collections/-abstract-map/index.html), and their mutable counterparts.
 
 Other collection operations are declared as extension functions. These are filtering, transformation, ordering, and other collection processing functions. 
 
@@ -51,7 +52,7 @@ fun main() {
 
 For certain collection operations, there is an option to specify the _destination_ object.
 Destination is a mutable collection to which the function appends its resulting items instead of returning them in a new object.
-For performing operations with destinations, there are separate functions with the `To` postfix in their names, for example, `filterTo()` instead of `filter()`  or `associateTo()` instead of `associate()`.
+For performing operations with destinations, there are separate functions with the `To` postfix in their names, for example, [`filterTo()`](/api/latest/jvm/stdlib/kotlin.collections/filter-to.html) instead of [`filter()`](/api/latest/jvm/stdlib/kotlin.collections/filter.html)  or [`associateTo()`](/api/latest/jvm/stdlib/kotlin.collections/associate-to.html) instead of [`associate()`](/api/latest/jvm/stdlib/kotlin.collections/associate.html).
 These functions take the destination collection as an additional parameter.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -92,7 +93,7 @@ Functions with destination are available for filtering, association, grouping, f
 For mutable collections, there are also _write operations_ that change the collection state. Such operations include adding, removing, and updating elements. Write operations are listed in the [Write operations](collection-write.html) and corresponding sections of [List specific operations](list-operations.html) and [Map specific operations](map-operations.html).
 
 For certain operations, there are pairs of functions for performing the same operation: one applies the operation in-place and the other returns the result as a separate collection.
-For example, `sort()` sorts a mutable collection in-place, so it's state changes; `sorted()` creates a new collection that contains the same elements in the sorted order.
+For example, [`sort()`](/api/latest/jvm/stdlib/kotlin.collections/sort.html) sorts a mutable collection in-place, so it's state changes; [`sorted()`](/api/latest/jvm/stdlib/kotlin.collections/sorted.html) creates a new collection that contains the same elements in the sorted order.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

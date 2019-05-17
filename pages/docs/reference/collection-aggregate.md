@@ -10,10 +10,10 @@ title: "Aggregate Operations"
 Kotlin collections contain functions for commonly used _aggregate operations_ – operations that return a single value based on the collection content.
 Most of them are well known and work the same way as they do in other languages:
 
-* `min()` and `max()` return the smallest and the largest element respectively;
-* `average()` returns the average value of elements in the collection of numbers;
-* `sum()` returns the sum of elements in the collection of numbers;
-* `count()` returns the number of elements in a collection;
+* [`min()`](/api/latest/jvm/stdlib/kotlin.collections/min.html) and [`max()`](/api/latest/jvm/stdlib/kotlin.collections/max.html) return the smallest and the largest element respectively;
+* [`average()`](/api/latest/jvm/stdlib/kotlin.collections/average.html) returns the average value of elements in the collection of numbers;
+* [`sum()`](/api/latest/jvm/stdlib/kotlin.collections/sum.html) returns the sum of elements in the collection of numbers;
+* [`count()`](/api/latest/jvm/stdlib/kotlin.collections/count.html) returns the number of elements in a collection;
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -32,10 +32,10 @@ fun main() {
 ```
 </div>
 
-There are also functions for retrieving the smallest and the largest elements by certain selector function or custom `Comparator`:
+There are also functions for retrieving the smallest and the largest elements by certain selector function or custom [`Comparator`](/api/latest/jvm/stdlib/kotlin/-comparator/index.html):
 
-* `maxBy()`/`minBy()` take a selector function and return the element for which it returns the largest or the smallest value.
-* `maxWith()`/`minWith()` take a `Comparator` object and return the largest or smallest element according to that Comparator. 
+* [`maxBy()`](/api/latest/jvm/stdlib/kotlin.collections/max-by.html)/[`minBy()`](/api/latest/jvm/stdlib/kotlin.collections/min-by.html) take a selector function and return the element for which it returns the largest or the smallest value.
+* [`maxWith()`](/api/latest/jvm/stdlib/kotlin.collections/max-with.html)/[`minWith()`](/api/latest/jvm/stdlib/kotlin.collections/min-with.html) take a `Comparator` object and return the largest or smallest element according to that `Comparator`. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -56,8 +56,8 @@ fun main() {
 
 Additionally, there are advanced summation functions that take a function and return the sum of its return values on all elements: 
 
-* `sumBy()` applies functions that return `Int` values on collection elements.
-* `sumByDouble()` works with functions that return `Double`.
+* [`sumBy()`](/api/latest/jvm/stdlib/kotlin.collections/sum-by.html) applies functions that return `Int` values on collection elements.
+* [`sumByDouble()`](/api/latest/jvm/stdlib/kotlin.collections/sum-by-double.html) works with functions that return `Double`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -74,7 +74,7 @@ fun main() {
 
 ## Fold and reduce
 
-For more specific cases, there are the functions `reduce()` and `fold()` that apply the provided operation to the collection elements sequentially and return the accumulated result.
+For more specific cases, there are the functions [`reduce()`](/api/latest/jvm/stdlib/kotlin.collections/reduce.html) and [`fold()`](/api/latest/jvm/stdlib/kotlin.collections/fold.html) that apply the provided operation to the collection elements sequentially and return the accumulated result.
 The operation takes two arguments:  the previously accumulated value and the collection element.
 
 The difference between the two functions is that `fold()` takes an initial value and uses it as the accumulated value on the first step, whereas the first step of `reduce()` uses the first and the second elements as operation arguments on the first step.
@@ -101,7 +101,7 @@ fun main() {
 The example above shows the difference: `fold()` is used for calculating the sum of doubled elements.
 If you pass the same function to `reduce()`, it will return another result because it uses the list's first and second elements as arguments on the first step, so the first element won't be doubled.
 
-To apply a function to elements in the reverse order, use functions `reduceRight()` and `foldRight()`.
+To apply a function to elements in the reverse order, use functions [`reduceRight()`](/api/latest/jvm/stdlib/kotlin.collections/reduce-right.html) and [`foldRight()`](/api/latest/jvm/stdlib/kotlin.collections/fild-right.html).
 They work in a way similar to `fold()` and `reduce()` but start from the last element and then continue to previous.
 Note that when folding or reducing right, the operation arguments change their order: first goes the element, and then the accumulated value.
 
@@ -119,9 +119,9 @@ fun main() {
 </div>
 
 You can also apply operations that take element indices as parameters.
-For this purpose, use functions `foldIndexed()` and `reduceIndexed()` passing element index as the first argument of the operation. 
+For this purpose, use functions [`reduceIndexed()`](/api/latest/jvm/stdlib/kotlin.collections/reduce-indexed.html) and [`foldIndexed()`](/api/latest/jvm/stdlib/kotlin.collections/fold-indexed.html) passing element index as the first argument of the operation. 
 
-Finally, there are functions that apply such operations to collection elements from right to left - `foldRightIndexed()` and `reduceRightIndexed()`. 
+Finally, there are functions that apply such operations to collection elements from right to left - [`reduceRightIndexed()`](/api/latest/jvm/stdlib/kotlin.collections/reduce-right-indexed.html) and [`foldRightIndexed()`](/api/latest/jvm/stdlib/kotlin.collections/fold-right-indexed.html). 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

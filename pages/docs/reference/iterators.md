@@ -10,8 +10,8 @@ title: "Iterators"
 For traversing collection elements, the Kotlin standard library supports the commonly used mechanism of _iterators_ – objects that provide access to the elements sequentially without exposing the underlying structure of the collection.
 Iterators are useful when you need to process all the elements of a collection one-by-one, for example, print values or make similar updates to them.
 
-Iterators can be obtained for inheritors of the `Iterable<T>` interface, including `Set` and `List`, by calling the `iterator()` function.
-Once you obtain an iterator, it points to the first element of a collection; calling the `next()` function returns this element and moves the iterator position to the following element if it exists.
+Iterators can be obtained for inheritors of the [`Iterable<T>`](/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html) interface, including `Set` and `List`, by calling the [`iterator()`](/api/latest/jvm/stdlib/kotlin.collections/-iterable/iterator.html) function.
+Once you obtain an iterator, it points to the first element of a collection; calling the [`next()`](/api/latest/jvm/stdlib/kotlin.collections/-iterator/next.html) function returns this element and moves the iterator position to the following element if it exists.
 Once the iterator passes through the last element, it can no longer be used for retrieving elements; neither can it be reset to any previous position. To iterate through the collection again, create a new iterator.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -63,8 +63,9 @@ fun main() {
 
 ## List iterators
 
-For lists, there is a special iterator implementation: `ListIterator`. It supports iterating lists in both directions: forwards and backwards.
-Backward iteration is implemented by the functions `hasPrevious()` and `previous()`. Additionally, the `ListIterator` provides information about the element indices with the functions `nextIndex()` and `previousIndex()`.
+For lists, there is a special iterator implementation: [`ListIterator`](/api/latest/jvm/stdlib/kotlin.collections/-list-iterator/index.html). It supports iterating lists in both directions: forwards and backwards.
+Backward iteration is implemented by the functions [`hasPrevious()`](/api/latest/jvm/stdlib/kotlin.collections/-list-iterator/has-previous.html) and [`previous()`](/api/latest/jvm/stdlib/kotlin.collections/-list-iterator/previous.html).
+Additionally, the `ListIterator` provides information about the element indices with the functions [`nextIndex()`](/api/latest/jvm/stdlib/kotlin.collections/-list-iterator/next-index.html) and [`previousIndex()`](/api/latest/jvm/stdlib/kotlin.collections/-list-iterator/previous-index.html).
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -88,7 +89,7 @@ Having the ability to iterate in both directions, means the `ListIterator` can s
 
 ## Mutable iterators
 
-For iterating mutable collections, there is `MutableIterator` that extends `Iterator` with the element removal function `remove()`. So, you can remove elements from a collection while iterating it. 
+For iterating mutable collections, there is [`MutableIterator`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterator/index.html) that extends `Iterator` with the element removal function `remove()`. So, you can remove elements from a collection while iterating it. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -106,7 +107,7 @@ fun main() {
 ```
 </div>
 
-In addition to removing elements, the `MutableListIterator` can also insert and replace elements while iterating the list.
+In addition to removing elements, the [`MutableListIterator`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/index.html) can also insert and replace elements while iterating the list.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 

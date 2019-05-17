@@ -7,7 +7,7 @@ title: "Ranges and Progressions"
 
 # Ranges and Progressions
 
-Kotlin lets you easily create ranges of values using the `rangeTo()` function from the `kotlin.ranges` package and its operator form `..`.
+Kotlin lets you easily create ranges of values using the [`rangeTo()`](/api/latest/jvm/stdlib/kotlin.ranges/range-to.html) function from the `kotlin.ranges` package and its operator form `..`.
 Usually, `rangeTo()` is complemented by `in` or `!in` functions.
 
 <div class="sample" markdown="1" theme="idea"  data-highlight-only>
@@ -19,7 +19,7 @@ if (i in 1..4) {  // equivalent of 1 <= i && i <= 10
 ```
 </div>
 
-Integral type ranges (`IntRange`, `LongRange`, `CharRange`) have an extra feature: they can be iterated over.
+Integral type ranges ([`IntRange`](/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html), [`LongRange`](/api/latest/jvm/stdlib/kotlin.ranges/-long-range/index.html), [`CharRange`](/api/latest/jvm/stdlib/kotlin.ranges/-char-range/index.html)) have an extra feature: they can be iterated over.
 These ranges are also [progressions](https://en.wikipedia.org/wiki/Arithmetic_progression) of the corresponding integral types.
 Such ranges are generally used for iteration in the `for` loops.
 
@@ -35,7 +35,7 @@ fun main() {
 ```
 </div>
 
-To iterate numbers in reverse order, use the `downTo()` function instead of `..`.
+To iterate numbers in reverse order, use the [`downTo()`](/api/latest/jvm/stdlib/kotlin.ranges/down-to.html) function instead of `..`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -49,7 +49,7 @@ fun main() {
 ```
 </div>
 
-It is also possible to iterate over numbers with an arbitrary step (not necessarily 1). This is done via the `step()` function.
+It is also possible to iterate over numbers with an arbitrary step (not necessarily 1). This is done via the [`step()`](/api/latest/jvm/stdlib/kotlin.ranges/step.html) function.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -65,7 +65,7 @@ fun main() {
 ```
 </div>
 
-To iterate a number range which does not include its end element, use the `until` function:
+To iterate a number range which does not include its end element, use the [`until`](/api/latest/jvm/stdlib/kotlin.ranges/until.html) function:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -116,7 +116,7 @@ fun main() {
 ## Progression
 
 As shown in the examples above, the ranges of integral types, such as `Int`, `Long`, and `Char`, can be treated as [arithmetic progressions](https://en.wikipedia.org/wiki/Arithmetic_progression) of them.
-In Kotlin, these progressions are defined by special types: `IntProgression`, `LongProgression`, and `CharProgression`.
+In Kotlin, these progressions are defined by special types: [`IntProgression`](/api/latest/jvm/stdlib/kotlin.ranges/-int-progression/index.html), [`LongProgression`](/api/latest/jvm/stdlib/kotlin.ranges/-long-progression/index.html), and [`CharProgression`](/api/latest/jvm/stdlib/kotlin.ranges/-char-progression/index.html).
 
 Progressions have three essential properties: the `first` element, the `last` element, and a non-zero `step`.
 The first element is `first`, subsequent elements are the previous element plus a `step`.
