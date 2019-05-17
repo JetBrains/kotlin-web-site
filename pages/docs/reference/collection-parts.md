@@ -58,7 +58,7 @@ There are four functions similar to the ones described above:
 * [`takeWhile()`](/api/latest/jvm/stdlib/kotlin.collections/take-while.html) is `take()` with a predicate: it takes the elements up to but excluding the first one not matching the predicate. If the first collection element doesn't match the predicate, the result is empty.
 * [`takeLastWhile()`](/api/latest/jvm/stdlib/kotlin.collections/take-last-while.html) is similar to `takeLast()`: it takes the range of elements matching the predicate from the end of the collection. The first element of the range is the element next to the last element not matching the predicate. If the last collection element doesn't match the predicate, the result is empty;
 * [`dropWhile()`](/api/latest/jvm/stdlib/kotlin.collections/drop-while.html) is the opposite to `takeWhile()` with the same predicate: it returns the elements from the first one not matching the predicate to the end.
-* [`dropLastWhile()`]((/api/latest/jvm/stdlib/kotlin.collections/drop-last-while.html)) is the opposite to `takeLastWhile()` with the same predicate: it returns the elements from the beginning to the last one not matching the predicate.
+* [`dropLastWhile()`](/api/latest/jvm/stdlib/kotlin.collections/drop-last-while.html) is the opposite to `takeLastWhile()` with the same predicate: it returns the elements from the beginning to the last one not matching the predicate.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -112,7 +112,7 @@ fun main() {
 ## Windowed
 
 You can retrieve all possible ranges of the collection elements of a given size.
-The function for getting them is called [`windowed()`]((/api/latest/jvm/stdlib/kotlin.collections/windowed.html)): it returns a list of element ranges that you would see if you were looking at the collection through a sliding window of the given size.
+The function for getting them is called [`windowed()`](/api/latest/jvm/stdlib/kotlin.collections/windowed.html): it returns a list of element ranges that you would see if you were looking at the collection through a sliding window of the given size.
 Unlike `chunked()`,  `windowed()` returns element ranges starting from *each* collection element.
 All the ranges are returned as elements of a single `List`.
 
