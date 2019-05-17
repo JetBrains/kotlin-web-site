@@ -9,7 +9,7 @@ title: "Constructing Collections"
 
 ## Constructing from elements
 
-The most common way to create a collection is with the standard library functions `listOf<T>()`, `setOf<T>()`, `mutableListOf<T>()`, `mutableSetOf<T>()`.
+The most common way to create a collection is with the standard library functions [`listOf<T>()`](/api/latest/jvm/stdlib/kotlin.collections/list-of.html), [`setOf<T>()`](/api/latest/jvm/stdlib/kotlin.collections/set-of.html), [`mutableListOf<T>()`](/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html), [`mutableSetOf<T>()`](/api/latest/jvm/stdlib/kotlin.collections/mutable-set-of.html).
 If you provide a comma-separated list of collection elements as arguments, the compiler detects the element type automatically.  When creating empty collections, specify the type explicitly.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -20,7 +20,7 @@ val emptySet = mutableSetOf<String>()
 ```
 </div>
 
-The same is available for maps with the functions `mapOf()` and `mutableMapOf()`. The map's keys and values are passed as `Pair` objects (usually created with `to` infix function). 
+The same is available for maps with the functions [`mapOf()`](/api/latest/jvm/stdlib/kotlin.collections/map-of.html) and [`mutableMapOf()`](/api/latest/jvm/stdlib/kotlin.collections/mutable-map-of.html). The map's keys and values are passed as `Pair` objects (usually created with `to` infix function). 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -42,7 +42,7 @@ val numbersMap = mutableMapOf<String, String>().apply { this["one"] = "1"; this[
 
 ## Empty collections
 
-There are also functions for creating collections without any elements: `emptyList()`, `emptySet()`, and `emptyMap()`.
+There are also functions for creating collections without any elements: [`emptyList()`](/api/latest/jvm/stdlib/kotlin.collections/empty-list.html), [`emptySet()`](/api/latest/jvm/stdlib/kotlin.collections/empty-set.html), and [`emptyMap()`](/api/latest/jvm/stdlib/kotlin.collections/empty-map.html).
 When creating empty collections, you should specify the type of elements that the collection will hold.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -83,8 +83,12 @@ val presizedSet = HashSet<Int>(32)
 
 ## Copying
 
-To create a collection with the same elements as an existing collection, you can use copying operations. Collection copying operations from the standard library create _shallow_ copy collections with references to the same elements. Thus, a change made to a collection element reflects in all its copies. 
-Collection copying functions, such as `toList()`, `toMutableList()`, `toSet()` and others, create a snapshot of a collection at a specific moment. Their result is a new collection of the same elements. If you add or remove elements from the original collection, this won't affect the copies. Copies may be changed independently of the source as well.
+To create a collection with the same elements as an existing collection, you can use copying operations. Collection copying operations from the standard library create _shallow_ copy collections with references to the same elements.
+Thus, a change made to a collection element reflects in all its copies. 
+
+Collection copying functions, such as [`toList()`](/api/latest/jvm/stdlib/kotlin.collections/to-list.html), [`toMutableList()`](/api/latest/jvm/stdlib/kotlin.collections/to-mutable-list.html), [`toSet()`](/api/latest/jvm/stdlib/kotlin.collections/to-set.html) and others, create a snapshot of a collection at a specific moment.
+Their result is a new collection of the same elements.
+If you add or remove elements from the original collection, this won't affect the copies. Copies may be changed independently of the source as well.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
