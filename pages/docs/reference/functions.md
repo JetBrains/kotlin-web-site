@@ -649,7 +649,7 @@ class Sample() {
 ```
 -->
 
-メンバ関数は、ドット表記と呼ばれています。
+メンバ関数は、ドット表記によって呼ばれます。
 
 <!--original
 Member functions are called with dot notation
