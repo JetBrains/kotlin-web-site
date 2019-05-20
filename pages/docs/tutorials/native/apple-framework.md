@@ -296,7 +296,7 @@ documentation article
 
 ## Garbage Collection and Reference Counting
 
-Objective-C and Swift use reference counting. Kotlin/Native has it's own garbage collection too.
+Objective-C and Swift use reference counting. Kotlin/Native has its own garbage collection too.
 Kotlin/Native garbage collection is integrated with Objective-C/Swift reference
 counting. We do not need to use anything special to control the lifetime of Kotlin/Native instances
 from Swift or Objective-C.
