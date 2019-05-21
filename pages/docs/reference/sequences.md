@@ -94,7 +94,7 @@ fun main() {
         yieldAll(listOf(3, 5))
         yieldAll(generateSequence(7) { it + 2 })
     }
-    println(oddNumbers.toList().take(5))
+    println(oddNumbers.take(5).toList())
 //sampleEnd
 }
 ```
