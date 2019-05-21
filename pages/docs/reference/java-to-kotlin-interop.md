@@ -9,7 +9,7 @@ title: "Calling Kotlin from Java"
 
 Kotlin code can be easily called from Java.
 For example, instances of a Kotlin class can be seamlessly created and operated in Java methods.
-However, there are certain differences between Java and Kotlin that may require some attention when
+However, there are certain differences between Java and Kotlin that require attention when
 integrating Kotlin code into Java. 
 On this page, we'll describe the ways to tailor the interop of your Kotlin code with its Java clients.
 
@@ -310,7 +310,7 @@ Obj.INSTANCE.callStatic(); // works too
 
 Starting from Kotlin 1.3, `@JvmStatic` applies to functions defined in companion objects of interfaces as well.
 Such functions compile to static methods in interfaces. Note that static method in interfaces were introduced in Java 1.8,
-so use the corresponding targets.  
+so be sure to use the corresponding targets.  
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -404,7 +404,7 @@ Depending on the case of adding the annotation, specify one of the argument valu
    This includes adding the entire interface for your API.
 * `-Xjvm-default=compatibility` should be used if you are adding a `@JvmDefault` to the methods that were available in the API before.
    This mode helps avoid compatibility breaks: all the interface implementations written for the previous versions will be fully compatible with the new version.
-   However, the compatibility mode may add some overhead to the resulting bytecode size and could affect the performance.
+   However, the compatibility mode may add some overhead to the resulting bytecode size and Kaffect the performance.
 
 For more details about compatibility issues, see the `@JvmDefault` [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html).
 
