@@ -93,7 +93,7 @@ Functions with destination are available for filtering, association, grouping, f
 
 ## Write operations
 
-For mutable collections, there are also _write operations_ that change the collection state. Such operations include adding, removing, and updating elements. Write operations are listed in the [Write operations](collection-write.html) and corresponding sections of [List specific operations](list-operations.html) and [Map specific operations](map-operations.html).
+For mutable collections, there are also _write operations_ that change the collection state. Such operations include adding, removing, and updating elements. Write operations are listed in the [Write operations](collection-write.html) and corresponding sections of [List specific operations](list-operations.html#list-write-operations) and [Map specific operations](map-operations.html#map-write-operations).
 
 For certain operations, there are pairs of functions for performing the same operation: one applies the operation in-place and the other returns the result as a separate collection.
 For example, [`sort()`](/api/latest/jvm/stdlib/kotlin.collections/sort.html) sorts a mutable collection in-place, so it's state changes; [`sorted()`](/api/latest/jvm/stdlib/kotlin.collections/sorted.html) creates a new collection that contains the same elements in the sorted order.
@@ -105,9 +105,9 @@ fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
     val sortedNumbers = numbers.sorted()
-    println(numbers.equals(sortedNumbers))  // false
+    println(numbers == sortedNumbers)  // false
     numbers.sort()
-    println(numbers.equals(sortedNumbers))  // true
+    println(numbers == sortedNumbers)  // true
 //sampleEnd
 }
 ```
