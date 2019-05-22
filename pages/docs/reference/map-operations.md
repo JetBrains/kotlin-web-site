@@ -38,7 +38,7 @@ fun main() {
 ```
 </div>
 
-To perform operations on all keys or all values of a map, you can retrieve them from the properties keys and values accordingly.
+To perform operations on all keys or all values of a map, you can retrieve them from the properties `keys` and `values` accordingly. `keys` is a set of all map keys and values is a collection of all map values.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -192,7 +192,8 @@ Both `put()` and `putAll()` overwrite the values if the given keys already exist
 fun main() {
 //sampleStart
     val numbersMap = mutableMapOf("one" to 1, "two" to 2)
-    numbersMap.set("one", 11)
+    val previousValue = numbersMap.put("one", 11)
+    println("value associated with 'one', before: $previousValue, after: ${numbersMap["one"]}")
     println(numbersMap)
 //sampleEnd
 }

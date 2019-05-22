@@ -104,7 +104,7 @@ It works significantly faster than other built-in search functions but *requires
 Otherwise, the result is undefined. 
 
 To search an element in a sorted list, call the [`binarySearch()`](/api/latest/jvm/stdlib/kotlin.collections/binary-search.html) function passing the value as an argument.
-If such an element exists, the function returns its index; otherwise, it returns `(- insertionPoint - 1`) where `insertionPoint` is the index where this element should be inserted so that the list remains sorted.
+If such an element exists, the function returns its index; otherwise, it returns `(-insertionPoint - 1)` where `insertionPoint` is the index where this element should be inserted so that the list remains sorted.
 If there is more than one element with the given value, the search can return any of their indices.
 
 You can also specify an index range to search in: in this case, the function searches only between two provided indices.
