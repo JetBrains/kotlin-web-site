@@ -294,6 +294,8 @@ tutorials:
           title: Working with Build Tools
         - url: /docs/tutorials/koans.html
           title: Koans
+        - url: /docs/tutorials/competitive-programming.html
+          title: Competitive Programming
     - title: Android
       content:
         - url: /docs/tutorials/kotlin-android.html
