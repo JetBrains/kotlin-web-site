@@ -83,7 +83,7 @@ The difference between the two functions is that `fold()` takes an initial value
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf(5, 2, 10, 4)
 
     val sum = numbers.reduce { sum, element -> sum + element }
@@ -111,7 +111,7 @@ Note that when folding or reducing right, the operation arguments change their o
 fun main() {
 //sampleStart
     val numbers = listOf(5, 2, 10, 4)
-    val sumDoubledRight = numbers .foldRight(0) { element, sum -> sum + element * 2 }
+    val sumDoubledRight = numbers.foldRight(0) { element, sum -> sum + element * 2 }
     println(sumDoubledRight)
 //sampleEnd
 }
@@ -127,7 +127,7 @@ Finally, there are functions that apply such operations to collection elements f
 
 ```kotlin
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf(5, 2, 10, 4)
     val sumEven = numbers.foldIndexed(0) { idx, sum, element -> if (idx % 2 == 0) sum + element else sum }
     println(sumEven)

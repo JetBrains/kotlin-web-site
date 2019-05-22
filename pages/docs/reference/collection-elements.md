@@ -33,7 +33,7 @@ However, such results are unpredictable to the caller unless they know the speci
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers = listOf("one", "two", "three", "four", "five")
+    val numbers = linkedSetOf("one", "two", "three", "four", "five")
     println(numbers.elementAt(3))    
 
     val numbersSortedSet = sortedSetOf("one", "two", "three", "four")
