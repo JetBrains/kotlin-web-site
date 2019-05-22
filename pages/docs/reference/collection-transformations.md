@@ -145,21 +145,6 @@ fun main() {
 ```
 </div>
 
-To set custom keys instead of the collection elements in the association map, use the function [`associate()`](/api/latest/jvm/stdlib/kotlin.collections/associate.html).
-It takes a function that returns a `Pair`, so you can define both keys and values of the result `Map`.
-
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
-
-```kotlin
-fun main() {
-//sampleStart
-    val numbers = listOf("one", "two", "three", "four")
-    println(numbers.associate { it.toUpperCase() to it.length })
-//sampleEnd
-}
-```
-</div>
-
 For building maps with collection elements as values, there is the function [`associateBy()`](/api/latest/jvm/stdlib/kotlin.collections/associate-by.html).
 It takes a function that returns a key based on an element's value. If two elements are equal, only the last one remains in the map. 
 `associateBy()` can also be called with a value transformation function.
@@ -177,6 +162,38 @@ fun main() {
 }
 ```
 </div>
+
+Another way to build maps in which both keys and values are somehow produced from collection elements is the function [`associate()`](/api/latest/jvm/stdlib/kotlin.collections/associate.html). 
+It takes a lambda function that returns a `Pair`: the key and the value of the corresponding map entry.
+
+Note that `associate()` produces short-living `Pair` objects which may affect the performance.
+Thus, `associate()` should be used when the performance isn't critical or it's more preferable than other options.
+
+An example of the latter is when a key and the corresponding value are produced from an element together. 
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+data class FullName (val firstName: String, val lastName: String)
+
+fun parseFullName(fullName: String): FullName {
+    val nameParts = fullName.split(" ")
+    if (nameParts.size == 2) {
+        return FullName(nameParts[0], nameParts[1])
+    } else throw Exception("Wrong name format")
+}
+
+//sampleStart
+    val names = listOf("Alice Adams", "Brian Brown", "Clara Campbell")
+    println(names.associate { name -> parseFullName(name).let { it.lastName to it.firstName } })  
+//sampleEnd
+}
+```
+</div>
+
+Here we call a transform function on an element first, and then build a pair from the properties of that function's result.
+
 
 ## Flattening
 

@@ -95,7 +95,9 @@ fun main() {
 </div>
 
 You can also apply a transformation for the returned chunks right away.
-To do this, provide the transformation as a lambda function when calling `chunked()`. The lambda argument must be a `List`.
+To do this, provide the transformation as a lambda function when calling `chunked()`.
+The lambda argument is a chunk of the collection. When `chunked()` is called with a transformation,
+the chunks are short-living `List`s that should be consumed right in that lambda.  
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -113,8 +115,8 @@ fun main() {
 
 You can retrieve all possible ranges of the collection elements of a given size.
 The function for getting them is called [`windowed()`](/api/latest/jvm/stdlib/kotlin.collections/windowed.html): it returns a list of element ranges that you would see if you were looking at the collection through a sliding window of the given size.
-Unlike `chunked()`,  `windowed()` returns element ranges starting from *each* collection element.
-All the ranges are returned as elements of a single `List`.
+Unlike `chunked()`,  `windowed()` returns element ranges (_windows_) starting from *each* collection element.
+All the windows are returned as elements of a single `List`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -131,7 +133,7 @@ fun main() {
 `windowed()` provides more flexibility with optional parameters:
 
 * `step` defines a distance between first elements of two adjacent windows. By default the value is 1, so the result contains windows starting from all elements. If you increase the step to 2, you will receive only windows starting from odd elements: first, third, an so on.
-* `partialWindows` includes ranges of smaller sizes that start from the elements at the end of the collection. For example, if you request windows of three elements, you can't build them for the last two elements. Enabling `partialWindows` in this case includes two more lists of sizes 2 and 1.
+* `partialWindows` includes windows of smaller sizes that start from the elements at the end of the collection. For example, if you request windows of three elements, you can't build them for the last two elements. Enabling `partialWindows` in this case includes two more lists of sizes 2 and 1.
 
 Finally, you can apply a transformation to the returned ranges right away.
 To do this, provide the transformation as a lambda function when calling `windowed()`.

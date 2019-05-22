@@ -7,7 +7,7 @@ title: "Map Specific Operations"
 
 # Map Specific Operations
 
-In [maps](collections-overview.html), types of both keys and values are user-defined.
+In [maps](collections-overview.html#map), types of both keys and values are user-defined.
 Key-based access to map entries enables various map-specific processing capabilities from getting a value by key to separate filtering of keys and values.
 On this page, we provide descriptions of the map processing functions from the standard library.
 
@@ -38,7 +38,7 @@ fun main() {
 ```
 </div>
 
-To perform operations on all keys or all values of a map, you can retrieve them from the properties `keys` and `values` accordingly. `keys` is a set of all map keys and values is a collection of all map values.
+To perform operations on all keys or all values of a map, you can retrieve them from the properties `keys` and `values` accordingly. `keys` is a set of all map keys and `values` is a collection of all map values.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -151,7 +151,7 @@ Below are descriptions of the standard library functions for write operations av
 ### Adding and updating entries
 
 To  add a new key-value pair to a mutable map, use [`put()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/put.html).
-In `LinkedHashMap`, which is the default map implementation, new entries are added so that they are in the end when iterating the map.
+When a new entry is put into a `LinkedHashMap` (the default map implementation), it is added so that it comes last when iterating the map.
 In sorted maps, the positions of new elements are defined by the order of their keys. 
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">

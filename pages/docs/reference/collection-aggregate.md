@@ -91,7 +91,7 @@ fun main() {
     val sumDoubled = numbers.fold(0) { sum, element -> sum + element * 2 }
     println(sumDoubled)
 
-    //val sumDoubledReduce = numbers.reduce { sum, element -> sum + element * 2 } //incorrect value
+    //val sumDoubledReduce = numbers.reduce { sum, element -> sum + element * 2 } //incorrect: the first element isn't doubled in the result
     //println(sumDoubledReduce)
 //sampleEnd
 }

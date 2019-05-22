@@ -7,7 +7,7 @@ title: "List Specific Operations"
 
 # List Specific Operations
 
-`List` is the most popular type of built-in [collection](collections-overview.html) in Kotlin. Index access to the elements of lists provides a powerful set of operations for lists. 
+[`List`](collections-overview.html#list) is the most popular type of built-in collection in Kotlin. Index access to the elements of lists provides a powerful set of operations for lists. 
 
 ## Retrieving elements by index
 
