@@ -49,6 +49,8 @@ Kotlin is pragmatic and unopinionated language, supporting both imperative and f
 forcing developer to pick any particular one. We can implement function `f` in functional style, using such Kotlin 
 features as [tail recursion](/docs/reference/functions.html#tail-recursive-functions):
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 tailrec fun removeZeroes(x: Int): Int =
     if (x % 10 == 0) removeZeroes(x / 10) else x
@@ -56,9 +58,13 @@ tailrec fun removeZeroes(x: Int): Int =
 fun f(x: Int) = removeZeroes(x + 1)
 ```
 
+</div>
+
 Alternatively, we can write an imperative implementation of function `f`, using a traditional 
 [while loop](/docs/reference/control-flow.html) and mutable variables that are denoted in Kotlin with 
 [var](/docs/reference/basic-syntax.html#defining-variables):
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 fun f(x: Int): Int {
@@ -67,6 +73,8 @@ fun f(x: Int): Int {
     return cur
 }
 ```
+
+</div>
 
 Types in Kotlin are optional in many places due to pervasive use of type-inference, but every declaration still has 
 a well-defined static type that is known at compilation.
@@ -81,6 +89,8 @@ hash-based maps and sets (`HashMap`/`HashSet`), tree-based ordered maps and sets
 Using a hash-set of integers to track values that were already reached while applying function `f`, 
 the straightforward imperative version of a solution to the problem can be written as shown below:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun main() {
     var n = readLine()!!.toInt() // read integer from the input
@@ -89,6 +99,8 @@ fun main() {
     println(reached.size) // print answer to the output
 }
 ```
+
+</div>
 
 Note the use of Kotlin's 
 [null-assertion operator](/docs/reference/null-safety.html#the--operator) `!!`
@@ -110,11 +122,15 @@ utility functions that are geared towards competitive programming to make your a
 to read and write. You would then use this code as a template for your solutions. For example, you can define 
 the following helper functions for reading inputs in competitive programming:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 private fun readLn() = readLine()!!
 private fun readInt() = readLn().toInt()
 // etc for other types you'd use in your solutions
-``` 
+```
+
+</div>
 
 Note the use of `private` [visibility modifier](/docs/reference/visibility-modifiers.html) here.
 While the concept of visibility modifier is not relevant for competitive programming at all, 
@@ -128,6 +144,8 @@ minimize the boiler-plate and turn the code into a linear top-to-bottom and left
 pipeline. For example, the 
 [Problem B: Long Number](http://codeforces.com/contest/1157/problem/B) problem 
 takes a simple greedy algorithm to implement and it can be written using this style without a single mutable variable:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 fun main() {
@@ -151,6 +169,8 @@ fun main() {
 }
 ```
 
+</div>
+
 In this dense code, in addition to collection transformations, you can see such handy Kotlin features as local functions,
 and [elvis operator](/docs/reference/null-safety.html#elvis-operator) `?:`
 that allow to express the 
@@ -161,15 +181,21 @@ variables and express the same code in imperative style, too.
 To make reading input in the competitive programming tasks like this more concise, 
 you can have the following list of helper input-reading functions:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 private fun readLn() = readLine()!! // string line
 private fun readInt() = readLn().toInt() // single int
 private fun readStrings() = readLn().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
-``` 
+```
+
+</div>
 
 With these helpers, the part of code for reading input becomes simpler, closely following the input 
 specification in the problem statement line by line:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
     // read input
@@ -177,6 +203,8 @@ specification in the problem statement line by line:
     val s = readLn()
     val fl = readInts()
 ```
+
+</div>
 
 Note, that in competitive programming it is customary to give variables shorter names than it is 
 typical in industrial programming practice, since the code is to be written just once and need not be supported thereafter. 
@@ -201,6 +229,7 @@ from a list of integers:
 ```kotlin
 val (n, k) = readInts() 
 ```
+
 </div>
 
 It might be temping to use JVM's `java.util.Scanner` class to parse less structured 
@@ -224,6 +253,7 @@ with `"\n"` as separator, like this:
 ```kotlin
 println(a.joinToString("\n")) // each element of array/list of a separate line
 ```
+
 </div>
 
 ## Learning Kotlin
