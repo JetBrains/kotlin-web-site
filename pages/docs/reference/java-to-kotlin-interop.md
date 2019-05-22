@@ -404,7 +404,7 @@ Depending on the case of adding the annotation, specify one of the argument valu
    This includes adding the entire interface for your API.
 * `-Xjvm-default=compatibility` should be used if you are adding a `@JvmDefault` to the methods that were available in the API before.
    This mode helps avoid compatibility breaks: all the interface implementations written for the previous versions will be fully compatible with the new version.
-   However, the compatibility mode may add some overhead to the resulting bytecode size and Kaffect the performance.
+   However, the compatibility mode may add some overhead to the resulting bytecode size and affect the performance.
 
 For more details about compatibility issues, see the `@JvmDefault` [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html).
 
