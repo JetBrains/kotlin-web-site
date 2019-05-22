@@ -94,7 +94,7 @@ Note the use of Kotlin's
 [null-assertion operator](/docs/reference/null-safety.html#the--operator) `!!`
 after the [readLine()](/api/latest/jvm/stdlib/kotlin.io/read-line.html) function call. 
 Kotlin's `readLine()` function is defined to return a 
-[nullable type](https://kotlinlang.org/docs/reference/null-safety.html#nullable-types-and-non-null-types)
+[nullable type](/docs/reference/null-safety.html#nullable-types-and-non-null-types)
 `String?` and returns `null` on the end of the input, which explicitly forces developer to handle the 
 case of missing input.
  
@@ -102,7 +102,7 @@ There is no need to handle the case of misformatted input in competitive program
 In competitive programming an input format is always precisely specified and the actual input cannot deviate from 
 the input specification in the problem statement. That is what null-assertion operator `!!` essentially does &mdash; 
 it asserts that the input string is present and throws exception if not. Likewise, 
-[String.toInt()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int.html) 
+[String.toInt()](/api/latest/jvm/stdlib/kotlin.text/to-int.html) 
 function throws an exception if an input string is not integer.
 
 All online competitive programming events allow the use of pre-written code, so you can define your own library of 
@@ -196,9 +196,12 @@ In Kotlin this line can be concisely parsed with the following statement using
 [destructuring declaration](/docs/reference/multi-declarations.html#destructuring-declarations) 
 from a list of integers:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val (n, k) = readInts() 
 ```
+</div>
 
 It might be temping to use JVM's `java.util.Scanner` class to parse less structured 
 input formats. Kotlin is designed to interoperate well with JVM libraries, so that their use feels quite
@@ -210,14 +213,18 @@ Writing output in Kotlin is usually straightforward with
 [println(...)](/api/latest/jvm/stdlib/kotlin.io/println.html) 
 calls and using Kotlin's 
 [string templates](/docs/reference/basic-types.html#string-templates). However, care must be taken when output 
-contains on order of 10<sup>5</sup> lines or more. Issuing so many `println` calls is too slow, since the output is automatically 
-flushed after each line in Kotlin. A faster way to write many lines from an array or a list is using
+contains on order of 10<sup>5</sup> lines or more. Issuing so many `println` calls is too slow, since the output 
+in Kotlin is automatically flushed after each line. 
+A faster way to write many lines from an array or a list is using
 [joinToString](/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function
 with `"\n"` as separator, like this:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 println(a.joinToString("\n")) // each element of array/list of a separate line
 ```
+</div>
 
 ## Learning Kotlin
 
@@ -233,5 +240,5 @@ is not perfect and it is still worth familiarizing yourself with Kotlin and lear
 [Kotlin idioms](/docs/reference/idioms.html).
 
 A great resource to study Kotlin syntax and API of the Kotlin standard library are
-[Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html).
+[Kotlin Koans](/docs/tutorials/koans.html).
 
