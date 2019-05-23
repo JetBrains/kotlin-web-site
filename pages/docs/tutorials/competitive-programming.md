@@ -20,12 +20,12 @@ is a mind sport where contestants write programs to solve precisely specified
 algorithmic problems within strict constraints. Problems can range from simple ones that can be solved by 
 any software developer and require little code to get a correct solution, to complex ones that require knowledge of 
 special algorithms, data structures, and lots of practice. While not being specifically designed for competitive 
-programming, Kotlin incidentally fits well in this domain, reducing the typical amount boilerplate that a 
+programming, Kotlin incidentally fits well in this domain, reducing the typical amount of boilerplate that a 
 programmer needs to write and read while working with the code almost to the level offered by dynamically-typed 
 scripting languages, while having tooling and performance of a statically-typed language.
 
 See [Getting Started with IntelliJ IDEA](/docs/tutorials/getting-started.html) on how to set up development
-environment for Kotlin. In competitive programming a single project in usually created and each problem's solution is 
+environment for Kotlin. In competitive programming, a single project is usually created and each problem's solution is 
 written in a single source file.
 
 ## Simple example: Reachable Numbers problem
@@ -39,7 +39,7 @@ The simplest problem in the set is the
 [Problem A: Reachable Numbers](http://codeforces.com/contest/1157/problem/A).
 It asks to implement a straightforward algorithm described in the problem statement. 
 
-We'd start solving it by creating a new Kotlin Source file. A file name does not matter. `A.kt` will do well.
+We'd start solving it by creating a new Kotlin source file. A file name does not matter. `A.kt` will do well.
 First, we need to implement a function specified in the problem statement as:
 
 > Let's denote a function f(x) in such a way: we add 1 to x, then, while there is at least one trailing zero 
@@ -140,7 +140,7 @@ same template without getting an error for conflicting public declaration in the
 ## Functional operators example: Long Number problem
 
 For more complicated problems, Kotlin's extensive library of functional operations on collections comes in handy to 
-minimize the boiler-plate and turn the code into a linear top-to-bottom and left-to-right fluent data transformation 
+minimize the boilerplate and turn the code into a linear top-to-bottom and left-to-right fluent data transformation 
 pipeline. For example, the 
 [Problem B: Long Number](http://codeforces.com/contest/1157/problem/B) problem 
 takes a simple greedy algorithm to implement and it can be written using this style without a single mutable variable:
@@ -245,7 +245,7 @@ calls and using Kotlin's
 contains on order of 10<sup>5</sup> lines or more. Issuing so many `println` calls is too slow, since the output 
 in Kotlin is automatically flushed after each line. 
 A faster way to write many lines from an array or a list is using
-[joinToString](/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function
+[joinToString(...)](/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function
 with `"\n"` as separator, like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
