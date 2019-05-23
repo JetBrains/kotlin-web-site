@@ -44,5 +44,5 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Operator overloading](operator-overloading.html)
 * [Companion objects](classes.html#companion-objects)
 * [Data classes](data-classes.html)
-* [Separate interfaces for read-only and mutable collections](collections.html)
+* [Separate interfaces for read-only and mutable collections](collections-overview.html)
 * [Coroutines](coroutines.html)
