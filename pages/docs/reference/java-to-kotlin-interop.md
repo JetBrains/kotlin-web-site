@@ -408,6 +408,37 @@ Depending on the case of adding the annotation, specify one of the argument valu
 
 For more details about compatibility issues, see the `@JvmDefault` [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html).
 
+Note that if an interface with `@JvmDefault` methods is used as a [delegate](/docs/reference/delegation.html),
+the default method implementations are called even if the actual delegate type provides its own implementations.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+interface Producer {
+    @JvmDefault fun produce() {
+        println("interface method")
+    }
+}
+
+class ProducerImpl: Producer {
+    override fun produce() {
+        println("class method")
+    }
+}
+
+class DelegatedProducer(val p: Producer): Producer by p {
+}
+
+fun main() {
+    val prod = ProducerImpl()
+    DelegatedProducer(prod).produce() // prints "interface method"
+}
+```
+</div>
+
+For more details about interface delegation in Kotlin, see [Delegation](/docs/reference/delegation.html).
+
+
 ## Visibility
 
 The Kotlin visibilities are mapped to Java in the following way:
