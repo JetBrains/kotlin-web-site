@@ -209,7 +209,7 @@ def coroutines_tutor_redirect():
                                                                           '-jvm'))
 
 @app.route('/docs/reference/collections.html')
-def community_user_groups_redirect():
+def collections_redirect():
     return render_template('redirect.html', url=url_for('page', page_path='/docs/reference/collections-overview'))
 
 @app.route('/')
