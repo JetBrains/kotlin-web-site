@@ -245,7 +245,7 @@ calls and using Kotlin's
 contains on order of 10<sup>5</sup> lines or more. Issuing so many `println` calls is too slow, since the output 
 in Kotlin is automatically flushed after each line. 
 A faster way to write many lines from an array or a list is using
-[joinToString(...)](/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function
+[joinToString()](/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function
 with `"\n"` as separator, like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
