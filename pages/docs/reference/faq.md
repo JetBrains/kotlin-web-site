@@ -155,4 +155,5 @@ a [newsletter](http://www.kotlinweekly.net), a [podcast](https://talkingkotlin.c
 
 ### Where can I get an HD Kotlin logo?
 
-Logos can be downloaded [here](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip). Please follow simple rules in the `guidelines.pdf` inside the archive.
+Logos can be downloaded [here](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip).
+When using the logos, please follow simple rules in the `guidelines.pdf` inside the archive and [Kotlin brand usage guidelines](/foundation/guidelines.html).

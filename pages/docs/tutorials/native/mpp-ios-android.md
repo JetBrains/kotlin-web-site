@@ -176,7 +176,7 @@ kotlin {
         final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") \
                               ? presets.iosArm64 : presets.iosX64
 
-        fromPreset(iOSTarget, 'iOS') {
+        fromPreset(iOSTarget, 'ios') {
              binaries {
                 framework('SharedCode')
             }
@@ -221,7 +221,7 @@ Let's summarize what we have in the table:
 |---|---|---|---|
 | common | `SharedCode/commonMain/kotlin` |  - | Kotlin metadata |
 | android | `SharedCode/androidMain/kotlin` | JVM 6 | `.jar` file or `.class` files |
-| iOS | `SharedCode/iOSMain` | iOS arm64 or x86_64| Apple framework |
+| iOS | `SharedCode/iosMain` | iOS arm64 or x86_64| Apple framework |
 
 Now it is time to refresh the Gradle project again in Android Studio. Click *Sync Now* on the yellow stripe 
 or use the *Gradle* tool window and click the `Refresh` action in the context menu on the root Gradle project.
@@ -331,7 +331,7 @@ We need to include the additional task to the end of the `SharedCode/build.gradl
 task packForXCode(type: Sync) {
     final File frameworkDir = new File(buildDir, "xcode-frameworks")
     final String mode = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
-    final def framework = kotlin.targets.iOS.binaries.getFramework("SharedCode", mode)
+    final def framework = kotlin.targets.ios.binaries.getFramework("SharedCode", mode)
 
     inputs.property "mode", mode
     dependsOn framework.linkTask
@@ -371,12 +371,6 @@ SharedCode/build/xcode-frameworks/SharedCode.framework
 
 We will then see something similar to this: 
 ![Xcode General Screen]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-general.png') }})
-
-We need to disable the *Bitcode* feature in the project too. Kotlin/Native produces the fully native
-binaries, not the LLVM bitcode, so we need to navigate to the *Build Settings* tab, pick the *All* sub-tab below, and type `bitcode` into
-the search field. Select `No` for the *Enable Bitcode* option.
-
-![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-bitcode.png') }})
 
 Now we need to explain to Xcode, where to look for frameworks. We need to add the *relative* path 
 `$(SRCROOT)/../../SharedCode/build/xcode-frameworks` into the *Search Paths | Framework Search Paths* section.

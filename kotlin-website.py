@@ -228,6 +228,8 @@ def process_page(page_path):
     get_nav()
 
     page = pages.get_or_404(page_path)
+    if 'redirect_path' in page.meta and page.meta['redirect_path'] is not None:
+        return render_template('redirect.html', url=url_for('page', page_path=page.meta['redirect_path']))
 
     if 'date' in page.meta and page['date'] is not None:
         page.meta['formatted_date'] = page.meta['date'].strftime('%d %B %Y')
@@ -463,4 +465,7 @@ if __name__ == '__main__':
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)
     else:
-        app.run(host="0.0.0.0", debug=True, threaded=True)
+        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {
+            '/src/data/_nav.yml',
+            *glob.glob("/src/pages-includes/**/*", recursive=True),
+        }})

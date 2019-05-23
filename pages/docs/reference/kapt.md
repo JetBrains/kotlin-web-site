@@ -80,7 +80,7 @@ If you previously used the [Android support](https://developer.android.com/studi
 
 If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the `kapt` dependency and it will be available both for production sources and tests.
 
-## Annotation Processor Arguments
+## Annotation processor arguments
 
 Use `arguments {}` block to pass arguments to annotation processors:
 
@@ -96,7 +96,7 @@ kapt {
 
 </div>
 
-## Gradle Build Cache Support (since 1.2.20)
+## Gradle build cache support (since 1.2.20)
 
 The kapt annotation processing tasks are not [cached in Gradle](https://guides.gradle.org/using-build-cache/) by default. Annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs, might access and modify the files that are not tracked by Gradle etc. To enable caching for kapt anyway, add the following lines to the build script:
 
@@ -110,11 +110,47 @@ kapt {
 
 </div>
 
-## Incremental Annotation Processing (since 1.3.30)
+## Running kapt tasks in parallel (since 1.2.60)
 
-Starting from version 1.3.30, kapt supports incremental annotation processing. The support for incremental annotation processors is experimental with certain limitations:
-* Annotation processing can be incremental only if all annotation processors being used are incremental. 
-* Changing dependencies' [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) will lead to non-incremental annotation processing.  
+To improve the speed of builds that use kapt, you can enable the [Gradle worker API](https://guides.gradle.org/using-the-worker-api/) for kapt tasks.
+Using the worker API lets Gradle run independent annotation processing tasks from a single project in parallel, which in some cases significantly decreases the execution time. 
+However, running kapt with Gradle worker API enabled can result in increased memory consumption due to parallel execution. 
+
+To use the Gradle worker API for parallel execution of kapt tasks, add this line to your `gradle.properties` file:
+
+<div class="sample" markdown="1" mode="xml" theme="idea">
+
+```
+kapt.use.worker.api=true
+```
+
+</div>
+
+## Compile avoidance for kapt (since 1.3.20)
+
+To improve the times of incremental builds with kapt, it can use the Gradle [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
+With compile avoidance enabled, Gradle can skip annotation processing when rebuilding a project. Particularly, annotation processing is skipped when:
+* The project's source files are unchanged.
+* The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) compatible. For example, the only changes are in method bodies. 
+
+However, compile avoidance can't be used for annotation processors discovered in the compile classpath since _any changes_ in them require running the annotation processing tasks. 
+
+To run kapt with compile avoidance:
+* Add the annotation processor dependencies to the `kapt*` configurations manually as described [above](#using-in-gradle).
+* Turn off the discovery of annotation processors in the compile classpath by adding this line to your `gradle.properties` file:
+
+<div class="sample" markdown="1" mode="xml" theme="idea">
+
+```
+kapt.include.compile.classpath=false
+```
+
+</div>
+
+## Incremental annotation processing (since 1.3.30)
+
+Starting from version 1.3.30, kapt supports incremental annotation processing as an experimental feature. 
+Currently, annotation processing can be incremental only if all annotation processors being used are incremental. 
 
 To enable incremental annotation processing, add this line to your `gradle.properties` file:
 
@@ -128,7 +164,7 @@ kapt.incremental.apt=true
 
 Note that incremental annotation processing requires [incremental compilation](using-gradle.html#incremental-compilation) to be enabled as well.
  
-## Java Compiler Options
+## Java compiler options
 
 Kapt uses Java compiler to run annotation processors.  
 Here is how you can pass arbitrary options to javac:
@@ -147,7 +183,7 @@ kapt {
 
 </div>
 
-## Non Existent Type Correction
+## Non-existent type correction
 
 Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures. By default, Kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`, but you can change this behavior. Add the additional flag to the `build.gradle` file to enable error type inferring in stubs:
 
@@ -249,7 +285,7 @@ An example:
 
 </div>
 
-## Generating Kotlin Sources
+## Generating Kotlin sources
 
 Kapt can generate Kotlin sources. Just write the generated Kotlin source files to the directory specified by `processingEnv.options["kapt.kotlin.generated"]`, and these files will be compiled together with the main sources.
 
@@ -258,7 +294,7 @@ You can find the complete sample in the [kotlin-examples](https://github.com/Jet
 Note that Kapt does not support multiple rounds for the generated Kotlin files.
 
 
-## AP/Javac Options Encoding
+## AP/Javac options encoding
 
 `apoptions` and `javacArguments` CLI options accept an encoded map of options.  
 Here is how you can encode options by yourself:

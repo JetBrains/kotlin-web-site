@@ -6,12 +6,13 @@ title: "Using Gradle"
 
 # Using Gradle
 
-In order to build Kotlin with Gradle you should [set up the *kotlin-gradle* plugin](#plugin-and-versions), [apply it](#targeting-the-jvm) to your project and [add *kotlin-stdlib* dependencies](#configuring-dependencies). Those actions may also be performed automatically in IntelliJ IDEA by invoking the Tools \| Kotlin \| Configure Kotlin in Project action.
+In order to build a Kotlin project with Gradle, you should [set up the *kotlin-gradle* plugin](#plugin-and-versions), [apply it](#targeting-the-jvm) to your project and [add *kotlin-stdlib* dependencies](#configuring-dependencies).
+Those actions may also be performed automatically in IntelliJ IDEA by invoking __Tools \| Kotlin \| Configure Kotlin__ in __Project__ action.
 
 ## Plugin and Versions
 
-Apply the Kotlin plugin by using [the Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block),
-replacing the placeholder with one of the plugin names that can be found in further sections:
+Apply the Kotlin Gradle plugin by using [the Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
+The Kotlin Gradle plugin {{ site.data.releases.latest.version }} works with Gradle 4.1 and later.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -36,6 +37,8 @@ plugins {
 
 </div>
 </div>
+
+The placeholder `<...>` should be replaced with one of the plugin names that can be found in further sections.
 
 Alternatively, apply plugin by adding the `kotlin-gradle-plugin` dependency to the build script classpath:
 
@@ -324,6 +327,8 @@ plugins {
 
 </div>
 </div>
+
+Kotlin Gradle plugin {{ site.data.releases.latest.version }} works with Android Gradle Plugin 3.0 and later.
 
 Don't forget to configure the [standard library dependency](#configuring-dependencies).
 
@@ -629,7 +634,7 @@ The complete list of options for the Gradle tasks is the following:
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
 | `jdkHome` | Path to JDK home directory to include into classpath, if differs from default JAVA_HOME |  |  |
-| `jvmTarget` | Target version of the generated JVM bytecode (1.6 or 1.8), default is 1.6 | "1.6", "1.8" | "1.6" |
+| `jvmTarget` | Target version of the generated JVM bytecode (1.6, 1.8, 9, 10, 11 or 12), default is 1.6 | "1.6", "1.8", "9", "10", "11", "12" | "1.6" |
 | `noJdk` | Don't include Java runtime into classpath |  | false |
 | `noReflect` | Don't include Kotlin reflection implementation into classpath |  | true |
 | `noStdlib` | Don't include Kotlin runtime into classpath |  | true |

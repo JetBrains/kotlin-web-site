@@ -33,6 +33,7 @@ Kotlin has a short syntax for declaring a property and a constructor parameter a
 To annotate the constructor, use the `constructor` keyword explicitly and put the `@Inject` annotation before it:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class Thermosiphon 
 @Inject constructor(
@@ -47,6 +48,7 @@ Annotating methods looks absolutely the same.
 In the example below `@Binds` determines that a `Thermosiphon` object is used whenever a `Pump` is required, `@Provides` specifies the way to build a `Heater`, and `@Singleton` says that the same `Heater` should be used all over the place:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @Module
 abstract class PumpModule {
@@ -69,6 +71,7 @@ To have a dependency-injected implementation generated for the type, annotate it
 The generated class will have the name of this type prepended with Dagger, like `DaggerCoffeeShop` below:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @Singleton
 @Component(modules = [DripCoffeeModule::class])
@@ -92,6 +95,7 @@ Now let's see what changes should be made to the build script.
 In Java you specify `Dagger` as `annotationProcessor` (or `apt`) dependency:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
+
 ```groovy
 dependencies {
   ...
@@ -103,6 +107,7 @@ dependencies {
 In Kotlin you have to add the `kotlin-kapt` plugin to enable `kapt`, and then replace `annotationProcessor` with `kapt`:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
+
 ```groovy
 apply plugin: 'kotlin-kapt'
 dependencies {
@@ -132,6 +137,7 @@ Let's see first the changes in the Gradle build script, and then highlight some 
 In the Gradle dependencies you use add the `kotlin-kapt` plugin and replace `annotationProcessor` with `kapt`:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
+
 ```groovy
 apply plugin: 'kotlin-kapt'
 
@@ -150,6 +156,7 @@ Let's look over it to spot what has changed.
 In Java you annotated the field, binding it with the corresponding view:
 
 <div class="sample" markdown="1" theme="idea" mode="java">
+
 ``` java 
 @BindView(R2.id.title) TextView title;
 ```
@@ -159,6 +166,7 @@ In Kotlin you can't work with fields directly, you work with [properties](/docs/
 You annotate the property:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @BindView(R2.id.title)
 lateinit var title: TextView
@@ -173,6 +181,7 @@ Without `lateinit` you'd have to declare a [nullable type](/docs/reference/null-
 You can also configure methods as listeners, using ButterKnife annotations:
 
 <div class="sample" markdown="1" theme="idea" mode="java">
+
 ```java
 @OnClick(R2.id.hello)
 internal fun sayHello() {
@@ -185,6 +194,7 @@ This code specifies an action to be performed on the "hello" button click.
 Note that with lambdas this code looks rather concise written directly in Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 hello.setOnClickListener {
     toast("Hello, views!")
@@ -201,6 +211,7 @@ The [Data Binding Library](https://developer.android.com/topic/libraries/data-bi
 You enable the library using the same configuration as in Java:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
+
 ```groovy
 android {
     ...
@@ -211,22 +222,12 @@ android {
 ```
 </div>
 
-To make it work with Kotlin classes add the `kapt` dependency: 
-
-<div class="sample" markdown="1" theme="idea" mode="groovy">
-```groovy
-apply plugin: 'kotlin-kapt'
-dependencies {
-    kapt "com.android.databinding:compiler:$android_plugin_version"
-}  
-```
-</div>
-
 When you switch to Kotlin, your xml layout files don't change at all.
 For instance, you use `variable` within `data` to describe a variable that may be used within the layout.
 You can declare a variable of a Kotlin type:
 
 <div class="sample" markdown="1" theme="idea" mode="xml">
+
 ```xml
 <data>
     <variable name="data" type="org.example.kotlin.databinding.WeatherData"/>
@@ -237,6 +238,7 @@ You can declare a variable of a Kotlin type:
 You use the `@{}` syntax for writing expressions, which can now refer Kotlin [properties](/docs/reference/properties.html): 
 
 <div class="sample" markdown="1" theme="idea" mode="xml">
+
 ```xml
 <ImageView
     android:layout_width="wrap_content"
@@ -251,6 +253,7 @@ In Kotlin you can write `v.prop` instead of `v.getProp()` even if `getProp()` is
 Similarly, instead of calling a setter directly, you may use an assignment:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
     // ...
@@ -270,6 +273,7 @@ class MainActivity : AppCompatActivity() {
 You can bind a listener to run an action when a specific event happens:
 
 <div class="sample" markdown="1" theme="idea" mode="xml">
+
 ```xml
 <Button
     android:text="@string/next"
@@ -282,6 +286,7 @@ You can bind a listener to run an action when a specific event happens:
 Here `startOtherActivity` is a method defined in our `MainActivity`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
     // ...
@@ -296,6 +301,7 @@ To pass some data, you can say `startActivity<OtherActivity>("KEY" to "VALUE")`.
 Note that instead of declaring lambdas in xml like in the following example, you can can bind actions directly in the code: 
 
 <div class="sample" markdown="1" theme="idea" mode="xml">
+
 ```xml
 <Button 
     android:layout_width="wrap_content" 
@@ -305,6 +311,7 @@ Note that instead of declaring lambdas in xml like in the following example, you
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 // the same logic written in Kotlin code
 button.setOnClickListener { presenter.onSaveClick(task) }
@@ -324,6 +331,7 @@ It heavily relies on annotation processing.
 To use it with Kotlin configure annotation processing dependency using `kapt`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 apply plugin: 'kotlin-kapt'
 
@@ -343,6 +351,7 @@ The converted code doesn't differ much from Java.
 For instance, declaring a table looks similar to Java with the small difference that default values for properties must be specified explicitly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin 
 @Table(name="users", database = AppDatabase::class)
 class User : BaseModel() {
@@ -361,6 +370,7 @@ Besides converting existing functionality to Kotlin, you can also enjoy the Kotl
 For instance, you can declare tables as [data classes](/docs/reference/data-classes.html):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @Table(database = KotlinDatabase::class)
 data class User(@PrimaryKey var id: Long = 0, @Column var name: String? = null)
@@ -370,6 +380,7 @@ data class User(@PrimaryKey var id: Long = 0, @Column var name: String? = null)
 DBFlow defines a bunch of extensions to make its usage in Kotlin more idiomatic, which you can include in your dependencies:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 dependencies {
     compile "com.github.raizlabs.dbflow:dbflow-kotlinextensions:$dbflow_version"
