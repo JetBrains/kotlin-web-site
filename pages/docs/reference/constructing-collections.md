@@ -102,7 +102,7 @@ fun main() {
     println("Copy size: ${copyList.size}")   
     
     //readOnlyCopyList.add(4)             // compilation error
-    println("Read-only copy size: ${copyList.size}")
+    println("Read-only copy size: ${readOnlyCopyList.size}")
 //sampleEnd
 }
 ```
