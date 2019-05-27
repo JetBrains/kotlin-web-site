@@ -1,5 +1,5 @@
 
-<div class="multi-language-sample" data-lang="groovy" data-os="macos">
+<div class="multi-language-sample" data-lang="groovy" data-os="linux">
 <div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 
 ```
@@ -31,7 +31,7 @@ wrapper {
 </div>
 
 
-<div class="multi-language-sample" data-lang="groovy" data-os="linux">
+<div class="multi-language-sample" data-lang="groovy" data-os="macos">
 <div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 
 ```
@@ -95,7 +95,7 @@ wrapper {
 </div>
 
 
-<div class="multi-language-sample" data-lang="kotlin" data-os="macos">
+<div class="multi-language-sample" data-lang="kotlin" data-os="linux">
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```
@@ -127,7 +127,7 @@ tasks.withType<Wrapper> {
 </div>
 
 
-<div class="multi-language-sample" data-lang="kotlin" data-os="linux">
+<div class="multi-language-sample" data-lang="kotlin" data-os="macos">
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```

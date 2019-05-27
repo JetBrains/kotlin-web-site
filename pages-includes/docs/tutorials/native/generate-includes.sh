@@ -72,12 +72,12 @@ generate_code_block "mapping-primitive-data-types-from-c" mpp-kn-app-kotlin-linu
 generate_code_block "mapping-primitive-data-types-from-c" mpp-kn-app-kotlin-windows-c kotlin windows build.gradle.kts
 
 
-generate_code_block "dynamic-library"  mpp-kn-shared-lib-groovy-linux   groovy macos   build.gradle
-generate_code_block "dynamic-library"  mpp-kn-shared-lib-groovy-macos   groovy linux   build.gradle
+generate_code_block "dynamic-library"  mpp-kn-shared-lib-groovy-linux   groovy linux   build.gradle
+generate_code_block "dynamic-library"  mpp-kn-shared-lib-groovy-macos   groovy macos   build.gradle
 generate_code_block "dynamic-library"  mpp-kn-shared-lib-groovy-windows groovy windows build.gradle
 
-generate_code_block "dynamic-library"  mpp-kn-shared-lib-kotlin-linux   kotlin macos   build.gradle.kts
-generate_code_block "dynamic-library"  mpp-kn-shared-lib-kotlin-macos   kotlin linux   build.gradle.kts
+generate_code_block "dynamic-library"  mpp-kn-shared-lib-kotlin-linux   kotlin linux   build.gradle.kts
+generate_code_block "dynamic-library"  mpp-kn-shared-lib-kotlin-macos   kotlin macos   build.gradle.kts
 generate_code_block "dynamic-library"  mpp-kn-shared-lib-kotlin-windows kotlin windows build.gradle.kts
 
 generate_code_block "apple-framework"  mpp-kn-framework-groovy-macos-mac      groovy macos   build.gradle
