@@ -208,7 +208,7 @@ However, if the mutability of the list is unknown or the source is not a list at
 
 ## Random order
 
-Finally, there is a shuffle function that retrieves all collection elements in a random order - [`shuffled()`](/api/latest/jvm/stdlib/kotlin.collections/shuffled.html).
+Finally, there is a shuffle function that returns a new `List` containing the collection elements in a random order - [`shuffled()`](/api/latest/jvm/stdlib/kotlin.collections/shuffled.html).
 You can call it without arguments or with a [`Random`](/api/latest/jvm/stdlib/kotlin.random/-random/index.html) object.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">

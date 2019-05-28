@@ -168,7 +168,7 @@ fun main() {
 ```
 </div>
 
-To add multiple entries at a time, use [`putAll()`](/api/latest/jvm/stdlib/kotlin.collections/put-all.html). Its argument can be a `Map` or a group of `Pairs`: `Iterable`, `Sequence`, or `Array`.
+To add multiple entries at a time, use [`putAll()`](/api/latest/jvm/stdlib/kotlin.collections/put-all.html). Its argument can be a `Map` or a group of `Pair`s: `Iterable`, `Sequence`, or `Array`.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
