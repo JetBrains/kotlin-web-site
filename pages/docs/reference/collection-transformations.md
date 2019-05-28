@@ -106,7 +106,7 @@ fun main() {
 ```
 </div>
 
-When you have a `List` of `Pair`s, you can do the reverse transformation – _unzipping_ – that builds two lists from these `Pair`s:
+When you have a `List` of `Pair`s, you can do the reverse transformation – _unzipping_ – that builds two lists from these pairs:
 
 * The first list contains the first elements of each `Pair` in the original list. 
 * The second list contains the second elements.
