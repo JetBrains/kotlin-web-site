@@ -97,7 +97,7 @@ fun oddFactorial(n: Int): Long {
 $ kotlinc-js -output binom.js -libraries sample-library.meta.js binom.kt
 ```
 
-<div>
+</div>
    
    Both files `sample-library.js` and `sample-library.meta.js` should be present in the latter case,
    because translated JavaScript file contains meta-information about inlining, which 
