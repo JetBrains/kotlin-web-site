@@ -109,7 +109,7 @@ $ kotlinc-js -output binom.js -libraries sample-library.meta.js binom.kt
 
 <div class="sample" markdown="1" theme="idea" mode="shell">
 
-``bash
+```bash
 $ kotlinc-js -output binom.js -libraries sample-library.jar binom.kt
 ```
 
