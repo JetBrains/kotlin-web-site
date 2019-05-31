@@ -1370,10 +1370,10 @@ def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
   
 kotlin {
     jvm('junit') {
-        attributes.attribute(testingFrameworkAttribute, 'junit')
+        attributes.attribute(testFrameworkAttribute, 'junit')
     }
     jvm('testng') {
-        attributes.attribute(testingFrameworkAttribute, 'testng')
+        attributes.attribute(testFrameworkAttribute, 'testng')
     }
 }
 ```
@@ -1389,10 +1389,10 @@ val testFrameworkAttribute = Attribute.of("com.example.testFramework", String::c
   
 kotlin {
     jvm("junit") {
-        attributes.attribute(testingFrameworkAttribute, "junit")
+        attributes.attribute(testFrameworkAttribute, "junit")
     }
     jvm("testng") {
-        attributes.attribute(testingFrameworkAttribute, "testng")
+        attributes.attribute(testFrameworkAttribute, "testng")
     }
 }
 ```
