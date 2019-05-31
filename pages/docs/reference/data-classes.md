@@ -58,6 +58,8 @@ data class User(val name: String = "", val age: Int = 0)
 
 </div>
 
+> Due to the way data class are compiled and restrictions hard-coded in the JVM, data classes are restricted to a maximum of 127 propreties (inclusively). Otherwise, the number of arguments in the `copy()` function will go beyond the maximum number or arguments for a JVM function (255). Needless to say having a data class this big, is discouraged anyway.
+
 ## Properties Declared in the Class Body
 
 Note that the compiler only uses the properties defined inside the primary constructor for the automatically generated functions. To exclude a property from the generated implementations, declare it inside the class body:
