@@ -10,7 +10,7 @@ related:
 ---
 ### Downloading the compiler
 
-Every release ships with a standalone version of the compiler. We can download it from [GitHub Releases]({{ site.data.releases.latest.url }}). The latest release is {{ site.data.releases.latest.version }}.
+Every release ships with a standalone version of the compiler. We can download the latest version (`kotlin-compiler-{{ site.data.releases.latest.version }}.zip`) from [GitHub Releases]({{ site.data.releases.latest.url }}).
 
 #### Manual Install
 Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path. The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, OS X and Linux.
@@ -95,7 +95,7 @@ $ sudo snap install --classic kotlin
 
     </div>
 
-   The `-d` option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a *.jar* file name. The `-include-runtime` option makes the resulting *.jar* file self-contained and runnable by including the Kotlin runtime library in it.
+   The `-d` option indicates the output path for generated class files which may be either a directory or a *.jar* file. The `-include-runtime` option makes the resulting *.jar* file self-contained and runnable by including the Kotlin runtime library in it.
    If you want to see all available options run
 
     <div class="sample" markdown="1" mode="shell" theme="idea">
@@ -119,7 +119,7 @@ $ sudo snap install --classic kotlin
 
 ### Compiling a library
 
-If you're developing a library to be used by other Kotlin applications, you can produce the .jar file without including the Kotlin runtime into it.
+If you're developing a library to be used by other Kotlin applications, you can build the *.jar* file without including the Kotlin runtime into it.
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
@@ -151,7 +151,7 @@ We can run the compiler without parameters to have an interactive shell. We can 
 
 ### Using the command line to run scripts
 
-Kotlin can also be used as a scripting language. A script is a Kotlin source file (.kts) with top level executable code.
+Kotlin can also be used as a scripting language. A script is a Kotlin source file (*.kts*) with top level executable code.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -180,8 +180,7 @@ annotated kotlin classes with appropriate support code. The script filename exte
 definition.
 
 Properly prepared script definitions are detected and applied automatically when the appropriate jars are included
-in the compilation classpath. Alternatively, you can specify
-definitions manually using `-script-templates` option to the compiler:
+in the compilation classpath. Alternatively, you can specify definitions manually using `-script-templates` option to the compiler:
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
