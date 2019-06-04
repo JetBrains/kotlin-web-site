@@ -118,9 +118,10 @@ Android Extensions plugin supports different kinds of containers. The most basic
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
+import android.support.v7.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
 
-class ViewHolder(override val containerView: View) : ViewHolder(containerView), LayoutContainer {
+class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
     fun setup(title: String) {
         itemTitle.text = "Hello World!"
     }
