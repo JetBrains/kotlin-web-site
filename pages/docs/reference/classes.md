@@ -275,7 +275,7 @@ class Derived(p: Int) : Base(p)
 If the derived class has a primary constructor, the base class can (and must) be initialized right there,
 using the parameters of the primary constructor.
 
-If the class has no primary constructor, then each secondary constructor has to initialize the base type
+If the derived class has no primary constructor, then each secondary constructor has to initialize the base type
 using the *super*{: .keyword } keyword, or to delegate to another constructor which does that.
 Note that in this case different secondary constructors can call different constructors of the base type:
 
