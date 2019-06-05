@@ -28,14 +28,7 @@ fun main() {
 ```
 </div>
 
-[`addAll()`](/api/latest/jvm/stdlib/kotlin.collections/add-all.html) adds every element of the argument object to a list or a set.
-The argument can be any `Collection`, for example, you can add all items from a `Set` to a `List`.
-Moreover, `addAll()` can accept any `Iterable`, `Sequence`, or `Array`.
-
-For lists, you can also specify the index where the elements should be inserted.
-Other elements of the argument collection will follow it preserving their order.
-
-`addAll()` adds every element of the argument object to a list or a set. The argument can be an `Iterable`, a `Sequence`, or an `Array`.
+[`addAll()`](/api/latest/jvm/stdlib/kotlin.collections/add-all.html) adds every element of the argument object to a list or a set. The argument can be an `Iterable`, a `Sequence`, or an `Array`.
 The types of the receiver and the argument may be different, for example, you can add all items from a `Set` to a `List`.
 
 When called on lists, `addAll()` adds new elements in the same order as they go in the argument.
