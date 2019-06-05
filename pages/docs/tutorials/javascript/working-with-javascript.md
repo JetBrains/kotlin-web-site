@@ -13,7 +13,7 @@ In this tutorial we'll see how to
 
 * [Interact with the DOM](#interacting-with-the-dom)
 * [Use kotlinx.html to generate HTML](#using-kotlinxhtml)
-* [Use ts2kt to interact with libraries](#using-ts2kt-to-generate-header-files-for-kotlin)
+* [Use dukat to interact with libraries](#using-dukat-to-generate-header-files-for-kotlin)
 * [Use dynamic to interact with libraries](#using-dynamic)
 
 
@@ -98,23 +98,23 @@ fun printHello() {
 ```
 </div>
 
-## Using ts2kt to generate header files for Kotlin
+## Using dukat to generate header files for Kotlin
 
 The standard library provides us with a series of wrappers around DOM as well as functions to work with JavaScript, using static typing. What happens however
 when we want to use a library such as jQuery? Kotlin does not have its own "header" files for all the different libraries available on the JavaScript ecosystem
 however, TypeScript does. The [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/)  provides us with a very large selection of header files. 
 
-Using the tool `ts2kt` (TypeScript to Kotlin) we can convert any `d.ts` files to Kotlin. To install the tool we can use `npm`
+Using the tool `dukat` (TypeScript to Kotlin) we can convert any `d.ts` files to Kotlin. To install the tool we can use `npm`
 
 ```bash
-npm -g install ts2kt
+npm -g install dukat
 ```
 
 To convert a file we simply provide the input file, and optionally an output directory. The command below will convert the file `jquery.d.ts` in the current folder, which we've previously
  downloaded from the [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/types/jquery/jquery.d.ts) to the output folder `headers`:
 
 ```bash
-ts2kt -d headers jquery.d.ts 
+dukat -d headers jquery.d.ts 
 ```
 
 Once we have the file generated, we can simply include it in our project and use it:
