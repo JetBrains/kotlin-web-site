@@ -79,6 +79,8 @@ assemble.dependsOn assembleWeb
 
 This task copies both dependencies runtime files and the compilation output to the `web` directory.
 
+if you using `implementation` instead of `compile` in the `dependencies` section, you should probably use `configurations.runtimeClasspath.each` instead of `configurations.compile.each`.
+
 For more information on the output generated and the instructions for running the application, please see [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html)
 
 ## Configuring Compiler Options
