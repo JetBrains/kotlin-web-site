@@ -1750,51 +1750,6 @@ binaries {
 The first argument in this example allows one to set a name prefix for the created binaries which is used to access them in the buildscript (see the ["Accessing binaries"](#accessing-binaries) section).
 Also this prefix is used as a default name for the binary file. For example on Windows the sample above produces files `foo.exe` and `bar.exe`.
 
-#### Using binary declaration APIs introduced in 1.3
-
-> __Important:__ The approach described in this section is deprecated in Kotlin 1.3.30 and will not be available since Kotlin 1.3.40. Consider using the [`binaries`](#declaring-binaries) block instead.
-
-It is possible to use the binary declaration APIs introduced in 1.3 in addition to the binaries DSL. One can specify one or more of
-the `outputKinds` for a compilation using these APIs. The following output kinds are available:
-
-* `executable` for an executable program;
-* `dynamic` for a dynamic library;
-* `static` for a static library;
-* `framework` for an Objective-C framework (only supported for macOS and iOS targets)
-
-This can be done as follows:
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-kotlin {
-    linuxX64 { // Use your target instead
-        compilations.main.outputKinds("executable") // could also be "static", "dynamic" or "framework".
-    }
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
-
-```kotlin
-kotlin {
-    linuxX64 { // Use your target instead
-        compilations["main"].outputKinds("executable") // could also be "static", "dynamic" or "framework".
-    }
-}
-```
-
-</div>
-</div>
-
-This creates binaries with corresponding types and the compilation name as name prefixes in the `binaries` container. But note that such
-binaries are created after project evaluation so they are available only in an `afterEvaluate` code block.
-
 #### Accessing binaries
 
 The binaries DSL allows not only creating binaries but also accessing already created ones to configure them or get their properties
