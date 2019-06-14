@@ -486,7 +486,7 @@ By default `|` is used as margin prefix, but you can choose another character an
 
 ### String Templates
 
-Strings may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string.
+String literals may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string.
 A template expression starts with a dollar sign ($) and consists of either a simple name:
 
 <div class="sample" markdown="1" theme="idea">
