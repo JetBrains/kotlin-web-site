@@ -1851,6 +1851,7 @@ binaries.findExecutable("foo", DEBUG)
 > ```
 > binaries.getTest("DEBUG")
 > ```
+{:.note}
  
 
 #### Configuring binaries
