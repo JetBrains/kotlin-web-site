@@ -237,21 +237,21 @@ where `main.class` is defined as a property and points to the main Kotlin or Jav
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-assembly-plugin</artifactId>
     <version>2.6</version>
+    <configuration>
+        <archive>
+            <manifest>
+                <mainClass>${main.Class}</mainClass>
+            </manifest>
+        </archive>
+        <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+    </configuration>
     <executions>
         <execution>
             <id>make-assembly</id>
             <phase>package</phase>
             <goals> <goal>single</goal> </goals>
-            <configuration>
-                <archive>
-                    <manifest>
-                        <mainClass>${main.class}</mainClass>
-                    </manifest>
-                </archive>
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-            </configuration>
         </execution>
     </executions>
 </plugin>
