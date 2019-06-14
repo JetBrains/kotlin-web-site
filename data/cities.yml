@@ -1,3 +1,11 @@
+- name: River Forest, IL, United States
+  geo:
+    lat: 42.071499
+    lng: -87.893584
+- name: East Hartford, CT, USA
+  geo:
+    lat: 41.778099
+    lng: -72.620688
 - name: Chambéry, France
   geo:
     lat: 45.570904
