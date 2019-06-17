@@ -1131,8 +1131,7 @@ plugins {
 
 </div>
 
-Once this plugin is applied, default publications are created for each of the targets that can be built on the current host. 
-This requires `group` and `version` to be set in the project:
+A library also needs `group` and `version` to be set in the project:
 
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
@@ -1145,8 +1144,13 @@ version = "0.0.1"
  
 </div>
 
-Android library targets, however, don't have any artifacts published by default and need an additional step to configure 
+Compared to publishing a plain Kotlin/JVM or Java project, there is no need to create publications manually 
+via the `publishing { ... }` DSL. The publications are automatically created for each of the targets that can be 
+built on the current host, except for the Android target, which needs an additional step to configure 
 publishing, see [Publishing Android libraries](#publishing-android-libraries).
+
+The repositories where the library will be published are added via the `repositories` block in the `publishing { ... }` 
+DSL, as explained in [Maven Publish Plugin. Repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories).
  
 The default artifact IDs follow the pattern `<projectName>-<targetNameToLowerCase>`, for example `sample-lib-nodejs` 
 for a target named `nodeJs` in a project `sample-lib`. 
@@ -1157,10 +1161,11 @@ Javadoc JAR), you need to configure its build manually and add it as an artifact
 below.
 
 Also, an additional publication under the name `metadata` is added by default which contains serialized Kotlin 
-declarations and is used by the IDE to analyze multiplatform libraries.
+declarations and is used by the IDE to analyze multiplatform libraries. 
+The default artifact ID of this publication is formed as `<projectName>-metadata`.
 
-The Maven coordinates can be altered and additional artifact files may be added to the publication within the 
-`targets { ... }` block or using the `publishing { ... }` DSL:
+The Maven coordinates can be altered and additional artifact files may be added to the publications within the 
+`targets { ... }` block or the `publishing { ... }` DSL:
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -1220,7 +1225,10 @@ As assembling Kotlin/Native artifacts requires several builds to run on differen
 multiplatform library that includes Kotlin/Native targets needs to be done with that same set of host machines. To avoid
 duplicate publications of modules that can be built on more than one of the platforms 
 (like JVM, JS, Kotlin metadata, WebAssembly), the publishing tasks for these modules may be configured to run 
-conditionally, for example:
+conditionally.
+
+This simplified example ensures that the JVM, JS, and Kotlin metadata publications are only uploaded when 
+`-PisLinux=true` is passed to the build in the command line:
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -1232,17 +1240,13 @@ kotlin {
     mingwX64()
     linuxX64()
     
-    // Given that `-PisLinux=true` command line argument is passed when running on Linux,
-    // these targets get published only from a Linux machine.
     // Note that the Kotlin metadata is here, too. 
     // The mingwx64() target is automatically skipped as incompatible in Linux builds.
     configure([targets["metadata"], jvm(), js()]) {
-        mavenPublication { linuxOnlyPublication ->
-            tasks.withType(AbstractPublishToMaven).all {
-                onlyIf { 
-                    publication != linuxOnlyPublication || findProperty("isLinux") == "true"
-                }
-            }            
+        mavenPublication { targetPublication ->
+            tasks.withType(AbstractPublishToMaven)
+                .matching { it.publication == targetPublication }
+                .all { onlyIf { findProperty("isLinux") == "true" } }            
         }
     }
 }
@@ -1260,19 +1264,15 @@ kotlin {
     js()
     mingwX64()
     linuxX64()
-    
-    // Given that `-PisLinux=true` command line argument is passed when running on Linux,
-    // these targets get published only from a Linux machine.
+       
     // Note that the Kotlin metadata is here, too. 
     // The mingwx64() target is automatically skipped as incompatible in Linux builds.
     configure(listOf(metadata(), jvm(), js())) {
         mavenPublication { 
-            val linuxOnlyPublication = this@mavenPublication
-            tasks.withType<AbstractPublishToMaven>().all {
-                onlyIf { 
-                    publication != linuxOnlyPublication || findProperty("isLinux") == "true"
-                }
-            }            
+            val targetPublication = this@mavenPublication
+            tasks.withType<AbstractPublishToMaven>()
+                .matching { it.publication == targetPublication }
+                .all { onlyIf { findProperty("isLinux") == "true" } }            
         }
     }
 }
@@ -1283,22 +1283,69 @@ kotlin {
 
 ### Experimental metadata publishing mode
 
-An experimental publishing and dependency consumption mode can be enabled by adding 
-`enableFeaturePreview("GRADLE_METADATA")` to the root project's `settings.gradle` file. 
+Gradle module metadata provides rich publishing and dependency resolution features that are used in Kotlin 
+multiplatform projects to simplify dependencies configuration for build authors. In particular, the publications of a 
+multiplatform library may include a special 'root' module that stands for the whole library and is automatically 
+resolved to the appropriate platform-specific artifacts when added as a dependency, as described below.
 
-With Gradle metadata enabled, an additional publication `kotlinMultiplatform` is added which references the target 
-publications as its variants. The default artifact ID of this publication matches the project name.
- 
-> Gradle metadata publishing is an experimental Gradle feature which is not guaranteed to be backward-compatible. 
-Future Gradle versions may fail to resolve a dependency to a library published with current versions of Gradle metadata.
-Library authors are recommended to use it to publish experimental versions of the library alongside with the stable publishing mechanism
-until the feature is considered stable. 
+In Gradle 5.3 and above, the module metadata is always used during dependency resolution, but publications don't 
+include any module metadata by default. To enable module metadata publishing, add 
+`enableFeaturePreview("GRADLE_METADATA")` to the root project's `settings.gradle` file. With older Gradle versions, 
+this is also required for module metadata consumption.
+
+> Note that the module metadata published by Gradle 5.3 and above cannot be read by Gradle versions older
+> than 5.3. 
 {:.note}
+
+With Gradle metadata enabled, an additional 'root' publication named `kotlinMultiplatform` is added to the project's 
+publications. The default artifact ID of this publication matches the project name without any additional suffix. 
+To configure this publication, access it via the `publishing { ... }` DSL of the `maven-publish` plugin:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin { /* ... */ }
+
+publishing {
+    publications {
+        kotlinMultiplatform {
+            artifactId = "foo"        
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin { /* ... */ }
+
+publishing {
+    publications {
+        val kotlinMultiplatform by getting {
+            artifactId = "foo"        
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+This publication does not include any artifacts and only references the other publications as its variants. However, it
+may need the sources and documentation artifacts if that is required by the repository. In that case, add those artifacts
+by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-)
+in the publication's scope, which is accessed as shown above.
  
-If a library is published with Gradle metadata enabled and a consumer enables the metadata as well, the consumer may specify a
- single dependency on the library in a common source set, and a corresponding platform-specific variant will be chosen, if available, 
- for each of the compilations. Consider a `sample-lib` library built for the JVM and JS and published with experimental Gradle metadata.
- Then it is enough for the consumers to add `enableFeaturePreview('GRADLE_METADATA')` and specify a single dependency:
+If a library has a 'root' publication, the consumer may specify a single dependency on the library as a whole in a 
+ common source set, and a corresponding platform-specific variant will be chosen, if available, for each of the 
+ compilations that include this dependency. Consider a `sample-lib` library built for the JVM and JS and published with 
+ a 'root' publication:
  
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -1311,7 +1358,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                // Resolved to the appropriate target modules, 
+                // This single dependency is resolved to the appropriate target modules, 
                 // for example, `sample-lib-jvm6` for JVM, `sample-lib-js` for JS:
                 api 'com.example:sample-lib:1.0' 
             }
@@ -1334,7 +1381,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Resolved to the appropriate target modules, 
+                // This single dependency is resolved to the appropriate target modules, 
                 // for example, `sample-lib-jvm6` for JVM, `sample-lib-js` for JS:
                 api("com.example:sample-lib:1.0") 
             }
@@ -1345,6 +1392,9 @@ kotlin {
 
 </div>
 </div>
+
+This requires that the consumer's Gradle build can read Gradle module metadata, either using Gradle 5.3+ or explicitly 
+enabling it by `enableFeaturePreview("GRADLE_METADATA")` in `settings.gradle`. 
 
 ### Disambiguating targets
 
