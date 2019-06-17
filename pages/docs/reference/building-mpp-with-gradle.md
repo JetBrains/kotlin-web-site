@@ -28,6 +28,7 @@ those are configured and built using Gradle.
 * [Default Project Layout](#default-project-layout)
 * [Running Tests](#running-tests)
 * [Publishing a Multiplatform Library](#publishing-a-multiplatform-library)
+* [Java Support in JVM Targets](#java-support-in-jvm-targets)
 * [Android Support](#android-support)
     * [Publishing Android libraries](#publishing-android-libraries)
 * [Using Kotlin/Native Targets](#using-kotlinnative-targets)
@@ -387,7 +388,7 @@ kotlin {
 There are target presets that one can apply using the preset functions, as shown above, for the
 following target platforms:
 
-* `jvm` for Kotlin/JVM. Note: `jvm` targets do not compile Java;
+* `jvm` for Kotlin/JVM;
 * `js` for Kotlin/JS;
 * `android` for Android applications and libraries. Note that one of the Android Gradle 
    plugins should be applied before the target is created;
@@ -1487,6 +1488,61 @@ configurations {
 </div>
 </div>
 
+## Java Support in JVM Targets
+
+This feature is available since Kotlin 1.3.40.
+
+By default, a JVM target ignores Java sources and only compiles Kotlin source files.  
+To include Java sources in the compilations of a JVM target, or to apply a Gradle plugin that requires the 
+`java` plugin to work, you need to explicitly enable Java support for the target:
+
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {
+    jvm {
+        withJava()
+    } 
+}
+```
+
+</div>
+
+This will apply the Gradle `java` plugin and configure the target to cooperate with it. 
+Note that just applying the Java plugin without specifying `withJava()` in a JVM 
+target will have no effect on the target.
+ 
+The file system locations for the Java sources are different from  the `java` plugin's defaults. 
+The Java source files need to be placed in the sibling directories of the Kotlin source 
+roots. For example, if the JVM target has the default name `jvm`, the paths are:
+
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```
+src
+├── jvmMain
+│   ├── java // production Java sources
+│   ├── kotlin
+│   └── resources
+├── jvmTest
+│   ├── java // test Java sources
+│   ├── kotlin
+…   └── resources
+```
+
+</div>
+
+The common source sets cannot include Java sources.
+
+Due to the current limitations, some tasks configured by the Java plugin are disabled, and the corresponding tasks added
+by the Kotlin plugin are used instead:
+
+* `jar` is disabled in favor of the target's JAR task (e.g. `jvmJar`)
+* `test` is disabled, and the target's test task is used (e.g. `jvmTest`)
+* `*ProcessResources` tasks are disabled, and the resources are processed by the equivalent tasks of the compilations
+
+The publication of this target is handled by the Kotlin plugin and doesn't require the steps that are specific to the 
+Java plugin, such as manually creating a publication and configuring it as `from(components.java)`. 
 
 ## Android Support
 
