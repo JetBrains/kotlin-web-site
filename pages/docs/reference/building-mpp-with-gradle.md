@@ -1487,10 +1487,6 @@ configurations {
 </div>
 </div>
 
-Alternatively, if a dependency library is published with experimental Gradle metadata, one can still replace the 
-single dependency with unambiguous dependencies on its separate target modules, as if it had no experimental 
-Gradle metadata. This way, the dependency will also be published in the specified way, so the consumers won't encounter
-any ambiguity.
 
 ## Android Support
 
