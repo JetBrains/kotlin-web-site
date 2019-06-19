@@ -1847,7 +1847,7 @@ binaries.findExecutable("foo", DEBUG)
 > ```
 > binaries.getExecutable("test", "DEBUG")
 > ``` 
-> Since 1.3.40 test executables are represented by a separate binary type and have their own getter. To access the default test binary, use:
+> Since 1.3.40, test executables are represented by a separate binary type and have their own getter. To access the default test binary, use:
 > ```
 > binaries.getTest("DEBUG")
 > ```
