@@ -1843,7 +1843,7 @@ binaries.findExecutable("foo", DEBUG)
 </div>
 </div>
 
-> Note: Prior to 1.3.40 both test and product executables were represented by the same binary type. Thus to access the default test binary created by the plugin, the following snipped was used:
+> Note: Before 1.3.40, both test and product executables were represented by the same binary type. Thus to access the default test binary created by the plugin, the following line was used:
 > ```
 > binaries.getExecutable("test", "DEBUG")
 > ``` 
