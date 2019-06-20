@@ -1738,7 +1738,8 @@ all native platforms):
 
 |**Factory method**|**Binary kind**|**Available for**|
 | --- | --- | --- |
-|`executable` |an executable program    |all native targets|
+|`executable` |a product executable    |all native targets|
+|`test`       |a test executable       |all native targets| 
 |`sharedLib`  |a shared native library |all native targets except `wasm32`|
 |`staticLib`  |a static native library  |all native targets except `wasm32`|
 |`framework`  |an Objective-C framework |macOS and iOS targets only|
@@ -1852,57 +1853,12 @@ binaries {
 The first argument in this example allows one to set a name prefix for the created binaries which is used to access them in the buildscript (see the ["Accessing binaries"](#accessing-binaries) section).
 Also this prefix is used as a default name for the binary file. For example on Windows the sample above produces files `foo.exe` and `bar.exe`.
 
-#### Using binary declaration APIs introduced in 1.3
-
-> __Important:__ The approach described in this section is deprecated in Kotlin 1.3.30 and will not be available since Kotlin 1.3.40. Consider using the [`binaries`](#declaring-binaries) block instead.
-
-It is possible to use the binary declaration APIs introduced in 1.3 in addition to the binaries DSL. One can specify one or more of
-the `outputKinds` for a compilation using these APIs. The following output kinds are available:
-
-* `executable` for an executable program;
-* `dynamic` for a dynamic library;
-* `static` for a static library;
-* `framework` for an Objective-C framework (only supported for macOS and iOS targets)
-
-This can be done as follows:
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-kotlin {
-    linuxX64 { // Use your target instead
-        compilations.main.outputKinds("executable") // could also be "static", "dynamic" or "framework".
-    }
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
-
-```kotlin
-kotlin {
-    linuxX64 { // Use your target instead
-        compilations["main"].outputKinds("executable") // could also be "static", "dynamic" or "framework".
-    }
-}
-```
-
-</div>
-</div>
-
-This creates binaries with corresponding types and the compilation name as name prefixes in the `binaries` container. But note that such
-binaries are created after project evaluation so they are available only in an `afterEvaluate` code block.
-
 #### Accessing binaries
 
 The binaries DSL allows not only creating binaries but also accessing already created ones to configure them or get their properties
 (e.g. path to an output file). The `binaries` collection implements the
 [`DomainObjectSet`](https://docs.gradle.org/current/javadoc/org/gradle/api/DomainObjectSet.html) interface and provides methods like
-`all` or `matching` allowing configuring groups of elements .
+`all` or `matching` allowing configuring groups of elements.
 
 Also it's possible to get a certain element of the collection. There are two ways to do this. First, each binary has a unique 
 name. This name is based on the name prefix (if it's specified), build type and binary kind according to the following pattern:
@@ -1951,7 +1907,8 @@ The second way is using typed getters. These getters allow one to access a binar
 ```groovy
 // Fails if there is no such a binary.
 binaries.getExecutable('foo', DEBUG)
-binaries.getExecutable('', DEBUG)    // Use an empty string if the name prefix isn't set.
+binaries.getExecutable(DEBUG)          // Skip the first argument if the name prefix isn't set.
+binaries.getExecutable('bar', 'DEBUG') // You also can use a string for build type.
 
 // Similar getters are available for other binary kinds:
 // getFramework, getStaticLib and getSharedLib.
@@ -1972,7 +1929,8 @@ binaries.findExecutable('foo', DEBUG)
 ```kotlin
 // Fails if there is no such a binary.
 binaries.getExecutable("foo", DEBUG)
-binaries.getExecutable("", DEBUG)    // Use an empty string if the name prefix isn't set.
+binaries.getExecutable(DEBUG)          // Skip the first argument if the name prefix isn't set.
+binaries.getExecutable("bar", "DEBUG") // You also can use a string for build type.
 
 // Similar getters are available for other binary kinds:
 // getFramework, getStaticLib and getSharedLib.
@@ -1987,13 +1945,23 @@ binaries.findExecutable("foo", DEBUG)
 </div>
 </div>
 
+> Note: Before 1.3.40, both test and product executables were represented by the same binary type. Thus to access the default test binary created by the plugin, the following line was used:
+> ```
+> binaries.getExecutable("test", "DEBUG")
+> ``` 
+> Since 1.3.40, test executables are represented by a separate binary type and have their own getter. To access the default test binary, use:
+> ```
+> binaries.getTest("DEBUG")
+> ```
+{:.note}
+ 
 
 #### Configuring binaries
 
 Binaries have a set of properties allowing one to configure them. The following options are available:
 
- - **Compilation.** Each binary is built on basis of some compilation available in the same target. The `main` compilation is used by
- default but a user can specify another one.
+ - **Compilation.** Each binary is built on basis of some compilation available in the same target. The default value of this parameter depends
+ on the binary type: `Test` binaries are based on the `test` compilation while other binaries - on the `main` compilation.
  - **Linker options.** Options passed to a system linker during binary building. One can use this setting to link against some native library.
  - **Output file name.** By default the output file name is based on binary name prefix or, if the name prefix isn't specified, on a project name.
  But it's possible to configure the output file name independently using the `baseName` property. Note that final file name will be formed
@@ -2016,7 +1984,7 @@ The following example shows how to use these settings.
 
 ```groovy
 binaries {
-    executable('test', [RELEASE]) {
+    executable('my_executable', [RELEASE]) {
         // Build a binary on the basis of the test compilation.
         compilation = compilations.test
 
@@ -2045,13 +2013,6 @@ binaries {
         isStatic = true
     }
 }
-
-// Note that the test task created by default is also a run task.
-// So you can access it using the same property.
-def testTask = binaries.getExecutable("test", DEBUG).runTask
-task processTests {
-    dependsOn(testTask)
-}
 ```
 
 </div>
@@ -2062,7 +2023,7 @@ task processTests {
 
 ```kotlin
 binaries {
-    executable("test", listOf(RELEASE)) {
+    executable("my_executable", listOf(RELEASE)) {
         // Build a binary on the basis of the test compilation.
         compilation = compilations["test"]
 
@@ -2091,12 +2052,6 @@ binaries {
         isStatic = true
     }
 }
-
-// Note that the test task created by default is also a run task.
-// So you can access it using the same property.
-val testTask = binaries.getExecutable("test", DEBUG).runTask
-val processTests by tasks.creating
-processTests.dependsOn(testTask)
 ```
 
 </div>
