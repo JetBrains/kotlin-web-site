@@ -260,7 +260,7 @@ reference:
         nav: _nav_reference.yml
         base: /docs/reference/native
         repo: https://github.com/JetBrains/kotlin-native
-        branch: v1.2.0-fixes
+        branch: v1.3.0-fixes
 
     - title: Coroutines
       description: Kotlin Coroutines Library
