@@ -3,6 +3,17 @@
 
     <event>
         <lang>en</lang>
+        <startDate>2019-07-02</startDate>
+        <endDate>2019-07-02</endDate>
+        <location>Edinburgh, Scotland</location>
+        <speaker>Ewan Dawson</speaker>
+        <title>Edinburgh Kotlin User Group</title>
+        <subject>Kotlin for Java developers</subject>
+        <url>https://opentechcalendar.co.uk/event/8624-edinburgh-kotlin-user-group-first-meeting</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2019-05-10</startDate>
         <endDate>2019-05-10</endDate>
         <location>Melbourne, Australia</location>
@@ -477,7 +488,7 @@ et bien plus encore!</p>
 <p>One of the best places to learn idiomatic Kotlin is the stdlib. Now I don’t mean just using the stdlib but going to the source, literally. In this session, we’ll look at some of the methods and tools inside the stdlib and dig into how they’re written to reveal intermediate to advanced language features, slick syntax and conventions, and high-level abstractions to help you write more fluent objects and interfaces.</p>
 ]]>
         </description>
-</event>
+    </event>
 
     <event>
         <lang>es</lang>
