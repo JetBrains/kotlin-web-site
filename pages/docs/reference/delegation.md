@@ -27,7 +27,7 @@ title: "Delegation"
 -->
 
 [Delegationパターン](https://en.wikipedia.org/wiki/Delegation_pattern)は、実装継承の良い代替手段であることが証明されており、Kotlinはネイティブでそれをサポートし、かつ定型コードを必要としません。
-`Derivced` クラスは、 `Base` インターフェイスから継承することができ、指定されたオブジェクトへの public メソッドのすべてを委譲することができます。
+`Derived` クラスは、 `Base` インターフェイスから継承することができ、指定されたオブジェクトへの public メソッドのすべてを委譲することができます。
 
 <!--original
 The [Delegation pattern](https://en.wikipedia.org/wiki/Delegation_pattern) has proven to be a good alternative to implementation inheritance,
