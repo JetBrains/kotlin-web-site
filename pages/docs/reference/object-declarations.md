@@ -176,7 +176,7 @@ fun countClicks(window: JComponent) {
 ## Object declarations
 -->
 
-[シングルトン](http://en.wikipedia.org/wiki/Singleton_pattern)は非常に便利なパターンであり、Kotlin（Scalaの後です）は、シングルトンを容易に宣言で切るようにしました：
+[シングルトン](http://en.wikipedia.org/wiki/Singleton_pattern)は非常に便利なパターンであり、Kotlin（Scalaの後です）は、シングルトンを容易に宣言できるようにしました：
 
 <!--original
 [Singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a very useful pattern, and Kotlin (after Scala) makes it easy to declare singletons:
