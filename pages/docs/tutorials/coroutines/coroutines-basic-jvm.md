@@ -22,19 +22,35 @@ Make sure it's configured for Kotlin 1.3 or higher.
 
 Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), let's add its recent version to our dependencies:
 
+<div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode="groovy">
 
 ```groovy
 dependencies {
     ...
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-M2"
 }
 ```
 
 </div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+dependencies {
+    ...
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-M2")
+}
+```
+
+</div>
+</div>
 
 This library is published to Bintray JCenter repository, so let us add it:
 
+<div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode="groovy">
 
 ```groovy
@@ -43,6 +59,19 @@ repositories {
 }
 ```
 
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+repositories {
+    jcenter()
+}
+```
+
+</div>
 </div>
 
 That's it, we are good to go and write code under `src/main/kotlin`.
@@ -83,7 +112,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
     <dependency>
         <groupId>org.jetbrains.kotlinx</groupId>
         <artifactId>kotlinx-coroutines-core</artifactId>
-        <version>1.0.1</version>
+        <version>1.3.0-M2</version>
     </dependency>
 </dependencies>
 ```
@@ -235,7 +264,7 @@ Let's create a million coroutines again, keeping their `Deferred` objects. Now t
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-val deferred = (1..1_000_000).map { n ->
+val deferred = (1..1_000_000L).map { n ->
     GlobalScope.async {
         n
     }
@@ -249,12 +278,12 @@ All these have already started, all we need is collect the results:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum = deferred.sumBy { it.await() }
+val sum = deferred.map { it.await() }.sum()
 ```
 
 </div>
 
-We simply take every coroutine and await its result here, then all results are added together by the standard library function `sumBy()`. But the compiler rightfully complains:
+We simply take every coroutine and await its result here, then all results are added together. But the compiler rightfully complains:
 
 > Suspend functions are only allowed to be called from a coroutine or another suspend function
 
@@ -264,7 +293,7 @@ We simply take every coroutine and await its result here, then all results are a
 
 ```kotlin
 runBlocking {
-    val sum = deferred.sumBy { it.await() }
+    val sum = deferred.map { it.await() }.sum()
     println("Sum: $sum")
 }
 ```
