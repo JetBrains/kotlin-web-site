@@ -33,8 +33,8 @@ Now, we can call such a function on any `MutableList<Int>`:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val l = mutableListOf(1, 2, 3)
-l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
+val list = mutableListOf(1, 2, 3)
+list.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'list'
 ```
 
 </div>
