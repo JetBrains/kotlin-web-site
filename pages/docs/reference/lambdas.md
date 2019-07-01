@@ -430,6 +430,9 @@ print(sum)
 
 </div>
 
+For lambdas that don't capture any variables (also know as _stateless_ lambdas), there is a built-in optimization:
+the compiler creates such lambdas as singleton classes. All references to them use the same instance of this class. 
+
 ### Function literals with receiver
 
 [Function types](#function-types) with receiver, such as `A.(B) -> C`, can be instantiated with a special form of function literals – 
