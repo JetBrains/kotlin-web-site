@@ -82,7 +82,7 @@ At this point, we should be able to compile and run the Android application
 # Creating the Shared Module
 
 The goal of the tutorial is to demonstrate Kotlin code re-use between Android and iOS. Let's start
-by creating the `SharedCode` sub-project in our Gradle project. The source code from the `SharedCode`
+by manually creating the `SharedCode` sub-project in our Gradle project. The source code from the `SharedCode`
 project will be shared between platforms.
 We will create several new files in our project to implement that.
 
@@ -90,7 +90,8 @@ We will create several new files in our project to implement that.
 
 The idea is to make every platform show similar text: `Kotlin Rocks on Android` and 
 `Kotlin Rocks on iOS`, depending on the platform. We will reuse the way we generate the message. 
-Let's create the main file under `SharedCode/src/commonMain/kotlin/common.kt`
+Let's create the file (and missing directories) `SharedCode/src/commonMain/kotlin/common.kt` with the following contents
+under the project root directory
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -110,7 +111,7 @@ That is the common part. The code to generate the final message. It `expect`s th
 to provide the platform name from the `expect fun platformName(): String` function. We will use
 the `createApplicationScreenMessage` from both Android and iOS applications.
 
-Now, we need to create the implementation for Android in the `SharedCode/src/androidMain/kotlin/actual.kt`:
+Now, we need to create the implementation file (and missing directories) for Android in the `SharedCode/src/androidMain/kotlin/actual.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -123,7 +124,7 @@ actual fun platformName(): String {
 ```
 </div>
 
-We create a similar file for the iOS target in the `SharedCode/src/iosMain/kotlin/actual.kt`:
+We create a similar implementation file (and missing directories) for the iOS target in the `SharedCode/src/iosMain/kotlin/actual.kt`:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
@@ -147,13 +148,13 @@ Objective-C and Swift Interop is covered in details in the [documentation](/docs
 
 ## Updating Gradle Scripts
 
-The `SharedCode` project should generate several artifacts for us:
+The `SharedCode` sub-project should generate several artifacts for us:
  - JAR file for the Android project, from the `androidMain` source set
  - Apple framework 
    - for iOS device and App Store (`arm64` target)
    - for iOS emulator (`x86_64` target)
 
-Let's update the Gradle scripts. 
+Let's update the Gradle scripts now to implement that and configure our IDE. 
 
 First, we add the new project into the `settings.gradle` file, simply by adding the following line to the end of the file:
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
