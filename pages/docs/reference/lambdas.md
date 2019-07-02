@@ -431,7 +431,7 @@ print(sum)
 </div>
 
 For lambdas that don't capture any variables (also know as _stateless_ lambdas), there is a built-in optimization:
-the compiler creates such lambdas as singleton classes. All references to them use the same instance of this class. 
+the compiler creates only one instance for each such lambda. So, all references to a stateless lambda use the same instance. 
 
 ### Function literals with receiver
 
