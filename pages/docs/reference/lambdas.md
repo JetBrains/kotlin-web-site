@@ -431,7 +431,19 @@ print(sum)
 </div>
 
 For lambdas that don't capture any variables (also know as _stateless_ lambdas), there is a built-in optimization:
-the compiler creates only one instance for each such lambda. So, all references to a stateless lambda use the same instance. 
+the compiler creates only one instance for each such lambda. So, all instances of a stateless lambda point to the same instance.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+ 
+ ```kotlin
+ val lambdaProvider = {
+    { Unit }  // returns a stateless lambda
+}
+val lambda1 = lambdaProvider.invoke()
+val lambda2 = lambdaProvider.invoke() // the same exact instance as `lambda1`
+ ```
+ 
+ </div>
 
 ### Function literals with receiver
 
