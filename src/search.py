@@ -117,7 +117,7 @@ def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
             valuable_content.append(child.text)
         elif child.name in ['ul', 'ol', 'blockquote', 'div']:
             valuable_content += get_valuable_content(page_path, child.children)
-        elif child.name in ['pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i']:
+        elif child.name in ['pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img']:
             continue
         else:
             raise Exception('Unknown tag "' + child.name + '" in ' + page_path)
@@ -211,7 +211,7 @@ def build_search_indices(site_structure, pages):
             type = "Standard Library" if "jvm/stdlib" in url else "Kotlin Test"
             index_objects += get_page_index_objects(page_info['content'], url, page_path, full_name, type, page_views)
         elif endpoint in ["coroutines_redirect", "coroutines_tutor_redirect", "events_redirect", "community_redirect",
-                          "compatibility_redirect"]:
+                          "compatibility_redirect", "collections_redirect", "community_user_groups_redirect"]:
             continue
         else:
             client = app.test_client()
