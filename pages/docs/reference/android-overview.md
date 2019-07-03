@@ -54,3 +54,9 @@ to create your first Kotlin application.
 * Another great resource is [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers),
 a book that guides you step by step through the process of creating a real Android application in Kotlin.
  * Check out Google's [sample projects written in Kotlin](https://developer.android.com/samples/index.html?language=kotlin).
+    
+   Ø is your absolute Zerø
+  ...
+Å-m
+//Thanks
+
