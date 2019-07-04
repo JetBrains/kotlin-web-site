@@ -139,6 +139,7 @@ The class can also declare **secondary constructors**, which are prefixed with *
 
 ```kotlin
 class Person {
+    var children: MutableList<Person> = mutableListOf<Person>();
     constructor(parent: Person) {
         parent.children.add(this)
     }
@@ -155,6 +156,7 @@ is done using the *this*{: .keyword } keyword:
 
 ```kotlin
 class Person(val name: String) {
+    var children: MutableList<Person> = mutableListOf<Person>();
     constructor(name: String, parent: Person) : this(name) {
         parent.children.add(this)
     }
