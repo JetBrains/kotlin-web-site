@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Competitive Programming"
 authors: Roman Elizarov
 showAuthorInfo: true
-description: "This tutorial explains basic usage of Kotlin for competitive programing."
+description: "This tutorial explains the basic usage of Kotlin for competitive programming."
 ---
 
 ## Prerequisites
@@ -19,7 +19,7 @@ It assumes the corresponding programming skills.
 is a mind sport where contestants write programs to solve precisely specified 
 algorithmic problems within strict constraints. Problems can range from simple ones that can be solved by 
 any software developer and require little code to get a correct solution, to complex ones that require knowledge of 
-special algorithms, data structures, and lots of practice. While not being specifically designed for competitive 
+special algorithms, data structures, and lot of practice. While not being specifically designed for competitive 
 programming, Kotlin incidentally fits well in this domain, reducing the typical amount of boilerplate that a 
 programmer needs to write and read while working with the code almost to the level offered by dynamically-typed 
 scripting languages, while having tooling and performance of a statically-typed language.
@@ -39,14 +39,14 @@ The simplest problem in the set is the
 [Problem A: Reachable Numbers](http://codeforces.com/contest/1157/problem/A).
 It asks to implement a straightforward algorithm described in the problem statement. 
 
-We'd start solving it by creating a new Kotlin source file. A file name does not matter. `A.kt` will do well.
+We'd start solving it by creating a Kotlin source file with an arbitrary name. `A.kt` will do well.
 First, we need to implement a function specified in the problem statement as:
 
 > Let's denote a function f(x) in such a way: we add 1 to x, then, while there is at least one trailing zero 
 in the resulting number, we remove that zero.
 
-Kotlin is pragmatic and unopinionated language, supporting both imperative and function programming styles without 
-forcing developer to pick any particular one. We can implement function `f` in functional style, using such Kotlin 
+Kotlin is a pragmatic and unopinionated language, supporting both imperative and function programming styles without 
+pushing the developer towards either one. We can implement the function `f` in functional style, using such Kotlin 
 features as [tail recursion](/docs/reference/functions.html#tail-recursive-functions):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -60,7 +60,7 @@ fun f(x: Int) = removeZeroes(x + 1)
 
 </div>
 
-Alternatively, we can write an imperative implementation of function `f`, using a traditional 
+Alternatively, we can write an imperative implementation of the function `f` using the traditional 
 [while loop](/docs/reference/control-flow.html) and mutable variables that are denoted in Kotlin with 
 [var](/docs/reference/basic-syntax.html#defining-variables):
 
@@ -79,7 +79,7 @@ fun f(x: Int): Int {
 Types in Kotlin are optional in many places due to pervasive use of type-inference, but every declaration still has 
 a well-defined static type that is known at compilation.
 
-Now, all is left is to write the main function that reads input and implements the rest of algorithm that the problem 
+Now, all is left is to write the main function that reads the input and implements the rest of the algorithm that the problem 
 statement asks for &mdash; to compute the number of different integers that are produced while repeatedly applying 
 function `f` to the initial number `n` that is given in the standard input.
 
@@ -107,15 +107,15 @@ Note the use of Kotlin's
 after the [readLine()](/api/latest/jvm/stdlib/kotlin.io/read-line.html) function call. 
 Kotlin's `readLine()` function is defined to return a 
 [nullable type](/docs/reference/null-safety.html#nullable-types-and-non-null-types)
-`String?` and returns `null` on the end of the input, which explicitly forces developer to handle the 
+`String?` and returns `null` on the end of the input, which explicitly forces the developer to handle the 
 case of missing input.
  
 There is no need to handle the case of misformatted input in competitive programming. 
-In competitive programming an input format is always precisely specified and the actual input cannot deviate from 
-the input specification in the problem statement. That is what null-assertion operator `!!` essentially does &mdash; 
-it asserts that the input string is present and throws exception if not. Likewise, 
-[String.toInt()](/api/latest/jvm/stdlib/kotlin.text/to-int.html) 
-function throws an exception if an input string is not integer.
+In competitive programming, an input format is always precisely specified and the actual input cannot deviate from 
+the input specification in the problem statement. That's what the null-assertion operator `!!` essentially does &mdash; 
+it asserts that the input string is present and throws an exception otherwise. Likewise, 
+the [String.toInt()](/api/latest/jvm/stdlib/kotlin.text/to-int.html) 
+function throws an exception if the input string is not an integer.
 
 All online competitive programming events allow the use of pre-written code, so you can define your own library of 
 utility functions that are geared towards competitive programming to make your actual solution code somewhat easier 
@@ -135,7 +135,7 @@ private fun readInt() = readLn().toInt()
 Note the use of `private` [visibility modifier](/docs/reference/visibility-modifiers.html) here.
 While the concept of visibility modifier is not relevant for competitive programming at all, 
 it allows you to place multiple solution files based on the
-same template without getting an error for conflicting public declaration in the same package.
+same template without getting an error for conflicting public declarations in the same package.
 
 ## Functional operators example: Long Number problem
 
@@ -171,14 +171,14 @@ fun main() {
 
 </div>
 
-In this dense code, in addition to collection transformations, you can see such handy Kotlin features as local functions,
-and [elvis operator](/docs/reference/null-safety.html#elvis-operator) `?:`
-that allow to express the 
-[idioms](/docs/reference/idioms.html) like "take value if it is positive or else use length" with concise and readable 
-expression like `.takeIf { it >= 0 } ?: s.length`, yet it is perfectly fine with Kotlin to create additional mutable
+In this dense code, in addition to collection transformations, you can see such handy Kotlin features as local functions
+and the [elvis operator](/docs/reference/null-safety.html#elvis-operator) `?:`
+that allow to express 
+[idioms](/docs/reference/idioms.html) like "take the value if it is positive or else use length" with concise and readable 
+expressions like `.takeIf { it >= 0 } ?: s.length`, yet it is perfectly fine with Kotlin to create additional mutable
 variables and express the same code in imperative style, too.
 
-To make reading input in the competitive programming tasks like this more concise, 
+To make reading the input in competitive programming tasks like this more concise, 
 you can have the following list of helper input-reading functions:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -206,12 +206,12 @@ specification in the problem statement line by line:
 
 </div>
 
-Note, that in competitive programming it is customary to give variables shorter names than it is 
-typical in industrial programming practice, since the code is to be written just once and need not be supported thereafter. 
+Note that in competitive programming it is customary to give variables shorter names than it is 
+typical in industrial programming practice, since the code is to be written just once and not supported thereafter. 
 However, these names are usually still mnemonic &mdash; `a` for arrays,
 `i`, `j`, etc for indices, `r`, and `c` for row and column numbers in tables, `x` and `y` for coordinates, etc.
 It is easier to keep the same names for input data as it is given in the problem statement. 
-However, more complex problems require more code to solve and subsequently variable and function names tend to 
+However, more complex problems require more code and, subsequently, variable and function names tend to 
 become longer and more self-explanatory. 
 
 ## More tips and tricks
@@ -246,7 +246,7 @@ contains on order of 10<sup>5</sup> lines or more. Issuing so many `println` cal
 in Kotlin is automatically flushed after each line. 
 A faster way to write many lines from an array or a list is using
 [joinToString()](/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function
-with `"\n"` as separator, like this:
+with `"\n"` as the separator, like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -260,7 +260,7 @@ println(a.joinToString("\n")) // each element of array/list of a separate line
 
 Kotlin is designed to be easy to learn for people who already know Java.
 A quick overview of differences is given on [the official comparison page](/docs/reference/comparison-to-java.html). 
-A short introduction to the basic syntax of Kotlin language for software developers can be found directly in the
+A short introduction to the basic syntax of Kotlin for software developers can be found directly in the
 reference section of the web site starting from [basic syntax](/docs/reference/basic-syntax.html). 
 
 IDEA has built-in 
