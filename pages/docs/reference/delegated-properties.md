@@ -254,7 +254,7 @@ For a **mutable** property (a *var*{:.keyword}), a delegate has to _additionally
  
 * `thisRef` --- same as for `getValue()`;
 * `property` --- same as for `getValue()`;
-* new value --- must be of the same type as a property or its supertype.
+* `new value` --- must be of the same type as the property or its subtype.
  
 `getValue()` and/or `setValue()` functions may be provided either as member functions of the delegate class or extension functions.
 The latter is handy when you need to delegate property to an object which doesn't originally provide these functions.
