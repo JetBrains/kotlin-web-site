@@ -40,7 +40,7 @@ Sample().foo() // create instance of class Sample and call foo
 
 ### Parameters
 
-Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed:
+Function parameters are defined using Pascal notation, i.e. *type*: *name*. Parameters are separated using commas. Each parameter must be explicitly typed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
