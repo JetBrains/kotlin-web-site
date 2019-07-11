@@ -21,12 +21,6 @@ export default class EventsStore {
         case 'all':
           matched = (!hasTag || event.pinned);
           break;
-
-        // TODO refactor this
-        case 'kotlin':
-          matched = event.hasTag('kotlin1.1');
-          break;
-
         case null:
         default:
           matched = false;
