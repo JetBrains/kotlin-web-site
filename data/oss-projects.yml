@@ -266,9 +266,15 @@
 - name: units-of-measure
   description: type-safe dimensional analysis
   type: Library
-  link: https://github.com/kunalsheth/units-of-measure
+  link: 
+  s://github.com/kunalsheth/units-of-measure
   
 - name: TornadoFX
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+  
+- name: kohttp
+  description: Kotlin DSL HTTP client
+  type: Library
+  link: https://github.com/rybalkinsd/kohttp
