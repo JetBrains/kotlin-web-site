@@ -34,6 +34,8 @@ For example:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
+import kotlin.reflect.KProperty
+
 class Delegate {
     operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
         return "$thisRef, thank you for delegating '${property.name}' to me!"
