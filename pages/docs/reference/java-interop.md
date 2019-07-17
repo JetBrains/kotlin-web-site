@@ -403,7 +403,6 @@ Some non-primitive built-in classes are also mapped:
 | `java.lang.Comparable`   | `kotlin.Comparable!`    |
 | `java.lang.Enum`         | `kotlin.Enum!`    |
 | `java.lang.Annotation`   | `kotlin.Annotation!`    |
-| `java.lang.Deprecated`   | `kotlin.Deprecated!`    |
 | `java.lang.CharSequence` | `kotlin.CharSequence!`   |
 | `java.lang.String`       | `kotlin.String!`   |
 | `java.lang.Number`       | `kotlin.Number!`     |
