@@ -421,7 +421,7 @@ the *target* configuration page.
 
 The second step is to then include the framework path into the `Framework Search Paths` block
 of the `Build Settings` section of the *target* configuration page. It is possible to use `$(PROJECT_DIR)`
-macro so simplify the setup.
+macro to simplify the setup.
  
 The iOS simulator requires a framework compiled for the `ios_x64` target, the `iOS_sim` folder
 in our case.
