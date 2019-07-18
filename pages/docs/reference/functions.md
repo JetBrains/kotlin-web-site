@@ -12,6 +12,7 @@ title: "Functions: infix, vararg, tailrec"
 Functions in Kotlin are declared using the *fun*{: .keyword } keyword:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun double(x: Int): Int {
     return 2 * x
@@ -24,6 +25,7 @@ fun double(x: Int): Int {
 Calling functions uses the traditional approach:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val result = double(2)
 ```
@@ -33,6 +35,7 @@ val result = double(2)
 Calling member functions uses the dot notation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 Sample().foo() // create instance of class Sample and call foo
 ```
@@ -43,8 +46,9 @@ Sample().foo() // create instance of class Sample and call foo
 Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-fun powerOf(number: Int, exponent: Int) { ... }
+fun powerOf(number: Int, exponent: Int) { /*...*/ }
 ```
 </div>
 
@@ -54,8 +58,9 @@ Function parameters can have default values, which are used when a corresponding
 other languages:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) { ... }
+fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) { /*...*/ }
 ```
 </div>
 
@@ -65,13 +70,14 @@ Overriding methods always use the same default parameter values as the base meth
 When overriding a method with default parameter values, the default parameter values must be omitted from the signature:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 open class A {
-    open fun foo(i: Int = 10) { ... }
+    open fun foo(i: Int = 10) { /*...*/ }
 }
 
 class B : A() {
-    override fun foo(i: Int) { ... }  // no default value allowed
+    override fun foo(i: Int) { /*...*/ }  // no default value allowed
 }
 ```
 </div>
@@ -79,8 +85,9 @@ class B : A() {
 If a default parameter precedes a parameter with no default value, the default value can only be used by calling the function with [named arguments](#named-arguments):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-fun foo(bar: Int = 0, baz: Int) { ... }
+fun foo(bar: Int = 0, baz: Int) { /*...*/ }
 
 foo(baz = 1) // The default value bar = 0 is used
 ```
@@ -89,8 +96,9 @@ foo(baz = 1) // The default value bar = 0 is used
 If the last argument after default parameters is a [lambda](lambdas.html#lambda-expression-syntax), it can be passed in either as a named argument or [outside the parentheses](lambdas.html#passing-a-lambda-to-the-last-parameter):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { ... }
+fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { /*...*/ }
 
 foo(1) { println("hello") }     // Uses the default value baz = 1
 foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1 
@@ -105,13 +113,14 @@ Function parameters can be named when calling functions. This is very convenient
 Given the following function:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+
 ```kotlin
 fun reformat(str: String,
              normalizeCase: Boolean = true,
              upperCaseFirstLetter: Boolean = true,
              divideByCamelHumps: Boolean = false,
              wordSeparator: Char = ' ') {
-...
+/*...*/
 }
 ```
 </div>
@@ -119,6 +128,7 @@ fun reformat(str: String,
 We could call this using default arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 reformat(str)
 ```
@@ -127,6 +137,7 @@ reformat(str)
 However, when calling it with non-default, the call would look something like:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 reformat(str, true, true, false, '_')
 ```
@@ -135,6 +146,7 @@ reformat(str, true, true, false, '_')
 With named arguments we can make the code much more readable:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 reformat(str,
     normalizeCase = true,
@@ -148,6 +160,7 @@ reformat(str,
 and if we do not need all arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 reformat(str, wordSeparator = '_')
 ```
@@ -158,14 +171,15 @@ When a function is called with both positional and named arguments, all the posi
 [Variable number of arguments (*vararg*{: .keyword })](#variable-number-of-arguments-varargs) can be passed in the named form by using the **spread** operator:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-fun foo(vararg strings: String) { ... }
+fun foo(vararg strings: String) { /*...*/ }
 
 foo(strings = *arrayOf("a", "b", "c"))
 ```
 </div>
 
-Note that the named argument syntax cannot be used when calling Java functions, because Java bytecode does not
+Note that the named argument syntax cannot be used on the JVM when calling Java functions because Java bytecode does not
 always preserve names of function parameters.
 
 ### Unit-returning functions

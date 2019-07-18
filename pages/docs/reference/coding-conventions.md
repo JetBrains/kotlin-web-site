@@ -20,25 +20,25 @@ This page contains the current coding style for the Kotlin language.
 ### Applying the style guide
 
 To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
-1.2.20 or newer, go to Settings | Editor | Code Style | Kotlin, click on "Set from..." link in the upper
-right corner, and select "Predefined style / Kotlin style guide" from the menu.
+1.2.20 or newer, go to __Settings | Editor | Code Style | Kotlin__, click __Set from...__ link in the upper
+right corner, and select __Predefined style | Kotlin style guide__ from the menu.
 
 To verify that your code is formatted according to the style guide, go to the inspection settings and enable
-the "Kotlin | Style issues | File is not formatted according to project settings" inspection. Additional
+the __Kotlin | Style issues | File is not formatted according to project settings__ inspection. Additional
 inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.
 
 ## Source code organization
 
 ### Directory structure
 
-In mixed-language projects, Kotlin source files should reside in the same source root as the Java source files,
-and follow the same directory structure (each file should be stored in the directory corresponding to each package
-statement).
+In pure Kotlin projects, the recommended directory structure follows the package structure with
+the common root package omitted. For example,if all the code in the project is in the `org.example.kotlin` package and its
+subpackages, files with the `org.example.kotlin` package should be placed directly under the source root, and
+files in `org.example.kotlin.foo.bar` should be in the `foo/bar` subdirectory of the source root.
 
-In pure Kotlin projects, the recommended directory structure is to follow the package structure with
-the common root package omitted (e.g. if all the code in the project is in the "org.example.kotlin" package and its
-subpackages, files with the "org.example.kotlin" package should be placed directly under the source root, and
-files in "org.example.kotlin.foo.bar" should be in the "foo/bar" subdirectory of the source root).
+In mixed-language projects, Kotlin source files should reside in the same source root as the Java source files,
+and follow the same directory structure: each file should be stored in the directory corresponding to each package
+statement.
 
 ### Source file names
 
@@ -89,13 +89,13 @@ Always put overloads next to each other in a class.
 
 ## Naming rules
 
-Kotlin follows the Java naming conventions. In particular:
+Package and class naming rules in Kotlin are quite simple:
 
-Names of packages are always lower case and do not use underscores (`org.example.myproject`). Using multi-word
+* Names of packages are always lower case and do not use underscores (`org.example.project`). Using multi-word
 names is generally discouraged, but if you do need to use multiple words, you can either simply concatenate them together
 or use camel humps (`org.example.myProject`).
 
-Names of classes and objects start with an upper case letter and use camel humps:
+* Names of classes and objects start with an upper case letter and use camel humps:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -223,8 +223,6 @@ capitalize only the first letter if it is longer (`XmlFormatter`, `HttpInputStre
 
 
 ## Formatting
-
-In most cases, Kotlin follows the Java coding conventions.
 
 Use 4 spaces for indentation. Do not use tabs.
 
@@ -1084,7 +1082,7 @@ class Person {
 
 </div>
 
-A local value initialised with an expression of a platform type may or may not have a type declaration:
+A local value initialized with an expression of a platform type may or may not have a type declaration:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 

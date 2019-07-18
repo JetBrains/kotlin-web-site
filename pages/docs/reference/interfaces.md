@@ -7,7 +7,7 @@ title: "Interfaces"
 
 # Interfaces
 
-Interfaces in Kotlin are very similar to Java 8. They can contain declarations of abstract methods, as well as method
+Interfaces in Kotlin can contain declarations of abstract methods, as well as method
 implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have
 properties but these need to be abstract or to provide accessor implementations.
 
@@ -45,6 +45,7 @@ implementations for accessors. Properties declared in interfaces can't have back
 declared in interfaces can't reference them.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 interface MyInterface {
     val prop: Int // abstract
@@ -68,6 +69,7 @@ class Child : MyInterface {
 An interface can derive from other interfaces and thus both provide implementations for their members and declare new functions and properties. Quite naturally, classes implementing such an interface are only required to define the missing implementations:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 interface Named {
     val name: String
@@ -94,6 +96,7 @@ data class Employee(
 When we declare many types in our supertype list, it may appear that we inherit more than one implementation of the same method. For example
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 interface A {
     fun foo() { print("A") }

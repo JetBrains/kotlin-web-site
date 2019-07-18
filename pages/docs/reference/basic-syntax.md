@@ -7,7 +7,7 @@ title: "Basic Syntax"
 
 # Basic Syntax
 
-## Defining packages
+## Package definition and imports
 
 Package specification should be at the top of the source file:
 
@@ -16,7 +16,7 @@ Package specification should be at the top of the source file:
 ```kotlin
 package my.demo
 
-import java.util.*
+import kotlin.text.*
 
 // ...
 ```
@@ -27,7 +27,21 @@ It is not required to match directories and packages: source files can be placed
 
 See [Packages](packages.html).
 
-## Defining functions
+## Program entry point
+
+An entry point of a Kotlin application is the `main` function.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+    println("Hello world!")
+}
+```
+
+</div>
+
+## Functions
 
 Function having two `Int` parameters with `Int` return type:
 
@@ -102,7 +116,7 @@ fun main() {
 
 See [Functions](functions.html).
 
-## Defining variables
+## Variables
 
 Read-only local variables are defined using the keyword `val`. They can be assigned a value only once.
 
@@ -167,7 +181,7 @@ See also [Properties And Fields](properties.html).
 
 ## Comments
 
-Just like Java and JavaScript, Kotlin supports end-of-line and block comments.
+Just like most modern languages, Kotlin supports single-line (or _end-of-line_) and multi-line (_block_) comments.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -180,11 +194,21 @@ Just like Java and JavaScript, Kotlin supports end-of-line and block comments.
 
 </div>
 
-Unlike Java, block comments in Kotlin can be nested.
+Block comments in Kotlin can be nested.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+/* The comment starts here
+/* contains a nested comment */     
+and ends here. */
+```
+
+</div>
 
 See [Documenting Kotlin Code](kotlin-doc.html) for information on the documentation comment syntax.
 
-## Using string templates
+## String templates
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -205,10 +229,9 @@ fun main() {
 
 </div>
 
-See [String templates](basic-types.html#string-templates).
+See [String templates](basic-types.html#string-templates) for details.
 
-## Using conditional expressions
-
+## Conditional expressions
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -231,7 +254,7 @@ fun main() {
 </div>
 
 
-Using *if*{: .keyword } as an expression:
+In Kotlin, *if*{: .keyword } can also be used as an expression:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -266,7 +289,6 @@ fun parseInt(str: String): Int? {
 </div>
 
 Use a function returning nullable value:
-
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -342,7 +364,7 @@ fun main() {
 
 See [Null-safety](null-safety.html).
 
-## Using type checks and automatic casts
+## Type checks and automatic casts
 
 The *is*{: .keyword } operator checks if an expression is an instance of a type.
 If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
@@ -434,7 +456,7 @@ fun main() {
 
 See [Classes](classes.html) and [Type casts](typecasts.html).
 
-## Using a `for` loop
+## `for` loop
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -471,7 +493,7 @@ fun main() {
 
 See [for loop](control-flow.html#for-loops).
 
-## Using a `while` loop
+## `while` loop
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -493,7 +515,7 @@ fun main() {
 
 See [while loop](control-flow.html#while-loops).
 
-## Using `when` expression
+## `when` expression
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -523,7 +545,7 @@ fun main() {
 
 See [when expression](control-flow.html#when-expression).
 
-## Using ranges
+## Ranges
 
 Check if a number is within a range using *in*{: .keyword } operator:
 
@@ -604,7 +626,7 @@ fun main() {
 
 See [Ranges](ranges.html).
 
-## Using collections
+## Collections
 
 Iterating over a collection:
 

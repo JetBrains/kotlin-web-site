@@ -18,7 +18,7 @@ Classes in Kotlin are declared using the keyword *class*{: .keyword }:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Invoice { ... }
+class Invoice { /*...*/ }
 ```
 
 </div>
@@ -43,7 +43,7 @@ constructor is part of the class header: it goes after the class name (and optio
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Person constructor(firstName: String) { ... }
+class Person constructor(firstName: String) { /*...*/ }
 ```
 
 </div>
@@ -54,7 +54,7 @@ keyword can be omitted:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Person(firstName: String) { ... }
+class Person(firstName: String) { /*...*/ }
 ```
 
 </div>
@@ -109,7 +109,7 @@ In fact, for declaring properties and initializing them from the primary constru
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Person(val firstName: String, val lastName: String, var age: Int) { ... }
+class Person(val firstName: String, val lastName: String, var age: Int) { /*...*/ }
 ```
 
 </div>
@@ -123,7 +123,7 @@ the modifiers go before it:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Customer public @Inject constructor(name: String) { ... }
+class Customer public @Inject constructor(name: String) { /*...*/ }
 ```
 
 </div>
@@ -199,7 +199,7 @@ to have a public constructor, you need to declare an empty primary constructor w
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class DontCreateMe private constructor () { ... }
+class DontCreateMe private constructor () { /*...*/ }
 ```
 
 </div>
@@ -259,10 +259,9 @@ class Example // Implicitly inherits from Any
 
 </div>
 
-> Note: `Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
-Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
+`Any` has three methods: `equals()`, `hashCode()` and `toString()`. Thus, they are defined for all Kotlin classes. 
 
-To declare an explicit supertype, we place the type after a colon in the class header:
+To declare an explicit supertype, place the type after a colon in the class header:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -295,25 +294,26 @@ class MyView : View {
 
 ### Overriding Methods
 
-As we mentioned before, we stick to making things explicit in Kotlin. And unlike Java, Kotlin requires explicit
+As we mentioned before, we stick to making things explicit in Kotlin. So, Kotlin requires explicit
 modifiers for overridable members (we call them *open*) and for overrides:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class Base {
-    open fun v() { ... }
-    fun nv() { ... }
+open class Shape {
+    open fun draw() { /*...*/ }
+    fun fill() { /*...*/ }
 }
-class Derived() : Base() {
-    override fun v() { ... }
+
+class Circle() : Shape() {
+    override fun draw() { /*...*/ }
 }
 ```
 
 </div>
 
-The *override*{: .keyword } modifier is required for `Derived.v()`. If it were missing, the compiler would complain.
-If there is no *open*{: .keyword } modifier on a function, like `Base.nv()`, declaring a method with the same signature in a subclass is illegal,
+The *override*{: .keyword } modifier is required for `Circle.draw()`. If it were missing, the compiler would complain.
+If there is no *open*{: .keyword } modifier on a function, like `Shape.fill()`, declaring a method with the same signature in a subclass is illegal,
 either with *override*{: .keyword } or without it. The *open*{: .keyword } modifier has no effect when added on members of a final class (i.e.. a class with no *open*{: .keyword } modifier).
 
 A member marked *override*{: .keyword } is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use *final*{: .keyword }:
@@ -321,8 +321,8 @@ A member marked *override*{: .keyword } is itself open, i.e. it may be overridde
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class AnotherDerived() : Base() {
-    final override fun v() { ... }
+open class Rectangle() : Shape() {
+    final override fun draw() { /*...*/ }
 }
 ```
 
@@ -330,37 +330,41 @@ open class AnotherDerived() : Base() {
 
 ### Overriding Properties 
 
-Overriding properties works in a similar way to overriding methods; properties declared on a superclass that are then redeclared on a derived class must be prefaced with *override*{: .keyword }, and they must have a compatible type. Each declared property can be overridden by a property with an initializer or by a property with a getter method.
+Overriding properties works in a similar way to overriding methods; properties declared on a superclass 
+that are then redeclared on a derived class must be prefaced with *override*{: .keyword }, and they must have a compatible type.
+Each declared property can be overridden by a property with an initializer or by a property with a getter method.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class Foo {
-    open val x: Int get() { ... }
+open class Computer {
+    open val ram: Int = 16
 }
 
-class Bar1 : Foo() {
-    override val x: Int = ...
+class GamingDesktop : Computer() {
+    override val ram: Int = 32
 }
 ```
 
 </div>
 
-You can also override a `val` property with a `var` property, but not vice versa. This is allowed because a `val` property essentially declares a getter method, and overriding it as a `var` additionally declares a setter method in the derived class.
+You can also override a `val` property with a `var` property, but not vice versa.
+This is allowed because a `val` property essentially declares a getter method,
+and overriding it as a `var` additionally declares a setter method in the derived class.
 
 Note that you can use the *override*{: .keyword } keyword as part of the property declaration in a primary constructor.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-interface Foo {
-    val count: Int
+interface Department {
+    val employeesCount: Int
 }
 
-class Bar1(override val count: Int) : Foo
+class ITService(override val count: Int) : Department //constant number of employees
 
-class Bar2 : Foo {
-    override var count: Int = 0
+class RnD : Department {
+    override var employeesCount: Int = 0  //it was just created and will grow
 }
 ```
 
@@ -506,7 +510,7 @@ abstract class Derived : Base() {
 
 ## Companion Objects
 
-In Kotlin, unlike Java or C#, classes do not have static methods. In most cases, it's recommended to simply use
+Kotlin classes do not have static methods. In most cases, it's recommended to simply use
 package-level functions instead.
 
 If you need to write a function that can be called without having a class instance but needs access to the internals

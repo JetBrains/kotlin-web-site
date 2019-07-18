@@ -14,20 +14,74 @@ In this section we describe the basic types used in Kotlin: numbers, characters,
 
 ## Numbers
 
-Kotlin handles numbers in a way close to Java, but not exactly the same. For example, there are no implicit widening conversions for numbers, and literals are slightly different in some cases.
+Kotlin provides a set of built-in types that represent numbers.  
+For integer numbers, there are four types with different sizes and, hence, value ranges.
 
-Kotlin provides the following built-in types representing numbers (this is close to Java):
+| Type	 |Size (bits)| Min value| Max value|
+|--------|-----------|----------|--------- |
+| Byte	 | 8         |-128      |127       |
+| Short	 | 16        |-32768    |32767     |
+| Int	 | 32        |-2,147,483,648 (-2<sup>32</sup>)| 2,147,483,647 (2<sup>32</sup> - 1)|
+| Long	 | 64        |-9,223,372,036,854,775,808 (-2<sup>64</sup>)|9,223,372,036,854,775,807 (2<sup>64</sup> - 1)|
 
-| Type	 | Bit width|
-|--------|----------|
-| Double | 64       |
-| Float	 | 32       |
-| Long	 | 64       |
-| Int	 | 32       |
-| Short	 | 16       |
-| Byte	 | 8        |
+All variables initialized with integer values not exceeding the maximum value of `Int`
+have the inferred type `Int`. If the initial value exceeds this value, then the type is `Long`.
+To specify the `Long` value explicitly, append the suffix `l` or `L` to the value.
 
-Note that characters are not numbers in Kotlin.
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+val one = 1 //Int
+val threeBillion = 3000000000 //Long
+val oneLong = 1L //Long
+val oneByte: Byte = 1
+```
+
+</div>
+
+For numbers with fractional parts, Kotlin provides types `Float` and `Double`.
+Their values are _floating point numbers_. Floating point types differ by their _precision_,
+that is, how many decimal digits they can store.  
+
+| Type	 |Size (bits)| Decimal digits|
+|--------|-----------|---------------|
+| Float	 | 32        |6-7            |
+| Double | 64        |15-16          |    
+  
+For variables initialized with fractional numbers, the compiler infers the `Double` type.
+To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
+If such a value contains more that 6-7 decimal digits, it will be rounded. 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+val pi = 3.14 //Double
+val e = 2.7182818284 //Double
+val eFloat = 2.7182818284f //Float, actual value is 2.7182817
+```
+
+</div>
+
+Note that unlike some other languages, there are no implicit widening conversions for numbers in Kotlin.
+For example, a function with a `Double` parameter can be called only on `Double` values, but not `Float`
+or any integer values.  
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+    fun printDouble(d: Double) { print(d) }
+
+    val i = 1    
+    val d = 1.1
+    val f = 1.1f 
+
+    printDouble(d)
+    //printDouble(i) // exception
+    //printDouble(f) // exception
+}
+```
+</div>
 
 ### Literal Constants
 
@@ -189,12 +243,12 @@ val x = (1 shl 2) and 0x000FF000
 
 Here is the complete list of bitwise operations (available for `Int` and `Long` only):
 
-* `shl(bits)` – signed shift left (Java's `<<`)
-* `shr(bits)` – signed shift right (Java's `>>`)
-* `ushr(bits)` – unsigned shift right (Java's `>>>`)
-* `and(bits)` – bitwise and
-* `or(bits)` – bitwise or
-* `xor(bits)` – bitwise xor
+* `shl(bits)` – signed shift left
+* `shr(bits)` – signed shift right
+* `ushr(bits)` – unsigned shift right
+* `and(bits)` – bitwise __and__
+* `or(bits)` – bitwise __or__
+* `xor(bits)` – bitwise __xor__
 * `inv()` – bitwise inversion
 
 ### Floating Point Numbers Comparison
@@ -307,7 +361,7 @@ fun main() {
 
 As we said above, the `[]` operation stands for calls to member functions `get()` and `set()`.
 
-Note: unlike Java, arrays in Kotlin are invariant. This means that Kotlin does not let us assign an `Array<String>`
+Arrays in Kotlin are _invariant_. This means that Kotlin does not let us assign an `Array<String>`
 to an `Array<Any>`, which prevents a possible runtime failure (but you can use `Array<out Any>`, 
 see [Type Projections](generics.html#type-projections)).
 
@@ -442,7 +496,8 @@ Note that in most cases using [string templates](#string-templates) or raw strin
 
 ### String Literals
 
-Kotlin has two types of string literals: escaped strings that may have escaped characters in them and raw strings that can contain newlines and arbitrary text. An escaped string is very much like a Java string:
+Kotlin has two types of string literals: escaped strings that may have escaped characters in them
+and raw strings that can contain newlines and arbitrary text. Here's an example of an escaped string:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
