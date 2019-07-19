@@ -19,7 +19,7 @@ It assumes the corresponding programming skills.
 is a mind sport where contestants write programs to solve precisely specified 
 algorithmic problems within strict constraints. Problems can range from simple ones that can be solved by 
 any software developer and require little code to get a correct solution, to complex ones that require knowledge of 
-special algorithms, data structures, and lot of practice. While not being specifically designed for competitive 
+special algorithms, data structures, and a lot of practice. While not being specifically designed for competitive 
 programming, Kotlin incidentally fits well in this domain, reducing the typical amount of boilerplate that a 
 programmer needs to write and read while working with the code almost to the level offered by dynamically-typed 
 scripting languages, while having tooling and performance of a statically-typed language.
@@ -174,7 +174,7 @@ fun main() {
 In this dense code, in addition to collection transformations, you can see such handy Kotlin features as local functions
 and the [elvis operator](/docs/reference/null-safety.html#elvis-operator) `?:`
 that allow to express 
-[idioms](/docs/reference/idioms.html) like "take the value if it is positive or else use length" with concise and readable 
+[idioms](/docs/reference/idioms.html) like "take the value if it is positive or else use length" with a concise and readable 
 expressions like `.takeIf { it >= 0 } ?: s.length`, yet it is perfectly fine with Kotlin to create additional mutable
 variables and express the same code in imperative style, too.
 
@@ -211,8 +211,8 @@ typical in industrial programming practice, since the code is to be written just
 However, these names are usually still mnemonic &mdash; `a` for arrays,
 `i`, `j`, etc for indices, `r`, and `c` for row and column numbers in tables, `x` and `y` for coordinates, etc.
 It is easier to keep the same names for input data as it is given in the problem statement. 
-However, more complex problems require more code and, subsequently, variable and function names tend to 
-become longer and more self-explanatory. 
+However, more complex problems require more code which leads to using longer self-explanatory
+variable and function names.
 
 ## More tips and tricks
 
