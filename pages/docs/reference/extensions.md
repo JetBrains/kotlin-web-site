@@ -79,7 +79,7 @@ fun main() {
     
     class Derived: Base()
     
-    fun Base.gettName() = "Base"
+    fun Base.getName() = "Base"
     
     fun Derived.getName() = "Derived"
     
