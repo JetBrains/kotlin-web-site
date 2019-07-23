@@ -36,7 +36,7 @@ the common root package omitted. For example,if all the code in the project is i
 subpackages, files with the `org.example.kotlin` package should be placed directly under the source root, and
 files in `org.example.kotlin.foo.bar` should be in the `foo/bar` subdirectory of the source root.
 
-In mixed-language projects, Kotlin source files should reside in the same source root as the Java source files,
+In JVM projects where Kotlin is used together with Java, Kotlin source files should reside in the same source root as the Java source files,
 and follow the same directory structure: each file should be stored in the directory corresponding to each package
 statement.
 
