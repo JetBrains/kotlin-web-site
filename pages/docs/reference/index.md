@@ -70,8 +70,8 @@ You can download the entire reference documentation as a single [PDF file]({{ si
    <a href="https://manning.com/books/kotlin-in-action"><img src="{{ site.baseurl }}/assets/images/Jemerov-Kotlin-MEAP-HI.png" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 -->
 
-[Kotlin in Action](https://manning.com/books/kotlin-in-action)はKotlinチームの開発者であるDmitry JemerovとSvetlana Isakovaに執筆されました。 
-この本はMEAPプログラムで手に入ります。このプログラムでは本が章毎に書き加えられ、章単位で読めるようになっていき、最後に本全体が完成します。
+[Kotlin in Action](https://manning.com/books/kotlin-in-action)はKotlinチームの開発者であるDmitry JemerovとSvetlana Isakovaが執筆しました。 
+この本はMEAPプログラムで手に入ります。この本ではプログラムが章毎に書き加えられ、章単位で読めるようになっていて、最後にプログラム全体が完成します。
 
 <!--original
 [Kotlin in Action](https://manning.com/books/kotlin-in-action) is a book on Kotlin being written by Dmitry Jemerov and Svetlana Isakova,
@@ -79,7 +79,7 @@ developers on the Kotlin team. The book is currently available through the MEAP 
 chapter-by-chapter while it is being written and get the final book when it is finished.
 -->
 
-クーポンコード「39jemerov」を使用すると、39％引きで入手できます。
+クーポンコード`39jemerov`を使用すると、39％引きで入手できます。
 
 <!--original
 Use the coupon code '39jemerov' to get a 39% discount code on the book.
