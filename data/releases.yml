@@ -6,6 +6,11 @@ latest:
   runtime_size: 964KB
   date: July 4, 2019
 
+  coroutines:
+    version: 1.2.2
+    url: https://github.com/Kotlin/kotlinx.coroutines
+    date: June 18, 2019
+
 
 tutorials:
   native:
