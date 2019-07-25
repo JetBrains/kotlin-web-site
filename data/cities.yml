@@ -1,3 +1,31 @@
+- name: Sibiu, Romania
+  geo:
+    lat: 45.790026
+    lng: 24.135297
+- name: Madison, WI, USA
+  geo:
+    lat: 43.076109
+    lng: -89.38141
+- name: Colorado Springs, CO, USA
+  geo:
+    lat: 38.850309
+    lng: -104.777258
+- name: Clermont Ferrand, France
+  geo:
+    lat: 45.771132
+    lng: 3.088624
+- name: Vladivostok, Russia
+  geo:
+    lat: 43.115536
+    lng: 131.885485
+- name: Penza, Russia
+  geo:
+    lat: 53.195063
+    lng: 45.018316
+- name: Minna, Nigeria
+  geo:
+    lat: 9.614535
+    lng: 6.545493
 - name: River Forest, IL, United States
   geo:
     lat: 42.071499
