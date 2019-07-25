@@ -62,7 +62,7 @@ window.addMouseListener(object : MouseAdapter() {
 
 </div>
 
-_Note_: on the JVM, if the object is an instance of an functional Java interface (i.e. a Java interface with a single abstract method),
+_Note_: on the JVM, if the object is an instance of a functional Java interface (i.e. a Java interface with a single abstract method),
 you can create it using a lambda expression prefixed with the type of the interface:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>

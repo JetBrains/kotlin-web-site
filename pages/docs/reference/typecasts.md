@@ -106,7 +106,7 @@ val x: String = y as String
 
 Note that *null*{: .keyword } cannot be cast to `String` as this type is not [nullable](null-safety.html),
 i.e. if `y` is null, the code above throws an exception. 
-To make such code correct for null values, use the nullable type at the right hand side of the cast:
+To make such code correct for null values, use the nullable type on the right hand side of the cast:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
