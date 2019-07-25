@@ -89,7 +89,7 @@ fun main() {
 
 ```kotlin
 fun List<String>.getShortWordsTo(shortWords: MutableList<String>, maxLength: Int) {
-    this.filterTo(shortWords) { it.length <= maxLength}
+    this.filterTo(shortWords) { it.length <= maxLength }
     // throwing away the articles
     val articles = setOf("a", "A", "an", "An", "the", "The")
     shortWords -= articles
