@@ -7,7 +7,7 @@ Kotlin User Groups are a great place to share your experience with the community
 
 The most common way to begin one is to find a few like-minded people and to get together and organize regular meetups for spreading knowledge on software development with Kotlin. If you feel like you need more ideas or advice on launching a user group, contact [alina@jetbrains.com](mailto:alina@jetbrains.com).
 
-## Kotlin User Groups (181)
+## Kotlin User Groups (184)
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -119,6 +119,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Singapore Kotlin User Group](https://www.meetup.com/Singapore-Kotlin-User-group/), Singapore
  * [Sri Lanka Kotlin User Group](https://www.facebook.com/KotlinSrilanka/), Sri Lanka
  * [Syria Kotlin User Group](https://www.facebook.com/KotlinSyria/), Syria
+ * [Surat Kotlin User Group](https://web.facebook.com/kotlinsurat), India
  * [Taiwan Kotlin User Group](https://wetogether.co/kotlin-tw), Taiwan
  * [Tel Aviv Kotlin User Group](https://www.meetup.com/KotlinTLV/), Israel
  * [Thailand Kotlin Developers](https://www.facebook.com/groups/872547279487598/), Thailand
@@ -204,7 +205,9 @@ The most common way to begin one is to find a few like-minded people and to get 
 * [Johannesburg Kotlin User Group](https://www.meetup.com/Kotlin-Software-Development-Meetup/), South Africa
 * [Kano Kotlin User Group](https://www.meetup.com/Kotlin-Kano-User-Group-Nigeria/), Nigeria
 * [Lagos Kotlin User Group](https://www.meetup.com/Lagos-Kotlin-Meetup/), Nigeria
+* [Lapai Kotlin User Group](https://www.meetup.com/Kotlin-Lapai-User-Group/), Nigeria
 * [Lome Kotlin User Group](https://www.facebook.com/groups/1825278611119862/), Togo
+* [Lubumbashi Kotlin User Group](https://www.meetup.com/Lubumbashi-Kotlin-User-Group/), Congo
 * [Minna Kotlin User Group](https://www.meetup.com/Kotlin-Minna-User-Group-Nigeria/), Nigeria
 * [Minya Kotlin User Group](https://www.facebook.com/kotlinminya/), Egypt
 * [Nairobi Kotlin User Group](https://www.meetup.com/KotlinKenya/), Kenya
