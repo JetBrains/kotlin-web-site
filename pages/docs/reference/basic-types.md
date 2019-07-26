@@ -31,22 +31,24 @@ To specify the `Long` value explicitly, append the suffix `l` or `L` to the valu
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val one = 1 //Int
-val threeBillion = 3000000000 //Long
-val oneLong = 1L //Long
+val one = 1 // Int
+val threeBillion = 3000000000 // Long
+val oneLong = 1L // Long
 val oneByte: Byte = 1
 ```
 
 </div>
 
-For numbers with fractional parts, Kotlin provides types `Float` and `Double`.
-Their values are _floating point numbers_. Floating point types differ by their _precision_,
-that is, how many decimal digits they can store.  
+For floating-point numbers, Kotlin provides types `Float` and `Double`.
+According to the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754),
+floating point types differ by their _decimal place_, that is, how many decimal digits they can store.
+`Float` reflects the IEEE 754 _single precision_, while `Double` provides _double precision_.  
+ 
 
-| Type	 |Size (bits)| Decimal digits|
-|--------|-----------|---------------|
-| Float	 | 32        |6-7            |
-| Double | 64        |15-16          |    
+| Type	 |Size (bits)|Significant bits|Exponent bits|Decimal digits|
+|--------|-----------|--------------- |-------------|--------------|
+| Float	 | 32        |24              |8            |6-7            |
+| Double | 64        |53              |11           |15-16          |    
   
 For variables initialized with fractional numbers, the compiler infers the `Double` type.
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
@@ -55,16 +57,16 @@ If such a value contains more that 6-7 decimal digits, it will be rounded.
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val pi = 3.14 //Double
-val e = 2.7182818284 //Double
-val eFloat = 2.7182818284f //Float, actual value is 2.7182817
+val pi = 3.14 // Double
+val e = 2.7182818284 // Double
+val eFloat = 2.7182818284f // Float, actual value is 2.7182817
 ```
 
 </div>
 
 Note that unlike some other languages, there are no implicit widening conversions for numbers in Kotlin.
-For example, a function with a `Double` parameter can be called only on `Double` values, but not `Float`
-or any integer values.  
+For example, a function with a `Double` parameter can be called only on `Double` values, but not `Float`, 
+`Int`, or other numeric values.  
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -77,13 +79,15 @@ fun main() {
     val f = 1.1f 
 
     printDouble(d)
-    //printDouble(i) // exception
-    //printDouble(f) // exception
+//    printDouble(i) // Error: Type mismatch
+//    printDouble(f) // Error: Type mismatch
 }
 ```
 </div>
 
-### Literal Constants
+To convert numeric values to different types, use [Explicit conversions](#explicit-conversions).
+
+### Literal constants
 
 There are the following kinds of literal constants for integral values:
 
@@ -156,7 +160,7 @@ fun main() {
 
 </div>
 
-### Explicit Conversions
+### Explicit conversions
 
 Due to different representations, smaller types are not subtypes of bigger ones.
 If they were, we would have troubles of the following sort:
@@ -251,7 +255,7 @@ Here is the complete list of bitwise operations (available for `Int` and `Long` 
 * `xor(bits)` – bitwise __xor__
 * `inv()` – bitwise inversion
 
-### Floating Point Numbers Comparison
+### Floating point numbers comparison
 
 The operations on floating point numbers discussed in this section are:
 
@@ -494,7 +498,7 @@ println(s + "def")
 
 Note that in most cases using [string templates](#string-templates) or raw strings is preferable to string concatenation.
 
-### String Literals
+### String literals
 
 Kotlin has two types of string literals: escaped strings that may have escaped characters in them
 and raw strings that can contain newlines and arbitrary text. Here's an example of an escaped string:
@@ -539,7 +543,7 @@ val text = """
 
 By default `|` is used as margin prefix, but you can choose another character and pass it as a parameter, like `trimMargin(">")`.
 
-### String Templates
+### String templates
 
 String literals may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string.
 A template expression starts with a dollar sign ($) and consists of either a simple name:

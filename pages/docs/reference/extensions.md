@@ -7,11 +7,11 @@ title: "Extensions"
 
 # Extensions
 
-Kotlin, similar to C#, provides the ability to extend a class with new functionality
+Kotlin provides the ability to extend a class with new functionality
 without having to inherit from the class or use design patterns such as Decorator.
 This is done via special declarations called _extensions_.
-For example, you can write new methods for a class from a third-party library that you can't modify.
-Such methods are available for calling in the usual way as if they were defined in the original class. 
+For example, you can write new functions for a class from a third-party library that you can't modify.
+Such functions are available for calling in the usual way as if they were methods of the original class. 
 This mechanism is called _extension functions_. There are also _extension properties_ that let you define
 new properties for existing classes.
 
@@ -75,28 +75,29 @@ not by the type of the result of evaluating that expression at runtime. For exam
 ```kotlin
 fun main() {
 //sampleStart
-    open class Base
+    open class Shape
     
-    class Derived: Base()
+    class Rectangle: Shape()
     
-    fun Base.getName() = "Base"
+    fun Shape.getName() = "Shape"
     
-    fun Derived.getName() = "Derived"
+    fun Rectangle.getName() = "Rectangle"
     
-    fun printClassName(b: Base) {
-        println(b.getName())
+    fun printClassName(s: Shape) {
+        println(s.getName())
     }    
     
-    printClassName(Derived())
+    printClassName(Rectangle())
 //sampleEnd
 }
 ```
 </div>
 
-This example prints "_Base_", because the extension function being called depends only on the declared type of the
-parameter `b`, which is the `Base` class.
+This example prints "_Shape_", because the extension function being called depends only on the declared type of the
+parameter `s`, which is the `Shape` class.
 
-If a class has a member function, and an extension function is defined which has the same receiver type, the same name is applicable to given arguments, the **member always wins**.
+If a class has a member function, and an extension function is defined which has the same receiver type,
+the same name, and is applicable to given arguments, the **member always wins**.
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -105,16 +106,18 @@ For example:
 fun main() {
 //sampleStart
     class Example {
-        fun printFunctionType() { println("member") }
+        fun printFunctionType() { println("Class method") }
     }
     
-    fun Example.printFunctionType() { println("extension") }
+    fun Example.printFunctionType() { println("Extension function") }
     
     Example().printFunctionType()
 //sampleEnd
 }
 ```
 </div>
+
+This code prints "_Class method_".
 
 However, it's perfectly OK for extension functions to overload member functions which have the same name but a different signature:
 
@@ -124,10 +127,10 @@ However, it's perfectly OK for extension functions to overload member functions 
 fun main() {
 //sampleStart
     class Example {
-        fun printFunctionType() { println("member") }
+        fun printFunctionType() { println("Class method") }
     }
     
-    fun Example.printFunctionType(i: Int) { println("extension") }
+    fun Example.printFunctionType(i: Int) { println("Extension function") }
     
     Example().printFunctionType(1)
 //sampleEnd
@@ -278,7 +281,7 @@ precedence. To refer to the member of the dispatch receiver you can use the [qua
 
 ```kotlin
 class Connection {
-    fun Host.gettConnectionString() {
+    fun Host.getConnectionString() {
         toString()         // calls Host.toString()
         this@Connection.toString()  // calls Connection.toString()
     }

@@ -25,7 +25,7 @@ All the contents (such as classes and functions) of the source file are containe
 So, in the example above, the full name of `printMessage()` is `org.example.printMessage`,
 and the full name of `Message` is `org.example.Message`. 
  
-If the package is not specified, the contents of such a file belong to `default` package that has no name.
+If the package is not specified, the contents of such a file belong to the default package that has no name.
 
 ## Default Imports
 
