@@ -26,6 +26,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Berlin Kotlin User Group](https://www.meetup.com/kotlin-berlin/), Germany
  * [Bielefelder Kotlin User Group](https://www.meetup.com/Bielefelder-Kotlin-User-Group/),
  * [Bosnia Kotlin User Group](https://www.facebook.com/kotlinugbosnia), Bosnia and Herzegovina
+ * [Brighton Kotlin User Group](https://www.meetup.com/Brighton-Kotlin/), United Kingdom
  * [Bucharest Kotlin User Group](https://www.meetup.com/kug-bucharest/), Romania
  * [Budapest Kotlin User Group](https://www.facebook.com/groups/KotlinBudapest/), Hungary
  * [Cologne Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref), Germany
