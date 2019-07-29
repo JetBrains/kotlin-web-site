@@ -39,34 +39,27 @@ a function that is declared using the `expect` keyword. The `actual` implementat
 It is also possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate edition.
 
 * Kotlin plugin {{ site.data.releases.latest.version }} or higher should be installed in the IDE. This can be verified via
-*Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) of the IDE.
+*Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) window.
 
 * macOS host operating system is required to compile for iOS and macOS devices. We need to have
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured. Check out
 the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
 *Note: We'll be using IntelliJ IDEA 2019.2, Android Studio 3.4,
-Kotlin {{ site.data.releases.latest.version }} , Xcode 10.3, macOS 10.14, Gradle 5.5.1*
+Kotlin {{ site.data.releases.latest.version }}, Xcode 10.3, macOS 10.14, Gradle 5.5.1*
 
 # Creating an Android Project
 
-We'll create a new Android project via *Start New Android Project* item. If using IntelliJ IDEA, we need to select *Android* in 
-the left panel of the *New Project* wizard. 
+We need Android Studio for the tutorial. We may download and install it from the
+[https://developer.android.com/studio/](https://developer.android.com/studio/). Let's start
+the IDE and check if we see the Kotlin version
+{{ site.data.releases.latest.version }}
+or newer under the Kotlin section in the _Settings_ (or _Preferences_) dialog,
+in the _Languages & Frameworks_ | _Kotlin_ section.
 
-It's important to make sure that the *Include Kotlin support* checkbox is ticked. For now we can leave the default settings 
-in the next step of the wizard. We then proceed to select the *Empty Activity* option and click *Next*, finally pressing *Finish*.  
-
-**Note** If using pre-release or EAP versions of the Kotlin plugin, the IDE may fail to open the generated project, 
-giving a Gradle import [error](https://youtrack.jetbrains.com/issue/KT-18835#focus=streamItem-27-2718879-0-0).
-This is because the right Maven repository isn't referenced in the `build.gradle` file, it can be resolved by adding 
-the following entry *twice*, into each of the `repositories { .. }` blocks.
-
-<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
-
-```groovy
-maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-```
-</div>
+Let's first create a new Android project via *Start a new Android project* item of the Android Studio home screen. 
+We then proceed to select the *Empty Activity* option and click *Next*. It's important to select _Kotlin_
+language in the wizard. Now we press the *Finish* button to create a new Android project.
 
 <a name="gradle-upgrade"/>
 Kotlin/Native plugin requires a newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
