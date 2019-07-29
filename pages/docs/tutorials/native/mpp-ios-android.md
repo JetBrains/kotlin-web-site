@@ -38,14 +38,15 @@ a function that is declared using the `expect` keyword. The `actual` implementat
 * We will be using [Android Studio](https://developer.android.com/studio/) for the Android part of the tutorial. 
 It is also possible to use [IntelliJ IDEA](https://jetbrains.com/idea) Community or Ultimate edition.
 
-* Kotlin plugin 1.3.21 or higher should be installed in the IDE. This can be verified via
+* Kotlin plugin {{ site.data.releases.latest.version }} or higher should be installed in the IDE. This can be verified via
 *Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) of the IDE.
 
 * macOS host operating system is required to compile for iOS and macOS devices. We need to have
 [Xcode](https://developer.apple.com/xcode/) and the tools installed and configured. Check out
 the [Apple Developer Site](https://developer.apple.com/xcode/) for more details. 
 
-*Note: We'll be using IntelliJ IDEA 2018.3 EAP, Android Studio 3.2, Kotlin 1.3.21, Xcode 10.0, macOS 10.14, Gradle 4.7*
+*Note: We'll be using IntelliJ IDEA 2019.2, Android Studio 3.4,
+Kotlin {{ site.data.releases.latest.version }} , Xcode 10.3, macOS 10.14, Gradle 5.5.1*
 
 # Creating an Android Project
 
@@ -165,12 +166,14 @@ include ':SharedCode'
 </div>
 
 Next,
-we need to create the `SharedCode/build.gradle` file with the following content:
+we need to create the `SharedCode/build.gradle.kts` file with the following content:
  
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```groovy
-apply plugin: 'kotlin-multiplatform'
+plugins {
+    kotlin("multiplatform")
+}
 
 kotlin {
     targets {
@@ -207,7 +210,7 @@ configurations {
 
 ## Multiplatform Gradle Project
 
-The `SharedCode/build.gradle` file uses the `kotlin-multiplatform` plugin to implement 
+The `SharedCode/build.gradle.kts` file uses the `kotlin-multiplatform` plugin to implement 
 what we need. 
 In the file, we define several targets `common`, `android`, and `iOS`. Each
 target has its own platform. The `common` target contains the Kotlin common code 
@@ -324,7 +327,7 @@ It is either `iOS arm64` or `iOS x86_64` depending on environment variables.
 We need to supply the right Framework out of those four depending on the selected target in the Xcode
 project. It depends on the target configuration selected in Xcode. Also,
 we'd like to make Xcode compile the Framework for us before the build.
-We need to include the additional task to the end of the `SharedCode/build.gradle` Gradle file:
+We need to include the additional task to the end of the `SharedCode/build.gradle.kts` Gradle file:
 
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
