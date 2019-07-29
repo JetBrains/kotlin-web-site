@@ -11,7 +11,7 @@ issue: EVAN-5343
 
 This is the second post in the series. The very first tutorial 
 of the series is [Mapping Primitive Data Types from C](mapping-primitive-data-types-from-c.html).
-There are also the [Mapping Struct and Union Types from C](mapping-struct-union-types-from-c.html) and 
+There are also the [Mapping Function Pointers from C](mapping-function-pointers-from-c.html) and 
 [Mapping Strings from C](mapping-strings-from-c.html) tutorials.
 
 In the tutorial we will learn:
