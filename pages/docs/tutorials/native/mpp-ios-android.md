@@ -90,7 +90,7 @@ under the project root directory
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
-package org.kotlin.mpp.mobile
+package com.jetbrains.handson.mpp.mobile
 
 expect fun platformName(): String
 
@@ -109,7 +109,7 @@ Now, we need to create the implementation file (and missing directories) for And
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
-package org.kotlin.mpp.mobile
+package com.jetbrains.handson.mpp.mobile
 
 actual fun platformName(): String {
   return "Android"
@@ -122,7 +122,7 @@ We create a similar implementation file (and missing directories) for the iOS ta
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 
 ```kotlin
-package org.kotlin.mpp.mobile
+package com.jetbrains.handson.mpp.mobile
 
 import platform.UIKit.UIDevice
 
@@ -267,7 +267,7 @@ findViewById<TextView>(R.id.main_text).text = createApplicationScreenMessage()
 
 Use the intention from the IDE to include the missing import line:
 ```kotlin
-import org.kotlin.mpp.mobile.createApplicationScreenMessage
+import com.jetbrains.handson.mpp.mobile.createApplicationScreenMessage
 ```
 into the same file. 
 
