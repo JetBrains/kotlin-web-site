@@ -52,20 +52,20 @@ Kotlin {{ site.data.releases.latest.version }}, Xcode 10.3, macOS 10.14, Gradle 
 
 We need Android Studio for the tutorial. We may download and install it from the
 [https://developer.android.com/studio/](https://developer.android.com/studio/). Let's start
-the IDE and check if we see the Kotlin version
+the IDE and check if we see the fresh Kotlin version, namely 
 {{ site.data.releases.latest.version }}
-or newer under the Kotlin section in the _Settings_ (or _Preferences_) dialog,
-in the _Languages & Frameworks_ | _Kotlin_ section.
+or newer under the Kotlin section _Languages & Frameworks_ | _Kotlin_
+in the _Settings_ (or _Preferences_) dialog of Android Studio.
 
-Let's first create a new Android project via *Start a new Android project* item of the Android Studio home screen. 
-We then proceed to select the *Empty Activity* option and click *Next*. It's important to select _Kotlin_
-language in the wizard. Now we press the *Finish* button to create a new Android project.
+Our first step is to create a new Android project via the *Start a new Android project* item of the Android Studio home screen. 
+We then proceed to select the *Empty Activity* option and click *Next*. It's important to pick the _Kotlin_
+language in the wizard. Now we press the *Finish* button to create our new Android project.
 
 <a name="gradle-upgrade"/>
 Kotlin/Native plugin requires a newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
 and use the following `distrubutionUrl`:
 ```
-distributionUrl=https\://services.gradle.org/distributions/gradle-4.7-all.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-5.5.1-all.zip
 ```
 
 We need to refresh the Gradle Project settings to apply these changes. Click on the `Sync Now` link or 
