@@ -59,7 +59,8 @@ in the _Settings_ (or _Preferences_) dialog of Android Studio.
 
 Our first step is to create a new Android project via the *Start a new Android project* item of the Android Studio home screen. 
 We then proceed to select the *Empty Activity* option and click *Next*. It's important to pick the _Kotlin_
-language in the wizard. Now we press the *Finish* button to create our new Android project.
+language in the wizard. Let's use the `com.jetbrains.handson.mpp.mobile` package
+for the tutorial. Now we press the *Finish* button to create our new Android project.
 
 <a name="gradle-upgrade"/>
 Kotlin/Native plugin requires a newer version of Gradle, let's patch the `gradle/wrapper/gradle-wrapper.properties`
@@ -226,7 +227,12 @@ Now it is time to refresh the Gradle project again in Android Studio. Click *Syn
 or use the *Gradle* tool window and click the `Refresh` action in the context menu on the root Gradle project.
 The `:SharedCode` project should be recognized by the IDE now.
 
-We are ready to use the `SharedCode` library from our Android and iOS applications.
+We can use the `step-004` branch of the 
+[github.com/kotlin-hands-on/mpp-ios-android](https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-004)
+repository as a solution for the tasks that we did above. We can also download the
+[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-004.zip) from GitHub directly.
+
+Let's use the `SharedCode` library from our Android and iOS applications.
 
 # Using SharedCode from Android
 
@@ -250,7 +256,8 @@ We need to
 assign the `id` to the `TextView` control of our activity to access it from the code.
 Let's patch the
 `app/src/main/res/layout/activity_main.xml` file
-(the name may be different if we changed it in the new project wizard)
+(the name may be different if we changed it in the new project wizard). 
+Select the _Text_ tab on the bottom of the preview to switch it to the XML source
 and add several more attributes to the `<TextView>` element: 
 ```
         android:id="@+id/main_text"
@@ -260,22 +267,30 @@ and add several more attributes to the `<TextView>` element:
 ```
 
 Next, let's include the following line of code into the `MainActivity` class
-from the `/app/src/main/java/<package>/MainActivity.kt` file, to 
+from the `/app/src/main/java/com/jetbrains/handson/mpp/mobile/MainActivity.kt` file, to 
 the end of the `onCreate` method:
 
 ```
 findViewById<TextView>(R.id.main_text).text = createApplicationScreenMessage()
 ```
 
-Use the intention from the IDE to include the missing import line:
+You will need to add the import for the `android.widget.TextView` class. Android Studio
+will suggest to add the import automatically. Depending on the package of the Android application,
+we may also need to add the import for the `createApplicationScreenMessage()` function too.
+We should see these two lines at the beginning of the `MainActivity.kt` file:
 ```kotlin
 import com.jetbrains.handson.mpp.mobile.createApplicationScreenMessage
+import android.widget.TextView
 ```
-into the same file. 
 
 Now we have the `TextView` that will show us the text created by the shared
 code function `createApplicationScreenMessage()`. It shows `Kotlin Rocks on Android`.
-Let's see how it works. 
+Let's see how it works by running the Android application!
+
+We can use the `step-005` branch of the 
+[github.com/kotlin-hands-on/mpp-ios-android](https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-005)
+repository as a solution for the tasks that we did above. We can also download the
+[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-005.zip) from GitHub directly.
 
 ## Running the Android Application
 
