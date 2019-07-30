@@ -80,6 +80,69 @@ by manually creating the `SharedCode` sub-project in our Gradle project. The sou
 project will be shared between platforms.
 We will create several new files in our project to implement that.
 
+
+## Updating Gradle Scripts
+
+The `SharedCode` sub-project should generate several artifacts for us:
+ - JAR file for the Android project, from the `androidMain` source set
+ - Apple framework 
+   - for iOS device and App Store (`arm64` target)
+   - for iOS emulator (`x86_64` target)
+
+Let's update the Gradle scripts now to implement that and configure our IDE. 
+
+First, we add the new project into the `settings.gradle` file, simply by adding the following line to the end of the file:
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```groovy
+include ':SharedCode'
+```
+</div>
+
+Next,
+we need to create the `SharedCode/build.gradle.kts` file with the following content:
+ 
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
+plugins {
+    kotlin("multiplatform")
+}
+
+kotlin {
+    val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
+        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
+            ::iosArm64
+        else
+            ::iosX64
+
+    iOSTarget("ios") {
+        binaries {
+            framework {
+                baseName = "SharedCode"
+            }
+        }
+    }
+
+    jvm("android")
+
+    sourceSets["commonMain"].dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
+    }
+
+    sourceSets["androidMain"].dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib")
+    }
+}
+
+```
+</div>
+
+We need to refresh the Gradle Project settings to apply these changes. Click on the `Sync Now` link or 
+use the *Gradle* tool window and click the refresh action from the context menu on the root Gradle project.
+
 ## Adding Kotlin Sources
 
 The idea is to make every platform show similar text: `Kotlin Rocks on Android` and 
@@ -140,67 +203,6 @@ Kotlin/Native compiler comes with a set of pre-imported frameworks, so we can us
 the UIKit Framework without additional steps.
 Objective-C and Swift Interop is covered in details in the [documentation](/docs/reference/native/objc_interop.html)
 
-## Updating Gradle Scripts
-
-The `SharedCode` sub-project should generate several artifacts for us:
- - JAR file for the Android project, from the `androidMain` source set
- - Apple framework 
-   - for iOS device and App Store (`arm64` target)
-   - for iOS emulator (`x86_64` target)
-
-Let's update the Gradle scripts now to implement that and configure our IDE. 
-
-First, we add the new project into the `settings.gradle` file, simply by adding the following line to the end of the file:
-<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
-
-```groovy
-include ':SharedCode'
-```
-</div>
-
-Next,
-we need to create the `SharedCode/build.gradle.kts` file with the following content:
- 
-<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
-
-```groovy
-plugins {
-    kotlin("multiplatform")
-}
-
-kotlin {
-    targets {
-        final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") \
-                              ? presets.iosArm64 : presets.iosX64
-
-        fromPreset(iOSTarget, 'ios') {
-             binaries {
-                framework('SharedCode')
-            }
-        }
-
-        fromPreset(presets.jvm, 'android')
-    }
-
-    sourceSets {
-        commonMain.dependencies {
-            api 'org.jetbrains.kotlin:kotlin-stdlib-common'
-        }
-
-        androidMain.dependencies {
-            api 'org.jetbrains.kotlin:kotlin-stdlib'
-        }
-    }
-}
-
-// workaround for https://youtrack.jetbrains.com/issue/KT-27170
-configurations {
-    compileClasspath
-}
-
-```
-</div>
-
 ## Multiplatform Gradle Project
 
 The `SharedCode/build.gradle.kts` file uses the `kotlin-multiplatform` plugin to implement 
@@ -217,7 +219,7 @@ Let's summarize what we have in the table:
 | name | source folder | target | artifact |
 |---|---|---|---|
 | common | `SharedCode/commonMain/kotlin` |  - | Kotlin metadata |
-| android | `SharedCode/androidMain/kotlin` | JVM 6 | `.jar` file or `.class` files |
+| android | `SharedCode/androidMain/kotlin` | JVM 1.6 | `.jar` file or `.class` files |
 | iOS | `SharedCode/iosMain` | iOS arm64 or x86_64| Apple framework |
 
 Now it is time to refresh the Gradle project again in Android Studio. Click *Sync Now* on the yellow stripe 
