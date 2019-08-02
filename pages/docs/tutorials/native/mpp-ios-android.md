@@ -113,6 +113,7 @@ plugins {
 }
 
 kotlin {
+    //select iOS target platform depending on the Xcode environment variables
     val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
         if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
             ::iosArm64
@@ -138,11 +139,33 @@ kotlin {
     }
 }
 
+val packForXcode by tasks.creating(Sync::class) {
+    //selecting the right configuration for the iOS framework depending on the Xcode environment variables
+    val mode = project.findProperty("XCODE_CONFIGURATION")?.toString() ?: "DEBUG"
+    val framework = kotlin.targets.getByName<KotlinNativeTarget>("ios").binaries.getFramework(mode)
+
+    inputs.property("mode", mode)
+    dependsOn(framework.linkTask)
+
+    val targetDir = File(buildDir, "xcode-frameworks")
+    from({ framework.outputDirectory })
+    into(targetDir)
+
+    doLast {
+        val gradlew = File(targetDir, "gradlew")
+        gradlew.writeText("#!/bin/bash\nexport 'JAVA_HOME=${System.getProperty("java.home")}'\ncd '${rootProject.rootDir}'\n./gradlew \$@\n")
+        gradlew.setExecutable(true)
+    }
+}
+
+tasks.getByName("build").dependsOn(packForXcode)
 ```
 </div>
 
 We need to refresh the Gradle Project settings to apply these changes. Click on the `Sync Now` link or 
 use the *Gradle* tool window and click the refresh action from the context menu on the root Gradle project.
+The `packForXcode` Gradle task is used for Xcode project integration. We will disuss it a bit later in that
+tutorial.  
 
 ## Adding Kotlin Sources
 
@@ -333,52 +356,23 @@ check out the repository and select the branch.
 
 # Setting up Framework Dependency in Xcode
 
-The `SharedCode` build generates iOS frameworks for use with the Xcode project.
-All frameworks are in the `SharedCode/build/bin` folder. 
-It creates a *debug* and *release* version for every framework target.
-The frameworks are in the following paths:
-```
-SharedCode/build/bin/iOS/main/debug/framework/SharedCode.framework
-SharedCode/build/bin/iOS/main/release/framework/SharedCode.framework
-```
+Let's run the `packForXcode` Gradle task of the `SharedCode` project. We may do that either from
+the _Gradle_ tab in AndroidStudio or by running the `./gradlew :SharedCode:packForXcode` command
+from console. That task is designed to help to simplify the setup of our iOS Framework
+into Xcode project model.
 
-We use the condition in the Gradle script to select the target platform for the framework.
-It is either `iOS arm64` or `iOS x86_64` depending on environment variables.
+One needs several binaries of a framework to use it with Xcode:
+- `iOS arm64 debug` --- the binary to run in iOS device in debug mode
+- `iOS arm64 release` --- the binary to include into a release version of an app
+- `iOS x64 debug` --- the binary for iOS simulator, which uses the desktop mac CPU
 
-## Tuning the Gradle Build Script
-We need to supply the right Framework out of those four depending on the selected target in the Xcode
-project. It depends on the target configuration selected in Xcode. Also,
-we'd like to make Xcode compile the Framework for us before the build.
-We need to include the additional task to the end of the `SharedCode/build.gradle.kts` Gradle file:
-
-<div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
-
-```groovy
-task packForXCode(type: Sync) {
-    final File frameworkDir = new File(buildDir, "xcode-frameworks")
-    final String mode = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
-    final def framework = kotlin.targets.ios.binaries.getFramework("SharedCode", mode)
-
-    inputs.property "mode", mode
-    dependsOn framework.linkTask
-
-    from { framework.outputFile.parentFile }
-    into frameworkDir
-
-    doLast {
-        new File(frameworkDir, 'gradlew').with {
-            text = "#!/bin/bash\nexport 'JAVA_HOME=${System.getProperty("java.home")}'\ncd '${rootProject.rootDir}'\n./gradlew \$@\n"
-            setExecutable(true)
-        }
-    }
-}
-tasks.build.dependsOn packForXCode
-```
-</div>
-
-Note, the task may not work [correctly](https://github.com/gradle/gradle/issues/6330)
-if you use Gradle older than 4.10. 
-In this tutorial we have already [upgraded it to 4.7](#gradle-upgrade).
+The easiest way to configure Xcode is to use a custom built framework is to
+place the framework under the same folder for all configurations and targets
+and to add a custom step into the Xcode project build to update or build that
+framework before the actual Xcode build is started. Xcode sets several environment
+variables for custom steps, we use these variables in the Gradle script to select
+the requested target platform and the configuration. For more details,
+please refer to the `packForXcode` task sources in the `SharedCode/build.gradle.kts` file. 
 
 Let's switch back to the Android Studio and execute the `build` target of the `SharedCode` project from
 the *Gradle* tool window. The task looks for environment variables set by the Xcode build and copies
