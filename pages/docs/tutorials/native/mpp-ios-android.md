@@ -4,7 +4,7 @@ layout: tutorial
 title:  "Multiplatform Project: iOS and Android"
 description: "Sharing Kotlin code between iOS and Android"
 authors: Eugene Petrenko
-date: 2018-10-04
+date: 2019-08-11
 showAuthorInfo: false
 issue: EVAN-6029
 ---
@@ -230,7 +230,8 @@ The `:SharedCode` project should be recognized by the IDE now.
 We can use the `step-004` branch of the 
 [github.com/kotlin-hands-on/mpp-ios-android](https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-004)
 repository as a solution for the tasks that we did above. We can also download the
-[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-004.zip) from GitHub directly.
+[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-004.zip) from GitHub directly
+or check out the repository and select the branch.
 
 Let's use the `SharedCode` library from our Android and iOS applications.
 
@@ -290,7 +291,8 @@ Let's see how it works by running the Android application!
 We can use the `step-005` branch of the 
 [github.com/kotlin-hands-on/mpp-ios-android](https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-005)
 repository as a solution for the tasks that we did above. We can also download the
-[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-005.zip) from GitHub directly.
+[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-005.zip) from GitHub directly
+or check out the repository and select the branch.
 
 ## Running the Android Application
 
@@ -307,17 +309,27 @@ And so now we can see the Application running in the Android emulator:
 # Creating iOS Application
 
 We open Xcode and select *Create a new Xcode project* option. In 
-the dialog, we choose the iOS target and select the *Single View App*. Fill the next page with defaults, 
-and use the `KotlinIOS` (or something else) as the *Product Name*. Let's select Swift as the language (it is possible to use
-Objective-C too). We should instruct Xcode to place the project into the `native` folder under our project, later we
-will use relative paths in the configuration files. 
+the dialog, we choose the iOS target and select the *Single View App* and click next. Fill the next page with defaults, 
+and use the `KotlinIOS` as the *Product Name*. Let's select _Swift_ as the language (it is possible to use
+Objective-C too). Use the `com.jetbrains.handson.mpp.mobile` string for the _Organization Identifier_ field.
+Now the _Next_ button should be available and we click on it.
+In the file picker dialog, that is shown after the click, we need to select the root folder
+of our project (it is shown at many places in AndroidStudio), click the _New Folder_ button and
+create the folder called `native` un it. The folder should be selected now and we may click _Create_
+button to complete the dialog. Later in the tutorial, we will use relative paths in the configuration files. 
 
-The created iOS application is ready to run on the iOS emulator or on the iOS device. The device run
-may require an Apple developer account and to issue a developer certificate. Xcode does its
+The created iOS application is ready to run on the iOS simulator or on the iOS device. The device run
+may require an Apple developer account and a developer certificate. Xcode does its
 best to guide us through the process. 
 
-Let's make sure we can run the application on the iPhone emulator or device. 
+Let's make sure we can run the application on the iPhone simulator or device by clicking a play button
+from the XCode window title bar. 
 
+The `step-006` branch of the 
+[github.com/kotlin-hands-on/mpp-ios-android](https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-006)
+repository contains a possible solution for the tasks that we did above. One can also download the
+[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-006.zip) from GitHub directly or
+check out the repository and select the branch.
 
 # Setting up Framework Dependency in Xcode
 
