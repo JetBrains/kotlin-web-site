@@ -22,13 +22,11 @@ We'll learn how to:
    - Use [Kotlin from Swift](#calling-kotlin-code-from-swift)
    - Start the [iOS application](#running-the-ios-application)
 
-Our goal of this tutorial is to demonstrate the ability to share code within Kotlin and the benefits it provides. While 
-what we'll be looking at is a simplified application, what is shown here can be applied to real world applications,
-independent of their size or complexity.
-
 The application we're going to create will simply show 
-`Kotlin Rocks on Android` on Android and `Kotlin Rocks on iOS <version>` on iOS.
-The idea is to share the code that generates this message.
+`Kotlin Rocks on Android` text on Android and `Kotlin Rocks on iOS <version>` text on iOS.
+Our goal is to demonstrate the ability to share Kotlin code between platforms, the project setup, and the benefits
+it provides. While we'll be looking at is a simplified application, what is shown here can be applied to real world applications,
+independent of their size or complexity.
 
 The common code is `"Kotlin Rocks on ${platformName()}"`, where `platformName()` is 
 a function that is declared using the `expect` keyword. The `actual` implementation will be specific to the platform.
@@ -62,7 +60,7 @@ We then proceed to select the *Empty Activity* option and click *Next*. It's imp
 language in the wizard. Let's use the `com.jetbrains.handson.mpp.mobile` package
 for the tutorial. Now we press the *Finish* button to create our new Android project.
 
-At this point, we should be able to compile and run the Android application.
+At this point, we should be able to compile and run the Android application. Let's check that!
 
 # Creating the Shared Module
 
@@ -77,10 +75,9 @@ The `SharedCode` sub-project should generate several artifacts for us:
  - JAR file for the Android project, from the `androidMain` source set
  - Apple framework 
    - for iOS device and App Store (`arm64` target)
-   - for iOS emulator (`x86_64` target)
+   - for iOS simulator (`x86_64` target)
 
-Let's update the Gradle scripts now to implement that and configure our IDE. 
-
+Let's update the Gradle scripts now to implement that and configure our IDE.
 First, we add the new project into the `settings.gradle` file, simply by adding the following line to the end of the file:
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -161,7 +158,7 @@ tasks.getByName("build").dependsOn(packForXcode)
 
 We need to refresh the Gradle Project settings to apply these changes. Click on the `Sync Now` link or 
 use the *Gradle* tool window and click the refresh action from the context menu on the root Gradle project.
-The `packForXcode` Gradle task is used for Xcode project integration. We will disuss it a bit later in that
+The `packForXcode` Gradle task is used for Xcode project integration. We will discuss it a bit later in this
 tutorial.  
 
 ## Adding Kotlin Sources
@@ -185,8 +182,8 @@ fun createApplicationScreenMessage() : String {
 ```
 </div>
 
-That is the common part. The code to generate the final message. It `expect`s the platform
-to provide the platform name from the `expect fun platformName(): String` function. We will use
+That is the common part. The code to generate the final message. It `expect`s the platform part
+to provide the platform-specific name from the `expect fun platformName(): String` function. We will use
 the `createApplicationScreenMessage` from both Android and iOS applications.
 
 Now, we need to create the implementation file (and missing directories) for Android in the `SharedCode/src/androidMain/kotlin/actual.kt`:
@@ -464,14 +461,13 @@ Next, we call the Kotlin function from it as `CommonKt.createApplicationScreenMe
 [Kotlin/Native as an Apple Framework](/docs/tutorials/native/apple-framework.html) tutorial for
 more details on the Kotlin/Native to Swift (or Objective-C) interop.
 
-
 The `step-008` branch of the 
 [github.com/kotlin-hands-on/mpp-ios-android](https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-008)
 repository contains a possible solution for the tasks that we did above. One can also download the
 [archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-008.zip) from GitHub directly or
 check out the repository and select the branch.
 
-Right now, we are ready to start the application in the emulator or on an iOS device.
+Right now, we are ready to start the application in the simulator or on an iOS device.
 
 ## Running the iOS Application
 
