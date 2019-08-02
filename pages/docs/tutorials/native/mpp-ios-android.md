@@ -382,26 +382,29 @@ framework from that folder into the build
 ## Setting up Xcode
 
 We add the `SharedCode` framework to the Xcode project.
-For that let's click on the root node of the *project navigator* and select the *target* settings.
+For that let's double-click on the the `KotlinIOS` node (or root node) of the *project navigator (⌘1)* tree
+to open the *target* settings.
 Next, we click on the `+` in the *Embedded Binaries* section, click *Add Other...* button in the dialog
 to choose the framework from the disk. We can point to the following folder: 
 ```
 SharedCode/build/xcode-frameworks/SharedCode.framework
 ```
 
-We will then see something similar to this: 
+In the next dialog we should select the _Create folder references_ option and make sure the _Copy items if needed_
+checkbox is unchecked. We will then see something similar to this: 
 ![Xcode General Screen]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-general.png') }})
 
-Now we need to explain to Xcode, where to look for frameworks. We need to add the *relative* path 
+Now we need to explain to Xcode, where to look for the framework.
+For that, we open the *Build Settings* tab again, pick the *All* sub-tab below, and type the *Framework Search Paths* into
+the search field to easily find the option. We need to add the *relative* path 
 `$(SRCROOT)/../../SharedCode/build/xcode-frameworks` into the *Search Paths | Framework Search Paths* section.
-Open the *Build Settings* tab again, pick the *All* sub-tab below, and type the *Framework Search Paths* into
-the search field to easily find the option.
 Xcode will then show the substituted path in the UI for it.
 
 ![Xcode Build Settings]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-search-path.png') }})
 
 The final step is to make Xcode call our Gradle build to prepare the `SharedCode` framework before each run.
-We open the *Build Phases* tab and click `+` to add the *New Run Script Phase* and add the following code into it:
+We open the *Build Phases* tab and click `+` to add the *New Run Script Phase*, drag that step to the very
+first position, and add the following code into the shell script text area:
 
 <div class="sample" markdown="1" mode="bash" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -415,7 +418,13 @@ Note, here we use the `$SRCROOT/../..` as the path to the root of our Gradle pro
 It can depend on the way the Xcode project was created. Also, we use the generated
 `SharedCode/build/xcode-frameworks/gradlew` script,
 the `packForXCode` task generates it. We assumed that the Gradle build is executed at least once,
-before opening the Xcode project on a fresh machine
+*before* opening the Xcode project on a fresh machine.
+
+The `step-007` branch of the 
+[github.com/kotlin-hands-on/mpp-ios-android](https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-007)
+repository contains a possible solution for the tasks that we did above. One can also download the
+[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-007.zip) from GitHub directly or
+check out the repository and select the branch.
 
 ![Xcode Build Phases]({{ url_for('tutorial_img', filename='native/mpp-ios-android/xcode-run-script.png') }})
 
@@ -428,9 +437,9 @@ We are now ready to start coding the iOS application and to use the Kotlin code 
 ## Calling Kotlin Code from Swift
 
 Remember, our goal is to show the text message on the screen. As we see, our iOS application does not draw
-anything on the screen. Let's make it show the `UILabel` with the text message. 
-We need to replace the contents
-of the `ViewController.swift` file with the following code:
+anything on the screen. Let's make it show the `UILabel` with the text message.
+Let's open the `ViewController.swift` file from the *project navigator (⌘1)* tree.
+We need to replace the contents of the `ViewController.swift` filewith the following code:
  
 <div class="sample" markdown="1" mode="swift" theme="idea" data-highlight-only="1" auto-indent="false">
 
@@ -450,7 +459,6 @@ class ViewController: UIViewController {
         view.addSubview(label)
     }
 }
-
 ```
 </div>
  
@@ -458,6 +466,13 @@ We use the `import SharedCode` to import our Framework, which we compiled with K
 Next, we call the Kotlin function from it as `CommonKt.createApplicationScreenMessage()`. Follow the 
 [Kotlin/Native as an Apple Framework](/docs/tutorials/native/apple-framework.html) tutorial for
 more details on the Kotlin/Native to Swift (or Objective-C) interop.
+
+
+The `step-008` branch of the 
+[github.com/kotlin-hands-on/mpp-ios-android](https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-008)
+repository contains a possible solution for the tasks that we did above. One can also download the
+[archive](https://github.com/kotlin-hands-on/mpp-ios-android/archive/step-008.zip) from GitHub directly or
+check out the repository and select the branch.
 
 Right now, we are ready to start the application in the emulator or on an iOS device.
 
