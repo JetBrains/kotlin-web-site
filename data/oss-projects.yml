@@ -272,3 +272,8 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+  
+- name: Harrier
+  description: Simpler use of multithreading in Kotlin
+  type: Library
+  link: https://github.com/KingFalse/harrier
