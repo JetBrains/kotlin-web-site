@@ -34,9 +34,9 @@ inspections that verify other issues described in the style guide (such as namin
 In pure Kotlin projects, the recommended directory structure follows the package structure with
 the common root package omitted. For example,if all the code in the project is in the `org.example.kotlin` package and its
 subpackages, files with the `org.example.kotlin` package should be placed directly under the source root, and
-files in `org.example.kotlin.foo.bar` should be in the `foo/bar` subdirectory of the source root.
+files in `org.example.kotlin.network.socket` should be in the `network/socket` subdirectory of the source root.
 
-In JVM projects where Kotlin is used together with Java, Kotlin source files should reside in the same source root as the Java source files,
+> **On the JVM**: In projects where Kotlin is used together with Java, Kotlin source files should reside in the same source root as the Java source files,
 and follow the same directory structure: each file should be stored in the directory corresponding to each package
 statement.
 

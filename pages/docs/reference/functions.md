@@ -179,7 +179,7 @@ foo(strings = *arrayOf("a", "b", "c"))
 ```
 </div>
 
-Note that the named argument syntax cannot be used on the JVM when calling Java functions because Java bytecode does not
+> **On the JVM**: the named argument syntax cannot be used when calling Java functions because Java bytecode does not
 always preserve names of function parameters.
 
 ### Unit-returning functions
