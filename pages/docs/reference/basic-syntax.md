@@ -7,7 +7,8 @@ title: "Basic Syntax"
 
 # Basic Syntax
 
-## Package definition and imports <a name="defining-packages"></a>
+<a name="defining-packages"></a>
+## Package definition and imports
 
 Package specification should be at the top of the source file:
 
@@ -41,7 +42,8 @@ fun main() {
 
 </div>
 
-## Functions <a name="defining-functions"></a>
+<a name="defining-functions"></a>
+## Functions
 
 Function having two `Int` parameters with `Int` return type:
 
@@ -116,7 +118,8 @@ fun main() {
 
 See [Functions](functions.html).
 
-## Variables <a name="defining-variables"></a>
+<a name="defining-variables"></a>
+## Variables
 
 Read-only local variables are defined using the keyword `val`. They can be assigned a value only once.
 
@@ -208,7 +211,8 @@ and ends here. */
 
 See [Documenting Kotlin Code](kotlin-doc.html) for information on the documentation comment syntax.
 
-## String templates <a name="using-string-templates"></a>
+<a name="using-string-templates"></a>
+## String templates
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -231,7 +235,8 @@ fun main() {
 
 See [String templates](basic-types.html#string-templates) for details.
 
-## Conditional expressions <a name="using-conditional-expressions"></a>
+<a name="using-conditional-expressions"></a>
+## Conditional expressions
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -272,7 +277,8 @@ fun main() {
 
 See [*if*{: .keyword }-expressions](control-flow.html#if-expression).
 
-## Nullable values and *null*{: .keyword } checks <a name="using-nullable-values-and-checking-for-null"></a>
+<a name="using-nullable-values-and-checking-for-null"></a>
+## Nullable values and *null*{: .keyword } checks
 
 A reference must be explicitly marked as nullable when *null*{: .keyword } value is possible.
 
@@ -364,7 +370,8 @@ fun main() {
 
 See [Null-safety](null-safety.html).
 
-## Type checks and automatic casts <a name="using-type-checks-and-automatic-casts"></a>
+<a name="using-type-checks-and-automatic-casts"></a>
+## Type checks and automatic casts
 
 The *is*{: .keyword } operator checks if an expression is an instance of a type.
 If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
@@ -456,7 +463,8 @@ fun main() {
 
 See [Classes](classes.html) and [Type casts](typecasts.html).
 
-## `for` loop <a name="using-a-for-loop"></a>
+<a name="using-a-for-loop"></a>
+## `for` loop
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -493,7 +501,8 @@ fun main() {
 
 See [for loop](control-flow.html#for-loops).
 
-## `while` loop <a name="using-a-while-loop"></a>
+<a name="using-a-while-loop"></a>
+## `while` loop
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -515,7 +524,8 @@ fun main() {
 
 See [while loop](control-flow.html#while-loops).
 
-## `when` expression <a name="using-when-expression"></a>
+<a name="using-when-expression"></a>
+## `when` expression
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -545,7 +555,8 @@ fun main() {
 
 See [when expression](control-flow.html#when-expression).
 
-## Ranges <a name="using-ranges"></a>
+<a name="using-ranges"></a>
+## Ranges
 
 Check if a number is within a range using *in*{: .keyword } operator:
 
@@ -626,7 +637,8 @@ fun main() {
 
 See [Ranges](ranges.html).
 
-## Collections <a name="using-collections"></a>
+<a name="using-collections"></a>
+## Collections
 
 Iterating over a collection:
 
