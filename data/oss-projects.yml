@@ -272,3 +272,8 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+
+- name: Jkmvc
+  description: An elegant, powerful and lightweight MVC & ORM framework.
+  type: Framework
+  link: https://github.com/shigebeyond/jkmvc
