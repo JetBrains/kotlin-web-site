@@ -32,7 +32,7 @@ inspections that verify other issues described in the style guide (such as namin
 ### Directory structure
 
 In pure Kotlin projects, the recommended directory structure follows the package structure with
-the common root package omitted. For example,if all the code in the project is in the `org.example.kotlin` package and its
+the common root package omitted. For example, if all the code in the project is in the `org.example.kotlin` package and its
 subpackages, files with the `org.example.kotlin` package should be placed directly under the source root, and
 files in `org.example.kotlin.network.socket` should be in the `network/socket` subdirectory of the source root.
 
