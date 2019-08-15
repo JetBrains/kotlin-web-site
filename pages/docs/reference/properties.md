@@ -170,7 +170,8 @@ public val table: Map<String, Int>
 ```
 </div>
 
-The access to private properties with default getters and setters is optimized so no function call overhead is introduced in this case.
+> **On the JVM**: The access to private properties with default getters and setters is optimized
+so no function call overhead is introduced in this case.
 
 
 ## Compile-Time Constants
