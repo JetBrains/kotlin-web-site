@@ -31,7 +31,7 @@ A pair of interfaces represent each collection type:
 * A _read-only_ interface that provides operations for accessing collection elements.
 * A _mutable_ interface that extends the corresponding read-only interface with write operations: adding, removing, and updating its elements.
 
-Note that altering a mutable collection doesn't require it to be a [`var`](basic-syntax.html#variables): write operations modify the same mutable collection object, so the reference doesn't change.
+Note that altering a mutable collection doesn't require it to be a [`var`](basic-syntax.html#defining-variables): write operations modify the same mutable collection object, so the reference doesn't change.
 Although, if you try to reassign a `val` collection, you'll get a compilation error.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">

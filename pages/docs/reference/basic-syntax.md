@@ -8,6 +8,7 @@ title: "Basic Syntax"
 # Basic Syntax
 
 {:#defining-packages}
+
 ## Package definition and imports
 
 Package specification should be at the top of the source file:
@@ -43,6 +44,7 @@ fun main() {
 </div>
 
 {:#defining-functions}
+
 ## Functions
 
 Function having two `Int` parameters with `Int` return type:
@@ -119,6 +121,7 @@ fun main() {
 See [Functions](functions.html).
 
 {:#defining-variables}
+
 ## Variables
 
 Read-only local variables are defined using the keyword `val`. They can be assigned a value only once.
@@ -212,6 +215,7 @@ and ends here. */
 See [Documenting Kotlin Code](kotlin-doc.html) for information on the documentation comment syntax.
 
 {:#using-string-templates}
+
 ## String templates
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -236,6 +240,7 @@ fun main() {
 See [String templates](basic-types.html#string-templates) for details.
 
 {:#using-conditional-expressions}
+
 ## Conditional expressions
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -278,6 +283,7 @@ fun main() {
 See [*if*{: .keyword }-expressions](control-flow.html#if-expression).
 
 {:#using-nullable-values-and-checking-for-null}
+
 ## Nullable values and *null*{: .keyword } checks
 
 A reference must be explicitly marked as nullable when *null*{: .keyword } value is possible.
@@ -371,6 +377,7 @@ fun main() {
 See [Null-safety](null-safety.html).
 
 {:#using-type-checks-and-automatic-casts}
+
 ## Type checks and automatic casts
 
 The *is*{: .keyword } operator checks if an expression is an instance of a type.
@@ -464,6 +471,7 @@ fun main() {
 See [Classes](classes.html) and [Type casts](typecasts.html).
 
 {:#using-a-for-loop}
+
 ## `for` loop
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -502,6 +510,7 @@ fun main() {
 See [for loop](control-flow.html#for-loops).
 
 {:#using-a-while-loop}
+
 ## `while` loop
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -525,6 +534,7 @@ fun main() {
 See [while loop](control-flow.html#while-loops).
 
 {:#using-when-expression}
+
 ## `when` expression
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
@@ -556,6 +566,7 @@ fun main() {
 See [when expression](control-flow.html#when-expression).
 
 {:#using-ranges}
+
 ## Ranges
 
 Check if a number is within a range using *in*{: .keyword } operator:
@@ -637,6 +648,7 @@ fun main() {
 See [Ranges](ranges.html).
 
 {:#using-collections}
+
 ## Collections
 
 Iterating over a collection:

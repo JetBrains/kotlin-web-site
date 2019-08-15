@@ -62,7 +62,7 @@ fun f(x: Int) = removeZeroes(x + 1)
 
 Alternatively, we can write an imperative implementation of function `f`, using a traditional 
 [while loop](/docs/reference/control-flow.html) and mutable variables that are denoted in Kotlin with 
-[var](/docs/reference/basic-syntax.html#variables):
+[var](/docs/reference/basic-syntax.html#defining-variables):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
