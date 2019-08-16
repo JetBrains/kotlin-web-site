@@ -34,7 +34,7 @@ You may want to compile Kotlin to JavaScript in the following scenarios:
 
 Kotlin can be used together with existing third-party libraries and frameworks, such as jQuery or React. To access third-party frameworks
 with a strongly-typed API, you can convert TypeScript definitions from the [Definitely Typed](http://definitelytyped.org/)
-type definitions repository to Kotlin using the [ts2kt](https://github.com/kotlin/ts2kt) tool. Alternatively, you can use
+type definitions repository to Kotlin using the [dukat](https://github.com/kotlin/dukat) tool. Alternatively, you can use
 the [dynamic type](dynamic-type.html) to access any framework without strong typing.
 
 JetBrains develops and maintains several tools specifically for the React community: [React bindings](https://github.com/JetBrains/kotlin-wrappers) as well as [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app). The latter helps you start building React apps with Kotlin with no build configuration.
