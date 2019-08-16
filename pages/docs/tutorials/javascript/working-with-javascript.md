@@ -104,7 +104,7 @@ The standard library provides us with a series of wrappers around DOM as well as
 when we want to use a library such as jQuery? Kotlin does not have its own "header" files for all the different libraries available on the JavaScript ecosystem
 however, TypeScript does. The [Definitely Typed repository](https://github.com/DefinitelyTyped/DefinitelyTyped/)  provides us with a very large selection of header files. 
 
-Using the tool `dukat` (TypeScript to Kotlin) we can convert any `d.ts` files to Kotlin. To install the tool we can use `npm`
+Using the `dukat` tool we can convert any TypeScript declaration files to Kotlin. To install the tool we can use `npm`
 
 ```bash
 npm -g install dukat
