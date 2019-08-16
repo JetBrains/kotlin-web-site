@@ -19,6 +19,7 @@ Below please find explanations of how the modifiers apply to different types of 
 Functions, properties and classes, objects and interfaces can be declared on the "top-level", i.e. directly inside a package:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // file name: example.kt
 package foo
@@ -39,6 +40,7 @@ Note: to use a visible top-level declaration from another package, you should st
 Examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // file name: example.kt
 package foo
@@ -61,13 +63,14 @@ For members declared inside a class:
 * `internal` --- any client *inside this module* who sees the declaring class sees its `internal` members;
 * `public` --- any client who sees the declaring class sees its `public` members.
 
-*NOTE* for Java users: outer class does not see private members of its inner classes in Kotlin.
+Note that in Kotlin, outer class does not see private members of its inner classes.
 
 If you override a `protected` member and do not specify the visibility explicitly, the overriding member will also have `protected` visibility.
  
 Examples:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 open class Outer {
     private val a = 1
@@ -102,6 +105,7 @@ To specify a visibility of the primary constructor of a class, use the following
 explicit *constructor*{: .keyword } keyword):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class C private constructor(a: Int) { ... }
 ```

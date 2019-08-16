@@ -7,10 +7,15 @@ title: "Extensions"
 
 # Extensions
 
-Kotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator.
-This is done via special declarations called _extensions_. Kotlin supports _extension functions_ and _extension properties_.
+Kotlin provides the ability to extend a class with new functionality
+without having to inherit from the class or use design patterns such as Decorator.
+This is done via special declarations called _extensions_.
+For example, you can write new functions for a class from a third-party library that you can't modify.
+Such functions are available for calling in the usual way as if they were methods of the original class. 
+This mechanism is called _extension functions_. There are also _extension properties_ that let you define
+new properties for existing classes.
 
-## Extension Functions
+## Extension functions
 
 To declare an extension function, we need to prefix its name with a _receiver type_, i.e. the type being extended.
 The following adds a `swap` function to `MutableList<Int>`:
@@ -65,64 +70,75 @@ We would like to emphasize that extension functions are dispatched **statically*
 This means that the extension function being called is determined by the type of the expression on which the function is invoked,
 not by the type of the result of evaluating that expression at runtime. For example:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-open class C
-
-class D: C()
-
-fun C.foo() = "c"
-
-fun D.foo() = "d"
-
-fun printFoo(c: C) {
-    println(c.foo())
+fun main() {
+//sampleStart
+    open class Shape
+    
+    class Rectangle: Shape()
+    
+    fun Shape.getName() = "Shape"
+    
+    fun Rectangle.getName() = "Rectangle"
+    
+    fun printClassName(s: Shape) {
+        println(s.getName())
+    }    
+    
+    printClassName(Rectangle())
+//sampleEnd
 }
-
-printFoo(D())
 ```
-
 </div>
 
-This example will print "c", because the extension function being called depends only on the declared type of the
-parameter `c`, which is the `C` class.
+This example prints "_Shape_", because the extension function being called depends only on the declared type of the
+parameter `s`, which is the `Shape` class.
 
-If a class has a member function, and an extension function is defined which has the same receiver type, the same name is applicable to given arguments, the **member always wins**.
+If a class has a member function, and an extension function is defined which has the same receiver type,
+the same name, and is applicable to given arguments, the **member always wins**.
 For example:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-class C {
-    fun foo() { println("member") }
+fun main() {
+//sampleStart
+    class Example {
+        fun printFunctionType() { println("Class method") }
+    }
+    
+    fun Example.printFunctionType() { println("Extension function") }
+    
+    Example().printFunctionType()
+//sampleEnd
 }
-
-fun C.foo() { println("extension") }
 ```
-
 </div>
 
-If we call `c.foo()` of any `c` of type `C`, it will print "member", not "extension".
+This code prints "_Class method_".
 
 However, it's perfectly OK for extension functions to overload member functions which have the same name but a different signature:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-class C {
-    fun foo() { println("member") }
+fun main() {
+//sampleStart
+    class Example {
+        fun printFunctionType() { println("Class method") }
+    }
+    
+    fun Example.printFunctionType(i: Int) { println("Extension function") }
+    
+    Example().printFunctionType(1)
+//sampleEnd
 }
-
-fun C.foo(i: Int) { println("extension") }
 ```
-
 </div>
 
-The call to `C().foo(1)` will print "extension".
-
-
-## Nullable Receiver
+## Nullable receiver
 
 Note that extensions can be defined with a nullable receiver type. Such extensions can be called on an object variable
 even if its value is null, and can check for `this == null` inside the body. This is what allows you
@@ -141,7 +157,7 @@ fun Any?.toString(): String {
 
 </div>
 
-## Extension Properties
+## Extension properties
 
 Similarly to functions, Kotlin supports extension properties:
 
@@ -163,51 +179,45 @@ Example:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val Foo.bar = 1 // error: initializers are not allowed for extension properties
+val House.number = 1 // error: initializers are not allowed for extension properties
 ```
 </div>
 
 
-## Companion Object Extensions
+## Companion object extensions
 
 If a class has a [companion object](object-declarations.html#companion-objects) defined, you can also define extension
-functions and properties for the companion object:
+functions and properties for the companion object. Just like regular members of the companion object,
+they can be called using only the class name as the qualifier:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 class MyClass {
     companion object { }  // will be called "Companion"
 }
 
-fun MyClass.Companion.foo() { ... }
-```
+fun MyClass.Companion.printCompanion() { println("companion") }
 
-</div>
-
-Just like regular members of the companion object, they can be called using only the class name as the qualifier:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-MyClass.foo()
+fun main() {
+    MyClass.printCompanion()
+}
 ```
 
 </div>
 
 
-## Scope of Extensions
+## Scope of extensions
 
-Most of the time we define extensions on the top level, i.e. directly under packages:
+Most of the time we define extensions on the top level - directly under packages:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-package foo.bar
+package org.example.declarations
  
-fun Baz.goo() { ... } 
+fun List<String>.getLongestString() { /*...*/}
 ```
-
 </div>
 
 To use such an extension outside its declaring package, we need to import it at the call site:
@@ -215,46 +225,50 @@ To use such an extension outside its declaring package, we need to import it at 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-package com.example.usage
+package org.example.usage
 
-import foo.bar.goo // importing all extensions by name "goo"
-                   // or
-import foo.bar.*   // importing everything from "foo.bar"
+import org.example.declarations.getLongestString
 
-fun usage(baz: Baz) {
-    baz.goo()
+fun main() {
+    val list = listOf("red", "green", "blue")
+    list.getLongestString()
 }
-
 ```
-
 </div>
 
 See [Imports](packages.html#imports) for more information.
 
-## Declaring Extensions as Members
+## Declaring extensions as members
 
 Inside a class, you can declare extensions for another class. Inside such an extension, there are multiple _implicit receivers_ -
 objects members of which can be accessed without a qualifier. The instance of the class in which the extension is declared is called
 _dispatch receiver_, and the instance of the receiver type of the extension method is called _extension receiver_.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-class D {
-    fun bar() { ... }
+class Host(val hostname: String) {
+    fun printHostname() { print(hostname) }
 }
 
-class C {
-    fun baz() { ... }
+class Connection(val host: Host, val port: Int) {
+     fun printPort() { print(port) }
 
-    fun D.foo() {
-        bar()   // calls D.bar
-        baz()   // calls C.baz
-    }
+     fun Host.printConnectionString(p: Int) {
+         printHostname()   // calls Host.printHostname()
+         print(":")
+         printPort()   // calls Connection.printPort()
+     }
 
-    fun caller(d: D) {
-        d.foo()   // call the extension function
-    }
+     fun connect() {
+         /*...*/
+         host.printConnectionString(port)   // calls the extension function
+     }
+}
+
+fun main() {
+    Connection(Host("kotl.in"), 443).connect()
+    //Host("kotl.in").printConnectionString(443)  // error, the extension function is unavailable outside Connection
 }
 ```
 
@@ -266,57 +280,55 @@ precedence. To refer to the member of the dispatch receiver you can use the [qua
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class C {
-    fun D.foo() {
-        toString()         // calls D.toString()
-        this@C.toString()  // calls C.toString()
+class Connection {
+    fun Host.getConnectionString() {
+        toString()         // calls Host.toString()
+        this@Connection.toString()  // calls Connection.toString()
     }
 }
 ```
-
 </div>
 
 Extensions declared as members can be declared as `open` and overridden in subclasses. This means that the dispatch of such
 functions is virtual with regard to the dispatch receiver type, but static with regard to the extension receiver type.
 
-<div class="sample" markdown="1" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
-open class D { }
+open class Base { }
 
-class D1 : D() { }
+class Derived : Base() { }
 
-open class C {
-    open fun D.foo() {
-        println("D.foo in C")
+open class BaseCaller {
+    open fun Base.printFunctionInfo() {
+        println("Base extension function in BaseCaller")
     }
 
-    open fun D1.foo() {
-        println("D1.foo in C")
+    open fun Derived.printFunctionInfo() {
+        println("Derived extension function in BaseCaller")
     }
 
-    fun caller(d: D) {
-        d.foo()   // call the extension function
+    fun call(b: Base) {
+        b.printFunctionInfo()   // call the extension function
     }
 }
 
-class C1 : C() {
-    override fun D.foo() {
-        println("D.foo in C1")
+class DerivedCaller: BaseCaller() {
+    override fun Base.printFunctionInfo() {
+        println("Base extension function in DerivedCaller")
     }
 
-    override fun D1.foo() {
-        println("D1.foo in C1")
+    override fun Derived.printFunctionInfo() {
+        println("Derived extension function in DerivedCaller")
     }
 }
 
 fun main() {
-    C().caller(D())   // prints "D.foo in C"
-    C1().caller(D())  // prints "D.foo in C1" - dispatch receiver is resolved virtually
-    C().caller(D1())  // prints "D.foo in C" - extension receiver is resolved statically
+    BaseCaller().call(Base())   // "Base extension function in BaseCaller"
+    DerivedCaller().call(Base())  // "Base extension function in DerivedCaller" - dispatch receiver is resolved virtually
+    DerivedCaller().call(Derived())  // "Base extension function in DerivedCaller" - extension receiver is resolved statically
 }
 ```
-
 </div>
 
 ## Note on visibility
@@ -325,42 +337,3 @@ Extensions utilize the same [visibility of other entities](visibility-modifiers.
 
 * An extension declared on top level of a file has access to the other `private` top-level declarations in the same file;
 * If an extension is declared outside its receiver type, such an extension cannot access the receiver's `private` members.
-
-## Motivation
-
-In Java, we are used to classes named "\*Utils": `FileUtils`, `StringUtils` and so on. The famous `java.util.Collections` belongs to the same breed.
-And the unpleasant part about these Utils-classes is that the code that uses them looks like this:
-
-<div class="sample" markdown="1" theme="idea" mode="java" auto-indent="false">
-
-```java
-// Java
-Collections.swap(list, Collections.binarySearch(list,
-    Collections.max(otherList)),
-    Collections.max(list));
-```
-
-</div>
-
-Those class names are always getting in the way. We can use static imports and get this:
-
-<div class="sample" markdown="1" theme="idea" mode="java">
-
-```java
-// Java
-swap(list, binarySearch(list, max(otherList)), max(list));
-```
-
-</div>
-
-This is a little better, but we have no or little help from the powerful code completion of the IDE. It would be so much better if we could say:
-
-<div class="sample" markdown="1" theme="idea" mode="java">
-
-```java
-// Java
-list.swap(list.binarySearch(otherList.max()), list.max());
-```
-</div>
-
-But we don't want to implement all the possible methods inside the class `List`, right? This is where extensions help us.

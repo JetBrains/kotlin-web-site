@@ -15,16 +15,16 @@ Properties in Kotlin classes can be declared either as mutable using the *var*{:
 
 ```kotlin
 class Address {
-    var name: String = ...
-    var street: String = ...
-    var city: String = ...
-    var state: String? = ...
-    var zip: String = ...
+    var name: String = "Holmes, Sherlock"
+    var street: String = "Baker"
+    var city: String = "London"
+    var state: String? = null
+    var zip: String = "123456"
 }
 ```
 </div>
 
-To use a property, we simply refer to it by name, as if it were a field in Java:
+To use a property, simply refer to it by name:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -170,7 +170,8 @@ public val table: Map<String, Int>
 ```
 </div>
 
-In all respects, this is just the same as in Java since access to private properties with default getters and setters is optimized so that no function call overhead is introduced.
+> **On the JVM**: The access to private properties with default getters and setters is optimized
+so no function call overhead is introduced in this case.
 
 
 ## Compile-Time Constants

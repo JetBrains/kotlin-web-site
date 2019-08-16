@@ -10,20 +10,22 @@ title: "Packages and Imports"
 A source file may start with a package declaration:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
-package foo.bar
 
-fun baz() { ... }
-class Goo { ... }
+```kotlin
+package org.example
+
+fun printMessage() { /*...*/ }
+class Message { /*...*/ }
 
 // ...
 ```
 </div>
 
 All the contents (such as classes and functions) of the source file are contained by the package declared.
-So, in the example above, the full name of `baz()` is `foo.bar.baz`, and the full name of `Goo` is `foo.bar.Goo`. 
+So, in the example above, the full name of `printMessage()` is `org.example.printMessage`,
+and the full name of `Message` is `org.example.Message`. 
  
-If the package is not specified, the contents of such a file belong to "default" package that has no name.
+If the package is not specified, the contents of such a file belong to the default package that has no name.
 
 ## Default Imports
 
@@ -55,25 +57,28 @@ Syntax for imports is described in the [grammar](grammar.html#importHeader).
 We can import either a single name, e.g.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-import foo.Bar // Bar is now accessible without qualification
+import org.example.Message // Message is now accessible without qualification
 ```
 </div>
 
 or all the accessible contents of a scope (package, class, object etc):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-import foo.* // everything in 'foo' becomes accessible
+import org.example.* // everything in 'org.example' becomes accessible
 ```
 </div>
 
 If there is a name clash, we can disambiguate by using *as*{: .keyword } keyword to locally rename the clashing entity:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-import foo.Bar // Bar is accessible
-import bar.Bar as bBar // bBar stands for 'bar.Bar'
+import org.example.Message // Message is accessible
+import org.test.Message as testMessage // testMessage stands for 'org.test.Message'
 ```
 </div>
 
@@ -82,8 +87,6 @@ The `import` keyword is not restricted to importing classes; you can also use it
   * top-level functions and properties;
   * functions and properties declared in [object declarations](object-declarations.html#object-declarations);
   * [enum constants](enum-classes.html).
-
-Unlike Java, Kotlin does not have a separate ["import static"](https://docs.oracle.com/javase/8/docs/technotes/guides/language/static-import.html) syntax; all of these declarations are imported using the regular `import` keyword.
 
 ## Visibility of Top-level Declarations
 

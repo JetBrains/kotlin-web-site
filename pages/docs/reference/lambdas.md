@@ -418,7 +418,7 @@ an anonymous function will return from the anonymous function itself.
 ### Closures
 
 A lambda expression or anonymous function (as well as a [local function](functions.html#local-functions) and an [object expression](object-declarations.html#object-expressions))
-can access its _closure_, i.e. the variables declared in the outer scope. Unlike Java, the variables captured in the closure can be modified:
+can access its _closure_, i.e. the variables declared in the outer scope. The variables captured in the closure can be modified in the lambda:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 

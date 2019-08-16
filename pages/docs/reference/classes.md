@@ -18,7 +18,7 @@ Classes in Kotlin are declared using the keyword *class*{: .keyword }:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Invoice { ... }
+class Invoice { /*...*/ }
 ```
 
 </div>
@@ -43,7 +43,7 @@ constructor is part of the class header: it goes after the class name (and optio
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Person constructor(firstName: String) { ... }
+class Person constructor(firstName: String) { /*...*/ }
 ```
 
 </div>
@@ -54,7 +54,7 @@ keyword can be omitted:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Person(firstName: String) { ... }
+class Person(firstName: String) { /*...*/ }
 ```
 
 </div>
@@ -109,7 +109,7 @@ In fact, for declaring properties and initializing them from the primary constru
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Person(val firstName: String, val lastName: String, var age: Int) { ... }
+class Person(val firstName: String, val lastName: String, var age: Int) { /*...*/ }
 ```
 
 </div>
@@ -123,7 +123,7 @@ the modifiers go before it:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Customer public @Inject constructor(name: String) { ... }
+class Customer public @Inject constructor(name: String) { /*...*/ }
 ```
 
 </div>
@@ -131,7 +131,7 @@ class Customer public @Inject constructor(name: String) { ... }
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
 
 
-#### Secondary Constructors
+#### Secondary constructors
 
 The class can also declare **secondary constructors**, which are prefixed with *constructor*{: .keyword }:
 
@@ -199,7 +199,7 @@ to have a public constructor, you need to declare an empty primary constructor w
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class DontCreateMe private constructor () { ... }
+class DontCreateMe private constructor () { /*...*/ }
 ```
 
 </div>
@@ -236,7 +236,7 @@ Note that Kotlin does not have a *new*{: .keyword } keyword.
 
 Creating instances of nested, inner and anonymous inner classes is described in [Nested classes](nested-classes.html).
 
-### Class Members
+### Class members
 
 Classes can contain:
 
@@ -259,10 +259,9 @@ class Example // Implicitly inherits from Any
 
 </div>
 
-> Note: `Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`.
-Please consult the [Java interoperability](java-interop.html#object-methods) section for more details.
+`Any` has three methods: `equals()`, `hashCode()` and `toString()`. Thus, they are defined for all Kotlin classes. 
 
-To declare an explicit supertype, we place the type after a colon in the class header:
+To declare an explicit supertype, place the type after a colon in the class header:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -293,27 +292,28 @@ class MyView : View {
 
 </div>
 
-### Overriding Methods
+### Overriding methods
 
-As we mentioned before, we stick to making things explicit in Kotlin. And unlike Java, Kotlin requires explicit
+As we mentioned before, we stick to making things explicit in Kotlin. So, Kotlin requires explicit
 modifiers for overridable members (we call them *open*) and for overrides:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class Base {
-    open fun v() { ... }
-    fun nv() { ... }
+open class Shape {
+    open fun draw() { /*...*/ }
+    fun fill() { /*...*/ }
 }
-class Derived() : Base() {
-    override fun v() { ... }
+
+class Circle() : Shape() {
+    override fun draw() { /*...*/ }
 }
 ```
 
 </div>
 
-The *override*{: .keyword } modifier is required for `Derived.v()`. If it were missing, the compiler would complain.
-If there is no *open*{: .keyword } modifier on a function, like `Base.nv()`, declaring a method with the same signature in a subclass is illegal,
+The *override*{: .keyword } modifier is required for `Circle.draw()`. If it were missing, the compiler would complain.
+If there is no *open*{: .keyword } modifier on a function, like `Shape.fill()`, declaring a method with the same signature in a subclass is illegal,
 either with *override*{: .keyword } or without it. The *open*{: .keyword } modifier has no effect when added on members of a final class (i.e.. a class with no *open*{: .keyword } modifier).
 
 A member marked *override*{: .keyword } is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use *final*{: .keyword }:
@@ -321,46 +321,50 @@ A member marked *override*{: .keyword } is itself open, i.e. it may be overridde
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class AnotherDerived() : Base() {
-    final override fun v() { ... }
+open class Rectangle() : Shape() {
+    final override fun draw() { /*...*/ }
 }
 ```
 
 </div>
 
-### Overriding Properties 
+### Overriding properties 
 
-Overriding properties works in a similar way to overriding methods; properties declared on a superclass that are then redeclared on a derived class must be prefaced with *override*{: .keyword }, and they must have a compatible type. Each declared property can be overridden by a property with an initializer or by a property with a getter method.
+Overriding properties works in a similar way to overriding methods; properties declared on a superclass 
+that are then redeclared on a derived class must be prefaced with *override*{: .keyword }, and they must have a compatible type.
+Each declared property can be overridden by a property with an initializer or by a property with a `get` method.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class Foo {
-    open val x: Int get() { ... }
+open class Shape {
+    open val vertexCount: Int = 0
 }
 
-class Bar1 : Foo() {
-    override val x: Int = ...
+class Rectangle : Shape() {
+    override val vertexCount = 4
 }
 ```
 
 </div>
 
-You can also override a `val` property with a `var` property, but not vice versa. This is allowed because a `val` property essentially declares a getter method, and overriding it as a `var` additionally declares a setter method in the derived class.
+You can also override a `val` property with a `var` property, but not vice versa.
+This is allowed because a `val` property essentially declares a `get` method,
+and overriding it as a `var` additionally declares a `set` method in the derived class.
 
 Note that you can use the *override*{: .keyword } keyword as part of the property declaration in a primary constructor.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-interface Foo {
-    val count: Int
+interface Shape {
+    val vertexCount: Int
 }
 
-class Bar1(override val count: Int) : Foo
+class Rectangle(override val vertexCount: Int = 4) : Shape // Always has 4 vertices
 
-class Bar2 : Foo {
-    override var count: Int = 0
+class Polygon : Shape {
+    override var vertexCount: Int = 0  // Can be set to any number later
 }
 ```
 
@@ -411,19 +415,19 @@ Code in a derived class can call its superclass functions and property accessors
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class Foo {
-    open fun f() { println("Foo.f()") }
-    open val x: Int get() = 1
-}
-
-class Bar : Foo() {
-    override fun f() { 
-        super.f()
-        println("Bar.f()") 
+    open class Rectangle {
+        open fun draw() { println("Drawing a rectangle") }
+        val borderColor: String get() = "black"
     }
-    
-    override val x: Int get() = super.x + 1
-}
+
+    class FilledRectangle : Rectangle() {
+        override fun draw() {
+            super.draw()
+            println("Filling the rectangle")
+        }
+
+        val fillColor: String get() = super.borderColor
+    }
 ```
 
 </div>
@@ -433,14 +437,16 @@ Inside an inner class, accessing the superclass of the outer class is done with 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Bar : Foo() {
-    override fun f() { /* ... */ }
-    override val x: Int get() = 0
+class FilledRectangle: Rectangle() {
+    fun draw() { /* ... */ }
+    val borderColor: String get() = "black"
     
-    inner class Baz {
-        fun g() {
-            super@Bar.f() // Calls Foo's implementation of f()
-            println(super@Bar.x) // Uses Foo's implementation of x's getter
+    inner class Filler {
+        fun fill() { /* ... */ }
+        fun drawAndFill() {
+            super@FilledRectangle.draw() // Calls Rectangle's implementation of draw()
+            fill()
+            println("Drawn a filled rectangle with color ${super@FilledRectangle.borderColor}") // Uses Rectangle's implementation of borderColor's get()
         }
     }
 }
@@ -448,7 +454,7 @@ class Bar : Foo() {
 
 </div>
 
-### Overriding Rules
+### Overriding rules
 
 In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits many implementations of the same member from its immediate superclasses,
 it must override this member and provide its own implementation (perhaps, using one of the inherited ones).
@@ -457,32 +463,30 @@ To denote the supertype from which the inherited implementation is taken, we use
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class A {
-    open fun f() { print("A") }
-    fun a() { print("a") }
+open class Rectangle {
+    open fun draw() { /* ... */ }
 }
 
-interface B {
-    fun f() { print("B") } // interface members are 'open' by default
-    fun b() { print("b") }
+interface Polygon {
+    fun draw() { /* ... */ } // interface members are 'open' by default
 }
 
-class C() : A(), B {
-    // The compiler requires f() to be overridden:
-    override fun f() {
-        super<A>.f() // call to A.f()
-        super<B>.f() // call to B.f()
+class Square() : Rectangle(), Polygon {
+    // The compiler requires draw() to be overridden:
+    override fun draw() {
+        super<Rectangle>.draw() // call to Rectangle.draw()
+        super<Polygon>.draw() // call to Polygon.draw()
     }
 }
 ```
 
 </div>
 
-It's fine to inherit from both `A` and `B`, and we have no problems with `a()` and `b()` since `C` inherits only one implementation of each of these functions.
-But for `f()` we have two implementations inherited by `C`, and thus we have to override `f()` in `C`
-and provide our own implementation that eliminates the ambiguity.
+It's fine to inherit from both `Rectangle` and `Polygon`,
+but both of them have their implementations of `draw()`, so we have to override `draw()` in `Square`
+and provide its own implementation that eliminates the ambiguity.
 
-## Abstract Classes
+## Abstract classes
 
 A class and some of its members may be declared *abstract*{: .keyword }.
 An abstract member does not have an implementation in its class.
@@ -493,26 +497,22 @@ We can override a non-abstract open member with an abstract one
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class Base {
-    open fun f() {}
+open class Polygon {
+    open fun draw() {}
 }
 
-abstract class Derived : Base() {
-    override abstract fun f()
+abstract class Rectangle : Polygon() {
+    override abstract fun draw()
 }
 ```
 
 </div>
 
-## Companion Objects
-
-In Kotlin, unlike Java or C#, classes do not have static methods. In most cases, it's recommended to simply use
-package-level functions instead.
+## Companion objects
 
 If you need to write a function that can be called without having a class instance but needs access to the internals
 of a class (for example, a factory method), you can write it as a member of an [object declaration](object-declarations.html)
 inside that class.
 
 Even more specifically, if you declare a [companion object](object-declarations.html#companion-objects) inside your class,
-you'll be able to call its members with the same syntax as calling static methods in Java/C#, using only the class name
-as a qualifier.
+you'll be able to call its members using only the class name as a qualifier.

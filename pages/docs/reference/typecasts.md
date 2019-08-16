@@ -12,6 +12,7 @@ title: "Type Checks and Casts: 'is' and 'as'"
 We can check whether an object conforms to a given type at runtime by using the `is` operator or its negated form `!is`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 if (obj is String) {
     print(obj.length)
@@ -32,6 +33,7 @@ In many cases, one does not need to use explicit cast operators in Kotlin, becau
 `is`-checks and [explicit casts](#unsafe-cast-operator) for immutable values and inserts (safe) casts automatically when needed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun demo(x: Any) {
     if (x is String) {
@@ -44,6 +46,7 @@ fun demo(x: Any) {
 The compiler is smart enough to know a cast to be safe if a negative check leads to a return:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 if (x !is String) return
 
@@ -54,6 +57,7 @@ print(x.length) // x is automatically cast to String
 or in the right-hand side of `&&` and `||`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // x is automatically cast to string on the right-hand side of `||`
 if (x !is String || x.length == 0) return
@@ -69,6 +73,7 @@ Such _smart casts_ work for [*when*{: .keyword }-expressions](control-flow.html#
 and [*while*{: .keyword }-loops](control-flow.html#while-loops) as well:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 when (x) {
     is Int -> print(x + 1)
@@ -93,16 +98,18 @@ Usually, the cast operator throws an exception if the cast is not possible. Thus
 The unsafe cast in Kotlin is done by the infix operator *as*{: .keyword } (see [operator precedence](grammar.html#expressions)):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val x: String = y as String
 ```
 </div>
 
 Note that *null*{: .keyword } cannot be cast to `String` as this type is not [nullable](null-safety.html),
-i.e. if `y` is null, the code above throws an exception.
-In order to match Java cast semantics we have to have nullable type at cast right hand side, like:
+i.e. if `y` is null, the code above throws an exception. 
+To make such code correct for null values, use the nullable type on the right hand side of the cast:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val x: String? = y as String?
 ```
@@ -113,6 +120,7 @@ val x: String? = y as String?
 To avoid an exception being thrown, one can use a *safe* cast operator *as?*{: .keyword } that returns *null*{: .keyword } on failure:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val x: String? = y as? String
 ```
@@ -131,6 +139,7 @@ Given that, the compiler prohibits *is*{: .keyword }-checks that cannot be perfo
 `ints is List<Int>` or `list is T` (type parameter). You can, however, check an instance against a [star-projected type](generics.html#star-projections):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 if (something is List<*>) {
     something.forEach { println(it) } // The items are typed as `Any?`
@@ -143,6 +152,7 @@ you can make an *is*{: .keyword }-check or a cast that involves the non-generic 
 angle brackets are omitted in this case:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun handleStrings(list: List<String>) {
     if (list is ArrayList) {
@@ -193,6 +203,7 @@ type safety.
 Even so, sometimes we have high-level program logic that implies type safety instead. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin 
 fun readDictionary(file: File): Map<String, *> = file.inputStream().use { 
     TODO("Read a mapping of strings to arbitrary elements.")
@@ -221,6 +232,7 @@ An unchecked cast warning can be suppressed by [annotating](annotations.html#ann
 declaration where it occurs with `@Suppress("UNCHECKED_CAST")`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+
 ```kotlin
 inline fun <reified T> List<*>.asListOfType(): List<T>? =
     if (all { it is T })

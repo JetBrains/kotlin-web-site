@@ -8,19 +8,19 @@ title: "Object Expressions, Object Declarations and Companion Objects"
 # Object Expressions and Declarations
 
 Sometimes we need to create an object of a slight modification of some class, without explicitly declaring a new subclass for it.
-Java handles this case with *anonymous inner classes*.
-Kotlin slightly generalizes this concept with *object expressions* and *object declarations*.
+Kotlin handles this case with *object expressions* and *object declarations*.
 
 ## Object expressions
 
 To create an object of an anonymous class that inherits from some type (or types), we write:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 window.addMouseListener(object : MouseAdapter() {
-    override fun mouseClicked(e: MouseEvent) { ... }
+    override fun mouseClicked(e: MouseEvent) { /*...*/ }
 
-    override fun mouseEntered(e: MouseEvent) { ... }
+    override fun mouseEntered(e: MouseEvent) { /*...*/ }
 })
 ```
 </div>
@@ -29,12 +29,13 @@ If a supertype has a constructor, appropriate constructor parameters must be pas
 Many supertypes may be specified as a comma-separated list after the colon:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 open class A(x: Int) {
     public open val y: Int = x
 }
 
-interface B { ... }
+interface B { /*...*/ }
 
 val ab: A = object : A(1), B {
     override val y = 15
@@ -45,6 +46,7 @@ val ab: A = object : A(1), B {
 If, by any chance, we need "just an object", with no nontrivial supertypes, we can simply say:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun foo() {
     val adHoc = object {
@@ -62,6 +64,7 @@ will be the declared supertype of the anonymous object, or `Any` if you didn't d
 in the anonymous object will not be accessible.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class C {
     // Private function, so the return type is the anonymous object type
@@ -82,10 +85,10 @@ class C {
 ```
 </div>
 
-Just like Java's anonymous inner classes, code in object expressions can access variables from the enclosing scope.
-(Unlike Java, this is not restricted to final or effectively final variables.)
+The code in object expressions can access variables from the enclosing scope.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun countClicks(window: JComponent) {
     var clickCount = 0
@@ -111,6 +114,7 @@ fun countClicks(window: JComponent) {
 and Kotlin (after Scala) makes it easy to declare singletons:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 object DataProviderManager {
     fun registerDataProvider(provider: DataProvider) {
@@ -131,6 +135,7 @@ Object declaration's initialization is thread-safe.
 To refer to the object, we use its name directly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 DataProviderManager.registerDataProvider(...)
 ```
@@ -139,6 +144,7 @@ DataProviderManager.registerDataProvider(...)
 Such objects can have supertypes:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 object DefaultListener : MouseAdapter() {
     override fun mouseClicked(e: MouseEvent) { ... }
@@ -156,6 +162,7 @@ object DefaultListener : MouseAdapter() {
 An object declaration inside a class can be marked with the *companion*{: .keyword } keyword:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class MyClass {
     companion object Factory {
@@ -168,6 +175,7 @@ class MyClass {
 Members of the companion object can be called by using simply the class name as the qualifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val instance = MyClass.create()
 ```
@@ -176,6 +184,7 @@ val instance = MyClass.create()
 The name of the companion object can be omitted, in which case the name `Companion` will be used:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class MyClass {
     companion object { }
@@ -189,6 +198,7 @@ The name of a class used by itself (not as a qualifier to another name) acts as 
 object of the class (whether named or not):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class MyClass1 {
     companion object Named { }
@@ -208,6 +218,7 @@ Note that, even though the members of companion objects look like static members
 are still instance members of real objects, and can, for example, implement interfaces:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 interface Factory<T> {
     fun create(): T
