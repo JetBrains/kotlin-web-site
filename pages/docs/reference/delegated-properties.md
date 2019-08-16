@@ -34,6 +34,8 @@ For example:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
+import kotlin.reflect.KProperty
+
 class Delegate {
     operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
         return "$thisRef, thank you for delegating '${property.name}' to me!"
@@ -116,7 +118,8 @@ fun main() {
 By default, the evaluation of lazy properties is **synchronized**: the value is computed only in one thread, and all threads
 will see the same value. If the synchronization of initialization delegate is not required, so that multiple threads
 can execute it simultaneously, pass `LazyThreadSafetyMode.PUBLICATION` as a parameter to the `lazy()` function. 
-And if you're sure that the initialization will always happen on a single thread, you can use `LazyThreadSafetyMode.NONE` mode, 
+And if you're sure that the initialization will always happen on the same thread as the one where you use the property,
+and if you're sure that the property will never be used from another thread, you can use `LazyThreadSafetyMode.NONE` mode, 
 which doesn't incur any thread-safety guarantees and the related overhead.
 
 
