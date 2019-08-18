@@ -51,17 +51,17 @@ val positives = list.filter { it > 0 }
 ```
 </div>
 
-### Check if collection contains an element
+### Checking element presence in a collection.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 val emails = ... // can be a list, set, map, sequence
 
-if ("john@example.com" in emails) {
+if ("john@example.com" in emails) { ... }
     ...
 }
 
-if ("jane@example.com" !in emails) {
+if ("jane@example.com" !in emails) { ... }
     ...
 }
 ```
