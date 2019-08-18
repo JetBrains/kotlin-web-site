@@ -58,12 +58,8 @@ val positives = list.filter { it > 0 }
 val emails = ... // can be a list, set, map, sequence
 
 if ("john@example.com" in emails) { ... }
-    ...
-}
 
 if ("jane@example.com" !in emails) { ... }
-    ...
-}
 ```
 </div>
 
