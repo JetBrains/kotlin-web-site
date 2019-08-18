@@ -55,11 +55,9 @@ val positives = list.filter { it > 0 }
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-val emails = ... // can be a list, set, map, sequence
+if ("john@example.com" in emailsList) { ... }
 
-if ("john@example.com" in emails) { ... }
-
-if ("jane@example.com" !in emails) { ... }
+if ("jane@example.com" !in emailsList) { ... }
 ```
 </div>
 
