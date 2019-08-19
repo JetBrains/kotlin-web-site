@@ -35,6 +35,8 @@ for Kotlin, including [full documentation](http://vertx.io/docs/vertx-core/kotli
  * [kotlinx.html](https://github.com/kotlin/kotlinx.html) is a DSL that can be used to build HTML in a Web application.
 It serves as an alternative to traditional templating systems such as JSP and FreeMarker.
 
+ * [Kweb](https://docs.kweb.io/) is a framework built on top of Ktor for building interactive webapps in pure server-side Kotlin.  It is an alternative to frameworks like Node.js and React.
+
  * The available options for persistence include direct JDBC access, JPA, as well as using NoSQL databases through their Java drivers.
 For JPA, the [kotlin-jpa compiler plugin](/docs/reference/compiler-plugins.html#jpa-support) adapts
 Kotlin-compiled classes to the requirements of the framework.
