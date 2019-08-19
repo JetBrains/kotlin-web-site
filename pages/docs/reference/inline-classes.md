@@ -192,9 +192,9 @@ fun main() {
 
 The design of inline classes is experimental, meaning that this feature is *moving fast* and no compatibility guarantees are given. When using inline classes in Kotlin 1.3+, a warning will be reported, indicating that this feature is experimental.
 
-To remove the warning you have to opt in to the usage of experimental features by passing the compiler argument `-Xinline-classes`.
+To remove the warning you have to opt in to the usage of this experimental feature by passing the compiler argument `-Xinline-classes`.
 
-### Enabling inline classes in Gradle:
+### Enabling inline classes in Gradle
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ``` groovy
