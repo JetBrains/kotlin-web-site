@@ -21,8 +21,8 @@ For integer numbers, there are four types with different sizes and, hence, value
 |--------|-----------|----------|--------- |
 | Byte	 | 8         |-128      |127       |
 | Short	 | 16        |-32768    |32767     |
-| Int	 | 32        |-2,147,483,648 (-2<sup>32</sup>)| 2,147,483,647 (2<sup>32</sup> - 1)|
-| Long	 | 64        |-9,223,372,036,854,775,808 (-2<sup>64</sup>)|9,223,372,036,854,775,807 (2<sup>64</sup> - 1)|
+| Int	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
+| Long	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
 
 All variables initialized with integer values not exceeding the maximum value of `Int`
 have the inferred type `Int`. If the initial value exceeds this value, then the type is `Long`.
