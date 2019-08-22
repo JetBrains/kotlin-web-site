@@ -143,6 +143,38 @@ tasks.withType<KotlinCompile>().all {
 </div>
 </div>
 
+If your Gradle module is a multiplatform module, use the `useExperimentalAnnotation` method:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
+
+```groovy
+sourceSets {
+    all {
+        languageSettings {
+            useExperimentalAnnotation('kotlin.Experimental')
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+sourceSets {
+    all {
+        languageSettings.useExperimentalAnnotation("kotlin.Experimental")
+    }
+}
+```
+
+</div>
+</div>
+
 For Maven, it would be:
 
 <div class="sample" markdown="1" mode="xml" theme="idea" data-highlight-only>
