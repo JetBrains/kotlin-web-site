@@ -412,7 +412,7 @@ Then specify the list of SAM-with-receiver annotations:
 
 ```groovy
 samWithReceiver {
-    annotation("com.my.Annotation")
+    annotation("com.my.SamWithReceiver")
 }
 ```
 
