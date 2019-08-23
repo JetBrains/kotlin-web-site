@@ -54,6 +54,7 @@ title: "Reference"
               <li class="migrate"> <a style="text-decoration: none;" href="https://leanpub.com/kotlin-for-android-developers">Kotlin for Android Developers</a> </li>
               <li class="start"> <a style="text-decoration: none;" href="https://www.atomickotlin.com/atomickotlin/">Atomic Kotlin</a> </li>
               <li class="migrate">   <a style="text-decoration: none;" href="https://www.manning.com/books/kotlin-in-action">Kotlin in Action</a> </li>
+              <li class="migrate">   <a style="text-decoration: none;" href="https://www.manning.com/books/functional-programming-in-kotlin">Functional Programming in Kotlin</a> </li>
           </ul>
       </div>
       <div style="padding: 5px;">
