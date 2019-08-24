@@ -35,13 +35,13 @@ apply plugin: 'kotlin-dce-js'
 Note that if you are using multi-project build, you should apply plugin to the main project that is an entry point to your application.
 
 By default, the resulting set of JavaScript files (your application together with all dependencies) 
-can be found at path `$BUILD_DIR/min/`, where `$BUILD_DIR` is the path to generated JavaScript
-(usually, `build/classes/main`).
+can be found at path `$BUILD_DIR/min/` or `$BUILD_DIR/kotlin-js-min/`, where `$BUILD_DIR` is the path to generated JavaScript
+(usually, `build/classes/main` or `build`).
 
 
 ### Configuring
 
-To configure DCE on the main source set, you can use the `runDceKotlinJs` task 
+To configure DCE on the main source set, you can use the `runDceJsKotlin` task 
 (and corresponding `runDce<sourceSetName>KotlinJs` for other source sets).
 
 Sometimes you are going to use a Kotlin declaration directly from JavaScript, and it's being stripped out by DCE. 
@@ -49,7 +49,7 @@ You may want to keep this declaration. To do so, you can use the following synta
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
-runDceKotlinJs.keep "declarationToKeep"[, "declarationToKeep", ...]
+runDceJsKotlin.keep "declarationToKeep"[, "declarationToKeep", ...]
 ```
 </div>
 
@@ -59,15 +59,28 @@ Where `declarationToKeep` has the following syntax:
 moduleName.dot.separated.package.name.declarationName
 ```
 
-For example, consider a module is named `kotlin-js-example` and it contains a function named `toKeep` 
-in package `org.jetbrains.kotlin.examples`. Use the following line:
+For example, consider a module is named `kotlin-js-example` 
+(in multiplatform project you can see: 
+  kotlin {
+      jvm() // Creates a JVM target with the default name 'jvm'
+      js(`kotlin-js-example`)  // JS target named 'kotlin-js-example'
+      mingwX64("mingw") // Windows (MinGW X64) target named 'mingw'
+    
+      sourceSets { /* ... */ }
+  } 
+)and it contains a function named `toKeep`in package `org.jetbrains.kotlin.examples`. Use the following line:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` groovy
-runDceKotlinJs.keep "kotlin-js-example_main.org.jetbrains.kotlin.examples.toKeep"
+runDceJsKotlin.keep "kotlin-js-example_main.org.jetbrains.kotlin.examples.toKeep"
 ```
 </div>
-
+or
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+``` groovy
+runDceJsKotlin.keep "kotlin-js-exampleMain.org.jetbrains.kotlin.examples.toKeep"
+```
+</div>
 Note that if your function has parameters, its name will be mangled, so the mangled name should be used in the keep directive.
 
 ### Development mode
@@ -78,8 +91,8 @@ For example, to disable DCE based on a custom condition for the `main` source se
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
-runDceKotlinJs.dceOptions.devMode = isDevMode
-runDceTestKotlinJs.dceOptions.devMode = true 
+runDceJsKotlin.dceOptions.devMode = isDevMode
+runDceTestJsKotlin.dceOptions.devMode = true 
 ```
 </div>
 # Example
