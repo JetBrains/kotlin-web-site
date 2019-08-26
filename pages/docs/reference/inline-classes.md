@@ -192,15 +192,15 @@ fun main() {
 
 The design of inline classes is experimental, meaning that this feature is *moving fast* and no compatibility guarantees are given. When using inline classes in Kotlin 1.3+, a warning will be reported, indicating that this feature is experimental.
 
-To remove the warning you have to opt in to the usage of experimental features by passing the argument `-XXLanguage:+InlineClasses` to `kotlinc`.
+To remove the warning you have to opt in to the usage of this experimental feature by passing the compiler argument `-Xinline-classes`.
 
-### Enabling inline classes in Gradle:
+### Enabling inline classes in Gradle
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ``` groovy
 
 compileKotlin {
-    kotlinOptions.freeCompilerArgs += ["-XXLanguage:+InlineClasses"]
+    kotlinOptions.freeCompilerArgs += ["Xinline-classes"]
 }
 ```
 
@@ -215,7 +215,7 @@ See [Compiler options in Gradle](using-gradle.html#compiler-options) for details
 ```xml
 <configuration>
     <args>
-        <arg>-XXLanguage:+InlineClasses</arg> 
+        <arg>-Xinline-classes</arg> 
     </args>
 </configuration>
 ```

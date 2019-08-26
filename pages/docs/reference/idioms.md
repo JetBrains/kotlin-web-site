@@ -54,6 +54,7 @@ val positives = list.filter { it > 0 }
 ### Checking element presence in a collection.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 if ("john@example.com" in emailsList) { ... }
 
