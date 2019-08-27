@@ -345,7 +345,7 @@ Kotlin supports local functions, i.e. a function inside another function:
 
 ```kotlin
 fun dfs(graph: Graph) {
-    fun dfs(current: Vertex, visited: Set<Vertex>) {
+    fun dfs(current: Vertex, visited: MutableSet<Vertex>) {
         if (!visited.add(current)) return
         for (v in current.neighbors)
             dfs(v, visited)
