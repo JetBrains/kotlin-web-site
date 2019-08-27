@@ -38,8 +38,9 @@ Here's an example of a class documented using KDoc:
  * This class has no useful logic; it's just a documentation example.
  *
  * @param T the type of a member in this group.
- * @property name the name of this group.
- * @constructor Creates an empty group.
+ * @param name the name of this group.
+ * @property name optional description of getter and setter if different from `@param`.
+ * @constructor optional description of constructor if different from class description.
  */
 class Group<T>(val name: String) {
     /**
@@ -72,7 +73,7 @@ Documents the return value of a function.
 
 #### `@constructor`
 
-Documents the primary constructor of a class.
+Documents the primary constructor of a class. If omitted, the constructor will copy the KDoc of the class.
 
 #### `@receiver`
 
@@ -82,7 +83,7 @@ Documents the receiver of an extension function.
 
 Documents the property of a class which has the specified name. This tag can be used for documenting properties
 declared in the primary constructor, where putting a doc comment directly before the property definition would be
-awkward.
+awkward. If `@property` is ommitted, the KDoc of `@param` is used for documentation.
 
 #### `@throws <class>`, `@exception <class>`
 
