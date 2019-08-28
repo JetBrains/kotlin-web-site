@@ -255,7 +255,7 @@ The full syntactic form of lambda expressions is as follows:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum = { x: Int, y: Int -> x + y }
+val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
 ```
 
 </div>
@@ -269,7 +269,7 @@ If we leave all the optional annotations out, what's left looks like this:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum: (Int, Int) -> Int = { x, y -> x + y }
+val sum = { x, y -> x + y }
 ```
 
 </div>
