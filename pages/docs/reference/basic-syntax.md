@@ -714,7 +714,7 @@ See [Collections overview](collections-overview.html).
 ```kotlin
 fun main() {
 //sampleStart
-    val rectangle = Rectangle(5.0, 2.0) //no 'new' keyword required
+    val rectangle = Rectangle(5.0, 2.0)
     val triangle = Triangle(3.0, 4.0, 5.0)
 //sampleEnd
     println("Area of rectangle is ${rectangle.calculateArea()}, its perimeter is ${rectangle.perimeter}")
