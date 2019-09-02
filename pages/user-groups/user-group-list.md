@@ -7,7 +7,7 @@ Kotlin User Groups are a great place to share your experience with the community
 
 The most common way to begin one is to find a few like-minded people and to get together and organize regular meetups for spreading knowledge on software development with Kotlin. If you feel like you need more ideas or advice on launching a user group, contact [alina@jetbrains.com](mailto:alina@jetbrains.com).
 
-## Kotlin User Groups (184)
+## Kotlin User Groups (186)
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -24,7 +24,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Belfast Kotlin User Group](https://www.meetup.com/kotlin-belfast/), Northern Ireland
  * [Belgium Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Belgium/), Belgium
  * [Berlin Kotlin User Group](https://www.meetup.com/kotlin-berlin/), Germany
- * [Bielefelder Kotlin User Group](https://www.meetup.com/Bielefelder-Kotlin-User-Group/),
+ * [Bielefelder Kotlin User Group](https://www.meetup.com/Bielefelder-Kotlin-User-Group/), Germany
  * [Bosnia Kotlin User Group](https://www.facebook.com/kotlinugbosnia), Bosnia and Herzegovina
  * [Brighton Kotlin User Group](https://www.meetup.com/Brighton-Kotlin/), United Kingdom
  * [Bucharest Kotlin User Group](https://www.meetup.com/kug-bucharest/), Romania
@@ -38,7 +38,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Dublin Kotlin User Group](https://www.meetup.com/Dublin-Kotlin-Meetup/), Ireland
  * [Dusseldorf Kotlin User Group](https://www.meetup.com/Dusseldorf-Kotlin-Meetup/), Germany
  * [Dutch Kotlin User Group](http://kotlin.nl/), Netherlands
- * [Edinburgh Kotlin User Group](https://twitter.com/edi_kug), Scotland
+ * [Edinburgh Kotlin User Group](https://www.meetup.com/Edinburgh-Kotlin-User-Group/), Scotland
  * [Estonia Kotlin User Group](https://www.facebook.com/groups/estoniaKotlin/), Estonia
  * [Hamburg Kotlin User Group](https://www.meetup.com/de-DE/Kotlin-User-Group-Hamburg/), Germany
  * [Helsinki Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Helsinki/?from=ref), Finland
@@ -74,7 +74,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Uzhgorod Kotlin User Group](https://www.facebook.com/groups/135578123824203/), Ukraine
  * [Vienna Kotlin](https://www.meetup.com/Kotlin-Vienna/), Austria
  * [Warsaw Kotlin](https://www.meetup.com/Kotlin-Warsaw/), Poland
- * [Yorkshire Kotlin Meetup](http://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/), United Kingdom
+ * [Yorkshire Kotlin Meetup](http://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/), England
 
 
 ### Asia
@@ -94,6 +94,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Cambodia Kotlin User Group](https://www.facebook.com/groups/kotlinphnompenh), Cambodia
  * [Dubai Kotlin User Group](https://www.facebook.com/kotlindubai/), United Arab Emirates
  * [Hefei Kotlin User Group](http://weibo.com/kotlinhfug), China
+ * [Hong Cong Kotlin User Group](https://www.facebook.com/KotlinHK), China
  * [Hyderabad Kotlin User Group](https://www.facebook.com/KotlinHyd/), India
  * [Indonesia Kotlin User Group](https://www.facebook.com/groups/395469687469099/), Indonesia
  * [Indore Kotlin User Group](https://www.meetup.com/kotlinindore/), India
@@ -191,6 +192,7 @@ The most common way to begin one is to find a few like-minded people and to get 
 
 * [Abidjan Kotlin User Group](https://www.facebook.com/groups/778398068995641/), Cote d'Ivoire
 * [Abuja Kotlin User Group](https://www.meetup.com/Kotlin-Abuja-User-Group-Nigeria/), Nigeria
+* [Accra Ghana Kotlin User Group](http://groupspaces.com/AccraGhanaKotlinUserGroup/), Ghana
 * [Ado-Ekiti Kotlin User Group](https://web.facebook.com/groups/1598555973529998/?ref=group_header), Nigeria
 * [Agadir Kotlin User Group](https://www.meetup.com/Agadir-Kotlin-User-Group/), Morocco
 * [Algeria Kotlin User Group](https://web.facebook.com/groups/383147662448461/), Algeria
