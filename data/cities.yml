@@ -1,3 +1,15 @@
+- name: Hasselt, Belgium
+  geo:
+    lat: 50.927089
+    lng: 5.336056
+- name: Tübingen, Germany
+  geo:
+    lat: 48.515215
+    lng: 9.060677
+- name: Surat, India
+  geo:
+    lat: 21.196374
+    lng: 72.822279
 - name: Sibiu, Romania
   geo:
     lat: 45.790026
