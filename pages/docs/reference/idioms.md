@@ -131,6 +131,15 @@ map["key"] = value
 ```
 </div>
 
+### Accessing a flag in a map
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+val flag = map["key"] == true
+```
+```true``` only if "key" is in the map, and has the value ```true```
+</div>
+
 ### Lazy property
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
