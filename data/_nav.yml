@@ -365,13 +365,17 @@ tutorials:
 
     - title: Multiplatform Projects
       content:
+        - url: /docs/tutorials/mpp/intro-to-kotlin-mpp.html
+          title: "Intro to MPP"
         - url: /docs/tutorials/native/mpp-ios-android.html
           title: "iOS and Android"
-        - url: /docs/tutorials/multiplatform-library.html
+        - url: /docs/tutorials/mpp/multiplatform-library.html
           title: Multiplatform Library
 
     - title: Native
       content:
+        - url: /docs/tutorials/native/intro-to-kotlin-native.html
+          title: Introduction to Kotlin/Native
         - url: /docs/tutorials/native/basic-kotlin-native-app.html
           title: Basic Kotlin/Native Application
         - url: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
@@ -398,8 +402,9 @@ tutorials:
         - url: /docs/tutorials/coroutines/async-programming.html
           title: Asynchronous Programming
         - url: /docs/tutorials/coroutines/coroutines-basic-jvm.html
-          title: Introduction to Kotlin Coroutines on the JVM
-
+          title: Intro to Kotlin Coroutines on the JVM
+        - url: /docs/tutorials/coroutines/intro-to-coroutines-and-channels.html
+          title: Intro to Coroutines and Channels
 
     - title: Web Development
       content:
