@@ -390,7 +390,7 @@ tutorials:
           title: Kotlin/Native as a Dynamic Library
         - url: /docs/tutorials/native/apple-framework.html
           title: Kotlin/Native as an Apple Framework
-        - url: /docs/tutorials/multiplatform-library.html
+        - url: /docs/tutorials/mpp/multiplatform-library.html
           title: Publishing a Kotlin/Native Library
         - url: /docs/tutorials/native/curl.html
           title: Using C Interop and libcurl for an App
