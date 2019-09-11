@@ -126,7 +126,7 @@ Suggested documentation pages:
 - [Platform-Specific Declarations](platform-specific-declarations.html) 
 
 Recommended tutorials:
-- [Multiplatform Kotlin Library](/docs/tutorials/multiplatform-library.html)
+- [Multiplatform Kotlin Library](/docs/tutorials/mpp/multiplatform-library.html)
 - [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
   
 <div style="display: flex; align-items: center; margin-bottom: 10px;">

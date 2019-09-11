@@ -277,4 +277,4 @@ documentation or check out one of our tutorials.
 With Kotlin [multiplatform](/docs/reference/multiplatform.html) projects, it is possible to
 share the same Kotlin code between all the supported platforms. 
 Check out the tutorial on [sharing Kotlin code between iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
-or have a look at how to build your own [multiplatform library](/docs/tutorials/multiplatform-library.html).
+or have a look at how to build your own [multiplatform library](/docs/tutorials/mpp/multiplatform-library.html).
