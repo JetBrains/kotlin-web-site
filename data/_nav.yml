@@ -362,6 +362,8 @@ tutorials:
           title: Working with JavaScript
         - url: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
           title: Debugging Kotlin in browser
+        - url: /docs/tutorials/javascript/react-and-kotlin-js.html
+          title: Building Web Applications with React and Kotlin/JS
 
     - title: Multiplatform Projects
       content:
