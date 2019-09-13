@@ -187,7 +187,7 @@ When targeting JavaScript, a different plugin should be applied:
 
 ``` groovy
 plugins {
-    id 'kotlin2js' version '{{ site.data.releases.latest.version }}'
+    id 'org.jetbrains.kotlin.js' version '{{ site.data.releases.latest.version }}'
 }
 ```
 
@@ -199,27 +199,11 @@ plugins {
 
 ```kotlin
 plugins {
-    id("kotlin2js") version "{{ site.data.releases.latest.version }}"
+    kotlin("js") version "{{ site.data.releases.latest.version }}"
 }
 ```
 
 </div>
-</div>
-
-Note that this way of applying the Kotlin/JS plugin requires adding the following code to Gradle settings file (`settings.gradle`):
-<div class="sample" markdown="1" mode="groovy" theme="idea" auto-indent="false">
-
-```groovy
-pluginManagement {
-    resolutionStrategy {
-        eachPlugin {
-            if (requested.id.id == "kotlin2js") {
-                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
-            }
-        }
-    }
-}
-```
 </div>
 
 This plugin only works for Kotlin files so it is recommended to keep Kotlin and Java files separate (in case if the same project contains Java files). As with
