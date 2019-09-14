@@ -3,7 +3,7 @@ type: doc
 layout: reference
 category: "Syntax"
 title: "Inline Functions and Reified Type Parameters"
----
+---Hello world-  Shago7937
 
 # Inline Functions
 
