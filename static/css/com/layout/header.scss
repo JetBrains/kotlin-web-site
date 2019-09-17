@@ -15,7 +15,7 @@
   }
 
   .banner-main {
-    background-color: rgb(241, 241, 241);
+    background-color: #fff;
   }
 
   .banner-header {
@@ -35,9 +35,10 @@
     display: flex;
     flex-direction: row;
     margin-top: $unit;
-    height: 315px;
+    height: 314px;
     background: url('images/kotlinlang_banner.png') no-repeat;
     background-size: contain;
+    text-indent: -9999px;
 
     .info-row-1 {
       display: flex;
