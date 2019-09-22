@@ -28,7 +28,7 @@ i.e. those variables that are accessed in the body of the function.
 Memory allocations (both for function objects and classes) and virtual calls introduce runtime overhead.
 -->
 
-しかし、多くの場合、オーバーヘッドのこの種のラムダ式をインライン化することによって解消することができると思われます。以下に示す関数は、このような状況の良い例です。すなわち、`lock()` 関数は、簡単に呼び出し箇所でインライン化することができました。次のケースを考えてみます。
+しかし、多くの場合、オーバーヘッドはこの種のラムダ式をインライン化することによって解消することができると思われます。以下に示す関数は、このような状況の良い例です。すなわち、`lock()` 関数は、簡単に呼び出し箇所でインライン化することができました。次のケースを考えてみます。
 
 <!--original
 But it appears that in many cases this kind of overhead can be eliminated by inlining the lambda expressions.
@@ -100,7 +100,7 @@ inline fun lock<T>(lock: Lock, body: () -> T): T {
 ```
 -->
 
-`inline` 修飾子は、関数自体やそれに渡されたラムダの両方に影響を与えます。それらのすべては、呼び出し箇所の中でインライン化されます。
+`inline` 修飾子は、関数自体や関数の引数に渡されたラムダの両方を呼び出し箇所の中でインライン化させるはたらきをもちます。
 
 <!--original
 The `inline` modifier affects both the function itself and the lambdas passed to it: all of those will be inlined
@@ -120,7 +120,7 @@ it will pay off in performance, especially at "megamorphic" call-sites inside lo
 ## noinline
 -->
 
-インライン関数に渡されたラムダのうちのいくつかだけをインライン関数にしたい場合は、関数パラメータのいくつかに `noinline` 修飾子を付けることができます：
+インライン関数に渡されたラムダのうち、インライン化したくないものがある場合は、 `noinline` 修飾子を付けることができます：
 
 <!--original
 In case you want only some of the lambdas passed to an inline function to be inlined, you can mark some of your function
@@ -141,14 +141,14 @@ inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) {
 ```
 -->
 
-Inlinableラムダは、インライン関数内でのみ呼び出すことができます。または、インライン展開可能な引数として渡すこともできますが、 `noinline` は、好きなように操作できます。例えば、フィールドに保持したり、誰かに渡したり等。
+インライン化されたラムダは、インライン関数内でのみ呼び出すことができます。または、インライン展開可能な引数として渡すこともできますが、 `noinline` は、好きなように操作できます。例えば、フィールドに保持したり、誰かに渡したり等。
 
 <!--original
 Inlinable lambdas can only be called inside the inline functions or passed as inlinable arguments,
 but `noinline` ones can be manipulated in any way we like: stored in fields, passed around etc.
 -->
 
-インライン関数にインライナブル関数パラメータがなく、[具体化型パラメータ](#reified-type-parameters)が指定されていない場合、コンパイラは警告を発します。このような関数のインライン展開は有益ではないためです（インライン展開が必要な場合は警告を抑制できます）。
+インライン関数にインライン化できる関数の引数がなく、[具体化型パラメータ](#reified-type-parameters)が指定されていない場合、コンパイラは警告を発します。このような関数のインライン展開は有益ではないためです（インライン展開が必要な場合は警告を抑制できます）。
 
 <!--original
 Note that if an inline function has no inlinable function parameters and no
@@ -162,7 +162,7 @@ Note that if an inline function has no inlinable function parameters and no
 ## Non-local returns
 -->
 
-Kotlinでは、名前付き関数または無名関数を終了するには、通常、ラベル無し `return` のみを使用することができます。これは、ラムダを終了するには[ラベル](returns.html#return-at-labels)を使用しなければならず、ラムダが自身を内包する関数からの `return` を作ることができないため、ラムダ内での裸のリターンは禁止されていることを意味します。
+Kotlinでは、名前付き関数または無名関数から抜けるためには、通常、ラベル無し `return` のみが使用できます。これは、ラムダを終了するには[ラベル](returns.html#return-at-labels)を使用しなければならず、ラムダが自身を内包する関数からの `return` を作ることができないため、ラムダ内での裸のリターンは禁止されていることを意味します。
 
 <!--original
 In Kotlin, we can only use a normal, unqualified `return` to exit a named function or an anonymous function.
@@ -188,7 +188,7 @@ fun foo() {
 ```
 -->
 
-しかし、ラムダがインライン化されるために渡された関数の場合は、リターンも同様にインライン化することができ、それが許可されています。
+しかし、ラムダがインライン化されるために渡された関数の場合は、returnも同様にインライン化することができ、それが許可されています。
 
 <!--original
 But if the function the lambda is passed to is inlined, the return can be inlined as well, so it is allowed:
@@ -239,7 +239,7 @@ fun hasZeros(ints: List<Int>): Boolean {
 ```
 -->
 
-インライン関数の中には、渡されたラムダを、関数本体から直接ではなく、ローカルオブジェクトやネストされた関数などの別の実行コンテキストからのパラメータとして呼び出すものがあります。このような場合には、非局所制御フローもラムダでは許可されません。それを示すために、ラムダパラメータを `crossinline` 修飾子でマークする必要があります
+インライン関数の中には、渡されたラムダを、関数本体から直接ではなく、ローカルオブジェクトやネストされた関数などの別の実行コンテキストからのパラメータとして呼び出すものがあります。このような場合には、ラムダの中の非局所制御フローは許可されません。それを示すために、ラムダパラメータを `crossinline` 修飾子でマークする必要があります：
 
 <!--original
 Note that some inline functions may call the lambdas passed to them as parameters not directly from the function body,
@@ -381,7 +381,7 @@ almost as if it were a normal class. Since the function is inlined, no reflectio
 and `as` are working now. Also, we can call it as mentioned above: `myTree.findParentOfType<MyTreeNodeType>()`.
 -->
 
-リフレクションは多くの場合に必要とされないかもしれませんが、まだ具体化型パラメータでそれを使用することができます：
+リフレクションは多くの場合に必要とされないかもしれませんが、具体化型パラメータで型パラメータを使用することができます：
 
 <!--original
 Though reflection may not be needed in many cases, we can still use it with a reified type parameter:
@@ -405,7 +405,7 @@ fun main(s: Array<String>) {
 ```
 -->
 
-通常の機能（インラインとしてマークされていない）は具体化パラメータをもつことはできません。実行時表現を持たない型（例えば、非reified型パラメータや `Nothing` のような架空の型）は、reified 型のパラメータの引数として使用できません。
+通常の関数（`inline`としてマークされていない）は具体化パラメータをもつことはできません。実行時表現を持たない型（例えば、reifiedされていない型パラメータや `Nothing` のような架空の型）は、reified 型のパラメータの引数として使用できません。
 
 <!--original
 Normal functions (not marked as inline) can not have reified parameters.
