@@ -152,12 +152,13 @@ kapt.include.compile.classpath=false
 Starting from version 1.3.30, kapt supports incremental annotation processing as an experimental feature. 
 Currently, annotation processing can be incremental only if all annotation processors being used are incremental. 
 
-To enable incremental annotation processing, add this line to your `gradle.properties` file:
+Incremental annotation processing is enabled by default starting from version 1.3.50.
+To disable incremental annotation processing, add this line to your `gradle.properties` file:
 
 <div class="sample" markdown="1" mode="xml" theme="idea">
 
 ```
-kapt.incremental.apt=true
+kapt.incremental.apt=false
 ```
 
 </div>
