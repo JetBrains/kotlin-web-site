@@ -381,3 +381,14 @@ a = b.also { b = a }
 ```
 </div>
 
+### TODO(): Marking code as incomplete
+ 
+Kotlin's standard library has a `TODO()` function that will always throw a `NotImplementedError`.
+Its return type is `Nothing` so it can be used regardless of expected type.
+There's also an overload that accepts a reason parameter:
+```kotlin
+fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
+```
+
+IntelliJ IDEA's kotlin plugin understands the semantics of `TODO()` and automatically adds a code pointer in the TODO toolwindow. 
+
