@@ -149,7 +149,7 @@ fun main() {
 
 </div>
 
-If you want to be able to intercept an assignment and "veto" it, use [`vetoable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html) instead of `observable()`.
+If you want to intercept an assignment and "veto" it, use [`vetoable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html) instead of `observable()`.
 The handler passed to the `vetoable` is called _before_ the assignment of a new property value has been performed.
 
 ## Storing Properties in a Map

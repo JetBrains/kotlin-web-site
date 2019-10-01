@@ -234,7 +234,7 @@ fun MyActivity.a() {
 ### `Parcelable` implementations generator
 
 Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator as an experimental feature.
-To be able to use it, [turn on](#enabling-experimental-features) the experimental flag.
+If you want to use it, [turn on](#enabling-experimental-features) the experimental flag.
 
 #### How to use
 

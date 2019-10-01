@@ -26,7 +26,7 @@ val demo = Outer.Nested().foo() // == 2
 
 ## Inner classes
 
-A class may be marked as *inner*{: .keyword } to be able to access members of outer class. Inner classes carry a reference to an object of an outer class:
+A nested class marked as *inner*{: .keyword } can access the members of its outer class. Inner classes carry a reference to an object of an outer class:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 

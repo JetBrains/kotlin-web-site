@@ -30,6 +30,7 @@ Additional attributes of the annotation can be specified by annotating the annot
     generated API documentation.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
         AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION)
@@ -42,6 +43,7 @@ annotation class Fancy
 ### Usage
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @Fancy class Foo {
     @Fancy fun baz(@Fancy foo: Int): Int {
@@ -55,6 +57,7 @@ If you need to annotate the primary constructor of a class, you need to add the 
 to the constructor declaration, and add the annotations before it:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class Foo @Inject constructor(dependency: MyDependency) { ... }
 ```
@@ -63,6 +66,7 @@ class Foo @Inject constructor(dependency: MyDependency) { ... }
 You can also annotate property accessors:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+
 ```kotlin
 class Foo {
     var x: MyDependency? = null
@@ -76,6 +80,7 @@ class Foo {
 Annotations may have constructors that take parameters.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 annotation class Special(val why: String)
 
@@ -98,6 +103,7 @@ of an annotation attribute.
 If an annotation is used as a parameter of another annotation, its name is not prefixed with the @ character:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 annotation class ReplaceWith(val expression: String)
 
@@ -111,10 +117,11 @@ annotation class Deprecated(
 
 If you need to specify a class as an argument of an annotation, use a Kotlin class
 ([KClass](/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)). The Kotlin compiler will
-automatically convert it to a Java class, so that the Java code will be able to see the annotations and arguments
+automatically convert it to a Java class, so that the Java code can access the annotations and arguments
 normally.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 
 import kotlin.reflect.KClass
@@ -132,6 +139,7 @@ of the lambda is generated. This is useful for frameworks like [Quasar](http://w
 which uses annotations for concurrency control.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 annotation class Suspendable
 
@@ -146,6 +154,7 @@ generated from the corresponding Kotlin element, and therefore multiple possible
 the generated Java bytecode. To specify how exactly the annotation should be generated, use the following syntax:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class Example(@field:Ann val foo,    // annotate Java field
               @get:Ann val bar,      // annotate Java getter
@@ -157,6 +166,7 @@ The same syntax can be used to annotate the entire file. To do this, put an anno
 the top level of a file, before the package directive or before all imports if the file is in the default package:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @file:JvmName("Foo")
 
@@ -168,6 +178,7 @@ If you have multiple annotations with the same target, you can avoid repeating t
 target and putting all the annotations inside the brackets:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class Example {
      @set:[Inject VisibleForTesting]
@@ -191,6 +202,7 @@ The full list of supported use-site targets is:
 To annotate the receiver parameter of an extension function, use the following syntax:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun @receiver:Fancy String.myExtension() { ... }
 ```
@@ -203,12 +215,12 @@ being used. If there are multiple applicable targets, the first applicable targe
   * `property`;
   * `field`.
 
-
 ## Java Annotations
 
 Java annotations are 100% compatible with Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 import org.junit.Test
 import org.junit.Assert.*
@@ -231,6 +243,7 @@ Since the order of parameters for an annotation written in Java is not defined, 
 call syntax for passing the arguments. Instead, you need to use the named argument syntax:
 
 <div class="sample" markdown="1" mode="java" theme="idea">
+
 ``` java
 // Java
 public @interface Ann {
@@ -241,6 +254,7 @@ public @interface Ann {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // Kotlin
 @Ann(intValue = 1, stringValue = "abc") class C
@@ -250,6 +264,7 @@ public @interface Ann {
 Just like in Java, a special case is the `value` parameter; its value can be specified without an explicit name:
 
 <div class="sample" markdown="1" theme="idea" mode="java">
+
 ``` java
 // Java
 public @interface AnnWithValue {
@@ -259,6 +274,7 @@ public @interface AnnWithValue {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // Kotlin
 @AnnWithValue("abc") class C
@@ -270,6 +286,7 @@ public @interface AnnWithValue {
 If the `value` argument in Java has an array type, it becomes a `vararg` parameter in Kotlin:
 
 <div class="sample" markdown="1" theme="idea" mode="java">
+
 ``` java
 // Java
 public @interface AnnWithArrayValue {
@@ -279,6 +296,7 @@ public @interface AnnWithArrayValue {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // Kotlin
 @AnnWithArrayValue("abc", "foo", "bar") class C
@@ -289,6 +307,7 @@ For other arguments that have an array type, you need to use the array literal s
 `arrayOf(...)`:
 
 <div class="sample" markdown="1" theme="idea" mode="java">
+
 ``` java
 // Java
 public @interface AnnWithArrayMethod {
@@ -298,6 +317,7 @@ public @interface AnnWithArrayMethod {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // Kotlin 1.2+:
 @AnnWithArrayMethod(names = ["abc", "foo", "bar"]) 
@@ -314,6 +334,7 @@ class D
 Values of an annotation instance are exposed as properties to Kotlin code:
 
 <div class="sample" markdown="1" theme="idea" mode="java">
+
 ``` java
 // Java
 public @interface Ann {
@@ -323,6 +344,7 @@ public @interface Ann {
 </div>
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // Kotlin
 fun foo(ann: Ann) {
