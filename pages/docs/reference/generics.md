@@ -75,7 +75,7 @@ interface Collection<E> ... {
 
 </div>
 
-But then, we would not be able to do the following simple thing (which is perfectly safe):
+But then, we can't do the following simple thing (which is perfectly safe):
 
 <div class="sample" markdown="1" mode="java" theme="idea">
 

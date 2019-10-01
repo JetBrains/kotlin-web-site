@@ -239,7 +239,9 @@ annotation class ExperimentalDateTime
 
 </div>
 
-If you publish several features in the experimental state, declare a marker for each. Separate markers make the use of experimental features safer for your clients: they'll be able to use only the features that they explicitly accept. This also lets you graduate the features to stable independently.
+If you publish several features in the experimental state, declare a marker for each.
+Separate markers make the use of experimental features safer for your clients: they can use only the features that they explicitly accept.
+This also lets you graduate the features to stable independently.
 
 ### Marking API elements
 

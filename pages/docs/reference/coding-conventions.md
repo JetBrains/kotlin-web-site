@@ -44,8 +44,8 @@ statement.
 
 If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
 as the name of the class, with the .kt extension appended. If a file contains multiple classes, or only top-level declarations,
-choose a name describing what the file contains, and name the file accordingly. Use camel humps with an uppercase first letter
-(e.g. `ProcessDeclarations.kt`).
+choose a name describing what the file contains, and name the file accordingly.
+Use the [camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (for example, `ProcessDeclarations.kt`).
 
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as "Util" in file names.
@@ -71,9 +71,8 @@ Generally, the contents of a class is sorted in the following order:
 - Companion object
 
 Do not sort the method declarations alphabetically or by visibility, and do not separate regular methods
-from extension methods. Instead, put related stuff together, so that someone reading the class from top to bottom would
-be able to follow the logic of what's happening. Choose an order (either higher-level stuff first, or vice versa)
-and stick to it.
+from extension methods. Instead, put related stuff together, so that someone reading the class from top to bottom can 
+follow the logic of what's happening. Choose an order (either higher-level stuff first, or vice versa) and stick to it.
 
 Put nested classes next to the code that uses those classes. If the classes are intended to be used externally and aren't
 referenced inside the class, put them in the end, after the companion object.
@@ -93,29 +92,29 @@ Package and class naming rules in Kotlin are quite simple:
 
 * Names of packages are always lower case and do not use underscores (`org.example.project`). Using multi-word
 names is generally discouraged, but if you do need to use multiple words, you can either simply concatenate them together
-or use camel humps (`org.example.myProject`).
+or use the camel case (`org.example.myProject`).
 
-* Names of classes and objects start with an upper case letter and use camel humps:
+* Names of classes and objects start with an upper case letter and use the camel case:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-open class DeclarationProcessor { ... }
+open class DeclarationProcessor { /*...*/ }
 
-object EmptyDeclarationProcessor : DeclarationProcessor() { ... }
+object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
 ```
 
 </div>
 
 ### Function names
  
-Names of functions, properties and local variables start with a lower case letter and use camel humps and no underscores:
+Names of functions, properties and local variables start with a lower case letter and use the camel case and no underscores:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun processDeclarations() { ... }
-var declarationCount = ...
+fun processDeclarations() { /*...*/ }
+var declarationCount = 1
 ```
 
 </div>
@@ -125,18 +124,17 @@ Exception: factory functions used to create instances of classes can have the sa
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-abstract class Foo { ... }
+abstract class Foo { /*...*/ }
 
-class FooImpl : Foo { ... }
+class FooImpl : Foo { /*...*/ }
 
-fun Foo(): Foo { return FooImpl(...) }
+fun FooImpl(): Foo { return FooImpl() }
 ```
-
 </div>
 
 #### Names for test methods
 
-In tests (and only in tests), it's acceptable to use method names with spaces enclosed in backticks.
+In tests (and **only** in tests), it's acceptable to use method names with spaces enclosed in backticks.
 (Note that such method names are currently not supported by the Android runtime.) Underscores in method names are
 also allowed in test code.
 
@@ -144,9 +142,9 @@ also allowed in test code.
 
 ```kotlin
 class MyTestCase {
-     @Test fun `ensure everything works`() { ... }
+     @Test fun `ensure everything works`() { /*...*/ }
      
-     @Test fun ensureEverythingWorks_onAndroid() { ... }
+     @Test fun ensureEverythingWorks_onAndroid() { /*...*/ }
 }
 ```
 
@@ -166,7 +164,7 @@ val USER_NAME_FIELD = "UserName"
 
 </div>
 
-Names of top-level or object properties which hold objects with behavior or mutable data should use regular camel-hump names:
+Names of top-level or object properties which hold objects with behavior or mutable data should use camel-case names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -181,13 +179,13 @@ Names of properties holding references to singleton objects can use the same nam
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val PersonComparator: Comparator<Person> = ...
+val PersonComparator: Comparator<Person> = /*...*/
 ```
 
 </div>
  
 For enum constants, it's OK to use either uppercase underscore-separated names
-(`enum class Color { RED, GREEN }`) or regular camel-humps names starting with an uppercase letter, depending on the usage.
+(`enum class Color { RED, GREEN }`) or regular camel-case names starting with an uppercase first letter, depending on the usage.
    
 #### Names for backing properties
 
@@ -303,9 +301,9 @@ abstract class Foo<out T : Any> : IFoo {
 }
 
 class FooImpl : Foo() {
-    constructor(x: String) : this(x) { ... }
+    constructor(x: String) : this(x) { /*...*/ }
     
-    val x = object : IFoo { ... } 
+    val x = object : IFoo { /*...*/ } 
 } 
 ```
 
@@ -334,7 +332,7 @@ class Person(
     id: Int,
     name: String,
     surname: String
-) : Human(id, name) { ... }
+) : Human(id, name) { /*...*/ }
 ```
 
 </div>
@@ -349,7 +347,7 @@ class Person(
     name: String,
     surname: String
 ) : Human(id, name),
-    KotlinMaker { ... }
+    KotlinMaker { /*...*/ }
 ```
 
 </div>
@@ -364,7 +362,7 @@ class MyFavouriteVeryLongClassHolder :
     SomeOtherInterface,
     AndAnotherOne {
 
-    fun foo() { ... }
+    fun foo() { /*...*/ }
 }
 ```
 
@@ -381,7 +379,7 @@ class MyFavouriteVeryLongClassHolder :
     SomeOtherInterface,
     AndAnotherOne 
 {
-    fun foo() { ... }
+    fun foo() { /*...*/ }
 }
 ```
 
@@ -461,7 +459,7 @@ A single annotation without arguments may be placed on the same line as the corr
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-@Test fun foo() { ... }
+@Test fun foo() { /*...*/ }
 ```
 
 </div>
@@ -548,7 +546,7 @@ For more complex properties, always put `get` and `set` keywords on separate lin
 
 ```kotlin
 val foo: String
-    get() { ... }
+    get() { /*...*/ }
 ```
 
 </div>
@@ -768,14 +766,14 @@ directly into the documentation comment, and add links to parameters wherever th
  * @param number The number to return the absolute value for.
  * @return The absolute value.
  */
-fun abs(number: Int) = ...
+fun abs(number: Int) { /*...*/ }
 
 // Do this instead:
 
 /**
  * Returns the absolute value of the given [number].
  */
-fun abs(number: Int) = ...
+fun abs(number: Int) { /*...*/ }
 ```
 
 </div>
@@ -855,10 +853,10 @@ Prefer declaring functions with default parameter values to declaring overloaded
 ```kotlin
 // Bad
 fun foo() = foo("a")
-fun foo(a: String) { ... }
+fun foo(a: String) { /*...*/ }
 
 // Good
-fun foo(a: String = "a") { ... }
+fun foo(a: String = "a") { /*...*/ }
 ```
 
 </div>
@@ -946,8 +944,8 @@ Prefer using `if` for binary conditions instead of `when`. Instead of
 
 ```kotlin
 when (x) {
-    null -> ...
-    else -> ...
+    null -> // ...
+    else -> // ...
 }
 ```
 
@@ -976,8 +974,8 @@ Use the `until` function to loop over an open range:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-for (i in 0..n - 1) { ... }  // bad
-for (i in 0 until n) { ... }  // good
+for (i in 0..n - 1) { /*...*/ }  // bad
+for (i in 0 until n) { /*...*/ }  // good
 ```
 
 </div>

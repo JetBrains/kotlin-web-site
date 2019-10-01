@@ -515,4 +515,4 @@ of a class (for example, a factory method), you can write it as a member of an [
 inside that class.
 
 Even more specifically, if you declare a [companion object](object-declarations.html#companion-objects) inside your class,
-you'll be able to call its members using only the class name as a qualifier.
+you can access its members using only the class name as a qualifier.
