@@ -217,7 +217,7 @@ value?.let {
 ```kotlin
 val value = ...
 
-val mapped = value?.let { transformValue(it) } ?: defaultValueIfValueIsNull
+val mapped = value?.let { transformValue(it) } ?: defaultValueIfValueOrTransformationResultIsNull
 ```
 </div>
 
