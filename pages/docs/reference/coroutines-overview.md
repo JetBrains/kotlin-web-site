@@ -31,6 +31,7 @@ Selected documentation pages:
 - [Channels](/docs/reference/coroutines/channels.html)
 - [Coroutine Context and Dispatchers](/docs/reference/coroutines/coroutine-context-and-dispatchers.html)
 - [Shared Mutable State and Concurrency](/docs/reference/coroutines/shared-mutable-state-and-concurrency.html)
+- [Asynchronous Flow](/docs/reference/coroutines/flow.html)
 
 Recommended tutorials:
 - [Your first coroutine with Kotlin](../tutorials/coroutines/coroutines-basic-jvm.html)
