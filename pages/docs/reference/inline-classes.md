@@ -200,7 +200,7 @@ To remove the warning you have to opt in to the usage of this experimental featu
 ``` groovy
 
 compileKotlin {
-    kotlinOptions.freeCompilerArgs += ["Xinline-classes"]
+    kotlinOptions.freeCompilerArgs += ["-Xinline-classes"]
 }
 ```
 
