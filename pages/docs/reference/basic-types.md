@@ -26,7 +26,7 @@ For integer numbers, there are four types with different sizes and, hence, value
 
 All variables initialized with integer values not exceeding the maximum value of `Int`
 have the inferred type `Int`. If the initial value exceeds this value, then the type is `Long`.
-To specify the `Long` value explicitly, append the suffix `l` or `L` to the value.
+To specify the `Long` value explicitly, append the suffix `L` to the value.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
