@@ -279,6 +279,8 @@ reference:
           title: Documenting Kotlin Code
         - url: /docs/reference/kapt.html
           title: Using Kapt
+        - url: /docs/reference/compiler-reference.html
+          title: Command-line compiler
         - url: /docs/reference/using-gradle.html
           title: Using Gradle
         - url: /docs/reference/using-maven.html
