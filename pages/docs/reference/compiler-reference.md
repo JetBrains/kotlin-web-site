@@ -10,8 +10,8 @@ title: "Command-line compiler"
 To learn how to download and install it, see the [Working with command-line compiler](/docs/tutorials/command-line.html)
  tutorial.
 
-## description
-`kotlinc` compiles the given Kotlin source files into Java class files. Additionally, it can be used for executing
+## Description
+`kotlinc` compiles the given Kotlin source files into Java class files. It also can be used for executing
 Kotlin script files.
 
 ## Usage
@@ -62,7 +62,9 @@ $ kotlinc hello.kt @<filename>
 
 ## Compiler options
 
-`-classpath (-cp) <path>`
+`-classpath <path>`
+
+`-cp <path>`
 * Search for class files in the specified paths. Separate elements of the classpath with semicolons (**;**).
 
 `-d <directory|jar>`
@@ -128,14 +130,15 @@ environment.
 
 `-verbose`
 * Enable verbose logging output.
-  
-`-help`
-`-h`
-* Display usage information and exit. Only standard options are shown.
-To show [advanced options](#advanced-options), use `-X`.
 
 `-version` 
 * Display the compiler version.
+
+`-help`
+
+`-h`
+* Display usage information and exit. Only standard options are shown.
+To show [advanced options](#advanced-options), use `-X`.
 
 `-X`
 * Display information about [advanced options](#advanced-options) and exit.
