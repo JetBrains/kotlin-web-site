@@ -4,19 +4,88 @@ layout: reference
 title: "Command-line compiler"
 ---
 
-# Kotlin Command-line Compiler (`kotlinc`)
+# Kotlin Compiler Options Reference
 
-`kotlinc` is a command-line compiler for Kotlin. It is shipped with each release of Kotlin.
-To learn how to download and install it, see the [Working with command-line compiler](/docs/tutorials/command-line.html)
- tutorial.
+Each release of Kotlin includes compilers for supported targets: 
+JVM, JavaScript, and native binaries for [supported platforms](/docs/reference/native-overview.html#target-platforms).
 
-## Description
-`kotlinc` compiles the given Kotlin source files into Java class files. It also can be used for executing
-Kotlin script files.
+These compilers are used by IDE when you push the __Compile__ or __Run__ button for your Kotlin project.  
 
-## Usage
+You can also run Kotlin compilers manually from command line as described 
+in the [Working with command-line compiler](/docs/tutorials/command-line.html) tutorial. For example: 
 
-`kotlinc <options> <source files>`
+<div class="sample" markdown="1" mode="shell" theme="idea">
+
+```bash
+$ kotlinc hello.kt -include-runtime -d hello.jar
+```
+
+</div>
+ 
+## Compiler options
+
+Kotlin compilers have a number of options for tailoring the compilation process.
+Compiler options for different targets are listed on this page together with their descriptions.
+
+There are several ways to set the compiler options:
+- In IntelliJ IDEA, write the options in the __Additional command-line parameters__ text box in 
+__Settings | Build, Execution, Deployment | Compilers | Kotlin Compiler__
+- If you're using Gradle, specify the options in the `kotlinOptions` property of the Kotlin compilation task.
+For details, see [Using Gradle](/docs/reference/using-gradle.html#compiler-options).
+- If you're using Maven, specify the options in the `<configuration>` element of the Maven plugin node. 
+For details, see [Using Maven](/docs/reference/using-maven.html#specifying-compiler-options).
+- If you run a command-line compiler, add the options directly to the call of the utility. 
+
+## Common options
+
+The following options are common for all Kotlin compilers.
+
+### `-version` 
+* Display the compiler version.
+
+### `-nowarn`
+* Suppress the compiler from displaying warnings during compilation.
+
+### `-Werror`
+* Turn any warnings into a compilation error. 
+
+### `-verbose`
+* Enable verbose logging output which includes details of the compilation process.
+
+### `-help` (`-h`)
+* Display usage information and exit. Only standard options are shown.
+To show advanced options, use `-X`.
+
+### `-X`
+* Display information about advanced options and exit. Advanced options let you manage experimental 
+features of Kotlin or tune specific aspects of . The names and behaviour of advanced options may be changed without notice.
+The names of advanced options 
+
+### `-kotlin-home <path>`
+* Specify a custom path to Kotlin compiler used for the discovery of runtime libraries.
+  
+### `-P plugin:<pluginId>:<optionName>=<value>`
+* Pass an option to a Kotlin compiler plugin.
+Available plugins and their options are listed in [Compiler plugins](/docs/reference/compiler-plugins.html).
+  
+### `-language-version <version>`
+* Provide source compatibility with the specified version of Kotlin.
+
+### `-api-version <version>`
+* Allow using declarations only from the specified version of bundled libraries.
+
+### `-progressive`
+* Enable the [progressive mode](/docs/reference/whatsnew13.html#progressive-mode) for the compiler.
+    
+    In the progressive mode, deprecations and bug fixes for unstable code take effect immediately,
+    instead of going through a graceful migration cycle.
+    Code written in the progressive mode is backward compatible; however, code written in
+    non-progressive mode may cause compilation errors in the progressive mode.
+    
+## JVM Compiler
+Kotlin compiler for JVM compiles the given Kotlin source files into Java class files. 
+`kotlinc`
+It also can be used for executing Kotlin script files.
 
 ## Examples
 
@@ -60,61 +129,59 @@ $ kotlinc hello.kt @<filename>
 
 </div>
 
-## Compiler options
+## JVM-specific options
 
-`-classpath <path>`
-
-`-cp <path>`
+### `-classpath <path>` (`-cp <path>`)
 * Search for class files in the specified paths. Separate elements of the classpath with semicolons (**;**).
 
-`-d <directory|jar>`
+### `-d <directory|jar>`
 * Place the generated class files into the specified location. The location can be a directory, a ZIP, or a JAR file. 
 
-`-include-runtime`
+### `-include-runtime`
 * Include the Kotlin runtime into the resulting JAR file. Makes the resulting archive runnable on any Java-enabled 
 environment.
 
-`-jdk-home <path>`
+### `-jdk-home <path>`
 * Use a custom JDK home directory to include into classpath if it differs from the default `JAVA_HOME`.
 
-`-jvm-target <version>`
+### `-jvm-target <version>`
 * Specify the target version of the generated JVM bytecode. Possible values are `1.6`, `1.8`, `9`, `10`, `11`, and `12`.
  The default value is `1.6`.
 
-`-java-parameters`
+### `-java-parameters`
 * Generate metadata for Java 1.8 reflection on method parameters.
 
-`-module-name <name>`
+### `-module-name <name>`
 * Set the custom name for the generated `.kotlin_module` file.
   
-`-no-jdk`
+### `-no-jdk`
 * Exclude the Java runtime from the classpath.
 
-`-no-reflect`
+### `-no-reflect`
 * Exclude `kotlin-reflect.jar` from the classpath.
   
-`-no-stdlib`
+### `-no-stdlib`
 * Exclude both `kotlin-stdlib.jar` and `kotlin-reflect.jar` from the classpath. 
   
-`-script <file>`
+### `-script <file>`
 * Evaluate a Kotlin script (`*.kts`) file.
   
-`-script-templates <fully qualified class name[,]>`
+### `-script-templates <fully qualified class name[,]>`
 * Script definition template classes.
 
-`-kotlin-home <path>`
+### `-kotlin-home <path>`
 * Specify a custom path to Kotlin compiler used for the discovery of runtime libraries.
   
-`-P plugin:<pluginId>:<optionName>=<value>`
+### `-P plugin:<pluginId>:<optionName>=<value>`
 * Pass an option to a plugin.
   
-`-language-version <version>`
+### `-language-version <version>`
 * Provide source compatibility with the specified language version.
 
-`-api-version <version>`
+### `-api-version <version>`
 * Allow using declarations only from the specified version of bundled libraries.
 
-`-progressive`
+### `-progressive`
 * Enable the [progressive mode](/docs/reference/whatsnew13.html#progressive-mode) for the compiler.
     
     In the progressive mode, deprecations and bug fixes for unstable code take effect immediately,
@@ -122,144 +189,28 @@ environment.
     Code written in the progressive mode is backward compatible; however, code written in
     non-progressive mode may cause compilation errors in the progressive mode.
   
-`-nowarn`
+### `-nowarn`
 * Suppress the compiler from displaying warnings during compilation.
 
-`-Werror`
+### `-Werror`
 * Report an error if there are any warnings.
 
-`-verbose`
+### `-verbose`
 * Enable verbose logging output.
 
-`-version` 
+### `-version` 
 * Display the compiler version.
 
-`-help`
-
-`-h`
+### `-help` (`-h`)
 * Display usage information and exit. Only standard options are shown.
-To show [advanced options](#advanced-options), use `-X`.
+To show advanced options, use `-X`.
 
-`-X`
-* Display information about [advanced options](#advanced-options) and exit.
+### `-X`
+* Display information about advanced options and exit.
 
-`@<argfile>`
+### `@<argfile>`
 * Read the compiler options the given file.
-  
-## Advanced options
 
-Advanced options 
-Names and behavior of advanced options can be changed without
+## Kotlin/JS compiler options
 
-  -Xadd-modules=<module[,]>  Root modules to resolve in addition to the initial modules,
-                             or all modules on the module path if <module> is ALL-MODULE-PATH
-  -Xallow-no-source-files    Allow no source files
-  -Xassertions={always-enable|always-disable|jvm|legacy}
-                             Assert calls behaviour
-                             -Xassertions=always-enable:  enable, ignore jvm assertion settings;
-                             -Xassertions=always-disable: disable, ignore jvm assertion settings;
-                             -Xassertions=jvm:            enable, depend on jvm assertion settings;
-                             -Xassertions=legacy:         calculate condition on each call, check depends on jvm assertion settings in the kotlin package;
-                             default: legacy
-  -Xbuild-file=<path>        Path to the .xml build file to compile
-  -Xcompile-java             Reuse javac analysis and compile Java source files
-  -Xnormalize-constructor-calls={disable|enable}
-                             Normalize constructor calls (disable: don't normalize; enable: normalize),
-                             default is 'disable' in language version 1.2 and below,
-                             'enable' since language version 1.3
-  -Xdump-declarations-to=<path> Path to JSON file to dump Java to Kotlin declaration mappings
-  -Xdisable-default-scripting-plugin
-                             Do not enable scripting plugin by default
-  -Xdisable-standard-script  Disable standard kotlin script support
-  -Xfriend-paths=<path>      Paths to output directories for friend modules (whose internals should be visible)
-  -Xmultifile-parts-inherit  Compile multifile classes as a hierarchy of parts and facade
-  -Xmodule-path=<path>       Paths where to find Java 9+ modules
-  -Xjava-package-prefix      Package prefix for Java files
-  -Xjava-source-roots=<path> Paths to directories with Java source files
-  -Xjavac-arguments=<option[,]> Java compiler arguments
-  -Xjsr305={ignore/strict/warn}|under-migration:{ignore/strict/warn}|@<fq.name>:{ignore/strict/warn}
-                             Specify behavior for JSR-305 nullability annotations:
-                             -Xjsr305={ignore/strict/warn}                   globally (all non-@UnderMigration annotations)
-                             -Xjsr305=under-migration:{ignore/strict/warn}   all @UnderMigration annotations
-                             -Xjsr305=@<fq.name>:{ignore/strict/warn}        annotation with the given fully qualified class name
-                             Modes:
-                               * ignore
-                               * strict (experimental; treat as other supported nullability annotations)
-                               * warn (report a warning)
-  -Xjvm-default={disable|enable|compatibility}
-                             Allow to use '@JvmDefault' annotation for JVM default method support.
-                             -Xjvm-default=disable         Prohibit usages of @JvmDefault
-                             -Xjvm-default=enable          Allow usages of @JvmDefault; only generate the default method
-                                                           in the interface (annotating an existing method can break binary compatibility)
-                             -Xjvm-default=compatibility   Allow usages of @JvmDefault; generate a compatibility accessor
-                                                           in the 'DefaultImpls' class in addition to the interface method
-  -Xno-call-assertions       Don't generate not-null assertions for arguments of platform types
-  -Xno-exception-on-explicit-equals-for-boxed-null
-                             Do not throw NPE on explicit 'equals' call for null receiver of platform boxed primitive type
-  -Xno-optimize              Disable optimizations
-  -Xno-param-assertions      Don't generate not-null assertions on parameters of methods accessible from Java
-  -Xno-receiver-assertions   Don't generate not-null assertion for extension receiver arguments of platform types
-  -Xsanitize-parentheses     Transform '(' and ')' in method names to some other character sequence.
-                             This mode can BREAK BINARY COMPATIBILITY and is only supposed to be used to workaround
-                             problems with parentheses in identifiers on certain platforms
-  -Xscript-resolver-environment=<key=value[,]>
-                             Script resolver environment in key-value pairs (the value could be quoted and escaped)
-  -Xsingle-module            Combine modules for source files and binary dependencies into a single module
-  -Xskip-runtime-version-check Allow Kotlin runtime libraries of incompatible versions in the classpath
-  -Xstrict-java-nullability-assertions
-                             Generate nullability assertions for non-null Java expressions
-  -Xgenerate-strict-metadata-version
-                             Generate metadata with strict version semantics (see kdoc on Metadata.extraInt)
-  -Xsupport-compatqual-checker-framework-annotations=enable|disable
-                             Specify behavior for Checker Framework compatqual annotations (NullableDecl/NonNullDecl).
-                             Default value is 'enable'
-  -Xsuppress-missing-builtins-error
-                             Suppress the "cannot access built-in declaration" error (useful with -no-stdlib)
-  -Xuse-ir                   Use the IR backend
-  -Xuse-javac                Use javac for Java source and class files analysis
-  -Xuse-old-class-files-reading Use old class files reading implementation. This may slow down the build and cause problems with Groovy interop.
-                             Should be used in case of problems with the new implementation
-  -Xuse-type-table           Use type table in metadata serialization
-  -Xallow-kotlin-package     Allow compiling code in package 'kotlin' and allow not requiring kotlin.stdlib in module-info
-  -Xallow-result-return-type Allow compiling code when `kotlin.Result` is used as a return type
-  -Xcheck-phase-conditions   Check pre- and postconditions on phases
-  -Xcheck-sticky-phase-conditions
-                             Run sticky condition checks on subsequent phases as well. Implies -Xcheck-phase-conditions
-  -Xcommon-sources=<path>    Sources of the common module that need to be compiled together with this module in the multi-platform mode.
-                             Should be a subset of sources passed as free arguments
-  -Xcoroutines={enable|warn|error}
-                             Enable coroutines or report warnings or errors on declarations and use sites of 'suspend' modifier
-  -Xdisable-phases           Disable backend phases
-  -Xdump-directory           Dump backend state into directory
-  -Xdump-fqname              FqName of declaration that should be dumped
-  -Xdump-perf=<path>         Dump detailed performance statistics to the specified file
-  -Xeffect-system            Enable experimental language feature: effect system
-  -Xexperimental=<fq.name>   Enable and propagate usages of experimental API for marker annotation with the given fully qualified name
-  -Xinline-classes           Enable experimental inline classes
-  -Xintellij-plugin-root=<path> Path to the kotlin-compiler.jar or directory where IntelliJ configuration files can be found
-  -Xlegacy-smart-cast-after-try Allow var smart casts despite assignment in try block
-  -Xlist-phases              List backend phases
-  -Xmetadata-version         Change metadata version of the generated binary files
-  -Xmulti-platform           Enable experimental language support for multi-platform projects
-  -Xexclude-from-dumping     Names of elements that should not be dumped
-  -Xnew-inference            Enable new experimental generic type inference algorithm
-  -Xno-check-actual          Do not check presence of 'actual' modifier in multi-platform projects
-  -Xno-inline                Disable method inlining
-  -Xphases-to-dump           Dump backend state both before and after these phases
-  -Xphases-to-dump-after     Dump backend state after these phases
-  -Xphases-to-dump-before    Dump backend state before these phases
-  -Xphases-to-validate       Validate backend state both before and after these phases
-  -Xphases-to-validate-after Validate backend state after these phases
-  -Xphases-to-validate-before Validate backend state before these phases
-  -Xplugin=<path>            Load plugins from the given classpath
-  -Xpolymorphic-signature    Enable experimental support for @PolymorphicSignature (MethodHandle/VarHandle)
-  -Xprofile-phases           Profile backend phases
-  -Xproper-ieee754-comparisons Generate proper IEEE 754 comparisons in all cases if values are statically known to be of primitive numeric types
-  -Xread-deserialized-contracts Enable reading of contracts from metadata
-  -Xreport-output-files      Report source to output files mapping
-  -Xreport-perf              Report detailed performance statistics
-  -Xskip-metadata-version-check Load classes with bad metadata version anyway (incl. pre-release classes)
-  -Xuse-experimental=<fq.name> Enable, but don't propagate usages of experimental API for marker annotation with the given fully qualified name
-  -Xuse-fir                  Compile using Front-end IR. Warning: this feature is far from being production-ready
-  -Xverbose-phases           Be verbose while performing these backend phases
-
+## Kotlin/Native compiler options
