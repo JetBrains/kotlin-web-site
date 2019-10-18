@@ -34,7 +34,8 @@ __Settings | Build, Execution, Deployment | Compilers | Kotlin Compiler__
 For details, see [Using Gradle](/docs/reference/using-gradle.html#compiler-options).
 - If you're using Maven, specify the options in the `<configuration>` element of the Maven plugin node. 
 For details, see [Using Maven](/docs/reference/using-maven.html#specifying-compiler-options).
-- If you run a command-line compiler, add the options directly to the call of the utility. 
+- If you run a command-line compiler, add the options directly to the utility call 
+or write them into an [argfile](#argfile).
 
 ## Common options
 
@@ -57,9 +58,8 @@ The following options are common for all Kotlin compilers.
 To show advanced options, use `-X`.
 
 ### `-X`
-* Display information about advanced options and exit. Advanced options let you manage experimental 
-features of Kotlin or tune specific aspects of . The names and behaviour of advanced options may be changed without notice.
-The names of advanced options 
+* Display information about advanced options and exit. These options are currently unstable: 
+their names and behaviour may be changed without notice.
 
 ### `-kotlin-home <path>`
 * Specify a custom path to Kotlin compiler used for the discovery of runtime libraries.
@@ -72,7 +72,7 @@ Available plugins and their options are listed in [Compiler plugins](/docs/refer
 * Provide source compatibility with the specified version of Kotlin.
 
 ### `-api-version <version>`
-* Allow using declarations only from the specified version of bundled libraries.
+* Allow using declarations only from the specified version of Kotlin bundled libraries.
 
 ### `-progressive`
 * Enable the [progressive mode](/docs/reference/whatsnew13.html#progressive-mode) for the compiler.
@@ -82,57 +82,53 @@ Available plugins and their options are listed in [Compiler plugins](/docs/refer
     Code written in the progressive mode is backward compatible; however, code written in
     non-progressive mode may cause compilation errors in the progressive mode.
     
-## JVM Compiler
+{:#argfile}
+
+### `@<argfile>`
+* Read the compiler options from the given file. A file passed in this option can contain compiler options with values 
+and paths to source files. For example:
+
+    <div class="sample" markdown="1" mode="shell" theme="idea">
+    
+    ```
+    -d hello.jar -include-runtime
+    hello.kt
+    ```
+    
+    </div>
+
+    You can also separate compiler options from source file names and pass multiple argument files.
+
+    <div class="sample" markdown="1" mode="shell" theme="idea">
+    
+    ```bash
+    $ kotlinc @compiler.options @classes
+    ```
+    
+    </div>
+    
+    If the files reside in locations different from the current directory, use relative paths. 
+    
+    <div class="sample" markdown="1" mode="shell" theme="idea">
+    
+    ```bash
+    $ kotlinc @options\compiler.options hello.kt
+    ```
+    
+    </div>
+
+    
+## JVM Compiler Options
+
 Kotlin compiler for JVM compiles the given Kotlin source files into Java class files. 
-`kotlinc`
-It also can be used for executing Kotlin script files.
+The command-line tools for Kotlin to JVM compilation are `kotlinc` and `kotlinc-jvm`.
+You can also use them for executing Kotlin script files.
 
-## Examples
-
-Compile a Kotlin source file with a given classpath:
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
-$ kotlin -classpath hello.jar HelloKt
-```
-
-</div>
-
-Create a runnable JAR from Kotlin sources:
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
-$ kotlinc hello.kt -include-runtime -d hello.jar
-```
-
-</div>
-
-Open script evaluation mode:
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
-$ kotlinc
-```
-
-</div>
-
-Compile a Kotlin file with options listed in a file:
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
-$ kotlinc hello.kt @<filename>
-```
-
-</div>
-
-## JVM-specific options
+In addition to [common options](#common-options), Kotlin/JVM compiler has the options listed below.
 
 ### `-classpath <path>` (`-cp <path>`)
 * Search for class files in the specified paths. Separate elements of the classpath with semicolons (**;**).
+The classpath can contain file and directory paths, ZIP, or JAR files.
 
 ### `-d <directory|jar>`
 * Place the generated class files into the specified location. The location can be a directory, a ZIP, or a JAR file. 
@@ -169,48 +165,67 @@ environment.
 ### `-script-templates <fully qualified class name[,]>`
 * Script definition template classes.
 
-### `-kotlin-home <path>`
-* Specify a custom path to Kotlin compiler used for the discovery of runtime libraries.
-  
-### `-P plugin:<pluginId>:<optionName>=<value>`
-* Pass an option to a plugin.
-  
-### `-language-version <version>`
-* Provide source compatibility with the specified language version.
-
-### `-api-version <version>`
-* Allow using declarations only from the specified version of bundled libraries.
-
-### `-progressive`
-* Enable the [progressive mode](/docs/reference/whatsnew13.html#progressive-mode) for the compiler.
-    
-    In the progressive mode, deprecations and bug fixes for unstable code take effect immediately,
-    instead of going through a graceful migration cycle.
-    Code written in the progressive mode is backward compatible; however, code written in
-    non-progressive mode may cause compilation errors in the progressive mode.
-  
-### `-nowarn`
-* Suppress the compiler from displaying warnings during compilation.
-
-### `-Werror`
-* Report an error if there are any warnings.
-
-### `-verbose`
-* Enable verbose logging output.
-
-### `-version` 
-* Display the compiler version.
-
-### `-help` (`-h`)
-* Display usage information and exit. Only standard options are shown.
-To show advanced options, use `-X`.
-
-### `-X`
-* Display information about advanced options and exit.
-
-### `@<argfile>`
-* Read the compiler options the given file.
 
 ## Kotlin/JS compiler options
+
+Kotlin compiler for JS compiles the given Kotlin source files into JavaScript code. 
+The command-line tool for Kotlin to JS compilation is `kotlinc-js`.
+
+In addition to [common options](#common-options), Kotlin/JS compiler has the options listed below.
+
+### `-libraries <path>`
+
+- Paths to Kotlin libraries with `.meta.js` and `.kjsm` files, separated by the system path separator.
+
+###`-main {call,noCall}`
+
+- Define whether the `main` function should be called upon execution.
+
+###`-meta-info`
+
+- Generate `.meta.js` and `.kjsm` files with metadata. Use this option when creating a JS library.
+
+###`-module-kind { plain, amd, commonjs, umd }`
+
+- Kind of the JS module generated by the compiler:
+    - `plain` - a plain JS module;
+    - `commonjs` - a [CommonJS](http://www.commonjs.org/) module;
+    - `amd` - an [Asynchronous Module Definition](https://en.wikipedia.org/wiki/Asynchronous_module_definition) module;
+    - `umd` - a [Universal Module Definition](https://github.com/umdjs/umd) module.
+    
+    To learn more about the module kinds and dictinctions between them,
+    read [this](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/) article.
+    
+###`-no-stdlib`
+
+- Don't use the bundled Kotlin standard library.
+
+###`-output <path>`
+
+- Place the output file into the specified location.
+
+###`-output-postfix <filepath>`
+
+- Add the content of the specified file to the end of output file.
+
+###`-output-prefix <filepath>`
+
+- Add the content of the specified file to the beginning of output file.
+
+###`-source-map`
+
+- Generate the source map.
+
+###`-source-map-base-dirs <path>`
+
+- Use the specified paths as base directories. Base directories are used for calculating relative paths in the source map.
+
+###`-source-map-embed-sources { always, never, inlining }`
+
+- Embed source files into the source map.
+
+###`-source-map-prefix`
+
+- Add the specified prefix to paths in the source map.
 
 ## Kotlin/Native compiler options
