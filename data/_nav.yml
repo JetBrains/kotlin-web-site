@@ -280,7 +280,7 @@ reference:
         - url: /docs/reference/kapt.html
           title: Using Kapt
         - url: /docs/reference/compiler-reference.html
-          title: Сompiler Options Reference
+          title: Kotlin Сompiler Options
         - url: /docs/reference/using-gradle.html
           title: Using Gradle
         - url: /docs/reference/using-maven.html

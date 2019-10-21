@@ -4,7 +4,7 @@ layout: reference
 title: "Command-line compiler"
 ---
 
-# Kotlin Compiler Options Reference
+# Kotlin Compiler Options
 
 Each release of Kotlin includes compilers for supported targets: 
 JVM, JavaScript, and native binaries for [supported platforms](native-overview.html#target-platforms).
