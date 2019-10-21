@@ -159,8 +159,9 @@ environment.
 ### `-no-stdlib`
 * Exclude both `kotlin-stdlib.jar` and `kotlin-reflect.jar` from the classpath. 
   
-### `-script <file>`
-* Evaluate a Kotlin script (`*.kts`) file.
+### `-script`
+* Evaluate a Kotlin script file. When called with this option, the compiler executes the first Kotlin script (`*.kts`) 
+file among given arguments.
   
 ### `-script-templates <classnames[,]>`
 * Script definition template classes. Use fully qualified class names and separate them with commas (**,**).
@@ -198,11 +199,11 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
     
 ### `-no-stdlib`
 
-- Don't use the bundled Kotlin standard library.
+- Exclude `kotlin-stdlib-js.jar` from the compilation dependencies.
 
-### `-output <path>`
+### `-output <filepath>`
 
-- Place the output file into the specified location.
+- Set the destination file for the compilation result. The value must be a path to a `.js` file including its name.
 
 ### `-output-postfix <filepath>`
 
@@ -227,6 +228,7 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
 ### `-source-map-prefix`
 
 - Add the specified prefix to paths in the source map.
+
 
 ## Kotlin/Native compiler options
 
@@ -311,7 +313,7 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
 - Pass an argument to the linker. To learn more, see 
 [C compiler and linker options](native/c_interop.html#c-compiler-and-linker-options).
 
-### `-linker-options <args>
+### `-linker-options <args>`
 
 - Pass arguments to the linker. To learn more, see 
 [C compiler and linker options](native/c_interop.html#c-compiler-and-linker-options).
