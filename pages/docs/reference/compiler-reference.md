@@ -309,12 +309,12 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
 ### `-linker-option`
 
 - Pass an argument to the linker. To learn more, see 
-[C compiler and linker options](/native/c_interop.html#c-compiler-and-linker-options).
+[C compiler and linker options](native/c_interop.html#c-compiler-and-linker-options).
 
 ### `-linker-options <args>
 
 - Pass arguments to the linker. To learn more, see 
-[C compiler and linker options](/native/c_interop.html#c-compiler-and-linker-options).
+[C compiler and linker options](native/c_interop.html#c-compiler-and-linker-options).
  Separate different arguments with whitespaces.
 
 ### `-nostdlib`
