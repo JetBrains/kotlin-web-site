@@ -120,7 +120,7 @@ and paths to source files. For example:
     
 ## JVM compiler options
 
-Kotlin compiler for JVM compiles the given Kotlin source files into Java class files. 
+Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
 The command-line tools for Kotlin to JVM compilation are `kotlinc` and `kotlinc-jvm`.
 You can also use them for executing Kotlin script files.
 
@@ -168,7 +168,7 @@ environment.
 
 ## Kotlin/JS compiler options
 
-Kotlin compiler for JS compiles the given Kotlin source files into JavaScript code. 
+Kotlin compiler for JS compiles Kotlin source files into JavaScript code. 
 The command-line tool for Kotlin to JS compilation is `kotlinc-js`.
 
 In addition to [common options](#common-options), Kotlin/JS compiler has the options listed below.
@@ -229,3 +229,126 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
 - Add the specified prefix to paths in the source map.
 
 ## Kotlin/Native compiler options
+
+Kotlin/Native compiler compiles Kotlin source files into native binaries for [supported platforms](/docs/reference/native-overview.html#target-platforms). 
+The command-line tool for Kotlin/Native compilation is `kotlinc-native`.
+
+In addition to [common options](#common-options), Kotlin/Native compiler has the options listed below.
+
+
+### `-enable-assertions`
+
+- Enable runtime assertions in the generated code.
+    
+### `-g`
+
+- Enable emitting debug information.
+    
+### `-generate-test-runner` (`-tr`)
+
+- Produce a runner for unit tests.
+    
+### `-generate-worker-test-runner` (`-trw`)
+
+- Produce a worker runner for unit tests.
+    
+### `-generate-no-exit-test-runner` (`-trn`)
+
+- Produce a runner for unit tests not forcing exit.
+    
+### `-include-binary <path>` (`-ib <path>`)
+
+- Pack external binary within the generated klib file.
+    
+### `-library <path>` (`-l <path>`)
+
+- Link with the library.
+
+### `-library-version <version>` (`-lv`)
+
+- Set library version.
+    
+### `-list-targets`
+
+- List available hardware targets.
+
+### `-manifest <path>`
+
+- Provide a manifest addend file.
+    
+### `-memory-model {strict, relaxed}`
+
+- Memory model to use. Two memory models are supported:
+    - _strict_
+    - _relaxed_
+
+### `-module-name <name>`
+
+- Specify a name for the compilation module.
+
+### `-native-library <path>`(`-nl <path>`)
+
+- Include the native bitcode library.
+
+### `-no-default-libs`
+
+- Don't link the libraries from dist/klib automatically.
+
+### `-no-endorsed-libs`
+
+- Don't link the endorsed libraries from dist automatically.
+    
+### `-nomain`
+
+- Assume `main` entry point to be provided by external libraries.
+
+### `-nopack`
+
+- Don't pack the library into a klib file.
+
+### `-linker-option`
+
+- Pass an argument to the linker. To learn more, see 
+[C compiler and linker options](docs/reference/native/c_interop.html#c-compiler-and-linker-options).
+
+### `-linker-options <args>
+
+- Pass arguments to the linker. To learn more, see 
+[C compiler and linker options](docs/reference/native/c_interop.html#c-compiler-and-linker-options).
+ Separate different arguments with whitespaces.
+
+### `-nostdlib`
+
+- Don't link with stdlib.
+
+### `-opt`
+
+- Enable compilation optimizations.
+
+### `-output <name>` (`-o <name>`)
+
+- Set the name for the output file.
+
+### `-entry <name>` (`-e <name>`)
+
+- Specify the qualified entry point name.
+
+### `-produce {program|static|dynamic|framework|library|bitcode}` (`-p {program|static|dynamic|framework|library|bitcode}`)
+
+- Specify output file kind:
+    - `program`
+    - `static`
+    - `dynamic`
+    - `framework`
+    - `library`
+    - `bitcode`
+
+### `-repo <path>` (`-r <path>`)
+
+- Library search path.
+
+### `-target <target>`
+
+- Set hardware target. To see the list of available targets, use the [`list-targets`](#-list-targets) option.
+
+  
