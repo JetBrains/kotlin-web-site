@@ -7,7 +7,7 @@ title: "Command-line compiler"
 # Kotlin Compiler Options Reference
 
 Each release of Kotlin includes compilers for supported targets: 
-JVM, JavaScript, and native binaries for [supported platforms](/docs/reference/native-overview.html#target-platforms).
+JVM, JavaScript, and native binaries for [supported platforms](native-overview.html#target-platforms).
 
 These compilers are used by IDE when you push the __Compile__ or __Run__ button for your Kotlin project.  
 
@@ -31,9 +31,9 @@ There are several ways to set the compiler options:
 - In IntelliJ IDEA, write the options in the __Additional command-line parameters__ text box in 
 __Settings | Build, Execution, Deployment | Compilers | Kotlin Compiler__
 - If you're using Gradle, specify the options in the `kotlinOptions` property of the Kotlin compilation task.
-For details, see [Using Gradle](/docs/reference/using-gradle.html#compiler-options).
+For details, see [Using Gradle](using-gradle.html#compiler-options).
 - If you're using Maven, specify the options in the `<configuration>` element of the Maven plugin node. 
-For details, see [Using Maven](/docs/reference/using-maven.html#specifying-compiler-options).
+For details, see [Using Maven](using-maven.html#specifying-compiler-options).
 - If you run a command-line compiler, add the options directly to the utility call 
 or write them into an [argfile](#argfile).
 
@@ -66,7 +66,7 @@ their names and behaviour may be changed without notice.
   
 ### `-P plugin:<pluginId>:<optionName>=<value>`
 * Pass an option to a Kotlin compiler plugin.
-Available plugins and their options are listed in [Compiler plugins](/docs/reference/compiler-plugins.html).
+Available plugins and their options are listed in [Compiler plugins](compiler-plugins.html).
   
 ### `-language-version <version>`
 * Provide source compatibility with the specified version of Kotlin.
@@ -75,7 +75,7 @@ Available plugins and their options are listed in [Compiler plugins](/docs/refer
 * Allow using declarations only from the specified version of Kotlin bundled libraries.
 
 ### `-progressive`
-* Enable the [progressive mode](/docs/reference/whatsnew13.html#progressive-mode) for the compiler.
+* Enable the [progressive mode](whatsnew13.html#progressive-mode) for the compiler.
     
     In the progressive mode, deprecations and bug fixes for unstable code take effect immediately,
     instead of going through a graceful migration cycle.
@@ -230,7 +230,7 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
 
 ## Kotlin/Native compiler options
 
-Kotlin/Native compiler compiles Kotlin source files into native binaries for [supported platforms](/docs/reference/native-overview.html#target-platforms). 
+Kotlin/Native compiler compiles Kotlin source files into native binaries for [supported platforms](native-overview.html#target-platforms). 
 The command-line tool for Kotlin/Native compilation is `kotlinc-native`.
 
 In addition to [common options](#common-options), Kotlin/Native compiler has the options listed below.
@@ -309,12 +309,12 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
 ### `-linker-option`
 
 - Pass an argument to the linker. To learn more, see 
-[C compiler and linker options](docs/reference/native/c_interop.html#c-compiler-and-linker-options).
+[C compiler and linker options](/native/c_interop.html#c-compiler-and-linker-options).
 
 ### `-linker-options <args>
 
 - Pass arguments to the linker. To learn more, see 
-[C compiler and linker options](docs/reference/native/c_interop.html#c-compiler-and-linker-options).
+[C compiler and linker options](/native/c_interop.html#c-compiler-and-linker-options).
  Separate different arguments with whitespaces.
 
 ### `-nostdlib`
