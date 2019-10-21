@@ -112,7 +112,7 @@ and paths to source files. For example:
     <div class="sample" markdown="1" mode="shell" theme="idea">
     
     ```bash
-    $ kotlinc @options\compiler.options hello.kt
+    $ kotlinc @options/compiler.options hello.kt
     ```
     
     </div>
@@ -127,7 +127,7 @@ You can also use them for executing Kotlin script files.
 In addition to [common options](#common-options), Kotlin/JVM compiler has the options listed below.
 
 ### `-classpath <path>` (`-cp <path>`)
-* Search for class files in the specified paths. Separate elements of the classpath with semicolons (**;**).
+* Search for class files in the specified paths. Separate elements of the classpath with system path separators (**;** on Windows, **:** on macOS/Linux).
 The classpath can contain file and directory paths, ZIP, or JAR files.
 
 ### `-d <path>`
@@ -194,7 +194,7 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
     - `umd` - a [Universal Module Definition](https://github.com/umdjs/umd) module.
     
     To learn more about the module kinds and dictinctions between them,
-    read [this](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/) article.
+    see [this](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/) article.
     
 ### `-no-stdlib`
 
