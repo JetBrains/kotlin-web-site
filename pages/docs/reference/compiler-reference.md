@@ -238,7 +238,7 @@ The command-line tool for Kotlin/Native compilation is `kotlinc-native`.
 In addition to [common options](#common-options), Kotlin/Native compiler has the options listed below.
 
 
-### `-enable-assertions`
+### `-enable-assertions` (`-ea`)
 
 - Enable runtime assertions in the generated code.
     
