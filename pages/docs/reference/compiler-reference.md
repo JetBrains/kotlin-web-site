@@ -248,15 +248,15 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
     
 ### `-generate-test-runner` (`-tr`)
 
-- Produce a runner for unit tests.
+- Produce an application for running unit tests from the project.
     
 ### `-generate-worker-test-runner` (`-trw`)
 
-- Produce a worker runner for unit tests.
+- Produce an application for running unit tests in a [worker thread](native/concurrency.html#workers).
     
 ### `-generate-no-exit-test-runner` (`-trn`)
 
-- Produce a runner for unit tests not forcing exit.
+- Produce an application for running unit tests without explicit process exit.
     
 ### `-include-binary <path>` (`-ib <path>`)
 
@@ -264,7 +264,8 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
     
 ### `-library <path>` (`-l <path>`)
 
-- Link with the library.
+- Link with the library. To learn about using libraries in Kotlin/native projects, see 
+[Kotlin/Native libraries](native/libraries.html).
 
 ### `-library-version <version>` (`-lv`)
 
@@ -277,16 +278,12 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
 ### `-manifest <path>`
 
 - Provide a manifest addend file.
-    
-### `-memory-model {strict|relaxed}`
-
-- Memory model to use. Two memory models are supported:
-    - _strict_
-    - _relaxed_
 
 ### `-module-name <name>`
 
 - Specify a name for the compilation module.
+This option can also be used to specify a name prefix for declarations exported to Objective-C:
+[How do I specify a custom Objective-C prefix/name for my Kotlin framework?](native/faq.html#q-how-do-i-specify-a-custom-objective-c-prefixname-for-my-kotlin-framework)
 
 ### `-native-library <path>`(`-nl <path>`)
 
@@ -294,11 +291,7 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
 
 ### `-no-default-libs`
 
-- Don't link the libraries from dist/klib automatically.
-
-### `-no-endorsed-libs`
-
-- Don't link the endorsed libraries from dist automatically.
+- Disable linking user code with [default platform libraries](native/platform_libs.html) distributed with the compiler.
     
 ### `-nomain`
 
@@ -347,7 +340,7 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
 
 ### `-repo <path>` (`-r <path>`)
 
-- Library search path.
+- Library search path. For more information, see [Library search sequence](native/libraries.html#library-search-sequence).
 
 ### `-target <target>`
 
