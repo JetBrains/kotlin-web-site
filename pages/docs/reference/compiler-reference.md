@@ -199,7 +199,7 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
     
 ### `-no-stdlib`
 
-- Exclude `kotlin-stdlib-js.jar` from the compilation dependencies.
+- Don't use the default Kotlin/JS stdlib as a compilation dependency.
 
 ### `-output <filepath>`
 
