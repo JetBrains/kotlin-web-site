@@ -6,12 +6,12 @@ title: "Command-line compiler"
 
 # Kotlin Compiler Options
 
-Each release of Kotlin includes compilers for supported targets: 
+Each release of Kotlin includes compilers for the supported targets: 
 JVM, JavaScript, and native binaries for [supported platforms](native-overview.html#target-platforms).
 
-These compilers are used by IDE when you push the __Compile__ or __Run__ button for your Kotlin project.  
+These compilers are used by the IDE when you push the __Compile__ or __Run__ button for your Kotlin project.  
 
-You can also run Kotlin compilers manually from command line as described 
+You can also run Kotlin compilers manually from the command line as described 
 in the [Working with command-line compiler](/docs/tutorials/command-line.html) tutorial. For example: 
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
@@ -24,18 +24,17 @@ $ kotlinc hello.kt -include-runtime -d hello.jar
  
 ## Compiler options
 
-Kotlin compilers have a number of options for tailoring the compilation process.
-Compiler options for different targets are listed on this page together with their descriptions.
+Kotlin compilers have a number of options for tailoring the compiling process.
+Compiler options for different targets are listed on this page together with a description of each one.
 
 There are several ways to set the compiler options:
-- In IntelliJ IDEA, write the options in the __Additional command-line parameters__ text box in 
+- In IntelliJ IDEA, write in the options in the __Additional command-line parameters__ text box in 
 __Settings | Build, Execution, Deployment | Compilers | Kotlin Compiler__
 - If you're using Gradle, specify the options in the `kotlinOptions` property of the Kotlin compilation task.
 For details, see [Using Gradle](using-gradle.html#compiler-options).
 - If you're using Maven, specify the options in the `<configuration>` element of the Maven plugin node. 
 For details, see [Using Maven](using-maven.html#specifying-compiler-options).
-- If you run a command-line compiler, add the options directly to the utility call 
-or write them into an [argfile](#argfile).
+- If you run a command-line compiler, add the options directly to the utility call or write them into an [argfile](#argfile).
 
 ## Common options
 
@@ -58,11 +57,11 @@ The following options are common for all Kotlin compilers.
 To show advanced options, use `-X`.
 
 ### `-X`
-* Display information about advanced options and exit. These options are currently unstable: 
-their names and behaviour may be changed without notice.
+* Display information about the advanced options and exit. These options are currently unstable: 
+their names and behavior may be changed without notice.
 
 ### `-kotlin-home <path>`
-* Specify a custom path to Kotlin compiler used for the discovery of runtime libraries.
+* Specify a custom path to the Kotlin compiler used for the discovery of runtime libraries.
   
 ### `-P plugin:<pluginId>:<optionName>=<value>`
 * Pass an option to a Kotlin compiler plugin.
@@ -79,14 +78,14 @@ Available plugins and their options are listed in [Compiler plugins](compiler-pl
     
     In the progressive mode, deprecations and bug fixes for unstable code take effect immediately,
     instead of going through a graceful migration cycle.
-    Code written in the progressive mode is backward compatible; however, code written in
-    non-progressive mode may cause compilation errors in the progressive mode.
+    Code written in the progressive mode is backwards compatible; however, code written in
+    a non-progressive mode may cause compilation errors in the progressive mode.
     
 {:#argfile}
 
 ### `@<argfile>`
 * Read the compiler options from the given file. A file passed in this option can contain compiler options with values 
-and paths to source files. For example:
+and paths to the source files. For example:
 
     <div class="sample" markdown="1" mode="shell" theme="idea">
     
@@ -120,11 +119,11 @@ and paths to source files. For example:
     
 ## JVM compiler options
 
-Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
+The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
 The command-line tools for Kotlin to JVM compilation are `kotlinc` and `kotlinc-jvm`.
 You can also use them for executing Kotlin script files.
 
-In addition to [common options](#common-options), Kotlin/JVM compiler has the options listed below.
+In addition to the [common options](#common-options), Kotlin/JVM compiler has the options listed below.
 
 ### `-classpath <path>` (`-cp <path>`)
 * Search for class files in the specified paths. Separate elements of the classpath with system path separators (**;** on Windows, **:** on macOS/Linux).
@@ -138,7 +137,7 @@ The classpath can contain file and directory paths, ZIP, or JAR files.
 environment.
 
 ### `-jdk-home <path>`
-* Use a custom JDK home directory to include into classpath if it differs from the default `JAVA_HOME`.
+* Use a custom JDK home directory to include into the classpath if it differs from the default `JAVA_HOME`.
 
 ### `-jvm-target <version>`
 * Specify the target version of the generated JVM bytecode. Possible values are `1.6`, `1.8`, `9`, `10`, `11`, and `12`.
@@ -148,7 +147,7 @@ environment.
 * Generate metadata for Java 1.8 reflection on method parameters.
 
 ### `-module-name <name>`
-* Set the custom name for the generated `.kotlin_module` file.
+* Set a custom name for the generated `.kotlin_module` file.
   
 ### `-no-jdk`
 * Exclude the Java runtime from the classpath.
@@ -161,7 +160,7 @@ environment.
   
 ### `-script`
 * Evaluate a Kotlin script file. When called with this option, the compiler executes the first Kotlin script (`*.kts`) 
-file among given arguments.
+file among the given arguments.
   
 ### `-script-templates <classnames[,]>`
 * Script definition template classes. Use fully qualified class names and separate them with commas (**,**).
@@ -169,10 +168,10 @@ file among given arguments.
 
 ## Kotlin/JS compiler options
 
-Kotlin compiler for JS compiles Kotlin source files into JavaScript code. 
+The Kotlin compiler for JS compiles Kotlin source files into JavaScript code. 
 The command-line tool for Kotlin to JS compilation is `kotlinc-js`.
 
-In addition to [common options](#common-options), Kotlin/JS compiler has the options listed below.
+In addition to the [common options](#common-options), Kotlin/JS compiler has the options listed below.
 
 ### `-libraries <path>`
 
@@ -188,13 +187,13 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
 
 ### `-module-kind {plain|amd|commonjs|umd}`
 
-- Kind of the JS module generated by the compiler:
+- The kind of JS module generated by the compiler:
     - `plain` - a plain JS module;
     - `commonjs` - a [CommonJS](http://www.commonjs.org/) module;
     - `amd` - an [Asynchronous Module Definition](https://en.wikipedia.org/wiki/Asynchronous_module_definition) module;
     - `umd` - a [Universal Module Definition](https://github.com/umdjs/umd) module.
     
-    To learn more about the module kinds and dictinctions between them,
+    To learn more about the different kinds of JS module and the distinctions between them,
     see [this](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/) article.
     
 ### `-no-stdlib`
@@ -207,11 +206,11 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
 
 ### `-output-postfix <filepath>`
 
-- Add the content of the specified file to the end of output file.
+- Add the content of the specified file to the end of the output file.
 
 ### `-output-prefix <filepath>`
 
-- Add the content of the specified file to the beginning of output file.
+- Add the content of the specified file to the beginning of the output file.
 
 ### `-source-map`
 
@@ -232,10 +231,10 @@ In addition to [common options](#common-options), Kotlin/JS compiler has the opt
 
 ## Kotlin/Native compiler options
 
-Kotlin/Native compiler compiles Kotlin source files into native binaries for [supported platforms](native-overview.html#target-platforms). 
+Kotlin/Native compiler compiles Kotlin source files into native binaries for the [supported platforms](native-overview.html#target-platforms). 
 The command-line tool for Kotlin/Native compilation is `kotlinc-native`.
 
-In addition to [common options](#common-options), Kotlin/Native compiler has the options listed below.
+In addition to the [common options](#common-options), Kotlin/Native compiler has the options listed below.
 
 
 ### `-enable-assertions` (`-ea`)
@@ -256,7 +255,7 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
     
 ### `-generate-no-exit-test-runner` (`-trn`)
 
-- Produce an application for running unit tests without explicit process exit.
+- Produce an application for running unit tests without an explicit process exit.
     
 ### `-include-binary <path>` (`-ib <path>`)
 
@@ -273,7 +272,7 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
     
 ### `-list-targets`
 
-- List available hardware targets.
+- List the available hardware targets.
 
 ### `-manifest <path>`
 
@@ -282,7 +281,7 @@ In addition to [common options](#common-options), Kotlin/Native compiler has the
 ### `-module-name <name>`
 
 - Specify a name for the compilation module.
-This option can also be used to specify a name prefix for declarations exported to Objective-C:
+This option can also be used to specify a name prefix for the declarations exported to Objective-C:
 [How do I specify a custom Objective-C prefix/name for my Kotlin framework?](native/faq.html#q-how-do-i-specify-a-custom-objective-c-prefixname-for-my-kotlin-framework)
 
 ### `-native-library <path>`(`-nl <path>`)
@@ -291,11 +290,11 @@ This option can also be used to specify a name prefix for declarations exported 
 
 ### `-no-default-libs`
 
-- Disable linking user code with [default platform libraries](native/platform_libs.html) distributed with the compiler.
+- Disable linking user code with the [default platform libraries](native/platform_libs.html) distributed with the compiler.
     
 ### `-nomain`
 
-- Assume `main` entry point to be provided by external libraries.
+- Assume the `main` entry point to be provided by external libraries.
 
 ### `-nopack`
 
