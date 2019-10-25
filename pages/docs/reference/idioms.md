@@ -310,7 +310,7 @@ fun transform(color: String): Int = when (color) {
 ```
 </div>
 
-### Calling multiple methods on an object instance (`with`)
+### Calling multiple methods on an object instance (`with`/`apply`)
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -323,6 +323,14 @@ class Turtle {
 
 val myTurtle = Turtle()
 with(myTurtle) { //draw a 100 pix square
+    penDown()
+    for(i in 1..4) {
+        forward(100.0)
+        turn(90.0)
+    }
+    penUp()
+}
+myTurtle.apply { //another way to draw a 100 pix square
     penDown()
     for(i in 1..4) {
         forward(100.0)
