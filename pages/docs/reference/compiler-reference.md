@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: reference
-title: "Command-line compiler"
+title: "Kotlin Compiler Options"
 ---
 
 # Kotlin Compiler Options
