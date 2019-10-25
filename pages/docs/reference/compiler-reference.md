@@ -150,13 +150,14 @@ environment.
 * Set a custom name for the generated `.kotlin_module` file.
   
 ### `-no-jdk`
-* Exclude the Java runtime from the classpath.
+* Don't automatically include the Java runtime into the classpath.
 
 ### `-no-reflect`
-* Exclude `kotlin-reflect.jar` from the classpath.
+* Don't automatically include the Kotlin reflection (`kotlin-reflect.jar`) into the classpath.
   
 ### `-no-stdlib`
-* Exclude both `kotlin-stdlib.jar` and `kotlin-reflect.jar` from the classpath. 
+* Don't automatically include the Kotlin/JVM stdlib (`kotlin-stdlib.jar`) and Kotlin reflection (`kotlin-reflect.jar`)
+ into the classpath. 
   
 ### `-script`
 * Evaluate a Kotlin script file. When called with this option, the compiler executes the first Kotlin script (`*.kts`) 
@@ -198,7 +199,7 @@ In addition to the [common options](#common-options), Kotlin/JS compiler has the
     
 ### `-no-stdlib`
 
-- Don't use the default Kotlin/JS stdlib as a compilation dependency.
+- Don't automatically include the default Kotlin/JS stdlib into the compilation dependencies.
 
 ### `-output <filepath>`
 
