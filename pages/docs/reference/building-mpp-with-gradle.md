@@ -1098,7 +1098,7 @@ the tests for all targets.
 As the `commonTest` [default source set](#default-project-layout) is added to all test compilations, tests and test tools that are needed
 on all target platforms may be placed there.
 
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/index.html) is availble for multiplatform tests. 
+The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/index.html) is available for multiplatform tests. 
 Add the `kotlin-test-common` and `kotlin-test-annotations-common` dependencies to `commonTest` to use the assertion 
 functions like `kotlin.test.assertTrue(...)`  
 and `@Test`/`@Ignore`/`@BeforeTest`/`@AfterTest` annotations in the common tests.
