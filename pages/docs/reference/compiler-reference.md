@@ -84,19 +84,30 @@ Available plugins and their options are listed in [Compiler plugins](compiler-pl
 {:#argfile}
 
 ### `@<argfile>`
-* Read the compiler options from the given file. A file passed in this option can contain compiler options with values 
-and paths to the source files. For example:
+* Read the compiler options from the given file. Such a file can contain compiler options with values 
+and paths to the source files. Options and paths should be separated by whitespaces. For example:
 
     <div class="sample" markdown="1" mode="shell" theme="idea">
     
     ```
-    -d hello.jar -include-runtime
+    -include-runtime -d hello.jar
     hello.kt
     ```
     
     </div>
 
-    You can also separate compiler options from source file names and pass multiple argument files.
+    To pass values that contain whitespaces, surround them with single (**'**) or double (**"**) quotes. If a value contains 
+    quotation marks in it, escape them with a backslash (**\\**).
+    
+    <div class="sample" markdown="1" mode="shell" theme="idea">
+         
+    ```
+    -include-runtime -d 'My folder'
+    ```
+         
+    </div>
+    
+    You can also pass multiple argument files, for example, to separate compiler options from source files. 
 
     <div class="sample" markdown="1" mode="shell" theme="idea">
     
@@ -115,7 +126,6 @@ and paths to the source files. For example:
     ```
     
     </div>
-
     
 ## Kotlin/JVM compiler options
 
