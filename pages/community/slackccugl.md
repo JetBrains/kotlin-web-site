@@ -76,6 +76,7 @@ This is a list of some of the most popular channels, as well as a sample of the 
 * #javascript. When targeting JavaScript
 * #koans. Have questions about the Kotlin Koans?
 * #kobalt. Working with Kobalt builds
+* #kontributors. Contributing to Kotlin
 * #language-proposals. Discussions around new language proposals
 * #native. For questions about Kotlin/Native
 * #nodejs. When targeting JavaScript and node.js
