@@ -1962,7 +1962,7 @@ Binaries have a set of properties allowing one to configure them. The following 
 
  - **Compilation.** Each binary is built on basis of some compilation available in the same target. The default value of this parameter depends
  on the binary type: `Test` binaries are based on the `test` compilation while other binaries - on the `main` compilation.
- - **Linker options.** Options passed to a system linker during binary building. One can use this setting to link against some native library.
+ - **Linker options.** Options passed to a system linker during binary building. One can use this setting for linking against some native library.
  - **Output file name.** By default the output file name is based on binary name prefix or, if the name prefix isn't specified, on a project name.
  But it's possible to configure the output file name independently using the `baseName` property. Note that final file name will be formed
  by adding system-dependent prefix and postfix to this base name. E.g. a `libfoo.so` is produced for a Linux shared library with the base name `foo`.

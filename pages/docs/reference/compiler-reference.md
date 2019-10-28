@@ -126,7 +126,7 @@ You can also use them for executing Kotlin script files.
 In addition to the [common options](#common-options), Kotlin/JVM compiler has the options listed below.
 
 ### `-classpath <path>` (`-cp <path>`)
-* Search for class files in the specified paths. Separate elements of the classpath with system path separators (**;** on Windows, **:** on macOS/Linux).
+Search for class files in the specified paths. Separate elements of the classpath with system path separators (**;** on Windows, **:** on macOS/Linux).
 The classpath can contain file and directory paths, ZIP, or JAR files.
 
 ### `-d <path>`
@@ -303,14 +303,11 @@ This option can also be used to specify a name prefix for the declarations expor
 
 ### `-linker-option`
 
-- Pass an argument to the linker. To learn more, see 
-[C compiler and linker options](native/c_interop.html#c-compiler-and-linker-options).
+- Pass an argument to the linker during binary building. This can be used for linking against some native library.
 
 ### `-linker-options <args>`
 
-- Pass arguments to the linker. To learn more, see 
-[C compiler and linker options](native/c_interop.html#c-compiler-and-linker-options).
- Separate different arguments with whitespaces.
+- Pass multiple arguments to the linker during binary building. Separate arguments with whitespaces.
 
 ### `-nostdlib`
 
