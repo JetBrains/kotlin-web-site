@@ -117,7 +117,7 @@ and paths to the source files. For example:
     </div>
 
     
-## JVM compiler options
+## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
 The command-line tools for Kotlin to JVM compilation are `kotlinc` and `kotlinc-jvm`.
