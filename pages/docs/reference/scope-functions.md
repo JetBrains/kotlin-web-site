@@ -94,7 +94,7 @@ fun main() {
 
 #### this
 
-`run`, `with`, and `apply` refer to the context object as a lambda receiver - by keyword `this`. Hence, in their lambdas, the object is available as it would be in ordinary class functions. In most cases, you can omit `this` when accessing the members of the receiver object, making the code shorter. On the other hand, if `this` is omitted, it can be hard to distinguish between the receiver members and external objects or functions. So, having the context object as a receiver (`this`) is recommended for lambdas that mainly operate on the object members: call its functions or assign properties.
+`run`, `with` and `apply` refer to the context object as a lambda receiver - by keyword `this`. Hence, in their lambdas, the object is available as it would be in ordinary class functions. In most cases, you can omit `this` when accessing the members of the receiver object, making the code shorter. On the other hand, if `this` is omitted, it can be hard to distinguish between the receiver members and external objects or functions. So, having the context object as a receiver (`this`) is recommended for lambdas that mainly operate on the object members: call its functions or assign properties.
 
 <div class="sample" markdown="1" theme="idea">
 
@@ -171,7 +171,7 @@ fun main() {
 
 The scope functions differ by the result they return:
 * `apply` and `also` return the context object.
-* `let`, `run`, and `with` return the lambda result.
+* `let`, `run` and `with` return the lambda result.
 
 These two options let you choose the proper function depending on what you do next in your code.
 
@@ -228,7 +228,7 @@ fun main() {
 
 #### Lambda result
 
-`let`, `run`, and `with` return the lambda result. So, you can use them when assigning the result to a variable, chaining operations on the result, and so on.
+`let`, `run` and `with` return the lambda result. So, you can use them when assigning the result to a variable, chaining operations on the result, and so on.
 
 <div class="sample" markdown="1" theme="idea">
 
