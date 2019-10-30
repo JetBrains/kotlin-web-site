@@ -41,7 +41,8 @@ For details, see [Using Maven](using-maven.html#specifying-compiler-options).
 The following options are common for all Kotlin compilers.
 
 ### `-version` 
-* Display the compiler version.
+Display the compiler version.
+{:.details-group}
 
 ### `-nowarn`
 * Suppress the compiler from displaying warnings during compilation.
