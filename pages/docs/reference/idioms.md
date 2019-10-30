@@ -334,6 +334,18 @@ with(myTurtle) { //draw a 100 pix square
 ```
 </div>
 
+### Configuring properties of an object (`apply`)
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+val myRectangle = Rectangle().apply {
+    length = 4
+    breadth = 5
+    color = 0xFAFAFA
+}
+```
+</div>
+
+This is useful for configuring properties that aren't present in the object constructor.
 
 ### Java 7's try with resources
 
