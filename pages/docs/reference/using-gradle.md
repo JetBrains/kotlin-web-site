@@ -70,7 +70,7 @@ plugins {
 ```kotlin
 buildscript {
     repositories {
-            mavenCentral()
+        mavenCentral()
     }
         
     dependencies {
