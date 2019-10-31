@@ -34,15 +34,11 @@ Kotlin has been successfully adopted by major companies, and a few of them have 
   * Keepsafe's App Lock app has also been [converted to 100% Kotlin](https://medium.com/keepsafe-engineering/lessons-from-converting-an-app-to-100-kotlin-68984a05dcb6),
     leading to a 30% decrease in source line count and 10% decrease in method count.
 
-## Tools for Android Development
+## Kotlin Android Extensions
 
-The Kotlin team offers a set of tools for Android development that goes beyond the standard language features:
-
- * [Kotlin Android Extensions](/docs/tutorials/android-plugin.html) is a compiler extension
+[Kotlin Android Extensions](/docs/tutorials/android-plugin.html) is a compiler extension
 that allows you to get rid of `findViewById()` calls in your code and to replace them with synthetic compiler-generated
 properties.
- * [Anko](http://github.com/kotlin/anko) is a library providing a set of Kotlin-friendly wrappers around the Android
-   APIs, as well as a DSL that lets you replace your layout .xml files with Kotlin code.
 
 ## Next Steps
 
