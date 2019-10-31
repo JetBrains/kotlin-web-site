@@ -9,7 +9,7 @@ latest:
   coroutines:
     version: 1.2.2
     url: https://github.com/Kotlin/kotlinx.coroutines
-    date: June 18, 2019
+    date: September 25, 2019
 
 
 tutorials:
