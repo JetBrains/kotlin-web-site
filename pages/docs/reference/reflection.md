@@ -191,7 +191,7 @@ fun main() {
 ```       
 </div>            
 
-A property reference can be used where a function with one parameter is expected:
+A property reference can be used where a function with a single generic parameter is expected:
 
 <div class="sample" markdown="1" theme="idea">
 ```kotlin
