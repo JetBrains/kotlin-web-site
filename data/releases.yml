@@ -7,7 +7,7 @@ latest:
   date: July 4, 2019
 
   coroutines:
-    version: 1.2.2
+    version: 1.3.2
     url: https://github.com/Kotlin/kotlinx.coroutines
     date: September 25, 2019
 
