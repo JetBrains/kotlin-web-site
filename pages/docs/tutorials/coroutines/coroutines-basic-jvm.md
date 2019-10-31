@@ -83,7 +83,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
     <dependency>
         <groupId>org.jetbrains.kotlinx</groupId>
         <artifactId>kotlinx-coroutines-core</artifactId>
-        <version>1.2.2</version>
+        <version>{{ site.data.releases.latest.coroutines.version }}</version>
     </dependency>
 </dependencies>
 ```
