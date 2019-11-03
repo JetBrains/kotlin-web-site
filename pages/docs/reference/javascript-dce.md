@@ -97,5 +97,5 @@ can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gra
   It's only applicable when you are developing an application (which may use shared libraries).
    The reason is: DCE does not know which parts of the library are going to be used by the user's application.
 * DCE does not perform minification (uglification) of your code by removing unnecessary whitespaces and shortening identifiers.
-  You should use existing tools, like UglifyJS (https://github.com/mishoo/UglifyJS2) 
-  or Google Closure Compiler (https://developers.google.com/closure/compiler/) for this purpose.
+  You should use existing tools, like [UglifyJS](https://github.com/mishoo/UglifyJS2) 
+  or [Google Closure Compiler](https://developers.google.com/closure/compiler/) for this purpose.
