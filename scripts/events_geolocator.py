@@ -25,7 +25,7 @@ for event in events:
     location = event['location']
     if location in cities:
         continue
-    geocoded_coordinates = geocoder.yandex(location).json
+    geocoded_coordinates = geocoder.yandex(location, kind=None).json
     if len(geocoded_coordinates) == 0:
         print("Location not found: ", location)
         exit(-1)
