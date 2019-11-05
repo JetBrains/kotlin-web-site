@@ -1,3 +1,19 @@
+- name: Gijón, Spain
+  geo:
+    lat: 43.540125
+    lng: -5.667875
+- name: Lubumbashi, Congo
+  geo:
+    lat: -11.675112
+    lng: 27.488744
+- name: Jos, Nigeria
+  geo:
+    lat: 9.922619
+    lng: 8.892872
+- name: Riyadh, Saudi Arabia
+  geo:
+    lat: 24.665542
+    lng: 46.735886
 - name: Hasselt, Belgium
   geo:
     lat: 50.927089

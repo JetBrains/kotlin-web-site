@@ -38,7 +38,7 @@
         <lang>en</lang>
         <startDate>2019-11-13</startDate>
         <endDate>2019-11-13</endDate>
-        <location>Utrecht, Netherland3</location>
+        <location>Utrecht, Netherlands</location>
         <speaker>Joost de Vries</speaker>
         <title>Sourcelabs B.V.</title>
         <subject>Spring with Kotlin and Coroutines</subject>
@@ -55,7 +55,7 @@
         <lang>en</lang>
         <startDate>2019-11-13</startDate>
         <endDate>2019-11-13</endDate>
-        <location>Utrecht, Netherland</location>
+        <location>Utrecht, Netherlands</location>
         <speaker>Hadi Hariri</speaker>
         <title>Sourcelabs B.V.</title>
         <subject>Introduction to Ktor server-side development</subject>
@@ -72,7 +72,7 @@
         <lang>en</lang>
         <startDate>2019-11-13</startDate>
         <endDate>2019-11-13</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Chris Neugebauer</speaker>
         <title>Kotlin London</title>
         <subject>How we Kotlinised the Java Persistence API</subject>
@@ -159,7 +159,7 @@ In this talk, we’ll look at the Java Persistence API, and how we’ve used Kot
         <lang>en</lang>
         <startDate>2019-11-19</startDate>
         <endDate>2019-11-19</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Enrique López Mañas</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
         <subject>Have you been working on a project with Kotlin?</subject>
@@ -254,7 +254,7 @@ Use fully-managed MySQL/PostgreSQL or Firebase for your application database. Ru
         <lang>en</lang>
         <startDate>2019-09-09</startDate>
         <endDate>2019-09-09</endDate>
-        <location>Chicago, IL, USA</location>
+        <location>Chicago, USA</location>
         <speaker>Dariusz Kuc</speaker>
         <title>Chicago Kotlin Users Group</title>
         <subject>Introduction to Kotlin and a workshop on the ins and outs of Docker</subject>
@@ -396,7 +396,7 @@ Building a full application stack can be hard. You have networking components, s
         <lang>en</lang>
         <startDate>2019-09-17</startDate>
         <endDate>2019-09-17</endDate>
-        <location>Washington, DC, USA</location>
+        <location>Washington, DC</location>
         <speaker>Sunitha Burri</speaker>
         <title>Kotlin DC User Group Meetup</title>
         <subject>Kotlin Multiplatform - Sharing is caring!</subject>
@@ -469,7 +469,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-09-19</startDate>
         <endDate>2019-09-19</endDate>
-        <location>Kitchener, ON, Canada</location>
+        <location>Kitchener, Canada</location>
         <speaker>Dan Rusu</speaker>
         <title>Kotlin Waterloo P2P</title>
         <subject>Introducing a DSL</subject>
@@ -487,7 +487,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-09-19</startDate>
         <endDate>2019-09-19</endDate>
-        <location>Kitchener, ON, Canada</location>
+        <location>Kitchener, Canada</location>
         <speaker>Adam Erb</speaker>
         <title>Kotlin Waterloo P2P</title>
         <subject>Introducing Contour, a typesafe, Kotlin-first API for complex layouts on Android.</subject>
@@ -516,7 +516,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-09-19</startDate>
         <endDate>2019-09-19</endDate>
-        <location>Cambridge, MA, USA</location>
+        <location>Cambridge, MA</location>
         <speaker>Shalom Halbert</speaker>
         <title>Kotlin Office Hours</title>
         <subject>Static Code Analysis in Kotlin</subject>
@@ -618,7 +618,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-09-19</startDate>
         <endDate>2019-09-19</endDate>
-        <location>San Diego, CA, USA</location>
+        <location>San Diego, CA</location>
         <speaker>David Stone</speaker>
         <title>San Diego Functional Programmers</title>
         <subject>Functional Programming With Kotlin</subject>
@@ -723,7 +723,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>pt</lang>
         <startDate>2019-09-24</startDate>
         <endDate>2019-09-24</endDate>
-        <location>Porto Alegre, Brazil</location>
+        <location>Porto Alegre, Brasilia</location>
         <speaker>Ana Flávia, Josias Straesser</speaker>
         <title>Kotlin RS</title>
         <subject>Introdução ao Kotlin</subject>
@@ -740,7 +740,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>pt</lang>
         <startDate>2019-09-24</startDate>
         <endDate>2019-09-24</endDate>
-        <location>Porto Alegre, Brazil</location>
+        <location>Porto Alegre, Brasilia</location>
         <speaker>Guilherme Pohlmann</speaker>
         <title>Kotlin RS</title>
         <subject>Functional Domain Drive Design</subject>
@@ -757,7 +757,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-09-25</startDate>
         <endDate>2019-09-25</endDate>
-        <location>Irvine, CA, USA</location>
+        <location>Irvine, USA</location>
         <speaker>Ryan Simon</speaker>
         <title>OC Android Developers</title>
         <subject>The Power of Kotlin Coroutines and Flows</subject>
@@ -789,7 +789,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-09-26</startDate>
         <endDate>2019-09-26</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Mario Fernandez</speaker>
         <title>ThoughtWorks Munich</title>
         <subject>Kotlin for microservices, why?</subject>
@@ -803,7 +803,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-09-26</startDate>
         <endDate>2019-09-26</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Andrei Bechet</speaker>
         <title>ThoughtWorks Munich</title>
         <subject>Error handling for a rest API backend?</subject>
@@ -817,7 +817,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-09-26</startDate>
         <endDate>2019-09-26</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Vineeth Venudasan</speaker>
         <title>ThoughtWorks Munich</title>
         <subject>Kotlin code in Production: Observations and learnings</subject>
@@ -883,7 +883,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>ru</lang>
         <startDate>2019-10-22</startDate>
         <endDate>2019-10-22</endDate>
-        <location>St. Petersburg, Russia</location>
+        <location>St.Petersburg, Russia</location>
         <speaker>Alexey Mikhailov</speaker>
         <title>AppsConf</title>
         <subject>Мобильная разработка на Kotlin MultiPlatform</subject>
@@ -906,7 +906,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-25</startDate>
         <endDate>2019-10-25</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Claudia Luque Fernández</speaker>
         <title>Droidcon</title>
         <subject>Kotlin DSL For Android Projects</subject>
@@ -923,7 +923,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-25</startDate>
         <endDate>2019-10-25</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Márton Braun</speaker>
         <title>Droidcon</title>
         <subject>Idio~~ma~~tic Kotlin</subject>
@@ -940,7 +940,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-25</startDate>
         <endDate>2019-10-25</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Marcin Moskala</speaker>
         <title>Droidcon</title>
         <subject>Workshop: Understanding Kotlin Coroutines</subject>
@@ -1026,7 +1026,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-04</startDate>
         <endDate>2019-10-04</endDate>
-        <location>Cluj-Napoca, Romania</location>
+        <location>Cluj Napoca, Romania</location>
         <speaker>Filip Babic</speaker>
         <title>Droidcon</title>
         <subject>Deep diving into the Kotlin Coroutines API</subject>
@@ -1044,7 +1044,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-02</startDate>
         <endDate>2019-10-02</endDate>
-        <location>San Diego, CA, USA</location>
+        <location>San Diego, CA</location>
         <speaker>Ian Brandt</speaker>
         <title>San Diego Kotlin User Group</title>
         <subject>Monthly Kotlin!</subject>
@@ -1120,7 +1120,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-08</startDate>
         <endDate>2019-10-08</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Peter Oost</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
         <subject>Jetpack Compose — Declarative UIs for Android</subject>
@@ -1132,7 +1132,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-08</startDate>
         <endDate>2019-10-08</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Maxim Mazin</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
         <subject>«Xodus» — schema-less embedded database for Kotlin</subject>
@@ -1144,7 +1144,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-08</startDate>
         <endDate>2019-10-08</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Enrique López Mañas</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
         <subject>Diving into coroutines for Android</subject>
@@ -1287,7 +1287,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-16</startDate>
         <endDate>2019-10-16</endDate>
-        <location>Chicago, IL, USA</location>
+        <location>Chicago, USA</location>
         <speaker>Victoria Gonda</speaker>
         <title>Chicago Kotlin Users Group</title>
         <subject>Test-Driven Development</subject>
@@ -1304,7 +1304,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-16</startDate>
         <endDate>2019-10-16</endDate>
-        <location>Chicago, IL, USA</location>
+        <location>Chicago, USA</location>
         <speaker>Victoria Gonda</speaker>
         <title>AndroidListener Chicago</title>
         <subject>Kotlin + Android: Test-Driven Development &amp; Meta Programming</subject>
@@ -1392,7 +1392,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-17</startDate>
         <endDate>2019-10-17</endDate>
-        <location>Cambridge, MA, USA</location>
+        <location>Cambridge, MA</location>
         <speaker>Anton Spaans</speaker>
         <title>Kotlin Office Hours</title>
         <subject>Kotlin Office Hours at Rocket Insights</subject>
@@ -1450,7 +1450,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-29</startDate>
         <endDate>2019-10-29</endDate>
-        <location>Irvine, CA, USA</location>
+        <location>Irvine, USA</location>
         <speaker>Ryan Simon</speaker>
         <title>OC Kotlin Krew</title>
         <subject>Practical Kotlin Workshop: Coroutines and Flows</subject>
@@ -1627,7 +1627,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-28</startDate>
         <endDate>2019-10-28</endDate>
-        <location>Washington, DC, USA</location>
+        <location>Washington, DC</location>
         <speaker>Biswa Phuyal</speaker>
         <title>Washington DC Kotlin User Group</title>
         <subject>Kotlin beyond the basics</subject>
@@ -1661,7 +1661,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-10-29</startDate>
         <endDate>2019-10-29</endDate>
-        <location>Irvine, CA, USA</location>
+        <location>Irvine, USA</location>
         <speaker>Ryan Simon</speaker>
         <title>OC Kotlin Krew</title>
         <subject>Practical Kotlin Workshop: Coroutines and Flows</subject>
@@ -1783,7 +1783,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-11-12</startDate>
         <endDate>2019-11-12</endDate>
-        <location>Chicago, IL, USA</location>
+        <location>Chicago, USA</location>
         <speaker>Mark Ducommun</speaker>
         <title>Chicago Kotlin Users Group</title>
         <subject>Neural Networking w/ Kotlin Metaprogramming: A Cheaper Alternative to AI</subject>
@@ -1800,7 +1800,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-11-13</startDate>
         <endDate>2019-11-13</endDate>
-        <location>Atlanta, GA, USA</location>
+        <location>Atlanta, USA</location>
         <speaker>Murat Yener, Nicole Borrelli, Wenbo Zhu</speaker>
         <title>Android Dev Summit 2019</title>
         <subject>Java❤️ Kotlin, Happy Together 🎵</subject>
@@ -1818,7 +1818,7 @@ Dans ce talk, nous découvrirons quelques-un des paradigmes de Rust, verrons que
         <lang>en</lang>
         <startDate>2019-11-12</startDate>
         <endDate>2019-11-12</endDate>
-        <location>Atlanta, GA, USA</location>
+        <location>Atlanta, USA</location>
         <speaker>Jose Alcérreca, Yigit Boyar</speaker>
         <title>Android Dev Summit 2019</title>
         <subject>LiveData with Coroutines and Flow</subject>
