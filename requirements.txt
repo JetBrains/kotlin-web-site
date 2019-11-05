@@ -5,7 +5,12 @@ Pygments==2.1.3
 python-frontmatter==0.2.1
 beautifulsoup4==4.5.1
 xmltodict==0.10.2
-geocoder==1.38.1
+
+# temporary dependencies for waiting fix:
+#    https://yandex.ru/blog/mapsapi/prekraschaem-podderzhku-anonimnykh-servisov
+#    https://github.com/DenisCarriere/geocoder/pull/404
+git+https://github.com/pik-software/geocoder.git@yandex-api-key#egg=geocoder
+
 ruamel.yaml==0.15.87
 algoliasearch==1.12.0
 google-api-python-client==1.6.2
