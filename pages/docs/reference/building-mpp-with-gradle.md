@@ -1726,10 +1726,10 @@ builds and publishing from different hosts as required by the library target pla
 
 ### Target shortcuts
 
-Some native targets are often created together and use the same sources. For example building for iOS device and simulator
-is represented by different targets (`iosArm64` and `iosX64` respectively) but usually a source code for device and simulator
-doesn't differ. A canonical way to express such shared code in the multiplatform project model is to create an intermediate
-source set `iosMain` and configure links between it and platform source sets:
+Some native targets are often created together and use the same sources. For example, building for an iOS device and a simulator
+is represented by different targets (`iosArm64` and `iosX64` respectively) but their source codes are usually the same.
+A canonical way to express such shared code in the multiplatform project model is creating an intermediate
+source set (`iosMain`) and configuring links between it and the platform source sets:
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -1765,14 +1765,14 @@ val iosMain by sourceSets.creating {
 </div>
 </div>
 
-Since 1.3.60 the `kotlin-multiplaform` plugin provides shortcuts that automates such a configuration and allow a user to
-create a group targets along with a common source set for them using a single DSL method.
+Since 1.3.60, the `kotlin-multiplaform` plugin provides shortcuts that automate such a configuration: they let users
+create a group of targets along with a common source set for them with a single DSL method.
 
 The following shortcuts are available:
 
- * `ios` - creates targets for two platforms: `iosArm64` and `iosX64`.
- * `watchos` - creates targets for three platforms: `watchosArm32`, `watchosArm64` and `watchosX86`.
- * `tvos` - creates targets for two platforms: `tvosArm64` and `tvosX64`. 
+ * `ios` creates targets for `iosArm64` and `iosX64`.
+ * `watchos` creates targets for  `watchosArm32`, `watchosArm64`, and `watchosX86`.
+ * `tvos` creates targets for  `tvosArm64` and `tvosX64`. 
 
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
 
