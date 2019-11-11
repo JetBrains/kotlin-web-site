@@ -32,6 +32,7 @@ those are configured and built using Gradle.
 * [Android Support](#android-support)
     * [Publishing Android libraries](#publishing-android-libraries)
 * [Using Kotlin/Native Targets](#using-kotlinnative-targets)
+    * [Target shortcuts](#target-shortcuts)
     * [Building final native binaries](#building-final-native-binaries)
 
 ## Project Structure
@@ -1722,6 +1723,74 @@ It is important to note that some of the [Kotlin/Native targets](#supported-plat
 
 A target that is not supported by the current host is ignored during build and therefore not published. A library author may want to set up
 builds and publishing from different hosts as required by the library target platforms.
+
+### Target shortcuts
+
+Some native targets are often created together and use the same sources. For example building for iOS device and simulator
+is represented by different targets (`iosArm64` and `iosX64` respectively) but usually a source code for device and simulator
+doesn't differ. A canonical way to express such shared code in the multiplatform project model is to create an intermediate
+source set `iosMain` and configure links between it and platform source sets:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+sourceSets{
+    iosMain {
+        dependsOn(commonMain)
+        iosDeviceMain.dependsOn(it)
+        iosSimulatorMain.dependsOn(it)
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+val commonMain by sourceSets.getting
+val iosDeviceMain by sourceSets.getting
+val iosSimulatorMain by sourceSets.getting
+
+val iosMain by sourceSets.creating {
+    dependsOn(commonMain)
+    iosDeviceMain.dependsOn(this)
+    iosSimulatorMain.dependsOn(this)
+}
+```
+
+</div>
+</div>
+
+Since 1.3.60 the `kotlin-multiplaform` plugin provides shortcuts that automates such a configuration and allow a user to
+create a group targets along with a common source set for them using a single DSL method.
+
+The following shortcuts are available:
+
+ * `ios` - creates targets for two platforms: `iosArm64` and `iosX64`.
+ * `watchos` - creates targets for three platforms: `watchosArm32`, `watchosArm64` and `watchosX86`.
+ * `tvos` - creates targets for two platforms: `tvosArm64` and `tvosX64`. 
+
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+// Create two targets for iOS.
+// Create common source sets: iosMain and iosTest.
+ios {
+    // Configure targets.
+    // Note: this lambda will be called for each target.
+}
+
+// You can also specify a name prefix for created targets.
+// Common source sets will also have this prefix:
+// anotherIosMain and anotherIosTest.
+ios("anotherIos")
+```
+
+</div>
 
 ### Building final native binaries
 
