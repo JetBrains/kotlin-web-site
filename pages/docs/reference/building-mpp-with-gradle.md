@@ -397,6 +397,8 @@ following target platforms:
   
     * `androidNativeArm32` and `androidNativeArm64` for Android NDK;
     * `iosArm32`, `iosArm64`, `iosX64` for iOS;
+    * `watchosArm32`, `watchosArm64`, `watchosX86` for watchOS;
+    * `tvosArm64`, `tvosX64` for tvOS;
     * `linuxArm32Hfp`, `linuxMips32`, `linuxMipsel32`, `linuxX64` for Linux;
     * `macosX64` for MacOS;
     * `mingwX64` and `mingwX86` for Windows;
@@ -1945,7 +1947,7 @@ binaries.findExecutable("foo", DEBUG)
 </div>
 </div>
 
-> Note: Before 1.3.40, both test and product executables were represented by the same binary type. Thus to access the default test binary created by the plugin, the following line was used:
+> Before 1.3.40, both test and product executables were represented by the same binary type. Thus to access the default test binary created by the plugin, the following line was used:
 > ```
 > binaries.getExecutable("test", "DEBUG")
 > ``` 
