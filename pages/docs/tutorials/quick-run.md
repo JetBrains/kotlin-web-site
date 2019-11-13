@@ -18,8 +18,6 @@ Let's have a look through three handy ways to quickly run Kotlin code:
 * [Worksheets](#scratches-and-worksheets) are similar to scratches, but they reside within projects.
 * [REPL](#repl) (_Read-Eval-Print-Loop_) runs code interactively in a console.     
 
-{:#scratches}
-
 ## Scratches and worksheets
 
 Kotlin plugin for IntelliJ IDEA supports [scratches](https://www.jetbrains.com/help/idea/scratches.html) and worksheets. 
