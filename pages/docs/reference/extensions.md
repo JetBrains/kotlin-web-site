@@ -254,7 +254,7 @@ class Host(val hostname: String) {
 class Connection(val host: Host, val port: Int) {
      fun printPort() { print(port) }
 
-     fun Host.printConnectionString(p: Int) {
+     fun Host.printConnectionString() {
          printHostname()   // calls Host.printHostname()
          print(":")
          printPort()   // calls Connection.printPort()
@@ -262,7 +262,7 @@ class Connection(val host: Host, val port: Int) {
 
      fun connect() {
          /*...*/
-         host.printConnectionString(port)   // calls the extension function
+         host.printConnectionString()   // calls the extension function
      }
 }
 
