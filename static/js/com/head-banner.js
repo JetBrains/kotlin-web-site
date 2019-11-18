@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-const BANNER_KEY = 'kotlin-webinar-5-12-18';
+const BANNER_KEY = 'kotlin-kotlinconf-15-11-19';
 
 $(document).ready(() => {
   const isClosed = window.localStorage.getItem(BANNER_KEY);
