@@ -274,7 +274,9 @@ val sum = { x, y -> x + y }
 
 </div>
 
-### Passing a lambda to the last parameter
+{:#passing-a-lambda-to-the-last-parameter}
+
+### Passing trailing lambdas
 
 In Kotlin, there is a convention: if the last parameter of a function is a function, then a lambda expression 
 passed as the corresponding argument can be placed outside the parentheses:
