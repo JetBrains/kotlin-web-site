@@ -103,7 +103,7 @@ Maven does not expand the JAR as part of the build process, so we would need to 
     <executions>
         <execution>
             <id>unpack</id>
-            <phase>compile</phase>
+            <phase>process-resources</phase>
             <goals>
                 <goal>unpack</goal>
             </goals>
