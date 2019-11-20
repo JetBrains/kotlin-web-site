@@ -1813,7 +1813,7 @@ all native platforms):
 |`test`       |a test executable       |all native targets| 
 |`sharedLib`  |a shared native library |all native targets except `wasm32`|
 |`staticLib`  |a static native library  |all native targets except `wasm32`|
-|`framework`  |an Objective-C framework |macOS and iOS targets only|
+|`framework`  |an Objective-C framework |macOS, iOS, watchOS, and tvOS targets only|
 
 Each factory method exists in several versions. Consider them by example of the `executable` method. All the same versions are available
 for all other factory methods. 
