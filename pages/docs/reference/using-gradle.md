@@ -12,7 +12,7 @@ Those actions may also be performed automatically in IntelliJ IDEA by invoking _
 ## Plugin and Versions
 
 Apply the Kotlin Gradle plugin by using [the Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
-The Kotlin Gradle plugin {{ site.data.releases.latest.version }} works with Gradle 4.1 and later.
+The Kotlin Gradle plugin {{ site.data.releases.latest.version }} works with Gradle 4.9 and later.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
