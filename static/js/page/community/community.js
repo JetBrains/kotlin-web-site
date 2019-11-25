@@ -76,7 +76,7 @@ $(document).ready(function () {
     [
       "talking_kotlin", "reddit", "slack", "linkedin", "Layer_3", "kotlin_talks",
       "Layer_6", "Layer_7", "Layer_8", "kotlin_forum", "stackoverflow",
-      "twitter", "google", "youtrack"
+      "twitter", "youtrack"
     ].forEach(setAnimation);
 
     AOS.init({
