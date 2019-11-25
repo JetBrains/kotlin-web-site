@@ -169,7 +169,11 @@ Kotlin can also be used as a scripting language. A script is a Kotlin source fil
 ```kotlin
 import java.io.File
 
-val folders = File(args[0]).listFiles { file -> file.isDirectory() }
+// Get the passed in path, i.e. "-d some/path" or use the current path.
+val path = if (args.contains("-d")) args[1 + args.indexOf("-d")]
+           else "."
+
+val folders = File(path).listFiles { file -> file.isDirectory() }
 folders?.forEach { folder -> println(folder) }
 ```
 
@@ -180,7 +184,7 @@ To run a script, we just pass the `-script` option to the compiler with the corr
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
 ```bash
-$ kotlinc -script list_folders.kts <path_to_folder_to_inspect>
+$ kotlinc -script list_folders.kts -- -d <path_to_folder_to_inspect>
 ```
 
 </div>
