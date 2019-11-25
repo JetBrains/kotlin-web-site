@@ -255,14 +255,6 @@ $button-border: 1px dashed $button-border-color;
         }
     }
 
-    &._google {
-        top: 355px;
-
-        .all-speak-kotlin_link-pointer {
-            width: $speak-kotlin-margin + 165px;
-        }
-    }
-
     &._youtrack {
         top: 417px;
 
@@ -354,15 +346,6 @@ $button-border: 1px dashed $button-border-color;
 
 [data-svg-id="twitter"] {
     transform: translateY(-350px);
-}
-
-#google {
-    transform: translateY(-240px);
-    opacity: 0;
-}
-
-[data-svg-id="google"] {
-    transform: translateY(-240px);
 }
 
 #youtrack {
