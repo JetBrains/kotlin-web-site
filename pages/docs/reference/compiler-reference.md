@@ -9,7 +9,7 @@ title: "Kotlin Compiler Options"
 Each release of Kotlin includes compilers for the supported targets: 
 JVM, JavaScript, and native binaries for [supported platforms](native-overview.html#target-platforms).
 
-These compilers are used by the IDE when you push the __Compile__ or __Run__ button for your Kotlin project.  
+These compilers are used by the IDE when you click the __Compile__ or __Run__ button for your Kotlin project.  
 
 You can also run Kotlin compilers manually from the command line as described 
 in the [Working with command-line compiler](/docs/tutorials/command-line.html) tutorial. For example: 
@@ -27,14 +27,14 @@ $ kotlinc hello.kt -include-runtime -d hello.jar
 Kotlin compilers have a number of options for tailoring the compiling process.
 Compiler options for different targets are listed on this page together with a description of each one.
 
-There are several ways to set the compiler options:
-- In IntelliJ IDEA, write in the options in the __Additional command-line parameters__ text box in 
+There are several ways to set the compiler options and their values (_compiler arguments_):
+- In IntelliJ IDEA, write in the compiler arguments in the __Additional command-line parameters__ text box in 
 __Settings | Build, Execution, Deployment | Compilers | Kotlin Compiler__
-- If you're using Gradle, specify the options in the `kotlinOptions` property of the Kotlin compilation task.
+- If you're using Gradle, specify the compiler arguments in the `kotlinOptions` property of the Kotlin compilation task.
 For details, see [Using Gradle](using-gradle.html#compiler-options).
-- If you're using Maven, specify the options in the `<configuration>` element of the Maven plugin node. 
+- If you're using Maven, specify the compiler arguments in the `<configuration>` element of the Maven plugin node. 
 For details, see [Using Maven](using-maven.html#specifying-compiler-options).
-- If you run a command-line compiler, add the options directly to the utility call or write them into an [argfile](#argfile).
+- If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).
 
 ## Common options
 
