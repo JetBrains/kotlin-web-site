@@ -39,14 +39,6 @@ fun foo(a: Int = 0, b: String = "") { ... }
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-val positives = list.filter { x -> x > 0 }
-```
-</div>
-
-Or alternatively, even shorter:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
 val positives = list.filter { it > 0 }
 ```
 </div>
