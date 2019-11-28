@@ -118,7 +118,11 @@ val list = listOf("a", "b", "c")
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-val map = mapOf("a" to 1, "b" to 2, "c" to 3)
+val map = mapOf(
+    "a" to 1,
+    "b" to 2,
+    "c" to 3
+)
 ```
 </div>
 
