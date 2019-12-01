@@ -52,7 +52,7 @@ floating point types differ by their _decimal place_, that is, how many decimal 
   
 For variables initialized with fractional numbers, the compiler infers the `Double` type.
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
-If such a value contains more that 6-7 decimal digits, it will be rounded. 
+If such a value contains more than 6-7 decimal digits, it will be rounded. 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
