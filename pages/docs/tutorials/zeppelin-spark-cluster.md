@@ -21,10 +21,10 @@ The instruction for running Zeppelin locally is available [here](/docs/reference
 
 To build a custom version of Zeppelin, you will need:
 
-* [git](https://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Maven](https://maven.apache.org/install.html),
 * [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* dependencies listed [here](https://zeppelin.apache.org/docs/latest/setup/basics/how_to_build.html#build-requirements)
+* The dependencies listed [here](https://zeppelin.apache.org/docs/latest/setup/basics/how_to_build.html#build-requirements)
 
 ## Spark version
 
