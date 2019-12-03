@@ -14,7 +14,7 @@ research aspects at the same time. As a discipline, data science comprises a wid
 data analysis, machine learning, visualization, and many more.
 
 To cover all these areas, the software industry offers a number of technologies and tools for data science. 
-This includes frameworks, specific IDEs (called notebooks), plotting tools, and even programming languages 
+This includes frameworks, specific IDEs (called _notebooks_), plotting tools, and even programming languages 
 designed specifically for data analysis and related mathematical research.
 
 The general-purpose languages also find their application in the data science, and Kotlin has already started its way 
@@ -34,11 +34,11 @@ run Kotlin code blocks.
 ### Jupyter kernel
 
 The open-source project [Jupyter](https://jupyter.org/) offers the well-known web-based development environment **Jupyter Notebook**.
-For code execution, the Jupyter notebook uses the concept of _kernels_ - components that run separately and run the code upon requests,
-for example, when you click **Run** in your notebook.
+For code execution, Jupyter uses the concept of _kernels_ - components that run separately and execute the code upon requests,
+for example, when you click **Run** in a notebook.
 
 There is one kernel that the Jupyter team maintains themselves - IPython for running the Python code.
-However, there are many other kernels for different languages created and maintained by the community.
+However, there are other community-maintained kernels for different languages.
 Among them is the **Kotlin kernel for Jupyter notebooks**. With this kernel, you can write and run Kotlin code in Jupyter 
 notebooks and use third-party data science frameworks written in Java and Kotlin.
 
@@ -81,9 +81,9 @@ Thus, to add Kotlin support to Zeppelin, build your own version from the sources
 
 To build a custom version of Zeppelin, you will need:
 
-* git
-* Maven
-* JDK 8
+* [git](https://git-scm.com/)
+* [Maven](https://maven.apache.org/install.html),
+* [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * dependencies listed [here](https://zeppelin.apache.org/docs/latest/setup/basics/how_to_build.html#build-requirements)
 
 First, checkout the master branch of the Zeppelin repository:
@@ -187,7 +187,7 @@ If this list doesn’t cover your needs, you can find more options in the
 
 ### Lets-Plot for Kotlin
 
-Lets-Plot for Kotlin is a Kotlin API for [Lets-Plot](https://github.com/JetBrains/lets-plot) library - 
+**Lets-Plot for Kotlin** is a Kotlin API for [Lets-Plot](https://github.com/JetBrains/lets-plot) library - 
 an open-source plotting library for statistical data written entirely in Kotlin. Lets-Plot was built on the concept of 
 layered graphics first described in the Leland Wilkinson work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
 and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
@@ -216,7 +216,7 @@ KNumpy provides statically typed wrappers for NumPy functions. Thanks to the fun
 the API of KNumpy is highly similar to the one of NumPy. This lets developers experienced with NumPy easily switch to KNumpy.
 Here are two equal code samples:
 
-<div class="sample" markdown="1" mode="python" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```python
 # Python
@@ -232,7 +232,7 @@ b = (np.arange(15) ** 2).reshape(3, 5)
 ```
 </div>
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
 
 ```kotlin
 // Kotlin 
@@ -255,7 +255,7 @@ fun main() {
 Unlike Python, Kotlin is a statically typed language. This lets you avoid entire classes of runtime errors with KNumpy:
 the Kotlin compiler detects them at earlier stages.
 
-<div class="sample" markdown="1" mode="python" theme="idea">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```python
 # Python
@@ -272,7 +272,7 @@ a *= b # TypeError at runtime
 ```
 </div>
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
 
 ```kotlin
 // Kotlin 

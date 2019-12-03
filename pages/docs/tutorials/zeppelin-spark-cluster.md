@@ -14,7 +14,7 @@ Currently, the latest release of Zeppelin (0.8.2) doesn’t come with bundled Ko
 Anyway, it’s already available in the master branch of Zeppelin.
 Thus, to add Kotlin support to Zeppelin, build your own version from the sources.
 
-Here we'll learn how to run Zeppelin with Kotlin support on an [Apache Spark][https://spark.apache.org/] cluster.
+Here we'll learn how to run Zeppelin with Kotlin support on an [Apache Spark](https://spark.apache.org/) cluster.
 The instruction for running Zeppelin locally is available [here](/docs/reference/data-science-overview.html#zeppelin-interpreter). 
 
 ## Prerequisites
