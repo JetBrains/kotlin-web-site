@@ -208,7 +208,7 @@ That’s it, now you can call functions from Lets-Plot and see the results.
 
 ### Kotlin bindings for NumPy
 
-**KNumpy** (**Kotlin Bindings for NumPy**) is a Kotlin library that enables calling NumPy functions from the Kotlin code.
+[**KNumpy**](https://github.com/kotlin/kotlin-numpy/) (**Kotlin Bindings for NumPy**) is a Kotlin library that enables calling NumPy functions from the Kotlin code.
 [NumPy](https://numpy.org/) is a popular package for scientific computing with Python. It provides powerful capabilities
 for multi-dimensional array processing, linear algebra, Fourier transform, random numbers, and other mathematical tasks. 
 
