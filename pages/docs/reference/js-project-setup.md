@@ -13,7 +13,7 @@ typical for JavaScript development. For example, the plugin downloads the [Yarn]
 for managing NPM dependencies in background and builds a JavaScript bundle from a Kotlin project using [Webpack](https://webpack.js.org/).
 
 To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project** and select **Gradle | Kotlin/JS for browser**
- or **Kotlin/JS for Node.js**. Be sure to clear the ***Java** checkbox.
+ or **Kotlin/JS for Node.js**. Be sure to clear the **Java** checkbox.
  
 ![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/wizard.png') }})
 
