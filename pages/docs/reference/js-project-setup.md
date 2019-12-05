@@ -13,7 +13,10 @@ typical for JavaScript development. For example, the plugin downloads the [Yarn]
 for managing NPM dependencies in background and builds a JavaScript bundle from a Kotlin project using [Webpack](https://webpack.js.org/).
 
 To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project** and select **Gradle | Kotlin/JS for browser**
- or **Kotlin/JS for Node.js**.
+ or **Kotlin/JS for Node.js**. Be sure to clear the ***Java** checkbox.
+ 
+![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/wizard.png') }})
+
 
 Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the `build.gradle` file.
 If you use the Gradle Kotlin DSL, you can apply the plugin with `kotlin(“js”)`.
@@ -69,14 +72,15 @@ Kotlin/JS projects can target two different execution environments:
 * Browser for client-side scripting in browsers
 * [Node.js](https://nodejs.org/) for running JavaScript code outside of a browser, for example, for server-side scripting.
 
-To define the target execution environment for a Kotlin/JS project, add the `target` section with `browser()` or `nodejs()` inside.
+To define the target execution environment for a Kotlin/JS project, add the `target` section with `browser {}` or `nodejs {}` inside.
 
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
 kotlin {
     target {
-        browser()
+        browser {
+        }       
     }
 }    
 ```
@@ -234,8 +238,7 @@ Once an NPM dependency is installed, you can use its API in your code as describ
 
 The Kotlin/JS plugin provides a run task that lets you run projects without additional configuration.
 For running Kotlin/JS projects, it uses [Webpack DevServer](https://webpack.js.org/configuration/dev-server/).
-If you want to customize the DevServer configuration, for example, change its port, use the Webpack configuration file
-as described [below](#configuring-webpack-bundling).
+If you want to customize the DevServer configuration, for example, change its port, use the Webpack configuration file.
 
 To run the project, execute the standard lifecycle `run` task:
 
@@ -339,7 +342,7 @@ To run tests, execute the standard lifecycle `check` task:
 
 ## Configuring Webpack bundling
 
-For building executable JavaScript artifacts, the Kotlin/JS plugins offers the `webpackTask`.
+For building executable JavaScript artifacts, the Kotlin/JS plugins contains the `webpackTask`.
 
 To build a project artifact using Webpack, execute the `build` Gradle task:
 
