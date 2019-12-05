@@ -228,7 +228,7 @@ kotlin {
 </div>
 
 Once an NPM dependency is installed, you can use its API in your code as described in 
-[Calling JS from Kotlin](docs/reference/js-interop.html).
+[Calling JS from Kotlin](js-interop.html).
 
 ## Configuring run task
 
