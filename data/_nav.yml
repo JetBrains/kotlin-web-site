@@ -240,6 +240,8 @@ reference:
     - title: JavaScript
       description: Using Kotlin with JavaScript
       content:
+       - url: /docs/reference/js-project-setup.html
+         title: Setting Up a Project
        - url: /docs/reference/dynamic-type.html
          title: Dynamic Type
        - url: /docs/reference/js-interop.html
