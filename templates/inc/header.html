@@ -1,3 +1,4 @@
+<!--
 {% if not is_index_page %}
     <div class="global-header-panel banner-nav">
         <div class="g-layout">
@@ -5,6 +6,7 @@
         </div>
     </div>
 {% endif %}
+-->
 <header class="global-header">
     <div class="global-header-panel">
         <div class="g-layout">
@@ -14,12 +16,17 @@
     </div>
 
     {% if is_index_page %}
+    <!--
         <div class="banner-main">
             <div class="g-layout">
                 <a href="https://kotlinconf.com" class="kotlin-info" target="_blank">
                     KotlinConf'19 is Live!
                 </a>
             </div>
+        </div>
+    -->
+        <div class="banner-main banner-video-promo">
+            <iframe class="banner-video-promo__player" width="978" height="550" src="https://www.youtube.com/embed/0xKTM0A8gdI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     {% endif %}
 

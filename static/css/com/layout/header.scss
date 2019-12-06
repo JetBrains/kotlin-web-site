@@ -15,7 +15,19 @@
   }
 
   .banner-main {
-    background-color: #ff3e01;
+    background-color: #fff;
+  }
+
+  .banner-video-promo {
+    text-align: center;
+    font-size: 0;
+    line-height: 0;
+    background: black;
+  }
+
+  .banner-video-promo__player {
+    width: 978px;
+    height: 550px;
   }
 
   .banner-header {
@@ -69,7 +81,6 @@
 
 .page_index .global-header {
   box-sizing: border-box;
-  height: 650px;
 
   .get-kotlin-button {
     @extend %button_call-to-action;
