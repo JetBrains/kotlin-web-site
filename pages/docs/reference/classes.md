@@ -738,7 +738,7 @@ for an enum type is also restricted, but each enum constant exists only as a sin
 of a sealed class can have multiple instances which can contain state.
 -->
 
-`sealed` 修飾子をクラス名の前に置くと、シールクラスを宣言できます。ルクラスはサブクラスを持つことができますが、それらは全てシールクラス自身の宣言の中にネストされていなければいけません。
+`sealed` 修飾子をクラス名の前に置くと、シールクラスを宣言できます。シールクラスはサブクラスを持つことができますが、それらは全てシールクラス自身の宣言の中にネストされていなければいけません。
 
 <!--original
 To declare a sealed class, you put the `sealed` modifier before the name of the class. A sealed class can have
