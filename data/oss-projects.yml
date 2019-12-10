@@ -33,10 +33,15 @@
   type: Library
   link: https://github.com/cheptsov/kotlin-nosql
 
-- name: FunKtionale
-  description: Functional Helpers for Kotlin
+- name: Arrow
+  description: A functional companion to Kotlin's Standard Library
   type: Library
-  link: https://github.com/MarioAriasC/funKTionale
+  link: https://arrow-kt.io
+
+- name: Arrow Meta
+  description: A functional companion to Kotlin's Compiler and IDE
+  type: Library
+  link: http://meta.arrow-kt.io
 
 - name: KotlinPrimavera
   description: Kotlin Wrapper for Spring Framework
