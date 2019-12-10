@@ -181,7 +181,7 @@ dependencies {
 ```kotlin
 dependencies {
     implementation(kotlin("stdlib-js"))
-    testImplementation("org.jetbrains.kotlin:kotlin-test-js")
+    testImplementation(kotlin("test-js"))
 }
 ```
 
