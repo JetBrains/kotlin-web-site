@@ -41,6 +41,7 @@ const initPopups = function () {
         $popupShowButtons.on('click', function (e) {
           const popupId = this.getAttribute('data-popup-id');
 
+          e.preventDefault();
           e.stopPropagation();
           that.showPopup(popupId);
         });
@@ -63,7 +64,7 @@ const initPopups = function () {
           });
         });
 
-        $popups.on('click', function (e) {
+        $popups.on('click', '.popup-content', function (e) {
           e.stopPropagation();
         })
       },
@@ -78,6 +79,11 @@ const initPopups = function () {
         const $popupNode = $('#' + id);
 
         $popupNode.addClass('_hidden');
+
+        if ($popupNode[0].hasAttribute('data-popup-hide-reinit')) {
+          const html = $popupNode.html();
+          $popupNode.html(html);
+        }
       }
     };
 
