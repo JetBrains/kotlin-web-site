@@ -267,6 +267,8 @@ class Base64Test {
 
 </div>
 
+Copy gradlew, gradlew.bat and gradle/wrapper/gradle-wrapper.jar from another project setup with gradle.
+
 Execute `./gradlew check` and you will see that the tests are run three times, on JVM, on JS, and on Native!
 
 If we want, we can add tests to a specific platform, then it will be executed only as part of these platform tests.
