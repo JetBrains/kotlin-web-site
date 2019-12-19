@@ -40,6 +40,7 @@ Kotlin has been successfully adopted by major companies, and a few of them have 
 that allows you to get rid of `findViewById()` calls in your code and to replace them with synthetic compiler-generated
 properties.
 
+
 ## Next Steps
 
 * Download and install [Android Studio](https://developer.android.com/studio/index.html) which includes Kotlin support out of the box.
