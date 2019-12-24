@@ -12,7 +12,7 @@ Classes, objects, interfaces, constructors, functions, properties and their sett
 There are four visibility modifiers in Kotlin: `private`, `protected`, `internal` and `public`.
 The default visibility, used if there is no explicit modifier, is `public`.
 
-Below please find explanations of how the modifiers apply to different types of declaring scopes.
+On this page, you'll learn how the modifiers apply to different types of declaring scopes.
   
 ## Packages
   
