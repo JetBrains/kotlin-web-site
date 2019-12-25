@@ -89,9 +89,11 @@ On the JVM side, the main build tools include [Gradle](/docs/reference/using-gra
 When targeting the JVM, Kotlin produces Java compatible bytecode. When targeting JavaScript, Kotlin transpiles to ES5.1 and generates
 code which is compatible with module systems including AMD and CommonJS. When targeting native, Kotlin will produce platform-specific code (via LLVM). 
 
-### Does Kotlin only target Java 6?
+### Which versions of JVM does Kotlin target?
 
-No. Kotlin lets you choose between generating Java 6 and Java 8 compatible bytecode. More optimal byte code may be generated for higher versions of the platform.
+Kotlin lets you choose the version of JVM for execution. By default, the Kotlin/JVM compiler produces Java 6 compatible bytecode.
+If you want to make use of optimizations available in newer versions of Java, you can explicitly specify the target Java version from 8 to 12.
+Note that in this case the resulting bytecode might not run on lower versions. 
 
 ### Is Kotlin hard?
 
@@ -106,7 +108,7 @@ There are too many companies using Kotlin to list, but some more visible compani
  
 ### Who develops Kotlin?
 
-Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 50+). The lead language designer is 
+Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 90+). The lead language designer is 
 [Andrey Breslav](https://twitter.com/abreslav). In addition to the core team, there are also over 250 external contributors on GitHub. 
 
 ### Where can I learn more about Kotlin?
