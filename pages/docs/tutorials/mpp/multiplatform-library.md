@@ -267,7 +267,7 @@ class Base64Test {
 
 </div>
 
-Copy gradlew, gradlew.bat and gradle/wrapper/gradle-wrapper.jar from another project setup with gradle.
+Use gradle 4.7 and above to generate wrapper (`gradle wrapper`) in project root directoy to generate gradlew, gradlew.bat and gradle/wrapper/gradle-wrapper.jar.
 
 Execute `./gradlew check` and you will see that the tests are run three times, on JVM, on JS, and on Native!
 
