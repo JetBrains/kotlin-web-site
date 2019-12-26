@@ -166,7 +166,7 @@ class Person(val name: String) {
 </div>
 
 Note that code in initializer blocks effectively becomes part of the primary constructor. Delegation to the primary
-constructor happens as the first statement of a secondary constructor, so the code in all initializer blocks is executed
+constructor happens as the first statement of a secondary constructor, so the code in all initializer blocks and property initializers is executed
 before the secondary constructor body. Even if the class has no primary constructor, the delegation still happens
 implicitly, and the initializer blocks are still executed:
 
