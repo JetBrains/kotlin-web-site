@@ -10,7 +10,7 @@ title: "Aggregate Operations"
 Kotlin collections contain functions for commonly used _aggregate operations_ – operations that return a single value based on the collection content.
 Most of them are well known and work the same way as they do in other languages:
 
-* [`min()`](/api/latest/jvm/stdlib/kotlin.collections/min.html) and [`max()`](/api/latest/jvm/stdlib/kotlin.collections/max.html) return the smallest and the largest element respectively;
+* [`min()`](/api/latest/jvm/stdlib/kotlin.collections/min.html) and [`max()`](/api/latest/jvm/stdlib/kotlin.collections/max.html) returns the smallest and the largest element respectively;
 * [`average()`](/api/latest/jvm/stdlib/kotlin.collections/average.html) returns the average value of elements in the collection of numbers;
 * [`sum()`](/api/latest/jvm/stdlib/kotlin.collections/sum.html) returns the sum of elements in the collection of numbers;
 * [`count()`](/api/latest/jvm/stdlib/kotlin.collections/count.html) returns the number of elements in a collection;
