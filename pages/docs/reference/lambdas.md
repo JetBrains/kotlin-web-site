@@ -340,7 +340,7 @@ ints.filter {
 </div>
 
 This convention, along with [passing a lambda expression outside parentheses](#passing-a-lambda-to-the-last-parameter), allows for 
-[LINQ-style](http://msdn.microsoft.com/en-us/library/bb308959.aspx) code:
+[LINQ-style](https://docs.microsoft.com/en-us/previous-versions/dotnet/articles/bb308959(v=msdn.10)) code:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
