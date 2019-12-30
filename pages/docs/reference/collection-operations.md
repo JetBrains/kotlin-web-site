@@ -15,7 +15,7 @@ Collection operations are declared in the standard library in two ways: [member 
 
 Member functions define operations that are essential for a collection type. For example, [`Collection`](/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html) contains the function [`isEmpty()`](/api/latest/jvm/stdlib/kotlin.collections/-collection/is-empty.html) for checking its emptiness; [`List`](/api/latest/jvm/stdlib/kotlin.collections/-list/index.html) contains [`get()`](/api/latest/jvm/stdlib/kotlin.collections/-list/get.html) for index access to elements, and so on.
 
-When you create own implementations of collection interfaces, you must implement their member functions.
+When you create your own implementations of collection interfaces, you must implement their member functions.
 To make the creation of new implementations easier, use the skeletal implementations of collection interfaces from the standard library: [`AbstractCollection`](/api/latest/jvm/stdlib/kotlin.collections/-abstract-collection/index.html), [`AbstractList`](/api/latest/jvm/stdlib/kotlin.collections/-abstract-list/index.html), [`AbstractSet`](/api/latest/jvm/stdlib/kotlin.collections/-abstract-set/index.html), [`AbstractMap`](/api/latest/jvm/stdlib/kotlin.collections/-abstract-map/index.html), and their mutable counterparts.
 
 Other collection operations are declared as extension functions. These are filtering, transformation, ordering, and other collection processing functions. 
