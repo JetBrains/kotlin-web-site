@@ -172,7 +172,6 @@ def videos_page():
 def books_page():
     return render_template('pages/books.html')
 
-
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
     if build_mode:

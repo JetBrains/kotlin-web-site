@@ -4,3 +4,39 @@
   margin-bottom: 30px;
   width: 250px;
 }
+
+.page-books > section::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+.page-books__section {
+  margin-top: 40px;
+}
+
+.page-books__section h2 {
+  font-weight: bold;
+}
+
+.page-books__section h3:first-of-type {
+  margin-top: 5px;
+}
+
+.page-books__featured {
+  margin-top: 0;
+}
+
+.page-books__featured h2::before {
+  display: inline-block;
+  content: '';
+  background: url('data:image/svg+xml;utf8,<svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.9466 21.7082L7.64076 13.4164L0.587341 8.2918H9.30585L12 0Z" fill="%23FFC93D"/></svg>')  no-repeat center;
+  background-size: 24px 22px;
+  height: 22px;
+  width: 24px;
+
+  position: relative;
+  margin-right: 5px;
+  margin-bottom: -2px;
+  margin-left: -30px;
+}
