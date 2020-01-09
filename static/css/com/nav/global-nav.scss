@@ -25,7 +25,21 @@
       line-height: 43px;
       letter-spacing: 0.02em;
       text-decoration: none;
-      text-transform: uppercase;
+
+      &-external{
+        &::after {
+          display: inline-block;
+          content: '';
+          background: url("../../../js/page/index/images/external-link-marker_fff_06.svg") bottom no-repeat;
+          background-size: 12px;
+          height: 12px;
+          width: 12px;
+        }
+
+        &:hover::after {
+          background-image: url("../../../js/page/index/images/external-link-marker_fff.svg");
+        }
+      }
 
       &:hover {
         color: #fff;

@@ -2,9 +2,29 @@
 
     <div class="global-footer-terms">
         <div class="g-layout">
-
+            <ul class="terms-social">
+                <li class="terms-social__item terms-social__item_blog">
+                    <a target="_blank" class="link" href="http://blog.jetbrains.com/kotlin">Blog</a>
+                </li>
+                <li class="terms-social__item terms-social__item_forum">
+                    <a target="_blank" class="link" href="https://discuss.kotlinlang.org">Forum</a>
+                </li>
+                <li class="terms-social__item terms-social__item_bug-tracker">
+                    <a target="_blank" class="link" href="https://youtrack.jetbrains.com/issues/KT">Bug tracker</a>
+                </li>
+                <li class="terms-social__item terms-social__item_github">
+                    <a target="_blank" class="link" href="{{ config.GITHUB_URL }}">Github</a>
+                </li>
+                <li class="terms-social__item terms-social__item_twitter">
+                    <a target="_blank" class="link" href="{{ config.TWITTER_URL }}">Twitter</a>
+                </li>
+            </ul>
             <div class="global-footer-container">
                 <div class="global-footer-row">
+                        <p class="terms-para"><a class="terms-kit"
+                              href="/contribute.html">Contributing to Kotlin</a></p>
+                        <p class="terms-para"><a class="terms-kit"
+                              href={{ url_for('asset', path='kotlin-media-kit.pdf') }}>Press kit</a></p>
                     <div class="terms-copyright">
                         Licensed under the <a href="https://github.com/JetBrains/kotlin-web-site/blob/master/LICENSE">Apache
                         2
@@ -15,12 +35,10 @@
                         Kotlin Trademark is protected under the <a
                             href="https://kotlinlang.org/foundation/kotlin-foundation.html">Kotlin Foundation</a>
                     </div>
-                    <a class="terms-kit"
-                            href={{ url_for('asset', path='kotlin-media-kit.pdf') }}>Press kit</a>
                 </div>
                 <div class="global-footer-row">
                     <div class="terms-sponsor">
-                        Sponsored and developed by <a href="http://jetbrains.com" class="sponsor sponsor_jetbrains"
+                        Sponsored and developed by <a href="http://jetbrains.com" class="sponsor sponsor_jetbrains jetbrains-logo _logo-jetbrains"
                                                       target="_blank">JetBrains</a>
                     </div>
                 </div>
