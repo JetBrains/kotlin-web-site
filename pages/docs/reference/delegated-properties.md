@@ -162,7 +162,7 @@ In this case, you can use the map instance itself as the delegate for a delegate
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class User(val map: Map<String, Any?>) {
+class User(map: Map<String, Any?>) {
     val name: String by map
     val age: Int     by map
 }
