@@ -2,12 +2,12 @@
 {% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='api.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='api.css') }}">
+    <script src="{{ url_for('static', filename='api.js')|autoversion }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='api.css')|autoversion }}">
 {% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='api.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='api.css')|autoversion }}">
 {% endblock %}
 
 {% block content %}

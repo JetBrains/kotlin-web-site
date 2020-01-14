@@ -12,8 +12,8 @@
 
     <title>{% block title %}{{ title }}{% endblock %}</title>
 
-    <script src="{{ url_for('static', filename='common.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}"/>
+    <script src="{{ url_for('static', filename='common.js')|autoversion }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='common.css')|autoversion }}"/>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
