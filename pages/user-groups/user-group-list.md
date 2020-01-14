@@ -47,6 +47,8 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Kassel Kotlin User Group](https://www.meetup.com/Kassel-Kotlin-User-Group/), Germany
  * [Kyiv Kotlin User Group](https://www.meetup.com/KyivKUG), Ukraine
  * [Krakow Kotlin User Group](https://www.meetup.com/krakow-kotlin/), Poland
+ * [Leeds Kotlin User Group](https://leedskotlinusergroup.netlify.com/published/2020/1/6/our-first-meetup/), United 
+ Kingdom
  * [Limerick Kotlin User Group](https://www.meetup.com/kotlinlimerick/), Ireland
  * [Lisboa Kotlin User Group](https://meetup.com/kotlin-lisboa/), Portugal
  * [London Kotlin](http://www.meetup.com/kotlin-london/), United Kingdom
@@ -74,8 +76,6 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Uzhgorod Kotlin User Group](https://www.facebook.com/groups/135578123824203/), Ukraine
  * [Vienna Kotlin](https://www.meetup.com/Kotlin-Vienna/), Austria
  * [Warsaw Kotlin](https://www.meetup.com/Kotlin-Warsaw/), Poland
- * [Yorkshire Kotlin Meetup](http://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/), England
-
 
 ### Asia
 
@@ -96,6 +96,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Dubai Kotlin User Group](https://www.facebook.com/kotlindubai/), United Arab Emirates
  * [Jordan Kotlin User Group](https://www.facebook.com/KotlinJO/), Jordan
  * [Hefei Kotlin User Group](http://weibo.com/kotlinhfug), China
+ * [Ho Chi Minh Kotlin User Group](https://www.facebook.com/kughcmc/), Vietnam
  * [Hong Kong Kotlin User Group](https://www.facebook.com/KotlinHK), China
  * [Hyderabad Kotlin User Group](https://www.facebook.com/KotlinHyd/), India
  * [Indonesia Kotlin User Group](https://www.facebook.com/groups/395469687469099/), Indonesia
@@ -110,8 +111,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Kolkata Kotlin User Group](https://www.meetup.com/Kotlin-Kolkata-UG/), India
  * [Korean Kotlin User Group](http://kotlin.kr/), South Korea
  * [Kozhikode Kotlin User Group](https://www.facebook.com/kotlinusergroup/), India
- * [Mumbai Kotlin User Group](https://www.facebook.com/kotlinmumbai/), India
- * [Mumbai Kotlin for Android](https://www.meetup.com/Kotline-for-Android/), India
+ * [Mumbai Kotlin User Group](https://www.eventbrite.com/o/kotlin-user-group-mumbai-29116803821), India
  * [Myanmar Kotlin User Group](https://www.facebook.com/groups/kotlinmyanmarusergroup/about/), Myanmar
  * [Nepal Kotlin User Group](https://www.facebook.com/groups/dnkotlin/), Nepal
  * [New Delhi Kotlin User Group](https://www.meetup.com/KotlinDelhi/), India
@@ -130,7 +130,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Thailand Kotlin Developers](https://www.facebook.com/groups/872547279487598/), Thailand
  * [Turkey Kotlin User Group](http://kotlinveandroid.com/), Turkey
  * [Vellore Kotlin User Group](https://www.facebook.com/kotlinvellore), India
- * [Vietnam Kotlin User Group](https://vnkotlin.com), Vietnam
+ * [Vietnam Kotlin User Group (online community)](https://vnkotlin.com), Vietnam
  * [Vijayawada Kotlin User Group](https://www.facebook.com/KotlinVijayawada/), India
 
 </div>
