@@ -232,7 +232,7 @@ val l = 1L + 3 // Long + Int => Long
 
 ### Operations
 
-Kotlin supports the standard set of arithmetical operations over numbers, which are declared as members of appropriate classes (but the compiler optimizes the calls down to the corresponding instructions).
+Kotlin supports the standard set of arithmetical operations over numbers (`+` `-` `*` `/` `%`), which are declared as members of appropriate classes (but the compiler optimizes the calls down to the corresponding instructions). Note that calling `/` between an `Int` and an `Int` results in integer division and returns an `Int`, e.g. `5 / 2` returns `2`. For floating-point division between two arguments of type `Int`, convert one of the arguments to a floating-point type, e.g. `5 / 2.toDouble()` returns `2.5` as a `Double`.
 See [Operator overloading](operator-overloading.html).
 
 As of bitwise operations, there're no special characters for them, but just named functions that can be called in infix form, for example:
