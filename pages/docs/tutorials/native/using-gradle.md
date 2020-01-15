@@ -85,4 +85,9 @@ This should create a folder `build/native/bin` with two subfolders `debugExecuta
 By default, the binary is named the same as the project folder. 
 
 
+## Opening the project in an IDE
+
+Any IDE that supports Gradle should allow for opening the project in the IDE. In the case of [IntelliJ IDEA](https://www.jetbrains.com/idea), just open the project folder and it will automatically
+detect it as Kotlin/Native project. 
+
 
