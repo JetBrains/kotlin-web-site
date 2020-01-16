@@ -3,7 +3,7 @@
 {% block title %}Grammar{% endblock %}
 
 {% block page_content %}
-    <script src="{{ url_for('static', filename='grammar.js') }}"></script>
+    <script src="{{ url_for('static', filename='grammar.js')|autoversion }}"></script>
 
     <div id="js-toc"></div>
 

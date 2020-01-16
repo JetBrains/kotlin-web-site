@@ -6,7 +6,7 @@ import os
 import sys
 import threading
 from os import path
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin, ParseResult
 
 import xmltodict
 import yaml
@@ -49,6 +49,12 @@ data_folder = path.join(os.path.dirname(__file__), "data")
 _nav_cache = None
 _nav_lock = threading.RLock()
 
+def get_asset_version(filename):
+    filepath = (root_folder if  root_folder  else ".") + filename
+    if filename and path.exists(filepath):
+        file_stat = os.stat(filepath)
+        return str(file_stat.st_mtime)
+    return None
 
 def get_site_data():
     data = {}
@@ -141,7 +147,13 @@ def add_data_to_context():
         }
     }
 
-
+@app.template_filter('autoversion')
+def autoversion_filter(filename):
+    asset_version = get_asset_version(filename)
+    if asset_version is None: return filename
+    original = urlparse(filename)._asdict()
+    original.update(query=original.get('query') + '&v=' + asset_version)
+    return ParseResult(**original).geturl()
 
 @app.route('/data/events.json')
 def get_events():

@@ -4,7 +4,7 @@
     <title>Kotlin Programming Language</title>
     {% include 'inc/head.html' %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')|autoversion }}">
 </head>
 <body class="page_index">
 <!-- Google Tag Manager (noscript) -->
@@ -212,6 +212,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {% include 'inc/footer.html' %}
 {% include 'inc/search-popup.html' %}
-<script src="{{ url_for('static', filename='index.js') }}"></script>
+<script src="{{ url_for('static', filename='index.js')|autoversion }}"></script>
 </body>
 </html>

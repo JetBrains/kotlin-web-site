@@ -15,7 +15,7 @@
 {% endmacro %}
 
 {% block content %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='community.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='community.css')|autoversion }}">
 
     <article role="main" class="page-content">
         <h1 id="were-all-kotlin">We're all Kotlin</h1>
@@ -77,5 +77,5 @@
          data-aos="animate">
     </div>
 
-    <script src="{{ url_for('static', filename='community.js') }}"></script>
+    <script src="{{ url_for('static', filename='community.js')|autoversion }}"></script>
 {% endblock %}
