@@ -51,4 +51,4 @@ This should generate a `hello.kexe` (Linux and macOS) or `hello.exe` (Windows) b
 
 While compilation from the console seems to be easy and clear, it
 does not scale well for larger projects with hundreds of files and libraries. For real-world projects it is recommended
-to use a [build system](pages/docs/tutorials/native/using-gradle.md) and [IDE](pages/docs/tutorials/native/using-intellij-idea.md)
+to use a [build system](using-gradle.html) and [IDE](using-intellij-idea.html)
