@@ -103,7 +103,7 @@ in the table:
 {:.zebra}
  
 Let's run the `linkNative` Gradle task to build the library 
-[in the IDE](basic-kotlin-native-app.html#run-in-ide) 
+[in the IDE](using-intellij-idea.html) 
 or by calling the following console command:
 [[include pages-includes/docs/tutorials/native/linkNative.md]]
 
