@@ -9,7 +9,7 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the
 [kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html) plugin.
 
 We covered the basics of setting up an IDE compatible project with Gradle in the
-[A Basic Kotlin/Native Application](basic-kotlin-native-app.html#create-gradle-project)
+[A Basic Kotlin/Native Application](/docs/tutorials/native/using-gradle.html)
 tutorial. Please check it out if you are looking for detailed first steps
 and instructions on how to start a new Kotlin/Native project and open it in IntelliJ IDEA.
 In this tutorial, we'll look at the advanced C interop related usages of Kotlin/Native 

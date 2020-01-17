@@ -20,12 +20,6 @@ We will learn how to:
 - [Read a C string in Kotlin](#reading-c-strings-in-kotlin)
 - [Receive C string bytes into a Kotlin string](#receiving-c-string-bytes-from-kotlin)
 
-We need to have a Kotlin compiler on our machines. 
-The
-[A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial explains the steps in detail.
-Let's assume we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
-
 ## Working with C strings
 
 There is no dedicated type in C language for strings. A developer knows from a method 
@@ -118,7 +112,7 @@ fun main() {
 </div>
 
 Now we are ready to
-[open the project in IntelliJ IDEA](basic-kotlin-native-app.html#open-in-ide)
+[open the project in IntelliJ IDEA](open-in-ide)
 and to see how to fix the example project. While doing that,
 we'll examine how C primitive types are mapped into Kotlin/Native.
 
@@ -229,7 +223,7 @@ array into a Kotlin `String`, assuming UTF-8 encoding.
 ## Fixing the Code
 
 We've now seen all the definitions and it is time to fix the code. 
-Let's run the `runDebugExecutableNative` Gradle task [in the IDE](basic-kotlin-native-app.html#run-in-ide)
+Let's run the `runDebugExecutableNative` Gradle task [in the IDE](run-in-ide)
 or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 

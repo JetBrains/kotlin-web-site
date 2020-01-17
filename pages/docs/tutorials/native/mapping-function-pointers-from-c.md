@@ -18,12 +18,6 @@ In this tutorial We will learn how to:
 - [Pass Kotlin function as C function pointer](#passing-kotlin-function-as-c-function-pointer)
 - [Use C function pointer from Kotlin](#using-the-c-function-pointer-from-kotlin)
 
-We need to have a Kotlin compiler on our machines. 
-The
-[A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial covers that step in details.
-Let's assume that we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
-
 
 ## Mapping Function Pointer Types from C
 
@@ -88,7 +82,7 @@ fun main() {
 </div>
 
 Now we are ready to
-[open the project in IntelliJ IDEA](basic-kotlin-native-app.html#open-in-ide)
+[open the project in IntelliJ IDEA](using-intellij-idea.html)
 and to see how to fix the example project. While doing that,
 we'll examine how C functions are mapped into Kotlin/Native declarations.
 
@@ -161,7 +155,7 @@ what we did on the last line.
 ## Fixing the Code
 
 We've seen all definitions and it is time to fix and run the code.
-Let's run the `runDebugExecutableNative` Gradle task [in the IDE](basic-kotlin-native-app.html#run-in-ide)
+Let's run the `runDebugExecutableNative` Gradle task [in the IDE](using-intellij-idea.html)
 or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 

@@ -114,12 +114,12 @@ header file name prefix. It is also prefixes all declarations in the
 header file.
 
 Now we are ready to
-[open the project in IntelliJ IDEA](basic-kotlin-native-app.html#open-in-ide)
+[open the project in IntelliJ IDEA](/docs/tutorials/native/using-intellij-idea.html)
 and to see how to fix the example project. While doing this,
 we'll examine how C functions are mapped into Kotlin/Native declarations.
 
 Let's run the `linkNative` Gradle task to build the library 
-[in the IDE](basic-kotlin-native-app.html#run-in-ide) 
+in the IDE
 or by calling the following console command:
 [[include pages-includes/docs/tutorials/native/linkNative.md]]
 
