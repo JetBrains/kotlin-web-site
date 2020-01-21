@@ -207,7 +207,7 @@ kotlin {
     sourceSets {
         main {
             dependencies {
-                implementation 'org.example.myproject:1.1.0'
+                implementation npm('react', '16.12.0')
             }
         }
     }
@@ -223,7 +223,7 @@ kotlin {
 ```kotlin
 kotlin {
   sourceSets["main"].dependencies {
-    implementation(npm("react", "16.8.3"))
+    implementation(npm("react", "16.12.0"))
   }
 }
 ```
