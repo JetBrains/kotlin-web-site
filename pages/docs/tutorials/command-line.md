@@ -72,7 +72,9 @@ $ sudo snap install --classic kotlin
 </div>
 
 #### Chocolatey package
-If you’re a [Chocolatey](https://chocolatey.org/) user on Windows, you can easily install the compiler from the command line:
+For users of [Chocolatey](https://chocolatey.org/) on Windows, 
+there is a community-maintained [kotlinc](https://chocolatey.org/packages/kotlinc) package.
+You can install it from the command line:
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
