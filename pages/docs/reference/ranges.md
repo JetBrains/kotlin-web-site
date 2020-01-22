@@ -118,8 +118,7 @@ As shown in the examples above, the ranges of integral types, such as `Int`, `Lo
 In Kotlin, these progressions are defined by special types: [`IntProgression`](/api/latest/jvm/stdlib/kotlin.ranges/-int-progression/index.html), [`LongProgression`](/api/latest/jvm/stdlib/kotlin.ranges/-long-progression/index.html), and [`CharProgression`](/api/latest/jvm/stdlib/kotlin.ranges/-char-progression/index.html).
 
 Progressions have three essential properties: the `first` element, the `last` element, and a non-zero `step`.
-The first element is `first`, subsequent elements are the previous element plus a `step`.
-The last element is always hit by iteration unless the progression is empty. 
+The first element is `first`, subsequent elements are the previous element plus a `step`. 
 Iteration over a progression with a positive step is equivalent to an indexed `for` loop in Java/JavaScript.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -159,7 +158,23 @@ fun main() {
 ```
 </div>
 
-The last element of the progression is calculated to find the maximum value not greater than the end value for a positive step or the minimum value not less than the end value for a negative step such that `(last - first) % step == 0`.
+The `last` element of the progression is calculated this way:
+* For a positive step: the maximum value not greater than the end value such that `(last - first) % step == 0`.
+* For a negative step: the minimum value not less than the end value such that `(last - first) % step == 0`.
+
+Thus, the `last` element is not always the same as the specified end value.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+//sampleStart
+    for (i in 1..9 step 3) print(i) // the last element is 7
+//sampleEnd
+}
+
+```
+</div>
 
 To create a progression for iterating in reverse order, use `downTo` instead of `..` when defining the range for it.
 
