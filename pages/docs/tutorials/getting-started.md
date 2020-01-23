@@ -4,18 +4,21 @@ layout: tutorial
 title:  "Getting Started with IntelliJ IDEA"
 description: "This tutorial walks you through creating a simple Hello World application using IntelliJ IDEA."
 authors: Hadi Hariri, Roman Belov
-date: 2019-04-23
+date: 2020-01-23
 showAuthorInfo: false
 ---
 ## Setting up the environment
-In this tutorial we're going to use IntelliJ IDEA.
-For instructions on how to compile and execute Kotlin applications using the command line compiler, see [Working with the Command Line Compiler][getting_started_command_line].
 
-If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/). If you are new to IntelliJ IDEA, check out the [The IntelliJ IDEA Minimal Survival Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
+In this tutorial we're going to use IntelliJ IDEA. To get started, install a recent version of IntelliJ IDEA.
 
-To get started, install a recent version of IntelliJ IDEA.
 Kotlin is bundled with IntelliJ IDEA starting from version 15.
-You can download the free [Community Edition][intellijdownload] from [JetBrains][jetbrains].
+
+You can download the free [Community Edition][intellijdownload] (or full-fledged [Ultimate Edition][intellijdownload]) from the [JetBrains website][jetbrains].
+
+As an alternative to using IntelliJ IDEA, you can compile and execute Kotlin applications using the command line compiler. For details, see [Working with the Command Line Compiler][getting_started_command_line].
+
+If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/).
+If you are new to IntelliJ IDEA, check out the [The IntelliJ IDEA Minimal Survival Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
 
 ## Creating a new project
 Once you have IntelliJ IDEA installed, it's time to create your first Kotlin application.
