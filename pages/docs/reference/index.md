@@ -23,7 +23,7 @@ title: "Reference"
          <h3 style="font-weight: bold">IDE</h3>
          <p>Many modern IDEs support Kotlin and help in writing idiomatic Kotlin code:</p>
          <ul>
-             <li class="start">         <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">Kotlin Educational Plugin</a> </li>
+             <li class="start">         <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/for-learners.html?section=Kotlin">EduTools plugin</a> </li>
              <li class="migrate start"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
          </ul>
      </div>
