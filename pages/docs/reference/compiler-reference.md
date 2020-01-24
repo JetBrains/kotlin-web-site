@@ -60,6 +60,12 @@ Turn any warnings into a compilation error.
 Enable verbose logging output which includes details of the compilation process.
 {:.details-group}
 
+### `-script`
+
+Evaluate a Kotlin script file. When called with this option, the compiler executes the first Kotlin script (`*.kts`) 
+file among the given arguments.
+{:.details-group}
+
 ### `-help` (`-h`)
 
 Display usage information and exit. Only standard options are shown.
@@ -214,12 +220,6 @@ Don't automatically include the Kotlin reflection (`kotlin-reflect.jar`) into th
 
 Don't automatically include the Kotlin/JVM stdlib (`kotlin-stdlib.jar`) and Kotlin reflection (`kotlin-reflect.jar`)
 into the classpath. 
-{:.details-group}
-  
-### `-script`
-
-Evaluate a Kotlin script file. When called with this option, the compiler executes the first Kotlin script (`*.kts`) 
-file among the given arguments.
 {:.details-group}
   
 ### `-script-templates <classnames[,]>`
