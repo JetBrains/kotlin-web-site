@@ -6,31 +6,41 @@ title: "Experimental API Markers"
 ---
 
 # Experimental API Markers
-> The annotations for marking and using experimental APIs (`@Experimental` and `@UseExperimental`) are *experimental* in Kotlin 1.3. See details [below](#experimental-status-of-experimental-api-markers).
+
+> The annotations for marking experimental APIs (`@RequiresOptIn`) and opting in to using them (`@OptIn`) are *experimental* in Kotlin 1.3.
+> See details [below](#experimental-status-of-the-opt-in-annotations).
 {:.note}
 
-The Kotlin standard library provides developers with a mechanism for creating and using _experimental_ APIs. This mechanism lets library authors inform users that certain components of their API, such as classes or functions, are unstable and are likely to change in the future. Such changes may require rewriting and recompiling the client code. To prevent potential compatibility issues, the compiler warns users of the experimental status of such APIs and may require them to give their explicit consent to use the API.
+The Kotlin standard library provides developers with a mechanism for creating and using _experimental_ APIs. 
+This mechanism lets library authors inform users that certain components of their API, such as classes or functions, 
+are unstable and likely to change in the future. Such changes may require rewriting and recompiling the client code.
+To prevent potential compatibility issues, the compiler warns users about the experimental status of such APIs and
+requires them to opt in before using the API.
 
-## Using experimental APIs
+## Experimental API opt-in
 
-If a class or a function from a library is marked by its author as experimental, using it in your code will produce warnings or compilation errors unless you explicitly accept their experimental status. 
-There are several ways to accept the experimental status of API elements; all of them are applicable without technical limitations. You are free to choose the way that you find best for your situation. 
+If a declaration from a library is marked by its author as [experimental](#marking-experimental-api),
+you should explicitly opt in to get able to use it in your code. 
+There are several ways to opt in to the experimental APIs, all applicable without technical limitations.
+You are free to choose the way that you find best for your situation. 
 
-### Propagating use
+### Propagating opt-in
 
-When you use an experimental API in the code intended for third-party use (a library), you can mark your API as experimental as well. To do this, annotate your declaration with the _experimental marker annotation_ of the API used in its body. This enables you to use the API elements annotated with this marker.
+When you use an experimental API in the code intended for third-party use (a library), you can mark your API experimental as well.
+To do this, annotate your declaration with the [_experimental marker annotation_](#marking-experimental-api) of the API used in its body.
+This enables you to use the API elements annotated with this marker.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 // library code
-@Experimental
+@RequiresOptIn
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
-annotation class ExperimentalDateTime            // Experimental API marker
+annotation class ExperimentalDateTime // Experimental API marker
 
 @ExperimentalDateTime                            
-class DateProvider                              // Experimental class
+class DateProvider // Experimental class, requires opt-in
 ```
 
 </div>
@@ -40,7 +50,7 @@ class DateProvider                              // Experimental class
 ```kotlin
 // client code
 fun getYear(): Int {  
-    val dateProvider: DateProvider // error: DateProvider is experimental
+    val dateProvider: DateProvider // Error: DateProvider requires opt-in
     // ...
 }
 
@@ -51,30 +61,33 @@ fun getDate(): Date {
 }
 
 fun displayDate() {
-    println(getDate()) // error: getDate() is experimental, acceptance is required
+    println(getDate()) // error: getDate() is experimental, opt-in is required
 }
 ```
 
 </div>
 
-As you can see in this example, the annotated function appears to be a part of the `@ExperimentalDateTime` experimental API. So, the described way of acceptance propagates the experimental status to the code that uses an experimental API; its clients will be required to accept it as well.
+As you can see in this example, the annotated function appears to be a part of the `@ExperimentalDateTime` experimental API.
+So, such an opt-in acceptance propagates the experimental status to client code; its clients will be required to opt in as well.
 To use multiple experimental APIs, annotate the declaration with all their markers.
 
 ### Non-propagating use
 
-In modules that don't provide their own API, such as application modules, you can use experimental APIs without propagating the experimental status to your code. In this case, mark your code with the [@UseExperimental(Marker::class)](/api/latest/jvm/stdlib/kotlin/-use-experimental/index.html) annotation specifying the marker annotation of the experimental API:
+In modules that don't expose their own API, such as applications, you can opt in to experimental APIs without propagating
+the experimental status to your code. In this case, mark your code with the [@OptIn(Marker::class)](/api/latest/jvm/stdlib/kotlin/-opt-in/index.html)
+annotation specifying the marker annotation of the experimental API:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 // library code
-@Experimental
+@RequiresOptIn
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
-annotation class ExperimentalDateTime            // Experimental API marker
+annotation class ExperimentalDateTime // Experimental API marker
 
 @ExperimentalDateTime                            
-class DateProvider                              // Experimental class
+class DateProvider // Experimental class
 ```
 
 </div>
@@ -83,14 +96,14 @@ class DateProvider                              // Experimental class
 
 ```kotlin
 //client code
-@UseExperimental(ExperimentalDateTime::class)
-fun getDate(): Date {              // uses DateProvider; doesn't expose the experimental status
+@OptIn(ExperimentalDateTime::class)
+fun getDate(): Date { // Uses DateProvider; doesn't expose the experimental status
     val dateProvider: DateProvider
     // ...
 }
 
 fun displayDate() {
-    println(getDate())                     // OK: getDate() is not experimental
+    println(getDate()) // OK: getDate() is not experimental; opt-in is not required
 }
 ```
 
@@ -98,22 +111,24 @@ fun displayDate() {
 
 When somebody calls the function `getDate()`, they won't be informed about the experimental API used in its body. 
 
-To use an experimental API in all functions and classes in a file, add the file-level annotation `@file:UseExperimental` to the top of the file before the package specification and imports.
+To use an experimental API in all functions and classes in a file, add the file-level annotation `@file:OptIn`
+to the top of the file before the package specification and imports.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
  
  ```kotlin
  //client code
- @file:UseExperimental(ExperimentalDateTime::class)
+ @file:OptIn(ExperimentalDateTime::class)
  ```
  
  </div>
 
-### Module-wide use
+### Module-wide opt-in
 
-If you don't want to annotate every usage of experimental APIs in your code, you can accept the experimental status for your whole module. Module-wide use of experimental APIs can be propagating and non-propagating as well:
-* To accept the experimental status without propagation, compile the module with the argument `-Xuse-experimental`, specifying the fully qualified name of the experimental API marker you use: `-Xuse-experimental=org.mylibrary.ExperimentalMarker`. Compiling with this argument has the same effect as if every declaration in the module had the annotation`@UseExperimental(ExperimentalMarker::class)`.
-* To accept and propagate the experimental status to your whole module, compile the module with the argument `-Xexperimental=org.mylibrary.ExperimentalMarker`. In this case, _every declaration_ in the module becomes experimental. The use of the module requires the acceptance of its experimental status as well.
+If you don't want to annotate every usage of experimental APIs in your code, you can opt in to them for your whole module.
+To opt in to using an experimental API in a module, compile it with the argument `-Xopt-in`,
+specifying the fully qualified name of the experimental API marker: `-Xopt-in=org.mylibrary.ExperimentalMarker`.
+Compiling with this argument has the same effect as if every declaration in the module had the annotation`@OptIn(ExperimentalMarker::class)`.
 
 If you build your module with Gradle, you can add arguments like this:
 
@@ -123,7 +138,7 @@ If you build your module with Gradle, you can add arguments like this:
 ```groovy
 compileKotlin {
     kotlinOptions {
-        freeCompilerArgs += "-Xuse-experimental=org.mylibrary.ExperimentalMarker"
+        freeCompilerArgs += "-Xopt-in=org.mylibrary.ExperimentalMarker"
     }
 }
 ```
@@ -136,7 +151,7 @@ compileKotlin {
 
 ```kotlin
 tasks.withType<KotlinCompile>().all {
-    kotlinOptions.freeCompilerArgs += "-Xuse-experimental=org.mylibrary.ExperimentalMarker"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=org.mylibrary.ExperimentalMarker"
 }
 ```
 
@@ -152,7 +167,7 @@ If your Gradle module is a multiplatform module, use the `useExperimentalAnnotat
 sourceSets {
     all {
         languageSettings {
-            useExperimentalAnnotation('kotlin.Experimental')
+            useExperimentalAnnotation('org.mylibrary.ExperimentalMarker')
         }
     }
 }
@@ -167,7 +182,7 @@ sourceSets {
 ```kotlin
 sourceSets {
     all {
-        languageSettings.useExperimentalAnnotation("kotlin.Experimental")
+        languageSettings.useExperimentalAnnotation("org.mylibrary.ExperimentalMarker")
     }
 }
 ```
@@ -189,7 +204,7 @@ For Maven, it would be:
             <executions>...</executions>
             <configuration>
                 <args>
-                    <arg>-Xuse-experimental=org.mylibrary.ExperimentalMarker</arg>                    
+                    <arg>-Xopt-in=org.mylibrary.ExperimentalMarker</arg>                    
                 </args>
             </configuration>
         </plugin>
@@ -199,18 +214,19 @@ For Maven, it would be:
 
 </div>
 
-To accept the usage of multiple experimental APIs on the module level, add one of the described arguments for each experimental API marker used in your module.
+To opt in to multiple experimental APIs on the module level, add one of the described arguments for each experimental API marker used in your module.
 
 ## Marking experimental API 
 
 ### Creating marker annotations
 
-If you want to declare your module's API as experimental, create an annotation class to use as its _experimental marker_. This class must be annotated with [@Experimental](/api/latest/jvm/stdlib/kotlin/-experimental/index.html):
+If you want to declare your module's API as experimental and require an opt-in for using it, create an annotation class to use as an _experimental marker_.
+This class must be annotated with [@RequiresOptIn](/api/latest/jvm/stdlib/kotlin/-requires-opt-in/index.html):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-@Experimental
+@RequiresOptIn
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 annotation class ExperimentalDateTime
@@ -223,15 +239,19 @@ Experimental marker annotations must meet several requirements:
 * No `EXPRESSION` and `FILE` among [targets](/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/index.html)
 * No parameters.
 
-A marker annotation can have one of two severity [levels](/api/latest/jvm/stdlib/kotlin/-experimental/-level/index.html) of informing about experimental API usage:
-* `Experimental.Level.ERROR`. Acceptance is mandatory. Otherwise, the code that uses marked API won't compile. This level is used by default.
-* `Experimental.Level.WARNING`. Acceptance is not mandatory, but advisable. Without it, the compiler raises a warning.
-To set the desired level, specify the `level` parameter of the `@Experimental` annotation.
+A marker annotation can have one of two severity [levels](/api/latest/jvm/stdlib/kotlin/-requires-opt-in/-level/index.html)
+of informing about opt-in requirement:
+* `RequiresOptIn.Level.ERROR`. Opt-in is mandatory. Otherwise, the code that uses marked API won't compile. Default level.
+* `RequiresOptIn.Level.WARNING`. Opt-in is not mandatory, but advisable. Without it, the compiler raises a warning.
+
+To set the desired level, specify the `level` parameter of the `@RequiresOptIn` annotation.
+
+Additionally, you can provide a `message` that the compiler will show when somebody uses the experimental API without opt-in.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-@Experimental(level = Experimental.Level.WARNING)
+@RequiresOptIn(level = RequiresOptIn.Level.WARNING, message = "This is an experimental declaration. It can be incompatibly changed in future.")
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 annotation class ExperimentalDateTime
@@ -259,25 +279,35 @@ fun getTime(): Time {}
 
 </div>
 
-### Module-wide markers
-If you consider all the APIs of your module experimental, you can mark the entire module as such with the compiler argument `-Xexperimental` as described in [Module-wide use](#module-wide-use). 
 
 ## Graduation of experimental API
-Once your experimental API graduates and is released in its final state, remove its marker annotation from declarations so that the clients can use it without restriction. However, you should leave the marker classes in modules so that the existing client code remains compatible. To let the API users update their modules accordingly (remove the markers from their code and recompile), mark the annotations as [`@Deprecated`](/api/latest/jvm/stdlib/kotlin/-deprecated/index.html) and provide the explanation in its message.
+
+Once your experimental API graduates and is released in a stable state, remove its marker annotations from declarations 
+so that the clients can use it without restriction. However, you should leave the marker classes in modules so that 
+the existing client code remains compatible.
+
+To let the API users update their modules accordingly (remove the markers 
+from their code and recompile), mark the annotations as [`@Deprecated`](/api/latest/jvm/stdlib/kotlin/-deprecated/index.html)
+and provide the explanation in its message.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 @Deprecated("This experimental API marker is not used anymore. Remove its usages from your code.")
-@Experimental
+@RequiresOptIn
 annotation class ExperimentalDateTime
 ```
 
 </div>
 
-## Experimental status of experimental API markers
-The described mechanism for marking and using experimental APIs is itself experimental in Kotlin 1.3. This means that in future releases it may be changed in ways that make it incompatible. To make the users of annotations `@Experimental` and `UseExperimental` aware of their experimental status, the compiler raises warnings when compiling the code with these annotations:
+## Experimental status of the opt-in annotations
 
-```This class can only be used with the compiler argument '-Xuse-experimental=kotlin.Experimental'```
+The described mechanism for marking experimental APIs and opting in to them is itself experimental in Kotlin 1.3.
+This means that in future releases it may be changed in ways that make it incompatible.
 
- To remove the warnings, add the compiler argument `-Xuse-experimental=kotlin.Experimental`.
+To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,
+the compiler raises warnings when compiling the code with these annotations:
+
+```This class can only be used with the compiler argument '-Xopt-in=kotlin.RequiresOptIn'```
+
+ To remove the warnings, add the compiler argument `-XoptIn=kotlin.OptIn`.
