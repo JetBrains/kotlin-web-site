@@ -7,7 +7,7 @@ Kotlin User Groups are a great place to share your experience with the community
 
 The most common way to begin one is to find a few like-minded people and to get together and organize regular meetups for spreading knowledge on software development with Kotlin. If you feel like you need more ideas or advice on launching a user group, contact [alina@jetbrains.com](mailto:alina@jetbrains.com).
 
-## Kotlin User Groups (195)
+## Kotlin User Groups (196)
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -29,6 +29,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Brighton Kotlin User Group](https://www.meetup.com/Brighton-Kotlin/), United Kingdom
  * [Bucharest Kotlin User Group](https://www.meetup.com/kug-bucharest/), Romania
  * [Budapest Kotlin User Group](https://www.facebook.com/groups/KotlinBudapest/), Hungary
+ * [Bulgarian Kotlin User Group](https://bg-kug.github.io/), Bulgaria
  * [Cologne Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref), Germany
  * [Copenhagen Kotlin User Group](https://www.meetup.com/Kotlin-Copenhagen/), Denmark
  * [Cosenza Kotlin User Group](https://www.facebook.com/groups/251720265392355), Italy
@@ -111,7 +112,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Kolkata Kotlin User Group](https://www.meetup.com/Kotlin-Kolkata-UG/), India
  * [Korean Kotlin User Group](http://kotlin.kr/), South Korea
  * [Kozhikode Kotlin User Group](https://www.facebook.com/kotlinusergroup/), India
- * [Mumbai Kotlin User Group](https://www.eventbrite.com/o/kotlin-user-group-mumbai-29116803821), India
+ * [Mumbai Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Mumbai/), India
  * [Myanmar Kotlin User Group](https://www.facebook.com/groups/kotlinmyanmarusergroup/about/), Myanmar
  * [Nepal Kotlin User Group](https://www.facebook.com/groups/dnkotlin/), Nepal
  * [New Delhi Kotlin User Group](https://www.meetup.com/KotlinDelhi/), India
