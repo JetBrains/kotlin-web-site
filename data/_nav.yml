@@ -244,7 +244,7 @@ reference:
         - url: /docs/reference/building-mpp-with-gradle.html
           title: Building with Gradle
 
-    - title: Java Interop
+    - title: Java
       description: What you need to know about interoperability with Java.
       content:
         - url: /docs/reference/java-interop.html
@@ -252,7 +252,7 @@ reference:
         - url: /docs/reference/java-to-kotlin-interop.html
           title: Calling Kotlin from Java
 
-    - title: JavaScript Interop
+    - title: JavaScript
       description: Using Kotlin with JavaScript
       content:
         - url: /docs/reference/js-project-setup.html
