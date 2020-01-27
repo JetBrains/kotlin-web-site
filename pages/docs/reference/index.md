@@ -7,7 +7,7 @@ title: "Reference"
 <div style="display: inline-flex; border: 1px solid rgb(229, 229, 229); border-radius: 40px;" >
  <div id="material" onmouseover="this.style.backgroundColor='#F0F0F0'" onmouseout="this.style.backgroundColor=''" style="cursor: pointer; padding: 1rem 2rem;border-radius: 40px; border: 1px solid transparent;" >All Materials</div>
  <div id="start" onmouseover="this.style.backgroundColor='#F0F0F0'" onmouseout="this.style.backgroundColor=''" style="cursor: pointer; padding: 1rem 2rem;border-radius: 40px;">Getting Started</div>
- <div id="migrate" onmouseover="this.style.backgroundColor='#F0F0F0'" onmouseout="this.style.backgroundColor=''" style="cursor: pointer; padding: 1rem 2rem;border-radius: 40px;">Migrating from Java</div>
+ <div id="migrate" onmouseover="this.style.backgroundColor='#F0F0F0'" onmouseout="this.style.backgroundColor=''" style="cursor: pointer; padding: 1rem 2rem;border-radius: 40px;">Migration</div>
 </div>
 <div style="display:grid; grid-template-columns: 1fr 1fr;">
     <div style="padding: 5px;">
@@ -16,15 +16,18 @@ title: "Reference"
         <ul>
             <li class="start">   <a style="text-decoration: none;" href="/docs/reference/basic-syntax.html">Basics</a> </li>
             <li class="migrate"> <a style="text-decoration: none;" href="/docs/reference/idioms.html">Idioms</a> </li>
-            <li class="migrate"> <a style="text-decoration: none;" href="/docs/reference/java-interop.html">Interop with Java</a>  </li>
+            <li class="start"> <a style="text-decoration: none;" href="/docs/reference/classes.html">Classes</a>  </li>
+            <li class="start"> <a style="text-decoration: none;" href="/docs/reference/functions.html">Functions</a>  </li>
         </ul>
     </div>
      <div style="padding: 5px;">
          <h3 style="font-weight: bold">IDE</h3>
-         <p>Many modern IDEs support Kotlin and help in writing idiomatic Kotlin code:</p>
+         <p>A modern IDE like IntelliJ IDEA can help in learning Kotlin:</p>
          <ul>
+             <li class="start">         <a style="text-decoration: none;" href="/docs/tutorials/getting-started.html">Getting started with IntelliJ IDEA</a> </li>
              <li class="start">         <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/for-learners.html?section=Kotlin">EduTools plugin</a> </li>
-             <li class="migrate start"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
+             <li class="start">         <a style="text-decoration: none;" href="/docs/tutorials/quick-run.html">Running code snippets</a> </li>
+             <li class="migrate"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
          </ul>
      </div>
       <div style="padding: 5px;">
@@ -42,7 +45,8 @@ title: "Reference"
           <p>Hands-on experience is the way to master your Kotlin skills on real examples right in the browser:</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org">Playground</a> </li>
-              <li class="migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org/byExample">Kotlin Examples</a>  </li>
+              <li class="migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org/hands-on/overview">Hands-on Labs</a> </li>
+              <li class="migrate"> <a style="text-decoration: none;" href="https://play.kotlinlang.org/byExample">Kotlin by Example</a>  </li>
               <li class="start"> <a style="text-decoration: none;" href="https://play.kotlinlang.org/koans">Koans</a> </li>
           </ul>
       </div>
