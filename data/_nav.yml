@@ -66,12 +66,17 @@ reference:
           title: Coroutines
         - url: /docs/reference/multiplatform.html
           title: Multiplatform
-        - url: /docs/reference/whatsnew11.html
-          title: What's New in 1.1
-        - url: /docs/reference/whatsnew12.html
-          title: What's New in 1.2
+
+    - title: What's New
+      description: What's new in Kotlin versions
+      content:
         - url: /docs/reference/whatsnew13.html
           title: What's New in 1.3
+        - url: /docs/reference/whatsnew12.html
+          title: What's New in 1.2
+        - url: /docs/reference/whatsnew11.html
+          title: What's New in 1.1
+
 
     - title: Getting Started
       description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
@@ -179,15 +184,16 @@ reference:
         - url: /docs/reference/map-operations.html
           title: Map Specific Operations
 
-    - title: Multiplatform Programming
-      description: Reusing code across JVM, JS, and Native
-      content:
-        - url: /docs/reference/platform-specific-declarations.html
-          title: Platform-Specific Declarations
-        - url: /docs/reference/building-mpp-with-gradle.html
-          title: Building with Gradle
+    - title: Coroutines
+      description: Kotlin Coroutines Library
+      external:
+        path: kotlinx.coroutines/docs
+        nav: _nav.yml
+        base: /docs/reference/coroutines
+        repo: https://github.com/kotlin/kotlinx.coroutines
+        branch: master
 
-    - title: Other
+    - title: Various Language Features
       description: Various bits and bobs
       content:
         - url: /docs/reference/multi-declarations.html
@@ -215,14 +221,14 @@ reference:
         - url: /docs/reference/experimental.html
           title: Experimental API Markers
 
-    - title: Core Libraries
+    - title: Core Libraries Reference
       content:
         - url: /api/latest/jvm/stdlib/index.html
           title: Standard Library
         - url: /api/latest/kotlin.test/index.html
           title: kotlin.test
 
-    - title: Reference
+    - title: Language Reference
       description: Grammar and other information
       content:
         - url: /docs/reference/keyword-reference.html
@@ -230,6 +236,13 @@ reference:
         - url: /docs/reference/grammar.html
           title: Grammar
 
+    - title: Multiplatform Programming
+      description: Reusing code across JVM, JS, and Native
+      content:
+        - url: /docs/reference/platform-specific-declarations.html
+          title: Platform-Specific Declarations
+        - url: /docs/reference/building-mpp-with-gradle.html
+          title: Building with Gradle
 
     - title: Java Interop
       description: What you need to know about interoperability with Java.
@@ -239,23 +252,23 @@ reference:
         - url: /docs/reference/java-to-kotlin-interop.html
           title: Calling Kotlin from Java
 
-    - title: JavaScript
+    - title: JavaScript Interop
       description: Using Kotlin with JavaScript
       content:
-       - url: /docs/reference/js-project-setup.html
-         title: Setting Up a Project
-       - url: /docs/reference/dynamic-type.html
-         title: Dynamic Type
-       - url: /docs/reference/js-interop.html
-         title: Calling JavaScript from Kotlin
-       - url: /docs/reference/js-to-kotlin-interop.html
-         title: Calling Kotlin from JavaScript
-       - url: /docs/reference/js-modules.html
-         title: JavaScript Modules
-       - url: /docs/reference/js-reflection.html
-         title: JavaScript Reflection
-       - url: /docs/reference/javascript-dce.html
-         title: JavaScript DCE
+        - url: /docs/reference/js-project-setup.html
+          title: Setting Up a Project
+        - url: /docs/reference/dynamic-type.html
+          title: Dynamic Type
+        - url: /docs/reference/js-interop.html
+          title: Calling JavaScript from Kotlin
+        - url: /docs/reference/js-to-kotlin-interop.html
+          title: Calling Kotlin from JavaScript
+        - url: /docs/reference/js-modules.html
+          title: JavaScript Modules
+        - url: /docs/reference/js-reflection.html
+          title: JavaScript Reflection
+        - url: /docs/reference/javascript-dce.html
+          title: JavaScript DCE
 
     - title: Native
       description: Using Kotlin/Native for iOS and Native
@@ -266,19 +279,10 @@ reference:
         repo: https://github.com/JetBrains/kotlin-native
         branch: v1.3.60-fixes
 
-    - title: Coroutines
-      description: Kotlin Coroutines Library
-      external:
-        path: kotlinx.coroutines/docs
-        nav: _nav.yml
-        base: /docs/reference/coroutines
-        repo: https://github.com/kotlin/kotlinx.coroutines
-        branch: master
-
     - title: Tools
       description:
       content:
-  #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
+        #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
         - url: /docs/reference/kotlin-doc.html
           title: Documenting Kotlin Code
         - url: /docs/reference/kapt.html
@@ -315,7 +319,6 @@ reference:
           title: FAQ
         - url: /docs/reference/comparison-to-java.html
           title: Comparison to Java
-
 
 
 # Tutorials navigation
