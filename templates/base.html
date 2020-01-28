@@ -15,7 +15,7 @@
     <script src="{{ url_for('static', filename='common.js')|autoversion }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css')|autoversion }}"/>
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -24,14 +24,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="global-layout">
 
     {% include 'inc/header.html' %}
+    {% block page_outer_content %}
+        <div class="g-layout global-content">
+            {% include 'inc/nav/docs-nav.html' %}
 
-    <div class="g-layout global-content">
-        {% include 'inc/nav/docs-nav.html' %}
-
-        {% block content %}
-            {{ page.html | safe }}
-        {% endblock %}
-    </div>
+            {% block content %}
+                {{ page.html | safe }}
+            {% endblock %}
+        </div>
+    {% endblock %}
 
 </div>
 

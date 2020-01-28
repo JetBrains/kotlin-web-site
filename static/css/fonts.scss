@@ -29,3 +29,18 @@
 	font-family: InterUI-Bold;
 	src: url('/assets/fonts/Inter-UI-Regular.woff');
 }
+
+@font-face {
+  font-family: Inter;
+  src: local("Inter Regular"),
+  local("Inter Regular"),
+  url('/assets/fonts/Inter-UI-Regular.woff');
+}
+
+@font-face {
+  font-family: Inter;
+  src: local("Inter Bold"),
+  local("Inter-Bold"),
+  url('/assets/fonts/Inter-UI-Bold.woff');
+  font-weight: bold;
+}

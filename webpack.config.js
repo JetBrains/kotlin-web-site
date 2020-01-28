@@ -19,6 +19,7 @@ module.exports = (params = {}) => {
     entry: {
       'common': './static/js/page/common.js',
       'index': './static/js/page/index/index.js',
+      'index_old': './static/js/page/index_old/index.js',
       'events': './static/js/page/events/index.js',
       'videos': './static/js/page/videos.js',
       'grammar': './static/js/page/grammar.js',

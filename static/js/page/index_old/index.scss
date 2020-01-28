@@ -1,0 +1,649 @@
+@import '../../../css/_config';
+@import '../../../css/_utils';
+@import '../../../css/com/_bits/_header';
+@import '../../../css/com/_bits/_button';
+@import 'lib';
+
+.kotlin-overview-section {
+  padding-top: $unit*4;
+  padding-bottom: $unit*4;
+
+  .section-header {
+    margin-bottom: 5px;
+    font-family: $font-family-serif;
+    font-size: 48px;
+    line-height: 54px;
+    text-align: center;
+  }
+
+}
+
+.kotlin-overview-section._works-on {
+  background-color: #393939;
+  padding-top: 24px;
+  color: #fff;
+
+  .section-header {
+    margin-bottom: 3 * $unit;
+    margin-top: 3 * $unit;
+    font-size: 24px;
+  }
+
+  .works-on-list {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  a {
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  a:hover .works-on-text {
+    color: $base-link-hover-color;
+  }
+
+  .works-on-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 12em;
+  }
+
+  .works-on-icon {
+    margin-bottom: $unit;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+
+    &._jvm {
+      width: 50px;
+      height: 58px;
+      background: url('images/works_on_jvm.svg');
+    }
+
+    &._android {
+      width: 50px;
+      height: 58px;
+      background: url('images/works_on_android.svg');
+    }
+
+    &._browser {
+      width: 50px;
+      height: 50px;
+      background: url('images/works_on_browser.svg');
+    }
+
+    &._native {
+      width: 50px;
+      height: 50px;
+      background: url('images/works_on_native.svg');
+    }
+  }
+
+  a .works-on-text {
+    color: white;
+  }
+
+  .works-on-text {
+    color: #acacac;
+    text-align: center;
+  }
+}
+
+.kotlin-overview-section._features {
+  $item-width: 220px;
+  $item-margin: 20px;
+  $item-count: 4;
+  @extend %kotlin-overview-section-background-image%default;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+  .kotlin-features-list {
+    display: inline-block;
+    position: relative;
+    left: 0;
+    font-size: 0;
+    margin: 0 auto;
+    text-align: center;
+
+    .kotlin-feature {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      box-sizing: border-box;
+      width: $item-width;
+      margin-right: $item-margin;
+      margin-bottom: 10px;
+      padding: 0;
+      height: 310px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
+      font-size: $base-font-size;
+      white-space: normal;
+      vertical-align: top;
+
+      &:hover {
+        //box-shadow: 0 1px 2px 0px rgba(132, 181, 230, 1);
+        box-shadow: 0 1px 9px 1px #84b5e6;
+        cursor: pointer;
+      }
+    }
+
+    .feature-image {
+      position: relative;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      height: 160px;
+    }
+
+    .feature-icon {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+
+      &._tool-friendly {
+        width: 60px;
+        height: 61px;
+        background: url('images/tool-friendly.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      &._concise {
+        width: 60px;
+        height: 73px;
+        background: url('./images/concise.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      &._safe {
+        width: 60px;
+        height: 69px;
+        background: url('./images/safe.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      &._interoperable {
+        width: 60px;
+        height: 61px;
+        background: url('./images/interopable.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+
+    .feature-title-pre-text {
+      @extend %kotlin-overview-pre-text;
+    }
+
+    .feature-title {
+      font-size: 24px;
+      line-height: 27px;
+      font-family: $font-family-serif;
+      margin-bottom: $unit;
+    }
+
+    .feature-description {
+      max-width: 210px;
+      margin: 0 auto $unit;
+      color: #000;
+      text-align: center;
+    }
+
+    .feature-example-link {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      color: $base-link-color;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        color: $base-link-hover-color;
+      }
+    }
+  }
+
+  .overview-popup {
+    @extend %kotlin-overview-popup;
+    @extend %kotlin-overview-popup%_fixed;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhBJREFUeNqElluSAjEMA5ngS3H/e8EGPIiu9lRtPqYCecmy5OR4PB7Hcdxut9en7c7xbf1P95/PZ0Y5c63F5d1nK226+71XpvYE9jO0d8+ffcBem9HuVA+sT+OAWmLizwAiAX1wIBaRdr+HCZynMmLCz5x8zwMCXGxkx0T9+jZmomE1pqztmDo9ldk5g3B6fZ9B6gic35yU5UtckxxNZQIUqHTBDFWEmC2iPKpFIlbyGaKEUNJvp6RJ/IX5OTJQsp5GYcSR7DuCqW5RNFtvSurZiTlOPmb2IowsIGO0lUapi5+TZw6zhtJUDmdhyD6bmVD63m2CmmuyF4MgDmZVE34+iFQaQg/H23SWTCsF03TvAzJ1Vj1VViJNBZOgZ9WqhE9/E6x8xPWy3mWZKlHfx8gTkmBslThUMFyuVWG47yzdvTX9qBzIfaW6psR2J8YmAtXHy1tk/19SWBiI0YSuNSZyOFlCWrxvZy2TMKJjpiqkXWq3JnFBqjPCg6qeiFJhLp0pgXJ986DbiVfCpSGWVNThs3iwyLAOcijUCd+Z5NQJKZX2JoJ/rwSSVmJ5VjH6M7mJVGZpoenOHIg1XmQid3/v93vWzyfhtQ+UmUTNhwLfZ5Nohu7X34HWeGep4dspJpCxVYJijkVVyA3JqqQcpQWHUPJb88nGefLE5Zts/snJFeUJ+EzjvNwVR4oY8f0JMADafXyiN4WApQAAAABJRU5ErkJggg==');
+    background-repeat: repeat;
+
+    @media (max-width: 1050px) {
+      bottom: auto;
+      min-height: 500px;
+    }
+  }
+
+  .overview-popup-overlay {
+    @extend %kotlin-overview-popup-overlay;
+  }
+}
+
+.kotlin-overview-section._code-examples {
+  @include clearfix;
+  position: relative;
+  padding-top: 0;
+  padding-bottom: $unit*5;
+  color: #fff;
+  background-color: rgb(43, 43, 43);
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .more-link-wrap {
+    @include clearfix;
+    max-width: $overview-section-width;
+    padding-right: $grid-spacing / 2;
+    margin: 0 auto;
+  }
+
+  .more-link {
+    float: right;
+    font-size: 18px;
+    color: $base-link-hover-color;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.overview-header {
+  padding-top: $unit * 8;
+  padding-bottom: $unit * 5;
+  font-size: 48px;
+  text-align: center;
+  line-height: 22px;
+  font-family: $font-family-serif;
+  color: white;
+  background-color: rgb(43, 43, 43);
+}
+
+
+.section-description {
+  font-weight: 300;
+  font-size: 28px;
+  font-family: $font-family-serif;
+  line-height: normal;
+  text-align: center;
+  color: white;
+  background-color: rgb(43, 43, 43);
+}
+
+.try-button {
+  @extend %button_default;
+  font-size: 16px;
+  width: 150px;
+  font-weight: 400;
+  font-family: $font-family-sans-serif;
+  background-color: rgb(75, 124, 186);
+  color: white;
+  margin-bottom: 60px;
+  margin-top: 20px;
+}
+
+
+
+.kotlin-overview-section._get-kotlin {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  position: relative;
+  background-color: rgb(58, 58, 58);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .kotlin-version {
+    margin-right: 2 * $unit;
+    margin-bottom: $unit*2;
+    font-size: 16px;
+    color: #fff;
+    text-align: right;
+  }
+
+  .section-header {
+    color: #fff;
+    margin-bottom: 2 * $unit;
+  }
+
+  .get-kotlin-options-list {
+    text-align: center;
+
+    .option-item {
+      @include grid-col;
+      position: relative;
+      width: 240px;
+      padding: 10px 15px 30px;
+      min-height: 320px;
+      margin-left: $grid-spacing / 2;
+      margin-right: $grid-spacing / 2;
+      margin-bottom: $grid-spacing;
+      background-color: #fff;
+      border-radius: 4px;
+
+      &:hover {
+        box-shadow: 0px 0px 9px 3px #84b5e6;
+      }
+
+      &._standalone-compiler {
+      }
+      &._intellij-idea {
+      }
+    }
+
+    .option-image {
+      position: relative;
+      display: block;
+      margin: 15px auto 20px;
+      width: 104px;
+      height: 104px;
+
+      .jetbrains-logo._logo-intellij-idea._size-2 {
+        width: 70px;
+        height: 70px;
+        margin: 22px;
+      }
+    }
+
+    .option-image:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      margin: auto;
+      content: '';
+    }
+
+    .option-image._standalone-compiler:after {
+      width: 75px;
+      height: 60px;
+      background: url("../index/images/logos/standalone-compiler.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .option-image._eclipse:after {
+      width: 64px;
+      height: 60px;
+      background: url("../index/images/logos/eclipse.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .option-image._android-studio:after {
+      width: 74px;
+      height: 80px;
+      background: url("../index/images/logos/android-studio.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .option-title-pre-text {
+      @extend %kotlin-overview-pre-text;
+    }
+
+    .option-title {
+      font-size: 21px;
+      line-height: 27px;
+      margin-bottom: 8px;
+      white-space: nowrap;
+    }
+
+    .option-description {
+      margin-bottom: 10px;
+
+    }
+
+    .option-link-wrap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+    }
+
+    .option-link {
+      @extend %button_default;
+    }
+  }
+}
+
+.kotlin-overview-section._testimonials {
+  @extend %kotlin-overview-section-background-image%default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .section-header {
+    font-family: $font-family-sans-serif;
+    font-size: 24px;
+    line-height: 27px;
+    margin-bottom: $unit*4;
+  }
+
+  .testimonials-layout {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+
+    @media (max-width: 1200px) {
+      width: auto;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+
+  .testimonials {
+    display: flex;
+    justify-content: center;
+    align-content: stretch;
+    flex-wrap: wrap;
+  }
+
+  .testimonial-header {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .testimonial {
+    background: white;
+    margin-bottom: 2 * $unit;
+    margin-right: 3 * $unit;
+    width: 180px;
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center;
+  }
+}
+
+.kotlin-overview-section._community {
+  padding-top: $unit*6;
+  padding-bottom: $unit*6;
+  background-color: #2e2e2e;
+  color: #fff;
+
+  .section-header {
+    font-size: 18px;
+    line-height: 22px;
+    font-family: $font-family-sans-serif;
+    margin-bottom: $unit*4;
+  }
+
+  .links-list {
+    font-size: 0;
+    text-align: center;
+    margin-bottom: -40px;
+  }
+
+  .links-list-item {
+    display: inline-block;
+    margin: 0 40px 40px;
+    font-size: $base-font-size;
+
+    .link {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .link-icon {
+      position: relative;
+      display: block;
+      margin-bottom: 9px;
+      width: 104px;
+      height: 104px;
+      background-color: #F2F2F2;
+      border-radius: 60px;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        margin: auto;
+        background-image: url('images/kotlin-community-sprite.png');
+        background-repeat: no-repeat;
+        background-position: 200% 200%;
+        content: '';
+
+        @include adapt_retina {
+          background-image: url('images/kotlin-community-sprite@2x.png');
+          background-size: 100px 200px;
+        }
+      }
+      &._blog:after {
+        width: 48px;
+        height: 35px;
+        background-position: 0 0;
+        top: -2px;
+        left: -3px;
+      }
+
+      &._forum:after {
+        width: 59px;
+        height: 42px;
+        background-position: 0 -50px;
+      }
+
+      &._twitter:after {
+        width: 48px;
+        height: 40px;
+        background-position: 0 -100px;
+      }
+
+      &._issue-tracker:after {
+        display: none;
+      }
+
+      .jetbrains-logo._logo-youtrack._size-2 {
+        margin: 22px;
+      }
+    }
+
+    /*
+    .link:hover .link-icon._blog {
+        background-color: #FEF3E1;
+    }
+
+    .link:hover .link-icon._forum {
+        background-color: #F4FFE2;
+    }
+
+    .link:hover .link-icon._twitter {
+        background-color: #EAF9FD;
+    }
+
+    .link:hover .link-icon._issue-tracker {
+        background-color: #DEEEFF;
+    }
+    */
+
+    .link-text {
+      color: #8c8c8c;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+    }
+
+    .link:hover .link-text {
+      color: $base-link-hover-color;
+    }
+
+    /*
+    .link:hover .link-icon._forum + .link-text {
+        color: #6CB800;
+    }
+
+    .link:hover .link-icon._twitter + .link-text {
+        color: #2AA9E0;
+    }
+
+    .link:hover .link-icon._issue-tracker + .link-text {
+        color: #0068F1;
+    }
+    */
+
+  }
+}
+
+@include animation-keyframes(overview-video-scale) {
+  0% {
+    @include transform(scale(1));
+    opacity: 1;
+  }
+
+  100% {
+    @include transform(scale(2));
+    opacity: 0;
+  }
+}
+
+.popup-wrapper._hidden {
+  display: none;
+}
+
+.popup-wrapper {
+  position: absolute;
+  background-color: transparent;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .popup-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
