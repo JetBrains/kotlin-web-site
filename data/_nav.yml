@@ -19,7 +19,7 @@ subnav:
     - url: /docs/
       content:
         - url: /docs/reference/
-          title: Reference
+          title: Language Guide
 
         - url: /docs/tutorials/
           title: Tutorials
@@ -66,12 +66,16 @@ reference:
           title: Coroutines
         - url: /docs/reference/multiplatform.html
           title: Multiplatform
-        - url: /docs/reference/whatsnew11.html
-          title: What's New in 1.1
-        - url: /docs/reference/whatsnew12.html
-          title: What's New in 1.2
+
+    - title: What's New
+      description: What's new in Kotlin releases
+      content:
         - url: /docs/reference/whatsnew13.html
           title: What's New in 1.3
+        - url: /docs/reference/whatsnew12.html
+          title: What's New in 1.2
+        - url: /docs/reference/whatsnew11.html
+          title: What's New in 1.1
 
     - title: Getting Started
       description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
@@ -179,6 +183,15 @@ reference:
         - url: /docs/reference/map-operations.html
           title: Map Specific Operations
 
+    - title: Coroutines
+      description: Kotlin Coroutines Library
+      external:
+        path: kotlinx.coroutines/docs
+        nav: _nav.yml
+        base: /docs/reference/coroutines
+        repo: https://github.com/kotlin/kotlinx.coroutines
+        branch: master
+
     - title: Multiplatform Programming
       description: Reusing code across JVM, JS, and Native
       content:
@@ -187,7 +200,7 @@ reference:
         - url: /docs/reference/building-mpp-with-gradle.html
           title: Building with Gradle
 
-    - title: Other
+    - title: More Language Constructs
       description: Various bits and bobs
       content:
         - url: /docs/reference/multi-declarations.html
@@ -266,15 +279,6 @@ reference:
         repo: https://github.com/JetBrains/kotlin-native
         branch: v1.3.60-fixes
 
-    - title: Coroutines
-      description: Kotlin Coroutines Library
-      external:
-        path: kotlinx.coroutines/docs
-        nav: _nav.yml
-        base: /docs/reference/coroutines
-        repo: https://github.com/kotlin/kotlinx.coroutines
-        branch: master
-
     - title: Tools
       description:
       content:
@@ -284,7 +288,7 @@ reference:
         - url: /docs/reference/kapt.html
           title: Using Kapt
         - url: /docs/reference/compiler-reference.html
-          title: Kotlin Сompiler Options
+          title: Kotlin Compiler Options
         - url: /docs/reference/using-gradle.html
           title: Using Gradle
         - url: /docs/reference/using-maven.html
