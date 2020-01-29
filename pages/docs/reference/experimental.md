@@ -247,7 +247,7 @@ An opt-in requirement can have one of two severity [levels](/api/latest/jvm/stdl
 
 To set the desired level, specify the `level` parameter of the `@RequiresOptIn` annotation.
 
-Additionally, you can provide a `message` to inform API users about specical conditition of using the API. 
+Additionally, you can provide a `message` to inform API users about special condition of using the API. 
 The compiler will show it to users that use the API without opt-in.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -315,4 +315,4 @@ the compiler raises warnings when compiling the code with these annotations:
 
 ```This class can only be used with the compiler argument '-Xopt-in=kotlin.RequiresOptIn'```
 
- To remove the warnings, add the compiler argument `-Xopt-in=kotlin.OptIn`.
+ To remove the warnings, add the compiler argument `-Xopt-in=kotlin.RequiresOptIn`.
