@@ -1,0 +1,35 @@
+.kotlin-highlights-section {
+  background: #F5F5F5;
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.kotlin-highlights-section__title {
+  margin-bottom: 45px;
+}
+
+.kto-highlights {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.kto-highlights-item {
+  margin-bottom: 56px;
+  width: 20.75%;
+}
+
+.kto-highlights-item__header {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+
+  margin-bottom: 10px;
+}
+
+.kto-highlights-item__text {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(39, 40, 44, .7);
+}

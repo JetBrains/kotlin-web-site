@@ -147,6 +147,12 @@ def add_data_to_context():
         }
     }
 
+@app.template_filter('get_domain')
+def get_domain(url):
+    return urlparse(url).netloc
+
+app.jinja_env.globals['get_domain'] = get_domain
+
 @app.template_filter('autoversion')
 def autoversion_filter(filename):
     asset_version = get_asset_version(filename)
@@ -227,6 +233,14 @@ def collections_redirect():
 def index_page():
     features = get_kotlin_features()
     return render_template('pages/index.html',
+                           is_index_page=True,
+                           features=features
+                           )
+
+@app.route('/index_old.html')
+def index_page_old():
+    features = get_kotlin_features()
+    return render_template('pages/index_old.html',
                            is_index_page=True,
                            features=features
                            )

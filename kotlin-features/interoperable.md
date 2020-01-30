@@ -1,9 +1,9 @@
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+```kotlin
+/*
+ Use any existing library on the JVM, as there’s 100% compatibility, including SAM support.
+*/
 
-### Interoperable
-
-Use any existing library on the JVM, as there’s 100% compatibility, including SAM support.
-
-``` kotlin
 import io.reactivex.Flowable
 import io.reactivex.schedulers.Schedulers
 
@@ -16,13 +16,16 @@ Flowable
     .observeOn(Schedulers.single())
     .subscribe(::println, Throwable::printStackTrace)
 ```
+</div>
 
-Target either the JVM or JavaScript. Write code in Kotlin and decide where you want to deploy to
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+```kotlin
+// Target either the JVM or JavaScript. Write code in Kotlin and decide where you want to deploy to
 
-``` kotlin
 import kotlin.browser.window
 
 fun onLoad() {
     window.document.body!!.innerHTML += "<br/>Hello, Kotlin!"
 }
 ```
+</div>

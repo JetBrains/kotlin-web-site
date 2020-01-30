@@ -1,0 +1,35 @@
+.kotlin-intro-section {
+  font-weight: bold;
+  font-size: 31px;
+  line-height: 135%;
+  letter-spacing: -0.01em;
+
+  padding-top: 30px;
+}
+
+.kotlin-intro-section__icon {
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  display: inline-block;
+}
+
+.kotlin-intro-section__icon::after {
+  display: flex;
+  content: '';
+  height: 25px;
+  width: 25px;
+  background: url("./images/github.svg") transparent center no-repeat;
+  background-size: 25px;
+  background-size: contain;
+}
+
+.kotlin-intro-section__buttons {
+  margin-top: 40px;
+}
+
+.kotlin-banner-section__try-ide {
+  font-size: 15px;
+  margin-left: 24px;
+  font-weight: normal;
+}
