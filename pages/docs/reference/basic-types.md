@@ -468,8 +468,8 @@ The design of unsigned types is experimental, meaning that this feature is movin
 
 There are two possible ways to opt-in for unsigned types: with marking your API as experimental too, or without doing that.
 
-- to propagate experimentality, either annotate declarations which use unsigned integers with `@ExperimentalUnsignedTypes` or pass `-Xexperimental=kotlin.ExperimentalUnsignedTypes` to the compiler (note that the latter will make *all* declaration in compiled module experimental)
-- to opt-in without propagating experimentality, either annotate declarations with `@UseExperimental(ExperimentalUnsignedTypes::class)` or pass `-Xuse-experimental=kotlin.ExperimentalUnsignedTypes`
+- To propagate experimentality, annotate declarations that use unsigned integers with `@ExperimentalUnsignedTypes`.
+- To opt-in without propagating experimentality, either annotate declarations with `@OptIn(ExperimentalUnsignedTypes::class)` or pass `-Xopt-in=kotlin.ExperimentalUnsignedTypes` to the compiler.
 
 It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but bear in mind that unsigned types are an experimental feature, so API which uses them can be suddenly broken due to changes in language. 
 

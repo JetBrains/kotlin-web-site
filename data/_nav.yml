@@ -225,8 +225,8 @@ reference:
           title: Scope Functions
         - url: /docs/reference/type-safe-builders.html
           title: Type-Safe Builders
-        - url: /docs/reference/experimental.html
-          title: Experimental API Markers
+        - url: /docs/reference/opt-in-requirements.html
+          title: Opt-in Requirements
 
     - title: Core Libraries
       content:
