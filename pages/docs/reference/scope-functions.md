@@ -107,6 +107,7 @@ fun main() {
         age = 20                       // same as this.age = 20 or adam.age = 20
         city = "London"
     }
+    println(adam)
 //sampleEnd
 }
 ```
@@ -485,6 +486,7 @@ fun main() {
         age = 32
         city = "London"        
     }
+    println(adam)
 //sampleEnd
 }
 ```
