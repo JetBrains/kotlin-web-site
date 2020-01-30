@@ -19,7 +19,7 @@ when it comes to build systems.
 
 While most IDE's including [IntelliJ IDEA](https://www.jetbrains.com/idea) can generate the corresponding Gradle file, we're going to 
 take a look at how to create this manually, to have a better understanding of how things work under the covers. If you'd like to use the IDE, check out 
-[Using IntelliJ IDEA](using-intellij-idea.md). 
+[Using IntelliJ IDEA](using-intellij-idea.html). 
 
 
 Gradle supports two languages for build scripts:

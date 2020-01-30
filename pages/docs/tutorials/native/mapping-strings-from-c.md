@@ -112,7 +112,7 @@ fun main() {
 </div>
 
 Now we are ready to
-[open the project in IntelliJ IDEA](open-in-ide)
+[open the project in IntelliJ IDEA](using-intellij-idea.html)
 and to see how to fix the example project. While doing that,
 we'll examine how C primitive types are mapped into Kotlin/Native.
 
@@ -223,7 +223,7 @@ array into a Kotlin `String`, assuming UTF-8 encoding.
 ## Fixing the Code
 
 We've now seen all the definitions and it is time to fix the code. 
-Let's run the `runDebugExecutableNative` Gradle task [in the IDE](run-in-ide)
+Let's run the `runDebugExecutableNative` Gradle task [in the IDE](using-intellij-idea.html)
 or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
