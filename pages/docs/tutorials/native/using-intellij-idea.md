@@ -16,16 +16,16 @@ This following is applicable to both [IntelliJ IDEA Community Edition as well as
 
 
 From the **File** menu in IntelliJ IDEA or **Welcome screen**, select to create a new Project and in the first step of the Wizard
-select Kotlin on the left hand column and Kotlin/Native on the right hand.
+select **Kotlin** on the left hand column and **Native | Gradle** on the right hand.
 
 ![Wizard Step One]({{ url_for('tutorial_img', filename='native/using-intellij-idea/wizard.png')}})
 
-Click Next in the dialog and in the next step make sure `Automatically import this project on changes in build script` is checked. This is useful when starting
+Click **Next** in the dialog and in the next step make sure **Automatically import this project on changes in build script** is checked. This is useful when starting
 out to make sure any immediate changes to the build script are imported automatically. 
 
 ![Wizard Step Two]({{ url_for('tutorial_img', filename='native/using-intellij-idea/wizard-2.png')}})
 
-On clicking Next, enter the path and name for the project 
+On clicking **Next**, enter the path and name for the project.
 
 ![Wizard Step Three]({{ url_for('tutorial_img', filename='native/using-intellij-idea/wizard-3.png')}})
 
@@ -40,4 +40,9 @@ To run the project, simply invoke the [Run command in the IDE](https://www.jetbr
 ![Run]({{ url_for('tutorial_img', filename='native/using-intellij-idea/IDE-2.png')}})
 
 The sample project can serve as the basis for any new project for Kotlin/Native.
+
+For further information, check out 
+
+* https://kotlinlang.org/docs/reference/native/gradle_plugin.html
+* https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html
 
