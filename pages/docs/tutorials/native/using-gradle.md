@@ -87,7 +87,10 @@ By default, the binary is named the same as the project folder.
 
 ## Opening the project in an IDE
 
-Any IDE that supports Gradle should allow for opening the project in the IDE. In the case of [IntelliJ IDEA](https://www.jetbrains.com/idea), just open the project folder and it will automatically
+Any IDE that supports Gradle should allow for opening the project in the IDE. In the case of [IntelliJ IDEA](https://www.jetbrains.com/idea), just open the project folder, and it will automatically
 detect it as Kotlin/Native project. 
 
+## What's next?
+
+To learn how to write Gradle build scripts for real-life Kotlin/Native projects, see [Building Multiplatform Projects with Gradle](/docs/reference/building-mpp-with-gradle.html).
 

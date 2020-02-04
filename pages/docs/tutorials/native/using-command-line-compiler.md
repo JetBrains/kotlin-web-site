@@ -1,7 +1,7 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Hello Kotlin/Native using Command Line Compiler"
+title: "Hello Kotlin/Native using Command Line Compiler"
 description: "A look at how to compileKotlin/Native applications using the command line compiler"
 authors: 
   - Hadi Hariri
@@ -13,7 +13,7 @@ date: 2020-01-15
 
 ## Obtaining the Compiler
 
-The Kotlin/Native compiler is available for macOS, Linux, and Windows. It is available as a command line tool and ships as part of the standard Kotlin distribution and can be downloaded from [https://kotlinlang.org]. It supports
+The Kotlin/Native compiler is available for macOS, Linux, and Windows. It is available as a command line tool and ships as part of the standard Kotlin distribution and can be downloaded from [GitHub Releases]({{ site.data.releases.latest.url }}). It supports
 different targets including iOS (arm32, arm64, simulator x86_64), Windows (mingw32 and x86_64),
 Linux (x86_64, arm64, MIPS), macOS (x86_64), Raspberry PI, SMT32, WASM. For the full list of targets please see the [Kotlin/Native overview](/docs/reference/native-overview.html). 
 
@@ -46,8 +46,9 @@ compiler to execute the following command:
 kotlinc-native hello.kt -o hello
 ```
 
-This should generate a `hello.kexe` (Linux and macOS) or `hello.exe` (Windows) binary file
+The value of `-o` option specifies the name of the output file, so this call should generate a `hello.kexe` (Linux and macOS) or `hello.exe` (Windows) binary file.
+For the full list of available compiler options, see the [compiler options reference](/docs/reference/compiler-reference.html).
 
 While compilation from the console seems to be easy and clear, it
 does not scale well for larger projects with hundreds of files and libraries. For real-world projects it is recommended
-to use a [build system](pages/docs/tutorials/native/using-gradle.md) and [IDE](pages/docs/tutorials/native/using-intellij-idea.md).
+to use a [build system](using-gradle.md) and [IDE](using-intellij-idea.md).

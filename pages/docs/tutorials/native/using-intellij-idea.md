@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Hello Kotlin/Native using IntelliJ IDEA"
-description: "A look at how to a Kotlin/Native application using IntelliJ IDEA"
+description: "A look at how to create a Kotlin/Native application using IntelliJ IDEA"
 authors: Hadi Hariri
 date: 2020-01-15
 ---
@@ -41,8 +41,10 @@ To run the project, simply invoke the [Run command in the IDE](https://www.jetbr
 
 The sample project can serve as the basis for any new project for Kotlin/Native.
 
-For further information, check out 
+## What's next?
 
-* https://kotlinlang.org/docs/reference/native/gradle_plugin.html
-* https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html
+For further information, check out:
+
+* [Kotlin/Native Gradle plugin](docs/reference/native/gradle_plugin.html)
+* [Building Multiplatform Projects with Gradle](docs/reference/building-mpp-with-gradle.html)
 
