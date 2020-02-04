@@ -118,7 +118,7 @@ fun main() {
 </div>
 
 Now we are ready to
-[open the project in IntelliJ IDEA](basic-kotlin-native-app.html#open-in-ide)
+[open the project in IntelliJ IDEA](using-intellij-idea.html)
 and to see how to fix the example project. While doing that,
 we'll examine how C primitive types are mapped into Kotlin/Native.
 
@@ -157,7 +157,7 @@ as it is usually an 8-bit signed value.
 ## Fixing the Code
 
 We've seen all definitions and it is the time to fix the code.
-Let's run the `runDebugExecutableNative` Gradle task [in IDE](basic-kotlin-native-app.html#run-in-ide)
+Let's run the `runDebugExecutableNative` Gradle task [in IDE](using-intellij-idea.html)
 or use the following command to run the code:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 

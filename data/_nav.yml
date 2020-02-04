@@ -386,10 +386,14 @@ tutorials:
 
     - title: Native
       content:
+        - url: /docs/tutorials/native/using-command-line-compiler.html
+          title: Hello Kotlin/Native using Command Line Compiler
+        - url: /docs/tutorials/native/using-gradle.html
+          title: Hello Kotlin/Native using Gradle
+        - url: /docs/tutorials/native/using-intellij-idea.html
+          title: Hello Kotlin/Native using IntelliJ IDEA
         - url: /docs/tutorials/native/intro-to-kotlin-native.html
-          title: Introduction to Kotlin/Native
-        - url: /docs/tutorials/native/basic-kotlin-native-app.html
-          title: Basic Kotlin/Native Application
+          title: Creating an HTTP Client in Kotlin/Native
         - url: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
           title: Mapping Primitive Data Types from C
         - url: /docs/tutorials/native/mapping-struct-union-types-from-c.html
