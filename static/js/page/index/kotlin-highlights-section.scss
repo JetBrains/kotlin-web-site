@@ -33,3 +33,7 @@
   line-height: 24px;
   color: rgba(39, 40, 44, .7);
 }
+
+.kotlin-highlights-section__title .kto-overview-section__title_link:hover::after {
+  background-image: url("./images/anchor_fff.svg");
+}

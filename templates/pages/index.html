@@ -60,12 +60,13 @@
         </div>
     </section>
 
-    <a id="try-kotlin"></a>
     {% include 'inc/pages/index/code-examples.html' %}
 
-    <section id="why-kotlin" class="kto-overview-section kotlin-why-section">
+    <section class="kto-overview-section kotlin-why-section">
         <div class="g-layout">
-            <h2 class="kto-overview-section__title">Why Kotlin?</h2>
+            <h2 id="why-kotlin" class="kto-overview-section__title">
+                <a class="kto-overview-section__title_link" href="#why-kotlin">Why Kotlin?</a>
+            </h2>
             <ul class="kto-features-list">
                 {% for feature in features %}
                     <li class="kto-features-list__feature kto-features-list__feature_{{ feature.id }}">
@@ -117,9 +118,11 @@
         </div>
     </section>
 
-    <section class="kto-overview-section kotlin-highlights-section">
+    <section id="usage-highlights" class="kto-overview-section kotlin-highlights-section">
         <div class="g-layout">
-            <h2 class="kto-overview-section__title kotlin-highlights-section__title">Kotlin Usage Highlights</h2>
+            <h2 class="kto-overview-section__title kotlin-highlights-section__title">
+                <a class="kto-overview-section__title_link" href="#usage-highlights">Kotlin Usage Highlights</a>
+            </h2>
             <ul class="kto-highlights">
                 {% for testimonial in data.testimonials %}
                     <li class="kto-highlights-item">
