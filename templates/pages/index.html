@@ -125,7 +125,7 @@
             </h2>
             <ul class="kto-highlights">
                 {% for testimonial in data.testimonials %}
-                    <li class="kto-highlights-item">
+                    <li class="kto-highlights-item kto-highlights-item_company_{{ testimonial.company.lower() | safe }}">
                         <h3 class="kto-highlights-item__header">{{ testimonial.company | safe }}</h3>
                         <div class="kto-highlights-item__text">{{ testimonial.text | safe }}</div>
                     </li>
