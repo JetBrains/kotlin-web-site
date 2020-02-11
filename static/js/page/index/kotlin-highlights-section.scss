@@ -16,7 +16,47 @@
 
 .kto-highlights-item {
   margin-bottom: 56px;
-  width: 20.75%;
+  width: 28%;
+}
+
+.kto-highlights-item_company_gradle,
+.kto-highlights-item_company_evernote,
+.kto-highlights-item_company_corda,
+.kto-highlights-item_company_coursera,
+.kto-highlights-item_company_pivotal,
+.kto-highlights-item_company_atlassian {
+  & .kto-highlights-item__header {
+    font-size: 0;
+    line-height: 0;
+    height: 48px;
+    background: transparent no-repeat left top;
+
+    text-indent: -9999px;
+  }
+}
+
+.kto-highlights-item_company_gradle > .kto-highlights-item__header {
+  background-image: url("./images/companies/gradle.svg");
+}
+
+.kto-highlights-item_company_evernote > .kto-highlights-item__header {
+  background-image: url("./images/companies/evernote.svg");
+}
+
+.kto-highlights-item_company_corda > .kto-highlights-item__header {
+  background-image: url("./images/companies/corda.svg");
+}
+
+.kto-highlights-item_company_coursera > .kto-highlights-item__header {
+  background-image: url("./images/companies/coursera.svg");
+}
+
+.kto-highlights-item_company_pivotal > .kto-highlights-item__header {
+  background-image: url("./images/companies/pivotal.svg");
+}
+
+.kto-highlights-item_company_atlassian > .kto-highlights-item__header {
+  background-image: url("./images/companies/atlassian.svg");
 }
 
 .kto-highlights-item__header {
