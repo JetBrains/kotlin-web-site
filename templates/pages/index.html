@@ -3,22 +3,10 @@
 {% block body_class %}page__index-new{% endblock %}
 
 {% block page_outer_content %}
-    <section class="kto-overview-section kto-overview-section_mode_dark kotlin-intro-section">
-        <div class="g-layout">
-            <p class="kotlin-intro-section__intro">
-                Programming language for <a href="/docs/reference/android-overview.html">Android</a>, <a href="https://www.jetbrains.com/lp/mobilecrossplatform/" target="_blank">mobile cross-platform</a><br>
-                and <a href="/docs/reference/js-overview.html">web development</a>, <a href="/docs/reference/server-overview.html">server-side</a>, <a href="/docs/reference/native-overview.html">native</a>,<br>
-                and <a href="/docs/reference/data-science-overview.html">data science</a>. Open source forever <a target="_blank" href="{{ config.GITHUB_URL }}" class="kotlin-intro-section__icon">Github</a>
-            </p>
-            <p class="kotlin-intro-section__buttons">
-                <a class="kto-button kto-button_theme_dark kto-button_size_m kto-button_mode_primary smooth-anchor" href="#try-kotlin">Getting started</a>
-                <a class="kotlin-banner-section__try-ide" href="/docs/tutorials/getting-started.html">Try in the IDE</a>
-            </p>
-        </div>
-    </section>
+    {% include 'inc/pages/index/intro.html' %}
 
     <section class="kto-overview-section kto-overview-section_mode_dark kotlin-banner-section">
-        <h2 class="kotlin-banner-section__title g-layout">Latest from Kotlin</h2>
+        <h2 class="kto-overview-section__title_size_s g-layout">Latest from Kotlin</h2>
         <div class="kotlin-banner-section__banner">
             <a target="_blank" class="kotlin-banner-section__link g-layout"
                href="https://surveys.jetbrains.com/s3/kotlin-census-2019">
@@ -37,9 +25,9 @@
                     {% set domain_link = get_domain(news.link) %}
                     <a class="kotlin-news-section-news__item" href="{{ news.link }}"{% if domain_link %} target="_blank"{% endif %}>
                         <span class="kotlin-news-section-news__title">
-                            {{ news.title }}
+                            {{ news.title }}<span class="kotlin-news-section-news__title-arrow">&nbsp;→</span>
                         </span>
-                        <span class="kotlin-news-section-news__tag{% if domain_link %} kotlin-news-section-news__tag_external{% endif %}">
+                        <span class="kotlin-news-section-news__tag">
                             {% if news.tag %}{{ news.tag }}
                             {% elif domain_link %}{{ domain_link }}
                             {% else %}Overview{% endif %}

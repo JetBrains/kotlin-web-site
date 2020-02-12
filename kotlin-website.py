@@ -237,15 +237,6 @@ def index_page():
                            features=features
                            )
 
-@app.route('/index_old.html')
-def index_page_old():
-    features = get_kotlin_features()
-    return render_template('pages/index_old.html',
-                           is_index_page=True,
-                           features=features
-                           )
-
-
 def process_page(page_path):
     # get_nav() has side effect to copy and patch files from the `external` folder
     # under site folder. We need it for dev mode to make sure file is up-to-date

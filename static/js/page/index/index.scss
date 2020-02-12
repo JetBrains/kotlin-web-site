@@ -67,6 +67,13 @@ a.kto-overview-section__title_link:any-link {
   background-image: url("./images/anchor.svg");
 }
 
+.kto-overview-section__title_size_s {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 26px;
+  margin-bottom: 30px;
+}
+
 @import "kotlin-intro-section";
 @import "kotlin-banner-section";
 @import "kotlin-news-section";
