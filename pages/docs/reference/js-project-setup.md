@@ -191,26 +191,21 @@ dependencies {
 ### NPM dependencies
 
 In the JavaScript world, the common way to manage dependencies is [NPM](https://www.npmjs.com/).
-It offers the biggest public [repository](https://www.npmjs.com/)of JavaScript modules and a tool for downloading them.
+It offers the biggest public [repository](https://www.npmjs.com/) of JavaScript modules and a tool for downloading them.
+
 The Kotlin/JS plugin lets you declare NPM dependencies in the Gradle build script among other dependencies and
-does everything else automatically. Particularly, it installs the [Yarn](https://yarnpkg.com/lang/en/) package manager
+does everything else automatically. It installs the [Yarn](https://yarnpkg.com/lang/en/) package manager
 and uses it to download the dependencies from the NPM repository to the `node_modules` directory of your project -
 the common location for NPM dependencies of a JavaScript project. 
 
-To declare an NPM dependency, use the `npm()` function inside the `dependencies` section of a source set.
+To declare an NPM dependency, pass its name and version to the `npm()` function inside a dependency declaration.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-kotlin {
-    sourceSets {
-        main {
-            dependencies {
-                implementation npm('react', '16.12.0')
-            }
-        }
-    }
+dependencies {
+    implementation npm('react', '16.12.0')
 }
 ```
 
@@ -221,10 +216,8 @@ kotlin {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-kotlin {
-  sourceSets["main"].dependencies {
+dependencies {
     implementation(npm("react", "16.12.0"))
-  }
 }
 ```
 
