@@ -54,7 +54,6 @@ a.kotlin-portals-section__link:any-link {
   color: #fff;
   font-size: 18px;
   line-height: 18px;
-  letter-spacing: -0.01em;
 }
 
 .kotlin-portals-section__item::before {
@@ -70,7 +69,6 @@ a.kotlin-portals-section__link:any-link {
 .kotlin-portals-section__link::after {
   display: inline-block;
   content: '→';
-  padding-left: 1ex;
   text-decoration: none;
 }
 
