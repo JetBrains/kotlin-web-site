@@ -1,15 +1,15 @@
 - title: Concise
-  description: Drastically reduce the amount of boilerplate code.
+  description: Drastically reduce the amount of boilerplate code
   content_file: concise.md
 
 - title: Safe
-  description: Avoid entire classes of errors such as null pointer exceptions.
+  description: Avoid entire classes of errors such as null pointer exceptions
   content_file: safe.md
 
 - title: Interoperable
-  description: Leverage existing libraries for the JVM, Android, and the browser.
+  description: Leverage existing libraries for the JVM, Android, and the browser
   content_file: interoperable.md
 
 - title: Tool-friendly
-  description: Choose any Java IDE or build from the command line.
+  description: Choose any Java IDE or build from the command line
   content_file: tooling.md
