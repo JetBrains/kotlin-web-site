@@ -7,7 +7,7 @@ authors:
  - Hadi Hariri
  - Eugene Petrenko 
 date: 2019-04-15
-redirect_path: docs/tutorials/native/basic-kotlin-native-app
+redirect_path: docs/tutorials/native/using-gradle
 ---
 
 
