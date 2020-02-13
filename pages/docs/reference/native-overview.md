@@ -82,7 +82,7 @@ Suggested documentation pages:
 - [Swift/Objective-C interop](/docs/reference/native/objc_interop.html)
 
 Recommended tutorials:
-- [A basic Kotlin/Native application](/docs/tutorials/native/basic-kotlin-native-app.html) 
+- [Hello Kotlin/Native](/docs/tutorials/native/using-command-line-compiler.html)
 - [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
 - [Types mapping between C and Kotlin/Native](/docs/tutorials/native/mapping-primitive-data-types-from-c.html)
 - [Kotlin/Native as a Dynamic Library](/docs/tutorials/native/dynamic-libraries.html) 
