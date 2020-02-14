@@ -346,3 +346,40 @@ To build a project artifact using Webpack, execute the `build` Gradle task:
 ```
 
 </div>
+
+## Distribution target directory
+
+By default, the results of a Kotlin/JS project build reside in the `/build/distribution` directory within the project root.
+
+To set another location for project distribution files, add the `distribution` block inside `browser` in the build script and 
+assign a value to the `directory` property.
+Once you run a project build task, Gradle will save the output bundle in this location together
+with project resources.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
+
+```groovy
+kotlin.target.browser {
+    distribution {
+        directory = file("$projectDir/output/")
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+kotlin.target.browser {
+    distribution {
+        directory = File("$projectDir/output/")
+    }
+}
+```
+
+</div>
+</div>
