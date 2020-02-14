@@ -87,6 +87,17 @@ kotlin {
 
 </div>
 
+Or just
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin.target.browser {     
+}    
+```
+
+</div>
+
 The Kotlin/JS plugin automatically configures its tasks for working with the selected environment.
 This includes downloading and installing dependencies required for running and testing the application, and therefore
 lets developers  build, run, and test simple projects without additional configuration. 
@@ -283,23 +294,19 @@ for running browser tests. You can also run them in other browsers by adding the
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-kotlin {
-    target {
-        browser {
-            testTask {
-                useKarma {
-                    useIe()
-                    useSafari()
-                    useFirefox()
-                    useChrome()
-                    useChromeCanary()
-                    useChromeHeadless()
-                    usePhantomJS()
-                    useOpera()
-                }
-            }
+kotlin.target.browser {
+    testTask {
+        useKarma {
+            useIe()
+            useSafari()
+            useFirefox()
+            useChrome()
+            useChromeCanary()
+            useChromeHeadless()
+            usePhantomJS()
+            useOpera()
         }
-    }
+    }       
 }
 ```
 
@@ -310,13 +317,9 @@ If you want to skip tests, add the line `enabled = false` to the `testTask`.
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-kotlin {
-    target {
-        browser {
-            testTask {
-                enabled = false
-            }
-        }
+kotlin.target.browser {
+    testTask {
+        enabled = false
     }
 }
 ```
