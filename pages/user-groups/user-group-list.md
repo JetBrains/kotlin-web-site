@@ -192,7 +192,7 @@ The most common way to begin one is to find a few like-minded people and to get 
 
 * [Brisbane Kotlin User Group](https://www.meetup.com/Brisbane-Kotlin-User-Group/), Australia
 * [Melbourne Kotlin User Group](https://www.meetup.com/Melbourne-Kotlin-Meetup/), Australia
-* [Sydney Kotlin User Group](https://sydkotlin.space/), Australia
+* [Sydney Kotlin User Group](https://sydspace.org/kotlin/), Australia
 * [Wellington Kotlin User Group](https://www.meetup.com/Wellington-kt/), New Zealand
 
 ### Africa
