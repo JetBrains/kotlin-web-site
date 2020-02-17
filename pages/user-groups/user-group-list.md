@@ -99,7 +99,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Hefei Kotlin User Group](http://weibo.com/kotlinhfug), China
  * [Ho Chi Minh Kotlin User Group](https://www.facebook.com/kughcmc/), Vietnam
  * [Hong Kong Kotlin User Group](https://www.facebook.com/KotlinHK), China
- * [Hyderabad Kotlin User Group](https://www.facebook.com/KotlinHyd/), India
+ * [Hyderabad Kotlin User Group](https://www.meetup.com/KotlinHyderabad/), India
  * [Indonesia Kotlin User Group](https://www.facebook.com/groups/395469687469099/), Indonesia
  * [Indore Kotlin User Group](https://www.meetup.com/kotlinindore/), India
  * [Israel Kotlin User Group](https://www.facebook.com/groups/107080706530829/), Israel
