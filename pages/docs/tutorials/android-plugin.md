@@ -57,24 +57,6 @@ apply plugin: 'kotlin-android-extensions'
 ```
 </div>
 
-### Enabling experimental features
-
-Android Extensions plugin includes several experimental features:
-* [`LayoutContainer` support](#layoutcontainer-support) 
-* [Flavor support](#flavor-support)
-* [`Parcelable` implementation generator](#parcelable-implementations-generator)
-
-These features are not considered production ready yet, so you need to turn on the _experimental mode_ in `build.gradle` in order to use them:
-
-<div class="sample" markdown="1" theme="idea" mode="groovy">
-
-```groovy
-androidExtensions {
-    experimental = true
-}
-```
-</div>
-
 ### Importing synthetic properties
 
 It is convenient to import all widget properties for a specific layout in one go:
@@ -110,56 +92,6 @@ There will be a property named `hello`:
 activity.hello.text = "Hello World!"
 ```
 </div>
-
-### `LayoutContainer` support
-
-Android Extensions plugin supports different kinds of containers. The most basic ones are [`Activity`](https://developer.android.com/reference/android/app/Activity.html), [`Fragment`](https://developer.android.com/reference/android/support/v4/app/Fragment.html) and [`View`](https://developer.android.com/reference/android/view/View.html), but you can turn (virtually) any class to an Android Extensions container by implementing the `LayoutContainer` interface, e.g.:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-import android.support.v7.widget.RecyclerView
-import kotlinx.android.extensions.LayoutContainer
-
-class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
-    fun setup(title: String) {
-        itemTitle.text = "Hello World!"
-    }
-}
-```
-</div>
-
-Note that you need to turn on the [experimental flag](#enabling-experimental-features) to use `LayoutContainer`.
-
-
-### Flavor support
-
-Android Extensions plugin supports Android flavors. Suppose you have a flavor named `free` in your `build.gradle` file:
-
-<div class="sample" markdown="1" theme="idea" mode="groovy">
-
-```groovy
-android {
-    productFlavors {
-        free {
-            versionName "1.0-free"
-        }
-    }
-}
-```
-</div>
-
-So you can import all synthetic properties for the `free/res/layout/activity_free.xml` layout by adding this import:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-import kotlinx.android.synthetic.free.activity_free.*
-```
-</div>
-
-In the [experimental mode](#enabling-experimental-features), you can specify any variant name (not only flavor), e.g. `freeDebug` or `freeRelease` will work as well.
-
 
 ### View caching
 
@@ -233,8 +165,8 @@ fun MyActivity.a() {
 
 ### `Parcelable` implementations generator
 
-Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator as an experimental feature.
-If you want to use it, [turn on](#enabling-experimental-features) the experimental flag.
+Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator.
+
 
 #### How to use
 
@@ -328,3 +260,74 @@ class MyClass(@TypeParceler<ExternalClass, ExternalClassParceler>() val external
 class MyClass(val external: @WriteWith<ExternalClassParceler>() ExternalClass)
 ```
 </div>
+
+{:#enabling-experimental-features}
+
+## Experimental features
+
+Android Extensions plugin includes several experimental features:
+* [`LayoutContainer` support](#layoutcontainer-support) 
+* [Flavor support](#flavor-support)
+
+These features are not considered production ready yet, so you need to turn on the _experimental mode_ in `build.gradle` in order to use them:
+
+<div class="sample" markdown="1" theme="idea" mode="groovy">
+
+```groovy
+androidExtensions {
+    experimental = true
+}
+```
+</div>
+
+### `LayoutContainer` support
+
+Android Extensions plugin supports different kinds of containers. The most basic ones are [`Activity`](https://developer.android.com/reference/android/app/Activity.html), [`Fragment`](https://developer.android.com/reference/android/support/v4/app/Fragment.html) and [`View`](https://developer.android.com/reference/android/view/View.html), but you can turn (virtually) any class to an Android Extensions container by implementing the `LayoutContainer` interface, e.g.:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+import android.support.v7.widget.RecyclerView
+import kotlinx.android.extensions.LayoutContainer
+
+class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+    fun setup(title: String) {
+        itemTitle.text = "Hello World!"
+    }
+}
+```
+</div>
+
+Note that you need to turn on the [experimental flag](#enabling-experimental-features) to use `LayoutContainer`.
+
+
+### Flavor support
+
+Android Extensions plugin supports Android flavors. Suppose you have a flavor named `free` in your `build.gradle` file:
+
+<div class="sample" markdown="1" theme="idea" mode="groovy">
+
+```groovy
+android {
+    productFlavors {
+        free {
+            versionName "1.0-free"
+        }
+    }
+}
+```
+</div>
+
+So you can import all synthetic properties for the `free/res/layout/activity_free.xml` layout by adding this import:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+import kotlinx.android.synthetic.free.activity_free.*
+```
+</div>
+
+In the [experimental mode](#enabling-experimental-features), you can specify any variant name (not only flavor), e.g. `freeDebug` or `freeRelease` will work as well.
+
+
+
