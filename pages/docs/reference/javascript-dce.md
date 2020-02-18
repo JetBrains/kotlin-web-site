@@ -5,95 +5,67 @@ category: "JavaScript"
 title: "JavaScript DCE"
 ---
 
-# JavaScript DCE
+# JavaScript Dead Code Elimination (DCE)
 
-Since version 1.1.4, Kotlin/JS includes a dead code elimination (DCE) tool.
-This tool allows to strip out unused properties, functions and classes from the generated JS.
-There are several ways you get unused declarations:
+> JavaScript dead code elimination is *experimental* in Kotlin 1.3. See details [below](#experimental-status-of-dce).
+{:.note}
 
-* Functions can be inlined and never get called directly (which happens always except for few situations).
-* You are using a shared library which provides much more functions than you actually need.
-  For example, standard library (`kotlin.js`) contains functions for manipulating lists, arrays, char sequences,
-  adapters for DOM, etc, which together gives about 1.3 mb file. A simple "Hello, world" application only requires
+The Kotlin/JS Gradle plugin includes a [_dead code elimination_](https://wikipedia.org/wiki/Dead_code_elimination) (_DCE_) tool.
+Dead code elimination is often also called _tree shaking_. It reduces the size or the resulting JavaScript code by
+removing unused properties, functions, and classes.
+
+Unused declarations can appear in cases like:
+
+* A function is inlined and never gets called directly (which happens always except for few situations).
+* A module uses a shared library. Its parts that you don't use still get into the resulting bundle without DCE.
+  For example, the Kotlin standard library contains functions for manipulating lists, arrays, char sequences,
+  adapters for DOM, and so on. Altogether, they comprise about 1.3 mb file. A simple "Hello, world" application only requires
   console routines, which is only few kilobytes for the entire file.
 
-Dead code elimination is often also called 'tree shaking'.
+Kotlin/JS Gradle plugin handles DCE automatically when you build a production bundle, for example, with `browserProductionWebpack` task.
+The development bundling tasks don't include DCE.
 
+## Excluding declarations from DCE
 
-## How to use
+Sometimes you may need to keep a function or a class in the resulting JavaScript code even if you don't use it in your module,
+for example, if you're going to use it in the client JavaScript code.
 
-DCE tool is currently available from Gradle.
+To keep certain declarations from elimination, add the `dceTask` block into the Gradle build script and
+list the declarations as the arguments of the `keep` function. An argument must be the declaration's fully qualified name
+with the module name as a prefix: `moduleName.dot.separated.package.name.declarationName`
 
-To activate DCE tool, add the following line to `build.gradle`:
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
-apply plugin: 'kotlin-dce-js'
-```
-</div>
-
-Note that if you are using multi-project build, you should apply plugin to the main project that is an entry point to your application.
-
-By default, the resulting set of JavaScript files (your application together with all dependencies) 
-can be found at path `$BUILD_DIR/min/`, where `$BUILD_DIR` is the path to generated JavaScript
-(usually, `build/classes/main`).
-
-
-### Configuring
-
-To configure DCE on the main source set, you can use the `runDceKotlinJs` task 
-(and corresponding `runDce<sourceSetName>KotlinJs` for other source sets).
-
-Sometimes you are going to use a Kotlin declaration directly from JavaScript, and it's being stripped out by DCE. 
-You may want to keep this declaration. To do so, you can use the following syntax in `build.gradle`:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
-runDceKotlinJs.keep "declarationToKeep"[, "declarationToKeep", ...]
-```
-</div>
-
-Where `declarationToKeep` has the following syntax:
-
-```
-moduleName.dot.separated.package.name.declarationName
-```
-
-For example, consider a module is named `kotlin-js-example` and it contains a function named `toKeep` 
-in package `org.jetbrains.kotlin.examples`. Use the following line:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` groovy
-runDceKotlinJs.keep "kotlin-js-example_main.org.jetbrains.kotlin.examples.toKeep"
-```
-</div>
-
-Note that if your function has parameters, its name will be mangled, so the mangled name should be used in the keep directive.
-
-### Development mode
-
-Running DCE takes a bit of extra time each build, and the output size does not matter during development. You can improve development builds time by making the DCE tool skip actual dead code elimination with the `dceOptions.devMode` flag of the DCE tasks.
-
-For example, to disable DCE based on a custom condition for the `main` source set and always for the `test` code, add the following lines to the build script:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```groovy
-runDceKotlinJs.dceOptions.devMode = isDevMode
-runDceTestKotlinJs.dceOptions.devMode = true 
+kotlin.target.browser {
+    dceTask {
+        keep 'myKotlinJSModule.org.example.getName', 'myKotlinJSModule.org.example.User'
+    }
+}
 ```
+
 </div>
-# Example
+</div>
 
-A full example that shows how to integrate Kotlin with DCE and webpack to get a small bundle,
-can be found [here](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/js-dce).
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
+```kotlin
+kotlin.target.browser {
+    dceTask {
+        keep("myKotlinJSModule.org.example.getName", "myKotlinJSModule.org.example.User" )
+    }
+}
+```
 
-## Notes
+</div>
+</div>
 
-* As for 1.3.x versions, DCE tool is an experimental feature. This does not mean we are going to remove it, or that it's unusable for production. This means that we can change names of configuration parameters, default settings, etc.
-* Currently you should not use DCE tool if your project is a shared library.
-  It's only applicable when you are developing an application (which may use shared libraries).
-   The reason is: DCE does not know which parts of the library are going to be used by the user's application.
-* DCE does not perform minification (uglification) of your code by removing unnecessary whitespaces and shortening identifiers.
-  You should use existing tools, like [UglifyJS](https://github.com/mishoo/UglifyJS2) 
-  or [Google Closure Compiler](https://developers.google.com/closure/compiler/) for this purpose.
+Note that the names of functions with parameters are [mangled](js-to-kotlin-interop.html#jsname-annotation)
+in the generated JavaScript code. To keep such functions from elimination, use the mangled names in the `keep` arguments.
+
+## Experimental status of DCE
+
+As for 1.3.x versions, DCE is an experimental feature. Its behaviour, settings, and configuration parameters 
+can change in future releases.

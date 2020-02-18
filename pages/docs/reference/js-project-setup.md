@@ -87,6 +87,17 @@ kotlin {
 
 </div>
 
+Or just
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin.target.browser {     
+}    
+```
+
+</div>
+
 The Kotlin/JS plugin automatically configures its tasks for working with the selected environment.
 This includes downloading and installing dependencies required for running and testing the application, and therefore
 lets developers  build, run, and test simple projects without additional configuration. 
@@ -191,26 +202,21 @@ dependencies {
 ### NPM dependencies
 
 In the JavaScript world, the common way to manage dependencies is [NPM](https://www.npmjs.com/).
-It offers the biggest public [repository](https://www.npmjs.com/)of JavaScript modules and a tool for downloading them.
+It offers the biggest public [repository](https://www.npmjs.com/) of JavaScript modules and a tool for downloading them.
+
 The Kotlin/JS plugin lets you declare NPM dependencies in the Gradle build script among other dependencies and
-does everything else automatically. Particularly, it installs the [Yarn](https://yarnpkg.com/lang/en/) package manager
+does everything else automatically. It installs the [Yarn](https://yarnpkg.com/lang/en/) package manager
 and uses it to download the dependencies from the NPM repository to the `node_modules` directory of your project -
 the common location for NPM dependencies of a JavaScript project. 
 
-To declare an NPM dependency, use the `npm()` function inside the `dependencies` section of a source set.
+To declare an NPM dependency, pass its name and version to the `npm()` function inside a dependency declaration.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-kotlin {
-    sourceSets {
-        main {
-            dependencies {
-                implementation npm('react', '16.12.0')
-            }
-        }
-    }
+dependencies {
+    implementation npm('react', '16.12.0')
 }
 ```
 
@@ -221,10 +227,8 @@ kotlin {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-kotlin {
-  sourceSets["main"].dependencies {
+dependencies {
     implementation(npm("react", "16.12.0"))
-  }
 }
 ```
 
@@ -290,23 +294,19 @@ for running browser tests. You can also run them in other browsers by adding the
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-kotlin {
-    target {
-        browser {
-            testTask {
-                useKarma {
-                    useIe()
-                    useSafari()
-                    useFirefox()
-                    useChrome()
-                    useChromeCanary()
-                    useChromeHeadless()
-                    usePhantomJS()
-                    useOpera()
-                }
-            }
+kotlin.target.browser {
+    testTask {
+        useKarma {
+            useIe()
+            useSafari()
+            useFirefox()
+            useChrome()
+            useChromeCanary()
+            useChromeHeadless()
+            usePhantomJS()
+            useOpera()
         }
-    }
+    }       
 }
 ```
 
@@ -317,13 +317,9 @@ If you want to skip tests, add the line `enabled = false` to the `testTask`.
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-kotlin {
-    target {
-        browser {
-            testTask {
-                enabled = false
-            }
-        }
+kotlin.target.browser {
+    testTask {
+        enabled = false
     }
 }
 ```
@@ -352,4 +348,41 @@ To build a project artifact using Webpack, execute the `build` Gradle task:
 ./gradlew build
 ```
 
+</div>
+
+## Distribution target directory
+
+By default, the results of a Kotlin/JS project build reside in the `/build/distribution` directory within the project root.
+
+To set another location for project distribution files, add the `distribution` block inside `browser` in the build script and 
+assign a value to the `directory` property.
+Once you run a project build task, Gradle will save the output bundle in this location together
+with project resources.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
+
+```groovy
+kotlin.target.browser {
+    distribution {
+        directory = file("$projectDir/output/")
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+kotlin.target.browser {
+    distribution {
+        directory = File("$projectDir/output/")
+    }
+}
+```
+
+</div>
 </div>
