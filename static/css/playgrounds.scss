@@ -1,6 +1,15 @@
+@import './static/css/_config';
+
 // Hide plain text before loading runnable examples
 .sample {
   visibility: hidden;
+}
+
+.CodeMirror,
+.CodeMirror pre,
+.CodeMirror .CodeMirror-code,
+.CodeMirror .CodeMirror-code pre {
+  font-family: 'JetBrains Mono', $font-family-mono;
 }
 
 // If scroll is 100% the blocks became too big
