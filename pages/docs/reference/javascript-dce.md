@@ -7,9 +7,6 @@ title: "JavaScript DCE"
 
 # JavaScript Dead Code Elimination (DCE)
 
-> JavaScript dead code elimination is *experimental* in Kotlin 1.3. See details [below](#experimental-status-of-dce).
-{:.note}
-
 The Kotlin/JS Gradle plugin includes a [_dead code elimination_](https://wikipedia.org/wiki/Dead_code_elimination) (_DCE_) tool.
 Dead code elimination is often also called _tree shaking_. It reduces the size or the resulting JavaScript code by
 removing unused properties, functions, and classes.
@@ -64,8 +61,3 @@ kotlin.target.browser {
 
 Note that the names of functions with parameters are [mangled](js-to-kotlin-interop.html#jsname-annotation)
 in the generated JavaScript code. To keep such functions from elimination, use the mangled names in the `keep` arguments.
-
-## Experimental status of DCE
-
-As for 1.3.x versions, DCE is an experimental feature. Its behaviour, settings, and configuration parameters 
-can change in future releases.
