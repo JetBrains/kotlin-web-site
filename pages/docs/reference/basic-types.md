@@ -236,6 +236,7 @@ Kotlin supports the standard set of arithmetical operations over numbers (`+` `-
 See [Operator overloading](operator-overloading.html).
 
 Note that division between integers always returns an integer. Any fractional part is discarded.
+
 For example:
 
 ```kotlin
@@ -250,14 +251,14 @@ This is true of division between any two integer types.
 
 ```kotlin
 val x = 5L / 2
-println(x == 2L)
+println(x == 2L) // true
 ```
 
 To return a floating-point type, explicitly convert one of the arguments to a floating point type.
 
 ```kotlin
 val x = 5 / 2.toDouble()
-println(x == 2.5)
+println(x == 2.5) // true
 ```
 
 As of bitwise operations, there're no special characters for them, but just named functions that can be called in infix form, for example:
