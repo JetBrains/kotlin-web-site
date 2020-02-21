@@ -235,9 +235,7 @@ val l = 1L + 3 // Long + Int => Long
 Kotlin supports the standard set of arithmetical operations over numbers (`+` `-` `*` `/` `%`), which are declared as members of appropriate classes (but the compiler optimizes the calls down to the corresponding instructions).
 See [Operator overloading](operator-overloading.html).
 
-Note that division between integers always returns an integer. Any fractional part is discarded.
-
-For example:
+Note that division between integers always returns an integer. Any fractional part is discarded. For example:
 
 ```kotlin
 val x = 5 / 2
