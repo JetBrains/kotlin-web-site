@@ -232,8 +232,33 @@ val l = 1L + 3 // Long + Int => Long
 
 ### Operations
 
-Kotlin supports the standard set of arithmetical operations over numbers (`+` `-` `*` `/` `%`), which are declared as members of appropriate classes (but the compiler optimizes the calls down to the corresponding instructions). Note that calling `/` between an `Int` and an `Int` results in integer division and returns an `Int`, e.g. `5 / 2` returns `2`. For floating-point division between two arguments of type `Int`, convert one of the arguments to a floating-point type, e.g. `5 / 2.toDouble()` returns `2.5` as a `Double`.
+Kotlin supports the standard set of arithmetical operations over numbers (`+` `-` `*` `/` `%`), which are declared as members of appropriate classes (but the compiler optimizes the calls down to the corresponding instructions).
 See [Operator overloading](operator-overloading.html).
+
+Note that division between integers always returns an integer. Any fractional part is discarded.
+For example:
+
+```kotlin
+val x = 5 / 2
+println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
+
+val y = 5 / 2
+println(y == 2) // true
+```
+
+This is true of division between any two integer types.
+
+```kotlin
+val x = 5L / 2
+println(x == 2L)
+```
+
+To return a floating-point type, explicitly convert one of the arguments to a floating point type.
+
+```kotlin
+val x = 5 / 2.toDouble()
+println(x == 2.5)
+```
 
 As of bitwise operations, there're no special characters for them, but just named functions that can be called in infix form, for example:
 
