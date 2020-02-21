@@ -240,9 +240,11 @@ Note that division between integers always returns an integer. Any fractional pa
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val x = 5 / 2
-// println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
-println(x == 2)
+fun main() {
+    val x = 5 / 2
+    // println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
+    println(x == 2)
+}
 ```
 
 </div>
@@ -253,8 +255,10 @@ This is true of division between any two integer types.
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val x = 5L / 2
-println(x == 2L)
+fun main() {
+    val x = 5L / 2
+    println(x == 2L)
+}
 ```
 
 </div>
@@ -264,8 +268,10 @@ To return a floating-point type, explicitly convert one of the arguments to a fl
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val x = 5 / 2.toDouble()
-println(x == 2.5)
+fun main() {
+    val x = 5 / 2.toDouble()
+    println(x == 2.5)
+}
 ```
 
 </div>
