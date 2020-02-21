@@ -252,7 +252,7 @@ val x = 5L / 2
 println(x == 2L) // true
 ```
 
-To return a floating-point type, explicitly convert one of the arguments to a floating point type.
+To return a floating-point type, explicitly convert one of the arguments to a floating-point type.
 
 ```kotlin
 val x = 5 / 2.toDouble()
