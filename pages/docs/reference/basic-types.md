@@ -237,27 +237,38 @@ See [Operator overloading](operator-overloading.html).
 
 Note that division between integers always returns an integer. Any fractional part is discarded. For example:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val x = 5 / 2
-println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
-
-val y = 5 / 2
-println(y == 2) // true
+// println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
+println(x == 2)
 ```
+
+</div>
+
 
 This is true of division between any two integer types.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val x = 5L / 2
-println(x == 2L) // true
+println(x == 2L)
 ```
+
+</div>
 
 To return a floating-point type, explicitly convert one of the arguments to a floating-point type.
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val x = 5 / 2.toDouble()
-println(x == 2.5) // true
+println(x == 2.5)
 ```
+
+</div>
 
 As of bitwise operations, there're no special characters for them, but just named functions that can be called in infix form, for example:
 
