@@ -72,7 +72,7 @@ Appendable append(CharSequence csq) throws IOException;
 
 What does this signature say? It says that every time I append a string to something (a `StringBuilder`, some kind of a log, a console, etc.)
 I have to catch those `IOExceptions`. Why? Because it might be performing IO (`Writer` also implements `Appendable`)...
-So it results into this kind of code all over the place:
+So it results in this kind of code all over the place:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -87,7 +87,7 @@ catch (IOException e) {
 
 And this is no good, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 77: *Don't ignore exceptions*.
 
-Bruce Eckel says in [Does Java need Checked Exceptions?](http://www.mindview.net/Etc/Discussions/CheckedExceptions):
+Bruce Eckel says in [Does Java need Checked Exceptions?](https://web.archive.org/web/20180301074914/www.mindview.net/Etc/Discussions/CheckedExceptions):
 
 > Examination of small programs leads to the conclusion that requiring exception specifications could both enhance developer productivity and enhance code quality, but experience with large software projects suggests a different result – decreased productivity and little or no increase in code quality.
 
@@ -95,6 +95,8 @@ Other citations of this sort:
 
 * [Java's checked exceptions were a mistake](http://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html) (Rod Waldhoff)
 * [The Trouble with Checked Exceptions](http://www.artima.com/intv/handcuffs.html) (Anders Hejlsberg)
+
+If your Kotlin code is being called from Java, you can always use the [`@Throws`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-throws/) annotation if you want to alert callers of possible exceptions.
 
 ## The Nothing type
 
