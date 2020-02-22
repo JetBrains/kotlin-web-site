@@ -96,7 +96,7 @@ Other citations of this sort:
 * [Java's checked exceptions were a mistake](http://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html) (Rod Waldhoff)
 * [The Trouble with Checked Exceptions](http://www.artima.com/intv/handcuffs.html) (Anders Hejlsberg)
 
-If your Kotlin code is being called from Java, you can always use the [`@Throws`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-throws/) annotation if you want to alert callers of possible exceptions.
+If your Kotlin code is being called from Java, you can always use the [`@Throws`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-throws/) annotation in order to alert callers of possible exceptions.
 
 ## The Nothing type
 
