@@ -75,7 +75,7 @@ dependencies {
 ```
 </div>
 
-For more information about configuring Gradle to target JavaScript please see [Getting Started with Gradle](getting-started-gradle/getting-started-with-gradle.html).
+For more information about configuring Gradle to target JavaScript please see [Setting up a Kotlin/JS project](https://kotlinlang.org/docs/reference/js-project-setup.html).
 
 Once the dependency is included, we can access the different interfaces provided to generate DOM. The code below will add a new ```span``` tag with the text ```Hello``` inside a ```div``` on the
 `window.load` event.

@@ -10,12 +10,7 @@ showAuthorInfo: false
 There are multiple ways to compile Kotlin to JavaScript.
 The recommended approach is to use Gradle; if desired, you can also build JavaScript projects directly from
 IntelliJ IDEA, use Maven, or compile the code manually from the command line.
-To learn more about how to compile to JavaScript please see the corresponding tutorials:
- 
-* [Getting Started with Gradle](../getting-started-gradle/getting-started-with-gradle.html)
-* [Getting Started with IntelliJ IDEA](../getting-started-idea/getting-started-with-intellij-idea.html)
-* [Getting Started with Maven](../getting-started-maven/getting-started-with-maven.html)
-* [Getting Started with the Command Line](../getting-started-command-line/command-line-library-js.html)
+To learn more about how to compile to JavaScript with the Command Line, please see the corresponding tutorial, [Getting Started with the Command Line](../getting-started-command-line/command-line-library-js.html).
 
 
 ## Examining the compilation output

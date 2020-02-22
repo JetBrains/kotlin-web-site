@@ -10,7 +10,7 @@ This tutorial shows how to debug a Kotlin/JS project build by Gradle.
 If you are using Maven or IDEA, the recipes would be similar.
 
 Before reading this tutorial, please, look through
-[Kotlin and JavaScript for Gradle tutorial](http://kotlinlang.org/docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html).
+[Setting up a Kotlin/JS project](https://kotlinlang.org/docs/reference/js-project-setup.html).
 
 
 ## Generating source map
