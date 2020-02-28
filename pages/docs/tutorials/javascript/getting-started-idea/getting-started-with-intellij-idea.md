@@ -8,6 +8,11 @@ date: 2016-09-30
 showAuthorInfo: false
 ---
 
+>__Warning__: this tutorial is outdated for Kotlin {{ site.data.releases.latest.version }}.
+>We strongly recommend using Gradle for Kotlin/JS projects. For instructions on creating 
+>Kotlin/JS projects with Gradle, see [Setting up a Kotlin/JS project](../setting-up.html)
+{:.note}
+>
 In this tutorial we'll see how to
 
 * [Create an application targeting JavaScript](#create-an-application-targeting-javascript)
@@ -36,6 +41,7 @@ At this point we can start writing Kotlin code. For this sample, we're going to 
 out to the console window.
 
 <div class="sample" markdown="1" theme="idea" data-target-platform="js">
+
 ```kotlin
 fun main(args: Array<String>) {
     val message = "Hello JavaScript!"
@@ -48,6 +54,7 @@ We now need an HTML page to load the code, so we'll create a file called `index.
 [Kotlin to JavaScript](../kotlin-to-javascript/kotlin-to-javascript.html) tutorial. 
 
 <div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
+
 ```html 
 <!DOCTYPE html>
     <html lang="en">

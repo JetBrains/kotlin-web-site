@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 from flask import Flask, render_template, Response, send_from_directory, request
 from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
+from hashlib import md5
 
 from src.Feature import Feature
 from src.github import assert_valid_git_hub_url
@@ -49,11 +50,18 @@ data_folder = path.join(os.path.dirname(__file__), "data")
 _nav_cache = None
 _nav_lock = threading.RLock()
 
+_cached_asset_version = {}
+
 def get_asset_version(filename):
+    if filename in _cached_asset_version:
+        return _cached_asset_version[filename]
+
     filepath = (root_folder if  root_folder  else ".") + filename
     if filename and path.exists(filepath):
-        file_stat = os.stat(filepath)
-        return str(file_stat.st_mtime)
+        with open(filepath, 'rb') as file:
+            digest = md5(file.read()).hexdigest()
+            _cached_asset_version[filename] = digest
+            return digest
     return None
 
 def get_site_data():
@@ -240,15 +248,6 @@ def index_page():
                            is_index_page=True,
                            features=features
                            )
-
-@app.route('/index_old.html')
-def index_page_old():
-    features = get_kotlin_features()
-    return render_template('pages/index_old.html',
-                           is_index_page=True,
-                           features=features
-                           )
-
 
 def process_page(page_path):
     # get_nav() has side effect to copy and patch files from the `external` folder

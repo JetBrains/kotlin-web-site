@@ -265,56 +265,6 @@ This self-contained jar file can be passed directly to a JRE to run your applica
 java -jar target/mymodule-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 ```
 
-## Targeting JavaScript
-
-In order to compile JavaScript code, you need to use the `js` and `test-js` goals for the `compile` execution:
-
-<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
-
-```xml
-<plugin>
-    <groupId>org.jetbrains.kotlin</groupId>
-    <artifactId>kotlin-maven-plugin</artifactId>
-    <version>${kotlin.version}</version>
-    <executions>
-        <execution>
-            <id>compile</id>
-            <phase>compile</phase>
-            <goals>
-                <goal>js</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>test-compile</id>
-            <phase>test-compile</phase>
-            <goals>
-                <goal>test-js</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
-```
-
-</div>
-
-You also need to change the standard library dependency:
-
-
-<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
-
-```xml
-<groupId>org.jetbrains.kotlin</groupId>
-<artifactId>kotlin-stdlib-js</artifactId>
-<version>${kotlin.version}</version>
-```
-
-</div>
-
-For unit testing support, you also need to add a dependency on the `kotlin-test-js` artifact.
-
-See the [Getting Started with Kotlin and JavaScript with Maven](/docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html)
-tutorial for more information.
-
 ## Specifying compiler options
 
 Additional options and arguments for the compiler can be specified as tags under the `<configuration>` element of the

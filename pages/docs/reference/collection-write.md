@@ -142,7 +142,7 @@ fun main() {
 
 ## Updating elements
 
-Lists and sets also provide operations for updating elements.
+Lists and maps also provide operations for updating elements.
 They are described in [List Specific Operations](list-operations.html) and [Map Specific Operations](map-operations.html).
 For sets, updating doesn't make sense since it's actually removing an element and adding another one.
 

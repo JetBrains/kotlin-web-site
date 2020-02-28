@@ -8,7 +8,11 @@ date: 2016-11-04
 showAuthorInfo: false
 ---
 
-In this tutorial we'll see how to
+>__Warning__: this tutorial is outdated for Kotlin {{ site.data.releases.latest.version }}.
+>We strongly recommend using Gradle for Kotlin/JS projects. For instructions on creating 
+>Kotlin/JS projects with Gradle, see [Setting up a Kotlin/JS project](../setting-up.html)
+{:.note}
+>
 
 * [Create an application targeting JavaScript with Maven](#creating-an-application-targeting-javascript)
 * [Configure compiler options](#configuring-compiler-options)
@@ -43,6 +47,7 @@ If we're not using IntelliJ IDEA, we can configure the `pom.xml` file manually t
 #### Maven configuration
 
 <div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
+
 ```xml
 <properties>
     <kotlin.version>{{ site.data.releases.latest.version }}</kotlin.version> 
@@ -96,6 +101,7 @@ In order to use this, we also need to include the Kotlin standard library in our
 Maven does not expand the JAR as part of the build process, so we would need to add an additional step in our build to do so.
 
 <div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
+
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -133,6 +139,7 @@ Similar to when we're using [IntelliJ IDEA build system](../getting-started-idea
 In order to specify the module kind, we can add a configuration to our plugin as below
 
 <div class="sample" markdown="1" theme="idea" mode="xml" auto-indent="false">
+
 ```xml
  </executions>
  ...

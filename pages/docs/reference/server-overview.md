@@ -35,6 +35,8 @@ for Kotlin, including [full documentation](http://vertx.io/docs/vertx-core/kotli
  * [kotlinx.html](https://github.com/kotlin/kotlinx.html) is a DSL that can be used to build HTML in a Web application.
 It serves as an alternative to traditional templating systems such as JSP and FreeMarker.
 
+ * [Micronaut](https://micronaut.io/) is a modern, JVM-based, full-stack framework for building modular, easily testable microservice and serverless applications. It comes with a lot of built-in, handy features.
+
  * The available options for persistence include direct JDBC access, JPA, as well as using NoSQL databases through their Java drivers.
 For JPA, the [kotlin-jpa compiler plugin](/docs/reference/compiler-plugins.html#jpa-support) adapts
 Kotlin-compiled classes to the requirements of the framework.
@@ -68,3 +70,4 @@ process at JetBrains, is written in 100% Kotlin and has been running in producti
 show you how you can build and run very small Web applications in Kotlin.
 * For a more in-depth introduction to the language, check out the [reference documentation](/docs/reference/index.html) on this site and
 [Kotlin Koans](/docs/tutorials/koans.html).
+* Micronaut also has a lot of well-detailed [guides](https://guides.micronaut.io/tags/kotlin.html), showing how you can build microservices in Kotlin.

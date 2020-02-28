@@ -7,16 +7,8 @@ authors: Hadi Hariri
 showAuthorInfo: false
 ---
 
-There are multiple ways to compile Kotlin to JavaScript.
-The recommended approach is to use Gradle; if desired, you can also build JavaScript projects directly from
-IntelliJ IDEA, use Maven, or compile the code manually from the command line.
-To learn more about how to compile to JavaScript please see the corresponding tutorials:
- 
-* [Getting Started with Gradle](../getting-started-gradle/getting-started-with-gradle.html)
-* [Getting Started with IntelliJ IDEA](../getting-started-idea/getting-started-with-intellij-idea.html)
-* [Getting Started with Maven](../getting-started-maven/getting-started-with-maven.html)
-* [Getting Started with the Command Line](../getting-started-command-line/command-line-library-js.html)
-
+This tutorial explains how Kotlin code compiles to Javascript.
+To learn more about how to create a Kotlin/JS project, see [Setting up a Kotlin/JS project](../setting-up.html).
 
 ## Examining the compilation output
 
@@ -41,8 +33,6 @@ fun main(args: Array<String>) {
 Kotlin compiler would generate the following output
 
    ![Compiler Output]({{ url_for('tutorial_img', filename='javascript/kotlin-to-javascript/compiler-output.png')}})
-   
-Note: the `lib` directory which contains `kotlin.js` and other library files is only created in IntelliJ IDEA-based projects and is controlled by the *Copy library runtime files* flag in the Kotlin [facet settings](https://www.jetbrains.com/help/idea/facets.html). In a Maven or Gradle build (including multiplatform projects), no library files are copied by default to the compilation output directory. See the corresponding tutorials for the instructions on how to achieve the same with those build systems.
 
 The file we're mostly interested in is `ConsoleOutput.js`
 

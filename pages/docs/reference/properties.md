@@ -176,7 +176,7 @@ so no function call overhead is introduced in this case.
 
 ## Compile-Time Constants
 
-Properties the value of which is known at compile time can be marked as _compile time constants_ using the *const*{: .keyword } modifier.
+If the value of a read-only property is known at the compile time, mark it as a _compile time constant_ using the *const*{: .keyword } modifier.
 Such properties need to fulfil the following requirements:
 
   * Top-level, or member of an [*object*{: .keyword } declaration](object-declarations.html#object-declarations) or [a *companion object*{: .keyword }](object-declarations.html#companion-objects).

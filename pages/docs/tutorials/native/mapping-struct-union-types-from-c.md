@@ -18,12 +18,6 @@ In the tutorial we will learn:
 - [How Struct and Union types are mapped](#mapping-struct-and-union-c-types)
 - [How to use Struct and Union type from Kotlin](#using-struct-and-union-types-from-kotlin)
 
-We need to have a Kotlin compiler on our machines.
-The
-[A Basic Kotlin Application](basic-kotlin-native-app.html#obtaining-the-compiler)
-tutorial contains more explanations for that step.
-Let's assume, we have a console, where the `kotlinc-native`, `cinterop`, and `klib` commands are available. 
-
 ## Mapping Struct and Union C types
 
 The best way to understand the mapping between Kotlin and C is to try a tiny 
@@ -90,7 +84,7 @@ fun main() {
 </div>
 
 Now we are ready to
-[open the project in IntelliJ IDEA](basic-kotlin-native-app.html#open-in-ide)
+[open the project in IntelliJ IDEA](using-intellij-idea.html)
 and to see how to fix the example project. While doing that,
 we'll examine how C primitive types are mapped into Kotlin/Native.
 
@@ -297,7 +291,7 @@ fun callMix_value() {
 
 Now we have learned how to use C declarations in our code, we are ready to try
 it out on a real example. Let's fix our code and see how it runs by calling the 
-`runDebugExecutableNative` Gradle task [in the IDE](basic-kotlin-native-app.html#run-in-ide)
+`runDebugExecutableNative` Gradle task [in the IDE](using-intellij-idea.html)
 or by using the following console command:
 [[include pages-includes/docs/tutorials/native/runDebugExecutableNative.md]]
 
