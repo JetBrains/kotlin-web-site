@@ -26,12 +26,14 @@ If you're targeting the browser, you can specify the desired module type in the 
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackOutput.Target.COMMONJS
+
 kotlin {
     target {
         browser {
             webpackTask {
                 output.libraryTarget = COMMONJS 
-                //commonjs // a shorter alternative
+                //output.libraryTarget = "commonjs" // alternative
              }
         }
     }
@@ -91,6 +93,18 @@ tasks.named("compileKotlinJs") {
 
 Available values are: `plain`, `amd`, `commonjs`, `umd`.
 
+In Kotlin Gradle DSL, thers is also a shortcut for setting the CommonJS module kind:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```
+kotlin {
+    target {
+         useCommonJs()
+    }
+}
+```
+</div>
 
 ## `@JsModule` annotation
 

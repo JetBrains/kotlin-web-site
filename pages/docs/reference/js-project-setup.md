@@ -346,7 +346,7 @@ For Kotlin/JS projects, the Webpack configuration files should reside in the `we
 root project directory.
 
 For building executable JavaScript artifacts, the Kotlin/JS plugin contains the `browserDevelopmentWebpack`
-`browserProductionWebpack` tasks. They
+`browserProductionWebpack` tasks.
 
 To build a project artifact using Webpack, execute the `browserProductionWebpack`or `browserDevelopmentWebpack` Gradle task:
 
