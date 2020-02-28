@@ -356,6 +356,22 @@ tutorials:
           title: Mixing Java and Kotlin in one project
     - title: JavaScript
       content:
+        - url: /docs/tutorials/javascript/setting-up.html
+          title: Setting up a project
+        - url: /docs/tutorials/javascript/running-kotlin-js.html
+          title: Running Kotlin/JS
+        - url: /docs/tutorials/javascript/dev-server-continuous-compilation.html
+          title: Development Server and Continuous Compilation
+        - url: /docs/tutorials/javascript/using-packages-from-npm.html
+          title: Using packages from npm
+        - url: /docs/tutorials/javascript/debugging-kotlin-in-browser.html
+          title: Debugging Kotlin in the browser
+        - url: /docs/tutorials/javascript/running-tests.html
+          title: Running tests
+        - url: /docs/tutorials/javascript/browser-api-dom.html
+          title: Browser API and the DOM
+        - url: /docs/tutorials/javascript/typesafe-html-dsl.html
+          title: Typesafe HTML DSL
         - url: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
           title: Kotlin to JavaScript
         - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
