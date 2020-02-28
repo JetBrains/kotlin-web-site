@@ -49,23 +49,9 @@ This way, you'll get a single JS file with all dependencies included.
 
 If you're creating a JS library or a node.js file, define the module kind as described below.
 
-### Choosing the Target Module System
+### Choosing the target module system
 
-Choosing the target module system depends on your build environment:
-
-#### From IntelliJ IDEA
-
-Setup per module:
-Open __File | Project Structure...__, find your module in Modules and select __Kotlin__ facet under it. Choose appropriate
-module system in __Module kind__ field.
-
-Setup for the whole project:
-Open __File | Settings__, select __Build, Execution, Deployment | Compiler | Kotlin compiler__. Choose appropriate
-module system in __Module kind__ field.
-
-#### From Gradle
-
-To select module system when compiling via Gradle, you should set `moduleKind` property, i.e.
+To select module kind, set the `moduleKind` compiler option in the Gradle build script.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
@@ -93,7 +79,7 @@ tasks.named("compileKotlinJs") {
 
 Available values are: `plain`, `amd`, `commonjs`, `umd`.
 
-In Kotlin Gradle DSL, thers is also a shortcut for setting the CommonJS module kind:
+In Kotlin Gradle DSL, there is also a shortcut for setting the CommonJS module kind:
 
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
