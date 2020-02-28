@@ -11,7 +11,7 @@ showAuthorInfo: false
 
 In this tutorial we'll see how to
 
-* [Configure modules when using Gradle](#configuring-modules-when-using-gradle)
+* Configure modules when using Gradle
 * [Use Kotlin in the browser with AMD](#using-amd)
 * [Use Kotlin from node.js with CommonJS](#using-commonjs)
 
