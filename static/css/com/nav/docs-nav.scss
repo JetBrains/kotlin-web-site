@@ -1,6 +1,14 @@
 @import '../../_config';
 @import '../../_utils';
 
+.docs-nav-new {
+    margin-top: 25px;
+    margin-bottom: $unit*6;
+
+    & + .page-content {
+        margin-bottom: 90px;
+    }
+}
 
 .docs-nav {
     margin-bottom: $unit*6;

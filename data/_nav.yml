@@ -15,6 +15,7 @@ main:
 # Docs section navigation
 # =======================
 subnav:
+  type: tab
   content:
     - url: /docs/
       content:
@@ -30,17 +31,17 @@ subnav:
       content:
         - url: /community/
           urlPattern: ^/community/$
-          title: Community Overview
+          title: Overview
 
         - url: /user-groups/user-group-list.html
           urlPattern: /user-groups*
           title: User Groups
 
-        - url: /community/kotlin-nights.html
-          title: Kotlin Nights
+        - url: /community/events.html
+          title: Events
 
         - url: /community/talks.html
-          title: Talks
+          title: Talks & Speakers
 
 # Reference navigation
 # ====================
@@ -466,4 +467,8 @@ groups:
     - url: /user-groups/support.html
       title: Support and Guidelines
     - url: /user-groups/branding.html
-      title: Branding
+      title: Branding materials
+    - url: /user-groups/support-other.html
+      title: Support for other user groups
+    - url: https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct
+      title: Code of Conduct
