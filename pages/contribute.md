@@ -44,7 +44,8 @@ is correct and up to date. Unfortunately, we won't able to review documentation 
 
 If you've given or just plan to give presentations or hold events on Kotlin, let us know. We'll feature them on [the event list](http://kotlinlang.org/docs/events.html)
 
-##Participate in Early Access Preview
+## Participate in Early Access Preview
+
 You can help us improve Kotlin if you participate in Kotlin Early Access Preview (EAP) and provide your valuable feedback. 
 For every release, Kotlin ships a few preview builds where you can try out the latest features before they go to production. Please file found issues and enhancement requests in [YouTrack](https://kotl.in/issue).
  
