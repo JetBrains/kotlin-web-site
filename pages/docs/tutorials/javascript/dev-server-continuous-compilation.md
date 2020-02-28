@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Development Server and Continuous Compilation"
-description: "How do we set up the local development environment for automatic recompilation and reloading?"
+description: "How to set up the local development environment for automatic recompilation and reloading."
 authors: Sebastian Aigner
 date: 2020-02-23
 showAuthorInfo: false
@@ -16,7 +16,7 @@ If we are working from inside IntelliJ IDEA, we can pass the same flag via the _
 
 ![Editing run configurations in IntelliJ IDEA]({{ url_for('tutorial_img', filename='javascript/dev-server-continuous-compilation/edit-configurations.png')}})
 
-Enabling continuous mode via the "Run/Debug Configurations" dialog is as easy as adding the `--continuous` flag to the arguments for the run configuration:
+Enabling continuous mode via the __Run/Debug Configurations__ dialog is as easy as adding the `--continuous` flag to the arguments for the run configuration:
 
 ![Adding the continuous flag to a run configuration in IntelliJ IDEA]({{ url_for('tutorial_img', filename='javascript/dev-server-continuous-compilation/run-debug-configurations.png')}})
 

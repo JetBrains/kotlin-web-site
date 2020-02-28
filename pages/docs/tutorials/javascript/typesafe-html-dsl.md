@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Typesafe HTML DSL"
-description: "How do we construct DOM elements using kotlinx.html and Kotlin DSLs?"
+description: "How to construct DOM elements using kotlinx.html and Kotlin DSLs."
 authors: Sebastian Aigner
 date: 2020-02-23
 showAuthorInfo: false

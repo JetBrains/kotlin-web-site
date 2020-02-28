@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Debugging Kotlin/JS"
-description: "How do we debug Kotlin/JS code using the browser developer tools?"
+description: "How to debug Kotlin/JS code using the browser developer tools."
 authors: Sebastian Aigner
 date: 2020-02-23
 showAuthorInfo: false

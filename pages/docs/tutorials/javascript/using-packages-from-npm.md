@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Using packages from npm"
-description: "How do we use npm packages from a Kotlin/JS Gradle project and how do we interact with them from Kotlin?"
+description: "How to use npm packages from a Kotlin/JS Gradle project and how do we interact with them from Kotlin."
 authors: Sebastian Aigner
 date: 2020-02-23
 showAuthorInfo: false
@@ -35,7 +35,7 @@ external fun <T> sorted(a: Array<T>): Boolean
 ```
 </div>
 
-Please note that if we are using CommonJS as a target, the `@Js(Non)Module` annotations need to be adjusted accordingly.
+Please note that if we are using CommonJS as a target, the `@JsModule` and `@JsNonModule` annotations need to be adjusted accordingly.
 
 This JavaScript function can now be used just like a regular Kotlin function. Because we provided type information in the header file (as opposed to simply defining parameter and return type to be `dynamic`), proper compiler support and type-checking is also available.
 
@@ -59,5 +59,5 @@ false
 
 Because the JavaScript ecosystem has multiple ways of exposing functions in a package (for example through named or default exports), other npm packages might need a slightly altered structure for their external declarations.
 
-If you'd like to learn more about how to write declarations, please refer to the ["Calling JavaScript from Kotlin"](/docs/reference/js-interop.html) section of the Kotlin documentation.
+To learn more about how to write declarations, please refer to the ["Calling JavaScript from Kotlin"](/docs/reference/js-interop.html) section of the Kotlin documentation.
 

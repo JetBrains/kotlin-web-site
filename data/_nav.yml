@@ -356,6 +356,8 @@ tutorials:
           title: Mixing Java and Kotlin in one project
     - title: JavaScript
       content:
+        - url: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
+          title: Kotlin to JavaScript
         - url: /docs/tutorials/javascript/setting-up.html
           title: Setting up a project
         - url: /docs/tutorials/javascript/running-kotlin-js.html
@@ -372,22 +374,10 @@ tutorials:
           title: Browser API and the DOM
         - url: /docs/tutorials/javascript/typesafe-html-dsl.html
           title: Typesafe HTML DSL
-        - url: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
-          title: Kotlin to JavaScript
-        - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
-          title: Getting Started with Gradle
-        - url: /docs/tutorials/javascript/getting-started-idea/getting-started-with-intellij-idea.html
-          title: Getting Started with IntelliJ IDEA
-        - url: /docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html
-          title: Getting Started with Maven
-        - url: /docs/tutorials/javascript/getting-started-command-line/command-line-library-js.html
-          title: Creating a Kotlin JavaScript library with the Command Line Compiler
         - url: /docs/tutorials/javascript/working-with-modules/working-with-modules.html
           title: Working with Kotlin and JavaScript Modules
         - url: /docs/tutorials/javascript/working-with-javascript.html
-          title: Working with JavaScript
-        - url: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
-          title: Debugging Kotlin in browser
+          title: Working with JavaScript libraries
         - url: /docs/tutorials/javascript/react-and-kotlin-js.html
           title: Building Web Applications with React and Kotlin/JS
 

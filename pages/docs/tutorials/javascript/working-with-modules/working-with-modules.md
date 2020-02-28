@@ -12,13 +12,13 @@ showAuthorInfo: false
 In this tutorial we'll see how to
 
 * [Configure modules when using IntelliJ IDEA](#configuring-modules-with-intellij-idea)
-* [Configure modules when using Maven or Gradle](#configuring-modules-when-using-maven-or-gradle)
+* [Configure modules when using Gradle](#configuring-modules-when-using-gradle)
 * [Use Kotlin in the browser with AMD](#using-amd)
 * [Use Kotlin from node.js with CommonJS](#using-commonjs)
 
 
 
-## Configuring Modules with IntelliJ IDEA
+## Configuring modules with IntelliJ IDEA
 
 Kotlin generate JavaScript code that is compatible with Asynchronous Module Definition (AMD), CommonJS and Universal Model Definition (UMD). 
 
@@ -31,9 +31,9 @@ Currently Kotlin compiler options are per IntelliJ IDEA project as opposed to a 
  
 ![Kotlin Compiler Options]({{ url_for('tutorial_img', filename='javascript/working-with-modules/kotlin-compiler.png')}})
 
-## Configuring Modules when using Maven or Gradle
+## Configuring modules when using Gradle
 
-If using Maven or Gradle, we can also configure the module output format. For more information see [JavaScript Modules](http://kotlinlang.org/docs/reference/js-modules.html).
+If using Gradle, we can also configure the module output format. For more information see [JavaScript Modules](http://kotlinlang.org/docs/reference/js-modules.html).
 
 ## Using AMD
 
@@ -96,6 +96,7 @@ we could define our `index.html` to load `require.js` along with `main.js` as th
 The contents of our `main.js` would be:
 
 <div class="sample" markdown="1" theme="idea" mode="js">
+
 ```javascript
 requirejs.config({
     paths: {

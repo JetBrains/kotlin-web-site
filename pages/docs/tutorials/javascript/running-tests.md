@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Running tests"
-description: "How do we run tests for the Kotlin/JS target using test runners in Gradle?"
+description: "How to run tests for the Kotlin/JS target using test runners in Gradle."
 authors: Sebastian Aigner
 date: 2020-02-23
 showAuthorInfo: false

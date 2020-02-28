@@ -63,7 +63,8 @@ Inside the `kotlin` section, you can manage the following aspects:
 * [Project dependencies](#managing-dependencies): Maven and NPM
 * [Run configuration](#configuring-run-task)
 * [Test configuration](#configuring-test-task)
-* [Bundling](#configuring-webpack-bundling) for browser projects.
+* [Bundling](#configuring-webpack-bundling) for browser projects
+* [Target directory](#distribution-target-directory)
 
 ## Choosing execution environment
 
@@ -338,14 +339,21 @@ To run tests, execute the standard lifecycle `check` task:
 
 ## Configuring Webpack bundling
 
-For building executable JavaScript artifacts, the Kotlin/JS plugins contains the `webpackTask`.
+For browser targets, the Kotlin/JS plugin uses widely known [Webpack](https://webpack.js.org/) module bundler.
+For configuring the project bundling, you can use the standard Webpack configuration file. The Webpack configuration
+capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
+For Kotlin/JS projects, the Webpack configuration files should reside in the `webpack.config.d` directory inside the 
+root project directory.
 
-To build a project artifact using Webpack, execute the `build` Gradle task:
+For building executable JavaScript artifacts, the Kotlin/JS plugin contains the `browserDevelopmentWebpack`
+`browserProductionWebpack` tasks. They
+
+To build a project artifact using Webpack, execute the `browserProductionWebpack`or `browserDevelopmentWebpack` Gradle task:
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
 ```bash
-./gradlew build
+./gradlew browserProductionWebpack
 ```
 
 </div>

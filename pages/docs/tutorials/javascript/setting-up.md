@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Setting up a Kotlin/JS project"
-description: "How do we set up a Gradle project targeting JavaScript using the JS or multiplatform plugins?"
+description: "How to set up a Gradle project targeting JavaScript using the JS or multiplatform plugins."
 authors: Sebastian Aigner
 date: 2020-02-23
 showAuthorInfo: false
@@ -14,9 +14,10 @@ There are two major ways how we can set up a Kotlin/JS project: we can use the [
 
 The most straightforward way to get started with Kotlin/JS is via the Kotlin/JS Gradle plugin. If you're using IntelliJ IDEA, the setup for such a project can be done via wizard.
 
-Through the _New Project_ wizard, we can select the platform we want to target. For this example, we're selecting _Kotlin/JS for browser_, which allows us to use browser-specific APIs in our project. If we're targeting Node.js instead, we can select the _Kotlin/JS for Node.js_ option instead.
+Through the __New Project__ wizard, we can select the platform we want to target. For this example, we're selecting __Kotlin/JS for browser__,
+ which allows us to use browser-specific APIs in our project. If we're targeting Node.js instead, we can select the __Kotlin/JS for Node.js__ option instead.
 
-Make sure that the _Kotlin DSL build script_ option is selected to use the Gradle Kotlin DSL as well:
+Make sure that the __Kotlin DSL build script__ option is selected to use the Gradle Kotlin DSL as well:
 
 ![New JavaScript project wizard]({{ url_for('tutorial_img', filename='javascript/setting-up/new-project.png')}})
 

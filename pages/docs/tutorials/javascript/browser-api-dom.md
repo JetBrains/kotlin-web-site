@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Browser API and the DOM"
-description: "How do we interact with browser-specific APIs from Kotlin, and how do we work with the Document Object Model (DOM)?"
+description: "How to interact with browser-specific APIs from Kotlin, and how do we work with the Document Object Model (DOM)."
 authors: Sebastian Aigner
 date: 2020-02-23
 showAuthorInfo: false

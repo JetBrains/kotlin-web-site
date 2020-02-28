@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title:  "Running Kotlin/JS"
-description: "How do we run a Kotlin/JS program that was created using the Gradle plugin?"
+description: "How to run a Kotlin/JS program that was created using the Gradle plugin."
 authors: Sebastian Aigner
 date: 2020-02-23
 showAuthorInfo: false
