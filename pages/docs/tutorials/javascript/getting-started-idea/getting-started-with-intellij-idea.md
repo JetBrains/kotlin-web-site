@@ -8,10 +8,11 @@ date: 2016-09-30
 showAuthorInfo: false
 ---
 
->Warning: this tutorial is outdated for Kotlin {{ site.data.releases.latest.url }}
+>__Warning__: this tutorial is outdated for Kotlin {{ site.data.releases.latest.version }}.
 >We strongly recommend using Gradle for Kotlin/JS projects. For instructions on creating 
 >Kotlin/JS projects with Gradle, see [Setting up a Kotlin/JS project](../setting-up.html)
-
+{:.note}
+>
 In this tutorial we'll see how to
 
 * [Create an application targeting JavaScript](#create-an-application-targeting-javascript)
