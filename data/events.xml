@@ -945,7 +945,7 @@ Les librairies et projets utilisés sont:
         <speaker>Bob Dahlberg</speaker>
         <title>Greach</title>
         <subject>Kotlin Beyond Basics</subject>
-        <url>vhttps://greachconf.com/talk/kotlin-beyond-basics/index.html</url>
+        <url>https://greachconf.com/talk/kotlin-beyond-basics/index.html</url>
         <description>
             <![CDATA[
 <p>So you've started developing in Kotlin? Great! But you don't really know about all those advanced (or seemingly advanced) features that are rarely used. Well, don't stress it!</p>

@@ -232,10 +232,61 @@ val l = 1L + 3 // Long + Int => Long
 
 ### Operations
 
-Kotlin supports the standard set of arithmetical operations over numbers, which are declared as members of appropriate classes (but the compiler optimizes the calls down to the corresponding instructions).
+Kotlin supports the standard set of arithmetical operations over numbers (`+` `-` `*` `/` `%`), which are declared 
+as members of appropriate classes (but the compiler optimizes the calls down to the corresponding instructions).
 See [Operator overloading](operator-overloading.html).
 
-As of bitwise operations, there're no special characters for them, but just named functions that can be called in infix form, for example:
+#### Division of integers
+
+Note that division between integers always returns an integer. Any fractional part is discarded. For example:
+
+<div class="sample" markdown="1" theme="idea">
+
+```kotlin
+fun main() {
+//sampleStart
+    val x = 5 / 2
+    //println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
+    println(x == 2)
+//sampleEnd
+}
+```
+
+</div>
+
+This is true for a division between any two integer types.
+
+<div class="sample" markdown="1" theme="idea">
+
+```kotlin
+fun main() {
+//sampleStart
+    val x = 5L / 2
+    println(x == 2L)
+//sampleEnd
+}
+```
+
+</div>
+
+To return a floating-point type, explicitly convert one of the arguments to a floating-point type.
+
+<div class="sample" markdown="1" theme="idea">
+
+```kotlin
+fun main() {
+//sampleStart
+    val x = 5 / 2.toDouble()
+    println(x == 2.5)
+//sampleEnd
+}
+```
+
+</div>
+
+#### Bitwise operations 
+
+As for bitwise operations, there're no special characters for them, but just named functions that can be called in infix form, for example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 

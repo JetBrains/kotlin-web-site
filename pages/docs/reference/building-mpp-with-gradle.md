@@ -28,6 +28,8 @@ those are configured and built using Gradle.
 * [Default Project Layout](#default-project-layout)
 * [Running Tests](#running-tests)
 * [Publishing a Multiplatform Library](#publishing-a-multiplatform-library)
+    * [Experimental metadata publishing mode](#experimental-metadata-publishing-mode)
+    * [Disambiguating targets](#disambiguating-targets)
 * [Java Support in JVM Targets](#java-support-in-jvm-targets)
 * [Android Support](#android-support)
     * [Publishing Android libraries](#publishing-android-libraries)
