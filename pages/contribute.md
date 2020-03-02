@@ -14,7 +14,7 @@ If you want to contribute to the Kotlin code, go to [GitHub](https://github.com/
  and follow the [instructions on how to contribute to the code](https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md).
 You can complete [open tasks](https://youtrack.jetbrains.com/issues/KT?q=tag:%20%7BUp%20For%20Grabs%7D%20and%20State:%20Open) or suggest an improvement using the [Kotlin Evolution and Enhancement Process (KEEP)](https://github.com/Kotlin/KEEP).
 
-### Contribute to existing libraries and create your own
+## Contribute to existing libraries and create your own
 
 Kotlin ships with the standard library providing limited capabilities and a number of additional (kotlinx) libraries that extend its functionality. 
 Each kotlinx library is stored in a separate repo, has its own versioning and release cycle. 
@@ -23,7 +23,6 @@ If you want to contribute to the standard library, follow the process for contri
 
 If you want to contribute to a kotlinx library, follow the contribution process described for the library&mdash;[kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
  [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
-
 
 If you have a library that could be useful for others, let us know.
 
