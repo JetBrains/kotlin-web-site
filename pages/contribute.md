@@ -22,7 +22,7 @@ Each kotlinx library is stored in a separate repo, has its own versioning and re
 If you want to contribute to the standard library, follow the process for contributing to the Kotlin code.
 
 If you want to contribute to a kotlinx library, follow the contribution process described for the library&mdash;[kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
- [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and  [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
+ [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
 
 
 If you have a library that could be useful for others, let us know.
@@ -56,6 +56,6 @@ If you've given or just plan to give presentations or hold events on Kotlin, let
 
 You can help us improve Kotlin if you participate in Kotlin Early Access Preview (EAP) and provide your valuable feedback.
  
-For every release, Kotlin ships a few preview builds where you can try out the latest features before they go to production. You can report found bugs [YouTrack](https://kotl.in/issue) 
+For every release, Kotlin ships a few preview builds where you can try out the latest features before they go to production. You can report found bugs in [YouTrack](https://kotl.in/issue) 
 and we will try to fix them in the next EAP build. This way, you can get bug fixes earlier than the standard Kotlin release cycle.
  
