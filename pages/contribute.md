@@ -16,8 +16,16 @@ You can complete [open tasks](https://youtrack.jetbrains.com/issues/KT?q=tag:%20
 
 ### Contribute to existing libraries and create your own
 
-Kotlin ships with a very small runtime, and we plan to keep it that way. As a contributor, you can develop functionality missing in the standard runtime library under the Kotlin-X umbrella or as an individual project. 
-If you want to contribute to any existing library, check it out. If you have a library that could be useful for others, let us know.
+Kotlin ships with the standard library providing limited capabilities and a number of additional (kotlinx) libraries that extend its functionality. 
+Each kotlinx library is stored in a separate repo, has its own versioning and release cycle. 
+
+If you want to contribute to the standard library, follow the process for contributing to the Kotlin code.
+
+If you want to contribute to a kotlinx library, follow the contribution process described for the library&mdash;[kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
+ [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and  [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
+
+
+If you have a library that could be useful for others, let us know.
 
 ## Contribute to the documentation
 
@@ -46,6 +54,8 @@ If you've given or just plan to give presentations or hold events on Kotlin, let
 
 ## Participate in Early Access Preview
 
-You can help us improve Kotlin if you participate in Kotlin Early Access Preview (EAP) and provide your valuable feedback. 
-For every release, Kotlin ships a few preview builds where you can try out the latest features before they go to production. Please file found issues and enhancement requests in [YouTrack](https://kotl.in/issue).
+You can help us improve Kotlin if you participate in Kotlin Early Access Preview (EAP) and provide your valuable feedback.
+ 
+For every release, Kotlin ships a few preview builds where you can try out the latest features before they go to production. You can report found bugs [YouTrack](https://kotl.in/issue) 
+and we will try to fix them in the next EAP build. This way, you can get bug fixes earlier than the standard Kotlin release cycle.
  
