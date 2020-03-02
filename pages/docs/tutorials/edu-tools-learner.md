@@ -25,6 +25,8 @@ To open the list of available courses, go to **Browse Courses** on the **Welcome
 
 ![Join a course]({{ url_for('tutorial_img', filename='education/learning/join_course.png') }})
 
+*If the course does not show on the list, make sure that **Gradle** and **Gradle Extension** bundled plugins are enabled.*
+
 *If you have a course archive shared with you by your teacher or co-worker, use the **Import Course** icon to open it. You can also log in to [Stepik](https://stepik.org/) with the corresponding link to see all the courses available to you on this MOOC platform.*
 
 ### Getting around
