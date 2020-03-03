@@ -63,7 +63,8 @@ Inside the `kotlin` section, you can manage the following aspects:
 * [Project dependencies](#managing-dependencies): Maven and NPM
 * [Run configuration](#configuring-run-task)
 * [Test configuration](#configuring-test-task)
-* [Bundling](#configuring-webpack-bundling) for browser projects.
+* [Bundling](#configuring-webpack-bundling) for browser projects
+* [Target directory](#distribution-target-directory)
 
 ## Choosing execution environment
 
@@ -82,6 +83,17 @@ kotlin {
         browser {
         }       
     }
+}    
+```
+
+</div>
+
+Or just
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin.target.browser {     
 }    
 ```
 
@@ -191,26 +203,21 @@ dependencies {
 ### NPM dependencies
 
 In the JavaScript world, the common way to manage dependencies is [NPM](https://www.npmjs.com/).
-It offers the biggest public [repository](https://www.npmjs.com/)of JavaScript modules and a tool for downloading them.
+It offers the biggest public [repository](https://www.npmjs.com/) of JavaScript modules and a tool for downloading them.
+
 The Kotlin/JS plugin lets you declare NPM dependencies in the Gradle build script among other dependencies and
-does everything else automatically. Particularly, it installs the [Yarn](https://yarnpkg.com/lang/en/) package manager
+does everything else automatically. It installs the [Yarn](https://yarnpkg.com/lang/en/) package manager
 and uses it to download the dependencies from the NPM repository to the `node_modules` directory of your project -
 the common location for NPM dependencies of a JavaScript project. 
 
-To declare an NPM dependency, use the `npm()` function inside the `dependencies` section of a source set.
+To declare an NPM dependency, pass its name and version to the `npm()` function inside a dependency declaration.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-kotlin {
-    sourceSets {
-        main {
-            dependencies {
-                implementation npm('react', '16.12.0')
-            }
-        }
-    }
+dependencies {
+    implementation npm('react', '16.12.0')
 }
 ```
 
@@ -221,10 +228,8 @@ kotlin {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-kotlin {
-  sourceSets["main"].dependencies {
+dependencies {
     implementation(npm("react", "16.12.0"))
-  }
 }
 ```
 
@@ -290,23 +295,19 @@ for running browser tests. You can also run them in other browsers by adding the
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-kotlin {
-    target {
-        browser {
-            testTask {
-                useKarma {
-                    useIe()
-                    useSafari()
-                    useFirefox()
-                    useChrome()
-                    useChromeCanary()
-                    useChromeHeadless()
-                    usePhantomJS()
-                    useOpera()
-                }
-            }
+kotlin.target.browser {
+    testTask {
+        useKarma {
+            useIe()
+            useSafari()
+            useFirefox()
+            useChrome()
+            useChromeCanary()
+            useChromeHeadless()
+            usePhantomJS()
+            useOpera()
         }
-    }
+    }       
 }
 ```
 
@@ -317,13 +318,9 @@ If you want to skip tests, add the line `enabled = false` to the `testTask`.
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-kotlin {
-    target {
-        browser {
-            testTask {
-                enabled = false
-            }
-        }
+kotlin.target.browser {
+    testTask {
+        enabled = false
     }
 }
 ```
@@ -342,14 +339,58 @@ To run tests, execute the standard lifecycle `check` task:
 
 ## Configuring Webpack bundling
 
-For building executable JavaScript artifacts, the Kotlin/JS plugins contains the `webpackTask`.
+For browser targets, the Kotlin/JS plugin uses widely known [Webpack](https://webpack.js.org/) module bundler.
+For configuring the project bundling, you can use the standard Webpack configuration file. The Webpack configuration
+capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
+For Kotlin/JS projects, the Webpack configuration files should reside in the `webpack.config.d` directory inside the 
+root project directory.
 
-To build a project artifact using Webpack, execute the `build` Gradle task:
+For building executable JavaScript artifacts, the Kotlin/JS plugin contains the `browserDevelopmentWebpack`
+`browserProductionWebpack` tasks.
+
+To build a project artifact using Webpack, execute the `browserProductionWebpack`or `browserDevelopmentWebpack` Gradle task:
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
 ```bash
-./gradlew build
+./gradlew browserProductionWebpack
 ```
 
+</div>
+
+## Distribution target directory
+
+By default, the results of a Kotlin/JS project build reside in the `/build/distribution` directory within the project root.
+
+To set another location for project distribution files, add the `distribution` block inside `browser` in the build script and 
+assign a value to the `directory` property.
+Once you run a project build task, Gradle will save the output bundle in this location together
+with project resources.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
+
+```groovy
+kotlin.target.browser {
+    distribution {
+        directory = file("$projectDir/output/")
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+kotlin.target.browser {
+    distribution {
+        directory = File("$projectDir/output/")
+    }
+}
+```
+
+</div>
 </div>

@@ -19,69 +19,78 @@ the list of available options:
 4. Unified Module Definitions (UMD), which is compatible with both *AMD* and *CommonJS*, and works as "plain"
    when neither *AMD* nor *CommonJS* is available at runtime.
 
+## Targeting the browser
+ 
+If you're targeting the browser, you can specify the desired module type in the `webpackTask` configuration block:
+ 
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
-## Choosing the Target Module System
+```groovy
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackOutput.Target.COMMONJS
 
-Choosing the target module system depends on your build environment:
+kotlin {
+    target {
+        browser {
+            webpackTask {
+                output.libraryTarget = COMMONJS 
+                //output.libraryTarget = "commonjs" // alternative
+             }
+        }
+    }
+}
 
-### From IntelliJ IDEA
-
-Setup per module:
-Open File -> Project Structure..., find your module in Modules and select "Kotlin" facet under it. Choose appropriate
-module system in "Module kind" field.
-
-Setup for the whole project:
-Open File -> Settings, select "Build, Execution, Deployment" -> "Compiler" -> "Kotlin compiler". Choose appropriate
-module system in "Module kind" field.
-
-
-### From Maven
-
-To select module system when compiling via Maven, you should set `moduleKind` configuration property, i.e. your
-`pom.xml` should look like this:
-
-<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
-
-``` xml
-<plugin>
-    <groupId>org.jetbrains.kotlin</groupId>
-    <artifactId>kotlin-maven-plugin</artifactId>
-    <version>${kotlin.version}</version>
-    <executions>
-        <execution>
-            <id>compile</id>
-            <goals>
-                <goal>js</goal>
-            </goals>
-        </execution>
-    </executions>
-    <!-- Insert these lines -->
-    <configuration>
-        <moduleKind>commonjs</moduleKind>
-    </configuration>
-    <!-- end of inserted text -->
-</plugin>
 ```
 
+</div>
+  
+This way, you'll get a single JS file with all dependencies included.
+
+## Creating libraries and node.js files
+
+If you're creating a JS library or a node.js file, define the module kind as described below.
+
+### Choosing the target module system
+
+To select module kind, set the `moduleKind` compiler option in the Gradle build script.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
+
+```groovy
+compileKotlinJs.kotlinOptions.moduleKind = "commonjs"
+
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+tasks.named("compileKotlinJs") {
+    this as KotlinJsCompile
+    kotlinOptions.moduleKind = "commonjs"
+}
+```
+
+</div>
 </div>
 
 Available values are: `plain`, `amd`, `commonjs`, `umd`.
 
+In Kotlin Gradle DSL, there is also a shortcut for setting the CommonJS module kind:
 
-### From Gradle
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
-To select module system when compiling via Gradle, you should set `moduleKind` property, i.e.
-
-<div class="sample" markdown="1" theme="idea" mode="groovy">
-
-``` groovy
-compileKotlin2Js.kotlinOptions.moduleKind = "commonjs"
 ```
-
+kotlin {
+    target {
+         useCommonJs()
+    }
+}
+```
 </div>
-
-Available values are similar to Maven.
-
 
 ## `@JsModule` annotation
 
@@ -201,6 +210,7 @@ external fun bar()
 and
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @file:JsModule("extModule")
 @file:JsQualifier("mylib.pkg2")
@@ -247,6 +257,6 @@ external fun sayHello(name: String)
 ### Notes
 
 Kotlin is distributed with `kotlin.js` standard library as a single file, which is itself compiled as an UMD module, so
-you can use it with any module system described above. Also it is available on NPM as [`kotlin` package](https://www.npmjs.com/package/kotlin)
+you can use it with any module system described above. It is available on NPM as [`kotlin` package](https://www.npmjs.com/package/kotlin)
 
 

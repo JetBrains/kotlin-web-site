@@ -225,8 +225,8 @@ reference:
           title: Scope Functions
         - url: /docs/reference/type-safe-builders.html
           title: Type-Safe Builders
-        - url: /docs/reference/experimental.html
-          title: Experimental API Markers
+        - url: /docs/reference/opt-in-requirements.html
+          title: Opt-in Requirements
 
     - title: Core Libraries
       content:
@@ -358,20 +358,26 @@ tutorials:
       content:
         - url: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
           title: Kotlin to JavaScript
-        - url: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
-          title: Getting Started with Gradle
-        - url: /docs/tutorials/javascript/getting-started-idea/getting-started-with-intellij-idea.html
-          title: Getting Started with IntelliJ IDEA
-        - url: /docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html
-          title: Getting Started with Maven
-        - url: /docs/tutorials/javascript/getting-started-command-line/command-line-library-js.html
-          title: Creating a Kotlin JavaScript library with the Command Line Compiler
+        - url: /docs/tutorials/javascript/setting-up.html
+          title: Setting up a project
+        - url: /docs/tutorials/javascript/running-kotlin-js.html
+          title: Running Kotlin/JS
+        - url: /docs/tutorials/javascript/dev-server-continuous-compilation.html
+          title: Development Server and Continuous Compilation
+        - url: /docs/tutorials/javascript/using-packages-from-npm.html
+          title: Using packages from npm
+        - url: /docs/tutorials/javascript/debugging-kotlin-in-browser.html
+          title: Debugging Kotlin in the browser
+        - url: /docs/tutorials/javascript/running-tests.html
+          title: Running tests
+        - url: /docs/tutorials/javascript/browser-api-dom.html
+          title: Browser API and the DOM
+        - url: /docs/tutorials/javascript/typesafe-html-dsl.html
+          title: Typesafe HTML DSL
         - url: /docs/tutorials/javascript/working-with-modules/working-with-modules.html
           title: Working with Kotlin and JavaScript Modules
         - url: /docs/tutorials/javascript/working-with-javascript.html
-          title: Working with JavaScript
-        - url: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
-          title: Debugging Kotlin in browser
+          title: Working with JavaScript libraries
         - url: /docs/tutorials/javascript/react-and-kotlin-js.html
           title: Building Web Applications with React and Kotlin/JS
 
