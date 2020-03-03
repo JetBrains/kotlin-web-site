@@ -8,7 +8,10 @@ date: 2017-02-27
 showAuthorInfo: false
 ---
 
->This page is 
+>__Warning__: this tutorial does not reflect all newest changes for Kotlin {{ site.data.releases.latest.version }}.
+>To get started with writing modern Kotlin/JS projects, please see [Setting up a Kotlin/JS project](setting-up)
+{:.note}
+>
 
 In this tutorial we'll see how to
 

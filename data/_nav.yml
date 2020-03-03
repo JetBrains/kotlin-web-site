@@ -356,8 +356,6 @@ tutorials:
           title: Mixing Java and Kotlin in one project
     - title: JavaScript
       content:
-        - url: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
-          title: Kotlin to JavaScript
         - url: /docs/tutorials/javascript/setting-up.html
           title: Setting up a project
         - url: /docs/tutorials/javascript/running-kotlin-js.html
@@ -376,8 +374,6 @@ tutorials:
           title: Typesafe HTML DSL
         - url: /docs/tutorials/javascript/working-with-modules/working-with-modules.html
           title: Working with Kotlin and JavaScript Modules
-        - url: /docs/tutorials/javascript/working-with-javascript.html
-          title: Working with JavaScript libraries
         - url: /docs/tutorials/javascript/react-and-kotlin-js.html
           title: Building Web Applications with React and Kotlin/JS
 
