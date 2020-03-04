@@ -1,3 +1,21 @@
 .page__community {
-  font-family: Inter, Arial, sans-serif;
+  p, h1, h2 {
+    max-width: 715px;
+  }
+}
+
+.page-community-panels {
+  display: flex;
+  flex-grow: 1;
+  list-style: none;
+}
+
+.page-community-panels__item {
+  border: 1px solid rgba(39, 40, 44, 0.2);
+
+  &::before {
+    display: block;
+    margin: 0;
+    position: static;
+  }
 }

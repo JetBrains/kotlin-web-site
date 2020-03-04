@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}Community{% endblock %}
-{% block body_class %}page__community{% endblock %}
+{% block body_class %}page__community page_next{% endblock %}
 
 {% macro speak_kotlin_link(href, text, class, comment=None) %}
     <div class="all-speak-kotlin_link _{{ class }}" data-svg-id="{{ class.replace('-', '_') }}">
@@ -25,7 +25,20 @@
             is here to help and support
         </p>
 
-        <!--  -->
+        <ul class="page-community-panels">
+            <li class="page-community-panels__item">
+                Join Kotlin User Group  or start your own
+                <a href="" class="kto-button kto-button_size_s kto-button_mode_outline">Start a new KUG</a>
+            </li>
+            <li class="page-community-panels__item">
+                Get Inspired at Kotlin event  or host one yourself
+                <a href="" class="kto-button kto-button_size_s kto-button_mode_outline">Get support</a>
+            </li>
+            <li class="page-community-panels__item">
+                Contribute to the language and ecosystem
+                <a href="">Contributor guidelines</a>
+            </li>
+        </ul>
 
         <h2 class="kto-header kto-header_size_m" id="kotlin-online-resources">Keep in touch</h2>
         <div>
@@ -51,7 +64,7 @@
 
         <h2 class="kto-header kto-header_size_m" id="kotlin-online-resources">Code of Conduct</h2>
         <p>
-            Follow these simple rules to collaborate efficiently: be kind, be someone that other
+            Follow <a href="/contribute.html">these simple rules</a> to collaborate efficiently: be kind, be someone that other
             people want to be around, do not insult or be rude to other attendees. Kotlin User
             Groups should provide a friendly, safe and welcoming environment for all,
             regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status,

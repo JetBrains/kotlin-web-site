@@ -15,6 +15,7 @@ main:
 # Docs section navigation
 # =======================
 subnav:
+  type: tab
   content:
     - url: /docs/
       content:
@@ -30,17 +31,17 @@ subnav:
       content:
         - url: /community/
           urlPattern: ^/community/$
-          title: Community Overview
+          title: Overview
 
         - url: /user-groups/user-group-list.html
           urlPattern: /user-groups*
           title: User Groups
 
         - url: /community/kotlin-nights.html
-          title: Kotlin Nights
+          title: Events
 
         - url: /community/talks.html
-          title: Talks
+          title: Talks & Speakers
 
 # Reference navigation
 # ====================
