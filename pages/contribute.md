@@ -7,7 +7,7 @@ main_nav_id: contribute
 # Contributing to Kotlin
 
 Kotlin is an Apache 2 OSS Project. The source code, tooling, documentation and even this web site is maintained on [GitHub](https://github.com/jetbrains/kotlin). 
-While Kotlin is mostly developed by JetBrains, there are hundreds of external contributors to the Kotlin project, and we always look for more people&mdash;[become one of them](https://kotlinlang.org/community/). 
+While Kotlin is mostly developed by JetBrains, there are hundreds of external contributors to the Kotlin project, and we always look for more people&mdash;[become one of them](https://kotlinlang.org/community). 
 
 ## Participate in Early Access Preview
 
@@ -22,14 +22,14 @@ If you want to contribute to the Kotlin compiler, standard library, or tooling, 
  and follow the [instructions on how to contribute to the code](https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md).
  
 You can help us by completing [open tasks](https://youtrack.jetbrains.com/issues/KT?q=tag:%20%7BUp%20For%20Grabs%7D%20and%20State:%20Open). 
-Please stay in touch because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate them. 
+Please stay in touch with us because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate them. 
 
 ## Contribute to other libraries and create your own
 
 Kotlin ships with the standard library providing core capabilities and a number of additional (kotlinx) libraries that extend its functionality. 
 Each kotlinx library is developed in a separate repo, has its own versioning and release cycle. 
 
-If you want to contribute to the standard library, follow [the standard process for contributing]((https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md)).
+If you want to contribute to the standard library, follow [the standard process for contributing](https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md).
 
 If you want to contribute to a kotlinx library, follow the contribution process described for each library, such as [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
  [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
@@ -38,8 +38,9 @@ If you have a library that could be useful for others, let us know.
 
 ## Contribute to the documentation
 
-If you have helpful information for [Kotlin documentation](https://kotlinlang.org/docs/reference/) or have found a documentation issue, feel free to check out [the documentation source code on GitHub](https://github.com/JetBrains/kotlin-web-site/tree/master/pages/docs)
-and send us a Pull Request. Please stay in touch because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate them. 
+If you have helpful information for [Kotlin documentation](https://kotlinlang.org/docs/reference/) or have found a documentation issue, 
+feel free to check out [the documentation source code on GitHub](https://github.com/JetBrains/kotlin-web-site/tree/master/pages/docs)
+and send us a Pull Request. Please stay in touch with us because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate them. 
 
 The documentation site is built using Markdown and Jekyll. 
 
