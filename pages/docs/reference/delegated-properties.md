@@ -273,7 +273,7 @@ interface ReadOnlyProperty<in R, out T> {
     operator fun getValue(thisRef: R, property: KProperty<*>): T
 }
 
-interface ReadWriteProperty<in R, T> {
+interface ReadWriteProperty<in R, out T> {
     operator fun getValue(thisRef: R, property: KProperty<*>): T
     operator fun setValue(thisRef: R, property: KProperty<*>, value: T)
 }
