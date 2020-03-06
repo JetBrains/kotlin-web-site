@@ -19,7 +19,7 @@ and we will try to fix them in the next EAP build. This way, you can get bug fix
 ## Contribute to the compiler, standard library, and tooling
 
 If you want to contribute to the Kotlin compiler, standard library, or tooling, go to [GitHub](https://github.com/jetbrains/kotlin), check out the latest Kotlin version,
- and follow the [instructions on how to contribute to the code](https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md).
+ and follow the [instructions on how to contribute](https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md).
  
 You can help us by completing [open tasks](https://youtrack.jetbrains.com/issues/KT?q=tag:%20%7BUp%20For%20Grabs%7D%20and%20State:%20Open). 
 Please stay in touch with us because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate them. 
@@ -27,7 +27,7 @@ Please stay in touch with us because we may have questions and comments on your 
 ## Contribute to other libraries and create your own
 
 Kotlin ships with the standard library providing core capabilities and a number of additional (kotlinx) libraries that extend its functionality. 
-Each kotlinx library is developed in a separate repo, has its own versioning and release cycle. 
+Each kotlinx library is developed in a separate repository, has its own versioning and release cycle. 
 
 If you want to contribute to the standard library, follow [the standard process for contributing](https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md).
 
@@ -38,9 +38,9 @@ If you have a library that could be useful for others, let us know via <feedback
 
 ## Contribute to the documentation
 
-If you have helpful information for [Kotlin documentation](https://kotlinlang.org/docs/reference/) or have found a documentation issue, 
+If you have found a documentation issue in [Kotlin documentation](https://kotlinlang.org/docs/reference/), 
 feel free to check out [the documentation source code on GitHub](https://github.com/JetBrains/kotlin-web-site/tree/master/pages/docs)
-and send us a Pull Request. Please stay in touch with us because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate them. 
+and send us a pull request. Please stay in touch with us because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate them. 
 
 The documentation site is built using Markdown and Jekyll. 
 
