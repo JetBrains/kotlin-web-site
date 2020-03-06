@@ -34,7 +34,7 @@ If you want to contribute to the standard library, follow [the standard process 
 If you want to contribute to a kotlinx library, follow the contribution process described for each library, such as [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
  [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
 
-If you have a library that could be useful for others, let us know.
+If you have a library that could be useful for others, let us know via <feedback@kotlinlang.org>.
 
 ## Contribute to the documentation
 
@@ -46,7 +46,7 @@ The documentation site is built using Markdown and Jekyll.
 
 ## Create tutorials or videos
 
-If you've created tutorials or videos for Kotlin, please share them with us. We would be happy to add them to [Awesome Kotlin](https://kotlin.link/) maintained by the community.
+If you've created tutorials or videos for Kotlin, please share them with us via <feedback@kotlinlang.org>. We would be happy to add them to [Awesome Kotlin](https://kotlin.link/) maintained by the community.
 
 ## Translate documentation to other languages
 
