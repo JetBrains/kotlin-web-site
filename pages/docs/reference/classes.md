@@ -261,6 +261,21 @@ class Example // Implicitly inherits from Any
 
 `Any` has three methods: `equals()`, `hashCode()` and `toString()`. Thus, they are defined for all Kotlin classes. 
 
+#### "open" Keyword
+In Kotlin, all the classes are final by default i.e. they can’t be inherited.
+To make it inheritable, you must mark it with the keyword **open**. Otherwise it will throw error saying “type is final so can’t be inherited”. 
+ *This is opposite to Java where you have to make your class final explicitly.*
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+open class Base //Class is open for inheritance
+
+```
+
+</div>
+
+ 
+
 To declare an explicit supertype, place the type after a colon in the class header:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
