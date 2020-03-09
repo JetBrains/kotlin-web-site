@@ -1,4 +1,4 @@
----
+kotlin-web-site/pages/docs/reference/basic-syntax.md
 type: doc
 layout: reference
 category: "Basics"
