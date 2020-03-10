@@ -48,7 +48,6 @@ The documentation site is built using Markdown and Jekyll.
 ## Create tutorials or videos
 
 If you've created tutorials or videos for Kotlin, please share them with us via <feedback@kotlinlang.org>. 
-We'd be happy to add them to the list of resources at [Kotlin is Awesome!](https://kotlin.link/), which is maintained by the community.
 
 ## Translate documentation to other languages
 
