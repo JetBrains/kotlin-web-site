@@ -7,7 +7,7 @@ main_nav_id: contribute
 # Contributing to Kotlin
 
 Kotlin is an Apache 2 OSS Project. The source code, tooling, documentation and even this web site is maintained on [GitHub](https://github.com/jetbrains/kotlin). 
-While Kotlin is mostly developed by JetBrains, there are hundreds of external contributors to the Kotlin project&mdash;[become one of them](https://kotlinlang.org/community). 
+While Kotlin is mostly developed by JetBrains, there are hundreds of external contributors to the Kotlin project and we are always on the lookout for more people to help us.
 
 ## Participate in Early Access Preview
 
@@ -27,9 +27,7 @@ Please keep an open line of communication with us because we may have questions 
 ## Contribute to other libraries and create your own
 
 Kotlin ships with the standard library providing core capabilities and a number of additional (kotlinx) libraries that extend its functionality. 
-Each kotlinx library is developed in a separate repository, has its own versioning and release cycle. 
-
-If you want to contribute to the standard library, follow [the standard process for contributing](https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md).
+Each kotlinx library is developed in a separate repository, has its own versioning and release cycle.
 
 If you want to contribute to a kotlinx library, follow the contribution process described for each library, such as [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
  [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
@@ -48,6 +46,7 @@ The documentation site is built using Markdown and Jekyll.
 ## Create tutorials or videos
 
 If you've created tutorials or videos for Kotlin, please share them with us via <feedback@kotlinlang.org>. 
+
 
 ## Translate documentation to other languages
 
