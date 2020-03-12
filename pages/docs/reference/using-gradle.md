@@ -213,55 +213,26 @@ targeting the JVM, if not using the default convention, you should specify the s
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-sourceSets {
-    main.kotlin.srcDirs += 'src/main/myKotlin'
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
-
-```kotlin
-sourceSets["main"].withConvention(KotlinSourceSet::class) {    
-    kotlin.srcDir("src/main/myKotlin") 
-}
-```
-
-</div>
-</div>
-
-In addition to the output JavaScript file, the plugin by default creates an additional JS file with binary descriptors.
-This file is required if you're building a reusable library that other Kotlin modules can depend on, and should be distributed together with the result of translation.
-The generation is controlled by the  `kotlinOptions.metaInfo` option:
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
-
-```groovy
-compileKotlin2Js {
-    kotlinOptions.metaInfo = true
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
-
-```kotlin
-tasks {
-    "compileKotlin2Js"(Kotlin2JsCompile::class)  {
-        kotlinOptions.metaInfo = true
+kotlin {
+    sourceSets {
+        main.kotlin.srcDirs += 'src/main/myKotlin'
     }
 }
 ```
 
 </div>
 </div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+kotlin {
+    sourceSets["main"].apply {    
+        kotlin.srcDir("src/main/myKotlin") 
+    }
+}
+```
 
 
 ## Targeting Android
