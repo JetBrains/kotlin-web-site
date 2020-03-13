@@ -26,7 +26,7 @@ Please keep an open line of communication with us because we may have questions 
 
 ## Contribute to other libraries and create your own
 
-Kotlin ships with the standard library providing core capabilities and a number of additional (kotlinx) libraries that extend its functionality. 
+Besides the standard library that provides core capabilities, Kotlin has a number of additional (kotlinx) libraries that extend its functionality. 
 Each kotlinx library is developed in a separate repository, has its own versioning and release cycle.
 
 If you want to contribute to a kotlinx library, follow the contribution process described for each library, such as [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
