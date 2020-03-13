@@ -32,7 +32,7 @@ Each kotlinx library is developed in a separate repository, has its own versioni
 If you want to contribute to a kotlinx library, follow the contribution process described for each library, such as [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
  [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
 
-If you have a library that could be useful for other Kotlin developers, let us know via <feedback@kotlinlang.org>.
+If you have a library that could be useful to other Kotlin developers, let us know via <feedback@kotlinlang.org>.
 
 ## Contribute to the documentation
 
