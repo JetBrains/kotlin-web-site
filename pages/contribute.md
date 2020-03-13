@@ -14,7 +14,7 @@ While Kotlin is mostly developed by JetBrains, there are hundreds of external co
 You can help us improve Kotlin by participating in Kotlin Early Access Preview (EAP) and providing us with your valuable feedback.
  
 For every release, Kotlin ships a few preview builds where you can try out the latest features before they go to production. You can report any bugs you find to our issue tracker [YouTrack](https://kotl.in/issue) 
-and we will try to fix them in the next EAP build. This way, you can get bug fixes earlier than the standard Kotlin release cycle.
+and we will try to fix them before a final release. This way, you can get bug fixes earlier than the standard Kotlin release cycle.
 
 ## Contribute to the compiler, standard library, and tooling
 
