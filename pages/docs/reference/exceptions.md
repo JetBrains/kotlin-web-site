@@ -87,7 +87,7 @@ catch (IOException e) {
 
 And this is no good, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 77: *Don't ignore exceptions*.
 
-Bruce Eckel says in [Does Java need Checked Exceptions?](https://web.archive.org/web/20180301074914/www.mindview.net/Etc/Discussions/CheckedExceptions):
+Bruce Eckel says about checked exceptions:
 
 > Examination of small programs leads to the conclusion that requiring exception specifications could both enhance developer productivity and enhance code quality, but experience with large software projects suggests a different result – decreased productivity and little or no increase in code quality.
 
