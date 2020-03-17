@@ -217,7 +217,7 @@ The names should make it clear what the purpose of the entity is, so it's best t
 (`Manager`, `Wrapper` etc.) in names.
 
 When using an acronym as part of a declaration name, capitalize it if it consists of two letters (`IOStream`);
-capitalize only the first letter if it is longer (`XmlFormatter`, `HttpInputStream`).
+capitalize only the first letter if it is longer (`XmlFormatter`, `HttpInputStream`). Note that `Id` is not an acronym, it's an abbreviation and should capitalize only the first letter.
 
 
 ## Formatting
