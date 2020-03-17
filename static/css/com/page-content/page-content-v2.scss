@@ -1,0 +1,20 @@
+@import '../../_config';
+@import '../../_utils';
+@import '../_bits/_header';
+
+.page-content {
+    font-family: Inter, Arial, sans-serif;
+    color: #27282C;
+
+    font-size: 18px;
+    line-height: 28px;
+    margin: 24px 0;
+}
+a {
+    color: #6B70FC;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

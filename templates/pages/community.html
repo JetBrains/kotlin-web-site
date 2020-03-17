@@ -1,7 +1,17 @@
+{% set restyled=True %}
 {% extends 'base.html' %}
 
 {% block title %}Community{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='community.css')|autoversion }}">
+{% endblock %}
+
 {% block body_class %}page__community{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='community.js')|autoversion }}"></script>
+{% endblock %}
 
 {% macro speak_kotlin_link(href, text, class, comment=None) %}
     <div class="all-speak-kotlin_link _{{ class }}" data-svg-id="{{ class.replace('-', '_') }}">
@@ -25,18 +35,18 @@
             is here to help and support
         </p>
 
-        <ul class="page-community-panels">
-            <li class="page-community-panels__item">
-                Join Kotlin User Group  or start your own
+        <ul class="page-community-panels page-community__panels">
+            <li class="page-community-panels__item page-community-panels__item_type_makethkug">
+                <p class="page-community-panels__para">Join Kotlin User Group  or start your own</p>
                 <a href="" class="kto-button kto-button_size_s kto-button_mode_outline">Start a new KUG</a>
             </li>
-            <li class="page-community-panels__item">
-                Get Inspired at Kotlin event  or host one yourself
+            <li class="page-community-panels__item page-community-panels__item_type_events">
+                <p class="page-community-panels__para">Get Inspired at Kotlin event  or host one yourself</p>
                 <a href="" class="kto-button kto-button_size_s kto-button_mode_outline">Get support</a>
             </li>
-            <li class="page-community-panels__item">
-                Contribute to the language and ecosystem
-                <a href="">Contributor guidelines</a>
+            <li class="page-community-panels__item page-community-panels__item_type_contribution">
+                <p class="page-community-panels__para">Contribute to the language and ecosystem</p>
+                <a href="" class="page-community-panels__link">Contributor guidelines</a>
             </li>
         </ul>
 

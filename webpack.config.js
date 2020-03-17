@@ -29,7 +29,8 @@ module.exports = (params = {}) => {
       'api': './static/js/page/api/api.js',
       'reference': './static/js/page/reference.js',
       'tutorial': './static/js/page/tutorial.js',
-      'styles': './static/css/styles.scss'
+      'styles': './static/css/styles.scss',
+      'styles-v2': './static/css/styles-v2.scss'
     },
 
     output: {

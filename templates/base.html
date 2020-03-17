@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     {% include 'inc/head.html' %}
     {% block styles %}{% endblock %}
@@ -16,12 +16,10 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <div class="global-layout">
-
     {% include 'inc/header.html' %}
     {% block page_outer_content %}
         <div class="g-layout global-content">
@@ -32,7 +30,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             {% endblock %}
         </div>
     {% endblock %}
-
 </div>
 
 {% include 'inc/footer.html' %}

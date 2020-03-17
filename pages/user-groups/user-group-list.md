@@ -9,10 +9,11 @@ The most common way to begin one is to find a few like-minded people and to get 
 
 ## Kotlin User Groups (203)
 
-<div class="g-grid">
-<div class="g-6" markdown="1">
+<div class="kto-groups-accordion">
 
 ### Europe
+
+<div class="kto-groups-accordion__">
 
  * [Aachen Kotlin User Group](https://www.facebook.com/groups/KUGAachen/), Germany
  * [Amsterdam Kotlin User Group](https://www.meetup.com/kotlin-amsterdam/), Netherlands

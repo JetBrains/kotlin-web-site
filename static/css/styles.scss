@@ -14,11 +14,10 @@
 @import 'com/events-table/events-table.scss';
 @import 'com/grammar/grammar.scss';
 @import 'com/toc/toc.scss';
+
 @import 'page/books.scss';
 @import 'page/multi-language-samples.scss';
 
-@import 'static/js/components/kto-button.scss';
-@import 'static/js/components/kto-header.scss';
-@import 'static/js/components/kto-tabs.scss';
-
 @import url("//resources.jetbrains.com/storage/ui/logos/logos.css");
+
+@import 'kto';
