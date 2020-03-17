@@ -244,14 +244,16 @@ $(document).ready(($) => {
 
   updateState();
 
-  ///The page is updated white code elements are formatted or hidden,
-  ///the code ensures the page is finally scrolled to the anchor/hash
-  setTimeout(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      window.location.hash = hash;
-    }
-  }, 10);
+  if (!Object.keys || Object.keys(selectorGroups).length !== 0) {
+    ///The page is updated white code elements are formatted or hidden,
+    ///the code ensures the page is finally scrolled to the anchor/hash
+    setTimeout(() => {
+      const hash = window.location.hash;
+      if (hash) {
+        window.location.hash = hash;
+      }
+    }, 10);
+  }
 });
 
 

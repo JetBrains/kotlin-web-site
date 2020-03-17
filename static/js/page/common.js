@@ -5,6 +5,7 @@ import '../com/search/search';
 import '../com/cities-banners';
 import GifPlayer from '../com/gif-player/gif-player';
 import CodeMirror from '../com/codemirror/CodeMirror';
+import './code-blocks'
 import '../com/head-banner';
 
 $(document).ready(function () {
