@@ -11,7 +11,7 @@ and tooling features described in this document are subject to change in future 
 {:.note}
 
 The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin multiplatform](multiplatform.html)
-projects. Here we provide a reference of its contents; use it as a reminder when writing or editing Gradle build scripts
+projects. Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
 for Kotlin multiplatform projects. For the concepts of Kotlin multiplatform projects and instructions on writing build scripts
 with the plugin, see [Building Multiplatform Projects with Gradle](building-mpp-with-gradle.html).
 
@@ -73,14 +73,14 @@ Inside `kotlin`, you can write the following blocks:
 
 |**Block**|**Description**|
 | --- | --- |
-|`<targetName>` |Configures a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.|
-|`targets` |All targets of the project|
-|`presets`  |All predefined targets. Use this for [configuring multiple predefined target](building-mpp-with-gradle.html#setting-up-targets) at once.|
-|`sourceSets`  |Configures predefined and custom [source sets](building-mpp-with-gradle.html#configuring-source-sets) of the project. |
+| _\<targetName\>_ |Configures a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.|
+|`targets` |All targets of the project.|
+|`presets` |All predefined targets. Use this for [configuring multiple predefined target](building-mpp-with-gradle.html#setting-up-targets) at once.|
+|`sourceSets` |Configures predefined and custom [source sets](building-mpp-with-gradle.html#configuring-source-sets) of the project. |
 
 ## Targets
 
-A _target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed for 
+_Target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed for 
 one of the [supported platforms](building-mpp-with-gradle.html#supported-platforms). The targets of a multiplatform project
  are described in the corresponding blocks inside `kotlin`, for example, `jvm`, `android`, `iosArm64`.
 The complete list of available targets is the following:
@@ -118,8 +118,7 @@ kotlin {
     jvm()
     iosX64()
     macosX64()
-    js().browser() {
-    }
+    js().browser()
 }
 ```
 
@@ -148,7 +147,12 @@ In addition to [common target configuration](#common-target-configuration), jvm 
 
 |**Name**|**Description**| 
 | --- | --- |
-|`withJava()`|Includes Java sources into the JVM target’s compilations. Use this for projects that contain both Java and Kotlin source files. Note that the default source directories for Java sources don't follow the Java plugin's defaults. Instead, they are derived from the Kotlin source sets. For example, if the JVM target has the default name `jvm`, the paths are `src/jvmMain/java` (for production Java sources) and `src/jvmTest/java` for test Java sources. For more information, see [Java support in JVM targets](building-mpp-with-gradle.html#java-support-in-jvm-targets).|
+|`withJava()`|Includes Java sources into the JVM target’s compilations. |
+
+Use this function for projects that contain both Java and Kotlin source files. Note that the default source directories for Java sources
+don't follow the Java plugin's defaults. Instead, they are derived from the Kotlin source sets. For example, if the JVM target
+has the default name `jvm`, the paths are `src/jvmMain/java` (for production Java sources) and `src/jvmTest/java` for test Java sources.
+For more information, see [Java support in JVM targets](building-mpp-with-gradle.html#java-support-in-jvm-targets).
 
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
 
@@ -182,7 +186,7 @@ For details about configuring Kotlin/JS projects, see [Setting up a Kotlin/JS pr
 |`testRuns`|Configuration of test execution.|
 |`runTask`|Configuration of project running.|
 |`webpackTask`|Configuration of project bundling with [Webpack](https://webpack.js.org/).|
-|`dceTask`|Configuration of Dead Code Elimination.|
+|`dceTask`|Configuration of [Dead Code Elimination](javascript-dce.html).|
 |`distribution`|Path to output files.|
 
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
@@ -193,7 +197,7 @@ kotlin {
         webpackTask { /* ... */ }
         testRuns { /* ... */ }
         dceTask {
-            keep("myKotlinJsApplication.org.example.keepFromDce_za3lpa$")
+            keep("myKotlinJsApplication.org.example.keepFromDce")
         }
         distribution {
             directory = File("$projectDir/customdir/")
@@ -218,7 +222,7 @@ kotlin {
 ```kotlin
 kotlin {
     js().nodejs {
-        webpackTask { /* ... */ }
+        runTask { /* ... */ }
         testRuns { /* ... */ }
     }
 }
@@ -396,7 +400,7 @@ Available predefined source sets are the following:
 | --- | --- |
 |`commonMain`| Code and resources shared between all platforms. Available in all multiplatform projects. Used in all main compilations of a project.|
 |`commonTest`| Test code and resources shared between all platforms. Available in all multiplatform projects. Used in all test compilations of a project.|
-|`<targetName><compilationName>`|Target-specific sources for a compilation. `<targetName>` is the name of a predefined target and `<compilationName>` is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`.|
+|_\<targetName\>\<compilationName\>_|Target-specific sources for a compilation. _\<targetName\>_ is the name of a predefined target and _\<compilationName\>_ is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`.|
 
 With Kotlin Gradle DSL, the sections of predefined source sets should be marked `by getting`.
 
