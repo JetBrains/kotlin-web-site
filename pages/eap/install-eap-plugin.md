@@ -4,7 +4,7 @@ title: Install the EAP Plugin for IntelliJ IDEA or Android Studio
 main_nav_id: install-eap-plugin
 ---
 
-# Install the EAP Plugin for IntelliJ IDEA or Android Studio
+# Install the Kotlin EAP Plugin for IntelliJ IDEA or Android Studio
 
 You can follow these instructions to install the preview version of the Kotlin Plugin for IntelliJ IDEA or Android Studio.
 
