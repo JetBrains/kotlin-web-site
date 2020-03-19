@@ -169,6 +169,7 @@ Here are some examples of such libraries:
 
 * [Smile](https://github.com/haifengl/smile) - a comprehensive machine learning, natural language processing, linear algebra,
  graph, interpolation, and visualization system
+   * [Smile-NLP-kt](https://github.com/londogard/smile-nlp-kt) - a Kotlin rewrite of the Scala implicits for the natural language processing part of Smile in the format of extension functions and interfaces.
 
 * [Apache Commons Math](http://commons.apache.org/proper/commons-math/) - a general math, statistics, and machine learning library for Java
 
