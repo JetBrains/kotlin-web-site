@@ -53,10 +53,10 @@ check [our instructions on how to configure your build to support this version](
          </td>
         <td>
             <ul>
-                <li><strong>kotlinx.serialization</strong>—<a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0-1.4-M1-release-99">0.20.0-1.4-M1-release-99</a></li>
-                <li><strong>kotlinx.coroutines</strong>—<a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.5-1.4-M1-release-99">1.3.5-1.4-M1-release-99</a></li>
-                <li><strong>kotlinx.atomicfu</strong>—<a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.2-1.4-M1-release-99">0.14.2-1.4-M1-release-99</a></li>          
-                <li><strong>ktor</strong>—<a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4-M1-release-99">1.3.2-1.4-M1-release-99</a></li>
+                <li><strong>kotlinx.serialization</strong>—<a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0-1.4-M1">0.20.0-1.4-M1</a></li>
+                <li><strong>kotlinx.coroutines</strong>—<a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.5-1.4-M1">1.3.5-1.4-M1</a></li>
+                <li><strong>kotlinx.atomicfu</strong>—<a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.2-1.4-M1">0.14.2-1.4-M1</a></li>          
+                <li><strong>ktor</strong>—<a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4-M1">1.3.2-1.4-M1</a></li>
             </ul>
         </td>
     </tr>
