@@ -38,7 +38,7 @@ check [our instructions on how to configure your build to support this version](
         <th>kotlinx library versions</th>
     </tr>
     <tr>
-        <td><strong>1.4-M1-release-99</strong>
+        <td><strong>1.4-M1</strong>
             <p> Released: <strong>March 2020</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M1">Release on GitHub</a></p>
         </td>

@@ -12,7 +12,7 @@ You only need to configure your build manually for existing projects — project
 
 To configure your build to use the EAP version of Kotlin, you need to: 
 
-*   Specify the EAP version of Kotlin. Available EAP versions are listed [here](index.html). 
+*   Specify the EAP version of Kotlin. Available EAP versions are listed [here](index.html#build-details). 
 *   Add the EAP repository to the build – <https://dl.bintray.com/kotlin/kotlin-eap>.
 *   Change the versions of dependencies to EAP ones.
 The EAP version of Kotlin may not work with the libraries of the previously released version. 
@@ -42,7 +42,7 @@ This section covers:
 
 #### Option 1. Configure in the build and settings files 
 
-1. In the `plugins` block within `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` to the actual EAP version, such as `1.4-M1-release-99`, where `1.4-M1` is the Kotlin release version and `99` is the build number.<br>
+1. In the `plugins` block within `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` to the actual EAP version, such as `1.4-M1`. Available EAP versions are listed [here](index.html#build-details).<br>
 Alternatively, you can specify the EAP version in the `pluginManagement` block in `settings.gradle` (`settings.gradle.kts`) – see [Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html#sec:plugin_version_management) for details.
 2. In the `repositories` block, specify the EAP repository – <https://dl.bintray.com/kotlin/kotlin-eap> – for dependencies.
 
@@ -122,7 +122,7 @@ pluginManagement {
 
 #### Option 2. Configure in the build file only 
 
-1. In `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` in the `buildscript` block to the actual EAP version, such as `1.4-M1-release-99`, where `1.4-M1` is the Kotlin release version and `99` is the build number.
+1. In `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` in the `buildscript` block to the actual EAP version, such as `1.4-M1`.  Available EAP versions are listed [here](index.html#build-details).
 2. Add the EAP repository – <https://dl.bintray.com/kotlin/kotlin-eap> – to the `buildscript` block.
 3. In the `repositories` block, specify the EAP repository for dependencies. 
 
@@ -196,7 +196,7 @@ dependencies {
 
 ## Configure in Maven
 
-In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the actual version, such as `1.4-M1-release-99`, where `1.4-M1` is the Kotlin release version and `99` is the build number.
+In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the actual version, such as `1.4-M1`. Available EAP versions are listed [here](index.html#build-details).
 
 <div class="sample" markdown="1" theme="idea" mode='xml'>
 
