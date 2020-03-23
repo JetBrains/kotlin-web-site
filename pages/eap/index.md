@@ -14,7 +14,7 @@ We’ll be very thankful if you find and report bugs to our issue tracker [YouTr
 It is very likely that we’ll be able to fix them before the final release, which means you won’t need to wait until the next Kotlin release for your issues to be addressed. 
 
 By participating in the Early Access Preview and reporting bugs, you contribute to Kotlin and help us make it better 
-for everyone in [the growing Kotlin community](https://kotlinlang.org/community/). We appreciate your help a lot! 
+for everyone in [the growing Kotlin community](/community/). We appreciate your help a lot! 
 
 If you have any questions and want to participate in discussions, you are welcome to join the _#eap_ channel in [Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF). 
 In this channel, you can also get notifications about new EAP builds.
@@ -39,14 +39,14 @@ check [our instructions on how to configure your build to support this version](
     </tr>
     <tr>
         <td><strong>1.4-M1</strong>
-            <p> Released: <strong>March 2020</strong></p>
+            <p> Released: <strong>March 23, 2020</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M1">Release on GitHub</a></p>
         </td>
         <td>
             <ul>
-                <li><a href="https://blog.jetbrains.com/kotlin/?p=7836&preview=true#new-type-inference">More powerful type inference algorithm</a></li>
-                <li><a href="https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#sam-conversions">SAM conversions for Kotlin classes</a></li>
-                <li>New backend for <a href="https://blog.jetbrains.com/kotlin/?p=7836&preview=true#kotlin-js">Kotlin/JS</a> that brings major improvements to the resulting artifacts</li>
+                <li>More powerful type inference algorithm</li>
+                <li>SAM conversions for Kotlin classes</li>
+                <li>New backend for Kotlin/JS that brings major improvements to the resulting artifacts</li>
                 <li>And many other improvements</li>
             </ul>
          </td>
