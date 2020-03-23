@@ -160,7 +160,7 @@ person?.department?.head = managersPool.getManager()
 
 ## Elvis Operator
 
-When we have a nullable reference `r`, we can say "if `r` is not null, use it, otherwise use some non-null value `x`":
+When we have a nullable reference `b`, we can say "if `b` is not null, use it, otherwise use some non-null value":
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
