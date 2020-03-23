@@ -277,7 +277,7 @@ reference:
         nav: _nav_reference.yml
         base: /docs/reference/native
         repo: https://github.com/JetBrains/kotlin-native
-        branch: v1.3.60-fixes
+        branch: v1.3.70-fixes
 
     - title: Tools
       description:
