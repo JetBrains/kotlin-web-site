@@ -17,7 +17,7 @@ Natural order is used for sorting them when no other order is specified.
 
 Most built-in types are comparable:
 
-* Numeric types use the traditional numerical order: `1` is greater than `0`; `-3.4f` is greater than `-5f`, an so on.
+* Numeric types use the traditional numerical order: `1` is greater than `0`; `-3.4f` is greater than `-5f`, and so on.
 * `Char` and `String` use the [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order): `b` is greater than `a`; `world` is greater than `hello`.
 
 To define a natural order for a user-defined type, make the type an inheritor of `Comparable`.
