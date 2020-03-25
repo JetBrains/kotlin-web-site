@@ -680,7 +680,7 @@ from the body. If a call takes a single lambda, it should be passed outside of p
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-list.filter { it > 10 }
+list.filter { it -> 10 }
 ```
 
 </div>
