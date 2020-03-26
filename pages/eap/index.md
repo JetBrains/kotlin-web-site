@@ -49,7 +49,7 @@ check [our instructions on how to configure your build to support this version](
                 <li>New backend for Kotlin/JS that brings major improvements to the resulting artifacts</li>
                 <li>And many other improvements</li>
             </ul>
-            <p> For more details, please refer to <a href="https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-4-m1-released/">the blog post</a>.</p>
+            <p> For more details, please refer to <a href="https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-4-m1-released/" target="_blank">the blog post</a>.</p>
          </td>
         <td>
             <ul>
