@@ -427,7 +427,7 @@ shortcut to open the console in the start menu. It comes with a Microsoft Visual
 package.  
 
 On Windows, Dynamic libraries are included either via a generated static library wrapper
-or with manual code, which deals with the [LoadLibrary](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684175.aspx)
+or with manual code, which deals with the [LoadLibrary](https://docs.microsoft.com/en-gb/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya)
 or similar Win32API functions. We will follow the first option and generate the static wrapper library
 for the `libnative.dll` on our own.
  

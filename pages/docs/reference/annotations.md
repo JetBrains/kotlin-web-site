@@ -135,7 +135,7 @@ annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any>)
 ### Lambdas
 
 Annotations can also be used on lambdas. They will be applied to the `invoke()` method into which the body
-of the lambda is generated. This is useful for frameworks like [Quasar](http://www.paralleluniverse.co/quasar/),
+of the lambda is generated. This is useful for frameworks like [Quasar](https://docs.paralleluniverse.co/quasar/),
 which uses annotations for concurrency control.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
