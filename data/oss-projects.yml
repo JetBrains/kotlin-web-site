@@ -267,3 +267,8 @@
   description: A GUI framework for Koltin based off of JavaFX
   type: Framework
   link: https://tornadofx.io
+  
+- name: Alpas
+  description: A web application framework
+  type: Framework
+  link: https://github.com/alpas/alpas
