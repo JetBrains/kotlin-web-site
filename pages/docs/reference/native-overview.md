@@ -29,7 +29,7 @@ Kotlin/Native supports the following platforms:
    * tvOS (arm64, x86_64)
    * Android (arm32, arm64, x86, x86_64)
    * Windows (mingw x86_64, x86)
-   * Linux (x86_64, arm32, MIPS, MIPS little endian, Raspberry Pi)
+   * Linux (x86_64, arm32, arm64, MIPS, MIPS little endian)
    * WebAssembly (wasm32)
 
 ## Interoperability
