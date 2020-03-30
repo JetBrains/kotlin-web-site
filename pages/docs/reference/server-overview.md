@@ -38,6 +38,8 @@ It serves as an alternative to traditional templating systems such as JSP and Fr
  * [Micronaut](https://micronaut.io/) is a modern, JVM-based, full-stack framework for building modular, easily testable microservice and serverless applications. It comes with a lot of built-in, handy features.
  
  * [Javalin](https://javalin.io) is a very lightweight web framework for Kotlin and Java which supports WebSockets, HTTP2 and async requests.
+ 
+ * [Alpas](https://alpas.dev) is a Laravel inspired web framework for Kotlin that includes out-of-the-box support for authentication, security, databases, emails, and queues, among others.
 
  * The available options for persistence include direct JDBC access, JPA, as well as using NoSQL databases through their Java drivers.
 For JPA, the [kotlin-jpa compiler plugin](/docs/reference/compiler-plugins.html#jpa-support) adapts
