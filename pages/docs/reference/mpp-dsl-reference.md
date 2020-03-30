@@ -102,9 +102,10 @@ The complete list of available targets is the following:
 |`watchosX86`|Apple watchOS simulator|
 |`tvosArm64`|Apple tvOS on ARM64 platforms (Apple TV 4th generation and newer)|
 |`tvosX64`|Apple tvOS simulator|
+|`linuxArm64`|Linux on ARM64 platforms, for example, Raspberry Pi|
 |`linuxArm32Hfp`|Linux on hard-float ARM (ARM32) platforms|
 |`linuxMips32`|Linux on MIPS platforms|
-|`linuxMipsel32`|Linux on litte-endian MIPS (mipsel) platforms|
+|`linuxMipsel32`|Linux on little-endian MIPS (mipsel) platforms|
 |`linuxX64`|Linux on x86_64 platforms|
 |`macosX64`|Apple macOS|
 |`mingwX64`|64-bit Microsoft Windows|

@@ -402,7 +402,7 @@ following target platforms:
     * `iosArm32`, `iosArm64`, `iosX64` for iOS;
     * `watchosArm32`, `watchosArm64`, `watchosX86` for watchOS;
     * `tvosArm64`, `tvosX64` for tvOS;
-    * `linuxArm32Hfp`, `linuxMips32`, `linuxMipsel32`, `linuxX64` for Linux;
+    * `linuxArm64`, `linuxArm32Hfp`, `linuxMips32`, `linuxMipsel32`, `linuxX64` for Linux;
     * `macosX64` for MacOS;
     * `mingwX64` and `mingwX86` for Windows;
     * `wasm32` for WebAssembly.
