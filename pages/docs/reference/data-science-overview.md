@@ -54,11 +54,11 @@ To install the kernel, use [Conda](https://docs.conda.io/projects/conda/en/lates
 conda install kotlin-jupyter-kernel -c jetbrains
 ```
 
+</div>
+
 There are also other installation options. For example, you may use `pip` package manager
 or install a non-stable version of the kernel. Get more info about installation process
 [here](https://github.com/Kotlin/kotlin-jupyter#installation).
-
-</div>
 
 Once the kernel is installed, feel free to run the Jupyter notebook and switch to the Kotlin kernel.
 And that’s all there is to it, you can then write and run Kotlin in your notebook! 
