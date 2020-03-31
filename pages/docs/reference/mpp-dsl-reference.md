@@ -75,7 +75,7 @@ Inside `kotlin`, you can write the following blocks:
 | --- | --- |
 | _\<targetName\>_ |Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.|
 |`targets` |All targets of the project.|
-|`presets` |All predefined targets. Use this for [configuring multiple predefined target](building-mpp-with-gradle.html#setting-up-targets) at once.|
+|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](building-mpp-with-gradle.html#setting-up-targets) at once.|
 |`sourceSets` |Configures predefined and declares custom [source sets](building-mpp-with-gradle.html#configuring-source-sets) of the project. |
 
 ## Targets
