@@ -11,7 +11,7 @@ title: "Opt-in Requirements"
 > See the usage details [below](#experimental-status-of-the-opt-in-requirements).
 {:.note} 
 
-> Since 1.3.70, `@RequiresOptIn` and `@OptIn` replace  `@Experimental` and `@UseExperimental` respectively;
+> `RequireOptIn` and `OptIn` annotations were introduced in 1.3.70 to replace previously used `Experimental` and `UseExperimental`;
 > the compiler option `-Xopt-in` replaces `-Xuse-experimental`.
 {:.note} 
 
