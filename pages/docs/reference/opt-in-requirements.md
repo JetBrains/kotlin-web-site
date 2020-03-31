@@ -7,9 +7,14 @@ title: "Opt-in Requirements"
 
 # Opt-in Requirements
 
-> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are *experimental* in Kotlin 1.3.
+> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are *experimental*. 
 > See the usage details [below](#experimental-status-of-the-opt-in-requirements).
-{:.note}
+{:.note} 
+
+> Since 1.3.70, `@RequiresOptIn` and `@OptIn` replace  `@Experimental` and `@UseExperimental` respectively;
+> the compiler option `-Xopt-in` replaces `-Xuse-experimental`.
+{:.note} 
+
 
 The Kotlin standard library provides a mechanism for requiring and giving explicit consent for using certain elements of APIs.
 This mechanism lets library developers inform users of their APIs about specific conditions that require opt-in,
