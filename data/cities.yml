@@ -1,3 +1,19 @@
+- name: Dortmund, Germany
+  geo:
+    lat: 51.523549
+    lng: 7.470372
+- name: Salt Lake City, UT, USA
+  geo:
+    lat: 40.77645
+    lng: -111.948913
+- name: Stockton, CA, USA
+  geo:
+    lat: 37.921372
+    lng: -121.261478
+- name: Jundiaí, Brazil
+  geo:
+    lat: -23.184388
+    lng: -46.880488
 - name: Gijón, Spain
   geo:
     lat: 43.540125

@@ -1,5 +1,184 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-04-01</startDate>
+        <endDate>2020-04-01</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Ian Brandt</speaker>
+        <title>San Diego Kotlin User Group</title>
+        <subject>Monthly Kotlin Online!</subject>
+        <url>https://www.meetup.com/sd-kotlin/events/lxdrlrybcgbcb/</url>
+        <description>
+            <![CDATA[
+<p>This meeting is exclusively online via the Google Hangouts Meet link below. There will be *no* in-person meeting at Platform Science.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2020-04-07</startDate>
+        <endDate>2020-04-07</endDate>
+        <location>Jundiaí, Brazil</location>
+        <speaker>Fernando Rosa</speaker>
+        <title>JunDevelopers</title>
+        <subject>Programando OO com Kotlin... Não, pera! Programando Funcional!</subject>
+        <url>https://www.meetup.com/JunDevelopers/events/269748146/</url>
+        <description>
+            <![CDATA[
+<p>Techlead no SAS, é pai do Rafa, cantor de musica sertaneja nas horas vagas e tem mais de 10 anos de experiência com desenvolvimento em linguagens que usam a JVM. É grande entusiasta de assuntos como qualidade de código e boas práticas. Vai contar sobre sua experiência com Kotlin e Programação Funcional.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-04-08</startDate>
+        <endDate>2020-04-08</endDate>
+        <location>Istanbul, Turkey</location>
+        <speaker>Caner Patır and Bilal Kılıç</speaker>
+        <title>Trendyol Tech Meetup</title>
+        <subject>Async programing using kotlin in Trendyol</subject>
+        <url>https://www.meetup.com/trendyol/events/269642137/</url>
+        <description>
+            <![CDATA[
+<p>In Trendyol , We are using lots of different languages for backends. One of them is Kotlin. It is JVM based and has native support for async programing. We will talk about one of the awesome future of kotlin integrated with Alibaba and ktor (https://ktor.io/) framework.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-04-09</startDate>
+        <endDate>2020-04-09</endDate>
+        <location>Stockton, CA, USA</location>
+        <speaker>James Foley</speaker>
+        <title>CodeStack Meetup</title>
+        <subject>>Kotlin With James Foley</subject>
+        <url>https://www.meetup.com/CodeStack/events/269530206/</url>
+        <description>
+            <![CDATA[
+<p>Step into the world of Kotlin and discover why and how it has surpassed Java. We'll take an at-a-glance look at Java to compare it with Kotlin's Classes, Extensions, Control Flow, Null Safety and Type Inference — just a small portion of what Kotlin improves.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-04-15</startDate>
+        <endDate>2020-04-15</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>James Foley</speaker>
+        <title>Movify Community</title>
+        <subject>>Kotlin, the language that keeps on giving</subject>
+        <url>https://www.meetup.com/movify/events/269453696/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is not new anymore, so you may have heard of it, you may have worked with it. But do you really know all the language can do? In this talk I'll go through an overview of some the key features of the language. You might learn a thing or two!</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-04-16</startDate>
+        <endDate>2020-04-16</endDate>
+        <location>Salt Lake City, UT, USA</location>
+        <speaker>Todd Ginsberg</speaker>
+        <title>Utah Java Users Group</title>
+        <subject>>Kotlin - Todd Ginsberg</subject>
+        <url>https://www.meetup.com/Utah-Java-Users-Group/events/265253908/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, you will learn where Kotlin came from, what its major features are, and why people are using it more and more. At the end of the talk, you will be in a position to make an educated decision about whether Kotlin is right for you!</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-04-18</startDate>
+        <endDate>2020-04-18</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Rajmahendra</speaker>
+        <title>Kotlin Hyderabad</title>
+        <subject>>Java &amp; Kotlin Community</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/268825756/</url>
+        <description>
+            <![CDATA[
+<p>You may be a Student, Fresher, Developer, Architect, etc. We all are considered as Users. What is beyond being a User of a Language? Is there any way can be part of a Language global community? Speaker shares his experience of his journey in the Java community and adds his view on how to make KotlinHyderabad a Community than a User group.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-04-23</startDate>
+        <endDate>2020-04-23</endDate>
+        <location>México City, Mexico</location>
+        <speaker>Bedu</speaker>
+        <title>Academia de tecnología y programación México (BEDU)</title>
+        <subject>>Kotlin, el futuro del desarrollo móvil/Sesiones en vivo.</subject>
+        <url>https://www.meetup.com/DevelopersAcademy/events/269534932/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin es considerado por Google como uno de los lenguajes oficiales para desarrollar para Android, es muy fácil de aprender y tiene alta demanda en el mercado además según los últimos datos facilitados por Google en el mundo hay 2.500 millones de dispositivos activos de Android.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-04-30</startDate>
+        <endDate>2020-04-30</endDate>
+        <location>Washington, DC</location>
+        <speaker>Abhay Bakshi</speaker>
+        <title>Coding Bootcamps</title>
+        <subject>>How it fixes many Java issues- free Workshop</subject>
+        <url>https://www.meetup.com/coding-bootcamps/events/267436342/</url>
+        <description>
+            <![CDATA[
+<p>Learn constructs for both Object Oriented and Functional programming styles, which can be mixed using Kotlin. This is power packed. Kotlin is is concise, expressive, and safe. It is a modern, statically typed language within the JVM developed by JetBrains under the Apache 2.0 license.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-05-07</startDate>
+        <endDate>2020-05-07</endDate>
+        <location>Bielefeld, Germany</location>
+        <speaker>Chris Werner Rau</speaker>
+        <title>Bielefelder Kotlin User Group</title>
+        <subject>>Kotlin - Mini Hackaton</subject>
+        <url>https://www.meetup.com/coding-bootcamps/events/267436342/</url>
+        <description>
+            <![CDATA[
+<p>Passend dazu wollen wir einen Mini Hackaton in Kotlin machen. Wir werden uns in Pairs und Mobs aufteilen und gemeinsam eine Lösung für das Contest Game in Kotlin entwickeln. Egal ob Kotlin Experte oder absoluter Neuanfänger, alle können Ihren Teil beitragen und sind herzlich eingeladen mitzumachen.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-05-13</startDate>
+        <endDate>2020-05-13</endDate>
+        <location>Dortmund, Germany</location>
+        <speaker>Martin Schwitalla, Damian Lippok</speaker>
+        <title>Zalando Tech Events Dortmund</title>
+        <subject>>Find out how we utilize Kotlin for implementing microservices</subject>
+        <url>https://www.meetup.com/Zalando-Tech-Events-Dortmund/events/268799662/</url>
+        <description>
+            <![CDATA[
+<p>We are excited to invite you to a Kotlin meetup kindly hosted by the Zalando Tech Hub in Dortmund. Kotlin is mostly known as the go-to language for Android development. But it is also great as a more convenient alternative to Java for developing backend services. We at Zalando use Kotlin in both environments and our team has been developing Kotlin backend services at the core of our platform for more than 2 years now.</p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>en</lang>
         <startDate>2020-01-08</startDate>
@@ -957,8 +1136,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-04-13</startDate>
-        <endDate>2020-04-13</endDate>
+        <startDate>2020-09-28</startDate>
+        <endDate>2020-09-29</endDate>
         <location>Chicago, USA</location>
         <speaker>Matt Moore</speaker>
         <title>Chicago Roboto</title>
@@ -973,8 +1152,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-04-13</startDate>
-        <endDate>2020-04-13</endDate>
+        <startDate>2020-09-28</startDate>
+        <endDate>2020-09-29</endDate>
         <location>Chicago, USA</location>
         <speaker>Jossi Wolf</speaker>
         <title>Chicago Roboto</title>
@@ -991,8 +1170,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-04-13</startDate>
-        <endDate>2020-04-13</endDate>
+        <startDate>2020-09-28</startDate>
+        <endDate>2020-09-29</endDate>
         <location>Chicago, USA</location>
         <speaker>Sean McQuillan</speaker>
         <title>Chicago Roboto</title>
@@ -1007,8 +1186,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-04-13</startDate>
-        <endDate>2020-04-13</endDate>
+        <startDate>2020-09-28</startDate>
+        <endDate>2020-09-29</endDate>
         <location>Chicago, USA</location>
         <speaker>Adetunji Dahunsi</speaker>
         <title>Chicago Roboto</title>
@@ -1027,8 +1206,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-04-13</startDate>
-        <endDate>2020-04-13</endDate>
+        <startDate>2020-09-28</startDate>
+        <endDate>2020-09-29</endDate>
         <location>Chicago, USA</location>
         <speaker>Ryan Pierce</speaker>
         <title>Chicago Roboto</title>
