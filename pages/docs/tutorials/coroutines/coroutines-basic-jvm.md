@@ -249,7 +249,7 @@ All these have already started, all we need is collect the results:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum = deferred.map { it.await().toLong() }.sum()
+val sum = deferred.map { it.await() }.sum()
 ```
 
 </div>
@@ -264,7 +264,7 @@ We simply take every coroutine and await its result here, then all results are a
 
 ```kotlin
 runBlocking {
-    val sum = deferred.map { it.await().toLong() }.sum()
+    val sum = deferred.map { it.await() }.sum()
     println("Sum: $sum")
 }
 ```
