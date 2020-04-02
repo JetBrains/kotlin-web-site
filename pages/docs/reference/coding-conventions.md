@@ -119,16 +119,16 @@ var declarationCount = 1
 
 </div>
 
-Exception: factory functions used to create instances of classes can have the same name as the class being created:
+Exception: factory functions used to create instances of classes can have the same name as the abstract return type:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-abstract class Foo { /*...*/ }
+interface Foo { /*...*/ }
 
 class FooImpl : Foo { /*...*/ }
 
-fun FooImpl(): Foo { return FooImpl() }
+fun Foo(): Foo { return FooImpl() }
 ```
 </div>
 
