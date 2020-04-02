@@ -1,19 +1,22 @@
 import $ from "jquery";
 
-const BANNER_KEY = 'kotlin-kotlinconf-15-11-19';
+const BANNER_KEY = 'kotlin-global-banner';
 
-$(document).ready(() => {
-  const isClosed = window.localStorage.getItem(BANNER_KEY);
+$(() => {
+  const $bannerContainer = $('.banner-container');
+  let bannerKey = $bannerContainer.data('banner-id') || BANNER_KEY;
+
+  const isClosed = window.localStorage.getItem(bannerKey);
+
   if (!isClosed) {
-    const $banner = $('.banner-nav');
-    $banner.css("display", "block");
-    const searchButton = $('.close-head-banner');
-    searchButton.on('click touch', closeBanner);
-  }
+    const $banner = $bannerContainer.closest('.banner-nav');
 
-  function closeBanner() {
-    const $banner = $('.banner-nav');
-    $banner.css("display", "none");
-    window.localStorage.setItem(BANNER_KEY, "true");
+    $bannerContainer.on('click touch', $bannerContainer, function closeBanner() {
+      const $banner = $('.banner-nav');
+      $banner.css("display", "none");
+      window.localStorage.setItem(bannerKey, "true");
+    });
+
+    $banner.css("display", "block");
   }
 });
