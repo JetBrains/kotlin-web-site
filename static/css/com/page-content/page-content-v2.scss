@@ -2,6 +2,8 @@
 @import '../../_utils';
 @import '../_bits/_header';
 
+@import '../_page-content/page-content';
+
 .page-content {
     font-family: Inter, Arial, sans-serif;
     color: #27282C;
@@ -10,6 +12,7 @@
     line-height: 28px;
     margin: 24px 0;
 }
+
 a {
     color: #6B70FC;
     text-decoration: none;
