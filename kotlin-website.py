@@ -208,7 +208,7 @@ def pdf():
 
 @app.route('/docs/resources.html')
 def resources():
-    return render_template('pages/resources.html')
+    return render_template('redirect.html', url="https://kotlin.link/")
 
 
 @app.route('/community/')

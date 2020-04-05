@@ -26,9 +26,6 @@ subnav:
 
         - url: /docs/books.html
           title: Books
-
-        - url: /docs/resources.html
-          title: More resources
     - url: /community/
       content:
         - url: /community/
