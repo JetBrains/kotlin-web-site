@@ -516,7 +516,7 @@ open class Polygon {
 }
 
 abstract class Rectangle : Polygon() {
-    override abstract fun draw()
+    abstract override fun draw()
 }
 ```
 
