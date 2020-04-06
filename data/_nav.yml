@@ -199,6 +199,9 @@ reference:
           title: Platform-Specific Declarations
         - url: /docs/reference/building-mpp-with-gradle.html
           title: Building with Gradle
+        - url: /docs/reference/mpp-dsl-reference.html
+          title: Multiplatform Gradle DSL Reference
+
 
     - title: More Language Constructs
       description: Various bits and bobs
