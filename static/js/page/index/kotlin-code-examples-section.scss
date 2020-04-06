@@ -23,6 +23,15 @@
   .CodeMirror {
     height: 400px;
     border-bottom: 1px solid grey;
+    background: transparent;
+  }
+
+  .CodeMirror .CodeMirror-gutters {
+    background: transparent;
+  }
+
+  .standard-output {
+    color: #afb1b3;
   }
 
   .CodeMirror pre.CodeMirror-line {
@@ -55,7 +64,7 @@
     overflow-y: hidden;
   }
 
-  .output-wrapper.darcula {
+  .output-wrapper {
     min-height: 120px;
     font-size: 24px;
     background-color: transparent;
@@ -63,7 +72,7 @@
     border-bottom: 1px solid grey;
   }
 
-  .executable-fragment.darcula {
+  .executable-fragment {
     margin-top: 20px;
     border: none;
     background-color: transparent;
