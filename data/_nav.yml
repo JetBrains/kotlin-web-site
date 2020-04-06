@@ -342,14 +342,6 @@ tutorials:
           title: Koans
         - url: /docs/tutorials/competitive-programming.html
           title: Competitive Programming
-    - title: Android
-      content:
-        - url: /docs/tutorials/kotlin-android.html
-          title: Getting Started With Android Development
-        - url: /docs/tutorials/android-plugin.html
-          title: Kotlin Android Extensions
-        - url: /docs/tutorials/android-frameworks.html
-          title: Android Frameworks
     - title: Java Interop
       content:
         - url: /docs/tutorials/mixing-java-kotlin-intellij.html
