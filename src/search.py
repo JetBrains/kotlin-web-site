@@ -219,7 +219,9 @@ def build_search_indices(site_structure, pages):
             if content.status_code != 200:
                 raise Exception('Bad response during indexing')
             parsed = BeautifulSoup(content.data, "html.parser")
-            title = parsed.find("title").text
+            title_node = parsed.find("title")
+            if not title_node: raise Exception('Url doesn\'t have title: {}\n{}'.format(url, content.data))
+            title = title_node.text
 
             content = parsed.find("div", {"class": "page-content"})
             if content is None:
