@@ -251,7 +251,7 @@ For a **read-only** property (*val*{:.keyword}), a delegate has to provide an op
 * `thisRef` --- must be the same or a supertype of the _property owner_ (for extension properties --- the type being extended).
 * `property` --- must be of type `KProperty<*>` or its supertype.
  
-`getValue()` must return the same type as property (or its subtype).
+`getValue()` must return the same type as the property (or its subtype).
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -278,7 +278,7 @@ with the following parameters:
 * `property` --- must be of type `KProperty<*>` or its supertype.
 * `value` --- must be of the same type as the property (or its supertype).
 
-Actual values of the `value` parameter must be of the same type as property of its subtype. 
+Actual values of the `value` parameter must be of the same type as the property or its subtype. 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -286,16 +286,18 @@ Actual values of the `value` parameter must be of the same type as property of i
 class Resource
 
 class Owner {
-    val valResource: Resource by ResourceDelegate()
     var varResource: Resource by ResourceDelegate()
 }
 
-class ResourceDelegate {
+class ResourceDelegate(private var resource: Resource = Resource()) {
     operator fun getValue(thisRef: Owner, property: KProperty<*>): Resource {
-        return Resource()
+        return resource
     }
-    
-    operator fun setValue(thisRef: Owner, property: KProperty<*>, value: Resource) {}
+    operator fun setValue(thisRef: Owner, property: KProperty<*>, value: Any?) {
+        if (value is Resource) {
+            resource = value
+        }
+    }
 }
 ```
 
