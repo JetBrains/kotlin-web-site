@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractCssPlugin = require('mini-css-extract-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-
+console.log(path.join(__dirname, '/static/js/playground.min.js'))
 module.exports = (params = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
   const isDevelopment = !isProduction;
@@ -130,7 +130,7 @@ module.exports = (params = {}) => {
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
         fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
-        Promise: 'imports-loader?this=>global!exports-loader?global.Promise!core-js/es6/promise'
+        Promise: 'imports-loader?this=>global!exports-loader?global.Promise!core-js/es6/promise',
       }),
 
       new webpack.DefinePlugin({
@@ -141,6 +141,10 @@ module.exports = (params = {}) => {
     ],
 
     stats: 'minimal',
+
+    externals: {
+      'kotlin-playground': 'window.KotlinPlayground'
+    },
 
     devServer: {
       port: 9000,
