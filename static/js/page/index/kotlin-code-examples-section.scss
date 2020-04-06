@@ -20,10 +20,6 @@
 
   position: relative;
 
-  .cm-s-darcula.CodeMirror {
-    background: transparent;
-  }
-
   .CodeMirror {
     height: 400px;
     border-bottom: 1px solid grey;
@@ -53,11 +49,6 @@
 
   .ERRORgutter, .WARNINGgutter {
     margin-top: 2 * $unit;
-  }
-
-  .CodeMirror-gutters {
-    background: none !important;
-    border-right: none !important;
   }
 
   .code-output {

@@ -11,7 +11,7 @@
     "babel-loader": "7",
     "babel-plugin-transform-runtime": "^6.23.0",
     "clean-webpack-plugin": "0.1.18",
-    "codemirror": "5.39.0",
+    "codemirror": "^5.49.0",
     "core-js": "^2.4.1",
     "css-loader": "2.1.0",
     "cssnano": "4.1.8",
@@ -57,7 +57,7 @@
   "scripts": {
     "build": "webpack --bail",
     "build:production": "NODE_ENV=production webpack --bail -p",
-    "postinstall": "cd node_modules/codemirror && rollup -c",
+    "postinstall": "cd node_modules/codemirror && rollup -c rollup.config.js",
     "start": "webpack-dev-server"
   }
 }

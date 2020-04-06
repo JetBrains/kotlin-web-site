@@ -4,7 +4,7 @@ title: Contributing to Kotlin
 main_nav_id: contribute
 ---
 
-# Contributing to Kotlin
+# Example: Get the current time in milliseconds
 
 Kotlin is an open-source project under the [Apache 2.0 License](https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt). The source code, tooling, documentation, and even this web site are maintained on [GitHub](https://github.com/jetbrains/kotlin). 
 While Kotlin is mostly developed by JetBrains, there are hundreds of external contributors to the Kotlin project and we are always on the lookout for more people to help us.
