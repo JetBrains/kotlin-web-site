@@ -115,7 +115,7 @@ def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
             continue
         if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span', 'strong']:
             valuable_content.append(child.text)
-        elif child.name in ['ul', 'ol', 'blockquote', 'div']:
+        elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section']:
             valuable_content += get_valuable_content(page_path, child.children)
         elif child.name in ['pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img']:
             continue
@@ -140,7 +140,7 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
     headers = ['h1', 'h2', 'h3']
     index_objects = []
     children = [element for element in content.children if isinstance(element, Tag)]
-    if children[0].name not in headers:
+    if len(children) > 0 and children[0].name not in headers:
         return get_page_index_objects(content, url, page_path, title, page_type, page_views)
     block_title = ""
     content = []
@@ -210,16 +210,16 @@ def build_search_indices(site_structure, pages):
                 breadcrumbs.extract()
             type = "Standard Library" if "jvm/stdlib" in url else "Kotlin Test"
             index_objects += get_page_index_objects(page_info['content'], url, page_path, full_name, type, page_views)
-        elif endpoint in ["coroutines_redirect", "coroutines_tutor_redirect", "events_redirect", "community_redirect",
-                          "compatibility_redirect", "collections_redirect", "community_user_groups_redirect"]:
-            continue
+        elif endpoint.endswith("_redirect"): continue
         else:
             client = app.test_client()
             content = client.get(url, follow_redirects=True)
             if content.status_code != 200:
                 raise Exception('Bad response during indexing')
             parsed = BeautifulSoup(content.data, "html.parser")
-            title = parsed.find("title").text
+            title_node = parsed.find("title")
+            if not title_node: raise Exception('Url doesn\'t have title: {}\n{}'.format(url, content.data))
+            title = title_node.text
 
             content = parsed.find("div", {"class": "page-content"})
             if content is None:
