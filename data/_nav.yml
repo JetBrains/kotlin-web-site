@@ -298,9 +298,9 @@ reference:
         - url: /docs/reference/kapt.html
           title: Kapt
         - url: /docs/reference/kotlin-doc.html
-          title: Dokka for documenting code
+          title: Dokka
         - url: /docs/reference/kotlin-osgi.html
-          title: Kotlin and OSGi
+          title: OSGi
 
     - title: Evolution
       description: Langauge evolution and compatibility
