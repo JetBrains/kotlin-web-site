@@ -447,7 +447,7 @@ def get_index_page(page_path):
 
 @app.after_request
 def add_header(request):
-    request.heade`rs["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    request.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     request.headers["Pragma"] = "no-cache"
     request.headers["Expires"] = "0"
     request.headers['Cache-Control'] = 'public, max-age=0'
