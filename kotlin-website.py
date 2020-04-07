@@ -206,11 +206,6 @@ def pdf():
         return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
 
 
-@app.route('/docs/resources.html')
-def resources():
-    return render_template('redirect.html', url="https://kotlin.link/")
-
-
 @app.route('/community/')
 def community_page():
     return render_template('pages/community.html')
@@ -240,6 +235,11 @@ def collections_redirect():
 @app.route('/docs/reference/experimental.html')
 def optin_redirect():
     return render_template('redirect.html', url=url_for('page', page_path='/docs/reference/opt-in-requirements'))
+
+@app.route('/docs/resources.html')
+def resources_redirect():
+    return render_template('redirect.html', url="https://kotlin.link/")
+
 
 @app.route('/')
 def index_page():
@@ -447,7 +447,7 @@ def get_index_page(page_path):
 
 @app.after_request
 def add_header(request):
-    request.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    request.heade`rs["Cache-Control"] = "no-cache, no-store, must-revalidate"
     request.headers["Pragma"] = "no-cache"
     request.headers["Expires"] = "0"
     request.headers['Cache-Control'] = 'public, max-age=0'
