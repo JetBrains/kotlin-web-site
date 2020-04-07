@@ -6,6 +6,11 @@ title: "Compiler Plugins"
 
 # Compiler Plugins
 
+* [All-open compiler plugin](#all-open-compiler-plugin)
+* [No-arg compiler plugin](#no-arg-compiler-plugin)
+* [SAM-with-receiver compiler plugin](#sam-with-receiver-compiler-plugin)
+* [`Parcelable` implementations generator](#parcelable-implementations-generator)
+
 ## All-open compiler plugin
 
 Kotlin has classes and their members `final` by default, which makes it inconvenient to use frameworks and libraries such as Spring AOP that require classes to be `open`. The *all-open* compiler plugin adapts Kotlin to the requirements of those frameworks and makes classes annotated with a specific annotation and their members open without the explicit `open` keyword.
@@ -463,4 +468,100 @@ Just add the plugin JAR file to the compiler plugin classpath and specify the li
 -P plugin:org.jetbrains.kotlin.samWithReceiver:annotation=com.my.SamWithReceiver
 ```
 
+</div>
+
+## `Parcelable` implementations generator
+
+Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator.
+
+Annotate the class with `@Parcelize`, and a `Parcelable` implementation will be generated automatically.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class User(val firstName: String, val lastName: String, val age: Int): Parcelable
+```
+</div>
+
+`@Parcelize` requires all serialized properties to be declared in the primary constructor. Android Extensions will issue a warning on each property 
+with a backing field declared in the class body. Also, `@Parcelize` can't be applied if some of the primary constructor parameters are not properties.
+
+If your class requires more advanced serialization logic, write it inside a companion class:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+@Parcelize
+data class User(val firstName: String, val lastName: String, val age: Int) : Parcelable {
+    private companion object : Parceler<User> {
+        override fun User.write(parcel: Parcel, flags: Int) {
+            // Custom write implementation
+        }
+
+        override fun create(parcel: Parcel): User {
+            // Custom read implementation
+        }
+    }
+}
+```
+</div>
+
+
+### Supported types
+
+`@Parcelize` supports a wide range of types:
+
+- primitive types (and their boxed versions);
+- objects and enums;
+- `String`, `CharSequence`;
+- `Exception`;
+- `Size`, `SizeF`, `Bundle`, `IBinder`, `IInterface`, `FileDescriptor`;
+- `SparseArray`, `SparseIntArray`, `SparseLongArray`, `SparseBooleanArray`;
+- all `Serializable` (yes, `Date` is supported too) and `Parcelable` implementations;
+- collections of all supported types: `List` (mapped to `ArrayList`), `Set` (mapped to `LinkedHashSet`), `Map` (mapped to `LinkedHashMap`);
+    + Also a number of concrete implementations: `ArrayList`, `LinkedList`, `SortedSet`, `NavigableSet`, `HashSet`, `LinkedHashSet`, `TreeSet`, `SortedMap`, `NavigableMap`, `HashMap`, `LinkedHashMap`, `TreeMap`, `ConcurrentHashMap`;
+- arrays of all supported types;
+- nullable versions of all supported types.
+
+
+### Custom `Parceler`s
+
+Even if your type is not supported directly, you can write a `Parceler` mapping object for it.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+class ExternalClass(val value: Int)
+
+object ExternalClassParceler : Parceler<ExternalClass> {
+    override fun create(parcel: Parcel) = ExternalClass(parcel.readInt())
+
+    override fun ExternalClass.write(parcel: Parcel, flags: Int) {
+        parcel.writeInt(value)
+    }
+}
+```
+</div>
+
+External parcelers can be applied using `@TypeParceler` or `@WriteWith` annotations:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+// Class-local parceler
+@Parcelize
+@TypeParceler<ExternalClass, ExternalClassParceler>()
+class MyClass(val external: ExternalClass)
+
+// Property-local parceler
+@Parcelize
+class MyClass(@TypeParceler<ExternalClass, ExternalClassParceler>() val external: ExternalClass)
+
+// Type-local parceler
+@Parcelize
+class MyClass(val external: @WriteWith<ExternalClassParceler>() ExternalClass)
+```
 </div>

@@ -75,7 +75,7 @@ that can run without a VM. There is a Technology Preview released but it is not 
 ### What IDEs support Kotlin?
 
 Kotlin is supported by all major Java IDEs including [IntelliJ IDEA](/docs/tutorials/getting-started.html),
-[Android Studio](/docs/tutorials/kotlin-android.html), [Eclipse](/docs/tutorials/getting-started-eclipse.html) and 
+[Android Studio](https://developer.android.com/kotlin/get-started), [Eclipse](/docs/tutorials/getting-started-eclipse.html) and 
 [NetBeans](http://plugins.netbeans.org/plugin/68590/kotlin). In addition, a [command line compiler](/docs/tutorials/command-line.html) 
 is available and provides straightforward support for compiling and running applications.
   

@@ -242,9 +242,11 @@ reference:
       description: Grammar and other information
       content:
         - url: /docs/reference/keyword-reference.html
-          title: Keywords and Operators
+          title: Keywords and operators
         - url: /docs/reference/grammar.html
           title: Grammar
+        - url: /docs/reference/code-style-migration-guide.html
+          title: Coding style conventions
 
 
     - title: Java Interop
@@ -286,24 +288,22 @@ reference:
       description:
       content:
   #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
-        - url: /docs/reference/kotlin-doc.html
-          title: Documenting Kotlin Code
-        - url: /docs/reference/kapt.html
-          title: Using Kapt
-        - url: /docs/reference/compiler-reference.html
-          title: Kotlin Compiler Options
         - url: /docs/reference/using-gradle.html
-          title: Using Gradle
+          title: Gradle
         - url: /docs/reference/using-maven.html
-          title: Using Maven
+          title: Maven
         - url: /docs/reference/using-ant.html
-          title: Using Ant
-        - url: /docs/reference/kotlin-osgi.html
-          title: Kotlin and OSGi
+          title: Ant
+        - url: /docs/reference/compiler-reference.html
+          title: Compiler options
         - url: /docs/reference/compiler-plugins.html
           title: Compiler plugins
-        - url: /docs/reference/code-style-migration-guide.html
-          title: Coding Conventions
+        - url: /docs/reference/kapt.html
+          title: Kapt
+        - url: /docs/reference/kotlin-doc.html
+          title: Dokka
+        - url: /docs/reference/kotlin-osgi.html
+          title: OSGi
 
     - title: Evolution
       description: Langauge evolution and compatibility
@@ -345,14 +345,6 @@ tutorials:
           title: Koans
         - url: /docs/tutorials/competitive-programming.html
           title: Competitive Programming
-    - title: Android
-      content:
-        - url: /docs/tutorials/kotlin-android.html
-          title: Getting Started With Android Development
-        - url: /docs/tutorials/android-plugin.html
-          title: Kotlin Android Extensions
-        - url: /docs/tutorials/android-frameworks.html
-          title: Android Frameworks
     - title: Java Interop
       content:
         - url: /docs/tutorials/mixing-java-kotlin-intellij.html
