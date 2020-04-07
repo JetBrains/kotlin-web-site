@@ -140,7 +140,7 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
     headers = ['h1', 'h2', 'h3']
     index_objects = []
     children = [element for element in content.children if isinstance(element, Tag)]
-    if children[0].name not in headers:
+    if len(children) > 0 and children[0].name not in headers:
         return get_page_index_objects(content, url, page_path, title, page_type, page_views)
     block_title = ""
     content = []
