@@ -210,9 +210,7 @@ def build_search_indices(site_structure, pages):
                 breadcrumbs.extract()
             type = "Standard Library" if "jvm/stdlib" in url else "Kotlin Test"
             index_objects += get_page_index_objects(page_info['content'], url, page_path, full_name, type, page_views)
-        elif endpoint in ["coroutines_redirect", "coroutines_tutor_redirect", "events_redirect", "community_redirect",
-                          "compatibility_redirect", "collections_redirect", "community_user_groups_redirect"]:
-            continue
+        elif endpoint.endswith("_redirect"): continue
         else:
             client = app.test_client()
             content = client.get(url, follow_redirects=True)
