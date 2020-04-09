@@ -2,8 +2,7 @@
 <html>
 <head>
     {% include 'inc/head.html' %}
-    {% block styles %}
-    {% endblock %}
+    {% block styles %}{% endblock %}
 
     {% if page and page.title %}
         {% set title=page.title + ' - Kotlin Programming Language' %}
@@ -13,7 +12,6 @@
 
     <title>{% block title %}{{ title }}{% endblock %}</title>
 
-    <script src="{{ url_for('static', filename='common.js')|autoversion }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css')|autoversion }}"/>
 </head>
 <body class="{% block body_class %}{% endblock %}">
@@ -38,9 +36,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 {% include 'inc/footer.html' %}
-
-{% block scripts %}
-{% endblock %}
 {% include 'inc/search-popup.html' %}
+
+<script src="{{ url_for('static', filename='common.js')|autoversion }}"></script>
+{% block scripts %}{% endblock %}
 </body>
 </html>
