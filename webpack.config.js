@@ -3,6 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractCssPlugin = require('mini-css-extract-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
+const svgToMiniDataURI = require('mini-svg-data-uri');
 
 module.exports = (params = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -98,20 +99,28 @@ module.exports = (params = {}) => {
         {
           test: /\.svg/,
           use: [
-            'url-loader',
-            'svg-transform-loader'
-          ]
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 10000,
+                encoding: 'utf8',
+                esModule: false,
+                generator: (content, mimetype, encoding) => svgToMiniDataURI(content.toString(encoding)),
+              },
+            },
+          ],
         },
         {
           test: /\.(jpe?g|png|gif)$/,
           loader: 'url-loader',
           options: {
+            esModule: false,
             limit: 10000,
             name: '[path][name].[ext]'
           }
         },
         {
-          test: /\.(woff|ttf)$/,
+          test: /\.(woff2?|ttf)$/,
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]'
