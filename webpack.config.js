@@ -108,6 +108,16 @@ module.exports = (params = {}) => {
                 generator: (content, mimetype, encoding) => svgToMiniDataURI(content.toString(encoding)),
               },
             },
+            {
+              loader: 'svgo-loader',
+              options: {
+                plugins: [
+                  {removeTitle: true},
+                  {convertPathData: false},
+                  {removeScriptElement:true}
+                ]
+              }
+            }
           ],
         },
         {
