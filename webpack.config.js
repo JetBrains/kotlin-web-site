@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const ExtractCssPlugin = require('mini-css-extract-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
+const CssoWebpackPlugin = require('csso-webpack-plugin').default;
 
 module.exports = (params = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -144,6 +145,9 @@ module.exports = (params = {}) => {
         filename: '[name].css'
       }),
 
+
+      process.env.NODE_ENV === 'production' &&  new CssoWebpackPlugin(),
+
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
@@ -157,7 +161,7 @@ module.exports = (params = {}) => {
         indexName: JSON.stringify(indexName),
         'process.env.NODE_ENV': JSON.stringify(env)
       })
-    ],
+    ].filter(Boolean),
 
     stats: 'minimal',
 
