@@ -11,20 +11,20 @@ $color-select-off-fg: #222222;
 $color-select-on-pressed: #e4e6e8;
 
 $platforms: (
-    common: (
+    Common: (
         bg: #75e1ff,
         fg: #004052,
         select-hover: #3ad4ff
     ),
-    jvm: (
+    JVM: (
         bg: #79bf2d,
         select-hover: #6bac25
     ),
-    js: (
+    JS: (
         bg: #ffb100,
         select-hover: #ff9b00
     ),
-    native: (
+    Native: (
         bg: #6d6dff,
         select-hover: #4b4bff
     )
