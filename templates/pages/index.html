@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block head_preload %}
+    <link rel="preload" href="/assets/fonts/Inter/Inter-Regular.woff2" as="font">
+    <link rel="preload" href="/assets/fonts/Inter/Inter-Bold.woff2" as="font">
+
+    <link rel="preload" href="/assets/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2" as="font">
+    <link rel="preload" href="/assets/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2" as="font">
+    <link rel="preload" href="/assets/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2" as="font">
+{% endblock %}
+
 {% block body_class %}page__index-new{% endblock %}
 
 {% block page_outer_content %}
