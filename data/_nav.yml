@@ -287,7 +287,6 @@ reference:
     - title: Tools
       description:
       content:
-  #      - /docs/reference/kotlin-build-tools.html: Kotlin Build Tools
         - url: /docs/reference/using-gradle.html
           title: Gradle
         - url: /docs/reference/using-maven.html
