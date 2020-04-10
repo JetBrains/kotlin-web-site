@@ -1,6 +1,124 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
 
+<event>
+        <lang>en</lang>
+        <startDate>2020-04-09</startDate>
+        <endDate>2020-04-09</endDate>
+        <location>Lodz, Poland</location>
+        <speaker>Pawel Wlodarski</speaker>
+        <title>Java User Group Łódź</title>
+        <subject>ZDALNIE : Kotlin plus Spring minut Adnotacje</subject>
+        <url>https://www.meetup.com/Java-User-Group-Lodz/events/269818163/</url>
+        <description>
+            <![CDATA[
+<p>• Porównamy użycie API Kotlinowego i Javowego (uzywajac kotlina)
+• I potem będzie seria ćwiczeń i przykładów by zrozumieć "magię" za Kotlinowym API
+• Jak już się zrozumie jak to działa to naprawdę przyjemne to API Kotlinowe jest</p>
+]]>
+         </description>
+</event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2020-04-11</startDate>
+        <endDate>2020-04-11</endDate>
+        <location>Delhi, India</location>
+        <speaker>Rishabh Bansal</speaker>
+        <title>Kotlin Delhi User Group</title>
+        <subject>HackOn - A Pan India Virtual Hackathon</subject>
+        <url>https://www.meetup.com/KotlinDelhi/events/269833680/</url>
+        <description>
+            <![CDATA[
+<p>Learn new technologies, enhance your team management and presentation skills, and get mentored by experts- all in one place!</p>
+]]>
+         </description>
+</event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2020-04-11</startDate>
+        <endDate>2020-04-11</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Prasanna Kumar</speaker>
+        <title>Kotlin Hyderabad</title>
+        <subject>State of LSP on Kotlin</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/269867527/</url>
+        <description>
+            <![CDATA[
+<p>This session tries to showcase the importance of adopting LSP (Language Server Protocol) as an alternative tooling ecosystem
+for Kotlin. It showcases what LSP means for Kotlin. There are already some options that exist but it needs more refinements to match up to be used on a daily basis.</p>
+]]>
+         </description>
+</event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2020-04-14</startDate>
+        <endDate>2020-04-14</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Nicolas Fränkel</speaker>
+        <title>Tech Meetups@ING</title>
+        <subject>Migrating Spring Boot Config Annotations to Functional Kotlin</subject>
+        <url>https://www.meetup.com/Tech-Meetups-ING/events/269742393/</url>
+        <description>
+            <![CDATA[
+<p>This talk is based on the migration of a demo app. There is a reference in the last slides that point to the Github repo, so that people can study it at home afterwards.</p>
+]]>
+         </description>
+</event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2020-04-14</startDate>
+        <endDate>2020-04-14</endDate>
+        <location>Prague, Czech Republic</location>
+        <speaker>Vladimír Valouch</speaker>
+        <title>Prague Mobile Development Meetup</title>
+        <subject>AppPort Academy for Kotlin vol. I</subject>
+        <url>https://www.meetup.com/Prague-Mobile-Development-Meetup/events/269765161/</url>
+        <description>
+            <![CDATA[
+<p>Interested to learn a new programming language? Join us for the AppPort Academy for Kotlin, 12 weeks of classes (runs once per week in the evening), where you can get familiar with the Kotlin programming language.</p>
+]]>
+         </description>
+</event>
+
+<event>
+        <lang>en</lang>
+        <startDate>2020-05-07</startDate>
+        <endDate>2020-05-07</endDate>
+        <location>Bielefeld, Germany</location>
+        <speaker>Chris Werner Rau</speaker>
+        <title>Bielefelder Kotlin User Group</title>
+        <subject>Kotlin - Mini Hackaton</subject>
+        <url>https://www.meetup.com/KUG_BI/events/268085159/</url>
+        <description>
+            <![CDATA[
+<p>Passend dazu wollen wir einen Mini Hackaton in Kotlin machen. Wir werden uns in Pairs und Mobs aufteilen und gemeinsam eine Lösung für das Contest Game in Kotlin entwickeln. Egal ob Kotlin Experte oder absoluter Neuanfänger, alle können Ihren Teil beitragen und sind herzlich eingeladen mitzumachen.</p>
+<p>Nach Möglichkeit bitte einen Laptop mitbringen. Wer mag kann Kotlin + JDK + IDE der Wahl vorinstallieren, das ist aber kein muss, es funktioniert auch alles im Browser ohne Installation! Wer keinen Laptop hat schließt sich einfach einem Pair oder einem Mob an.</p>
+]]>
+         </description>
+</event>
+
+
+
+<event>
+        <lang>de</lang>
+        <startDate>2020-05-11</startDate>
+        <endDate>2020-05-11</endDate>
+        <location>Mannheim, Germany</location>
+        <speaker>Tanja Förderer</speaker>
+        <title>ObjektForum Mannheim</title>
+        <subject>Kotlin - Mini Hackaton</subject>
+        <url>https://www.meetup.com/ObjektforumMannheim/events/269888328/</url>
+        <description>
+            <![CDATA[
+<p>Eine Liebesgeschichte über meine Kotlin Programmiererfahrung - mit Happyend. Neueinsteiger werden erfahren, welchen Mehrwert die Kotlin Programmierung mit sich bringt und warum sie sogar Spaß macht. Veteranen dürfen sich dabei zurückerinnern, warum sie von der Sprache nicht wieder wegwollen und wie sie Ihre Kollegen davon überzeugen. Dabei werde ich auch auf die drei großen Themen Coroutinen, Kotlin Native & Kotlin Multiplatform eingehen. Ein knackiger Einstieg mit vielen Beispielen, nach dem garantiert jeder Entwickler zur IDE greifen möchte.</p>
+]]>
+         </description>
+</event>
+
     <event>
         <lang>en</lang>
         <startDate>2020-04-01</startDate>
@@ -965,8 +1083,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-03-13</startDate>
-        <endDate>2020-03-13</endDate>
+        <startDate>2020-09-18</startDate>
+        <endDate>2020-09-18</endDate>
         <location>Amsterdam, The Netherlands</location>
         <speaker>Martin Petrulak</speaker>
         <title>AppDevCon</title>
@@ -983,8 +1101,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-03-13</startDate>
-        <endDate>2020-03-13</endDate>
+        <startDate>2020-09-18</startDate>
+        <endDate>2020-09-18</endDate>
         <location>Amsterdam, The Netherlands</location>
         <speaker>Jolanda Verhoef</speaker>
         <title>AppDevCon</title>
@@ -999,8 +1117,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-03-13</startDate>
-        <endDate>2020-03-13</endDate>
+        <startDate>2020-09-18</startDate>
+        <endDate>2020-09-18</endDate>
         <location>Amsterdam, The Netherlands</location>
         <speaker>Vasiliy Zukanov</speaker>
         <title>AppDevCon</title>
@@ -1016,8 +1134,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-03-13</startDate>
-        <endDate>2020-03-13</endDate>
+        <startDate>2020-09-18</startDate>
+        <endDate>2020-09-18</endDate>
         <location>Amsterdam, The Netherlands</location>
         <speaker>Gijs van Veen</speaker>
         <title>AppDevCon</title>
@@ -1032,8 +1150,8 @@ Les librairies et projets utilisés sont:
 
     <event>
         <lang>en</lang>
-        <startDate>2020-03-12</startDate>
-        <endDate>2020-03-12</endDate>
+        <startDate>2020-09-17</startDate>
+        <endDate>2020-09-17</endDate>
         <location>Amsterdam, The Netherlands</location>
         <speaker>Alex Zhukovich</speaker>
         <title>AppDevCon</title>
