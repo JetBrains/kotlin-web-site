@@ -195,15 +195,28 @@ The design of inline classes is experimental, meaning that this feature is *movi
 To remove the warning you have to opt in to the usage of this experimental feature by passing the compiler argument `-Xinline-classes`.
 
 ### Enabling inline classes in Gradle
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-lang="groovy">
 
-``` groovy
-
+```groovy
 compileKotlin {
     kotlinOptions.freeCompilerArgs += ["-Xinline-classes"]
 }
 ```
 
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+tasks.withType<KotlinCompile> {
+    kotlinOptions.freeCompilerArgs += "-Xinline-classes"
+}
+```
+
+</div>
 </div>
 
 See [Compiler options in Gradle](using-gradle.html#compiler-options) for details. For [Multiplatform Projects](whatsnew13.html#multiplatform-projects) settings, see [building Multiplatform Projects with Gradle](building-mpp-with-gradle.html#language-settings) section.
