@@ -218,10 +218,10 @@
   type: Application
   link: https://github.com/datawire/discovery
 
-- name: KotlinTest
+- name: Kotest
   description: Kotlin port of the famous ScalaTest
   type: Library
-  link: https://github.com/kotlintest/kotlintest
+  link: https://github.com/kotest/kotest
   
 - name: Black-and-White
   description: A library of algorithms for the Black-and-White tree coloring
