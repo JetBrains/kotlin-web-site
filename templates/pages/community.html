@@ -15,8 +15,6 @@
 {% endmacro %}
 
 {% block content %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='community.css')|autoversion }}">
-
     <article role="main" class="page-content">
         <h1 id="were-all-kotlin">We're all Kotlin</h1>
         <p>
@@ -76,6 +74,12 @@
          data-aos-anchor-placement="top-center"
          data-aos="animate">
     </div>
+{% endblock %}
 
+{% block scripts %}
     <script src="{{ url_for('static', filename='community.js')|autoversion }}"></script>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='community.css')|autoversion }}">
 {% endblock %}

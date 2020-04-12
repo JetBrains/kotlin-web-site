@@ -2,9 +2,12 @@
 
 {% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='reference.css')|autoversion }}">
+{% endblock %}
+
 {% block scripts %}
     <script src="{{ url_for('static', filename='reference.js')|autoversion }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='reference.css')|autoversion }}">
 {% endblock %}
 
 {% block content %}

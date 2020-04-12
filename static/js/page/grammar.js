@@ -1,9 +1,11 @@
-var Toc = require('../com/toc');
+import $ from 'jquery';
+import Toc from '../com/toc';
+import NavTree from "../com/nav-tree";
 
-var $ = require('jquery');
+$(function () {
+  new NavTree(document.querySelector('.js-side-tree-nav'));
 
-$(document).ready(function () {
-  var toc = new Toc();
+  const toc = new Toc();
 
   toc.render({
     target: document.getElementById('js-toc')

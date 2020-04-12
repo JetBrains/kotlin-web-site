@@ -103,7 +103,7 @@ function addSelectToPanel(panelElement, title, config) {
 function addPlatformSelectToPanel(panelElement, config) {
   const selectElement = $(`<div class="api-panel_toggle"></div>`);
   $.each(config.items, (value, item) => {
-    const itemElement = $(`<div class="toggle-platform `+value+`"><span>`+item+`</span></div>`);
+    const itemElement = $(`<div class="toggle-platform ${value} ${item}"><span>`+item+`</span></div>`);
     selectElement.append(itemElement);
     if (!config.selected.includes(value)) {
       itemElement.addClass('off');
