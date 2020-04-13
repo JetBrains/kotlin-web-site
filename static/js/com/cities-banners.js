@@ -1,20 +1,14 @@
 const $ = require('jquery');
 const bannersRotator = require('../com/banners-rotator');
 
-const COUNTRY_CODE = "PL";
+const COUNTRY_CODE = null;
+const LINK = null;
 
-const COUNTRY_LINK = "https://info.jetbrains.com/jetbrains-trip-poland-2019.html";
-
-$(document).ready(function () {
-
-  initBanners();
-
+$(function () {
   function initBanners() {
-    $.ajax({
-      url: "https://data.services.jetbrains.com/geo",
-    }).done(function (data) {
-      if (data.code === COUNTRY_CODE) {
-        let template = `<a class="link-banner_pl" href="${COUNTRY_LINK}"></a>`;
+    $.ajax({ url: "https://data.services.jetbrains.com/geo" }).done(function (data) {
+      if (COUNTRY_CODE && data.code === COUNTRY_CODE) {
+        let template = `<a class="link-banner_pl" href="${LINK}"></a>`;
         bannersRotator.createBanner({
           id: "banner-default-country",
           type: bannersRotator.Banner.TYPE.slideup,
@@ -27,4 +21,5 @@ $(document).ready(function () {
     });
   }
 
+  initBanners();
 });
