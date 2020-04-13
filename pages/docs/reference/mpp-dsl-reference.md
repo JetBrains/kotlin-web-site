@@ -252,8 +252,6 @@ There are the following kinds of binaries:
 |`staticLib`|Static library.|
 |`framework`|Objective-C framework.|
 
-For more information on configuring binaries, see [Building final native binaries](building-mpp-with-gradle.html#building-final-native-binaries).
-
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
 
 ```kotlin
@@ -269,6 +267,99 @@ kotlin {
 ```
 
 </div>
+
+For binaries configuration, the following parameters are available:
+
+|**Name**|**Description**| 
+| --- | --- |
+|`compilation`|The compilation from which the binary is built. By default, `test` binaries are based on the `test` compilation while other binaries - on the `main` compilation.|
+|`linkerOpts`|Options passed to a system linker during binary building.|
+|`baseName`|Base name for the output file.|
+|`entryPoint`|The entry point function for executable binaries. By default, it's `main()` in the root package.|
+|`outpuFile`|Access to the output file.|
+|`linkTask`|Access to the link task.|
+|`runTask`|Access to the run task.|
+|`isStatic`|For Objective-C frameworks. Includes a static library instead of a dynamic one.|
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+binaries {
+    executable('my_executable', [RELEASE]) {
+        // Build a binary on the basis of the test compilation.
+        compilation = compilations.test
+
+        // Custom command line options for the linker.
+        linkerOpts = ['-L/lib/search/path', '-L/another/search/path', '-lmylib']
+
+        // Base name for the output file.
+        baseName = 'foo'
+
+        // Custom entry point function.
+        entryPoint = 'org.example.main'
+
+        // Accessing the output file.
+        println("Executable path: ${outputFile.absolutePath}")
+
+        // Accessing the link task.
+        linkTask.dependsOn(additionalPreprocessingTask)
+
+        // Accessing the run task.
+        // Note that the runTask is null for non-host platforms.
+        runTask?.dependsOn(prepareForRun)
+    }
+
+    framework('my_framework' [RELEASE]) {
+        // Include a static library instead of a dynamic one into the framework.
+        isStatic = true
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+binaries {
+    executable("my_executable", listOf(RELEASE)) {
+        // Build a binary on the basis of the test compilation.
+        compilation = compilations["test"]
+
+        // Custom command line options for the linker.
+        linkerOpts = mutableListOf("-L/lib/search/path", "-L/another/search/path", "-lmylib")
+
+        // Base name for the output file.
+        baseName = "foo"
+
+        // Custom entry point function.
+        entryPoint = "org.example.main"
+
+        // Accessing the output file.
+        println("Executable path: ${outputFile.absolutePath}")
+
+        // Accessing the link task.
+        linkTask.dependsOn(additionalPreprocessingTask)
+
+        // Accessing the run task.
+        // Note that the runTask is null for non-host platforms.
+        runTask?.dependsOn(prepareForRun)
+    }
+
+    framework("my_framework" listOf(RELEASE)) {
+        // Include a static library instead of a dynamic one into the framework.
+        isStatic = true
+    }
+}
+```
+
+</div>
+</div>
+
+For more information on configuring binaries, see [Building final native binaries](building-mpp-with-gradle.html#building-final-native-binaries).
 
 #### CInterops
 
