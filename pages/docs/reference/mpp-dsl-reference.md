@@ -274,7 +274,7 @@ For binaries configuration, the following parameters are available:
 | --- | --- |
 |`compilation`|The compilation from which the binary is built. By default, `test` binaries are based on the `test` compilation while other binaries - on the `main` compilation.|
 |`linkerOpts`|Options passed to a system linker during binary building.|
-|`baseName`|Base name for the output file.|
+|`baseName`|Custom base name for the output file. The final file name will be formed by adding system-dependent prefix and postfix to this base name.|
 |`entryPoint`|The entry point function for executable binaries. By default, it's `main()` in the root package.|
 |`outputFile`|Access to the output file.|
 |`linkTask`|Access to the link task.|
