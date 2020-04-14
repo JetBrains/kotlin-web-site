@@ -276,7 +276,7 @@ For binaries configuration, the following parameters are available:
 |`linkerOpts`|Options passed to a system linker during binary building.|
 |`baseName`|Base name for the output file.|
 |`entryPoint`|The entry point function for executable binaries. By default, it's `main()` in the root package.|
-|`outpuFile`|Access to the output file.|
+|`outputFile`|Access to the output file.|
 |`linkTask`|Access to the link task.|
 |`runTask`|Access to the run task.|
 |`isStatic`|For Objective-C frameworks. Includes a static library instead of a dynamic one.|
