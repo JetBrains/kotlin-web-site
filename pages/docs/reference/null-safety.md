@@ -32,7 +32,7 @@ For example, a regular variable of type `String` can not hold *null*{: .keyword 
 ```kotlin
 fun main() {
 //sampleStart
-    var a: String = "abc"
+    var a: String = "abc" // Regular initialization means non-null by default
     a = null // compilation error
 //sampleEnd
 }
@@ -45,7 +45,7 @@ To allow nulls, we can declare a variable as nullable string, written `String?`:
 ```kotlin
 fun main() {
 //sampleStart
-    var b: String? = "abc"
+    var b: String? = "abc" // can be set null
     b = null // ok
     print(b)
 //sampleEnd
