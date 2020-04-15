@@ -278,7 +278,7 @@ For binaries configuration, the following parameters are available:
 |`entryPoint`|The entry point function for executable binaries. By default, it's `main()` in the root package.|
 |`outputFile`|Access to the output file.|
 |`linkTask`|Access to the link task.|
-|`runTask`|Access to the run task for executable binaries. For targets other `linuxX64`, `macosX64`, or `mingwX64` the value is `null`.|
+|`runTask`|Access to the run task for executable binaries. For targets other than `linuxX64`, `macosX64`, or `mingwX64` the value is `null`.|
 |`isStatic`|For Objective-C frameworks. Includes a static library instead of a dynamic one.|
 
 <div class="multi-language-sample" data-lang="groovy">
