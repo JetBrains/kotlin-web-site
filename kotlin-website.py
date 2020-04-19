@@ -206,11 +206,6 @@ def pdf():
         return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
 
 
-@app.route('/docs/resources.html')
-def resources():
-    return render_template('pages/resources.html')
-
-
 @app.route('/community/')
 def community_page():
     return render_template('pages/community.html')
@@ -240,6 +235,11 @@ def collections_redirect():
 @app.route('/docs/reference/experimental.html')
 def optin_redirect():
     return render_template('redirect.html', url=url_for('page', page_path='/docs/reference/opt-in-requirements'))
+
+@app.route('/docs/resources.html')
+def resources_redirect():
+    return render_template('redirect.html', url="https://kotlin.link/")
+
 
 @app.route('/')
 def index_page():
