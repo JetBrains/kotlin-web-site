@@ -344,7 +344,7 @@ For browser targets, the Kotlin/JS plugin uses the widely known [webpack](https:
 The Kotlin/JS Gradle plugin automatically generates a standard webpack configuration file 
 at build time which you can find the at `build/js/packages/projectName/webpack.config.js`.
 
-The most common webpack adjustments can be made directly through the Kotlin Gradle DSL via the
+The most common webpack adjustments can be made directly via the
 `kotlin.target.browser.webpackTask` configuration block in the Gradle build file.
 
 If you want to make further adjustments to the webpack configuration, place your additional configuration files inside a directory
