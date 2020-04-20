@@ -18,7 +18,7 @@ To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project** a
 ![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/wizard.png') }})
 
 
-Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the `build.gradle` file.
+Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file (`build.gradle` or `build.gradle.kts`).
 If you use the Gradle Kotlin DSL, you can apply the plugin with `kotlin(“js”)`.
 
 <div class="multi-language-sample" data-lang="groovy">
@@ -345,10 +345,10 @@ The Kotlin/JS Gradle plugin automatically generates a standard webpack configura
 at build time which you can find the at `build/js/packages/projectName/webpack.config.js`.
 
 The most common webpack adjustments can be made directly through the Kotlin Gradle DSL via the
-`kotlin.target.browser.webpackTask` configuration block in the `build.gradle.kts` file.
+`kotlin.target.browser.webpackTask` configuration block in the Gradle build file.
 
 If you want to make further adjustments to the webpack configuration, place your additional configuration files inside a directory
-called `webpack.config.d` in the root of your project. When building your project, all JS files will automatically
+called `webpack.config.d` in the root of your project. When building your project, all JS configuration files will automatically
 be merged into the `build/js/packages/projectName/webpack.config.js` file.
 To add a new [webpack loader](https://webpack.js.org/loaders/), for example, add the following to
 a `.js` file inside the `webpack.config.d`:
@@ -378,8 +378,8 @@ For building executable JavaScript artifacts though webpack, the Kotlin/JS plugi
 
 </div>
 
-## Configuring yarn
-To configure additional yarn features, place a `.yarnrc` file in the root of your project.
+## Configuring Yarn
+To configure additional Yarn features, place a `.yarnrc` file in the root of your project.
 At build time, it gets picked up automatically.
 
 For example, to use a custom registry for npm packages, add the following line to a file called
