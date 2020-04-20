@@ -133,7 +133,7 @@ There are also many recordings of [Kotlin talks](http://kotlinlang.org/community
 
 Yes. Kotlin has a very vibrant community. Kotlin developers hang out on the [Kotlin forums](http://discuss.kotlinlang.org), 
 [StackOverflow](http://stackoverflow.com/questions/tagged/kotlin) and more actively on the [Kotlin Slack](http://slack.kotlinlang.org) 
-(with close to 20000 members as of October 2018). 
+(with close to 30000 members as of April 2020). 
 
 ### Are there Kotlin events?
  
