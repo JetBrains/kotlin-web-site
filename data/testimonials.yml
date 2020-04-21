@@ -6,7 +6,7 @@
   text: Evernote recently <a target="_blank" href="https://blog.evernote.com/tech/2017/01/26/android-state-library/">integrated Kotlin</a> into their Android client
 - company: Coursera
   text: Coursera Android app is <a target="_blank" href="https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/">partially written</a> in Kotlin
-- company: Pivotal
+- company: Spring
   text: Spring makes <a target="_blank" href="https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0">use of Kotlin's language features</a> to offer more concise APIs
 - company: Atlassian
   text: All new code in the <a target="_blank" href="https://twitter.com/danlew42/status/809065097339564032">Trello Android</a> app is in Kotlin

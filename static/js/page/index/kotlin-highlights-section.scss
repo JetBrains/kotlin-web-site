@@ -23,7 +23,7 @@
 .kto-highlights-item_company_evernote,
 .kto-highlights-item_company_corda,
 .kto-highlights-item_company_coursera,
-.kto-highlights-item_company_pivotal,
+.kto-highlights-item_company_spring,
 .kto-highlights-item_company_atlassian {
   & .kto-highlights-item__header {
     font-size: 0;
@@ -51,8 +51,10 @@
   background-image: url("./images/companies/coursera.svg");
 }
 
-.kto-highlights-item_company_pivotal > .kto-highlights-item__header {
-  background-image: url("./images/companies/pivotal.svg");
+.kto-highlights-item_company_spring > .kto-highlights-item__header {
+  background-image: url("./images/companies/spring.svg");
+  background-size: 125px;
+  background-position: center left;
 }
 
 .kto-highlights-item_company_atlassian > .kto-highlights-item__header {
