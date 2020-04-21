@@ -10,7 +10,8 @@ title: "Setting Up Kotlin/JS Project"
 Kotlin/JS projects use Gradle as a build system. To let developers easily manage their Kotlin/JS projects, we offer
 the Kotlin/JS Gradle plugin that provides project configuration tools together with helper tasks for automating routines
 typical for JavaScript development. For example, the plugin downloads the [Yarn](https://yarnpkg.com/) package manager
-for managing NPM dependencies in background and builds a JavaScript bundle from a Kotlin project using [webpack](https://webpack.js.org/).
+for managing [npm](https://www.npmjs.com/) dependencies in background and builds a JavaScript bundle from a Kotlin project
+using [webpack](https://webpack.js.org/).
 
 To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project** and select **Gradle | Kotlin/JS for browser**
  or **Kotlin/JS for Node.js**. Be sure to clear the **Java** checkbox.
@@ -60,7 +61,7 @@ kotlin {
 Inside the `kotlin` section, you can manage the following aspects:
 
 * [Target execution environment](#choosing-execution-environment): browser or Node.js 
-* [Project dependencies](#managing-dependencies): Maven and NPM
+* [Project dependencies](#managing-dependencies): Maven and npm
 * [Run configuration](#configuring-run-task)
 * [Test configuration](#configuring-test-task)
 * [Bundling](#configuring-webpack-bundling) for browser projects
@@ -200,17 +201,17 @@ dependencies {
 </div>
 </div>
 
-### NPM dependencies
+### npm dependencies
 
-In the JavaScript world, the common way to manage dependencies is [NPM](https://www.npmjs.com/).
+In the JavaScript world, the common way to manage dependencies is [npm](https://www.npmjs.com/).
 It offers the biggest public [repository](https://www.npmjs.com/) of JavaScript modules and a tool for downloading them.
 
-The Kotlin/JS plugin lets you declare NPM dependencies in the Gradle build script among other dependencies and
+The Kotlin/JS plugin lets you declare npm dependencies in the Gradle build script among other dependencies and
 does everything else automatically. It installs the [Yarn](https://yarnpkg.com/lang/en/) package manager
-and uses it to download the dependencies from the NPM repository to the `node_modules` directory of your project -
-the common location for NPM dependencies of a JavaScript project. 
+and uses it to download the dependencies from the npm repository to the `node_modules` directory of your project -
+the common location for npm dependencies of a JavaScript project. 
 
-To declare an NPM dependency, pass its name and version to the `npm()` function inside a dependency declaration.
+To declare an npm dependency, pass its name and version to the `npm()` function inside a dependency declaration.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
@@ -236,7 +237,7 @@ dependencies {
 </div>
 </div>
 
-Once an NPM dependency is installed, you can use its API in your code as described in 
+Once an npm dependency is installed, you can use its API in your code as described in 
 [Calling JS from Kotlin](js-interop.html).
 
 ## Configuring run task
@@ -379,6 +380,7 @@ For building executable JavaScript artifacts though webpack, the Kotlin/JS plugi
 </div>
 
 ## Configuring Yarn
+
 To configure additional Yarn features, place a `.yarnrc` file in the root of your project.
 At build time, it gets picked up automatically.
 
