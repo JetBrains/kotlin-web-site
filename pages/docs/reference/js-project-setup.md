@@ -10,38 +10,39 @@ title: "Setting Up Kotlin/JS Project"
 Kotlin/JS projects use Gradle as a build system. To let developers easily manage their Kotlin/JS projects, we offer
 the Kotlin/JS Gradle plugin that provides project configuration tools together with helper tasks for automating routines
 typical for JavaScript development. For example, the plugin downloads the [Yarn](https://yarnpkg.com/) package manager
-for managing NPM dependencies in background and builds a JavaScript bundle from a Kotlin project using [Webpack](https://webpack.js.org/).
+for managing [npm](https://www.npmjs.com/) dependencies in background and builds a JavaScript bundle from a Kotlin project
+using [webpack](https://webpack.js.org/).
 
 To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project** and select **Gradle | Kotlin/JS for browser**
  or **Kotlin/JS for Node.js**. Be sure to clear the **Java** checkbox.
- 
+
 ![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/wizard.png') }})
 
 
-Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the `build.gradle` file.
+Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file (`build.gradle` or `build.gradle.kts`).
 If you use the Gradle Kotlin DSL, you can apply the plugin with `kotlin(“js”)`.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
- 
+
 ```groovy
 plugins {
     id 'org.jetbrains.kotlin.js' version '{{ site.data.releases.latest.version }}'
 }
 ```
- 
+
 </div>
 </div>
- 
+
 <div class="multi-language-sample" data-lang="kotlin">
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
- 
+
 ```kotlin
 plugins {
      kotlin("js") version "{{ site.data.releases.latest.version }}"
 }
- ```
- 
+```
+
 </div>
 </div>
 
@@ -56,11 +57,11 @@ kotlin {
 ```
 
 </div>
- 
+
 Inside the `kotlin` section, you can manage the following aspects:
 
 * [Target execution environment](#choosing-execution-environment): browser or Node.js 
-* [Project dependencies](#managing-dependencies): Maven and NPM
+* [Project dependencies](#managing-dependencies): Maven and npm
 * [Run configuration](#configuring-run-task)
 * [Test configuration](#configuring-test-task)
 * [Bundling](#configuring-webpack-bundling) for browser projects
@@ -200,17 +201,17 @@ dependencies {
 </div>
 </div>
 
-### NPM dependencies
+### npm dependencies
 
-In the JavaScript world, the common way to manage dependencies is [NPM](https://www.npmjs.com/).
+In the JavaScript world, the common way to manage dependencies is [npm](https://www.npmjs.com/).
 It offers the biggest public [repository](https://www.npmjs.com/) of JavaScript modules and a tool for downloading them.
 
-The Kotlin/JS plugin lets you declare NPM dependencies in the Gradle build script among other dependencies and
+The Kotlin/JS plugin lets you declare npm dependencies in the Gradle build script among other dependencies and
 does everything else automatically. It installs the [Yarn](https://yarnpkg.com/lang/en/) package manager
-and uses it to download the dependencies from the NPM repository to the `node_modules` directory of your project -
-the common location for NPM dependencies of a JavaScript project. 
+and uses it to download the dependencies from the npm repository to the `node_modules` directory of your project -
+the common location for npm dependencies of a JavaScript project. 
 
-To declare an NPM dependency, pass its name and version to the `npm()` function inside a dependency declaration.
+To declare an npm dependency, pass its name and version to the `npm()` function inside a dependency declaration.
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
@@ -236,14 +237,14 @@ dependencies {
 </div>
 </div>
 
-Once an NPM dependency is installed, you can use its API in your code as described in 
+Once an npm dependency is installed, you can use its API in your code as described in 
 [Calling JS from Kotlin](js-interop.html).
 
 ## Configuring run task
 
 The Kotlin/JS plugin provides a run task that lets you run projects without additional configuration.
-For running Kotlin/JS projects, it uses [Webpack DevServer](https://webpack.js.org/configuration/dev-server/).
-If you want to customize the DevServer configuration, for example, change its port, use the Webpack configuration file.
+For running Kotlin/JS projects, it uses [webpack DevServer](https://webpack.js.org/configuration/dev-server/).
+If you want to customize the DevServer configuration, for example, change its port, use the webpack configuration file.
 
 To run the project, execute the standard lifecycle `run` task:
 
@@ -337,18 +338,38 @@ To run tests, execute the standard lifecycle `check` task:
 
 </div>
 
-## Configuring Webpack bundling
+## Configuring webpack bundling
 
-For browser targets, the Kotlin/JS plugin uses widely known [Webpack](https://webpack.js.org/) module bundler.
-For configuring the project bundling, you can use the standard Webpack configuration file. The Webpack configuration
+For browser targets, the Kotlin/JS plugin uses the widely known [webpack](https://webpack.js.org/) module bundler.
+
+The Kotlin/JS Gradle plugin automatically generates a standard webpack configuration file 
+at build time which you can find the at `build/js/packages/projectName/webpack.config.js`.
+
+The most common webpack adjustments can be made directly via the
+`kotlin.target.browser.webpackTask` configuration block in the Gradle build file.
+
+If you want to make further adjustments to the webpack configuration, place your additional configuration files inside a directory
+called `webpack.config.d` in the root of your project. When building your project, all JS configuration files will automatically
+be merged into the `build/js/packages/projectName/webpack.config.js` file.
+To add a new [webpack loader](https://webpack.js.org/loaders/), for example, add the following to
+a `.js` file inside the `webpack.config.d`:
+
+<div class="sample" markdown="1" mode="javascript" theme="idea">
+
+```javascript
+config.module.rules.push({
+    test: /\.extension$/,
+    loader: 'loader-name'
+});
+```
+
+</div>
+
+All webpack configuration
 capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
-For Kotlin/JS projects, the Webpack configuration files should reside in the `webpack.config.d` directory inside the 
-root project directory.
 
-For building executable JavaScript artifacts, the Kotlin/JS plugin contains the `browserDevelopmentWebpack`
-`browserProductionWebpack` tasks.
-
-To build a project artifact using Webpack, execute the `browserProductionWebpack`or `browserDevelopmentWebpack` Gradle task:
+For building executable JavaScript artifacts though webpack, the Kotlin/JS plugin contains the `browserDevelopmentWebpack`
+`browserProductionWebpack` Gradle tasks. Execute them to obtain artifacts for development or production respectively:
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
@@ -357,6 +378,24 @@ To build a project artifact using Webpack, execute the `browserProductionWebpack
 ```
 
 </div>
+
+## Configuring Yarn
+
+To configure additional Yarn features, place a `.yarnrc` file in the root of your project.
+At build time, it gets picked up automatically.
+
+For example, to use a custom registry for npm packages, add the following line to a file called
+`.yarnrc` in the project root:
+
+<div class="sample" markdown="1" mode="shell" theme="idea">
+
+```
+registry "http://my.registry/api/npm/"
+```
+
+</div>
+
+To learn more about `.yarnrc`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/en/docs/yarnrc/).
 
 ## Distribution target directory
 
