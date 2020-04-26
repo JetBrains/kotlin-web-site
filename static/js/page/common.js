@@ -8,8 +8,41 @@ import CodeMirror from '../com/codemirror/CodeMirror';
 import './code-blocks'
 import '../com/head-banner';
 
-$(document).ready(function () {
-  kotlinPlayground('.sample');
+function trackEvent(event) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'GAEvent',
+    ...event,
+  });
+}
+
+window.trackEvent = trackEvent;
+
+$(function () {
+  $('.sample').each(function(i, el) {
+    const kotlinPlaygroundEvents = {
+      onChange: function onChange(code) { $(el).trigger('kotlinPlaygroundChange', code) },
+      onRun: function onRun() { $(el).trigger('kotlinPlaygroundRun') },
+      callback: function(from, to) { $(el).trigger('kotlinPlaygroundMount', { from, to }) }
+    };
+
+    kotlinPlayground(el, kotlinPlaygroundEvents);
+  });
+
+  $('.kotlin-overview-code-example')
+      .on('kotlinPlaygroundMount', function({ target }) {
+        $(target).data('kotlinOriginalCode', target.KotlinPlayground.view.getCode());
+      })
+      .on('kotlinPlaygroundRun', function({ target }) {
+        const code = target.KotlinPlayground.view.getCode();
+        const originalCode = $(target).data('kotlinOriginalCode');
+
+        trackEvent({
+          'eventCategory': 'kotlin-playground',
+          'eventAction': 'Playground Run',
+          'eventLabel': code === originalCode ? 'unchanged' : 'changed',
+        });
+      });
 
   CodeMirror.colorize($('.code._highlighted'));
 
