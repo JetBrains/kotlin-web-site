@@ -1,4 +1,3 @@
-import kotlinPlayground from 'kotlin-playground';
 import $ from 'jquery';
 import './index.scss';
 
@@ -102,8 +101,7 @@ const initAnchors = function () {
     })
 };
 
-$(document).ready(function () {
-    kotlinPlayground('.sample')
+$(function () {
     initPopups();
     initTabs();
     initAnchors();
