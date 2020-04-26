@@ -140,3 +140,5 @@ Recommended tutorials:
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 
 Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples)
+keytool -exportcert -list -v \
+-alias <your-key-name> -keystore <path-to-production-keystore>
