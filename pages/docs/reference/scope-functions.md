@@ -499,9 +499,9 @@ Having the receiver as the return value, you can easily include `apply` into cal
 
 **The context object** is available as an argument (`it`). **The return value** is the object itself.
 
-`also` is good for performing some actions that take the context object as an argument. Use `also` for additional actions that don't alter the object, such as logging or printing debug information. Usually, you can remove the calls of `also` from the call chain without breaking the program logic. 
+`also` is good for performing some actions that take the context object as an argument. Use `also` for actions that need a reference rather to the object than to its properties and functions, or when you don't want to shadow `this` reference from an outer scope.
 
-When you see `also` in the code, you can read it as “_and also do the following_”.
+When you see `also` in the code, you can read it as “_and also do the following with the object._”
 
 <div class="sample" markdown="1" theme="idea">
 
