@@ -171,8 +171,7 @@ Here are some examples of such libraries:
 
 * [Dex](https://github.com/PatMartin/Dex) - a Java-based data visualization tool
 
-* [Smile](https://github.com/haifengl/smile) - a comprehensive machine learning, natural language processing, linear algebra,
- graph, interpolation, and visualization system
+* [Smile](https://github.com/haifengl/smile) - a comprehensive machine learning, natural language processing, linear algebra, graph, interpolation, and visualization system. Besides Java API, Smile also provides a functional [Kotlin API] (http://haifengl.github.io/api/kotlin/smile-kotlin/index.html) along with Scala and Clojure API.
    * [Smile-NLP-kt](https://github.com/londogard/smile-nlp-kt) - a Kotlin rewrite of the Scala implicits for the natural language processing part of Smile in the format of extension functions and interfaces.
 
 * [Apache Commons Math](http://commons.apache.org/proper/commons-math/) - a general math, statistics, and machine learning library for Java
