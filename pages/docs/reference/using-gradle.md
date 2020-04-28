@@ -167,16 +167,14 @@ sourceSets {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-sourceSets["main"].java.srcDir("src/main/myJava")
-sourceSets["main"].withConvention(KotlinSourceSet::class) {    
-    kotlin.srcDir("src/main/myKotlin") 
+sourceSets.main {
+    java.srcDirs("src/main/myJava", "src/main/myKotlin")
+}
 }
 ```
 
 </div>
 </div>
-
-With Gradle Kotlin DSL, configure source sets with `java.sourceSets { ... }` instead.
 
 ## Targeting JavaScript
 
