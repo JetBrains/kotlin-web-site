@@ -167,10 +167,9 @@ sourceSets {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-sourceSets.main.configure {
-    java {
-        setSrcDirs(listOf("src/main/myJava", "src/main/myKotlin"))
-    }
+sourceSets.main {
+    java.srcDirs("src/main/myJava", "src/main/myKotlin")
+}
 }
 ```
 
