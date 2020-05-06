@@ -47,7 +47,7 @@ And Kotlin doesn't have any. Instead, it has two other things: declaration-site 
 First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 31: *Use bounded wildcards to increase API flexibility*.
 First, generic types in Java are **invariant**, meaning that `List<String>` is **not** a subtype of `List<Object>`. 
 Why so? If List was not **invariant**, it would have been no 
-better than Java's arrays, since the following code would have compiled and caused an exception at runtime:
+better than Java's arrays, the following code will be giving compile error and shows "Incompatible types" error:
 
 <div class="sample" markdown="1" mode="java" theme="idea">
 
