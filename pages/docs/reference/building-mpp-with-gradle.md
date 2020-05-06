@@ -2334,6 +2334,22 @@ kotlin {
 </div>
 </div>
 
+#### Building universal frameworks with XCFramework
+
+When building multi-architecture frameworks targeting Apple platforms, we can leverage a new technology introduced in Xcode 11, called XCFramework. These are special folders that are treated as normal frameworks when imported into an Xcode project and are automatically split based on the target architecture where the frameworks is being included.
+
+The following script merges all architectures together in a single XCFramework. It should be run inside your `bin` folder, where all the single-architecture frameworks are located.
+
+<div class="multi-language-sample" data-lang="bash">
+<div class="sample" markdown="1" theme="idea" mode='bash' data-highlight-only>
+   
+```bash
+xcodebuild -create-xcframework -framework <Arch1>.framework -framework <Arch2>.framework -output <ResultingFramework>.xcframework
+```
+
+</div>
+</div>
+
 ### CInterop support
 
 Since Kotlin/Native provides [interoperability with native languages](/docs/reference/native/c_interop.html),
