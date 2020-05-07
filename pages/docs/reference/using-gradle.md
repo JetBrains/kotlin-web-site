@@ -170,7 +170,6 @@ sourceSets {
 sourceSets.main {
     java.srcDirs("src/main/myJava", "src/main/myKotlin")
 }
-}
 ```
 
 </div>
