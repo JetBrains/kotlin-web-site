@@ -408,6 +408,8 @@ Depending on the case of adding the annotation, specify one of the argument valu
 
 For more details about compatibility issues, see the `@JvmDefault` [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html).
 
+### Using in delegates
+
 Note that if an interface with `@JvmDefault` methods is used as a [delegate](/docs/reference/delegation.html),
 the default method implementations are called even if the actual delegate type provides its own implementations.
 
