@@ -104,11 +104,7 @@ fun main() {
 
 </div>
 
-### Caveats when implementing interface with `@JvmDefault` methods
-
-When delegation is used to implement a Kotlin interface that has its methods annotated with `@JvmDefault`
-(or a Java interface with `default` methods), note that the default method implementations are called
-even if the actual delegate type provides its own implementations.
-
-See the [Caveats when used together with delegation](java-to-kotlin-interop.html#caveats-when-used-together-with-delegation)
-section of the calling Kotlin from Java documentation for an example.
+> **On the JVM**: when an interface with `default` methods is used for delegation (including Kotlin interfaces with  `@JvmDefault`),
+>the default implementations are called even if the actual delegate type provides its own implementations.
+>For details, see [Calling Kotlin from Java](java-to-kotlin-interop.html#using-in-delegates).
+{:.note}
