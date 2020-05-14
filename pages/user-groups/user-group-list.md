@@ -7,7 +7,7 @@ Kotlin User Groups are a great place to share your experience with the community
 
 The most common way to begin one is to find a few like-minded people and to get together and organize regular meetups for spreading knowledge on software development with Kotlin. If you feel like you need more ideas or advice on launching a user group, contact [alina@jetbrains.com](mailto:alina@jetbrains.com).
 
-## Kotlin User Groups (201)
+## Kotlin User Groups (203)
 
 <div class="g-grid">
 <div class="g-6" markdown="1">
@@ -117,6 +117,7 @@ The most common way to begin one is to find a few like-minded people and to get 
  * [Kozhikode Kotlin User Group](https://www.facebook.com/kotlinusergroup/), India
  * [Mumbai Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Mumbai/), India
  * [Myanmar Kotlin User Group](https://www.facebook.com/groups/kotlinmyanmarusergroup/about/), Myanmar
+ * [Nagpur Kotlin User Group](https://www.facebook.com/kotlinnagpur/), India
  * [Nepal Kotlin User Group](https://www.facebook.com/groups/dnkotlin/), Nepal
  * [New Delhi Kotlin User Group](https://www.meetup.com/KotlinDelhi/), India
  * [Pakistan KotlinUser Group](https://www.facebook.com/groups/565405337181251/), Pakistan
@@ -186,6 +187,7 @@ The most common way to begin one is to find a few like-minded people and to get 
 * [El Alto Kotlin User Group](https://m.facebook.com/KotlinElAlto/), Bolivia
 * [La Paz Kotlin User Group](https://www.facebook.com/KotlinLaPaz/), Bolivia
 * [Lima Kotlin User Group](https://www.facebook.com/groups/limakotlin/), Peru
+* [Medellin Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Medellin/), Colombia
 * [Peru Kotlin User Group](https://www.facebook.com/groups/1540580306247047/), Peru
 * [Porto Alegre Kotlin User Group](https://www.meetup.com/Kotlin-RS/), Brazil
 * [Santiago Kotlin User Group](https://www.facebook.com/kotlinsantiago/), Chile
