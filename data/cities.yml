@@ -1,3 +1,11 @@
+- name: Venezia, Italy
+  geo:
+    lat: 45.438095
+    lng: 12.319029
+- name: Libreville, Gabon
+  geo:
+    lat: 0.411439
+    lng: 9.51677
 - name: Dortmund, Germany
   geo:
     lat: 51.523549
