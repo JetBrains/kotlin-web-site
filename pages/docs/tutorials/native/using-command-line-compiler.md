@@ -39,7 +39,7 @@ fun main() {
 
 ## Compiling the code from the console 
 
-To compile the application use the [downloaded](https://github.com/JetBrains/kotlin/releases)
+To compile the application use the [downloaded]({{ site.data.releases.latest.url }})
 compiler to execute the following command:
 
 ```bash
