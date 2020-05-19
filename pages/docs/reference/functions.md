@@ -192,7 +192,7 @@ value does not have to be returned explicitly:
 ```kotlin
 fun printHello(name: String?): Unit {
     if (name != null)
-        println("Hello ${name}")
+        println("Hello $name")
     else
         println("Hi there!")
     // `return Unit` or `return` is optional
@@ -381,7 +381,7 @@ A member function is a function that is defined inside a class or object:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Sample() {
+class Sample {
     fun foo() { print("Foo") }
 }
 ```
