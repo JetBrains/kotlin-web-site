@@ -16,6 +16,10 @@
   color: #F4F4F4;
 }
 
+.kto-overview-section_mode_grey {
+  background: #F5F5F5;
+}
+
 .kto-overview-section a {
   color: #6B70FC;
   text-decoration: none;
@@ -77,3 +81,13 @@ a.kto-overview-section__title_link:any-link {
 @import "kotlin-code-examples-section";
 @import "kotlin-why-section";
 @import "kotlin-highlights-section";
+
+
+.kotlin-get-started-section {
+  padding-top: 88px;
+  padding-bottom: 96px;
+}
+
+.kotlin-get-started-section__title {
+  padding-bottom: 30px;
+}
