@@ -47,6 +47,8 @@ fun main() {
 
 ## Functions
 
+Kotlin puts the ***fun*** in ***fun***ctions.
+
 Function having two `Int` parameters with `Int` return type:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
