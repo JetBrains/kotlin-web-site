@@ -146,8 +146,8 @@ If no argument is supplied, the branch conditions are simply boolean expressions
 ```kotlin
 when {
     x.isOdd() -> print("x is odd")
-    x.isEven() -> print("x is even")
-    else -> print("x is funny")
+    y.isEven() -> print("y is even")
+    else -> print("x+y is even.")
 }
 ```
 
@@ -285,4 +285,3 @@ See the [grammar for *while*{: .keyword }](grammar.html#whileStatement).
 ## Break and continue in loops
 
 Kotlin supports traditional *break*{: .keyword } and *continue*{: .keyword } operators in loops. See [Returns and jumps](returns.html).
-
