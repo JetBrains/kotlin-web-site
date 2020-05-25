@@ -9,7 +9,7 @@ showAuthorInfo: false
 ---
 
 >__Warning__: this tutorial does not reflect all newest changes for Kotlin {{ site.data.releases.latest.version }}.
->To get started with writing modern Kotlin/JS projects, please see [Setting up a Kotlin/JS project](setting-up)
+>To get started with writing modern Kotlin/JS projects, please see [Setting up a Kotlin/JS project](setting-up.html)
 {:.note}
 >
 
