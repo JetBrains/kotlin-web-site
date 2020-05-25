@@ -4,7 +4,10 @@ layout: groups
 title: "Branding"
 ---
 
-## KUG Branding
+# KUG Branding
+
+[Download all](https://drive.google.com/drive/folders/0B3Zi34svOj1RZ2sxZExhblRJc1k){:.kto-button.kto-button_size_m.kto-button_mode_outline}
+
 We provide Kotlin user groups with a logo that is specifically designed to be recognizable and convey a reference to Kotlin.
 
 * The official Kotlin logo is associated with the language itself. It should not be used otherwise in different scopes, as this could cause confusion. The same applies to its close derivatives.
@@ -18,19 +21,19 @@ Since the Kotlin community support program launched, at the beginning of 2017, t
 We provide new Kotlin user groups with a user group logo and a profile picture.
 
 ![Branding image]({{ url_for('asset', path='images/user-group/kotlin-user-group-logo.png')}})
+{:.community-branding-name}
 
 There are 2 main reasons why we are doing it. Firstly, we received numerous requests from the community asking for special Kotlin style branded materials to help them be recognized as official dedicated user groups. Secondly, we wanted to provide a distinct style for the user group and community content, so that it’s clear which Kotlin-related materials are from the official team and which are created by the community. 
 
 ## Create the logo of your user group
 
-1. Copy the [Kotlin user group logo file](https://docs.google.com/drawings/d/1CQ5CrEuQhYubcPkAjTBcy6lnY7mcrgd8pUr2NAh0qE8/edit) to your Google drive (you have to be signed into your Google account).
+1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1CQ5CrEuQhYubcPkAjTBcy6lnY7mcrgd8pUr2NAh0qE8/edit) to your Google drive (you have to be signed into your Google account).
 2. Replace the ‘Groupname’ text with the name of your user group.
 3. Download the picture and use it for the user group materials.
 
- <div style="margin-bottom: 20px; margin-top: 40px">
-    <img src="{{ url_for('asset', path='images/user-group/kotlin-user-group-avatar.png')}}" height="200" width="200" style="margin: 0 auto">
-    <div style="text-align: center; font-style: italic;">Belarusian Kotlin User Group Profile Picture sample</div>
-</div>
+![Belarusian Kotlin User Group sample]({{ url_for('asset', path='images/user-group/kotlin-user-group-avatar.png')}})
+{:.community-branding-name}
+*Belarusian Kotlin User Group Profile Picture sample*
 
 You can download a [set of graphics](https://drive.google.com/drive/folders/0B3Zi34svOj1RZ2sxZExhblRJc1k) including vector graphics and samples of cover pictures for social networks.
 

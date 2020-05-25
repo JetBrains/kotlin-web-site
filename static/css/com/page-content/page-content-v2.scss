@@ -2,17 +2,6 @@
 @import '../../_utils';
 @import '../_bits/_header';
 
-@import '../_page-content/page-content';
-
-.page-content {
-    font-family: Inter, Arial, sans-serif;
-    color: #27282C;
-
-    font-size: 18px;
-    line-height: 28px;
-    margin: 24px 0;
-}
-
 a {
     color: #6B70FC;
     text-decoration: none;
@@ -20,4 +9,70 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.page-content {
+    font-family: Inter, Arial, sans-serif;
+    color: #27282C;
+
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0 0 24px;
+}
+
+.typo-image {
+    max-width: 100%;
+}
+
+.typo-h1 {
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 52px;
+    margin-bottom: 32px;
+}
+
+.typo-h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 38px;
+    margin-bottom: 24px;
+}
+
+.typo-list__item {
+    margin-bottom: 30px;
+}
+
+.typo-list__item > .typo-list {
+    margin-top: 30px;
+}
+
+.typo-list_type_simple > .typo-list__item {
+    margin-left: 3ex;
+}
+
+.typo-list_type_simple > .typo-list__item::before {
+    display: block;
+    content: '—';
+    margin-left: -3ex;
+    position: absolute;
+}
+
+.typo-list_type_ordered {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-left: 22px;
+}
+
+.typo-para {
+    margin-bottom: 25px;
+}
+
+.js-side-tree-nav {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.js-side-tree-nav > .js-item {
+    margin: 0 8px 8px;
 }

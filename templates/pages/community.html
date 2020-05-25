@@ -3,15 +3,7 @@
 
 {% block title %}Community{% endblock %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='community.css')|autoversion }}">
-{% endblock %}
-
 {% block body_class %}page__community{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('static', filename='community.js')|autoversion }}"></script>
-{% endblock %}
 
 {% macro speak_kotlin_link(href, text, class, comment=None) %}
     <div class="all-speak-kotlin_link _{{ class }}" data-svg-id="{{ class.replace('-', '_') }}">

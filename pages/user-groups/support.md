@@ -4,9 +4,9 @@ layout: groups
 title: "Support and Guidelines"
 ---
 
-## Support for KUGs from JetBrains
+# Support for KUGs from JetBrains
 
-### Support for KUGs from JetBrains
+## Support for KUGs from JetBrains
 
 Active KUGs hosting at least 1 meetup in 4 months can apply for the community support program which includes:
 
@@ -17,7 +17,7 @@ Active KUGs hosting at least 1 meetup in 4 months can apply for the community su
 * promotion of hosted events on the official [kotlinlang.org](./user-group-list.html) web site;
 * priority access and discounts to Kotlin events and campaigns
 
-### Support from JetBrains for all tech communities
+## Support from JetBrains for all tech communities
 
 If you organize any other tech community you can apply for support as well.
 
@@ -26,9 +26,9 @@ If you organize any other tech community you can apply for support as well.
 * promotion of hosted events on the official [kotlinlang.org](./user-group-list.html) web site in case if the events are focused on Kotlin or feature Kotlin talks;
 * receiving latest news and announcements about official Kotlin events and campaigns
 
-## Guidelines
+# Guidelines
 
-###  How KUG is different from other communities? 
+##  How KUG is different from other communities? 
 
 Kotlin User Group or KUG is a community of people and a place to share your Kotlin programming experience. To get named KUG, the community should have some features:
 
@@ -39,12 +39,12 @@ Kotlin User Group or KUG is a community of people and a place to share your Kotl
 
 There are no limits on a format for KUG’s meetups; they can exist in whatever way works for the community, be it presentations, hands-on labs, lectures, hackathons, or informal beer-driven get-togethers.
 
-### How to run official KUG?
+## How to run official KUG?
 
 We recommend hosting one group per city. Check out the list of KUGs and find out a KUG in your city
 
 * We recommend hosting one group per city. Check out the list of KUGs and find out a KUG in your city.
-* Use official KUG logo and branding. Check out the [branding guidelines]()
+* Use official KUG logo and branding. Check out the [branding guidelines](/user-groups/branding.html)
 * Keep your user group active. Run meetups regularly, at least once in 4 months
 * Establish an online communication space for your community. It helps people to get information from their peers in their native language, and helps you as an organizer to grow your community, have an “all in one place” communication channel, a place where you can find a hand whenever you need
 * Create a space for meetups management and announcements (alt: create a [meetup.com](https://meetup.com) group space).
@@ -53,4 +53,7 @@ We recommend hosting one group per city. Check out the list of KUGs and find out
 * The group should have a code of conduct available for all members
 * An active KUG should have a team of at least two organizers
 
-[Submit a new KUG]() if your community have all the features and meet all of the above guidelines Submit a new KUG
+[Submit a new KUG](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group) if your community have all the features and meet all of the above guidelines Submit a new KUG
+
+Have a question? [Contact us]()
+{:.community-attention-info}

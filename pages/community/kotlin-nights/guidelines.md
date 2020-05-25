@@ -1,29 +1,20 @@
 ---
-title: Kotlin Nights
+type: doc
+layout: community
+title: Guidelines
 ---
 
-# Kotlin Nights
-
-Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologies.
-At JetBrains we've organised a few events: 
-[Kotlin Night San Francisco](https://blog.jetbrains.com/kotlin/2016/06/kotlin-night-recordings/) and 
-[Kotlin Night London](https://blog.jetbrains.com/kotlin/2016/11/kotlin-night-in-london-recordings/). 
- 
-The community however is asking for more Kotlin Nights and are willing to organise these themselves. Here you would find guidelines and some hints on putting things together. 
-
-Please, [submit your Kotlin Night](https://surveys.jetbrains.com/s3/1eca96c71ee7) to get support and inform about your upcoming event.
+[All events](/community/events.html)
 
 ## Guidelines
 
-* Please, stick with the design materials. It will help to have all events and materials with the same style
+* Please, stick with the [design materials]({{ url_for('asset', path='k-night_files.zip') }}). It will help to have all events and materials with the same style
 * Kotlin Night should be a free event. A minimal fee can be charged to assure assistance but it is still a non-profit event. 
 * The event should be published and available publicly for all people to attend without any kind of discrimination.
 * The contents of the talks should be made public online after the event without requiring sign-up or registration to access these.
 * Recording is optional but recommended and should also be made available
 * The talks should be primarily about Kotlin and not a focus on marketing or sales
 * The event can serve food and/or drinks optionally
-
-[Download design materials]({{ url_for('asset', path='k-night_files.zip') }})
 
 ## Organiser is Responsible for
 

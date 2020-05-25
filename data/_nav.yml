@@ -37,7 +37,7 @@ subnav:
           urlPattern: /user-groups*
           title: User Groups
 
-        - url: /community/kotlin-nights.html
+        - url: /community/events.html
           title: Events
 
         - url: /community/talks.html
@@ -468,5 +468,5 @@ groups:
       title: Branding materials
     - url: /user-groups/support-other.html
       title: Support for other user groups
-    - url: /user-groups/code-of-conduct.html
+    - url: https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct
       title: Code of Conduct
