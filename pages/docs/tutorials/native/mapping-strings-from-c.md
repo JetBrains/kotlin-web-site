@@ -205,7 +205,7 @@ fun sendString() {
     }
   }
 
-  val copiedStringFromC = buf.stringFromUtf8()
+  val copiedStringFromC = buf.toKString()
   println("Message from C: $copiedStringFromC")
 }
 
@@ -217,7 +217,7 @@ to the C function. We use the `usePinned` extension function
 to temporarily pin the native memory address of the
 byte array. The C function fills in the
 byte array with data. We use another extension 
-function `ByteArray.stringFromUtf8()` to turn the byte 
+function `ByteArray.toKString()` to turn the byte 
 array into a Kotlin `String`, assuming UTF-8 encoding. 
 
 ## Fixing the Code
