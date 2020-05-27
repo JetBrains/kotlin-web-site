@@ -7,10 +7,10 @@ title: "Kotlin for Data Science"
 
 # Kotlin for Data Science
 
-From building ETL pipelines to productionizing machine learning models, Kotlin can be a great choice for 
+From building data pipelines to productionizing machine learning models, Kotlin can be a great choice for 
 working with data:
+* Kotlin is concise, readable and easy to learn.
 * Static typing and null safety help create reliable, maintainable code that is easy to troubleshoot. 
-* Kotlin is concise, readable and easy to learn. 
 * Being a JVM language, Kotlin gives you great performance and an ability to leverage an entire ecosystem 
 of tried and true Java libraries. 
 
