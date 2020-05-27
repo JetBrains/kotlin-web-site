@@ -23,7 +23,7 @@ colleagues, or build up your data science and machine learning skills.
 ### Jupyter Kotlin kernel
 
 The Jupyter Notebook is an open-source web application that allows you to create and share documents 
-(aka "notebooks") that can contain code, visualizations and markdown text. 
+(aka "notebooks") that can contain code, visualizations, and markdown text. 
 [Kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter) is an open source project that brings Kotlin 
 support to Jupyter Notebook. 
 
