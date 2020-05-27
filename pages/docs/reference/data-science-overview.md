@@ -36,7 +36,7 @@ instructions, documentation, and examples.
 
 Apache Zeppelin is a popular web-based solution for interactive data analytics. It provides strong support 
 for the Apache Spark cluster computing system, which is particularly useful for data engineering. 
-Starting with [version 0.9.0](https://zeppelin.apache.org/docs/0.9.0-preview1/) Apache Zeppelin comes with 
+Starting from [version 0.9.0](https://zeppelin.apache.org/docs/0.9.0-preview1/), Apache Zeppelin comes with 
 bundled Kotlin interpreter. 
 
 ![Kotlin in Zeppelin notebook]({{ url_for('asset', path='images/landing/data-science/kotlin-zeppelin-interpreter.png')}})
