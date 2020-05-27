@@ -14,7 +14,7 @@ working with data:
 * Being a JVM language, Kotlin gives you great performance and an ability to leverage an entire ecosystem 
 of tried and true Java libraries. 
 
-## Interactive Editors
+## Interactive editors
 
 Notebooks such as [Jupyter Notebook](https://jupyter.org/) and [Apache Zeppelin](https://zeppelin.apache.org/) provide convenient tools for data visualization and 
 exploratory research. Kotlin integrates with these tools to help you explore data, share your findings with 
@@ -95,4 +95,3 @@ Here are some examples of such libraries:
 
 If this list doesn’t cover your needs, you can find more options in the 
 [**Kotlin Data Science Resources**](https://github.com/thomasnield/kotlin-data-science-resources) digest from Thomas Nield.
-
