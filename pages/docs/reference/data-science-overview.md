@@ -11,7 +11,7 @@ From building ETL pipelines to productionizing machine learning models, Kotlin c
 working with data:
 * Static typing and null safety help create reliable, maintainable code that is easy to troubleshoot. 
 * Kotlin is concise, readable and easy to learn. 
-* Being a JVM language Kotlin gives you great performance, and an ability to leverage an entire ecosystem 
+* Being a JVM language, Kotlin gives you great performance and an ability to leverage an entire ecosystem 
 of tried and true Java libraries. 
 
 ## Interactive Editors
@@ -95,5 +95,4 @@ Here are some examples of such libraries:
 
 If this list doesn’t cover your needs, you can find more options in the 
 [**Kotlin Data Science Resources**](https://github.com/thomasnield/kotlin-data-science-resources) digest from Thomas Nield.
-
 
