@@ -30,7 +30,7 @@ support to Jupyter Notebook.
 ![Kotlin in Jupyter notebook]({{ url_for('asset', path='images/landing/data-science/kotlin-jupyter-kernel.png')}})
 
 Check out Kotlin kernel's [GitHub repo](https://github.com/Kotlin/kotlin-jupyter) for installation 
-instructions, documentation and examples.
+instructions, documentation, and examples.
 
 ### Zeppelin Kotlin interpreter
 
