@@ -11,7 +11,7 @@ title: "Support for other user groups"
 Active KUGs hosting at least 1 meetup in 4 months can apply for the community support program which includes:
 
 * official KUG listing on kotlinlang.org;
-* a free account at KUG Pro network on [meetup.com])(https://meetup.com);
+* a free account at KUG Pro network on [meetup.com](https://meetup.com);
 * free licenses for JetBrains products to raffle off at the meetups;
 * access to the speaker’s directory with booking access;
 * promotion of hosted events on the official [kotlinlang.org](https://kotlinlang.org/community/events.html) web site;
