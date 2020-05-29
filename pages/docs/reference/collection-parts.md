@@ -75,7 +75,7 @@ fun main() {
 ```
 </div>
 
-## Chunked
+## Chunked (since 1.2)
 
 To break a collection onto parts of a given size, use the [`chunked()`](/api/latest/jvm/stdlib/kotlin.collections/chunked.html) function.
 `chunked()` takes a single argument – the size of the chunk – and returns a `List` of `List`s of the given size.
@@ -111,7 +111,7 @@ fun main() {
 ```
 </div>
 
-## Windowed
+## Windowed (since 1.2)
 
 You can retrieve all possible ranges of the collection elements of a given size.
 The function for getting them is called [`windowed()`](/api/latest/jvm/stdlib/kotlin.collections/windowed.html): it returns a list of element ranges that you would see if you were looking at the collection through a sliding window of the given size.
