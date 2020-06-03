@@ -4,7 +4,8 @@ layout: groups
 title: "Kotlin User Groups List"
 ---
 
-# Join KUG all over the globe
+# Find KUG near you
+## 203 KUGs all over the globe
 
 ## Europe
 
@@ -237,13 +238,6 @@ title: "Kotlin User Groups List"
 
 Kotlin User Group or KUG is a community of people and a place to share your programming experience with Kotlin and its ecosystem
  {:.community-usergroup-list__big-para}
-
-## Run your KUG
-
-* To boost the Kotlin community growth across the globe
-* to help its members become better professionals through mastering Kotlin skills
-* To make contacts and improve your networking in the community
- {:.community-kugrun}
 
 Have a question? [Contact us]()
 {:.community-attention-info}
