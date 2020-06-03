@@ -4,56 +4,54 @@ layout: groups
 title: "Support and Guidelines"
 ---
 
-# Support for KUGs from JetBrains
-
-## Support for KUGs from JetBrains
-
-Active KUGs hosting at least 1 meetup in 4 months can apply for the community support program which includes:
-
-* official KUG listing on [kotlinlang.org](./user-group-list.html);
-* a free account at KUG Pro network on [meetup.com](https://meetup.com);
-* free licenses for JetBrains products to raffle off at the meetups;
-* access to the speaker’s directory with booking access;
-* promotion of hosted events on the official [kotlinlang.org](./user-group-list.html) web site;
-* priority access and discounts to Kotlin events and campaigns
-
-## Support from JetBrains for all tech communities
-
-If you organize any other tech community you can apply for support as well.
-
-* If you organize any other tech community you can apply for support as well. free JetBrains licenses to raffle of at the meetup;
-* access to the speakers’ directory;
-* promotion of hosted events on the official [kotlinlang.org](./user-group-list.html) web site in case if the events are focused on Kotlin or feature Kotlin talks;
-* receiving latest news and announcements about official Kotlin events and campaigns
-
 # Guidelines
 
-##  How KUG is different from other communities? 
+## What is KUG?
 
-Kotlin User Group or KUG is a community of people and a place to share your Kotlin programming experience. To get named KUG, the community should have some features:
+A Kotlin User Group, or KUG, is a community that is  dedicated to Kotlin and that offers you a place to share your
+ Kotlin programming experience with like-minded people. 
 
-* KUG provides Kotlin-related content with regular meetups as the main format of content;
-* KUG hosts regular (at least once in four months) events with an open registration without any restriction for attendance;
-* KUG is driven and organized by the community and does not aim to earn money with the events or get any other business benefits from the members and attendees;
-* KUG follows and ensures code of conduct in order to be a welcoming place for the attendees of any background, and experience (check-out our recommended code of conduct in “[Communication standards]()” section)
+To become an official KUG, your community should have some specific features shared by every KUG. It should: 
+* Provide Kotlin-related content, with regular meetups as the main form of activity.
+* Host regular events (at least once every 3 months) with open registration and without any restriction for attendance. 
+* Be driven and organized by the community, and it should not use events to earn money or gain any other business
+ benefits from members and attendees.
+* Follow and ensure a code of conduct in order to provide a welcoming environment for attendees of any background and
+ experience (check-out our recommended [Code of Conduct](https://kotlinlang.org/user-groups/code-of-conduct.html)).
 
-There are no limits on a format for KUG’s meetups; they can exist in whatever way works for the community, be it presentations, hands-on labs, lectures, hackathons, or informal beer-driven get-togethers.
+There are no limits regarding the format for KUG meetups. They can take place in whatever fashion works best for the
+ community, whether that includes presentations, hands-on labs, lectures, hackathons, or informal beer-driven get-togethers. 
 
-## How to run official KUG?
+## How to run an official KUG?
 
-We recommend hosting one group per city. Check out the list of KUGs and find out a KUG in your city
+* One group per city is recommended and more comfortable for the members of KUG. Check out [the list of KUGs](https
+://kotlinlang.org/user-groups/user-group-list.html) to see if there is already a KUG in your area.
+* Use the official KUG logo and branding. Check out [the branding guidelines](https://kotlinlang.org/user-groups
+/branding.html).
+* Keep your user group active. Run meetups regularly, at least once every 3 months.
+* Announce your KUG meetups at least 2 weeks in advance. The announcement should contain a list of talks
+ and the names of the speakers, as well as the location, timing, and any other crucial info about the event. 
+* KUG events should be free or, if you need to cover organizing expenses, limit prices to a maximum of 10 USD.
+* Your group should have a code of conduct available for all members. 
 
-* We recommend hosting one group per city. Check out the list of KUGs and find out a KUG in your city.
-* Use official KUG logo and branding. Check out the [branding guidelines](/user-groups/branding.html)
-* Keep your user group active. Run meetups regularly, at least once in 4 months
-* Establish an online communication space for your community. It helps people to get information from their peers in their native language, and helps you as an organizer to grow your community, have an “all in one place” communication channel, a place where you can find a hand whenever you need
-* Create a space for meetups management and announcements (alt: create a [meetup.com](https://meetup.com) group space).
-* Make sure you announce the KUG’s meetups at least 2 weeks before. The announcement should contain a list of talks, names of speakers, place, timing and other crucial info about the event.
-* KUG's events should be free or if you need to cover organizing expenses, hold on prices up to 10 USD
-* The group should have a code of conduct available for all members
-* An active KUG should have a team of at least two organizers
-
-[Submit a new KUG](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group) if your community have all the features and meet all of the above guidelines Submit a new KUG
-
+If your community has all the necessary features and follows these guidelines, you are ready to [Apply to be a new
+ KUG](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group).
+ 
 Have a question? [Contact us]()
 {:.community-attention-info}
+
+## Support for KUGs from JetBrains
+Active KUGs that host at least 1 meetup every 3 months can apply for the community support program, which includes:
+* Official KUG branding.
+* A special entry on the Kotlin website.
+* Free licenses for JetBrains products to raffle off at meetups.
+* Priority support for Kotlin events and campaigns.
+* Help recruiting speakers for events.
+
+## Support from JetBrains for all tech communities
+If you organize for any other tech communities, you can apply for support as well. By doing so, you may receive: free JetBrains product licenses to raffle off at meetups, information about Kotlin official events and campaigns, Kotlin stickers, and help with recruiting Kotlin speakers for your events.
+
+
+
+
+
