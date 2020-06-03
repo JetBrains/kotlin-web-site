@@ -465,10 +465,8 @@ groups:
     - url: /user-groups/user-group-list.html
       title: Kotlin User Groups List
     - url: /user-groups/support.html
-      title: Support and Guidelines
+      title: Guidelines and Support
     - url: /user-groups/branding.html
       title: Branding materials
-    - url: /user-groups/support-other.html
-      title: Support for other user groups
     - url: https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct
       title: Code of Conduct

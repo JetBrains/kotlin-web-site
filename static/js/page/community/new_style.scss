@@ -37,6 +37,15 @@
   padding: 20px;
   width: 30%;
 
+  &, &:hover, &:active, &:visited, &:any-link {
+    color: #1E1E1F;
+    text-decoration: none;
+  }
+
+  &:hover {
+    border-color: #6B70FC;
+  }
+
   &::before {
     display: block;
     margin: 0;
