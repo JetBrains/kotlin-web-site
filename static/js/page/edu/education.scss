@@ -1,0 +1,67 @@
+.edu-feature-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.edu-feature-list__item {
+  padding-bottom: 48px;
+  width: 33.33%;
+}
+
+.edu-feature-list__item::before {
+  display: block;
+}
+
+.edu-feature-list__item_type_android::before {
+  content: url("images/android.svg");
+}
+
+.edu-feature-list__item_type_recognize::before {
+  content: url("images/recognize.svg");
+}
+
+.edu-feature-list__item_type_popular::before {
+  content: url("images/popular.svg");
+}
+
+.edu-feature-list__item_type_easy::before {
+  content: url("images/easy.svg");
+}
+
+.edu-feature-list__item_type_paradigms::before {
+  content: url("images/paradigms.svg");
+}
+
+.edu-feature-list__item_type_interoperable::before {
+  content: url("images/interoperable.svg");
+}
+
+.edu-feature-list__item_type_modern::before {
+  content: url("images/modern.svg");
+}
+
+.edu-feature-list__item_type_supports::before {
+  content: url("images/supports.svg");
+}
+
+.edu-feature-list__item_type_tooling::before {
+  content: url("images/tooling.svg");
+}
+
+.edu-feature-list__title {
+  display: block;
+
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.edu-feature-list__para {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(39, 40, 44, 0.7);
+}

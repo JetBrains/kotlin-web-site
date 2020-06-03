@@ -1,0 +1,1 @@
+import "./education.scss"
