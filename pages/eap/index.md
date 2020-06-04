@@ -38,6 +38,28 @@ check [our instructions on how to configure your build to support this version](
         <th>kotlinx library versions</th>
     </tr>
     <tr>
+        <td><strong>1.4-M2</strong>
+            <p> Released: <strong>June 4, 2020</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M2">Release on GitHub</a></p>
+        </td>
+        <td>
+            <ul>
+                <li>Hierarchical project structure</li>
+                <li>New flexible Project Wizard</li>
+                <li>Explicit API mode for library authors</li>
+                <li>And many other improvements</li>
+            </ul>
+            <p> For more details, please refer to <a href="http://blog.jetbrains.com/kotlin/2020/06/kotlin-1-4-m2-released/" target="_blank">the blog post</a>.</p>
+         </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization"><strong>kotlinx.serialization</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0-1.4-M2">0.20.0-1.4-M2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines"><strong>kotlinx.coroutines</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.7-1.4-M2">1.3.7-1.4-M2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4-M2">0.14.3-1.4-M2</a></li>          
+            </ul>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.4-M1</strong>
             <p> Released: <strong>March 23, 2020</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M1">Release on GitHub</a></p>
