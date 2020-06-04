@@ -49,6 +49,7 @@ check [our instructions on how to configure your build to support this version](
                 <li>Explicit API mode for library authors</li>
                 <li>And many other improvements</li>
             </ul>
+            <p> For more details, please refer to <a href="http://blog.jetbrains.com/kotlin/2020/06/kotlin-1-4-m2-released/" target="_blank">the blog post</a>.</p>
          </td>
         <td>
             <ul>
@@ -56,7 +57,6 @@ check [our instructions on how to configure your build to support this version](
                 <li><a href="https://github.com/Kotlin/kotlinx.coroutines"><strong>kotlinx.coroutines</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.7-1.4-M2">1.3.7-1.4-M2</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.atomicfu"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4-M2">0.14.3-1.4-M2</a></li>          
             </ul>
-            <p> For more details, please refer to <a href="http://blog.jetbrains.com/kotlin/2020/06/kotlin-1-4-m2-released/" target="_blank">the blog post</a>.</p>
         </td>
     </tr>
     <tr>
