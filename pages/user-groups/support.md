@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: groups
-title: "Support and Guidelines"
+title: "Guidelines and Support"
 ---
 
 # Guidelines

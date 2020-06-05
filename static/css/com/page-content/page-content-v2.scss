@@ -24,6 +24,10 @@ a:hover {
     max-width: 100%;
 }
 
+.kto-header, .typo-header {
+    @extend %header;
+}
+
 .typo-h1 {
     font-weight: bold;
     font-size: 45px;

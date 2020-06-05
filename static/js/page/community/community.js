@@ -14,7 +14,11 @@ function setAnimation(id) {
   var linkElement = document.querySelector('[data-svg-id="' + id + '"]');
   var svgElement = document.getElementById(id);
 
-  if(!svgElement){
+  if(svgElement) {
+    svgElement.setAttribute('data-aos', 'animation');
+    svgElement.setAttribute('data-aos-anchor', ".all-speak-kotlin");
+    svgElement.setAttribute('data-aos-anchor-placement', "top-center");
+  } else {
     console.log(id)
   }
 
@@ -23,10 +27,6 @@ function setAnimation(id) {
     linkElement.setAttribute('data-aos-anchor', ".all-speak-kotlin");
     linkElement.setAttribute('data-aos-anchor-placement', "top-center");
   }
-
-  svgElement.setAttribute('data-aos', 'animation');
-  svgElement.setAttribute('data-aos-anchor', ".all-speak-kotlin");
-  svgElement.setAttribute('data-aos-anchor-placement', "top-center");
 }
 
 $(document).ready(function () {
