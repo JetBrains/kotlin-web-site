@@ -78,6 +78,60 @@
   color: rgba(39, 40, 44, 0.7);
 }
 
+.edu-universities-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 26px 0;
+  margin-top: 50px;
+  border-top: 1px solid rgba(39, 40, 44, 0.2);
+}
+
+.edu-universities__top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.edu-universities-top__item {
+  text-indent: -9999px;
+}
+
+.edu-universities-top__item_type_stanford {
+  content: url("./universities/stanford.png");
+}
+
+.edu-universities-top__item_type_imperial {
+  content: url("./universities/imperial.png");
+}
+
+.edu-universities-top__item_type_hopkins {
+  content: url("./universities/hopkins.png");
+}
+
+.edu-universities-top__item_type_penn {
+  content: url("./universities/penn.png");
+}
+
+.edu-universities-top__item_type_ucla {
+  content: url("./universities/ucla.png");
+}
+
+.edu-universities-top__item_type_duke {
+  content: url("./universities/duke.png");
+}
+
+.edu-universities__note {
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: rgba(39, 40, 44, 0.7);
+  margin-top: 29px;
+}
+
+.edu-universities-map {
+  height: 480px;
+}
+
 .edu-start-teaching {
   background: #F5F5F5;
   padding: 96px;

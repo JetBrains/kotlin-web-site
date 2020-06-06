@@ -1,0 +1,36 @@
+{
+  "events": [
+    {
+      "id": "127",
+      "title": "Chicago Roboto",
+      "url": "https://chicagoroboto.com/sessions/flows-channels-pipelines-oh-my-using-kotlins-asynchronous-arsenal-in-your-android-apps/",
+      "subject": "Motional Intelligence: Building smarter animations with Kotlin Delegates and Dynamic animations",
+      "speaker": "Ryan Pierce",
+      "description": "<p>Asynchronous programming is tricky enough. With a plethora of emerging tools to approach concurrency, it’s easy to become overwhelmed. However, the geniuses at Kotlin took a pragmatic approach by making asynchronous coding simple yet purposeful. So how do Flows, Channels, and Pipelines help you? I’ll break down the similarities and differences between each asynchronous programming technique. You will learn what each one is, but just as importantly, what each one isn’t. I’ll also present examples that show how to handle reactive streams in Kotlin and when to use Flows over Channels. Leaving this talk, you’ll feel confident knowing how to use your tool belt of asynchronous tools in Android.</p>",
+      "tags": [],
+      "city": {
+        "name": "Chicago, USA",
+        "position": {
+          "lat": 41.8781136,
+          "lng": -87.6297982
+        },
+        "bounds": null
+      },
+      "lang": "en",
+      "pinned": false,
+      "startDate": "2020-09-27T21:00:00.000Z",
+      "endDate": "2020-09-28T21:00:00.000Z",
+      "formattedDate": "September 28-29"
+    }
+  ],
+  "cities": [
+    {
+      "name": "Chicago, USA",
+      "position": {
+        "lat": 41.8781136,
+        "lng": -87.6297982
+      },
+      "bounds": null
+    }
+  ]
+}

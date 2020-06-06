@@ -55,7 +55,34 @@
             </ul>
         </section>
 
-{#        <h2 class="kto-header kto-header_size_m">Kotlin Courses Around<br>the World</h2>#}
+        <section class="edu-universities">
+            <div class="edu-universities__top">
+                <h2 class="kto-header kto-header_size_m">Kotlin Courses Around<br>the World</h2>
+
+                <ul class="kto-numbers">
+                    <li class="kto-numbers__item">
+                        <strong class="kto-numbers__number">28</strong> countries
+                    </li>
+                    <li class="kto-numbers__item">
+                        <strong class="kto-numbers__number">101</strong> universities
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="edu-universities-top">
+                <li class="edu-universities-top__item edu-universities-top__item_type_stanford">Stanford university</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_imperial">Imperial College London</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_hopkins">Johns Hopkins university</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_penn">Penn</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_ucla">UCLA</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_duke">Duke</li>
+            </ul>
+
+            <p class="edu-universities__note">
+                If you are teaching Kotlin and would like to feature your academic institution and course, please reach out to us at
+                <a href="mailto:education@kotlinlang.org">education@kotlinlang.org</a>
+            </p>
+        </section>
 
         <section>
             <h2 class="kto-header kto-header_size_m">Story Highlights</h2>
@@ -177,4 +204,8 @@
 
 {% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='education.css')|autoversion }}">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='education.js')|autoversion }}"></script>
 {% endblock %}
