@@ -77,78 +77,101 @@
             <ul class="kto-persons">
                 <li class="kto-person">
                     <img>
+                    <p class="">Teaching Introduction</p>
                     <p class=""></p>
-                    <p class=""></p>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="kto-header kto-header_size_m">Start Teaching Kotlin with These Resources</h2>
-            <ul>
-                <li>
-                    <p class="title">Documentation</p>
-                    <p class="description">The best place to start onboarding</p>
-                    <ul class="links">
-                        <li class="links__link"><a>Getting Started</a></li>
-                        <li class="links__link"><a>Basics</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <p class="title">Playground</p>
-                    <p class="description">Master your Kotlin skills on real examples in the browser</p>
-                    <ul class="links">
-                        <li class="links__link"><a>Playground</a></li>
-                        <li class="links__link"><a>Hands-on Labs</a></li>
-                        <li class="links__link"><a>Kotlin by Example</a></li>
-                        <li class="links__link"><a>Koans</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <p class="title">Android Development</p>
-                    <p class="description">Start using Kotlin to develop Android apps</p>
-                    <ul class="links">
-                        <li class="links__link"><a>Kotlin documentation for Android</a></li>
-                        <li class="links__link"><a>List of various resources</a></li>
-                        <li class="links__link"><a>Converting from Java to Kotlin codelab</a></li>
-                        <li class="links__link"><a>Use Kotlin Coroutines in Your Android App codelab</a></li>
-                        <li class="links__link"><a>Android Room with a View codelab</a></li>
-                        <li class="links__link"><a>Android Kotlin Fundamentals course</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <p class="title">IDE</p>
-                    <p class="description">A modern IDE like IntelliJ IDEA can help in learning Kotlin</p>
-                    <ul class="links">
-                        <li class="links__link"><a>Free IntelliJ IDEA Ultimate Licenses</a></li>
-                        <li class="links__link"><a>EduTools plugin</a></li>
-                        <li class="links__link"><a>Getting started with IntelliJ IDEA</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <p class="title">Online Courses</p>
-                    <p class="description">Check out these recommended online Kotlin courses</p>
-                    <ul class="links">
-                        <li class="links__link"></li>
-                    </ul>
-                </li>
-                <li>
-                    <p class="title">Community</p>
-                    <p class="description">Feel free to join our welcoming Kotlin community</p>
-                    <ul class="links">
-                        <li class="links__link"></li>
-                    </ul>
-                </li>
-                <li>
-                    <p class="title">Books</p>
-                    <p class="description">Check out our <a>recommended reading</a></p>
                 </li>
             </ul>
         </section>
     </article>
+{% endblock %}
 
-    <section class="edu-contact-us">
+{% block page_after_content %}
+    <section class="edu-start-teaching">
+        <div class="g-layout">
+            <h2 class="kto-header kto-header_size_m">Start Teaching Kotlin with<br>These Resources</h2>
+            <div class="edu-grid-resources">
+                <ul class="edu-grid-resources__column">
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Documentation</p>
+                        <p class="edu-resources-item__description">The best place to start onboarding</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a>Getting Started</a></li>
+                            <li class="edu-resources-item__link"><a>Basics</a></li>
+                        </ul>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">IDE</p>
+                        <p class="edu-resources-item__description">A modern IDE like IntelliJ IDEA can help in learning Kotlin</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a>Free IntelliJ IDEA Ultimate Licenses</a></li>
+                            <li class="edu-resources-item__link"><a>EduTools plugin</a></li>
+                            <li class="edu-resources-item__link"><a>Getting started with IntelliJ IDEA</a></li>
+                        </ul>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Books</p>
+                        <p class="edu-resources-item__description">Check out our <a>recommended reading</a></p>
+                    </li>
+                </ul>
+                <ul class="edu-grid-resources__column">
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Playground</p>
+                        <p class="edu-resources-item__description">Master your Kotlin skills on real examples in the browser</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a>Playground</a></li>
+                            <li class="edu-resources-item__link"><a>Hands-on Labs</a></li>
+                            <li class="edu-resources-item__link"><a>Kotlin by Example</a></li>
+                            <li class="edu-resources-item__link"><a>Koans</a></li>
+                        </ul>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Online Courses</p>
+                        <p class="edu-resources-item__description">Check out these recommended online Kotlin courses</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a>Introduction to Kotlin Programming</a></li>
+                            <li class="edu-resources-item__link"><a>Advanced Kotlin</a></li>
+                            <li class="edu-resources-item__link"><a>Programming Kotlin for Java Developers</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="edu-grid-resources__column">
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Android Development</p>
+                        <p class="edu-resources-item__description">Start using Kotlin to develop Android apps</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a>Kotlin documentation for Android</a></li>
+                            <li class="edu-resources-item__link"><a>List of various resources</a></li>
+                            <li class="edu-resources-item__link"><a>Converting from Java to Kotlin codelab</a></li>
+                            <li class="edu-resources-item__link"><a>Use Kotlin Coroutines in Your Android App codelab</a></li>
+                            <li class="edu-resources-item__link"><a>Android Room with a View codelab</a></li>
+                            <li class="edu-resources-item__link"><a>Android Kotlin Fundamentals course</a></li>
+                        </ul>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Community</p>
+                        <p class="edu-resources-item__description">Feel free to join our welcoming Kotlin community</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a>Forum</a></li>
+                            <li class="edu-resources-item__link"><a>Slack</a></li>
+                            <li class="edu-resources-item__link"><a>Overflow</a></li>
+                            <li class="edu-resources-item__link"><a>Blog</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
+    <section class="edu-contact-us-section">
+        <div class="g-layout">
+            <a href="mailto:education@kotlinlang.org" class="edu-contact-us">
+                <p class="edu-contact-us__caption">Contact us</p>
+                <div class="edu-contact-us__info">
+                    <p class="edu-contact-us__email">education@kotlinlang.org</p>
+                    <p class="edu-contact-us__text">If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin, please reach out to us.</p>
+                </div>
+            </a>
+        </div>
     </section>
 {% endblock %}
 
