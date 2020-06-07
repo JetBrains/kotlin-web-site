@@ -232,3 +232,39 @@
   line-height: 24px;
   color: rgba(255, 255, 255, 0.6)
 }
+
+
+.edu-persons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.edu-persons__item {
+  box-sizing: border-box;
+  border: 1px solid rgba(39, 40, 44, 0.2);
+  padding: 24px 32px;
+  margin-bottom: 23px;
+  width: 49%;
+}
+
+.edu-persons-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  min-height: 248px;
+}
+
+.edu-persons-item__title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.edu-persons-item__name {
+  font-size: 15px;
+  line-height: 24px;
+  color: rgba(39, 40, 44, 0.7);
+}
