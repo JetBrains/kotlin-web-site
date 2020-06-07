@@ -44,19 +44,19 @@
             <div class="all-speak-kotlin">
                 <div class="all-speak-kotlin_links _left">
                     {{ speak_kotlin_link("http://talkingkotlin.com", 'Talking Kotlin Podcast', 'talking_kotlin') }}
-                    {{ speak_kotlin_link("//www.reddit.com/r/Kotlin/", 'Reddit', 'reddit') }}
+                    {{ speak_kotlin_link(config.REDDIT_URL, 'Reddit', 'reddit') }}
                     {{ speak_kotlin_link("//kotlinlang.slack.com/", 'Slack', 'slack',
-                            comment='get invite <a href="http://slack.kotlinlang.org/">here</a>') }}
+                            comment='get invite <a href="' + config.SLACK_URL + '">here</a>') }}
                     {{ speak_kotlin_link("//www.linkedin.com/groups/7417237/profile", 'LinkedIn', 'linkedin',
                         comment='Mostly for job related post') }}
                 </div>
                 <div class="all-speak-kotlin_img"></div>
                 <div class="all-speak-kotlin_links _right">
                     {{ speak_kotlin_link("/community/talks.html", 'Kotlin Talks', 'kotlin-talks') }}
-                    {{ speak_kotlin_link("//discuss.kotlinlang.org/", 'Kotlin Forum', 'kotlin-forum') }}
-                    {{ speak_kotlin_link("//stackoverflow.com/questions/tagged/kotlin", 'Stack Overflow', 'stackoverflow') }}
-                    {{ speak_kotlin_link("//twitter.com/kotlin", 'Twitter', 'twitter') }}
-                    {{ speak_kotlin_link("//youtrack.jetbrains.com/issues/KT", 'Issue Tracker', 'youtrack') }}
+                    {{ speak_kotlin_link(config.FORUM_URL, 'Kotlin Forum', 'kotlin-forum') }}
+                    {{ speak_kotlin_link(config.STACK_OVERFLOW_URL, 'Stack Overflow', 'stackoverflow') }}
+                    {{ speak_kotlin_link(config.TWITTER_URL, 'Twitter', 'twitter') }}
+                    {{ speak_kotlin_link(config.BUGTRACKER_URL, 'Issue Tracker', 'youtrack') }}
                 </div>
             </div>
         </div>
