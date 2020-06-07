@@ -1,8 +1,8 @@
 - title: Stanford University
   location: Stanford, CA (US)
   courses:
-  - name: 'CS 193A: Android App Development'
-    url: https://web.stanford.edu/class/cs193a/index.shtml
+    - name: 'CS 193A: Android App Development'
+      url: https://web.stanford.edu/class/cs193a/index.shtml
 
 - title: UCLA
   location: Los Angeles, CA (US)
