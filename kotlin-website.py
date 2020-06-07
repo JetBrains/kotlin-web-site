@@ -180,6 +180,9 @@ def get_events():
 def get_cities():
     return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
 
+@app.route('/data/universities.json')
+def get_universities():
+    return Response(json.dumps(site_data['universities'], cls=DateAwareEncoder), mimetype='application/json')
 
 @app.route('/docs/reference/grammar.html')
 def grammar():

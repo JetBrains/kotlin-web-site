@@ -1,8 +1,34 @@
 import $ from 'jquery';
 import Map from "../events/map/Map";
-import store from "./store.json"
 
 import "./education.scss";
+
+function convertToPoints(universities) {
+    return universities
+        .filter(university => university.geo)
+        .map(university => ({
+            title: `<b>${university.title}</b><br>
+${university.location}
+<br>
+<br>
+Сourse:<br>
+${university.courses.map(course => `<a target="_blank" href="${course.url}">${course.name}</a>`).join('')}`,
+            city: {
+                position: {
+                    lat: parseFloat(university.geo.lat),
+                    lng: parseFloat(university.geo.lng),
+                }
+            }
+        }))
+}
+
+async function renderUniversitiesMap(tag) {
+    const universities = await $.getJSON('/data/universities.json');
+
+    Map.create(tag, {
+        events: convertToPoints(universities)
+    });
+}
 
 $(function () {
     const container = $('.edu-universities-top')[0];
@@ -11,7 +37,8 @@ $(function () {
         const tag = document.createElement('div');
         tag.className = "edu-universities-map";
         tag.textContent = "Loading map...";
-        Map.create(tag, store);
+
+        renderUniversitiesMap(tag); // async
 
         const { parentNode, nextSibling } = container;
 
