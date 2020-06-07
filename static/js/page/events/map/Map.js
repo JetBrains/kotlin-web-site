@@ -75,8 +75,9 @@ export default class Map {
     });
 
     // MARKERS
-    this._createMarkers(store.events);
-    const markers = this.markers;
+    const markers = this.markers = store.events
+        .filter(event => event.city)
+        .map(event => new Marker(event, this));
 
     emitter.on(EVENTS.EVENT_SELECTED, (event) => {
       const currentMarker = event.marker;
@@ -115,17 +116,8 @@ export default class Map {
    * @param {Array<Event>} events
    */
   _createMarkers(events) {
-    const map = this;
-    const markers = [];
 
-    events.forEach((event) => {
-      if (!event.city) {
-        return;
-      }
-      markers.push(new Marker(event, map));
-    });
 
-    this.markers = markers;
   }
 
   _limitWorldBounds() {
