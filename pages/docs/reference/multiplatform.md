@@ -66,7 +66,7 @@ internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
 
 </div>
 
-In the JavaScript world, a completely different set of APIs is availiable, 
+In the JavaScript world, a completely different set of APIs is available, 
 so one could instead implement logging to the console:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
