@@ -9,14 +9,19 @@ with open(data_file, encoding="utf-8") as points_file:
     universities = yaml.load(points_file, yaml.RoundTripLoader)
 
 for n, university in enumerate(universities):
-    location = university.get("location") + ", " + university.get("title")
-    coordinates =  geocoder.yandex(location, kind=None).json
+    location = university.get("location")+ ", " + university.get("title")
+    coordinates = geocoder.yandex(location, kind=None).json
 
-    if len(coordinates) == 0:
-        Exception("Location not found: ", location)
+    if coordinates is None or len(coordinates) == 0:
+        text = "Location not found: " + location
+        if university.get("geo") is not None:
+            print(text + " (saved previous)")
+            continue
+        else:
+            raise Exception(text)
 
-    if coordinates.get("ok") is True:
-        Exception("Location not resolved: ", location)
+    if coordinates["ok"] is not True:
+        raise Exception("Location not resolved: ", location)
 
     new_geo = {
         "lat": coordinates.get("lat"),
@@ -30,7 +35,8 @@ for n, university in enumerate(universities):
         is_same = None
         while is_same is None:
             input_text = "Will coordinates for \"" + location + """\" update? (y/n)
-    https://www.google.com/maps/search/?api=1&query=""" + new_geo['lat'] + "," + new_geo['lng']
+    https://www.google.com/maps/search/?api=1&query=""" + new_geo['lat'] + "," + new_geo['lng'] + """
+    https://www.google.com/maps/search/?api=1&query=""" + university['geo']['lat'] + "," + university['geo']['lng']
             user_input = input(input_text)
 
             if user_input == "y" or user_input == "yes":
