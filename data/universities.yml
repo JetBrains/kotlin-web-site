@@ -4,8 +4,602 @@
     - name: 'CS 193A: Android App Development'
       url: https://web.stanford.edu/class/cs193a/index.shtml
 
-- title: UCLA
+- title: Imperial College London
+  location: London (UK)
+  courses:
+    - name: '161: Computing Practical 1'
+      url: https://www.imperial.ac.uk/computing/current-students/courses/161/
+
+- title: University of Pennsylvania
+  location: Philadelphia, PA (US)
+  courses:
+    - name: 'CIS 195-202: Android'
+      url: https://www.seas.upenn.edu/~cis195/android/index.html
+      
+- title: Johns Hopkins University
+  location: Baltimore, MD (US)
+  courses:
+    - name: '605.603 - Object-Oriented and Functional Programming in Kotlin'
+      url: https://ep.jhu.edu/programs-and-courses/605.603-object-oriented-and-functional-programming-in-kotlin
+      
+- title: University of California, Los Angeles
   location: Los Angeles, CA (US)
   courses:
-    - name: ''
-      url: ''
+    - name: 'Computer Science 131. Programming Languages'
+      url: http://web.cs.ucla.edu/classes/winter19/cs131/homework.html
+
+- title: Duke University
+  location: Durham, NC (US)
+  courses:
+    - name: 'Mobile Development Track'
+      url: https://colab.duke.edu/roots/course/kotlin-intro
+
+- title: Northwestern University
+  location: Evanston, IL (US)
+  courses:
+    - name: 'Hello Kotlin: Android Bootcamp with App Factory for grades 9-12'
+      url: https://www.ctd.northwestern.edu/courses?sort=alpha&fulltext=Hello%20Kotlin#8425
+
+- title: University of Washington
+  location: Seattle, WA (US)
+  courses:
+    - name: 'INFO 448 Android Mobile Development'
+      url: https://canvas.uw.edu/courses/1222997
+
+- title: New York University
+  location: New York, NY (US)
+  courses:
+    - name: 'INFO1-CE9416 Android App Development Intensive'
+      url: https://www.sps.nyu.edu/professional-pathways/courses/INFO1-CE9416-android-app-development-intensive.html
+
+- title: University of Edinburgh
+  location: Edinburgh (UK)
+  courses:
+    - name: 'Computer Science Large Practical'
+      url: http://www.inf.ed.ac.uk/teaching/courses/cslp/
+
+- title: University of Texas at Austin
+  location: Austin, TX (US)
+  courses:
+    - name: 'CS 371M Mobile Computing (51610)'
+      url: https://www.cs.utexas.edu/users/witchel/371M/index.html
+
+- title: Technical University of Munich
+  location: Munich (Germany)
+  courses:
+    - name: 'Patterns in Software Engineering (WS 2019/20)'
+      url: https://ase.in.tum.de/lehrstuhl_1/teaching/winter-2019-20?id=998
+
+- title: University of Illinois at Urbana-Champaign
+  location: Champaign, IL (US)
+  courses:
+    - name: 'CS 125 An Introduction to Computer Science'
+      url: https://cs125.cs.illinois.edu/info/join/
+
+- title: University of California, Davis - UC Davis
+  location: Davis, CA (US)
+  courses:
+    - name: 'ECS 189E: Android and iOS Fundamentals'
+      url: https://bob.cs.ucdavis.edu/assets/ECS189E_android_and_ios.pdf
+
+- title: University of California, Santa Barbara - UC Santa Barbara
+  location: Santa Barbara, CA (US)
+  courses:
+    - name: 'CS184 - Introduction to Mobile Application Development (using Android)'
+      url: https://sites.cs.ucsb.edu/~holl/CS184/
+
+- title: Chinese University of Hong Kong
+  location: Hong Kong (China)
+  courses:
+    - name: '193-179280-01 Introduction to Android Programming using Kotlin 之Android流動程式編寫入門'
+      url: http://www.scs.cuhk.edu.hk/en/part-time/system-development-and-programming/mobile-programming/introduction-to-android-programming-using-kotlin-kotlin-android/193-179280-01
+
+- title: Boston University
+  location: Boston, MA (US)
+  courses:
+    - name: 'MET CS 683 Mobile Application Development with Android'
+      url: https://www.bu.edu/academics/met/courses/met-cs-683/
+
+- title: Ohio State University
+  location: Ohio, OH (US)
+  courses:
+    - name: 'CSE 5236: Mobile Application Development'
+      url: http://web.cse.ohio-state.edu/~champion.17/5236/
+
+- title: Michigan State University
+  location: East Lansing, MI (US)
+  courses:
+    - name: 'CSE498, Collaborative Design'
+      url: https://www.cse.msu.edu/~cse498/2018-08/slide-gallery/capstone-experience.pdf
+
+- title: Sungkyunkwan University (SKKU)
+  location: Seoul (South Korea)
+  courses:
+    - name: 'Programming Languages & Compilers'
+      url: http://arcs.skku.edu/Courses/ProgrammingLanguages
+
+- title: University of Maryland
+  location: College Park, MD (US)
+  courses:
+    - name: 'CMSC 436: Programming Handheld Systems'
+      url: http://www.cs.umd.edu/class/fall2019/cmsc436/Lectures/IntroductionToClass.pdf
+
+- title: Dartmouth College
+  location: Hanover, NH (US)
+  courses:
+    - name: 'CS 65: Smartphone Programming, 2017'
+      url: https://www.cs.dartmouth.edu/~sergey/cs65/syllabus.pdf
+
+- title: University of Sheffield
+  location: Sheffield (UK)
+  courses:
+    - name: 'COM4510 Software development for mobile devices'
+      url: https://www.sheffield.ac.uk/meng-engineering/current/modules/com4510
+
+- title: University of Oslo
+  location: Oslo (Norway)
+  courses:
+    - name: 'IN2000 – Software Engineering'
+      url: https://www.uio.no/studier/emner/matnat/ifi/IN2000/v20/forelesninger/in2000.2020.01.30.kotlin.kompendium.pdf
+
+- title: Ulm University
+  location: Ulm (Germany)
+  courses:
+    - name: 'Parallele Programmierung'
+      url: https://www.uni-ulm.de/en/in/sp/teaching/st2018/parallele-programmierung/
+
+- title: University of Leeds
+  location: Leeds (UK)
+  courses:
+    - name: 'COMP3222 Mobile Application Development'
+      url: http://lib5.leeds.ac.uk/rlists/broker/?bbModuleId=201920_31958_COMP3222&bbListId=_6921852_1&bbLastListId=_6255684_1&sess=201920&s=m
+      
+- title: University of Notre Dame
+  location: Notre Dame, IN (US)
+  courses:
+    - name: 'CSE 40842 – Hackers in the Bazaar'
+      url: https://www3.nd.edu/~pbui/teaching/cse.40842.sp19/progress02.html
+      
+- title: TU Dresden
+  location: Dresden (Germany)
+  courses:
+    - name: 'FRaMED - Development Of Graphical Editor Product Lines'
+      url: https://tu-dresden.de/ing/informatik/smt/st/studium/lehrveranstaltungen?lang=de&leaf=1&embedding_id=47eddfa7c5a54ed5be49042aff35a31b&subject=398&set_language=en
+
+- title: University of Bologna
+  location: Bologna (Italy)
+  courses:
+    - name: '72940 - Computational Models And Languages M'
+      url: https://www.unibo.it/en/teaching/course-unit-catalogue/course-unit/2019/385374
+      
+- title: Rutgers, the State University of New Jersey
+  location: New Brunswick, NJ (US)
+  courses:
+    - name: 'ECE 453 mobile app engineering'
+      url: https://www.coursehero.com/file/48846062/Fall2019-CLASS4-Kotlin-13September2019-publishedpdf/
+      
+- title: Texas A&M University
+  location: College Station, TX (US)
+  courses:
+    - name: 'ECEN 489: Mobile Applications with Android'
+      url: https://cesg.tamu.edu/courses/ecen-489-mob-apps-android/
+      
+- title: Lomonosov Moscow State University
+  location: Moscow (Russia)
+  courses:
+    - name: 'JetBrains Kotlin: теория и практика программирования'
+      url: https://vk.com/@dc.csmsu-jetbrains
+      
+- title: Tel Aviv University
+  location: Tel Aviv (Israel)
+  courses:
+    - name: 'Concepts in Programming Languages'
+      url: http://cs.tau.ac.il/~msagiv/courses/pl19.html
+      
+- title: University of Barcelona - Escola de Noves Tecnologies Interactives (ENTI)
+  location: Barcelona (Spain)
+  courses:
+    - name: 'Disseny d'Interficies'
+      url: https://enti.cat/new/wp-content/uploads/2019/01/CDI_1S_3r_Disseny_Interficies_vw.pdf
+      
+- title: University of Iowa
+  location: Iowa City, IA (US)
+  courses:
+    - name: 'CS:2820 Object-Oriented Software Development'
+      url: https://weblog.cs.uiowa.edu/cs2820s18/Syllabus
+        
+- title: Moscow Institute of Physics and Technology
+  location: Moscow (Russia)
+  courses:
+    - name: 'Введение в научное программирование на языке Kotlin'
+      url: http://npm.mipt.ru/pages/kotlin.html
+       
+- title: University of Utah
+  location: Salt Lake City, UT (US)
+  courses:
+    - name: 'CS4530-002 - Mobile Application Programming: Android'
+      url: https://student.apps.utah.edu/uofu/stu/classtools/syllabus/1178/14927/CS%204530-002%20Syllabus.pdf
+      
+- title: Higher School of Economics
+  location: Moscow (Russia)
+  courses:
+    - name: 'Язык Kotlin'
+      url: http://wiki.cs.hse.ru/KotlinElective
+      
+- title: University of Illinois at Chicago
+  location: Chicago, IL (US)
+  courses:
+    - name: 'CS 476 – Programming Language Design'
+      url: https://www2.cs.uic.edu/~mansky/teaching/cs476/fa18/lectures/languages.pdf
+      
+- title: Simon Fraser University
+  location: Burnaby (Canada)
+  courses:
+    - name: 'CMPT 383: Comparative Programming Languages'
+      url: https://www2.cs.sfu.ca/~ggbaker/prog-langs/slide-content/lang-types.html#/coroutine-10
+           
+- title: University of Canterbury
+  location: Christchurch (New Zealand)
+  courses:
+    - name: 'SENG440 -Topics in Mobile Computing'
+      url: https://twodee.org/blog/16904
+
+- title: Colorado School of Mines
+  location: Golden, CO (US)
+  courses:
+    - name: 'CSCI 448 - Mobile Application Development (Android)'
+      url: http://cs-courses.mines.edu/csci448/schedule.html
+      
+- title: Johannes Gutenberg University of Mainz
+  location: Mainz (Germany)
+  courses:
+    - name: 'Visual Computing'
+      url: https://www.cs.uni-mainz.de/files/2019/02/Lehrangebot-SS2019-red-.pdf
+      
+- title: University of Tartu
+  location: Tartu (Estonia)
+  courses:
+    - name: 'Mobile Computing & Internet of Things LTAT.06.009'
+      url: https://courses.cs.ut.ee/LTAT.06.009/2019_fall/uploads/Main/L2_2019_Kotlin.pdf
+      
+- title: Clark University
+  location: Worcester, MA (US)
+  courses:
+    - name: 'CSCI 201 - Proseminar In Computer Science'
+      url: http://catalog.clarku.edu/preview_course_nopop.php?catoid=25&coid=81349
+
+- title: Hofstra University
+  location: Hempstead, NY (US)
+  courses:
+    - name: 'CSC123/252: Programming Languages'
+      url: https://cs.hofstra.edu/~cscccl/csc123/index18.html
+
+- title: Iowa State University
+  location: Ames, IA (US)
+  courses:
+    - name: 'COM S 430: CONCURRENT PROGRAMMING IN PRACTICE'
+      url: http://web.cs.iastate.edu/~smkautz/cs430s19/examples/kotlin/kotlin.pdf
+
+- title: University of Perugia
+  location: Perugia (Italy)
+  courses:
+    - name: 'GP004142 COMPUTER PROGRAMMING 3 / Informatics'
+      url: https://www.unipg.it/en/courses/offered-programmes/course-catalogue-2019-20?idins=133946
+      
+- title: University of Salerno
+  location: Fisciano (Italy)
+  courses:
+    - name: '(Android) Mobile Programming'
+      url: http://www.di-srv.unisa.it/~robdep/MP/slides/slides2019.pdf
+
+- title: Aberystwyth University
+  location: Aberystwyth (UK)
+  courses:
+    - name: 'CS31620 Mobile Development with Android'
+      url: https://www.aber.ac.uk/en/modules/deptfuture/CS31620/AB0/
+      
+- title: University of Houston
+  location: Houston, TX (US)
+  courses:
+    - name: 'DIGM 4381 Mobile Application Design'
+      url: https://uh.edu/tech/digitalmedia/program/syllabi/4381.pdf
+      
+- title: ITMO University
+  location: Saint Petersburg (Russia)
+  courses:
+    - name: 'Разработка Android-приложений на Kotlin'
+      url: https://stepik.org/course/4792/syllabus
+      
+- title: Linköping University
+  location: Linkoping (Sweden)
+  courses:
+    - name: 'TDDC73 Interaction Programming'
+      url: https://www.ida.liu.se/~TDDC73/labs/lab1.sv.shtml
+      
+- title: University of Missouri-Columbia
+  location: Columbia, MO (US)
+  courses:
+    - name: 'INFOTC 4410 - Android App Development I'
+      url: https://online.missouri.edu/course-search/coursedetail.aspx?cid=311519&sid=337137
+      
+- title: University of Missouri-St Louis
+  location: St. Louis, MO (US)
+  courses:
+    - name: 'CMP SCI 4020 Introduction to Android Apps: Android Fundamentals'
+      url: http://bulletin.umsl.edu/search/?P=CMP%20SCI%204020
+      
+- title: University of Modena and Reggio Emilia
+  location: Modena (Italy)
+  courses:
+    - name: 'Programmazione Mobile'
+      url: https://git.hipert.unimore.it/ncapodieci/mobileprogramming
+     
+- title: Norwegian University of Science and Technology
+  location: Trondheim (Norway)
+  courses:
+    - name: 'IMT3673 - Mobile/Wearable Programming'
+      url: https://www.ntnu.edu/studies/courses/IMT3673#tab=omEmnet
+      
+- title: Oklahoma State University
+  location: Stillwater, OK (US)
+  courses:
+    - name: 'CS4153: Mobile Applications Development'
+      url: http://cs.okstate.edu/~sesham/documents/syllabus.pdf
+      
+- title: Sabancı University
+  location: Istanbul (Turkey)
+  courses:
+    - name: 'IT 535 Wireless and Mobile Programming'
+      url: https://www.sabanciuniv.edu/syllabus/?crn=21819&term=201802
+
+- title: Technion Israel Institute of Technology
+  location: Haifa (Israel)
+  courses:
+    - name: '236503 - Android Applications - Project in Software'
+      url: https://webcourse.cs.technion.ac.il/236503/Winter2019-2020/
+
+- title: University of Guelph
+  location: Guelph (Canada)
+  courses:
+    - name: 'CIS*4030 Mobile Computing'
+      url: https://www.uoguelph.ca/sessional_ta/ta-posting/ta136981-winter-2020-cis4030-mobile-computing
+
+- title: Peter the Great St Petersburg Polytechnic University
+  location: Saint Petersburg (Russia)
+  courses:
+    - name: 'Введение в язык Котлин'
+      url: https://www.spbstu.ru/media/news/education/now-you-can-learn-kotlin-programming-language-online/?sphrase_id=1403267
+
+- title: San Diego State University
+  location: San Diego, CA (US)
+  courses:
+    - name: 'CS 635 Advanced Object-Oriented Design & Programming'
+      url: http://www.eli.sdsu.edu/courses/fall19/cs635/Syllabus.pdf
+
+- title: University of Wisconsin-Milwaukee
+  location: Milwaukee, WI (US)
+  courses:
+    - name: 'CS 790: Functional Programming'
+      url: https://www4.uwm.edu/schedule/syllabi/220255341.pdf
+
+- title: Baylor University
+  location: Waco, TX (US)
+  courses:
+    - name: 'CSI 4144: Competitive Learning'
+      url: https://baylor.kattis.com/sessions/jaa7qk/help/kotlin
+      
+- title: Federal University of Minas Gerais
+  location: Belo Horizonte (Brazil)
+  courses:
+    - name: 'DCC024 - Linguagens de Programação'
+      url: https://homepages.dcc.ufmg.br/~fernando/classes/dcc024/
+
+- title: University of Greenwich
+  location: London (UK)
+  courses:
+    - name: 'COMP - 1815 - JVM Programming Languages'
+      url: https://www.gre.ac.uk/undergraduate-courses/content/ajax/courses-ajax-call/?sq_content_src=%2BdXJsPWh0dHAlM0ElMkYlMkZuZWxzb24uZ3JlLmFjLnVrJTJGcGxzJTJGY3JzZSUyRnVvZ3dlYnNpdGUucF9jcnNlSW5mbyUzRnRlcm0lM0QyMDUwMDAlMjZzdWJqJTNEQ09NUCUyNmNyc2UlM0QxODE1JTI2Y29kZSUzRCZhbGw9MQ%3D%3D
+
+- title: University of Maryland, Baltimore County
+  location: Baltimore, MD (US)
+  courses:
+    - name: 'CMSC 331 Principles of Programming Languages - Module on Programming for Mobile I'
+      url: https://www.csee.umbc.edu/~bwilk1/331/Lecture21.html
+
+- title: Saint Petersburg State University
+  location: Saint Petersburg (Russia)
+  courses:
+    - name: 'Языки на базе Java VM 2MIT'
+      url: https://bsse.compscicenter.ru/wiki/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA%D0%B8_%D0%BD%D0%B0_%D0%B1%D0%B0%D0%B7%D0%B5_Java_VM_2MIT_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2019_-_%D0%B2%D0%B5%D1%81%D0%BD%D0%B0_2020
+
+- title: Worcester Polytechnic Institute
+  location: Worchester, MA (US)
+  courses:
+    - name: 'CS 528: Ubiquitous and Mobile Computing'
+      url: https://web.cs.wpi.edu/~emmanuel/courses/cs528/F19/
+
+- title: Babeş-Bolyai University
+  location: Cluj-Napoca (Romania)
+  courses:
+    - name: 'Mobile Applications'
+      url: http://www.cs.ubbcluj.ro/~dan/ma/index.html
+
+- title: Chang Gung University
+  location: Taoyuan (Taiwan)
+  courses:
+    - name: 'GT0139(2) - Digital Innovation：Intelligent Interface of Human-Machine'
+      url: https://www.is.cgu.edu.tw/portal/DesktopModules/Course/CourseInfo.aspx?SID=32116&CID=GT0139
+      
+- title: Eastern Mediterranean University
+  location: Famagusta (Northern Cyprus)
+  courses:
+    - name: 'ITEC399 – Mobile Application Development'
+      url: https://staff.emu.edu.tr/mobinabeheshti/Documents/courses/ITEC399/Kotlin%20structure.pdf
+
+- title: Florida Institute of Technology
+  location: Melbourne, FL (US)
+  courses:
+    - name: 'CSE 4250 Programming Language Concepts'
+      url: https://cs.fit.edu/~ryan/cse4250/notes/types.pdf
+
+- title: University of Maribor
+  location: Maribor (Slovenia)
+  courses:
+    - name: 'The Winter School “Development of Mobile Applications on the Android Platform with the Kotlin Programming Language”'
+      url: https://2tm.si/the-winter-school-development-of-mobile-applications-on-the-android-platform-with-the-kotlin-programming-language-accepts-applications-for-participation/?lang=en
+
+- title: University of Texas at El Paso
+  location: El Paso, TX (US)
+  courses:
+    - name: 'CS 4330/5390 - Mobile Application Development'
+      url: http://www.cs.utep.edu/cheon/cs4330/index.php?page=policy
+      
+- title: Budapest University of Technology and Economics
+  location: Budapest (Hungary)
+  courses:
+    - name: 'Kotlin-based Software Development'
+      url: https://portal.vik.bme.hu/kepzes/targyak/VIAUAV41/
+
+- title: Comenius University in Bratislava
+  location: Bratislava (Slovakia)
+  courses:
+    - name: '1-AIN-472/12: Vývoj mobilných aplikácií'
+      url: http://dai.fmph.uniba.sk/courses/VMA/
+
+- title: Federal University of São Carlos
+  location: Sao Carlos (Brazil)
+  courses:
+    - name: 'Introdução à Kotlin'
+      url: http://www.saci.ufscar.br/servico_release?id=113857&pro=3
+      
+- title: University of the Sinos Valley
+  location: Sao Leopoldo (Brazil)
+  courses:
+    - name: 'Desenvolvimento de Aplicações para Plataformas Móveis'
+      url: http://www.unisinos.br/especializacao/desenvolvimento-de-aplicacoes-para-dispositivos-moveis/ead/sao-leopoldo/estrutura-curricular
+
+- title: Saint Petersburg Electrotechnical University (LETI)
+  location: Saint Petersburg (Russia)
+  courses:
+    - name: 'Разработка Android-приложений на Kotlin'
+      url: https://etu.ru/ru/on-line-obuchenie/novosti-i-obyavleniya/onlajn-kursy-leti-na-platformah-otkrytogo-obrazovaniya
+
+- title: University of West Bohemia
+  location: Pilsen (Czech Republic)
+  courses:
+    - name: 'KIV/UPS , Úvod do počítačových sítí'
+      url: http://home.zcu.cz/~ublm/vyuka/ups/Pozadavky2019.pdf
+
+- title: University of Ontario Institute of Technology
+  location: Oshawa (Canada)
+  courses:
+    - name: 'Programming Languages'
+      url: http://db.science.uoit.ca/library/teaching/programming-languages
+
+- title: University of Auvergne
+  location: Clermont-Ferrand (France)
+  courses:
+    - name: 'Licence professionnelle Métiers de l'informatique : conception, développement et test de logiciels'
+      url: https://www.uca.fr/formation/nos-formations/catalogue-des-formations/licence-professionnelle-metiers-de-l-informatique-conception-developpement-et-test-de-logiciels-10066.kjsp?RH=ACCUEIL-FR
+
+- title: East Carolina University
+  location: Greenville, NC (US)
+  courses:
+    - name: 'CSCI 4540: Mobile Computing & CSCI 6905: Topics in Computer Science Fall 2017'
+      url: http://www.cs.ecu.edu/hillsma/syllabi/csci-4540-fall-2017.pdf
+      
+- title: University of Nevada - Reno
+  location: Reno, NV (US)
+  courses:
+    - name: 'Math/CS Numerical methods I 466/666'
+      url: http://fractal.math.unr.edu/~ejolson/466/intro.pdf
+      
+- title: Ostbayerische Technische Hochschule Regensburg
+  location: Regensburg (Germany)
+  courses:
+    - name: 'Android Programming with Kotlin (KAPK)'
+      url: https://www.oth-regensburg.de/fileadmin/media/fakultaeten/im/studiengaenge/programme_in_english/wise18_19/android-kotlin-course-descriptor.pdf
+      
+- title: University of Pannonia
+  location: Veszprém (Hungary)
+  courses:
+    - name: 'Kotlin programming (VEMISAB332K/2019/20/2)'
+      url: https://oktatas.mik.uni-pannon.hu/enrol/index.php?id=3566
+      
+- title: Waterford Institute of Technology
+  location: Waterford (Ireland)
+  courses:
+    - name: 'Android Programming in Kotlin'
+      url: https://tutors-design.netlify.com/course/oth-mobile-app-dev-2019.netlify.com  
+
+- title: Kristiania University College
+  location: Oslo (Norway)
+  courses:
+    - name: 'Enterpriseprogrammering 2 (PG6101)'
+      url: https://www.kristiania.no/studier/emne/enterpriseprogrammering-22/   
+
+- title: UPC - Peruvian University of Applied Sciences (Peru)
+  location: Lima (Peru)
+  courses:
+    - name: 'Desarrollo Para Plataforma Móviles'
+      url: https://repositorioacademico.upc.edu.pe/handle/10757/645629?show=full     
+
+- title: Lisbon Superior Engineering Institute (ISEL)
+  location: Lisbon (Portugal)
+  courses:
+    - name: 'Mobile Devices Programming'
+      url: https://www.isel.pt/en/subjects/mobile-devices-programming-leic    
+
+- title: Lusófona University
+  location: Lisbon (Portugal)
+  courses:
+    - name: 'Computação Móvel'
+      url: https://www.ulusofona.pt/licenciatura/engenharia-informatica/computacao-movel/ULHT260-16925      
+
+- title: Omsk State University
+  location: Omsk (Russia)
+  courses:
+    - name: 'Технологии разработки программного обеспечения'
+      url: http://pozi.omsu.ru/courses.html      
+
+- title: Omsk State Technical University
+  location: Omsk (Russia)
+  courses:
+    - name: 'Разработка мобильных приложений для Android'
+      url: https://stepik.org/course/5703/promo
+
+- title: University of Wisconsin - Parkside
+  location: Kenosha, WI (US)
+  courses:
+    - name: 'App Factory'
+      url: https://www.uwp.edu/connect/businessandcommunity/app-factory.cfm 
+
+- title: Gustavus Adolphus College
+  location: Saint Peter, MN (US)
+  courses:
+    - name: 'MCS 178: Introduction to Computer Science II'
+      url: http://homepages.gac.edu/~sskulrat/Courses/2019F-178/syllabus.html
+      
+- title: Universidad Tecnológica Nacional (UTN)
+  location: Buenos Aires (Argentina)
+  courses:
+    - name: 'Diplomatura en Android Studio'
+      url: https://sceu.frba.utn.edu.ar/course/diplomatura-en-programacion-mobile/  
+      
+- title: Loyola University Chicago
+  location: Chicago, IL (US)
+  courses:
+    - name: 'COMP 313/413: Intermediate Object-Oriented Development'
+      url: http://laufer.cs.luc.edu/teaching/313/fall-2019-comp-313-001-413-001    
+
+- title: University of Wyoming
+  location: Laramie, WY (US)
+  courses:
+    - name: 'Cosc 4730: Mobile Programming'
+      url: http://searchuw.uwyo.edu/ysa/cgi-bin/query-meta?v%3afile=viv_yYaeqy&v%3astate=root%7croot&url=https%3a%2f%2fwww.cs.uwyo.edu%2f~seker%2fcourses%2f4730%2fintro.pptx&rid=Ndoc0&v%3aframe=redirect&v%3aredirect-hash=4e4dd80247a2b7b7fbf8beba61d97f7e&       
+
+- title: Utah State University
+  location: Logan, UT (US)
+  courses:
+    - name: 'CS 4700 - Programming Languages'
+      url: https://cs.usu.edu/people/CurtisDyreson/teaching/languages/191/lectures/Kotlin.pdf
