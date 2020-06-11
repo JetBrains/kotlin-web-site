@@ -70,7 +70,7 @@ In addition there are Kotlin specific frameworks such as [TornadoFX](https://git
 
 Yes. Kotlin/Native is available as a part of Kotlin project. It compiles Kotlin to native code that can run without a VM.
 It is still in beta, but you can already try it on popular desktop and mobile platforms and even some IoT devices.
-For more information, check out the [Kotlin/Native documentation](native-overview.md).
+For more information, check out the [Kotlin/Native documentation](native-overview.html).
 
 ### What IDEs support Kotlin?
 
