@@ -68,9 +68,9 @@ In addition there are Kotlin specific frameworks such as [TornadoFX](https://git
 
 ### Can I use Kotlin for native development?
 
-Kotlin/Native is currently [in the works](https://blog.jetbrains.com/kotlin/tag/native/). It compiles Kotlin to native code 
-that can run without a VM. There is a Technology Preview released but it is not production-ready yet, and doesn’t yet
- target all the platforms that we plan to support for 1.0. For more information check out the [blog post announcing Kotlin/Native](https://blog.jetbrains.com/kotlin/2017/04/kotlinnative-tech-preview-kotlin-without-a-vm/).
+Yes. Kotlin/Native is available as a part of Kotlin project. It compiles Kotlin to native code that can run without a VM.
+It is still in beta, but you can already try it on popular desktop and mobile platforms and even some IoT devices.
+For more information, check out the [Kotlin/Native documentation](native-overview.md).
 
 ### What IDEs support Kotlin?
 
@@ -108,7 +108,7 @@ There are too many companies using Kotlin to list, but some more visible compani
  
 ### Who develops Kotlin?
 
-Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 90+). The lead language designer is 
+Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 100+). The lead language designer is 
 [Andrey Breslav](https://twitter.com/abreslav). In addition to the core team, there are also over 250 external contributors on GitHub. 
 
 ### Where can I learn more about Kotlin?
@@ -143,10 +143,11 @@ In addition there are community organised [Kotlin Nights](/community/kotlin-nigh
 ### Is there a Kotlin conference?
 
 Yes. The official annual [KotlinConf](https://kotlinconf.com/) is hosted by JetBrains.
-It has taken place in San-Francisco in [2017](https://kotlinconf.com/2017/) and in Amsterdam in 2018.
+It has taken place in San-Francisco in [2017](https://kotlinconf.com/2017/), Amsterdam in [2018](https://kotlinconf.com/2018/),
+and Copenhagen in [2019](https://kotlinconf.com/2019/).
 Kotlin is also being covered in different conferences worldwide. You can find a list of [upcoming talks on the web site](/community/talks.html?time=upcoming).
 
-### Is Kotlin on Social Media?
+### Is Kotlin on social media?
 
 Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin).
 
