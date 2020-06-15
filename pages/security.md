@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Kotlin Security
+title: Security
 main_nav_id: security
 ---
 
