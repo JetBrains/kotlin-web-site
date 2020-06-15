@@ -2,7 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-      <configuration sdkName="" />
+      <configuration sdkName="Python 3.7" />
     </facet>
   </component>
   <component name="ModuleRunConfigurationManager">
@@ -108,6 +108,7 @@
     <orderEntry type="jdk" jdkName="Python 3.6 (kotlin-web-site)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sass-stdlib" level="application" />
+    <orderEntry type="library" name="Python 3.7 interpreter library" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />

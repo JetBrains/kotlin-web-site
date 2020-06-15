@@ -98,6 +98,7 @@
 
 .edu-universities-top__item {
   text-indent: -9999px;
+  height: 75px;
 }
 
 .edu-universities-top__item_type_stanford {
@@ -132,6 +133,11 @@
   margin-top: 29px;
 }
 
+.edu-universities__full-list {
+  text-align: center;
+  margin-top: 40px;
+}
+
 .edu-universities-map {
   height: 480px;
 }
@@ -159,10 +165,8 @@
 .edu-resources-item:last-of-type {
   margin-bottom: 0;
 }
-
-.edu-resources-item__title,
 .edu-resources-item__description {
-  margin-bottom: 16px;
+  margin: 16px 0;
 }
 
 .edu-resources-item__title {
@@ -274,6 +278,11 @@
   background: #F5F5F5 url('slack.svg') no-repeat right center;
   background-size: 365px 322px;
   margin: 97px 0;
+}
+
+.edu-slack__title {
+  padding: 0;
+  margin: 0;
 }
 
 .edu-slack__text {

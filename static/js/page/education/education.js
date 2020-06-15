@@ -7,6 +7,7 @@ function convertToPoints(universities) {
     return universities
         .filter(university => university.geo)
         .map(university => ({
+            alt: university.title,
             title: `<b>${university.title}</b><br>
 ${university.location}
 <br>

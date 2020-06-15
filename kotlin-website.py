@@ -213,9 +213,9 @@ def pdf():
 def community_page():
     return render_template('pages/community.html')
 
-@app.route('/edu/')
-def edu_page():
-    return render_template('pages/edu/index.html')
+@app.route('/education/')
+def education_page():
+    return render_template('pages/education/index.html')
 
 @app.route('/docs/diagnostics/experimental-coroutines')
 @app.route('/docs/diagnostics/experimental-coroutines/')

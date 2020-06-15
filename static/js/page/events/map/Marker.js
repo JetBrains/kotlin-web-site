@@ -19,7 +19,7 @@ export default class Marker {
     this.isHighlighted = false;
 
     const markerInstance = new google.maps.Marker({
-      title: event.title,
+      title: event.alt || event.title,
       position: event.city.position,
       draggable: false,
       visible: true,
