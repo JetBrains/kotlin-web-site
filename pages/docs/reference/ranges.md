@@ -13,7 +13,7 @@ Usually, `rangeTo()` is complemented by `in` or `!in` functions.
 <div class="sample" markdown="1" theme="idea"  data-highlight-only>
 
 ```kotlin
-if (i in 1..4) {  // equivalent of 1 >= i && i <= 4
+if (i in 1..4) {  // equivalent of 1 <= i && i <= 4
     print(i)
 }
 ```
