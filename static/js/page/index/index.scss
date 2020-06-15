@@ -90,5 +90,11 @@ a.kto-overview-section__title_link:any-link {
 }
 
 .kotlin-get-started-section__title {
-  padding-bottom: 30px;
+  padding: 0;
+}
+
+.kotlin-get-started-section__text {
+  margin: 32px 0 48px;
+  font-size: 31px;
+  line-height: 42px;
 }
