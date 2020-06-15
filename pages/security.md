@@ -7,10 +7,10 @@ main_nav_id: security
 # Kotlin Security
 
 We do our best to make sure our products are free of security vulnerabilities. To reduce the risk of introducing a vulnerability,
-follow the best practices: 
+you can follow these best practices: 
 
-* Always use the latest Kotlin releases. We sign our releases published on [Maven Central](https://repo1.maven.org/maven2/org/jetbrains/kotlin/) 
-with PGP keys. If necessary, you can verify that they are signed with these keys.
+* Always use the latest Kotlin releases. For security purposes, we sign our releases published on [Maven Central](https://repo1.maven.org/maven2/org/jetbrains/kotlin/) 
+with these PGP keys.
 * Use the latest versions of your application’s dependencies. If you still need to use a specific dependency version, 
 periodically check if there are any new security vulnerabilities. You can follow 
 [the guidelines from GitHub](https://help.github.com/en/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies) 
