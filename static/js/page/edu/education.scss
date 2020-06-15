@@ -268,3 +268,15 @@
   line-height: 24px;
   color: rgba(39, 40, 44, 0.7);
 }
+
+.edu-slack {
+  padding: 48px 32px;
+  background: #F5F5F5 url('slack.svg') no-repeat right center;
+  background-size: 365px 322px;
+  margin: 97px 0;
+}
+
+.edu-slack__text {
+  padding: 24px 0 52px;
+  width: 60%;
+}
