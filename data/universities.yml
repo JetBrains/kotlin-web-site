@@ -105,8 +105,8 @@
 - title: University of California, Davis - UC Davis
   location: Davis, CA (US)
   geo:
-    lat: 38.5382322
-    lnd: -121.7639012
+    lat: '38.5382322'
+    lnd: '-121.7639012'
   courses:
   - name: 'ECS 189E: Android and iOS Fundamentals'
     url: https://bob.cs.ucdavis.edu/assets/ECS189E_android_and_ios.pdf
@@ -188,8 +188,8 @@
   - name: IN2000 – Software Engineering
     url: https://www.uio.no/studier/emner/matnat/ifi/IN2000/v20/forelesninger/in2000.2020.01.30.kotlin.kompendium.pdf
   geo:
-    lat: '59.912752'
-    lng: '10.734365'
+    lat: '59.9399613'
+    lng: '10.7195609'
 - title: Ulm University
   location: Ulm (Germany)
   courses:
@@ -241,8 +241,8 @@
 - title: Texas A&M University
   location: College Station, TX (US)
   geo:
-    lat: 30.6187558
-    lnd: -96.3386659
+    lat: '30.6187558'
+    lnd: '-96.3386659'
   courses:
   - name: 'ECEN 489: Mobile Applications with Android'
     url: https://cesg.tamu.edu/courses/ecen-489-mob-apps-android/
@@ -252,8 +252,8 @@
   - name: 'JetBrains Kotlin: теория и практика программирования'
     url: https://vk.com/@dc.csmsu-jetbrains
   geo:
-    lat: '55.714161'
-    lng: '37.524417'
+    lat: '55.7039379'
+    lng: '37.5264809'
 - title: Tel Aviv University
   location: Tel Aviv (Israel)
   courses:
@@ -265,8 +265,8 @@
 - title: University of Barcelona - Escola de Noves Tecnologies Interactives (ENTI)
   location: Barcelona (Spain)
   geo:
-    lat: 41.3882176
-    lnd: 2.1607145
+    lat: '41.3882176'
+    lnd: '2.1607145'
   courses:
   - name: Disseny d'Interficies
     url: https://enti.cat/new/wp-content/uploads/2019/01/CDI_1S_3r_Disseny_Interficies_vw.pdf
@@ -281,8 +281,8 @@
 - title: Moscow Institute of Physics and Technology
   location: Moscow (Russia)
   geo:
-    lat: 55.9297243
-    lnd: 37.5177547
+    lat: '55.9297243'
+    lnd: '37.4849245'
   courses:
   - name: Введение в научное программирование на языке Kotlin
     url: http://npm.mipt.ru/pages/kotlin.html
@@ -297,8 +297,8 @@
 - title: Higher School of Economics
   location: Moscow (Russia)
   geo:
-    lat: 55.7613455
-    lnd: 37.6307561
+    lat: '55.7613485'
+    lnd: '37.6307561'
   courses:
   - name: Язык Kotlin
     url: http://wiki.cs.hse.ru/KotlinElective
@@ -356,8 +356,8 @@
   - name: CSCI 201 - Proseminar In Computer Science
     url: http://catalog.clarku.edu/preview_course_nopop.php?catoid=25&coid=81349
   geo:
-    lat: '42.2599'
-    lng: '-71.800590'
+    lat: '42.2518712'
+    lng: '-71.8259936'
 - title: Hofstra University
   location: Hempstead, NY (US)
   courses:
@@ -412,8 +412,8 @@
   - name: Разработка Android-приложений на Kotlin
     url: https://stepik.org/course/4792/syllabus
   geo:
-    lat: '59.939097'
-    lng: '30.315868'
+    lat: '59.9574028'
+    lng: '30.3061542'
 - title: Linköping University
   location: Linkoping (Sweden)
   courses:
@@ -489,8 +489,8 @@
   - name: Введение в язык Котлин
     url: https://www.spbstu.ru/media/news/education/now-you-can-learn-kotlin-programming-language-online/?sphrase_id=1403267
 geo:
-    lat: '59.939096'
-    lng: '30.315868'
+    lat: '60.0076262'
+    lng: '30.3710067'
 - title: San Diego State University
   location: San Diego, CA (US)
   courses:
@@ -546,16 +546,16 @@ geo:
   - name: Языки на базе Java VM 2MIT
     url: https://bsse.compscicenter.ru/wiki/index.php?title=%D0%AF%D0%B7%D1%8B%D0%BA%D0%B8_%D0%BD%D0%B0_%D0%B1%D0%B0%D0%B7%D0%B5_Java_VM_2MIT_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2019_-_%D0%B2%D0%B5%D1%81%D0%BD%D0%B0_2020
   geo:
-    lat: '59.939095'
-    lng: '30.315868'
+    lat: '59.9418967'
+    lng: '30.2967312'
 - title: Worcester Polytechnic Institute
   location: Worcester, MA (US)
   courses:
   - name: 'CS 528: Ubiquitous and Mobile Computing'
     url: https://web.cs.wpi.edu/~emmanuel/courses/cs528/F19/
   geo:
-    lat: '42.2599'
-    lng: '-71.800589'
+    lat: '42.2743054'
+    lng: '-71.8103258'
 - title: Babeş-Bolyai University
   location: Cluj-Napoca (Romania)
   courses:
@@ -637,8 +637,8 @@ geo:
   - name: Разработка Android-приложений на Kotlin
     url: https://etu.ru/ru/on-line-obuchenie/novosti-i-obyavleniya/onlajn-kursy-leti-na-platformah-otkrytogo-obrazovaniya
   geo:
-    lat: '59.939095'
-    lng: '30.315869'
+    lat: '59.9721944'
+    lng: '30.3204669'
 - title: University of West Bohemia
   location: Pilsen (Czech Republic)
   courses:
@@ -702,8 +702,8 @@ geo:
   - name: Enterpriseprogrammering 2 (PG6101)
     url: https://www.kristiania.no/studier/emne/enterpriseprogrammering-22/
   geo:
-    lat: '38.978174'
-    lng: '-76.928451'
+    lat: '59.9159993'
+    lng: '10.7579211'
 - title: UPC - Peruvian University of Applied Sciences (Peru)
   location: Lima (Peru)
   courses:
@@ -715,32 +715,32 @@ geo:
   - name: Mobile Devices Programming
     url: https://www.isel.pt/en/subjects/mobile-devices-programming-leic
   geo:
-    lat: '38.716175'
-    lng: '-9.141589'
+    lat: '38.7491949'
+    lng: '-9.1956633'
 - title: Lusófona University
   location: Lisbon (Portugal)
   courses:
   - name: Computação Móvel
     url: https://www.ulusofona.pt/licenciatura/engenharia-informatica/computacao-movel/ULHT260-16925
   geo:
-    lat: '38.716174'
-    lng: '-9.141589'
+    lat: '38.7580285'
+    lng: '-9.1553047'
 - title: Omsk State University
   location: Omsk (Russia)
   courses:
   - name: Технологии разработки программного обеспечения
     url: http://pozi.omsu.ru/courses.html
   geo:
-    lat: '55.085529'
-    lng: '73.007305'
+    lat: '55.0278544'
+    lng: '73.2627447'
 - title: Omsk State Technical University
   location: Omsk (Russia)
   courses:
   - name: Разработка мобильных приложений для Android
     url: https://stepik.org/course/5703/promo
   geo:
-    lat: '55.085528'
-    lng: '73.007305'
+    lat: '55.0262669'
+    lng: '73.2886154'
 - title: University of Wisconsin - Parkside
   location: Kenosha, WI (US)
   courses:
