@@ -85,7 +85,7 @@
         </section>
 
         <section class="edu-slack">
-            <h2 class="kto-header kto-header_size_m">Join Educators Community</h2>
+            <h2 class="edu-slack__title kto-header kto-header_size_m">Join Educators Community</h2>
             <p class="edu-slack__text">We’ve created a dedicated Slack channel where Kotlin educators can share their experience, exchange ideas, and empower each other. Let’s (teach) Kotlin!</p>
             <a
                 target="_blank"
@@ -93,16 +93,16 @@
                 href="https://surveys.jetbrains.com/s3/kotlinlang-slack-signup-educators"
             >Request to Join</a>
         </section>
-{# <!-- @TODO: WAIT LINKS -->
+
         <section>
-            <h2 class="kto-header kto-header_size_m">Story Highlights</h2>
+            {#  <h2 class="kto-header kto-header_size_m">Story Highlights</h2> #}
             <ul class="kto-quote-slider">
                 <li class="kto-quote">
-                    <p class="kto-quote__text">Kotlin offers cleaner code, less violations of object-orientation,  some patterns are idioms (object, extension functions, observers...)</p>
-                    <p class="kto-quote__author">Luka Pavlič Johns, University of Maribor</p>
+                    <p class="kto-quote__text">Kotlin is faster to develop and comprehend what is happening; near 100% backwards compatibility makes it easy to show in Java and translate into Kotlin while still utilizing every available library from Java; Students seem to understand it fairly quickly.</p>
+                    <p class="kto-quote__author">David Vaughn, University of Missouri–St. Louis</p>
                 </li>
             </ul>
-
+{#  <!-- @TODO: WAIT LINKS -->
             <ul class="edu-persons">
                 <li class="edu-persons__item edu-persons-item">
                     <img class="edu-persons-item__image" src="{{ url_for('asset', path='images/edu/persons/san.png') }}">
@@ -125,9 +125,9 @@
                     <p class="edu-persons-item__name">Paulo Pereira, Lisbon Superior Engineering Institute </p>
                 </li>
             </ul>
+#}
         </section>
     </article>
-#}
 {% endblock %}
 
 {% block page_after_content %}
