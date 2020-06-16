@@ -328,6 +328,8 @@ tutorials:
     - title: Getting Started
       content:
         - url: /docs/tutorials/getting-started.html
+          title: Getting Started with Kotlin
+        - url: /docs/tutorials/jvm-get-started.html
           title: Getting Started with IntelliJ IDEA
         - url: /docs/tutorials/getting-started-eclipse.html
           title: Getting Started with Eclipse

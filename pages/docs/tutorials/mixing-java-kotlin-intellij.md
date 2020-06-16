@@ -11,7 +11,7 @@ related:
 ---
 
 We'll be using IntelliJ IDEA (Ultimate or Community edition). To learn how to start a new Kotlin project in IntelliJ IDEA, 
-see the [Getting Started with IntellJ IDEA](getting-started.html) tutorial. If you are using build tools, please see the corresponding
+see the [Getting Started with IntellJ IDEA](jvm-get-started.html) tutorial. If you are using build tools, please see the corresponding
 entry under [Build Tools](build-tools.html). 
 
 ## Adding Java source code to an existing Kotlin project

@@ -24,7 +24,7 @@ title: "Reference"
          <h3 style="font-weight: bold">IDE</h3>
          <p>A modern IDE like IntelliJ IDEA can help in learning Kotlin:</p>
          <ul>
-             <li class="start"> <a style="text-decoration: none;" href="/docs/tutorials/getting-started.html">Getting started with IntelliJ IDEA</a> </li>
+             <li class="start"> <a style="text-decoration: none;" href="/docs/tutorials/getting-started.html">Getting started with Kotlin</a> </li>
              <li class="start"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/education/for-learners.html?section=Kotlin">EduTools plugin</a> </li>
              <li class="start"> <a style="text-decoration: none;" href="/docs/tutorials/quick-run.html">Running code snippets</a> </li>
              <li class="migrate"> <a style="text-decoration: none;" href="https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html">Java2Kotlin converter</a>  </li>
