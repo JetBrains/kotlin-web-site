@@ -357,7 +357,7 @@
     url: http://catalog.clarku.edu/preview_course_nopop.php?catoid=25&coid=81349
   geo:
     lat: '42.2599'
-    lng: '-71.800589'
+    lng: '-71.800590'
 - title: Hofstra University
   location: Hempstead, NY (US)
   courses:
@@ -412,7 +412,7 @@
   - name: Разработка Android-приложений на Kotlin
     url: https://stepik.org/course/4792/syllabus
   geo:
-    lat: '59.939095'
+    lat: '59.939097'
     lng: '30.315868'
 - title: Linköping University
   location: Linkoping (Sweden)
@@ -488,6 +488,9 @@
   courses:
   - name: Введение в язык Котлин
     url: https://www.spbstu.ru/media/news/education/now-you-can-learn-kotlin-programming-language-online/?sphrase_id=1403267
+geo:
+    lat: '59.939096'
+    lng: '30.315868'
 - title: San Diego State University
   location: San Diego, CA (US)
   courses:
@@ -546,7 +549,7 @@
     lat: '59.939095'
     lng: '30.315868'
 - title: Worcester Polytechnic Institute
-  location: Worchester, MA (US)
+  location: Worcester, MA (US)
   courses:
   - name: 'CS 528: Ubiquitous and Mobile Computing'
     url: https://web.cs.wpi.edu/~emmanuel/courses/cs528/F19/
@@ -635,7 +638,7 @@
     url: https://etu.ru/ru/on-line-obuchenie/novosti-i-obyavleniya/onlajn-kursy-leti-na-platformah-otkrytogo-obrazovaniya
   geo:
     lat: '59.939095'
-    lng: '30.315868'
+    lng: '30.315869'
 - title: University of West Bohemia
   location: Pilsen (Czech Republic)
   courses:
@@ -712,7 +715,7 @@
   - name: Mobile Devices Programming
     url: https://www.isel.pt/en/subjects/mobile-devices-programming-leic
   geo:
-    lat: '38.716174'
+    lat: '38.716175'
     lng: '-9.141589'
 - title: Lusófona University
   location: Lisbon (Portugal)
@@ -728,7 +731,7 @@
   - name: Технологии разработки программного обеспечения
     url: http://pozi.omsu.ru/courses.html
   geo:
-    lat: '55.085528'
+    lat: '55.085529'
     lng: '73.007305'
 - title: Omsk State Technical University
   location: Omsk (Russia)
