@@ -488,9 +488,9 @@
   courses:
   - name: Введение в язык Котлин
     url: https://www.spbstu.ru/media/news/education/now-you-can-learn-kotlin-programming-language-online/?sphrase_id=1403267
-geo:
-    lat: '60.0076262'
-    lng: '30.3710067'
+  geo:
+      lat: '60.0076262'
+      lng: '30.3710067'
 - title: San Diego State University
   location: San Diego, CA (US)
   courses:
