@@ -24,7 +24,7 @@ programming, Kotlin incidentally fits well in this domain, reducing the typical 
 programmer needs to write and read while working with the code almost to the level offered by dynamically-typed 
 scripting languages, while having tooling and performance of a statically-typed language.
 
-See [Getting Started with IntelliJ IDEA](/docs/tutorials/getting-started.html) on how to set up development
+See [Getting Started with IntelliJ IDEA](/docs/tutorials/jvm-get-started.html) on how to set up development
 environment for Kotlin. In competitive programming, a single project is usually created and each problem's solution is 
 written in a single source file.
 
