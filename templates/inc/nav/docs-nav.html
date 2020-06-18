@@ -1,10 +1,12 @@
 {% for subnav in  nav.subnav.content %}
     {% if subnav.is_active %}
         {% if nav.subnav.type == 'tab' %}
-            <nav class="docs-nav-new kto-tabs">
-                {% for item in subnav.content %}
-                    <a class="kto-tabs__item{% if item.is_active %} kto-tabs__item_active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
-                {% endfor %}
+            <nav class="docs-nav-new">
+                <div class="kto-tabs">
+                    {% for item in subnav.content %}
+                        <a class="kto-tabs__item{% if item.is_active %} kto-tabs__item_active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
+                    {% endfor %}
+                </div>
             </nav>
         {% else %}
             !{{ nav.subnav.type }}!

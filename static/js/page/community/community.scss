@@ -29,7 +29,6 @@
 .community-kugrun {
   display: flex;
 
-
   font-size: 18px;
   line-height: 28px;
 }
@@ -101,11 +100,13 @@
 
 .community-numbers-right {
   display: flex;
+  margin-bottom: 25px;
 }
 
 .community-numbers-right > .typo-list__item {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-right: 25px;
 
   font-size: 14px;
@@ -123,4 +124,9 @@
   font-weight: bold;
   font-size: 45px;
   line-height: 52px;
+}
+
+.community-kotlinconf-map {
+  margin: 30px 0 35px;
+  height: 460px;
 }

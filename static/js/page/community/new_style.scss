@@ -2,6 +2,14 @@
   p, h1, h2 {
     max-width: 715px;
   }
+
+  .typo-h2 {
+    margin-top: 90px;
+  }
+
+  .typo-h2:first-of-type {
+    margin-top: 0;
+  }
 }
 
 .page-community__panels {

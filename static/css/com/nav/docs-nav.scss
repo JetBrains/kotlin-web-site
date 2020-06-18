@@ -2,8 +2,18 @@
 @import '../../_utils';
 
 .docs-nav-new {
-    margin-top: 25px;
     margin-bottom: $unit*6;
+
+    &::after {
+        display: block;
+        content: '';
+        height: 1px;
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        background:rgba(39, 40, 44, 0.2);
+    }
 
     & + .page-content {
         margin-bottom: 90px;

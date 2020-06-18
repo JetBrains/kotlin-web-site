@@ -1,9 +1,5 @@
 {% set restyled=True %}
-{% extends 'base.html' %}
-
-{% block title %}Community{% endblock %}
-
-{% block body_class %}page__community{% endblock %}
+{% extends 'community.html' %}
 
 {% macro speak_kotlin_link(href, text, class, comment=None) %}
     <div class="all-speak-kotlin_link _{{ class }}" data-svg-id="{{ class.replace('-', '_') }}">
@@ -67,12 +63,4 @@
          data-aos-anchor-placement="top-center"
          data-aos="animate">
     </div>
-{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('static', filename='community.js')|autoversion }}"></script>
-{% endblock %}
-
-{% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='community.css')|autoversion }}">
 {% endblock %}

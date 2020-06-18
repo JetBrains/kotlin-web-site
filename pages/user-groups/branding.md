@@ -4,9 +4,10 @@ layout: groups
 title: "Branding"
 ---
 
+
 # KUG Branding
 
-[Download all](https://drive.google.com/drive/folders/0B3Zi34svOj1RZ2sxZExhblRJc1k){:.kto-button.kto-button_size_m.kto-button_mode_outline}
+[Download all](https://drive.google.com/drive/folders/0B3Zi34svOj1RZ2sxZExhblRJc1k){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
 We provide Kotlin user groups with a logo that is specifically designed to be recognizable and convey a reference to Kotlin.
 

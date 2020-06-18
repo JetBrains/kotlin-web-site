@@ -30,14 +30,15 @@ subnav:
     - url: /community/
       content:
         - url: /community/
-          urlPattern: ^/community/$
+          urlPattern: ^\/community\/$
           title: Overview
 
         - url: /user-groups/user-group-list.html
-          urlPattern: /user-groups*
+          urlPattern: /user-groups.*
           title: User Groups
 
         - url: /community/events.html
+          urlPattern: ^\/community\/(events\.html|kotlin-nights.*)
           title: Events
 
         - url: /community/talks.html
@@ -470,3 +471,13 @@ groups:
       title: Branding materials
     - url: https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct
       title: Code of Conduct
+
+
+events:
+  content:
+    - url: /community/events.html
+      title: Kotlin Events
+    - url: /community/kotlin-nights/guidelines.html
+      title: Guidelines and Support
+    - url: /community/kotlin-nights/branding.html
+      title: Branding materials

@@ -35,7 +35,7 @@ There are no limits regarding the format for KUG meetups. They can take place in
 If your community has all the necessary features and follows these guidelines, you are ready to [Apply to be a new
  KUG](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group).
  
-Have a question? [Contact us]()
+Have a question? [Contact us](mailto:kug@jetbrains.com)
 {:.community-attention-info}
 
 ## Support for KUGs from JetBrains

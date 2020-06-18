@@ -238,5 +238,5 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 * [Yola Kotlin User Group](https://www.facebook.com/Kotlin-Yola-User-Group-104198534358013/), Nigeria
  {:.community-usergroup-list}
 
-Have a question? [Contact us]()
+Have a question? [Contact us](mailto:kug@jetbrains.com)
 {:.community-attention-info}
