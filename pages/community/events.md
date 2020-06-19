@@ -12,9 +12,9 @@ title: Events
 
 ![Kotlin Nights]({{ url_for('asset', path='images/community/kotlin-nights-banner.svg') }})
 
-* **28K** of attendees
-* **350** events
-* **86** countries
+* **4K** of attendees
+* **78** events
+* **37** countries
  {:.community-numbers-right}
  
 Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologies.  At JetBrains we've organised a few events: [Kotlin Night San Francisco](https://blog.jetbrains.com/kotlin/2016/06/kotlin-night-recordings/) and [Kotlin Night London](https://blog.jetbrains.com/kotlin/2016/11/kotlin-night-in-london-recordings/).
@@ -27,7 +27,7 @@ The community however is asking for more Kotlin Nights and are willing to organi
  
 ## KotlinConf Global
  
-* **2000** of attendees
+* **2K** of attendees
 * **50** events
 * **20** countries 
  {:.community-numbers-right}

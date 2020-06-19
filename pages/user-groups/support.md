@@ -11,7 +11,7 @@ title: "Guidelines and Support"
 A Kotlin User Group, or KUG, is a community that is  dedicated to Kotlin and that offers you a place to share your
  Kotlin programming experience with like-minded people. 
 
-To become an official KUG, your community should have some specific features shared by every KUG. It should: 
+To become an KUG, your community should have some specific features shared by every KUG. It should: 
 * Provide Kotlin-related content, with regular meetups as the main form of activity.
 * Host regular events (at least once every 3 months) with open registration and without any restriction for attendance. 
 * Be driven and organized by the community, and it should not use events to earn money or gain any other business
@@ -22,9 +22,9 @@ To become an official KUG, your community should have some specific features sha
 There are no limits regarding the format for KUG meetups. They can take place in whatever fashion works best for the
  community, whether that includes presentations, hands-on labs, lectures, hackathons, or informal beer-driven get-togethers. 
 
-## How to run an official KUG?
+## How to run a KUG?
 
-* One group per city is recommended and more comfortable for the members of KUG. Check out [the list of KUGs](/user-groups/user-group-list.html) to see if there is already a KUG in your area.
+* One group per city is recommended, as it is more comfortable for the local community.. Check out [the list of KUGs](/user-groups/user-group-list.html) to see if there is already a KUG in your area.
 * Use the official KUG logo and branding. Check out [the branding guidelines](/user-groups/branding.html).
 * Keep your user group active. Run meetups regularly, at least once every 3 months.
 * Announce your KUG meetups at least 2 weeks in advance. The announcement should contain a list of talks

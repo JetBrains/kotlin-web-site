@@ -4,7 +4,7 @@ layout: events
 title: Guidelines
 ---
 
-## Guidelines
+## Kotlin Nights Guidelines
 
 * Please use the [branding materials](https://drive.google.com/drive/u/0/folders/1mAD6S0WBER11_ADPAqHoP1M1rcN9Wx5L) we’ve provided. Having all events and materials in the same style will help keep the Kotlin Night experience consistent.
 * Kotlin Night should be a free event. A minimal fee can be charged to cover expenses, but it should remain a non-profit event.
