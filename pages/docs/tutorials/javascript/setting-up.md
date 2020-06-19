@@ -15,7 +15,7 @@ There are two major ways how we can set up a Kotlin/JS project: we can use the [
 The most straightforward way to get started with Kotlin/JS is via the Kotlin/JS Gradle plugin. If you're using IntelliJ IDEA, the setup for such a project can be done via wizard.
 
 Through the __New Project__ wizard, we can select the platform we want to target. For this example, we're selecting __Kotlin/JS for browser__,
- which allows us to use browser-specific APIs in our project. If we're targeting Node.js instead, we can select the __Kotlin/JS for Node.js__ option instead.
+ which allows us to use browser-specific APIs in our project. If we're targeting Node.js, we can select the __Kotlin/JS for Node.js__ option instead.
 
 Make sure that the __Kotlin DSL build script__ option is selected to use the Gradle Kotlin DSL as well:
 
@@ -56,7 +56,7 @@ When targeting other platforms alongside JavaScript, the Multiplatform plugin ca
 
 ![Multiplatform project wizard]({{ url_for('tutorial_img', filename='javascript/setting-up/multiplatform-project.png')}})
 
-After creating a multiplatform plugin with the wizard, any kind of platform-specific configuration is at first omitted. To add the JavaScript target, we adjust our automatically generated `build.gradle.kts` file to look analog to this:
+After creating a multiplatform plugin with the wizard, any kind of platform-specific configuration is omitted at first. To add the JavaScript target, we adjust our automatically generated `build.gradle.kts` file to look analogous to this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
