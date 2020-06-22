@@ -18,6 +18,10 @@
     & + .page-content {
         margin-bottom: 90px;
     }
+
+    .page-old-styled & {
+        margin-top: -40px;
+    }
 }
 
 .docs-nav {
