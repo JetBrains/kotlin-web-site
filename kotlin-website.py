@@ -181,6 +181,11 @@ def get_cities():
     return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
+@app.route('/data/kotlinconf.json')
+def get_kotlinconf():
+    return Response(json.dumps(site_data['kotlinconf'], cls=DateAwareEncoder), mimetype='application/json')
+
+
 @app.route('/docs/reference/grammar.html')
 def grammar():
     grammar = get_grammar(build_mode)

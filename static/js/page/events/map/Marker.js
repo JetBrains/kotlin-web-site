@@ -19,7 +19,7 @@ export default class Marker {
     this.isHighlighted = false;
 
     const markerInstance = new google.maps.Marker({
-      title: event.title,
+      title: event.alt || event.title,
       position: event.city.position,
       draggable: false,
       visible: true,
@@ -58,7 +58,7 @@ export default class Marker {
   getIcon() {
     const {isActive, isHighlighted} = this;
     const mapZoom = this.map.instance.getZoom();
-    const hasTags = this.event.tags.length > 0;
+    const hasTags = this.event.tags && this.event.tags.length > 0;
     let iconUrl = isActive ? (hasTags ? taggedIcon : icon) : inactiveIcon;
 
     if (isHighlighted) {
