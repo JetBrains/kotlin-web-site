@@ -28,7 +28,7 @@ those are configured and built using Gradle.
 * [Default Project Layout](#default-project-layout)
 * [Running Tests](#running-tests)
 * [Publishing a Multiplatform Library](#publishing-a-multiplatform-library)
-    * [Experimental metadata publishing mode](#experimental-metadata-publishing-mode)
+    * [Metadata publishing](#metadata-publishing)
     * [Disambiguating targets](#disambiguating-targets)
 * [Java Support in JVM Targets](#java-support-in-jvm-targets)
 * [Android Support](#android-support)
@@ -962,7 +962,7 @@ kotlin {
 </div>
 </div>
 
-Likewise, if a multiplatform library is published in the experimental [Gradle metadata publishing mode](#experimental-metadata-publishing-mode) and the project 
+Likewise, if a multiplatform library is published in the experimental [Gradle metadata publishing mode](#metadata-publishing) and the project 
 is set up to consume the metadata as well, then it is enough to specify a dependency only once, for the common source set. 
 Otherwise, each platform-specific source set should be 
 provided with a corresponding platform module of the library, in addition to the common module, as shown above.
@@ -1295,7 +1295,7 @@ kotlin {
 </div>
 </div>
 
-### Experimental metadata publishing mode
+### Metadata publishing
 
 Gradle module metadata provides rich publishing and dependency resolution features that are used in Kotlin 
 multiplatform projects to simplify dependencies configuration for build authors. In particular, the publications of a 
