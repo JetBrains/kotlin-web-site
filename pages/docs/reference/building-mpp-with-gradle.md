@@ -1302,16 +1302,13 @@ multiplatform projects to simplify dependencies configuration for build authors.
 multiplatform library may include a special 'root' module that stands for the whole library and is automatically 
 resolved to the appropriate platform-specific artifacts when added as a dependency, as described below.
 
-In Gradle 5.3 and above, the module metadata is always used during dependency resolution, but publications don't 
+In Gradle 6.0 and above, the module metadata is always used during dependency resolution and included in publications.
+
+In Gradle 5.3 and above, the module metadata is used during dependency resolution, but publications don't 
 include any module metadata by default. To enable module metadata publishing, add 
-`enableFeaturePreview("GRADLE_METADATA")` to the root project's `settings.gradle` file. With older Gradle versions, 
-this is also required for module metadata consumption.
+`enableFeaturePreview("GRADLE_METADATA")` to the root project's `settings.gradle` file. 
 
-> Note that the module metadata published by Gradle 5.3 and above cannot be read by Gradle versions older
-> than 5.3. 
-{:.note}
-
-With Gradle metadata enabled, an additional 'root' publication named `kotlinMultiplatform` is added to the project's 
+When publications include module metadata, an additional 'root' publication named `kotlinMultiplatform` is added to the project's 
 publications. The default artifact ID of this publication matches the project name without any additional suffix. 
 To configure this publication, access it via the `publishing { ... }` DSL of the `maven-publish` plugin:
 
@@ -1406,9 +1403,6 @@ kotlin {
 
 </div>
 </div>
-
-This requires that the consumer's Gradle build can read Gradle module metadata, either using Gradle 5.3+ or explicitly 
-enabling it by `enableFeaturePreview("GRADLE_METADATA")` in `settings.gradle`. 
 
 ### Disambiguating targets
 
