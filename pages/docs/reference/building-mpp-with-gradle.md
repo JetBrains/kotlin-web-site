@@ -1295,6 +1295,8 @@ kotlin {
 </div>
 </div>
 
+{:#experimental-metadata-publishing-mode}
+
 ### Metadata publishing
 
 Gradle module metadata provides rich publishing and dependency resolution features that are used in Kotlin 
