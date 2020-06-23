@@ -194,7 +194,7 @@ val c = AtomicLong()
 for (i in 1..1_000_000L)
     thread(start = true) {
         c.addAndGet(i)
-    }
+    }.join()
 
 println(c.get())
 ```
