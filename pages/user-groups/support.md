@@ -24,7 +24,7 @@ There are no limits regarding the format for KUG meetups. They can take place in
 
 ## How to run a KUG?
 
-* One group per city is recommended, as it is more comfortable for the local community.. Check out [the list of KUGs](/user-groups/user-group-list.html) to see if there is already a KUG in your area.
+* In order to promote group cohesion and prevent miscommunication, we recommend keeping to a limit of one KUG per city. Check out [the list of KUGs](/user-groups/user-group-list.html) to see if there is already a KUG in your area.
 * Use the official KUG logo and branding. Check out [the branding guidelines](/user-groups/branding.html).
 * Keep your user group active. Run meetups regularly, at least once every 3 months.
 * Announce your KUG meetups at least 2 weeks in advance. The announcement should contain a list of talks
@@ -47,4 +47,4 @@ Active KUGs that host at least 1 meetup every 3 months can apply for the communi
 * Help recruiting speakers for events.
 
 ## Support from JetBrains for other tech communities
-If you organize for any other tech communities, you can apply for support as well. By doing so, you may receive: free JetBrains product licenses to raffle off at meetups, information about Kotlin official events and campaigns, Kotlin stickers, and help with recruiting Kotlin speakers for your events.
+If you organize any other tech communities, you can apply for support as well. By doing so, you may receive: free JetBrains product licenses to raffle off at meetups, information about Kotlin official events and campaigns, Kotlin stickers, and help with recruiting Kotlin speakers for your events.
