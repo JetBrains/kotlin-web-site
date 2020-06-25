@@ -79,3 +79,5 @@ with the value `strict` or `warning`.
 ```
 
 </div>
+
+For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
