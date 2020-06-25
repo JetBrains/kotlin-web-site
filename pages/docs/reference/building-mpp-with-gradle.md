@@ -962,8 +962,7 @@ kotlin {
 </div>
 </div>
 
-Likewise, if a multiplatform library is published in the experimental [Gradle metadata publishing mode](#metadata-publishing) and the project 
-is set up to consume the metadata as well, then it is enough to specify a dependency only once, for the common source set. 
+Likewise, if a multiplatform library is published with [Gradle metadata](#metadata-publishing), it is enough to specify a dependency only once, for the common source set. 
 Otherwise, each platform-specific source set should be 
 provided with a corresponding platform module of the library, in addition to the common module, as shown above.
 
@@ -1301,12 +1300,12 @@ kotlin {
 
 Gradle module metadata provides rich publishing and dependency resolution features that are used in Kotlin 
 multiplatform projects to simplify dependencies configuration for build authors. In particular, the publications of a 
-multiplatform library may include a special 'root' module that stands for the whole library and is automatically 
+multiplatform library include a special 'root' module that stands for the whole library and is automatically 
 resolved to the appropriate platform-specific artifacts when added as a dependency, as described below.
 
 In Gradle 6.0 and above, the module metadata is always used during dependency resolution and included in publications.
 
-In Gradle 5.3 and above, the module metadata is used during dependency resolution, but publications don't 
+In earlier Gradle versions starting from 5.3, the module metadata is used during dependency resolution, but publications don't 
 include any module metadata by default. To enable module metadata publishing, add 
 `enableFeaturePreview("GRADLE_METADATA")` to the root project's `settings.gradle` file. 
 
