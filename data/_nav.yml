@@ -201,6 +201,13 @@ reference:
         - url: /docs/reference/mpp-dsl-reference.html
           title: Multiplatform Gradle DSL Reference
 
+    - title: Multiplatform Programming (new)
+      description: Reusing code across different platforms
+      content:
+        - url: /docs/reference/mpp-intro.html
+          title: Kotlin Multiplatform
+        - url: /docs/reference/mpp-create-lib.html
+          title: Create a multiplatform library
 
     - title: More Language Constructs
       description: Various bits and bobs
