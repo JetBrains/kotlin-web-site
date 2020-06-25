@@ -962,7 +962,7 @@ kotlin {
 </div>
 </div>
 
-Likewise, if a multiplatform library is published with [Gradle metadata](#metadata-publishing), it is enough to specify a dependency only once, for the common source set. 
+Likewise, if a multiplatform library is [published with Gradle metadata](#metadata-publishing), it is enough to specify a dependency only once, for the common source set. 
 Otherwise, each platform-specific source set should be 
 provided with a corresponding platform module of the library, in addition to the common module, as shown above.
 
