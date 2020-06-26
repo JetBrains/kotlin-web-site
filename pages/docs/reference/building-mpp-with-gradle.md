@@ -1294,7 +1294,7 @@ kotlin {
 </div>
 </div>
 
-{:#experimental-metadata-publishing-mode}
+<a name="experimental-metadata-publishing-mode">
 
 ### Metadata publishing
 
