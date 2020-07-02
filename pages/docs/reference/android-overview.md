@@ -31,3 +31,5 @@ Many startups and Fortune 500 companies have already developed Android applicati
 If you want to start using Kotlin for Android development, read [Google’s recommendation for getting started with Kotlin on Android](https://developer.android.com/kotlin/get-started).
 
 If you're new to Android and want to learn to create applications with Kotlin, check out [this Udacity course](https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012).
+
+Kotlin ide lite for android(https://github.com/pourya-emampur/KotlinIDE-lite
