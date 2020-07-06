@@ -13,7 +13,7 @@ latest:
 
 eap:
   version: 1.4-M3
-  coroutines: 1.3.7-M3
+  coroutines: 1.3.7-1.4-M3
 
 tutorials:
   native:
