@@ -9,7 +9,7 @@ title: "Idioms"
 
 A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it by sending a pull request.
 
-### Creating DTOs (POJOs/POCOs)
+### Creating DTOs (POJOs/POKOs)
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
