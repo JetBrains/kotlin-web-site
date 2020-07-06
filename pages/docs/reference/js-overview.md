@@ -37,11 +37,26 @@ with a strongly-typed API, you can convert TypeScript definitions from the [Defi
 type definitions repository to Kotlin using the [dukat](https://github.com/kotlin/dukat) tool. Alternatively, you can use
 the [dynamic type](dynamic-type.html) to access any framework without strong typing.
 
-JetBrains develops and maintains several tools specifically for the React community: [React bindings](https://github.com/JetBrains/kotlin-wrappers) as well as [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app). The latter helps you start building React apps with Kotlin with no build configuration.
-
 Kotlin is compatible with CommonJS, AMD and UMD, [making interaction with different](/docs/tutorials/javascript/working-with-modules/working-with-modules.html) module systems straightforward.
 
 
-## Getting Started with Kotlin to JavaScript
+## Getting Started with Kotlin/JS
 
-To find out how to start using Kotlin for JavaScript, please refer to the [tutorials](/docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html).
+To find out how to start using Kotlin for JavaScript, please refer to the [Setting up a Kotlin/JS project](/docs/reference/js-project-setup.html).
+
+
+## Hands-on labs for Kotlin/JS
+
+Hands-on labs are long-form tutorials that help you get to know a technology by guiding you through a self-contained project related to a specific topic.
+
+They include sample projects, which can serve as jumping-off points for your own projects, and contain useful snippets and patterns.
+
+For Kotlin/JS, the following hands-on labs are currently available:
+
+* [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction) guides you through the process of building a simple web application using the React framework, shows how a typesafe Kotlin DSL for HTML makes it convenient to build reactive DOM elements, and illustrates how to use third-party React components, and how to obtain information from APIs, while writing the whole application logic in pure Kotlin/JS.
+
+* [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server application that makes use of common code, serialization, and other multiplatform paradigms. It also provides a brief introduction into working with Ktor both as a server- and client-side framework.
+
+
+## Join Kotlin/JS community
+You can also join [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channel in the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and chat with the community and the team.
