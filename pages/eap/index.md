@@ -40,7 +40,7 @@ check [our instructions on how to configure your build to support this version](
     <tr>
         <td><strong>1.4-M3</strong>
             <p> Released: <strong>July 6, 2020</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M3">Release on GitHub</a></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M3" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>Standard library improvements:</p>
@@ -54,15 +54,15 @@ check [our instructions on how to configure your build to support this version](
          </td>
         <td>
             <ul>
-                <li><a href="https://github.com/Kotlin/kotlinx.serialization"><strong>kotlinx.serialization</strong>
-                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0-1.4-M3">0.20.0-1.4-M3</a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx.coroutines"><strong>kotlinx.coroutines</strong></a>
-                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.7-1.4-M3">1.3.7-1.4-M3
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong>
+                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0-1.4-M3" target="_blank">0.20.0-1.4-M3</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.7-1.4-M3" target="_blank">1.3.7-1.4-M3
                 </a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu"><strong>kotlinx.atomicfu</strong></a>
-                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4-M3">0.14.3-1.4-M3
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4-M3" target="_blank">0.14.3-1.4-M3
                 </a></li>          
-                 <li><a href="https://ktor.io/"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4-M3">1.3.2-1.4-M3</a></li>
+                 <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4-M3" target="_blank">1.3.2-1.4-M3</a></li>
             </ul>
         </td>
     </tr>    

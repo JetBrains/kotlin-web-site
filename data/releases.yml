@@ -5,13 +5,15 @@ latest:
   url: https://github.com/JetBrains/kotlin/releases/tag/v1.3.72
   runtime_size: 1347 KB
   date: April 15, 2020
-  eap-version: 1.4-M3
 
   coroutines:
     version: 1.3.7
     url: https://github.com/Kotlin/kotlinx.coroutines
     date: May 19, 2020
-    eap-version: 1.3.7-M3
+
+eap:
+  version: 1.4-M3
+  coroutines: 1.3.7-M3
 
 tutorials:
   native:
