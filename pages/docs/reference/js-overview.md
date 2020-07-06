@@ -59,4 +59,4 @@ For Kotlin/JS, the following hands-on labs are currently available:
 
 
 ## Join Kotlin/JS community
-You can also join #javascript channel in the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and chat with the community and the team.
+You can also join [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channel in the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and chat with the community and the team.
