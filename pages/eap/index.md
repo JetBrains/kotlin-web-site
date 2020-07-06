@@ -38,6 +38,35 @@ check [our instructions on how to configure your build to support this version](
         <th>kotlinx library versions</th>
     </tr>
     <tr>
+        <td><strong>1.4-M3</strong>
+            <p> Released: <strong>July 6, 2020</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M3">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>Standard library improvements:</p>
+            <ul>
+                <li>Supported functional interfaces</li>
+                <li><code>module-info</code> descriptor for JVM classes</li>
+                <li>New collection operations</li>
+                <li><code>@Throws</code> annotation in the common library</li>
+            </ul>
+            <p> For more details, please refer to <a href="https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-is-out-standard-library-changes" target="_blank">the blog post</a>.</p>
+         </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization"><strong>kotlinx.serialization</strong>
+                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0-1.4-M3">0.20.0-1.4-M3</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines"><strong>kotlinx.coroutines</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.7-1.4-M3">1.3.7-1.4-M3
+                </a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu"><strong>kotlinx.atomicfu</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4-M3">0.14.3-1.4-M3
+                </a></li>          
+                 <li><a href="https://ktor.io/"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4-M3">1.3.2-1.4-M3</a></li>
+            </ul>
+        </td>
+    </tr>    
+    <tr>
         <td><strong>1.4-M2</strong>
             <p> Released: <strong>June 4, 2020</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M2">Release on GitHub</a></p>
