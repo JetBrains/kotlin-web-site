@@ -208,6 +208,8 @@ reference:
           title: Kotlin Multiplatform
         - url: /docs/reference/mpp-create-lib.html
           title: Create a multiplatform library
+        - url: /docs/reference/mpp-discover-project.html
+          title: Discover your project
 
     - title: More Language Constructs
       description: Various bits and bobs

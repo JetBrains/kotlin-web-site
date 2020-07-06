@@ -6,7 +6,7 @@ title: "Create a multiplatform library"
 
 # Create a multiplatform library
 
-1. In IntelliJ IDEA, select **File** | **New** | **Project**.
+1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
 2. In the panel on the left, select **Kotlin**.
 3. Enter a project name and select **Multiplatform Library** as the project template.
 ![Select a project template]({{ url_for('asset', path='images/reference/mpp/select-project.png') }})
