@@ -11,7 +11,7 @@ showAuthorInfo: false
 To get started, install a recent version of IntelliJ IDEA. You can download the free [Community Edition][intellijdownload] 
 (or full-fledged [Ultimate Edition][intellijdownload]) from the [JetBrains website][jetbrains].
 
-## Creating an application 
+## Create an application 
 
 Once you've installed IntelliJ IDEA, it's time to create your first Kotlin application.
 
@@ -38,7 +38,7 @@ Alternatively, you can select **File** \| **New** \| **Project**, and then selec
 
 4. Change the code to request your name and say `Hello` to you specifically, not to the whole world.  
    
-   * Introduce a local variable `name` with `val`. Its value will be an input for your name - `readLine()`.
+   * Introduce a local variable `name` with the keyword `val`. Its value will be an input for your name - `readLine()`.
    * Use this variable right in text output by adding `$` to the variable name - `$name`.
    
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
@@ -55,7 +55,7 @@ Alternatively, you can select **File** \| **New** \| **Project**, and then selec
 
    <img class="img-responsive" src="{{ url_for('tutorial_img', filename='getting-started/main-kt-updated.png') }}" alt="Updated main fun" width="400"/>
 
-## Running the application
+## Run the application
 
 Now the application is ready to run. The easiest way is to click the green __Run__ icon in the gutter and select __Run 'MainKt'__.
 
@@ -71,6 +71,11 @@ Enter your name and accept greetings from your application!
 
 Congratulations! You now have your first Kotlin application running.
 
+Once you’ve created the application, you can dive deeper into Kotlin syntax:
+
+*   Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview) 
+*   Install the [EduTools plugin](https://plugins.jetbrains.com/plugin/10081-edutools) for IDEA and complete exercises 
+from the [Kotlin Koans course](https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans)
 
 [intellijdownload]: http://www.jetbrains.com/idea/download/index.html
 [jetbrains]: http://www.jetbrains.com
