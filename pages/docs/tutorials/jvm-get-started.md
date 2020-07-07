@@ -15,12 +15,12 @@ To get started, install a recent version of IntelliJ IDEA. You can download the 
 
 Once you've installed IntelliJ IDEA, it's time to create your first Kotlin application.
 
-1. Create a new console application by clicking [this link](jetbrains://idea/kotlin-wizard/create-project?template=ConsoleApplication).  
-Alternatively, you can select **File** \| **New** \| **Project**, and then select the **Kotlin** with the project template **Console Application**.
-
+1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
+2. In the panel on the left, select **Kotlin**.
+3. Enter a project name, select **Console Application** as the project template, and click **Next**.
+   
    ![Kotlin console application]({{ url_for('tutorial_img', filename='getting-started/new-console-app-1.png') }})
-
-2. Specify a project name, for example, *Hello*, and click **Next**.  
+   
    By default, your project will use the build system Gradle with Kotlin DSL.
 
 3. Accept the default configuration on the next screen and click **Finish**.
@@ -28,7 +28,7 @@ Alternatively, you can select **File** \| **New** \| **Project**, and then selec
    ![Kotlin console application configuration]({{ url_for('tutorial_img', filename='getting-started/new-console-app-2.png') }}) 
 
    Your project opens. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
-   Wizard based on your configuration. It includes Kotlin plugins and dependencies required for your console application.
+   Wizard based on your configuration. It includes the `kotlin("jvm")` plugin and dependencies required for your console application.
 
 3. Open the file `main.kt` in **src** \| **main** \| **kotlin**.  
    The **src** directory contains Kotlin source files and resources. The file `main.kt` includes sample code that prints out 
