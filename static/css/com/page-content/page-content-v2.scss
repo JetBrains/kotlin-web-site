@@ -97,6 +97,11 @@ a {
     page-break-inside: avoid;
 }
 
+.typo-quote.kto-quote {
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
 .typo-hr {
     @extend %hr;
 }

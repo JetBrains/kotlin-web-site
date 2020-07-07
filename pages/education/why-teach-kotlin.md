@@ -16,7 +16,7 @@ Revamp your course with the first-choice language for [Android development](http
 
 Android development will become increasingly Kotlin-first. [Google I/O 2019](https://android-developers.googleblog.com/2019/05/google-io-2019-empowering-developers-to-build-experiences-on-Android-Play.html)
 
-> Decrease in boilerplate helps us to quickly identify which fundamental Android concepts students are missing. The likelihood of issues arising due to some basic syntactic/language problems is lower, allowing students instead to focus on more fundamental software design matters  
+> Decrease in boilerplate helps us to quickly identify which fundamental Android concepts students are missing. The likelihood of issues arising due to some basic syntactic/language problems is lower, allowing students instead to focus on more fundamental software design matters.  
 > {:.kto-quote__text} 
 > Jacob Mass, University of Tartu
 > {:.kto-quote__author}
@@ -54,7 +54,7 @@ At least 82 universities from the Times Higher Education Rankings 2020 use Kotli
 
 4th most loved programming language in the 2019 [StackOverflow Developer Survey](https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted).
 
-> *The students are so happy. They can produce useful software quickly*. 
+> The students are so happy. They can produce useful software quickly. 
 > {:.kto-quote__text}
 > Károly Machalik, University of Pannonia
 > {:.kto-quote__author}
@@ -234,7 +234,7 @@ The educational EduTools plugin is also available to help learn and teach Kotlin
 * [Documentation](https://kotlinlang.org/docs/reference/)
 * [Playground](https://play.kotlinlang.org/)
 
-> Go for it! You will love it. The language is mature, the IDE support is fantastic, the documentation is great*. 
+> Go for it! You will love it. The language is mature, the IDE support is fantastic, the documentation is great. 
 > {:.kto-quote__text}
 > Mariusz Nowostawski, Norwegian University of Science and Technology
 > {:.kto-quote__author}
@@ -249,11 +249,6 @@ Open source at heart, Kotlin is a free language that runs on all major platforms
 > {:.kto-quote__author}
 {:.kto-quote}
 
-<section class="edu-slack">
-    <p class="edu-slack__text">We’ve created a dedicated Slack channel where Kotlin educators can share their experience, exchange ideas, and empower each other. Let’s (teach) Kotlin!</p>
-    <a
-        target="_blank"
-        class="kto-button kto-button_size_m kto-button_mode_primary"
-        href="https://surveys.jetbrains.com/s3/kotlinlang-slack-signup-educators"
-    >Request to Join</a>
-</section>
+We’ve created a dedicated Slack channel where Kotlin educators can share their experience, exchange ideas, and empower each other. Let’s (teach) Kotlin!
+
+<a target="_blank" class="kto-button kto-button_size_m kto-button_mode_primary" href="https://surveys.jetbrains.com/s3/kotlinlang-slack-signup-educators">Request to Join</a>
