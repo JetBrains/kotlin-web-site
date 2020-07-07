@@ -1,106 +1,81 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Setting up a Kotlin/JS project"
-description: "How to set up a Gradle project targeting JavaScript using the JS or multiplatform plugins."
-authors: Sebastian Aigner
-date: 2020-02-23
+title:  "Get started with Kotlin/JS in IntelliJ IDEA"
+description: "This tutorial demonstrates how to use IntelliJ IDEA for creating a frontend application based on Kotlin/JS."
+authors: Sebastian Aigner, Kate Volodko
+date: 2020-07-07
 showAuthorInfo: false
 ---
 
-There are two major ways how we can set up a Kotlin/JS project: we can use the [Kotlin/JS Gradle plugin](#setting-up-for-javascript-gradle), or use the [Kotlin Multiplatform Gradle plugin](#setting-up-using-the-kotlin-multiplatform-plugin).
+To get started, install a recent version of IntelliJ IDEA. You can download the free [Community Edition][intellijdownload] 
+(or full-fledged [Ultimate Edition][intellijdownload]) from the [JetBrains website][jetbrains].
 
-## Setting up for JavaScript (Gradle)
+## Create an application 
 
-The most straightforward way to get started with Kotlin/JS is via the Kotlin/JS Gradle plugin. If you're using IntelliJ IDEA, the setup for such a project can be done via wizard.
+Once you've installed IntelliJ IDEA, it's time to create your first frontend application based on Kotlin/JS.
 
-Through the __New Project__ wizard, we can select the platform we want to target. For this example, we're selecting __Kotlin/JS for browser__,
- which allows us to use browser-specific APIs in our project. If we're targeting Node.js, we can select the __Kotlin/JS for Node.js__ option instead.
+1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
+2. In the panel on the left, select **Kotlin**.
+3. Enter a project name, select **Frontend Application** as the project template, and click **Next**.
+   
+   ![Kotlin frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-1.png') }})
+   
+   By default, your project will use the build system Gradle with Kotlin DSL.
 
-Make sure that the __Kotlin DSL build script__ option is selected to use the Gradle Kotlin DSL as well:
+3. Accept the default configuration on the next screen and click **Finish**.
+  
+   ![Frontend application configuration]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-2.png') }}) 
 
-![New JavaScript project wizard]({{ url_for('tutorial_img', filename='javascript/setting-up/new-project.png')}})
+   Your project opens. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
+   Wizard based on your configuration. It includes the `kotlin("js")` plugin and dependencies required for your frontend application.
 
-After selecting a project name, such as `jsTutorial`, IntelliJ IDEA will automatically start creating the folder structure for your Gradle project. To see and adjust the default build configuration, we can open the `build.gradle.kts` in the root of our application:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
-plugins {
-    id("org.jetbrains.kotlin.js") version "1.3.70"
-}
+## Run the application
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+Run the application by clicking **Run** next to the run configuration at the top of the screen.
 
-repositories {
-    mavenCentral()
-}
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-run-app.png') }}" alt="Running a frontend app" width="500"/>
 
-dependencies {
-    implementation(kotlin("stdlib-js"))
-}
+Your default web browser opens the URL `localhost:8080` with your frontend application.
 
-kotlin.target.browser { }
-```
-</div>
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-1.png') }}" alt="Web browser with JS application"/>
 
-As we can see, the `kotlin.js` Gradle plugin is used to provide JavaScript support for our project. The plugin also takes care of managing a development environment for us – under the hood, it manages its own `yarn` and `webpack` installation, and exposes their functionality through the Gradle DSL.
+Enter your name in the text box and accept greetings from your application!
 
-The `kotlin.target.browser` part at the bottom of the file can be used for target-specific configurations. This part becomes relevant when adjusting the behavior of the JS plugin, for example to configure the available test runners for the platform.
+## Update the application
 
-To learn about how to run your program, both in the browser and on the Node.js target, check out [Running Kotlin/JS](running-kotlin-js.html).
+Update your application to show your name backwards. 
 
-## Setting up using the Kotlin Multiplatform plugin
+1. Open the file `welcome.kt` in **src** \| **main** \| **kotlin**.  
+   The **src** directory contains Kotlin source files and resources. The file `welcome.kt` includes sample code that renders 
+   a web page you've just seen.
 
-When targeting other platforms alongside JavaScript, the Multiplatform plugin can be used instead of the JS plugin. An empty template for such a project can be created through the wizard in IntelliJ IDEA:
+   ![Source code for frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-welcome-kt.png') }})
 
-![Multiplatform project wizard]({{ url_for('tutorial_img', filename='javascript/setting-up/multiplatform-project.png')}})
+2. Change the code of `StyledDiv` to show your name backwards.  
+   
+   * Use the standard library function `reversed()` to reverse your name.
+   * Use your reversed name right in text output by adding `$` and enclosing in curly brackets `{}` - `${state.name.reversed()}`.
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   styledDiv {
+               css {
+                   +WelcomeStyles.textContainer
+               }
+               +"Hello ${state.name}!"
+               +" Your name backwards is ${state.name.reversed()}!"
+           }
+   ```
+   
+   </div>
 
-After creating a multiplatform plugin with the wizard, any kind of platform-specific configuration is omitted at first. To add the JavaScript target, we adjust our automatically generated `build.gradle.kts` file to look analogous to this:
+Your application is running continuously so go to the browser and enjoy the result.
+   
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-2.png') }}" alt="Web browser with updated output" />
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
-plugins {
-    kotlin("multiplatform") version "1.3.70"
-}
-
-group = "org.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-    js {
-        browser { }
-    }
-
-    sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-common"))
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
-
-        val jsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
-            }
-        }
-
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
-            }
-        }
-    }
-}
-```
-</div>
+[intellijdownload]: http://www.jetbrains.com/idea/download/index.html
+[jetbrains]: http://www.jetbrains.com
+[getting_started_command_line]: command-line.html
