@@ -45,6 +45,8 @@ processors = {
 
     'p': 'typo-para',
     'a': 'typo-link',
+    'blockquote': 'typo-quote',
+    'hr': 'typo-hr',
     'img': 'typo-image',
     'strong': 'type-strong'
 }

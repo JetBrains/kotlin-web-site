@@ -1,6 +1,8 @@
 @import '../../_config';
 @import '../../_utils';
 @import '../_bits/_header';
+@import '../_bits/_blockquote';
+@import '../_bits/_hr';
 
 a {
     text-decoration: none;
@@ -87,6 +89,16 @@ a {
 
 .typo-float-right {
     float: right;
+}
+
+.typo-quote {
+    @extend %blockquote;
+    margin: $vertical-rhythm-unit*2 0;
+    page-break-inside: avoid;
+}
+
+.typo-hr {
+    @extend %hr;
 }
 
 .js-side-tree-nav {
