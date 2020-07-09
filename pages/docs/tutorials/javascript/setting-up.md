@@ -1,8 +1,8 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Get started with Kotlin/JS in IntelliJ IDEA"
-description: "This tutorial demonstrates how to use IntelliJ IDEA for creating a frontend application based on Kotlin/JS."
+title:  "Get started with Kotlin/JS for React"
+description: "This tutorial demonstrates how to use IntelliJ IDEA for creating a frontend application with Kotlin/JS for React."
 authors: Sebastian Aigner, Kate Volodko
 date: 2020-07-07
 showAuthorInfo: false
@@ -13,7 +13,7 @@ To get started, install a recent version of IntelliJ IDEA. You can download the 
 
 ## Create an application 
 
-Once you've installed IntelliJ IDEA, it's time to create your first frontend application based on Kotlin/JS.
+Once you've installed IntelliJ IDEA, it's time to create your first frontend application based on Kotlin/JS with React.
 
 1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
 2. In the panel on the left, select **Kotlin**.
@@ -45,7 +45,7 @@ Enter your name in the text box and accept greetings from your application!
 
 ## Update the application
 
-Update your application to show your name backwards. 
+### Show your name backwards
 
 1. Open the file `welcome.kt` in **src** \| **main** \| **kotlin**.  
    The **src** directory contains Kotlin source files and resources. The file `welcome.kt` includes sample code that renders 
@@ -71,10 +71,69 @@ Update your application to show your name backwards.
    ```
    
    </div>
-
-Your application is running continuously so go to the browser and enjoy the result.
    
-<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-2.png') }}" alt="Web browser with updated output" />
+3. Save changes to the file.
+
+4. Go to the browser and enjoy the result.
+   
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-2.png') }}" alt="Web browser with a reversed name" />
+
+### Add an image
+
+1. Open the file `welcome.kt` in **src** \| **main** \| **kotlin**.  
+
+2. Add the `div` element with an image `img`.  
+   
+   > Make sure that you import these packages - `react.dom.*` and `styled.*`.
+   {:.note}       
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   div {
+           img(src = "https://placekitten.com/408/287") {}
+       }
+   ```
+   
+   </div>                                                                                                                                                                                                                                                        >
+   
+3. Save changes to the file.
+
+4. Go to the browser and enjoy the result.
+   
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-3.png') }}" alt="Web page with with an image" width="500"/>
+
+### Add a button that changes text
+
+1. Open the file `welcome.kt` in **src** \| **main** \| **kotlin**.  
+
+2. Add the `button` element with the `onClickFunction` event.  
+   
+   > Make sure that you import the package `kotlinx.html.js.*`.
+   {:.note}         
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+    button {
+        attrs.onClickFunction = {
+            setState(
+                    WelcomeState(name = "Some name")
+            )
+        }
+        +"Change name"
+    }   
+   ```
+   
+   </div>                                                                                                                                                                                                                                                              >
+   
+3. Save changes to the file.
+
+4. Go to the browser and enjoy the result.
+   
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-4.png') }}" alt="Web page with a button" width="500"/>
+
+
 
 [intellijdownload]: http://www.jetbrains.com/idea/download/index.html
 [jetbrains]: http://www.jetbrains.com
