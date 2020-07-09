@@ -1,3 +1,4 @@
+
 ---
 type: doc
 layout: reference
@@ -7,26 +8,16 @@ title: "Setting Up Kotlin/JS Project"
 
 # Setting up a Kotlin/JS project
 
-Kotlin/JS projects use Gradle as a build system. To let developers easily manage their Kotlin/JS projects, we offer
-the Kotlin/JS Gradle plugin that provides project configuration tools together with helper tasks for automating routines
+You can create a Kotlin/JS project [from a template in IntelliJ IDEA](js-create-project.html) or set it up manually. This section explains how you can do this manually.
+
+## JS Gradle plugin
+
+Kotlin/JS projects use Gradle as a build system. The Kotlin/JS Gradle plugin provides project configuration tools together with helper tasks for automating routines
 typical for JavaScript development. For example, the plugin downloads the [Yarn](https://yarnpkg.com/) package manager
 for managing [npm](https://www.npmjs.com/) dependencies in background and builds a JavaScript bundle from a Kotlin project
 using [webpack](https://webpack.js.org/).
 
-## Create a project
-
-To get started, install a recent version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
-
-
-
-
-To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project** and select **Gradle | Kotlin/JS for browser**
- or **Kotlin/JS for Node.js**. Be sure to clear the **Java** checkbox.
-
-![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/wizard.png') }})
-
-
-Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file (`build.gradle` or `build.gradle.kts`).
+You can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file (`build.gradle` or `build.gradle.kts`).
 If you use the Gradle Kotlin DSL, you can apply the plugin with `kotlin(“js”)`.
 
 <div class="multi-language-sample" data-lang="groovy">
