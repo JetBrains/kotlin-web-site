@@ -8,8 +8,7 @@ date: 2020-07-07
 showAuthorInfo: false
 ---
 
-To get started, install a recent version of IntelliJ IDEA. You can download the free [Community Edition][intellijdownload] 
-(or full-fledged [Ultimate Edition][intellijdownload]) from the [JetBrains website][jetbrains].
+To get started, install a recent version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
 ## Create an application 
 

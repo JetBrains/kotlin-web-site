@@ -8,8 +8,7 @@ date: 2020-07-07
 showAuthorInfo: false
 ---
 
-To get started, install a recent version of IntelliJ IDEA. You can download the free [Community Edition][intellijdownload] 
-(or full-fledged [Ultimate Edition][intellijdownload]) from the [JetBrains website][jetbrains].
+To get started, install a recent version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
 ## Create an application 
 
@@ -134,7 +133,3 @@ Enter your name in the text box and accept greetings from your application!
 <img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-4.png') }}" alt="Web page with a button" width="500"/>
 
 
-
-[intellijdownload]: http://www.jetbrains.com/idea/download/index.html
-[jetbrains]: http://www.jetbrains.com
-[getting_started_command_line]: command-line.html
