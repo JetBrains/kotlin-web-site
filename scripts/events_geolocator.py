@@ -1,7 +1,6 @@
 import codecs
 import os
 from os import path
-
 import geocoder
 import ruamel.yaml
 import xmltodict
@@ -26,13 +25,13 @@ for event in events:
     location = event['location']
     if location in cities:
         continue
-    geocoded_coordinates = geocoder.google(location).latlng
+    geocoded_coordinates = geocoder.yandex(location, kind=None).json
     if len(geocoded_coordinates) == 0:
         print("Location not found: ", location)
         exit(-1)
     for city in cities_array:
         coordinates = city['geo']
-        if abs(coordinates['lat'] - geocoded_coordinates[0]) < 0.1 and abs(coordinates['lng'] - geocoded_coordinates[1]) < 0.1:
+        if abs(coordinates['lat'] - float(geocoded_coordinates['lat'])) < 0.1 and abs(coordinates['lng'] - float(geocoded_coordinates['lng'])) < 0.1:
             is_same = None
             while is_same is None:
                 user_input = input("Are " + location + " and " + city['name'] + " the same place? (y/n)")
@@ -52,12 +51,12 @@ for event in events:
                 break
     else:
         print(location + " geocoded location " + \
-              "https://www.google.com/maps/@" + str(geocoded_coordinates[0]) + "," + str(geocoded_coordinates[1]) + ",15z")
+              "https://www.google.com/maps/@" + geocoded_coordinates['lat'] + "," + geocoded_coordinates['lng'] + ",15z")
         city = {
             'name': location,
             'geo': {
-                'lat': geocoded_coordinates[0],
-                'lng': geocoded_coordinates[1],
+                'lat': float(geocoded_coordinates['lat']),
+                'lng': float(geocoded_coordinates['lng']),
             }
         }
         cities[city['name']] = city

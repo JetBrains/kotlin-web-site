@@ -1,0 +1,25 @@
+.kto-numbers {
+  display: flex;
+}
+
+.kto-numbers__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 14px;
+  line-height: 24px;
+
+  margin-right: 32px;
+}
+
+.kto-numbers__item:last-of-type {
+  margin-right: 0;
+}
+
+.kto-numbers__number {
+  font-size: 60px;
+  line-height: 72px;
+
+  font-weight: normal;
+}

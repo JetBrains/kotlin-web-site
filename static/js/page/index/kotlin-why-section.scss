@@ -1,0 +1,171 @@
+.kotlin-why-section {
+  padding-top: 92px;
+  padding-bottom: 40px;
+}
+
+.kotlin-why-section .CodeMirror-gutters {
+  background: none !important;
+  border-right: none !important;
+}
+
+.kto-features-list__feature {
+  padding-left: 38px;
+}
+
+.kto-features-list__feature::before {
+  display: block;
+  content: '';
+
+  height: 24px;
+  width: 24px;
+
+  margin-top: 3px;
+  margin-left: -38px;
+  float: left;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.kto-features-list__feature_concise::before {
+  background-image: url("./images/features/concise.svg");
+  background-size: 24px;
+}
+
+.kto-features-list__feature_safe::before {
+  background-image: url("./images/features/safe.svg");
+  background-size: 21px 24px;
+}
+
+.kto-features-list__feature_interoperable::before {
+  background-image: url("./images/features/interoperable.svg");
+  background-size: 22px;
+}
+
+.kto-features-list__feature_tool-friendly::before {
+  background-image: url("./images/features/tool-friendly.svg");
+  background-size: 22px;
+}
+
+.kto-features-list__feature::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.kto-features-list__short-info::before {
+  display: block;
+  content: '';
+  height: 25px;
+  width: 20px;
+
+  margin-left: -22px;
+  float: left;
+}
+
+.kto-features-list__short-info::before {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.kto-features-list__title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+
+  margin-top: 45px;
+  margin-bottom: 8px;
+}
+
+.kto-features-list__description {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.kto-features-list__content {
+  margin-top: 32px;
+  margin-left: -20px;
+}
+
+.kto-features-list__feature_tool-friendly .kto-features-list__content {
+  margin-left: -38px;
+}
+
+.kto-features-list__content > pre {
+  margin-top: 15px;
+}
+
+.kto-getting-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.kto-getting-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 20.75%;
+}
+
+.kto-getting-item__content::before {
+  display: block;
+  content: '';
+
+  margin-bottom: 28px;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 48px;
+  background-size: contain;
+
+  height: 48px;
+  width: 48px;
+}
+
+.kto-getting-item_intellij-idea {
+  background-size: 48px;
+  text-indent: 0;
+}
+
+.kto-getting-item_android-studio .kto-getting-item__content::before {
+  background-image: url("images/logos/android-studio.svg");
+}
+
+.kto-getting-item_eclipse .kto-getting-item__content::before {
+  background-image: url("images/logos/eclipse.svg");
+}
+
+.kto-getting-item_standalone-compiler .kto-getting-item__content::before {
+  background-image: url("images/logos/standalone-compiler.svg");
+}
+
+.kto-getting-item__title {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+.kto-getting-item__description {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 18px;
+  color: rgba(39, 40, 44, .7);
+}
+
+.kto-getting-item__download {
+  margin-right: 10px;
+}
+
+.kto-getting-item__download::after {
+  display: inline-block;
+  content: '';
+  background: url('images/external-link-marker_link.svg') center bottom no-repeat;
+  background-size: 8px;
+  margin-left: 4px;
+  height: 8px;
+  width: 8px;
+}

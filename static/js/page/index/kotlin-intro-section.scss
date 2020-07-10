@@ -1,0 +1,101 @@
+.kotlin-intro-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  font-weight: bold;
+  font-size: 31px;
+  line-height: 135%;
+  letter-spacing: -0.01em;
+
+  padding-top: 30px;
+}
+
+.kotlin-intro-section__icon {
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  display: inline-block;
+}
+
+.kotlin-intro-section__icon::after {
+  display: flex;
+  content: '';
+  height: 25px;
+  width: 25px;
+  background: url("./images/github.svg") transparent center no-repeat;
+  background-size: 25px;
+  background-size: contain;
+}
+
+.kotlin-banner-section__try-ide {
+  font-size: 15px;
+  margin-left: 24px;
+  font-weight: normal;
+}
+
+.kotlin-portals-section {
+  padding-bottom: 24px;
+}
+
+.kotlin-portals-section__list {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-bottom: -27px;
+}
+
+.kotlin-portals-section__item {
+  flex: 1 1 33.3%;
+  margin-bottom: 27px;
+
+  display: flex;
+  align-items: center;
+}
+
+a.kotlin-portals-section__link,
+a.kotlin-portals-section__link:any-link {
+  color: #fff;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.kotlin-portals-section__item::before {
+  display: inline-block;
+  content: '';
+  background: transparent center no-repeat;
+  background-size: 30px;
+  margin-right: 16px;
+  height: 30px;
+  width: 30px;
+}
+
+.kotlin-portals-section__link::after {
+  display: inline-block;
+  content: '→';
+  text-decoration: none;
+}
+
+.kotlin-portals-section__item_type_android::before {
+  background-image: url("./images/techs/andriod.svg");
+}
+
+.kotlin-portals-section__item_type_data-science::before {
+  background-image: url("./images/techs/data-science.svg");
+}
+
+.kotlin-portals-section__item_type_mobile::before {
+  background-image: url("./images/techs/mobile.svg");
+}
+
+.kotlin-portals-section__item_type_native::before {
+  background-image: url("./images/techs/native.svg");
+}
+
+.kotlin-portals-section__item_type_web::before {
+  background-image: url("./images/techs/web.svg");
+}
+
+.kotlin-portals-section__item_type_server-side::before {
+  background-image: url("./images/techs/server-side.svg");
+}

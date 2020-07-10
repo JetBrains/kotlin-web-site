@@ -8,11 +8,19 @@ showAuthorInfo: false
 related:
     - getting-started.md
 ---
+
+>__Warning__: this tutorial is outdated for Kotlin {{ site.data.releases.latest.version }}.
+>We strongly recommend using Gradle for Kotlin/JS projects. For instructions on creating 
+>Kotlin/JS projects with Gradle, see [Setting up a Kotlin/JS project](../setting-up.html)
+{:.note}
+>
 ### Creating a Kotlin/JavaScript library
 
 We will create a simple Kotlin/JavaScript library.
 
 1. Using our favorite editor, we create a new file called *library.kt*:
+
+   <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
    ``` kotlin
    package org.sample
@@ -23,6 +31,8 @@ We will create a simple Kotlin/JavaScript library.
        this.forEach { if (it % 2 == 1) f(it) }
    }
    ```
+
+   </div>
 
 2. Compile the library using the JS compiler
 
@@ -54,15 +64,21 @@ We will create a simple Kotlin/JavaScript library.
    of `sample-library.js` and distribute only the resulting file.
 
    Also you can create an archive, which can be distributed as a library:  
-   
+
+   <div class="sample" markdown="1" theme="idea" mode="shell">
+
    ```
    $ jar cf sample-library.jar *.js
    ```
+
+   </div>
    
 ### Using a Kotlin/JavaScript library.
 
    Create binom.kt:
-   
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 import org.sample.factorial
 import org.sample.forOdd
@@ -77,11 +93,17 @@ fun oddFactorial(n: Int): Long {
 }        
 ```
 
+</div>
+
    Compile with library:
 
+<div class="sample" markdown="1" theme="idea" mode="shell">
+
+```bash
+$ kotlinc-js -output binom.js -libraries sample-library.meta.js binom.kt
 ```
-   $ kotlinc-js -output binom.js -libraries sample-library.meta.js binom.kt
-```
+
+</div>
    
    Both files `sample-library.js` and `sample-library.meta.js` should be present in the latter case,
    because translated JavaScript file contains meta-information about inlining, which 
@@ -90,9 +112,13 @@ fun oddFactorial(n: Int): Long {
 
    If you have an archive `sample-library.jar`, which contains `sample-library.js` and `sample-library.meta.js`,
    you can use the following command
-   
+
+<div class="sample" markdown="1" theme="idea" mode="shell">
+
+```bash
+$ kotlinc-js -output binom.js -libraries sample-library.jar binom.kt
 ```
-   $ kotlinc-js -output binom.js -libraries sample-library.jar binom.kt
-```
+
+</div>
   
    

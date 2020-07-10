@@ -1,851 +1,100 @@
 @import '../../../css/_config';
 @import '../../../css/_utils';
-@import '../../../css/com/_bits/_header';
-@import '../../../css/com/_bits/_button';
-@import 'lib';
+@import '../../../css/com/_bits/_pre';
+@import '../../../css/com/_bits/_code';
+@import '../../../css/com/_syntax-highlight/_syntax-highlight_dark';
 
-.kotlin-overview-section {
-    padding-top: $unit*4;
-    padding-bottom: $unit*4;
+.kto-overview-section {
+  font-family: Inter, Arial, sans-serif;
+  color: #27282C;
 
-    .section-header {
-        margin-bottom: 5px;
-        font-family: $font-family-serif;
-        font-size: 48px;
-        line-height: 54px;
-        text-align: center;
-    }
-
-    .section-description {
-        font-size: 18px;
-        line-height: 21px;
-        margin-bottom: $unit*2;
-        text-align: center;
-    }
+  padding-top: 40px;
 }
 
-.kotlin-overview-section._works-on {
-    background-color: #393939;
-    padding-top: 24px;
-    color: #fff;
-
-    .section-header {
-        margin-bottom: 3 * $unit;
-        font-size: 32px;
-    }
-
-    .works-on-list {
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-    }
-
-    a {
-        opacity: 0.8;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        text-decoration: none;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-
-    a:hover .works-on-text {
-        color: $base-link-hover-color;
-    }
-
-    .works-on-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        min-width: 12em;
-    }
-
-    .works-on-icon {
-        margin-bottom: $unit;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-
-        &._jvm {
-            width: 50px;
-            height: 58px;
-            background: url('images/works_on_jvm.svg');
-        }
-
-        &._android {
-            width: 50px;
-            height: 58px;
-            background: url('images/works_on_android.svg');
-        }
-
-        &._browser {
-            width: 50px;
-            height: 50px;
-            background: url('images/works_on_browser.svg');
-        }
-
-        &._native {
-            width: 50px;
-            height: 50px;
-            background: url('images/works_on_native.svg');
-        }
-    }
-
-    a .works-on-text {
-        color: white;
-    }
-
-    .works-on-text {
-        color: #acacac;
-        text-align: center;
-    }
+.kto-overview-section_mode_dark {
+  background-color: #27282C;
+  color: #F4F4F4;
 }
 
-.kotlin-overview-section._features {
-    $item-width: 240px;
-    $item-margin: 24px;
-    $item-count: 4;
-    @extend %kotlin-overview-section-background-image%default;
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-
-    .section-header {
-        margin-bottom: 30px;
-    }
-
-    .section-description {
-        margin-bottom: $unit*5;
-    }
-
-    .kotlin-features-list {
-        display: inline-block;
-        position: relative;
-        left: 0;
-        font-size: 0;
-        margin: 0 auto;
-        text-align: center;
-
-        .kotlin-feature {
-            position: relative;
-            display: inline-block;
-            overflow: hidden;
-            box-sizing: border-box;
-            width: $item-width;
-            margin-right: $item-margin;
-            margin-bottom: 10px;
-            padding: 0;
-            height: 310px;
-            background-color: #fff;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.12);
-            font-size: $base-font-size;
-            white-space: normal;
-            vertical-align: top;
-
-            &:hover {
-                //box-shadow: 0 1px 2px 0px rgba(132, 181, 230, 1);
-                box-shadow: 0 1px 9px 1px #84b5e6;
-                cursor: pointer;
-            }
-        }
-
-        .feature-image {
-            position: relative;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-            height: 160px;
-        }
-
-        .feature-icon {
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-
-            &._tool-friendly {
-                width: 60px;
-                height: 61px;
-                background: url('images/tool-friendly.svg');
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-
-            &._concise {
-                width: 60px;
-                height: 73px;
-                background: url('./images/concise.svg');
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-            &._safe {
-                width: 60px;
-                height: 69px;
-                background: url('./images/safe.svg');
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-            &._interoperable {
-                width: 60px;
-                height: 61px;
-                background: url('./images/interopable.svg');
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-        }
-
-        .feature-title-pre-text {
-            @extend %kotlin-overview-pre-text;
-        }
-
-        .feature-title {
-            font-size: 24px;
-            line-height: 27px;
-            font-family: $font-family-serif;
-            margin-bottom: $unit;
-        }
-
-        .feature-description {
-            max-width: 210px;
-            margin: 0 auto $unit;
-            color: #000;
-            text-align: center;
-        }
-
-        .feature-example-link {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            color: $base-link-color;
-            text-decoration: none;
-            cursor: pointer;
-
-            &:hover {
-                color: $base-link-hover-color;
-            }
-        }
-    }
-
-    .overview-popup {
-        @extend %kotlin-overview-popup;
-        @extend %kotlin-overview-popup%_fixed;
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhBJREFUeNqElluSAjEMA5ngS3H/e8EGPIiu9lRtPqYCecmy5OR4PB7Hcdxut9en7c7xbf1P95/PZ0Y5c63F5d1nK226+71XpvYE9jO0d8+ffcBem9HuVA+sT+OAWmLizwAiAX1wIBaRdr+HCZynMmLCz5x8zwMCXGxkx0T9+jZmomE1pqztmDo9ldk5g3B6fZ9B6gic35yU5UtckxxNZQIUqHTBDFWEmC2iPKpFIlbyGaKEUNJvp6RJ/IX5OTJQsp5GYcSR7DuCqW5RNFtvSurZiTlOPmb2IowsIGO0lUapi5+TZw6zhtJUDmdhyD6bmVD63m2CmmuyF4MgDmZVE34+iFQaQg/H23SWTCsF03TvAzJ1Vj1VViJNBZOgZ9WqhE9/E6x8xPWy3mWZKlHfx8gTkmBslThUMFyuVWG47yzdvTX9qBzIfaW6psR2J8YmAtXHy1tk/19SWBiI0YSuNSZyOFlCWrxvZy2TMKJjpiqkXWq3JnFBqjPCg6qeiFJhLp0pgXJ986DbiVfCpSGWVNThs3iwyLAOcijUCd+Z5NQJKZX2JoJ/rwSSVmJ5VjH6M7mJVGZpoenOHIg1XmQid3/v93vWzyfhtQ+UmUTNhwLfZ5Nohu7X34HWeGep4dspJpCxVYJijkVVyA3JqqQcpQWHUPJb88nGefLE5Zts/snJFeUJ+EzjvNwVR4oY8f0JMADafXyiN4WApQAAAABJRU5ErkJggg==');
-        background-repeat: repeat;
-
-        @media (max-width: 1050px) {
-            bottom: auto;
-            min-height: 500px;
-        }
-    }
-
-    .overview-popup-overlay {
-        @extend %kotlin-overview-popup-overlay;
-    }
+.kto-overview-section_mode_grey {
+  background: #F5F5F5;
 }
 
-.kotlin-overview-section._code-examples {
-    @include clearfix;
-    position: relative;
-    padding-top: 0;
-    padding-bottom: $unit*5;
-    color: #fff;
-    background-color: #393939;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhBJREFUeNqElluSAjEMA5ngS3H/e8EGPIiu9lRtPqYCecmy5OR4PB7Hcdxut9en7c7xbf1P95/PZ0Y5c63F5d1nK226+71XpvYE9jO0d8+ffcBem9HuVA+sT+OAWmLizwAiAX1wIBaRdr+HCZynMmLCz5x8zwMCXGxkx0T9+jZmomE1pqztmDo9ldk5g3B6fZ9B6gic35yU5UtckxxNZQIUqHTBDFWEmC2iPKpFIlbyGaKEUNJvp6RJ/IX5OTJQsp5GYcSR7DuCqW5RNFtvSurZiTlOPmb2IowsIGO0lUapi5+TZw6zhtJUDmdhyD6bmVD63m2CmmuyF4MgDmZVE34+iFQaQg/H23SWTCsF03TvAzJ1Vj1VViJNBZOgZ9WqhE9/E6x8xPWy3mWZKlHfx8gTkmBslThUMFyuVWG47yzdvTX9qBzIfaW6psR2J8YmAtXHy1tk/19SWBiI0YSuNSZyOFlCWrxvZy2TMKJjpiqkXWq3JnFBqjPCg6qeiFJhLp0pgXJ986DbiVfCpSGWVNThs3iwyLAOcijUCd+Z5NQJKZX2JoJ/rwSSVmJ5VjH6M7mJVGZpoenOHIg1XmQid3/v93vWzyfhtQ+UmUTNhwLfZ5Nohu7X34HWeGep4dspJpCxVYJijkVVyA3JqqQcpQWHUPJb88nGefLE5Zts/snJFeUJ+EzjvNwVR4oY8f0JMADafXyiN4WApQAAAABJRU5ErkJggg==');
-    background-repeat: repeat;
-
-    .section-content {
-        text-align: center;
-    }
-
-    .more-link-wrap {
-        @include clearfix;
-        max-width: $overview-section-width;
-        padding-right: $grid-spacing / 2;
-        margin: 0 auto;
-    }
-
-    .more-link {
-        float: right;
-        font-size: 18px;
-        color: $base-link-hover-color;
-
-        &:hover {
-            color: #fff;
-        }
-    }
+.kto-overview-section a {
+  color: #6B70FC;
+  text-decoration: none;
 }
 
-.kotlin-overview-code-example {
-    $legend-width: 180px;
-    $legend-spacing: 10px;
-
-    display: inline-block;
-    position: relative;
-    max-width: $overview-section-width;
-    margin: $unit*4 auto $unit*5;
-
-    &.is_hidden {
-        display: none;
-    }
-
-    .code-line {
-        @include clearfix;
-        position: relative;
-        text-align: left;
-    }
-
-    .code {
-        float: left;
-        margin-right: $legend-spacing - 2px;
-        font-family: 'Droid Sans Mono', $font-family-mono;
-        font-size: 30px;
-        line-height: 37px;
-        color: #9ebdd9;
-        white-space: pre;
-
-        .generic-code {
-            color: #9ebdd9;
-        }
-        .keyword {
-            color: #ff8b17;
-        }
-        .class-name {
-            color: #9ebdd9;
-        }
-        .func-name {
-            color: #ffcf7f;
-        }
-        .buildin-func-name {
-            color: #b1c4d8;
-            font-weight: bold;
-            font-style: italic;
-        }
-        .string-literal {
-            color: #78a35f;
-        }
-        .var-name {
-            color: #a165cb;
-        }
-        .number {
-            color: #3489ca;
-        }
-        .string-literal-var-substitution {
-            color: #ff8b17;
-        }
-    }
-
-    .code-legend {
-        position: relative;
-        white-space: normal;
-
-        @media (max-width: 900px) {
-            display: none !important;
-        }
-
-        &.align_left {
-            position: absolute;
-            display: block;
-            right: 100%;
-        }
-
-        &.align_right {
-            display: table;
-            margin-right: $legend-width;
-
-            &:after {
-                content: '. .';
-                display: block;
-                word-spacing: 99in;
-                height: 0;
-                overflow: hidden;
-                font-size: 0;
-                line-height: 0;
-            }
-        }
-    }
-    .ie & .code-legend.align_right:after {
-        font-size: 1px;
-    }
-
-    .code-legend-line {
-        position: absolute;
-        top: 21px;
-        height: 1px;
-        background-color: #fff;
-        opacity: 0.2;
-    }
-    .code-legend.align_left .code-legend-line {
-        right: 0;
-        width: 30px;
-        margin-right: $legend-spacing;
-    }
-    .code-legend.align_right .code-legend-line {
-        left: 0;
-        right: 0;
-    }
-
-    .code-legend-text {
-        position: absolute;
-        z-index: 1;
-        top: 11px;
-        width: $legend-width;
-
-        a {
-            color: #fff;
-
-            &:hover {
-                color: $base-link-hover-color;
-            }
-        }
-    }
-    .code-legend.align_left .code-legend-text {
-        right: 100%;
-        margin-right: 30px + $legend-spacing*2;
-        text-align: right;
-    }
-    .code-legend.align_right .code-legend-text {
-        left: 100%;
-        margin-left: $legend-spacing;
-    }
-
-    .code-legend-line-marker {
-        position: absolute;
-        //right: 100%;
-        top: 5px;
-        width: 33px;
-        height: 33px;
-        border: 1px solid #fff;
-        border-radius: 100%;
-        opacity: 0.2;
-    }
+.kto-overview-section a:hover {
+  text-decoration: underline;
 }
 
-.kotlin-overview-code-example-tabs {
-    position: relative;
-    margin-bottom: $unit*4;
-    background-color: #3c3d3e;
-    border-top: 1px solid #343537;
-    border-bottom: 3px solid #4f4f4e;
-    padding-bottom: 2px;
-    box-shadow: inset 0 1px 0 0 #5e5f60,
-    inset 0 -3px 10px 0px rgba(0, 0, 0, 0.4),
-    0 1px 0 0 #444548;
-    font-size: 0;
-
-    &:before {
-        position: absolute;
-        z-index: 1;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 0;
-        border-top: 1px solid #585858;
-        border-bottom: 1px solid #525251;
-        background-color: #5d5d5d;
-        content: '';
-    }
-
-    .tab {
-        @include user-select(none);
-        position: relative;
-        z-index: 2;
-        display: inline-block;
-        cursor: pointer;
-        padding: 0 15px;
-        line-height: 36px;
-        height: 34px;
-        border: 1px solid #343537;
-        margin: -1px 0 0 -1px;
-        background-color: #4c5052;
-        box-shadow: inset 1px 1px 0 #494d4f,
-        inset -1px -1px 0 #494d4f;
-        font-size: $base-font-size;
-        color: #d3d3d3;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
-
-        &:hover {
-            background-color: #575D5F;
-            color: #fff;
-        }
-
-        &.is_active {
-            @include linear-gradient($from: #646464, $to: #4f4f4e);
-            cursor: default;
-            box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2),
-            inset -4px 0 1px -2px rgba(255, 255, 255, 0.2);
-            background-color: #4F4F4E;
-            border-width: 0;
-            margin: 0;
-            padding-right: 16px;
-            padding-bottom: 1px;
-            color: #fff;
-
-            &:after {
-                position: absolute;
-                top: 100%;
-                left: 1px;
-                right: 2px;
-                height: 2px;
-                background-color: #4f4f4e;
-                content: '';
-            }
-
-            &:last-child {
-                border-right-width: 1px;
-                box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2),
-                inset -3px 0 1px -2px rgba(255, 255, 255, 0.2);
-            }
-        }
-    }
-
-    .tab-text {
-    }
+.kto-overview-section a.kto-button,
+.kto-overview-section a.kto-button:hover,
+.kto-overview-section a.kto-button:active,
+.kto-overview-section a.kto-button:visited,
+.kto-overview-section a.kto-button:any-link {
+  text-decoration: none;
 }
 
-.kotlin-overview-section._get-kotlin {
-    padding-top: 30px;
-    padding-bottom: 20px;
-    position: relative;
-    background-color: #003356;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi5LKO/f///+8/fxmwAVYWZhag9PefvxhwgD9//zLh0g0HTAyEwLBSAQw1/CoAAgwAba4SlNFFbukAAAAASUVORK5CYII=);
-    background-repeat: repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .kotlin-version {
-        margin-bottom: $unit*2;
-        font-size: 16px;
-        color: #fff;
-        text-align: right;
-    }
-
-    .section-header {
-        color: #fff;
-        margin-bottom: 2 * $unit;
-    }
-
-    .try-image {
-        margin-bottom: $unit * 3;
-        height: 70px;
-        width: 100px;
-        background: url("./images/try-online.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .try-button {
-        @extend %button_default;
-        font-size: 24px;
-        padding: 10px 35px;
-        height: initial;
-        margin-bottom: $unit * 3;
-    }
-
-    .section-description {
-        margin-bottom: $unit*4;
-        color: #fff;
-    }
-
-    .get-kotlin-options-list {
-        text-align: center;
-
-        .option-item {
-            @include grid-col;
-            position: relative;
-            width: 240px;
-            padding: 10px 15px 30px;
-            min-height: 320px;
-            margin-left: $grid-spacing / 2;
-            margin-right: $grid-spacing / 2;
-            margin-bottom: $grid-spacing;
-            background-color: #fff;
-            border-radius: 4px;
-
-            &:hover {
-                box-shadow: 0px 0px 9px 3px #84b5e6;
-            }
-
-            &._standalone-compiler {
-            }
-            &._intellij-idea {
-            }
-        }
-
-        .option-image {
-            position: relative;
-            display: block;
-            margin: 15px auto 20px;
-            width: 104px;
-            height: 104px;
-
-            .jetbrains-logo._logo-intellij-idea._size-2 {
-                width: 70px;
-                height: 70px;
-                margin: 22px;
-            }
-        }
-
-        .option-image:after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: block;
-            margin: auto;
-            content: '';
-        }
-
-        .option-image._standalone-compiler:after {
-            width: 75px;
-            height: 60px;
-            background: url("./images/standalone-compiler.svg");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .option-image._eclipse:after {
-            width: 64px;
-            height: 60px;
-            background: url("./images/eclipse.svg");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .option-image._android-studio:after {
-            width: 74px;
-            height: 80px;
-            background: url("./images/android_studio.svg");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .option-title-pre-text {
-            @extend %kotlin-overview-pre-text;
-        }
-
-        .option-title {
-            font-size: 21px;
-            line-height: 27px;
-            margin-bottom: 8px;
-            white-space: nowrap;
-        }
-
-        .option-description {
-            margin-bottom: 10px;
-
-        }
-
-        .option-link-wrap {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 20px;
-        }
-
-        .option-link {
-            @extend %button_default;
-        }
-    }
+.kto-overview-section__title,
+.kto-overview-section__title_link {
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 52px;
 }
 
-.kotlin-overview-section._testimonials {
-    @extend %kotlin-overview-section-background-image%default;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .section-header {
-        font-family: $font-family-sans-serif;
-        font-size: 24px;
-        line-height: 27px;
-        margin-bottom: $unit*4;
-    }
-
-    .testimonials-layout {
-        margin-left: auto;
-        margin-right: auto;
-        width: 1200px;
-
-        @media (max-width: 1200px) {
-            width: auto;
-            margin-left: 15px;
-            margin-right: 15px;
-        }
-    }
-
-    .testimonials {
-        display: flex;
-        justify-content: center;
-        align-content: stretch;
-        flex-wrap: wrap;
-    }
-
-    .testimonial-header {
-        font-size: 24px;
-        margin-bottom: 16px;
-    }
-
-    .testimonial {
-        background: white;
-        margin-bottom: 2 * $unit;
-        margin-right: 3 * $unit;
-        width: 180px;
-        padding: 30px;
-        border-radius: 5px;
-        text-align: center;
-    }
+a.kto-overview-section__title_link,
+a.kto-overview-section__title_link:any-link {
+  color: inherit;
+  text-decoration: none;
 }
 
-.kotlin-overview-section._community {
-    padding-top: $unit*6;
-    padding-bottom: $unit*6;
-    background-color: #2e2e2e;
-    color: #fff;
+.kto-overview-section__title_link::after {
+  display: inline-block;
+  content: '';
 
-    .section-header {
-        font-size: 18px;
-        line-height: 22px;
-        font-family: $font-family-sans-serif;
-        margin-bottom: $unit*4;
-    }
+  background: transparent center;
+  background-size: 40px;
 
-    .links-list {
-        font-size: 0;
-        text-align: center;
-        margin-bottom: -40px;
-    }
+  margin-left: 10px;
 
-    .links-list-item {
-        display: inline-block;
-        margin: 0 40px 40px;
-        font-size: $base-font-size;
-
-        .link {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .link-icon {
-            position: relative;
-            display: block;
-            margin-bottom: 9px;
-            width: 104px;
-            height: 104px;
-            background-color: #F2F2F2;
-            border-radius: 60px;
-
-            &:after {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                display: block;
-                margin: auto;
-                background-image: url('images/kotlin-community-sprite.png');
-                background-repeat: no-repeat;
-                background-position: 200% 200%;
-                content: '';
-
-                @include adapt_retina {
-                    background-image: url('images/kotlin-community-sprite@2x.png');
-                    background-size: 100px 200px;
-                }
-            }
-            &._blog:after {
-                width: 48px;
-                height: 35px;
-                background-position: 0 0;
-                top: -2px;
-                left: -3px;
-            }
-
-            &._forum:after {
-                width: 59px;
-                height: 42px;
-                background-position: 0 -50px;
-            }
-
-            &._twitter:after {
-                width: 48px;
-                height: 40px;
-                background-position: 0 -100px;
-            }
-
-            &._issue-tracker:after {
-                display: none;
-            }
-
-            .jetbrains-logo._logo-youtrack._size-2 {
-                margin: 22px;
-            }
-        }
-
-        /*
-        .link:hover .link-icon._blog {
-            background-color: #FEF3E1;
-        }
-
-        .link:hover .link-icon._forum {
-            background-color: #F4FFE2;
-        }
-
-        .link:hover .link-icon._twitter {
-            background-color: #EAF9FD;
-        }
-
-        .link:hover .link-icon._issue-tracker {
-            background-color: #DEEEFF;
-        }
-        */
-
-        .link-text {
-            color: #8c8c8c;
-            font-size: 12px;
-            line-height: 15px;
-            text-transform: uppercase;
-        }
-
-        .link:hover .link-text {
-            color: $base-link-hover-color;
-        }
-
-        /*
-        .link:hover .link-icon._forum + .link-text {
-            color: #6CB800;
-        }
-
-        .link:hover .link-icon._twitter + .link-text {
-            color: #2AA9E0;
-        }
-
-        .link:hover .link-icon._issue-tracker + .link-text {
-            color: #0068F1;
-        }
-        */
-
-    }
+  height: 40px;
+  width: 40px;
 }
 
-@include animation-keyframes(overview-video-scale) {
-    0% {
-        @include transform(scale(1));
-        opacity: 1;
-    }
+.kto-overview-section__title_link:hover::after {
+  background-image: url("./images/anchor.svg");
+}
 
-    100% {
-        @include transform(scale(2));
-        opacity: 0;
-    }
+.kto-overview-section__title_size_s {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 26px;
+  margin-bottom: 30px;
+}
+
+@import "kotlin-intro-section";
+@import "kotlin-banner-section";
+@import "kotlin-news-section";
+@import "kotlin-jump-section";
+@import "kotlin-code-examples-section";
+@import "kotlin-why-section";
+@import "kotlin-highlights-section";
+@import "kotlin-stay-in-touch-section";
+
+
+.kotlin-get-started-section {
+  padding-top: 88px;
+  padding-bottom: 96px;
+}
+
+.kotlin-get-started-section__title {
+  padding: 0;
+}
+
+.kotlin-get-started-section__text {
+  margin: 32px 0 48px;
+  font-size: 31px;
+  line-height: 42px;
 }

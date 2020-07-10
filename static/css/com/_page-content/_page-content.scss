@@ -6,6 +6,7 @@
 @import '../_bits/_pre';
 @import '../_bits/_table';
 @import '../_bits/_blockquote';
+@import '../_bits/_hr';
 @import '../_syntax-highlight/_syntax-highlight_light';
 @import '../_syntax-highlight/_syntax-highlight_dark';
 
@@ -74,6 +75,7 @@ code {
     @extend %code-span;
 }
 
+.multi-language-span > code,
 p > code,
 li > code {
     @extend %code-span%_decorated;
@@ -111,11 +113,7 @@ table {
 
 // misc
 hr {
-    height: 2px;
-    border-width: 1px 0 0;
-    border-style: solid;
-    border-color: #dcdcdc;
-    margin: $vertical-rhythm-unit*2 0 $vertical-rhythm-unit*2;
+    @extend %hr
 }
 
 kbd {
@@ -169,4 +167,9 @@ kbd {
 .warning {
     background-color: #ffec68;
     padding: 0 4px;
+}
+
+.details-group {
+    margin-bottom: $vertical-rhythm-unit;
+    margin-left: $vertical-rhythm-unit*2;
 }

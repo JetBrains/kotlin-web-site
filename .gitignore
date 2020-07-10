@@ -1,3 +1,5 @@
+_nav-mapped.yml
+.DS_Store
 obj/
 _ReSharper.*
 out/
@@ -37,3 +39,8 @@ google-credentials.json
 package-lock.json
 .env
 pages/api/
+external/
+pages/docs/reference/native/
+pages/docs/reference/coroutines/
+pages/docs/tutorials/kotlin-for-py/
+_teamcity

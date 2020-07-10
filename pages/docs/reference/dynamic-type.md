@@ -13,9 +13,11 @@ title: "Dynamic Type"
 Being a statically typed language, Kotlin still has to interoperate with untyped or loosely typed environments,
 such as the JavaScript ecosystem. To facilitate these use cases, the `dynamic` type is available in the language:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 val dyn: dynamic = ...
 ```
+</div>
 
 The `dynamic` type basically turns off Kotlin's type checker:
 
@@ -26,10 +28,12 @@ The `dynamic` type basically turns off Kotlin's type checker:
 The most peculiar feature of `dynamic` is that we are allowed to call **any** property or function with any parameters
 on a `dynamic` variable:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 dyn.whatever(1, "foo", dyn) // 'whatever' is not defined anywhere
 dyn.whatever(*arrayOf(1, 2, 3))
 ```
+</div>
 
 On the JavaScript platform this code will be compiled "as is": `dyn.whatever(1)` in Kotlin becomes `dyn.whatever(1)` in
 the generated JavaScript code.
@@ -40,17 +44,21 @@ to assign well-defined names to the functions that you need to call.
 
 A dynamic call always returns `dynamic` as a result, so we can chain such calls freely:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 dyn.foo().bar.baz()
 ```
+</div>
 
 When we pass a lambda to a dynamic call, all of its parameters by default have the type `dynamic`:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 dyn.foo {
     x -> x.bar() // x is dynamic
 }
 ```
+</div>
 
 Expressions using values of `dynamic` type are translated to JavaScript "as is", and do not use the Kotlin operator conventions.
 The following operators are supported:

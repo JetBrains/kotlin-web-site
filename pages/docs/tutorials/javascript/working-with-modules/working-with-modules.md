@@ -6,19 +6,16 @@ description: "A look at how to use Kotlin to interact with JavaScript modules."
 authors: Hadi Hariri 
 date: 2016-09-30
 showAuthorInfo: false
+redirect_path: /docs/reference/js-modules
 ---
 
 
 In this tutorial we'll see how to
 
-* [Configure modules when using IntelliJ IDEA](#configuring-modules-with-intellij-idea)
-* [Configure modules when using Maven or Gradle](#configuring-modules-when-using-maven-or-gradle)
+* Configure modules when using Gradle
 * [Use Kotlin in the browser with AMD](#using-amd)
 * [Use Kotlin from node.js with CommonJS](#using-commonjs)
 
-
-
-## Configuring Modules with IntelliJ IDEA
 
 Kotlin generate JavaScript code that is compatible with Asynchronous Module Definition (AMD), CommonJS and Universal Model Definition (UMD). 
 
@@ -26,21 +23,44 @@ Kotlin generate JavaScript code that is compatible with Asynchronous Module Defi
 * **CommonJS** is the module system used on the server-side, and in particular with node.js. Node modules all abide by this definition. CommonJS modules can also be used in the browser via [Browserify](http://browserify.org/).
 * **UMD** tries to unify both models allowing these to be used either on the client or server.
 
-We can configure the Kotlin compiler option to use any of these. The last option (UMD) will generate UMD and fallback to the other options if one is not available.
-Currently Kotlin compiler options are per IntelliJ IDEA project as opposed to a Kotlin module.
- 
-![Kotlin Compiler Options]({{ url_for('tutorial_img', filename='javascript/working-with-modules/kotlin-compiler.png')}})
+To configure the module output format in Gradle build script, add the following lines:
 
-## Configuring Modules when using Maven or Gradle
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
-If using Maven or Gradle, we can also configure the module output format. For more information see [JavaScript Modules](http://kotlinlang.org/docs/reference/js-modules.html).
+```groovy
+compileKotlinJs.kotlinOptions.moduleKind = "commonjs"
+
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
+```kotlin
+tasks.named("compileKotlinJs") {
+    this as KotlinJsCompile
+    kotlinOptions.moduleKind = "commonjs"
+}
+```
+
+</div>
+</div>
+
+Available values are: `plain`, `amd`, `commonjs`, `umd`.
+
+For more information, see [JavaScript Modules](http://kotlinlang.org/docs/reference/js-modules.html).
 
 ## Using AMD
 
 When using AMD, we set the compiler option to use AMD. Once we do that, we can then reference any modules that we've defined as if they were regular AMD ones.
 
 For instance, given
- 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
     var isPreferred = false
@@ -49,8 +69,11 @@ class Customer(val id: Int, val name: String, val email: String) {
     }
 }
 ```
+</div>
  
 the following JavaScript code will be generated
+
+<div class="sample" markdown="1" theme="idea" mode="js">
 
 ```javascript
 define('customerBL', ['kotlin'], function (Kotlin) {
@@ -70,7 +93,8 @@ define('customerBL', ['kotlin'], function (Kotlin) {
   Kotlin.defineModule('customerBL', _);
   return _;
 });
-``` 
+```
+</div>
 
 Assuming we have the following project layout
 
@@ -79,6 +103,8 @@ Assuming we have the following project layout
 
 we could define our `index.html` to load `require.js` along with `main.js` as the value of the `data-main` attribute
 
+<div class="sample" markdown="1" theme="idea" mode="xml">
+
 ```html
 <head>
     <meta charset="UTF-8">
@@ -86,8 +112,11 @@ we could define our `index.html` to load `require.js` along with `main.js` as th
     <script data-main="scripts/main"  src="scripts/require.js"></script>
 </head>
 ```
+</div>
 
 The contents of our `main.js` would be:
+
+<div class="sample" markdown="1" theme="idea" mode="js">
 
 ```javascript
 requirejs.config({
@@ -101,6 +130,7 @@ requirejs(["customerBL"], function (customerBL) {
     console.log(customerBL)
 });
 ```
+</div>
 
 With this, we can then access any of the functionality defined inside `customerBL`.
 
@@ -112,6 +142,8 @@ should be accessible using the node module system.
 
 For instance, given 
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class Customer(val id: Int, val name: String, val email: String) {
     var isPreferred = false
@@ -120,10 +152,12 @@ class Customer(val id: Int, val name: String, val email: String) {
     }
 }
 ```
+</div>
 
 the following JavaScript code will be generated
 
- 
+<div class="sample" markdown="1" theme="idea" mode="js">
+
 ```javascript
 module.exports = function (Kotlin) {
   'use strict';
@@ -143,7 +177,8 @@ module.exports = function (Kotlin) {
   return _;
 }(require('kotlin'));
 
-``` 
+```
+</div>
 
 The last line is invoking the function itself and passing as argument `kotlin`, which refers to the standard library. This can be obtained in one of two ways:
 
@@ -158,6 +193,8 @@ to `node_modules`. This way, Node will automatically pick it up as it does an ex
  
 The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we can simply include it in our `package.json` as a dependency. 
 
+<div class="sample" markdown="1" theme="idea" mode="js">
+
 ```json
 {
   "name": "node-demo",
@@ -168,13 +205,14 @@ The Kotlin standard library is available on [npm](https://www.npmjs.com/) and we
   }
 }
 ```
+</div>
 
 
 We can simply refer to any class or member function inside our node.js code by simply importing the module using `require`:
 
+<div class="sample" markdown="1" theme="idea" mode="js">
+
 ```javascript
-
-
 var customerBL = require('./scripts/customerBL')
 
 var customer = new customerBL.Customer(1, "Jane Smith", "jane.smith@company.com")
@@ -183,6 +221,7 @@ console.dir(customer)
 customer.makePreferred()
 console.dir(customer)
 ```
+</div>
 
 In this case, we've set the output of our compilation to the `scripts` folder. On running the application we should see the following output:
 

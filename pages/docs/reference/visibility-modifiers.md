@@ -12,19 +12,22 @@ Classes, objects, interfaces, constructors, functions, properties and their sett
 There are four visibility modifiers in Kotlin: `private`, `protected`, `internal` and `public`.
 The default visibility, used if there is no explicit modifier, is `public`.
 
-Below please find explanations of how the modifiers apply to different types of declaring scopes.
+On this page, you'll learn how the modifiers apply to different types of declaring scopes.
   
 ## Packages
   
 Functions, properties and classes, objects and interfaces can be declared on the "top-level", i.e. directly inside a package:
-  
-``` kotlin
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 // file name: example.kt
 package foo
 
-fun baz() {}
-class Bar {}
+fun baz() { ... }
+class Bar { ... }
 ```
+</div>
 
 * If you do not specify any visibility modifier, `public` is used by default, which means that your declarations will be
 visible everywhere;
@@ -36,17 +39,20 @@ Note: to use a visible top-level declaration from another package, you should st
 
 Examples:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 // file name: example.kt
 package foo
 
-private fun foo() {} // visible inside example.kt
+private fun foo() { ... } // visible inside example.kt
 
 public var bar: Int = 5 // property is visible everywhere
     private set         // setter is visible only in example.kt
     
 internal val baz = 6    // visible inside the same module
 ```
+</div>
 
 ## Classes and Interfaces
 
@@ -57,13 +63,15 @@ For members declared inside a class:
 * `internal` --- any client *inside this module* who sees the declaring class sees its `internal` members;
 * `public` --- any client who sees the declaring class sees its `public` members.
 
-*NOTE* for Java users: outer class does not see private members of its inner classes in Kotlin.
+Note that in Kotlin, outer class does not see private members of its inner classes.
 
 If you override a `protected` member and do not specify the visibility explicitly, the overriding member will also have `protected` visibility.
  
 Examples:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 open class Outer {
     private val a = 1
     protected open val b = 2
@@ -89,15 +97,19 @@ class Unrelated(o: Outer) {
     // Outer.Nested is not visible, and Nested::e is not visible either 
 }
 ```
+</div>
 
 ### Constructors
 
 To specify a visibility of the primary constructor of a class, use the following syntax (note that you need to add an
 explicit *constructor*{: .keyword } keyword):
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 class C private constructor(a: Int) { ... }
 ```
+</div>
 
 Here the constructor is private. By default, all constructors are `public`, which effectively
 amounts to them being visible everywhere where the class is visible (i.e. a constructor of an `internal` class is only 
@@ -116,4 +128,4 @@ a module is a set of Kotlin files compiled together:
   * an IntelliJ IDEA module;
   * a Maven project;
   * a Gradle source set (with the exception that the `test` source set can access the internal declarations of `main`);
-  * a set of files compiled with one invocation of the <kotlinc> Ant task.
+  * a set of files compiled with one invocation of the `<kotlinc>` Ant task.

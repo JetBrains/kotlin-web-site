@@ -55,6 +55,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
  * `true` specifies the 'true' value of the [Boolean type](/docs/reference/basic-types.html#booleans)
  * `try` [begins an exception handling block](/docs/reference/exceptions.html)
  * `typealias` declares a [type alias](/docs/reference/type-aliases.html)
+ * `typeof` reserved for future use
  * `val` declares a read-only [property](/docs/reference/properties.html) or [local variable](/docs/reference/basic-syntax.html#defining-variables)
  * `var` declares a mutable [property](/docs/reference/properties.html) or [local variable](/docs/reference/basic-syntax.html#defining-variables)
  * `when` begins a [when expression](/docs/reference/control-flow.html#when-expression) (executes one of the given branches)

@@ -1,16 +1,12 @@
-- company: Pinterest
-  text: Pinterest has successfully <a href="https://www.youtube.com/watch?v=mDpnc45WwlI">introduced Kotlin</a> into their application, used by 150M people every month.
 - company: Gradle
-  text: Gradle is <a href="https://blog.gradle.org/kotlin-meets-gradle">introducing Kotlin</a> as a language for writing build scripts.
-- company: Evernote
-  text: Evernote recently <a href="https://blog.evernote.com/tech/2017/01/26/android-state-library/">integrated Kotlin</a> into their Android client
-- company: Uber
-  text: Uber team <a href="https://www.reddit.com/r/androiddev/comments/5sihp0/2017_whos_using_kotlin/ddfmkf7/">uses Kotlin</a> for building internal tools
+  text: Gradle is <a target="_blank" href="https://blog.gradle.org/kotlin-meets-gradle">introducing Kotlin</a> as a language for writing build scripts
 - company: Corda
-  text: is an open-source distributed ledger platform, supported by major banks, and <a href="https://www.corda.net/2017/01/10/kotlin/">built entirely in Kotlin</a>.
+  text: Corda is an open-source distributed ledger platform, supported by major banks, and <a target="_blank" href="https://www.corda.net/2017/01/10/kotlin/">built entirely in Kotlin</a>
+- company: Evernote
+  text: Evernote recently <a target="_blank" href="https://blog.evernote.com/tech/2017/01/26/android-state-library/">integrated Kotlin</a> into their Android client
 - company: Coursera
-  text: Coursera Android app is <a href="https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/">partially written</a> in Kotlin
-- company: Pivotal
-  text: Spring makes <a href="https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0">use of Kotlin's language features</a> to offer more concise APIs
+  text: Coursera Android app is <a target="_blank" href="https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/">partially written</a> in Kotlin
+- company: Spring
+  text: Spring makes <a target="_blank" href="https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0">use of Kotlin's language features</a> to offer more concise APIs
 - company: Atlassian
-  text: All new code in the <a href="https://twitter.com/danlew42/status/809065097339564032">Trello Android</a> app is in Kotlin.
+  text: All new code in the <a target="_blank" href="https://twitter.com/danlew42/status/809065097339564032">Trello Android</a> app is in Kotlin

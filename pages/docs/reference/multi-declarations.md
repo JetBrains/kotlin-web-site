@@ -9,24 +9,30 @@ title: "Destructuring Declarations"
 
 Sometimes it is convenient to _destructure_ an object into a number of variables, for example:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 val (name, age) = person 
 ```
+</div>
 
 This syntax is called a _destructuring declaration_. A destructuring declaration creates multiple variables at once.
 We have declared two new variables: `name` and `age`, and can use them independently:
- 
-``` kotlin
+
+ <div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 println(name)
 println(age)
 ```
+</div>
 
 A destructuring declaration is compiled down to the following code:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 val name = person.component1()
 val age = person.component2()
 ```
+</div>
 
 The `component1()` and `component2()` functions are another example of the _principle of conventions_ widely used in Kotlin 
 (see operators like `+` and `*`, *for*{: .keyword }-loops etc.). 
@@ -37,9 +43,11 @@ Note that the `componentN()` functions need to be marked with the `operator` key
 
 Destructuring declarations also work in *for*{: .keyword }-loops: when you say:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 for ((a, b) in collection) { ... }
 ```
+</div>
 
 Variables `a` and `b` get the values returned by `component1()` and `component2()` called on elements of the collection. 
 
@@ -47,8 +55,9 @@ Variables `a` and `b` get the values returned by `component1()` and `component2(
  
 Let's say we need to return two things from a function. For example, a result object and a status of some sort.
 A compact way of doing this in Kotlin is to declare a [_data class_](data-classes.html) and return its instance:
- 
-``` kotlin
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 data class Result(val result: Int, val status: Status)
 fun function(...): Result {
     // computations
@@ -59,6 +68,7 @@ fun function(...): Result {
 // Now, to use this function:
 val (result, status) = function(...)
 ```
+</div>
 
 Since data classes automatically declare `componentN()` functions, destructuring declarations work here.
 
@@ -69,11 +79,13 @@ but it's often better to have your data named properly.
 
 Probably the nicest way to traverse a map is this:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 for ((key, value) in map) {
    // do something with the key and the value
 }
 ```
+</div>
 
 To make this work, we should 
 
@@ -82,11 +94,13 @@ To make this work, we should
   
 And indeed, the standard library provides such extensions:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 operator fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V>> = entrySet().iterator()
 operator fun <K, V> Map.Entry<K, V>.component1() = getKey()
 operator fun <K, V> Map.Entry<K, V>.component2() = getValue()
-```  
+```
+</div>
   
 So you can freely use destructuring declarations in *for*{: .keyword }-loops with maps (as well as collections of data class instances etc).
 
@@ -94,9 +108,11 @@ So you can freely use destructuring declarations in *for*{: .keyword }-loops wit
 
 If you don't need a variable in the destructuring declaration, you can place an underscore instead of its name:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 val (_, status) = getResult()
 ```
+</div>
 
 The `componentN()` operator functions are not called for the components that are skipped in this way.
 
@@ -105,30 +121,38 @@ The `componentN()` operator functions are not called for the components that are
 You can use the destructuring declarations syntax for lambda parameters.
 If a lambda has a parameter of the `Pair` type (or `Map.Entry`, or any other type that has the appropriate `componentN` functions), you can introduce several new parameters instead of one by putting them in parentheses:   
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 map.mapValues { entry -> "${entry.value}!" }
 map.mapValues { (key, value) -> "$value!" }
 ```
+</div>
 
 Note the difference between declaring two parameters and declaring a destructuring pair instead of a parameter:  
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 { a -> ... } // one parameter
 { a, b -> ... } // two parameters
 { (a, b) -> ... } // a destructured pair
 { (a, b), c -> ... } // a destructured pair and another parameter
 ```
+</div>
 
 If a component of the destructured parameter is unused, you can replace it with the underscore to avoid inventing its name:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 map.mapValues { (_, value) -> "$value!" }
 ```
+</div>
 
 You can specify the type for the whole destructured parameter or for a specific component separately:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 map.mapValues { (_, value): Map.Entry<Int, String> -> "$value!" }
 
 map.mapValues { (_, value: String) -> "$value!" }
 ```
+</div>

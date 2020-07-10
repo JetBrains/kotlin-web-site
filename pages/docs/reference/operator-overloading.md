@@ -8,7 +8,7 @@ category: "Syntax"
 # Operator overloading
 
 Kotlin allows us to provide implementations for a predefined set of operators on our types. These operators have fixed symbolic representation
-(like `+` or `*`) and fixed [precedence](grammar.html#precedence). To implement an operator, we provide a [member function](functions.html#member-functions)
+(like `+` or `*`) and fixed [precedence](grammar.html#expressions). To implement an operator, we provide a [member function](functions.html#member-functions)
 or an [extension function](extensions.html) with a fixed name, for the corresponding type, i.e. left-hand side type for binary operations and argument type for unary ones.
 Functions that overload operators need to be marked with the `operator` modifier.
 
@@ -35,14 +35,20 @@ This table says that when the compiler processes, for example, an expression `+a
 
 As an example, here's how you can overload the unary minus operator:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea">
+```kotlin
 data class Point(val x: Int, val y: Int)
 
 operator fun Point.unaryMinus() = Point(-x, -y)
 
 val point = Point(10, 20)
-println(-point)  // prints "(-10, -20)"
+
+fun main() {
+   println(-point)  // prints "Point(x=-10, y=-20)"
+}
+
 ```
+</div>
 
 ### Increments and decrements
 
@@ -98,7 +104,7 @@ in Kotlin 1.1.
 
 Below is an example Counter class that starts at a given value and can be incremented using the overloaded `+` operator:
 
-``` kotlin
+```kotlin
 data class Counter(val dayIndex: Int) {
     operator fun plus(increment: Int): Counter {
         return Counter(dayIndex + increment)
@@ -176,6 +182,8 @@ For the assignment operations, e.g. `a += b`, the compiler performs the followin
 |------------|---------------|
 | `a == b` | `a?.equals(b) ?: (b === null)` |
 | `a != b` | `!(a?.equals(b) ?: (b === null))` |
+
+These operators only work with the function [`equals(other: Any?): Boolean`](/api/latest/jvm/stdlib/kotlin/-any/equals.html), which can be overridden to provide custom equality check implementation. Any other function with the same name (like `equals(other: Foo)`) will not be called.
 
 *Note*: `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them.
 

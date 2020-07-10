@@ -14,18 +14,22 @@ how to make a simple controller that returns "Hello, World!".
 {{ site.text_using_gradle }}
 The main dependency required for using HTTP servlets is the JavaEE API:
 
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ``` groovy
 dependencies {
     compile group: 'javax', name: 'javaee-api', version: '7.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 ```
+</div>
 
 We also need to use the *war* plugin that helps us generate the corresponding WAR artifacts for running/deploying
 
+<div class="sample" markdown="1" theme="idea" mode="groovy">
 ``` groovy
-apply plugin: war
+apply plugin: 'war'
 ```
+</div>
 
 To see the full Gradle script check out the source of the project on GitHub.
 
@@ -34,14 +38,16 @@ To see the full Gradle script check out the source of the project on GitHub.
 
 Once we have the build script defined with the correct dependencies, we can now create a controller
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
-@WebServlet(name = "Hello", value = "/hello")
+@WebServlet(name = "Hello", value = ["/hello"])
 class HomeController : HttpServlet() {
     override fun doGet(req: HttpServletRequest, res: HttpServletResponse) {
         res.writer.write("Hello, World!")
     }
 }
 ```
+</div>
 
 ### Running the application
 

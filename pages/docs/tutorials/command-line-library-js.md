@@ -14,6 +14,7 @@ We will create a simple Kotlin/JavaScript library.
 
 1. Using our favorite editor, we create a new file called *library.kt*:
 
+   <div class="sample" markdown="1" theme="idea" data-highlight-only>
    ``` kotlin
    package org.sample
    
@@ -23,6 +24,7 @@ We will create a simple Kotlin/JavaScript library.
        this.forEach { if (it % 2 == 1) f(it) }
    }
    ```
+   </div>
 
 2. Compile the library using the JS compiler
 
@@ -62,7 +64,8 @@ We will create a simple Kotlin/JavaScript library.
 ### Using a Kotlin/JavaScript library.
 
    Create binom.kt:
-   
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` kotlin
 import org.sample.factorial
     
@@ -75,6 +78,7 @@ fun odd_factorial(n: Int): Long {
         return result
 }        
 ```
+</div>
 
    Compile with library:
 

@@ -15,33 +15,39 @@ Kotlin has three structural jump expressions:
 
 All of these expressions can be used as part of larger expressions:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 val s = person.name ?: return
 ```
+</div>
 
 The type of these expressions is the [Nothing type](exceptions.html#the-nothing-type).
 
 ## Break and Continue Labels
 
 Any expression in Kotlin may be marked with a *label*{: .keyword }.
-Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#labelReference)).
+Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@` are valid labels (see the [grammar](grammar.html#label)).
 To label an expression, we just put a label in front of it
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 loop@ for (i in 1..100) {
     // ...
 }
 ```
+</div>
 
 Now, we can qualify a *break*{: .keyword } or a *continue*{: .keyword } with a label:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 loop@ for (i in 1..100) {
     for (j in 1..100) {
         if (...) break@loop
     }
 }
 ```
+</div>
 
 A *break*{: .keyword } qualified with a label jumps to the execution point right after the loop marked with that label.
 A *continue*{: .keyword } proceeds to the next iteration of that loop.
@@ -53,9 +59,9 @@ With function literals, local functions and object expression, functions can be 
 Qualified *return*{: .keyword }s allow us to return from an outer function. 
 The most important use case is returning from a lambda expression. Recall that when we write this:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach {
@@ -66,7 +72,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -76,9 +82,9 @@ The *return*{: .keyword }-expression returns from the nearest enclosing function
 (Note that such non-local returns are supported only for lambda expressions passed to [inline functions](inline-functions.html).)
 If we need to return from a lambda expression, we have to label it and qualify the *return*{: .keyword }:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach lit@{
@@ -89,7 +95,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -98,9 +104,9 @@ fun main(args: Array<String>) {
 Now, it returns only from the lambda expression. Oftentimes it is more convenient to use implicit labels:
 such a label has the same name as the function to which the lambda is passed.
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach {
@@ -111,7 +117,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -120,9 +126,9 @@ fun main(args: Array<String>) {
 Alternatively, we can replace the lambda expression with an [anonymous function](lambdas.html#anonymous-functions).
 A *return*{: .keyword } statement in an anonymous function will return from the anonymous function itself.
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach(fun(value: Int) {
@@ -133,7 +139,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -141,9 +147,9 @@ fun main(args: Array<String>) {
 
 Note that the use of local returns in previous three examples is similar to the use of *continue*{: .keyword } in regular loops. There is no direct equivalent for *break*{: .keyword }, but it can be simulated by adding another nesting lambda and non-locally returning from it:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 fun foo() {
     run loop@{
@@ -156,7 +162,7 @@ fun foo() {
 }
 //sampleEnd
 
-fun main(args: Array<String>) {
+fun main() {
     foo()
 }
 ```
@@ -164,8 +170,10 @@ fun main(args: Array<String>) {
 
 When returning a value, the parser gives preference to the qualified return, i.e.
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 return@a 1
 ```
+</div>
 
 means "return `1` at label `@a`" and not "return a labeled expression `(@a 1)`".

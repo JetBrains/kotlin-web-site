@@ -9,23 +9,35 @@ title: "Generics: in, out, where"
 
 As in Java, classes in Kotlin may have type parameters:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 class Box<T>(t: T) {
     var value = t
 }
 ```
 
+</div>
+
 In general, to create an instance of such a class, we need to provide the type arguments:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val box: Box<Int> = Box<Int>(1)
 ```
 
+</div>
+
 But if the parameters may be inferred, e.g. from the constructor arguments or by some other means, one is allowed to omit the type arguments:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val box = Box(1) // 1 has type Int, so the compiler figures out that we are talking about Box<Int>
 ```
+
+</div>
 
 ## Variance
 
@@ -37,15 +49,22 @@ First, generic types in Java are **invariant**, meaning that `List<String>` is *
 Why so? If List was not **invariant**, it would have been no 
 better than Java's arrays, since the following code would have compiled and caused an exception at runtime:
 
+<div class="sample" markdown="1" mode="java" theme="idea">
+
 ``` java
 // Java
 List<String> strs = new ArrayList<String>();
-List<Object> objs = strs; // !!! The cause of the upcoming problem sits here. Java prohibits this!
+List<Object> objs = strs; // !!! A compile-time error here saves us from a runtime exception later
 objs.add(1); // Here we put an Integer into a list of Strings
 String s = strs.get(0); // !!! ClassCastException: Cannot cast Integer to String
 ```
+
+</div>
+
 So, Java prohibits such things in order to guarantee run-time safety. But this has some implications. For example, consider the `addAll()` method from `Collection` 
 interface. What's the signature of this method? Intuitively, we'd put it this way:
+
+<div class="sample" markdown="1" mode="java" theme="idea">
 
 ``` java
 // Java
@@ -54,20 +73,29 @@ interface Collection<E> ... {
 }
 ```
 
-But then, we would not be able to do the following simple thing (which is perfectly safe):
+</div>
+
+But then, we can't do the following simple thing (which is perfectly safe):
+
+<div class="sample" markdown="1" mode="java" theme="idea">
 
 ``` java
 // Java
 void copyAll(Collection<Object> to, Collection<String> from) {
-  to.addAll(from); // !!! Would not compile with the naive declaration of addAll:
-                   //       Collection<String> is not a subtype of Collection<Object>
+  to.addAll(from);
+  // !!! Would not compile with the naive declaration of addAll:
+  // Collection<String> is not a subtype of Collection<Object>
 }
 ```
+
+</div>
 
 (In Java, we learned this lesson the hard way, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: *Prefer lists to arrays*)
 
 
 That's why the actual signature of `addAll()` is the following:
+
+<div class="sample" markdown="1" mode="java" theme="idea">
 
 ``` java
 // Java
@@ -75,6 +103,8 @@ interface Collection<E> ... {
   void addAll(Collection<? extends E> items);
 }
 ```
+
+</div>
 
 The **wildcard type argument** `? extends E` indicates that this method accepts a collection of objects of `E` *or some subtype of* `E`, not just `E` itself. 
 This means that we can safely **read** `E`'s from items (elements of this collection are instances of a subclass of E), but **cannot write** to 
@@ -102,6 +132,8 @@ does not take any parameters at all. The only thing guaranteed by wildcards (or 
 
 Suppose we have a generic interface `Source<T>` that does not have any methods that take `T` as a parameter, only methods that return `T`:
 
+<div class="sample" markdown="1" mode="java" theme="idea">
+
 ``` java
 // Java
 interface Source<T> {
@@ -109,7 +141,11 @@ interface Source<T> {
 }
 ```
 
+</div>
+
 Then, it would be perfectly safe to store a reference to an instance of `Source<String>` in a variable of type `Source<Object>` -- there are no consumer-methods to call. But Java does not know this, and still prohibits it:
+
+<div class="sample" markdown="1" mode="java" theme="idea">
 
 ``` java
 // Java
@@ -119,12 +155,16 @@ void demo(Source<String> strs) {
 }
 ```
 
+</div>
+
 To fix this, we have to declare objects of type `Source<? extends Object>`, which is sort of meaningless, because we can call all the same methods on such a variable as before, so there's no value added by the more complex type. But the compiler does not know that.
 
 In Kotlin, there is a way to explain this sort of thing to the compiler. This is called **declaration-site variance**: we can annotate the **type parameter** `T` of Source to make sure that it is only **returned** (produced) from members of `Source<T>`, and never consumed. 
 To do this we provide the **out** modifier:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 interface Source<out T> {
     fun nextT(): T
 }
@@ -134,6 +174,8 @@ fun demo(strs: Source<String>) {
     // ...
 }
 ```
+
+</div>
 
 The general rule is: when a type parameter `T` of a class `C` is declared **out**, it may occur only in **out**\-position in the members of `C`, but in return `C<Base>` can safely be a supertype 
 of `C<Derived>`.
@@ -147,7 +189,9 @@ This is in contrast with Java's **use-site variance** where wildcards in the typ
 In addition to **out**, Kotlin provides a complementary variance annotation: **in**. It makes a type parameter **contravariant**: it can only be consumed and never 
 produced. A good example of a contravariant type is `Comparable`:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 interface Comparable<in T> {
     operator fun compareTo(other: T): Int
 }
@@ -158,6 +202,8 @@ fun demo(x: Comparable<Number>) {
     val y: Comparable<Double> = x // OK!
 }
 ```
+
+</div>
 
 We believe that the words **in** and **out** are self-explaining (as they were successfully used in C# for quite some time already), 
 thus the mnemonic mentioned above is not really needed, and one can rephrase it for a higher purpose:
@@ -171,16 +217,22 @@ thus the mnemonic mentioned above is not really needed, and one can rephrase it 
 It is very convenient to declare a type parameter T as *out* and avoid trouble with subtyping on the use site, but some classes **can't** actually be restricted to only return `T`'s! 
 A good example of this is Array:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 class Array<T>(val size: Int) {
-    fun get(index: Int): T { /* ... */ }
-    fun set(index: Int, value: T) { /* ... */ }
+    fun get(index: Int): T { ... }
+    fun set(index: Int, value: T) { ... }
 }
 ```
 
+</div>
+
 This class cannot be either co\- or contravariant in `T`. And this imposes certain inflexibilities. Consider the following function:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 fun copy(from: Array<Any>, to: Array<Any>) {
     assert(from.size == to.size)
     for (i in from.indices)
@@ -188,13 +240,20 @@ fun copy(from: Array<Any>, to: Array<Any>) {
 }
 ```
 
+</div>
+
 This function is supposed to copy items from one array to another. Let's try to apply it in practice:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val ints: Array<Int> = arrayOf(1, 2, 3)
 val any = Array<Any>(3) { "" } 
-copy(ints, any) // Error: expects (Array<Any>, Array<Any>)
+copy(ints, any)
+//   ^ type is Array<Int> but Array<Any> was expected
 ```
+
+</div>
 
 Here we run into the same familiar problem: `Array<T>` is **invariant** in `T`, thus neither of `Array<Int>` and `Array<Any>` 
 is a subtype of the other. Why? Again, because copy **might** be doing bad things, i.e. it might attempt to **write**, say, a String to `from`,
@@ -202,11 +261,13 @@ and if we actually passed an array of `Int` there, a `ClassCastException` would 
 
 Then, the only thing we want to ensure is that `copy()` does not do any bad things. We want to prohibit it from **writing** to `from`, and we can:
 
-``` kotlin
-fun copy(from: Array<out Any>, to: Array<Any>) {
- // ...
-}
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun copy(from: Array<out Any>, to: Array<Any>) { ... }
 ```
+
+</div>
 
 What has happened here is called **type projection**: we said that `from` is not simply an array, but a restricted (**projected**) one: we can only call those methods that return the type parameter 
 `T`, in this case it means that we can only call `get()`. This is our approach to **use-site variance**, and corresponds to Java's `Array<? extends Object>`, 
@@ -214,11 +275,13 @@ but in a slightly simpler way.
 
 You can project a type with **in** as well:
 
-``` kotlin
-fun fill(dest: Array<in String>, value: String) {
-    // ...
-}
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun fill(dest: Array<in String>, value: String) { ... }
 ```
+
+</div>
 
 `Array<in String>` corresponds to Java's `Array<? super String>`, i.e. you can pass an array of `CharSequence` or an array of `Object` to the `fill()` function.
 
@@ -244,27 +307,41 @@ For example, if the type is declared as `interface Function<in T, out U>` we can
 
 ## Generic functions
 
-Not only classes can have type parameters. Functions can, too. Type parameters are placed before the name of the function:
+Not only classes can have type parameters. Functions can, too. Type parameters are placed **before** the name of the function:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 fun <T> singletonList(item: T): List<T> {
     // ...
 }
 
-fun <T> T.basicToString() : String {  // extension function
+fun <T> T.basicToString(): String {  // extension function
     // ...
 }
 ```
 
+</div>
+
 To call a generic function, specify the type arguments at the call site **after** the name of the function:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val l = singletonList<Int>(1)
 ```
+
+</div>
+
 Type arguments can be omitted if they can be inferred from the context, so the following example works as well:
-``` kotlin
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val l = singletonList(1)
 ```
+
+</div>
 
 ## Generic constraints
 
@@ -274,29 +351,41 @@ The set of all possible types that can be substituted for a given type parameter
 
 The most common type of constraint is an **upper bound** that corresponds to Java's *extends* keyword:
 
-``` kotlin
-fun <T : Comparable<T>> sort(list: List<T>) {
-    // ...
-}
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun <T : Comparable<T>> sort(list: List<T>) {  ... }
 ```
+
+</div>
 
 The type specified after a colon is the **upper bound**: only a subtype of `Comparable<T>` may be substituted for `T`. For example:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 sort(listOf(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
 sort(listOf(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
 ```
 
+</div>
+
 The default upper bound (if none specified) is `Any?`. Only one upper bound can be specified inside the angle brackets.
 If the same type parameter needs more than one upper bound, we need a separate **where**\-clause:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+
+```kotlin
 fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
     where T : CharSequence,
           T : Comparable<T> {
     return list.filter { it > threshold }.map { it.toString() }
 }
 ```
+
+</div>
+
+The passed type must satisfy all conditions of the `where` clause simultaneously. In the above example, the `T` type must implement *both* `CharSequence` and `Comparable`.
 
 ## Type erasure
 

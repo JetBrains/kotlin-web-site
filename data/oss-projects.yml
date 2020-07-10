@@ -33,10 +33,15 @@
   type: Library
   link: https://github.com/cheptsov/kotlin-nosql
 
-- name: FunKtionale
-  description: Functional Helpers for Kotlin
+- name: Arrow
+  description: A functional companion to Kotlin's Standard Library
   type: Library
-  link: https://github.com/MarioAriasC/funKTionale
+  link: https://arrow-kt.io
+
+- name: Arrow Meta
+  description: A functional companion to Kotlin's Compiler and IDE
+  type: Library
+  link: http://meta.arrow-kt.io
 
 - name: KotlinPrimavera
   description: Kotlin Wrapper for Spring Framework
@@ -58,15 +63,10 @@
   type: Tools
   link: https://github.com/griffon/griffon-kotlin-plugin
 
-- name: Android Rivers
-  description: RSS Readers for Android
-  type: Android App
-  link: https://github.com/dodyg/AndroidRivers
-
 - name: Stew
   description: A simple Android app for soup.io
   type: Android App
-  url: https://github.com/exviva/stew
+  link: https://github.com/exviva/stew
 
 - name: RxKotlin 
   description: Kotlin Bindings for RxJava
@@ -203,11 +203,6 @@
   type: Library
   link: https://github.com/hotchemi/khronos
 
-- name: TornadoFX
-  description: Lightweight JavaFX Framework for Kotlin
-  type: Library
-  link: https://github.com/edvin/tornadofx
-
 - name: Hexagon
   description: A microservices framework in Kotlin
   type: Framework
@@ -223,10 +218,10 @@
   type: Application
   link: https://github.com/datawire/discovery
 
-- name: KotlinTest
+- name: Kotest
   description: Kotlin port of the famous ScalaTest
   type: Library
-  link: https://github.com/kotlintest/kotlintest
+  link: https://github.com/kotest/kotest
   
 - name: Black-and-White
   description: A library of algorithms for the Black-and-White tree coloring
@@ -267,3 +262,8 @@
   description: type-safe dimensional analysis
   type: Library
   link: https://github.com/kunalsheth/units-of-measure
+  
+- name: TornadoFX
+  description: A GUI framework for Koltin based off of JavaFX
+  type: Framework
+  link: https://tornadofx.io

@@ -1,0 +1,219 @@
+.kto-button {
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 24px;
+  letter-spacing: normal;
+
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 25px;
+  outline: none;
+
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+
+  background: transparent;
+
+  transition: color 100ms,
+  background-color 100ms,
+  border-color 100ms;
+}
+
+.kto-button:focus[data-focus-method='key'] {
+  box-shadow: rgba(22, 125, 255, 0.80) 0 0 0 4px;
+}
+
+.kto-button:hover, .kto-button:focus, .kto-button:active,
+a.kto-button:hover, a.kto-button:focus, a.kto-button:active,
+a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
+  outline: none;
+  text-decoration: none;
+}
+
+.kto-button_disabled {
+  pointer-events: none;
+}
+
+.kto-button_size_m {
+  padding: 12px 32px;
+  border-width: 0;
+}
+
+.kto-button_size_m.kto-button_narrow {
+  padding: 12px 16px;
+  border-width: 0;
+}
+
+.kto-button_size_s {
+  padding: 6px 16px;
+  border-width: 0;
+}
+
+.kto-button_size_s.kto-button_narrow {
+  padding: 6px 8px;
+  border-width: 0;
+}
+
+.kto-button_size_xs {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+  padding: 4px 12px;
+
+  border-width: 0;
+  border-radius: 4px;
+}
+
+.kto-button_size_xs.kto-button_narrow {
+  padding: 4px 6px;
+  border-width: 0;
+}
+
+.kto-button_flat_right {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.kto-button_flat_left {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.kto-button_mode_primary {
+  color: #fff;
+  background: #585DEF;
+}
+
+.kto-button_mode_primary:focus {
+  color: #fff;
+  background: #474CC1;
+}
+
+.kto-button_mode_primary:hover {
+  color: #fff;
+  background: #787CF2;
+}
+
+.kto-button_mode_primary:active {
+  color: #fff;
+  background: #585DEF;
+}
+
+.kto-button_mode_primary:active:focus:not(:hover)[data-focus-method='key'] {
+  color: #fff;
+  background: #585DEF;
+}
+
+.kto-button_mode_primary.kto-button_disabled {
+  color: #fff;
+  background: rgba(88, 93, 239, 0.4);
+}
+
+.kto-button_mode_primary.kto-button_theme_dark {
+  color: #fff;
+  background: #6B70FC;
+}
+
+.kto-button_mode_primary.kto-button_theme_dark:hover {
+  background: #878BFC;
+}
+
+.kto-button_mode_primary.kto-button_theme_dark:active {
+  background: #6B70FC;
+}
+
+.kto-button_mode_primary.kto-button_theme_dark:active:focus:not(:hover)[data-focus-method='key'] {
+  background: #6B70FC;
+}
+
+.kto-button_mode_primary.kto-button_theme_dark.kto-button_disabled {
+  color: rgba(255, 255, 255, 0.30);
+  background: #6B70FC;
+}
+
+.kto-button_mode_outline {
+  border: 1px solid rgba(39, 40, 44, 0.2);
+  color: #27282C;
+}
+
+.kto-button_mode_outline:focus {
+  border-color: #6B70FC;
+}
+
+.kto-button_mode_outline:hover {
+  border-color: rgba(39, 40, 44, 0.7);
+  background: #F5F5F5;
+  color: #27282C;
+}
+
+.kto-button_mode_outline:active {
+  border-color: rgba(39, 40, 44, 0.2);
+}
+
+.kto-button_mode_outline.kto-button_disabled {
+  border-color: rgba(39, 40, 44, 0.2);
+  color: rgba(39, 40, 44, 0.4);
+}
+
+.kto-button_mode_outline.kto-button_theme_dark {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.kto-button_mode_outline.kto-button_theme_dark:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1)
+}
+
+.kto-button_mode_outline.kto-button_theme_dark:active {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.kto-button_mode_outline.kto-button_theme_dark:focus {
+  border-color: #6B70FC;
+}
+
+.kto-button_mode_outline.kto-button_theme_dark.kto-button_disabled {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.kto-button_mode_outline.kto-button_size_xs {
+  padding: 3px 11px;
+  border-width: 1px;
+}
+
+.kto-button_mode_outline.kto-button_size_xs.kto-button_narrow {
+  padding: 3px 5px;
+  border-width: 1px;
+}
+
+.kto-button_mode_outline.kto-button_size_s {
+  padding: 5px 15px;
+  border-width: 1px;
+}
+
+.kto-button_mode_outline.kto-button_size_s.kto-button_narrow {
+  padding: 5px 7px;
+  border-width: 1px;
+}
+
+.kto-button_mode_outline.kto-button_size_m {
+  padding: 11px 31px;
+  border-width: 1px;
+}
+
+.kto-button_mode_outline.kto-button_size_m.kto-button_narrow {
+  padding: 11px 15px;
+  border-width: 1px;
+}

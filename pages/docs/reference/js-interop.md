@@ -19,19 +19,24 @@ type system, you can create Kotlin headers for JavaScript libraries.
 You can inline some JavaScript code into your Kotlin code using the [js("...")](/api/latest/jvm/stdlib/kotlin.js/js.html) function.
 For example:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 fun jsTypeOf(o: Any): String {
     return js("typeof o")
 }
 ```
+</div>
 
 The parameter of `js` is required to be a string constant. So, the following code is incorrect:
-``` kotlin
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 fun jsTypeOf(o: Any): String {
     return js(getTypeof() + " o") // error reported here
 }
 fun getTypeof() = "typeof"
 ```
+</div>
 
 
 ## `external` modifier
@@ -41,7 +46,8 @@ When the compiler sees such a declaration, it assumes that the implementation fo
 property is provided by the developer, and therefore does not try to generate any JavaScript code from the declaration.
 This means that you should omit bodies of `external` declarations. For example:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 external fun alert(message: Any?): Unit
 
 external class Node {
@@ -56,6 +62,7 @@ external class Node {
 
 external val window: Window
 ```
+</div>
 
 Note that `external` modifier is inherited by nested declarations, i.e. in `Node` class we do not put `external`
 before member functions and properties.
@@ -67,18 +74,20 @@ The `external` modifier is only allowed on package-level declarations. You can't
 
 In JavaScript you can define members either on a prototype or a class itself. I.e.:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
-function MyClass() {
-}
+function MyClass() { ... }
 MyClass.sharedMember = function() { /* implementation */ };
 MyClass.prototype.ownMember = function() { /* implementation */ };
 ```
+</div>
 
 There's no such syntax in Kotlin. However, in Kotlin we have `companion` objects. Kotlin treats companion objects
 of `external` class in a special way: instead of expecting an object, it assumes members of companion objects
 to be members of the class itself. To describe `MyClass` from the example above, you can write:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 external class MyClass {
     companion object {
         fun sharedMember()
@@ -87,6 +96,7 @@ external class MyClass {
     fun ownMember()
 }
 ```
+</div>
 
 
 ### Declaring optional parameters
@@ -96,11 +106,13 @@ How the JavaScript implementation actually computes default values for these par
 thus it's impossible to use the usual syntax to declare such parameters in Kotlin.
 You should use the following syntax:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 external fun myFunWithOptionalArgs(x: Int,
     y: String = definedExternally,
     z: Long = definedExternally)
 ```
+</div>
 
 This means you can call `myFunWithOptionalArgs` with one required argument and two optional arguments (their
 default values are calculated by some JavaScript code).
@@ -111,7 +123,8 @@ default values are calculated by some JavaScript code).
 You can easily extend JavaScript classes as they were Kotlin classes. Just define an `external` class and
 extend it by non-`external` class. For example:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 external open class HTMLElement : Element() {
     /* members */
 }
@@ -122,6 +135,7 @@ class CustomElement : HTMLElement() {
     }
 }
 ```
+</div>
 
 There are some limitations:
 
@@ -137,7 +151,8 @@ JavaScript does not have the concept of interfaces. When a function expects its 
 and `bar` methods, you just pass objects that actually have these methods. You can use interfaces to express this
 for statically-typed Kotlin, for example:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 external interface HasFooAndBar {
     fun foo()
 
@@ -146,10 +161,12 @@ external interface HasFooAndBar {
 
 external fun myFunction(p: HasFooAndBar)
 ```
+</div>
 
 Another use case for external interfaces is to describe settings objects. For example:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+```kotlin
 external interface JQueryAjaxSettings {
     var async: Boolean
 
@@ -176,10 +193,11 @@ fun sendQuery() {
     })
 }
 ```
+</div>
 
 External interfaces have some restrictions:
 
 1. They can't be used on the right hand side of `is` checks.
 2. `as` cast to external interface always succeeds (and produces a warning in compile-time).
 3. They can't be passed as reified type arguments.
-4. Then can't be used in class literal expression (i.e. `I::class`).
+4. They can't be used in class literal expressions (i.e. `I::class`).

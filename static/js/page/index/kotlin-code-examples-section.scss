@@ -1,0 +1,304 @@
+.kotlin-code-examples-section {
+  padding-bottom: 90px;
+}
+
+.kotlin-code-examples-section__title {
+  font-weight: bold;
+  font-size: 31px;
+  line-height: 41px;
+  margin-bottom: 30px;
+}
+
+.kotlin-code-examples-section .kotlin-overview-code-example-tabs {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.kotlin-code-examples-section {
+  $legend-width: 180px;
+  $legend-spacing: 10px;
+
+  position: relative;
+
+  .cm-s-darcula.CodeMirror {
+    background: transparent;
+  }
+
+  .CodeMirror {
+    height: 400px;
+    border-bottom: 1px solid grey;
+  }
+
+  .CodeMirror pre.CodeMirror-line {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  .CodeMirror-scroll {
+    height: 400px !important;
+  }
+
+  .run-button {
+    margin-top: 10px;
+    margin-right: 10px;
+    background: #6B70FC url("./images/run_icon.svg") center center no-repeat;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    padding: 2 * $unit;
+    &:active {
+      transform: scale(0.9, 0.9);
+    }
+  }
+
+  .ERRORgutter, .WARNINGgutter {
+    margin-top: 2 * $unit;
+  }
+
+  .CodeMirror-gutters {
+    background: none !important;
+    border-right: none !important;
+  }
+
+  .code-output {
+    overflow-y: hidden;
+  }
+
+  .output-wrapper.darcula {
+    min-height: 120px;
+    font-size: 24px;
+    background-color: transparent;
+    border-top: none;
+    border-bottom: 1px solid grey;
+  }
+
+  .executable-fragment.darcula {
+    margin-top: 20px;
+    border: none;
+    background-color: transparent;
+  }
+
+  .compiler-info {
+    display: none;
+  }
+
+  & .is_hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .code-line {
+    @include clearfix;
+    position: relative;
+    text-align: left;
+  }
+
+  .code {
+    float: left;
+    margin-right: $legend-spacing - 2px;
+    font-family: 'Droid Sans Mono', $font-family-mono;
+    font-size: 30px;
+    line-height: 37px;
+    color: #9ebdd9;
+    white-space: pre;
+
+    .generic-code {
+      color: #9ebdd9;
+    }
+    .keyword {
+      color: #ff8b17;
+    }
+    .class-name {
+      color: #9ebdd9;
+    }
+    .func-name {
+      color: #ffcf7f;
+    }
+    .buildin-func-name {
+      color: #b1c4d8;
+      font-weight: bold;
+      font-style: italic;
+    }
+    .string-literal {
+      color: #78a35f;
+    }
+    .var-name {
+      color: #a165cb;
+    }
+    .number {
+      color: #3489ca;
+    }
+    .string-literal-var-substitution {
+      color: #ff8b17;
+    }
+  }
+
+  .code-legend {
+    position: relative;
+    white-space: normal;
+
+    @media (max-width: 900px) {
+      display: none !important;
+    }
+
+    &.align_left {
+      position: absolute;
+      display: block;
+      right: 100%;
+    }
+
+    &.align_right {
+      display: table;
+      margin-right: $legend-width;
+
+      &:after {
+        content: '. .';
+        display: block;
+        word-spacing: 99in;
+        height: 0;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+      }
+    }
+  }
+  .ie & .code-legend.align_right:after {
+    font-size: 1px;
+  }
+
+  .code-legend-line {
+    position: absolute;
+    top: 21px;
+    height: 1px;
+    background-color: #fff;
+    opacity: 0.2;
+  }
+  .code-legend.align_left .code-legend-line {
+    right: 0;
+    width: 30px;
+    margin-right: $legend-spacing;
+  }
+  .code-legend.align_right .code-legend-line {
+    left: 0;
+    right: 0;
+  }
+
+  .code-legend-text {
+    position: absolute;
+    z-index: 1;
+    top: 11px;
+    width: $legend-width;
+
+    a {
+      color: #fff;
+
+      &:hover {
+        color: $base-link-hover-color;
+      }
+    }
+  }
+  .code-legend.align_left .code-legend-text {
+    right: 100%;
+    margin-right: 30px + $legend-spacing*2;
+    text-align: right;
+  }
+  .code-legend.align_right .code-legend-text {
+    left: 100%;
+    margin-left: $legend-spacing;
+  }
+
+  .code-legend-line-marker {
+    position: absolute;
+    //right: 100%;
+    top: 5px;
+    width: 33px;
+    height: 33px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    opacity: 0.2;
+  }
+}
+
+.kotlin-overview-code-example-tabs {
+  position: relative;
+  margin-bottom: $unit*4;
+  background-color: #27282C;
+  padding-bottom: 2px;
+  font-size: 0;
+
+  &:before {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    content: '';
+  }
+
+  .tab {
+    @include user-select(none);
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 15px;
+    line-height: 36px;
+    height: 34px;
+    margin: -1px 0 0 -1px;
+    font-size: $base-font-size;
+    color: rgba(255, 255, 255, .5);
+
+    &:hover {
+      color: #fff;
+    }
+
+    &.is_active {
+      cursor: default;
+      border-width: 0;
+      margin: 0;
+      padding-right: 16px;
+      padding-bottom: 1px;
+      color: #fff;
+
+      &:after {
+        position: absolute;
+        top: 100%;
+        left: 1px;
+        right: 1px;
+        font-weight: bold;
+        height: 1px;
+        background-color: white;
+        content: '';
+      }
+
+      &:last-child {
+        border-right-width: 1px;
+      }
+    }
+  }
+
+  .overview-group {
+    opacity: .9;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+    .overview-examples {
+      display: flex !important;
+      align-items: center;
+      float: right;
+      text-decoration: none;
+      color: white !important;
+
+      &::after {
+        display: inline-block;
+        content: '';
+        height: 10px;
+        width: 10px;
+        margin-left: 1 * $unit;
+        background: url("./images/external-link-marker_fff.svg") no-repeat;
+        background-size: 10px;
+      }
+    }
+  }
+}

@@ -28,6 +28,8 @@ A key feature of the multiplatform project support is the possibility to express
 
 In common code:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 // expected platform-specific API:
 expect fun hello(world: String): String
@@ -44,7 +46,11 @@ expect class URL(spec: String) {
 }
 ```
 
+</div>
+
 In JVM platform code:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 actual fun hello(world: String): String =
@@ -53,6 +59,8 @@ actual fun hello(world: String): String =
 // using existing platform-specific implementation:
 actual typealias URL = java.net.URL
 ```
+
+</div>
 
 See the [documentation](http://kotlinlang.org/docs/reference/multiplatform.html) for details and steps to build a 
 multiplatform project.
@@ -64,12 +72,16 @@ multiplatform project.
 Starting with Kotlin 1.2, array arguments for annotations can be passed with the new array literal syntax instead 
 of the `arrayOf` function:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @CacheConfig(cacheNames = ["books", "default"])
 public class BookRepositoryImpl {
     // ...
 }
 ```
+
+</div>
 
 The array literal syntax is constrained to annotation arguments.
 
@@ -79,44 +91,43 @@ The `lateinit` modifier can now be used on top-level properties and local variab
 for example, when a lambda passed as a constructor argument to one object refers to another object 
 which has to be defined later:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" data-min-compiler-version="1.2" theme="idea">
 
 ```kotlin
 class Node<T>(val value: T, val next: () -> Node<T>)
 
 fun main(args: Array<String>) {
-    //sampleStart
     // A cycle of three nodes:
     lateinit var third: Node<Int>
-    
+
     val second = Node(2, next = { third })
     val first = Node(1, next = { second })
-    
+
     third = Node(3, next = { first })
-    //sampleEnd
-    
+
     val nodes = generateSequence(first) { it.next() }
     println("Values in the cycle: ${nodes.take(7).joinToString { it.value.toString() }}, ...")
 }
 ```
+
 </div>
 
 ### Checking whether a lateinit var is initialized
 
 You can now check whether a lateinit var has been initialized using `isInitialized` on the property reference:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" data-min-compiler-version="1.2" theme="idea">
 
 ```kotlin
 class Foo {
     lateinit var lateinitVar: String
-    
+
     fun initializationLogic() {
-        //sampleStart
+//sampleStart
         println("isInitialized before assignment: " + this::lateinitVar.isInitialized)
         lateinitVar = "value"
-        println("isInitialized after assignment: " + this::lateinitVar.isInitialized)    
-        //sampleEnd
+        println("isInitialized after assignment: " + this::lateinitVar.isInitialized)
+//sampleEnd
     }
 }
 
@@ -124,17 +135,18 @@ fun main(args: Array<String>) {
 	Foo().initializationLogic()
 }
 ```
+
 </div>
 
 ### Inline functions with default functional parameters
 
 Inline functions are now allowed to have default values for their inlined functional parameters:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" data-min-compiler-version="1.2" theme="idea" auto-indent="false">
 
 ```kotlin
 //sampleStart
-inline fun <E> Iterable<E>.strings(transform: (E) -> String = { it.toString() }) = 
+inline fun <E> Iterable<E>.strings(transform: (E) -> String = { it.toString() }) =
     map { transform(it) }
 
 val defaultStrings = listOf(1, 2, 3).strings()
@@ -146,64 +158,68 @@ fun main(args: Array<String>) {
     println("customStrings = $customStrings")
 }
 ```
+
 </div>
 
 ### Information from explicit casts is used for type inference
 
-The Kotlin compiler can now use information from type casts in type inference. If you’re calling a generic method 
-that returns a type parameter `T` and casting the return value to a specific type `Foo`, the compiler now understands 
-that `T` for this call needs to be bound to the type `Foo`. 
+The Kotlin compiler can now use information from type casts in type inference. If you’re calling a generic method
+that returns a type parameter `T` and casting the return value to a specific type `Foo`, the compiler now understands
+that `T` for this call needs to be bound to the type `Foo`.
 
-This is particularly important for Android developers, since the compiler can now correctly analyze generic 
+This is particularly important for Android developers, since the compiler can now correctly analyze generic
 `findViewById` calls in Android API level 26:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 val button = findViewById(R.id.button) as Button
 ```
 
+</div>
+
 ### Smart cast improvements
 
-When a variable is assigned from a safe call expression and checked for null, the smart cast is now applied to 
+When a variable is assigned from a safe call expression and checked for null, the smart cast is now applied to
 the safe call receiver as well:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" data-min-compiler-version="1.2" theme="idea" auto-indent="false" indent="2">
 
 ```kotlin
 fun countFirst(s: Any): Int {
-    //sampleStart
+//sampleStart
     val firstChar = (s as? CharSequence)?.firstOrNull()
     if (firstChar != null)
-       return s.count { it == firstChar } // s: Any is smart cast to CharSequence
-    
+    return s.count { it == firstChar } // s: Any is smart cast to CharSequence
+
     val firstItem = (s as? Iterable<*>)?.firstOrNull()
     if (firstItem != null)
-       return s.count { it == firstItem } // s: Any is smart cast to Iterable<*>
-    //sampleEnd
-    
+    return s.count { it == firstItem } // s: Any is smart cast to Iterable<*>
+//sampleEnd
     return -1
 }
 
 fun main(args: Array<String>) {
-    val string = "abacaba"
-    val countInString = countFirst(string)
-    println("called on \"$string\": $countInString")
-    
-    val list = listOf(1, 2, 3, 1, 2)
-    val countInList = countFirst(list)
-    println("called on $list: $countInList")
+  val string = "abacaba"
+  val countInString = countFirst(string)
+  println("called on \"$string\": $countInString")
+
+  val list = listOf(1, 2, 3, 1, 2)
+  val countInList = countFirst(list)
+  println("called on $list: $countInList")
 }
 ```
+
 </div>
 
 Also, smart casts in a lambda are now allowed for local variables that are only modified before the lambda:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" data-min-compiler-version="1.2" theme="idea">
 
 ```kotlin
 fun main(args: Array<String>) {
+//sampleStart
     val flag = args.size == 0
-    
-    //sampleStart
     var x: String? = null
     if (flag) x = "Yahoo!"
 
@@ -212,90 +228,95 @@ fun main(args: Array<String>) {
             println(x.length) // x is smart cast to String
         }
     }
-    //sampleEnd
+//sampleEnd
 }
 ```
+
 </div>
 
 ### Support for  ::foo as a shorthand for this::foo
 
-A bound callable reference to a member of `this` can now be written without explicit receiver, `::foo` instead 
-of `this::foo`. This also makes callable references more convenient to use in lambdas where you refer to a member 
+A bound callable reference to a member of `this` can now be written without explicit receiver, `::foo` instead
+of `this::foo`. This also makes callable references more convenient to use in lambdas where you refer to a member
 of the outer receiver.
 
 ### Breaking change: sound smart casts after try blocks
 
-Earlier, Kotlin used assignments made inside a `try` block for smart casts after the block, which could break type- and null-safety 
+Earlier, Kotlin used assignments made inside a `try` block for smart casts after the block, which could break type- and null-safety
 and lead to runtime failures. This release fixes this issue, making the smart casts more strict, but breaking some code
 that relied on such smart casts.
 
-To switch to the old smart casts behavior, pass the fallback flag `-Xlegacy-smart-cast-after-try` as the compiler 
+To switch to the old smart casts behavior, pass the fallback flag `-Xlegacy-smart-cast-after-try` as the compiler
 argument. It will become deprecated in Kotlin 1.3.
 
 ### Deprecation: data classes overriding copy
 
-When a data class derived from a type that already had the `copy` function with the same signature, the `copy` 
-implementation generated for the data class used the defaults from the supertype, leading to counter-intuitive behavior, 
-or failed at runtime if there were no default parameters in the supertype. 
+When a data class derived from a type that already had the `copy` function with the same signature, the `copy`
+implementation generated for the data class used the defaults from the supertype, leading to counter-intuitive behavior,
+or failed at runtime if there were no default parameters in the supertype.
 
-Inheritance that leads to a `copy` conflict has become deprecated with a warning in Kotlin 1.2 
+Inheritance that leads to a `copy` conflict has become deprecated with a warning in Kotlin 1.2
 and will be an error in Kotlin 1.3.
 
 ### Deprecation: nested types in enum entries
 
-Inside enum entries, defining a nested type that is not an `inner class` has been deprecated due to issues in the 
+Inside enum entries, defining a nested type that is not an `inner class` has been deprecated due to issues in the
 initialization logic. This causes a warning in Kotlin 1.2 and will become an error in Kotlin 1.3.
 
 ### Deprecation: single named argument for vararg
 
-For consistency with array literals in annotations, passing a single item for a vararg parameter in the named 
-form (`foo(items = i)`) has been deprecated. Please use the spread operator with the corresponding 
+For consistency with array literals in annotations, passing a single item for a vararg parameter in the named
+form (`foo(items = i)`) has been deprecated. Please use the spread operator with the corresponding
 array factory functions:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 foo(items = *intArrayOf(1))
 ```
 
-There is an optimization that removes redundant arrays creation in such cases, which prevents performance degradation. 
+</div>
+
+There is an optimization that removes redundant arrays creation in such cases, which prevents performance degradation.
 The single-argument form produces warnings in Kotlin 1.2 and is to be dropped in Kotlin 1.3.
 
 ### Deprecation: inner classes of generic classes extending Throwable
 
-Inner classes of generic types that inherit from `Throwable` could violate type-safety in a throw-catch scenario and 
+Inner classes of generic types that inherit from `Throwable` could violate type-safety in a throw-catch scenario and
 thus have been deprecated, with a warning in Kotlin 1.2 and an error in Kotlin 1.3.
 
 ### Deprecation: mutating backing field of a read-only property
 
-Mutating the backing field of a read-only property by assigning `field = ...` in the custom getter has been 
+Mutating the backing field of a read-only property by assigning `field = ...` in the custom getter has been
 deprecated, with a warning in Kotlin 1.2 and an error in Kotlin 1.3.
 
 ## Standard Library
 
 ### Kotlin standard library artifacts and split packages
 
-The Kotlin standard library is now fully compatible with the Java 9 module system, which forbids split packages 
-(multiple jar files declaring classes in the same package). In order to support that, new artifacts `kotlin-stdlib-jdk7` 
+The Kotlin standard library is now fully compatible with the Java 9 module system, which forbids split packages
+(multiple jar files declaring classes in the same package). In order to support that, new artifacts `kotlin-stdlib-jdk7`
 and `kotlin-stdlib-jdk8` are introduced, which replace the old `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8`.
- 
-The declarations in the new artifacts are visible under the same package names from the Kotlin point of view, but have 
-different package names for Java. Therefore, switching to the new artifacts will not require any changes to 
+
+The declarations in the new artifacts are visible under the same package names from the Kotlin point of view, but have
+different package names for Java. Therefore, switching to the new artifacts will not require any changes to
 your source code.
 
-Another change made to ensure compatibility with the new module system is removing the deprecated 
-declarations in the `kotlin.reflect` package from the `kotlin-reflect` library. If you were using them, you need 
+Another change made to ensure compatibility with the new module system is removing the deprecated
+declarations in the `kotlin.reflect` package from the `kotlin-reflect` library. If you were using them, you need
 to switch to using the declarations in the `kotlin.reflect.full` package, which is supported since Kotlin 1.1.
 
 ### windowed, chunked, zipWithNext
 
-New extensions for `Iterable<T>`, `Sequence<T>`, and `CharSequence` cover such use cases as buffering or 
-batch processing (`chunked`), sliding window and computing sliding average (`windowed`) , and processing pairs 
+New extensions for `Iterable<T>`, `Sequence<T>`, and `CharSequence` cover such use cases as buffering or
+batch processing (`chunked`), sliding window and computing sliding average (`windowed`) , and processing pairs
 of subsequent items (`zipWithNext`):
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" data-min-compiler-version="1.2" theme="idea">
 
 ```kotlin
 fun main(args: Array<String>) {
-    //sampleStart
+//sampleStart
     val items = (1..9).map { it * it }
 
     val chunkedIntoLists = items.chunked(4)
@@ -303,10 +324,10 @@ fun main(args: Array<String>) {
     val windowed = items.windowed(4)
     val slidingAverage = items.windowed(4) { it.average() }
     val pairwiseDifferences = items.zipWithNext { a, b -> b - a }
-    //sampleEnd
-    
+//sampleEnd
+
     println("items: $items\n")
-    
+
     println("chunked into lists: $chunkedIntoLists")
     println("3D points: $points3d")
     println("windowed by 4: $windowed")
@@ -314,18 +335,19 @@ fun main(args: Array<String>) {
     println("pairwise differences: $pairwiseDifferences")
 }
 ```
+
 </div>
 
 ### fill, replaceAll, shuffle/shuffled
 
-A set of extension functions was added for manipulating lists: `fill`, `replaceAll` and `shuffle` for `MutableList`, 
+A set of extension functions was added for manipulating lists: `fill`, `replaceAll` and `shuffle` for `MutableList`,
 and `shuffled` for read-only `List`:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.2">
+<div class="sample" markdown="1" data-min-compiler-version="1.2" theme="idea">
 
 ```kotlin
 fun main(args: Array<String>) {
-    //sampleStart
+//sampleStart
     val items = (1..5).toMutableList()
     
     items.shuffle()
@@ -336,9 +358,10 @@ fun main(args: Array<String>) {
     
     items.fill(5)
     println("Items filled with 5: $items")
-    //sampleEnd
+//sampleEnd
 }
 ```
+
 </div>
 
 ### Math operations in kotlin-stdlib
@@ -456,8 +479,12 @@ previously an opt-in feature, has been enabled by default.
 The compiler now provides an option to treat all warnings as errors. Use `-Werror` on the command line, or the 
 following Gradle snippet:
 
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
 ```groovy
 compileKotlin {
     kotlinOptions.allWarningsAsErrors = true
 }
 ```
+
+</div>

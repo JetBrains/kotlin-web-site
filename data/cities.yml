@@ -1,3 +1,247 @@
+- name: Venezia, Italy
+  geo:
+    lat: 45.438095
+    lng: 12.319029
+- name: Libreville, Gabon
+  geo:
+    lat: 0.411439
+    lng: 9.51677
+- name: Dortmund, Germany
+  geo:
+    lat: 51.523549
+    lng: 7.470372
+- name: Salt Lake City, UT, USA
+  geo:
+    lat: 40.77645
+    lng: -111.948913
+- name: Stockton, CA, USA
+  geo:
+    lat: 37.921372
+    lng: -121.261478
+- name: Jundiaí, Brazil
+  geo:
+    lat: -23.184388
+    lng: -46.880488
+- name: Gijón, Spain
+  geo:
+    lat: 43.540125
+    lng: -5.667875
+- name: Lubumbashi, Congo
+  geo:
+    lat: -11.675112
+    lng: 27.488744
+- name: Jos, Nigeria
+  geo:
+    lat: 9.922619
+    lng: 8.892872
+- name: Riyadh, Saudi Arabia
+  geo:
+    lat: 24.665542
+    lng: 46.735886
+- name: Hasselt, Belgium
+  geo:
+    lat: 50.927089
+    lng: 5.336056
+- name: Tübingen, Germany
+  geo:
+    lat: 48.515215
+    lng: 9.060677
+- name: Surat, India
+  geo:
+    lat: 21.196374
+    lng: 72.822279
+- name: Sibiu, Romania
+  geo:
+    lat: 45.790026
+    lng: 24.135297
+- name: Madison, WI, USA
+  geo:
+    lat: 43.076109
+    lng: -89.38141
+- name: Colorado Springs, CO, USA
+  geo:
+    lat: 38.850309
+    lng: -104.777258
+- name: Clermont Ferrand, France
+  geo:
+    lat: 45.771132
+    lng: 3.088624
+- name: Vladivostok, Russia
+  geo:
+    lat: 43.115536
+    lng: 131.885485
+- name: Penza, Russia
+  geo:
+    lat: 53.195063
+    lng: 45.018316
+- name: Minna, Nigeria
+  geo:
+    lat: 9.614535
+    lng: 6.545493
+- name: River Forest, IL, United States
+  geo:
+    lat: 42.071499
+    lng: -87.893584
+- name: East Hartford, CT, USA
+  geo:
+    lat: 41.778099
+    lng: -72.620688
+- name: Chambéry, France
+  geo:
+    lat: 45.570904
+    lng: 5.918442
+- name: Waukesha, USA
+  geo:
+    lat: 43.033481
+    lng: -88.202173
+- name: Cáceres, Spain
+  geo:
+    lat: 39.468447
+    lng: -6.380545
+- name: Kassel, Germany
+  geo:
+    lat: 51.318446
+    lng: 9.51059
+- name: Izmir, Turkey
+  geo:
+    lat: 38.428822
+    lng: 27.134556
+- name: Haifa, Israel
+  geo:
+    lat: 32.816049
+    lng: 35.003125
+- name: Salerno, Italy
+  geo:
+    lat: 40.419616
+    lng: 15.310293
+- name: Benin, Nigeria
+  geo:
+    lat: 6.350029
+    lng: 5.636569
+- name: Bangladesh, India
+  geo:
+    lat: 37.406605
+    lng: -5.915846
+- name: Samara, Russia
+  geo:
+    lat: 53.195538
+    lng: 50.101783
+- name: Taganrog, Russia
+  geo:
+    lat: 47.220983
+    lng: 38.9173
+- name: Pescara, Italy
+  geo:
+    lat: 42.464778
+    lng: 14.212363
+- name: Eindhoven, Netherlands
+  geo:
+    lat: 51.434619
+    lng: 5.486011
+- name: Wexford, Ireland
+  geo:
+    lat: 52.337497
+    lng: -6.459309
+- name: México,Mexico
+  geo:
+    lat: 19.375053
+    lng: -99.805855
+- name: Kitchener, ON, USA
+  geo:
+    lat: 32.584296
+    lng: -89.284481
+- name: Austin, TX, USA
+  geo:
+    lat: 30.412064
+    lng: -97.719024
+- name: Kielce, Poland
+  geo:
+    lat: 50.864682
+    lng: 20.627637
+- name: Rotterdam, Netherlands
+  geo:
+    lat: 51.913099
+    lng: 4.467555
+- name: Miami, FL, USA
+  geo:
+    lat: 25.792235
+    lng: -80.250852
+- name: Aix-en-Provence, France
+  geo:
+    lat: 43.527086
+    lng: 5.443476
+- name: Sheffield, United Kingdom
+  geo:
+    lat: 53.385337
+    lng: -1.467389
+- name: Jurmala, Latvia
+  geo:
+    lat: 56.970437
+    lng: 23.775109
+- name: Sandton, South Africa
+  geo:
+    lat: -32.068609
+    lng: 23.441304
+- name: Olomouc, Czech Republic
+  geo:
+    lat: 49.595528
+    lng: 17.254597
+- name: Gomel, Belarus
+  geo:
+    lat: 52.42416
+    lng: 31.014272
+- name: Salzburg, Austria
+  geo:
+    lat: 47.809485
+    lng: 13.055009
+- name: Toronto, ON
+  geo:
+    lat: 59.910749
+    lng: 22.390167
+- name: Kuala Lumpur, Malaysia
+  geo:
+    lat: 3.140285
+    lng: 101.706691
+- name: Roberto Orgiu
+  geo:
+    lat: 28.702377
+    lng: -105.968999
+- name: Omar Miatello
+  geo:
+    lat: 34.801629
+    lng: 63.455887
+- name: Fabio Collini
+  geo:
+    lat: 19.091297
+    lng: -96.332582
+- name: Regensburg,Germany
+  geo:
+    lat: 49.015164
+    lng: 12.106685
+- name: Solo, Indonesia
+  geo:
+    lat: -7.447959
+    lng: 110.540094
+- name: Eliezer López
+  geo:
+    lat: 37.401245
+    lng: -5.971946
+- name: Almaty, Kazakhstan
+  geo:
+    lat: 43.238293
+    lng: 76.945465
+- name: Kitchener, Canada
+  geo:
+    lat: 43.439396
+    lng: -80.472485
+- name: Luzern, Switzerland
+  geo:
+    lat: 47.05016819999999
+    lng: 8.3093072
+- name: Tysons, VA
+  geo:
+    lat: 38.9187222
+    lng: -77.2310925
 - name: Cape Town, South Africa
   geo:
     lat: -33.9248685

@@ -1,0 +1,27 @@
+@media screen and (min-width: 1240px) {
+  .jb-slideup-promotion {
+    z-index: 100;
+  }
+
+  .link-banner_pl {
+    width: 550px;
+    height: 36px;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    right: -100px;
+    background: url("../layout/images/banner_poland.png") no-repeat 0 0;
+    background-size: cover;
+  }
+
+  .id_banner-default-country .jb-promotion__close-button {
+    position: relative;
+    margin-top: -96px;
+    right: -100px;
+    background: transparent url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-388.5%20313.5%2014%2014%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-388.5%20327.281v-1.181l5.709-5.709-5.709-5.709v-1.182h1.181l5.709%205.709%205.708-5.709h1.182v1.182l-5.708%205.709%205.708%205.709v1.182h-1.182l-5.708-5.709-5.709%205.709h-1.181z%22%2F%3E%3C%2Fsvg%3E") no-repeat 50%/.6em;
+    &:hover {
+      background-color: red;
+    }
+  }
+
+}

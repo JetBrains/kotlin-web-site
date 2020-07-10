@@ -1,5 +1,6 @@
 ---
 title: Kotlin Events
+layout: default-v2
 ---
 
 # Kotlin talks and speakers support
@@ -27,4 +28,4 @@ and we will announce your talks at kotlinlang.org. We'll also be glad to ship a 
 </div>
 
 <script src="{{ url_for('static', filename='events.js') }}"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='events.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='events.css')|autoversion }}">

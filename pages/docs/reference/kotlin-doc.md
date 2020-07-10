@@ -30,7 +30,8 @@ Every block tag begins on a new line and starts with the `@` character.
 
 Here's an example of a class documented using KDoc:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 /**
  * A group of *members*.
  *
@@ -48,6 +49,7 @@ class Group<T>(val name: String) {
     fun add(member: T): Int { ... }
 }
 ```
+</div>
 
 ## Block Tags
 

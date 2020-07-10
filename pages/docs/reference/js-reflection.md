@@ -20,7 +20,8 @@ This can be used to interoperate with JS functions that expect a reference to a 
 
 Examples:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 class A
 class B
 class C
@@ -35,3 +36,4 @@ println(B::class.simpleName)  // Obtains class for a type; prints "B"
 println(B::class.js.name)     // prints "B"
 foo<C>()                      // prints "C"
 ```
+</div>

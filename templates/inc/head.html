@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<meta name="viewport" content="width=1000, initial-scale=1">
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -7,6 +8,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5P98');</script>
 <!-- End Google Tag Manager -->
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//resources.jetbrains.com">
+
+{% block head_preload %}
+{% endblock %}
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="Shortcut Icon" href="{{ url_for('asset', path='images/favicon.ico') }}" type="image/x-icon"/>
@@ -17,8 +25,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       href="{{ url_for('asset', path='images/apple-touch-icon-114x114.png') }}"/>
 <link rel="apple-touch-icon" sizes="144x144"
       href="{{ url_for('asset', path='images/apple-touch-icon-144x144.png') }}"/>
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 
 <!-- Social Media tag Starts -->
 <!-- Place this data between the <head> tags of your website -->
@@ -45,3 +51,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {% endif %}
 <meta name="twitter:image:src" content="https://kotlinlang.org{{ url_for('asset', path='images/twitter-card/kotlin_800x320.png') }}">
 <!-- Social Media tag Ends -->
+
+{% if restyled %}{% set styles_css='styles-v2.css' %}
+{% else %}{% set styles_css='styles.css' %}{% endif %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename=styles_css)|autoversion }}">

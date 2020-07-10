@@ -1,0 +1,79 @@
+.kotlin-highlights-section {
+  padding-bottom: 40px;
+}
+
+.kotlin-highlights-section__title {
+  margin-bottom: 45px;
+}
+
+.kto-highlights {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.kto-highlights-item {
+  margin-bottom: 56px;
+  width: 28%;
+}
+
+.kto-highlights-item_company_gradle,
+.kto-highlights-item_company_evernote,
+.kto-highlights-item_company_corda,
+.kto-highlights-item_company_coursera,
+.kto-highlights-item_company_spring,
+.kto-highlights-item_company_atlassian {
+  & .kto-highlights-item__header {
+    font-size: 0;
+    line-height: 0;
+    height: 48px;
+    background: transparent no-repeat left top;
+
+    text-indent: -9999px;
+  }
+}
+
+.kto-highlights-item_company_gradle > .kto-highlights-item__header {
+  background-image: url("./images/companies/gradle.svg");
+}
+
+.kto-highlights-item_company_evernote > .kto-highlights-item__header {
+  background-image: url("./images/companies/evernote.svg");
+}
+
+.kto-highlights-item_company_corda > .kto-highlights-item__header {
+  background-image: url("./images/companies/corda.svg");
+}
+
+.kto-highlights-item_company_coursera > .kto-highlights-item__header {
+  background-image: url("./images/companies/coursera.svg");
+}
+
+.kto-highlights-item_company_spring > .kto-highlights-item__header {
+  background-image: url("./images/companies/spring.svg");
+  background-size: 125px;
+  background-position: center left;
+}
+
+.kto-highlights-item_company_atlassian > .kto-highlights-item__header {
+  background-image: url("./images/companies/atlassian.svg");
+}
+
+.kto-highlights-item__header {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+
+  margin-bottom: 10px;
+}
+
+.kto-highlights-item__text {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(39, 40, 44, .7);
+}
+
+.kotlin-highlights-section__title .kto-overview-section__title_link:hover::after {
+  background-image: url("./images/anchor_fff.svg");
+}

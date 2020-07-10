@@ -1,0 +1,24 @@
+{% set restyled=True %}
+{% extends 'base.html' %}
+
+{% block title %}Community{% endblock %}
+
+{% block body_class %}page__community{% endblock %}
+
+{% block content %}
+    <div class="g-grid">
+        <article role="main" class="page-content g-9">
+            {% block page_content %}
+                {{ page.html | safe }}
+            {% endblock %}
+        </article>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='community.js')|autoversion }}"></script>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='community.css')|autoversion }}">
+{% endblock %}

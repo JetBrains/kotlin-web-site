@@ -1,26 +1,33 @@
+import copy
 import datetime
+import glob
 import json
 import os
 import sys
+import threading
 from os import path
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin, ParseResult
 
 import xmltodict
 import yaml
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, Response, send_from_directory
+from flask import Flask, render_template, Response, send_from_directory, request
 from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
+from hashlib import md5
 
 from src.Feature import Feature
+from src.github import assert_valid_git_hub_url
 from src.navigation import process_video_nav, process_nav
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
+from src.externals import process_nav_includes
 from src.grammar import get_grammar
 from src.markdown.makrdown import jinja_aware_markdown
 from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
 from src.processors.processors import process_code_blocks
+from src.processors.processors import set_replace_simple_code
 from src.search import build_search_indices
 from src.sitemap import generate_sitemap
 
@@ -30,14 +37,32 @@ app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 pages = MyFlatPages(app)
 freezer = Freezer(app)
-ignore_stdlib = "--ignore-stdlib" in sys.argv
+ignore_stdlib = False
 build_mode = False
+build_contenteditable = False
+build_check_links = True
 build_errors = []
 url_adapter = app.create_url_adapter(None)
 
 root_folder = path.join(os.path.dirname(__file__))
 data_folder = path.join(os.path.dirname(__file__), "data")
 
+_nav_cache = None
+_nav_lock = threading.RLock()
+
+_cached_asset_version = {}
+
+def get_asset_version(filename):
+    if filename in _cached_asset_version:
+        return _cached_asset_version[filename]
+
+    filepath = (root_folder if  root_folder  else ".") + filename
+    if filename and path.exists(filepath):
+        with open(filepath, 'rb') as file:
+            digest = md5(file.read()).hexdigest()
+            _cached_asset_version[filename] = digest
+            return digest
+    return None
 
 def get_site_data():
     data = {}
@@ -66,8 +91,30 @@ site_data = get_site_data()
 
 
 def get_nav():
+    global _nav_cache
+    global _nav_lock
+
+    with _nav_lock:
+        if _nav_cache is not None:
+            nav = _nav_cache
+        else:
+            nav = get_nav_impl()
+
+        nav = copy.deepcopy(nav)
+
+        if build_mode:
+            _nav_cache = copy.deepcopy(nav)
+
+    # NOTE. This call depends on `request.path`, cannot cache
+    process_nav(request.path, nav)
+    return nav
+
+
+def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
-        return process_nav(yaml.load(stream))
+        nav = yaml.load(stream)
+        nav = process_nav_includes(build_mode, nav)
+        return nav
 
 
 def get_kotlin_features():
@@ -103,22 +150,24 @@ def add_data_to_context():
             'site_github_url': app.config['SITE_GITHUB_URL'],
             'data': site_data,
             'text_using_gradle': app.config['TEXT_USING_GRADLE'],
-            'code_baseurl': app.config['CODE_URL']
+            'code_baseurl': app.config['CODE_URL'],
+            'contenteditable': build_contenteditable
         }
     }
 
+@app.template_filter('get_domain')
+def get_domain(url):
+    return urlparse(url).netloc
 
-@app.context_processor
-def override_url_for():
-    return {'url_for': versioned_url_for}
+app.jinja_env.globals['get_domain'] = get_domain
 
-
-def versioned_url_for(endpoint, **values):
-    if 'BUILD_NUMBER' in os.environ and endpoint == 'static':
-        values['build'] = os.environ['BUILD_NUMBER']
-        return url_for(endpoint, **values)
-    return url_for(endpoint, **values)
-
+@app.template_filter('autoversion')
+def autoversion_filter(filename):
+    asset_version = get_asset_version(filename)
+    if asset_version is None: return filename
+    original = urlparse(filename)._asdict()
+    original.update(query=original.get('query') + '&v=' + asset_version)
+    return ParseResult(**original).geturl()
 
 @app.route('/data/events.json')
 def get_events():
@@ -132,9 +181,19 @@ def get_cities():
     return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
+@app.route('/data/kotlinconf.json')
+def get_kotlinconf():
+    return Response(json.dumps(site_data['kotlinconf'], cls=DateAwareEncoder), mimetype='application/json')
+
+
+@app.route('/data/universities.json')
+def get_universities():
+    return Response(json.dumps(site_data['universities'], cls=DateAwareEncoder), mimetype='application/json')
+
+
 @app.route('/docs/reference/grammar.html')
 def grammar():
-    grammar = get_grammar()
+    grammar = get_grammar(build_mode)
     if grammar is None:
         return "Grammar file not found", 404
     return render_template('pages/grammar.html', kotlinGrammar=grammar)
@@ -149,26 +208,50 @@ def videos_page():
 def books_page():
     return render_template('pages/books.html')
 
-
 @app.route('/docs/kotlin-docs.pdf')
 def pdf():
-    return send_file(generate_pdf(pages, get_nav()['reference']))
-
-
-@app.route('/docs/resources.html')
-def resources():
-    return render_template('pages/resources.html')
+    if build_mode:
+        return send_file(generate_pdf(build_mode, pages, get_nav()['reference']))
+    else:
+        return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
 
 
 @app.route('/community/')
 def community_page():
     return render_template('pages/community.html')
 
+@app.route('/education/')
+def education_page():
+    return render_template('pages/education/index.html')
 
 @app.route('/docs/diagnostics/experimental-coroutines')
 @app.route('/docs/diagnostics/experimental-coroutines/')
-def coroutines_alias():
-    return render_template('redirect.html', url=url_for('page', page_path='docs/diagnostics/experimental-coroutines'))
+@app.route('/docs/reference/coroutines.html')
+def coroutines_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='docs/reference/coroutines-overview'))
+
+
+@app.route('/community/user-groups.html')
+def community_user_groups_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='user-groups/user-group-list'))
+
+
+@app.route('/docs/tutorials/coroutines-basic-jvm.html')
+def coroutines_tutor_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='docs/tutorials/coroutines/coroutines-basic'
+                                                                          '-jvm'))
+
+@app.route('/docs/reference/collections.html')
+def collections_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='/docs/reference/collections-overview'))
+
+@app.route('/docs/reference/experimental.html')
+def optin_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='/docs/reference/opt-in-requirements'))
+
+@app.route('/docs/resources.html')
+def resources_redirect():
+    return render_template('redirect.html', url="https://kotlin.link/")
 
 
 @app.route('/')
@@ -179,44 +262,40 @@ def index_page():
                            features=features
                            )
 
-
 def process_page(page_path):
+    # get_nav() has side effect to copy and patch files from the `external` folder
+    # under site folder. We need it for dev mode to make sure file is up-to-date
+    # TODO: extract get_nav and implement the explicit way to avoid side-effects
+    get_nav()
+
     page = pages.get_or_404(page_path)
+    if 'redirect_path' in page.meta and page.meta['redirect_path'] is not None:
+        page_path = page.meta['redirect_path']
+        if page_path.startswith('https://') or page_path.startswith('http://'):
+            return render_template('redirect.html', url=page_path)
+        else:
+            return render_template('redirect.html', url=url_for('page', page_path = page_path))
 
     if 'date' in page.meta and page['date'] is not None:
         page.meta['formatted_date'] = page.meta['date'].strftime('%d %B %Y')
         if page.meta['formatted_date'].startswith('0'):
             page.meta['formatted_date'] = page.meta['formatted_date'][1:]
 
-    edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + app.config[
-        'FLATPAGES_EXTENSION']
+    if 'github_edit_url' in page.meta:
+        edit_on_github_url = page.meta['github_edit_url']
+    else:
+        edit_on_github_url = app.config['EDIT_ON_GITHUB_URL'] + app.config['FLATPAGES_ROOT'] + "/" + page_path + \
+                             app.config['FLATPAGES_EXTENSION']
+
+    assert_valid_git_hub_url(edit_on_github_url, page_path)
+
     template = page.meta["layout"] if 'layout' in page.meta else 'default.html'
     if not template.endswith(".html"):
         template += ".html"
-    if build_mode:
-        for link in page.parsed_html.select('a'):
-            if 'href' not in link.attrs:
-                continue
 
-            href = urlparse(urljoin('/' + page_path, link['href']))
-            if href.scheme != '':
-                continue
-            endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
-            if endpoint != 'page' and endpoint != 'get_index_page':
-                response = app.test_client().get(href.path)
-                if response.status_code == 404:
-                    build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
-                continue
+    if build_check_links:
+        validate_links_weak(page, page_path)
 
-            referenced_page = pages.get(params['page_path'])
-            if referenced_page is None:
-                build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
-            if href.fragment == '':
-                continue
-
-            ids = map(lambda x: x['id'], referenced_page.parsed_html.select('h1,h2,h3,h4'))
-            if href.fragment not in ids:
-                build_errors.append("Bad anchor: " + str(href.fragment) + " on page " + page_path)
     return render_template(
         template,
         page=page,
@@ -224,6 +303,57 @@ def process_page(page_path):
         edit_on_github_url=edit_on_github_url,
 
     )
+
+
+def validate_links_weak(page, page_path):
+    for link in page.parsed_html.select('a'):
+        if 'href' not in link.attrs:
+            continue
+
+        href = urlparse(urljoin('/' + page_path, link['href']))
+        if href.scheme != '':
+            continue
+
+        endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
+        if endpoint != 'page' and endpoint != 'get_index_page':
+            response = app.test_client().get(href.path)
+            if response.status_code == 404:
+                build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
+            continue
+
+        referenced_page = pages.get(params['page_path'])
+        if referenced_page is None:
+            build_errors.append("Broken link: " + str(href.path) + " on page " + page_path)
+            continue
+
+        if href.fragment == '':
+            continue
+
+        ids = []
+        for x in referenced_page.parsed_html.select('h1,h2,h3,h4'):
+            try:
+                ids.append(x['id'])
+            except KeyError:
+                pass
+
+        for x in referenced_page.parsed_html.select('a'):
+            try:
+                ids.append(x['name'])
+            except KeyError:
+                pass
+
+        if href.fragment not in ids:
+            build_errors.append("Bad anchor: " + str(href.fragment) + " on page " + page_path)
+
+    if not build_mode and len(build_errors) > 0:
+        errors_copy = []
+
+        for item in build_errors:
+            errors_copy.append(item)
+
+        build_errors.clear()
+        raise Exception("Validation errors " + str(len(errors_copy)) + ":\n\n" +
+                        "\n".join(str(item) for item in errors_copy))
 
 
 @app.route('/community.html')
@@ -235,6 +365,9 @@ def community_redirect():
 def events_redirect():
     return render_template('redirect.html', url=url_for('page', page_path='community/talks'))
 
+@app.route('/docs/reference/compatibility.html')
+def compatibility_redirect():
+    return render_template('redirect.html', url=url_for('page', page_path='/docs/reference/evolution/components-stability'))
 
 @freezer.register_generator
 def page():
@@ -247,12 +380,25 @@ def page(page_path):
     return process_page(page_path)
 
 
+@app.route('/404.html')
+def page_404():
+    return render_template('pages/404.html')
+
+
 @freezer.register_generator
 def api_page():
     api_folder = path.join(root_folder, 'api')
     for root, dirs, files in os.walk(api_folder):
         for file in files:
             yield {'page_path': path.join(path.relpath(root, api_folder), file).replace(os.sep, '/')}
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('pages/404.html'), 404
+
+
+app.register_error_handler(404, page_not_found)
 
 
 @app.route('/api/<path:page_path>')
@@ -269,7 +415,7 @@ def api_page(page_path):
 def process_api_page(page_path):
     return render_template(
         'api.html',
-        page=get_api_page(page_path)
+        page=get_api_page(build_mode, page_path)
     )
 
 
@@ -322,16 +468,49 @@ def add_header(request):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "build":
+    print("\n\n\nRunning new KotlinWebSite generator/dev-mode:\n")
+
+    argv_copy = []
+    for arg in sys.argv:
+        print("arg: " + arg)
+
+        if arg == "--ignore-stdlib":
+            ignore_stdlib = True
+        elif arg == "--no-check-links":
+            build_check_links = False
+        elif arg == "--editable":
+            build_contenteditable = True
+        else:
+            argv_copy.append(arg)
+
+    print("\n\n")
+    print("ignore_stdlib: " + str(ignore_stdlib))
+    print("build_check_links: " + str(build_check_links))
+    print("build_contenteditable: " + str(build_contenteditable))
+    print("\n\n")
+
+    set_replace_simple_code(build_contenteditable)
+
+    with (open(path.join(root_folder, "_nav-mapped.yml"), 'w')) as output:
+        yaml.dump(get_nav_impl(), output)
+
+    if len(argv_copy) > 1:
+        if argv_copy[1] == "build":
             build_mode = True
+
             urls = freezer.freeze()
             generate_sitemap(urls)
             if len(build_errors) > 0:
                 for error in build_errors:
                     sys.stderr.write(error + '\n')
                 sys.exit(-1)
-        elif sys.argv[1] == "index":
+        elif argv_copy[1] == "index":
             build_search_indices(freezer._generate_all_urls(), pages)
+        else:
+            print("Unknown argument: " + argv_copy[1])
+            sys.exit(1)
     else:
-        app.run(host="0.0.0.0", debug=True, threaded=True)
+        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {
+            '/src/data/_nav.yml',
+            *glob.glob("/src/pages-includes/**/*", recursive=True),
+        }})

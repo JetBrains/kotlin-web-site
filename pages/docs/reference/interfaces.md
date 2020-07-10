@@ -7,13 +7,14 @@ title: "Interfaces"
 
 # Interfaces
 
-Interfaces in Kotlin are very similar to Java 8. They can contain declarations of abstract methods, as well as method
+Interfaces in Kotlin can contain declarations of abstract methods, as well as method
 implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have
 properties but these need to be abstract or to provide accessor implementations.
 
 An interface is defined using the keyword *interface*{: .keyword }
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 interface MyInterface {
     fun bar()
     fun foo() {
@@ -21,18 +22,21 @@ interface MyInterface {
     }
 }
 ```
+</div>
 
 ## Implementing Interfaces
 
 A class or object can implement one or more interfaces
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 class Child : MyInterface {
     override fun bar() {
         // body
     }
 }
 ```
+</div>
 
 ## Properties in Interfaces
 
@@ -40,7 +44,9 @@ You can declare properties in interfaces. A property declared in an interface ca
 implementations for accessors. Properties declared in interfaces can't have backing fields, and therefore accessors
 declared in interfaces can't reference them.
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 interface MyInterface {
     val prop: Int // abstract
 
@@ -56,12 +62,15 @@ class Child : MyInterface {
     override val prop: Int = 29
 }
 ```
+</div>
 
 ## Interfaces Inheritance
 
 An interface can derive from other interfaces and thus both provide implementations for their members and declare new functions and properties. Quite naturally, classes implementing such an interface are only required to define the missing implementations:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 interface Named {
     val name: String
 }
@@ -80,12 +89,15 @@ data class Employee(
     val position: Position
 ) : Person
 ```
+</div>
 
 ## Resolving overriding conflicts
 
 When we declare many types in our supertype list, it may appear that we inherit more than one implementation of the same method. For example
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 interface A {
     fun foo() { print("A") }
     fun bar()
@@ -111,6 +123,7 @@ class D : A, B {
     }
 }
 ```
+</div>
 
 Interfaces *A* and *B* both declare functions *foo()* and *bar()*. Both of them implement *foo()*, but only *B* implements *bar()* (*bar()* is not marked abstract in *A*,
 because this is the default for interfaces, if the function has no body). Now, if we derive a concrete class *C* from *A*, we, obviously, have to override *bar()* and provide

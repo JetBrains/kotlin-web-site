@@ -108,19 +108,19 @@ def group_small_content_pats(content_parts, start_index=0):
         del content_parts[size - 1]
 
 
-def get_valuable_content(content: Iterator[Tag]) -> List[str]:
+def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
     valuable_content = []
     for child in content:
         if not isinstance(child, Tag):
             continue
-        if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span']:
+        if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span', 'strong']:
             valuable_content.append(child.text)
-        elif child.name in ['ul', 'ol', 'blockquote', 'div']:
-            valuable_content += get_valuable_content(child.children)
-        elif child.name in ['pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br']:
+        elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section']:
+            valuable_content += get_valuable_content(page_path, child.children)
+        elif child.name in ['pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img']:
             continue
         else:
-            raise Exception('Unknown tag ' + child.name)
+            raise Exception('Unknown tag "' + child.name + '" in ' + page_path)
     group_small_content_pats(valuable_content)
     return valuable_content
 
@@ -128,7 +128,7 @@ def get_valuable_content(content: Iterator[Tag]) -> List[str]:
 def get_page_index_objects(content: Tag, url: str, page_path: str, title: str, page_type: str,
                            page_views: int) -> List[Dict]:
     index_objects = []
-    for ind, page_part in enumerate(get_valuable_content(content.children)):
+    for ind, page_part in enumerate(get_valuable_content(page_path, content.children)):
         page_info = {'url': url, 'objectID': page_path + '#' + str(ind), 'content': page_part,
                      'headings': title, 'type': page_type, 'pageViews': page_views}
         index_objects.append(page_info)
@@ -140,7 +140,7 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
     headers = ['h1', 'h2', 'h3']
     index_objects = []
     children = [element for element in content.children if isinstance(element, Tag)]
-    if children[0].name not in headers:
+    if len(children) > 0 and children[0].name not in headers:
         return get_page_index_objects(content, url, page_path, title, page_type, page_views)
     block_title = ""
     content = []
@@ -148,7 +148,7 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
     for child in children:
         if child.name in headers:
             if block_title != '':
-                for ind, page_part in enumerate(get_valuable_content(content)):
+                for ind, page_part in enumerate(get_valuable_content(page_path, content)):
                     page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
                                  'headings': block_title, 'pageTitle': title, 'type': page_type,
                                  'pageViews': page_views}
@@ -193,7 +193,7 @@ def build_search_indices(site_structure, pages):
                 page_views
             )
         elif endpoint == "api_page":
-            page_info = get_api_page(page_path[4:])
+            page_info = get_api_page(True, page_path[4:])
             for table in page_info['content']('table'):
                 table.extract()
             for overload_group in page_info['content'].findAll("div", {"class": "signature"}):
@@ -205,20 +205,21 @@ def build_search_indices(site_structure, pages):
                 if "kotlin-stdlib" in full_name_parts:
                     full_name_parts.remove("kotlin-stdlib")
                 else:
-                    full_name_parts.remove("kotlin-test")
+                    full_name_parts.remove("kotlin.test")
                 full_name = " › ".join(full_name_parts).replace('<', '&lt;').replace('>', '&gt;')
                 breadcrumbs.extract()
             type = "Standard Library" if "jvm/stdlib" in url else "Kotlin Test"
             index_objects += get_page_index_objects(page_info['content'], url, page_path, full_name, type, page_views)
-        elif endpoint in ["coroutines_alias", "events_redirect", "community_redirect"]:
-            continue
+        elif endpoint.endswith("_redirect"): continue
         else:
             client = app.test_client()
             content = client.get(url, follow_redirects=True)
             if content.status_code != 200:
                 raise Exception('Bad response during indexing')
             parsed = BeautifulSoup(content.data, "html.parser")
-            title = parsed.find("title").text
+            title_node = parsed.find("title")
+            if not title_node: raise Exception('Url doesn\'t have title: {}\n{}'.format(url, content.data))
+            title = title_node.text
 
             content = parsed.find("div", {"class": "page-content"})
             if content is None:

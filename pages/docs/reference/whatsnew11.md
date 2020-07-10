@@ -30,7 +30,8 @@ A coroutine is effectively a light-weight thread that can be suspended and resum
 
 Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines): 
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
 // runs the code in the background thread pool
 fun asyncOverlay() = async(CommonPool) {
     // start two async operations
@@ -48,6 +49,7 @@ launch(UI) {
     showImage(image)
 }
 ```
+</div>
 
 Here, `async { ... }` starts a coroutine and, when we use `await()`, the execution of the coroutine is suspended while the operation being awaited is executed, and is resumed (possibly on a different thread) when the operation being awaited completes.
 
@@ -55,23 +57,23 @@ The standard library uses coroutines to support *lazily generated sequences* wit
 In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
 and resumed when the next element is requested. Here's an example:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1"> 
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1">
 
-``` kotlin
+```kotlin
 import kotlin.coroutines.experimental.*
 
 fun main(args: Array<String>) {
 //sampleStart
-  val seq = buildSequence {
+    val seq = buildSequence {
       for (i in 1..5) {
           // yield a square of i
           yield(i * i)
       }
       // yield a range
       yieldAll(26..28)
-  }
-  
-  // print the sequence
+    }
+
+    // print the sequence
   println(seq.toList())
 //sampleEnd
 }
@@ -82,7 +84,7 @@ fun main(args: Array<String>) {
 
 Run the code above to see the result. Feel free to edit it and run again!
 
-For more information, please refer to the [coroutine documentation](/docs/reference/coroutines.html) and [tutorial](/docs/tutorials/coroutines-basic-jvm.html).
+For more information, please refer to the [coroutine documentation](/docs/reference/coroutines.html) and [tutorial](/docs/tutorials/coroutines/coroutines-basic-jvm.html).
 
 Note that coroutines are currently considered an **experimental feature**, meaning that the Kotlin team is not committing
 to supporting the backwards compatibility of this feature after the final 1.1 release.
@@ -96,9 +98,9 @@ A type alias allows you to define an alternative name for an existing type.
 This is most useful for generic types such as collections, as well as for function types.
 Here is an example:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1">
 
-``` kotlin
+```kotlin
 //sampleStart
 typealias OscarWinners = Map<String, String>
 
@@ -138,9 +140,9 @@ You can now use the `::` operator to get a [member reference](reflection.html#fu
 Previously this could only be expressed with a lambda.
 Here's an example:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1">
 
-``` kotlin
+```kotlin
 //sampleStart
 val numberRegex = "\\d+".toRegex()
 val numbers = listOf("abc", "123", "456").filter(numberRegex::matches)
@@ -163,9 +165,9 @@ Now you can define subclasses of a top-level sealed class on the top level in th
 Data classes can now extend other classes.
 This can be used to define a hierarchy of expression classes nicely and cleanly:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1">
 
-``` kotlin
+```kotlin
 //sampleStart
 sealed class Expr
 
@@ -197,20 +199,20 @@ Read the [documentation](sealed-classes.html) or
 You can now use the [destructuring declaration](multi-declarations.html) syntax to unpack the arguments passed to a lambda.
 Here's an example:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1" auto-indent="false" indent="2">
 
-``` kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val map = mapOf(1 to "one", 2 to "two")
     // before
     println(map.mapValues { entry ->
-        val (key, value) = entry
-        "$key -> $value!"
+      val (key, value) = entry
+      "$key -> $value!"
     })
     // now
     println(map.mapValues { (key, value) -> "$key -> $value!" })
-//sampleEnd    
+//sampleEnd
 }
 ```
 </div>
@@ -222,24 +224,24 @@ Read the [documentation](multi-declarations.html#destructuring-in-lambdas-since-
 
 For a lambda with multiple parameters, you can use the `_` character to replace the names of the parameters you don't use:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1">
 
-``` kotlin
+```kotlin
 fun main(args: Array<String>) {
     val map = mapOf(1 to "one", 2 to "two")
 
 //sampleStart
     map.forEach { _, value -> println("$value!") }
-//sampleEnd    
+//sampleEnd
 }
 ```
 </div>
 
 This also works in [destructuring declarations](multi-declarations.html):
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1">
 
-``` kotlin
+```kotlin
 data class Result(val value: Any, val status: String)
 
 fun getResult() = Result(42, "ok").also { println("getResult() returns $it") }
@@ -260,9 +262,9 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscore-
 
 Just as in Java 8, Kotlin now allows to use underscores in numeric literals to separate groups of digits:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1">
 
-``` kotlin
+```kotlin
 //sampleStart
 val oneMillion = 1_000_000
 val hexBytes = 0xFF_EC_DE_5E
@@ -275,6 +277,7 @@ fun main(args: Array<String>) {
     println(bytes.toString(2))
 }
 ```
+
 </div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores-in-numeric-literals.md) for more details.
@@ -284,20 +287,20 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores
 
 For properties with the getter defined as an expression body, the property type can now be omitted:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
-data class Person(val name: String, val age: Int) {
+    data class Person(val name: String, val age: Int) {
     val isAdult get() = age >= 20 // Property type inferred to be 'Boolean'
 }
 //sampleEnd
-
 fun main(args: Array<String>) {
     val akari = Person("Akari", 26)
     println("$akari.isAdult = ${akari.isAdult}")
 }
 ```
+
 </div>
 
 ### Inline property accessors
@@ -305,9 +308,9 @@ fun main(args: Array<String>) {
 You can now mark property accessors with the `inline` modifier if the properties don't have a backing field.
 Such accessors are compiled in the same way as [inline functions](inline-functions.html).
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 public val <T> List<T>.lastIndex: Int
     inline get() = this.size - 1
@@ -319,6 +322,7 @@ fun main(args: Array<String>) {
     println("Last index of $list is ${list.lastIndex}")
 }
 ```
+
 </div>
 
 You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
@@ -331,9 +335,9 @@ Read the [documentation](inline-functions.html#inline-properties) and [KEEP](htt
 You can now use the [delegated property](delegated-properties.html) syntax with local variables.
 One possible use is defining a lazily evaluated local variable:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 import java.util.Random
 
 fun needAnswer() = Random().nextBoolean()
@@ -353,6 +357,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
+
 </div>
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/local-delegated-properties.md) for more details.
@@ -364,7 +369,10 @@ For [delegated properties](delegated-properties.html), it is now possible to int
 `provideDelegate` operator.
 For example, if we want to check the property name before binding, we can write something like this:
 
-``` kotlin
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 class ResourceLoader<T>(id: ResourceID<T>) {
     operator fun provideDelegate(thisRef: MyUI, prop: KProperty<*>): ReadOnlyProperty<MyUI, T> {
         checkProperty(thisRef, prop.name)
@@ -382,6 +390,8 @@ class MyUI {
 }
 ```
 
+</div>
+
 The `provideDelegate` method will be called for each property during the creation of a `MyUI` instance, and it can perform
 the necessary validation right away.
 
@@ -392,9 +402,9 @@ Read the [documentation](delegated-properties.html#providing-a-delegate-since-11
 
 It is now possible to enumerate the values of an enum class in a generic way.
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 //sampleStart
 enum class RGB { RED, GREEN, BLUE }
 
@@ -407,6 +417,7 @@ fun main(args: Array<String>) {
     printAllValues<RGB>() // prints RED, GREEN, BLUE
 }
 ```
+
 </div>
 
 ### Scope control for implicit receivers in DSLs
@@ -414,13 +425,17 @@ fun main(args: Array<String>) {
 The [`@DslMarker`](/api/latest/jvm/stdlib/kotlin/-dsl-marker/index.html) annotation allows to restrict the use of receivers from outer scopes in a DSL context.
 Consider the canonical [HTML builder example](type-safe-builders.html):
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 table {
     tr {
-        td { +"Text" }
+        td { + "Text" }
     }
 }
 ```
+
+</div>
 
 In Kotlin 1.0, code in the lambda passed to `td` has access to three implicit receivers: the one passed to `table`, to `tr`
 and to `td`. This allows you to call methods that make no sense in the context - for example to call `tr` inside `td` and thus
@@ -444,9 +459,13 @@ The `mod` operator is now deprecated, and `rem` is used instead. See [this issue
 There is a bunch of new extensions on the String class to convert it to a number without throwing an exception on invalid number:
 `String.toIntOrNull(): Int?`, `String.toDoubleOrNull(): Double?` etc.
 
-```
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val port = System.getenv("PORT")?.toIntOrNull() ?: 80
 ```
+
+</div>
 
 Also integer conversion functions, like `Int.toString()`, `String.toInt()`, `String.toIntOrNull()`,
 each got an overload with `radix` parameter, which allows to specify the base of conversion (2 to 36).
@@ -458,12 +477,16 @@ possibly with side-effects, on each element of the collection/sequence in a chai
 On iterables it behaves like `forEach` but also returns the iterable instance further. And on sequences it returns a
 wrapping sequence, which applies the given action lazily as the elements are being iterated.
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+
+```kotlin
 inputDir.walk()
         .filter { it.isFile && it.name.endsWith(".txt") }
         .onEach { println("Moving $it to $outputDir") }
         .forEach { moveFile(it, File(outputDir, it.toRelativeString(inputDir))) }
 ```
+
+</div>
 
 ### also(), takeIf() and takeUnless()
 
@@ -474,9 +497,9 @@ The difference is that in the block inside `apply` the receiver is available as 
 while in the block inside `also` it's available as `it` (and you can give it another name if you want).
 This comes handy when you do not want to shadow `this` from the outer scope:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.1">
 
-``` kotlin
+```kotlin
 class Block {
     lateinit var content: String
 }
@@ -499,20 +522,25 @@ fun main(args: Array<String>) {
     println(block.content == copy.content)
 }
 ```
+
 </div>
 
 `takeIf` is like `filter` for a single value. It checks whether the receiver meets the predicate, and
 returns the receiver, if it does or `null` if it doesn't. 
 Combined with an elvis-operator and early returns it allows to write constructs like:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val outDirFile = File(outputDir.path).takeIf { it.exists() } ?: return false
 // do something with existing outDirFile
 ```
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+</div>
 
-``` kotlin
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
+
+```kotlin
 fun main(args: Array<String>) {
     val input = "Kotlin"
     val keyword = "in"
@@ -527,19 +555,24 @@ fun main(args: Array<String>) {
     println(" ".repeat(index) + "^")
 }
 ```
+
 </div>
 
 `takeUnless` is the same as `takeIf`, but it takes the inverted predicate. It returns the receiver when it _doesn't_ meet the predicate and `null` otherwise. So one of the examples above could be rewritten with `takeUnless` as following:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val index = input.indexOf(keyword).takeUnless { it < 0 } ?: error("keyword not found")
 ```
 
+</div>
+
 It is also convenient to use when you have a callable reference instead of the lambda:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 private fun testTakeUnless(string: String) {
 //sampleStart
     val result = string.takeUnless(String::isEmpty)
@@ -553,6 +586,7 @@ fun main(args: Array<String>) {
     testTakeUnless("abc")
 }
 ```
+
 </div>
 
 ### groupingBy()
@@ -560,9 +594,9 @@ fun main(args: Array<String>) {
 This API can be used to group a collection by key and fold each group simultaneously. For example, it can be used
 to count the number of words starting with each letter:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 fun main(args: Array<String>) {
     val words = "one two three four five six seven eight nine ten".split(' ')
 //sampleStart
@@ -576,26 +610,31 @@ fun main(args: Array<String>) {
     println("Comparing the result with using 'groupBy': ${groupBy == frequencies}.")
 }
 ```
+
 </div>
 
 ### Map.toMap() and Map.toMutableMap()
 
 These functions can be used for easy copying of maps:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 class ImmutablePropertyBag(map: Map<String, Any>) {
     private val mapCopy = map.toMap()
 }
 ```
+
+</div>
 
 ### Map.minus(key)
 
 The operator `plus` provides a way to add key-value pair(s) to a read-only map producing a new map, however there was not a simple way to do the opposite: to remove a key from the map you have to resort to less straightforward ways to like `Map.filter()` or `Map.filterKeys()`.
 Now the operator `minus` fills this gap. There are 4 overloads available: for removing a single key, a collection of keys, a sequence of keys and an array of keys.
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val map = mapOf("key" to 42)
@@ -606,15 +645,16 @@ fun main(args: Array<String>) {
     println("emptyMap: $emptyMap")
 }
 ```
+
 </div>
 
 ### minOf() and maxOf()
 
 These functions can be used to find the lowest and greatest of two or three given values, where values are primitive numbers or `Comparable` objects. There is also an overload of each function that take an additional `Comparator` instance, if you want to compare objects that are not comparable themselves.
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val list1 = listOf("a", "b")
@@ -627,6 +667,7 @@ fun main(args: Array<String>) {
     println("longestList = $longestList")
 }
 ```
+
 </div>
 
 ### Array-like List instantiation functions
@@ -634,9 +675,9 @@ fun main(args: Array<String>) {
 Similar to the `Array` constructor, there are now functions that create `List` and `MutableList` instances and initialize
 each element by calling a lambda:
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val squares = List(10) { index -> index * index }
@@ -647,6 +688,7 @@ fun main(args: Array<String>) {
     println("mutable: $mutable")
 }
 ```
+
 </div>
 
 ### Map.getValue()
@@ -654,11 +696,10 @@ fun main(args: Array<String>) {
 This extension on `Map` returns an existing value corresponding to the given key or throws an exception, mentioning which key was not found.
 If the map was produced with `withDefault`, this function will return the default value instead of throwing an exception.
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 fun main(args: Array<String>) {
-
 //sampleStart    
     val map = mapOf("key" to 42)
     // returns non-nullable Int value 42
@@ -675,6 +716,7 @@ fun main(args: Array<String>) {
     println("value2 is $value2")
 }
 ```
+
 </div>
 
 ### Abstract collections
@@ -692,9 +734,9 @@ and conversion to a string (`contentToString` and `contentDeepToString`). They'r
 (where they act as aliases for the corresponding functions in `java.util.Arrays`) and for JS (where the implementation
 is provided in the Kotlin standard library).
 
-<div class="sample" markdown="1" data-min-compiler-version="1.1">
+<div class="sample" markdown="1" data-min-compiler-version="1.1" theme="idea">
 
-``` kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val array = arrayOf("a", "b", "c")
@@ -703,6 +745,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
+
 </div>
 
 ## JVM Backend
@@ -743,11 +786,15 @@ your own synchronization for accessing the variables.
 Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223).
 The API allows to evaluate snippets of code at runtime:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 val engine = ScriptEngineManager().getEngineByExtension("kts")!!
 engine.eval("val x = 3")
 println(engine.eval("x + 2"))  // Prints out 5
 ```
+
+</div>
 
 See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
 for a larger example project using the API.
@@ -782,7 +829,9 @@ declaration using the `external` modifier. (In Kotlin 1.0, the `@native` annotat
 Unlike the JVM target, the JS one permits to use external modifier with classes and properties.
 For example, here's how you can declare the DOM `Node` class:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 external class Node {
     val firstChild: Node
 
@@ -793,6 +842,8 @@ external class Node {
     // etc
 }
 ```
+
+</div>
 
 ### Improved import handling
 
@@ -805,7 +856,9 @@ you can use the `@JsNonModule` annotation.
 
 For example, here's how you can import JQuery into a Kotlin module:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 external interface JQuery {
     fun toggle(duration: Int = definedExternally): JQuery
     fun click(handler: (Event) -> Unit): JQuery
@@ -817,15 +870,21 @@ external interface JQuery {
 external fun jquery(selector: String): JQuery
 ```
 
+</div>
+
 In this case, JQuery will be imported as a module named `jquery`. Alternatively, it can be used as a $-object,
 depending on what module system Kotlin compiler is configured to use.
 
 You can use these declarations in your application like this:
 
-``` kotlin
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 fun main(args: Array<String>) {
     jquery(".toggle-button").click {
         jquery(".toggle-panel").toggle(300)
     }
 }
 ```
+
+</div>

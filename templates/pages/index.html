@@ -1,229 +1,190 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Kotlin Programming Language</title>
-    {% include 'inc/head.html' %}
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-</head>
-<body class="page_index">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+{% block head_preload %}
+    <link rel="preload" href="/assets/fonts/Inter/Inter-Regular.woff2" as="font">
+    <link rel="preload" href="/assets/fonts/Inter/Inter-Bold.woff2" as="font">
 
-<div class="global-layout">
-    {% include 'inc/header.html' %}
+    <link rel="preload" href="/assets/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2" as="font">
+    <link rel="preload" href="/assets/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2" as="font">
+    <link rel="preload" href="/assets/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2" as="font">
+{% endblock %}
 
-    <section class="kotlin-overview-section _works-on">
-        <h2 class="section-header">Build Applications For</h2>
-        <div class="works-on-list">
-            {%- set technologies = [
-              {'target': 'JVM', 'href': '/docs/reference/server-overview.html'},
-              {'target': 'Android', 'href': '/docs/reference/android-overview.html'},
-              {'target': 'Browser', 'href': '/docs/reference/js-overview.html'},
-              {'target': 'Native', 'href': '/docs/reference/native-overview.html'}
-            ]-%}
+{% block body_class %}page__index-new{% endblock %}
 
-            {% for technology in technologies %}
-                {% if(technology.href) %}
-                    <a href="{{ technology.href }}" class="works-on-item">
-                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
-                        <div class="works-on-text">
-                            {{ technology['target'] }}<br/>&nbsp;
-                        </div>
-                    </a>
-                {% else %}
-                    <div class="works-on-item">
-                        <div class="works-on-icon _{{ technology['target'].lower() }}"></div>
-                        <div class="works-on-text">
-                            {{ technology['target'] }}<br/>(soon)
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
+{% block page_outer_content %}
+    {% include 'inc/pages/index/intro.html' %}
+
+    <section class="kto-overview-section kto-overview-section_mode_dark kotlin-banner-section">
+        <h2 class="kto-overview-section__title_size_s g-layout">Latest from Kotlin</h2>
+        <div class="kotlin-banner-section__banner">
+            <a target="_blank" class="kotlin-banner-section__link g-layout"
+               href="https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-is-out-standard-library-changes/">
+                <img
+                        alt="Kotlin 1.4 M3" width="960"
+                        src="/assets/images/index/banners/promo.svg"
+                >
+            </a>
         </div>
     </section>
 
-    <section class="kotlin-overview-section _features">
-        <h2 class="section-header">Why Kotlin?</h2>
-        <div class="section-content">
-            <ul class="kotlin-features-list">
+    <section class="kto-overview-section kto-overview-section_mode_dark kotlin-news-section">
+        <div class="g-layout">
+            <div class="kotlin-news-section-news">
+                {% for news in site.data["last-news"] %}
+                    {% set domain_link = get_domain(news.link) %}
+                    <a class="kotlin-news-section-news__item" href="{{ news.link }}"{% if domain_link %} target="_blank"{% endif %}>
+                        <span class="kotlin-news-section-news__title">
+                            <span class="kotlin-news-section-news__title-text">{{ news.title }}</span>&nbsp;<span class="kotlin-news-section-news__title-arrow">→</span>
+                        </span>
+                        <span class="kotlin-news-section-news__tag">
+                            {% if news.tag %}{{ news.tag }}
+                            {% elif domain_link %}{{ domain_link }}
+                            {% else %}Overview{% endif %}
+                        </span>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="kto-overview-section kto-overview-section_mode_dark kotlin-jump-section">
+        <div class="kotlin-jump-section__wrapper g-layout">
+            <div class="kotlin-jump-section__content">
+                <h2 class="kotlin-jump-section__title">Kotlin Early Access Preview</h2>
+                <p>Try out the latest Kotlin features before they are released</p>
+            </div>
+            <a class="kto-button kto-button_theme_dark kto-button_size_m kto-button_mode_outline" href="/eap/">Learn more</a>
+        </div>
+    </section>
+
+    {% include 'inc/pages/index/code-examples.html' %}
+
+    <section class="kto-overview-section kotlin-why-section">
+        <div class="g-layout">
+            <h2 id="why-kotlin" class="kto-overview-section__title">
+                <a class="kto-overview-section__title_link" href="#why-kotlin">Why Kotlin?</a>
+            </h2>
+            <ul class="kto-features-list">
                 {% for feature in features %}
-                    <li class="kotlin-feature _{{ feature.id }} js-popup-open-button"
-                        data-popup-id="kotlin-feature_{{ feature.id }}">
-                        <div class="feature-image">
-                            <div class="feature-icon _{{ feature.id }}"></div>
+                    <li class="kto-features-list__feature kto-features-list__feature_{{ feature.id }}">
+                        <div class="kto-features-list__short-info">
+                            <h3 class="kto-features-list__title">{{ feature.title | safe }}</h3>
+                            <p class="kto-features-list__description">{{ feature.description | safe }}</p>
                         </div>
-                        <h3 class="feature-title">{{ feature.title }}</h3>
-                        <p class="feature-description">{{ feature.description }}</p>
-                        <span class="feature-example-link">See example</span>
+                        <div class="kto-features-list__content">
+                            {{ feature.content | safe }}
+
+                            {% if feature.id == "tool-friendly" %}
+                                <ul class="kto-getting-list g-layout">
+                                    {% macro render_get_kotlin_item(id, title, description, instructions, download, className="") -%}
+                                        <li class="kto-getting-item kto-getting-item_{{ id }} {{ className }}">
+                                            <div class="kto-getting-item__content">
+                                                <h3 class="kto-getting-item__title">{{ title }}</h3>
+                                                <p class="kto-getting-item__description"> {{ caller() }}</p>
+                                            </div>
+                                            <div>
+                                                {% if download %}<a href="{{ download }}" target="_blank" class="kto-getting-item__download">Download</a>{% endif %}
+                                                <a href="{{ instructions }}" class="kto-getting-item__instruction">Instructions</a>
+                                            </div>
+                                        </li>
+                                    {%- endmacro %}
+
+                                    {% call render_get_kotlin_item(id="intellij-idea", title="IntelliJ IDEA", className="jetbrains-logo _logo-intellij-idea",
+                                                instructions="/docs/tutorials/jvm-get-started.html", download="https://www.jetbrains.com/idea/download/") %}
+                                        Bundled with both IntelliJ IDEA Community Edition and IntelliJ IDEA Ultimate
+                                    {% endcall %}
+
+                                    {% call render_get_kotlin_item(id="android-studio", title="Android Studio",
+                                                instructions="/docs/tutorials/kotlin-android.html",  download="https://developer.android.com/studio/") %}
+                                        Bundled with Android Studio
+                                    {% endcall %}
+
+                                    {% call render_get_kotlin_item(id="eclipse", title="Eclipse", instructions="/docs/tutorials/getting-started-eclipse.html") %}
+                                        Install the plugin from the Eclipse Marketplace
+                                    {% endcall %}
+
+                                    {% call render_get_kotlin_item(id="standalone-compiler", title="Standalone Compiler", instructions="/docs/tutorials/command-line.html") %}
+                                        Use any editor and build from the command line
+                                    {% endcall %}
+                                </ul>
+                            {% endif %}
+                        </div>
                     </li>
                 {% endfor %}
             </ul>
         </div>
-
-        {% for feature in features %}
-            <div class="overview-popup overview-popup_{{ feature.id }} _hidden js-popup"
-                 id="kotlin-feature_{{ feature.id }}">
-                <div class="popup-content">
-                    {{ feature.content | safe }}
-                </div>
-
-                <div class="popup-close-button js-popup-close-button"
-                     data-popup-id="kotlin-feature_{{ feature.id }}"></div>
-            </div>
-            <div class="overview-popup-overlay"></div>
-        {% endfor %}
-
     </section>
 
-    {# This fle conteins a lot of pre-formatted code. #}
-    {% include 'inc/pages/index/code-examples.html' %}
-
-    <section class="kotlin-overview-section _get-kotlin" id="get-kotlin">
-        <h2 class="section-header">Try Kotlin</h2>
-
-        <div class="try-image"></div>
-        <a href="//try.kotlinlang.org" class="try-button">Try online</a>
-        <div class="section-description">
-            Explore Kotlin code samples and solve problems<br/>
-            directly in the browser
-        </div>
-
-        <div class="section-content">
-            <div class="get-kotlin-options-list">
-                <div class="option-item _intellij-idea">
-                    <div class="option-image">
-                        <div class="jetbrains-logo _logo-intellij-idea _size-2"></div>
-                    </div>
-                    <div class="option-title-pre-text">Use</div>
-                    <h3 class="option-title">IntelliJ IDEA</h3>
-
-                    <p class="option-description">
-                        Bundled with Community Edition or IntelliJ IDEA Ultimate
-                    </p>
-
-                    <div class="option-link-wrap">
-                        <a href="/docs/tutorials/getting-started.html"
-                           class="option-link">
-                            Instructions
-                        </a>
-                    </div>
-                </div>
-
-                <div class="option-item">
-                    <div class="option-image _android-studio"></div>
-                    <div class="option-title-pre-text">Use</div>
-                    <h3 class="option-title">Android Studio</h3>
-
-                    <p class="option-description">
-                        Bundled with <a href="https://developer.android.com/studio/preview/index.html" target="_blank">Studio 3.0</a>, plugin available for earlier versions
-                    </p>
-
-
-                    <div class="option-link-wrap">
-                        <a href="/docs/tutorials/kotlin-android.html"
-                           class="option-link">
-                            Instructions
-                        </a>
-                    </div>
-                </div>
-
-                <div class="option-item">
-                    <div class="option-image _eclipse"></div>
-                    <div class="option-title-pre-text">Use</div>
-                    <h3 class="option-title">Eclipse</h3>
-
-                    <p class="option-description">
-                        Install the plugin from the Eclipse Marketplace
-                    </p>
-
-                    <div class="option-link-wrap">
-                        <a href="/docs/tutorials/getting-started-eclipse.html"
-                           class="option-link">
-                            Instructions
-                        </a>
-                    </div>
-                </div>
-
-                <div class="option-item _standalone-compiler">
-                    <div class="option-image _standalone-compiler"></div>
-                    <div class="option-title-pre-text">Standalone</div>
-                    <h3 class="option-title">Compiler</h3>
-
-                    <p class="option-description">
-                        Use any editor and build from the command line
-                    </p>
-
-                    <div class="option-link-wrap">
-                        <a href="/docs/tutorials/command-line.html"
-                           class="option-link">Download Compiler</a>
-                    </div>
-                </div>
-            </div>
-            <p class="kotlin-version">Latest version: {{ data.releases.latest.version }}</p>
-        </div>
-    </section>
-
-    <section class="kotlin-overview-section _testimonials">
-        <h2 class="section-header">Kotlin Usage Highlights</h2>
-
-        <div class="testimonials-layout">
-            <div class="testimonials">
+    <section id="usage-highlights" class="kto-overview-section kotlin-highlights-section">
+        <div class="g-layout">
+            <h2 class="kto-overview-section__title kotlin-highlights-section__title">
+                <a class="kto-overview-section__title_link" href="#usage-highlights">Kotlin Usage Highlights</a>
+            </h2>
+            <ul class="kto-highlights">
                 {% for testimonial in data.testimonials %}
-                    <div class="testimonial">
-                        <h3 class="testimonial-header">{{ testimonial.company }}</h3>
-                        <div class="testimonial-text">{{ testimonial.text | safe }}</div>
-                    </div>
+                    <li class="kto-highlights-item kto-highlights-item_company_{{ testimonial.company.lower() | safe }}">
+                        <h3 class="kto-highlights-item__header">{{ testimonial.company | safe }}</h3>
+                        <div class="kto-highlights-item__text">{{ testimonial.text | safe }}</div>
+                    </li>
                 {% endfor %}
-            </div>
-        </div>
-    </section>
-
-    <section class="kotlin-overview-section _community">
-        <h2 class="section-header">Stay in touch</h2>
-        <div class="section-content">
-            <ul class="links-list">
-                <li class="links-list-item">
-                    <a href="http://blog.jetbrains.com/kotlin" class="link" target="_blank">
-                        <span class="link-icon _blog"></span>
-                        <span class="link-text">Blog</span>
-                    </a>
-                </li>
-
-                <li class="links-list-item">
-                    <a href="community.html" class="link">
-                        <span class="link-icon _forum"></span>
-                        <span class="link-text">Community</span>
-                    </a>
-                </li>
-
-                <li class="links-list-item">
-                    <a href="{{ config.TWITTER_URL }}" class="link" target="_blank">
-                        <span class="link-icon _twitter"></span>
-                        <span class="link-text">Twitter</span>
-                    </a>
-                </li>
-
-                <li class="links-list-item">
-                    <a href="https://youtrack.jetbrains.com/issues/KT" class="link" target="_blank">
-                    <span class="link-icon _issue-tracker">
-                        <div class="jetbrains-logo _logo-youtrack _size-2"></div>
-                    </span>
-                        <span class="link-text">Issue Tracker</span>
-                    </a>
-                </li>
             </ul>
         </div>
     </section>
-</div>
 
-{% include 'inc/footer.html' %}
-{% include 'inc/search-popup.html' %}
-<script src="{{ url_for('static', filename='default.js') }}"></script>
-<script src="{{ url_for('static', filename='common.js') }}"></script>
-<script src="{{ url_for('static', filename='index.js') }}"></script>
+    <section id="stay-in-touch" class="kto-overview-section kotlin-stay-in-touch-section">
+        <div class="g-layout">
+            <h2 class="kto-overview-section__title kotlin-highlights-section__title">
+                <a class="kto-overview-section__title_link" href="#stay-in-touch">Stay in Touch<br>
+                    and Help Us Improve</a>
+            </h2>
+            <div class="kto-socials-list">
+                <a class="kto-socials-list__item kto-socials-list__item_type_github" href="https://github.com/JetBrains/kotlin" target="_blank">
+                    <p class="kto-socials-list__title">Github&nbsp;→</p>
+                    <p class="kto-socials-list__description">Star the project and contribute to Kotlin</p>
+                </a>
+                <a class="kto-socials-list__item kto-socials-list__item_type_twitter" href="https://twitter.com/kotlin" target="_blank">
+                    <p class="kto-socials-list__title">Twitter&nbsp;→</p>
+                    <p class="kto-socials-list__description">Keep up with the latest Kotlin news</p>
+                </a>
+                <a class="kto-socials-list__item kto-socials-list__item_type_slack" href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up" target="_blank">
+                    <p class="kto-socials-list__title">Slack&nbsp;→</p>
+                    <p class="kto-socials-list__description">Join the discussion about Kotlin</p>
+                </a>
+                <a class="kto-socials-list__item kto-socials-list__item_type_reddit" href="https://www.reddit.com/r/Kotlin/" target="_blank">
+                    <p class="kto-socials-list__title">Reddit&nbsp;→</p>
+                    <p class="kto-socials-list__description">Chat with the community and the team</p>
+                </a>
+                <a class="kto-socials-list__item kto-socials-list__item_type_stack-overflow" href="https://stackoverflow.com/questions/tagged/kotlin" target="_blank">
+                    <p class="kto-socials-list__title">Stack Overflow&nbsp;→</p>
+                    <p class="kto-socials-list__description">Find the best solutions for you</p>
+                </a>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <section id="get-started" class="kto-overview-section kto-overview-section_mode_grey kotlin-get-started-section">
+        <div class="g-layout">
+            <h2 class="kto-overview-section__title kotlin-get-started-section__title">
+                <a class="kto-overview-section__title_link" href="#get-started">
+                    Start Using Kotlin Today!
+                </a>
+            </h2>
+            <p class="kotlin-get-started-section__text">
+                Build your first Kotlin app in your<br>
+                favorite IDE
+            </p>
+            <a
+                class="kto-button kto-button_theme_dark kto-button_size_m kto-button_mode_primary smooth-anchor"
+                href="/docs/tutorials/getting-started.html"
+            >Get started</a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')|autoversion }}">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='index.js')|autoversion }}"></script>
+{% endblock %}

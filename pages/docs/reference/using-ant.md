@@ -22,7 +22,9 @@ Ant version 1.8.2+ is required.
 
 When the project consists of exclusively Kotlin source code, the easiest way to compile the project is to use the *kotlinc* task:
 
-``` xml
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea">
+
+```xml
 <project name="Ant Task Test" default="build">
     <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -32,13 +34,17 @@ When the project consists of exclusively Kotlin source code, the easiest way to 
 </project>
 ```
 
-where ${kotlin.lib} points to the folder where the Kotlin standalone compiler was unzipped.
+</div>
+
+where `${kotlin.lib}` points to the folder where the Kotlin standalone compiler was unzipped.
 
 ## Targeting JVM with Kotlin-only source and multiple roots
 
 If a project consists of multiple source roots, use *src* as elements to define paths:
 
-``` xml
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
+
+```xml
 <project name="Ant Task Test" default="build">
     <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -51,12 +57,16 @@ If a project consists of multiple source roots, use *src* as elements to define 
 </project>
 ```
 
+</div>
+
 ## Targeting JVM with Kotlin and Java source
 
 If a project consists of both Kotlin and Java source code, while it is possible to use *kotlinc*, to avoid repetition of task parameters, it is
 recommended to use *withKotlin* task:
 
-``` xml
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
+
+```xml
 <project name="Ant Task Test" default="build">
     <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -73,16 +83,24 @@ recommended to use *withKotlin* task:
 </project>
 ```
 
+</div>
+
 You can also specify the name of the module being compiled as the `moduleName` attribute:
 
-``` xml
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
+
+```xml
 <withKotlin moduleName="myModule"/>
 ```
+
+</div>
 
 
 ## Targeting JavaScript with single source folder
 
-``` xml
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
+
+```xml
 <project name="Ant Task Test" default="build">
     <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -92,9 +110,13 @@ You can also specify the name of the module being compiled as the `moduleName` a
 </project>
 ```
 
+</div>
+
 ## Targeting JavaScript with Prefix, PostFix and sourcemap options
 
-``` xml
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
+
+```xml
 <project name="Ant Task Test" default="build">
     <taskdef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -104,6 +126,8 @@ You can also specify the name of the module being compiled as the `moduleName` a
 </project>
 ```
 
+</div>
+
 ## Targeting JavaScript with single source folder and metaInfo option
 
 The `metaInfo` option is useful, if you want to distribute the result of translation as a Kotlin/JavaScript library.
@@ -111,7 +135,9 @@ If `metaInfo` was set to `true`, then during compilation additional JS file with
 binary metadata will be created. This file should be distributed together with the
 result of translation:
 
-``` xml
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
+
+```xml
 <project name="Ant Task Test" default="build">
     <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="${kotlin.lib}/kotlin-ant.jar"/>
 
@@ -121,6 +147,8 @@ result of translation:
     </target>
 </project>
 ```
+
+</div>
 
 ## References
 
@@ -163,12 +191,16 @@ Complete list of elements and attributes are listed below:
 To pass custom raw compiler arguments, you can use `<compilerarg>` elements with either `value` or `line` attributes.
 This can be done within the `<kotlinc>`, `<kotlin2js>`, and `<withKotlin>` task elements, as follows:
 
-``` xml
+<div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
+
+```xml
 <kotlinc src="${test.data}/hello.kt" output="${temp}/hello.jar">
     <compilerarg value="-Xno-inline"/>
     <compilerarg line="-Xno-call-assertions -Xno-param-assertions"/>
     <compilerarg value="-Xno-optimize"/>
 </kotlinc>
 ```
+
+</div>
 
 The full list of arguments that can be used is shown when you run `kotlinc -help`.

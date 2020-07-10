@@ -9,7 +9,13 @@
         </div>
     {% endif %}
 
-    <div class="event-date">{{ event.formattedDate }}</div>
+    <div class="event-date-container">
+        <div class="event-date">{{ event.formattedDate }}</div>
+        {% if event.lang %}
+            <div class="event-lang">{{ event.lang }}</div>
+        {% endif %}
+    </div>
+
     <div class="event-title">
         {% if event.url %}
             <a class="event-url" href="{{ event.url }}" target="_blank">{{ event.title }}</a>,
@@ -39,9 +45,6 @@
             <span class="text">{{ event.subject }}</span>
 
             <div class="event-info-indicators">
-                {% if event.lang %}
-                    <div class="event-lang">{{ event.lang }}</div>
-                {% endif %}
                 {% if event.content %}
                     {% for type, href in event.content %}
                         <a class="event-content-item _{{ type }}" href="{{ href }}" target="_blank" title="{{ type | capitalize }}"></a>

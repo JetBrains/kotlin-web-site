@@ -6,44 +6,58 @@ main_nav_id: contribute
 
 # Contributing to Kotlin
 
-Kotlin is an Apache 2 OSS Project. The source code, tooling, documentation and even this web site is maintained on [GitHub](https://github.com/jetbrains/kotlin). While the majority 
-of the team works at JetBrains, there have been nearly a hundred external contributors to the Kotlin Project and we are always looking for more people. 
+Kotlin is an open-source project under the [Apache 2.0 License](https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt). The source code, tooling, documentation, and even this web site are maintained on [GitHub](https://github.com/jetbrains/kotlin). 
+While Kotlin is mostly developed by JetBrains, there are hundreds of external contributors to the Kotlin project and we are always on the lookout for more people to help us.
 
-## How you can contribute
+## Participate in Early Access Preview
 
-### Contributing to the code
+You can help us improve Kotlin by [participating in Kotlin Early Access Preview (EAP)](/eap/index.html) and providing us with your valuable feedback.
+ 
+For every release, Kotlin ships a few preview builds where you can try out the latest features before they go to production. You can report any bugs you find to our issue tracker [YouTrack](https://kotl.in/issue) 
+and we will try to fix them before a final release. This way, you can get bug fixes earlier than the standard Kotlin release cycle.
 
-If you want to contribute to the code, go to GitHub and check out the latest version and follow the instructions on how to build Kotlin from source. After that, you can start picking
-some [pending tasks](https://youtrack.jetbrains.com/issues/KT?q=%23Unresolved+) on the issue tracker. Make sure you look for issues tags with [Up For Grabs](https://youtrack.jetbrains.com/issues/KT?q=%23Unresolved+tag%3A+%7BUp+For+Grabs%7D) as
-these are some of the easier ones to get started with.
+## Contribute to the compiler, standard library, and tooling
 
-### Contributing to the documentation or web site
+If you want to contribute to the Kotlin compiler, standard library, or tooling, go to [GitHub](https://github.com/jetbrains/kotlin), check out the latest Kotlin version,
+ and follow [the instructions on how to contribute](https://github.com/JetBrains/kotlin/blob/master/docs/contributing.md).
+ 
+You can help us by completing [open tasks](https://youtrack.jetbrains.com/issues/KT?q=tag:%20%7BUp%20For%20Grabs%7D%20and%20State:%20Open). 
+Please keep an open line of communication with us because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate your contributions.
 
-We need a lot more documentation. If you're interested in collaborating, please feel free to check out the source code [to this site on GitHub](https://github.com/jetbrains/kotlin-web-site) and send a Pull Request. The site
-is built using Markdown and Jekyll. 
+## Contribute to other libraries and create your own
 
-### Contributing with tutorials or videos
+Besides the standard library that provides core capabilities, Kotlin has a number of additional (kotlinx) libraries that extend its functionality. 
+Each kotlinx library is developed in a separate repository, has its own versioning and release cycle.
 
-Have you created a tutorial or video on Kotlin? Please let us know. We'd be more than happy to have it featured under [Community Content](http://kotlinlang.org/docs/resources.html).
+If you want to contribute to a kotlinx library, follow the contribution process described for each library, such as [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines),
+ [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/CONTRIBUTING.md), and [ktor](https://github.com/ktorio/ktor/blob/master/CONTRIBUTING.md).
 
-### Presentations
+If you have a library that could be useful to other Kotlin developers, let us know via <feedback@kotlinlang.org>.
 
-If you've given or are giving presentations on Kotlin, let us know. We'll [feature it on the list](http://kotlinlang.org/docs/events.html)
+## Contribute to the documentation
 
-### Kotlin-x Projects and Community Projects
+If you've found an issue in [the Kotlin documentation](https://kotlinlang.org/docs/reference/), 
+feel free to check out [the documentation source code on GitHub](https://github.com/JetBrains/kotlin-web-site/tree/master/pages/docs)
+and send us a pull request. Please keep an open line of communication with us because we may have questions and comments on your changes. 
+Otherwise, we won't be able to incorporate your contributions. 
 
-Kotlin ships with a very small runtime and it's the aim to keep it that way. We believe other functionality that is missing from the standard runtime library can be developed
-as Kotlin Contributions under the Kotlin-X umbrella or as individual projects by community members. If you have a library that you think
-others might find useful, let us know. If you want to contribute to any of the existing ones, check them out.
+The documentation site is built using Markdown and Jekyll. 
 
-### Translations
+## Create tutorials or videos
 
-You are welcome to translate the Kotlin documentation into your own language and to publish your translation on your Web site.
-However, note that we will not be able to host your translation in this repository and to publish it on kotlinlang.org.
-This site is the official documentation for the language, and we need to be able to ensure that all the information here
-is correct and up-to-date. Doing this with a language that no one on the team speaks is unfortunately not feasible at this time.
+If you've created tutorials or videos for Kotlin, please share them with us via <feedback@kotlinlang.org>. 
 
-### Spread the word
 
-Kotlin is a new language but we have high hopes for it and we need people that believe in it to spread the word! 
+## Translate documentation to other languages
 
+You are welcome to translate the Kotlin documentation into your own language and publish the translation on your website.
+However, we won't be able to host your translation in the main repository and publish it on [kotlinlang.org](https://kotlinlang.org/docs/reference/).
+
+This site is the official documentation for the language, and we ensure that all the information here
+is correct and up to date. Unfortunately, we won't be able to review documentation in other languages. 
+
+## Hold events and presentations
+
+If you've given or just plan to give presentations or hold events on Kotlin, please fill out [the form](https://surveys.jetbrains.com/s3/Submit-a-Kotlin-Talk). We'll feature them on [the event list](http://kotlinlang.org/docs/events.html).
+
+ 

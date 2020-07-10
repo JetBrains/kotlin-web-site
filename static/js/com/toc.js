@@ -1,4 +1,4 @@
-var $ = require('jquery');
+import $ from 'jquery';
 
 function Toc(options) {
   var that = this,
@@ -172,4 +172,4 @@ Toc.prototype = {
   }
 };
 
-module.exports = Toc;
+export default Toc;

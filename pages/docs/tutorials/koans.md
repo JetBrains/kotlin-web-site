@@ -8,22 +8,10 @@ description: "This tutorial walks you through a series of exercises to get famil
 ---
 Kotlin Koans are a series of exercises to get you familiar with the Kotlin Syntax.
 Each exercise is created as a failing unit test and your job is to make it pass.
-You can play with [Koans online](http://try.kotlinlang.org/koans), 
-right [inside IntelliJ IDEA or Android Studio](/docs/tutorials/edu-tools-learner.html), or by cloning the project on [GitHub](https://github.com/Kotlin/kotlin-koans):
+You can work with Kotlin Koans in one of following two ways:
 
-1. Download the Koans by cloning the project from GitHub
+1. You can play with [Koans online](https://play.kotlinlang.org/koans).
 
-    ```
-    git clone https://github.com/Kotlin/kotlin-koans
-    ```
+2. You can solve the tasks right inside IntelliJ IDEA or Android Studio by [installing the EduTools plugin](https://www.jetbrains.com/help/education/install-edutools-plugin.html) and [choosing Kotlin Koans course](https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans).
 
-2. Open up the project in IntelliJ IDEA or your favorite editor. Note: If IntelliJ IDEA prompts you to update the Kotlin library, just click yes. 
-
-3. Run a test. Make it pass
-
-    ![Tests]({{ url_for('tutorial_img', filename='koans/all-tests.png') }})
-
-4. Repeat for all tests!
-
-
-The repository has two branches, *master* which contains the exercises for you to do and *resolutions* which contains the resolved exercises. Make sure you don't cheat!
+Whatever way you choose to solve koans, you can see the solution for each task: in the online version click on "Show answer", inside EduTools plugin choose "Peek solution". We recommend checking the solution after you implement the task to compare your solution with the proposed one. Make sure you don't cheat!
