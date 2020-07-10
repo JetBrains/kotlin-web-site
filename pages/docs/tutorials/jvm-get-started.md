@@ -18,13 +18,13 @@ Once you've installed IntelliJ IDEA, it's time to create your first Kotlin appli
 2. In the panel on the left, select **Kotlin**.
 3. Enter a project name, select **Console Application** as the project template, and click **Next**.
    
-   ![Kotlin console application]({{ url_for('tutorial_img', filename='getting-started/jvm-new-project-1.png') }})
+   ![Create a console application]({{ url_for('tutorial_img', filename='getting-started/jvm-new-project-1.png') }})
    
    By default, your project will use the build system Gradle with Kotlin DSL.
 
 3. Accept the default configuration on the next screen and click **Finish**.
   
-   ![Kotlin console application configuration]({{ url_for('tutorial_img', filename='getting-started/jvm-new-project-2.png') }}) 
+   ![Configure a console application]({{ url_for('tutorial_img', filename='getting-started/jvm-new-project-2.png') }}) 
 
    Your project opens. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
    Wizard based on your configuration. It includes the `kotlin("jvm")` plugin and dependencies required for your console application.
@@ -69,6 +69,8 @@ Enter your name and accept greetings from your application!
 ![Kotlin run output]({{ url_for('tutorial_img', filename='getting-started/jvm-output-2.png') }})
 
 Congratulations! You now have your first Kotlin application running.
+
+## What's next?
 
 Once you’ve created the application, you can dive deeper into Kotlin syntax:
 

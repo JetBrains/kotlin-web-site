@@ -18,13 +18,13 @@ Once you've installed IntelliJ IDEA, it's time to create your first frontend app
 2. In the panel on the left, select **Kotlin**.
 3. Enter a project name, select **Frontend Application** as the project template, and click **Next**.
    
-   ![Kotlin frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-1.png') }})
+   ![Create a frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-1.png') }})
    
    By default, your project will use the build system Gradle with Kotlin DSL.
 
 3. Accept the default configuration on the next screen and click **Finish**.
   
-   ![Frontend application configuration]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-2.png') }}) 
+   ![Configure a frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-2.png') }}) 
 
    Your project opens. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
    Wizard based on your configuration. It includes the `kotlin("js")` plugin and dependencies required for your frontend application.
@@ -132,4 +132,20 @@ Enter your name in the text box and accept greetings from your application!
    
 <img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-4.png') }}" alt="Web page with a button" width="500"/>
 
+## What's next?
+
+Once you have created your first application, you can go to Kotlin hands-on labs and pass long-form tutorials on Kotlin/JS.
+They include sample projects, which can serve as jumping-off points for your own projects, and contain useful snippets and patterns.
+
+For Kotlin/JS, the following hands-on labs are currently available:
+
+* [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction) 
+guides you through the process of building a simple web application using the React framework, shows how a typesafe Kotlin 
+DSL for HTML makes it convenient to build reactive DOM elements, and illustrates how to use third-party React components, 
+and how to obtain information from APIs, while writing the whole application logic in pure Kotlin/JS.
+
+* [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) 
+teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
+application that makes use of common code, serialization, and other multiplatform paradigms. It also provides a brief 
+introduction into working with Ktor both as a server- and client-side framework.
 

@@ -259,6 +259,8 @@ reference:
     - title: JavaScript
       description: Using Kotlin with JavaScript
       content:
+       - url: /docs/reference/js-create-project.html
+         title: Creating a Project from a Template
        - url: /docs/reference/js-project-setup.html
          title: Setting Up a Project
        - url: /docs/reference/dynamic-type.html
