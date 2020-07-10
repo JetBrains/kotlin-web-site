@@ -1,9 +1,12 @@
+{% set restyled=True %}
 {% extends 'base.html' %}
 
 {% block content %}
     <div class="g-grid">
 
         <aside class="g-3">
+            <a class="kto-button kto-button_theme_dark kto-button_size_m kto-button_mode_primary community-kug-submit"
+               href="https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group" target="_blank">Start a new KUG</a>
             <div class="js-side-tree-nav">
                 {% for data in nav.groups.content %}
                          <div class="tree-item tree-leaf js-item js-leaf {{ data.class }}">
@@ -13,7 +16,8 @@
                             <div class="text">{{ data.title }}</div>
                         </div>
                     {% else %}
-                        <a href="{{ data.url }}"
+                        {% set domain_link = get_domain(data.url) %}
+                        <a href="{{ data.url }}" {% if domain_link %} target="_blank" {% endif %}
                            class="tree-item-title tree-leaf-title js-item-title js-leaf-title {{ data.title_class }}"
                                 {% if data.title_arguments %}{{ print_arguments(data.title_arguments) }}{% endif %}
                         >
@@ -27,10 +31,17 @@
         </aside>
 
         <article role="main" class="page-content g-9">
-
             {% block page_content %}
                 {{ page.html | safe }}
             {% endblock %}
         </article>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='community.js')|autoversion }}"></script>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='community.css')|autoversion }}">
 {% endblock %}

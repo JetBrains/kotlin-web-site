@@ -1,0 +1,29 @@
+.kto-tabs {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.kto-tabs > .kto-tabs__item {
+  color: #27282C;
+
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+
+  &, &:any-link {
+    text-decoration: none;
+  }
+
+  padding: 12px 0;
+  margin-right: 24px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &_active {
+    color: #585DEF;
+  }
+}

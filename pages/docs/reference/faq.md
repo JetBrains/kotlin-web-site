@@ -138,7 +138,7 @@ Yes. Kotlin has a very vibrant community. Kotlin developers hang out on the [Kot
 ### Are there Kotlin events?
  
 Yes. There are many User Groups and Meetups now focused exclusively around Kotlin. You can find [a list on the web site](/user-groups/user-group-list.html).
-In addition there are community organised [Kotlin Nights](/community/kotlin-nights.html) events around the world.
+In addition there are community organised [Kotlin Nights](/community/events.html) events around the world.
 
 ### Is there a Kotlin conference?
 

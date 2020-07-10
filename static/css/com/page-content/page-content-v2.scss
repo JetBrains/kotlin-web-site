@@ -1,0 +1,116 @@
+@import '../../_config';
+@import '../../_utils';
+@import '../_bits/_header';
+@import '../_bits/_blockquote';
+@import '../_bits/_hr';
+
+a {
+    text-decoration: none;
+
+    &, &:hover {
+        color: #6B70FC;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.page-content {
+    font-family: Inter, Arial, sans-serif;
+    color: #27282C;
+
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0 0 24px;
+}
+
+.typo-image {
+    max-width: 100%;
+}
+
+.kto-header, .typo-header {
+    @extend %header;
+}
+
+.typo-h1 {
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 52px;
+    margin-bottom: 32px;
+}
+
+.typo-h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 38px;
+    margin-bottom: 24px;
+}
+
+
+.typo-h3 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.typo-list__item {
+    margin-bottom: 30px;
+}
+
+.typo-list__item > .typo-list {
+    margin-top: 30px;
+}
+
+.typo-list_type_simple > .typo-list__item {
+    margin-left: 3ex;
+}
+
+.typo-list_type_simple > .typo-list__item::before {
+    display: block;
+    content: '—';
+    margin-left: -3ex;
+    position: absolute;
+}
+
+.typo-list_type_ordered {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-left: 22px;
+}
+
+.typo-para {
+    margin-bottom: 25px;
+}
+
+.typo-float-right {
+    float: right;
+}
+
+.typo-quote {
+    @extend %blockquote;
+    margin: $vertical-rhythm-unit*2 0;
+    page-break-inside: avoid;
+}
+
+.typo-quote.kto-quote {
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+.typo-hr {
+    @extend %hr;
+}
+
+.js-side-tree-nav {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.js-side-tree-nav > .js-item {
+    margin: 0 8px 8px;
+}

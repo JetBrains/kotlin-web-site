@@ -155,3 +155,9 @@ $branch-padding: 12px;
     font-weight: bold;
     color: $base-color;
 }
+
+:global(.page-restyled) {
+    .tree-item {
+        margin-bottom: 8px;
+    }
+}

@@ -8,6 +8,9 @@ main:
     - url: /community/
       title: Community
 
+    - url: /education/
+      title: Education
+
     - url: https://play.kotlinlang.org
       title: Play
 
@@ -15,6 +18,7 @@ main:
 # Docs section navigation
 # =======================
 subnav:
+  type: tab
   content:
     - url: /docs/
       content:
@@ -29,18 +33,27 @@ subnav:
     - url: /community/
       content:
         - url: /community/
-          urlPattern: ^/community/$
-          title: Community Overview
+          urlPattern: ^\/community\/$
+          title: Overview
 
         - url: /user-groups/user-group-list.html
-          urlPattern: /user-groups*
+          urlPattern: /user-groups.*
           title: User Groups
 
-        - url: /community/kotlin-nights.html
-          title: Kotlin Nights
+        - url: /community/events.html
+          urlPattern: ^\/community\/(events\.html|kotlin-nights.*)
+          title: Events
 
         - url: /community/talks.html
-          title: Talks
+          title: Talks & Speakers
+    - url: /education/
+      content:
+        - url: /education/
+          urlPattern: ^\/education\/$
+          title: Overview
+
+        - url: /education/why-teach-kotlin.html
+          title: Why Teach Kotlin
 
 # Reference navigation
 # ====================
@@ -464,6 +477,18 @@ groups:
     - url: /user-groups/user-group-list.html
       title: Kotlin User Groups List
     - url: /user-groups/support.html
-      title: Support and Guidelines
+      title: Guidelines and Support
     - url: /user-groups/branding.html
-      title: Branding
+      title: Branding materials
+    - url: https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct
+      title: Code of Conduct
+
+
+events:
+  content:
+    - url: /community/events.html
+      title: Kotlin Events
+    - url: /community/kotlin-nights/guidelines.html
+      title: Guidelines and Support
+    - url: /community/kotlin-nights/branding.html
+      title: Branding materials
