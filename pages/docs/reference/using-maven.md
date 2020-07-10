@@ -101,7 +101,7 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 ## Compiling Kotlin and Java sources
 
 To compile mixed code applications Kotlin compiler should be invoked before Java compiler.
-In maven terms that means kotlin-maven-plugin should be run before maven-compiler-plugin using the following method.
+In maven terms that means that `kotlin-maven-plugin` should run before `maven-compiler-plugin` using the following method.
 Make sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in your `pom.xml` file:
 
 <div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
@@ -116,7 +116,9 @@ Make sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in y
             <executions>
                 <execution>
                     <id>compile</id>
-                    <goals> <goal>compile</goal> </goals>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
@@ -154,12 +156,16 @@ Make sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in y
                 <execution>
                     <id>java-compile</id>
                     <phase>compile</phase>
-                    <goals> <goal>compile</goal> </goals>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
                 </execution>
                 <execution>
                     <id>java-test-compile</id>
                     <phase>test-compile</phase>
-                    <goals> <goal>testCompile</goal> </goals>
+                    <goals>
+                        <goal>testCompile</goal>
+                    </goals>
                 </execution>
             </executions>
         </plugin>
