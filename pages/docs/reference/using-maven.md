@@ -166,6 +166,9 @@ Make sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in y
                     <goals>
                         <goal>testCompile</goal>
                     </goals>
+                    <configuration>
+                        <skip>${maven.test.skip}</skip>
+                    </configuration>
                 </execution>
             </executions>
         </plugin>
