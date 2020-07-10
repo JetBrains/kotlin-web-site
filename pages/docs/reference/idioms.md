@@ -269,6 +269,22 @@ fun foo(param: Int) {
 ```
 </div>
 
+### 'when (true)' expression (alternative to if / else if / ... / else)
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+```kotlin
+fun foo(param: Int) {
+    val result = when (true) {
+        param == 1 -> "one"
+        param == 2 -> "two"
+        param < 0 -> "negative"
+        someOtherBooleanFunction() -> "the other function"
+        else -> "greater than two"
+    }
+}
+```
+</div>
+
 ### Builder-style usage of methods that return `Unit`
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
