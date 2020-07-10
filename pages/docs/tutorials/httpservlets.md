@@ -15,6 +15,7 @@ how to make a simple controller that returns "Hello, World!".
 The main dependency required for using HTTP servlets is the JavaEE API:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
+
 ``` groovy
 dependencies {
     compile group: 'javax', name: 'javaee-api', version: '7.0'
@@ -26,6 +27,7 @@ dependencies {
 We also need to use the *war* plugin that helps us generate the corresponding WAR artifacts for running/deploying
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
+
 ``` groovy
 apply plugin: war
 ```
@@ -39,6 +41,7 @@ To see the full Gradle script check out the source of the project on GitHub.
 Once we have the build script defined with the correct dependencies, we can now create a controller
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ``` kotlin
 @WebServlet(name = "Hello", value = ["/hello"])
 class HomeController : HttpServlet() {
@@ -76,15 +79,21 @@ We can also run the project from the command line, without using IntelliJ IDEA U
 In order to do this, we need to make the following changes to build.gradle:
 
 <div class="sample" markdown="1" theme="idea" mode="groovy">
+
 ``` groovy
 buildscript {
+    repositories {
+        maven {
+            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/'
+        }
+        jcenter()
+    }
     dependencies {
-        ...
-        classpath 'org.akhikhl.gretty:gretty:+'   // Add this line
+        classpath 'org.gretty:gretty:3.0.1'
     }
 }
 ...
-apply plugin: 'org.akhikhl.gretty'  // Add this line
+apply plugin: 'org.gretty'  // Add this line
 ...
 
 gretty {   // Add these lines
@@ -97,5 +106,7 @@ gretty {   // Add these lines
 
 Once we do that, we can start the app by running the following command
 
-    gradle appStart
+```bash
+gradle appStart
+```
 
