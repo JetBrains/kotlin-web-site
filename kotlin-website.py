@@ -240,6 +240,10 @@ def optin_redirect():
 def resources_redirect():
     return render_template('redirect.html', url="https://kotlin.link/")
 
+@app.route('/docs/tutorials/kotlin-for-py/<path:pagename>')
+def kotlin_for_py_redirect(pagename):
+    return render_template('redirect.html', url="https://khan.github.io/kotlin-for-python-developers/")
+
 
 @app.route('/')
 def index_page():
