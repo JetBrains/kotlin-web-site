@@ -240,10 +240,33 @@ def optin_redirect():
 def resources_redirect():
     return render_template('redirect.html', url="https://kotlin.link/")
 
-@app.route('/docs/tutorials/kotlin-for-py/<path:pagename>')
-def kotlin_for_py_redirect(pagename):
+@app.route('/docs/tutorials/kotlin-for-py/introduction.html')
+@app.route('/docs/tutorials/kotlin-for-py/hello-world.html')
+@app.route('/docs/tutorials/kotlin-for-py/compiling-and-running.html')
+@app.route('/docs/tutorials/kotlin-for-py/declaring-variables.html')
+@app.route('/docs/tutorials/kotlin-for-py/primitive-data-types-and-their-limitations.html')
+@app.route('/docs/tutorials/kotlin-for-py/strings.html')
+@app.route('/docs/tutorials/kotlin-for-py/conditionals.html')
+@app.route('/docs/tutorials/kotlin-for-py/collections.html')
+@app.route('/docs/tutorials/kotlin-for-py/loops.html')
+@app.route('/docs/tutorials/kotlin-for-py/functions.html')
+@app.route('/docs/tutorials/kotlin-for-py/classes.html')
+@app.route('/docs/tutorials/kotlin-for-py/exceptions.html')
+@app.route('/docs/tutorials/kotlin-for-py/null-safety.html')
+@app.route('/docs/tutorials/kotlin-for-py/functional-programming.html')
+@app.route('/docs/tutorials/kotlin-for-py/packages-and-imports.html')
+@app.route('/docs/tutorials/kotlin-for-py/visibility-modifiers.html')
+@app.route('/docs/tutorials/kotlin-for-py/inheritance.html')
+@app.route('/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html')
+@app.route('/docs/tutorials/kotlin-for-py/generics.html')
+@app.route('/docs/tutorials/kotlin-for-py/extension-functionsproperties.html')
+@app.route('/docs/tutorials/kotlin-for-py/member-references-and-reflection.html')
+@app.route('/docs/tutorials/kotlin-for-py/annotations.html')
+@app.route('/docs/tutorials/kotlin-for-py/file-io.html')
+@app.route('/docs/tutorials/kotlin-for-py/scoped-resource-usage.html')
+@app.route('/docs/tutorials/kotlin-for-py/documentation.html')
+def kotlin_for_py_redirect():
     return render_template('redirect.html', url="https://khan.github.io/kotlin-for-python-developers/")
-
 
 @app.route('/')
 def index_page():
