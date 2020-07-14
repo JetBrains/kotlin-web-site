@@ -11482,7 +11482,7 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <startDate>2020-05-27</startDate>
         <endDate>2020-05-27</endDate>
         <location>Prague, Czech Republic</location>
-        <speaker>Raul Raja</speaker>
+        <speaker>Vladimír Valouch</speaker>
         <title>Prague Mobile Development Meetup</title>
         <subject>AppPort Academy for Kotlin vol. I</subject>
         <url>https://www.meetup.com/Prague-Mobile-Development-Meetup/events/vrxvrrybchbkc/</url>
@@ -11738,6 +11738,9 @@ Following will be the key takeaways
         <title>Kotlin London</title>
         <subject>Unleashing more Kotlin power – in full-stack web applications</subject>
         <url>https://www.meetup.com/kotlin-london/events/270844240/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=AT9eZVpPh7Y&feature=youtu.be</video>
+        </content>
         <description>
             <![CDATA[
 <p>In this talk, we will explore how Kotlin and its features around multiplatform projects can help tackle tasks around writing systems that are distributed across multiple platforms, such as server-client applications. In particular, we will look at how Kotlin for JVM and Kotlin/JS can play together, allowing us to share models, business logic, and most of all knowledge. We will get a broad overview of creating, managing and building such applications – all from within a single Gradle project, staying type-safe, and utilizing common and platform libraries.</p>
@@ -11790,7 +11793,7 @@ Following will be the key takeaways
         <endDate>2020-06-13</endDate>
         <location>Lubango, Angola</location>
         <speaker>Manuel Ernesto</speaker>
-        <title>GDG GDG Lubango</title>
+        <title>GDG Lubango</title>
         <subject>[Online] Entendendo Kotlin Coroutines</subject>
         <url>https://www.meetup.com/GDG-Lubango/events/271059241/</url>
         <description>
