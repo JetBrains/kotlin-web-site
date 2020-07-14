@@ -1,3 +1,35 @@
+- name: Lubango, Angola
+  geo:
+    lat: -14.915369
+    lng: 13.496774
+- name: Ankara, Turkey
+  geo:
+    lat: 39.920756
+    lng: 32.854049
+- name: Kinshasa, Congo
+  geo:
+    lat: -4.301458
+    lng: 15.316689
+- name: Broomfield, CO, USA
+  geo:
+    lat: 39.915679
+    lng: -105.097822
+- name: Marbella, Spain
+  geo:
+    lat: 36.512975
+    lng: -4.876487
+- name: Glen Allen, VA, USA
+  geo:
+    lat: 37.666099
+    lng: -77.50729
+- name: Sherman Oaks, CA, USA
+  geo:
+    lat: 34.150893
+    lng: -118.448089
+- name: Phoenix, AZ, USA
+  geo:
+    lat: 33.569785
+    lng: -112.06449
 - name: Venezia, Italy
   geo:
     lat: 45.438095
