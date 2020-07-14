@@ -23,6 +23,7 @@ or labeled [function literal with receiver](lambdas.html#function-literals-with-
 on the scope *this*{: .keyword } is meant to be from:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+
 ```kotlin
 class A { // implicit label @A
     inner class B { // implicit label @B
@@ -45,6 +46,35 @@ class A { // implicit label @A
             }
         }
     }
+}
+```
+
+</div>
+
+## Implicit `this`
+
+When you call a member function on `this`, you can skip the `this.` part.
+If you have a non-member function with the same name, use this with caution, because in some cases it can be called instead:
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+//sampleStart
+    fun printLine() { println("Top-level function") }
+    
+    class A {
+        fun printLine() { println("Member function") }
+
+        fun invokePrintLine(omitThis: Boolean = false)  { 
+            if (omitThis) printLine()
+            else this.printLine()
+        }
+    }
+    
+    A().invokePrintLine() // Member function
+    A().invokePrintLine(omitThis = true) // Top-level function
+//sampleEnd()
 }
 ```
 </div>

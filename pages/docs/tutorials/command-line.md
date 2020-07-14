@@ -49,17 +49,6 @@ $ brew install kotlin
 
 </div>
 
-#### MacPorts
-If you're a [MacPorts](https://www.macports.org/) user, you can install the compiler with:
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
-$ sudo port install kotlin
-```
-
-</div>
-
 #### [Snap](https://snapcraft.io/) package
 If you’re on Ubuntu 16.04 or later, you can install the compiler from the command line:
 
@@ -70,12 +59,6 @@ $ sudo snap install --classic kotlin
 ```
 
 </div>
-
-#### Chocolatey package
-For users of [Chocolatey](https://chocolatey.org/) on Windows, 
-there is a community-maintained [kotlinc](https://chocolatey.org/packages/kotlinc) package.
-You can install it from the command line using the [`choco install`](https://chocolatey.org/docs/commandsinstall) command.
-
 
 ### Creating and running a first application
 

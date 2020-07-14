@@ -1,6 +1,28 @@
 @import '../../_config';
 @import '../../_utils';
 
+.docs-nav-new {
+    margin-bottom: $unit*6;
+
+    &::after {
+        display: block;
+        content: '';
+        height: 1px;
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        background:rgba(39, 40, 44, 0.2);
+    }
+
+    & + .page-content {
+        margin-bottom: 90px;
+    }
+
+    .page-old-styled & {
+        margin-top: -40px;
+    }
+}
 
 .docs-nav {
     margin-bottom: $unit*6;

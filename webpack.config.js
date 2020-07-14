@@ -25,11 +25,13 @@ module.exports = (params = {}) => {
       'videos': './static/js/page/videos.js',
       'grammar': './static/js/page/grammar.js',
       'community': './static/js/page/community/community.js',
+      'education': './static/js/page/education/education.js',
       'pdf': './static/js/page/pdf.js',
       'api': './static/js/page/api/api.js',
       'reference': './static/js/page/reference.js',
       'tutorial': './static/js/page/tutorial.js',
-      'styles': './static/css/styles.scss'
+      'styles': './static/css/styles.scss',
+      'styles-v2': './static/css/styles-v2.scss'
     },
 
     output: {
