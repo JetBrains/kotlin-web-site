@@ -284,6 +284,8 @@ reference:
          title: JavaScript Reflection
        - url: /docs/reference/javascript-dce.html
          title: JavaScript DCE
+       - url: /docs/reference/js-ir-compiler.html
+         title: Experimental IR Compiler
 
     - title: Native
       description: Using Kotlin/Native for iOS and Native

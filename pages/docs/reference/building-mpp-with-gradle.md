@@ -294,7 +294,9 @@ accept the target name and a configuring code block:
 ``` groovy
 kotlin {
     jvm() // Create a JVM target with the default name 'jvm'
-    js("nodeJs") // Create a JS target with a custom name 'nodeJs'
+    js("myJsTarget") { // Create a JS target with a custom name 'myJsTarget'
+        /* Specify additional settings for the 'myJsTarget' target here */
+    } 
         
     linuxX64("linux") {
         /* Specify additional settings for the 'linux' target here */
@@ -330,9 +332,9 @@ access them by their names or configure all targets:
 ```groovy
 kotlin {
     jvm()
-    js("nodeJs")
+    js("myJsTarget")
     
-    println(targets.names) // Prints: [jvm, metadata, nodeJs]
+    println(targets.names) // Prints: [jvm, metadata, myJsTarget]
     
     // Configure all targets, including those which will be added later:
     targets.all {
@@ -392,7 +394,11 @@ There are target presets that one can apply using the preset functions, as shown
 following target platforms:
 
 * `jvm` for Kotlin/JVM;
-* `js` for Kotlin/JS;
+* `js` for Kotlin/JS; requiring a choice for the execution environment in their configuration block (see also [Setting up a Kotlin/JS project](/docs/tutorials/javascript/setting-up.html#setting-up-using-the-kotlin-multiplatform-plugin)):
+
+    * `browser {}` for applications running in the browser;
+    * `nodejs{}` for applications running on Node.js.
+ 
 * `android` for Android applications and libraries. Note that one of the Android Gradle 
    plugins should be applied before the target is created;
   

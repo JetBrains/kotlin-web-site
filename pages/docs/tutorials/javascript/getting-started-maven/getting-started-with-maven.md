@@ -153,10 +153,10 @@ In order to specify the module kind, we can add a configuration to our plugin as
 
 where `moduleKind` can be
 
-* plain (default)
-* amd
+* umd (default)
 * commonjs
-* umd
+* amd
+* plain
 
 For more information about the different types of module outputs, please see [Working with Modules](../working-with-modules/working-with-modules.html)
 

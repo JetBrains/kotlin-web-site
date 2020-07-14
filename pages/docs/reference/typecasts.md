@@ -115,6 +115,8 @@ val x: String? = y as String?
 ```
 </div>
 
+Please note that the "unsafe" cast operator **is not equivalent** to the [`unsafeCast<T>()`](/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html) method available in Kotlin/JS. `unsafeCast` will do no type-checking at all, whereas the _cast operator_ throws a `ClassCastException` when the cast fails. 
+
 ## "Safe" (nullable) cast operator
 
 To avoid an exception being thrown, one can use a *safe* cast operator *as?*{: .keyword } that returns *null*{: .keyword } on failure:
@@ -241,6 +243,8 @@ inline fun <reified T> List<*>.asListOfType(): List<T>? =
         null
 ```
 </div>
+
+IntelliJ IDEA can also automatically generate the `@Suppress` annotation. Open the intentions menu via the light bulb icon or Alt-Enter, and click the small arrow next to the "Change type arguments" quick-fix. Here, you can select the suppression scope, and your IDE will add the annotation to your file accordingly.
 
 On the JVM, the [array types](basic-types.html#arrays) (`Array<Foo>`) retain the information about the erased type of 
 their elements, and the type casts to an array type are partially checked: the 

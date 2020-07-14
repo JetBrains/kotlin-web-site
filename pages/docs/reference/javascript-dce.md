@@ -61,38 +61,3 @@ kotlin.target.browser {
 
 Note that the names of functions with parameters are [mangled](js-to-kotlin-interop.html#jsname-annotation)
 in the generated JavaScript code. To keep such functions from elimination, use the mangled names in the `keep` arguments.
-
-## Known issue: DCE and ktor
-
-In Kotlin {{ site.data.releases.latest.version }}, there is a known [issue](https://github.com/ktorio/ktor/issues/1339) 
-of using [ktor](https://ktor.io/) in Kotlin/JS projects. In some cases, you may get a type error like `<something> is not a function` 
-that comes from the `io.ktor:ktor-client-js:1.3.0` or `io.ktor:ktor-client-core:1.3.0` artifacts.
-To avoid this issue, add the following DCE configuration:
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
-
-```groovy
-kotlin.target.browser {
-    dceTask {
-        keep 'ktor-ktor-io.\$\$importsForInline\$\$.ktor-ktor-io.io.ktor.utils.io'
-    }
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
-
-```kotlin
-kotlin.target.browser {
-    dceTask {
-        keep("ktor-ktor-io.\$\$importsForInline\$\$.ktor-ktor-io.io.ktor.utils.io")
-    }
-}
-```
-
-</div>
-</div>

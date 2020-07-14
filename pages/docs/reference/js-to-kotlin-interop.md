@@ -7,14 +7,13 @@ title: "Calling Kotlin from JavaScript"
 
 # Calling Kotlin from JavaScript
 
+Depending on the selected [JavaScript Module](js-modules.html) system, the Kotlin/JS compiler generates different output.
+
 Kotlin compiler generates normal JavaScript classes, functions and properties you can freely use from
 JavaScript code. Nevertheless, there are some subtle things you should remember.
 
-## Isolating declarations in a separate JavaScript object
-
-To prevent spoiling the global object, Kotlin creates an object that contains all Kotlin declarations
-from the current module. So if you name your module as `myModule`, all declarations are available to JavaScript
-via `myModule` object. For example:
+## Isolating declarations in a separate JavaScript object in `plain` mode 
+If you have explicitly set your module kind to be `plain`, Kotlin creates an object that contains all Kotlin declarations from the current module. This is done to prevent spoiling the global object. This means that for a module `myModule`, all declarations are available to JavaScript via the `myModule` object. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -30,16 +29,15 @@ alert(myModule.foo());
 ```
 </div>
 
-This is not applicable when you compile your Kotlin module to JavaScript module (see [JavaScript Modules](js-modules.html) for more information on this).
-In this case there won't be a wrapper object, instead, declarations will be exposed as a JavaScript module of a corresponding kind. For example,
-in case of CommonJS you should write:
-
+This is not applicable when you compile your Kotlin module to JavaScript modules like CommonJS, AMD, or UMD (which is the default setting for both `browser` and `nodejs` targets). In this case, your declarations will be exposed in the format specified by your chosen JavaScript module system. When using CommonJS (or UMD), for example, your call site could look like this:
+<!-- TODO: IS THIS STILL CORRECT? -->
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
 alert(require('myModule').foo());
 ```
 </div>
 
+Check the article on [JavaScript Modules](js-modules.html) for more information on the topic of the JavaScript module system.
 
 ## Package structure
 
@@ -54,7 +52,15 @@ fun foo() = "Hello"
 ```
 </div>
 
-Can be called from JavaScript like this:
+When using CommonJS, your callsite could for example like this:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+``` javascript
+alert(require('myModule').my.qualified.packagename.foo())
+```
+</div>
+
+Or, in the case of using `plain` as a module system setting:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
@@ -97,9 +103,10 @@ person.helloWithGreeting("Servus");      // prints "Servus Dmitry!"
 If we didn't specify the `@JsName` annotation, the name of the corresponding function would contain a suffix
 calculated from the function signature, for example `hello_61zpoe$`.
 
-Note that Kotlin compiler does not apply such mangling to `external` declarations, so you don't have to
-use `@JsName` on them. Another case worth noticing is inheriting non-external classes from external classes.
-In this case any overridden functions won't be mangled as well.
+Note that there are some cases in which the Kotlin compiler does not apply mangling:
+- `external` declarations are not mangled.
+- Any overridden functions in non-`external` classes inheriting from `external` classes are not mangled.
+
 
 The parameter of `@JsName` is required to be a constant string literal which is a valid identifier.
 The compiler will report an error on any attempt to pass non-identifier string to `@JsName`.
@@ -112,6 +119,16 @@ external fun newC()
 ```
 </div>
 
+### `@JsExport` annotation
+The `@JsExport` annotation is currently marked as experimental. Its design may change in future versions. 
+
+By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin. It can also be applied on file-level, i.e. `@file:JsExport`.
+
+To resolve ambiguities in exports (like overloads for functions with the same name), you can use the `@JsExport` annotation together with `@JsName` to specify the names for the generated and exported functions.
+
+The `@JsExport` annotation is available in the current default compiler backend and the [experimental IR compiler backend](js-ir-compiler.html). If you are targeting the IR compiler backend, you **must** use the `@JsExport` annotation to make your functions visible from Kotlin in the first place.
+
+For multiplatform projects, `@JsExport` is available in common code as well. It only has an effect when compiling for the JavaScript target, and allows you to also export Kotlin declarations that are not platform specific.
 
 ## Representing Kotlin types in JavaScript
 
@@ -129,8 +146,7 @@ external fun newC()
   </div>
 
 * Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`.
-* There's no 64 bit integer number in JavaScript, so `kotlin.Long` is not mapped to any JavaScript object,
-  it's emulated by a Kotlin class.
+* `kotlin.Long` is not mapped to any JavaScript object, as there is no 64-bit integer number type in JavaScript. It is emulated by a Kotlin class. 
 * `kotlin.String` is mapped to JavaScript String.
 * `kotlin.Any` is mapped to JavaScript Object (i.e. `new Object()`, `{}`, etc).
 * `kotlin.Array` is mapped to JavaScript Array.

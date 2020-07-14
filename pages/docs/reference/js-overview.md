@@ -5,18 +5,22 @@ category: "Introduction"
 title: "Kotlin for JavaScript"
 ---
 
-# Kotlin JavaScript Overview
+# Kotlin/JS Overview
 
-Kotlin provides the ability to target JavaScript. It does so by transpiling Kotlin to JavaScript. The current implementation targets ECMAScript 5.1 but there are plans to eventually target ECMAScript 2015 as well.
+Kotlin provides the ability to target JavaScript. It does so by transpiling Kotlin to JavaScript. The current implementation of Kotlin/JS targets [ES5](https://www.ecma-international.org/ecma-262/5.1/). Support for targeting [ES6](http://www.ecma-international.org/ecma-262/6.0/) directly is currently in development.
 
-When you choose the JavaScript target, any Kotlin code that is part of the project as well as the standard library that ships with Kotlin is transpiled to JavaScript. However, this excludes the JDK and any JVM or Java framework or library used. Any file that is not Kotlin will be ignored during compilation.
+Kotlin/JS is compatible with the most common module systems: CommonJS, AMD and UMD. It allows you to [produce and consume modules](/docs/tutorials/javascript/working-with-modules/working-with-modules.html) from Kotlin code, allowing you to interoperate with JavaScript.
+
+The `kotlin.js` and `kotlin.multiplatform` Gradle plugins allows you to target JavaScript.
+In the JavaScript target, your Kotlin code, the standard library, and any Kotlin libraries targeting JavaScript or common Kotlin code are transpiled to JavaScript.
+ (However, this excludes any JVM or Java dependencies used.)
 
 The Kotlin compiler tries to comply with the following goals:
 
+* Provide the same functionality in the standard library whether targeting JavaScript or the JVM (to the largest possible degree).
+* Provide interoperability with existing module systems
 * Provide output that is optimal in size
 * Provide output that is readable JavaScript
-* Provide interoperability with existing module systems
-* Provide the same functionality in the standard library whether targeting JavaScript or the JVM (to the largest possible degree).
 
 ## How it can be used
 
@@ -26,18 +30,15 @@ You may want to compile Kotlin to JavaScript in the following scenarios:
 
     * **Interacting with DOM elements**. Kotlin provides a series of statically typed interfaces to interact with the Document Object Model, allowing creation and update of DOM elements.
 
-    * **Interacting with graphics such as WebGL**. You can use Kotlin to create graphical elements on a web page using WebGL.
-
 * Creating Kotlin code that targets server-side JavaScript
 
-    * **Working with server-side technology**. You can use Kotlin to interact with server-side JavaScript such as Node.js
+    * **Working with server-side technology**. You can use Kotlin to interact with server-side JavaScript such as Node.js.
 
 Kotlin can be used together with existing third-party libraries and frameworks, such as jQuery or React. To access third-party frameworks
 with a strongly-typed API, you can convert TypeScript definitions from the [Definitely Typed](http://definitelytyped.org/)
-type definitions repository to Kotlin using the [dukat](https://github.com/kotlin/dukat) tool. Alternatively, you can use
+type definitions repository to Kotlin using the [Dukat](https://github.com/kotlin/dukat) tool. Alternatively, you can use
 the [dynamic type](dynamic-type.html) to access any framework without strong typing.
 
-Kotlin is compatible with CommonJS, AMD and UMD, [making interaction with different](/docs/tutorials/javascript/working-with-modules/working-with-modules.html) module systems straightforward.
 
 ## Kotlin/JS, Today and Tomorrow
 

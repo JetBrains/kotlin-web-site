@@ -26,7 +26,7 @@ After selecting a project name, such as `jsTutorial`, IntelliJ IDEA will automat
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 plugins {
-    id("org.jetbrains.kotlin.js") version "1.3.70"
+    id("org.jetbrains.kotlin.js") version "1.4.0"
 }
 
 group = "org.example"
@@ -40,13 +40,33 @@ dependencies {
     implementation(kotlin("stdlib-js"))
 }
 
-kotlin.target.browser { }
+kotlin {
+    js {
+        browser {
+            webpackTask {
+                cssSupport.enabled = true
+            }
+
+            runTask {
+                cssSupport.enabled = true
+            }
+
+            testTask {
+                useKarma {
+                    useChromeHeadless()
+                    webpackConfig.cssSupport.enabled = true
+                }
+            }
+        }
+        binaries.executable()
+    }
+}
 ```
 </div>
 
 As we can see, the `kotlin.js` Gradle plugin is used to provide JavaScript support for our project. The plugin also takes care of managing a development environment for us – under the hood, it manages its own `yarn` and `webpack` installation, and exposes their functionality through the Gradle DSL.
 
-The `kotlin.target.browser` part at the bottom of the file can be used for target-specific configurations. This part becomes relevant when adjusting the behavior of the JS plugin, for example to configure the available test runners for the platform.
+The `kotlin.js.browser` part at the bottom of the file can be used for target-specific configurations. This part becomes relevant when adjusting the behavior of the JS plugin, for example to configure the available test runners (like Karma) for the platform.
 
 To learn about how to run your program, both in the browser and on the Node.js target, check out [Running Kotlin/JS](running-kotlin-js.html).
 
