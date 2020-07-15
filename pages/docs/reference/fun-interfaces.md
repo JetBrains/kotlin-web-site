@@ -21,7 +21,7 @@ fun interface Action {
 
 </div>
 
-For functional interfaces, you can use SAM conversions that help you make your code more concise and readable by using 
+For functional interfaces, you can use SAM conversions that help you make your code more concise and readable thanks to 
 lambda expressions.
 
 Instead of creating a class that implements a functional interface manually, you can use a lambda expression. 
@@ -45,8 +45,7 @@ If you don't use lambdas, you will need to write code like this:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-// Creating instance of an anonymous class
-// using the object keyword
+// Creating an instance of a class
 val sum = object : Sum {
     override fun add(a: Int, b: Int): Int {
         return a + b
@@ -62,7 +61,7 @@ you can write the following equivalent code instead:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-// Creating instance using a lambda
+// Creating an instance using lambda
 val sum = Sum { a, b -> a + b }
 ```
 
