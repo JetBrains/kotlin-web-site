@@ -155,15 +155,29 @@ The handler passed to the `vetoable` is called _before_ the assignment of a new 
 
 ## Delegating to another property
 
-A property can delegate its getter and setter to another property of the same class. In this case, use the property name
-with the `this::` qualifier as the delegate name.
+Since Kotlin 1.4, a property can delegate its getter and setter to another property. Such delegation is available for
+both top-level and class properties (member and extension). The delegate property can be:
+- a top-level property
+- a member or an extension property of the same class
+- a member or an extension property of another class
+
+To delegate a property to another property, use the proper `::` qualifier in the delegate name, for example, `this::delegate` or
+`MyClass::delegate`.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-    var delegate: Int
-    // ...
-    var delegatedProperty: Int by this::delegate
+
+var topLevelDelegate: Int
+class MyClass(var memberDelegate: Int) {
+    var delegatedToMember: Int by this::memberDelegate
+    var delegatedToTopLevel: Int by ::topLevelDelegate
+    val delegegateToAnotherClass: Int by ClassWithDelegate::anotherClassDelegate
+}
+class ClassWithDelegate(val anotherClassDelegate: Int)
+
+var MyClass.extDelegated: Int by ::topLevelDelegate
+
 ```
 
 </div>
@@ -258,7 +272,7 @@ class MutableUser(val map: MutableMap<String, Any?>) {
 
 </div>
 
-## Local delegated properties (since 1.1)
+## Local delegated properties
 
 You can declare local variables as delegated properties.
 For instance, you can make a local variable lazy:
@@ -343,17 +357,22 @@ class ResourceDelegate(private var resource: Resource = Resource()) {
 The latter is handy when you need to delegate property to an object which doesn't originally provide these functions.
 Both of the functions need to be marked with the `operator` keyword.
 
-You can create delegate classes by implementing interfaces `ReadOnlyProperty` and `ReadWriteProperty` from the Kotlin standard
-library. They provide the required methods: `getValue()` is declared in `ReadOnlyProperty`; `ReadWriteProperty`
+You can create delegates as anonymous objects without creating new classes using the interfaces `ReadOnlyProperty`
+and `ReadWriteProperty` from the Kotlin standard library.
+They provide the required methods: `getValue()` is declared in `ReadOnlyProperty`; `ReadWriteProperty`
 extends it and adds `setValue()`. Thus, you can pass a `ReadWriteProperty` whenever a `ReadOnlyProperty` is expected.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-fun resourceDelegate(): ReadWriteProperty<Nothing?, Int> =
-   object : ReadWriteProperty<Nothing?, Int> {
-      //...
-   }
+fun resourceDelegate(): ReadWriteProperty<Any?, Int> =
+    object : ReadWriteProperty<Any?, Int> {
+        var curValue = 0 
+        override fun getValue(thisRef: Any?, property: KProperty<*>): Int = curValue
+        override fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
+            curValue = value
+        }
+    }
 
 val readOnly: Int by resourceDelegate()  // ReadWriteProperty as val
 var readWrite: Int by resourceDelegate()
@@ -391,14 +410,13 @@ to an instance of the outer class `C` and `this::prop` is a reflection object of
 Note that the syntax `this::prop` to refer a [bound callable reference](reflection.html#bound-function-and-property-references-since-11)
 in the code directly is available only since Kotlin 1.1.  
 
-### Providing a delegate (since 1.1)
+### Providing a delegate
 
 By defining the `provideDelegate` operator you can extend the logic of creating the object to which the property implementation
 is delegated. If the object used on the right-hand side of `by` defines `provideDelegate` as a member or extension function,
 that function will be called to create the property delegate instance.
 
-One of the possible use cases of `provideDelegate` is to check property consistency when the property is created,
-not only in its getter or setter.
+One of the possible use cases of `provideDelegate` is to check the consistency of the property upon its initialization.
 
 For example, if you want to check the property name before binding, you can write something like this:
 
@@ -490,18 +508,16 @@ class C {
 Note that the `provideDelegate` method affects only the creation of the auxiliary property and doesn't affect the code
 generated for getter or setter.
 
-With the `PropertyDelegateProvider` interface from the standard library, you can create delegate providers as anonymous
-objects without creating new classes.
+With the `PropertyDelegateProvider` interface from the standard library, you can create delegate providers without creating new classes.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-fun makeDelegate() = PropertyDelegateProvider<Nothing?, Int> =
-    object : PropertyDelegateProvider<Nothing?, Int> {
-        //...
-    }
+val provider = PropertyDelegateProvider { thisRef: Any?, property ->
+    ReadOnlyProperty<Any?, Int> {_, property -> 42 }
+}
 
-val delegate by makeDelegate()
+val delegate: Int by provider
 ```
 
 </div>
