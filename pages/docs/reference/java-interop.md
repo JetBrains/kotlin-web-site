@@ -752,9 +752,6 @@ executor.execute(Runnable { println("This runs in a thread pool") })
 Note that SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
 abstract method.
 
-Also note that this feature works only for Java interop; since Kotlin has proper function types, automatic conversion
-of functions into implementations of Kotlin interfaces is unnecessary and therefore unsupported.
-
 ## Using JNI with Kotlin
 
 To declare a function that is implemented in native (C or C++) code, you need to mark it with the `external` modifier:
