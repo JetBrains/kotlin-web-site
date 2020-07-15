@@ -5,7 +5,7 @@ category: "Syntax"
 title: "Basic Types: Numbers, Strings, Arrays"
 ---
 
-# Basic Types
+# Basic Type
 
 In Kotlin, everything is an object in the sense that we can call member functions and properties on any variable.
 Some of the types can have a special internal representation - for example, numbers, characters and booleans can be
