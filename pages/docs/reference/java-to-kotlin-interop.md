@@ -333,19 +333,19 @@ making its getter and setter methods static members in that object or the class 
 > Default methods are available only for targets JVM 1.8 and above.
 {:.note}
 
-> The `@JvmDefault` annotation is experimental in Kotlin 1.3. Its name and behavior may change, leading to future incompatibility.
-{:.note}
-
 Starting from JDK 1.8, interfaces in Java can contain [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html).
-You can declare a non-abstract member of a Kotlin interface as default for the Java classes implementing it.
-To make a member default, mark it with the [`@JvmDefault`](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html) annotation.
+To make all non-abstract members of Kotlin interfaces default for the Java classes implementing them, compile the Kotlin 
+code with the `-Xjvm-default=all` compiler option.
+
 Here is an example of a Kotlin interface with a default method:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
+// compile with -Xjvm-default=all
+
 interface Robot {
-    @JvmDefault fun move() { println("~walking~") }
+    fun move() { println("~walking~") }  // will be default in the Java interface
     fun speak(): Unit
 }
 ```
@@ -397,53 +397,26 @@ public class BB8 implements Robot {
 ```
 </div>
 
-For the `@JvmDefault` annotation to take effect, the interface must be compiled with an `-Xjvm-default` argument.
-Depending on the case of adding the annotation, specify one of the argument values:
+### Compatibility mode for default methods
 
-* `-Xjvm-default=enabled` should be used if you add only new methods with the `@JvmDefault` annotation.
-   This includes adding the entire interface for your API.
-* `-Xjvm-default=compatibility` should be used if you are adding a `@JvmDefault` to the methods that were available in the API before.
-   This mode helps avoid compatibility breaks: all the interface implementations written for the previous versions will be fully compatible with the new version.
-   However, the compatibility mode may add some overhead to the resulting bytecode size and affect the performance.
+If there is client Java code that uses your Kotlin interfaces compiled with Kotlin 1.3 or older, then recompiling it with 
+Kotlin 1.4 or newer with `-Xjvm-default=all` may break that Java code. 
 
-For more details about compatibility issues, see the `@JvmDefault` [reference page](/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html).
+To avoid breaking the Java code that uses your Kotlin code compiled with 1.3 or older versions, use the `-Xjvm-default=all-compatibility`
+compiler option. In this case, all the interface implementations written for the previous versions will be fully compatible
+with the new version. However, the compatibility mode adds some overhead to the resulting bytecode size and affects the performance.
 
-### Using in delegates
+There is no need in compatibility for the new interfaces you add because no client code uses their previous versions.
+Thus, you can minimize the compatiblity overhead by excluding these interfaces from the compatibility mode.
+To do this, annotate them with the `@JvmDefaultWithoutCompatibility` annotation. Such interfaces compile the same way as
+with `-Xjvm-default=all`.
 
-Note that if an interface with `@JvmDefault` methods is used as a [delegate](/docs/reference/delegation.html),
-the default method implementations are called even if the actual delegate type provides its own implementations.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-interface Producer {
-    @JvmDefault fun produce() {
-        println("interface method")
-    }
-}
-
-class ProducerImpl: Producer {
-    override fun produce() {
-        println("class method")
-    }
-}
-
-class DelegatedProducer(val p: Producer): Producer by p {
-}
-
-fun main() {
-    val prod = ProducerImpl()
-    DelegatedProducer(prod).produce() // prints "interface method"
-}
-```
-</div>
-
-For more details about interface delegation in Kotlin, see [Delegation](/docs/reference/delegation.html).
-
+Additionally, in the `all-compatibility` mode you can use  `@JvmDefaultWithoutCompatibility` to annotate all interfaces 
+not exposed in the public API and therefore aren’t used by the existing clients.
 
 ## Visibility
 
-The Kotlin visibilities are mapped to Java in the following way:
+The Kotlin visibility modifiers map to Java in the following way:
 
 * `private` members are compiled to `private` members;
 * `private` top-level declarations are compiled to package-local declarations;
