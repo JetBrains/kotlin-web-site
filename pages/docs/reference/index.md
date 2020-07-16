@@ -83,7 +83,6 @@ title: "Reference"
           <p>Check out these community resources for more information:</p>
           <ul>
               <li class="start migrate"> <a style="text-decoration: none;" href="https://kotlin.link">kotlin.link</a></li>
-              <li class="start migrate"> <a style="text-decoration: none;" href="https://superkotlin.com/blog/">superkotlin blog</a></li>
           </ul>
       </div>
 </div>
