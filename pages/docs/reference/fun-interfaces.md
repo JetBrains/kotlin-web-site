@@ -89,6 +89,8 @@ fun main(){
 
 </div>
 
+You can also use [SAM conversions for Java interfaces](java-interop.html#sam-conversions).
+
 ## Limitations of functional interfaces
 
 Functional interfaces have the following limitations:
