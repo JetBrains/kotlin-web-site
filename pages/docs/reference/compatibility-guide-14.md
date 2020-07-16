@@ -504,3 +504,33 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > - < 1.4: old behavior (see details in the issue)
 > - \>= 1.4: behavior changed
+
+### Remove deprecated `kotlin.coroutines.experimental`
+
+> **Issue**: [KT-36083](https://youtrack.jetbrains.com/issue/KT-36083)
+> 
+> **Component**: kotlin-stdlib
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, the deprecated `kotlin.coroutines.experimental` API is removed from stdlib.
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: `kotlin.coroutines.experimental` is deprecated with the `ERROR` level
+> - \>= 1.4: `mod` is removed from stdlib. On the JVM, a separate compatibility artifact is provided (see details in the issue).
+
+### Remove deprecated `mod` operator
+
+> **Issue**: [KT-26654](https://youtrack.jetbrains.com/issue/KT-26654)
+> 
+> **Component**: kotlin-stdlib
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, `mod` operator on numeric types is removed from stdlib
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: `mod` is deprecated with the `ERROR` level
+> - \>= 1.4: `mod` is removed from stdlib
