@@ -75,8 +75,9 @@ export default class Map {
     });
 
     // MARKERS
-    this._createMarkers(store.events);
-    const markers = this.markers;
+    const markers = this.markers = store.events
+        .filter(event => event.city)
+        .map(event => new Marker(event, this));
 
     emitter.on(EVENTS.EVENT_SELECTED, (event) => {
       const currentMarker = event.marker;
@@ -115,25 +116,16 @@ export default class Map {
    * @param {Array<Event>} events
    */
   _createMarkers(events) {
-    const map = this;
-    const markers = [];
 
-    events.forEach((event) => {
-      if (!event.city) {
-        return;
-      }
-      markers.push(new Marker(event, map));
-    });
 
-    this.markers = markers;
   }
 
   _limitWorldBounds() {
     const map = this.instance;
 
     const maxBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(-85, -175),
-      new google.maps.LatLng(85, 175)
+        new google.maps.LatLng(-85, -175),
+        new google.maps.LatLng(85, 175)
     );
 
     limitMap(map, maxBounds);
@@ -151,8 +143,8 @@ export default class Map {
 
     this.store.events.forEach((event) => {
       filteredEvents.indexOf(event) > -1
-        ? event.marker.show()
-        : event.marker.hide();
+          ? event.marker.show()
+          : event.marker.hide();
     });
 
     const eventsBounds = new google.maps.LatLngBounds(null);

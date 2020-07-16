@@ -9,11 +9,18 @@ FREEZER_IGNORE_404_NOT_FOUND = True
 FLATPAGES_AUTO_RELOAD = True
 FREEZER_STATIC_IGNORE = ["*"]
 ERROR_404_HELP = False
+
 GITHUB_URL = 'https://github.com/JetBrains/kotlin'
 TWITTER_URL = 'https://twitter.com/kotlin'
+SLACK_URL = 'https://surveys.jetbrains.com/s3/kotlin-slack-sign-up'
+REDDIT_URL = 'https://www.reddit.com/r/Kotlin/'
+STACK_OVERFLOW_URL = 'https://stackoverflow.com/questions/tagged/kotlin'
+BLOG_URL = 'https://blog.jetbrains.com/kotlin/'
+FORUM_URL = 'https://discuss.kotlinlang.org/'
+BUGTRACKER_URL = 'https://youtrack.jetbrains.com/issues/KT'
+
 EDIT_ON_GITHUB_URL = 'https://github.com/JetBrains/kotlin-web-site/edit/master/'
 PDF_URL = '/docs/kotlin-docs.pdf'
-FORUM_URL = 'http://devnet.jetbrains.com/community/kotlin'
 SITE_GITHUB_URL = 'http://github.com/JetBrains/kotlin-web-site'
 CODE_URL = 'https://github.com/JetBrains/kotlin-examples/tree/master'
 

@@ -33,6 +33,38 @@ def find_closest_tag(element, tagname):
     return current_element
 
 
+processors = {
+    'h1': 'typo-header typo-h1',
+    'h2': 'typo-header typo-h2',
+    'h3': 'typo-header typo-h3',
+    'h4': 'typo-header typo-h4',
+
+    'ul': 'typo-list typo-list_type_simple',
+    'ol': 'typo-list typo-list_type_ordered',
+    'li': 'typo-list__item',
+
+    'p': 'typo-para',
+    'a': 'typo-link',
+    'blockquote': 'typo-quote',
+    'hr': 'typo-hr',
+    'img': 'typo-image',
+    'strong': 'type-strong'
+}
+
+
+def process_markdown_html(tree):
+    tree = process_code_blocks(tree)
+
+    for element in tree.select('*'):
+        appendClass = processors.get(element.name)
+        if appendClass is not None:
+            if element.has_attr('class'):
+                element['class'].append(processors.get(element.name))
+            else:
+                element['class'] = processors.get(element.name)
+
+    return tree
+
 def process_code_blocks(tree):
     if replace_simple_code:
         # some spellcheckers may not know what to do with <code> elements,

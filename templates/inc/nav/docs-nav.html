@@ -1,23 +1,34 @@
 {% for subnav in  nav.subnav.content %}
     {% if subnav.is_active %}
-        <nav class="docs-nav">
-            {% for item in subnav.content %}
-                <div class="nav-item-wrap">
-                    {% if item.is_active %}
-                        <a href="{{ item.url }}" class="nav-item is_active">
-                            <span class="nav-item-text">
-                                {{ item.title }}
-                            </span>
-                        </a>
-                    {% else %}
-                        <a href="{{ item.url }}" class="nav-item">
-                            <span class="nav-item-text">
-                                {{ item.title }}
-                            </span>
-                        </a>
-                    {% endif %}
+        {% if nav.subnav.type == 'tab' %}
+            <nav class="docs-nav-new">
+                <div class="kto-tabs">
+                    {% for item in subnav.content %}
+                        <a class="kto-tabs__item{% if item.is_active %} kto-tabs__item_active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </nav>
+            </nav>
+        {% else %}
+            !{{ nav.subnav.type }}!
+            <nav class="docs-nav">
+                {% for item in subnav.content %}
+                    <div class="nav-item-wrap">
+                        {% if item.is_active %}
+                            <a href="{{ item.url }}" class="nav-item is_active">
+                                <span class="nav-item-text">
+                                    {{ item.title }}
+                                </span>
+                            </a>
+                        {% else %}
+                            <a href="{{ item.url }}" class="nav-item">
+                                <span class="nav-item-text">
+                                    {{ item.title }}
+                                </span>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </nav>
+        {% endif %}
     {% endif %}
 {% endfor %}
