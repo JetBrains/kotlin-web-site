@@ -21,6 +21,8 @@ fun interface Action {
 
 </div>
 
+## SAM conversions
+
 For functional interfaces, you can use SAM conversions that help you make your code more concise and readable thanks to 
 lambda expressions.
 
