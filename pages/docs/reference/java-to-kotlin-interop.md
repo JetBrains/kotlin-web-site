@@ -351,6 +351,9 @@ interface Robot {
 ```
 </div>
 
+Compiling with `-Xjvm-default=all` has the same effect as annotating all non-abstract methods of interfaces with
+`@JvmDefault` and compiling with `-Xjvm-default=enabled`.
+
 The default implementation is available for Java classes implementing the interface.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -399,17 +402,17 @@ public class BB8 implements Robot {
 
 ### Compatibility mode for default methods
 
-If there is client Java code that uses your Kotlin interfaces compiled with Kotlin 1.3 or older, then recompiling it with 
-Kotlin 1.4 or newer with `-Xjvm-default=all` may break that Java code. 
+If there is client Java code that uses your Kotlin interfaces compiled without `-Xjvm-default`, then recompiling it with
+`-Xjvm-default=all` may break that Java code. 
 
-To avoid breaking the Java code that uses your Kotlin code compiled with 1.3 or older versions, use the `-Xjvm-default=all-compatibility`
+To avoid breaking the Java code that uses your Kotlin code compiled without `-Xjvm-default`, use the `-Xjvm-default=all-compatibility`
 compiler option. In this case, all the interface implementations written for the previous versions will be fully compatible
 with the new version. However, the compatibility mode adds some overhead to the resulting bytecode size.
 
 There is no need in compatibility for the new interfaces you add because no client code uses their previous versions.
-Thus, you can minimize the compatiblity overhead by excluding these interfaces from the compatibility mode.
+Thus, you can minimize the compatibility overhead by excluding these interfaces from the compatibility mode.
 To do this, annotate them with the `@JvmDefaultWithoutCompatibility` annotation. Such interfaces compile the same way as
-with `-Xjvm-default=all`.
+with `-Xjvm-default=all`. 
 
 Additionally, in the `all-compatibility` mode you can use  `@JvmDefaultWithoutCompatibility` to annotate all interfaces 
 which are not exposed in the public API and therefore aren’t used by the existing clients.
