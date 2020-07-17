@@ -404,7 +404,7 @@ Kotlin 1.4 or newer with `-Xjvm-default=all` may break that Java code.
 
 To avoid breaking the Java code that uses your Kotlin code compiled with 1.3 or older versions, use the `-Xjvm-default=all-compatibility`
 compiler option. In this case, all the interface implementations written for the previous versions will be fully compatible
-with the new version. However, the compatibility mode adds some overhead to the resulting bytecode size and affects the performance.
+with the new version. However, the compatibility mode adds some overhead to the resulting bytecode size.
 
 There is no need in compatibility for the new interfaces you add because no client code uses their previous versions.
 Thus, you can minimize the compatiblity overhead by excluding these interfaces from the compatibility mode.
@@ -412,7 +412,7 @@ To do this, annotate them with the `@JvmDefaultWithoutCompatibility` annotation.
 with `-Xjvm-default=all`.
 
 Additionally, in the `all-compatibility` mode you can use  `@JvmDefaultWithoutCompatibility` to annotate all interfaces 
-not exposed in the public API and therefore aren’t used by the existing clients.
+which are not exposed in the public API and therefore aren’t used by the existing clients.
 
 ## Visibility
 
