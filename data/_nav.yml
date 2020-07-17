@@ -8,6 +8,9 @@ main:
     - url: /community/
       title: Community
 
+    - url: /education/
+      title: Education
+
     - url: https://play.kotlinlang.org
       title: Play
 
@@ -43,6 +46,14 @@ subnav:
 
         - url: /community/talks.html
           title: Talks & Speakers
+    - url: /education/
+      content:
+        - url: /education/
+          urlPattern: ^\/education\/$
+          title: Overview
+
+        - url: /education/why-teach-kotlin.html
+          title: Why Teach Kotlin
 
 # Reference navigation
 # ====================
@@ -69,6 +80,8 @@ reference:
     - title: What's New
       description: What's new in Kotlin releases
       content:
+        - url: /docs/reference/whatsnew14.html
+          title: What's New in 1.4
         - url: /docs/reference/whatsnew13.html
           title: What's New in 1.3
         - url: /docs/reference/whatsnew12.html
