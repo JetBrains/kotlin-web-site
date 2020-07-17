@@ -4,18 +4,18 @@ layout: reference
 title: "Functional interfaces (SAM interfaces)"
 ---
 
-# Functional (SAM) interfaces
+# Functional (SAM) interfaces 
 
 An interface with only one abstract method is called a _functional interface_, or a _Single Abstract 
-Method (SAM) interface_.
+Method (SAM) interface_. The functional interface can have several non-abstract members but only one abstract member.
 
 To declare a functional interface in Kotlin, use the `fun` modifier.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun interface Action {
-    fun run()
+fun interface SuspendRunnable {
+    suspend fun invoke()
 }
 ```
 
@@ -24,7 +24,7 @@ fun interface Action {
 ## SAM conversions
 
 For functional interfaces, you can use SAM conversions that help you make your code more concise and readable using 
-lambda expressions.
+[lambda expressions](lambdas.html#lambda-expressions-and-anonymous-functions).
 
 Instead of creating a class that implements a functional interface manually, you can use a lambda expression. 
 Thanks to a SAM conversion, Kotlin can convert any lambda expression whose signature matches 
@@ -68,10 +68,7 @@ val isEven = IntPredicate { it % 2 == 0 }
 
 </div>
 
-As you can see, a short lambda expression, which is prefixed with the name of the interface, replaces all the unnecessary 
-code.
-
-Here is what you get:
+A short lambda expression replaces all the unnecessary code.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4-M1">
 
@@ -89,13 +86,43 @@ fun main(){
 
 </div>
 
+In another example of a SAM conversion, the function `process()` uses a lambda instead of creating an anonymous object.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun interface SuspendRunnable {
+    suspend fun invoke()
+}
+
+class Listener {
+    fun setOnClickListener(r: SuspendRunnable) {
+        GlobalScope.launch { r.invoke() }
+    }
+}
+class Button(private val listener: Listener) {
+    fun process() {
+        listener.setOnClickListener {
+            addText()
+        }
+    }
+    suspend fun addText() { 
+        // ...
+    }
+}
+```
+
+</div>
+
+
 You can also use [SAM conversions for Java interfaces](java-interop.html#sam-conversions).
 
-## Limitations of functional interfaces
+## Functional interfaces vs. type aliases
 
-Functional interfaces have the following limitations:
+Functional interfaces and [type aliases](type-aliases.html) serve different purposes. Type aliases are just names for 
+existing types - they don't create a new type, while functional interfaces do.
 
-* Functional abstract classes are not supported.
-* Functional interfaces should have exactly one abstract member.
-* Functional interfaces do not support abstract properties.
+Type aliases can have only one member while functional interfaces can have several non-abstract members and one abstract member.
+Functional interfaces can also implement and extend other interfaces. 
 
+So functional interfaces are more flexible and provide more capabilities than type aliases. 
