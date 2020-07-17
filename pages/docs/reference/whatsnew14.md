@@ -81,3 +81,31 @@ with the value `strict` or `warning`.
 </div>
 
 For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
+
+## Kotlin/Native
+
+### Simplified management of CocoaPods dependencies
+
+Previously, once you integrated your project with the dependency manager CocoaPods, you could build an iOS, macOS, watchOS, 
+or tvOS part of your project only in Xcode, separate from other parts of your multiplatform project. These other parts could 
+be built in Intellij IDEA. 
+
+Moreover, every time you added a dependency on an Objective-C library stored in CocoaPods (Pod library), you had to switch 
+from IntelliJ IDEA to Xcode, run the task `pod install`, and run the Xcode build there. 
+
+Now you can manage Pod dependencies right in Intellij IDEA while enjoying the benefits it provides for working with code, 
+such as code highlighting and completion. You can also build the whole Kotlin project with Gradle, without having to 
+switch to Xcode. This means you only have to go to Xcode when you need to write Swift/Objective-C code or run your application 
+on a simulator or device.
+
+Now you can also work with Pod libraries stored locally.
+
+Depending on your needs, you can add dependencies between:
+* A Kotlin project and Pod libraries stored remotely in the CocoaPods repository or stored locally on your machine.
+* A Kotlin Pod (Kotlin project used as a CocoaPods dependency) and an Xcode project with one or more targets.
+* Several Kotlin Pods and an Xcode project.
+
+Complete the initial configuration, and when you add a new dependency to `cocoapods`, just re-import the project in IntelliJ IDEA. 
+The new dependency will be added automatically. No additional steps are required.
+
+Learn [how to add dependencies](native/cocoapods.html).
