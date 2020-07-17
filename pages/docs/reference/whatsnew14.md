@@ -6,6 +6,35 @@ title: "What's New in Kotlin 1.4"
 
 # What's New in Kotlin 1.4
 
+## Language features
+
+### SAM conversions for Kotlin interfaces
+
+Before Kotlin 1.4, you could apply SAM (Single Abstract Method) conversions only [when working with Java methods and Java 
+interfaces from Kotlin](java-interop.htmll#sam-conversions). From now on, you can use SAM conversions for Kotlin interfaces as well.
+For this purpose, mark a Kotlin interface explicitly as functional with the `fun` modifier.
+
+SAM conversion applies if you pass a lambda as an argument when an interface with only one single abstract method is expected 
+as a parameter. In this case, the compiler automatically converts the lambda to an instance of the class implementing the abstract member function.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun interface IntPredicate {
+    fun accept(i: Int): Boolean
+}
+
+val isEven = IntPredicate { it % 2 == 0 }
+
+fun main(){
+    println("Is 7 even? - ${isEven.accept(7)}")
+}
+```
+
+</div>
+
+Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
+
 ## Explicit API mode
 
 Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
