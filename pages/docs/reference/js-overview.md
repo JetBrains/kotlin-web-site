@@ -39,6 +39,14 @@ the [dynamic type](dynamic-type.html) to access any framework without strong typ
 
 Kotlin is compatible with CommonJS, AMD and UMD, [making interaction with different](/docs/tutorials/javascript/working-with-modules/working-with-modules.html) module systems straightforward.
 
+## Kotlin/JS, Today and Tomorrow
+
+Want to know more about Kotlin/JS? 
+
+In this short video, Kotlin Developer Advocate Sebastian Aigner will explain the main Kotlin/JS benefits to you, share some tips and use cases, and also tell you about the plans and upcoming features for Kotlin/JS.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fZUL8_kgHXg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Getting Started with Kotlin/JS
 
