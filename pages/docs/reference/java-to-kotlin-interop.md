@@ -612,7 +612,7 @@ fun writeToFile() {
 
 When calling Kotlin functions from Java, nobody prevents us from passing *null*{: .keyword } as a non-null parameter.
 That's why Kotlin generates runtime checks for all public functions that expect non-nulls.
-This way we get a `NullPointerException` in the Java code immediately.
+This way we get a `IllegalArgumentException` in the Java code immediately.
 
 ## Variant generics
 
