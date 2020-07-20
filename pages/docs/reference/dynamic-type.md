@@ -23,7 +23,7 @@ The `dynamic` type basically turns off Kotlin's type checker:
   - A `dynamic` value can be assigned to variables of any type, or passed anywhere as a parameter.
   - A `dynamic` variable can have a value of any type.
   - A function that takes a `dynamic` parameter can take arguments of any type. 
-  - `null`-checks are disabled for such values.
+  - `null`-checks are disabled for values of type `dynamic`.
 
 On a `dynamic` variable, you can call **any** property or function, with any parameters: 
 
@@ -34,7 +34,7 @@ dyn.whatever(*arrayOf(1, 2, 3))
 ```
 </div>
 
-On the JavaScript platform this code will be compiled "as is": `dyn.whatever(1)` in Kotlin becomes `dyn.whatever(1)` in
+This code will be compiled "as is": `dyn.whatever(1)` in Kotlin becomes `dyn.whatever(1)` in
 the generated JavaScript code.
 
 When calling functions written in Kotlin on values of `dynamic` type, keep in mind the name mangling performed by the
