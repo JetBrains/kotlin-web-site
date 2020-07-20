@@ -11739,7 +11739,7 @@ Following will be the key takeaways
         <subject>Unleashing more Kotlin power – in full-stack web applications</subject>
         <url>https://www.meetup.com/kotlin-london/events/270844240/</url>
         <content>
-            <video>https://www.youtube.com/watch?v=AT9eZVpPh7Y&feature=youtu.be</video>
+            <video>https://www.youtube.com/watch?v=AT9eZVpPh7Y&amp;feature=youtu.be</video>
         </content>
         <description>
             <![CDATA[
