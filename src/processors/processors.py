@@ -48,7 +48,11 @@ processors = {
     'blockquote': 'typo-quote',
     'hr': 'typo-hr',
     'img': 'typo-image',
-    'strong': 'type-strong'
+    'strong': 'typo-strong',
+
+    'table': 'typo-table',
+    'tr': 'typo-table__row',
+    'td': 'typo-table__column',
 }
 
 
