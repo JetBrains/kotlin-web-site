@@ -6,14 +6,22 @@ title: "What's New in Kotlin 1.4"
 
 # What's New in Kotlin 1.4
 
+## Language features and improvements
+
 ## More powerful type inference algorithm
 
 Kotlin 1.4 uses a new, more powerful type inference algorithm. You were already able to try this new algorithm with 
 Kotlin 1.3 by specifying a compiler option, and now it’s used by default. You can find the full list of issues fixed in 
 the new algorithm in [YouTrack](https://youtrack.jetbrains.com/issues/KT?q=Tag:%20fixed-in-new-inference%20). Here
-you can find some of the most noticeable improvements.
+you can find some of the most noticeable improvements:
 
-### Inferring type automatically in more use-cases
+* Inferring a type automatically in more cases
+* Smart casts for the lambda’s last expression
+* Smart casts for callable references
+* Better inference for delegated properties
+* SAM conversion for Java interfaces with different arguments
+
+#### Inferring a type automatically in more cases
 
 The new inference algorithm infers types for many cases where the old inference required you to specify them explicitly. 
 For instance, in the following example, the type of the lambda parameter `it` is correctly inferred to `String?`:
@@ -41,7 +49,7 @@ fun main() {
 In Kotlin 1.3, you needed to introduce an explicit lambda parameter, or replace `to` with a `Pair` constructor with 
 explicit generic arguments to make it work.
 
-### Smart casts for lambda’s last expression
+#### Smart casts for the lambda’s last expression
 
 In Kotlin 1.3, the last expression inside lambda isn’t smart cast unless you specify the expected type. Thus, in the 
 following example, Kotlin 1.3 infers `String?` as the type of the `result` variable:
@@ -67,7 +75,7 @@ more precise type is used to infer the resulting lambda type. Thus, the type of 
 In Kotlin 1.3, you often needed to add explicit casts (either `!!` or type casts like `as String`) to make such cases work, 
 and now these casts have become unnecessary.
 
-### Smart casts for callable references
+#### Smart casts for callable references
 
 In Kotlin 1.3, you couldn’t access a member reference of a smart cast type. Now you can:
 
@@ -107,28 +115,7 @@ fun main() {
 You can use different member references `animal::meow` and `animal::woof` after the animal variable has been smart cast 
 to specific types `Cat` and `Dog`. After type checks, you can access member references corresponding to subtypes.
 
-### Better inference for callable references
-
-Using callable references to functions with default argument values is now more convenient. For example, the callable reference 
-to the following `foo` function can be interpreted both as taking one `Int` argument or taking no arguments:
-
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
-
-```kotlin
-fun foo(i: Int = 0): String = "$i!"
-
-fun apply1(func: () -> String): String = func()
-fun apply2(func: (Int) -> String): String = func(42)
-
-fun main() {
-    println(apply1(::foo))
-    println(apply2(::foo))
-}
-```
-
-</div>
-
-### Better inference for delegated properties
+#### Better inference for delegated properties
 
 The type of a delegated property wasn’t taken into account while analyzing the delegate expression which follows the `by` 
 keyword. For instance, the following code didn’t compile before, but now the compiler correctly infers the types of the 
@@ -150,13 +137,101 @@ fun main() {
 
 </div>
 
-### SAM conversion for Java interfaces with different arguments
+#### SAM conversion for Java interfaces with different arguments
 
 Kotlin has supported SAM conversions for Java interfaces from the beginning, but there was one case that wasn’t supported, 
 which was sometimes annoying when working with existing Java libraries. If you called a Java method that took two SAM interfaces 
 as parameters, both arguments need to be either lambdas or regular objects. You couldn't pass one argument as a lambda and 
 another as an object. The new algorithm fixes this issue, and you can pass a lambda instead of a SAM interface in any case, 
 which is the way you’d naturally expect it to work.
+
+### Callable reference improvements
+
+Kotlin 1.4 supports more cases for using callable references:
+
+* References to functions with default argument values
+* Function references in `Unit`-returning functions 
+* References to functions with a variable number of arguments (`vararg`)
+* Suspend conversion on callable references in Kotlin/JVM
+
+#### References to functions with default argument values 
+
+Using callable references to functions with default argument values is now more convenient. For example, the callable reference 
+to the following `foo` function can be interpreted both as taking one `Int` argument or taking no arguments:
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun foo(i: Int = 0): String = "$i!"
+
+fun apply1(func: () -> String): String = func()
+fun apply2(func: (Int) -> String): String = func(42)
+
+fun main() {
+    println(apply1(::foo))
+    println(apply2(::foo))
+}
+```
+
+</div>
+
+#### Function references in `Unit`-returning functions 
+
+Now you can use callable references to functions returning any type in `Unit`-returning functions. The Unit-returning 
+function `foo()` uses a callable reference to `returnsInt()` returning `Int` as a result.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun foo(f: () -> Unit) { }
+fun returnsInt(): Int = 42
+
+fun main() {
+    println(foo(::returnsInt))
+}
+```
+
+</div>
+
+#### References to functions with a variable number of arguments
+
+Starting from Kotlin 1.4, you can use callable references to functions with a variable number of arguments (`vararg`) 
+at the end. You can use any number of arguments of the same type at the end.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun foo(x: Int, vararg y: String) {}
+
+fun use0(f: (Int) -> Unit) {}
+fun use1(f: (Int, String) -> Unit) {}
+fun use2(f: (Int, String, String) -> Unit) {}
+
+fun test() {
+    use0(::foo) 
+    use1(::foo) 
+    use2(::foo) 
+}
+```
+
+</div>
+
+#### Suspend conversion on callable references
+
+Kotlin 1.4 supports suspend conversion on callable references in Kotlin/JVM. 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun call() {}
+fun takeSuspend(f: suspend () -> Unit) {}
+
+fun test() {
+    takeSuspend(::call)
+}
+```
+
+</div>
 
 ## Explicit API mode
 
