@@ -103,7 +103,6 @@ Now you can also work with Pod libraries stored locally.
 Depending on your needs, you can add dependencies between:
 * A Kotlin project and Pod libraries stored remotely in the CocoaPods repository or stored locally on your machine.
 * A Kotlin Pod (Kotlin project used as a CocoaPods dependency) and an Xcode project with one or more targets.
-* Several Kotlin Pods and an Xcode project.
 
 Complete the initial configuration, and when you add a new dependency to `cocoapods`, just re-import the project in IntelliJ IDEA. 
 The new dependency will be added automatically. No additional steps are required.
