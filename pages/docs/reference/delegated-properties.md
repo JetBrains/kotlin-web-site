@@ -167,17 +167,18 @@ To delegate a property to another property, use the proper `::` qualifier in the
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
+var topLevelInt: Int = 0
 
-var topLevelDelegate: Int
-class MyClass(var memberDelegate: Int) {
-    var delegatedToMember: Int by this::memberDelegate
-    var delegatedToTopLevel: Int by ::topLevelDelegate
-    val delegegateToAnotherClass: Int by ClassWithDelegate::anotherClassDelegate
+class ClassWithDelegate(val anotherClassInt: Int)
+//sampleStart
+class MyClass(var memberInt: Int, val anotherClassInstance: ClassWithDelegate) {
+    var delegatedToMember: Int by this::memberInt
+    var delegatedToTopLevel: Int by ::topLevelInt
+    
+    val delegatedToAnotherClass: Int by anotherClassInstance::anotherClassInt
 }
-class ClassWithDelegate(val anotherClassDelegate: Int)
-
-var MyClass.extDelegated: Int by ::topLevelDelegate
-
+var MyClass.extDelegated: Int by ::topLevelInt
+//sampleEnd
 ```
 
 </div>
