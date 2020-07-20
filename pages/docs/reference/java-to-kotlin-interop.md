@@ -351,8 +351,9 @@ interface Robot {
 ```
 </div>
 
-Compiling with `-Xjvm-default=all` has the same effect as annotating all non-abstract methods of interfaces with
-`@JvmDefault` and compiling with `-Xjvm-default=enabled`.
+>**Note**: Compiling with `-Xjvm-default=all` generally works as if you annotated all non-abstract methods of interfaces
+>with `@JvmDefault`and compiled with `-Xjvm-default=enabled`. This was the way to compile methods of Kotlin interfaces
+>to `default` in Kotlin prior to 1.4.
 
 The default implementation is available for Java classes implementing the interface.
 
@@ -402,12 +403,12 @@ public class BB8 implements Robot {
 
 ### Compatibility mode for default methods
 
-If there is client Java code that uses your Kotlin interfaces compiled without `-Xjvm-default`, then recompiling it with
-`-Xjvm-default=all` may break that Java code. 
+If there are clients that use your Kotlin interfaces compiled without `-Xjvm-default`, then they can be incompatible with
+ the same code compiled with `-Xjvm-default=all`. 
 
-To avoid breaking the Java code that uses your Kotlin code compiled without `-Xjvm-default`, use the `-Xjvm-default=all-compatibility`
-compiler option. In this case, all the interface implementations written for the previous versions will be fully compatible
-with the new version. However, the compatibility mode adds some overhead to the resulting bytecode size.
+To avoid breaking the compatibility with such clients, compile your Kotlin code in the _compatibility mode_ by specifying
+the `-Xjvm-default=all-compatibility` compiler option. In this case, all the code that uses the previous version will 
+ work fine with the new one. However, the compatibility mode adds some overhead to the resulting bytecode size.
 
 There is no need in compatibility for the new interfaces you add because no client code uses their previous versions.
 Thus, you can minimize the compatibility overhead by excluding these interfaces from the compatibility mode.
