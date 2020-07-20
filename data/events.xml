@@ -11472,12 +11472,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
 <p>Type Proofs propositions are expressed as extension functions that unlock new relationships between types ad-hoc whilst remaining fully compatible with subtype polymorphism and the existing inheritance type system.</p>
 <p>This talk demonstrates some of the new features the Arrow team is introducing in Arrow at the type level and IDE and how others can benefit from them when buildinding libraries and applications.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-05-27</startDate>
         <endDate>2020-05-27</endDate>
@@ -11500,13 +11499,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
 – Kotlin multiplatform setup Xcode + Android studio
 – Kotlin multiplatform client creation#</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-05-28</startDate>
         <endDate>2020-05-28</endDate>
@@ -11519,12 +11516,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
             <![CDATA[
 <p>The latest Kotlin streaming framework by JetBrains.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-05-28</startDate>
         <endDate>2020-05-28</endDate>
@@ -11537,12 +11533,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
             <![CDATA[
 <p>KodeinDI - a Kotlin multiplatform dependency retrieval library that will change the way you look at Dagger.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>it</lang>
         <startDate>2020-05-28</startDate>
         <endDate>2020-05-28</endDate>
@@ -11557,12 +11552,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
 <p>Bloch spiega come risolvere in Java i 'problemi di tutti i giorni' e ispira Andrey Breslav nello sviluppo di Kotlin.</p>
 <p>Discuteremo alcuni punti del libro e scopriremo come questi si applicano nei due linguaggi. Sono richieste conoscenze base del linguaggio Java.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>pt</lang>
         <startDate>2020-05-28</startDate>
         <endDate>2020-05-28</endDate>
@@ -11571,10 +11565,10 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <title>Kotlin Meetup São Paulo</title>
         <subject>Sequence x Iterable em Kotlin: Comparação de performance com Jetpack Benchmark</subject>
         <url>https://www.meetup.com/kotlin-meetup-sp/events/270674738/</url>
-</event>
+    </event>
 
 
-<event>
+    <event>
         <lang>pt</lang>
         <startDate>2020-05-28</startDate>
         <endDate>2020-05-28</endDate>
@@ -11583,12 +11577,10 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <title>Kotlin Meetup São Paulo</title>
         <subject>Kotlin Multiplatforma: Compartilhando código entre Android e iOS</subject>
         <url>https://www.meetup.com/kotlin-meetup-sp/events/270674738/</url>
-</event>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>es</lang>
         <startDate>2020-05-28</startDate>
         <endDate>2020-05-28</endDate>
@@ -11597,12 +11589,10 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <title>Kotlin La Paz</title>
         <subject>Kotlin Nights La Paz - Vol. 5</subject>
         <url>https://www.meetup.com/KotlinLPZ/events/270366975/</url>
-</event>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-05-29</startDate>
         <endDate>2020-05-29</endDate>
@@ -11616,12 +11606,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
 <p>In this codelab, you'll learn how to refactor your code from Java to Kotlin. You'll also learn what the Kotlin language conventions are and how to ensure that the code you're writing follows them.</p>
 <p>This codelab is suited to any developer that uses Java who is considering migrating their project to Kotlin. We'll start with a couple of Java classes that you'll convert to Kotlin using the IDE. Then we'll take a look at the converted code and see how we can improve it by making it more idiomatic and avoid common pitfalls.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-05-30</startDate>
         <endDate>2020-05-30</endDate>
@@ -11630,12 +11619,10 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <title>GDG Ankara</title>
         <subject>Introduction to Kotlin</subject>
         <url>https://www.meetup.com/GDGAnkara/events/270878628/</url>
-</event>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-01</startDate>
         <endDate>2020-06-01</endDate>
@@ -11648,13 +11635,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
             <![CDATA[
 <p>Kubra gave Kotlin/Everywhere talks. She will talking about her K/E journey and how to start converting a Java project to Kotlin.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-03</startDate>
         <endDate>2020-06-03</endDate>
@@ -11667,12 +11652,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
             <![CDATA[
 <p> Kotlin is mostly known as the go-to language for Android development. But it is also great as a more convenient alternative to Java for developing backend services. We at Zalando use Kotlin in both environments and our team has been developing Kotlin backend services at the core of our platform for more than 2 years now.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-03</startDate>
         <endDate>2020-06-03</endDate>
@@ -11695,13 +11679,11 @@ Let's see what coroutines are, how they look like and how they support us in wri
 – Kotlin multiplatform setup Xcode + Android studio
 – Kotlin multiplatform client creation#</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-03</startDate>
         <endDate>2020-06-03</endDate>
@@ -11724,12 +11706,11 @@ Following will be the key takeaways
 5. Testing your flow
 6. High-level comparison with RxJava</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-03</startDate>
         <endDate>2020-06-03</endDate>
@@ -11746,12 +11727,11 @@ Following will be the key takeaways
 <p>In this talk, we will explore how Kotlin and its features around multiplatform projects can help tackle tasks around writing systems that are distributed across multiple platforms, such as server-client applications. In particular, we will look at how Kotlin for JVM and Kotlin/JS can play together, allowing us to share models, business logic, and most of all knowledge. We will get a broad overview of creating, managing and building such applications – all from within a single Gradle project, staying type-safe, and utilizing common and platform libraries.</p>
 <p>We'll also briefly talk about how we at JetBrains employ these Kotlin multiplatform features to prototype new ideas and realize products – from hackathon projects to JetBrains Space, our integrated team environment</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>es</lang>
         <startDate>2020-06-09</startDate>
         <endDate>2020-06-09</endDate>
@@ -11764,6 +11744,7 @@ Following will be the key takeaways
             <![CDATA[
 <p>La programación asincrónica es muy importante. Ya sea que estemos creando aplicaciones del lado del servidor, de escritorio o móviles, es importante que brindemos una experiencia que no solo sea fluida desde la perspectiva del usuario, sino que sea escalable cuando sea necesario.</p>
 <p>Existen muchos enfoques para este problema, y Kotlin toma uno muy flexible al proporcionar soporte de Corutinas a nivel de lenguaje y delegar la mayor parte de la funcionalidad a las bibliotecas, en línea con la filosofía de Kotlin.</p>
+        ]]>
          </description>
 </event>
 
@@ -11782,12 +11763,11 @@ Following will be the key takeaways
             <![CDATA[
 <p>The meeting will be a hands coding session focused on teaching participants the basics of Kotlin and also answering related questions.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>pt</lang>
         <startDate>2020-06-13</startDate>
         <endDate>2020-06-13</endDate>
@@ -11800,13 +11780,11 @@ Following will be the key takeaways
             <![CDATA[
 <p>Neste evento online, vamos nos familiarizar com o conceito de Kotlin Coroutines e ver as melhores e boas práticas da utilização do mesmo em projectos Android e não só.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-16</startDate>
         <endDate>2020-06-16</endDate>
@@ -11815,11 +11793,10 @@ Following will be the key takeaways
         <title>Kraków Kotlin User Group</title>
         <subject>Building Kotlin DSL</subject>
         <url>https://www.meetup.com/krakow-kotlin/events/270766901/</url>
-</event>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-16</startDate>
         <endDate>2020-06-16</endDate>
@@ -11828,11 +11805,10 @@ Following will be the key takeaways
         <title>Kraków Kotlin User Group</title>
         <subject>Type Proofs and Functional Programming for the Kotlin Type System</subject>
         <url>https://www.meetup.com/krakow-kotlin/events/270766901/</url>
-</event>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-17</startDate>
         <endDate>2020-06-17</endDate>
@@ -11845,13 +11821,11 @@ Following will be the key takeaways
             <![CDATA[
 <p>This talk will introduce developers to Quarkus, Red Hat's Container First Cloud Native Java framework and show how it can be used with Kotlin.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-17</startDate>
         <endDate>2020-06-17</endDate>
@@ -11868,12 +11842,11 @@ Following will be the key takeaways
 - Writing more Kotlinish code compared to writing Kotlin code in Javaish way
 - And more!</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-18</startDate>
         <endDate>2020-06-18</endDate>
@@ -11882,12 +11855,10 @@ Following will be the key takeaways
         <title>Kotlin User Group Berlin</title>
         <subject>Informal get-together of Kotlin developers in Berlin</subject>
         <url>https://www.meetup.com/kotlin-berlin</url>
-</event>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-17</startDate>
         <endDate>2020-06-17</endDate>
@@ -11903,12 +11874,11 @@ Following will be the key takeaways
 - How KTX makes Android framework and Jetpack APIs more Kotlin-friendly
 - Coroutines integration at different levels in the app.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>fr</lang>
         <startDate>2020-06-24</startDate>
         <endDate>2020-06-24</endDate>
@@ -11921,12 +11891,11 @@ Following will be the key takeaways
             <![CDATA[
 <p>GraphQL, crée par Facebook, puis rendu open-source, gagne de plus en plus de popularité dans le monde des API. Kotlin n'échappe donc pas au mouvement et propose des solutions permettant de créer un client ou bien un server Kotlin. Ici, nous présenterons une librairie d'expedia pour la partie Server et le client sera créé grâce à Apollo.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-24</startDate>
         <endDate>2020-06-24</endDate>
@@ -11939,11 +11908,11 @@ Following will be the key takeaways
             <![CDATA[
 <p>Have you been working on a project with Kotlin? Is there a library you would like to discuss? Would you like to try public speaking or need help to prepare a talk? Message us, come and have fun sharing your Kotlin story!</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-24</startDate>
         <endDate>2020-06-24</endDate>
@@ -11952,11 +11921,10 @@ Following will be the key takeaways
         <title>Kotlin La Paz</title>
         <subject>Kotlin Coroutines</subject>
         <url>https://www.meetup.com/KotlinLPZ/events/270416031/</url>
-</event>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-25</startDate>
         <endDate>2020-06-25</endDate>
@@ -11965,11 +11933,10 @@ Following will be the key takeaways
         <title>Kotlin Meetup São Paulo</title>
         <subject>Convertendo Swift para Kotlin com Gryphon</subject>
         <url>https://www.meetup.com/kotlin-meetup-sp/events/271071954/</url>
-</event>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-24</startDate>
         <endDate>2020-06-24</endDate>
@@ -11982,13 +11949,11 @@ Following will be the key takeaways
             <![CDATA[
 <p>KFSM is an open-source project that provides a multiplatform Kotlin FSM implementation configured using a DSL. This talk will revisit the history of FSMs and provide insight in the specific implementation and we will live code a sample based on the audience platform choice.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-27</startDate>
         <endDate>2020-06-27</endDate>
@@ -12001,12 +11966,11 @@ Following will be the key takeaways
             <![CDATA[
 <p>Join us this month with our special guest Rivu Chakraborty to learn about Spek a Kotlin Based Specification Testing framework for the JVM.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-07-02</startDate>
         <endDate>2020-07-02</endDate>
@@ -12023,12 +11987,11 @@ Following will be the key takeaways
 - using coroutines for concurrency
 - sharing data between coroutines using channels</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-30</startDate>
         <endDate>2020-06-30</endDate>
@@ -12041,12 +12004,11 @@ Following will be the key takeaways
             <![CDATA[
 <p>Existen situaciones donde tenemos código que se repite varias veces en diferentes lugares; esto lo podemos solucionar centralizando el código en un helper o con otra estrategia diferente. Sin embargo a veces ese código debe ser generado dependiendo de unas entradas. Para ello podemos usar el procesador de anotaciones, que por medio de metadatos (anotaciones) generamos código en tiempo de compilación. En esta charla, veremos cómo funciona el procesador de anotaciones, sus ventajas, desventajas y crearemos anotaciones para unos casos de uso.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-30</startDate>
         <endDate>2020-06-30</endDate>
@@ -12055,16 +12017,15 @@ Following will be the key takeaways
         <title>San Diego Kotlin User Group</title>
         <subject>Monthly Kotlin!</subject>
         <url>https://www.meetup.com/sd-kotlin/events/lxdrlrybckbcb/</url>
-</event>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-07-01</startDate>
         <endDate>2020-07-01</endDate>
         <location>London, United Kingdom</location>
-        <speaker>Garth Gilmour </speaker>
+        <speaker>Garth Gilmour</speaker>
         <title>Kotlin London</title>
         <subject>Generics on the JVM: What you don't know will hurt you</subject>
         <url>https://www.meetup.com/kotlin-london/events/271391822/</url>
@@ -12073,13 +12034,11 @@ Following will be the key takeaways
 <p>Generics on the JVM is hard. You don't need to look far to find evidence of this, but a good start would be (the 350 page FAQ)[http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html]. Issues with Generics trace back to three root causes. First, the inherent difficulty combining type parameters with sub-typing, second the compromises made in the Java syntax and finally the decision to go for a non-reified implementation.</p>
 <p>Kotlin does its best to mitigate these problems. For example, declaration-site variance and type projections are used instead of wildcard types, and reification is supported for type parameters of inline functions. When combined with IDE support this makes generic coding less fraught and much more productive.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-07-01</startDate>
         <endDate>2020-07-01</endDate>
@@ -12093,11 +12052,11 @@ Following will be the key takeaways
 <p>One of the reasons Kotlin has proven so popular is its wide array of abstractions and constructs. But pattern matching, a popular feature that in other languages allows us to easily inspect data and act accordingly, is currently missing.</p>
 <p>This talk aims to explore the possibility of adding pattern matching to Kotlin. It will go through why and how it could be done, from adding it to the actual language to using a compiler plugin (much like kotlinx.serialization works).</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-07-09</startDate>
         <endDate>2020-07-09</endDate>
@@ -12113,11 +12072,11 @@ GDG Gaborone would like to invite you to this year's Kotlin Night, where we will
 • What to bring
 Laptop with Android Studio 3.5 or IDEA IntelliJ 2019.3 installed, Stress ball, Water bottle and a coding Buddy</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-<event>
+    <event>
         <lang>es</lang>
         <startDate>2020-07-09</startDate>
         <endDate>2020-07-09</endDate>
@@ -12125,7 +12084,8 @@ Laptop with Android Studio 3.5 or IDEA IntelliJ 2019.3 installed, Stress ball, W
         <speaker>Ángel Hernandez</speaker>
         <title>KeepCoding</title>
         <subject>Componentes de Arquitectura</subject>
-        <url>https://www.eventbrite.es/e/entradas-webinar-conoce-la-arquitectura-android-kotlin-a-fondo-109961425584</url>
+        <url>https://www.eventbrite.es/e/entradas-webinar-conoce-la-arquitectura-android-kotlin-a-fondo-109961425584
+        </url>
         <description>
             <![CDATA[
 <p>ViewModel - que almacena y gestiones la lógica de vista
@@ -12133,12 +12093,11 @@ Live Data - utilizando estas propiedades lo propaga a la vista
 Fragments y su life cycle - fragment como unidad recomendada de vista, cómo recibe las actualizaciones del viewModel y gestiona los eventos del ciclo de vida.</p>
 
 ]]>
-    </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>es</lang>
         <startDate>2020-07-09</startDate>
         <endDate>2020-07-09</endDate>
@@ -12146,18 +12105,17 @@ Fragments y su life cycle - fragment como unidad recomendada de vista, cómo rec
         <speaker>Jose Antonio Blanes</speaker>
         <title>KeepCoding</title>
         <subject>Componentes de visualización</subject>
-        <url>https://www.eventbrite.es/e/entradas-webinar-conoce-la-arquitectura-android-kotlin-a-fondo-109961425584</url>
+        <url>https://www.eventbrite.es/e/entradas-webinar-conoce-la-arquitectura-android-kotlin-a-fondo-109961425584
+        </url>
         <description>
             <![CDATA[
 <p>View Binding - nuevo concepto de view binding y las nuevas features que ofrece frente al los modelos actuales. Compose - nuevo concepto de vista declarativa, aún en fase experimental pero con un futuro prometedor. Además, podrás hacer todas las preguntas que tengas al respecto.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-07-14</startDate>
         <endDate>2020-07-14</endDate>
@@ -12171,12 +12129,11 @@ Fragments y su life cycle - fragment como unidad recomendada de vista, cómo rec
 <p>Kotlin doesn’t force you to handle functions that might throw exceptions, so how can we best ensure that our code is safe to execute whilst handling errors in a reasonable way? In this talk, we’ll look at some strategies that the team at Cuvva evaluated and discuss in-depth the solution they chose: the Result Monad. We’ll talk about how it works and build one from first principles, and discuss how utilizing this strategy can help you.
 Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-07-14</startDate>
         <endDate>2020-07-14</endDate>
@@ -12189,7 +12146,7 @@ Checkout Adam's blog: https://adambennett.dev/</p>
             <![CDATA[
 <p>Everything on Android is essentially asynchronous, so achieving thread safety is of absolute importance for the integrity of our data. Historically we've used synchronized blocks and mutexes to achieve concurrency, but the code is complex and sometimes feels unapproachable. Actors are part of the Kotlin Coroutines library and are the most straight forward, readable way to deal with concurrency, without going crazy. This talk will help you understand what Actors and how to use them through real world examples.</p>
 ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 </events>
