@@ -8,6 +8,11 @@ title: "What's New in Kotlin 1.4"
 
 ## Language features and improvements
 
+Kotlin 1.4 comes with a variety of different features and improvements. They include:
+
+* New more powerful type inference algorithm
+* Callable reference improvements
+
 ## More powerful type inference algorithm
 
 Kotlin 1.4 uses a new, more powerful type inference algorithm. You were already able to try this new algorithm with 
@@ -142,7 +147,9 @@ fun main() {
 Kotlin has supported SAM conversions for Java interfaces from the beginning, but there was one case that wasn’t supported, 
 which was sometimes annoying when working with existing Java libraries. If you called a Java method that took two SAM interfaces 
 as parameters, both arguments need to be either lambdas or regular objects. You couldn't pass one argument as a lambda and 
-another as an object. The new algorithm fixes this issue, and you can pass a lambda instead of a SAM interface in any case, 
+another as an object. 
+
+The new algorithm fixes this issue, and you can pass a lambda instead of a SAM interface in any case, 
 which is the way you’d naturally expect it to work.
 
 ### Callable reference improvements
