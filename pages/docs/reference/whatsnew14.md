@@ -91,7 +91,7 @@ or tvOS part of your project only in Xcode, separate from other parts of your mu
 be built in Intellij IDEA. 
 
 Moreover, every time you added a dependency on an Objective-C library stored in CocoaPods (Pod library), you had to switch 
-from IntelliJ IDEA to Xcode, run the task `pod install`, and run the Xcode build there. 
+from IntelliJ IDEA to Xcode, call `pod install`, and run the Xcode build there. 
 
 Now you can manage Pod dependencies right in Intellij IDEA while enjoying the benefits it provides for working with code, 
 such as code highlighting and completion. You can also build the whole Kotlin project with Gradle, without having to 
