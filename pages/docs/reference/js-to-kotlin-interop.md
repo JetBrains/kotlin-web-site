@@ -7,10 +7,7 @@ title: "Calling Kotlin from JavaScript"
 
 # Calling Kotlin from JavaScript
 
-Depending on the selected [JavaScript Module](js-modules.html) system, the Kotlin/JS compiler generates different output.
-
-Kotlin compiler generates normal JavaScript classes, functions and properties you can freely use from
-JavaScript code. Nevertheless, there are some subtle things you should remember.
+Depending on the selected [JavaScript Module](js-modules.html) system, the Kotlin/JS compiler generates different output. But in general, the Kotlin compiler generates normal JavaScript classes, functions and properties, which you can freely use from JavaScript code. There are some subtle things you should remember, though.
 
 ## Isolating declarations in a separate JavaScript object in `plain` mode 
 If you have explicitly set your module kind to be `plain`, Kotlin creates an object that contains all Kotlin declarations from the current module. This is done to prevent spoiling the global object. This means that for a module `myModule`, all declarations are available to JavaScript via the `myModule` object. For example:
@@ -29,7 +26,7 @@ alert(myModule.foo());
 ```
 </div>
 
-This is not applicable when you compile your Kotlin module to JavaScript modules like CommonJS, AMD, or UMD (which is the default setting for both `browser` and `nodejs` targets). In this case, your declarations will be exposed in the format specified by your chosen JavaScript module system. When using CommonJS (or UMD), for example, your call site could look like this:
+This is not applicable when you compile your Kotlin module to JavaScript modules like UMD (which is the default setting for both `browser` and `nodejs` targets), CommonJS or AMD. In this case, your declarations will be exposed in the format specified by your chosen JavaScript module system. When using UMD or CommonJS, for example, your call site could look like this:
 <!-- TODO: IS THIS STILL CORRECT? -->
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
@@ -37,12 +34,12 @@ alert(require('myModule').foo());
 ```
 </div>
 
-Check the article on [JavaScript Modules](js-modules.html) for more information on the topic of the JavaScript module system.
+Check the article on [JavaScript Modules](js-modules.html) for more information on the topic of JavaScript module systems.
 
 ## Package structure
 
 Kotlin exposes its package structure to JavaScript, so unless you define your declarations in the root package,
-you have to use fully-qualified names in JavaScript. For example:
+you have to use fully qualified names in JavaScript. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -52,7 +49,7 @@ fun foo() = "Hello"
 ```
 </div>
 
-When using CommonJS, your callsite could for example like this:
+When using UMD or CommonJS, for example, your callsite could look like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
@@ -71,7 +68,7 @@ alert(myModule.my.qualified.packagename.foo());
 
 ### `@JsName` annotation
 
-In some cases (for example, to support overloads), Kotlin compiler mangles names of generated functions and attributes
+In some cases (for example, to support overloads), the Kotlin compiler mangles the names of generated functions and attributes
 in JavaScript code. To control the generated names, you can use the `@JsName` annotation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -94,6 +91,7 @@ Now you can use this class from JavaScript in the following way:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
+// If necessary, import 'kjs' according to chosen module system
 var person = new kjs.Person("Dmitry");   // refers to module 'kjs'
 person.hello();                          // prints "Hello Dmitry!"
 person.helloWithGreeting("Servus");      // prints "Servus Dmitry!"

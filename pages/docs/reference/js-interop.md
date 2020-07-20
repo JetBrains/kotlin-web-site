@@ -9,7 +9,7 @@ title: "Calling JavaScript from Kotlin"
 
 Kotlin was first designed for easy interoperation with the Java platform: it sees Java classes as Kotlin classes, and Java sees Kotlin classes as Java classes.
 
-However, JavaScript is a dynamically-typed language, which means it does not check types at compile-time. You can freely talk to JavaScript from Kotlin via  [dynamic](dynamic-type.html) types. If you want to use the full power of the Kotlin type system, you can create external declarations for JavaScript libraries which will be understood by the Kotlin compiler and the surrounding tooling.
+However, JavaScript is a dynamically typed language, which means it does not check types at compile-time. You can freely talk to JavaScript from Kotlin via  [dynamic](dynamic-type.html) types. If you want to use the full power of the Kotlin type system, you can create external declarations for JavaScript libraries which will be understood by the Kotlin compiler and the surrounding tooling.
 
 
 ## Inline JavaScript
@@ -42,7 +42,7 @@ Note that invoking `js()` returns a result of type [`dynamic`](dynamic-type.html
 
 To tell Kotlin that a certain declaration is written in pure JavaScript, you should mark it with the `external` modifier.
 When the compiler sees such a declaration, it assumes that the implementation for the corresponding class, function or
-property is provided externally (by the developer or via an npm dependency), and therefore does not try to generate any JavaScript code from the declaration. This is also why `external` declarations can't have a body. For example:
+property is provided externally (by the developer or via an [npm dependency](js-project-setup.html#npm-dependencies)), and therefore does not try to generate any JavaScript code from the declaration. This is also why `external` declarations can't have a body. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -79,7 +79,7 @@ MyClass.prototype.ownMember = function() { /* implementation */ };
 ```
 </div>
 
-There's no such syntax in Kotlin. However, in Kotlin we have `companion` objects. Kotlin treats companion objects
+There is no such syntax in Kotlin. However, in Kotlin we have `companion` objects. Kotlin treats companion objects
 of `external` classes in a special way: instead of expecting an object, it assumes members of companion objects to be members of the class itself. `MyClass` from the example above can be described as follows:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -109,7 +109,7 @@ external fun myFunWithOptionalArgs(
 ```
 </div>
 
-With this external declaration, you can call `myFunWithOptionalArgs` with one required argument and two optional arguments, where their default values are calculated by the JavaScript implementation of `myFunWithOptionalArgs`.
+With this external declaration, you can call `myFunWithOptionalArgs` with one required argument and two optional arguments, where the default values are calculated by the JavaScript implementation of `myFunWithOptionalArgs`.
 
 
 ### Extending JavaScript classes
@@ -147,7 +147,7 @@ There are some limitations:
 JavaScript does not have the concept of interfaces. When a function expects its parameter to support two methods `foo`
 and `bar`, you would just pass in an object that actually has these methods.
 
-You can use interfaces to express this concept in statically-typed Kotlin:
+You can use interfaces to express this concept in statically typed Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -195,7 +195,7 @@ fun sendQuery() {
 
 External interfaces have some restrictions:
 
-1. They can't be used on the right hand side of `is` checks. 
+1. They can't be used on the right-hand side of `is` checks. 
 2. They can't be passed as reified type arguments.
 3. They can't be used in class literal expressions (i.e. `I::class`).
 4. `as` casts to external interfaces always succeed.
@@ -204,7 +204,7 @@ External interfaces have some restrictions:
     IntelliJ IDEA can also automatically generate the `@Suppress` annotation. Open the intentions menu via the light bulb icon or Alt-Enter, and click the small arrow next to the "Unchecked cast to external interface" inspection. Here, you can select the suppression scope, and your IDE will add the annotation to your file accordingly.
 
 ### Casting
-In addition to the *as*{: .keyword } ["unsafe" cast operator](/docs/reference/typecasts.html#unsafe-cast-operator), which throws a `ClassCastException` in case a cast is not possible, Kotlin/JS also provides [`unsafeCast<T>()`](/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html). When using `unsafeCast`, _no type checking is done at all_ during runtime. For example, consider the following two methods:
+In addition to the ["unsafe" cast operator](/docs/reference/typecasts.html#unsafe-cast-operator) *as*{: .keyword }, which throws a `ClassCastException` in case a cast is not possible, Kotlin/JS also provides [`unsafeCast<T>()`](/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html). When using `unsafeCast`, _no type checking is done at all_ during runtime. For example, consider the following two methods:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin

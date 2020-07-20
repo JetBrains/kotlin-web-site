@@ -38,13 +38,14 @@ kotlin {
 }
 
 ```
-Webpack provides two different "flavors" of CommonJS, `commonjs` and `commonjs2`, which affect the way your declarations are made available. While in most cases, you probably want `commonjs2`, which adds the `module.exports` syntax to the generated library, you can also opt for the "pure" `commonjs` option, which implements the CommonJS specification exactly. To learn more about the difference between `commonjs` and `commonjs2`, check [here](https://github.com/webpack/webpack/issues/1114).
 
 </div>
 
+Webpack provides two different "flavors" of CommonJS, `commonjs` and `commonjs2`, which affect the way your declarations are made available. While in most cases, you probably want `commonjs2`, which adds the `module.exports` syntax to the generated library, you can also opt for the "pure" `commonjs` option, which implements the CommonJS specification exactly. To learn more about the difference between `commonjs` and `commonjs2`, check [here](https://github.com/webpack/webpack/issues/1114).
+
 ## Creating JavaScript libraries and Node.js files
 
-If you are creating a library that will be consumed from JavaScript, or a Node.js file, and want to use a different module system, the instructions are slightly different.
+If you are creating a library that will be consumed from JavaScript or a Node.js file, and want to use a different module system, the instructions are slightly different.
 
 ### Choosing the target module system
 
@@ -119,9 +120,9 @@ external fun sayHello(name: String)
 ### Applying `@JsModule` to packages
 
 Some JavaScript libraries export packages (namespaces) instead of functions and classes.
-In terms of JavaScript, it's an object that has members that *are* classes, functions and properties.
+In terms of JavaScript, it's an *object* that has *members* that are classes, functions and properties.
 Importing these packages as Kotlin objects often looks unnatural.
-The compiler allows to map imported JavaScript packages to Kotlin packages, using the following notation:
+The compiler can map imported JavaScript packages to Kotlin packages, using the following notation:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -149,7 +150,7 @@ module.exports = {
 
 </div>
 
-Important: files marked with `@file:JsModule` annotation can't declare non-external members.
+**Important:** files marked with `@file:JsModule` annotation can't declare non-external members.
 The example below produces compile-time error:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -222,11 +223,9 @@ external fun baz()
 
 ### `@JsNonModule` annotation
 
-When a declaration has `@JsModule`, you can't use it from Kotlin code when you don't compile it to a JavaScript module.
+When a declaration is marked as `@JsModule`, you can't use it from Kotlin code when you don't compile it to a JavaScript module.
 Usually, developers distribute their libraries both as JavaScript modules and downloadable `.js` files that you
-can copy to project's static resources and include via `<script>` element. To tell Kotlin that it's ok
-to use a `@JsModule` declaration from non-module environment, you should put `@JsNonModule` declaration. For example,
-given JavaScript code:
+can copy to your project's static resources and include via a `<script>` tag. To tell Kotlin that it's okay to use a `@JsModule` declaration from a non-module environment, add the `@JsNonModule` annotation. For example, consider the following JavaScript code:
 
 <div class="sample" markdown="1" theme="idea" mode="js">
 
@@ -239,7 +238,7 @@ if (module && module.exports) {
 
 </div>
 
-can be described like this:
+You could describe it from Kotlin as follows:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -253,11 +252,11 @@ external fun sayHello(name: String)
 </div>
 
 ### Automatic external declaration generation with Dukat
-[Dukat](https://github.com/kotlin/dukat) is a tool currently in development which allows the automatic conversion of TypeScript declaration files (`.d.ts`) into Kotlin external declarations. This aims to makes it more comfortable to use libraries from the JavaScript ecosystem in a type-safe manner in Kotlin, reducing the need for manually writing wrappers for JS libraries.
+[Dukat](https://github.com/kotlin/dukat) is a tool currently in development which allows the automatic conversion of TypeScript declaration files (`.d.ts`) into Kotlin external declarations. This aims to makes it more comfortable to use libraries from the JavaScript ecosystem in a type-safe manner in Kotlin, reducing the need for manually writing external declarations and wrappers for JS libraries.
 
 **Please note that Dukat is still experimental.** If you encounter any problems, please report them in Dukat's [issue tracker](https://github.com/kotlin/dukat/issues).
 
-The Kotlin/JS Gradle plugin provides an integration with Dukat. When enabled, typesafe wrappers are automatically generated for npm dependencies and can be used from Kotlin. You have two different ways of selecting if and when Dukat should generate declarations: at build time, and manually via a Gradle task.
+The Kotlin/JS Gradle plugin provides an integration with Dukat. When enabled, type-safe Kotlin wrappers are automatically generated for npm dependencies that either provide their own TypeScript definitions, or have definitions available in the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repository. You have two different ways of selecting if and when Dukat should generate declarations: at build time, and manually via a Gradle task.
 
 #### Generating external declarations at build time
 

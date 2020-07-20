@@ -13,22 +13,21 @@ removing unused properties, functions, and classes.
 
 Unused declarations can appear in cases like:
 
-* A function is inlined and never gets called directly (which happens always except for few situations).
-* A module uses a shared library. Its parts that you don't use still get into the resulting bundle without DCE.
+* A function is inlined and never gets called directly (which happens always except for a few situations).
+* A module uses a shared library. Without DCE, parts of the library that you don't use are still included in the resulting bundle.
   For example, the Kotlin standard library contains functions for manipulating lists, arrays, char sequences,
-  adapters for DOM, and so on. Altogether, they comprise about 1.3 mb file. A simple "Hello, world" application only requires
+  adapters for DOM, and so on. All of this functionality would require approx. 1.3 MB as a JavaScript file. A simple "Hello, world" application only requires
   console routines, which is only few kilobytes for the entire file.
 
-Kotlin/JS Gradle plugin handles DCE automatically when you build a production bundle, for example, with `browserProductionWebpack` task.
-The development bundling tasks don't include DCE.
+The Kotlin/JS Gradle plugin handles DCE automatically when you build a production bundle, for example by using the `browserProductionWebpack` task. Development bundling tasks don't include DCE.
 
 ## Excluding declarations from DCE
 
 Sometimes you may need to keep a function or a class in the resulting JavaScript code even if you don't use it in your module,
 for example, if you're going to use it in the client JavaScript code.
 
-To keep certain declarations from elimination, add the `dceTask` block into the Gradle build script and
-list the declarations as the arguments of the `keep` function. An argument must be the declaration's fully qualified name
+To keep certain declarations from elimination, add the `dceTask` block to your Gradle build script and
+list the declarations as arguments of the `keep` function. An argument must be the declaration's fully qualified name
 with the module name as a prefix: `moduleName.dot.separated.package.name.declarationName`
 
 <div class="multi-language-sample" data-lang="groovy">
@@ -59,5 +58,5 @@ kotlin.target.browser {
 </div>
 </div>
 
-Note that the names of functions with parameters are [mangled](js-to-kotlin-interop.html#jsname-annotation)
+Note that unless specified otherwise the names of functions with parameters are [mangled](js-to-kotlin-interop.html#jsname-annotation)
 in the generated JavaScript code. To keep such functions from elimination, use the mangled names in the `keep` arguments.
