@@ -11,7 +11,7 @@ title: "What's New in Kotlin 1.4"
 ### SAM conversions for Kotlin interfaces
 
 Before Kotlin 1.4, you could apply SAM (Single Abstract Method) conversions only [when working with Java methods and Java 
-interfaces from Kotlin](java-interop.htmll#sam-conversions). From now on, you can use SAM conversions for Kotlin interfaces as well.
+interfaces from Kotlin](java-interop.html#sam-conversions). From now on, you can use SAM conversions for Kotlin interfaces as well.
 For this purpose, mark a Kotlin interface explicitly as functional with the `fun` modifier.
 
 SAM conversion applies if you pass a lambda as an argument when an interface with only one single abstract method is expected 

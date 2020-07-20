@@ -42,7 +42,7 @@ fun interface IntPredicate {
 
 </div>
 
-If you don't use lambdas, you will need to write code like this:
+If you don't use a SAM conversion, you will need to write code like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -113,7 +113,6 @@ class Button(private val listener: Listener) {
 ```
 
 </div>
-
 
 You can also use [SAM conversions for Java interfaces](java-interop.html#sam-conversions).
 
