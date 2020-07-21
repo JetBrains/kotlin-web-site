@@ -399,7 +399,7 @@ public class BB8 implements Robot {
 
 >**Note**: Prior to Kotlin 1.4, to generate default methods, you could use the `@JvmDefault` annotation on these methods.
 > Compiling with `-Xjvm-default=all` in 1.4 generally works as if you annotated all non-abstract methods of interfaces
-> with `@JvmDefault`and compiled with `-Xjvm-default=enabled`. However, there are cases when their behavior differs.
+> with `@JvmDefault`and compiled with `-Xjvm-default=enable`. However, there are cases when their behavior differs.
 > The detailed information about changes in default methods generation in Kotlin 1.4 is provided in [this post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/)
 > on the Kotlin blog.
 
