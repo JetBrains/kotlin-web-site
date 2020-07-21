@@ -25,6 +25,7 @@ you can find some of the most noticeable improvements:
 * Smart casts for callable references
 * Better inference for delegated properties
 * SAM conversion for Java interfaces with different arguments
+* Java SAM interfaces in Kotlin
 
 #### Inferring a type automatically in more cases
 
@@ -87,6 +88,8 @@ In Kotlin 1.3, you couldn’t access a member reference of a smart cast type. No
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
 
 ```kotlin
+import kotlin.reflect.KFunction
+
 sealed class Animal
 class Cat : Animal() {
     fun meow() {
@@ -152,6 +155,45 @@ another as an object.
 The new algorithm fixes this issue, and you can pass a lambda instead of a SAM interface in any case, 
 which is the way you’d naturally expect it to work.
 
+<div class="sample" markdown="1" theme="idea" mode="java" data-highlight-only>
+
+```java
+// FILE: A.java
+public class A {
+    public void static foo(Runnable r1, Runnable r2) {}
+}
+```
+
+</div>
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+// FILE: test.kt
+fun test(r1: Runnable) {
+    A.foo(r1) {}  // Works now
+}
+```
+
+</div>
+
+#### Java SAM interfaces in Kotlin
+
+Starting from Kotlin 1.4, you can use Java SAM interfaces in Kotlin. Previously, you could declare such a function `foo`
+only in Java code.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun foo(r1: java.lang.Runnable) {}
+
+fun test() { 
+    foo { } // OK
+}
+```
+
+</div>
+
 ### Callable reference improvements
 
 Kotlin 1.4 supports more cases for using callable references:
@@ -164,7 +206,7 @@ Kotlin 1.4 supports more cases for using callable references:
 #### References to functions with default argument values 
 
 Using callable references to functions with default argument values is now more convenient. For example, the callable reference 
-to the following `foo` function can be interpreted both as taking one `Int` argument or taking no arguments:
+to the following `foo` function can be interpreted both as taking one `Int` argument or taking no arguments.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
 
@@ -178,6 +220,17 @@ fun main() {
     println(apply1(::foo))
     println(apply2(::foo))
 }
+```
+
+</div>
+
+Previously, you should write additional overloads for the function `apply` to use the default argument values.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+// some new overload
+fun applyInt(func: (Int) -> String): String = func() 
 ```
 
 </div>
