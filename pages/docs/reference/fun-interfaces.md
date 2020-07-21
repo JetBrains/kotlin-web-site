@@ -4,9 +4,9 @@ layout: reference
 title: "Functional interfaces (SAM interfaces)"
 ---
 
-# Functional (SAM) interfaces 
+# Functional (SAM) interfaces
 
-An interface with only one abstract method is called a _functional interface_, or a _Single Abstract 
+An interface with only one abstract method is called a _functional interface_, or a _Single Abstract
 Method (SAM) interface_. The functional interface can have several non-abstract members but only one abstract member.
 
 To declare a functional interface in Kotlin, use the `fun` modifier.
@@ -15,7 +15,7 @@ To declare a functional interface in Kotlin, use the `fun` modifier.
 
 ```kotlin
 fun interface SuspendRunnable {
-    suspend fun invoke()
+   suspend fun invoke()
 }
 ```
 
@@ -23,11 +23,11 @@ fun interface SuspendRunnable {
 
 ## SAM conversions
 
-For functional interfaces, you can use SAM conversions that help you make your code more concise and readable using 
+For functional interfaces, you can use SAM conversions that help make your code more concise and readable by using
 [lambda expressions](lambdas.html#lambda-expressions-and-anonymous-functions).
 
-Instead of creating a class that implements a functional interface manually, you can use a lambda expression. 
-Thanks to a SAM conversion, Kotlin can convert any lambda expression whose signature matches 
+Instead of creating a class that implements a functional interface manually, you can use a lambda expression.
+With a SAM conversion, Kotlin can convert any lambda expression whose signature matches
 the signature of the interface's single method into an instance of a class that implements the interface.
 
 For example, consider the following Kotlin functional interface:
@@ -36,7 +36,7 @@ For example, consider the following Kotlin functional interface:
 
 ```kotlin
 fun interface IntPredicate {
-    fun accept(i: Int): Boolean
+   fun accept(i: Int): Boolean
 }
 ```
 
@@ -49,15 +49,15 @@ If you don't use a SAM conversion, you will need to write code like this:
 ```kotlin
 // Creating an instance of a class
 val isEven = object : IntPredicate {
-    override fun accept(i: Int): Boolean {
-        return i % 2 == 0
-    }
+   override fun accept(i: Int): Boolean {
+       return i % 2 == 0
+   }
 }
 ```
 
 </div>
 
-By leveraging Kotlin's SAM conversion you can write the following equivalent code instead:
+By leveraging Kotlin's SAM conversion, you can write the following equivalent code instead:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -74,13 +74,13 @@ A short lambda expression replaces all the unnecessary code.
 
 ```kotlin
 fun interface IntPredicate {
-    fun accept(i: Int): Boolean
+   fun accept(i: Int): Boolean
 }
 
 val isEven = IntPredicate { it % 2 == 0 }
 
 fun main() {
-    println("Is 7 even? - ${isEven.accept(7)}")
+   println("Is 7 even? - ${isEven.accept(7)}")
 }
 ```
 
@@ -92,23 +92,23 @@ In another example of a SAM conversion, the function `process()` uses a lambda i
 
 ```kotlin
 fun interface SuspendRunnable {
-    suspend fun invoke()
+   suspend fun invoke()
 }
 
 class Listener {
-    fun setOnClickListener(r: SuspendRunnable) {
-        GlobalScope.launch { r.invoke() }
-    }
+   fun setOnClickListener(r: SuspendRunnable) {
+       GlobalScope.launch { r.invoke() }
+   }
 }
 class Button(private val listener: Listener) {
-    fun process() {
-        listener.setOnClickListener {
-            addText()
-        }
-    }
-    suspend fun addText() { 
-        // ...
-    }
+   fun process() {
+       listener.setOnClickListener {
+           addText()
+       }
+   }
+   suspend fun addText() {
+       // ...
+   }
 }
 ```
 
@@ -118,10 +118,10 @@ You can also use [SAM conversions for Java interfaces](java-interop.html#sam-con
 
 ## Functional interfaces vs. type aliases
 
-Functional interfaces and [type aliases](type-aliases.html) serve different purposes. Type aliases are just names for 
-existing types - they don't create a new type, while functional interfaces do.
+Functional interfaces and [type aliases](type-aliases.html) serve different purposes. Type aliases are just names for
+existing types – they don't create a new type, while functional interfaces do.
 
-Type aliases can have only one member while functional interfaces can have several non-abstract members and one abstract member.
-Functional interfaces can also implement and extend other interfaces. 
+Type aliases can have only one member, while functional interfaces can have multiple non-abstract members and one abstract member.
+Functional interfaces can also implement and extend other interfaces.
 
-So functional interfaces are more flexible and provide more capabilities than type aliases. 
+Considering the above, functional interfaces are more flexible and provide more capabilities than type aliases.
