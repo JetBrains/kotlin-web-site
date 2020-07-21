@@ -8,7 +8,7 @@ date: 2020-07-07
 showAuthorInfo: false
 ---
 
-To get started, install a recent version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
+To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
 ## Create an application 
 
