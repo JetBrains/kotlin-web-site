@@ -351,10 +351,6 @@ interface Robot {
 ```
 </div>
 
->**Note**: Compiling with `-Xjvm-default=all` generally works as if you annotated all non-abstract methods of interfaces
->with `@JvmDefault`and compiled with `-Xjvm-default=enabled`. This was the way to compile methods of Kotlin interfaces
->to `default` in Kotlin prior to 1.4.
-
 The default implementation is available for Java classes implementing the interface.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -401,10 +397,16 @@ public class BB8 implements Robot {
 ```
 </div>
 
+>**Note**: Prior to Kotlin 1.4, to generate default methods, you could use the `@JvmDefault` annotation on these methods.
+> Compiling with `-Xjvm-default=all` in 1.4 generally works as if you annotated all non-abstract methods of interfaces
+> with `@JvmDefault`and compiled with `-Xjvm-default=enabled`. However, there are cases when their behavior differs.
+> The detailed information about changes in default methods generation in Kotlin 1.4 is provided in [this post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/)
+> on the Kotlin blog.
+
 ### Compatibility mode for default methods
 
-If there are clients that use your Kotlin interfaces compiled without `-Xjvm-default`, then they can be incompatible with
- the same code compiled with `-Xjvm-default=all`. 
+If there are clients that use your Kotlin interfaces compiled without the new `-Xjvm-default=all` option, then they can
+be incompatible with the same code compiled with this option. 
 
 To avoid breaking the compatibility with such clients, compile your Kotlin code in the _compatibility mode_ by specifying
 the `-Xjvm-default=all-compatibility` compiler option. In this case, all the code that uses the previous version will 
