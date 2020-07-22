@@ -207,8 +207,8 @@ fun test(r1: Runnable) {
 
 #### Java SAM interfaces in Kotlin
 
-Starting from Kotlin 1.4, you can use Java SAM interfaces in Kotlin and apply SAM conversions to them. 
-Previously, you could perform a SAM conversion only if you declared such a function `foo` in Java code.
+In Kotlin 1.4, you can use Java SAM interfaces in Kotlin and apply SAM conversions to them. 
+In Kotlin 1.3, you could perform a SAM conversion only if you declared such a function `foo` in Java code.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -235,7 +235,7 @@ Kotlin 1.4 supports more cases for using callable references:
 
 #### References to functions with default argument values 
 
-Now you can use callable references to functions with default argument values in a convenient way. If the callable reference 
+Now you can use callable references to functions with default argument values. If the callable reference 
 to the function `foo` takes no arguments, the default value `0` is used.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
@@ -265,7 +265,7 @@ fun applyInt(func: (Int) -> String): String = func(0)
 
 #### Function references in `Unit`-returning functions 
 
-Starting from Kotlin 1.4, you can use callable references to functions returning any type in `Unit`-returning functions. 
+In Kotlin 1.4, you can use callable references to functions returning any type in `Unit`-returning functions. 
 Before Kotlin 1.4, you could use only lambda arguments in this case. Now you can use both.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -284,7 +284,7 @@ fun main() {
 
 #### References adapting to functions with a variable number of arguments
 
-From now on, you can adapt callable references to functions when passing a variable number of arguments (`vararg`) . 
+Now you can adapt callable references to functions when passing a variable number of arguments (`vararg`) . 
 You can pass any number of parameters of the same type at the end.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
