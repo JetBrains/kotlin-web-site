@@ -129,7 +129,7 @@ pipeline and add custom processing and transformations that will automatically w
 In Kotlin 1.4, we do not provide a public API for such extensions yet, but we are working closely with our partners, 
 including JetPack Compose, who are already building their compiler plugins using our new back-end.
 
-In Kotlin 1.4, you can opt into using the new back-ends, where we have already fixed many bugs:
+Now you can opt into using the new JVM IR back-end, where we've already fixed many bugs.
 
 Specify an additional compilation option in your Gradle build script:
 
@@ -143,10 +143,11 @@ kotlinOptions.useIR = true
 
 When using the command-line compiler, add the compilation option `-Xuse-ir`.
 
-> You can use code compiled by the new back-end only if you've enabled the new back-end. Otherwise, you will get an error.
+> You can use code compiled by the new JVM IR back-end only if you've enabled the new back-end. Otherwise, you will get an error.
 > Considering this, we don't recommend that library authors switch to the new back-end in production.
 {:.note}
 
+You can also opt into using the new JS IR back-end (ADD LINK).
 
 ## Kotlin/Native
 
