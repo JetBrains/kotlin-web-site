@@ -8,11 +8,11 @@ title: "What's New in Kotlin 1.4"
 
 ## Language features and improvements
 
-Kotlin 1.4 comes with a variety of different features and improvements. They include:
+Kotlin 1.4 comes with a variety of different language features and improvements. They include:
 
-* SAM conversions for Kotlin interfaces
-* New more powerful type inference algorithm
-* Callable reference improvements
+* [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
+* [New more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm)
+* [Callable reference improvements](#callable-reference-improvements)
 
 ### SAM conversions for Kotlin interfaces
 
@@ -41,7 +41,7 @@ fun main(){
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
 
-## More powerful type inference algorithm
+### New more powerful type inference algorithm
 
 Kotlin 1.4 uses a new, more powerful type inference algorithm. You were already able to try this new algorithm with 
 Kotlin 1.3 by specifying a compiler option, and now it’s used by default. You can find the full list of issues fixed in 
