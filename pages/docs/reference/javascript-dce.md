@@ -16,7 +16,7 @@ Unused declarations can appear in cases like:
 * A function is inlined and never gets called directly (which happens always except for a few situations).
 * A module uses a shared library. Without DCE, parts of the library that you don't use are still included in the resulting bundle.
   For example, the Kotlin standard library contains functions for manipulating lists, arrays, char sequences,
-  adapters for DOM, and so on. All of this functionality would require approx. 1.3 MB as a JavaScript file. A simple "Hello, world" application only requires
+  adapters for DOM, and so on. All of this functionality would require about 1.3 MB as a JavaScript file. A simple "Hello, world" application only requires
   console routines, which is only few kilobytes for the entire file.
 
 The Kotlin/JS Gradle plugin handles DCE automatically when you build a production bundle, for example by using the `browserProductionWebpack` task. Development bundling tasks don't include DCE.
