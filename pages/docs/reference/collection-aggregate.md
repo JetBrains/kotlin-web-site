@@ -139,3 +139,8 @@ fun main() {
 ```
 </div>
 
+All reduce operations throw an exception on empty collections. To receive `null` instead, use their `*OrNull()` counterparts:
+* [`reduceOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/reduce-or-null.html)
+* [`reduceRightOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/reduce-right-or-null.html)
+* [`reduceIndexedOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/reduce-indexed-or-null.html)
+* [`reduceRightIndexedOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/reduce-right-indexed-or-null.html)
