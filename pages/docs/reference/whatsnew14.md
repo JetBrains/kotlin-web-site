@@ -171,7 +171,7 @@ public class A {
 ```kotlin
 // FILE: test.kt
 fun test(r1: Runnable) {
-    A.foo(r1) {}  // Works now
+    A.foo(r1) {}  // Works in Kotlin 1.4
 }
 ```
 
@@ -179,13 +179,15 @@ fun test(r1: Runnable) {
 
 #### Java SAM interfaces in Kotlin
 
-Starting from Kotlin 1.4, you can use Java SAM interfaces in Kotlin. Previously, you could declare such a function `foo`
-only in Java code.
+Starting from Kotlin 1.4, you can use Java SAM interfaces in Kotlin and apply SAM conversions to them. 
+Previously, you could perform a SAM conversion only if you declared such a function `foo` in Java code.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun foo(r1: java.lang.Runnable) {}
+import java.lang.Runnable
+
+fun foo(r: Runnable) {}
 
 fun test() { 
     foo { } // OK
@@ -200,25 +202,23 @@ Kotlin 1.4 supports more cases for using callable references:
 
 * References to functions with default argument values
 * Function references in `Unit`-returning functions 
-* References to functions with a variable number of arguments (`vararg`)
-* Suspend conversion on callable references in Kotlin/JVM
+* References adapting to functions with a variable number of arguments (`vararg`)
+* Suspend conversion on callable references 
 
 #### References to functions with default argument values 
 
-Using callable references to functions with default argument values is now more convenient. For example, the callable reference 
-to the following `foo` function can be interpreted both as taking one `Int` argument or taking no arguments.
+Now you can use callable references to functions with default argument values in a convenient way. If the callable reference 
+to the function `foo` takes no arguments, the default value `0` is used.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
 
 ```kotlin
 fun foo(i: Int = 0): String = "$i!"
 
-fun apply1(func: () -> String): String = func()
-fun apply2(func: (Int) -> String): String = func(42)
+fun apply(func: () -> String): String = func()
 
 fun main() {
-    println(apply1(::foo))
-    println(apply2(::foo))
+    println(apply(::foo))
 }
 ```
 
@@ -230,33 +230,34 @@ Previously, you should write additional overloads for the function `apply` to us
 
 ```kotlin
 // some new overload
-fun applyInt(func: (Int) -> String): String = func() 
+fun applyInt(func: (Int) -> String): String = func(0) 
 ```
 
 </div>
 
 #### Function references in `Unit`-returning functions 
 
-Now you can use callable references to functions returning any type in `Unit`-returning functions. The Unit-returning 
-function `foo()` uses a callable reference to `returnsInt()` returning `Int` as a result.
+Starting from Kotlin 1.4, you can use callable references to functions returning any type in `Unit`-returning functions. 
+Before Kotlin 1.4, you could use only lambda arguments in this case. Now you can use both.
 
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 fun foo(f: () -> Unit) { }
 fun returnsInt(): Int = 42
 
 fun main() {
-    println(foo(::returnsInt))
+    foo { returnsInt() } // it was OK before 1.4
+    foo(::returnsInt) // since Kotlin 1.4, it works as well
 }
 ```
 
 </div>
 
-#### References to functions with a variable number of arguments
+#### References adapting to functions with a variable number of arguments
 
-Starting from Kotlin 1.4, you can use callable references to functions with a variable number of arguments (`vararg`) 
-at the end. You can use any number of arguments of the same type at the end.
+From now on, you can adapt callable references to functions when passing a variable number of arguments (`vararg`) . 
+You can pass any number of parameters of the same type at the end.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -278,7 +279,7 @@ fun test() {
 
 #### Suspend conversion on callable references
 
-Kotlin 1.4 supports suspend conversion on callable references in Kotlin/JVM. 
+In addition to suspend conversion on lambdas, Kotlin 1.4 supports suspend conversion on callable references in Kotlin/JVM.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -287,7 +288,8 @@ fun call() {}
 fun takeSuspend(f: suspend () -> Unit) {}
 
 fun test() {
-    takeSuspend(::call)
+    takeSuspend { call() } // OK before 1.4
+    takeSuspend(::call) // In Kotlin 1.4, it also works
 }
 ```
 
