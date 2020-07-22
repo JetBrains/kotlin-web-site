@@ -278,6 +278,31 @@ fun main() {
 ```
 </div>
 
+For removing the first and the last element, there are handy shortcuts [`removeFirst()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-first.html)
+and [`removeLast()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-last.html). Note that on empty lists,
+they throw an exception. To receive `null` instead, use [`removeFirstOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-first-or-null.html)
+and [`removeLastOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-last-or-null.html)
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+
+```kotlin
+fun main() {
+//sampleStart
+    val numbers = mutableListOf(1, 2, 3, 4, 3)    
+    numbers.removeFirst()
+    numbers.removeLast()
+    println(numbers)
+    
+    val empty = mutableListOf<Int>()
+    // empty.removeFirst() // NoSuchElementException: List is empty.
+    empty.removeFirstOrNull() //null
+//sampleEnd
+}
+
+```
+</div>
+
+
 ### Sorting
 
 In [Collection Ordering](collection-ordering.html), we describe operations that retrieve collection elements in specific orders.
@@ -324,7 +349,6 @@ fun main() {
 
 ```
 </div>
-
 
 
 

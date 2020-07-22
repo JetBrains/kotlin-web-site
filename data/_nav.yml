@@ -120,6 +120,8 @@ reference:
           title: Properties and Fields
         - url: /docs/reference/interfaces.html
           title: Interfaces
+        - url: /docs/reference/fun-interfaces.html
+          title: Functional (SAM) Interfaces
         - url: /docs/reference/visibility-modifiers.html
           title: Visibility Modifiers
         - url: /docs/reference/extensions.html
