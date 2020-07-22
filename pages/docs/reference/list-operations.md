@@ -278,7 +278,7 @@ fun main() {
 ```
 </div>
 
-For removing the first and the last element, use functions [`removeFirst()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-first.html)
+For removing the first and the last element, there are handy shortcuts [`removeFirst()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-first.html)
 and [`removeLast()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-last.html). Note that on empty lists,
 they throw an exception. To receive `null` instead, use [`removeFirstOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-first-or-null.html)
 and [`removeLastOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-last-or-null.html)
@@ -349,7 +349,6 @@ fun main() {
 
 ```
 </div>
-
 
 
 
