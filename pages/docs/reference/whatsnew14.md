@@ -116,7 +116,7 @@ For more details about the explicit API mode, see the [KEEP](https://github.com/
 ### Unified back-ends and extensibility
 
 In Kotlin, we have three back-ends that generate executables: Kotlin/JVM, Kotlin/JS, and Kotlin/Native. Kotlin/JVM and Kotlin/JS 
-don't share much code since they were developed independently. However, Kotlin/Native is based on a new 
+don't share much code since they were developed independently. Kotlin/Native is based on a new 
 infrastructure built around an internal representation (IR) for Kotlin code. 
 
 Now we are migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three back-ends
