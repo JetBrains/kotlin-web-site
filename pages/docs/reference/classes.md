@@ -326,9 +326,7 @@ class Circle() : Shape() {
 
 </div>
 
-The *override*{: .keyword } modifier is required for `Circle.draw()`. If it were missing, the compiler would complain.
-If there is no *open*{: .keyword } modifier on a function, like `Shape.fill()`, declaring a method with the same signature in a subclass is illegal,
-either with *override*{: .keyword } or without it. The *open*{: .keyword } modifier has no effect when added on members of a final class (i.e.. a class with no *open*{: .keyword } modifier).
+The *override*{: .keyword } modifier is required for `Circle.draw()`. If it were missing, the compiler would complain.The *open*{: .keyword } modifier has no effect when added on members of a final class (i.e.. a class with no *open*{: .keyword } modifier).
 
 A member marked *override*{: .keyword } is itself open, i.e. it may be overridden in subclasses. If you want to prohibit re-overriding, use *final*{: .keyword }:
 
