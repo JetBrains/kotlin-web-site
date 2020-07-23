@@ -9,7 +9,7 @@ title: "Calling JavaScript from Kotlin"
 
 Kotlin was first designed for easy interoperation with the Java platform: it sees Java classes as Kotlin classes, and Java sees Kotlin classes as Java classes.
 
-However, JavaScript is a dynamically typed language, which means it does not check types at compile-time. You can freely talk to JavaScript from Kotlin via  [dynamic](dynamic-type.html) types. If you want to use the full power of the Kotlin type system, you can create external declarations for JavaScript libraries which will be understood by the Kotlin compiler and the surrounding tooling.
+However, JavaScript is a dynamically typed language, which means it does not check types at compile time. You can freely talk to JavaScript from Kotlin via  [dynamic](dynamic-type.html) types. If you want to use the full power of the Kotlin type system, you can create external declarations for JavaScript libraries which will be understood by the Kotlin compiler and the surrounding tooling.
 
 
 ## Inline JavaScript
@@ -79,7 +79,7 @@ MyClass.prototype.ownMember = function() { /* implementation */ };
 ```
 </div>
 
-There is no such syntax in Kotlin. However, in Kotlin we have `companion` objects. Kotlin treats companion objects
+There is no such syntax in Kotlin. However, in Kotlin we have [`companion`](object-declarations.html#companion-objects) objects. Kotlin treats companion objects
 of `external` classes in a special way: instead of expecting an object, it assumes members of companion objects to be members of the class itself. `MyClass` from the example above can be described as follows:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -138,9 +138,9 @@ class Bar: Foo() {
 
 There are some limitations:
 
-1. When a function of an external base class is overloaded by signature, you can't override it in a derived class.
-2. You can't override a function with default arguments.
-3. Non-external classes can't be extended by external classes.
+- When a function of an external base class is overloaded by signature, you can't override it in a derived class.
+- You can't override a function with default arguments.
+- Non-external classes can't be extended by external classes.
 
 ### `external` interfaces
 
@@ -195,10 +195,10 @@ fun sendQuery() {
 
 External interfaces have some restrictions:
 
-1. They can't be used on the right-hand side of `is` checks. 
-2. They can't be passed as reified type arguments.
-3. They can't be used in class literal expressions (i.e. `I::class`).
-4. `as` casts to external interfaces always succeed.
+- They can't be used on the right-hand side of `is` checks. 
+- They can't be passed as reified type arguments.
+- They can't be used in class literal expressions (i.e. `I::class`).
+- `as` casts to external interfaces always succeed.
     Casting to external interfaces produces the "Unchecked cast to external interface" compile time warning. The warning can be suppressed with the `@Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")` annotation.
 
     IntelliJ IDEA can also automatically generate the `@Suppress` annotation. Open the intentions menu via the light bulb icon or Alt-Enter, and click the small arrow next to the "Unchecked cast to external interface" inspection. Here, you can select the suppression scope, and your IDE will add the annotation to your file accordingly.
@@ -207,11 +207,13 @@ External interfaces have some restrictions:
 In addition to the ["unsafe" cast operator](/docs/reference/typecasts.html#unsafe-cast-operator) *as*{: .keyword }, which throws a `ClassCastException` in case a cast is not possible, Kotlin/JS also provides [`unsafeCast<T>()`](/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html). When using `unsafeCast`, _no type checking is done at all_ during runtime. For example, consider the following two methods:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+
 ```kotlin
 fun usingUnsafeCast(s: Any) = s.unsafeCast<String>()
 fun usingAsOperator(s: Any) = s as String
 ```
 </div>
+
 They will be compiled accordingly:
 <div class="sample" markdown="1" theme="idea" mode="java">
 

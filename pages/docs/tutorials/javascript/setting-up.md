@@ -26,7 +26,7 @@ After selecting a project name, such as `jsTutorial`, IntelliJ IDEA will automat
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 plugins {
-    id("org.jetbrains.kotlin.js") version "1.4.0"
+    id("org.jetbrains.kotlin.js") version "{{ site.data.releases.latest.version }}"
 }
 
 group = "org.example"

@@ -6,6 +6,10 @@ title: "Using the experimental IR compiler"
 ---
 # Using the experimental Kotlin/JS IR compiler
 
+> The Kotlin/JS IR compiler is an experimental feature in Kotlin 1.4. All of the functionality, language
+and tooling features described in this document are subject to change in future Kotlin versions.
+{:.note}
+
 The (currently still experimental) Kotlin/JS IR compiler backend is the main focus of innovation around Kotlin/JS paves the way forward for the technology. Its goals are to improve on pain points that the previous compiler had, in areas of developer experience, size of generated code (through dead code elimination), and to improve interoperability with the JavaScript and TypeScript ecosystems, to name just a few.
 
 The experimental IR compiler backend is available starting with Kotlin 1.4 through the Kotlin/JS Gradle plugin. To enable it in your project, pass a compiler type to the `js` function in your Gradle build script:
@@ -30,18 +34,18 @@ kotlin {
 
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`. (This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however).
 
-## (Current) limitations of the IR compiler
+## Current limitations of the IR compiler
 
-A major change with the new IR compiler backend is the absence of binary compatibility with the default backend. A lack of such compatibility between the two backends for Kotlin/JS means that a library created with the new IR compiler backend can’t be used from the default backend, and vice versa.
+A major change with the new IR compiler backend is the **absence of binary compatibility** with the default backend. A lack of such compatibility between the two backends for Kotlin/JS means that a library created with the new IR compiler backend can’t be used from the default backend, and vice versa.
 
-If you want to use the IR compiler backend for your project, you need to update all Kotlin dependencies to versions that support this new backend. Libraries published by JetBrains for Kotlin 1.4+ targeting Kotlin/JS already contain all artifacts required for usage with the new IR compiler backend.
+If you want to use the IR compiler backend for your project, you need to **update all Kotlin dependencies to versions that support this new backend**. Libraries published by JetBrains for Kotlin 1.4+ targeting Kotlin/JS already contain all artifacts required for usage with the new IR compiler backend.
 
-*If you are a library author* looking to provide compatibility with the current compiler backend as well as the new IR compiler backend, additionally check out the [“Authoring libraries for the IR compiler”](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility) section.
+**If you are a library author** looking to provide compatibility with the current compiler backend as well as the new IR compiler backend, additionally check out the [“Authoring libraries for the IR compiler”](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility) section.
 
 The IR compiler backend also has some discrepancies in comparison to the default backend. When trying out the new backend, it's good to be mindful of these possible pitfalls.
-- Currently, the IR backend does not generate source maps for Kotlin code.
-- Some libraries that rely on specific characteristics of the default backend, such as `kotlin-wrappers`, can display some problems.
-- The IR backend does not make Kotlin declarations available to JavaScript by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation).
+- Currently, the IR backend **does not generate source maps for Kotlin code**.
+- Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems.
+- The IR backend **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation).
 
 ## Preview: Generation of TypeScript declaration files (d.ts)
 The Kotlin/JS IR compiler is capable of generating TypeScript definitions from your Kotlin code. These definitions can be used by JavaScript tools and IDEs when working on hybrid apps to provide autocompletion, support static analyzers, and make it easier to include Kotlin code in JavaScript and TypeScript projects.

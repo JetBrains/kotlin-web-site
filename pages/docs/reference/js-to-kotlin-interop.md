@@ -118,7 +118,8 @@ external fun newC()
 </div>
 
 ### `@JsExport` annotation
-The `@JsExport` annotation is currently marked as experimental. Its design may change in future versions. 
+> The `@JsExport` annotation is currently marked as experimental. Its design may change in future versions.
+{:.note} 
 
 By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin. It can also be applied on file-level, i.e. `@file:JsExport`.
 
