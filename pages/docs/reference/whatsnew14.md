@@ -35,6 +35,50 @@ fun main(){
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
 
+## New compiler
+
+The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
+an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4:
+
+* New type inference algorithm is enabled by default. 
+* New JVM and JS IR BE are available in the experimental mode. They will become the default once we stabilize them.
+
+### Unified back-ends and extensibility
+
+In Kotlin, we have three back-ends that generate executables: Kotlin/JVM, Kotlin/JS, and Kotlin/Native. Kotlin/JVM and Kotlin/JS 
+don't share much code since they were developed independently. Kotlin/Native is based on a new 
+infrastructure built around an internal representation (IR) for Kotlin code. 
+
+Now we are migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three back-ends
+share much logic and have a unified pipeline. This allows implementing most features, optimizations, and bugfixes 
+only once for all platforms.
+
+A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
+pipeline and add custom processing and transformations that will automatically work for all platforms. 
+
+In Kotlin 1.4, we do not provide a public API for such extensions yet, but we are working closely with our partners, 
+including JetPack Compose, who are already building their compiler plugins using our new back-end.
+
+Now you can opt into using the new JVM IR back-end, where we've already fixed many bugs.
+
+Specify an additional compilation option in your Gradle build script:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlinOptions.useIR = true
+```
+
+</div>
+
+When using the command-line compiler, add the compilation option `-Xuse-ir`.
+
+> You can use code compiled by the new JVM IR back-end only if you've enabled the new back-end. Otherwise, you will get an error.
+> Considering this, we don't recommend that library authors switch to the new back-end in production.
+{:.note}
+
+You can also opt into using the new JS IR back-end (ADD LINK).
+
 ## Explicit API mode
 
 Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
@@ -110,44 +154,6 @@ with the value `strict` or `warning`.
 </div>
 
 For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
-
-## New compiler
-
-### Unified back-ends and extensibility
-
-In Kotlin, we have three back-ends that generate executables: Kotlin/JVM, Kotlin/JS, and Kotlin/Native. Kotlin/JVM and Kotlin/JS 
-don't share much code since they were developed independently. Kotlin/Native is based on a new 
-infrastructure built around an internal representation (IR) for Kotlin code. 
-
-Now we are migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three back-ends
-share much logic and have a unified pipeline. This allows implementing most features, optimizations, and bugfixes 
-only once for all platforms.
-
-A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
-pipeline and add custom processing and transformations that will automatically work for all platforms. 
-
-In Kotlin 1.4, we do not provide a public API for such extensions yet, but we are working closely with our partners, 
-including JetPack Compose, who are already building their compiler plugins using our new back-end.
-
-Now you can opt into using the new JVM IR back-end, where we've already fixed many bugs.
-
-Specify an additional compilation option in your Gradle build script:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-kotlinOptions.useIR = true
-```
-
-</div>
-
-When using the command-line compiler, add the compilation option `-Xuse-ir`.
-
-> You can use code compiled by the new JVM IR back-end only if you've enabled the new back-end. Otherwise, you will get an error.
-> Considering this, we don't recommend that library authors switch to the new back-end in production.
-{:.note}
-
-You can also opt into using the new JS IR back-end (ADD LINK).
 
 ## Kotlin/Native
 
