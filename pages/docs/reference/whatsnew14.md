@@ -11,6 +11,7 @@ title: "What's New in Kotlin 1.4"
 Kotlin 1.4 comes with a variety of different language features and improvements. They include:
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
+* [Delegated properties improvements](#delegated-properties-improvements)
 * [Callable reference improvements](#callable-reference-improvements)
 
 ### SAM conversions for Kotlin interfaces
@@ -39,6 +40,18 @@ fun main(){
 </div>
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
+
+### Delegated properties improvements
+
+In 1.4, we have added new features to improve your experience with delegated properties in Kotlin:
+- Now a property can be delegated to another property.
+- A new interface `PropertyDelegateProvider` helps create delegate providers in a single declaration.
+- `ReadWriteProperty` now extends `ReadOnlyProperty` so you can use both of them for read-only properties.
+
+Aside from the new API, we've made some optimizations that reduce the resulting bytecode size. These optimizations are
+described in  [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
+
+For more information about delegated properties, see the [documentation](delegated-properties.html).
 
 ### Callable reference improvements
 
@@ -138,6 +151,7 @@ fun test() {
 ```
 
 </div>
+
 
 ## Explicit API mode for library authors
 
@@ -406,6 +420,21 @@ fun test() {
 </div>
 
 In Kotlin 1.3, you would have had to declare the function `foo` above in Java code to perform a SAM conversion. 
+
+## Kotlin/JVM
+
+### New modes for generating default methods
+
+When compiling Kotlin code to targets JVM 1.8 and above, you could compile non-abstract methods of Kotlin interfaces into
+Java's `default` methods. For this purpose, there was a mechanism that includes the `@JvmDefault` annotation for marking
+such methods and the `-Xjmv-default` compiler option that enables processing of this annotation.
+
+In 1.4, we've added a new mode for generating default methods: `-Xjvm-default=all` compiles *all* non-abstract methods of Kotlin
+interfaces to `default` Java methods. For compatibility with the code that uses the interfaces compiled without `default`, 
+we also added `all-compatibility` mode. 
+
+For more information about default methods in the Java interop, see the [documentation](java-to-kotlin-interop.html#default-methods-in-interfaces) and 
+[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/).
 
 ## Kotlin/Native
 
