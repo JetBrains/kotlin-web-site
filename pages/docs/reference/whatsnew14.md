@@ -11,7 +11,6 @@ title: "What's New in Kotlin 1.4"
 Kotlin 1.4 comes with a variety of different language features and improvements. They include:
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
-* [New more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm)
 * [Callable reference improvements](#callable-reference-improvements)
 
 ### SAM conversions for Kotlin interfaces
@@ -40,6 +39,189 @@ fun main(){
 </div>
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
+
+### Callable reference improvements
+
+Kotlin 1.4 supports more cases for using callable references:
+
+* References to functions with default argument values
+* Function references in `Unit`-returning functions 
+* References adapting to functions with a variable number of arguments (`vararg`)
+* Suspend conversion on callable references 
+
+#### References to functions with default argument values 
+
+Now you can use callable references to functions with default argument values. If the callable reference 
+to the function `foo` takes no arguments, the default value `0` is used.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun foo(i: Int = 0): String = "$i!"
+
+fun apply(func: () -> String): String = func()
+
+fun main() {
+    println(apply(::foo))
+}
+```
+
+</div>
+
+Previously, you should write additional overloads for the function `apply` to use the default argument values.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+// some new overload
+fun applyInt(func: (Int) -> String): String = func(0) 
+```
+
+</div>
+
+#### Function references in `Unit`-returning functions 
+
+In Kotlin 1.4, you can use callable references to functions returning any type in `Unit`-returning functions. 
+Before Kotlin 1.4, you could use only lambda arguments in this case. Now you can use both.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun foo(f: () -> Unit) { }
+fun returnsInt(): Int = 42
+
+fun main() {
+    foo { returnsInt() } // it was OK before 1.4
+    foo(::returnsInt) // since Kotlin 1.4, it works as well
+}
+```
+
+</div>
+
+#### References adapting to functions with a variable number of arguments
+
+Now you can adapt callable references to functions when passing a variable number of arguments (`vararg`) . 
+You can pass any number of parameters of the same type at the end.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun foo(x: Int, vararg y: String) {}
+
+fun use0(f: (Int) -> Unit) {}
+fun use1(f: (Int, String) -> Unit) {}
+fun use2(f: (Int, String, String) -> Unit) {}
+
+fun test() {
+    use0(::foo) 
+    use1(::foo) 
+    use2(::foo) 
+}
+```
+
+</div>
+
+#### Suspend conversion on callable references
+
+In addition to suspend conversion on lambdas, Kotlin 1.4 supports suspend conversion on callable references.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun call() {}
+fun takeSuspend(f: suspend () -> Unit) {}
+
+fun test() {
+    takeSuspend { call() } // OK before 1.4
+    takeSuspend(::call) // In Kotlin 1.4, it also works
+}
+```
+
+</div>
+
+## Explicit API mode for library authors
+
+Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
+help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
+to the library’s public API:
+
+* Visibility modifiers are required for declarations if the default visibility exposes them to the public API.
+This helps ensure that no declarations are exposed to the public API unintentionally.
+* Explicit type specifications are required for properties and functions that are exposed to the public API.
+This guarantees that API users are aware of the types of API members they use.
+
+Depending on your configuration, these explicit APIs can produce errors (_strict_ mode) or warnings (_warning_ mode).
+Certain kinds of declarations are excluded from such checks for the sake of readability and common sense:
+
+* primary constructors
+* properties of data classes
+* property getters and setters
+* `override` methods
+
+Explicit API mode analyzes only the production sources of a module.
+
+To compile your module in the explicit API mode, add the following lines to your Gradle build script:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {    
+    // for strict mode
+    explicitApi() 
+    // or
+    explicitApi = 'strict'
+    
+    // for warning mode
+    explicitApiWarning()
+    // or
+    explicitApi = 'warning'
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {    
+    // for strict mode
+    explicitApi() 
+    // or
+    explicitApi = ExplicitApiMode.Strict
+    
+    // for warning mode
+    explicitApiWarning()
+    // or
+    explicitApi = ExplicitApiMode.Warning
+}
+```
+
+</div>
+</div>
+
+When using the command-line compiler, switch to explicit API mode by adding  the `-Xexplicit-api` compiler option
+with the value `strict` or `warning`.
+
+<div class="sample" markdown="1" mode="shell" theme="idea">
+
+```bash
+-Xexplicit-api={strict|warning}
+```
+
+</div>
+
+For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
+
+## New compiler
+
+The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
+an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4:
+
+* [New more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is enabled by default. 
+* New JVM and JS IR BE are available in the experimental mode. They will become the default once we stabilize them.
 
 ### New more powerful type inference algorithm
 
@@ -224,181 +406,6 @@ fun test() {
 
 </div>
 
-### Callable reference improvements
-
-Kotlin 1.4 supports more cases for using callable references:
-
-* References to functions with default argument values
-* Function references in `Unit`-returning functions 
-* References adapting to functions with a variable number of arguments (`vararg`)
-* Suspend conversion on callable references 
-
-#### References to functions with default argument values 
-
-Now you can use callable references to functions with default argument values. If the callable reference 
-to the function `foo` takes no arguments, the default value `0` is used.
-
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
-
-```kotlin
-fun foo(i: Int = 0): String = "$i!"
-
-fun apply(func: () -> String): String = func()
-
-fun main() {
-    println(apply(::foo))
-}
-```
-
-</div>
-
-Previously, you should write additional overloads for the function `apply` to use the default argument values.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-// some new overload
-fun applyInt(func: (Int) -> String): String = func(0) 
-```
-
-</div>
-
-#### Function references in `Unit`-returning functions 
-
-In Kotlin 1.4, you can use callable references to functions returning any type in `Unit`-returning functions. 
-Before Kotlin 1.4, you could use only lambda arguments in this case. Now you can use both.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-fun foo(f: () -> Unit) { }
-fun returnsInt(): Int = 42
-
-fun main() {
-    foo { returnsInt() } // it was OK before 1.4
-    foo(::returnsInt) // since Kotlin 1.4, it works as well
-}
-```
-
-</div>
-
-#### References adapting to functions with a variable number of arguments
-
-Now you can adapt callable references to functions when passing a variable number of arguments (`vararg`) . 
-You can pass any number of parameters of the same type at the end.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-fun foo(x: Int, vararg y: String) {}
-
-fun use0(f: (Int) -> Unit) {}
-fun use1(f: (Int, String) -> Unit) {}
-fun use2(f: (Int, String, String) -> Unit) {}
-
-fun test() {
-    use0(::foo) 
-    use1(::foo) 
-    use2(::foo) 
-}
-```
-
-</div>
-
-#### Suspend conversion on callable references
-
-In addition to suspend conversion on lambdas, Kotlin 1.4 supports suspend conversion on callable references in Kotlin/JVM.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-fun call() {}
-fun takeSuspend(f: suspend () -> Unit) {}
-
-fun test() {
-    takeSuspend { call() } // OK before 1.4
-    takeSuspend(::call) // In Kotlin 1.4, it also works
-}
-```
-
-</div>
-
-## Explicit API mode
-
-Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
-help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
-to the library’s public API:
-
-* Visibility modifiers are required for declarations if the default visibility exposes them to the public API.
-This helps ensure that no declarations are exposed to the public API unintentionally.
-* Explicit type specifications are required for properties and functions that are exposed to the public API.
-This guarantees that API users are aware of the types of API members they use.
-
-Depending on your configuration, these explicit APIs can produce errors (_strict_ mode) or warnings (_warning_ mode).
-Certain kinds of declarations are excluded from such checks for the sake of readability and common sense:
-
-* primary constructors
-* properties of data classes
-* property getters and setters
-* `override` methods
-
-Explicit API mode analyzes only the production sources of a module.
-
-To compile your module in the explicit API mode, add the following lines to your Gradle build script:
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-kotlin {    
-    // for strict mode
-    explicitApi() 
-    // or
-    explicitApi = 'strict'
-    
-    // for warning mode
-    explicitApiWarning()
-    // or
-    explicitApi = 'warning'
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
-
-```kotlin
-kotlin {    
-    // for strict mode
-    explicitApi() 
-    // or
-    explicitApi = ExplicitApiMode.Strict
-    
-    // for warning mode
-    explicitApiWarning()
-    // or
-    explicitApi = ExplicitApiMode.Warning
-}
-```
-
-</div>
-</div>
-
-When using the command-line compiler, switch to explicit API mode by adding  the `-Xexplicit-api` compiler option
-with the value `strict` or `warning`.
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
--Xexplicit-api={strict|warning}
-```
-
-</div>
-
-For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
-
 ## Kotlin/Native
 
 ### Simplified management of CocoaPods dependencies
@@ -420,7 +427,6 @@ Now you can also work with Pod libraries stored locally.
 Depending on your needs, you can add dependencies between:
 * A Kotlin project and Pod libraries stored remotely in the CocoaPods repository or stored locally on your machine.
 * A Kotlin Pod (Kotlin project used as a CocoaPods dependency) and an Xcode project with one or more targets.
-* Several Kotlin Pods and an Xcode project.
 
 Complete the initial configuration, and when you add a new dependency to `cocoapods`, just re-import the project in IntelliJ IDEA. 
 The new dependency will be added automatically. No additional steps are required.
