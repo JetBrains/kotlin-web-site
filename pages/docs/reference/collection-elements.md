@@ -149,6 +149,8 @@ fun main() {
 ```
 </div>
 
+On empty collections, `random()` throws an exception. To receive `null` instead, use [`randomOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/random-or-null.html)
+
 ## Checking existence
 
 To check the presence of an element in a collection, use the [`contains()`](/api/latest/jvm/stdlib/kotlin.collections/contains.html) function.

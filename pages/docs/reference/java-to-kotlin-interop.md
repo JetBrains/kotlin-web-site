@@ -595,7 +595,7 @@ catch (IOException e) { // error: writeToFile() does not declare IOException in 
 </div>
 
 we get an error message from the Java compiler, because `writeToFile()` does not declare `IOException`.
-To work around this problem, use the [`@Throws`](/api/latest/jvm/stdlib/kotlin.jvm/-throws/index.html) annotation in Kotlin:
+To work around this problem, use the [`@Throws`](/api/latest/jvm/stdlib/kotlin/-throws/index.html) annotation in Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 

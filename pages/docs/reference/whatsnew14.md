@@ -6,7 +6,37 @@ title: "What's New in Kotlin 1.4"
 
 # What's New in Kotlin 1.4
 
-## Delegated properties improvements
+
+## Language features and improvements
+
+### SAM conversions for Kotlin interfaces
+
+Before Kotlin 1.4, you could apply SAM (Single Abstract Method) conversions only [when working with Java methods and Java
+interfaces from Kotlin](java-interop.html#sam-conversions). From now on, you can use SAM conversions for Kotlin interfaces as well.
+To do so, mark a Kotlin interface explicitly as functional with the `fun` modifier.
+
+SAM conversion applies if you pass a lambda as an argument when an interface with only one single abstract method is expected
+as a parameter. In this case, the compiler automatically converts the lambda to an instance of the class that implements the abstract member function.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun interface IntPredicate {
+   fun accept(i: Int): Boolean
+}
+
+val isEven = IntPredicate { it % 2 == 0 }
+
+fun main(){
+   println("Is 7 even? - ${isEven.accept(7)}")
+}
+```
+
+</div>
+
+Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
+
+### Delegated properties improvements
 
 In 1.4, we have added new features to improve your experience with delegated properties in Kotlin:
 - Now a property can be delegated to another property.
@@ -17,7 +47,6 @@ Aside from the new API, we've made some optimizations that reduce the resulting 
 described in  [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
 
 For more information about delegated properties, see the [documentation](delegated-properties.html).
-
 
 ## Explicit API mode
 
@@ -94,3 +123,30 @@ with the value `strict` or `warning`.
 </div>
 
 For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
+
+## Kotlin/Native
+
+### Simplified management of CocoaPods dependencies
+
+Previously, once you integrated your project with the dependency manager CocoaPods, you could build an iOS, macOS, watchOS, 
+or tvOS part of your project only in Xcode, separate from other parts of your multiplatform project. These other parts could 
+be built in Intellij IDEA. 
+
+Moreover, every time you added a dependency on an Objective-C library stored in CocoaPods (Pod library), you had to switch 
+from IntelliJ IDEA to Xcode, call `pod install`, and run the Xcode build there. 
+
+Now you can manage Pod dependencies right in Intellij IDEA while enjoying the benefits it provides for working with code, 
+such as code highlighting and completion. You can also build the whole Kotlin project with Gradle, without having to 
+switch to Xcode. This means you only have to go to Xcode when you need to write Swift/Objective-C code or run your application 
+on a simulator or device.
+
+Now you can also work with Pod libraries stored locally.
+
+Depending on your needs, you can add dependencies between:
+* A Kotlin project and Pod libraries stored remotely in the CocoaPods repository or stored locally on your machine.
+* A Kotlin Pod (Kotlin project used as a CocoaPods dependency) and an Xcode project with one or more targets.
+
+Complete the initial configuration, and when you add a new dependency to `cocoapods`, just re-import the project in IntelliJ IDEA. 
+The new dependency will be added automatically. No additional steps are required.
+
+Learn [how to add dependencies](native/cocoapods.html).
