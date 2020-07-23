@@ -46,7 +46,7 @@ Kotlin 1.4 supports more cases for using callable references:
 
 * References to functions with default argument values
 * Function references in `Unit`-returning functions 
-* References adapting to functions with a variable number of arguments (`vararg`)
+* References that adapt based on the number of arguments in a function
 * Suspend conversion on callable references 
 
 #### References to functions with default argument values 
@@ -68,7 +68,7 @@ fun main() {
 
 </div>
 
-Previously, you should write additional overloads for the function `apply` to use the default argument values.
+Previously, you had to write additional overloads for the function `apply` to use the default argument values.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -82,7 +82,7 @@ fun applyInt(func: (Int) -> String): String = func(0)
 #### Function references in `Unit`-returning functions 
 
 In Kotlin 1.4, you can use callable references to functions returning any type in `Unit`-returning functions. 
-Before Kotlin 1.4, you could use only lambda arguments in this case. Now you can use both.
+Before Kotlin 1.4, you could only use lambda arguments in this case. Now you can use both lambda arguments and callable references.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -91,17 +91,17 @@ fun foo(f: () -> Unit) { }
 fun returnsInt(): Int = 42
 
 fun main() {
-    foo { returnsInt() } // it was OK before 1.4
-    foo(::returnsInt) // since Kotlin 1.4, it works as well
+    foo { returnsInt() } // this was the only way to do it  before 1.4
+    foo(::returnsInt) // starting from 1.4, this also works
 }
 ```
 
 </div>
 
-#### References adapting to functions with a variable number of arguments
+#### References that adapt based on the number of arguments in a function
 
 Now you can adapt callable references to functions when passing a variable number of arguments (`vararg`) . 
-You can pass any number of parameters of the same type at the end.
+You can pass any number of parameters of the same type at the end of the list of passed arguments.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -123,7 +123,7 @@ fun test() {
 
 #### Suspend conversion on callable references
 
-In addition to suspend conversion on lambdas, Kotlin 1.4 supports suspend conversion on callable references.
+In addition to suspend conversion on lambdas, Kotlin now supports suspend conversion on callable references starting from version 1.4.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -220,27 +220,27 @@ For more details about the explicit API mode, see the [KEEP](https://github.com/
 The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
 an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4:
 
-* [New more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is enabled by default. 
-* New JVM and JS IR BE are available in the experimental mode. They will become the default once we stabilize them.
+* [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is enabled by default. 
+* New JVM and JS IR back-ends are available in experimental mode. They will become the default once we stabilize them.
 
 ### New more powerful type inference algorithm
 
-Kotlin 1.4 uses a new, more powerful type inference algorithm. You were already able to try this new algorithm with 
+Kotlin 1.4 uses a new, more powerful type inference algorithm. This new algorithm was already available to try in 
 Kotlin 1.3 by specifying a compiler option, and now it’s used by default. You can find the full list of issues fixed in 
 the new algorithm in [YouTrack](https://youtrack.jetbrains.com/issues/KT?q=Tag:%20fixed-in-new-inference%20). Here
 you can find some of the most noticeable improvements:
 
-* Inferring a type automatically in more cases
-* Smart casts for the lambda’s last expression
+* More cases where type is inferred automatically
+* Smart casts for a lambda’s last expression
 * Smart casts for callable references
 * Better inference for delegated properties
 * SAM conversion for Java interfaces with different arguments
 * Java SAM interfaces in Kotlin
 
-#### Inferring a type automatically in more cases
+#### More cases where type is inferred automatically
 
-The new inference algorithm infers types for many cases where the old inference required you to specify them explicitly. 
-For instance, in the following example, the type of the lambda parameter `it` is correctly inferred to `String?`:
+The new inference algorithm infers types for many cases where the old algorithm required you to specify them explicitly. 
+For instance, in the following example the type of the lambda parameter `it` is correctly inferred to `String?`:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
 
@@ -262,12 +262,12 @@ fun main() {
 
 </div>
 
-In Kotlin 1.3, you needed to introduce an explicit lambda parameter, or replace `to` with a `Pair` constructor with 
+In Kotlin 1.3, you needed to introduce an explicit lambda parameter or replace `to` with a `Pair` constructor with 
 explicit generic arguments to make it work.
 
-#### Smart casts for the lambda’s last expression
+#### Smart casts for a lambda’s last expression
 
-In Kotlin 1.3, the last expression inside lambda isn’t smart cast unless you specify the expected type. Thus, in the 
+In Kotlin 1.3, the last expression inside a lambda wasn’t  smart cast unless you specified the expected type. Thus, in the 
 following example, Kotlin 1.3 infers `String?` as the type of the `result` variable:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -285,7 +285,7 @@ val result = run {
 
 </div>
 
-In Kotlin 1.4, thanks to the new inference algorithm, the last expression inside lambda gets smart cast, and this new, 
+In Kotlin 1.4, thanks to the new inference algorithm, the last expression inside a lambda gets smart cast, and this new, 
 more precise type is used to infer the resulting lambda type. Thus, the type of the `result` variable becomes `String`.
 
 In Kotlin 1.3, you often needed to add explicit casts (either `!!` or type casts like `as String`) to make such cases work, 
@@ -293,7 +293,7 @@ and now these casts have become unnecessary.
 
 #### Smart casts for callable references
 
-In Kotlin 1.3, you couldn’t access a member reference of a smart cast type. Now you can:
+In Kotlin 1.3, you couldn’t access a member reference of a smart cast type. Now in Kotlin 1.4 you can:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
 
@@ -359,7 +359,7 @@ fun main() {
 
 Kotlin has supported SAM conversions for Java interfaces from the beginning, but there was one case that wasn’t supported, 
 which was sometimes annoying when working with existing Java libraries. If you called a Java method that took two SAM interfaces 
-as parameters, both arguments need to be either lambdas or regular objects. You couldn't pass one argument as a lambda and 
+as parameters, both arguments needed to be either lambdas or regular objects. You couldn't pass one argument as a lambda and 
 another as an object. 
 
 The new algorithm fixes this issue, and you can pass a lambda instead of a SAM interface in any case, 
@@ -390,7 +390,6 @@ fun test(r1: Runnable) {
 #### Java SAM interfaces in Kotlin
 
 In Kotlin 1.4, you can use Java SAM interfaces in Kotlin and apply SAM conversions to them. 
-In Kotlin 1.3, you could perform a SAM conversion only if you declared such a function `foo` in Java code.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -405,6 +404,8 @@ fun test() {
 ```
 
 </div>
+
+In Kotlin 1.3, you would have had to declare the function `foo` above in Java code to perform a SAM conversion. 
 
 ## Kotlin/Native
 
