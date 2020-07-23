@@ -87,7 +87,7 @@ NEW has been assigned to ‘p’ in Example@33a17727.
 The specification of the requirements to the delegated object can be found [below](delegated-properties.html#property-delegate-requirements).
 
 Note that since Kotlin 1.1 you can declare a delegated property inside a function or code block, it shouldn't necessarily be a member of a class.
-Below you can find [the example](delegated-properties.html#local-delegated-properties-since-11).
+Below you can find [an example](delegated-properties.html#local-delegated-properties-since-11).
 
 ## Standard delegates
 
@@ -409,7 +409,7 @@ The Kotlin compiler provides all the necessary information about `prop` in the a
 to an instance of the outer class `C` and `this::prop` is a reflection object of the `KProperty` type describing `prop` itself.
 
 Note that the syntax `this::prop` to refer a [bound callable reference](reflection.html#bound-function-and-property-references-since-11)
-in the code directly is available only since Kotlin 1.1.  
+in the code directly has only been available since Kotlin 1.1.
 
 ### Providing a delegate
 
