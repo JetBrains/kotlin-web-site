@@ -6,6 +6,7 @@ title: "What's New in Kotlin 1.4"
 
 # What's New in Kotlin 1.4
 
+
 ## Language features and improvements
 
 ### SAM conversions for Kotlin interfaces
@@ -34,6 +35,18 @@ fun main(){
 </div>
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
+
+### Delegated properties improvements
+
+In 1.4, we have added new features to improve your experience with delegated properties in Kotlin:
+- Now a property can be delegated to another property.
+- A new interface `PropertyDelegateProvider` helps create delegate providers in a single declaration.
+- `ReadWriteProperty` now extends `ReadOnlyProperty` so you can use both of them for read-only properties.
+
+Aside from the new API, we've made some optimizations that reduce the resulting bytecode size. These optimizations are
+described in  [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
+
+For more information about delegated properties, see the [documentation](delegated-properties.html).
 
 ## Explicit API mode
 
