@@ -41,7 +41,7 @@ The new Kotlin compiler is going to be really fast; it will unify all the suppor
 an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4:
 
 * New type inference algorithm is enabled by default. 
-* New JVM and JS IR BE are available in the experimental mode. They will become the default once we stabilize them.
+* New JVM and JS IR back-ends are available in the experimental mode. They will become the default once we stabilize them.
 
 ### Unified back-ends and extensibility
 
@@ -57,11 +57,13 @@ A common back-end infrastructure also opens the door for multiplatform compiler 
 pipeline and add custom processing and transformations that will automatically work for all platforms. 
 
 In Kotlin 1.4, we do not provide a public API for such extensions yet, but we are working closely with our partners, 
-including JetPack Compose, who are already building their compiler plugins using our new back-end.
+including [JetPack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
+using our new back-end.
 
-Now you can opt into using the new JVM IR back-end, where we've already fixed many bugs.
+Now you can opt into using the new JVM IR back-end, where we've fixed many long-standing issues of the old back-end. 
+We’ll be very thankful if you find and report bugs to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
-Specify an additional compilation option in your Gradle build script:
+To enable the new JVM IR back-end, specify an additional compiler option in your Gradle build script:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -71,7 +73,7 @@ kotlinOptions.useIR = true
 
 </div>
 
-When using the command-line compiler, add the compilation option `-Xuse-ir`.
+When using the command-line compiler, add the compiler option `-Xuse-ir`.
 
 > You can use code compiled by the new JVM IR back-end only if you've enabled the new back-end. Otherwise, you will get an error.
 > Considering this, we don't recommend that library authors switch to the new back-end in production.
