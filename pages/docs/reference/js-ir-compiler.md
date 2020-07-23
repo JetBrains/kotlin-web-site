@@ -10,7 +10,9 @@ title: "Using the experimental IR compiler"
 and tooling features described in this document are subject to change in future Kotlin versions.
 {:.note}
 
-The (currently still experimental) Kotlin/JS IR compiler backend is the main focus of innovation around Kotlin/JS paves the way forward for the technology. Its goals are to improve on pain points that the previous compiler had, in areas of developer experience, size of generated code (through dead code elimination), and to improve interoperability with the JavaScript and TypeScript ecosystems, to name just a few.
+The (currently still experimental) Kotlin/JS IR compiler backend is the main focus of innovation around Kotlin/JS, and paves the way forward for the technology. 
+
+Rather than directly generating JavaScript code from Kotlin source code, the Kotlin/JS IR compiler backend leverages a new approach. Kotlin source code is first transformed into an intermediate representation (IR), which is subsequently compiled into JavaScript. This allows for more aggressive optimizations, and enables improvements on pain points that were present in the previous compiler. This includes the areas of developer experience, generated code size (dead code elimination), and JavaScript and TypeScript ecosystem interoperability, to name just a few.
 
 The experimental IR compiler backend is available starting with Kotlin 1.4 through the Kotlin/JS Gradle plugin. To enable it in your project, pass a compiler type to the `js` function in your Gradle build script:
 
