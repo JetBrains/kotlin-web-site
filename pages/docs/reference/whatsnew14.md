@@ -12,9 +12,9 @@ When compiling Kotlin code to targets JVM 1.8 and above, you could compile non-a
 Java's `default` methods. For this purpose, there was a mechanism that includes the `@JvmDefault` annotation for marking
 such methods and the `-Xjmv-default` compiler option that enables processing of this annotation.
 
-In 1.4, we add a new mode for generating default methods: `-Xjvm-default=all` compiles *all* non-abstract methods of Kotlin
+In 1.4, we've added a new mode for generating default methods: `-Xjvm-default=all` compiles *all* non-abstract methods of Kotlin
 interfaces to `default` Java methods. For compatibility with the code that uses the interfaces compiled without `default`, 
-we also add `all-compatibility` mode. 
+we also added `all-compatibility` mode. 
 
 For more information about default methods in the Java interop, see the [documentation](java-to-kotlin-interop.html#default-methods-in-interfaces) and 
 [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/).
