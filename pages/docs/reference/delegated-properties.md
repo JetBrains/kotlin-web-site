@@ -87,7 +87,7 @@ NEW has been assigned to ‘p’ in Example@33a17727.
 The specification of the requirements to the delegated object can be found [below](delegated-properties.html#property-delegate-requirements).
 
 Note that since Kotlin 1.1 you can declare a delegated property inside a function or code block, it shouldn't necessarily be a member of a class.
-Below you can find [an example](delegated-properties.html#local-delegated-properties-since-11).
+Below you can find [an example](delegated-properties.html#local-delegated-properties).
 
 ## Standard delegates
 
