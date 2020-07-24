@@ -56,21 +56,29 @@ For more information about delegated properties, see the [documentation](delegat
 
 ### Mixing named and positional arguments
 
-In Kotlin 1.3, when you called a function with both positional and named arguments, you had to place all the positional 
-arguments before the first named one. For example, you could call `f(1, y = 2)`, but you couldn't call `f(x = 1, 2)`.
+In Kotlin 1.3, when you called a function with some named arguments, you had to place all 
+arguments without names (positional arguments) before the first named argument. For example, you could call `f(1, y = 2)`, 
+but you couldn't call `f(x = 1, 2)`.
 
-It was really annoying when all arguments stayed in their correct positions and you wanted to specify a name for one argument in the middle. 
+It was really annoying when all arguments stayed in their correct positions and you wanted to specify a name for one argument in the middle.
+It would be especially helpful for a boolean or `null` value to make clear which attribute it belongs to.
 
-In Kotlin 1.4, there is no such a limitation anymore - you can mix positional and named arguments as you like.
+In Kotlin 1.4, there is no such a limitation anymore - you can specify a name for an argument in the middle. Moreover,
+you can mix positional and named arguments as you like given that they stay in their correct positions.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun f(a: Int, b: Int, c: Int) {}
-
-fun main() {
-f(1, b = 2, 3)
+fun reformat(
+  str : String,
+  uppercaseFirstLetter : Boolean = true,
+  wordSeparator : Character = ' '
+) {
+  // ...
 }
+
+//...
+reformat('This is a String!', uppercaseFirstLetter = false , '-')
 ```
 
 </div>
