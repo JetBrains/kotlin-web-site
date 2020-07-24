@@ -77,7 +77,7 @@ fun reformat(
   // ...
 }
 
-//...
+//Function call with a named argument in the middle
 reformat('This is a String!', uppercaseFirstLetter = false , '-')
 ```
 
