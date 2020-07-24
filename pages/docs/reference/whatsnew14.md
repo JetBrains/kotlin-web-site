@@ -59,6 +59,8 @@ For more information about delegated properties, see the [documentation](delegat
 In Kotlin 1.3, when you called a function with both positional and named arguments, you had to place all the positional 
 arguments before the first named one. For example, you could call `f(1, y = 2)`, but you couldn't call `f(x = 1, 2)`.
 
+It was really annoying when all arguments stayed in their correct positions and you wanted to specify a name for one argument in the middle. 
+
 In Kotlin 1.4, there is no such a limitation anymore - you can mix positional and named arguments as you like.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
