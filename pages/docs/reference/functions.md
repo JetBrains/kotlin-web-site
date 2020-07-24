@@ -9,7 +9,7 @@ title: "Functions: infix, vararg, tailrec"
 
 ## Function declarations
 
-Functions in Kotlin are declared using the *fun*{: .keyword } keyword:
+Functions in Kotlin are declared using the `fun` keyword:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -43,7 +43,8 @@ Stream().read() // create instance of class Stream and call read()
 
 ### Parameters
 
-Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Each parameter must be explicitly typed:
+Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. 
+Each parameter must be explicitly typed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -54,8 +55,8 @@ fun powerOf(number: Int, exponent: Int) { /*...*/ }
 
 ### Default arguments
 
-Function parameters can have default values, which are used when a corresponding argument is omitted. This allows for a reduced number of overloads compared to
-other languages:
+Function parameters can have default values, which are used when you skip the corresponding argument. This reduces a number 
+of overloads compared to other languages:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -64,7 +65,7 @@ fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) { /*...*/ }
 ```
 </div>
 
-Default values are defined using the **=** after type along with the value.
+A default value is defined using the `=` after the type.
 
 Overriding methods always use the same default parameter values as the base method.
 When overriding a method with default parameter values, the default parameter values must be omitted from the signature:
@@ -77,7 +78,7 @@ open class A {
 }
 
 class B : A() {
-    override fun foo(i: Int) { /*...*/ }  // no default value allowed
+    override fun foo(i: Int) { /*...*/ }  // No default value is allowed
 }
 ```
 </div>
@@ -93,7 +94,8 @@ foo(baz = 1) // The default value bar = 0 is used
 ```
 </div>
 
-If the last argument after default parameters is a [lambda](lambdas.html#lambda-expression-syntax), it can be passed in either as a named argument or [outside the parentheses](lambdas.html#passing-a-lambda-to-the-last-parameter):
+If the last argument after default parameters is a [lambda](lambdas.html#lambda-expression-syntax), you can pass it 
+either as a named argument or [outside the parentheses](lambdas.html#passing-a-lambda-to-the-last-parameter):
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -108,9 +110,12 @@ foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
 
 ### Named arguments
 
-Function parameters can be named when calling functions. This is very convenient when a function has a high number of parameters or default ones.
+When calling a function, you can name one or more its arguments. It may be helpful when a function has a big number of arguments, 
+and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
 
-Given the following function:
+When you use named arguments in a function call, you can change their order and skip some arguments to use their default values.
+
+Consider the following function `reformat()` that has 4 arguments with default values.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
@@ -123,50 +128,10 @@ fun reformat(str: String,
 /*...*/
 }
 ```
+
 </div>
 
-We could call this using default arguments:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-reformat(str)
-```
-</div>
-
-However, when calling it with non-default, the call would look something like:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-reformat(str, true, true, false, '_')
-```
-</div>
-
-With named arguments we can make the code much more readable:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-reformat(str,
-    normalizeCase = true,
-    upperCaseFirstLetter = true,
-    divideByCamelHumps = false,
-    wordSeparator = '_'
-)
-```
-</div>
-
-and if we do not need all arguments:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-reformat(str, wordSeparator = '_')
-```
-</div>
-
-When calling a function with both named and positional arguments, you can mix them in any way. 
+In a function call, you can use names just for some arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -174,15 +139,37 @@ When calling a function with both named and positional arguments, you can mix th
 reformat(str,
     true,
     upperCaseFirstLetter = true,
-    false,
-    wordSeparator = '_'
+    divideByCamelHumps = true,
+    '_'
 )
 ```
 
 </div>
 
+You can skip all arguments with default values:
 
-[Variable number of arguments (*vararg*{: .keyword })](#variable-number-of-arguments-varargs) can be passed in the named form by using the **spread** operator:
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+reformat(str)
+```
+
+</div>
+
+You can skip some arguments with default values. However, after the first argument that is not in the right place, you need to name all subsequent 
+arguments:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+reformat(str, upperCaseFirstLetter = false, wordSeparator = '_')
+```
+
+</div>
+
+
+You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the 
+`spread` operator:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -191,10 +178,11 @@ fun foo(vararg strings: String) { /*...*/ }
 
 foo(strings = *arrayOf("a", "b", "c"))
 ```
+
 </div>
 
-> **On the JVM**: the named argument syntax cannot be used when calling Java functions because Java bytecode does not
-always preserve names of function parameters.
+> **On the JVM**: You can't use the named argument syntax when calling Java functions because Java bytecode does not
+always preserve names of function arguments.
 
 ### Unit-returning functions
 
