@@ -46,22 +46,22 @@ an API for compiler extensions. It's a long-term project, and we've already comp
 ### Unified back-ends and extensibility
 
 In Kotlin, we have three back-ends that generate executables: Kotlin/JVM, Kotlin/JS, and Kotlin/Native. Kotlin/JVM and Kotlin/JS 
-don't share much code since they were developed independently. Kotlin/Native is based on a new 
+don't share much code since they were developed independently of each other. Kotlin/Native is based on a new 
 infrastructure built around an internal representation (IR) for Kotlin code. 
 
-Now we are migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three back-ends
-share much logic and have a unified pipeline. This allows implementing most features, optimizations, and bugfixes 
+We are now migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three back-ends
+share a lot of logic and have a unified pipeline. This allows us to implement most features, optimizations, and bug fixes 
 only once for all platforms.
 
 A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
 pipeline and add custom processing and transformations that will automatically work for all platforms. 
 
-In Kotlin 1.4, we do not provide a public API for such extensions yet, but we are working closely with our partners, 
+Kotlin 1.4 does not provide a public API for such extensions yet, but we are working closely with our partners, 
 including [JetPack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
 using our new back-end.
 
 Now you can opt into using the new JVM IR back-end, where we've fixed many long-standing issues of the old back-end. 
-We’ll be very thankful if you find and report bugs to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+If you find any bugs, we’ll be very thankful if you could report them to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 To enable the new JVM IR back-end, specify an additional compiler option in your Gradle build script:
 
@@ -81,7 +81,7 @@ When using the command-line compiler, add the compiler option `-Xuse-ir`.
 
 You can also opt into using the new JS IR back-end (ADD LINK).
 
-## Explicit API mode
+## Explicit API mode for library authors
 
 Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
 help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
