@@ -166,7 +166,21 @@ reformat(str, wordSeparator = '_')
 ```
 </div>
 
-When a function is called with both positional and named arguments, all the positional arguments should be placed before the first named one. For example, the call `f(1, y = 2)` is allowed, but `f(x = 1, 2)` is not.
+When calling a function with both named and positional arguments, you can mix them in any way. 
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+reformat(str,
+    true,
+    upperCaseFirstLetter = true,
+    false,
+    wordSeparator = '_'
+)
+```
+
+</div>
+
 
 [Variable number of arguments (*vararg*{: .keyword })](#variable-number-of-arguments-varargs) can be passed in the named form by using the **spread** operator:
 
