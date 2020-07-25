@@ -56,7 +56,7 @@ check [our instructions on how to configure your build to support this version](
         <td>
             <ul>
                 <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong>
-                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/1.0-M1-1.4.0-rc`" target="_blank">1.0-M1-1.4.0-rc</a></li>
+                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/1.0-M1-1.4.0-rc" target="_blank">1.0-M1-1.4.0-rc</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a>
                 version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.8-1.4.0-rc" target="_blank">1.3.8-1.4.0-rc
                 </a></li>
