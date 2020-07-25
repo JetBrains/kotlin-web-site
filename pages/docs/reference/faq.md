@@ -9,7 +9,7 @@ title: FAQ
 
 ### What is Kotlin?
 
-Kotlin is an OSS statically typed programming language that targets the JVM, Android, JavaScript and Native. 
+Kotlin is an open-source statically-typed programming language that targets the JVM, Android, JavaScript and Native. 
 It’s developed by [JetBrains](http://www.jetbrains.com). The project started in 2010 and was open source from very early on. The first official 1.0 release was in February 2016. 
 
 ### What is the current version of Kotlin?
@@ -40,7 +40,7 @@ much easier and lower-risk. There’s also an automated Java-to-Kotlin converter
 
 ### What can I use Kotlin for?
 
-Kotlin can be used for any kind of development, be it server-side, client-side web and Android. With Kotlin/Native currently 
+Kotlin can be used for any kind of development, be it server-side, client-side, web and Android. With Kotlin/Native currently 
 in the works, support for other platforms such as embedded systems, macOS and iOS is coming. People are using Kotlin for mobile 
 and server-side applications, client-side with JavaScript or JavaFX, and data science, just to name a few possibilities. 
 
