@@ -18,25 +18,26 @@ Once you've installed IntelliJ IDEA, it's time to create your first frontend app
 2. In the panel on the left, select **Kotlin**.
 3. Enter a project name, select **Frontend Application** as the project template, and click **Next**.
    
-   ![Create a frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-1.png') }})
-   
-   By default, your project will use the build system Gradle with Kotlin DSL.
+    ![Create a frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-1.png') }})
+    
+    By default, your project will use Gradle with Kotlin DSL as the build system.
 
 3. Accept the default configuration on the next screen and click **Finish**.
   
-   ![Configure a frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-2.png') }}) 
-
-   Your project opens. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
-   Wizard based on your configuration. It includes the `kotlin("js")` plugin and dependencies required for your frontend application.
+    ![Configure a frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-2.png') }}) 
+    
+Your project opens. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
+Wizard based on your configuration. It includes the [`kotlin("js")` plugin and dependencies](https://kotlinlang.org/docs/reference/js-project-setup.html) 
+required for your frontend application.
 
 
 ## Run the application
 
-Run the application by clicking **Run** next to the run configuration at the top of the screen.
+Start the application by clicking **Run** next to the run configuration at the top of the screen.
 
 <img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-run-app.png') }}" alt="Running a frontend app" width="500"/>
 
-Your default web browser opens the URL `localhost:8080` with your frontend application.
+Your default web browser opens the URL [http://localhost:8080/](http://localhost:8080/) with your frontend application.
 
 <img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-1.png') }}" alt="Web browser with JS application"/>
 
@@ -46,30 +47,30 @@ Enter your name in the text box and accept greetings from your application!
 
 ### Show your name backwards
 
-1. Open the file `welcome.kt` in **src** \| **main** \| **kotlin**.  
-   The **src** directory contains Kotlin source files and resources. The file `welcome.kt` includes sample code that renders 
-   a web page you've just seen.
-
-   ![Source code for frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-welcome-kt.png') }})
+1. Open the file `welcome.kt` in **src** / **main** / **kotlin**.  
+    The **src** directory contains Kotlin source files and resources. The file `welcome.kt` includes sample code that renders 
+    a web page you've just seen.
+    
+    ![Source code for frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-welcome-kt.png') }})
 
 2. Change the code of `StyledDiv` to show your name backwards.  
    
-   * Use the standard library function `reversed()` to reverse your name.
-   * Use your reversed name right in text output by adding `$` and enclosing in curly brackets `{}` - `${state.name.reversed()}`.
-   
-   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-   
-   ```kotlin
-   styledDiv {
-               css {
-                   +WelcomeStyles.textContainer
-               }
-               +"Hello ${state.name}!"
-               +" Your name backwards is ${state.name.reversed()}!"
-           }
-   ```
-   
-   </div>
+    * Use the standard library function `reversed()` to reverse your name.
+    * Use your reversed name right in text output by adding `$` and enclosing in curly brackets `{}` - `${state.name.reversed()}`.
+    
+    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+    
+    ```kotlin
+    styledDiv {
+       css {
+           +WelcomeStyles.textContainer
+       }
+       +"Hello ${state.name}!"
+       +" Your name backwards is ${state.name.reversed()}!"
+    }
+    ```
+    
+    </div>
    
 3. Save changes to the file.
 
@@ -79,22 +80,22 @@ Enter your name in the text box and accept greetings from your application!
 
 ### Add an image
 
-1. Open the file `welcome.kt` in **src** \| **main** \| **kotlin**.  
+1. Open the file `welcome.kt` in **src** / **main** / **kotlin**.  
 
 2. Add the `div` element with an image `img`.  
    
-   > Make sure that you import these packages - `react.dom.*` and `styled.*`.
-   {:.note}       
-   
-   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-   
-   ```kotlin
-   div {
-           img(src = "https://placekitten.com/408/287") {}
-       }
-   ```
-   
-   </div>                                                                                                                                                                                                                                                        >
+    > Make sure that you import these packages - `react.dom.*` and `styled.*`.
+    {:.note}       
+    
+    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+    
+    ```kotlin
+    div {
+       img(src = "https://placekitten.com/408/287") {}
+    }
+    ```
+    
+    </div>                                                                                                                                                                                                                                                        >
    
 3. Save changes to the file.
 
@@ -104,27 +105,27 @@ Enter your name in the text box and accept greetings from your application!
 
 ### Add a button that changes text
 
-1. Open the file `welcome.kt` in **src** \| **main** \| **kotlin**.  
+1. Open the file `welcome.kt` in **src** / **main** / **kotlin**.  
 
-2. Add the `button` element with the `onClickFunction` event.  
+2. Add a `button` element with an `onClickFunction` event.  
    
-   > Make sure that you import the package `kotlinx.html.js.*`.
-   {:.note}         
-   
-   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-   
-   ```kotlin
+    > Make sure that you import the package `kotlinx.html.js.*`.
+    {:.note}       
+    
+    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+    
+    ```kotlin
     button {
         attrs.onClickFunction = {
             setState(
-                    WelcomeState(name = "Some name")
+                WelcomeState(name = "Some name")
             )
         }
         +"Change name"
     }   
-   ```
-   
-   </div>                                                                                                                                                                                                                                                              >
+    ```
+    
+    </div>                                                                                                                                                                                                                                                              >
    
 3. Save changes to the file.
 
@@ -134,7 +135,7 @@ Enter your name in the text box and accept greetings from your application!
 
 ## What's next?
 
-Once you have created your first application, you can go to Kotlin hands-on labs and pass long-form tutorials on Kotlin/JS.
+Once you have created your first application, you can go to Kotlin hands-on labs and complete long-form tutorials on Kotlin/JS.
 They include sample projects, which can serve as jumping-off points for your own projects, and contain useful snippets and patterns.
 
 For Kotlin/JS, the following hands-on labs are currently available:
