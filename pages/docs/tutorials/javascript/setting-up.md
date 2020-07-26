@@ -49,32 +49,34 @@ Enter your name in the text box and accept greetings from your application!
 
 1. Open the file `welcome.kt` in **src** / **main** / **kotlin**.  
     The **src** directory contains Kotlin source files and resources. The file `welcome.kt` includes sample code that renders 
-    a web page you've just seen.
+    the web page you've just seen.
     
     ![Source code for frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-welcome-kt.png') }})
 
-2. Change the code of `StyledDiv` to show your name backwards.  
+2. Change the code of `styledDiv` to show your name backwards.  
    
     * Use the standard library function `reversed()` to reverse your name.
-    * Use your reversed name right in text output by adding `$` and enclosing in curly brackets `{}` - `${state.name.reversed()}`.
+    * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) for your reversed 
+    name by adding a dollar sign `$` and enclosing it in curly braces – `${state.name.reversed()}`.
     
     <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
     
     ```kotlin
     styledDiv {
-       css {
-           +WelcomeStyles.textContainer
-       }
-       +"Hello ${state.name}!"
-       +" Your name backwards is ${state.name.reversed()}!"
+        css {
+            +WelcomeStyles.textContainer
+        }
+        +"Hello ${state.name}!"
+        +" Your name backwards is ${state.name.reversed()}!"
     }
     ```
     
     </div>
-   
+
 3. Save changes to the file.
 
-4. Go to the browser and enjoy the result.
+4. Go to the browser and enjoy the result.  
+    You will see the changes only if your previous application is still running. If you've stopped your application, [run it again](#run-the-application).
    
 <img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-2.png') }}" alt="Web browser with a reversed name" />
 
@@ -82,24 +84,25 @@ Enter your name in the text box and accept greetings from your application!
 
 1. Open the file `welcome.kt` in **src** / **main** / **kotlin**.  
 
-2. Add the `div` element with an image `img`.  
+2. Add a `div` container with a child image element `img` after the `styledInput` block.  
    
-    > Make sure that you import these packages - `react.dom.*` and `styled.*`.
+    > Make sure that you import the `react.dom.*` and `styled.*` packages.
     {:.note}       
     
     <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
     
     ```kotlin
     div {
-       img(src = "https://placekitten.com/408/287") {}
+        img(src = "https://placekitten.com/408/287") {}
     }
     ```
     
-    </div>                                                                                                                                                                                                                                                        >
-   
+    </div>
+                                                                                                                                                                                                                                                         
 3. Save changes to the file.
 
-4. Go to the browser and enjoy the result.
+4. Go to the browser and enjoy the result.  
+    You will see the changes only if your previous application is still running. If you've stopped your application, [run it again](#run-the-application).
    
 <img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-3.png') }}" alt="Web page with with an image" width="500"/>
 
@@ -125,11 +128,12 @@ Enter your name in the text box and accept greetings from your application!
     }   
     ```
     
-    </div>                                                                                                                                                                                                                                                              >
+    </div>
    
 3. Save changes to the file.
 
-4. Go to the browser and enjoy the result.
+4. Go to the browser and enjoy the result.  
+    You will see the changes only if your previous application is still running. If you've stopped your application, [run it again](#run-the-application).
    
 <img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-4.png') }}" alt="Web page with a button" width="500"/>
 
