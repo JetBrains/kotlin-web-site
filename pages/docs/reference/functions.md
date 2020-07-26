@@ -182,7 +182,7 @@ foo(strings = *arrayOf("a", "b", "c"))
 </div>
 
 > **On the JVM**: You can't use the named argument syntax when calling Java functions because Java bytecode does not
-always preserve names of function arguments.
+always preserve names of function parameters.
 
 ### Unit-returning functions
 
