@@ -315,7 +315,7 @@ reference:
           title: OSGi
 
     - title: Evolution
-      description: Langauge evolution and compatibility
+      description: Language evolution and compatibility
       content:
         - url: /docs/reference/evolution/kotlin-evolution.html
           title: Kotlin Evolution
