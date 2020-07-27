@@ -12,6 +12,7 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Delegated properties improvements](#delegated-properties-improvements)
+* [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Callable reference improvements](#callable-reference-improvements)
 
 ### SAM conversions for Kotlin interfaces
@@ -27,13 +28,13 @@ as a parameter. In this case, the compiler automatically converts the lambda to 
 
 ```kotlin
 fun interface IntPredicate {
-   fun accept(i: Int): Boolean
+    fun accept(i: Int): Boolean
 }
 
 val isEven = IntPredicate { it % 2 == 0 }
 
-fun main(){
-   println("Is 7 even? - ${isEven.accept(7)}")
+fun main() { 
+    println("Is 7 even? - ${isEven.accept(7)}")
 }
 ```
 
@@ -52,6 +53,36 @@ Aside from the new API, we've made some optimizations that reduce the resulting 
 described in  [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
 
 For more information about delegated properties, see the [documentation](delegated-properties.html).
+
+### Mixing named and positional arguments
+
+In Kotlin 1.3, when you called a function with [named arguments](functions.html#named-arguments), you had to place all the
+arguments without names (positional arguments) before the first named argument. For example, you could call `f(1, y = 2)`, 
+but you couldn't call `f(x = 1, 2)`.
+
+It was really annoying when all the arguments were in their correct positions but you wanted to specify a name for one argument in the middle.
+It was especially helpful for making absolutely clear which attribute a boolean or `null` value belongs to.
+
+In Kotlin 1.4, there is no such limitation – you can now specify a name for an argument in the middle of a set of positional 
+arguments. Moreover, you can mix positional and named arguments any way you like, as long as they remain in the correct order.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun reformat(
+    str : String,
+    uppercaseFirstLetter : Boolean = true,
+    wordSeparator : Character = ' '
+) {
+  // ...
+}
+
+//Function call with a named argument in the middle
+reformat('This is a String!', uppercaseFirstLetter = false , '-')
+```
+
+</div>
+
 
 ### Callable reference improvements
 
