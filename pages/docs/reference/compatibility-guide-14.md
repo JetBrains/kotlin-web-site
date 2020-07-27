@@ -518,7 +518,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: `kotlin.coroutines.experimental` is deprecated with the `ERROR` level
-> - \>= 1.4: `mod` is removed from stdlib. On the JVM, a separate compatibility artifact is provided (see details in the issue).
+> - \>= 1.4: `kotlin.coroutines.experimental` is removed from stdlib. On the JVM, a separate compatibility artifact is provided (see details in the issue).
 
 ### Remove deprecated `mod` operator
 
