@@ -12,8 +12,8 @@ latest:
     date: July 16, 2020
 
 eap:
-  version: 1.4-M3
-  coroutines: 1.3.7-1.4-M3
+  version: 1.4-RC
+  coroutines: 1.3.8-1.4.0-rc
 
 tutorials:
   native:
