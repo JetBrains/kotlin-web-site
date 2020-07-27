@@ -13,8 +13,9 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Delegated properties improvements](#delegated-properties-improvements)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
+* [Trailing comma in a parameter list](#trailing-comma-after-the-last-parameter-in-a-list)
 * [Callable reference improvements](#callable-reference-improvements)
-* [Using `break` and `continue` inside `when` expressions included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
+* [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
 
 ### SAM conversions for Kotlin interfaces
 
@@ -71,11 +72,11 @@ arguments. Moreover, you can mix positional and named arguments any way you like
 
 ```kotlin
 fun reformat(
-    str : String,
-    uppercaseFirstLetter : Boolean = true,
-    wordSeparator : Character = ' '
+    str: String,
+    uppercaseFirstLetter: Boolean = true,
+    wordSeparator: Character = ' '
 ) {
-  // ...
+    // ...
 }
 
 //Function call with a named argument in the middle
@@ -84,6 +85,30 @@ reformat('This is a String!', uppercaseFirstLetter = false , '-')
 
 </div>
 
+### Trailing comma in a parameter list
+
+Kotlin 1.4 brings a small convenient improvement. You can now place a trailing comma after the last parameter in 
+a parameter list. You can then add new parameters and change their order without adding or removing commas.
+
+It's especially helpful if you use multi-line syntax for parameters. When you add a trailing comma, you can easily swap
+lines with parameters.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun reformat(
+    str: String,
+    uppercaseFirstLetter: Boolean = true,
+    wordSeparator: Character = ' ', //trailing comma
+) {
+    // ...
+}
+```
+
+</div>
+
+You can add a trailing comma in a list of different parameters such as function parameters, class parameters, function 
+parameter values, lambda parameters, entries of `when` expressions, and collection literals in annotations.
 
 ### Callable reference improvements
 
