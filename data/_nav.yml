@@ -319,7 +319,7 @@ reference:
           title: OSGi
 
     - title: Evolution
-      description: Langauge evolution and compatibility
+      description: Language evolution and compatibility
       content:
         - url: /docs/reference/evolution/kotlin-evolution.html
           title: Kotlin Evolution
@@ -327,6 +327,8 @@ reference:
           title: Stability of different components
         - url: /docs/reference/compatibility-guide-13.html
           title: Compatibility Guide for Kotlin 1.3
+        - url: /docs/reference/compatibility-guide-14.html
+          title: Compatibility Guide for Kotlin 1.4
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.
