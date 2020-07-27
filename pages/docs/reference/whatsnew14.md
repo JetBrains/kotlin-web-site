@@ -507,7 +507,7 @@ queryData(id: 17) { result, error in
 ```
 </div>
 
-For more information about using suspending functions in Swift and Objective-C, see the [documentation](/native/objc_interop.html).
+For more information about using suspending functions in Swift and Objective-C, see the [documentation](native/objc_interop.html).
 
 ### Objective-C generics support by default
 
@@ -524,7 +524,7 @@ binaries.framework {
 ```
 </div>
 
-Please note that all specifics and limitations listed in the [documentation](/native/objc_interop.html#generics) are still valid.
+Please note that all specifics and limitations listed in the [documentation](native/objc_interop.html#generics) are still valid.
 
 ### Exception handling in Objective-C/Swift interop
 
@@ -559,7 +559,7 @@ kotlin {
 ```
 </div>
 
-For more information about crash report symbolication, see the [documentation](/native/ios_symbolication.html).
+For more information about crash report symbolication, see the [documentation](native/ios_symbolication.html).
 
 
 ### Simplified management of CocoaPods dependencies
