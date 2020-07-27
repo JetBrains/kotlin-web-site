@@ -110,35 +110,38 @@ foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
 
 ### Named arguments
 
-When calling a function, you can name one or more its arguments. It may be helpful when a function has a big number of arguments, 
+When calling a function, you can name one or more of its arguments. This may be helpful when a function has a large number of arguments, 
 and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
 
-When you use named arguments in a function call, you can change their order and skip some arguments to use their default values.
+When you use named arguments in a function call, you can freely change the order they are listed in, and if you want to 
+use their default values you can just leave them out altogether.
 
 Consider the following function `reformat()` that has 4 arguments with default values.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun reformat(str: String,
-             normalizeCase: Boolean = true,
-             upperCaseFirstLetter: Boolean = true,
-             divideByCamelHumps: Boolean = false,
-             wordSeparator: Char = ' ') {
+fun reformat(
+    str: String,
+    normalizeCase: Boolean = true,
+    upperCaseFirstLetter: Boolean = true,
+    divideByCamelHumps: Boolean = false,
+    wordSeparator: Char = ' ') {
 /*...*/
 }
 ```
 
 </div>
 
-In a function call, you can use names just for some arguments:
+When calling this function, you don’t have to name all its arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-reformat(str,
-    true,
-    upperCaseFirstLetter = true,
+reformat(
+    'String!',
+    false,
+    upperCaseFirstLetter = false,
     divideByCamelHumps = true,
     '_'
 )
@@ -151,22 +154,20 @@ You can skip all arguments with default values:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-reformat(str)
+reformat('This is a long String!')
 ```
 
 </div>
 
-You can skip some arguments with default values. However, after the first argument that is not in the right place, you need to name all subsequent 
-arguments:
+You can skip some arguments with default values. However, after the first skipped argument, you must name all subsequent arguments:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-reformat(str, upperCaseFirstLetter = false, wordSeparator = '_')
+reformat('This is a short String!', upperCaseFirstLetter = false, wordSeparator = '_')
 ```
 
 </div>
-
 
 You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the 
 `spread` operator:
@@ -183,6 +184,7 @@ foo(strings = *arrayOf("a", "b", "c"))
 
 > **On the JVM**: You can't use the named argument syntax when calling Java functions because Java bytecode does not
 always preserve names of function parameters.
+{:.note}
 
 ### Unit-returning functions
 
