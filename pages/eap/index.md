@@ -40,7 +40,7 @@ check [our instructions on how to configure your build to support this version](
     <tr>
         <td><strong>1.4-RC</strong>
             <p> Released: <strong>July 27, 2020</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-RC" target="_blank">Release on GitHub</a></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.0-rc" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <ul>
