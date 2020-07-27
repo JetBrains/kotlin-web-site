@@ -56,7 +56,7 @@ For more information about delegated properties, see the [documentation](delegat
 
 ### Mixing named and positional arguments
 
-In Kotlin 1.3, when you called a function with some named arguments, you had to place all 
+In Kotlin 1.3, when you called a function with some [named arguments](functions.html#named-arguments), you had to place all 
 arguments without names (positional arguments) before the first named argument. For example, you could call `f(1, y = 2)`, 
 but you couldn't call `f(x = 1, 2)`.
 
