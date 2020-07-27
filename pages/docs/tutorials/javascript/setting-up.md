@@ -47,8 +47,8 @@ Enter your name in the text box and accept greetings from your application!
 
 ### Show your name backwards
 
-1. Open the file `welcome.kt` in **src** / **main** / **kotlin**.  
-    The **src** directory contains Kotlin source files and resources. The file `welcome.kt` includes sample code that renders 
+1. Open the file `welcome.kt` in `src/main/kotlin`.  
+    The `src` directory contains Kotlin source files and resources. The file `welcome.kt` includes sample code that renders 
     the web page you've just seen.
     
     ![Source code for frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-welcome-kt.png') }})
@@ -82,7 +82,7 @@ Enter your name in the text box and accept greetings from your application!
 
 ### Add an image
 
-1. Open the file `welcome.kt` in **src** / **main** / **kotlin**.  
+1. Open the file `welcome.kt` in `src/main/kotlin`.  
 
 2. Add a `div` container with a child image element `img` after the `styledInput` block.  
    
@@ -108,7 +108,7 @@ Enter your name in the text box and accept greetings from your application!
 
 ### Add a button that changes text
 
-1. Open the file `welcome.kt` in **src** / **main** / **kotlin**.  
+1. Open the file `welcome.kt` in `src/main/kotlin`.  
 
 2. Add a `button` element with an `onClickFunction` event.  
    
