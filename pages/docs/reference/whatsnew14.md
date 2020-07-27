@@ -13,7 +13,7 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Delegated properties improvements](#delegated-properties-improvements)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
-* [Trailing comma in a parameter list](#trailing-comma-after-the-last-parameter-in-a-list)
+* [Trailing comma in a parameter list](#trailing-comma-in-a-parameter-list)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
 
