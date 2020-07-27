@@ -14,6 +14,7 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 * [Delegated properties improvements](#delegated-properties-improvements)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Callable reference improvements](#callable-reference-improvements)
+* [Using `break` and `continue` inside `when` expressions included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
 
 ### SAM conversions for Kotlin interfaces
 
@@ -182,6 +183,48 @@ fun test() {
 ```
 
 </div>
+
+### Using `break` and `continue` inside `when` expressions included in loops
+
+In Kotlin 1.3, you could not use unqualified `break` and `continue` inside `when` expressions included in loops. The reason was that these keywords were reserved for possible [fall-through behavior](https://en.wikipedia.org/wiki/Switch_statement#Fallthrough) in `when` expressions. 
+
+That’s why if you wanted to use `break` and `continue` inside `when` expressions in loops, you had to [label](returns.html#break-and-continue-labels) them, which became rather cumbersome.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun test(xs: List<Int>) {
+    LOOP@for (x in xs) {
+        when (x) {
+            2 -> continue@LOOP
+            17 -> break@LOOP
+            else -> println(x)
+        }
+    }
+}
+```
+
+</div>
+
+In Kotlin 1.4, you can use `break` and `continue` without labels inside `when` expressions included in loops. They behave as expected by terminating the nearest enclosing loop or proceeding to its next step.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun test(xs: List<Int>) {
+    for (x in xs) {
+        when (x) {
+            2 -> continue
+            17 -> break
+            else -> println(x)
+        }
+    }
+}
+```
+
+</div>
+
+The fall-through behavior inside `when` is subject to further design.
 
 ## Explicit API mode for library authors
 
