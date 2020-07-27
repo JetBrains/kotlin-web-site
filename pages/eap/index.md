@@ -44,7 +44,6 @@ check [our instructions on how to configure your build to support this version](
         </td>
         <td>
             <ul>
-                <li><a href="https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/" target="_blank">New modes for generating default methods</a></li>
                 <li>New functionality to conveniently debug coroutines</li>
                 <li>Improved <code>*.gradle.kts</code> IDE support</li>
                 <li>All source sets now include the standard library dependency by default</li>
@@ -73,6 +72,7 @@ check [our instructions on how to configure your build to support this version](
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M3" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
+            <p><a href="https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/" target="_blank">New modes for generating default methods</a></p>
             <p>Standard library improvements:</p>
             <ul>
                 <li>Supported functional interfaces</li>
