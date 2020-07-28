@@ -32,4 +32,4 @@ You can finish creating the project by clicking **Finish** on the next screen or
 
 9. Click **Finish**.
 
-The new project opens. Discover what it includes.
+The new project opens. [Discover what it includes](mpp-discover-project.html).
