@@ -456,7 +456,7 @@ When using the command-line compiler, add the compiler option `-Xuse-ir`.
 > Considering this, we don't recommend that library authors switch to the new back-end in production.
 {:.note}
 
-You can also opt into using the new JS IR back-end (ADD LINK).
+You can also opt into using the new [JS IR back-end](#JS-IR-compiler-backend).
 
 ## Kotlin/JVM
 
@@ -500,3 +500,20 @@ Complete the initial configuration, and when you add a new dependency to `cocoap
 The new dependency will be added automatically. No additional steps are required.
 
 Learn [how to add dependencies](native/cocoapods.html).
+
+## Kotlin/JS
+
+### New Gradle DSL
+The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides a number of new configuration options and is more closely aligned to the DSL used by Kotlin's `multiplatform` plugin. Some of the most impactful changes include:
+
+- Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the executing Kotlin/JS and its environment [here](js-project-setup.html#choosing-execution-environment).
+- Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about using them [here](js-project-setup.html#configuring-css).
+- Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. Read more about dependency management for npm packages directly from Gradle [here](js-project-setup.html#npm-dependencies).
+- Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. Read more about how to use the integration [here](js-modules.html#automatic-generation-of-external-declarations-with-dukat).
+
+### JS IR compiler backend
+The (currently still experimental) [Kotlin/JS IR compiler backend](js-ir-compiler.html) is the main focus of innovation around Kotlin/JS, and paves the way forward for the technology. It enables more aggressive optimizations, and enables improvements on pain points that were present in the previous compiler. Among others, this includes the areas of **developer experience** and generated code size through **dead code elimination**.
+
+With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler backend also improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
+
+Find more information about how to enable the Kotlin/JS IR compiler backend and learn about its features in the [documentation](js-ir-compiler.html).
