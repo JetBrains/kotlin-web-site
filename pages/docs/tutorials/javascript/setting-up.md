@@ -54,23 +54,23 @@ Enter your name in the text box and accept the greetings from your application!
 
 2. Change the code of `styledDiv` to show your name backwards.  
    
-    * Use the standard library function `reversed()` to reverse your name.
-    * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) for your reversed 
-    name by adding a dollar sign `$` and enclosing it in curly braces – `${state.name.reversed()}`.
-    
-    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-    
-    ```kotlin
-    styledDiv {
-        css {
-            +WelcomeStyles.textContainer
-        }
-        +"Hello ${state.name}!"
-        +" Your name backwards is ${state.name.reversed()}!"
-    }
-    ```
-    
-    </div>
+   * Use the standard library function `reversed()` to reverse your name.
+   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) for your reversed 
+   name by adding a dollar sign `$` and enclosing it in curly braces – `${state.name.reversed()}`.
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   styledDiv {
+       css {
+           +WelcomeStyles.textContainer
+       }
+       +"Hello ${state.name}!"
+       +" Your name backwards is ${state.name.reversed()}!"
+   }
+   ```
+   
+   </div>
 
 3. Save your changes to the file.
 
@@ -85,19 +85,19 @@ Enter your name in the text box and accept the greetings from your application!
 
 2. Add a `div` container with a child image element `img` after the `styledInput` block.  
    
-    > Make sure that you import the `react.dom.*` and `styled.*` packages.
-    {:.note}       
-    
-    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-    
-    ```kotlin
-    div {
-        img(src = "https://placekitten.com/408/287") {}
-    }
-    ```
-    
-    </div>
-                                                                                                                                                                                                                                                         
+   > Make sure that you import the `react.dom.*` and `styled.*` packages.
+   {:.note}       
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   div {
+       img(src = "https://placekitten.com/408/287") {}
+   }
+   ```
+   
+   </div>
+
 3. Save your changes to the file.
 
 4. Go to the browser and enjoy the result.  
@@ -109,25 +109,25 @@ Enter your name in the text box and accept the greetings from your application!
 
 1. Open the file `welcome.kt` in `src/main/kotlin`.  
 
-2. Add a `button` element with an `onClickFunction` event.  
+2. Add a `button` element with an `onClickFunction` event handler.  
    
-    > Make sure that you import the package `kotlinx.html.js.*`.
-    {:.note}       
-    
-    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-    
-    ```kotlin
-    button {
-        attrs.onClickFunction = {
-            setState(
-                WelcomeState(name = "Some name")
-            )
-        }
-        +"Change name"
-    }   
-    ```
-    
-    </div>
+   > Make sure that you import the package `kotlinx.html.js.*`.
+   {:.note}       
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   button {
+       attrs.onClickFunction = {
+           setState(
+               WelcomeState(name = "Some name")
+           )
+       }
+       +"Change name"
+   }   
+   ```
+   
+   </div>
    
 3. Save your changes to the file.
 
