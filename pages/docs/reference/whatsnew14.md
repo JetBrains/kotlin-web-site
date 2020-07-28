@@ -543,11 +543,10 @@ A common back-end infrastructure also opens the door for multiplatform compiler 
 pipeline and add custom processing and transformations that will automatically work for all platforms. 
 
 Kotlin 1.4 does not provide a public API for such extensions yet, but we are working closely with our partners, 
-including [JetPack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
+including [Jetpack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
 using our new back-end.
 
-Now you can opt into using the new JVM IR back-end, where we've fixed many long-standing issues of the old back-end. 
-If you find any bugs, we’ll be very thankful if you could report them to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+We encourage you to try out the new Kotlin/JVM backend, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). This will help us to unify the compiler pipelines and bring compiler extensions like Jetpack Compose to the Kotlin community more quickly.
 
 To enable the new JVM IR back-end, specify an additional compiler option in your Gradle build script:
 
@@ -558,6 +557,10 @@ kotlinOptions.useIR = true
 ```
 
 </div>
+
+> If you [enable Jetpack Compose](https://developer.android.com/jetpack/compose/setup?hl=en), you will automatically be 
+> opted in to the new JVM backend without needing to specify the compiler option in `kotlinOptions`.
+{:.note}
 
 When using the command-line compiler, add the compiler option `-Xuse-ir`.
 
