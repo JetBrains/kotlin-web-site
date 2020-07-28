@@ -6,8 +6,8 @@ title: "Compatibility Guide for Kotlin 1.4"
 
 # Compatibility Guide for Kotlin 1.4
 
-*Keeping the Language Modern* and *Comfortable Updates* are among the fundamental principles in Kotlin Language Design.
-The former says that constructions which obstruct language evolution should be removed, and the latter says that this
+[*Keeping the Language Modern* and *Comfortable Updates*](evolution/kotlin-evolution.html) are among the fundamental principles in Kotlin Language Design.
+The former says that constructs which obstruct language evolution should be removed, and the latter says that this
 removal should be well-communicated beforehand to make code migration as smooth as possible.
 
 While most of the language changes were already announced through other channels, like update changelogs or compiler warnings,
@@ -513,7 +513,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > **Incompatible change type**: source
 > 
-> **Short summary**: since Kotlin 1.4, the deprecated `kotlin.coroutines.experimental` API is removed from stdlib.
+> **Short summary**: since Kotlin 1.4, the deprecated `kotlin.coroutines.experimental` API is removed from stdlib
 > 
 > **Deprecation cycle**:
 > 
@@ -534,3 +534,35 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > - < 1.4: `mod` is deprecated with the `ERROR` level
 > - \>= 1.4: `mod` is removed from stdlib
+
+### Hide `Throwable.addSuppressed` member and prefer extension instead
+
+> **Issue**: [KT-38777](https://youtrack.jetbrains.com/issue/KT-38777)
+> 
+> **Component**: kotlin-stdlib
+> 
+> **Incompatible change type**: behavior
+> 
+> **Short summary**: `Throwable.addSuppressed()` extension function is now preferred over the `Throwable.addSuppressed()` member function
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed
+
+### `capitalize` should convert digraphs to title case
+
+> **Issue**: [KT-38817](https://youtrack.jetbrains.com/issue/KT-38817)
+> 
+> **Component**: kotlin-stdlib
+> 
+> **Incompatible change type**: behavior
+> 
+> **Short summary**: `String.capitalize()` function now capitalizes digraphs from the [Serbo-Croatian Gaj's Latin alphabet](https://en.wikipedia.org/wiki/Gaj%27s_Latin_alphabet)
+>in the title case (`ǅ` instead of `Ǆ`)
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: digraphs are capitalized in the upper case (`Ǆ`)
+> - \>= 1.4: digraphs are capitalized in the title case (`ǅ`)
+
