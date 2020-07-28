@@ -559,7 +559,7 @@ kotlinOptions.useIR = true
 </div>
 
 > If you [enable Jetpack Compose](https://developer.android.com/jetpack/compose/setup?hl=en), you will automatically be 
-> opted in to the new JVM backend without needing to specify it in `kotlinOptions`.
+> opted in to the new JVM backend without needing to specify the compiler option in `kotlinOptions`.
 {:.note}
 
 When using the command-line compiler, add the compiler option `-Xuse-ir`.
