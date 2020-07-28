@@ -121,7 +121,7 @@ external fun newC()
 > The `@JsExport` annotation is currently marked as experimental. Its design may change in future versions.
 {:.note} 
 
-By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin. It can also be applied on file-level, i.e. `@file:JsExport`.
+By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin. It can also be applied on file-level using `@file:JsExport`.
 
 To resolve ambiguities in exports (like overloads for functions with the same name), you can use the `@JsExport` annotation together with `@JsName` to specify the names for the generated and exported functions.
 
@@ -133,7 +133,7 @@ For multiplatform projects, `@JsExport` is available in common code as well. It 
 
 * Kotlin numeric types, except for `kotlin.Long` are mapped to JavaScript Number.
 * `kotlin.Char` is mapped to JavaScript Number representing character code.
-* Kotlin can't distinguish between numeric types at run time (except for `kotlin.Long`), i.e. the following code works:
+* Kotlin can't distinguish between numeric types at run time (except for `kotlin.Long`), so the following code works:
   <div class="sample" markdown="1" theme="idea" data-highlight-only>
   ```kotlin
   fun f() {
@@ -147,9 +147,9 @@ For multiplatform projects, `@JsExport` is available in common code as well. It 
 * Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`.
 * `kotlin.Long` is not mapped to any JavaScript object, as there is no 64-bit integer number type in JavaScript. It is emulated by a Kotlin class. 
 * `kotlin.String` is mapped to JavaScript String.
-* `kotlin.Any` is mapped to JavaScript Object (i.e. `new Object()`, `{}`, etc).
+* `kotlin.Any` is mapped to JavaScript Object (`new Object()`, `{}`, etc).
 * `kotlin.Array` is mapped to JavaScript Array.
-* Kotlin collections (i.e. `List`, `Set`, `Map`, etc) are not mapped to any specific JavaScript type.
+* Kotlin collections (`List`, `Set`, `Map`, etc.) are not mapped to any specific JavaScript type.
 * `kotlin.Throwable` is mapped to JavaScript Error.
 * Kotlin preserves lazy object initialization in JavaScript.
 * Kotlin does not implement lazy initialization of top-level properties in JavaScript.

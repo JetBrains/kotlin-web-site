@@ -7,20 +7,13 @@ title: "Kotlin for JavaScript"
 
 # Kotlin/JS Overview
 
-Kotlin provides the ability to target JavaScript. It does so by transpiling Kotlin to JavaScript. The current implementation of Kotlin/JS targets [ES5](https://www.ecma-international.org/ecma-262/5.1/). Support for targeting [ES6](http://www.ecma-international.org/ecma-262/6.0/) directly is currently in development.
+Kotlin provides the ability to target JavaScript. It does so by transpiling Kotlin to JavaScript. The current implementation of Kotlin/JS targets [ES5](https://www.ecma-international.org/ecma-262/5.1/).
 
 Kotlin/JS is compatible with the most common module systems: CommonJS, AMD and UMD. It allows you to [produce and consume modules](/docs/tutorials/javascript/working-with-modules/working-with-modules.html) from Kotlin code, allowing you to interoperate with JavaScript.
 
 The `kotlin.js` and `kotlin.multiplatform` Gradle plugins allows you to target JavaScript.
 In the JavaScript target, your Kotlin code, the standard library, and any Kotlin libraries targeting JavaScript or common Kotlin code are transpiled to JavaScript.
  (However, this excludes any JVM or Java dependencies used.)
-
-The Kotlin compiler tries to comply with the following goals:
-
-* Provide the same functionality in the standard library whether targeting JavaScript or the JVM (to the largest possible degree).
-* Provide interoperability with existing module systems
-* Provide output that is optimal in size
-* Provide output that is readable JavaScript
 
 ## How it can be used
 

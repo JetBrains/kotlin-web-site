@@ -197,14 +197,14 @@ External interfaces have some restrictions:
 
 - They can't be used on the right-hand side of `is` checks. 
 - They can't be passed as reified type arguments.
-- They can't be used in class literal expressions (i.e. `I::class`).
+- They can't be used in class literal expressions (such as `I::class`).
 - `as` casts to external interfaces always succeed.
     Casting to external interfaces produces the "Unchecked cast to external interface" compile time warning. The warning can be suppressed with the `@Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")` annotation.
 
     IntelliJ IDEA can also automatically generate the `@Suppress` annotation. Open the intentions menu via the light bulb icon or Alt-Enter, and click the small arrow next to the "Unchecked cast to external interface" inspection. Here, you can select the suppression scope, and your IDE will add the annotation to your file accordingly.
 
 ### Casting
-In addition to the ["unsafe" cast operator](/docs/reference/typecasts.html#unsafe-cast-operator) *as*{: .keyword }, which throws a `ClassCastException` in case a cast is not possible, Kotlin/JS also provides [`unsafeCast<T>()`](/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html). When using `unsafeCast`, _no type checking is done at all_ during runtime. For example, consider the following two methods:
+In addition to the ["unsafe" cast operator](/docs/reference/typecasts.html#unsafe-cast-operator) `as`, which throws a `ClassCastException` in case a cast is not possible, Kotlin/JS also provides [`unsafeCast<T>()`](/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html). When using `unsafeCast`, _no type checking is done at all_ during runtime. For example, consider the following two methods:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
