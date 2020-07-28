@@ -13,7 +13,7 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Delegated properties improvements](#delegated-properties-improvements)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
-* [Trailing comma in a parameter list](#trailing-comma-in-a-parameter-list)
+* [Trailing comma in enumerations](#trailing-comma-in-enumerations)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
 
@@ -85,13 +85,14 @@ reformat('This is a String!', uppercaseFirstLetter = false , '-')
 
 </div>
 
-### Trailing comma in a parameter list
+### Trailing comma in enumerations
 
-Kotlin 1.4 brings a small convenient improvement. You can now place a trailing comma after the last parameter in 
-a parameter list. You can then add new parameters and change their order without adding or removing commas.
+Kotlin 1.4 brings a small convenient improvement. You can now add a trailing comma in different enumerations such as argument 
+and parameter lists, `when` entries, and components of destructuring declarations.
+With a trailing comma, you can add new items and change their order without adding or removing commas.
 
-It's especially helpful if you use multi-line syntax for parameters. When you add a trailing comma, you can easily swap
-lines with parameters.
+It's especially helpful if you use multi-line syntax for parameters or values. When adding a trailing comma, you can 
+then easily swap lines with parameters or values.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -107,8 +108,17 @@ fun reformat(
 
 </div>
 
-You can add a trailing comma in a list of different parameters such as function parameters, class parameters, function 
-parameter values, lambda parameters, entries of `when` expressions, and collection literals in annotations.
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+val colors = listOf(
+    "red",
+    "green",
+    "blue", //trailing comma
+)
+```
+
+</div>
 
 ### Callable reference improvements
 
