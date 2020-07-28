@@ -339,7 +339,7 @@ For more details about the explicit API mode, see the [KEEP](https://github.com/
 
 ## New tools in IDE
 
-In Kotlin 1.4, you can use new tools that are going to simplify Kotlin development in IntelliJ IDEA:
+With Kotlin 1.4, you can use new tools that simplify Kotlin development in IntelliJ IDEA:
 
 * [New flexible Project Wizard](#new-flexible-project-wizard)
 
@@ -348,20 +348,29 @@ In Kotlin 1.4, you can use new tools that are going to simplify Kotlin developme
 With the new flexible Kotlin Project Wizard, you have a single place where you can easily create and configure Kotlin 
 projects of different types, including multiplatform projects, which are rather difficult to configure without a UI.
 
+![Kotlin Project Wizard - Multiplatform project]({{ url_for('asset', path='images/reference/whats-new/mpp-project-1-wn.png') }})
 
 The new Project Wizard provides simplicity combined with flexibility:
 
-1. *Select the project template*, depending on what you’re trying to do.
-2. *Select the build system* — Gradle (Kotlin or Groovy DSL), Maven, or IntelliJ. The Wizard shows only build systems 
-supported for the selected project template.
-3. *Preview the project structure* right on the main screen.  
-   Then you can finish creating your project or, optionally, *configure the project* on the next screen:
-   
-   * *Add/remove modules and targets* supported for this project template.
-   * *Configure module and target settings*, for example, the target JVM version, target template, and test framework.
+1. *Select the project template*, depending on what you’re trying to do. We will add more templates in the future.
+2. *Select the build system* — Gradle (Kotlin or Groovy DSL), Maven, or IntelliJ.  
+    The Wizard shows only build systems supported for the selected project template.
+3. *Preview the project structure* right on the main screen.
 
+Then you can finish creating your project or, optionally, *configure the project* on the next screen:
+
+{:start="4"}
+4. *Add/remove modules and targets* supported for this project template.
+5. *Configure module and target settings*, for example, the target JVM version, target template, and test framework.
+
+![Kotlin Project Wizard - Configure targets]({{ url_for('asset', path='images/reference/whats-new/mpp-project-2-wn.png') }})
 
 In the future, we are going to make the Kotlin Project Wizard even more flexible by adding more configuration options and templates.
+
+You can try out the new Kotlin Project Wizard by completing tutorials:
+
+* [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
+* [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
 
 ## New compiler
 
