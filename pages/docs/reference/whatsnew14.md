@@ -337,6 +337,32 @@ with the value `strict` or `warning`.
 
 For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
 
+## New tools in IDE
+
+In Kotlin 1.4, you can use new tools that are going to simplify Kotlin development in IntelliJ IDEA:
+
+* [New flexible Project Wizard](#new-flexible-project-wizard)
+
+### New flexible Project Wizard
+
+With the new flexible Kotlin Project Wizard, you have a single place where you can easily create and configure Kotlin 
+projects of different types, including multiplatform projects, which are rather difficult to configure without a UI.
+
+
+The new Project Wizard provides simplicity combined with flexibility:
+
+1. *Select the project template*, depending on what you’re trying to do.
+2. *Select the build system* — Gradle (Kotlin or Groovy DSL), Maven, or IntelliJ. The Wizard shows only build systems 
+supported for the selected project template.
+3. *Preview the project structure* right on the main screen.  
+   Then you can finish creating your project or, optionally, *configure the project* on the next screen:
+   
+   * *Add/remove modules and targets* supported for this project template.
+   * *Configure module and target settings*, for example, the target JVM version, target template, and test framework.
+
+
+In the future, we are going to make the Kotlin Project Wizard even more flexible by adding more configuration options and templates.
+
 ## New compiler
 
 The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
@@ -580,8 +606,7 @@ interfaces to `default` Java methods. For compatibility with the code that uses 
 we also added `all-compatibility` mode. 
 
 For more information about default methods in the Java interop, see the [documentation](java-to-kotlin-interop.html#default-methods-in-interfaces) and 
-[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/).
-
+[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/). 
 
 ## Kotlin/Native
 
