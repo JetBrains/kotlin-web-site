@@ -369,7 +369,7 @@ tutorials:
     - title: JavaScript
       content:
         - url: /docs/tutorials/javascript/setting-up.html
-          title: Setting up a project
+          title: Get started with Kotlin/JS for React
         - url: /docs/tutorials/javascript/running-kotlin-js.html
           title: Running Kotlin/JS
         - url: /docs/tutorials/javascript/dev-server-continuous-compilation.html
