@@ -87,11 +87,11 @@ reformat('This is a String!', uppercaseFirstLetter = false , '-')
 
 ### Trailing comma in enumerations
 
-Kotlin 1.4 brings a small convenient improvement. You can now add a trailing comma in different enumerations such as argument 
+With Kotlin 1.4 you can now add a trailing comma in enumerations such as argument 
 and parameter lists, `when` entries, and components of destructuring declarations.
 With a trailing comma, you can add new items and change their order without adding or removing commas.
 
-It's especially helpful if you use multi-line syntax for parameters or values. When adding a trailing comma, you can 
+This is especially helpful if you use multi-line syntax for parameters or values. After adding a trailing comma, you can 
 then easily swap lines with parameters or values.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
