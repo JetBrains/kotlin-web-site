@@ -248,7 +248,7 @@ fun main() {
 
     val useMe2 = copy_string(pinned.addressOf(0), pinned.get().size - 1)
     if (useMe2 != 0) throw Error("Failed to read string from C")
-    pinned.get().stringFromUtf8()
+    pinned.get().toKString()
   }
 
   println(copyFromC)

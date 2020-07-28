@@ -21,11 +21,10 @@ Kotlin fixes a series of issues that Java suffers from:
 ## What Java has that Kotlin does not
 
 * [Checked exceptions](exceptions.html)
-* [Primitive types](basic-types.html) that are not classes
-* [Static members](classes.html)
-* [Non-private fields](properties.html)
-* [Wildcard-types](generics.html)
-* [Ternary-operator `a ? b : c`](control-flow.html#if-expression)
+* [Primitive types](basic-types.html) that are not classes - The byte-code uses primitives where possible, but they are not explicitly available.
+* [Static members](classes.html) - replaced with [companion objects](object-declarations.html#companion-objects), [top-level functions](functions.html), [extension functions](extensions.html#extension-functions), or [@JvmStatic](java-to-kotlin-interop.html#static-methods).
+* [Wildcard-types](generics.html) - replaced with [declaration-site variance](generics.html#declaration-site-variance) and [type projections](generics.html#type-projections).
+* [Ternary-operator `a ? b : c`](control-flow.html#if-expression) - replaced with [if expression](control-flow.html#if-expression). 
 
 ## What Kotlin has that Java does not
 

@@ -4123,10 +4123,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
-kotlin-playground@^1.21.0:
-  version "1.21.2"
-  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.21.2.tgz#0b5f97d600e8f09e8c2b559f82bf33208583720c"
-  integrity sha512-5ZscIYBLrDOvfOm/CcNotv4lJFmg0LnzPWbHIOHE6tkrVHYbxyIl5Ih3SbxMryFwXTV2w/9rbgrIGGljl4Si1w==
+kotlin-playground@1.22.0:
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.22.0.tgz#ad1a34351b3633fdb79c3b88c9b8986deaab126f"
+  integrity sha512-bb1000kZsnHs/qOnRciW26jy1LztxkIKYqEbnhsZLCe2D/R4+jxObAmhNSAxb+yt7Rud34S+H2KD83SFnaH7EA==
 
 lazy-cache@^1.0.3:
   version "1.0.4"

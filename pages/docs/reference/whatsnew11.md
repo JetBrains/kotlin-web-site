@@ -395,7 +395,7 @@ class MyUI {
 The `provideDelegate` method will be called for each property during the creation of a `MyUI` instance, and it can perform
 the necessary validation right away.
 
-Read the [documentation](delegated-properties.html#providing-a-delegate-since-11) for more details.
+Read the [documentation](delegated-properties.html#providing-a-delegate) for more details.
 
 
 ### Generic enum value access
