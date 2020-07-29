@@ -45,7 +45,7 @@ Only features and components published as [Stable](/docs/reference/evolution/com
 *   KDoc syntax
 
 For example, the following matters are out of scope for the Language Committee:
-*   Experimental language features & APIs
+*   Pre-stable language features & APIs
 *   Build tools and plugins for them (e.g. Gradle support)
 *   IDE and static analysis tools (other than the compiler)
 *   Java2Kotlin converter and other source code manipulation tools
