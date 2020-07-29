@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title: "Hello Kotlin/Native using Command Line Compiler"
-description: "A look at how to compileKotlin/Native applications using the command line compiler"
+description: "A look at how to compile Kotlin/Native applications using the command line compiler"
 authors: 
   - Hadi Hariri
 date: 2020-01-15
