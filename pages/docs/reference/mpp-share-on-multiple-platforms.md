@@ -30,7 +30,7 @@ Learn more about [sharing code in libraries](#share-code-in-libraries) and [usin
 In a typical multiplatform project with two iOS-related targets – `iosArm64` and `iosX64`, the hierarchical structure 
 includes an intermediate source set (`iosMain`), which is used by the platform-specific source sets. 
 
-<img class="img-responsive" src="{{ url_for('asset', path='images/reference/mpp/iosmain-hierarchy.png') }}" alt="WCode shared for iOS targets" width="400"/>
+<img class="img-responsive" src="{{ url_for('asset', path='images/reference/mpp/iosmain-hierarchy.png') }}" alt="Code shared for iOS targets" width="400"/>
 
 The `kotlin-multiplatform` plugin provides target shortcuts for creating structures for common combinations of targets.
 

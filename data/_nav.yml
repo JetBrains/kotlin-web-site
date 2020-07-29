@@ -235,6 +235,8 @@ reference:
           title: Set up targets manually
         - url: /docs/reference/mpp-add-dependencies.html
           title: Add dependencies
+        - url: /docs/reference/mpp-configure-compilations.html
+          title: Configure compilations
 
     - title: More Language Constructs
       description: Various bits and bobs
