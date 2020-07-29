@@ -278,7 +278,7 @@ We expect that the progressive mode will be a nice choice for any actively maint
 
 ## Inline classes
 
-> Inline classes are available only since Kotlin 1.3 and currently are *experimental*. See details in the [reference](inline-classes.html#experimental-status-of-inline-classes).
+> Inline classes are available only since Kotlin 1.3 and currently are in [Alpha](evolution/components-stability.html). See details in the [reference](inline-classes.html#alpha-status-of-inline-classes).
 {:.note}
 
 
