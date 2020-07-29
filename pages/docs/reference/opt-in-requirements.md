@@ -287,12 +287,12 @@ fun getTime(): Time {}
 </div>
 
 
-## Opt-in requirements for experimental APIs
+## Opt-in requirements for pre-stable APIs
 
-If you use opt-in requirements for features in the experimental state, carefully handle the API graduation to avoid 
+If you use opt-in requirements for features that are not stable yet, carefully handle the API graduation to avoid 
 breaking the client code.
 
-Once your experimental API graduates and is released in a stable state, remove its opt-in requirement annotations from declarations.
+Once your pre-stable API graduates and is released in a stable state, remove its opt-in requirement annotations from declarations.
 The clients will be able to use them without restriction. However, you should leave the annotation classes in modules so that 
 the existing client code remains compatible.
 
