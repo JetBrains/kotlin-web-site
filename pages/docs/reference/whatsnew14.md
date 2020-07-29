@@ -476,6 +476,15 @@ For more information about default methods in the Java interop, see the [documen
 
 ## Kotlin/Native
 
+In 1.4, Kotlin/Native got a significant number of new features and improvements, including: 
+
+* [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
+* [Objective-C generics support by default](#objective-c-generics-support-by-default)
+* [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
+* [Generate release `.dSYM`s on Apple targets by default](#generate-release-dsyms-on-apple-targets-by-default)
+* [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
+* [mimalloc memory allocator](#mimalloc-memory-allocator)
+
 ### Support for Kotlin’s suspending functions in Swift and Objective-C
 
 In 1.4, we add the basic support for suspending functions in Swift and Objective-C. Now, when you compile a Kotlin module
