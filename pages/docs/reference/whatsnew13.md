@@ -313,7 +313,7 @@ See [reference](inline-classes.html) for inline classes for details.
 
 ## Unsigned integers
 
-> Unsigned integers are available only since Kotlin 1.3 and currently are *experimental*. See details in the [reference](basic-types.html#experimental-status-of-unsigned-integers).
+> Unsigned integers are available only since Kotlin 1.3 and currently are in [Beta](evolution/components-stability.html). See details in the [reference](basic-types.html#beta-status-of-unsigned-integers).
 {:.note}
 
 Kotlin 1.3 introduces unsigned integer types:
