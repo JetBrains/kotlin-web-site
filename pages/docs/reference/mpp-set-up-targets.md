@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: reference
-title: "Share code on all platforms"
+title: "Set up targets manually"
 ---
 
 # Set up targets manually

@@ -233,6 +233,8 @@ reference:
           title: Connect to platform-specific APIs
         - url: /docs/reference/mpp-set-up-targets.html
           title: Set up targets manually
+        - url: /docs/reference/mpp-add-dependencies.html
+          title: Add dependencies
 
     - title: More Language Constructs
       description: Various bits and bobs
