@@ -20,7 +20,7 @@ You can also apply it manually.
 
 ```groovy
 plugins {
-   id 'org.jetbrains.kotlin.multiplatform' version '{{ site.data.releases.latest.version }}'
+    id 'org.jetbrains.kotlin.multiplatform' version '{{ site.data.releases.latest.version }}'
 }
 ```
 
@@ -32,7 +32,7 @@ plugins {
 
 ```kotlin
 plugins {
-   kotlin("multiplatform") version "{{ site.data.releases.latest.version }}"
+    kotlin("multiplatform") version "{{ site.data.releases.latest.version }}"
 }
 ```
 
@@ -60,7 +60,7 @@ When you create a multiplatform project, targets are added to the `kotlin` block
 kotlin {
     jvm()    
     js {
-      browser {}
+        browser {}
     }
  }
 ```
@@ -90,15 +90,14 @@ Source sets are added to the `sourceSets` block of the top-level `kotlin` block.
 
 ```groovy
 kotlin {
-   sourceSets {
-       commonMain { /* ... */} 
-       commonTest { /* ... */}
-	jvmMain { /* ... */}
-	jvmTest { /* ... */ }
-       jsMain { /* ... */}
-       jsTest { /* ... */}
-
-   }
+    sourceSets {
+        commonMain { /* ... */} 
+        commonTest { /* ... */}
+        jvmMain { /* ... */}
+        jvmTest { /* ... */ }
+        jsMain { /* ... */}
+        jsTest { /* ... */}    
+    }
 }
 ```
 
@@ -111,14 +110,14 @@ kotlin {
 
 ```kotlin
 kotlin {
-   sourceSets {
-       val commonMain by getting { /* ... */ }
-       val commonTest by getting { /* ... */ }
-       val jvmMain by getting { /* ... */ }
-       val jvmTest by getting { /* ... */ } 
-       val jsMain by getting { /* ... */ }
-       val jsTest by getting { /* ... */ } 
-   }
+    sourceSets {
+        val commonMain by getting { /* ... */ }
+        val commonTest by getting { /* ... */ }
+        val jvmMain by getting { /* ... */ }
+        val jvmTest by getting { /* ... */ } 
+        val jsMain by getting { /* ... */ }
+        val jsTest by getting { /* ... */ } 
+    }
 }
 ```
 
