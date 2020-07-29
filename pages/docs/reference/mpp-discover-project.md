@@ -6,9 +6,17 @@ title: "Discover your project"
 
 # Discover your project
 
+Discover main parts of your multiplatform project:
+
+* [Multiplatform plugin](#multiplatform-plugin)
+* [Targets](#targets)
+* [Source sets](#source-sets)
+* [Compilations](#compilations)
+
 ## Multiplatform plugin
 
-When you create a multiplatform project, the Project Wizard automatically applies the `kotlin-multiplatform` Gradle plugin in the file `build.gradle` (`build.gradle.kts`).
+When you create a multiplatform project, the Project Wizard automatically applies the `kotlin-multiplatform` Gradle 
+plugin in the file `build.gradle` (`build.gradle.kts`).
 
 You can also apply it manually.
 
