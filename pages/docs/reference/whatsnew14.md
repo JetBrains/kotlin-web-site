@@ -342,8 +342,8 @@ For more details about the explicit API mode, see the [KEEP](https://github.com/
 The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
 an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4:
 
-* [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is enabled by default. 
-* [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility) are available in experimental mode. They will become the default once we stabilize them.
+* [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is stable and enabled by default. 
+* [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility) are in [Alpha](evolution/components-stability.html). They will become the default once we stabilize them.
 
 ### New more powerful type inference algorithm
 
@@ -537,7 +537,7 @@ infrastructure built around an internal representation (IR) for Kotlin code.
 
 We are now migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three back-ends
 share a lot of logic and have a unified pipeline. This allows us to implement most features, optimizations, and bug fixes 
-only once for all platforms.
+only once for all platforms. Both new IR-based back-ends are in [Alpha](evolution/components-stability.html).
 
 A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
 pipeline and add custom processing and transformations that will automatically work for all platforms. 
