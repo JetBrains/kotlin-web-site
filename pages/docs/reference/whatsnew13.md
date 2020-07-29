@@ -508,7 +508,7 @@ Kotlin 1.3 introduces support for the [recommended code style](coding-convention
 
 See here for [details](https://github.com/Kotlin/kotlinx.serialization#current-project-status).
 
-> Please, note, that even though kotlinx.serialization now ships with the Kotlin Compiler distribution, it is still considered to be an experimental feature. 
+> Please, note, that even though kotlinx.serialization now ships with the Kotlin Compiler distribution, it is still considered to be an experimental feature in Kotlin 1.3. 
 {:.note}
 
 ## Scripting update
