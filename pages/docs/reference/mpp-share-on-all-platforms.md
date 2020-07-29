@@ -1,8 +1,9 @@
 ---
 type: doc
 layout: reference
-title: "Discover your project"
+title: "Share code on all platforms"
 ---
+
 # Share code on all platforms
 
 If you have business logic that is common for all platforms, you don’t need to write the same code for each platform – 
@@ -53,4 +54,4 @@ kotlin{
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of expected and actual 
 declarations (ADD LINK).
 
-You can also share code for multiple platforms (ADD LINK), but not all.
+You can also share code on multiple platforms (ADD LINK), but not all.
