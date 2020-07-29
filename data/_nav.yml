@@ -324,7 +324,7 @@ reference:
         - url: /docs/reference/evolution/kotlin-evolution.html
           title: Kotlin Evolution
         - url: /docs/reference/evolution/components-stability.html
-          title: Stability of different components
+          title: Stability of Kotlin components
         - url: /docs/reference/compatibility-guide-13.html
           title: Compatibility Guide for Kotlin 1.3
         - url: /docs/reference/compatibility-guide-14.html
