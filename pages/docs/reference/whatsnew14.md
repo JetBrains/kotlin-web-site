@@ -578,31 +578,15 @@ Learn [how to add dependencies](native/cocoapods.html).
 
 ## Standard library
 
-### Extending the common library
+### Common exception processing API
 
-_Common_ library is the part of the standard library that can be used in common code shared between multiple platforms.
-In 1.4, we continue extending the common library and adding or moving missing functionality to it:
-
-- `appendLine()` function that appends a given string and terminates it with `\n`:
-
-    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
-    
-    ```kotlin
-    fun main() {
-    //sampleStart
-        println(buildString {
-            appendLine("Hello,")
-            appendLine("Kotlin 1.4!")
-        })       
-    //sampleEnd
-    }
-    ```
-    </div>
-
-* `Throwable.stackTraceToString()` extension function, which returns the detailed description of this throwable with its stack trace, and `Throwable.printStackTrace()`, which prints this description to the standard error output.
-* `Throwable.addSuppressed()` function, which lets you specify the exceptions that were suppressed in order to deliver the exception, and the `Throwable.suppressedExceptions` property, which returns a list of all the suppressed exceptions.
-* `@Throws` annotation lists exception types that will be checked when the function is compiled to a platform method (on JVM or native platofrms). 
-* The common reflection API now contains only the members available on all three target platforms (JVM, JS, Native) so you can be sure that the same code works on any of them.
+The following API elements were moved to the common library:
+* `Throwable.stackTraceToString()` extension function, which returns the detailed description of this throwable with its
+stack trace, and `Throwable.printStackTrace()`, which prints this description to the standard error output.
+* `Throwable.addSuppressed()` function, which lets you specify the exceptions that were suppressed in order to deliver
+the exception, and the `Throwable.suppressedExceptions` property, which returns a list of all the suppressed exceptions.
+* `@Throws` annotation lists exception types that will be checked when the function is compiled to a platform method
+(on JVM or native platofrms). 
 
 ### New functions for arrays and collections
 
@@ -624,7 +608,7 @@ In 1.4, the standard library includes a number of useful functions for working w
     ```
     </div>
 
-* [`shuffled()`](/api/latest/jvm/stdlib/kotlin.collections/shuffled.html) is now available for sequences.
+* `shuffled()` is now available for sequences.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -639,8 +623,8 @@ In 1.4, the standard library includes a number of useful functions for working w
     ```
     </div>
 
-* `onEachIndexed()` and `reduceIndexedOrNull()` counterparts have been added for [onEach()](/api/latest/jvm/stdlib/kotlin.collections/on-each.html) and [reduceOrNull()](/api/latest/jvm/stdlib/kotlin.text/reduce-or-null.html), respectively.
-The operation they apply to the collection elements has the element index as a parameter.
+* `onEachIndexed()` counterpart have been added for [onEach()](/api/latest/jvm/stdlib/kotlin.collections/on-each.html).
+The operation that it applies to the collection elements has the element index as a parameter.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -650,17 +634,28 @@ The operation they apply to the collection elements has the element index as a p
         val list = mutableListOf("a", "b", "c", "d").onEachIndexed {
             index, item -> println(index.toString() + ":" + item)
         }
-    
-        val emptyList = emptyList<Int>()
-        emptyList.reduceIndexedOrNull {index, a, b -> index + a + b} // null
     //sampleEnd
     }
     ```
     </div>
 
-* `runningFold()` and `runningReduce()` are introduced as synonyms for [`scan()`](/api/latest/jvm/stdlib/kotlin.collections/scan.html)
-and [`scanReduce()`](/api/latest/jvm/stdlib/kotlin.collections/scan-reduce.html). Such names are more consistent with the
-related functions `fold()` and `reduce()`.
+* New `*OrNull()` counterparts `randomOrNull()`, `reduceOrNull()`, and `reduceIndexedOrNull()`. 
+empty collections.
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+         val empty = emptyList<Int>()
+         empty.reduceOrNull { a, b -> a + b }
+         //empty.reduce { a, b -> a + b } // Exception: Empty collection can't be reduced.
+    //sampleEnd
+    }
+    ```
+    </div>
+
+* `runningFold()` and `runningReduce()`, similarly to`fold()` and `reduce()`, apply the given operation to the collection
+elements subsequently; the difference is that they return the whole sequence of intermediate results.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -698,7 +693,10 @@ related functions `fold()` and `reduce()`.
     ```
     </div>
 
-* `minOf()` and `maxOf()` functions return the minimum and the maximum value of the given selector function on the collection items.
+* `min()` and `max()` functions have been renamed to `minOrNull()` and `maxOrNull()` to comply with the naming
+  convention used across the Kotlin collections API: `*OrNull` suffix in the function name means that it returns `null`
+  if the receiver collection is empty. 
+    New `minOf()` and `maxOf()` extension functions return the minimum and the maximum value of the given selector function on the collection items.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -720,10 +718,6 @@ related functions `fold()` and `reduce()`.
 
     There are also `minOfWith()` and `maxOfWith()`, which take a `Comparator` as an argument, and `*OrNull()` versions
 of all four functions that return `null` on empty collections.
-
-    In turn, `min()` and `max()` functions have been renamed to `minOrNull()` and `maxOrNull()` to comply with the naming
-convention used across the Kotlin collections API: `*OrNull` suffix in the function name means that it returns `null`
-if the receiver collection is empty.
 
 * New overloads for `flatMap` and `flatMapTo` let you use transformations with return types that don’t match the receiver type, namely:
     * transformations to `Sequence` on `Iterable`, `Array`, and `Map`
@@ -760,6 +754,28 @@ if the receiver collection is empty.
     ```
     </div>
 
+We also add the `ArrayDeque` class - an implementation of double-ended queue.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+    val deque = ArrayDeque(listOf(1, 2, 3))
+
+    deque.addFirst(0)
+    deque.addLast(4)
+    println(deque) // [0, 1, 2, 3, 4]
+
+    println(deque.first()) // 0
+    println(deque.last()) // 4
+
+    deque.removeFirst()
+    deque.removeLast()
+    println(deque) // [1, 2, 3]
+}
+```
+</div>
+
 #### Arrays
 
 To provide a consistent experience when working with different container types, we’ve also added new functions for **arrays**:
@@ -791,10 +807,51 @@ fun main() {
 ```
 </div>
 
+Additonally, there are new functions for conversions between `CharArray`/`ByteArray` and `String`:
+* `ByteArray.decodeToString()` and `String.encodeToByteArray()`
+* `CharArray.concatToString()` and `String.toCharArray()`
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+//sampleStart
+	val str = "kotlin"
+    val array = str.toCharArray()
+    println(array.concatToString())
+//sampleEnd
+}
+```
+</div>
+
+### Bit operations
+
+New functions for bit manipulations:
+* `countOneBits()` 
+* `countLeadingZeroBits()`
+* `countTrailingZeroBits()`
+* `takeHighestOneBit()`
+* `takeLowestOneBit()` 
+*  `rotateLeft()` and `rotateRight(`) (experimental)
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+//sampleStart
+    val number = "1010000".toInt(radix = 2)
+    println(number.countOneBits())
+    println(number.countTrailingZeroBits())
+    println(number.takeHighestOneBit().toString(2))
+//sampleEnd
+}
+```
+</div>
+
 ### Converting from KType to Java Type
 
-A new extension property `KType.javaType` helps obtain a `java.lang.reflect`.Type from a Kotlin type without
-using the `kotlin-reflect` dependency.
+A new extension property `KType.javaType` (currently experimental) in the stdlib helps obtain a `java.lang.reflect.Type`
+from a Kotlin type without using the whole `kotlin-reflect` dependency.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
 
@@ -841,7 +898,7 @@ them as annotation arguments.
 * New constants `SIZE_BITS` and `SIZE_BYTES` in `Double` and `Float` contain the number of bits and bytes accordingly used
 to represent an instance of the type in binary form.
 
-* `maxOf()` and `minOf()` can accept a variable number of arguments (`vararg`).
+* `maxOf()` and `minOf()` top-level functions can accept a variable number of arguments (`vararg`).
 
 ### Standard library artifacts now include module-info descriptors
 
