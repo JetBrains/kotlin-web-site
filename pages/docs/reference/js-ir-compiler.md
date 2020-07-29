@@ -58,7 +58,7 @@ The generation of TypeScript declaration files is a feature exclusive to the IR 
 
 ## Authoring libraries for the IR compiler with backwards compatibility
 
-If you're a library maintainer who is looking to provide compatibility with the default back-end as well as the new IR compiler back-end, a setting for the compiler selection is available that allows you to create artifacts for both back-ends, allowing you to keep compatibility for your exisiting users while providing support for the next generation of Kotlin compiler. This so-called `both`-mode can be turned on using the `kotlin.js.compiler=both` setting in your `gradle.properties` file, or can be set as one of the project-specific options inside your `js` block inside the `build.gradle(.kts)` file:
+If you're a library maintainer who is looking to provide compatibility with the default back-end as well as the new IR compiler back-end, a setting for the compiler selection is available that allows you to create artifacts for both back-ends, allowing you to keep compatibility for your existing users while providing support for the next generation of Kotlin compiler. This so-called `both`-mode can be turned on using the `kotlin.js.compiler=both` setting in your `gradle.properties` file, or can be set as one of the project-specific options inside your `js` block inside the `build.gradle(.kts)` file:
 
 ```groovy
 kotlin {
