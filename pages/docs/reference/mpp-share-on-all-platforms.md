@@ -51,7 +51,7 @@ kotlin{
 </div>
 </div>
  
-If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of expected and actual 
-declarations (ADD LINK).
+If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
+declarations](mpp-connect-to-apis.html).
 
-You can also share code on multiple platforms (ADD LINK), but not all.
+You can also [share code on multiple platforms](mpp-share-on-multiple-platforms.html), but not all.
