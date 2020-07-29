@@ -538,7 +538,7 @@ as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
 
 Previously, any exceptions other than `RuntimeException` and `Error` were propagated as `NSError`. In 1.4, this behavior changes: 
 now `NSError` is thrown only for exceptions that are instances of classes specified as parameters of `@Throws` annotation 
-or their subclasses). Other Kotlin exceptions that reach Swift/Objective-C are considered unhandled and cause program termination.
+(or their subclasses). Other Kotlin exceptions that reach Swift/Objective-C are considered unhandled and cause program termination.
 
 ### Generate release `.dSYM`s on Apple targets by default
 
