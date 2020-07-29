@@ -231,6 +231,8 @@ reference:
           title: Share code on multiple platforms
         - url: /docs/reference/mpp-connect-to-apis.html
           title: Connect to platform-specific APIs
+        - url: /docs/reference/mpp-set-up-targets.html
+          title: Set up targets manually
 
     - title: More Language Constructs
       description: Various bits and bobs

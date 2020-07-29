@@ -75,7 +75,7 @@ kotlin {
 
 </div>
 
-Learn how to set up targets manually (LINK).
+Learn how to [set up targets manually](mpp-set-up-targets.html).
 
 ## Source sets
 
