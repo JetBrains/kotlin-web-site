@@ -7,7 +7,7 @@ title: "Opt-in Requirements"
 
 # Opt-in Requirements
 
-> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are *experimental*. 
+> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are [experimental](evolution/components-stability.html). 
 > See the usage details [below](#experimental-status-of-the-opt-in-requirements).
 {:.note} 
 
@@ -312,7 +312,7 @@ annotation class ExperimentalDateTime
 
 ## Experimental status of the opt-in requirements
 
-The opt-in requirement mechanism is experimental in Kotlin 1.3.
+The opt-in requirement mechanism is [experimental](evolution/components-stability.html) in Kotlin 1.3.
 This means that in future releases it may be changed in ways that make it incompatible.
 
 To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,
