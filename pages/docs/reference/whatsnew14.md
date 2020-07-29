@@ -518,8 +518,12 @@ or Swift code calling Kotlin frameworks. To have the framework header written wi
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-binaries.framework {
-     freeCompilerArgs += "-Xno-objc-generics"
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xno-objc-generics"
+        }
+    }
 }
 ```
 </div>
@@ -592,3 +596,16 @@ Learn [how to add dependencies](native/cocoapods.html).
 To improve the speed of object allocation, Kotlin/Native now offers the [mimalloc](https://github.com/microsoft/mimalloc)
 memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
 Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xallocator=mimalloc"
+        }
+    }
+}
+```
+</div>
