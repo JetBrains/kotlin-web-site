@@ -69,7 +69,6 @@ kotlin {
         val commonMain by sourceSets.getting
         val iosX64Main by sourceSets.getting
         val iosArm64Main by sourceSets.getting
-        ​
         val iosMain by sourceSets.creating {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)

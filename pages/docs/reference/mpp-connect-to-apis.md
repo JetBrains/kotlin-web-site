@@ -65,7 +65,13 @@ expect class AtomicRef<V>(value: V) {
     fun getAndSet(value: V): V
     fun compareAndSet(expect: V, update: V): Boolean
 }
-​
+```
+
+</div>
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
 actual typealias AtomicRef<V> = java.util.concurrent.atomic.AtomicReference<V>
 ```
 
