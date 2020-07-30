@@ -16,6 +16,9 @@ For each target, default compilations include:
 
 ![Compilations]({{ url_for('asset', path='images/reference/mpp/compilations.png') }})
 
+If you need to compile something other than production code and unit tests, for example, integration or performance tests, 
+you can [create a custom compilation](#create-a-custom-compilation).
+
 You can configure how artifacts are produced in:
 
 * [All compilations](#configure-all-compilations) in your project at once.
