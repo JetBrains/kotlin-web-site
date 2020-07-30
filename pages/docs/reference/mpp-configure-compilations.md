@@ -146,13 +146,13 @@ kotlin {
                     /* ... */
                 }
             }
-            ​
+           
             // Create a test task to run the tests produced by this compilation:
             tasks.create('jvmIntegrationTest', Test) {
                 // Run the tests with the classpath containing the compile dependencies (including 'main'),
                 // runtime dependencies, and the outputs of this compilation:
                 classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
-                ​
+                
                 // Run only the tests from this compilation's outputs:
                 testClassesDirs = output.classesDirs
             }
@@ -172,7 +172,7 @@ kotlin {
     jvm() {
         compilations {
             val main by getting
-            ​
+            
             val integrationTest by compilations.creating {
                 defaultSourceSet {
                     dependencies {
@@ -182,13 +182,13 @@ kotlin {
                         /* ... */
                     }
                 }
-                ​
+                
                 // Create a test task to run the tests produced by this compilation:
                 tasks.create<Test>("integrationTest") {
                     // Run the tests with the classpath containing the compile dependencies (including 'main'),
                     // runtime dependencies, and the outputs of this compilation:
                     classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
-                    ​
+                    
                     // Run only the tests from this compilation's outputs:
                     testClassesDirs = output.classesDirs
                 }
@@ -270,24 +270,24 @@ kotlin {
                     // Def-file describing the native API.
                     // The default path is src/nativeInterop/cinterop/<interop-name>.def
                     defFile project.file("def-file.def")
-                    ​
+                    
                     // Package to place the Kotlin API generated.
                     packageName 'org.sample'
-                    ​
+                    
                     // Options to be passed to compiler by cinterop tool.
                     compilerOpts '-Ipath/to/headers'
-                    ​
+                    
                     // Directories for header search (an eqivalent of the -I<path> compiler option).
                     includeDirs.allHeaders("path1", "path2")
-                    ​
+                    
                     // Additional directories to search headers listed in the 'headerFilter' def-file option.
                     // -headerFilterAdditionalSearchPrefix command line option equivalent.
                     includeDirs.headerFilterOnly("path1", "path2")
-                    ​
+                    
                     // A shortcut for includeDirs.allHeaders.
                     includeDirs("include/directory", "another/directory")
                 }
-                ​
+                
                 anotherInterop { /* ... */ }
             }
         }
@@ -309,18 +309,18 @@ kotlin {
                 // Def-file describing the native API.
                 // The default path is src/nativeInterop/cinterop/<interop-name>.def
                 defFile(project.file("def-file.def"))
-                ​
+                
                 // Package to place the Kotlin API generated.
                 packageName("org.sample")
-                ​
+                
                 // Options to be passed to compiler by cinterop tool.
                 compilerOpts("-Ipath/to/headers")
-                ​
+              
                 // Directories to look for headers.
                 includeDirs.apply {
                     // Directories for header search (an equivalent of the -I<path> compiler option).
                     allHeaders("path1", "path2")
-                    ​
+                    
                     // Additional directories to search headers listed in the 'headerFilter' def-file option.
                     // -headerFilterAdditionalSearchPrefix command line option equivalent.
                     headerFilterOnly("path1", "path2")
@@ -328,7 +328,7 @@ kotlin {
                 // A shortcut for includeDirs.allHeaders.
                 includeDirs("include/directory", "another/directory")
             }
-            ​
+            
             val anotherInterop by cinterops.creating { /* ... */ }
         }
     }
