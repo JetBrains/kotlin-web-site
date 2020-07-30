@@ -11,6 +11,11 @@ latest:
     url: https://github.com/Kotlin/kotlinx.coroutines
     date: July 16, 2020
 
+  serialization:
+    version: 1.0.0
+    url: https://github.com/Kotlin/kotlinx.serialization
+    date: August 10, 2020
+
 eap:
   version: 1.4-M3
   coroutines: 1.3.7-1.4-M3

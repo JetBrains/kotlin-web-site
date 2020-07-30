@@ -612,3 +612,16 @@ Complete the initial configuration, and when you add a new dependency to `cocoap
 The new dependency will be added automatically. No additional steps are required.
 
 Learn [how to add dependencies](native/cocoapods.html).
+
+
+## kotlinx.serialization 1.0.0
+
+With Kotlin 1.4, we ship the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) - 1.0.0.
+For now, we declare the JSON serialization library (`kotlinx-serialization-runtime`) stable. Libraries for other serialization formats still remain experimental.
+
+To support the `kotlinx.serialization` 1.0.0 release, we also offer the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
+the complete set of documentation for `kotlinx.serialization`. It will guide you through the most important features and 
+help with issues that you can face.
+
+>**Note**: `kotlinx-serialization` 1.0.0 works only with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
+{:.note}

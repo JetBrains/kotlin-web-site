@@ -238,6 +238,8 @@ reference:
           title: Annotations
         - url: /docs/reference/reflection.html
           title: Reflection
+        - url: /docs/reference/serialization.html
+          title: Serialization
         - url: /docs/reference/scope-functions.html
           title: Scope Functions
         - url: /docs/reference/type-safe-builders.html
