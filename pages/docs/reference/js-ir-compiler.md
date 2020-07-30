@@ -11,7 +11,7 @@ title: "Using the IR compiler"
 
 The Kotlin/JS IR compiler back-end is the main focus of innovation around Kotlin/JS, and paves the way forward for the technology. 
 
-Rather than directly generating JavaScript code from Kotlin source code, the Kotlin/JS IR compiler back-end leverages a new approach. Kotlin source code is first transformed into an intermediate representation (IR), which is subsequently compiled into JavaScript. This allows for more aggressive optimizations, and enables improvements on pain points that were present in the previous compiler. This includes the areas of developer experience, generated code size (dead code elimination), and JavaScript and TypeScript ecosystem interoperability, to name just a few.
+Rather than directly generating JavaScript code from Kotlin source code, the Kotlin/JS IR compiler back-end leverages a new approach. Kotlin source code is first transformed into a [Kotlin intermediate representation (IR)](whatsnew14.html#unified-back-ends-and-extensibility), which is subsequently compiled into JavaScript. For Kotlin/JS, this enables aggressive optimizations, and allows improvements on pain points that were present in the previous compiler, such as generated code size (through dead code elimination), and JavaScript and TypeScript ecosystem interoperability, to name some examples.
 
 The IR compiler back-end is available starting with Kotlin 1.4 through the Kotlin/JS Gradle plugin. To enable it in your project, pass a compiler type to the `js` function in your Gradle build script:
 
