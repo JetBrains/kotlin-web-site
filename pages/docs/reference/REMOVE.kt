@@ -1,0 +1,5 @@
+kotlin {
+    android {
+        publishLibraryVariantsGroupedByFlavor = true
+    }
+}

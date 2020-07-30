@@ -239,6 +239,8 @@ reference:
           title: Configure compilations
         - url: /docs/reference/mpp-run-tests.html
           title: Run tests
+        - url: /docs/reference/mpp-publish-lib.html
+          title: Publish a multiplatform library
 
     - title: More Language Constructs
       description: Various bits and bobs
