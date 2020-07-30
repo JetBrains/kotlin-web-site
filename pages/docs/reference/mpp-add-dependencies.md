@@ -105,6 +105,80 @@ kotlin.stdlib.default.dependency=false
 
 </div>
 
+## Set dependencies on test libraries
+
+The [`kotlin.test` API](../api/latest/kotlin.test/index.html) is available for multiplatform tests. When you [create a multiplatform project](mpp-create-lib.md), 
+the Project Wizard automatically adds test dependencies to common and platform-specific source sets. 
+
+If you didn’t use the Project Wizard to create your project, add the dependencies manually:
+
+* For `commonTest`, add the `kotlin-test-common` and `kotlin-test-annotations-common` dependencies.
+* For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and annotations mapping.
+* For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. 
+
+Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+
+```groovy
+kotlin{
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation kotlin('test-common')
+                implementation kotlin('test-annotations-common')
+            }
+        }
+        jvmTest {
+            dependencies {
+                implementation kotlin('test-junit')
+            }
+        }
+        jsTest {
+            dependencies {
+                implementation kotlin('test-js')
+            }
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+kotlin{
+    sourceSets {
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
+            }
+        }
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+            }
+        }
+        val jsTest by getting {
+            dependencies {
+                implementation(kotlin("test-js"))
+            }
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+> You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
+{:note}
+
 ## Set a dependency on a kotlinx library
 
 If you use a kotlinx library and need a platform-specific dependency, you can use platform-specific variants 
@@ -121,7 +195,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation'org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}'
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}'
             }
         }
         jvmMain {
