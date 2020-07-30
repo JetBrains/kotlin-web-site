@@ -64,7 +64,7 @@ Choose the dependency type based on your requirements.
 <tr>
 <td><code>implementation</code></td>
 <td>Used during compilation and at runtime for the current module, but is not exposed for compilation of other modules 
-depending on the one with the implementation dependency.</td>
+depending on the one with the `implementation` dependency.</td>
 <td>
 <p>Use for dependencies needed for the internal logic of a module.</p> 
 <p>If a module is an endpoint application which is not published, use <code>implementation</code> dependencies instead 
@@ -185,7 +185,7 @@ dependencies {
 ```kotlin
 dependencies {
     "commonMainImplementation"("com.example:my-library:1.0")
-  }
+}
 
 ```
 
