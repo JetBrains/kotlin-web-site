@@ -237,6 +237,8 @@ reference:
           title: Add dependencies
         - url: /docs/reference/mpp-configure-compilations.html
           title: Configure compilations
+        - url: /docs/reference/mpp-run-tests.html
+          title: Run tests
 
     - title: More Language Constructs
       description: Various bits and bobs
