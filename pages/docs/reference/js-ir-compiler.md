@@ -44,8 +44,8 @@ If you want to use the IR compiler back-end for your project, you need to **upda
 **If you are a library author** looking to provide compatibility with the current compiler back-end as well as the new IR compiler back-end, additionally check out the [“Authoring libraries for the IR compiler”](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility) section.
 
 The IR compiler back-end also has some discrepancies in comparison to the default back-end. When trying out the new back-end, it's good to be mindful of these possible pitfalls.
-- Currently, the IR back-end **does not generate source maps for Kotlin code**.
-- Some **libraries that rely on specific characteristics** of the default back-end, such as `kotlin-wrappers`, can display some problems.
+- Currently, the IR back-end **does not generate source maps for Kotlin code**. You can follow the progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-39447).
+- Some **libraries that rely on specific characteristics** of the default back-end, such as `kotlin-wrappers`, can display some problems. You can follow the investigatin and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
 - The IR back-end **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation).
 
 ## Preview: Generation of TypeScript declaration files (d.ts)
