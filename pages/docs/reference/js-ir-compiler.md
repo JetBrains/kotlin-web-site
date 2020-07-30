@@ -50,7 +50,7 @@ The IR compiler back-end also has some discrepancies in comparison to the defaul
 
 ## Preview: Generation of TypeScript declaration files (d.ts)
 The Kotlin/JS IR compiler is capable of generating TypeScript definitions from your Kotlin code. These definitions can be used by JavaScript tools and IDEs when working on hybrid apps to provide autocompletion, support static analyzers, and make it easier to include Kotlin code in JavaScript and TypeScript projects.
-Top-level declarations marked with [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) in a project that produces executable files (`binaries.executable()`) will get a `.d.ts` file generated, which contains the TypeScript definitions for the exported Kotlin code.
+Top-level declarations marked with [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) in a project that produces executable files (`binaries.executable()`) will get a `.d.ts` file generated, which contains the TypeScript definitions for the exported Kotlin declarations.
 In Kotlin 1.4, these declarations can be found in `build/js/packages/<package_name>/kotlin` alongside the corresponding, un-webpacked JavaScript code.
 
 The generation of TypeScript declaration files is a feature exclusive to the IR compiler, and is in active development. If you run into any problems, please submit them to the Kotlin [issue tracker](https://youtrack.jetbrains.com/issues?q=%23%7BKJS:%20d.ts%20generation%7D) or vote for submitted issues that impact you. 
@@ -67,4 +67,4 @@ kotlin {
 }
 ```
 
-When in `both` mode, the IR compiler back-end and default compiler back-end are both used when building a library from your sources (hence the name). This means that both `klib` files with Kotlin IR as well as `js` files for the default compiler will be generated. When published under the same Maven coordinate, Gradle will automatically choose the right artifact depending on the use case – `js` for the old compiler, `klib` for the new one. This enables you to compile and publish your library for projects that are using either of the two compiler back-ends.
+When in `both` mode, the IR compiler back-end and default compiler back-end are both used when building a library from your sources (hence the name). This means that both `klib` files with Kotlin IR as well as `jar` files for the default compiler will be generated. When published under the same Maven coordinate, Gradle will automatically choose the right artifact depending on the use case – `js` for the old compiler, `klib` for the new one. This enables you to compile and publish your library for projects that are using either of the two compiler back-ends.

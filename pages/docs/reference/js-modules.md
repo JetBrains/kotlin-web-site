@@ -12,7 +12,7 @@ You can compile your Kotlin projects to JavaScript modules for various popular m
 - [Unified Module Definitions (UMD)](https://github.com/umdjs/umd), which is compatible with both *AMD* and *CommonJS*. UMD modules are also able to be executed without being imported or when no module system is present. This is the default option for the `browser` and `nodejs` targets.
 - [Asynchronous Module Definitions (AMD)](https://github.com/amdjs/amdjs-api/wiki/AMD), which is in particular
    used by the [RequireJS](https://requirejs.org/) library.
-- [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1), widely used by node.js/npm
+- [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1), widely used by Node.js/npm
    (`require` function and `module.exports` object)
 - Plain. Don't compile for any module system. You can access a module by its name in the global scope.
 
