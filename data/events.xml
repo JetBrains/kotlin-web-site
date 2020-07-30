@@ -306,7 +306,7 @@ Checkout Adam's blog: https://adambennett.dev/</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Paweł Marks</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>New Dokka - Designed for Fearless Creativity</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -328,7 +328,7 @@ Checkout Adam's blog: https://adambennett.dev/</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>György Móra</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Integrating Kotlin into a Poliglot JVM Environment</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -349,7 +349,7 @@ Checkout Adam's blog: https://adambennett.dev/</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Amy Crockett, Garth Gilmour</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Using Kotlin to Create Kotlin to Teach Kotlin within Space</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -370,7 +370,7 @@ Checkout Adam's blog: https://adambennett.dev/</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Raúl Raja Martínez, Simon Vergauwen</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Arrow Fx: Functional Domain Modeling with Kotlin</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -392,7 +392,7 @@ Checkout Adam's blog: https://adambennett.dev/</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Kevin Galligan</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Kotlin/Native Concurrency for Mobile Multiplatform</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -414,7 +414,7 @@ Checkout Adam's blog: https://adambennett.dev/</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Eugenio Marletti</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Confessions of a Serial K⁠–⁠otlin Multiplatform⁠–⁠er</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -444,7 +444,7 @@ Then let us start from the beginning...</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Wojtek Kaliciński</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>We Suspend This Program for an Important Announcement</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -465,7 +465,7 @@ Then let us start from the beginning...</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Ivan Sanchez, David Denton</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Writing Test Driven Apps with http4k</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -486,7 +486,7 @@ Then let us start from the beginning...</p>
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>David Wursteisen</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Let's Build a Cross-platform 3D Engine with Kotlin/Multiplatform</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -518,7 +518,7 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Sebastian Aigner</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Kotlin/JS, Today and Tomorrow</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -542,7 +542,7 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Tahsin Dane, Martin Bonnin, Ivan Savytskyi</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Apollo-Android: a Journey to Kotlin Multiplatform</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -563,7 +563,7 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Marharyta Nedzelska</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Building Microservices with Kotlin and gRPC</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -584,7 +584,7 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Marcos Placona</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Going Serverless with Kotlin</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
@@ -608,7 +608,7 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
         <endDate>2020-06-05</endDate>
         <location>Budapest, Hungary</location>
         <speaker>Márton Braun</speaker>
-        <title>Kotlin Budapest User Group</title>
+        <title>Kotliners</title>
         <subject>Handling View State and Events with RainbowCake</subject>
         <url>https://kotliners.com/conference/live</url>
         <content>
