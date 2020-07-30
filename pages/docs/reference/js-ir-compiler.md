@@ -2,19 +2,18 @@
 type: doc
 layout: reference
 category: "JavaScript"
-title: "Using the experimental IR compiler"
+title: "Using the IR compiler"
 ---
-# Using the experimental Kotlin/JS IR compiler
+# Using the Kotlin/JS IR compiler
 
-> The Kotlin/JS IR compiler is an experimental feature in Kotlin 1.4. All of the functionality, language
-and tooling features described in this document are subject to change in future Kotlin versions.
+> As of Kotlin 1.4.0, the Kotlin/JS IR compiler has _[Alpha](evolution/components-stability.html)_ stability level. You are welcome to use the IR compiler backend, but all of the functionality, language and tooling features described in this document are subject to change in future Kotlin versions.
 {:.note}
 
-The (currently still experimental) Kotlin/JS IR compiler back-end is the main focus of innovation around Kotlin/JS, and paves the way forward for the technology. 
+The Kotlin/JS IR compiler back-end is the main focus of innovation around Kotlin/JS, and paves the way forward for the technology. 
 
 Rather than directly generating JavaScript code from Kotlin source code, the Kotlin/JS IR compiler back-end leverages a new approach. Kotlin source code is first transformed into an intermediate representation (IR), which is subsequently compiled into JavaScript. This allows for more aggressive optimizations, and enables improvements on pain points that were present in the previous compiler. This includes the areas of developer experience, generated code size (dead code elimination), and JavaScript and TypeScript ecosystem interoperability, to name just a few.
 
-The experimental IR compiler back-end is available starting with Kotlin 1.4 through the Kotlin/JS Gradle plugin. To enable it in your project, pass a compiler type to the `js` function in your Gradle build script:
+The IR compiler back-end is available starting with Kotlin 1.4 through the Kotlin/JS Gradle plugin. To enable it in your project, pass a compiler type to the `js` function in your Gradle build script:
 
 <!--suppress ALL -->
 <div class="sample" markdown="1" mode="groovy" theme="idea">
