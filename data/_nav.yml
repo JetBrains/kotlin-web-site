@@ -245,6 +245,8 @@ reference:
           title: Build final native binaries
         - url: /docs/reference/mpp-supported-platforms.html
           title: Supported platforms
+        - url: /docs/reference/mpp-dsl-reference.html
+          title: Multiplatform Gradle DSL Reference
 
     - title: More Language Constructs
       description: Various bits and bobs
