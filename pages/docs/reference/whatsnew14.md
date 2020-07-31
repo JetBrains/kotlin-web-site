@@ -588,6 +588,105 @@ For more information about default methods in the Java interop, see the [documen
 
 ## Kotlin/Native
 
+In 1.4, Kotlin/Native got a significant number of new features and improvements, including: 
+
+* [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
+* [Objective-C generics support by default](#objective-c-generics-support-by-default)
+* [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
+* [Generate release `.dSYM`s on Apple targets by default](#generate-release-dsyms-on-apple-targets-by-default)
+* [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
+* [mimalloc memory allocator](#mimalloc-memory-allocator)
+
+### Support for Kotlin’s suspending functions in Swift and Objective-C
+
+In 1.4, we add the basic support for suspending functions in Swift and Objective-C. Now, when you compile a Kotlin module
+into an Apple framework, suspending functions are available in it as functions with callbacks (`completionHandler` in 
+the Swift/Objective-C terminology). When you have such functions in the generated framework’s header, you can call them
+from your Swift or Objective-C code and even override them.
+
+For example, if you write this Kotlin function:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+suspend fun queryData(id: Int): String = ...
+```
+</div>
+
+…then you can call it from Swift like so:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```swift
+queryData(id: 17) { result, error in
+   if let e = error {
+       print("ERROR: \(e)")
+   } else {
+       print(result!)
+   }
+}
+```
+</div>
+
+For more information about using suspending functions in Swift and Objective-C, see the [documentation](native/objc_interop.html).
+
+### Objective-C generics support by default
+
+Previous versions of Kotlin provided experimental support for generics in Objective-C interop. Since 1.4, Kotlin/Native 
+generates Apple frameworks with generics from Kotlin code by default. In some cases, this may break existing Objective-C
+or Swift code calling Kotlin frameworks. To have the framework header written without generics, add the `-Xno-objc-generics` compiler option.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xno-objc-generics"
+        }
+    }
+}
+```
+</div>
+
+Please note that all specifics and limitations listed in the [documentation](native/objc_interop.html#generics) are still valid.
+
+### Exception handling in Objective-C/Swift interop
+
+In 1.4, we slightly change the Swift API generated from Kotlin with respect to the way exceptions are translated. There is
+a fundamental difference in error handling between Kotlin and Swift. All Kotlin exceptions are unchecked, while Swift has
+only checked errors. Thus, to make Swift code aware of expected exceptions, Kotlin functions should be marked with a `@Throws`
+annotation specifying a list of potential exception classes.
+
+When compiling to Swift or the Objective-C framework, functions that have or are inheriting `@Throws` annotation are represented
+as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
+
+Previously, any exceptions other than `RuntimeException` and `Error` were propagated as `NSError`. In 1.4, this behavior changes: 
+now `NSError` is thrown only for exceptions that are instances of classes specified as parameters of `@Throws` annotation 
+(or their subclasses). Other Kotlin exceptions that reach Swift/Objective-C are considered unhandled and cause program termination.
+
+### Generate release `.dSYM`s on Apple targets by default
+
+Starting with 1.4, the Kotlin/Native compiler produces [debug symbol files](https://developer.apple.com/documentation/xcode/building_your_app_to_include_debugging_information)
+(`.dSYM`s) for release binaries on Darwin platforms by default. This can be disabled with the `-Xadd-light-debug=disable`
+compiler option. On other platforms, this option is disabled by default. To toggle this option in Gradle, use:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xadd-light-debug={enable|disable}"
+        }
+    }
+}
+```
+</div>
+
+For more information about crash report symbolication, see the [documentation](native/ios_symbolication.html).
+
+
 ### Simplified management of CocoaPods dependencies
 
 Previously, once you integrated your project with the dependency manager CocoaPods, you could build an iOS, macOS, watchOS, 
@@ -613,6 +712,24 @@ The new dependency will be added automatically. No additional steps are required
 
 Learn [how to add dependencies](native/cocoapods.html).
 
+### mimalloc memory allocator
+
+To improve the speed of object allocation, Kotlin/Native now offers the [mimalloc](https://github.com/microsoft/mimalloc)
+memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
+Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xallocator=mimalloc"
+        }
+    }
+}
+```
+</div>
 
 ## kotlinx.serialization 1.0.0
 
