@@ -330,7 +330,7 @@ kotlin.stdlib.default.dependency=false
 
 ### Set dependencies on test libraries
 
-The [`kotlin.test` API](../api/latest/kotlin.test/index.html) is available for testing different Kotlin projects. 
+The [`kotlin.test` API](../../api/latest/kotlin.test/index.html) is available for testing different Kotlin projects. 
 
 Add the corresponding dependencies on test libraries:
 
