@@ -296,7 +296,7 @@ kotlin {
 </div>
 </div> 
 
-> You can export only [`api` dependencies](mpp-add-dependencies.html#dependency-types) of the corresponding source set.  
+> You can export only [`api` dependencies](using-gradle.html#dependency-types) of the corresponding source set.  
 > You can export maven dependencies, but due to current limitations of Gradle metadata, such a dependency should be 
 > either a platform dependency (for example,  `kotlinx-coroutines-core-native_debug_macos_x64` instead of 
 > `kotlinx-coroutines-core-native`) or be exported transitively.
