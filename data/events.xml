@@ -11461,7 +11461,7 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <lang>en</lang>
         <startDate>2020-05-27</startDate>
         <endDate>2020-05-27</endDate>
-        <location>Chicago, IL, USA</location>
+        <location>Chicago, USA</location>
         <speaker>Raul Raja</speaker>
         <title>Chicago Kotlin Users Group</title>
         <subject>Type Proofs and FP for the Kotlin Type System</subject>
@@ -11541,7 +11541,7 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <lang>it</lang>
         <startDate>2020-05-28</startDate>
         <endDate>2020-05-28</endDate>
-        <location>Torino, Italy</location>
+        <location>Turin, Italy</location>
         <speaker>Francesco Vasco</speaker>
         <title>Java/JVM User Group Torino</title>
         <subject>Effective Java ≈ Kotlin</subject>
@@ -11626,7 +11626,7 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <lang>en</lang>
         <startDate>2020-06-01</startDate>
         <endDate>2020-06-01</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Kubra Harmankaya</speaker>
         <title>GDG Cloud London</title>
         <subject>[Placeholder for the future] Remote Kotlin meetup</subject>
@@ -11687,7 +11687,7 @@ Let's see what coroutines are, how they look like and how they support us in wri
         <lang>en</lang>
         <startDate>2020-06-03</startDate>
         <endDate>2020-06-03</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Hardik Trivedi</speaker>
         <title>Kotlin London</title>
         <subject>Introduction to Kotlin Flow</subject>
@@ -11714,7 +11714,7 @@ Following will be the key takeaways
         <lang>en</lang>
         <startDate>2020-06-03</startDate>
         <endDate>2020-06-03</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Sebastian Aigner</speaker>
         <title>Kotlin London</title>
         <subject>Unleashing more Kotlin power – in full-stack web applications</subject>
@@ -11899,7 +11899,7 @@ Following will be the key takeaways
         <lang>en</lang>
         <startDate>2020-06-24</startDate>
         <endDate>2020-06-24</endDate>
-        <location>München, Germany</location>
+        <location>Munich, Germany</location>
         <speaker>Enrique López-Mañas</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
         <subject>Kotlin Meetup - June Edition</subject>
@@ -12012,7 +12012,7 @@ Following will be the key takeaways
         <lang>en</lang>
         <startDate>2020-06-30</startDate>
         <endDate>2020-06-30</endDate>
-        <location>San Diego, CA, USA</location>
+        <location>San Diego, CA</location>
         <speaker>Ian Brandt</speaker>
         <title>San Diego Kotlin User Group</title>
         <subject>Monthly Kotlin!</subject>
@@ -12042,7 +12042,7 @@ Following will be the key takeaways
         <lang>en</lang>
         <startDate>2020-07-01</startDate>
         <endDate>2020-07-01</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Matt Moore, Nicolás D'Cotta</speaker>
         <title>Kotlin London</title>
         <subject>Adding pattern matching to Kotlin</subject>
@@ -12145,6 +12145,592 @@ Checkout Adam's blog: https://adambennett.dev/</p>
         <description>
             <![CDATA[
 <p>Everything on Android is essentially asynchronous, so achieving thread safety is of absolute importance for the integrity of our data. Historically we've used synchronized blocks and mutexes to achieve concurrency, but the code is complex and sometimes feels unapproachable. Actors are part of the Kotlin Coroutines library and are the most straight forward, readable way to deal with concurrency, without going crazy. This talk will help you understand what Actors and how to use them through real world examples.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-14</startDate>
+        <endDate>2020-07-14</endDate>
+        <location>Sherman Oaks, CA, USA</location>
+        <speaker>Adam Bennett</speaker>
+        <title>Google Developer Group San Fernando Valley</title>
+        <subject>Error handling in Kotlin and the Result Monad</subject>
+        <url>https://www.meetup.com/Google-Developer-Group-San-Fernando-Valley/events/271840942/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin doesn’t force you to handle functions that might throw exceptions, so how can we best ensure that our code is safe to execute whilst handling errors in a reasonable way? In this talk, we’ll look at some strategies that the team at Cuvva evaluated and discuss in-depth the solution they chose: the Result Monad. We’ll talk about how it works and build one from first principles, and discuss how utilizing this strategy can help you.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-14</startDate>
+        <endDate>2020-07-14</endDate>
+        <location>Sherman Oaks, CA, USA</location>
+        <speaker>Sam Edwards</speaker>
+        <title>Google Developer Group San Fernando Valley</title>
+        <subject>No Drama Concurrency with Kotlin Actors</subject>
+        <url>https://www.meetup.com/Google-Developer-Group-San-Fernando-Valley/events/271840942/</url>
+        <description>
+            <![CDATA[
+<p>Everything on Android is essentially asynchronous, so achieving thread safety is of absolute importance for the integrity of our data. Historically we've used synchronized blocks and mutexes to achieve concurrency, but the code is complex and sometimes feels unapproachable. Actors are part of the Kotlin Coroutines library and are the most straight forward, readable way to deal with concurrency, without going crazy. This talk will help you understand what Actors and how to use them through real world examples.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-18</startDate>
+        <endDate>2020-07-18</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Nav Singh</speaker>
+        <title>Kotlin Hyderabad</title>
+        <subject>Concise Android codebase using Kotlin</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/271794456/</url>
+        <description>
+            <![CDATA[
+<p>We are using Kotlin everyday but how we can make sure that we write our code base as per Kotlin way. I would like to cover more about using Kotlin features and android ktx libraries that will help us as an Android Developer to write Kotlin friendly concise codebase.I will cover various aspects of Kotlin(scope functions, handling nullability, collection processing as sequence/stream, when over if, lazy/lateinit, handling platform datatypes, and some tips, etc) and KTX libraries provided by android framework that helps to remove a lot of boilerplate code. I will demo this session via code examples and providing references for detailed explanations.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>zn</lang>
+        <startDate>2020-07-18</startDate>
+        <endDate>2020-07-18</endDate>
+        <location>Hangzhou, China</location>
+        <speaker>Honglun Hou</speaker>
+        <title>Hangzhou GDG</title>
+        <subject>携手 FLutter 和 Kotlin 探索 Android11</subject>
+        <url>https://www.meetup.com/Hangzhou-GDG/events/271247502/</url>
+        <description>
+            <![CDATA[
+<p>这次活动展示用 Flutter 和 Kotlin 写的 Android 应用，并讲解其制作过程和实现方式，来介绍Flutter的高性能支持跨平台开发和Kotlin的简洁安全的特性。我们将会带着大家烧录手势识别，亲身体验通过手机摄像头捕获手指伸曲情况并在屏幕上显示对应的手势，具有良好的交互性，让参与者对Android充满兴趣，最终对日常接触的Android有更深一步了解和对Flutter和Kotlin技术的初认识</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-21</startDate>
+        <endDate>2020-07-21</endDate>
+        <location>Glen Allen, VA, USA</location>
+        <speaker>Sam Edwards</speaker>
+        <title>RVA Software Development User Group</title>
+        <subject>Why I Left Java for Kotlin</subject>
+        <url>https://www.meetup.com/RVA-Software-Development-User-Group/events/270789325/</url>
+        <description>
+            <![CDATA[
+<p>Ever since Kotlin was announced as an officially supported language for the Android platform in 2017, Sam has been writing 100% Kotlin code. He'll share the language features he's fallen in love with, the developer experience, and what's possible with Kotlin. He’ll also dive into non-Android use cases we use Kotlin, such as micro-services, processing streaming data, and more. Kotlin has been around since 2011, and has a quickly-evolving ecosystem that not only targets the Java Virtual Machine, but can also be compiled to Native or JavaScript. You’ll leave this talk knowing more about what Kotlin is, how to start using it in your project, and why you might never go back to using Java.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-07-22</startDate>
+        <endDate>2020-07-22</endDate>
+        <location>Marbella, Spain</location>
+        <speaker>Sergio Casero</speaker>
+        <title>GDG Marbella</title>
+        <subject>Flutter vs. Kotlin Multiplatform</subject>
+        <url>https://www.meetup.com/GDG-Marbella/events/271755760/</url>
+        <description>
+            <![CDATA[
+<p>En esta ocasión vamos a abordar qué nos aportan dos tecnologías como Flutter y Kotlin en desarrollo multiplataforma, teniendo en cuenta que Dart es el lenguaje detrás de Flutter y Kotlin es un lenguaje en sí que ha logrado una increible comunidad de desarrolladores de Android.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-07-23</startDate>
+        <endDate>2020-07-23</endDate>
+        <location>La Paz, Bolivia</location>
+        <speaker>Gustavo Lizárraga</speaker>
+        <title>Kotlin La Paz</title>
+        <subject>Kotlin Nights La Paz - Vol. 7</subject>
+        <url>https://www.meetup.com/KotlinLPZ/events/270450322/</url>
+        <description>
+            <![CDATA[
+<p>Hoy estar separados es la mejor manera de estar juntos, llega nuestro 7mo Kotlin Night y el tópico es: Jetpack Compose</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-23</startDate>
+        <endDate>2020-07-23</endDate>
+        <location>Mumbai, India</location>
+        <speaker>Victoria Gonda</speaker>
+        <title>Kotlin Community Mumbai</title>
+        <subject>Increase Your Product Quality Through Accessibility</subject>
+        <url>https://www.meetup.com/Kotlin-Mumbai/events/271818854/</url>
+        <description>
+            <![CDATA[
+<p>Making your app accessible for everyone is more than a “nice thing to do” It also increases the quality of your app. Products that keep accessibility in mind are more flexible and easier to use. It’s up to us to direct this step. In this talk, you’ll learn about some of the things you can do to make your app more accessible, and how it makes your product stronger. You’ll walk away with the tools you need to detect accessibility issues, increase the usability of your app, and prevent regressions.</p>
+]]>
+        </description>
+    </event>
+
+
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-30</startDate>
+        <endDate>2020-07-30</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Ivan Savytskyi, Tahsin Dane, Martin Bonnin</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>[Virtual] Apollo-Android: A Journey to Kotlin Multiplatform</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrybckbvb/</url>
+        <description>
+            <![CDATA[
+<p>Apollo-Android evolved to progressively support Kotlin and now Kotlin multiplatform. In this talk, we will be talking about the path we took to bring Kotlin Multiplatform support and the challenges we faced along the way. We will touch topics such as migrating code to Kotlin Multiplatform for both the runtime and code generation, as well as documentation and publication of Multiplatform artifacts. Lastly, we will share our plans for the future of the project.</p>
+]]>
+        </description>
+    </event>
+
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-30</startDate>
+        <endDate>2020-07-30</endDate>
+        <location>Wellington, New Zealand</location>
+        <speaker>Jamie Sanson</speaker>
+        <title>GDG Wellington</title>
+        <subject>Mentoring and mingling event: Summer of Tech Kotlin 101 Bootcamp</subject>
+        <url>https://www.meetup.com/GDG-Wellington/events/271657511/</url>
+        <description>
+            <![CDATA[
+<p>As part of their upskilling programme, Summer of Tech run bootcamps for students to learn a bit about tips, tricks and tools useful in the software development industry. We've partnered with Summer of Tech to present a Kotlin 101 Bootcamp, and we're opening up a small number of slots for developers from the GDG community to attend as mentors and mingle with this year's prospective intern cohort!</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-17</startDate>
+        <endDate>2020-07-17</endDate>
+        <location>Broomfield, CO, USA</location>
+        <speaker>Kenneth Kousen</speaker>
+        <title>ÜberConf</title>
+        <subject>Kotlin Workshop</subject>
+        <url>https://uberconf.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Learn the basic syntax and semantics for the Kotlin programming language. Kotlin is an alternative JVM language that provides null safety, static typing, and powerful IDE support. This workshop will give you the chance to code in Kotlin, highlighting its similarities and differences from Java, how to use functional programming skills, work with collections, access restful web services, and more.</p>
+<p>This workshop will examine features of Kotlin at a greater depth than most tutorials. Coroutines – the most popular feature of the language – will also be covered, as well as higher order functions, reduction operations like reduce and fold, and lambdas with receivers. Those topics progress toward building DSLs and builders in Kotlin. Terms like “apply”, “let”, “use”, “also”, and “with” will be covered along with their typical use cases.</p>
+<p>Details of the type system, including the Any, Unit, and Nothing classes, will be included. Examples will be provided on how to define extension functions, infix operators, and inlining functions for efficiency.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-24</startDate>
+        <endDate>2020-07-24</endDate>
+        <location>Denver, CO, USA</location>
+        <speaker>Siamak Ashrafi</speaker>
+        <title>360|AnDev</title>
+        <subject>Composing Magic with MVI and Kotlin StateFlow</subject>
+        <url>https://360andev.com/sessions/composing-magic-with-jetpack-compose/</url>
+        <description>
+            <![CDATA[
+<p>In this session, we take a standard MVVM Android Arch Component project (Room, Repo, ModelView, Activities/XML) and replace them with “the new stuff”.  Replacing MVVM with MVI, Activities/XML (navigation) with Compose (screens), Livedata with Kotlin Flow, and RxJava with Kolin ShareFlow (using Dagger Hilt DI).  Giving us a glimpse into the future of Android development with Compose and Kotlin Flow/StateFlow/SharedFlow.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-23</startDate>
+        <endDate>2020-07-23</endDate>
+        <location>Denver, CO, USA</location>
+        <speaker>Nate Ebel</speaker>
+        <title>360|AnDev</title>
+        <subject>Kotlin First – Taking Full Advantage of Kotlin For Android Development</subject>
+        <url>https://360andev.com/sessions/kotlin-first-taking-full-advantage-of-kotlin-for-android-development/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we’re going to explore the use of Kotlin for Android and help guide you towards helpful patterns and apis that make Kotlin a great choice for Android development.</p>
+<p>We’ll quickly see how to integrate Kotlin with our Android projects. We’ll explore the use of Android KTX and the many useful, Kotlin first apis it provides. You’ll discover how to leverage coroutines to simplify network and database calls. We’ll see how we can cleanly architect our presentation layer using Kotlin Flow, and finally we’ll explore the use of Kotlin for building Android UI in Jetpack Compose.</p>
+]]>
+        </description>
+    </event>
+
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-01</startDate>
+        <endDate>2020-07-01</endDate>
+        <location>London, UK</location>
+        <speaker>Matt Moore, Nicolás D'Cotta</speaker>
+        <title>Kotlin London</title>
+        <subject>Adding pattern matching to Kotlin</subject>
+        <url>https://www.meetup.com/kotlin-london/events/271391822/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=AT9eZVpPh7Y&amp;feature=youtu.be</video>
+            <url>https://www.meetup.com/kotlin-london/events/271391822/</url>
+        </content>
+        <description>
+            <![CDATA[
+<p>One of the reasons Kotlin has proven so popular is its wide array of abstractions and constructs. But pattern matching, a popular feature that in other languages allows us to easily inspect data and act accordingly, is currently missing.</p>
+<p>This talk aims to explore the possibility of adding pattern matching to Kotlin. It will go through why and how it could be done, from adding it to the actual language to using a compiler plugin (much like kotlinx.serialization works).</p>
+]]>
+        </description>
+    </event>
+
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Paweł Marks</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>New Dokka - Designed for Fearless Creativity</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=OvFoTRhqaKg&amp;t=1s</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Pluggability is hard. Many software projects avoid it by all means possible. Many try to contain it in the smallest possible scope. We believe that developers are creative and have specific requirements for their documentation engine. Some of them want to be able to render their docs in javadoc-compatible format. Some of them want features like a full-text search or runnable code snippets inside of the docs. And there are some that need features that we’ve never even thought about. To satisfy all of them, we decided to embrace full pluggability. And we decided to make pluggability fearless, so anyone can mix and match existing plugins or easily create new ones from scratch, without the fear of breaking anything.</p>
+<p>In my talk, I would like to tell you how we decided to redesign and reimplement Dokka from scratch. I will introduce you to all the dangers and risks of pluggability and tell you how we mitigated them by design, grounded in strong guarantees. Finally, I want to show how easily and how much you can do with your old, boring documentation using new Dokka.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>György Móra</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Integrating Kotlin into a Poliglot JVM Environment</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=6skeb3UlU3g&amp;t=1s</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>We built a machine learning model library in Kotlin, what we train on a system mainly written in Scala, and we ship it inside Clojure powered services. It is easy, since all of them are JVM languages. Except that it's not that easy! I will talk about the good and bad surprises along the way.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Amy Crockett, Garth Gilmour</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Using Kotlin to Create Kotlin to Teach Kotlin within Space</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=YHd0ey6_Z6o</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>At Instil we use Space as the primary mechanism for coaching developers during virtual training. To ensure privacy, we create a dedicated instance for every workshop we deliver. Initially, this led to headaches when we were manually configuring profiles, teams, repos, blogs, chats and checklists. We since solved this by using the Space HTTP API to create an automated pipeline. Today anyone can configure any workshop in a matter of minutes. This talk will walk you through the code behind this pipeline. In addition to the Space API itself, we will be covering OAuth, the Ktor HTTP Client, DSLs, Functional Patterns and Integrating Testing.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Raúl Raja Martínez, Simon Vergauwen</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Arrow Fx: Functional Domain Modeling with Kotlin</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=6sw8GAhUJz0</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Simon Vergauwen is a Senior Software Engineer and Trainer at 47 Degrees, responsible for working on the core Arrow infrastructure and design. He is leading efforts to include composable optics in Arrow and revamping the Arrow Fx library to support custom error handling, safe resource management, and many modern features expected in today’s functional programming ecosystem in Kotlin.</p>
+<p>Raúl Raja is a Co-founder and CTO of 47 Degrees and one of the core maintainers of the Arrow open-source library. Over the last few years, Raul has been working closely with the Kotlin compiler and the Arrow library to help build a new type system and features for improving the ease of practicing Typed Functional Programming in Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Kevin Galligan</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Kotlin/Native Concurrency for Mobile Multiplatform</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=uWcw2eOrtks</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform will allow sharing native code among many platforms. The native mobile developer world, in particular, will see a lot of benefit very quickly from KMP.</p>
+<p>The Android developer community seems pretty excited by the possibilities. However, coming from the JVM, there are new things you must learn. One of the most important is Kotlin/Native’s state and concurrency model. While the Kotlin/Native state model is conceptually simple, it is also different, and will cause some confusion if you don’t learn the rules.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Eugenio Marletti</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Confessions of a Serial K⁠–⁠otlin Multiplatform⁠–⁠er</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=9q-pbhk6sNk</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>“Multiplatform” is a paradox._
+It makes things both easier and more complicated at the same time.
+It’s the opposite of what most _expect_ or think they need... And also the solution to their _actual_ needs.
+It's also more than just a technology—Ah, and you're already doing it (inefficiently)!</p>
+<p>Then what is it, really?
+And why would Kotlin be any different than all those other failed multiplatform tools?</p>
+<p>One short answer is: **Kotlin _works_ on multiple platforms, but is _not_ multiplatform.**</p>
+<p>Sounds like another paradox?
+Then let us start from the beginning...</p>
+]]>
+        </description>
+    </event>
+
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Wojtek Kaliciński</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>We Suspend This Program for an Important Announcement</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=ZBxsv0Qmq2c</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>In this talk we'll take a good look at the current state of coroutines support in Android libraries and tools, explore some interesting and not-so-obvious edge cases when dealing with Kotlin code that includes coroutines and interop with Java, and briefly look at some new developments in Kotlin from the Android team.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Ivan Sanchez, David Denton</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Writing Test Driven Apps with http4k</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=ZBxsv0Qmq2c</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Testing HTTP services can be a painful and challenging process for developers: tests are often slow running, involve complicated (or coupled) setup, rely on unreliable third party dependencies, or deal with complicated outputs.</p>
+<p>In this talk, we demonstrate how the http4k library leverages its “Server as a Function” roots to enable writing apps which can be test-driven at all levels of the Testing Pyramid, using a set of tools derived from decades of experience testing backend applications to make many of the above issues go away.</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>David Wursteisen</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Let's Build a Cross-platform 3D Engine with Kotlin/Multiplatform</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=o4RHeTJ59PU</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>When creating a game, you want your game to be available on all platforms to target as many players as possible. Developing a game engine is a challenge: you have to deal with mathematical concepts, animations, player interactions... Creating an engine that runs on different platforms is even more challenging. Is Kotlin and Kotlin/Multiplatform could be the right tool to build this kind of engine? Let's check this out together.</p>
+<p>Message for you, so you can already be aware what you can expect from this session:
+Using existing Java game engines, you can create a game that runs on the JVM, in a browser or on Android and iOS. But it requires some complex tooling, when tools are available for the platform you're targeting.</p>
+<p>This session is about the creation of a game engine that runs the same way in a browser, in a JVM, on iOS or Android.</p>
+<p>Throughout this session, attendees will learn:
+- Basic matrix computation needed for 3D engine;
+- Basic game development concept: drawing shapes on screen, dealing with skeleton animations;
+- How to convert a pure Kotlin/JVM library into a Kotlin/Multiplaform library;
+- Example of use of Kotlinx.serialization to share game content between each platforms;
+- What didn't work while budding this kind of engine, like building a common API over heterogeneous game engine; or converting a java engine into a Kotlin one;
+- The challenges to build a game engine on the top of the Open GL API. (Open GL is a 3D API available almost everywhere: WebGL (browser), Open GL ES  (Android / iOS - deprecated), Open GL (JVM / Native);
+- Issues encounter to build such engine on different platform: name forbidden in Kotlin/JS (val input -- package input conflict). Taking very seriously the naming and the abstraction on the common.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Sebastian Aigner</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Kotlin/JS, Today and Tomorrow</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=fZUL8_kgHXg&amp;t=1s</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>The JavaScript target for Kotlin bears huge potential for bringing the language we love to the influential world of browsers and JS engines. Since its first release with Kotlin 1.1, Kotlin/JS has evolved and keeps maturing.</p>
+<p>In this talk, we'll explore the benefits and challenges when it comes to targeting the JavaScript world with Kotlin. From standard libraries and simple DOM manipulation to building full React applications: guided by code and configuration examples, we will get an impression of the technology and its interoperability with an exciting ecosystem – including the freshest changes and additions for Kotlin 1.4 and going forward.</p>
+<p>We'll also see how Kotlin libraries support development of Kotlin/JS applications, even beyond the browser – from concurrent applications with coroutines to painless communication supported by kotlinx.serialization. In the same context, we will also look at interesting and useful constructs we can create for Kotlin/JS in multiplatform projects.</p>
+<p>Let us go on an adventure in my favorite ecosystem for Kotlin!</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Tahsin Dane, Martin Bonnin, Ivan Savytskyi</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Apollo-Android: a Journey to Kotlin Multiplatform</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=GN6LHrqyimI</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>With its roots in the Java world, Apollo-Android evolved to progressively support Kotlin and now Kotlin multiplatform. In this talk we will be talking about the path we took to bring Kotlin Multiplatform support and the challenges we faced along the way. We will touch topics such as migrating code from Java to Kotlin Multiplatform for both the runtime and code generation, as well as documentation and publication of Multiplatform artifacts. Lastly, we will share our plans for the future of the project.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Marharyta Nedzelska</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Building Microservices with Kotlin and gRPC</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=j1CzQNydMLI&amp;t=1s</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Microservice architecture is now a huge trend. All big organizations with millions of users are doing microservices. This means they have lots of channels of communication between services and need to send and get much data. At some point, you can find yourself in a situation where your current approach doesn’t provide you with efficient communication, you pay more, wait more, lose more etc. Maybe it’s time to look at gRPC… gRPC is asynchronous by its nature. But old API, Java infrastructure and verbosity make people write lots of noise and break their beautiful minds to make things done. In Kotlin we have awesome coroutines concept. So async gRPC and coroutines could be a perfect match! Let’s discover if this is possible. In this talk, we’ll learn how to build microservices using gRPC with minimum pain. We’ ll discuss the pros and cons of this approach, what can be improved, what should be added.</p>
+]]>
+        </description>
+    </event>
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Marcos Placona</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Going Serverless with Kotlin</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=myRd0WubCHU</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>Serverless architecture is the new hot. But with a lot of different ways to build applications out there, it's hard to know where to start and what really constitutes a serverless application.</p>
+<p>In this talk, we will investigate the tools and processes for building serverless applications using Kotlin. We will then deploy our application and look at some interesting ways we can consume our serverless apps.</p>
+<p>Get ready to learn how serverless Kotlin makes it easier to create backends and other utilities for your applications.</p>
+]]>
+        </description>
+    </event>
+
+
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-06-05</startDate>
+        <endDate>2020-06-05</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Márton Braun</speaker>
+        <title>Conference for Kotliners</title>
+        <subject>Handling View State and Events with RainbowCake</subject>
+        <url>https://kotliners.com/conference/live</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=4U7hxKAZ7qE</video>
+        </content>
+        <description>
+            <![CDATA[
+<p>RainbowCake is an architectural framework built on top of the best & latest of Jetpack and Kotlin. One of its core features is its view state and view event handling mechanism, which is somewhere between MVVM and MVI, and is powered by LiveData. In this talk, we’ll first look at the client side API of the framework, and the design decisions that went into it. Then, we’ll dive into how all of this is implemented under the hood by customizing LiveData. While the talk discusses this specific framework, the ideas in it are universal and can be used independently in any project.</p>
 ]]>
         </description>
     </event>
