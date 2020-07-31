@@ -635,8 +635,8 @@ The operation that they apply to the collection elements has the element index a
             index, item -> println(index.toString() + ":" + item)
         }
   
-       val list = listOf("hello", "kot", "lin", "world")
-              val kotlin = list.flatMapIndexed { index, item ->
+       val list2 = listOf("hello", "kot", "lin", "world")
+              val kotlin = list2.flatMapIndexed { index, item ->
                   if (index in 1..2) item.toList() else emptyList() 
               }
     //sampleEnd
@@ -669,9 +669,11 @@ operation to the collection elements subsequently; the difference is that they r
     fun main() {
     //sampleStart
         val numbers = mutableListOf(0, 1, 2, 3, 4, 5)
-        val runningReduceSum = numbers.runningReduce() { sum, item -> sum + item} // [0, 1, 3, 6, 10, 15]
-        val runningFoldSum = numbers.runningFold(10) { sum, item -> sum + item} // [10, 10, 11, 13, 16, 20, 25]
+        val runningReduceSum = numbers.runningReduce { sum, item -> sum + item }
+        val runningFoldSum = numbers.runningFold(10) { sum, item -> sum + item }
     //sampleEnd
+        println(runningReduceSum.toString())
+        println(runningFoldSum.toString())
     }
     ```
     </div>
