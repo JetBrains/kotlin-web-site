@@ -7,7 +7,7 @@ title: "Set up targets manually"
 # Set up targets manually
 
 You can add targets when [creating a project with the Project Wizard](mpp-create-lib.html). If you need to add a target 
-later, you can do this manually using target presets for supported platforms. (ADD LINK)
+later, you can do this manually using target presets for [supported platforms](mpp-supported-platforms.html).
 
 Learn more about [additional settings for targets](mpp-dsl-reference.html#common-target-configuration).
 

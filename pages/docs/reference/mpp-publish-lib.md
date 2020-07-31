@@ -35,7 +35,7 @@ publishing {
 
 
 Publications are automatically created for each target that can be built on the current host, except for the Android target, 
-which needs an additional step to configure publishing. (LINK)
+which needs an [additional step to configure publishing](#publish-an-android-library).
 
 Publications of a multiplatform library include an additional 'root' publication `kotlinMultiplatform` that stands for the 
 whole library and is automatically resolved to the appropriate platform-specific artifacts when added as a dependency to the common source set. 

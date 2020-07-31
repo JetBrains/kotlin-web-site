@@ -58,7 +58,7 @@ configuration for [targets](#targets), [source sets](#source-sets), and dependen
 
 A multiplatform project is aimed at multiple platforms that are represented by different targets. A target is part of the 
 build that is responsible for building, testing, and packaging the application for a specific platform, such as macOS, 
-iOS, or Android. See the list of supported platforms (LINK).
+iOS, or Android. See the list of [supported platforms](mpp-supported-platforms.html).
 
 When you create a multiplatform project, targets are added to the `kotlin` block in the file `build.gradle` (`build.gradle.kts`).
 
@@ -155,4 +155,4 @@ For each target, default compilations include:
 
 Each compilation has a default source set, which contains sources and dependencies specific to that compilation.
 
-Learn how to configure compilations (LINK). 
+Learn how to [configure compilations](mpp-configure-compilations.html). 
