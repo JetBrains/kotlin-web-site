@@ -65,6 +65,7 @@ Kotlin Scripting APIs and custom hosts|Alpha|1.2|
 Compiler Plugin API|Experimental|1.0|
 Serialization Compiler Plugin|Stable|1.4|
 Serialization Core Library|Stable|1.0.0|Versioned separately from the language
+Multiplatform Projects|Alpha|1.3|
 expect/actual language feature|Beta|1.2|
 Inline classes|Alpha|1.3|
 Unsigned arithmetics|Beta|1.3|
