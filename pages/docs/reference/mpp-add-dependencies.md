@@ -50,37 +50,37 @@ kotlin {
 Choose the dependency type based on your requirements.
 
 <table>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>When to use</th>
-</tr>
-<tr>
-<td><code>api</code></td>
-<td>Used both during compilation and at runtime and is exported to library consumers.</td>
-<td>If any type from a dependency is used in the public API of the current module, use an <code>api</code> dependency.
-</td>
-</tr>
-<tr>
-<td><code>implementation</code></td>
-<td>Used during compilation and at runtime for the current module, but is not exposed for compilation of other modules 
-depending on the one with the `implementation` dependency.</td>
-<td>
-<p>Use for dependencies needed for the internal logic of a module.</p> 
-<p>If a module is an endpoint application which is not published, use <code>implementation</code> dependencies instead 
-of <code>api</code> dependencies.</p>
-</td>
-</tr>
-<tr>
-<td><code>compileOnly</code></td>
-<td>Used for compilation of the current module and is not available at runtime nor during compilation of other modules.</td>
-<td>Use for APIs which have a third-party implementation available at runtime.</td>
-</tr>
-<tr>
-<td><code>runtimeOnly</code></td>
-<td>Available at runtime but is not visible during compilation of any module.</td>
-<td></td>
-</tr>
+    <tr>
+        <th>Type</th>
+        <th>Description</th>
+        <th>When to use</th>
+    </tr>
+    <tr>
+        <td><code>api</code></td>
+        <td>Used both during compilation and at runtime and is exported to library consumers.</td>
+        <td>If any type from a dependency is used in the public API of the current module, use an <code>api</code> dependency.
+        </td>
+    </tr>
+    <tr>
+        <td><code>implementation</code></td>
+        <td>Used during compilation and at runtime for the current module, but is not exposed for compilation of other modules
+            depending on the one with the `implementation` dependency.</td>
+        <td>
+            <p>Use for dependencies needed for the internal logic of a module.</p>
+            <p>If a module is an endpoint application which is not published, use <code>implementation</code> dependencies instead
+                of <code>api</code> dependencies.</p>
+        </td>
+    </tr>
+    <tr>
+        <td><code>compileOnly</code></td>
+        <td>Used for compilation of the current module and is not available at runtime nor during compilation of other modules.</td>
+        <td>Use for APIs which have a third-party implementation available at runtime.</td>
+    </tr>
+    <tr>
+        <td><code>runtimeOnly</code></td>
+        <td>Available at runtime but is not visible during compilation of any module.</td>
+        <td></td>
+    </tr>
 </table>
 
 ## Dependency on a standard library

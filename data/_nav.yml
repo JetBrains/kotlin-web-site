@@ -243,6 +243,8 @@ reference:
           title: Publish a multiplatform library
         - url: /docs/reference/mpp-build-native-binaries.html
           title: Build final native binaries
+        - url: /docs/reference/mpp-supported-platforms.html
+          title: Supported platforms
 
     - title: More Language Constructs
       description: Various bits and bobs
