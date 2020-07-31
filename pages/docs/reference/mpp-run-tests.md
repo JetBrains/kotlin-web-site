@@ -74,3 +74,5 @@ class SampleTestsIOS {
 ```
 
 </div>
+
+You can also learn how to create and run multiplatform tests in [this tutorial](../tutorials/mpp/multiplatform-library.html#testing).
