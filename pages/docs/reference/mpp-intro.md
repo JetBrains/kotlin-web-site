@@ -6,26 +6,39 @@ title: "Kotlin Multiplatform"
 
 # Kotlin Multiplatform
 
+> Multiplatform projects are in Alpha. Language features and tooling may change in future Kotlin versions.
+{:.note}
+
 Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the
- same code for different platforms while retaining the flexibility and benefits of native programming. 
+ same code for [different platforms](mpp-supported-platforms.html) while retaining the flexibility and benefits of native programming. 
+ Learn more about [Kotlin Mutliplatform benefits](multiplatform.html).
 
-This is how Kotlin Multiplatform works.
+With Kotlin Multiplatform, share the code using the mechanisms Kotlin provides: 
+ 
+*   [Share code among all platforms used in your project](mpp-share-on-all-platforms.html). Use it for sharing the common 
+business logic that applies to all platforms. 
+     
+    ![Code shared for all platforms]({{ url_for('asset', path='images/reference/mpp/flat-structure.png') }})
+    
+*   [Share code among some platforms](mpp-share-on-multiple-platforms.html) included in your project but not all. You can 
+reuse much of the code in similar platforms using a hierarchical structure. You can use [target shortcuts](mpp-share-on-multiple-platforms.html#use-target-shortcuts) 
+for common combinations of targets or [create the hierarchical structure manually](mpp-share-on-multiple-platforms.html#configure-the-hierarchical-structure-manually).
+    
+    <img class="img-responsive" src="{{ url_for('asset', path='images/reference/mpp/iosmain-hierarchy.png') }}" alt="Code shared for iOS targets" width="400"/>
 
-<img class="img-responsive" src="{{ url_for('asset', path='images/reference/mpp/kotlin-multiplatform.png' )}}" alt
-="Kotlin Multiplatform" width="500" />
+    ![Hierarchical structure]({{ url_for('asset', path='images/reference/mpp/hierarchical-structure.png') }})
 
-*   **Common Kotlin** includes the language, core libraries, and basic tools. Code written in common Kotlin works 
-everywhere on all platforms.
-*   With Kotlin Multiplatform libraries, you can reuse the multiplatform logic in common and platform-specific code.
-*   To interop with platforms, use platform-specific versions of Kotlin. **Platform-specific versions of Kotlin** 
-(Kotlin/JVM, Kotlin/JS, Kotlin/Native) include extensions to the Kotlin language, and platform-specific libraries and tools. 
-*   Through these platforms you can access the **platform native code** (JVM, JS, and Native) and leverage all native
- capabilities.
+If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
+declarations](mpp-connect-to-apis.html).
 
-With Kotlin Multiplatform, spend less time on writing and maintaining the same code for different platforms – just share 
-it using the mechanisms Kotlin provides:
+## Tutorials
 
-*   [Share code among all platforms used in your project](https://docs.google.com/document/d/1Zilt6dZN1oGG9UYY4H7VtUtgoABl0RKvzhWVamwu7V0/edit#heading=h.t5tm40isd5ld). Use it for sharing the common business logic that applies to all platforms. 
-*   [Share code among some platforms](https://docs.google.com/document/d/1Zilt6dZN1oGG9UYY4H7VtUtgoABl0RKvzhWVamwu7V0/edit#heading=h.80xqjxcz4gsi) included in your project but not all. Do this when you can reuse much of the code in similar platforms.
-
-With IntelliJ IDEA, you can [create a multiplatform application or multiplatform library](mpp-create-lib.html).
+* [Creating a multiplatform Kotlin library](/docs/tutorials/mpp/multiplatform-library.html) teaches how to create a multiplatform 
+library available for JVM, JS, and Native and which can be used from any other common code (for example, shared with 
+Android and iOS). It also shows how to write tests which will be executed on all platforms and use an efficient implementation
+ provided by a specific platform.
+ 
+* [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) 
+  teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
+  application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
+  introduction to working with Ktor both as a server- and client-side framework.

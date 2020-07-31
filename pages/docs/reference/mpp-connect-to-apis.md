@@ -44,6 +44,64 @@ actual fun randomUUID(): String = NSUUID().UUIDString()
 
 </div>
 
+Here's another example of code sharing and interaction between the common and platform logic in a minimalistic 
+logging framework. 
+
+<div style="display:flex">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+//Common
+enum class LogLevel {
+    DEBUG, WARN, ERROR
+}
+
+internal expect fun writeLogMessage(message: String, logLevel: LogLevel)
+
+fun logDebug(message: String) = writeLogMessage(message, LogLevel.DEBUG)
+fun logWarn(message: String) = writeLogMessage(message, LogLevel.WARN)
+fun logError(message: String) = writeLogMessage(message, LogLevel.ERROR)
+```
+
+</div>
+<div style="margin-left: 5px;white-space: pre-line; line-height: 18px; font-family: Tahoma;">
+    <div style="display:flex">├<i style="margin-left:5px">compiled for all platforms</i></div>
+    <div style="display:flex">├<i style="margin-left:5px">expected platform-specific API</i></div>
+    <div style="display:flex">├<i style="margin-left:5px">expected API can be used in the common code</i></div>
+</div>
+</div>
+
+It expects the targets to provide platform-specific implementations for `writeLogMessage`, and the common code can 
+now use this declaration without any consideration of how it is implemented.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+//JVM
+internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
+    println("[$logLevel]: $message")
+}
+```
+
+</div>
+
+For JavaScript, a completely different set of APIs is available, and the `actual` declaration will look like this.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+//JS
+internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
+    when (logLevel) {
+        LogLevel.DEBUG -> console.log(message)
+        LogLevel.WARN -> console.warn(message)
+        LogLevel.ERROR -> console.error(message)
+    }
+}
+```
+
+</div>
+
 The main rules regarding expected and actual declarations are:
 * An expected declaration is marked with the `expect` keyword; the actual declaration is marked with the `actual` keyword.
 * `expect` and `actual` declarations have the same name and are located in the same package (have the same fully qualified name).
