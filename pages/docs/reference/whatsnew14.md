@@ -594,7 +594,7 @@ the exception, and the `Throwable.suppressedExceptions` property, which returns 
 
 In 1.4, the standard library includes a number of useful functions for working with **collections**:
 
-* `setOfNotNull()` makes a set consisting of all the non-null items among the provided arguments.
+* `setOfNotNull()` that makes a set consisting of all the non-null items among the provided arguments.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -608,7 +608,7 @@ In 1.4, the standard library includes a number of useful functions for working w
     ```
     </div>
 
-* `shuffled()` is now available for sequences.
+* `shuffled()` for sequences.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -623,8 +623,8 @@ In 1.4, the standard library includes a number of useful functions for working w
     ```
     </div>
 
-* `onEachIndexed()` counterpart have been added for [onEach()](/api/latest/jvm/stdlib/kotlin.collections/on-each.html).
-The operation that it applies to the collection elements has the element index as a parameter.
+* `*Indexed()` counterparts for `onEach()` and `flatMap()`.
+The operation that they apply to the collection elements has the element index as a parameter.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -634,12 +634,18 @@ The operation that it applies to the collection elements has the element index a
         val list = mutableListOf("a", "b", "c", "d").onEachIndexed {
             index, item -> println(index.toString() + ":" + item)
         }
+  
+       val list = listOf("hello", "kot", "lin", "world")
+              val kotlin = list.flatMapIndexed { index, item ->
+                  if (index in 1..2) item.toList() else emptyList() 
+              }
     //sampleEnd
+              println(kotlin)
     }
     ```
     </div>
 
-* New `*OrNull()` counterparts `randomOrNull()`, `reduceOrNull()`, and `reduceIndexedOrNull()`. 
+* `*OrNull()` counterparts `randomOrNull()`, `reduceOrNull()`, and `reduceIndexedOrNull()`. 
 empty collections.
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -654,8 +660,8 @@ empty collections.
     ```
     </div>
 
-* `runningFold()` and `runningReduce()`, similarly to`fold()` and `reduce()`, apply the given operation to the collection
-elements subsequently; the difference is that they return the whole sequence of intermediate results.
+* `runningFold()` (and its synonym `scan()`) and `runningReduce()`, similarly to`fold()` and `reduce()`, apply the given
+operation to the collection elements subsequently; the difference is that they return the whole sequence of intermediate results.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -695,8 +701,10 @@ elements subsequently; the difference is that they return the whole sequence of 
 
 * `min()` and `max()` functions have been renamed to `minOrNull()` and `maxOrNull()` to comply with the naming
   convention used across the Kotlin collections API: `*OrNull` suffix in the function name means that it returns `null`
-  if the receiver collection is empty. 
-    New `minOf()` and `maxOf()` extension functions return the minimum and the maximum value of the given selector function on the collection items.
+  if the receiver collection is empty. The same applies to `minBy()`, `maxBy()`, `minWith()`, `maxWith()` - in 1.4, 
+  they have `*OrNull()` synonyms.
+* New `minOf()` and `maxOf()` extension functions return the minimum and the maximum value of the given selector function
+  on the collection items.
 
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
@@ -738,21 +746,7 @@ of all four functions that return `null` on empty collections.
     ```
     </div>
 
-* `flatMapIndexed()` counterpart for `flatMap()`.
-
-    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
-    
-    ```kotlin
-    fun main() {
-        val list = listOf("hello", "kot", "lin", "world")
-        val kotlin = list.flatMapIndexed { index, item ->
-            if (index in 1..2) item.toList() else emptyList() 
-        }
-    //sampleEnd
-        println(kotlin)
-    }
-    ```
-    </div>
+* `removeFirst()` and `removeLast()` for mutable list and their `*orNull()` counterparts.
 
 We also add the `ArrayDeque` class - an implementation of double-ended queue.
 
@@ -780,10 +774,12 @@ fun main() {
 
 To provide a consistent experience when working with different container types, we’ve also added new functions for **arrays**:
 
-* `shuffle()` - puts the array elements in a random order.
-* `onEach()` - performs the given action on each array element and returns the array itself.
+* `shuffle()` puts the array elements in a random order.
+* `onEach()` performs the given action on each array element and returns the array itself.
+* `associateWith()` and `associateWithTo()`
 * `reverse()` for array subranges reverses the order of the elements in the subrange.
 * `sortDescending()` for array subranges sorts the elements in the subrange in descending order.
+* `sort()` and `sortWith()` for array subranges are now available in the common library.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
 
@@ -823,6 +819,48 @@ fun main() {
 }
 ```
 </div>
+
+### Functions for string manipulations
+
+The standard library in 1.4 includes a number of improvements in the API for string manipulation:
+
+* `StringBuilder` has new useful extension functions: `set()`, `setRange()`, `deleteAt()`, `deleteRange()`, `appendRange()`
+and others.
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        val sb = StringBuilder("Bye Kotlin 1.3.72")
+        sb.deleteRange(0, 3)
+        sb.insertRange(0, "Hello", 0 ,5)
+        sb.set(15, '4')
+        sb.setRange(17, 19, "0")
+        print(sb.toString())
+    //sampleEnd
+    }
+    ```
+    </div>
+    
+* Some existing functions of `StringBuilder` are available in the common library. Among them are `append()`, `insert()`,
+`substring()`, `setLength()`, and more. 
+* New functions `Appendable.appendLine()` and `StringBuilder.appendLine()` are added to the common library. They replace
+JVM-only `appendln()` functions of these classes.
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        println(buildString {
+            appendLine("Hello,")
+            appendLine("world")
+        })
+    //sampleEnd
+    }
+    ```
+    </div>
+    
+* `StringBuilder.append()` now accept nullable arguments.
 
 ### Bit operations
 
