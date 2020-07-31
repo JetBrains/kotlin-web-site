@@ -337,6 +337,41 @@ with the value `strict` or `warning`.
 
 For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
 
+## New tools in the IDE
+
+With Kotlin 1.4, you can use the new tools in IntelliJ IDEA to simplify Kotlin development:
+
+* [New flexible Project Wizard](#new-flexible-project-wizard)
+
+### New flexible Project Wizard
+
+With the flexible new Kotlin Project Wizard, you have a place to easily create and configure different types of Kotlin 
+projects, including multiplatform projects, which can be difficult to configure without a UI.
+
+![Kotlin Project Wizard – Multiplatform project]({{ url_for('asset', path='images/reference/whats-new/mpp-project-1-wn.png') }})
+
+The new Kotlin Project Wizard is both simple and flexible:
+
+1. *Select the project template*, depending on what you’re trying to do. More templates will be added in the future.
+2. *Select the build system* – Gradle (Kotlin or Groovy DSL), Maven, or IntelliJ IDEA.  
+    The Kotlin Project Wizard will only show the build systems supported on the selected project template.
+3. *Preview the project structure* directly on the main screen.
+
+Then you can finish creating your project or, optionally, *configure the project* on the next screen:
+
+{:start="4"}
+4. *Add/remove modules and targets* supported for this project template.
+5. *Configure module and target settings*, for example, the target JVM version, target template, and test framework.
+
+![Kotlin Project Wizard - Configure targets]({{ url_for('asset', path='images/reference/whats-new/mpp-project-2-wn.png') }})
+
+In the future, we are going to make the Kotlin Project Wizard even more flexible by adding more configuration options and templates.
+
+You can try out the new Kotlin Project Wizard by working through these tutorials:
+
+* [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
+* [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
+
 ## New compiler
 
 The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
@@ -583,8 +618,7 @@ interfaces to `default` Java methods. For compatibility with the code that uses 
 we also added `all-compatibility` mode. 
 
 For more information about default methods in the Java interop, see the [documentation](java-to-kotlin-interop.html#default-methods-in-interfaces) and 
-[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/).
-
+[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/). 
 
 ## Kotlin/Native
 
