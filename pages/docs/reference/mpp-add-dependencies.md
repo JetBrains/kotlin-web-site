@@ -6,7 +6,7 @@ title: "Add dependencies"
 
 # Add dependencies
 
-To add a dependency on a library, set the dependency of the required [type](#dependency-types) (for example, `implementation`) in the 
+To add a dependency on a library, set the dependency of the required [type](using-gradle.html#dependency-types) (for example, `implementation`) in the 
 `dependencies` block of the source sets DSL.
 
 <div class="multi-language-sample" data-lang="groovy">
@@ -45,45 +45,9 @@ kotlin {
 </div>
 </div>
 
-## Dependency types
+Alternatively, you can [set dependencies at the top level](using-gradle.html#set-dependencies-at-the-top-level).
 
-Choose the dependency type based on your requirements.
-
-<table>
-    <tr>
-        <th>Type</th>
-        <th>Description</th>
-        <th>When to use</th>
-    </tr>
-    <tr>
-        <td><code>api</code></td>
-        <td>Used both during compilation and at runtime and is exported to library consumers.</td>
-        <td>If any type from a dependency is used in the public API of the current module, use an <code>api</code> dependency.
-        </td>
-    </tr>
-    <tr>
-        <td><code>implementation</code></td>
-        <td>Used during compilation and at runtime for the current module, but is not exposed for compilation of other modules
-            depending on the one with the `implementation` dependency.</td>
-        <td>
-            <p>Use for dependencies needed for the internal logic of a module.</p>
-            <p>If a module is an endpoint application which is not published, use <code>implementation</code> dependencies instead
-                of <code>api</code> dependencies.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><code>compileOnly</code></td>
-        <td>Used for compilation of the current module and is not available at runtime nor during compilation of other modules.</td>
-        <td>Use for APIs which have a third-party implementation available at runtime.</td>
-    </tr>
-    <tr>
-        <td><code>runtimeOnly</code></td>
-        <td>Available at runtime but is not visible during compilation of any module.</td>
-        <td></td>
-    </tr>
-</table>
-
-## Dependency on a standard library
+## Dependency on the standard library
 
 A dependency on a standard library (`stdlib`) in each source set is added automatically. The version 
 of the standard library is the same as the version of the `kotlin-multiplatform` plugin.
@@ -92,97 +56,20 @@ For platform-specific source sets, the corresponding platform-specific variant o
 library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library depending on 
 the `kotlinOptions.jvmTarget` setting.
 
-If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle 
-plugin won’t override it or add a second standard library. 
-
-If you do not need a standard library at all, you can add the opt-out flag to the `gradle.properties`:
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-kotlin.stdlib.default.dependency=false
-```
-
-</div>
+Learn how to [change the default behavior](using-gradle.html#dependency-on-the-standard-library).
 
 ## Set dependencies on test libraries
 
 The [`kotlin.test` API](../api/latest/kotlin.test/index.html) is available for multiplatform tests. When you [create a multiplatform project](mpp-create-lib.md), 
 the Project Wizard automatically adds test dependencies to common and platform-specific source sets. 
 
-If you didn’t use the Project Wizard to create your project, add the dependencies manually:
-
-* For `commonTest`, add the `kotlin-test-common` and `kotlin-test-annotations-common` dependencies.
-* For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and annotations mapping.
-* For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. 
-
-Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
-
-```groovy
-kotlin{
-    sourceSets {
-        commonTest {
-            dependencies {
-                implementation kotlin('test-common')
-                implementation kotlin('test-annotations-common')
-            }
-        }
-        jvmTest {
-            dependencies {
-                implementation kotlin('test-junit')
-            }
-        }
-        jsTest {
-            dependencies {
-                implementation kotlin('test-js')
-            }
-        }
-    }
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-
-```kotlin
-kotlin{
-    sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
-            }
-        }
-    }
-}
-```
-
-</div>
-</div>
-
-> You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
-{:note}
+If you didn’t use the Project Wizard to create your project, you can [add the dependencies manually](using-gradle.html#set-dependencies-on-test-libraries).
 
 ## Set a dependency on a kotlinx library
 
 If you use a kotlinx library and need a platform-specific dependency, you can use platform-specific variants 
-of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`.  
+of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`. You can also use the library 
+base artifact name instead – `kotlinx-coroutines-core`.
 
 If you use a multiplatform library and need to depend on the shared code, set the dependency only once in the shared 
 source set. Use the library base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`. 
@@ -233,36 +120,3 @@ kotlin {
 
 </div>
 </div>
- 
-## Set dependencies at the top level
-
-Alternatively, you can specify the dependencies at the top level with the configuration names following the pattern 
-`<sourceSetName><DependencyType>`. This is helpful for some Gradle built-in dependencies, like `gradleApi()`, `localGroovy()`, 
-or `gradleTestKit()`, which are not available in the source sets dependency DSL.
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
-
-```groovy
-dependencies {
-    commonMainImplementation 'com.example:my-library:1.0'
-}
-
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-
-```kotlin
-dependencies {
-    "commonMainImplementation"("com.example:my-library:1.0")
-}
-
-```
-
-</div>
-</div> 
- 
