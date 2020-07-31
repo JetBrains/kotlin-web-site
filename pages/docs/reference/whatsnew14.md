@@ -619,7 +619,9 @@ Learn [how to add dependencies](native/cocoapods.html).
 With Kotlin 1.4, we ship the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) - 1.0.0.
 For now, we declare the JSON serialization library (`kotlinx-serialization-runtime`) stable. Libraries for other serialization formats still remain experimental.
 
-To support the `kotlinx.serialization` 1.0.0 release, we also offer the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
+We have significantly reworked the API for JSON serialization to make it more flexible and easier to use. Thus, you'll
+need to rewrite some of your code when migrating to `kotlinx.serialization` 1.0.0. To help you with it, we also offer
+the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
 the complete set of documentation for `kotlinx.serialization`. It will guide you through the most important features and 
 help with issues that you can face.
 
