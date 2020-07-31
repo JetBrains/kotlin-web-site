@@ -40,7 +40,7 @@ The `kotlin-multiplatform` plugin provides target shortcuts for creating structu
 | `watchos` | `watchosArm32`, `watchosArm64`, `watchosX86` |
 | `tvos` | `tvosArm64`, `tvosX64` |
 
-For example, the `ios` shortcut creates the following hierarchical structure in the code:
+All shortcuts create similar hierarchical structures in the code. For example, the `ios` shortcut creates the following hierarchical structure:
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
