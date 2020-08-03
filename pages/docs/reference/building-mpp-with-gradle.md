@@ -394,7 +394,7 @@ There are target presets that one can apply using the preset functions, as shown
 following target platforms:
 
 * `jvm` for Kotlin/JVM;
-* `js` for Kotlin/JS; requiring a choice for the execution environment in their configuration block (see also [Setting up a Kotlin/JS project](/docs/tutorials/javascript/setting-up.html#setting-up-using-the-kotlin-multiplatform-plugin)):
+* `js` for Kotlin/JS; requiring a choice for the execution environment in their configuration block (see also [Setting up a Kotlin/JS project](js-project-setup.html)):
 
     * `browser {}` for applications running in the browser;
     * `nodejs{}` for applications running on Node.js.
