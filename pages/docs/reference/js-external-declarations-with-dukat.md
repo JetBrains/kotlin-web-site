@@ -11,7 +11,7 @@ title: "Generating External Declarations with Dukat"
 
 [Dukat](https://github.com/kotlin/dukat) is a tool currently in development which allows the automatic conversion of TypeScript declaration files (`.d.ts`) into Kotlin external declarations. This aims to makes it more comfortable to use libraries from the JavaScript ecosystem in a type-safe manner in Kotlin, reducing the need for manually writing external declarations and wrappers for JS libraries.
 
-The Kotlin/JS Gradle plugin provides an integration with Dukat. When enabled, type-safe Kotlin external declarations are automatically generated for npm dependencies that either provide their own TypeScript definitions, or have definitions available in the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repository. You have two different ways of selecting if and when Dukat should generate declarations: at build time, and manually via a Gradle task.
+The Kotlin/JS Gradle plugin provides an integration with Dukat. When enabled, type-safe Kotlin external declarations are automatically generated for npm dependencies that provide TypeScript definitions. You have two different ways of selecting if and when Dukat should generate declarations: at build time, and manually via a Gradle task.
 
 ## Generating external declarations at build time
 
@@ -42,6 +42,7 @@ dependencies {
 </div>
 </div>
 
+If the repository of the dependency you wish to use does not provide TypeScript definitions, you can also use types provided via the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repository. In this case, make sure you add `npm` dependencies for both `your-package` and `@types/your-package` (with `generateExternals = true`).
 
 You can use the flag `kotlin.js.generate.externals` in your `gradle.properties` file to set the generator's behavior for all npm dependencies simultaneously. As usual, individual explicit settings take precedence over this general flag.
 
