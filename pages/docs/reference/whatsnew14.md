@@ -13,7 +13,16 @@ To enjoy new features of Kotlin projects, update Gradle to a recent version. Kot
 
 ## Mutliplatform programming
 
-## Sharing code in several targets with the hierarchical project structure
+[Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
+while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
+and improvements:
+
+* Sharing code in several targets with the hierarchical project structure
+* Leveraging native libs in the hierarchical structure 
+* Specifying kotlinx dependencies only once
+* Dependency on the standard library added by default
+
+### Sharing code in several targets with the hierarchical project structure
 
 With the new hierarchical project structure support, you can share code among [several platforms](mpp-supported-platforms.html)
  in a [multiplatform project](mpp-discover-project.html).
