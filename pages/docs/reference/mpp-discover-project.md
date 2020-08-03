@@ -140,7 +140,7 @@ Windows (`mingwX64`), and macOS (`macosX64`) platforms.
 
 ![Hierarchical structure]({{ url_for('asset', path='images/reference/mpp/hierarchical-structure.png') }})
 
-Learn how to [build the hierarchy of source sets](mpp-share-on-multiple-platforms.html). 
+Learn how to [build the hierarchy of source sets](mpp-share-on-platforms.html#share-code-on-similar-platforms). 
 
 ## Compilations
 

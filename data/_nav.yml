@@ -225,10 +225,8 @@ reference:
           title: Create a multiplatform library
         - url: /docs/reference/mpp-discover-project.html
           title: Discover your project
-        - url: /docs/reference/mpp-share-on-all-platforms.html
-          title: Share code on all platforms
-        - url: /docs/reference/mpp-share-on-multiple-platforms.html
-          title: Share code on multiple platforms
+        - url: /docs/reference/mpp-share-on-platforms.html
+          title: Share code on platforms
         - url: /docs/reference/mpp-connect-to-apis.html
           title: Connect to platform-specific APIs
         - url: /docs/reference/mpp-set-up-targets.html

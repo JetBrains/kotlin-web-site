@@ -31,12 +31,12 @@ coroutines](https://github.com/Kotlin/kotlinx.coroutines).
 With Kotlin Multiplatform, spend less time on writing and maintaining the same code for [different platforms](mpp-supported-platforms.html)
  – just share it using the mechanisms Kotlin provides:
 
-*   [Share code among all platforms used in your project](mpp-share-on-all-platforms.html). Use it for sharing the common 
+*   [Share code among all platforms used in your project](mpp-share-on-platforms.html#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms. 
      
     ![Code shared for all platforms]({{ url_for('asset', path='images/reference/mpp/flat-structure.png') }})
     
-*   [Share code among some platforms](mpp-share-on-multiple-platforms.html) included in your project but not all. Do this 
+*   [Share code among some platforms](mpp-share-on-platforms.html#share-code-on-similar-platforms) included in your project but not all. Do this 
 when you can reuse much of the code in similar platforms.  
     
     ![Hierarchical structure]({{ url_for('asset', path='images/reference/mpp/hierarchical-structure.png') }})
@@ -104,7 +104,7 @@ New to Kotlin? Visit [Getting Started](/docs/reference/basic-syntax.html).
 ### Documentation
 
 * [Create a multiplatform project](mpp-create-lib.html)
-* [Share code on multiple platforms](mpp-share-on-multiple-platforms.html)
+* [Share code on multiple platforms](mpp-share-on-platforms.html)
 * [Connect to platform-specific APIs](mpp-connect-to-apis.html)
 
 ### Tutorials

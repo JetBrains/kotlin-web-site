@@ -15,14 +15,14 @@ Support for multiplatform programming is one of Kotlin’s key benefits. It redu
 
 With Kotlin Multiplatform, share the code using the mechanisms Kotlin provides: 
  
-*   [Share code among all platforms used in your project](mpp-share-on-all-platforms.html). Use it for sharing the common 
+*   [Share code among all platforms used in your project](mpp-share-on-platforms.html/#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms. 
      
     ![Code shared for all platforms]({{ url_for('asset', path='images/reference/mpp/flat-structure.png') }})
     
-*   [Share code among some platforms](mpp-share-on-multiple-platforms.html) included in your project but not all. You can 
-reuse much of the code in similar platforms using a hierarchical structure. You can use [target shortcuts](mpp-share-on-multiple-platforms.html#use-target-shortcuts) 
-for common combinations of targets or [create the hierarchical structure manually](mpp-share-on-multiple-platforms.html#configure-the-hierarchical-structure-manually).
+*   [Share code among some platforms](mpp-share-on-platforms.html#share-code-on-similar-platforms) included in your project but not all. You can 
+reuse much of the code in similar platforms using a hierarchical structure. You can use [target shortcuts](mpp-share-on-platforms.html#use-target-shortcuts) 
+for common combinations of targets or [create the hierarchical structure manually](mpp-share-on-platforms.html#configure-the-hierarchical-structure-manually).
     
     <img class="img-responsive" src="{{ url_for('asset', path='images/reference/mpp/iosmain-hierarchy.png') }}" alt="Code shared for iOS targets" width="400"/>
 

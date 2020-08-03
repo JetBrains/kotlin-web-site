@@ -372,7 +372,7 @@ dependencies {
 
 ## Compilation of the source set hierarchy 
 
-Kotlin can build a [source set hierarchy](mpp-share-on-multiple-platforms.html) with the `dependsOn` relation.
+Kotlin can build a [source set hierarchy](mpp-share-on-platforms.html#share-code-on-similar-platforms) with the `dependsOn` relation.
 
 <img class="img-responsive" src="{{ url_for('asset', path='images/reference/mpp/jvm-js-main.png') }}" alt="Source set hierarchy" width="400"/>
 
