@@ -179,7 +179,7 @@ Don’t use kotlinx library artifact names with suffixes specifying the platform
 as they are NOT supported anymore. Instead, use the library base artifact name, which in the example above is `kotlinx-coroutines-core`. 
 
 However, the change doesn’t currently affect:
-* The `stdlib` library – starting from Kotlin 1.4, `stdlib` dependencies are added automatically.
+* The `stdlib` library – starting from Kotlin 1.4, [the `stdlib` dependency is added automatically](#dependency-on-the-standard-library-added-by-default).
 * The `kotlin.test` library – you should still use `test-common` and `test-annotations-common`. These dependencies will be
 addressed later.
 
