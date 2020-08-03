@@ -201,9 +201,9 @@ For other cases, use the Kotlin mechanism of [expected and actual declarations](
 
 ### Share code in libraries
 
-Thanks to the hierarchical project structure, libraries can also provide common APIs for a subset of targets. When a library 
-is published, the API of its intermediate source sets is embedded into the library artifacts along with information about 
-the project structure. When you use this library, the intermediate source sets of your project access only those APIs of 
+Thanks to the hierarchical project structure, libraries can also provide common APIs for a subset of targets. When a 
+[library is published](mpp-publish-lib.html), the API of its intermediate source sets is embedded into the library artifacts 
+along with information about the project structure. When you use this library, the intermediate source sets of your project access only those APIs of 
 the library which are available to the targets of each source set.
 
 For example, check out the following source set hierarchy from the `kotlinx.coroutines` repository:
