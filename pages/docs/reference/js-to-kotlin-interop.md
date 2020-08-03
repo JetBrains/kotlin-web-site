@@ -27,7 +27,7 @@ alert(myModule.foo());
 </div>
 
 This is not applicable when you compile your Kotlin module to JavaScript modules like UMD (which is the default setting for both `browser` and `nodejs` targets), CommonJS or AMD. In this case, your declarations will be exposed in the format specified by your chosen JavaScript module system. When using UMD or CommonJS, for example, your call site could look like this:
-<!-- TODO: IS THIS STILL CORRECT? -->
+
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
 alert(require('myModule').foo());
