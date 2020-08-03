@@ -566,3 +566,18 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: digraphs are capitalized in the upper case (`Ǆ`)
 > - \>= 1.4: digraphs are capitalized in the title case (`ǅ`)
 
+### Unify exceptions from null checks
+
+> **Issue**: [KT-22275](https://youtrack.jetbrains.com/issue/KT-22275)
+> 
+> **Component**: Kotlin/JVM
+> 
+> **Incompatible change type**: behavior
+> 
+> **Short summary**: Starting from Kotlin 1.4, all runtime null checks will throw a `java.lang.NullPointerException`
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: runtime null checks throw different exceptions, such as `KotlinNullPointerException`, `IllegalStateException`, 
+> `IllegalArgumentException`, and `TypeCastException`
+> - \>= 1.4: all runtime null checks throw a `java.lang.NullPointerException`
