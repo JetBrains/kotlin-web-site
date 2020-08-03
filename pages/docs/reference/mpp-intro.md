@@ -15,7 +15,7 @@ Support for multiplatform programming is one of Kotlin’s key benefits. It redu
 
 With Kotlin Multiplatform, share the code using the mechanisms Kotlin provides: 
  
-*   [Share code among all platforms used in your project](mpp-share-on-platforms.html/#share-code-on-all-platforms). Use it for sharing the common 
+*   [Share code among all platforms used in your project](mpp-share-on-platforms.html#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms. 
      
     ![Code shared for all platforms]({{ url_for('asset', path='images/reference/mpp/flat-structure.png') }})
