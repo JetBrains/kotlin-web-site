@@ -451,6 +451,9 @@
   courses:
   - name: IMT3673 - Mobile/Wearable Programming
     url: https://www.ntnu.edu/studies/courses/IMT3673#tab=omEmnet
+  geo:
+    lat: '63.419499'
+    lng: '10.3998884'
 - title: Oklahoma State University
   location: Stillwater, OK (US)
   courses:
@@ -585,6 +588,9 @@
   courses:
   - name: CSE 4250 Programming Language Concepts
     url: https://cs.fit.edu/~ryan/cse4250/notes/types.pdf
+  geo:
+    lat: '28.0646329'
+    lng: '-80.625247'
 - title: University of Maribor
   location: Maribor (Slovenia)
   courses:
@@ -607,6 +613,9 @@
   courses:
   - name: Kotlin-based Software Development
     url: https://portal.vik.bme.hu/kepzes/targyak/VIAUAV41/
+  geo:
+    lat: '47.4813297'
+    lng: '19.0532947'
 - title: Comenius University in Bratislava
   location: Bratislava (Slovakia)
   courses:
@@ -644,6 +653,9 @@
   courses:
   - name: KIV/UPS , Úvod do počítačových sítí
     url: http://home.zcu.cz/~ublm/vyuka/ups/Pozadavky2019.pdf
+  geo:
+    lat: '49.7236474'
+    lng: '13.3493653'
 - title: University of Ontario Institute of Technology
   location: Oshawa (Canada)
   courses:
@@ -683,11 +695,17 @@
   courses:
   - name: Android Programming with Kotlin (KAPK)
     url: https://www.oth-regensburg.de/fileadmin/media/fakultaeten/im/studiengaenge/programme_in_english/wise18_19/android-kotlin-course-descriptor.pdf
+  geo:
+    lat: '49.0028627'
+    lng: '12.0937886'
 - title: University of Pannonia
   location: Veszprém (Hungary)
   courses:
   - name: Kotlin programming (VEMISAB332K/2019/20/2)
     url: https://oktatas.mik.uni-pannon.hu/enrol/index.php?id=3566
+  geo:
+    lat: '47.0879094'
+    lng: '17.9059747' 
 - title: Waterford Institute of Technology
   location: Waterford (Ireland)
   courses:
@@ -709,6 +727,9 @@
   courses:
   - name: Desarrollo Para Plataforma Móviles
     url: https://repositorioacademico.upc.edu.pe/handle/10757/645629?show=full
+  geo:
+    lat: '-12.1040557'
+    lng: '-76.9650907'
 - title: Lisbon Superior Engineering Institute (ISEL)
   location: Lisbon (Portugal)
   courses:
@@ -746,11 +767,17 @@
   courses:
   - name: App Factory
     url: https://www.uwp.edu/connect/businessandcommunity/app-factory.cfm
+  geo:
+    lat: '42.6440001'
+    lng: '-87.8544535'
 - title: Gustavus Adolphus College
   location: Saint Peter, MN (US)
   courses:
   - name: 'MCS 178: Introduction to Computer Science II'
     url: http://homepages.gac.edu/~sskulrat/Courses/2019F-178/syllabus.html
+  geo:
+    lat: '44.3221657'
+    lng: '-93.9709658'
 - title: Universidad Tecnológica Nacional (UTN)
   location: Buenos Aires (Argentina)
   courses:
