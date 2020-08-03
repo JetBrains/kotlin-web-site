@@ -132,7 +132,7 @@ The example works for Android libraries without [product flavors](https://develo
 For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
 
 > If a library consumer defines variants that are missing in the library, they need to provide matching fallbacks. 
-> For example, if a library does not have or does not publish a staging build type, you must provide a fallback for the 
+> For example, if a library does not have or does not publish a staging build type, the library consumer must provide a fallback for the 
 > consumers who have such a build type, specifying at least one of the build types that the library publishes:
 > 
 > <div class="multi-language-sample" data-lang="groovy">

@@ -401,14 +401,11 @@ kotlin{
 > You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
 {:.note}
 
-### Set a dependency on a kotlinx library
+## Set a dependency on a kotlinx library
 
 If you use a kotlinx library and need a platform-specific dependency, you can use platform-specific variants 
 of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`. You can also use the library 
 base artifact name instead – `kotlinx-coroutines-core`.
-
-If you use a multiplatform library and need to depend on the shared code, set the dependency only once in the shared 
-source set. Use the library base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`. 
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
@@ -416,11 +413,6 @@ source set. Use the library base artifact name, such as `kotlinx-coroutines-core
 ```groovy
 kotlin {
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}'
-            }
-        }
         jvmMain {
             dependencies {
                 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:{{ site.data.releases.latest.coroutines.version }}'
@@ -439,14 +431,49 @@ kotlin {
 ```kotlin
 kotlin {
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}")
-            }
-        }
         val jvmMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:{{ site.data.releases.latest.coroutines.version }}")
+            }
+        }
+    }
+}
+
+```
+
+</div>
+</div>
+
+If you use a multiplatform library and need to depend on the shared code, set the dependency only once in the shared 
+source set. Use the library base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`. 
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}'
+            }
+        }
+    }
+}
+```
+
+</div>
+</div>
+ 
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}")
             }
         }
     }

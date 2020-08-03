@@ -129,6 +129,8 @@ Configuration of a target can include two parts:
 * [Common configuration](#common-target-configuration) available for all targets.
 * Target-specific configuration.
 
+Each target can have one or more [compilations](#compilations).
+
 ### Common target configuration
 
 In any target block, you can use the following declarations:
