@@ -44,6 +44,16 @@ that could still directly call any of the APIs that are common to both the iOS d
 
 In this case, you can share code across native targets in your project using the hierarchical structure.
 
+To enable the hierarchy structure support, add the following flag to your `gradle.properties`.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin.mpp.enableGranularSourceSetsMetadata=true
+```
+
+</div>
+
 There are two ways you can create the hierarchical structure:
 
 * [Use target shortcuts](#use-target-shortcuts) to easily create the hierarchy structure for common combinations of native targets.
@@ -220,5 +230,16 @@ for native source sets shared at higher levels of the source set hierarchy.
     For example, if you have `nativeDarwinMain` that is a parent of `watchosMain` and `iosMain`, where `iosMain` has two 
     children – `iosArm64Main` and `iosX64Main`, you can use platform-dependent libraries only for `iosMain` but not for `nativeDarwinMain`.
 * It works only for interop libraries shipped with Kotlin/Native.
+
+To enable usage of platform-dependent libraries in shared source sets, add the following to your `gradle.properties`:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin.mpp.enableGranularSourceSetsMetadata=true
+kotlin.native.enableDependencyPropagation=false
+```
+
+</div>
 
 Learn more about the [technical details](https://github.com/JetBrains/kotlin/blob/1.4.0/native/commonizer/README.md).
