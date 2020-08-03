@@ -615,6 +615,9 @@ Learn [how to add dependencies](native/cocoapods.html).
 
 ## Scripting and REPL
 
+In 1.4, Kotlin scripting gets a number of functional and performance improvements along with other updates. Here are some 
+key changes:
+
 - [New dependencies resolution API](#new-dependencies-resolution-api)
 - [New REPL API](#new-repl-api)
 - [Compiled scripts cache](#compiled-scripts-cache)
@@ -622,15 +625,15 @@ Learn [how to add dependencies](native/cocoapods.html).
 
 ### New dependencies resolution API
 
-In 1.4, we present the new API for dependency resolution and its implementations. It is published in new artifacts
-`kotlin-scripting-dependencies` and `kotlin-scripting-dependencies-maven`. The previous dependencies resolution functionality
-in `kotlin-script-util` library is now deprecated.
+In 1.4, we present the new API for resolution of external dependencies (such as Maven artifacts) and its implementations.
+It is published in new artifacts `kotlin-scripting-dependencies` and `kotlin-scripting-dependencies-maven`.
+The previous dependency resolution functionality in `kotlin-script-util` library is now deprecated.
 
 ### New REPL API
 
 The new experimental REPL API is now a part of the scripting API. There are also several implementations of it in the
-published artifacts; some with advanced functionality, such as code completion. We use it in the Kotlin Jupyter kernel [uses this functionality](https://blog.jetbrains.com/kotlin/2020/05/kotlin-kernel-for-jupyter-notebook-v0-8/)
- and you can reuse it in the custom shells and REPLs.
+published artifacts; some with advanced functionality, such as code completion. We use it in the [Kotlin Jupyter kernel](https://blog.jetbrains.com/kotlin/2020/05/kotlin-kernel-for-jupyter-notebook-v0-8/)
+and now you can try it in your own custom shells and REPLs.
 
 ### Compiled scripts cache
 
@@ -646,5 +649,3 @@ artifact, which shades the bundled third-party libraries to avoid usage conflict
 If, for some reason, you need artifacts that depend on the unshaded `kotlin-compiler`, use the artifact versions with the 
 `-unshaded` suffix, such as `kotlin-scripting-jsr223-unshaded`. Note that this renaming affects only the scripting artifacts
 that are supposed to be used directly; names of other artifacts remain unchanged.
-
- 
