@@ -2,62 +2,78 @@
 type: tutorial
 layout: tutorial
 title:  "Getting Started with IntelliJ IDEA"
-description: "This tutorial walks you through creating a simple Hello World application using IntelliJ IDEA."
-authors: Hadi Hariri, Roman Belov
-date: 2020-01-23
+description: "This tutorial demonstrates how to use IntelliJ IDEA for creating a console application. "
+authors: Kate Volodko
+date: 2020-07-07
 showAuthorInfo: false
 ---
-## Setting up the environment
 
-In this tutorial we're going to use IntelliJ IDEA. To get started, install a recent version of IntelliJ IDEA.
+To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
-Kotlin is bundled with IntelliJ IDEA starting from version 15.
+## Create an application 
 
-You can download the free [Community Edition][intellijdownload] (or full-fledged [Ultimate Edition][intellijdownload]) from the [JetBrains website][jetbrains].
+Once you've installed IntelliJ IDEA, it's time to create your first Kotlin application.
 
-As an alternative to using IntelliJ IDEA, you can compile and execute Kotlin applications using the command line compiler. For details, see [Working with the Command Line Compiler][getting_started_command_line].
+1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
+2. In the panel on the left, select **Kotlin**.
+3. Enter a project name, select **Console Application** as the project template, and click **Next**.
+   
+   ![Create a console application]({{ url_for('tutorial_img', filename='getting-started/jvm-new-project-1.png') }})
+   
+   By default, your project will use the Gradle build system with Kotlin DSL.
 
-If you are new to the JVM and Java, check out the [JVM Minimal Survival Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/).
-If you are new to IntelliJ IDEA, check out the [The IntelliJ IDEA Minimal Survival Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
+3. Go through and accept the default configuration, then click **Finish**.
+  
+   ![Configure a console application]({{ url_for('tutorial_img', filename='getting-started/jvm-new-project-2.png') }}) 
 
-## Creating a new project
-Once you have IntelliJ IDEA installed, it's time to create your first Kotlin application.
-1. Create a new __Project__ from __File \| New__. Select the __Kotlin \| JVM \| IDEA__ project type.
+   Your project will open. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
+   Wizard based on your configuration. It includes the `kotlin("jvm")` plugin and dependencies required for your console application.
 
-   ![Kotlin New Project]({{ url_for('tutorial_img', filename='getting-started/new_project_step1.png') }})
+3. Open the `main.kt` file in `src/main/kotlin`.  
+   The `src` directory contains Kotlin source files and resources. The `main.kt` file contains sample code that will print 
+   `Hello World!`.
 
-2. Give your project a name and select an SDK version for it.
+   ![main.kt with main fun]({{ url_for('tutorial_img', filename='getting-started/jvm-main-kt-initial.png') }})
 
-   ![Kotlin Project Name]({{ url_for('tutorial_img', filename='getting-started/project_name.png') }})
+4. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world.  
+   
+   * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – `readLine()`.
+   * Use a string template by adding a dollar sign `$` before this variable name directly in the text output like this – `$name`.
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   fun main() {
+       println("What's your name?")
+       val name= readLine()
+       println("Hello $name!")
+   }
+   ```
+   
+   </div>
 
-   Now you have the new project created with the following folder structure:
+   <img class="img-responsive" src="{{ url_for('tutorial_img', filename='getting-started/jvm-main-kt-updated.png') }}" alt="Updated main fun" width="400"/>
 
-   ![Kotlin Folder Structure]({{ url_for('tutorial_img', filename='getting-started/folders.png') }})
+## Run the application
 
-3. Create a new Kotlin file under the source folder. It can be named anything. Let's call it *app*.
+Now the application is ready to run. The easiest way to do this is to click the green __Run__ icon in the gutter and select __Run 'MainKt'__.
 
-   ![Kotlin New File]({{ url_for('tutorial_img', filename='getting-started/new_file.png') }})
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='getting-started/jvm-run-app.png') }}" alt="Running a console app" width="400"/>
 
-4. Once the file is created, add the `main` function which is the entry point to a Kotlin application. IntelliJ IDEA offers a template to do this quickly. Just type *main* and press tab.
+You can see the result in the **Run** tool window.
 
-   ![Kotlin Main Fun]({{ url_for('tutorial_img', filename='getting-started/main.png') }})
+![Kotlin run output]({{ url_for('tutorial_img', filename='getting-started/jvm-output-1.png') }})
+   
+Enter your name and accept the greetings from your application! 
 
-5. Add a line of code to print out 'Hello, World!'.
+![Kotlin run output]({{ url_for('tutorial_img', filename='getting-started/jvm-output-2.png') }})
 
-   ![Kotlin Hello World]({{ url_for('tutorial_img', filename='getting-started/hello_world.png') }})
+Congratulations! You have just run your first Kotlin application.
 
-## Running the application
+## What's next?
 
-Now the application is ready to run. The easiest way is to click the green __Run__ icon in the gutter and select __Run 'AppKt'__.
+Once you’ve created this application, you can start to dive deeper into Kotlin syntax:
 
-   ![Kotlin Run App]({{ url_for('tutorial_img', filename='getting-started/run_default.png') }})
-
-If everything went well, you'll see the result in the **Run** tool window.
-
-   ![Kotlin Run Output]({{ url_for('tutorial_img', filename='getting-started/run_window.png') }})
-
-Congratulations! You now have your first Kotlin application running.
-
-[intellijdownload]: http://www.jetbrains.com/idea/download/index.html
-[jetbrains]: http://www.jetbrains.com
-[getting_started_command_line]: command-line.html
+*   Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview) 
+*   Install the [EduTools plugin](https://plugins.jetbrains.com/plugin/10081-edutools) for IDEA and complete exercises 
+from the [Kotlin Koans course](https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans)

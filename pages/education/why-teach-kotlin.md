@@ -219,7 +219,7 @@ Kotlin job postings have increased by more than 1400% since 2017. Source: [Dice]
 {:.kto-quote}
 
 ### Tooling and learning materials ###
-The top tools of the profession are packaged with the language. IntelliJ IDEA Ultimate supports Kotlin as a first-class citizen and is free for educators and students. It offers great productivity features, such as smart code completion, code inspections, a visual debugger, and more.
+The top tools of the profession are packaged with the language. IntelliJ IDEA supports Kotlin as a first-class citizen and is free for educators and students. It offers great productivity features, such as smart code completion, code inspections, a visual debugger, and more.
 
 The educational EduTools plugin is also available to help learn and teach Kotlin programming. Educators can use existing interactive courses or create custom ones, with hands-on assignments and practice coding tasks. Integrated tests will automatically check the assignments and provide feedback.
 
