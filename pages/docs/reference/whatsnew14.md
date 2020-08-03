@@ -767,6 +767,19 @@ kotlin {
 
 ## Standard library
 
+Here is the list of most significant changes in the Kotlin standard library in 1.4: 
+
+- [Common exception processing API](#common-exception-processing-api)
+- [New functions for arrays and collections](#new-functions-for-arrays-and-collections)
+- [Functions for string manipulations](#functions-for-string-manipulations)
+- [Bit operations](#bit-operations)
+- [Converting from KType to Java Type](#converting-from-ktype-to-java-type)
+- [Proguard configurations for Kotlin reflection](#proguard-configurations-for-kotlin-reflection)
+- [Improving the existing API](#improving-the-existing-api)
+- [module-info descriptors for stdlib artifacts](#module-info-descriptors-for-stdlib-artifacts)
+- [Deprecations](#deprecations)
+- [Exclusion of the deprecated experimental coroutines](#exclusion-of-the-deprecated-experimental-coroutines)
+
 ### Common exception processing API
 
 The following API elements were moved to the common library:
@@ -1128,7 +1141,7 @@ to represent an instance of the type in binary form.
 
 * `maxOf()` and `minOf()` top-level functions can accept a variable number of arguments (`vararg`).
 
-### Standard library artifacts now include module-info descriptors
+### module-info descriptors for stdlib artifacts
 
 Kotlin 1.4 adds `module-info.java` module information to default standard library artifacts. This lets you use them with 
 [**jlink** tool](https://docs.oracle.com/en/java/javase/11/tools/jlink.html) that generates custom Java runtime images
@@ -1154,7 +1167,7 @@ See [this issue](https://youtrack.jetbrains.com/issue/KT-28753) for details.
 #### min() and max() collection functions
 
 We deprecate `min()` and `max()` collection functions in favor of `minOrNull()` and `maxOrNull` to properly reflect their
-behavoir – returning `null` on empty collections. See [this issue](https://youtrack.jetbrains.com/issue/KT-38854) for details. 
+behavior – returning `null` on empty collections. See [this issue](https://youtrack.jetbrains.com/issue/KT-38854) for details. 
 
 ### Exclusion of the deprecated experimental coroutines
  
