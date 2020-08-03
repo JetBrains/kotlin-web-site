@@ -835,7 +835,8 @@ The operation that they apply to the collection elements has the element index a
     </div>
 
 * `*OrNull()` counterparts `randomOrNull()`, `reduceOrNull()`, and `reduceIndexedOrNull()`. 
-empty collections.
+They return `null` on empty collections.
+
     <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
     
     ```kotlin
@@ -1050,8 +1051,6 @@ JVM-only `appendln()` functions of these classes.
     }
     ```
     </div>
-    
-* `StringBuilder.append()` now accept nullable arguments.
 
 ### Bit operations
 
