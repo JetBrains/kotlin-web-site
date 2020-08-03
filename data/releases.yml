@@ -12,7 +12,7 @@ latest:
     date: July 16, 2020
 
   serialization:
-    version: 1.0.0
+    version: 1.0-RC
     url: https://github.com/Kotlin/kotlinx.serialization
     date: August 10, 2020
 

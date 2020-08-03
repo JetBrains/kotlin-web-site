@@ -27,7 +27,7 @@ serialization formats: JSON, CBOR, protocol buffers, and others. Find the comple
 All Kotlin serialization libraries belong to the `org.jetbrains.kotlinx:` group. Their names start from `kotlinx-serialization-`
 and have suffixes that reflect the serialization format and the target platform: `-js`, `-native`. For the JVM and common
 code of multiplatform projects, there is no suffix. Examples:
-* `org.jetbrains.kotlinx:kotlinx-serialization-runtime` provides the JSON serialization on the JVM.
+* `org.jetbrains.kotlinx:kotlinx-serialization-core` provides the JSON serialization on the JVM.
 * `org.jetbrains.kotlinx:kotlinx-cbor-js provides the CBOR` serialization on the JavaScript platform.
 
 Note that `kotlinx.serialization` libraries use their own versioning that don’t match the Kotlin versions. To find out the
@@ -37,13 +37,13 @@ latest version, check the releases on [GitHub](https://github.com/Kotlin/kotlinx
 
 `kotlinx.serialization` includes libraries for various serialization formats:
 
-* [JSON](https://www.json.org/): `kotlinx-serialization-runtime`
+* [JSON](https://www.json.org/): `kotlinx-serialization-core`
 * [protocol buffers](https://developers.google.com/protocol-buffers): `kotlinx-serialization-protobuf`
 * [CBOR](https://cbor.io/): `kotlinx-serialization-cbor` 
 * [properties](https://en.wikipedia.org/wiki/.properties): `kotlinx-serialization-properties`
-* [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md): `kotlinx-serialization-runtime-configparser` (only on JVM)
+* [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md): `kotlinx-serialization-hocon` (only on JVM)
 
-Note that all libraries except JSON serialization (`kotlinx-serialization-runtime`) are in the experimental state: their
+Note that all libraries except JSON serialization (`kotlinx-serialization-core`) are in the experimental state: their
 API can be change without notice.
 
 There are also community-maintained libraries that support more serialization formats, such as [YAML](https://yaml.org/)
@@ -85,14 +85,14 @@ in the Kotlin Gradle DSL).
     </div>
     </div>
 
-2. Add the dependency on the JSON serialization library `org.jetbrains.kotlinx:kotlinx-serialization-runtime:{{ site.data.releases.latest.serialization.version }}`
+2. Add the dependency on the JSON serialization library `org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}`
 
     <div class="multi-language-sample" data-lang="groovy">
     <div class="sample" markdown="1" theme="idea" mode='groovy'>
     
     ```groovy
     dependencies {
-        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-runtime:{{ site.data.releases.latest.serialization.version }}'
+        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}'
     } 
     ```
     
@@ -104,7 +104,7 @@ in the Kotlin Gradle DSL).
     
     ```kotlin
     dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:{{ site.data.releases.latest.serialization.version }}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}")
     } 
     ```
     

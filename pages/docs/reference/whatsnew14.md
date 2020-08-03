@@ -731,16 +731,18 @@ kotlin {
 ```
 </div>
 
-## kotlinx.serialization 1.0.0
+## Stable JSON serialization
 
-With Kotlin 1.4, we ship the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) - 1.0.0.
-For now, we declare the JSON serialization library (`kotlinx-serialization-runtime`) stable. Libraries for other serialization formats still remain experimental.
+With Kotlin 1.4, we ship the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+- 1.0-RC. For now, we declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
+stable. Libraries for other serialization formats and some advanced parts or the core library still remain experimental.
 
-We have significantly reworked the API for JSON serialization to make it more flexible and easier to use. Thus, you'll
-need to rewrite some of your code when migrating to `kotlinx.serialization` 1.0.0. To help you with it, we also offer
-the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
-the complete set of documentation for `kotlinx.serialization`. It will guide you through the most important features and 
-help with issues that you can face.
+We have significantly reworked the API for JSON serialization to make it more consistent and easier to use. From now on,
+we'll continue developing the JSON serialization API in a backward-compatible way.
+However, if you have used its previous versions, you'll need to rewrite some of your code when migrating to 1.0-RC.
+To help you with it, we also offer the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
+the complete set of documentation for `kotlinx.serialization`. It will guide you through the usage of most important features
+and help with issues that you can face.
 
->**Note**: `kotlinx-serialization` 1.0.0 works only with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
+>**Note**: `kotlinx-serialization` 1.0-RC works only with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
 {:.note}
