@@ -807,7 +807,7 @@ kotlin {
 
 ## Dependencies
 
-The dependencies block of the source set declaration contains the dependencies of this source set.
+The `dependencies` block of the source set declaration contains the dependencies of this source set.
 There are four kinds of dependencies:
 
 |**Name**|**Description**| 
@@ -895,7 +895,7 @@ dependencies {
 
 ## Language settings
 
-The languageSettings block of a source set defines certain aspects of project analysis and build. The following language settings are available:
+The `languageSettings` block of a source set defines certain aspects of project analysis and build. The following language settings are available:
 
 |**Name**|**Description**| 
 | --- | --- |
