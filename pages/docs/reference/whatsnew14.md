@@ -615,6 +615,11 @@ Learn [how to add dependencies](native/cocoapods.html).
 
 ## Scripting and REPL
 
+- [New dependencies resolution API](#new-dependencies-resolution-api)
+- [New REPL API](#new-repl-api)
+- [Compiled scripts cache](#compiled-scripts-cache)
+- [Artifacts renaming](#artifacts-renaming)
+
 ### New dependencies resolution API
 
 In 1.4, we present the new API for dependency resolution and its implementations. It is published in new artifacts
@@ -627,9 +632,9 @@ The new experimental REPL API is now a part of the scripting API. There are also
 published artifacts; some with advanced functionality, such as code completion. We use it in the Kotlin Jupyter kernel [uses this functionality](https://blog.jetbrains.com/kotlin/2020/05/kotlin-kernel-for-jupyter-notebook-v0-8/)
  and you can reuse it in the custom shells and REPLs.
 
-### Compiled scirpts cache
+### Compiled scripts cache
 
-The scripting API now provides the abilty to implement a compiled scripts cache and thus significantly speed-up subsequent
+The scripting API now provides the ability to implement a compiled scripts cache and thus significantly speed-up subsequent
 executions of unchanged scripts. Our default advanced script implementation `kotlin-main-kts` already has its cache.
 
 ### Artifacts renaming
