@@ -623,6 +623,10 @@ key changes:
 - [Compiled scripts cache](#compiled-scripts-cache)
 - [Artifacts renaming](#artifacts-renaming)
 
+To help you get familiar with Kotlin scripting, we’ve prepared a [project with examples](https://github.com/Kotlin/kotlin-script-examples).
+It contains examples of the standard scripts (`*.main.kts`) and examples of the scripting API usage and custom script definitions.
+Please try it and share your feedback in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+
 ### New dependencies resolution API
 
 In 1.4, we present the new API for resolution of external dependencies (such as Maven artifacts) and its implementations.
