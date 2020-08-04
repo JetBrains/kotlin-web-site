@@ -12,7 +12,10 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Delegated properties improvements](#delegated-properties-improvements)
+* [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
+* [Trailing comma in enumerations](#trailing-comma-in-enumerations)
 * [Callable reference improvements](#callable-reference-improvements)
+* [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
 
 ### SAM conversions for Kotlin interfaces
 
@@ -27,13 +30,13 @@ as a parameter. In this case, the compiler automatically converts the lambda to 
 
 ```kotlin
 fun interface IntPredicate {
-   fun accept(i: Int): Boolean
+    fun accept(i: Int): Boolean
 }
 
 val isEven = IntPredicate { it % 2 == 0 }
 
-fun main(){
-   println("Is 7 even? - ${isEven.accept(7)}")
+fun main() { 
+    println("Is 7 even? - ${isEven.accept(7)}")
 }
 ```
 
@@ -52,6 +55,70 @@ Aside from the new API, we've made some optimizations that reduce the resulting 
 described in  [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
 
 For more information about delegated properties, see the [documentation](delegated-properties.html).
+
+### Mixing named and positional arguments
+
+In Kotlin 1.3, when you called a function with [named arguments](functions.html#named-arguments), you had to place all the
+arguments without names (positional arguments) before the first named argument. For example, you could call `f(1, y = 2)`, 
+but you couldn't call `f(x = 1, 2)`.
+
+It was really annoying when all the arguments were in their correct positions but you wanted to specify a name for one argument in the middle.
+It was especially helpful for making absolutely clear which attribute a boolean or `null` value belongs to.
+
+In Kotlin 1.4, there is no such limitation – you can now specify a name for an argument in the middle of a set of positional 
+arguments. Moreover, you can mix positional and named arguments any way you like, as long as they remain in the correct order.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun reformat(
+    str: String,
+    uppercaseFirstLetter: Boolean = true,
+    wordSeparator: Character = ' '
+) {
+    // ...
+}
+
+//Function call with a named argument in the middle
+reformat('This is a String!', uppercaseFirstLetter = false , '-')
+```
+
+</div>
+
+### Trailing comma in enumerations
+
+With Kotlin 1.4 you can now add a trailing comma in enumerations such as argument 
+and parameter lists, `when` entries, and components of destructuring declarations.
+With a trailing comma, you can add new items and change their order without adding or removing commas.
+
+This is especially helpful if you use multi-line syntax for parameters or values. After adding a trailing comma, you can 
+then easily swap lines with parameters or values.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun reformat(
+    str: String,
+    uppercaseFirstLetter: Boolean = true,
+    wordSeparator: Character = ' ', //trailing comma
+) {
+    // ...
+}
+```
+
+</div>
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+val colors = listOf(
+    "red",
+    "green",
+    "blue", //trailing comma
+)
+```
+
+</div>
 
 ### Callable reference improvements
 
@@ -152,6 +219,48 @@ fun test() {
 
 </div>
 
+### Using `break` and `continue` inside `when` expressions included in loops
+
+In Kotlin 1.3, you could not use unqualified `break` and `continue` inside `when` expressions included in loops. The reason was that these keywords were reserved for possible [fall-through behavior](https://en.wikipedia.org/wiki/Switch_statement#Fallthrough) in `when` expressions. 
+
+That’s why if you wanted to use `break` and `continue` inside `when` expressions in loops, you had to [label](returns.html#break-and-continue-labels) them, which became rather cumbersome.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun test(xs: List<Int>) {
+    LOOP@for (x in xs) {
+        when (x) {
+            2 -> continue@LOOP
+            17 -> break@LOOP
+            else -> println(x)
+        }
+    }
+}
+```
+
+</div>
+
+In Kotlin 1.4, you can use `break` and `continue` without labels inside `when` expressions included in loops. They behave as expected by terminating the nearest enclosing loop or proceeding to its next step.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun test(xs: List<Int>) {
+    for (x in xs) {
+        when (x) {
+            2 -> continue
+            17 -> break
+            else -> println(x)
+        }
+    }
+}
+```
+
+</div>
+
+The fall-through behavior inside `when` is subject to further design.
+
 ## Explicit API mode for library authors
 
 Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
@@ -227,6 +336,41 @@ with the value `strict` or `warning`.
 </div>
 
 For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
+
+## New tools in the IDE
+
+With Kotlin 1.4, you can use the new tools in IntelliJ IDEA to simplify Kotlin development:
+
+* [New flexible Project Wizard](#new-flexible-project-wizard)
+
+### New flexible Project Wizard
+
+With the flexible new Kotlin Project Wizard, you have a place to easily create and configure different types of Kotlin 
+projects, including multiplatform projects, which can be difficult to configure without a UI.
+
+![Kotlin Project Wizard – Multiplatform project]({{ url_for('asset', path='images/reference/whats-new/mpp-project-1-wn.png') }})
+
+The new Kotlin Project Wizard is both simple and flexible:
+
+1. *Select the project template*, depending on what you’re trying to do. More templates will be added in the future.
+2. *Select the build system* – Gradle (Kotlin or Groovy DSL), Maven, or IntelliJ IDEA.  
+    The Kotlin Project Wizard will only show the build systems supported on the selected project template.
+3. *Preview the project structure* directly on the main screen.
+
+Then you can finish creating your project or, optionally, *configure the project* on the next screen:
+
+{:start="4"}
+4. *Add/remove modules and targets* supported for this project template.
+5. *Configure module and target settings*, for example, the target JVM version, target template, and test framework.
+
+![Kotlin Project Wizard - Configure targets]({{ url_for('asset', path='images/reference/whats-new/mpp-project-2-wn.png') }})
+
+In the future, we are going to make the Kotlin Project Wizard even more flexible by adding more configuration options and templates.
+
+You can try out the new Kotlin Project Wizard by working through these tutorials:
+
+* [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
+* [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
 
 ## New compiler
 
@@ -434,11 +578,10 @@ A common back-end infrastructure also opens the door for multiplatform compiler 
 pipeline and add custom processing and transformations that will automatically work for all platforms. 
 
 Kotlin 1.4 does not provide a public API for such extensions yet, but we are working closely with our partners, 
-including [JetPack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
+including [Jetpack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
 using our new back-end.
 
-Now you can opt into using the new JVM IR back-end, where we've fixed many long-standing issues of the old back-end. 
-If you find any bugs, we’ll be very thankful if you could report them to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+We encourage you to try out the new Kotlin/JVM backend, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). This will help us to unify the compiler pipelines and bring compiler extensions like Jetpack Compose to the Kotlin community more quickly.
 
 To enable the new JVM IR back-end, specify an additional compiler option in your Gradle build script:
 
@@ -449,6 +592,10 @@ kotlinOptions.useIR = true
 ```
 
 </div>
+
+> If you [enable Jetpack Compose](https://developer.android.com/jetpack/compose/setup?hl=en), you will automatically be 
+> opted in to the new JVM backend without needing to specify the compiler option in `kotlinOptions`.
+{:.note}
 
 When using the command-line compiler, add the compiler option `-Xuse-ir`.
 
@@ -471,10 +618,108 @@ interfaces to `default` Java methods. For compatibility with the code that uses 
 we also added `all-compatibility` mode. 
 
 For more information about default methods in the Java interop, see the [documentation](java-to-kotlin-interop.html#default-methods-in-interfaces) and 
-[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/).
-
+[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/). 
 
 ## Kotlin/Native
+
+In 1.4, Kotlin/Native got a significant number of new features and improvements, including: 
+
+* [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
+* [Objective-C generics support by default](#objective-c-generics-support-by-default)
+* [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
+* [Generate release `.dSYM`s on Apple targets by default](#generate-release-dsyms-on-apple-targets-by-default)
+* [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
+* [mimalloc memory allocator](#mimalloc-memory-allocator)
+
+### Support for Kotlin’s suspending functions in Swift and Objective-C
+
+In 1.4, we add the basic support for suspending functions in Swift and Objective-C. Now, when you compile a Kotlin module
+into an Apple framework, suspending functions are available in it as functions with callbacks (`completionHandler` in 
+the Swift/Objective-C terminology). When you have such functions in the generated framework’s header, you can call them
+from your Swift or Objective-C code and even override them.
+
+For example, if you write this Kotlin function:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+suspend fun queryData(id: Int): String = ...
+```
+</div>
+
+…then you can call it from Swift like so:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```swift
+queryData(id: 17) { result, error in
+   if let e = error {
+       print("ERROR: \(e)")
+   } else {
+       print(result!)
+   }
+}
+```
+</div>
+
+For more information about using suspending functions in Swift and Objective-C, see the [documentation](native/objc_interop.html).
+
+### Objective-C generics support by default
+
+Previous versions of Kotlin provided experimental support for generics in Objective-C interop. Since 1.4, Kotlin/Native 
+generates Apple frameworks with generics from Kotlin code by default. In some cases, this may break existing Objective-C
+or Swift code calling Kotlin frameworks. To have the framework header written without generics, add the `-Xno-objc-generics` compiler option.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xno-objc-generics"
+        }
+    }
+}
+```
+</div>
+
+Please note that all specifics and limitations listed in the [documentation](native/objc_interop.html#generics) are still valid.
+
+### Exception handling in Objective-C/Swift interop
+
+In 1.4, we slightly change the Swift API generated from Kotlin with respect to the way exceptions are translated. There is
+a fundamental difference in error handling between Kotlin and Swift. All Kotlin exceptions are unchecked, while Swift has
+only checked errors. Thus, to make Swift code aware of expected exceptions, Kotlin functions should be marked with a `@Throws`
+annotation specifying a list of potential exception classes.
+
+When compiling to Swift or the Objective-C framework, functions that have or are inheriting `@Throws` annotation are represented
+as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
+
+Previously, any exceptions other than `RuntimeException` and `Error` were propagated as `NSError`. In 1.4, this behavior changes: 
+now `NSError` is thrown only for exceptions that are instances of classes specified as parameters of `@Throws` annotation 
+(or their subclasses). Other Kotlin exceptions that reach Swift/Objective-C are considered unhandled and cause program termination.
+
+### Generate release `.dSYM`s on Apple targets by default
+
+Starting with 1.4, the Kotlin/Native compiler produces [debug symbol files](https://developer.apple.com/documentation/xcode/building_your_app_to_include_debugging_information)
+(`.dSYM`s) for release binaries on Darwin platforms by default. This can be disabled with the `-Xadd-light-debug=disable`
+compiler option. On other platforms, this option is disabled by default. To toggle this option in Gradle, use:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xadd-light-debug={enable|disable}"
+        }
+    }
+}
+```
+</div>
+
+For more information about crash report symbolication, see the [documentation](native/ios_symbolication.html).
+
 
 ### Simplified management of CocoaPods dependencies
 
@@ -500,6 +745,26 @@ Complete the initial configuration, and when you add a new dependency to `cocoap
 The new dependency will be added automatically. No additional steps are required.
 
 Learn [how to add dependencies](native/cocoapods.html).
+
+### mimalloc memory allocator
+
+To improve the speed of object allocation, Kotlin/Native now offers the [mimalloc](https://github.com/microsoft/mimalloc)
+memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
+Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xallocator=mimalloc"
+        }
+    }
+}
+```
+</div>
+
 
 ## Kotlin/JS
 
