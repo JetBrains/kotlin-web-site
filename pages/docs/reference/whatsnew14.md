@@ -337,6 +337,41 @@ with the value `strict` or `warning`.
 
 For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
 
+## New tools in the IDE
+
+With Kotlin 1.4, you can use the new tools in IntelliJ IDEA to simplify Kotlin development:
+
+* [New flexible Project Wizard](#new-flexible-project-wizard)
+
+### New flexible Project Wizard
+
+With the flexible new Kotlin Project Wizard, you have a place to easily create and configure different types of Kotlin 
+projects, including multiplatform projects, which can be difficult to configure without a UI.
+
+![Kotlin Project Wizard – Multiplatform project]({{ url_for('asset', path='images/reference/whats-new/mpp-project-1-wn.png') }})
+
+The new Kotlin Project Wizard is both simple and flexible:
+
+1. *Select the project template*, depending on what you’re trying to do. More templates will be added in the future.
+2. *Select the build system* – Gradle (Kotlin or Groovy DSL), Maven, or IntelliJ IDEA.  
+    The Kotlin Project Wizard will only show the build systems supported on the selected project template.
+3. *Preview the project structure* directly on the main screen.
+
+Then you can finish creating your project or, optionally, *configure the project* on the next screen:
+
+{:start="4"}
+4. *Add/remove modules and targets* supported for this project template.
+5. *Configure module and target settings*, for example, the target JVM version, target template, and test framework.
+
+![Kotlin Project Wizard - Configure targets]({{ url_for('asset', path='images/reference/whats-new/mpp-project-2-wn.png') }})
+
+In the future, we are going to make the Kotlin Project Wizard even more flexible by adding more configuration options and templates.
+
+You can try out the new Kotlin Project Wizard by working through these tutorials:
+
+* [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
+* [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
+
 ## New compiler
 
 The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
@@ -583,10 +618,108 @@ interfaces to `default` Java methods. For compatibility with the code that uses 
 we also added `all-compatibility` mode. 
 
 For more information about default methods in the Java interop, see the [documentation](java-to-kotlin-interop.html#default-methods-in-interfaces) and 
-[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/).
-
+[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/). 
 
 ## Kotlin/Native
+
+In 1.4, Kotlin/Native got a significant number of new features and improvements, including: 
+
+* [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
+* [Objective-C generics support by default](#objective-c-generics-support-by-default)
+* [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
+* [Generate release `.dSYM`s on Apple targets by default](#generate-release-dsyms-on-apple-targets-by-default)
+* [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
+* [mimalloc memory allocator](#mimalloc-memory-allocator)
+
+### Support for Kotlin’s suspending functions in Swift and Objective-C
+
+In 1.4, we add the basic support for suspending functions in Swift and Objective-C. Now, when you compile a Kotlin module
+into an Apple framework, suspending functions are available in it as functions with callbacks (`completionHandler` in 
+the Swift/Objective-C terminology). When you have such functions in the generated framework’s header, you can call them
+from your Swift or Objective-C code and even override them.
+
+For example, if you write this Kotlin function:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+suspend fun queryData(id: Int): String = ...
+```
+</div>
+
+…then you can call it from Swift like so:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```swift
+queryData(id: 17) { result, error in
+   if let e = error {
+       print("ERROR: \(e)")
+   } else {
+       print(result!)
+   }
+}
+```
+</div>
+
+For more information about using suspending functions in Swift and Objective-C, see the [documentation](native/objc_interop.html).
+
+### Objective-C generics support by default
+
+Previous versions of Kotlin provided experimental support for generics in Objective-C interop. Since 1.4, Kotlin/Native 
+generates Apple frameworks with generics from Kotlin code by default. In some cases, this may break existing Objective-C
+or Swift code calling Kotlin frameworks. To have the framework header written without generics, add the `-Xno-objc-generics` compiler option.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xno-objc-generics"
+        }
+    }
+}
+```
+</div>
+
+Please note that all specifics and limitations listed in the [documentation](native/objc_interop.html#generics) are still valid.
+
+### Exception handling in Objective-C/Swift interop
+
+In 1.4, we slightly change the Swift API generated from Kotlin with respect to the way exceptions are translated. There is
+a fundamental difference in error handling between Kotlin and Swift. All Kotlin exceptions are unchecked, while Swift has
+only checked errors. Thus, to make Swift code aware of expected exceptions, Kotlin functions should be marked with a `@Throws`
+annotation specifying a list of potential exception classes.
+
+When compiling to Swift or the Objective-C framework, functions that have or are inheriting `@Throws` annotation are represented
+as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
+
+Previously, any exceptions other than `RuntimeException` and `Error` were propagated as `NSError`. In 1.4, this behavior changes: 
+now `NSError` is thrown only for exceptions that are instances of classes specified as parameters of `@Throws` annotation 
+(or their subclasses). Other Kotlin exceptions that reach Swift/Objective-C are considered unhandled and cause program termination.
+
+### Generate release `.dSYM`s on Apple targets by default
+
+Starting with 1.4, the Kotlin/Native compiler produces [debug symbol files](https://developer.apple.com/documentation/xcode/building_your_app_to_include_debugging_information)
+(`.dSYM`s) for release binaries on Darwin platforms by default. This can be disabled with the `-Xadd-light-debug=disable`
+compiler option. On other platforms, this option is disabled by default. To toggle this option in Gradle, use:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xadd-light-debug={enable|disable}"
+        }
+    }
+}
+```
+</div>
+
+For more information about crash report symbolication, see the [documentation](native/ios_symbolication.html).
+
 
 ### Simplified management of CocoaPods dependencies
 
@@ -612,6 +745,25 @@ Complete the initial configuration, and when you add a new dependency to `cocoap
 The new dependency will be added automatically. No additional steps are required.
 
 Learn [how to add dependencies](native/cocoapods.html).
+
+### mimalloc memory allocator
+
+To improve the speed of object allocation, Kotlin/Native now offers the [mimalloc](https://github.com/microsoft/mimalloc)
+memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
+Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xallocator=mimalloc"
+        }
+    }
+}
+```
+</div>
 
 ## Scripting and REPL
 
