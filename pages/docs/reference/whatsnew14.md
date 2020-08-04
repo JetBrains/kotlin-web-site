@@ -960,3 +960,45 @@ kotlin {
 }
 ```
 </div>
+
+## Scripting and REPL
+
+In 1.4, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.
+Here are some of the key changes:
+
+- [New dependencies resolution API](#new-dependencies-resolution-api)
+- [New REPL API](#new-repl-api)
+- [Compiled scripts cache](#compiled-scripts-cache)
+- [Artifacts renaming](#artifacts-renaming)
+
+To help you become more familiar with scripting in Kotlin, we’ve prepared a [project with examples](https://github.com/Kotlin/kotlin-script-examples).
+It contains examples of the standard scripts (`*.main.kts`) and examples of uses of the Kotlin Scripting API and custom
+script definitions. Please give it a try and share your feedback using our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+
+### New dependencies resolution API
+
+In 1.4, we’ve introduced a new API for resolving external dependencies (such as Maven artifacts), along with implementations
+for it. This API is published in the new artifacts `kotlin-scripting-dependencies` and `kotlin-scripting-dependencies-maven`.
+The previous dependency resolution functionality in `kotlin-script-util` library is now deprecated.
+
+### New REPL API
+
+The new experimental REPL API is now a part of the Kotlin Scripting API. There are also several implementations of it in
+the published artifacts, and some have advanced functionality, such as code completion. We use this API in the 
+[Kotlin Jupyter kernel](https://blog.jetbrains.com/kotlin/2020/05/kotlin-kernel-for-jupyter-notebook-v0-8/)
+and now you can try it in your own custom shells and REPLs.
+
+### Compiled scripts cache
+
+The Kotlin Scripting API now provides the ability to implement a compiled scripts cache, significantly speeding up subsequent
+executions of unchanged scripts. Our default advanced script implementation `kotlin-main-kts` already has its own cache.
+
+### Artifacts renaming
+
+In order to avoid confusion about artifact names, we’ve renamed `kotlin-scripting-jsr223-embeddable` and `kotlin-scripting-jvm-host-embeddable`
+to just `kotlin-scripting-jsr223` and `kotlin-scripting-jvm-host`. These artifacts depend on the `kotlin-compiler-embeddable`
+artifact, which shades the bundled third-party libraries to avoid usage conflicts. With this renaming, we’re making the usage of
+`kotlin-compiler-embeddable` (which is safer in general) the default for scripting artifacts.
+If, for some reason, you need artifacts that depend on the unshaded `kotlin-compiler`, use the artifact versions with the 
+`-unshaded` suffix, such as `kotlin-scripting-jsr223-unshaded`. Note that this renaming affects only the scripting artifacts
+that are supposed to be used directly; names of other artifacts remain unchanged.

@@ -61,7 +61,7 @@ class AppTest {
 ```
 </div>
 
-To run the tests in the browser, we can execute the `browserTest` task via IntelliJ IDEA, or use the gutter icons to execute individual or all tests:
+To run the tests in the browser, we can execute the `browserTest` task via IntelliJ IDEA, or use the gutter icons to execute all or individual tests:
 
 ![Gradle browserTest task]({{ url_for('tutorial_img', filename='javascript/running-tests/browsertest-task.png')}})
 
@@ -69,7 +69,11 @@ Alternatively, if we would like to run the tests via the command line, we can ma
 
 ```./gradlew browserTest```
 
-After all tests have finished running, we can find a properly formatted Gradle test report in `build/reports/tests/browserTest/index.html`. We can open this file in the browser of our choice to get an overview of our test results:
+After running the tests from IntelliJ IDEA, the "Run" tool window will show the test results. We can click failed tests to see their stack trace, and navigate to the corresponding test implementation via a double-click.
+
+![Test results in IntelliJ IDEA]({{ url_for('tutorial_img', filename='javascript/running-tests/test-stacktrace-ide.png')}})
+
+After each test run, regardless of how we executed the test, we can find a properly formatted test report from Gradle in `build/reports/tests/browserTest/index.html`. We can open this file in the browser of our choice to see another overview of our test results:
 
 ![Gradle test summary]({{ url_for('tutorial_img', filename='javascript/running-tests/test-summary.png')}})
 

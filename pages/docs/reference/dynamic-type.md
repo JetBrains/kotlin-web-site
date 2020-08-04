@@ -7,11 +7,10 @@ title: "Dynamic Type"
 
 # Dynamic Type
 
-> The dynamic type is not supported in code targeting the JVM
+> The dynamic type is not supported in code targeting the JVM.
 {:.note}
 
-Being a statically typed language, Kotlin still has to interoperate with untyped or loosely typed environments,
-such as the JavaScript ecosystem. To facilitate these use cases, the `dynamic` type is available in the language:
+Kotlin is a statically typed language, which makes it different from the dynamically typed JavaScript. In order to facilitate interoperation with JavaScript code, Kotlin/JS offers the `dynamic` type:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -21,12 +20,12 @@ val dyn: dynamic = ...
 
 The `dynamic` type basically turns off Kotlin's type checker:
 
-  - a value of this type can be assigned to any variable or passed anywhere as a parameter;
-  - any value can be assigned to a variable of type `dynamic` or passed to a function that takes `dynamic` as a parameter;
-  - `null`-checks are disabled for such values.
+  - A `dynamic` value can be assigned to variables of any type, or passed anywhere as a parameter.
+  - A `dynamic` variable can have a value of any type.
+  - A function that takes a `dynamic` parameter can take arguments of any type. 
+  - `null`-checks are disabled for values of type `dynamic`.
 
-The most peculiar feature of `dynamic` is that we are allowed to call **any** property or function with any parameters
-on a `dynamic` variable:
+On a `dynamic` variable, you can call **any** property or function, with any parameters: 
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -35,14 +34,13 @@ dyn.whatever(*arrayOf(1, 2, 3))
 ```
 </div>
 
-On the JavaScript platform this code will be compiled "as is": `dyn.whatever(1)` in Kotlin becomes `dyn.whatever(1)` in
+This code will be compiled "as is": `dyn.whatever(1)` in Kotlin becomes `dyn.whatever(1)` in
 the generated JavaScript code.
 
 When calling functions written in Kotlin on values of `dynamic` type, keep in mind the name mangling performed by the
-Kotlin to JavaScript compiler. You may need to use the [@JsName annotation](js-to-kotlin-interop.html#jsname-annotation)
-to assign well-defined names to the functions that you need to call.
+Kotlin to JavaScript compiler. You may need to use the [@JsName annotation](js-to-kotlin-interop.html#jsname-annotation) or the [@JsExport annotation](js-to-kotlin-interop.html#jsexport-annotation) to assign well-defined names to the functions that you want to call.
 
-A dynamic call always returns `dynamic` as a result, so we can chain such calls freely:
+A dynamic call always returns `dynamic` as a result. This means such calls can be chained freely:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
