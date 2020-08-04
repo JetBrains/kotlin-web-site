@@ -288,6 +288,10 @@ reference:
          title: JavaScript Reflection
        - url: /docs/reference/javascript-dce.html
          title: JavaScript DCE
+       - url: /docs/reference/js-ir-compiler.html
+         title: IR Compiler
+       - url: /docs/reference/js-external-declarations-with-dukat.html
+         title: Generating External Declarations with Dukat
 
     - title: Native
       description: Using Kotlin/Native for iOS and Native
