@@ -16,6 +16,7 @@
         </description>
     </event>
 
+
     <event>
         <lang>zn</lang>
         <startDate>2020-07-25</startDate>
@@ -143,8 +144,8 @@ it to drive the development.</p>
 
     <event>
         <lang>pt</lang>
-        <startDate>2020-08-05</startDate>
-        <endDate>2020-08-05</endDate>
+        <startDate>2020-07-30</startDate>
+        <endDate>2020-07-30</endDate>
         <location>São Paulo, Brazil</location>
         <speaker>Jenifer Spinoza, Stephannie Suzart</speaker>
         <title>Kotlin Meetup São Paulo</title>
@@ -154,8 +155,8 @@ it to drive the development.</p>
 
     <event>
         <lang>pt</lang>
-        <startDate>2020-08-05</startDate>
-        <endDate>2020-08-05</endDate>
+        <startDate>2020-07-30</startDate>
+        <endDate>2020-07-30</endDate>
         <location>São Paulo, Brazil</location>
         <speaker>Rafael Toledo</speaker>
         <title>Kotlin Meetup São Paulo</title>
@@ -204,7 +205,7 @@ it to drive the development.</p>
         <location>Munich, Germany</location>
         <speaker>Florina Muntenescu</speaker>
         <title>Kotlin User Group Munich - KUG Munich</title>
-        <subject>KotlinConf'2020 Global La Paz</subject>
+        <subject>Kotlin Meetup - August Edition</subject>
         <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/272127433/</url>
         <description>
             <![CDATA[
