@@ -49,8 +49,9 @@ In this video, Kotlin Developer Advocate Sebastian Aigner will explain the main 
 
 ## Getting Started with Kotlin/JS
 
-To find out how to start using Kotlin for JavaScript, please refer to the [Setting up a Kotlin/JS project](/docs/reference/js-project-setup.html), or pick a hands-on lab from the next section to work through.
+If you're new to Kotlin, a good first step would be to familiarise yourself with the [Basic Syntax](basic-syntax.md) of the language.
 
+To start using Kotlin for JavaScript, please refer to the [Setting up a Kotlin/JS project](/docs/reference/js-project-setup.html), or pick a hands-on lab from the next section to work through.
 
 ## Hands-on labs for Kotlin/JS
 
