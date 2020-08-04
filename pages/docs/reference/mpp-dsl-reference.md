@@ -11,8 +11,7 @@ title: "Kotlin Multiplatform Gradle DSL Reference"
 
 The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin multiplatform](multiplatform.html)
 projects. Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
-for Kotlin multiplatform projects. For the concepts of Kotlin multiplatform projects and instructions on writing build scripts
-with the plugin, see [Building Multiplatform Projects with Gradle](building-mpp-with-gradle.html).
+for Kotlin multiplatform projects. Learn the [concepts of Kotlin multiplatform projects, how to create and configure them](mpp-intro.html).
 
 ## Table of Contents
  
@@ -74,13 +73,18 @@ Inside `kotlin`, you can write the following blocks:
 | --- | --- |
 | _\<targetName\>_ |Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.|
 |`targets` |All targets of the project.|
-|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](building-mpp-with-gradle.html#setting-up-targets) at once.|
-|`sourceSets` |Configures predefined and declares custom [source sets](building-mpp-with-gradle.html#configuring-source-sets) of the project. |
+|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](mpp-supported-platforms.html) at once.|
+|`sourceSets` |Configures predefined and declares custom [source sets](#source-sets) of the project. |
 
 ## Targets
 
 _Target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed for 
-one of the [supported platforms](building-mpp-with-gradle.html#supported-platforms). The targets of a multiplatform project
+one of the [supported platforms](mpp-supported-platforms.html). 
+
+Each target can have one or more [compilations](#compilations). In addition to default compilations for
+test and production purposes, you can [create custom compilations](mpp-configure-compilations.html#create-a-custom-compilation).
+
+The targets of a multiplatform project
  are described in the corresponding blocks inside `kotlin`, for example, `jvm`, `android`, `iosArm64`.
 The complete list of available targets is the following:
  
@@ -137,7 +141,7 @@ In any target block, you can use the following declarations:
 
 |**Name**|**Description**| 
 | --- | --- |
-|`attributes`|Attributes used for [disambiguating targets](building-mpp-with-gradle.html#disambiguating-targets) for a single platform.|
+|`attributes`|Attributes used for [disambiguating targets](mpp-set-up-targets.html#distinguish-several-targets-for-one-platform) for a single platform.|
 |`preset`|The preset that the target has been created from, if any.|
 |`platformType`|Designates the Kotlin platform of this target. Avaiable values: `jvm`, `androidJvm`, `js`, `native`, `common`.|
 |`artifactsTaskName`|The name of the task that builds the resulting artifacts of this target.|
@@ -145,7 +149,7 @@ In any target block, you can use the following declarations:
 
 ### JVM targets
 
-In addition to [common target configuration](#common-target-configuration), jvm targets have a specific function:
+In addition to [common target configuration](#common-target-configuration), `jvm` targets have a specific function:
 
 |**Name**|**Description**| 
 | --- | --- |
@@ -154,7 +158,7 @@ In addition to [common target configuration](#common-target-configuration), jvm 
 Use this function for projects that contain both Java and Kotlin source files. Note that the default source directories for Java sources
 don't follow the Java plugin's defaults. Instead, they are derived from the Kotlin source sets. For example, if the JVM target
 has the default name `jvm`, the paths are `src/jvmMain/java` (for production Java sources) and `src/jvmTest/java` for test Java sources.
-For more information, see [Java support in JVM targets](building-mpp-with-gradle.html#java-support-in-jvm-targets).
+Learn how to [include Java sources in JVM compilations](mpp-configure-compilations.html#include-java-sources-in-jvm-compilations).
 
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
 
@@ -177,7 +181,7 @@ The `js` block describes the configuration of JavaScript targets. It can contain
 |`browser`|Configuration of the browser target.|
 |`nodejs`|Configuration of the Node.js target.|
 
-For details about configuring Kotlin/JS projects, see [Setting up a Kotlin/JS project](https://kotlinlang.org/docs/reference/js-project-setup.html).
+Learn more about [configuring Kotlin/JS projects](js-project-setup.html).
 
 #### Browser
 
@@ -360,7 +364,7 @@ binaries {
 </div>
 </div>
 
-For more information on configuring binaries, see [Building final native binaries](building-mpp-with-gradle.html#building-final-native-binaries).
+Learn more about [building native binaries](mpp-build-native-binaries.html).
 
 #### CInterops
 
@@ -374,7 +378,7 @@ To provide an interop with a library, add an entry to `cinterops` and define its
 |`compilerOpts`|Options to pass to the compiler by the cinterop tool.|
 |`includeDirs`|Directories to look for headers.|
 
-For more information on Kotlin interop with C libraries, see [CInterop support](building-mpp-with-gradle.html#cinterop-support).
+Learn more how to [configure interop with native languages](mpp-configure-compilations.html#configure-interop-with-native-languages).
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -454,7 +458,7 @@ Two functions help you configure [build variants](https://developer.android.com/
 
 |**Name**|**Description**| 
 | --- | --- |
-|`publishLibraryVariants()`|Specifies build variants to publish. For usage instructions, see [Publishing Android libraries](building-mpp-with-gradle.html#publishing-android-libraries).|
+|`publishLibraryVariants()`|Specifies build variants to publish. Learn more about [publishing Android libraries](mpp-publish-lib.html#publish-an-android-library).|
 |`publishAllLibraryVariants()`|Publishes all build variants.|
 
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
@@ -469,10 +473,10 @@ kotlin {
 
 </div>
 
-For more details about configuring Android targets of multiplatform projects, see [Android Support](building-mpp-with-gradle.html#android-support).
+Learn more about [compilation for Android](mpp-configure-compilations.html#compilation-for-android).
 
->Note that the `android` configuration inside `kotlin` doesn’t replace the build configuration of any Android project.
-For information on writing build scripts for Android projects, see the [Android developer documentation](https://developer.android.com/studio/build).
+>The `android` configuration inside `kotlin` doesn’t replace the build configuration of any Android project.
+Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
 {:.note}
 
 ## Source sets
@@ -482,7 +486,6 @@ in compilations together, along with their resources, dependencies, and language
 
 A multiplatform project contains [predefined](#predefined-source-sets) source sets for its targets;
 developers can also create [custom](#custom-source-sets) source sets for their needs.
-For instructions on creating and configuring source sets, see [Configuring source sets](building-mpp-with-gradle.html#configuring-source-sets).
 
 ### Predefined source sets
 
@@ -491,7 +494,7 @@ Available predefined source sets are the following:
 
 |**Name**|**Description**| 
 | --- | --- |
-|`commonMain`| Code and resources shared between all platforms. Available in all multiplatform projects. Used in all main compilations of a project.|
+|`commonMain`| Code and resources shared between all platforms. Available in all multiplatform projects. Used in all main [compilations](#compilations) of a project.|
 |`commonTest`| Test code and resources shared between all platforms. Available in all multiplatform projects. Used in all test compilations of a project.|
 |_\<targetName\>\<compilationName\>_|Target-specific sources for a compilation. _\<targetName\>_ is the name of a predefined target and _\<compilationName\>_ is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`.|
 
@@ -525,7 +528,7 @@ kotlin {
 </div>
 </div>
 
-For more information about the predefined source sets, see [Default Project Layout](building-mpp-with-gradle.html#default-project-layout).
+Learn more about [source sets](mpp-discover-project.html#source-sets).
 
 ### Custom source sets
 
@@ -562,7 +565,7 @@ kotlin {
 </div>
 
 Note that a newly created source set isn’t connected to other ones. To use it in the project’s compilations,
-connect it with other source sets as described in [Connecting source sets](building-mpp-with-gradle.html#connecting-source-sets).
+[connect it with other source sets](mpp-share-on-platforms.html#configure-the-hierarchical-structure-manually).
 
 ### Source set parameters
 
@@ -572,9 +575,9 @@ Configurations of source sets are stored inside the corresponding blocks of `sou
 | --- | --- |
 |`kotlin.srcDir`|Location of Kotlin source files inside the source set directory.|
 |`resources.srcDir`|Location of resources inside the source set directory.|
-|`dependsOn`|Connection with another source set. The instructions on connecting source sets are provided in [Connecting source sets](building-mpp-with-gradle.html#connecting-source-sets).|
+|`dependsOn`|[Connection with another source set.](mpp-share-on-platforms.html#configure-the-hierarchical-structure-manually)|
 |`dependencies`|[Dependencies](#dependencies) of the source set.|
-|`languageSettings`|[Language settings](building-mpp-with-gradle.html#language-settings) applied to the source set.|
+|`languageSettings`|[Language settings](mpp-dsl-reference.html#language-settings) applied to the source set.|
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -621,10 +624,12 @@ kotlin {
 ## Compilations
 
 A target can have one or more compilations, for example, for production or testing. There are [predefined compilations](#predefined-compilations)
-that are added automatically upon target creation. Developers can additionally create [custom compilations](#custom-compilations).
+that are added automatically upon target creation. You can additionally create [custom compilations](#custom-compilations).
 
 To refer to all or some particular compilations of a target, use the `compilations` object collection.
 From `compilations`, you can refer to a compilation by its name.
+
+Learn more about [configuring compilations](mpp-configure-compilations.html).
 
 ### Predefined compilations
 
@@ -671,9 +676,11 @@ kotlin {
 
 ### Custom compilations
 
-In addition to predefined compilations, developers can create their own custom compilations.
+In addition to predefined compilations, you can create your own custom compilations.
 To create a custom compilation, add a new item into the `compilations` collection.
 If using Kotlin Gradle DSL, mark custom compilations `by creating`.
+
+Learn more about creating a [custom compilation](mpp-configure-compilations.html#create-a-custom-compilation).
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -810,7 +817,10 @@ kotlin {
 ## Dependencies
 
 The `dependencies` block of the source set declaration contains the dependencies of this source set.
-There are four kinds of dependencies:
+
+Learn more about [configuring dependencies](using-gradle.html#configuring-dependencies).
+
+There are four types of dependencies:
 
 |**Name**|**Description**| 
 | --- | --- |
@@ -865,7 +875,8 @@ kotlin {
 </div>
 </div>
 
-Additionally, source sets can depend on each other. In this case, the [dependsOn()](#source-set-parameters) function is used.
+Additionally, source sets can depend on each other and for a hierarchy. In this case, the [dependsOn()](#source-set-parameters) relation is used.
+
 Source set dependencies can also be declared in the top-level `dependencies` block of the build script.
 In this case, their declarations follow the pattern `<sourceSetName><DependencyKind>`, for example, `commonMainApi`.
 

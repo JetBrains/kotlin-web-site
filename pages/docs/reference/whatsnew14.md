@@ -11,7 +11,7 @@ title: "What's New in Kotlin 1.4"
 To enjoy new features of Kotlin projects, update Gradle to a recent version. Kotlin multiplatform projects require Gradle 
 6.0 or later while other Kotlin projects work with Gradle 5.4 or later.
 
-## Mutliplatform programming
+## Mutliplatform features and improvements
 
 [Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features

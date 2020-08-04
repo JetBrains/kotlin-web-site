@@ -207,16 +207,6 @@ reference:
         branch: master
 
     - title: Multiplatform Programming
-      description: Reusing code across JVM, JS, and Native
-      content:
-        - url: /docs/reference/platform-specific-declarations.html
-          title: Platform-Specific Declarations
-        - url: /docs/reference/building-mpp-with-gradle.html
-          title: Building with Gradle
-        - url: /docs/reference/mpp-dsl-reference.html
-          title: Multiplatform Gradle DSL Reference
-
-    - title: Multiplatform Programming (new)
       description: Reusing code across different platforms
       content:
         - url: /docs/reference/mpp-intro.html
