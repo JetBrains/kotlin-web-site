@@ -64,34 +64,27 @@ Kotlin/Native targets.
 This is the way to share common Kotlin code between many platforms, including Android, iOS, server-side, JVM, client-side, 
 JavaScript, CSS, and native.
 
-[Multiplatform libraries](/docs/reference/multiplatform.html#multiplatform-libraries)
+[Multiplatform libraries](/docs/reference/multiplatform.html)
 provide the necessary APIs for the common Kotlin code and help to develop
 shared parts of a project in Kotlin code once and share it with all of the target platforms. 
 
-## How to Start
-
-<div style="display: flex; align-items: center; margin-bottom: 20px">
-    <img src="{{ url_for('asset', path='images/landing/native/book.png') }}" height="38p" width="55" style="margin-right: 10px;">
-    <b>Tutorials and Documentation</b>
-</div>
+## What's next?
 
 New to Kotlin? Take a look at the [Getting Started](/docs/reference/basic-syntax.html) page.
 
-Suggested documentation pages:
+### Documentation
+
 - [C interop](/docs/reference/native/c_interop.html)
 - [Swift/Objective-C interop](/docs/reference/native/objc_interop.html)
 
-Recommended tutorials:
+### Tutorials
+
 - [Hello Kotlin/Native](/docs/tutorials/native/using-command-line-compiler.html)
-- [Multiplatform Project: iOS and Android](/docs/tutorials/native/mpp-ios-android.html)
 - [Types mapping between C and Kotlin/Native](/docs/tutorials/native/mapping-primitive-data-types-from-c.html)
 - [Kotlin/Native as a Dynamic Library](/docs/tutorials/native/dynamic-libraries.html) 
 - [Kotlin/Native as an Apple Framework](/docs/tutorials/native/apple-framework.html)
 
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
-    <img src="{{ url_for('asset', path='images/landing/native/try.png') }}" height="38p" width="55" style="margin-right: 10px;">
-    <b>Example Projects</b>
-</div>
+## Sample projects
 
 - [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin-native/tree/master/samples) 
 - [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
@@ -99,5 +92,4 @@ Recommended tutorials:
 - [Kotlin/Native sources and examples (.tgz)](https://download.jetbrains.com/kotlin/native/kotlin-native-samples-1.0.1.tar.gz)
 - [Kotlin/Native sources and examples (.zip)](https://download.jetbrains.com/kotlin/native/kotlin-native-samples-1.0.1.zip)
 
-Even more examples are on [GitHub](https://github.com/JetBrains/kotlin-examples).
 

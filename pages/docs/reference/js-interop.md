@@ -7,16 +7,15 @@ title: "Calling JavaScript from Kotlin"
 
 # Calling JavaScript from Kotlin
 
-Kotlin was designed for easy interoperation with Java platform. It sees Java classes as Kotlin classes, and
-Java sees Kotlin classes as Java classes. However, JavaScript is a dynamically-typed language, which means
-it does not check types in compile-time. You can freely talk to JavaScript from Kotlin via 
-[dynamic](dynamic-type.html) types, but if you want the full power of Kotlin
-type system, you can create Kotlin headers for JavaScript libraries.
+Kotlin was first designed for easy interoperation with the Java platform: it sees Java classes as Kotlin classes, and Java sees Kotlin classes as Java classes.
 
+However, JavaScript is a dynamically typed language, which means it does not check types at compile time. You can freely talk to JavaScript from Kotlin via  [dynamic](dynamic-type.html) types. If you want to use the full power of the Kotlin type system, you can create external declarations for JavaScript libraries which will be understood by the Kotlin compiler and the surrounding tooling.
+
+An experimental tool to automatically create Kotlin external declarations for npm dependencies which provide type definitions (TypeScript / `d.ts`) called [Dukat](js-external-declarations-with-dukat) is also available.
 
 ## Inline JavaScript
 
-You can inline some JavaScript code into your Kotlin code using the [js("...")](/api/latest/jvm/stdlib/kotlin.js/js.html) function.
+You can inline some JavaScript code into your Kotlin code using the [`js("...")`](/api/latest/jvm/stdlib/kotlin.js/js.html) function.
 For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
@@ -27,7 +26,7 @@ fun jsTypeOf(o: Any): String {
 ```
 </div>
 
-The parameter of `js` is required to be a string constant. So, the following code is incorrect:
+Because the parameter of `js` is parsed at compile time and translated to JavaScript code "as-is", it is required to be a string constant. So, the following code is incorrect:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -38,13 +37,13 @@ fun getTypeof() = "typeof"
 ```
 </div>
 
+Note that invoking `js()` returns a result of type [`dynamic`](dynamic-type.html), which provides no type safety at compile time.
 
 ## `external` modifier
 
-To tell Kotlin that a certain declaration is written in pure JavaScript, you should mark it with `external` modifier.
+To tell Kotlin that a certain declaration is written in pure JavaScript, you should mark it with the `external` modifier.
 When the compiler sees such a declaration, it assumes that the implementation for the corresponding class, function or
-property is provided by the developer, and therefore does not try to generate any JavaScript code from the declaration.
-This means that you should omit bodies of `external` declarations. For example:
+property is provided externally (by the developer or via an [npm dependency](js-project-setup.html#npm-dependencies)), and therefore does not try to generate any JavaScript code from the declaration. This is also why `external` declarations can't have a body. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -64,15 +63,14 @@ external val window: Window
 ```
 </div>
 
-Note that `external` modifier is inherited by nested declarations, i.e. in `Node` class we do not put `external`
-before member functions and properties.
+Note that the `external` modifier is inherited by nested declarations. This is why in the example `Node` class, we do not need to add the `external` modifier before member functions and properties.
 
 The `external` modifier is only allowed on package-level declarations. You can't declare an `external` member of a non-`external` class.
 
 
 ### Declaring (static) members of a class
 
-In JavaScript you can define members either on a prototype or a class itself. I.e.:
+In JavaScript you can define members either on a prototype or a class itself:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ``` javascript
@@ -82,9 +80,8 @@ MyClass.prototype.ownMember = function() { /* implementation */ };
 ```
 </div>
 
-There's no such syntax in Kotlin. However, in Kotlin we have `companion` objects. Kotlin treats companion objects
-of `external` class in a special way: instead of expecting an object, it assumes members of companion objects
-to be members of the class itself. To describe `MyClass` from the example above, you can write:
+There is no such syntax in Kotlin. However, in Kotlin we have [`companion`](object-declarations.html#companion-objects) objects. Kotlin treats companion objects
+of `external` classes in a special way: instead of expecting an object, it assumes members of companion objects to be members of the class itself. `MyClass` from the example above can be described as follows:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -101,37 +98,40 @@ external class MyClass {
 
 ### Declaring optional parameters
 
-An external function can have optional parameters.
-How the JavaScript implementation actually computes default values for these parameters, is unknown to Kotlin,
-thus it's impossible to use the usual syntax to declare such parameters in Kotlin.
-You should use the following syntax:
+If you are writing an external declaration for a JavaScript function which has an optional parameter, use `definedExternally`. This delegates the generation of the default values to the JavaScript function itself:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-external fun myFunWithOptionalArgs(x: Int,
+external fun myFunWithOptionalArgs(
+    x: Int,
     y: String = definedExternally,
-    z: Long = definedExternally)
+    z: String = definedExternally
+)
 ```
 </div>
 
-This means you can call `myFunWithOptionalArgs` with one required argument and two optional arguments (their
-default values are calculated by some JavaScript code).
+With this external declaration, you can call `myFunWithOptionalArgs` with one required argument and two optional arguments, where the default values are calculated by the JavaScript implementation of `myFunWithOptionalArgs`.
 
 
 ### Extending JavaScript classes
 
-You can easily extend JavaScript classes as they were Kotlin classes. Just define an `external` class and
-extend it by non-`external` class. For example:
+You can easily extend JavaScript classes as if they were Kotlin classes. Just define an `external open` class and
+extend it by a non-`external` class. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-external open class HTMLElement : Element() {
-    /* members */
+open external class Foo {
+    open fun run()
+    fun stop()
 }
 
-class CustomElement : HTMLElement() {
-    fun foo() {
-        alert("bar")
+class Bar: Foo() {
+    override fun run() {
+        window.alert("Running!")
+    }
+
+    fun restart() {
+        window.alert("Restarting")
     }
 }
 ```
@@ -139,17 +139,16 @@ class CustomElement : HTMLElement() {
 
 There are some limitations:
 
-1. When a function of external base class is overloaded by signature, you can't override it in a derived class.
-2. You can't override a function with default arguments.
-
-Note that you can't extend a non-external class by external classes.
-
+- When a function of an external base class is overloaded by signature, you can't override it in a derived class.
+- You can't override a function with default arguments.
+- Non-external classes can't be extended by external classes.
 
 ### `external` interfaces
 
-JavaScript does not have the concept of interfaces. When a function expects its parameter to support `foo`
-and `bar` methods, you just pass objects that actually have these methods. You can use interfaces to express this
-for statically-typed Kotlin, for example:
+JavaScript does not have the concept of interfaces. When a function expects its parameter to support two methods `foo`
+and `bar`, you would just pass in an object that actually has these methods.
+
+You can use interfaces to express this concept in statically typed Kotlin:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
@@ -163,7 +162,7 @@ external fun myFunction(p: HasFooAndBar)
 ```
 </div>
 
-Another use case for external interfaces is to describe settings objects. For example:
+A typical use case for external interfaces is to describe settings objects. For example:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 ```kotlin
@@ -197,7 +196,37 @@ fun sendQuery() {
 
 External interfaces have some restrictions:
 
-1. They can't be used on the right hand side of `is` checks.
-2. `as` cast to external interface always succeeds (and produces a warning in compile-time).
-3. They can't be passed as reified type arguments.
-4. They can't be used in class literal expressions (i.e. `I::class`).
+- They can't be used on the right-hand side of `is` checks. 
+- They can't be passed as reified type arguments.
+- They can't be used in class literal expressions (such as `I::class`).
+- `as` casts to external interfaces always succeed.
+    Casting to external interfaces produces the "Unchecked cast to external interface" compile time warning. The warning can be suppressed with the `@Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")` annotation.
+
+    IntelliJ IDEA can also automatically generate the `@Suppress` annotation. Open the intentions menu via the light bulb icon or Alt-Enter, and click the small arrow next to the "Unchecked cast to external interface" inspection. Here, you can select the suppression scope, and your IDE will add the annotation to your file accordingly.
+
+### Casting
+In addition to the ["unsafe" cast operator](/docs/reference/typecasts.html#unsafe-cast-operator) `as`, which throws a `ClassCastException` in case a cast is not possible, Kotlin/JS also provides [`unsafeCast<T>()`](/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html). When using `unsafeCast`, _no type checking is done at all_ during runtime. For example, consider the following two methods:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
+
+```kotlin
+fun usingUnsafeCast(s: Any) = s.unsafeCast<String>()
+fun usingAsOperator(s: Any) = s as String
+```
+</div>
+
+They will be compiled accordingly:
+<div class="sample" markdown="1" theme="idea" mode="java">
+
+``` javascript
+function usingUnsafeCast(s) {
+    return s;
+}
+
+function usingAsOperator(s) {
+    var tmp$;
+    return typeof (tmp$ = s) === 'string' ? tmp$ : throwCCE();
+}
+```
+
+</div>

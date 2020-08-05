@@ -54,7 +54,7 @@ Next create an empty
 </span>
 file in the project folder.
 
-Depending on the target platform, different [functions](/docs/reference/building-mpp-with-gradle.html),
+Depending on the target platform, different [functions](/docs/reference/mpp-intro.html),
 e.g. `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
 are used to create the Kotlin target. The function name is the platform which we are compiling our code for. 
 These functions optionally take the target name as a parameter, which is `"native"` in our case. 
@@ -92,5 +92,4 @@ detect it as Kotlin/Native project.
 
 ## What's next?
 
-To learn how to write Gradle build scripts for real-life Kotlin/Native projects, see [Building Multiplatform Projects with Gradle](/docs/reference/building-mpp-with-gradle.html).
-
+Learn about [multiplatform projects](/docs/reference/mpp-discover-project.html).
