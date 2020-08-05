@@ -633,6 +633,41 @@ we also added `all-compatibility` mode.
 For more information about default methods in the Java interop, see the [documentation](java-to-kotlin-interop.html#default-methods-in-interfaces) and 
 [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/). 
 
+### Type annotations in the JVM bytecode
+
+Kotlin can now generate type annotations in the JVM bytecode (target version 1.8+), so that they become available in Java reflection at runtime.
+To emit the type annotation in the bytecode, follow these steps:
+
+1. Make sure that your declared annotation has a proper annotation target (Java’s `ElementType.TYPE_USE` or Kotlin’s
+`AnnotationTarget.TYPE`) and retention (`AnnotationRetention.RUNTIME`).
+2. Compile the annotation class declaration to JVM bytecode target version 1.8+. You can specify it with `-jvm-target=1.8`
+compiler option.
+3. Compile the code that uses the annotation to JVM bytecode target version 1.8+ (`-jvm-target=1.8`) and add the
+`-Xemit-jvm-type-annotations` compiler option.
+
+Note that the type annotations from the standard library aren’t emitted in the bytecode for now because the standard library is compiled
+with the target version 1.6.
+
+So far, only the basic cases are supported:
+
+- Type annotations on method parameters, method return types and property types;
+- Invariant projections of type arguments, such as `Smth<@Ann Foo>`, `Array<@Ann Foo>`.
+
+In the following example, the `@Foo` annotation on the `String` type can be emitted to the bytecode and then used by the
+library code:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+@Target(AnnotationTarget.TYPE)
+annotation class Foo
+
+class A {
+    fun foo(): @Foo String = "OK"
+}
+```
+</div>
+
 ## Kotlin/Native
 
 In 1.4, Kotlin/Native got a significant number of new features and improvements, including: 
