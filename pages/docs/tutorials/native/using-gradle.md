@@ -92,4 +92,4 @@ detect it as Kotlin/Native project.
 
 ## What's next?
 
-Learn about [multiplatform projects](mpp-discover-project.html).
+Learn about [multiplatform projects](/docs/reference/mpp-discover-project.html).
