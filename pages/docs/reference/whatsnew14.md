@@ -622,7 +622,7 @@ For more information about default methods in the Java interop, see the [documen
 
 ### Type annotations in the JVM bytecode
 
-Kotlin now can generate type annotations in the JVM bytecode (target version 1.8+), so that they become available at runtime.
+Kotlin can now generate type annotations in the JVM bytecode (target version 1.8+), so that they become available in Java reflection at runtime.
 To emit the type annotation in the bytecode, follow these steps:
 
 1. Make sure that your declared annotation has a proper annotation target (Java’s `ElementType.TYPE_USE` or Kotlin’s
@@ -632,7 +632,7 @@ compiler option.
 3. Compile the code that uses the annotation to JVM bytecode target version 1.8+ (`-jvm-target=1.8`) and add the
 `-Xemit-jvm-type-annotations` compiler option.
 
-Note that the type annotations from the standard library aren’t emitted in the bytecode for now because they are compiled
+Note that the type annotations from the standard library aren’t emitted in the bytecode for now because the standard library is compiled
 with the target version 1.6.
 
 So far, only the basic cases are supported:
