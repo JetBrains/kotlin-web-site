@@ -202,6 +202,8 @@ The `==` operation is special: it is translated to a complex expression that scr
 | `a <= b` | `a.compareTo(b) <= 0` |
 
 All comparisons are translated into calls to `compareTo`, that is required to return `Int`.
+And if your class is comparing by `T` then it must extend `Comparable<T>`(Your class now is `<T : Comparable<T>>`).
+
 
 ### Property delegation operators
 `provideDelegate`, `getValue` and `setValue` operator functions are described
