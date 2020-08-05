@@ -261,6 +261,19 @@ fun test(xs: List<Int>) {
 
 The fall-through behavior inside `when` is subject to further design.
 
+### Unified exception type for null checks
+
+Starting from Kotlin 1.4, all runtime null checks will throw a `java.lang.NullPointerException` instead of `KotlinNullPointerException`,
+`IllegalStateException`, `IllegalArgumentException`, and `TypeCastException`. This applies to: the `!!` operator, parameter
+null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-null type.
+This doesn’t apply to `lateinit` null checks and explicit library function calls like `checkNotNull` or `requireNotNull`.
+
+This change increases the number of possible null check optimizations that can be performed either by the Kotlin compiler
+or by various kinds of bytecode processing tools, such as the Android [R8 optimizer](https://developer.android.com/studio/build/shrink-code).
+
+Note that from a developer’s perspective, things won’t change that much: the Kotlin code will throw exceptions with the
+same error messages as before. The type of exception changes, but the information passed stays the same.
+
 ## Explicit API mode for library authors
 
 Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
