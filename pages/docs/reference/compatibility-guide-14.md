@@ -258,6 +258,94 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
+### Preserve intersection type for covariant types after unchecked cast
+ 
+> **Issue**: [KT-37280](https://youtrack.jetbrains.com/issue/KT-37280)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, uchecked casts of covariant types produce the intersection type, not the type used in the cast. 
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+
+### Type variable leaks from builder inference because of using `this` expression
+ 
+> **Issue**: [KT-32126](https://youtrack.jetbrains.com/issue/KT-32126)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, using `this` inside builder functions like `sequence {}` is prohibited if there are no other proper constraints
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+
+### Wrong overload resolution for contravariant types with nullable type arguments
+ 
+> **Issue**: [KT-31670](https://youtrack.jetbrains.com/issue/KT-31670)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, if two overloads of a function that takes contravariant type arguments differ only
+> by the nullability of the type (such as `In<T>` and `In<T?>`), the nullable type is considered more specific. 
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+
+### Builder inference with non-nested recursive constraints
+ 
+> **Issue**: [KT-34975](https://youtrack.jetbrains.com/issue/KT-34975)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, builder functions such as `sequence {}` with type that depends on a recursive
+> constraint inside the passed lambda cause a compiler error. 
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+
+### Eager type variable fixation leads to a contradictory constraint system
+ 
+> **Issue**: [KT-25175](https://youtrack.jetbrains.com/issue/KT-25175)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, the type inference in certain cases works less eagerly allowing to find the 
+> constraint system that is not contradictory.
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+>
 ### Prohibit `tailrec` modifier on`open` functions
 
 > **Issue**: [KT-18541](https://youtrack.jetbrains.com/issue/KT-18541)
