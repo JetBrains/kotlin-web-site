@@ -765,7 +765,7 @@ kotlin {
 ```
 </div>
 
-## Mutliplatform features
+## Kotlin Mutliplatform
 
 [Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
@@ -944,32 +944,32 @@ libraries with such suffixes as `-jvm` or` -js`, for example `kotlinx-coroutines
 
 Learn more about [configuring dependencies](using-gradle.html#configuring-dependencies).
 
-## Kotlin Gradle project improvements
+## Gradle project improvements
 
-Besides Gradle project features and improvements specific for [Kotlin Multiplatform](#mutliplatform-features), [Kotlin/JVM](#kotlinjvm), 
+Besides Gradle project features and improvements specific for [Kotlin Multiplatform](#kotlin-mutliplatform), [Kotlin/JVM](#kotlinjvm), 
 [Kotlin/Native](#kotlinnative), and Kotlin/JS, there are several changes applicable to all Kotlin Gradle projects:
 
-* Dependency on the standard library added by default
-* Minimum Gradle version for Kotlin projects
+* [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
+* [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
 
 ### Dependency on the standard library added by default
 
-You no longer need to declare a dependency on the `stdlib` library in any Kotlin project — 
-it will now be added by default. 
+You no longer need to declare a dependency on the `stdlib` library in any Kotlin Gradle project, including a multiplatform one.
+The dependency is now be added by default. 
 
 The automatically added version of the standard library will be the same as the version of the Kotlin Gradle plugin, 
 since they have the same versioning.
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard 
 library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library depending on 
-the `kotlinOptions.jvmTarget` setting.
+the `kotlinOptions.jvmTarget` [compiler option](using-gradle.html#compiler-options) of your Gradle build script.
 
 Learn how to [change the default behavior](using-gradle.html#dependency-on-the-standard-library).
 
 ### Minimum Gradle version for Kotlin projects
 
-To enjoy new features of Kotlin projects, update Gradle to a recent version. Kotlin multiplatform projects require Gradle 
-6.0 or later while other Kotlin projects work with Gradle 5.4 or later.
+To enjoy new features of Kotlin projects, update Gradle to a [recent version](https://gradle.org/releases/). Kotlin 
+multiplatform projects require Gradle 6.0 or later while other Kotlin projects work with Gradle 5.4 or later.
 
 ## Scripting and REPL
 

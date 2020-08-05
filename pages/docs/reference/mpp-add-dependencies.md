@@ -54,7 +54,7 @@ of the standard library is the same as the version of the `kotlin-multiplatform`
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard 
 library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library depending on 
-the `kotlinOptions.jvmTarget` setting.
+the `kotlinOptions.jvmTarget` [compiler option](using-gradle.html#compiler-options) of your Gradle build script
 
 Learn how to [change the default behavior](using-gradle.html#dependency-on-the-standard-library).
 
