@@ -266,7 +266,8 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > **Incompatible change type**: source
 > 
-> **Short summary**: since Kotlin 1.4, uchecked casts of covariant types produce the intersection type, not the type used in the cast. 
+> **Short summary**: since Kotlin 1.4, uchecked casts of covariant types produce the intersection type for smart casts,
+>  not the type of the unchecked cast. 
 > 
 > **Deprecation cycle**:
 > 
