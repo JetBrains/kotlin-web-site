@@ -971,7 +971,6 @@ Learn how to [change the default behavior](using-gradle.html#dependency-on-the-s
 To enjoy the new features in your Kotlin projects, update Gradle to the [latest version](https://gradle.org/releases/). 
 Multiplatform projects require Gradle 6.0 or later, while other Kotlin projects work with Gradle 5.4 or later.
 
-
 ## Scripting and REPL
 
 In 1.4, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.
