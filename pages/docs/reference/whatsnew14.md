@@ -813,6 +813,212 @@ kotlin {
 ```
 </div>
 
+## Kotlin Multiplatform
+
+[Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
+while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
+and improvements:
+
+* Sharing code in several targets with the hierarchical project structure
+* Leveraging native libs in the hierarchical structure 
+* Specifying kotlinx dependencies only once
+
+> Multiplatform projects require Gradle 6.0 or later.
+{:.note}
+
+### Sharing code in several targets with the hierarchical project structure
+
+With the new hierarchical project structure support, you can share code among [several platforms](mpp-supported-platforms.html)
+ in a [multiplatform project](mpp-discover-project.html).
+
+Previously, any code added to a multiplatform project could be placed either in a platform-specific source set, which is 
+limited to one target and can’t be reused by any other platform, or in a common source set, like `commonMain` or `commonTest`, 
+which is shared across all the platforms in the project. In the common source set, you could only call a platform-specific 
+API by using an [`expect` declaration that needs platform-specific `actual` implementations](mpp-connect-to-apis.html).
+
+This made it easy to [share code on all platforms](mpp-share-on-platforms.html#share-code-on-all-platforms), but it was 
+not so easy to [share between only some of the targets](mpp-share-on-platforms.html#share-code-on-similar-platforms), 
+especially similar ones that could potentially reuse a lot of the common logic and third-party APIs.
+
+For example, in a typical multiplatform project targeting iOS, there are two iOS-related targets: one for iOS ARM64 devices, 
+and the other for the x64 simulator. They have separate platform-specific source sets, but in practice, there is rarely 
+a need for different code for the device and simulator, and their dependencies are much alike. So iOS-specific code could 
+be shared between them.
+
+Apparently, in this setup, it would be desirable to have a *shared source set for two iOS targets*, with Kotlin/Native 
+code that could still directly call any of the APIs that are common to both the iOS device and the simulator.
+
+<img class="img-responsive" src="{{ url_for('asset', path='images/reference/mpp/iosmain-hierarchy.png') }}" alt="Code shared for iOS targets" width="400"/>
+
+Now you can do this with the [hierarchical project structure support](mpp-share-on-platforms.html#share-code-on-similar-platforms), which infers and adapts the API and language features 
+available in each source set based on which targets consume them.
+
+For common combinations of targets, you can create a hierarchical structure with [target shortcuts](mpp-share-on-platforms.html#use-target-shortcuts).
+
+
+For example, create two iOS targets and the shared source set shown above with the `ios()` shortcut:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+    ios() // iOS device and simulator targets; iosMain and iosTest source sets
+}
+```
+
+</div>
+
+For other combinations of targets, [create a hierarchy manually](mpp-share-on-platforms.html#configure-the-hierarchical-structure-manually) 
+by connecting the source sets with the `dependsOn` relation.
+
+![Hierarchical structure]({{ url_for('asset', path='images/reference/mpp/hierarchical-structure.png') }})
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+
+```groovy
+kotlin {
+    sourceSets {
+        desktopMain {
+            dependsOn(commonMain)
+        }
+        linuxX64Main {
+            dependsOn(desktopMain)
+        }
+        mingwX64Main {
+            dependsOn(desktopMain)
+        }
+        macosX64Main {
+            dependsOn(desktopMain)
+        }
+    }
+}
+
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+kotlin{
+    sourceSets {
+        val desktopMain by creating {
+            dependsOn(commonMain)
+        }
+        val linuxX64Main by getting {
+            dependsOn(desktopMain)
+        }
+        val mingwX64Main by getting {
+            dependsOn(desktopMain)
+        }
+        val macosX64Main by getting {
+            dependsOn(desktopMain)
+        }
+    }
+}
+```
+
+</div>
+</div>
+
+Thanks to the hierarchical project structure, libraries can also provide common APIs for a subset of targets. Learn more
+about [sharing code in libraries](mpp-share-on-platforms.html#share-code-in-libraries).
+
+### Leveraging native libs in the hierarchical structure 
+
+You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `posix`, in source sets shared among several 
+native targets. This can help you share more native code without being limited by platform-specific dependencies. 
+
+No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
+that you can use in the shared code.
+
+Learn more about [usage of platform-dependent libraries](mpp-share-on-platforms.html#use-native-libraries-in-the-hierarchical-structure).
+
+### Specifying dependencies only once
+
+From now on, instead of specifying dependencies on different variants of the same library in shared and platform-specific 
+source sets where it is used, you should specify a dependency only once in the shared source set.
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}'
+            }
+        }
+    }
+}
+```
+
+</div>
+</div>
+ 
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}")
+            }
+        }
+    }
+}
+
+```
+
+</div>
+</div>
+
+Don’t use kotlinx library artifact names with suffixes specifying the platform, such as  `-common`, `-native`, or similar, 
+as they are NOT supported anymore. Instead, use the library base artifact name, which in the example above is `kotlinx-coroutines-core`. 
+
+However, the change doesn’t currently affect:
+* The `stdlib` library – starting from Kotlin 1.4, [the `stdlib` dependency is added automatically](#dependency-on-the-standard-library-added-by-default).
+* The `kotlin.test` library – you should still use `test-common` and `test-annotations-common`. These dependencies will be
+addressed later.
+
+If you need a dependency only for a specific platform, you can still use platform-specific variants of standard and kotlinx 
+libraries with such suffixes as `-jvm` or` -js`, for example `kotlinx-coroutines-core-jvm`. 
+
+Learn more about [configuring dependencies](using-gradle.html#configuring-dependencies).
+
+## Gradle project improvements
+
+Besides Gradle project features and improvements that are specific to [Kotlin Multiplatform](#kotlin-multiplatform), [Kotlin/JVM](#kotlinjvm), 
+[Kotlin/Native](#kotlinnative), and Kotlin/JS, there are several changes applicable to all Kotlin Gradle projects:
+
+* [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
+* [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
+
+### Dependency on the standard library added by default
+
+You no longer need to declare a dependency on the `stdlib` library in any Kotlin Gradle project, including a multiplatform one.
+The dependency is added by default. 
+
+The automatically added standard library will be the same version of the Kotlin Gradle plugin, 
+since they have the same versioning.
+
+For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard 
+library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library depending on 
+the `kotlinOptions.jvmTarget` [compiler option](using-gradle.html#compiler-options) of your Gradle build script.
+
+Learn how to [change the default behavior](using-gradle.html#dependency-on-the-standard-library).
+
+### Minimum Gradle version for Kotlin projects
+
+To enjoy the new features in your Kotlin projects, update Gradle to the [latest version](https://gradle.org/releases/). 
+Multiplatform projects require Gradle 6.0 or later, while other Kotlin projects work with Gradle 5.4 or later.
+
 ## Scripting and REPL
 
 In 1.4, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.
