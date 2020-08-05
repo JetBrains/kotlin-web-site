@@ -765,7 +765,7 @@ kotlin {
 ```
 </div>
 
-## Kotlin Mutliplatform
+## Kotlin Multiplatform
 
 [Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
@@ -946,7 +946,7 @@ Learn more about [configuring dependencies](using-gradle.html#configuring-depend
 
 ## Gradle project improvements
 
-Besides Gradle project features and improvements specific for [Kotlin Multiplatform](#kotlin-mutliplatform), [Kotlin/JVM](#kotlinjvm), 
+Besides Gradle project features and improvements that are specific to [Kotlin Multiplatform](#kotlin-multiplatform), [Kotlin/JVM](#kotlinjvm), 
 [Kotlin/Native](#kotlinnative), and Kotlin/JS, there are several changes applicable to all Kotlin Gradle projects:
 
 * [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
@@ -955,9 +955,9 @@ Besides Gradle project features and improvements specific for [Kotlin Multiplatf
 ### Dependency on the standard library added by default
 
 You no longer need to declare a dependency on the `stdlib` library in any Kotlin Gradle project, including a multiplatform one.
-The dependency is now be added by default. 
+The dependency is added by default. 
 
-The automatically added version of the standard library will be the same as the version of the Kotlin Gradle plugin, 
+The automatically added standard library will be the same version of the Kotlin Gradle plugin, 
 since they have the same versioning.
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard 
@@ -968,8 +968,9 @@ Learn how to [change the default behavior](using-gradle.html#dependency-on-the-s
 
 ### Minimum Gradle version for Kotlin projects
 
-To enjoy new features of Kotlin projects, update Gradle to a [recent version](https://gradle.org/releases/). Kotlin 
-multiplatform projects require Gradle 6.0 or later while other Kotlin projects work with Gradle 5.4 or later.
+To enjoy the new features in your Kotlin projects, update Gradle to the [latest version](https://gradle.org/releases/). 
+Multiplatform projects require Gradle 6.0 or later, while other Kotlin projects work with Gradle 5.4 or later.
+
 
 ## Scripting and REPL
 
