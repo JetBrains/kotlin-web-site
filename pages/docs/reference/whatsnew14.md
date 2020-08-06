@@ -412,7 +412,7 @@ The new Kotlin compiler is going to be really fast; it will unify all the suppor
 an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4:
 
 * [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is enabled by default. 
-* [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility) are available in experimental mode. They will become the default once we stabilize them.
+* [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility) are now in Alpha. They will become the default once we stabilize them.
 
 ### New more powerful type inference algorithm
 
@@ -611,7 +611,8 @@ only once for all platforms.
 A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
 pipeline and add custom processing and transformations that will automatically work for all platforms.
 
-We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends and share your feedback with us.
+We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends, which are currently in Alpha, and 
+share your feedback with us.
 
 ## Kotlin/JVM
 
@@ -632,7 +633,7 @@ Kotlin 1.4 does not provide a public API for such extensions yet, but we are wor
 including [Jetpack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
 using our new back-end.
 
-We encourage you to try out the new Kotlin/JVM backend, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). 
+We encourage you to try out the new Kotlin/JVM backend, which is currently in Alpha, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). 
 This will help us to unify the compiler pipelines and bring compiler extensions like Jetpack Compose to the Kotlin community more quickly.
 
 To enable the new JVM IR back-end, specify an additional compiler option in your Gradle build script:
@@ -863,6 +864,9 @@ kotlin {
 </div>
 
 ## Kotlin Multiplatform
+
+> Multiplatform projects are in Alpha. Language features and tooling may change in future Kotlin versions.
+{:.note}
 
 [Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
