@@ -1,3 +1,11 @@
+- name: Port Harcourt, Nigeria
+  geo:
+    lat: 4.788882
+    lng: 7.05288
+- name: Shanghai, China
+  geo:
+    lat: 31.230863
+    lng: 121.470462
 - name: Lubango, Angola
   geo:
     lat: -14.915369
