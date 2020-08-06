@@ -11,5 +11,5 @@ Gradle recommends using conventions instead of configurations,
 for example, the source files are expected to be in the `src/nativeMain/kotlin` folder.
 By default, all the symbols from C are imported to the `interop` package,
 we may want to import the whole package in our `.kt` files.
-Check out the [kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html)
+Check out the [kotlin-multiplatform](/docs/reference/mpp-discover-project.html#multiplatform-plugin)
 plugin documentation to learn about all the different ways you could configure it.
