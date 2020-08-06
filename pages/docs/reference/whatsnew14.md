@@ -355,7 +355,7 @@ For more details about the explicit API mode, see the [KEEP](https://github.com/
 With Kotlin 1.4, you can use the new tools in IntelliJ IDEA to simplify Kotlin development:
 
 * [New flexible Project Wizard](#new-flexible-project-wizard)
-* [Coroutine Debugger]()
+* [Coroutine Debugger](#coroutine-debugger)
 
 ### New flexible Project Wizard
 
@@ -395,7 +395,10 @@ over breakpoints simply didn’t work. As a result, you had to rely on logging o
 
 In Kotlin 1.4, debugging coroutines becomes much more convenient with the new functionality shipped with the Kotlin plugin.
 
-The **Debug Tool Window** contains a new **Coroutines** tab. In this tab, you can find information about both currently 
+> Debugging works for `kotlinx-coroutines-core` library of version 1.3.8 or later.
+{:.note}
+
+The **Debug Tool Window** now contains a new **Coroutines** tab. In this tab, you can find information about both currently 
 running and suspended coroutines. The coroutines are grouped by the dispatcher they are running on. 
 
 ![Debugging coroutines]({{ url_for('asset', path='images/reference/whats-new/coroutine-debugger-wn.png') }})
@@ -403,7 +406,8 @@ running and suspended coroutines. The coroutines are grouped by the dispatcher t
 Now you can:
 * Easily check the state of each coroutine.
 * See the values of local and captured variables for both running and suspended coroutines.
-* See a full coroutine creation stack, as well as a call stack inside the coroutine.
+* See a full coroutine creation stack, as well as a call stack inside the coroutine. The stack includes all frames with 
+variable values even those that would be lost during standard debugging.
 
 If you need a full report containing the state of each coroutine and its stack, right-click in the **Coroutines** tab, and then
 click **Get Coroutines Dump**. At the moment, the coroutines dump is rather simple, but we’re going to make it more readable 
@@ -411,7 +415,8 @@ and helpful in future Kotlin versions.
 
 <img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/coroutines-dump-wn.png' )}}" alt="Coroutines Dump" width="400"/>
 
-Learn more about debugging coroutines in [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/).
+Learn more about debugging coroutines in [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/)
+and [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/debug-kotlin-coroutines.html).
 
 ## New compiler
 
