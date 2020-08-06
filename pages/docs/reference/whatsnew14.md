@@ -343,6 +343,7 @@ For more details about the explicit API mode, see the [KEEP](https://github.com/
 With Kotlin 1.4, you can use the new tools in IntelliJ IDEA to simplify Kotlin development:
 
 * [New flexible Project Wizard](#new-flexible-project-wizard)
+* [Coroutine Debugger](#coroutine-debugger)
 
 ### New flexible Project Wizard
 
@@ -372,6 +373,38 @@ You can try out the new Kotlin Project Wizard by working through these tutorials
 
 * [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
 * [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
+
+### Coroutine Debugger
+
+Many people already use [coroutines](coroutines/coroutines-guide.html) for asynchronous programming. But when it came to debugging, working with coroutines before Kotlin 1.4, 
+ could be a real pain. Since coroutines jumped between threads, 
+it was difficult to understand what a specific coroutine was doing and check its context. In some cases, tracking steps 
+over breakpoints simply didn’t work. As a result, you had to rely on logging or mental effort to debug code that used coroutines. 
+
+In Kotlin 1.4, debugging coroutines is now much more convenient with the new functionality shipped with the Kotlin plugin.
+
+> Debugging works for versions 1.3.8 or later of the `kotlinx-coroutines-core`.
+{:.note}
+
+The **Debug Tool Window** now contains a new **Coroutines** tab. In this tab, you can find information about both currently 
+running and suspended coroutines. The coroutines are grouped by the dispatcher they are running on. 
+
+![Debugging coroutines]({{ url_for('asset', path='images/reference/whats-new/coroutine-debugger-wn.png') }})
+
+Now you can:
+* Easily check the state of each coroutine.
+* See the values of local and captured variables for both running and suspended coroutines.
+* See a full coroutine creation stack, as well as a call stack inside the coroutine. The stack includes all frames with 
+variable values, even those that would be lost during standard debugging.
+
+If you need a full report containing the state of each coroutine and its stack, right-click inside the **Coroutines** tab, and then
+click **Get Coroutines Dump**. Currently, the coroutines dump is rather simple, but we’re going to make it more readable 
+and helpful in future versions of Kotlin.
+
+<img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/coroutines-dump-wn.png' )}}" alt="Coroutines Dump" width="400"/>
+
+Learn more about debugging coroutines in [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/)
+and [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/debug-kotlin-coroutines.html).
 
 ## New compiler
 
