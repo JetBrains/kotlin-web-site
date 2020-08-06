@@ -1052,6 +1052,423 @@ Learn how to [change the default behavior](using-gradle.html#dependency-on-the-s
 To enjoy the new features in your Kotlin projects, update Gradle to the [latest version](https://gradle.org/releases/). 
 Multiplatform projects require Gradle 6.0 or later, while other Kotlin projects work with Gradle 5.4 or later.
 
+## Standard library
+
+Here is the list of the most significant changes to the Kotlin standard library in 1.4: 
+
+- [Common exception processing API](#common-exception-processing-api)
+- [New functions for arrays and collections](#new-functions-for-arrays-and-collections)
+- [Functions for string manipulations](#functions-for-string-manipulations)
+- [Bit operations](#bit-operations)
+- [Converting from KType to Java Type](#converting-from-ktype-to-java-type)
+- [Proguard configurations for Kotlin reflection](#proguard-configurations-for-kotlin-reflection)
+- [Improving the existing API](#improving-the-existing-api)
+- [module-info descriptors for stdlib artifacts](#module-info-descriptors-for-stdlib-artifacts)
+- [Deprecations](#deprecations)
+- [Exclusion of the deprecated experimental coroutines](#exclusion-of-the-deprecated-experimental-coroutines)
+
+### Common exception processing API
+
+The following API elements have been moved to the common library:
+
+* `Throwable.stackTraceToString()` extension function, which returns the detailed description of this throwable with its
+stack trace, and `Throwable.printStackTrace()`, which prints this description to the standard error output.
+* `Throwable.addSuppressed()` function, which lets you specify the exceptions that were suppressed in order to deliver
+the exception, and the `Throwable.suppressedExceptions` property, which returns a list of all the suppressed exceptions.
+* `@Throws` annotation, which lists exception types that will be checked when the function is compiled to a platform method
+(on JVM or native platforms). 
+
+### New functions for arrays and collections
+
+#### Collections
+
+In 1.4, the standard library includes a number of useful functions for working with **collections**:
+
+* `setOfNotNull()`, which makes a set consisting of all the non-null items among the provided arguments.
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        val set = setOfNotNull(null, 1, 2, 0, null)
+        println(set)
+    //sampleEnd
+    }
+    ```
+    </div>
+
+* `shuffled()` for sequences.
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        val numbers = (0 until 50).asSequence()
+        val result = numbers.map { it * 2 }.shuffled().take(5)
+        println(result.toList()) //five random even numbers below 100
+    //sampleEnd
+    }
+    ```
+    </div>
+
+* `*Indexed()` counterparts for `onEach()` and `flatMap()`.
+The operation that they apply to the collection elements has the element index as a parameter.
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        listOf("a", "b", "c", "d").onEachIndexed {
+            index, item -> println(index.toString() + ":" + item)
+        }
+  
+       val list = listOf("hello", "kot", "lin", "world")
+              val kotlin = list.flatMapIndexed { index, item ->
+                  if (index in 1..2) item.toList() else emptyList() 
+              }
+    //sampleEnd
+              println(kotlin)
+    }
+    ```
+    </div>
+
+* `*OrNull()` counterparts `randomOrNull()`, `reduceOrNull()`, and `reduceIndexedOrNull()`. 
+They return `null` on empty collections.
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+         val empty = emptyList<Int>()
+         empty.reduceOrNull { a, b -> a + b }
+         //empty.reduce { a, b -> a + b } // Exception: Empty collection can't be reduced.
+    //sampleEnd
+    }
+    ```
+    </div>
+
+* `runningFold()`, its synonym `scan()`, and `runningReduce()` apply the given operation to the collection elements sequentially,
+ similarly to`fold()` and `reduce()`; the difference is that these new functions return the whole sequence of intermediate results.
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        val numbers = mutableListOf(0, 1, 2, 3, 4, 5)
+        val runningReduceSum = numbers.runningReduce { sum, item -> sum + item }
+        val runningFoldSum = numbers.runningFold(10) { sum, item -> sum + item }
+    //sampleEnd
+        println(runningReduceSum.toString())
+        println(runningFoldSum.toString())
+    }
+    ```
+    </div>
+
+* `sumOf()` takes a selector function and returns a sum of its values for all elements of a collection.
+`sumOf()` can produce sums of the types `Int`, `Long`, `Double`, `UInt`, and `ULong`. On the JVM, `BigInteger` and `BigDecimal` are also available.
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    data class OrderItem(val name: String, val price: Double, val count: Int)
+    
+    fun main() {
+    //sampleStart
+        val order = listOf<OrderItem>(
+            OrderItem("Cake", price = 10.0, count = 1),
+            OrderItem("Coffee", price = 2.5, count = 3),
+            OrderItem("Tea", price = 1.5, count = 2))
+    
+        val total = order.sumOf { it.price * it.count} // Double
+        val count = order.sumOf { it.count } // Int
+    //sampleEnd
+        println("You've ordered $count items that cost $total in total")
+    }
+    ```
+    </div>
+
+* The `min()` and `max()` functions have been renamed to `minOrNull()` and `maxOrNull()` to comply with the naming
+  convention used across the Kotlin collections API. An `*OrNull` suffix in the function name means that it returns `null`
+  if the receiver collection is empty. The same applies to `minBy()`, `maxBy()`, `minWith()`, `maxWith()` – in 1.4, 
+  they have `*OrNull()` synonyms.
+* The new `minOf()` and `maxOf()` extension functions return the minimum and the maximum value of the given selector function
+  on the collection items.
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    data class OrderItem(val name: String, val price: Double, val count: Int)
+    
+    fun main() {
+    //sampleStart
+        val order = listOf<OrderItem>(
+            OrderItem("Cake", price = 10.0, count = 1),
+            OrderItem("Coffee", price = 2.5, count = 3),
+            OrderItem("Tea", price = 1.5, count = 2))
+        val highestPrice = order.maxOf { it.price }
+    //sampleEnd
+        println("The most expensive item in the order costs $highestPrice")
+    }
+    ```
+    </div>
+
+    There are also `minOfWith()` and `maxOfWith()`, which take a `Comparator` as an argument, and `*OrNull()` versions
+of all four functions that return `null` on empty collections.
+
+* New overloads for `flatMap` and `flatMapTo` let you use transformations with return types that don’t match the receiver type, namely:
+    * Transformations to `Sequence` on `Iterable`, `Array`, and `Map`
+    * Transformations to `Iterable` on `Sequence`
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        val list = listOf("kot", "lin")
+        val lettersList = list.flatMap { it.asSequence() }
+        val lettersSeq = list.asSequence().flatMap { it.toList() }    
+    //sampleEnd
+        println(lettersList)
+        println(lettersSeq.toList())
+    }
+    ```
+    </div>
+
+* `removeFirst()` and `removeLast()` shortcuts for removing elements from mutable lists, and `*orNull()` counterparts
+of these functions.
+
+We've also added the `ArrayDeque` class – an implementation of a double-ended queue.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+    val deque = ArrayDeque(listOf(1, 2, 3))
+
+    deque.addFirst(0)
+    deque.addLast(4)
+    println(deque) // [0, 1, 2, 3, 4]
+
+    println(deque.first()) // 0
+    println(deque.last()) // 4
+
+    deque.removeFirst()
+    deque.removeLast()
+    println(deque) // [1, 2, 3]
+}
+```
+</div>
+
+#### Arrays
+
+To provide a consistent experience when working with different container types, we’ve also added new functions for **arrays**:
+
+* `shuffle()` puts the array elements in a random order.
+* `onEach()` performs the given action on each array element and returns the array itself.
+* `associateWith()` and `associateWithTo()` build maps with the array elements as keys.
+* `reverse()` for array subranges reverses the order of the elements in the subrange.
+* `sortDescending()` for array subranges sorts the elements in the subrange in descending order.
+* `sort()` and `sortWith()` for array subranges are now available in the common library.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+//sampleStart
+    var language = ""
+    val letters = arrayOf("k", "o", "t", "l", "i", "n")
+    val fileExt = letters.onEach { language += it }
+       .filterNot { it in "aeuio" }.take(2)
+       .joinToString(prefix = ".", separator = "")
+    println(language) // "kotlin"
+    println(fileExt) // ".kt"
+
+    letters.shuffle()
+    letters.reverse(0, 3)
+    letters.sortDescending(2, 5)
+    println(letters.contentToString()) // [k, o, t, l, i, n]
+//sampleEnd
+}
+```
+</div>
+
+Additionally, there are new functions for conversions between `CharArray`/`ByteArray` and `String`:
+* `ByteArray.decodeToString()` and `String.encodeToByteArray()`
+* `CharArray.concatToString()` and `String.toCharArray()`
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+//sampleStart
+	val str = "kotlin"
+    val array = str.toCharArray()
+    println(array.concatToString())
+//sampleEnd
+}
+```
+</div>
+
+### Functions for string manipulations
+
+The standard library in 1.4 includes a number of improvements in the API for string manipulation:
+
+* `StringBuilder` has useful new extension functions: `set()`, `setRange()`, `deleteAt()`, `deleteRange()`, `appendRange()`,
+and others.
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        val sb = StringBuilder("Bye Kotlin 1.3.72")
+        sb.deleteRange(0, 3)
+        sb.insertRange(0, "Hello", 0 ,5)
+        sb.set(15, '4')
+        sb.setRange(17, 19, "0")
+        print(sb.toString())
+    //sampleEnd
+    }
+    ```
+    </div>
+    
+* Some existing functions of `StringBuilder` are available in the common library. Among them are `append()`, `insert()`,
+`substring()`, `setLength()`, and more. 
+* New functions `Appendable.appendLine()` and `StringBuilder.appendLine()` have been added to the common library. They
+replace the JVM-only `appendln()` functions of these classes.
+
+    <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+    
+    ```kotlin
+    fun main() {
+    //sampleStart
+        println(buildString {
+            appendLine("Hello,")
+            appendLine("world")
+        })
+    //sampleEnd
+    }
+    ```
+    </div>
+
+### Bit operations
+
+New functions for bit manipulations:
+* `countOneBits()` 
+* `countLeadingZeroBits()`
+* `countTrailingZeroBits()`
+* `takeHighestOneBit()`
+* `takeLowestOneBit()` 
+*  `rotateLeft()` and `rotateRight()` (experimental)
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+//sampleStart
+    val number = "1010000".toInt(radix = 2)
+    println(number.countOneBits())
+    println(number.countTrailingZeroBits())
+    println(number.takeHighestOneBit().toString(2))
+//sampleEnd
+}
+```
+</div>
+
+### Converting from KType to Java Type
+
+A new extension property `KType.javaType` (currently experimental) in the stdlib helps you obtain a `java.lang.reflect.Type`
+from a Kotlin type without using the whole `kotlin-reflect` dependency.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+import kotlin.reflect.javaType
+import kotlin.reflect.typeOf
+
+@OptIn(ExperimentalStdlibApi::class)
+inline fun <reified T> accessReifiedTypeArg() {
+   val kType = typeOf<T>()
+   println("Kotlin type: $kType")
+   println("Java type: ${kType.javaType}")
+}
+
+@OptIn(ExperimentalStdlibApi::class)
+fun main() {
+   accessReifiedTypeArg<String>()
+   // Kotlin type: kotlin.String
+   // Java type: class java.lang.String
+  
+   accessReifiedTypeArg<List<String>>()
+   // Kotlin type: kotlin.collections.List<kotlin.String>
+   // Java type: java.util.List<java.lang.String>
+}
+```
+</div>
+
+### Proguard configurations for Kotlin reflection
+
+Starting from 1.4, we have embedded Proguard/R8 configurations for Kotlin Reflection in `kotlin-reflect.jar`. With this
+in place, most Android projects using R8 or Proguard should work with kotlin-reflect without needing any additional configuration.
+You no longer need to copy-paste the Proguard rules for kotlin-reflect internals. But note that you still need to explicitly 
+list all the APIs you’re going to reflect on.
+
+### Improving the existing API
+
+* Several functions now work on null receivers, for example:
+    * `toBoolean()` on strings
+    * `contentEquals()`, `contentHashcode()`, `contentToString()` on arrays
+
+* `NaN`, `NEGATIVE_INFINITY`, and `POSITIVE_INFINITY` in `Double` and `Float` are now defined as `const`, so you can use
+them as annotation arguments.
+
+* New constants `SIZE_BITS` and `SIZE_BYTES` in `Double` and `Float` contain the number of bits and bytes used
+to represent an instance of the type in binary form.
+
+* The `maxOf()` and `minOf()` top-level functions can accept a variable number of arguments (`vararg`).
+
+### module-info descriptors for stdlib artifacts
+
+Kotlin 1.4 adds `module-info.java` module information to default standard library artifacts. This lets you use them with 
+[**jlink** tool](https://docs.oracle.com/en/java/javase/11/tools/jlink.html), which generates custom Java runtime images
+containing only the platform modules that are required for your app.
+You could already use jlink with Kotlin standard library artifacts, but you had to use separate artifacts to do so – the
+ones with the “modular” classifier – and the whole setup wasn’t straightforward.  
+In Android, make sure you use the Android Gradle plugin version 3.2 or higher, which can correctly process jar files with module-info.
+
+### Deprecations
+
+#### toShort() and toByte() of Double and Float
+
+We've deprecated the functions `toShort()` and `toByte()` on `Double` and `Float` because they could lead to unexpected results
+because of the narrow value range and smaller variable size.
+
+To convert floating-point numbers to `Byte` or `Short`, use the two-step conversion: first, convert them to `Int`, and then 
+convert them again to the target type.
+
+#### contains(), indexOf(), and lastIndexOf() on floating-point arrays
+
+We've deprecated the `contains()`, `indexOf()`, and `lastIndexOf()` extension functions of `FloatArray` and `DoubleArray`
+because they use the [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754) standard equality, which contradicts the total
+order equality in some corner cases. See [this issue](https://youtrack.jetbrains.com/issue/KT-28753) for details.
+
+#### min() and max() collection functions
+
+We've deprecated the `min()` and `max()` collection functions in favor of `minOrNull()` and `maxOrNull()`, which more
+properly reflect their behavior – returning `null` on empty collections.
+See [this issue](https://youtrack.jetbrains.com/issue/KT-38854) for details. 
+
+### Exclusion of the deprecated experimental coroutines
+ 
+The `kotlin.coroutines.experimental` API was deprecated in favor of kotlin.coroutines in 1.3.0. In 1.4, we’re completing
+the deprecation cycle for `kotlin.coroutines.experimental` by removing it from the standard library. For those who still
+use it on the JVM, we've provided a compatibility artifact `kotlin-coroutines-experimental-compat.jar` with all the experimental
+coroutines APIs. We've published it to Maven, and we include it in the Kotlin distribution alongside the standard library.
+
 ## Scripting and REPL
 
 In 1.4, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.

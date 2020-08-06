@@ -105,7 +105,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Israel Kotlin User Group](https://www.facebook.com/groups/107080706530829/), Israel
  * [Istanbul Kotlin User Group](https://www.meetup.com/Kotlin-%C4%B0stanbul/), Turkey
  * [Jaffna Kotlin User Group](https://www.facebook.com/Kotlin-User-Group-Jaffna-102091321371464/), Sri Lanka
- * [Jalandhar Kotlin User Group](https://nvite.com/JalandharKotlin/13lv7v), India
+ * [Jalandhar Kotlin User Group](https://www.meetup.com/Kotlin-EveryWhere-Jalandhar-Group/), India
  * [Japan Kotlin User Group](https://kotlin.connpass.com/), Japan
  * [Karachi Kotlin User Group](https://www.facebook.com/kotlinkarachi/), Pakistan
  * [Kathmandu Kotlin User Group](https://www.facebook.com/groups/100333660782830/), Nepal

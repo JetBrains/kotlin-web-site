@@ -6,8 +6,8 @@ title: "Compatibility Guide for Kotlin 1.4"
 
 # Compatibility Guide for Kotlin 1.4
 
-*Keeping the Language Modern* and *Comfortable Updates* are among the fundamental principles in Kotlin Language Design.
-The former says that constructions which obstruct language evolution should be removed, and the latter says that this
+[*Keeping the Language Modern* and *Comfortable Updates*](evolution/kotlin-evolution.html) are among the fundamental principles in Kotlin Language Design.
+The former says that constructs which obstruct language evolution should be removed, and the latter says that this
 removal should be well-communicated beforehand to make code migration as smooth as possible.
 
 While most of the language changes were already announced through other channels, like update changelogs or compiler warnings,
@@ -258,6 +258,110 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
+### Preserve intersection type for covariant types after unchecked cast
+ 
+> **Issue**: [KT-37280](https://youtrack.jetbrains.com/issue/KT-37280)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, uchecked casts of covariant types produce the intersection type for smart casts,
+>  not the type of the unchecked cast. 
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+
+### Type variable leaks from builder inference because of using `this` expression
+ 
+> **Issue**: [KT-32126](https://youtrack.jetbrains.com/issue/KT-32126)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, using `this` inside builder functions like `sequence {}` is prohibited if there are no other proper constraints
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+
+### Wrong overload resolution for contravariant types with nullable type arguments
+ 
+> **Issue**: [KT-31670](https://youtrack.jetbrains.com/issue/KT-31670)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, if two overloads of a function that takes contravariant type arguments differ only
+> by the nullability of the type (such as `In<T>` and `In<T?>`), the nullable type is considered more specific. 
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+
+### Builder inference with non-nested recursive constraints
+ 
+> **Issue**: [KT-34975](https://youtrack.jetbrains.com/issue/KT-34975)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, builder functions such as `sequence {}` with type that depends on a recursive
+> constraint inside the passed lambda cause a compiler error. 
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+
+### Eager type variable fixation leads to a contradictory constraint system
+ 
+> **Issue**: [KT-25175](https://youtrack.jetbrains.com/issue/KT-25175)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, the type inference in certain cases works less eagerly allowing to find the 
+> constraint system that is not contradictory.
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed,
+> `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
+> disable several new language features.
+>
+### Prohibit `tailrec` modifier on`open` functions
+
+> **Issue**: [KT-18541](https://youtrack.jetbrains.com/issue/KT-18541)
+> 
+> **Component**: Core language
+> 
+> **Incompatible change type**: source
+> 
+> **Short summary**: since Kotlin 1.4, functions can't have `open` and `tailrec` modifiers at the same time. 
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: report a warning on functions that have `open` and `tailrec` modifiers together (error in the progressive mode).
+> - \>= 1.4: raise this warning to an error.
+
 ### The `INSTANCE` field of a companion object more visible than the companion object class itself
 
 > **Issue**: [KT-11567](https://youtrack.jetbrains.com/issue/KT-11567)
@@ -427,7 +531,23 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed 
+> - \>= 1.4: behavior changed
+
+### Unify exceptions from null checks
+
+> **Issue**: [KT-22275](https://youtrack.jetbrains.com/issue/KT-22275)
+> 
+> **Component**: Kotlin/JVM
+> 
+> **Incompatible change type**: behavior
+> 
+> **Short summary**: Starting from Kotlin 1.4, all runtime null checks will throw a `java.lang.NullPointerException`
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: runtime null checks throw different exceptions, such as `KotlinNullPointerException`, `IllegalStateException`, 
+> `IllegalArgumentException`, and `TypeCastException`
+> - \>= 1.4: all runtime null checks throw a `java.lang.NullPointerException`
 
 ### Comparing floating point values in array/list operations `contains`, `indexOf`, `lastIndexOf`: IEEE 754 or total order
 
@@ -513,12 +633,12 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > **Incompatible change type**: source
 > 
-> **Short summary**: since Kotlin 1.4, the deprecated `kotlin.coroutines.experimental` API is removed from stdlib.
+> **Short summary**: since Kotlin 1.4, the deprecated `kotlin.coroutines.experimental` API is removed from stdlib
 > 
 > **Deprecation cycle**:
 > 
 > - < 1.4: `kotlin.coroutines.experimental` is deprecated with the `ERROR` level
-> - \>= 1.4: `mod` is removed from stdlib. On the JVM, a separate compatibility artifact is provided (see details in the issue).
+> - \>= 1.4: `kotlin.coroutines.experimental` is removed from stdlib. On the JVM, a separate compatibility artifact is provided (see details in the issue).
 
 ### Remove deprecated `mod` operator
 
@@ -534,3 +654,35 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > - < 1.4: `mod` is deprecated with the `ERROR` level
 > - \>= 1.4: `mod` is removed from stdlib
+
+### Hide `Throwable.addSuppressed` member and prefer extension instead
+
+> **Issue**: [KT-38777](https://youtrack.jetbrains.com/issue/KT-38777)
+> 
+> **Component**: kotlin-stdlib
+> 
+> **Incompatible change type**: behavior
+> 
+> **Short summary**: `Throwable.addSuppressed()` extension function is now preferred over the `Throwable.addSuppressed()` member function
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: old behavior (see details in the issue)
+> - \>= 1.4: behavior changed
+
+### `capitalize` should convert digraphs to title case
+
+> **Issue**: [KT-38817](https://youtrack.jetbrains.com/issue/KT-38817)
+> 
+> **Component**: kotlin-stdlib
+> 
+> **Incompatible change type**: behavior
+> 
+> **Short summary**: `String.capitalize()` function now capitalizes digraphs from the [Serbo-Croatian Gaj's Latin alphabet](https://en.wikipedia.org/wiki/Gaj%27s_Latin_alphabet)
+>in the title case (`ǅ` instead of `Ǆ`)
+> 
+> **Deprecation cycle**:
+> 
+> - < 1.4: digraphs are capitalized in the upper case (`Ǆ`)
+> - \>= 1.4: digraphs are capitalized in the title case (`ǅ`)
+

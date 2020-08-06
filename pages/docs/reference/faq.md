@@ -9,7 +9,7 @@ title: FAQ
 
 ### What is Kotlin?
 
-Kotlin is an OSS statically typed programming language that targets the JVM, Android, JavaScript and Native. 
+Kotlin is an open-source statically typed programming language that targets the JVM, Android, JavaScript and Native. 
 It’s developed by [JetBrains](http://www.jetbrains.com). The project started in 2010 and was open source from very early on. The first official 1.0 release was in February 2016. 
 
 ### What is the current version of Kotlin?
