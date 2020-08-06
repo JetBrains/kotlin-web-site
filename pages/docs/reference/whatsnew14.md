@@ -16,6 +16,7 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 * [Trailing comma in enumerations](#trailing-comma-in-enumerations)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
+* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
 
 ### SAM conversions for Kotlin interfaces
 
@@ -261,20 +262,7 @@ fun test(xs: List<Int>) {
 
 The fall-through behavior inside `when` is subject to further design.
 
-### Unified exception type for null checks
-
-Starting from Kotlin 1.4, all runtime null checks will throw a `java.lang.NullPointerException` instead of `KotlinNullPointerException`,
-`IllegalStateException`, `IllegalArgumentException`, and `TypeCastException`. This applies to: the `!!` operator, parameter
-null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-null type.
-This doesn’t apply to `lateinit` null checks and explicit library function calls like `checkNotNull` or `requireNotNull`.
-
-This change increases the number of possible null check optimizations that can be performed either by the Kotlin compiler
-or by various kinds of bytecode processing tools, such as the Android [R8 optimizer](https://developer.android.com/studio/build/shrink-code).
-
-Note that from a developer’s perspective, things won’t change that much: the Kotlin code will throw exceptions with the
-same error messages as before. The type of exception changes, but the information passed stays the same.
-
-## Explicit API mode for library authors
+### Explicit API mode for library authors
 
 Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
 help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
@@ -620,6 +608,12 @@ You can also opt into using the new JS IR back-end (ADD LINK).
 
 ## Kotlin/JVM
 
+Kotlin 1.4 includes a number of JVM-specific improvements, such as:
+ 
+* [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
+* [Unified exception type for null checks](#unified-exception-type-for-null-checks)
+* [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
+
 ### New modes for generating default methods
 
 When compiling Kotlin code to targets JVM 1.8 and above, you could compile non-abstract methods of Kotlin interfaces into
@@ -632,6 +626,19 @@ we also added `all-compatibility` mode.
 
 For more information about default methods in the Java interop, see the [documentation](java-to-kotlin-interop.html#default-methods-in-interfaces) and 
 [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/). 
+
+### Unified exception type for null checks
+
+Starting from Kotlin 1.4, all runtime null checks will throw a `java.lang.NullPointerException` instead of `KotlinNullPointerException`,
+`IllegalStateException`, `IllegalArgumentException`, and `TypeCastException`. This applies to: the `!!` operator, parameter
+null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-null type.
+This doesn’t apply to `lateinit` null checks and explicit library function calls like `checkNotNull` or `requireNotNull`.
+
+This change increases the number of possible null check optimizations that can be performed either by the Kotlin compiler
+or by various kinds of bytecode processing tools, such as the Android [R8 optimizer](https://developer.android.com/studio/build/shrink-code).
+
+Note that from a developer’s perspective, things won’t change that much: the Kotlin code will throw exceptions with the
+same error messages as before. The type of exception changes, but the information passed stays the same.
 
 ### Type annotations in the JVM bytecode
 
