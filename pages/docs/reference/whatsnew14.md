@@ -13,7 +13,7 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Delegated properties improvements](#delegated-properties-improvements)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
-* [Trailing comma in enumerations](#trailing-comma-in-enumerations)
+* [Trailing comma](#trailing-comma)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
 * [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
@@ -86,7 +86,7 @@ reformat('This is a String!', uppercaseFirstLetter = false , '-')
 
 </div>
 
-### Trailing comma in enumerations
+### Trailing comma
 
 With Kotlin 1.4 you can now add a trailing comma in enumerations such as argument 
 and parameter lists, `when` entries, and components of destructuring declarations.
@@ -421,12 +421,12 @@ Kotlin 1.3 by specifying a compiler option, and now it’s used by default. You 
 the new algorithm in [YouTrack](https://youtrack.jetbrains.com/issues/KT?q=Tag:%20fixed-in-new-inference%20). Here
 you can find some of the most noticeable improvements:
 
-* More cases where type is inferred automatically
-* Smart casts for a lambda’s last expression
-* Smart casts for callable references
-* Better inference for delegated properties
-* SAM conversion for Java interfaces with different arguments
-* Java SAM interfaces in Kotlin
+* [More cases where type is inferred automatically](#more-cases-where-type-is-inferred-automatically)
+* [Smart casts for a lambda’s last expression](#smart-casts-for-a-lambdas-last-expression)
+* [Smart casts for callable references](#smart-casts-for-callable-references)
+* [Better inference for delegated properties](#better-inference-for-delegated-properties)
+* [SAM conversion for Java interfaces with different arguments](#sam-conversion-for-java-interfaces-with-different-arguments)
+* [Java SAM interfaces in Kotlin](#java-sam-interfaces-in-kotlin)
 
 #### More cases where type is inferred automatically
 
@@ -609,13 +609,31 @@ share a lot of logic and have a unified pipeline. This allows us to implement mo
 only once for all platforms.
 
 A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
-pipeline and add custom processing and transformations that will automatically work for all platforms. 
+pipeline and add custom processing and transformations that will automatically work for all platforms.
+
+We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends and share your feedback with us.
+
+## Kotlin/JVM
+
+Kotlin 1.4 includes a number of JVM-specific improvements, such as:
+ 
+* [New JVM IR back-end](#new-jvm-ir-back-end)
+* [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
+* [Unified exception type for null checks](#unified-exception-type-for-null-checks)
+* [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
+
+### New JVM IR back-end
+
+Along with Kotlin/JS, we are migrating Kotlin/JVM to the [unified IR back-end](#unified-back-ends-and-extensibility), 
+which allows us to implement most features and bug fixes once for all platforms. You will also be able to benefit from this 
+by creating multiplatform extensions that will work for all platforms.
 
 Kotlin 1.4 does not provide a public API for such extensions yet, but we are working closely with our partners, 
 including [Jetpack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
 using our new back-end.
 
-We encourage you to try out the new Kotlin/JVM backend, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). This will help us to unify the compiler pipelines and bring compiler extensions like Jetpack Compose to the Kotlin community more quickly.
+We encourage you to try out the new Kotlin/JVM backend, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). 
+This will help us to unify the compiler pipelines and bring compiler extensions like Jetpack Compose to the Kotlin community more quickly.
 
 To enable the new JVM IR back-end, specify an additional compiler option in your Gradle build script:
 
@@ -637,15 +655,6 @@ When using the command-line compiler, add the compiler option `-Xuse-ir`.
 > Considering this, we don't recommend that library authors switch to the new back-end in production.
 {:.note}
 
-You can also opt into using the new JS IR back-end (ADD LINK).
-
-## Kotlin/JVM
-
-Kotlin 1.4 includes a number of JVM-specific improvements, such as:
- 
-* [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
-* [Unified exception type for null checks](#unified-exception-type-for-null-checks)
-* [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
 
 ### New modes for generating default methods
 
@@ -859,9 +868,9 @@ kotlin {
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
 and improvements:
 
-* Sharing code in several targets with the hierarchical project structure
-* Leveraging native libs in the hierarchical structure 
-* Specifying kotlinx dependencies only once
+* [Sharing code in several targets with the hierarchical project structure](#sharing-code-in-several-targets-with-the-hierarchical-project-structure)
+* [Leveraging native libs in the hierarchical structure](#leveraging-native-libs-in-the-hierarchical-structure)
+* [Specifying kotlinx dependencies only once](#specifying-dependencies-only-once)
 
 > Multiplatform projects require Gradle 6.0 or later.
 {:.note}
