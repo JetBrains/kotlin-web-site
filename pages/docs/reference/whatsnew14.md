@@ -1490,7 +1490,7 @@ that are supposed to be used directly; names of other artifacts remain unchanged
 ## Kotlin/JS
 
 ### New Gradle DSL
-The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides a number of new configuration options and is more closely aligned to the DSL used by Kotlin's `multiplatform` plugin. Some of the most impactful changes include:
+The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides a number of new configuration options and is more closely aligned to the DSL used by the `kotlin-multiplatform` plugin. Some of the most impactful changes include:
 
 - Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the executing Kotlin/JS and its environment [here](js-project-setup.html#choosing-execution-environment).
 - Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about using them [here](js-project-setup.html#configuring-css).
