@@ -388,14 +388,14 @@ You can try out the new Kotlin Project Wizard by working through these tutorials
 
 ### Coroutine Debugger
 
-Many people already use [coroutines](coroutines/coroutines-guide.html) for asynchronous programming. Before Kotlin 1.4, 
-when you wrote code with coroutines, trying to debug them could be a real pain. Since coroutines jumped between threads, 
+Many people already use [coroutines](coroutines/coroutines-guide.html) for asynchronous programming. But when it came to debugging, working with coroutines before Kotlin 1.4, 
+ could be a real pain. Since coroutines jumped between threads, 
 it was difficult to understand what a specific coroutine was doing and check its context. In some cases, tracking steps 
-over breakpoints simply didn’t work. As a result, you had to rely on logging or mental effort to debug the code with coroutines. 
+over breakpoints simply didn’t work. As a result, you had to rely on logging or mental effort to debug code that used coroutines. 
 
-In Kotlin 1.4, debugging coroutines becomes much more convenient with the new functionality shipped with the Kotlin plugin.
+In Kotlin 1.4, debugging coroutines is now much more convenient with the new functionality shipped with the Kotlin plugin.
 
-> Debugging works for `kotlinx-coroutines-core` library of version 1.3.8 or later.
+> Debugging works for versions 1.3.8 or later of the `kotlinx-coroutines-core`.
 {:.note}
 
 The **Debug Tool Window** now contains a new **Coroutines** tab. In this tab, you can find information about both currently 
@@ -407,11 +407,11 @@ Now you can:
 * Easily check the state of each coroutine.
 * See the values of local and captured variables for both running and suspended coroutines.
 * See a full coroutine creation stack, as well as a call stack inside the coroutine. The stack includes all frames with 
-variable values even those that would be lost during standard debugging.
+variable values, even those that would be lost during standard debugging.
 
-If you need a full report containing the state of each coroutine and its stack, right-click in the **Coroutines** tab, and then
-click **Get Coroutines Dump**. At the moment, the coroutines dump is rather simple, but we’re going to make it more readable 
-and helpful in future Kotlin versions.
+If you need a full report containing the state of each coroutine and its stack, right-click inside the **Coroutines** tab, and then
+click **Get Coroutines Dump**. Currently, the coroutines dump is rather simple, but we’re going to make it more readable 
+and helpful in future versions of Kotlin.
 
 <img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/coroutines-dump-wn.png' )}}" alt="Coroutines Dump" width="400"/>
 
