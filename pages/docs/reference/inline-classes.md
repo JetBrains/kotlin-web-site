@@ -219,7 +219,8 @@ tasks.withType<KotlinCompile> {
 </div>
 </div>
 
-See [Compiler options in Gradle](using-gradle.html#compiler-options) for details. For [Multiplatform Projects](whatsnew13.html#multiplatform-projects) settings, see [building Multiplatform Projects with Gradle](building-mpp-with-gradle.html#language-settings) section.
+See [Compiler options in Gradle](using-gradle.html#compiler-options) for details. For [multiplatform projects](mpp-intro.html), 
+see [language settings](mpp-dsl-reference.html#language-settings).
 
 ### Enabling inline classes in Maven
 

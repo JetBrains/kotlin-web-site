@@ -207,15 +207,34 @@ reference:
         branch: master
 
     - title: Multiplatform Programming
-      description: Reusing code across JVM, JS, and Native
+      description: Reusing code across different platforms
       content:
-        - url: /docs/reference/platform-specific-declarations.html
-          title: Platform-Specific Declarations
-        - url: /docs/reference/building-mpp-with-gradle.html
-          title: Building with Gradle
+        - url: /docs/reference/mpp-intro.html
+          title: Kotlin Multiplatform
+        - url: /docs/reference/mpp-create-lib.html
+          title: Create a multiplatform library
+        - url: /docs/reference/mpp-discover-project.html
+          title: Discover your project
+        - url: /docs/reference/mpp-share-on-platforms.html
+          title: Share code on platforms
+        - url: /docs/reference/mpp-connect-to-apis.html
+          title: Connect to platform-specific APIs
+        - url: /docs/reference/mpp-set-up-targets.html
+          title: Set up targets manually
+        - url: /docs/reference/mpp-add-dependencies.html
+          title: Add dependencies
+        - url: /docs/reference/mpp-configure-compilations.html
+          title: Configure compilations
+        - url: /docs/reference/mpp-run-tests.html
+          title: Run tests
+        - url: /docs/reference/mpp-publish-lib.html
+          title: Publish a multiplatform library
+        - url: /docs/reference/mpp-build-native-binaries.html
+          title: Build final native binaries
+        - url: /docs/reference/mpp-supported-platforms.html
+          title: Supported platforms
         - url: /docs/reference/mpp-dsl-reference.html
           title: Multiplatform Gradle DSL Reference
-
 
     - title: More Language Constructs
       description: Various bits and bobs
@@ -290,6 +309,10 @@ reference:
          title: JavaScript Reflection
        - url: /docs/reference/javascript-dce.html
          title: JavaScript DCE
+       - url: /docs/reference/js-ir-compiler.html
+         title: IR Compiler
+       - url: /docs/reference/js-external-declarations-with-dukat.html
+         title: Generating External Declarations with Dukat
 
     - title: Native
       description: Using Kotlin/Native for iOS and Native

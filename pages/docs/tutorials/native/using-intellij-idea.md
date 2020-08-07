@@ -46,5 +46,5 @@ The sample project can serve as the basis for any new project for Kotlin/Native.
 For further information, check out:
 
 * [Kotlin/Native Gradle plugin](/docs/reference/native/gradle_plugin.html)
-* [Building Multiplatform Projects with Gradle](/docs/reference/building-mpp-with-gradle.html)
+* [Multiplatform Projects](/docs/reference/mpp-discover-project.html)
 

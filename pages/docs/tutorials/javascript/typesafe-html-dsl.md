@@ -30,7 +30,7 @@ Once the dependency is included, we can access the different interfaces provided
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-import kotlin.browser.*
+import kotlinx.browser.*
 import kotlinx.html.*
 import kotlinx.html.dom.*
 

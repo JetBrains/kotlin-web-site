@@ -38,11 +38,41 @@ check [our instructions on how to configure your build to support this version](
         <th>kotlinx library versions</th>
     </tr>
     <tr>
+        <td><strong>1.4.0-rc</strong>
+            <p> Released: <strong>July 27, 2020</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.0-rc" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <ul>
+                <li>New functionality to conveniently debug coroutines</li>
+                <li>Improved <code>*.gradle.kts</code> IDE support</li>
+                <li>All source sets now include the standard library dependency by default</li>
+                <li>Simplified management of CocoaPods dependencies</li>
+                <li>Improved Kotlin/JS integrations</li>
+            </ul>
+            <p> For more details, please refer to <a href="http://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-released/" target="_blank">the blog post</a>.</p>
+         </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong>
+                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/1.0-M1-1.4.0-rc" target="_blank">1.0-M1-1.4.0-rc</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.8-1.4.0-rc" target="_blank">1.3.8-1.4.0-rc
+                </a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4.0-rc" target="_blank">0.14.3-1.4.0-rc
+                </a></li>          
+                 <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4.0-rc" target="_blank">1.3.2-1.4.0-rc</a></li>
+            </ul>
+        </td>
+    </tr>       
+    <tr>
         <td><strong>1.4-M3</strong>
             <p> Released: <strong>July 6, 2020</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M3" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
+            <p><a href="https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/" target="_blank">New modes for generating default methods</a></p>
             <p>Standard library improvements:</p>
             <ul>
                 <li>Supported functional interfaces</li>
