@@ -11,7 +11,6 @@ title: "What's New in Kotlin 1.4"
 Kotlin 1.4 comes with a variety of different language features and improvements. They include:
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
-* [Delegated properties improvements](#delegated-properties-improvements)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Trailing comma in enumerations](#trailing-comma-in-enumerations)
 * [Callable reference improvements](#callable-reference-improvements)
@@ -44,18 +43,6 @@ fun main() {
 </div>
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
-
-### Delegated properties improvements
-
-In 1.4, we have added new features to improve your experience with delegated properties in Kotlin:
-- Now a property can be delegated to another property.
-- A new interface `PropertyDelegateProvider` helps create delegate providers in a single declaration.
-- `ReadWriteProperty` now extends `ReadOnlyProperty` so you can use both of them for read-only properties.
-
-Aside from the new API, we've made some optimizations that reduce the resulting bytecode size. These optimizations are
-described in  [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
-
-For more information about delegated properties, see the [documentation](delegated-properties.html).
 
 ### Mixing named and positional arguments
 
@@ -716,8 +703,8 @@ In 1.4, Kotlin/Native got a significant number of new features and improvements,
 * [Objective-C generics support by default](#objective-c-generics-support-by-default)
 * [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
 * [Generate release `.dSYM`s on Apple targets by default](#generate-release-dsyms-on-apple-targets-by-default)
+* [Performance improvements](#performance-improvements)
 * [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
-* [mimalloc memory allocator](#mimalloc-memory-allocator)
 
 ### Support for Kotlin’s suspending functions in Swift and Objective-C
 
@@ -808,6 +795,24 @@ kotlin {
 
 For more information about crash report symbolication, see the [documentation](native/ios_symbolication.html).
 
+### Performance improvements
+
+Kotlin/Native has received a number of performance improvements that speed up both the development process and execution.
+Here are some examples:
+
+- To improve the speed of object allocation, we now offer the [mimalloc](https://github.com/microsoft/mimalloc)
+memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
+Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
+
+- We’ve reworked how C interop libraries are built. With the new tooling, Kotlin/Native produces interop libraries up to
+4 times as fast as before, and artifacts are 25% to 30% the size they used to be.
+
+- Overall runtime performance has improved because of optimizations in GC. This improvement will be especially apparent
+in projects with a large number of long-lived objects. `HashMap` and `HashSet` collections now work faster by escaping redundant boxing.
+
+- In 1.3.70 we introduced two new features for improving the performance of Kotlin/Native compilation:
+[caching project dependencies and running the compiler from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native).
+Since that time, we’ve managed to fix numerous issues and improve the overall stability of these features.
 
 ### Simplified management of CocoaPods dependencies
 
@@ -834,24 +839,6 @@ The new dependency will be added automatically. No additional steps are required
 
 Learn [how to add dependencies](native/cocoapods.html).
 
-### mimalloc memory allocator
-
-To improve the speed of object allocation, Kotlin/Native now offers the [mimalloc](https://github.com/microsoft/mimalloc)
-memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
-Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-kotlin {
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        binaries.all {
-            freeCompilerArgs += "-Xallocator=mimalloc"
-        }
-    }
-}
-```
-</div>
 
 ## Kotlin Multiplatform
 
@@ -1067,6 +1054,7 @@ Here is the list of the most significant changes to the Kotlin standard library 
 - [New functions for arrays and collections](#new-functions-for-arrays-and-collections)
 - [Functions for string manipulations](#functions-for-string-manipulations)
 - [Bit operations](#bit-operations)
+- [Delegated properties improvements](#delegated-properties-improvements)
 - [Converting from KType to Java Type](#converting-from-ktype-to-java-type)
 - [Proguard configurations for Kotlin reflection](#proguard-configurations-for-kotlin-reflection)
 - [Improving the existing API](#improving-the-existing-api)
@@ -1249,28 +1237,6 @@ of all four functions that return `null` on empty collections.
 * `removeFirst()` and `removeLast()` shortcuts for removing elements from mutable lists, and `*orNull()` counterparts
 of these functions.
 
-We've also added the `ArrayDeque` class – an implementation of a double-ended queue.
-
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
-
-```kotlin
-fun main() {
-    val deque = ArrayDeque(listOf(1, 2, 3))
-
-    deque.addFirst(0)
-    deque.addLast(4)
-    println(deque) // [0, 1, 2, 3, 4]
-
-    println(deque.first()) // 0
-    println(deque.last()) // 4
-
-    deque.removeFirst()
-    deque.removeLast()
-    println(deque) // [1, 2, 3]
-}
-```
-</div>
-
 #### Arrays
 
 To provide a consistent experience when working with different container types, we’ve also added new functions for **arrays**:
@@ -1320,6 +1286,35 @@ fun main() {
 }
 ```
 </div>
+
+#### ArrayDeque
+
+We've also added the `ArrayDeque` class – an implementation of a double-ended queue.
+Double-ended queue lets you can add or remove elements both at the beginning and the end of the queue in an amortized
+constant time. You can use a double-ended queue by default when you need a queue or a stack in your code.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+    val deque = ArrayDeque(listOf(1, 2, 3))
+
+    deque.addFirst(0)
+    deque.addLast(4)
+    println(deque) // [0, 1, 2, 3, 4]
+
+    println(deque.first()) // 0
+    println(deque.last()) // 4
+
+    deque.removeFirst()
+    deque.removeLast()
+    println(deque) // [1, 2, 3]
+}
+```
+</div>
+
+The `ArrayDeque` implementation uses a resizable array underneath: it stores the contents in a circular buffer, an `Array`,
+and resizes this `Array` only when it becomes full.
 
 ### Functions for string manipulations
 
@@ -1385,6 +1380,18 @@ fun main() {
 }
 ```
 </div>
+
+### Delegated properties improvements
+
+In 1.4, we have added new features to improve your experience with delegated properties in Kotlin:
+- Now a property can be delegated to another property.
+- A new interface `PropertyDelegateProvider` helps create delegate providers in a single declaration.
+- `ReadWriteProperty` now extends `ReadOnlyProperty` so you can use both of them for read-only properties.
+
+Aside from the new API, we've made some optimizations that reduce the resulting bytecode size. These optimizations are
+described in [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
+
+For more information about delegated properties, see the [documentation](delegated-properties.html).
 
 ### Converting from KType to Java Type
 
