@@ -812,7 +812,7 @@ in projects with a large number of long-lived objects. `HashMap` and `HashSet` c
 
 - In 1.3.70 we introduced two new features for improving the performance of Kotlin/Native compilation:
 [caching project dependencies and running the compiler from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native).
-Since that time, we’ve managed to fix numerous issues and improve the overall stability of these features, and new encourage you to use them.
+Since that time, we’ve managed to fix numerous issues and improve the overall stability of these features.
 
 ### Simplified management of CocoaPods dependencies
 
