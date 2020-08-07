@@ -383,7 +383,7 @@ over breakpoints simply didn’t work. As a result, you had to rely on logging o
 
 In Kotlin 1.4, debugging coroutines is now much more convenient with the new functionality shipped with the Kotlin plugin.
 
-> Debugging works for versions 1.3.8 or later of the `kotlinx-coroutines-core`.
+> Debugging works for versions 1.3.8 or later of `kotlinx-coroutines-core`.
 {:.note}
 
 The **Debug Tool Window** now contains a new **Coroutines** tab. In this tab, you can find information about both currently 
@@ -655,7 +655,6 @@ When using the command-line compiler, add the compiler option `-Xuse-ir`.
 > You can use code compiled by the new JVM IR back-end only if you've enabled the new back-end. Otherwise, you will get an error.
 > Considering this, we don't recommend that library authors switch to the new back-end in production.
 {:.note}
-
 
 ### New modes for generating default methods
 
