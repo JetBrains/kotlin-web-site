@@ -1026,6 +1026,7 @@ Besides Gradle project features and improvements that are specific to [Kotlin Mu
 
 * [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
 * [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
+* [Improved support for Kotlin Gradle DSL in the IDE](#improved-gradlekts-support-in-the-ide)
 
 ### Dependency on the standard library added by default
 
@@ -1045,6 +1046,24 @@ Learn how to [change the default behavior](using-gradle.html#dependency-on-the-s
 
 To enjoy the new features in your Kotlin projects, update Gradle to the [latest version](https://gradle.org/releases/). 
 Multiplatform projects require Gradle 6.0 or later, while other Kotlin projects work with Gradle 5.4 or later.
+
+### Improved *.gradle.kts support in the IDE 
+
+In 1.4, we continued improving the IDE support for Gradle Kotlin DSL scripts (`*.gradle.kts` files). Here is what the new
+version brings:
+
+- _Explicit loading of script configurations_ for better performance. Previously, the changes you make to the build script
+were loaded automatically in the background. In 1.4, we've disabled the automatic loading of build script configuration. 
+Now IDE loads the changes only when you explicitly apply them by clicking **Load Gradle Changes** or by reimporting the
+Gradle project.
+ 
+  We’ve added one more action in IntelliJ IDEA 2020.1 – **Load Script Configurations**, which loads changes
+to the script configurations without updating the whole project. This takes much less time than reimporting the whole project.
+
+- _Better error reporting_. Previously you could only see errors from the Gradle Daemon in separate log files. Now the
+Gradle Daemon returns all the information about errors directly and shows it in the Build tool window. This saves you both
+time and effort.
+
 
 ## Standard library
 
