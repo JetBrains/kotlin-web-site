@@ -1497,10 +1497,10 @@ The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides 
 - Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. Read more about dependency management for npm packages directly from Gradle [here](js-project-setup.html#npm-dependencies).
 - Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. Read more about how to use the integration [here](js-modules.html#automatic-generation-of-external-declarations-with-dukat).
 
-### JS IR compiler backend
-The [IR compiler backend for Kotlin/JS](js-ir-compiler.html), which is currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
+### New JS IR back-end
+The [IR back-end for Kotlin/JS](js-ir-compiler.html), which is currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
 
-To enable the Kotlin/JS compiler backend, set the key `kotlin.js.compiler=ir` in your `gradle.properties`, or pass the `IR` compiler type to the `js` function of your Gradle build script:
+To enable the Kotlin/JS IR back-end, set the key `kotlin.js.compiler=ir` in your `gradle.properties`, or pass the `IR` compiler type to the `js` function of your Gradle build script:
 
 
 <!--suppress ALL -->
@@ -1517,8 +1517,8 @@ kotlin {
 
 </div>
 
-For more detailed information about how to configure the Kotlin/JS IR compiler backend, check out the [documentation](js-ir-compiler.html).
+For more detailed information about how to configure the Kotlin/JS IR compiler back-end, check out the [documentation](js-ir-compiler.html).
 
-With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler backend improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
+With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler back-end improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
 
-Learn more about the available features in the Kotlin/JS IR compiler backend in the [documentation](js-ir-compiler.html).
+Learn more about the available features in the Kotlin/JS IR compiler back-end in the [documentation](js-ir-compiler.html).
