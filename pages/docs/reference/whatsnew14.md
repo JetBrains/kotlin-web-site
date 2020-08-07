@@ -1567,6 +1567,6 @@ or it is not recommended in 1.4.0.
 <img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/run-migration-wn.png' )}}" alt="Run migration" width="300"/>
 
 Code inspections have different [severity levels](https://www.jetbrains.com/help/idea/configuring-inspection-severities.html), 
-so you can decide which suggestions to accept and correct the code and which ones to ignore.
+so you can decide which suggestions to accept and correct the code and ignore others.
 
 ![Migration inspections]({{ url_for('asset', path='images/reference/whats-new/migration-inspection-wn.png') }})
