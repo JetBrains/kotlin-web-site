@@ -211,14 +211,15 @@ value?.let {
 ```
 </div>
 
-### Map nullable value if not null
+
+### Map value if not null
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
 val value = ...
 
 val mapped = value?.let { transformValue(it) } ?: defaultValue 
-// defaultValue is returned if the value or the transform result is null.
+// defaultValue is returned if null or transform result if value is present.
 ```
 </div>
 
