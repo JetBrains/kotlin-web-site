@@ -1,6 +1,220 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>zn</lang>
+        <startDate>2020-07-25</startDate>
+        <endDate>2020-07-25</endDate>
+        <location>Shanghai, China</location>
+        <speaker>Huo Binggan</speaker>
+        <title>Google Developer Group - GDG Shanghai</title>
+        <subject>Kotlin 协程那些事儿</subject>
+        <url>https://www.meetup.com/Shanghai-GDG/events/271624622/</url>
+        <description>
+            <![CDATA[
+<p>简介：Kotlin 协程现在越来越成熟，也已经非常适合运用于生产环境当中，而广大开发者对 Kotlin 协程却充满了困惑。这一次我们就大家经常提及的问题进行详细剖析和解答。</p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>zn</lang>
+        <startDate>2020-07-25</startDate>
+        <endDate>2020-07-25</endDate>
+        <location>Shanghai, China</location>
+        <speaker>Huang Linqing</speaker>
+        <title>Google Developer Group - GDG Shanghai</title>
+        <subject>Jetpack Architecture Components 从 0 到</subject>
+        <url>https://www.meetup.com/Shanghai-GDG/events/271624622/</url>
+        <description>
+            <![CDATA[
+<p>简介：通过线上编码方式，结合实际用例，展现 Jetpack 架构组件从 0 到 1 的使用过程</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>zn</lang>
+        <startDate>2020-07-25</startDate>
+        <endDate>2020-07-25</endDate>
+        <location>Shanghai, China</location>
+        <speaker>Fan Shengyou</speaker>
+        <title>Google Developer Group - GDG Shanghai</title>
+        <subject>踏上 Kotlin 学习之路</subject>
+        <url>https://www.meetup.com/Shanghai-GDG/events/271624622/</url>
+        <description>
+            <![CDATA[
+<p>简介：在这 10 分钟的分享里，JetBrains 技术布道师将会为大家准备一份学习材料清单，让对 Kotlin 有兴趣的同学可以快速上手 Kotlin，踏上一条进入 Kotlin 的最短路程。</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-07-25</startDate>
+        <endDate>2020-07-25</endDate>
+        <location>Valencia, Spain</location>
+        <speaker>Carlos Ballesteros Velasco</speaker>
+        <title>Kotlin.es</title>
+        <subject>Creando un Conecta-4 en Kotlin y KorGE usando TDD</subject>
+        <url>https://www.meetup.com/Kotlin-es/events/272028949/</url>
+        <description>
+            <![CDATA[
+<p>En este webinar de Carlos Ballesteros Velasco veremos cómo construir un juego de Conecta-4 funcional jugable en escritorio, móvil y web usando TDD, el lenguaje de programación Kotlin y el motor para hacer videojuegos KorGE.</p>
+<p>Retransmitiremos el webinar via youtube en directo y Tamara Gadea Morera se encargará de recopilar todas las dudas por el chat del vídeo. Al finalizar el evento contestaremos todas dudas que hayan ido surgiendo a lo largo del webinar.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-07-30</startDate>
+        <endDate>2020-07-30</endDate>
+        <location>Santiago, Chile</location>
+        <speaker>Andrés Zamor</speaker>
+        <title>GDG Santiago de Chile</title>
+        <subject>Remoto: Código compartido con Kotlin multiplataforma</subject>
+        <url>https://www.meetup.com/gdg-santiago-chile/events/271754517/</url>
+        <description>
+            <![CDATA[
+<p>Querida comunidad!
+Se viene un nuevo meetup remoto! Están todos invitados a participar sin importar el nivel de conocimiento que tengan sobre el desarrollo de software, si tienen habilidades a fines, UX, Designer, reclutadores, etc. o si solo son entusiastas tecnológicos. Recuerden que este es un evento de la comunidad para la comunidad, por lo que queremos conocer sus proyectos y saber en qué están.</p>
+<p>Código compartido con Kotlin multiplataforma: Usemos kotlin para compartir código nativo entre Android y iOS. Un breve ejemplo de cómo configurar tu library nativa en función de no reescribir código de lógica que puede ser compartida y una demo donde podremos ver algunos pros y contras de esta tecnología. Discusión abierta para generar ideas.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-01</startDate>
+        <endDate>2020-08-01</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Siddhesh Pati</speaker>
+        <title>Kotlin Hyderabad</title>
+        <subject>Introduction to Kotlin</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/271836886/</url>
+        <description>
+            <![CDATA[
+<p>Mobile software is a decade old passion for Siddhesh. He has built various apps on multiple mobile platforms in both personal and professional capacity. Leading the efforts of development teams he has helped businesses achieve their product goals. Sectors like banking, payments and entertainment ticketing have benefited from apps he has developed.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-05</startDate>
+        <endDate>2020-08-05</endDate>
+        <location>London, UK</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>Kotlin London</title>
+        <subject>gRPC with Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/kotlin-london/events/271759690/</url>
+        <description>
+            <![CDATA[
+<p>gRPC is a technology that allows you to call server side logic from any platform using protocol buffers. What are the libraries available that allow you to create and consume gRPC services using coroutines? What are the debugging and monitoring tools we could use for gRPC?</p>
+<p>In this talk, I will share with you how to build a gRPC server using the gRPC-Kotlin library. We’ll explore how to use protocol buffers to define different types of rpc calls that are unary and bidirectional. On the client side, we’ll also use this library to consume our gRPC service. gRPC-Kotlin provides an API that uses Flows to make rpc calls. We’ll explore how it works internally. For each rpc call we implement using coroutines, I’ll show you how to unit test it.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-05</startDate>
+        <endDate>2020-08-05</endDate>
+        <location>London, UK</location>
+        <speaker>Uberto Barbini</speaker>
+        <title>Kotlin London</title>
+        <subject>Validating Requirements and Domain with Pesticide</subject>
+        <url>https://www.meetup.com/kotlin-london/events/271759690/</url>
+        <description>
+            <![CDATA[
+<p>We needed to validate our use cases with tests:
+- that specify the user intents, not the technical details
+- that are human-readable (but without regex tricks)
+- that verify our hexagonal architecture running both end-to-end and
+in the domain only
+- that can guide our architecture like unit-tests are driving our design</p>
+<p>This talk is about how we solved these problems with the DDT approach
+and how you can apply this technique on your own backend application.
+A demonstration with live coding will show how to write them and use
+it to drive the development.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2020-07-30</startDate>
+        <endDate>2020-07-30</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Jenifer Spinoza, Stephannie Suzart</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>Uma breve introdução sobre Generics</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/272081738/</url>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2020-07-30</startDate>
+        <endDate>2020-07-30</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Rafael Toledo</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>Game Dev com... Kotlin Native?</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/272081738/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-13</startDate>
+        <endDate>2020-08-13</endDate>
+        <location>Irvine, USA</location>
+        <speaker>Tony Kazanjian</speaker>
+        <title>OC Kotlin Krew</title>
+        <subject>Falling Into That State (of) Flow: Easy State Management</subject>
+        <url>https://www.meetup.com/OCKotlinKrew/events/272092928/</url>
+        <description>
+            <![CDATA[
+<p>You may have heard about StateFlow, a new class introduced in the Kotlin Coroutine library this past Spring. What is it exactly, and how can we leverage it to handle our application states in a simple and elegant way?</p>
+<p>Join Krew member, Tony Kazanjian, as he walks you through creating a sample app with a modern, clean approach to updating states that can show you just how easy it is to start using this new class in any of your new or current projects!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-15</startDate>
+        <endDate>2020-08-15</endDate>
+        <location>La Paz, Bolivia</location>
+        <speaker>Gustavo Lizárraga</speaker>
+        <title>Kotlin La Paz</title>
+        <subject>KotlinConf'2020 Global La Paz</subject>
+        <url>https://www.meetup.com/KotlinLPZ/events/267718139/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin es el lenguaje de programación oficial para el desarrollo de aplicaciones Android, también tiene el poder para desarrollar aplicaciones Web y Multiplataforma.</p>
+<p>Kotlin Conf es la conferencia anual más importante de Jetbrains para dar a conocer todas las novedades del lenguaje, la última versión se llevó a cabo del 4 al 6 de Diciembre en Copenhagen.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-20</startDate>
+        <endDate>2020-08-20</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Florina Muntenescu</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Kotlin Meetup - August Edition</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/272127433/</url>
+        <description>
+            <![CDATA[
+<p>Have you been working on a project with Kotlin? Is there a library you would like to discuss? Would you like to try public speaking or need help to prepare a talk? Message us, come and have fun sharing your Kotlin story!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2020-05-14</startDate>
         <endDate>2020-05-14</endDate>
@@ -11745,12 +11959,11 @@ Following will be the key takeaways
 <p>La programación asincrónica es muy importante. Ya sea que estemos creando aplicaciones del lado del servidor, de escritorio o móviles, es importante que brindemos una experiencia que no solo sea fluida desde la perspectiva del usuario, sino que sea escalable cuando sea necesario.</p>
 <p>Existen muchos enfoques para este problema, y Kotlin toma uno muy flexible al proporcionar soporte de Corutinas a nivel de lenguaje y delegar la mayor parte de la funcionalidad a las bibliotecas, en línea con la filosofía de Kotlin.</p>
         ]]>
-         </description>
-</event>
+        </description>
+    </event>
 
 
-
-<event>
+    <event>
         <lang>en</lang>
         <startDate>2020-06-12</startDate>
         <endDate>2020-06-12</endDate>
@@ -12024,7 +12237,7 @@ Following will be the key takeaways
         <lang>en</lang>
         <startDate>2020-07-01</startDate>
         <endDate>2020-07-01</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Garth Gilmour</speaker>
         <title>Kotlin London</title>
         <subject>Generics on the JVM: What you don't know will hurt you</subject>
@@ -12166,7 +12379,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
     <event>
         <lang>en</lang>
         <startDate>2020-07-14</startDate>
@@ -12182,7 +12394,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12202,7 +12413,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
     <event>
         <lang>zn</lang>
         <startDate>2020-07-18</startDate>
@@ -12218,7 +12428,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12238,7 +12447,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
     <event>
         <lang>es</lang>
         <startDate>2020-07-22</startDate>
@@ -12254,7 +12462,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12274,7 +12481,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
     <event>
         <lang>en</lang>
         <startDate>2020-07-23</startDate>
@@ -12290,9 +12496,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
-
-
 
 
     <event>
@@ -12312,8 +12515,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
-
     <event>
         <lang>en</lang>
         <startDate>2020-07-30</startDate>
@@ -12329,7 +12530,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12351,7 +12551,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
     <event>
         <lang>en</lang>
         <startDate>2020-07-24</startDate>
@@ -12367,7 +12566,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12386,8 +12584,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
-
 
 
     <event>
@@ -12412,8 +12608,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
-
     <event>
         <lang>en</lang>
         <startDate>2020-06-05</startDate>
@@ -12433,7 +12627,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12456,7 +12649,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
     <event>
         <lang>en</lang>
         <startDate>2020-06-05</startDate>
@@ -12475,7 +12667,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12499,7 +12690,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
     </event>
 
 
-
     <event>
         <lang>en</lang>
         <startDate>2020-06-05</startDate>
@@ -12519,7 +12709,6 @@ Checkout Adam's blog: https://adambennett.dev/</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12550,8 +12739,6 @@ Then let us start from the beginning...</p>
     </event>
 
 
-
-
     <event>
         <lang>en</lang>
         <startDate>2020-06-05</startDate>
@@ -12570,7 +12757,6 @@ Then let us start from the beginning...</p>
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12625,7 +12811,6 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
     </event>
 
 
-
     <event>
         <lang>en</lang>
         <startDate>2020-06-05</startDate>
@@ -12649,7 +12834,6 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
     </event>
 
 
-
     <event>
         <lang>en</lang>
         <startDate>2020-06-05</startDate>
@@ -12668,7 +12852,6 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
 ]]>
         </description>
     </event>
-
 
 
     <event>
@@ -12691,7 +12874,6 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
     </event>
 
 
-
     <event>
         <lang>en</lang>
         <startDate>2020-06-05</startDate>
@@ -12712,8 +12894,6 @@ Using existing Java game engines, you can create a game that runs on the JVM, in
 ]]>
         </description>
     </event>
-
-
 
 
     <event>

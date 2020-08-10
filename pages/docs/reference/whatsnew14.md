@@ -11,9 +11,8 @@ title: "What's New in Kotlin 1.4"
 Kotlin 1.4 comes with a variety of different language features and improvements. They include:
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
-* [Delegated properties improvements](#delegated-properties-improvements)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
-* [Trailing comma in enumerations](#trailing-comma-in-enumerations)
+* [Trailing comma](#trailing-comma)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
 * [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
@@ -45,18 +44,6 @@ fun main() {
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
 
-### Delegated properties improvements
-
-In 1.4, we have added new features to improve your experience with delegated properties in Kotlin:
-- Now a property can be delegated to another property.
-- A new interface `PropertyDelegateProvider` helps create delegate providers in a single declaration.
-- `ReadWriteProperty` now extends `ReadOnlyProperty` so you can use both of them for read-only properties.
-
-Aside from the new API, we've made some optimizations that reduce the resulting bytecode size. These optimizations are
-described in  [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
-
-For more information about delegated properties, see the [documentation](delegated-properties.html).
-
 ### Mixing named and positional arguments
 
 In Kotlin 1.3, when you called a function with [named arguments](functions.html#named-arguments), you had to place all the
@@ -86,7 +73,7 @@ reformat('This is a String!', uppercaseFirstLetter = false , '-')
 
 </div>
 
-### Trailing comma in enumerations
+### Trailing comma
 
 With Kotlin 1.4 you can now add a trailing comma in enumerations such as argument 
 and parameter lists, `when` entries, and components of destructuring declarations.
@@ -343,6 +330,7 @@ For more details about the explicit API mode, see the [KEEP](https://github.com/
 With Kotlin 1.4, you can use the new tools in IntelliJ IDEA to simplify Kotlin development:
 
 * [New flexible Project Wizard](#new-flexible-project-wizard)
+* [Coroutine Debugger](#coroutine-debugger)
 
 ### New flexible Project Wizard
 
@@ -373,13 +361,45 @@ You can try out the new Kotlin Project Wizard by working through these tutorials
 * [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
 * [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
 
+### Coroutine Debugger
+
+Many people already use [coroutines](coroutines/coroutines-guide.html) for asynchronous programming. But when it came to debugging, working with coroutines before Kotlin 1.4, 
+ could be a real pain. Since coroutines jumped between threads, 
+it was difficult to understand what a specific coroutine was doing and check its context. In some cases, tracking steps 
+over breakpoints simply didn’t work. As a result, you had to rely on logging or mental effort to debug code that used coroutines. 
+
+In Kotlin 1.4, debugging coroutines is now much more convenient with the new functionality shipped with the Kotlin plugin.
+
+> Debugging works for versions 1.3.8 or later of `kotlinx-coroutines-core`.
+{:.note}
+
+The **Debug Tool Window** now contains a new **Coroutines** tab. In this tab, you can find information about both currently 
+running and suspended coroutines. The coroutines are grouped by the dispatcher they are running on. 
+
+![Debugging coroutines]({{ url_for('asset', path='images/reference/whats-new/coroutine-debugger-wn.png') }})
+
+Now you can:
+* Easily check the state of each coroutine.
+* See the values of local and captured variables for both running and suspended coroutines.
+* See a full coroutine creation stack, as well as a call stack inside the coroutine. The stack includes all frames with 
+variable values, even those that would be lost during standard debugging.
+
+If you need a full report containing the state of each coroutine and its stack, right-click inside the **Coroutines** tab, and then
+click **Get Coroutines Dump**. Currently, the coroutines dump is rather simple, but we’re going to make it more readable 
+and helpful in future versions of Kotlin.
+
+<img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/coroutines-dump-wn.png' )}}" alt="Coroutines Dump" width="400"/>
+
+Learn more about debugging coroutines in [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/)
+and [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/debug-kotlin-coroutines.html).
+
 ## New compiler
 
 The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
 an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4:
 
 * [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is enabled by default. 
-* [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility) are available in experimental mode. They will become the default once we stabilize them.
+* [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility) are now in Alpha. They will become the default once we stabilize them.
 
 ### New more powerful type inference algorithm
 
@@ -388,12 +408,12 @@ Kotlin 1.3 by specifying a compiler option, and now it’s used by default. You 
 the new algorithm in [YouTrack](https://youtrack.jetbrains.com/issues/KT?q=Tag:%20fixed-in-new-inference%20). Here
 you can find some of the most noticeable improvements:
 
-* More cases where type is inferred automatically
-* Smart casts for a lambda’s last expression
-* Smart casts for callable references
-* Better inference for delegated properties
-* SAM conversion for Java interfaces with different arguments
-* Java SAM interfaces in Kotlin
+* [More cases where type is inferred automatically](#more-cases-where-type-is-inferred-automatically)
+* [Smart casts for a lambda’s last expression](#smart-casts-for-a-lambdas-last-expression)
+* [Smart casts for callable references](#smart-casts-for-callable-references)
+* [Better inference for delegated properties](#better-inference-for-delegated-properties)
+* [SAM conversion for Java interfaces with different arguments](#sam-conversion-for-java-interfaces-with-different-arguments)
+* [Java SAM interfaces in Kotlin](#java-sam-interfaces-in-kotlin)
 
 #### More cases where type is inferred automatically
 
@@ -576,13 +596,32 @@ share a lot of logic and have a unified pipeline. This allows us to implement mo
 only once for all platforms.
 
 A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
-pipeline and add custom processing and transformations that will automatically work for all platforms. 
+pipeline and add custom processing and transformations that will automatically work for all platforms.
+
+We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends, which are currently in Alpha, and 
+share your feedback with us.
+
+## Kotlin/JVM
+
+Kotlin 1.4 includes a number of JVM-specific improvements, such as:
+ 
+* [New JVM IR back-end](#new-jvm-ir-back-end)
+* [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
+* [Unified exception type for null checks](#unified-exception-type-for-null-checks)
+* [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
+
+### New JVM IR back-end
+
+Along with Kotlin/JS, we are migrating Kotlin/JVM to the [unified IR back-end](#unified-back-ends-and-extensibility), 
+which allows us to implement most features and bug fixes once for all platforms. You will also be able to benefit from this 
+by creating multiplatform extensions that will work for all platforms.
 
 Kotlin 1.4 does not provide a public API for such extensions yet, but we are working closely with our partners, 
 including [Jetpack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
 using our new back-end.
 
-We encourage you to try out the new Kotlin/JVM backend, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). This will help us to unify the compiler pipelines and bring compiler extensions like Jetpack Compose to the Kotlin community more quickly.
+We encourage you to try out the new Kotlin/JVM backend, which is currently in Alpha, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). 
+This will help us to unify the compiler pipelines and bring compiler extensions like Jetpack Compose to the Kotlin community more quickly.
 
 To enable the new JVM IR back-end, specify an additional compiler option in your Gradle build script:
 
@@ -603,16 +642,6 @@ When using the command-line compiler, add the compiler option `-Xuse-ir`.
 > You can use code compiled by the new JVM IR back-end only if you've enabled the new back-end. Otherwise, you will get an error.
 > Considering this, we don't recommend that library authors switch to the new back-end in production.
 {:.note}
-
-You can also opt into using the new [JS IR back-end](#JS-IR-compiler-backend).
-
-## Kotlin/JVM
-
-Kotlin 1.4 includes a number of JVM-specific improvements, such as:
- 
-* [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
-* [Unified exception type for null checks](#unified-exception-type-for-null-checks)
-* [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
 
 ### New modes for generating default methods
 
@@ -683,8 +712,8 @@ In 1.4, Kotlin/Native got a significant number of new features and improvements,
 * [Objective-C generics support by default](#objective-c-generics-support-by-default)
 * [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
 * [Generate release `.dSYM`s on Apple targets by default](#generate-release-dsyms-on-apple-targets-by-default)
+* [Performance improvements](#performance-improvements)
 * [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
-* [mimalloc memory allocator](#mimalloc-memory-allocator)
 
 ### Support for Kotlin’s suspending functions in Swift and Objective-C
 
@@ -775,6 +804,24 @@ kotlin {
 
 For more information about crash report symbolication, see the [documentation](native/ios_symbolication.html).
 
+### Performance improvements
+
+Kotlin/Native has received a number of performance improvements that speed up both the development process and execution.
+Here are some examples:
+
+- To improve the speed of object allocation, we now offer the [mimalloc](https://github.com/microsoft/mimalloc)
+memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
+Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
+
+- We’ve reworked how C interop libraries are built. With the new tooling, Kotlin/Native produces interop libraries up to
+4 times as fast as before, and artifacts are 25% to 30% the size they used to be.
+
+- Overall runtime performance has improved because of optimizations in GC. This improvement will be especially apparent
+in projects with a large number of long-lived objects. `HashMap` and `HashSet` collections now work faster by escaping redundant boxing.
+
+- In 1.3.70 we introduced two new features for improving the performance of Kotlin/Native compilation:
+[caching project dependencies and running the compiler from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native).
+Since that time, we’ve managed to fix numerous issues and improve the overall stability of these features.
 
 ### Simplified management of CocoaPods dependencies
 
@@ -801,34 +848,19 @@ The new dependency will be added automatically. No additional steps are required
 
 Learn [how to add dependencies](native/cocoapods.html).
 
-### mimalloc memory allocator
-
-To improve the speed of object allocation, Kotlin/Native now offers the [mimalloc](https://github.com/microsoft/mimalloc)
-memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
-Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-kotlin {
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        binaries.all {
-            freeCompilerArgs += "-Xallocator=mimalloc"
-        }
-    }
-}
-```
-</div>
 
 ## Kotlin Multiplatform
+
+> Multiplatform projects are in Alpha. Language features and tooling may change in future Kotlin versions.
+{:.note}
 
 [Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
 and improvements:
 
-* Sharing code in several targets with the hierarchical project structure
-* Leveraging native libs in the hierarchical structure 
-* Specifying kotlinx dependencies only once
+* [Sharing code in several targets with the hierarchical project structure](#sharing-code-in-several-targets-with-the-hierarchical-project-structure)
+* [Leveraging native libs in the hierarchical structure](#leveraging-native-libs-in-the-hierarchical-structure)
+* [Specifying kotlinx dependencies only once](#specifying-dependencies-only-once)
 
 > Multiplatform projects require Gradle 6.0 or later.
 {:.note}
@@ -1006,6 +1038,7 @@ Besides Gradle project features and improvements that are specific to [Kotlin Mu
 
 * [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
 * [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
+* [Improved support for Kotlin Gradle DSL in the IDE](#improved-gradlekts-support-in-the-ide)
 
 ### Dependency on the standard library added by default
 
@@ -1026,6 +1059,24 @@ Learn how to [change the default behavior](using-gradle.html#dependency-on-the-s
 To enjoy the new features in your Kotlin projects, update Gradle to the [latest version](https://gradle.org/releases/). 
 Multiplatform projects require Gradle 6.0 or later, while other Kotlin projects work with Gradle 5.4 or later.
 
+### Improved *.gradle.kts support in the IDE 
+
+In 1.4, we continued improving the IDE support for Gradle Kotlin DSL scripts (`*.gradle.kts` files). Here is what the new
+version brings:
+
+- _Explicit loading of script configurations_ for better performance. Previously, the changes you make to the build script
+were loaded automatically in the background. In 1.4, we've disabled the automatic loading of build script configuration. 
+Now IDE loads the changes only when you explicitly apply them by clicking **Load Gradle Changes** or by reimporting the
+Gradle project.
+ 
+  We’ve added one more action in IntelliJ IDEA 2020.1 – **Load Script Configurations**, which loads changes
+to the script configurations without updating the whole project. This takes much less time than reimporting the whole project.
+
+- _Better error reporting_. Previously you could only see errors from the Gradle Daemon in separate log files. Now the
+Gradle Daemon returns all the information about errors directly and shows it in the Build tool window. This saves you both
+time and effort.
+
+
 ## Standard library
 
 Here is the list of the most significant changes to the Kotlin standard library in 1.4: 
@@ -1034,6 +1085,7 @@ Here is the list of the most significant changes to the Kotlin standard library 
 - [New functions for arrays and collections](#new-functions-for-arrays-and-collections)
 - [Functions for string manipulations](#functions-for-string-manipulations)
 - [Bit operations](#bit-operations)
+- [Delegated properties improvements](#delegated-properties-improvements)
 - [Converting from KType to Java Type](#converting-from-ktype-to-java-type)
 - [Proguard configurations for Kotlin reflection](#proguard-configurations-for-kotlin-reflection)
 - [Improving the existing API](#improving-the-existing-api)
@@ -1216,28 +1268,6 @@ of all four functions that return `null` on empty collections.
 * `removeFirst()` and `removeLast()` shortcuts for removing elements from mutable lists, and `*orNull()` counterparts
 of these functions.
 
-We've also added the `ArrayDeque` class – an implementation of a double-ended queue.
-
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
-
-```kotlin
-fun main() {
-    val deque = ArrayDeque(listOf(1, 2, 3))
-
-    deque.addFirst(0)
-    deque.addLast(4)
-    println(deque) // [0, 1, 2, 3, 4]
-
-    println(deque.first()) // 0
-    println(deque.last()) // 4
-
-    deque.removeFirst()
-    deque.removeLast()
-    println(deque) // [1, 2, 3]
-}
-```
-</div>
-
 #### Arrays
 
 To provide a consistent experience when working with different container types, we’ve also added new functions for **arrays**:
@@ -1287,6 +1317,35 @@ fun main() {
 }
 ```
 </div>
+
+#### ArrayDeque
+
+We've also added the `ArrayDeque` class – an implementation of a double-ended queue.
+Double-ended queue lets you can add or remove elements both at the beginning and the end of the queue in an amortized
+constant time. You can use a double-ended queue by default when you need a queue or a stack in your code.
+
+<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.4">
+
+```kotlin
+fun main() {
+    val deque = ArrayDeque(listOf(1, 2, 3))
+
+    deque.addFirst(0)
+    deque.addLast(4)
+    println(deque) // [0, 1, 2, 3, 4]
+
+    println(deque.first()) // 0
+    println(deque.last()) // 4
+
+    deque.removeFirst()
+    deque.removeLast()
+    println(deque) // [1, 2, 3]
+}
+```
+</div>
+
+The `ArrayDeque` implementation uses a resizable array underneath: it stores the contents in a circular buffer, an `Array`,
+and resizes this `Array` only when it becomes full.
 
 ### Functions for string manipulations
 
@@ -1352,6 +1411,18 @@ fun main() {
 }
 ```
 </div>
+
+### Delegated properties improvements
+
+In 1.4, we have added new features to improve your experience with delegated properties in Kotlin:
+- Now a property can be delegated to another property.
+- A new interface `PropertyDelegateProvider` helps create delegate providers in a single declaration.
+- `ReadWriteProperty` now extends `ReadOnlyProperty` so you can use both of them for read-only properties.
+
+Aside from the new API, we've made some optimizations that reduce the resulting bytecode size. These optimizations are
+described in [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-expect-in-kotlin-1-4-and-beyond/#delegated-properties). 
+
+For more information about delegated properties, see the [documentation](delegated-properties.html).
 
 ### Converting from KType to Java Type
 
