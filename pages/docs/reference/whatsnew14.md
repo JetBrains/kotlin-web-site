@@ -6,6 +6,65 @@ title: "What's New in Kotlin 1.4"
 
 # What's New in Kotlin 1.4
 
+[Language features and improvements](#language-features-and-improvements)
+* [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
+* [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
+* [Trailing comma](#trailing-comma)
+* [Callable reference improvements](#callable-reference-improvements)
+* [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
+* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
+
+[New tools in the IDE](#new-tools-in-the-ide)
+* [New flexible Project Wizard](#new-flexible-project-wizard)
+* [Coroutine Debugger](#coroutine-debugger)
+
+[New compiler](#new-compiler)
+* [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) 
+* [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility)
+
+[Kotlin/JVM](#kotlinjvm)
+* [New JVM IR back-end](#new-jvm-ir-back-end)
+* [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
+* [Unified exception type for null checks](#unified-exception-type-for-null-checks)
+* [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
+
+[Kotlin/Native](#kotlinnative)
+* [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
+* [Objective-C generics support by default](#objective-c-generics-support-by-default)
+* [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
+* [Generate release `.dSYM`s on Apple targets by default](#generate-release-dsyms-on-apple-targets-by-default)
+* [Performance improvements](#performance-improvements)
+* [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
+
+[Kotlin Multiplatform](#kotlin-multiplatform)
+* [Sharing code in several targets with the hierarchical project structure](#sharing-code-in-several-targets-with-the-hierarchical-project-structure)
+* [Leveraging native libs in the hierarchical structure](#leveraging-native-libs-in-the-hierarchical-structure)
+* [Specifying kotlinx dependencies only once](#specifying-dependencies-only-once)
+
+[Gradle project improvements](#gradle-project-improvements)
+* [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
+* [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
+* [Improved support for Kotlin Gradle DSL in the IDE](#improved-gradlekts-support-in-the-ide)
+
+[Standard library](#standard-library)
+- [Common exception processing API](#common-exception-processing-api)
+- [New functions for arrays and collections](#new-functions-for-arrays-and-collections)
+- [Functions for string manipulations](#functions-for-string-manipulations)
+- [Bit operations](#bit-operations)
+- [Delegated properties improvements](#delegated-properties-improvements)
+- [Converting from KType to Java Type](#converting-from-ktype-to-java-type)
+- [Proguard configurations for Kotlin reflection](#proguard-configurations-for-kotlin-reflection)
+- [Improving the existing API](#improving-the-existing-api)
+- [module-info descriptors for stdlib artifacts](#module-info-descriptors-for-stdlib-artifacts)
+- [Deprecations](#deprecations)
+- [Exclusion of the deprecated experimental coroutines](#exclusion-of-the-deprecated-experimental-coroutines)
+
+[Scripting and REPL](#scripting-and-repl)
+- [New dependencies resolution API](#new-dependencies-resolution-api)
+- [New REPL API](#new-repl-api)
+- [Compiled scripts cache](#compiled-scripts-cache)
+- [Artifacts renaming](#artifacts-renaming)
+
 ## Language features and improvements
 
 Kotlin 1.4 comes with a variety of different language features and improvements. They include:
@@ -325,6 +384,8 @@ with the value `strict` or `warning`.
 
 For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
 
+[Back to top](#)
+
 ## New tools in the IDE
 
 With Kotlin 1.4, you can use the new tools in IntelliJ IDEA to simplify Kotlin development:
@@ -392,6 +453,8 @@ and helpful in future versions of Kotlin.
 
 Learn more about debugging coroutines in [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/)
 and [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/debug-kotlin-coroutines.html).
+
+[Back to top](#)
 
 ## New compiler
 
@@ -601,6 +664,8 @@ pipeline and add custom processing and transformations that will automatically w
 We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends, which are currently in Alpha, and 
 share your feedback with us.
 
+[Back to top](#)
+
 ## Kotlin/JVM
 
 Kotlin 1.4 includes a number of JVM-specific improvements, such as:
@@ -703,6 +768,8 @@ class A {
 }
 ```
 </div>
+
+[Back to top](#)
 
 ## Kotlin/Native
 
@@ -848,6 +915,7 @@ The new dependency will be added automatically. No additional steps are required
 
 Learn [how to add dependencies](native/cocoapods.html).
 
+[Back to top](#)
 
 ## Kotlin Multiplatform
 
@@ -1031,6 +1099,8 @@ libraries with such suffixes as `-jvm` or` -js`, for example `kotlinx-coroutines
 
 Learn more about [configuring dependencies](using-gradle.html#configuring-dependencies).
 
+[Back to top](#)
+
 ## Gradle project improvements
 
 Besides Gradle project features and improvements that are specific to [Kotlin Multiplatform](#kotlin-multiplatform), [Kotlin/JVM](#kotlinjvm), 
@@ -1076,6 +1146,7 @@ to the script configurations without updating the whole project. This takes much
 Gradle Daemon returns all the information about errors directly and shows it in the Build tool window. This saves you both
 time and effort.
 
+[Back to top](#)
 
 ## Standard library
 
@@ -1513,6 +1584,8 @@ The `kotlin.coroutines.experimental` API was deprecated in favor of kotlin.corou
 the deprecation cycle for `kotlin.coroutines.experimental` by removing it from the standard library. For those who still
 use it on the JVM, we've provided a compatibility artifact `kotlin-coroutines-experimental-compat.jar` with all the experimental
 coroutines APIs. We've published it to Maven, and we include it in the Kotlin distribution alongside the standard library.
+
+[Back to top](#)
 
 ## Scripting and REPL
 
