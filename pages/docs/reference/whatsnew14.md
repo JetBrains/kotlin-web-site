@@ -8,11 +8,11 @@ title: "What's New in Kotlin 1.4"
 
 [**Language features and improvements**](#language-features-and-improvements)
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
+* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Trailing comma](#trailing-comma)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
-* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
 
 [**New tools in the IDE**](#new-tools-in-the-ide)
 * [New flexible Project Wizard](#new-flexible-project-wizard)
@@ -70,11 +70,11 @@ title: "What's New in Kotlin 1.4"
 Kotlin 1.4 comes with a variety of different language features and improvements. They include:
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
+* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Trailing comma](#trailing-comma)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
-* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
 
 ### SAM conversions for Kotlin interfaces
 
@@ -102,6 +102,82 @@ fun main() {
 </div>
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
+
+### Explicit API mode for library authors
+
+Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
+help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
+to the library’s public API:
+
+* Visibility modifiers are required for declarations if the default visibility exposes them to the public API.
+This helps ensure that no declarations are exposed to the public API unintentionally.
+* Explicit type specifications are required for properties and functions that are exposed to the public API.
+This guarantees that API users are aware of the types of API members they use.
+
+Depending on your configuration, these explicit APIs can produce errors (_strict_ mode) or warnings (_warning_ mode).
+Certain kinds of declarations are excluded from such checks for the sake of readability and common sense:
+
+* primary constructors
+* properties of data classes
+* property getters and setters
+* `override` methods
+
+Explicit API mode analyzes only the production sources of a module.
+
+To compile your module in the explicit API mode, add the following lines to your Gradle build script:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {    
+    // for strict mode
+    explicitApi() 
+    // or
+    explicitApi = 'strict'
+    
+    // for warning mode
+    explicitApiWarning()
+    // or
+    explicitApi = 'warning'
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {    
+    // for strict mode
+    explicitApi() 
+    // or
+    explicitApi = ExplicitApiMode.Strict
+    
+    // for warning mode
+    explicitApiWarning()
+    // or
+    explicitApi = ExplicitApiMode.Warning
+}
+```
+
+</div>
+</div>
+
+When using the command-line compiler, switch to explicit API mode by adding  the `-Xexplicit-api` compiler option
+with the value `strict` or `warning`.
+
+<div class="sample" markdown="1" mode="shell" theme="idea">
+
+```bash
+-Xexplicit-api={strict|warning}
+```
+
+</div>
+
+For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
 
 ### Mixing named and positional arguments
 
@@ -308,83 +384,7 @@ fun test(xs: List<Int>) {
 
 The fall-through behavior inside `when` is subject to further design.
 
-### Explicit API mode for library authors
-
-Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
-help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
-to the library’s public API:
-
-* Visibility modifiers are required for declarations if the default visibility exposes them to the public API.
-This helps ensure that no declarations are exposed to the public API unintentionally.
-* Explicit type specifications are required for properties and functions that are exposed to the public API.
-This guarantees that API users are aware of the types of API members they use.
-
-Depending on your configuration, these explicit APIs can produce errors (_strict_ mode) or warnings (_warning_ mode).
-Certain kinds of declarations are excluded from such checks for the sake of readability and common sense:
-
-* primary constructors
-* properties of data classes
-* property getters and setters
-* `override` methods
-
-Explicit API mode analyzes only the production sources of a module.
-
-To compile your module in the explicit API mode, add the following lines to your Gradle build script:
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-kotlin {    
-    // for strict mode
-    explicitApi() 
-    // or
-    explicitApi = 'strict'
-    
-    // for warning mode
-    explicitApiWarning()
-    // or
-    explicitApi = 'warning'
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
-
-```kotlin
-kotlin {    
-    // for strict mode
-    explicitApi() 
-    // or
-    explicitApi = ExplicitApiMode.Strict
-    
-    // for warning mode
-    explicitApiWarning()
-    // or
-    explicitApi = ExplicitApiMode.Warning
-}
-```
-
-</div>
-</div>
-
-When using the command-line compiler, switch to explicit API mode by adding  the `-Xexplicit-api` compiler option
-with the value `strict` or `warning`.
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
--Xexplicit-api={strict|warning}
-```
-
-</div>
-
-For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
-
-[Back to top](#)
+[**Back to top**](#)
 
 ## New tools in the IDE
 
@@ -454,7 +454,7 @@ and helpful in future versions of Kotlin.
 Learn more about debugging coroutines in [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/)
 and [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/debug-kotlin-coroutines.html).
 
-[Back to top](#)
+[**Back to top**](#)
 
 ## New compiler
 
@@ -664,7 +664,7 @@ pipeline and add custom processing and transformations that will automatically w
 We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends, which are currently in Alpha, and 
 share your feedback with us.
 
-[Back to top](#)
+[**Back to top**](#)
 
 ## Kotlin/JVM
 
@@ -769,7 +769,7 @@ class A {
 ```
 </div>
 
-[Back to top](#)
+[**Back to top**](#)
 
 ## Kotlin/Native
 
@@ -915,7 +915,7 @@ The new dependency will be added automatically. No additional steps are required
 
 Learn [how to add dependencies](native/cocoapods.html).
 
-[Back to top](#)
+[**Back to top**](#)
 
 ## Kotlin Multiplatform
 
@@ -1099,7 +1099,7 @@ libraries with such suffixes as `-jvm` or` -js`, for example `kotlinx-coroutines
 
 Learn more about [configuring dependencies](using-gradle.html#configuring-dependencies).
 
-[Back to top](#)
+[**Back to top**](#)
 
 ## Gradle project improvements
 
@@ -1142,11 +1142,13 @@ Gradle project.
   We’ve added one more action in IntelliJ IDEA 2020.1 – **Load Script Configurations**, which loads changes
 to the script configurations without updating the whole project. This takes much less time than reimporting the whole project.
 
+![*.gradle.kts – Load Script Changes and Load Gradle Changes]({{ url_for('asset', path='images/reference/whats-new/gradle-kts.png') }})
+
 - _Better error reporting_. Previously you could only see errors from the Gradle Daemon in separate log files. Now the
 Gradle Daemon returns all the information about errors directly and shows it in the Build tool window. This saves you both
 time and effort.
 
-[Back to top](#)
+[**Back to top**](#)
 
 ## Standard library
 
@@ -1585,7 +1587,7 @@ the deprecation cycle for `kotlin.coroutines.experimental` by removing it from t
 use it on the JVM, we've provided a compatibility artifact `kotlin-coroutines-experimental-compat.jar` with all the experimental
 coroutines APIs. We've published it to Maven, and we include it in the Kotlin distribution alongside the standard library.
 
-[Back to top](#)
+[**Back to top**](#)
 
 ## Scripting and REPL
 
