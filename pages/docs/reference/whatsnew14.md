@@ -598,7 +598,7 @@ only once for all platforms.
 A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
 pipeline and add custom processing and transformations that will automatically work for all platforms.
 
-We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends, which are currently in Alpha, and 
+We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and [JS IR](#new-js-ir-back-end) back-ends, which are currently in Alpha, and 
 share your feedback with us.
 
 ## Kotlin/JVM
@@ -1034,7 +1034,7 @@ Learn more about [configuring dependencies](using-gradle.html#configuring-depend
 ## Gradle project improvements
 
 Besides Gradle project features and improvements that are specific to [Kotlin Multiplatform](#kotlin-multiplatform), [Kotlin/JVM](#kotlinjvm), 
-[Kotlin/Native](#kotlinnative), and Kotlin/JS, there are several changes applicable to all Kotlin Gradle projects:
+[Kotlin/Native](#kotlinnative), and [Kotlin/JS](#kotlinjs), there are several changes applicable to all Kotlin Gradle projects:
 
 * [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
 * [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
@@ -1571,3 +1571,41 @@ artifact, which shades the bundled third-party libraries to avoid usage conflict
 If, for some reason, you need artifacts that depend on the unshaded `kotlin-compiler`, use the artifact versions with the 
 `-unshaded` suffix, such as `kotlin-scripting-jsr223-unshaded`. Note that this renaming affects only the scripting artifacts
 that are supposed to be used directly; names of other artifacts remain unchanged.
+
+
+
+## Kotlin/JS
+
+### New Gradle DSL
+The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides a number of new configuration options and is more closely aligned to the DSL used by the `kotlin-multiplatform` plugin. Some of the most impactful changes include:
+
+- Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the executing Kotlin/JS and its environment [here](js-project-setup.html#choosing-execution-environment).
+- Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about using them [here](js-project-setup.html#configuring-css).
+- Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. Read more about dependency management for npm packages directly from Gradle [here](js-project-setup.html#npm-dependencies).
+- Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. Read more about how to use the integration [here](js-modules.html#automatic-generation-of-external-declarations-with-dukat).
+
+### New JS IR back-end
+The [IR back-end for Kotlin/JS](js-ir-compiler.html), which currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which is focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
+
+To enable the Kotlin/JS IR back-end, set the key `kotlin.js.compiler=ir` in your `gradle.properties`, or pass the `IR` compiler type to the `js` function of your Gradle build script:
+
+
+<!--suppress ALL -->
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin {
+    js(IR) { // or: LEGACY, BOTH
+        // . . .
+    }
+    binaries.executable()
+}
+```
+
+</div>
+
+For more detailed information about how to configure the Kotlin/JS IR compiler back-end, check out the [documentation](js-ir-compiler.html).
+
+With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler back-end improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
+
+Learn more about the available features in the Kotlin/JS IR compiler back-end in the [documentation](js-ir-compiler.html).
