@@ -6,9 +6,12 @@ title: "What's New in Kotlin 1.4"
 
 # What's New in Kotlin 1.4
 
+In Kotlin 1.4, we ship a number of improvements in all of its components, with the focus on quality and performance.
+Below you will find the list of the most important changes in Kotlin 1.4.  
+
 [**Language features and improvements**](#language-features-and-improvements)
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
-* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
+* [Explicit API mode for library authors](#explicit-api-mode-for-library-authors)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Trailing comma](#trailing-comma)
 * [Callable reference improvements](#callable-reference-improvements)
@@ -27,6 +30,10 @@ title: "What's New in Kotlin 1.4"
 * [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
 * [Unified exception type for null checks](#unified-exception-type-for-null-checks)
 * [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
+
+[**Kotlin/JS**](#kotlinjs)
+- [New Gradle DSL](#new-gradle-dsl)
+- [New JS IR back-end](#new-js-ir-back-end)
 
 [**Kotlin/Native**](#kotlinnative)
 * [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
@@ -59,6 +66,8 @@ title: "What's New in Kotlin 1.4"
 - [Deprecations](#deprecations)
 - [Exclusion of the deprecated experimental coroutines](#exclusion-of-the-deprecated-experimental-coroutines)
 
+[**Stable JSON serialization**](#stable-json-serialization)
+
 [**Scripting and REPL**](#scripting-and-repl)
 - [New dependencies resolution API](#new-dependencies-resolution-api)
 - [New REPL API](#new-repl-api)
@@ -70,11 +79,11 @@ title: "What's New in Kotlin 1.4"
 Kotlin 1.4 comes with a variety of different language features and improvements. They include:
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
-* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Trailing comma](#trailing-comma)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
+* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
 
 ### SAM conversions for Kotlin interfaces
 
@@ -768,6 +777,51 @@ class A {
 }
 ```
 </div>
+
+[**Back to top**](#)
+
+## Kotlin/JS
+
+On the JS platform, Kotlin 1.4 provides the following improvements:
+
+- [New Gradle DSL](#new-gradle-dsl)
+- [New JS IR back-end](#new-js-ir-back-end)
+
+### New Gradle DSL
+
+The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides a number of new configuration options and is more closely aligned to the DSL used by the `kotlin-multiplatform` plugin. Some of the most impactful changes include:
+
+- Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the executing Kotlin/JS and its environment [here](js-project-setup.html#choosing-execution-environment).
+- Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about using them [here](js-project-setup.html#configuring-css).
+- Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. Read more about dependency management for npm packages directly from Gradle [here](js-project-setup.html#npm-dependencies).
+- Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. Read more about how to use the integration [here](js-modules.html#automatic-generation-of-external-declarations-with-dukat).
+
+### New JS IR back-end
+
+The [IR back-end for Kotlin/JS](js-ir-compiler.html), which currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which is focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
+
+To enable the Kotlin/JS IR back-end, set the key `kotlin.js.compiler=ir` in your `gradle.properties`, or pass the `IR` compiler type to the `js` function of your Gradle build script:
+
+
+<!--suppress ALL -->
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin {
+    js(IR) { // or: LEGACY, BOTH
+        // . . .
+    }
+    binaries.executable()
+}
+```
+
+</div>
+
+For more detailed information about how to configure the Kotlin/JS IR compiler back-end, check out the [documentation](js-ir-compiler.html).
+
+With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler back-end improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
+
+Learn more about the available features in the Kotlin/JS IR compiler back-end in the [documentation](js-ir-compiler.html).
 
 [**Back to top**](#)
 
@@ -1589,6 +1643,24 @@ coroutines APIs. We've published it to Maven, and we include it in the Kotlin di
 
 [**Back to top**](#)
 
+## Stable JSON serialization
+
+With Kotlin 1.4, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+- 1.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
+stable. Libraries for other serialization formats remain experimental, along with some advanced parts of the core library.
+
+We have significantly reworked the API for JSON serialization to make it more consistent and easier to use. From now on,
+we'll continue developing the JSON serialization API in a backward-compatible manner.
+However, if you have used previous versions of it, you'll need to rewrite some of your code when migrating to 1.0-RC.
+To help you with this, we also offer the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
+the complete set of documentation for `kotlinx.serialization`. It will guide you through the process of using the most
+important features and it can help you address any issues that you might face.
+
+>**Note**: `kotlinx-serialization` 1.0-RC only works with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
+{:.note}
+
+[**Back to top**](#)
+
 ## Scripting and REPL
 
 In 1.4, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.
@@ -1630,3 +1702,6 @@ artifact, which shades the bundled third-party libraries to avoid usage conflict
 If, for some reason, you need artifacts that depend on the unshaded `kotlin-compiler`, use the artifact versions with the 
 `-unshaded` suffix, such as `kotlin-scripting-jsr223-unshaded`. Note that this renaming affects only the scripting artifacts
 that are supposed to be used directly; names of other artifacts remain unchanged.
+
+[**Back to top**](#)
+
