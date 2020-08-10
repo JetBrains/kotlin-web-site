@@ -598,7 +598,7 @@ only once for all platforms.
 A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
 pipeline and add custom processing and transformations that will automatically work for all platforms.
 
-We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends, which are currently in Alpha, and 
+We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and [JS IR](#new-js-ir-back-end) back-ends, which are currently in Alpha, and 
 share your feedback with us.
 
 ## Kotlin/JVM
@@ -1034,7 +1034,7 @@ Learn more about [configuring dependencies](using-gradle.html#configuring-depend
 ## Gradle project improvements
 
 Besides Gradle project features and improvements that are specific to [Kotlin Multiplatform](#kotlin-multiplatform), [Kotlin/JVM](#kotlinjvm), 
-[Kotlin/Native](#kotlinnative), and Kotlin/JS, there are several changes applicable to all Kotlin Gradle projects:
+[Kotlin/Native](#kotlinnative), and [Kotlin/JS](#kotlinjs), there are several changes applicable to all Kotlin Gradle projects:
 
 * [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
 * [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
