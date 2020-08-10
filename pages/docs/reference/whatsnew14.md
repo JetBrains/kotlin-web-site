@@ -1569,7 +1569,7 @@ The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides 
 - Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. Read more about how to use the integration [here](js-modules.html#automatic-generation-of-external-declarations-with-dukat).
 
 ### New JS IR back-end
-The [IR back-end for Kotlin/JS](js-ir-compiler.html), which is currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
+The [IR back-end for Kotlin/JS](js-ir-compiler.html), which is currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which is focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
 
 To enable the Kotlin/JS IR back-end, set the key `kotlin.js.compiler=ir` in your `gradle.properties`, or pass the `IR` compiler type to the `js` function of your Gradle build script:
 
