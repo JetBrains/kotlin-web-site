@@ -6,7 +6,7 @@ title: "What's New in Kotlin 1.4"
 
 # What's New in Kotlin 1.4
 
-[Language features and improvements](#language-features-and-improvements)
+[**Language features and improvements**](#language-features-and-improvements)
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Trailing comma](#trailing-comma)
@@ -14,21 +14,21 @@ title: "What's New in Kotlin 1.4"
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
 * [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
 
-[New tools in the IDE](#new-tools-in-the-ide)
+[**New tools in the IDE**](#new-tools-in-the-ide)
 * [New flexible Project Wizard](#new-flexible-project-wizard)
 * [Coroutine Debugger](#coroutine-debugger)
 
-[New compiler](#new-compiler)
+[**New compiler**](#new-compiler)
 * [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) 
 * [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility)
 
-[Kotlin/JVM](#kotlinjvm)
+[**Kotlin/JVM**](#kotlinjvm)
 * [New JVM IR back-end](#new-jvm-ir-back-end)
 * [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
 * [Unified exception type for null checks](#unified-exception-type-for-null-checks)
 * [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
 
-[Kotlin/Native](#kotlinnative)
+[**Kotlin/Native**](#kotlinnative)
 * [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
 * [Objective-C generics support by default](#objective-c-generics-support-by-default)
 * [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
@@ -36,17 +36,17 @@ title: "What's New in Kotlin 1.4"
 * [Performance improvements](#performance-improvements)
 * [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
 
-[Kotlin Multiplatform](#kotlin-multiplatform)
+[**Kotlin Multiplatform**](#kotlin-multiplatform)
 * [Sharing code in several targets with the hierarchical project structure](#sharing-code-in-several-targets-with-the-hierarchical-project-structure)
 * [Leveraging native libs in the hierarchical structure](#leveraging-native-libs-in-the-hierarchical-structure)
 * [Specifying kotlinx dependencies only once](#specifying-dependencies-only-once)
 
-[Gradle project improvements](#gradle-project-improvements)
+[**Gradle project improvements**](#gradle-project-improvements)
 * [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
 * [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
 * [Improved support for Kotlin Gradle DSL in the IDE](#improved-gradlekts-support-in-the-ide)
 
-[Standard library](#standard-library)
+[**Standard library**](#standard-library)
 - [Common exception processing API](#common-exception-processing-api)
 - [New functions for arrays and collections](#new-functions-for-arrays-and-collections)
 - [Functions for string manipulations](#functions-for-string-manipulations)
@@ -59,7 +59,7 @@ title: "What's New in Kotlin 1.4"
 - [Deprecations](#deprecations)
 - [Exclusion of the deprecated experimental coroutines](#exclusion-of-the-deprecated-experimental-coroutines)
 
-[Scripting and REPL](#scripting-and-repl)
+[**Scripting and REPL**](#scripting-and-repl)
 - [New dependencies resolution API](#new-dependencies-resolution-api)
 - [New REPL API](#new-repl-api)
 - [Compiled scripts cache](#compiled-scripts-cache)
