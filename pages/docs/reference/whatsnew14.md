@@ -598,7 +598,7 @@ only once for all platforms.
 A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
 pipeline and add custom processing and transformations that will automatically work for all platforms.
 
-We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and JS IR back-ends, which are currently in Alpha, and 
+We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and [JS IR](#new-js-ir-back-end) back-ends, which are currently in Alpha, and 
 share your feedback with us.
 
 ## Kotlin/JVM
@@ -1034,7 +1034,7 @@ Learn more about [configuring dependencies](using-gradle.html#configuring-depend
 ## Gradle project improvements
 
 Besides Gradle project features and improvements that are specific to [Kotlin Multiplatform](#kotlin-multiplatform), [Kotlin/JVM](#kotlinjvm), 
-[Kotlin/Native](#kotlinnative), and Kotlin/JS, there are several changes applicable to all Kotlin Gradle projects:
+[Kotlin/Native](#kotlinnative), and [Kotlin/JS](#kotlinjs), there are several changes applicable to all Kotlin Gradle projects:
 
 * [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
 * [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
@@ -1514,6 +1514,22 @@ the deprecation cycle for `kotlin.coroutines.experimental` by removing it from t
 use it on the JVM, we've provided a compatibility artifact `kotlin-coroutines-experimental-compat.jar` with all the experimental
 coroutines APIs. We've published it to Maven, and we include it in the Kotlin distribution alongside the standard library.
 
+## Stable JSON serialization
+
+With Kotlin 1.4, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+- 1.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
+stable. Libraries for other serialization formats remain experimental, along with some advanced parts of the core library.
+
+We have significantly reworked the API for JSON serialization to make it more consistent and easier to use. From now on,
+we'll continue developing the JSON serialization API in a backward-compatible manner.
+However, if you have used previous versions of it, you'll need to rewrite some of your code when migrating to 1.0-RC.
+To help you with this, we also offer the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
+the complete set of documentation for `kotlinx.serialization`. It will guide you through the process of using the most
+important features and it can help you address any issues that you might face.
+
+>**Note**: `kotlinx-serialization` 1.0-RC only works with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
+{:.note}
+
 ## Scripting and REPL
 
 In 1.4, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.
@@ -1556,17 +1572,40 @@ If, for some reason, you need artifacts that depend on the unshaded `kotlin-comp
 `-unshaded` suffix, such as `kotlin-scripting-jsr223-unshaded`. Note that this renaming affects only the scripting artifacts
 that are supposed to be used directly; names of other artifacts remain unchanged.
 
-## Migrating to Kotlin 1.4
 
-Migration tools of the Kotlin plugin help you migrate your projects from earlier versions of Kotlin to 1.4.0.
 
-Just change the Kotlin version to `1.4.0` and re-import your Gradle or Maven project, and the IDE will ask you about migration. 
-If you agree, it will run several code inspections that will check your code and ask to correct it if it doesn't work 
-or it is not recommended in 1.4.0. 
+## Kotlin/JS
 
-<img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/run-migration-wn.png' )}}" alt="Run migration" width="300"/>
+### New Gradle DSL
+The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides a number of new configuration options and is more closely aligned to the DSL used by the `kotlin-multiplatform` plugin. Some of the most impactful changes include:
 
-Code inspections have different [severity levels](https://www.jetbrains.com/help/idea/configuring-inspection-severities.html), 
-so you can decide which suggestions to accept and correct the code and ignore others.
+- Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the executing Kotlin/JS and its environment [here](js-project-setup.html#choosing-execution-environment).
+- Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about using them [here](js-project-setup.html#configuring-css).
+- Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. Read more about dependency management for npm packages directly from Gradle [here](js-project-setup.html#npm-dependencies).
+- Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. Read more about how to use the integration [here](js-modules.html#automatic-generation-of-external-declarations-with-dukat).
 
-![Migration inspections]({{ url_for('asset', path='images/reference/whats-new/migration-inspection-wn.png') }})
+### New JS IR back-end
+The [IR back-end for Kotlin/JS](js-ir-compiler.html), which currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which is focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
+
+To enable the Kotlin/JS IR back-end, set the key `kotlin.js.compiler=ir` in your `gradle.properties`, or pass the `IR` compiler type to the `js` function of your Gradle build script:
+
+
+<!--suppress ALL -->
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin {
+    js(IR) { // or: LEGACY, BOTH
+        // . . .
+    }
+    binaries.executable()
+}
+```
+
+</div>
+
+For more detailed information about how to configure the Kotlin/JS IR compiler back-end, check out the [documentation](js-ir-compiler.html).
+
+With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler back-end improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
+
+Learn more about the available features in the Kotlin/JS IR compiler back-end in the [documentation](js-ir-compiler.html).
