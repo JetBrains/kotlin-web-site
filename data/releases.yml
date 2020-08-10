@@ -14,7 +14,7 @@ latest:
   serialization:
     version: 1.0-RC
     url: https://github.com/Kotlin/kotlinx.serialization
-    date: August 10, 2020
+    date: August 11, 2020
 
 eap:
   version: 1.4.0-rc
