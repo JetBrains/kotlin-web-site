@@ -1514,6 +1514,22 @@ the deprecation cycle for `kotlin.coroutines.experimental` by removing it from t
 use it on the JVM, we've provided a compatibility artifact `kotlin-coroutines-experimental-compat.jar` with all the experimental
 coroutines APIs. We've published it to Maven, and we include it in the Kotlin distribution alongside the standard library.
 
+## Stable JSON serialization
+
+With Kotlin 1.4, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+- 1.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
+stable. Libraries for other serialization formats remain experimental, along with some advanced parts of the core library.
+
+We have significantly reworked the API for JSON serialization to make it more consistent and easier to use. From now on,
+we'll continue developing the JSON serialization API in a backward-compatible manner.
+However, if you have used previous versions of it, you'll need to rewrite some of your code when migrating to 1.0-RC.
+To help you with this, we also offer the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
+the complete set of documentation for `kotlinx.serialization`. It will guide you through the process of using the most
+important features and it can help you address any issues that you might face.
+
+>**Note**: `kotlinx-serialization` 1.0-RC only works with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
+{:.note}
+
 ## Scripting and REPL
 
 In 1.4, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.
