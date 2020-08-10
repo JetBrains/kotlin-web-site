@@ -1615,7 +1615,7 @@ Learn more about the available features in the Kotlin/JS IR compiler back-end in
 Migration tools of the Kotlin plugin help you migrate your projects from earlier versions of Kotlin to 1.4.0.
 
 Just change the Kotlin version to `1.4.0` and re-import your Gradle or Maven project, and the IDE will ask you about migration. 
-If you agree, it will run several code inspections that will check your code and ask to correct it if it doesn't work 
+If you agree, it will run migration code inspections that will check your code and ask to correct it if it doesn't work 
 or it is not recommended in 1.4.0. 
 
 <img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/run-migration-wn.png' )}}" alt="Run migration" width="300"/>
