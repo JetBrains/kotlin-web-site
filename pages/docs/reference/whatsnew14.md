@@ -15,7 +15,7 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 * [Trailing comma](#trailing-comma)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
-* [Explicit API moe for library authors](#explicit-api-mode-for-library-authors)
+* [Explicit API mode for library authors](#explicit-api-mode-for-library-authors)
 
 ### SAM conversions for Kotlin interfaces
 
