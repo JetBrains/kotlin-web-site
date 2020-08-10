@@ -1609,3 +1609,18 @@ For more detailed information about how to configure the Kotlin/JS IR compiler b
 With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler back-end improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
 
 Learn more about the available features in the Kotlin/JS IR compiler back-end in the [documentation](js-ir-compiler.html).
+
+## Migrating to Kotlin 1.4
+
+Migration tools of the Kotlin plugin help you migrate your projects from earlier versions of Kotlin to 1.4.0.
+
+Just change the Kotlin version to `1.4.0` and re-import your Gradle or Maven project, and the IDE will ask you about migration. 
+If you agree, it will run several code inspections that will check your code and ask to correct it if it doesn't work 
+or it is not recommended in 1.4.0. 
+
+<img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/run-migration-wn.png' )}}" alt="Run migration" width="300"/>
+
+Code inspections have different [severity levels](https://www.jetbrains.com/help/idea/configuring-inspection-severities.html), 
+so you can decide which suggestions to accept and correct the code and ignore others.
+
+![Migration inspections]({{ url_for('asset', path='images/reference/whats-new/migration-inspection-wn.png') }})
