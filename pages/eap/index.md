@@ -29,7 +29,7 @@ In this channel, you can also get notifications about new EAP builds.
 If you have already installed the EAP version and want to work on projects that were created previously, 
 check [our instructions on how to configure your build to support this version](configure-build-for-eap.html). 
 
-# Build details
+## Build details
 
 <table>
     <tr>
