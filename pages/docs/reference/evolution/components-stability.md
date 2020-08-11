@@ -54,13 +54,11 @@ kotlin-reflect (JVM)|Beta|1.0|
 Kotlin/JS (Classic back-end)|Stable|1.3|
 Kotlin/JVM (IR-based)|Alpha|1.4|
 Kotlin/JS (IR-based)|Alpha|1.4|
-kotlin-stdlib API (JS)|Stable|1.3|
 Kotlin/Native Runtime|Beta|1.3|
-kotlin-stdlib API (Native)|Beta|1.3|
 KLib binaries|Alpha|1.4|
 KDoc syntax|Stable|1.0|
 dokka|Alpha|0.1|
-Kotlin Scripts (*.kts, *.gradle.kts)|Stable|1.3|
+Kotlin Scripts (*.kts)|Beta|1.2|
 Kotlin Scripting APIs and custom hosts|Alpha|1.2|
 Compiler Plugin API|Experimental|1.0|
 Serialization Compiler Plugin|Stable|1.4|
