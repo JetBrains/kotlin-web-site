@@ -29,8 +29,7 @@ it automatically updates the Kotlin plugin to the new version. You can check the
 If you have projects created with earlier Kotlin versions, change the Kotlin version in your projects and update kotlinx
 libraries if necessary – check [compatible versions](#release-details).
 
-If you are migrating to the new feature release, Kotlin plugin's migration tools will help you with the migration. Learn more
-about [migrating to Kotlin 1.4](docs/reference/whatsnew14.html#migrating-to-kotlin-14).
+If you are migrating to the new feature release, Kotlin plugin's migration tools will help you with the migration.
 
 ## Release details
 
@@ -54,6 +53,7 @@ The following table lists details of latest Kotlin releases.
                 <li><a href="http://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/" target="_blank">Release blog post</a></li>
                 <li><a href="docs/reference/whatsnew14.html" target="_blank">What's new in Kotlin 1.4.0</a></li>
                 <li><a href="docs/reference/compatibility-guide-14.html" target="_blank">Compatibility Guide</a></li>
+                <li><a href="docs/reference/whatsnew14.html#migrating-to-kotlin-14" target="_blank">Migrating to Kotlin 1.4.0</a></li>
             </ul>
          </td>
         <td>
@@ -70,7 +70,7 @@ The following table lists details of latest Kotlin releases.
                  <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.html/0.7.2" target="_blank">0.7.2</a></li>
                  <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.6" target="_blank">0.0.6</a></li>
             </ul>
-            <p>The versions of libraries from `kotlin-wrappers` (`kotlin-react` etc.) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+            <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
     </tr>       
     <tr>
@@ -96,7 +96,7 @@ The following table lists details of latest Kotlin releases.
                  <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.html/0.7.1" target="_blank">0.7.1</a></li>
                  <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.3" target="_blank">0.0.3</a></li>
             </ul>
-            <p>The versions of libraries from `kotlin-wrappers` (`kotlin-react` etc.) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+            <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
     </tr>    
 </table>
