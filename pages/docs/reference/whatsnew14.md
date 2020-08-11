@@ -1612,15 +1612,16 @@ Learn more about the available features in the Kotlin/JS IR compiler back-end in
 
 ## Migrating to Kotlin 1.4
 
-Migration tools of the Kotlin plugin help you migrate your projects from earlier versions of Kotlin to 1.4.0.
+The Kotlin plugin’s migration tools help you migrate your projects from earlier versions of Kotlin to 1.4.0.
 
-Just change the Kotlin version to `1.4.0` and re-import your Gradle or Maven project, and the IDE will ask you about migration. 
-If you agree, it will run migration code inspections that will check your code and ask to correct it if it doesn't work 
-or it is not recommended in 1.4.0. 
+Just change the Kotlin version to `1.4.0` and re-import your Gradle or Maven project. The IDE will then ask you about migration.
+ 
+If you agree, it will run migration code inspections that will check your code and suggest corrections for anything that doesn't work 
+or that is not recommended in 1.4.0. 
 
 <img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/run-migration-wn.png' )}}" alt="Run migration" width="300"/>
 
 Code inspections have different [severity levels](https://www.jetbrains.com/help/idea/configuring-inspection-severities.html), 
-so you can decide which suggestions to accept and correct the code and ignore others.
+to help you decide which suggestions to accept and which to ignore.
 
 ![Migration inspections]({{ url_for('asset', path='images/reference/whats-new/migration-inspection-wn.png') }})
