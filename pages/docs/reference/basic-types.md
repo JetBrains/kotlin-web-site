@@ -520,7 +520,7 @@ val a = 1UL // ULong, even though no expected type provided and constant fits in
 
 ### Beta status of unsigned integers
 
-The design of unsigned types is in [Beta](evolution/components-stability.html), meaning that its compatibility is best-effort only and not guaranteed. When using unsigned arithmetics in Kotlin 1.3+, a warning will be reported, indicating that this feature is has not been released as stable. To remove the warning, you have to opt in for usage of unsigned types. 
+The design of unsigned types is in [Beta](evolution/components-stability.html), meaning that its compatibility is best-effort only and not guaranteed. When using unsigned arithmetics in Kotlin 1.3+, a warning will be reported, indicating that this feature has not been released as stable. To remove the warning, you have to opt in for usage of unsigned types. 
 
 There are two possible ways to opt-in for unsigned types: with requiring an opt-in for your API, or without doing that.
 
@@ -529,7 +529,7 @@ There are two possible ways to opt-in for unsigned types: with requiring an opt-
 
 It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but bear in mind that unsigned types are not a stable feature, so API which uses them can be broken by changes in the language. 
 
-See also or Opt-in Requirements API [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/experimental.md) for technical details.
+See also the Opt-in Requirements API [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/experimental.md) for technical details.
 
 ### Further discussion
 
