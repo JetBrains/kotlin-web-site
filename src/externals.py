@@ -2,6 +2,7 @@ import os
 import re
 from os import path
 import yaml
+import shutil
 
 from src.github import assert_valid_git_hub_url
 
@@ -199,9 +200,22 @@ def _build_url_mappers(external_yml, mount: ExternalMount):
                 url = known_urls[url]
             elif not url.startswith("http://") and not url.startswith("https://"):
                 real_path = path.normpath(path.join(path.dirname(source_item), url))
-                if path.isfile(real_path):
 
-                    url = mount.github_view_url(real_path)
+                if path.isfile(real_path):
+                    is_image = (real_path.endswith(ext) for ext in [".jpg", ".jpeg", ".png", ".svg"])
+
+                    if any(is_image):
+                        image_relative_path = path.join(mount.external_base.lstrip("/"), url)
+                        image_output_path = path.join(root_folder, "assets", "externals", image_relative_path)
+                        image_output_dir = os.path.dirname(image_output_path)
+
+                        if not os.path.isdir(image_output_dir):
+                            os.makedirs(image_output_dir, mode=0o777)
+
+                        shutil.copyfile(real_path, image_output_path)
+                        url = "{{ url_for(\"asset\", path=\"" + path.join("externals", image_relative_path) + "\") }}"
+                    else:
+                        url = mount.github_view_url(real_path)
 
             return "](" + url + anchor + ")"
 

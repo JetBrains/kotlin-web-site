@@ -40,6 +40,7 @@ package-lock.json
 .env
 pages/api/
 external/
+assets/externals
 pages/docs/reference/native/
 pages/docs/reference/coroutines/
 pages/docs/tutorials/kotlin-for-py/
