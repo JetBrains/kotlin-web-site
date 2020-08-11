@@ -86,34 +86,6 @@ fun main() {
 
 </div>
 
-In another example of a SAM conversion, the function `process()` uses a lambda instead of creating an anonymous object.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-fun interface SuspendRunnable {
-   suspend fun invoke()
-}
-
-class Listener {
-   fun setOnClickListener(r: SuspendRunnable) {
-       GlobalScope.launch { r.invoke() }
-   }
-}
-class Button(private val listener: Listener) {
-   fun process() {
-       listener.setOnClickListener {
-           addText()
-       }
-   }
-   suspend fun addText() {
-       // ...
-   }
-}
-```
-
-</div>
-
 You can also use [SAM conversions for Java interfaces](java-interop.html#sam-conversions).
 
 ## Functional interfaces vs. type aliases
