@@ -13,7 +13,7 @@ Using Kotlin for Android development, you can benefit from:
 
 * **Less code combined with greater readability**. Spend less time writing your code and working to understand the code of others.
 * **Mature language and environment**. Since its creation in 2011, Kotlin has developed continuously, not only as a language 
-but as a whole ecosystem with robust tooling. Now it's seamlessly integrated in Android Studio and is actively used by many companies 
+but also as a whole ecosystem with robust tooling. Now it's seamlessly integrated in Android Studio and is actively used by many companies 
 for developing Android applications.
 * **Kotlin support in Android Jetpack and other libraries**. [KTX extensions](https://developer.android.com/kotlin/ktx) add Kotlin language features, 
 such as coroutines, extension functions, lambdas, and named parameters, to existing Android libraries.
