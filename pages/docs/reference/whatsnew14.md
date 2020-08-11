@@ -851,7 +851,7 @@ Learn [how to add dependencies](native/cocoapods.html).
 
 ## Kotlin Multiplatform
 
-> Multiplatform projects are in Alpha. Language features and tooling may change in future Kotlin versions.
+> Multiplatform projects are in [Alpha](evolution/components-stability.html). Language features and tooling may change in future Kotlin versions.
 {:.note}
 
 [Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
