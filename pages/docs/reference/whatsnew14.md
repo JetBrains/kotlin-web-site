@@ -74,6 +74,8 @@ Below you will find the list of the most important changes in Kotlin 1.4.
 - [Compiled scripts cache](#compiled-scripts-cache)
 - [Artifacts renaming](#artifacts-renaming)
 
+[**Migrating to Kotlin 1.4**](#migrating-to-kotlin-14)
+
 ## Language features and improvements
 
 Kotlin 1.4 comes with a variety of different language features and improvements. They include:
@@ -1704,3 +1706,19 @@ If, for some reason, you need artifacts that depend on the unshaded `kotlin-comp
 that are supposed to be used directly; names of other artifacts remain unchanged.
 
 [**Back to top**](#)
+
+## Migrating to Kotlin 1.4
+
+The Kotlin plugin’s migration tools help you migrate your projects from earlier versions of Kotlin to 1.4.0.
+
+Just change the Kotlin version to `1.4.0` and re-import your Gradle or Maven project. The IDE will then ask you about migration.
+ 
+If you agree, it will run migration code inspections that will check your code and suggest corrections for anything that doesn't work 
+or that is not recommended in 1.4.0. 
+
+<img class="img-responsive" src="{{ url_for('asset', path='images/reference/whats-new/run-migration-wn.png' )}}" alt="Run migration" width="300"/>
+
+Code inspections have different [severity levels](https://www.jetbrains.com/help/idea/configuring-inspection-severities.html), 
+to help you decide which suggestions to accept and which to ignore.
+
+![Migration inspections]({{ url_for('asset', path='images/reference/whats-new/migration-inspection-wn.png') }})
