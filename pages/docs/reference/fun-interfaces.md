@@ -14,8 +14,8 @@ To declare a functional interface in Kotlin, use the `fun` modifier.
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun interface SuspendRunnable {
-   suspend fun invoke()
+fun interface KRunnable {
+   fun invoke()
 }
 ```
 
