@@ -473,7 +473,7 @@ The new Kotlin compiler is going to be really fast; it will unify all the suppor
 an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4.0:
 
 * [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is enabled by default. 
-* [New JVM and JS IR backends](#unified-backends-and-extensibility) are now in Alpha. They will become the default once we stabilize them.
+* [New JVM and JS IR backends](#unified-backends-and-extensibility) are now in [Alpha](evolution/components-stability.html). They will become the default once we stabilize them.
 
 ### New more powerful type inference algorithm
 
@@ -667,7 +667,7 @@ infrastructure built around an internal representation (IR) for Kotlin code.
 
 We are now migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three backends
 share a lot of logic and have a unified pipeline. This allows us to implement most features, optimizations, and bug fixes 
-only once for all platforms.
+only once for all platforms. Both new IR-based back-ends are in [Alpha](evolution/components-stability.html).
 
 A common backend infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
 pipeline and add custom processing and transformations that will automatically work for all platforms.
@@ -975,7 +975,7 @@ Learn [how to add dependencies](native/cocoapods.html).
 
 ## Kotlin Multiplatform
 
-> Multiplatform projects are in Alpha. Language features and tooling may change in future Kotlin versions.
+> Multiplatform projects are in [Alpha](evolution/components-stability.html). Language features and tooling may change in future Kotlin versions.
 {:.note}
 
 [Kotlin Multiplatform](multiplatform.html) reduces time spent writing and maintaining the same code for [different platforms](mpp-supported-platforms.html) 
@@ -1722,3 +1722,5 @@ Code inspections have different [severity levels](https://www.jetbrains.com/help
 to help you decide which suggestions to accept and which to ignore.
 
 ![Migration inspections]({{ url_for('asset', path='images/reference/whats-new/migration-inspection-wn.png') }})
+
+[**Back to top**](#)

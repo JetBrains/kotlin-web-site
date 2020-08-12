@@ -14,8 +14,8 @@ To declare a functional interface in Kotlin, use the `fun` modifier.
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun interface SuspendRunnable {
-   suspend fun invoke()
+fun interface KRunnable {
+   fun invoke()
 }
 ```
 
@@ -81,34 +81,6 @@ val isEven = IntPredicate { it % 2 == 0 }
 
 fun main() {
    println("Is 7 even? - ${isEven.accept(7)}")
-}
-```
-
-</div>
-
-In another example of a SAM conversion, the function `process()` uses a lambda instead of creating an anonymous object.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-
-```kotlin
-fun interface SuspendRunnable {
-   suspend fun invoke()
-}
-
-class Listener {
-   fun setOnClickListener(r: SuspendRunnable) {
-       GlobalScope.launch { r.invoke() }
-   }
-}
-class Button(private val listener: Listener) {
-   fun process() {
-       listener.setOnClickListener {
-           addText()
-       }
-   }
-   suspend fun addText() {
-       // ...
-   }
 }
 ```
 

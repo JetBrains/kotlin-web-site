@@ -6,6 +6,10 @@ title: "Connect to platform-specific APIs"
 
 # Connect to platform-specific APIs
 
+> The `expect`/`actual` feature is currently in [Beta](evolution/components-stability.html). All of the language
+and tooling features described in this document are subject to change in future Kotlin versions.
+{:.note}
+
 If you’re developing a multiplatform application that needs to access platform-specific APIs that implement the required 
 functionality, use the Kotlin mechanism of *expected and actual declarations*.
 

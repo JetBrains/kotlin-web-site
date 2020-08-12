@@ -2,41 +2,73 @@
 type: doc
 layout: reference
 category: "Compatibility"
-title: "Stability of Different Components"
+title: "Stability of Kotlin Components"
 ---
 
-# Stability of Different Components
+# Stability of Kotlin Components
 
-There can be different modes of stability depending of how quickly a component is evolving:
-<a name="moving-fast"></a>
-*   **Moving fast (MF)**: no compatibility should be expected between even [incremental releases](kotlin-evolution.html#feature-releases-and-incremental-releases), any functionality can be added, removed or changed without warning.
+The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets, the Standard Library, various accompanying tools and so on. Many of these components were officially released as **Stable** which means that they are evolved in the backward-compatible way following the [principles](kotlin-evolution.html) of *Comfortable Updates* and *Keeping the Language Modern*. Among such stable components are, for example, the Kotlin compiler for the JVM, the Standard Library, and Coroutines.
 
-*   **Additions in Incremental Releases (AIR)**: things can be added in an incremental release, removals and changes of behavior should be avoided and announced in a previous incremental release if necessary.
+Following the *Feedback Loop* principle we release many things early for the community to try out, so a number of components are not yet released as **Stable**. Some of them are very early stage, some are more mature. We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component is evolving and how much risk the users are taking when adopting it. 
 
-*   **Stable Incremental Releases (SIR)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Any changes can be made in a [feature release](kotlin-evolution.html#feature-releases-and-incremental-releases).
+## Stability Levels Explained
 
-<a name="fully-stable"></a>
-*   **Fully Stable (FS)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Feature releases are backwards compatible.
+Here's a quick guide to these stability levels and their meaning:
 
-Source and binary compatibility may have different modes for the same component, e.g. the source language can reach full stability before the binary format stabilizes, or vice versa.
+**Experimental** means "try it only in toy projects":
+  * We are just trying out an idea and want some users to play with it and give feedback. If it doesn't work out, we may drop it any minute.
 
-The provisions of the [Kotlin evolution policy](kotlin-evolution.html) fully apply only to components that have reached Full Stability (FS). From that point on incompatible changes have to be approved by the Language Committee.
+**Alpha** means "use at your own risk, expect migration issues": 
+  * We decided to productize this idea, but it hasn't reached the final shape yet.
 
-|**Component**|**Status Entered at version**|**Mode for Sources**|**Mode for Binaries**|
+**Beta** means "you can use it, we'll do our best to minimize migration issues for you": 
+  * It’s almost done, user feedback is especially important now.
+  * Still, it's not 100% finished, so changes are possible (including ones based on your own feedback).
+  * Watch for deprecation warnings in advance for the best update experience.
+
+We collectively refer to _Experimental_, _Alpha_ and _Beta_ as **pre-stable** levels.
+
+<a name="stable"></a>
+**Stable** means "use it even in most conservative scenarios":
+  * It’s done. We will be evolving it according to our strict [backward compatibility rules](/foundation/language-committee-guidelines.html).
+  
+Please note that stability levels do not say anything about how soon a component will be released as Stable. Similarly, they do not indicate how much a component will be changed before release. They only say how fast a component is changing and how much risk of update issues users are running.
+
+## Stability of Subcomponents
+
+A stable component may have an experimental subcomponent, for example:
+* a stable compiler may have an experimental feature;
+* a stable API may include experimental classes or functions;
+* a stable command-line tool may have experimental options.
+
+We make sure to document precisely which subcomponents are not stable. We also do our best to warn users where possible and ask to opt in explicitly to avoid accidental usages of features that have not been released as stable.
+
+## Current Stability of Kotlin Components
+
+|**Component**|**Status**|**Status since version**|**Comment**|
 | --- | --- | --- | --- |
-Kotlin/JVM|1.0|FS|FS|
-kotlin-stdlib (JVM)|1.0|FS|FS
-KDoc syntax|1.0|FS|N/A
-Coroutines|1.3|FS|FS
-kotlin-reflect (JVM)|1.0|SIR|SIR
-Kotlin/JS|1.1|AIR|MF
-Kotlin/Native|1.3|AIR|MF
-Kotlin Scripts (*.kts)|1.2|AIR|MF
-dokka|0.1|MF|N/A
-Kotlin Scripting APIs|1.2|MF|MF
-Compiler Plugin API|1.0|MF|MF
-Serialization|1.3|MF|MF
-Multiplatform Projects|1.2|MF|MF
-Inline classes|1.3|MF|MF
-Unsigned arithmetics|1.3|MF|MF
-**All other experimental features, by default**|N/A|**MF**|**MF**
+Kotlin/JVM|Stable|1.0|
+kotlin-stdlib (JVM)|Stable|1.0|
+Coroutines|Stable|1.3|
+kotlin-reflect (JVM)|Beta|1.0|
+Kotlin/JS (Classic back-end)|Stable|1.3|
+Kotlin/JVM (IR-based)|Alpha|1.4|
+Kotlin/JS (IR-based)|Alpha|1.4|
+Kotlin/Native Runtime|Beta|1.3|
+KLib binaries|Alpha|1.4|
+KDoc syntax|Stable|1.0|
+dokka|Alpha|0.1|
+Kotlin Scripts (*.kts)|Beta|1.2|
+Kotlin Scripting APIs and custom hosts|Alpha|1.2|
+Compiler Plugin API|Experimental|1.0|
+Serialization Compiler Plugin|Stable|1.4|
+Serialization Core Library|Stable|1.0.0|Versioned separately from the language
+Multiplatform Projects|Alpha|1.3|
+expect/actual language feature|Beta|1.2|
+Inline classes|Alpha|1.3|
+Unsigned arithmetics|Beta|1.3|
+Contracts in stdlib|Stable|1.3|
+User-defined contracts|Experimental|1.3|
+**All other experimental components, by default**|Experimental|N/A|
+ 
+*The pre-1.4 version of this page is available [here](components-stability-pre-1.4.html).* 

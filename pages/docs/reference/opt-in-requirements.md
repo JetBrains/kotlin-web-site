@@ -7,7 +7,7 @@ title: "Opt-in Requirements"
 
 # Opt-in Requirements
 
-> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are *experimental*. 
+> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are [experimental](evolution/components-stability.html). 
 > See the usage details [below](#experimental-status-of-the-opt-in-requirements).
 {:.note} 
 
@@ -287,12 +287,12 @@ fun getTime(): Time {}
 </div>
 
 
-## Opt-in requirements for experimental APIs
+## Opt-in requirements for pre-stable APIs
 
-If you use opt-in requirements for features in the experimental state, carefully handle the API graduation to avoid 
+If you use opt-in requirements for features that are not stable yet, carefully handle the API graduation to avoid 
 breaking the client code.
 
-Once your experimental API graduates and is released in a stable state, remove its opt-in requirement annotations from declarations.
+Once your pre-stable API graduates and is released in a stable state, remove its opt-in requirement annotations from declarations.
 The clients will be able to use them without restriction. However, you should leave the annotation classes in modules so that 
 the existing client code remains compatible.
 
@@ -312,7 +312,7 @@ annotation class ExperimentalDateTime
 
 ## Experimental status of the opt-in requirements
 
-The opt-in requirement mechanism is experimental in Kotlin 1.3.
+The opt-in requirement mechanism is [experimental](evolution/components-stability.html) in Kotlin 1.3.
 This means that in future releases it may be changed in ways that make it incompatible.
 
 To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,

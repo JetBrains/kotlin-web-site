@@ -460,7 +460,7 @@ var arr = IntArray(5) { it * 1 }
 
 ## Unsigned integers
 
-> Unsigned types are available only since Kotlin 1.3 and currently are *experimental*. See details [below](#experimental-status-of-unsigned-integers) 
+> Unsigned types are available only since Kotlin 1.3 and currently in [Beta](evolution/components-stability.html). See details [below](#beta-status-of-unsigned-integers) 
 {:.note}
 
 Kotlin introduces following types for unsigned integers:
@@ -475,7 +475,7 @@ Unsigned types support most of the operations of their signed counterparts.
 > Note that changing type from unsigned type to signed counterpart (and vice versa) is a *binary incompatible* change
 {:.note}
 
-Unsigned types are implemented using another experimental feature, namely [inline classes](inline-classes.html).
+Unsigned types are implemented using another feature that's not yet stable, namely [inline classes](inline-classes.html).
 
 ### Specialized classes 
 
@@ -518,18 +518,18 @@ val a = 1UL // ULong, even though no expected type provided and constant fits in
 
 </div>
 
-### Experimental status of unsigned integers
+### Beta status of unsigned integers
 
-The design of unsigned types is experimental, meaning that this feature is moving fast and no compatibility guarantees are given. When using unsigned arithmetics in Kotlin 1.3+, warning will be reported, indicating that this feature is experimental. To remove warning, you have to opt-in for experimental usage of unsigned types. 
+The design of unsigned types is in [Beta](evolution/components-stability.html), meaning that its compatibility is best-effort only and not guaranteed. When using unsigned arithmetics in Kotlin 1.3+, a warning will be reported, indicating that this feature has not been released as stable. To remove the warning, you have to opt in for usage of unsigned types. 
 
-There are two possible ways to opt-in for unsigned types: with marking your API as experimental too, or without doing that.
+There are two possible ways to opt-in for unsigned types: with requiring an opt-in for your API, or without doing that.
 
-- To propagate experimentality, annotate declarations that use unsigned integers with `@ExperimentalUnsignedTypes`.
-- To opt-in without propagating experimentality, either annotate declarations with `@OptIn(ExperimentalUnsignedTypes::class)` or pass `-Xopt-in=kotlin.ExperimentalUnsignedTypes` to the compiler.
+- To propagate the opt-in requirement, annotate declarations that use unsigned integers with `@ExperimentalUnsignedTypes`.
+- To opt-in without propagating, either annotate declarations with `@OptIn(ExperimentalUnsignedTypes::class)` or pass `-Xopt-in=kotlin.ExperimentalUnsignedTypes` to the compiler.
 
-It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but bear in mind that unsigned types are an experimental feature, so API which uses them can be suddenly broken due to changes in language. 
+It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but bear in mind that unsigned types are not a stable feature, so API which uses them can be broken by changes in the language. 
 
-See also or Experimental API [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/experimental.md) for technical details.
+See also the Opt-in Requirements API [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/experimental.md) for technical details.
 
 ### Further discussion
 
