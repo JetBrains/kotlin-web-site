@@ -74,7 +74,7 @@ Below you will find the list of the most important changes in Kotlin 1.4.0.
 - [Compiled scripts cache](#compiled-scripts-cache)
 - [Artifacts renaming](#artifacts-renaming)
 
-[**Migrating to Kotlin 1.4.0**](#migrating-to-kotlin-14)
+[**Migrating to Kotlin 1.4.0**](#migrating-to-kotlin-140)
 
 ## Language features and improvements
 
