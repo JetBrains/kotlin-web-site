@@ -3,8 +3,7 @@
 @import '../_icon/_icon';
 
 .global-footer {
-  height: $footer-height;
-  color: #b2b2b2;
+  color: rgba(39, 40, 44, 0.75);
 
   .header {
     font-family: $font-family-serif;
@@ -14,7 +13,7 @@
   }
 
   a {
-    color: #fff;
+    color: rgba(39, 40, 44, 0.75);
     text-decoration: none;
 
     &:hover {
@@ -26,12 +25,13 @@
 .global-footer-terms {
   @include box-sizing;
   @include clearfix;
-  padding: $unit*3 0;
-  background-color: #27282C;
-  color: rgba(255, 255, 255, 0.5);
+  padding: 32px 0;
+  background-color: #F4F4F4;
+  color: rgba(39, 40, 44, 0.75);
   font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
+  border-top: 1px solid rgba(39, 40, 44, 0.2);
 
   .global-footer-container {
     display: flex;
@@ -39,15 +39,34 @@
     align-items: flex-end;
   }
 
+  .g-footer-layout {
+    width: 960px;
+    margin: auto;
+  }
+
+  .global-footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .global-footer-row {
-    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .license-footer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 960px;
   }
 
   .terms-social {
     box-sizing: border-box;
-    padding-bottom: 25px;
     border-bottom: 1px solid rgba(255, 255, 255, .2);
-    margin-bottom: 11px;
+    margin-bottom: 16px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -55,51 +74,87 @@
   .terms-social__item {
     display: flex;
     align-items: center;
-    margin-right: 24px;
+    padding: 0 4px;
+    margin-right: 20px;
   }
 
-  .terms-social__item::before {
-    display: inline-block;
-    content: '';
-    background-position: center;
-    background-size: 22px;
-    margin-right: 9px;
-    height: 22px;
-    width: 22px;
+  .terms-kit {
+    color: rgba(39, 40, 44, 0.75);
+    font-size: 16px;
+    line-height: 24px;
+
+    &:hover {
+      border-bottom-color: #27282c;
+      color: #27282c;
+      text-decoration: none;
+    }
   }
 
-  .terms-social__item_blog::before {
-    background-image: url('images/socials/blog.svg');
+  .terms-foundation {
+    color: rgba(39, 40, 44, 0.5);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
   }
 
-  .terms-social__item_forum::before {
-    background-image: url('images/socials/forum.svg') ;
-  }
+  .terms-foundation_link {
+    color: rgba(39, 40, 44, 0.5);
+    border-bottom: 1px solid rgba(39, 40, 44, 0.2);
+    text-decoration: none;
 
-  .terms-social__item_bug-tracker::before {
-    background-image: url('images/socials/youtrack.svg');
-  }
+    &:active,
+    &:visited {
+      border-bottom: 1px solid rgba(39, 40, 44, 0.4);
+    }
 
-  .terms-social__item_github::before {
-    background-image: url('images/socials/github.svg');
-  }
-
-  .terms-social__item_twitter::before {
-    background-image: url('images/socials/twitter.svg');
+    &:hover {
+      border-bottom-color: #27282c;
+      color: #27282c;
+      text-decoration: none;
+    }
   }
 
   .terms-para {
-    margin-bottom: 9px;
-  }
+    margin-bottom: 16px;
+    padding: 0 12px;
 
-  .terms-copyright {
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
   }
 
   .terms-sponsor {
     height: 100%;
     display: flex;
-    align-items: center;
+    color: rgba(39, 40, 44, 0.5);
+    font-size: 13px;
+    line-height: 20px;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: flex-end;
+    position: relative;
+    text-align: right;
+
+    .jetbrains-link {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        top: -80px;
+        right: 0;
+        content: "";
+        background-image: url('images/socials/jetbrains-logo.svg');
+        background-repeat: no-repeat;
+        display: block;
+        width: 60px;
+        height: 60px;
+        background-size: 60px;
+      }
+    }
 
     .sponsor_jetbrains {
       display: inline-block;
@@ -114,4 +169,12 @@
       }
     }
   }
+}
+
+.divider {
+  position: relative;
+  min-width: 1px;
+  max-width: 1px;
+  height: 12px;
+  background-color: rgba(39, 40, 44, 0.5);
 }

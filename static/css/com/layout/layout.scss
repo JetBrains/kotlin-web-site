@@ -11,11 +11,13 @@
 
 .global-layout {
     min-height: 100%;
-    margin-bottom: -$footer-height;
+    //margin-bottom: -$footer-height;
+    //margin-bottom: -164px;
 
     &:after {
         display: block;
-        height: $footer-height;
+        //height: $footer-height;
+        //height: 164px;
         content: '';
     }
 }
