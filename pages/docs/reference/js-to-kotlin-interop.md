@@ -125,7 +125,7 @@ By applying the `@JsExport` annotation to a top-level declaration (like a class 
 
 To resolve ambiguities in exports (like overloads for functions with the same name), you can use the `@JsExport` annotation together with `@JsName` to specify the names for the generated and exported functions.
 
-The `@JsExport` annotation is available in the current default compiler back-end and the new [IR compiler backend](js-ir-compiler.html). If you are targeting the IR compiler backend, you **must** use the `@JsExport` annotation to make your functions visible from Kotlin in the first place.
+The `@JsExport` annotation is available in the current default compiler backend and the new [IR compiler backend](js-ir-compiler.html). If you are targeting the IR compiler backend, you **must** use the `@JsExport` annotation to make your functions visible from Kotlin in the first place.
 
 For multiplatform projects, `@JsExport` is available in common code as well. It only has an effect when compiling for the JavaScript target, and allows you to also export Kotlin declarations that are not platform specific.
 

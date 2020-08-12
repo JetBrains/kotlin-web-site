@@ -4,11 +4,81 @@ layout: reference
 title: "What's New in Kotlin 1.4"
 ---
 
-# What's New in Kotlin 1.4
+# What's New in Kotlin 1.4.0
+
+In Kotlin 1.4.0, we ship a number of improvements in all of its components, with the [focus on quality and performance](https://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/).
+Below you will find the list of the most important changes in Kotlin 1.4.0.  
+
+[**Language features and improvements**](#language-features-and-improvements)
+* [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
+* [Explicit API mode for library authors](#explicit-api-mode-for-library-authors)
+* [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
+* [Trailing comma](#trailing-comma)
+* [Callable reference improvements](#callable-reference-improvements)
+* [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
+
+[**New tools in the IDE**](#new-tools-in-the-ide)
+* [New flexible Project Wizard](#new-flexible-project-wizard)
+* [Coroutine Debugger](#coroutine-debugger)
+
+[**New compiler**](#new-compiler)
+* [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) 
+* [New JVM and JS IR backends](#unified-backends-and-extensibility)
+
+[**Kotlin/JVM**](#kotlinjvm)
+* [New JVM IR backend](#new-jvm-ir-backend)
+* [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
+* [Unified exception type for null checks](#unified-exception-type-for-null-checks)
+* [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
+
+[**Kotlin/JS**](#kotlinjs)
+- [New Gradle DSL](#new-gradle-dsl)
+- [New JS IR backend](#new-js-ir-backend)
+
+[**Kotlin/Native**](#kotlinnative)
+* [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
+* [Objective-C generics support by default](#objective-c-generics-support-by-default)
+* [Exception handling in Objective-C/Swift interop](#exception-handling-in-objective-cswift-interop)
+* [Generate release `.dSYM`s on Apple targets by default](#generate-release-dsyms-on-apple-targets-by-default)
+* [Performance improvements](#performance-improvements)
+* [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
+
+[**Kotlin Multiplatform**](#kotlin-multiplatform)
+* [Sharing code in several targets with the hierarchical project structure](#sharing-code-in-several-targets-with-the-hierarchical-project-structure)
+* [Leveraging native libs in the hierarchical structure](#leveraging-native-libs-in-the-hierarchical-structure)
+* [Specifying kotlinx dependencies only once](#specifying-dependencies-only-once)
+
+[**Gradle project improvements**](#gradle-project-improvements)
+* [Dependency on the standard library is now added by default](#dependency-on-the-standard-library-added-by-default)
+* [Kotlin projects require a recent version of Gradle](#minimum-gradle-version-for-kotlin-projects)
+* [Improved support for Kotlin Gradle DSL in the IDE](#improved-gradlekts-support-in-the-ide)
+
+[**Standard library**](#standard-library)
+- [Common exception processing API](#common-exception-processing-api)
+- [New functions for arrays and collections](#new-functions-for-arrays-and-collections)
+- [Functions for string manipulations](#functions-for-string-manipulations)
+- [Bit operations](#bit-operations)
+- [Delegated properties improvements](#delegated-properties-improvements)
+- [Converting from KType to Java Type](#converting-from-ktype-to-java-type)
+- [Proguard configurations for Kotlin reflection](#proguard-configurations-for-kotlin-reflection)
+- [Improving the existing API](#improving-the-existing-api)
+- [module-info descriptors for stdlib artifacts](#module-info-descriptors-for-stdlib-artifacts)
+- [Deprecations](#deprecations)
+- [Exclusion of the deprecated experimental coroutines](#exclusion-of-the-deprecated-experimental-coroutines)
+
+[**Stable JSON serialization**](#stable-json-serialization)
+
+[**Scripting and REPL**](#scripting-and-repl)
+- [New dependencies resolution API](#new-dependencies-resolution-api)
+- [New REPL API](#new-repl-api)
+- [Compiled scripts cache](#compiled-scripts-cache)
+- [Artifacts renaming](#artifacts-renaming)
+
+[**Migrating to Kotlin 1.4.0**](#migrating-to-kotlin-14)
 
 ## Language features and improvements
 
-Kotlin 1.4 comes with a variety of different language features and improvements. They include:
+Kotlin 1.4.0 comes with a variety of different language features and improvements. They include:
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
@@ -19,7 +89,7 @@ Kotlin 1.4 comes with a variety of different language features and improvements.
 
 ### SAM conversions for Kotlin interfaces
 
-Before Kotlin 1.4, you could apply SAM (Single Abstract Method) conversions only [when working with Java methods and Java
+Before Kotlin 1.4.0, you could apply SAM (Single Abstract Method) conversions only [when working with Java methods and Java
 interfaces from Kotlin](java-interop.html#sam-conversions). From now on, you can use SAM conversions for Kotlin interfaces as well.
 To do so, mark a Kotlin interface explicitly as functional with the `fun` modifier.
 
@@ -43,6 +113,82 @@ fun main() {
 </div>
 
 Learn more about [Kotlin functional interfaces and SAM conversions](fun-interfaces.html).
+
+### Explicit API mode for library authors
+
+Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
+help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
+to the library’s public API:
+
+* Visibility modifiers are required for declarations if the default visibility exposes them to the public API.
+This helps ensure that no declarations are exposed to the public API unintentionally.
+* Explicit type specifications are required for properties and functions that are exposed to the public API.
+This guarantees that API users are aware of the types of API members they use.
+
+Depending on your configuration, these explicit APIs can produce errors (_strict_ mode) or warnings (_warning_ mode).
+Certain kinds of declarations are excluded from such checks for the sake of readability and common sense:
+
+* primary constructors
+* properties of data classes
+* property getters and setters
+* `override` methods
+
+Explicit API mode analyzes only the production sources of a module.
+
+To compile your module in the explicit API mode, add the following lines to your Gradle build script:
+
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
+
+```groovy
+kotlin {    
+    // for strict mode
+    explicitApi() 
+    // or
+    explicitApi = 'strict'
+    
+    // for warning mode
+    explicitApiWarning()
+    // or
+    explicitApi = 'warning'
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+kotlin {    
+    // for strict mode
+    explicitApi() 
+    // or
+    explicitApi = ExplicitApiMode.Strict
+    
+    // for warning mode
+    explicitApiWarning()
+    // or
+    explicitApi = ExplicitApiMode.Warning
+}
+```
+
+</div>
+</div>
+
+When using the command-line compiler, switch to explicit API mode by adding  the `-Xexplicit-api` compiler option
+with the value `strict` or `warning`.
+
+<div class="sample" markdown="1" mode="shell" theme="idea">
+
+```bash
+-Xexplicit-api={strict|warning}
+```
+
+</div>
+
+For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
 
 ### Mixing named and positional arguments
 
@@ -191,7 +337,7 @@ fun test() {
 
 #### Suspend conversion on callable references
 
-In addition to suspend conversion on lambdas, Kotlin now supports suspend conversion on callable references starting from version 1.4.
+In addition to suspend conversion on lambdas, Kotlin now supports suspend conversion on callable references starting from version 1.4.0.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -249,81 +395,7 @@ fun test(xs: List<Int>) {
 
 The fall-through behavior inside `when` is subject to further design.
 
-### Explicit API mode for library authors
-
-Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
-help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
-to the library’s public API:
-
-* Visibility modifiers are required for declarations if the default visibility exposes them to the public API.
-This helps ensure that no declarations are exposed to the public API unintentionally.
-* Explicit type specifications are required for properties and functions that are exposed to the public API.
-This guarantees that API users are aware of the types of API members they use.
-
-Depending on your configuration, these explicit APIs can produce errors (_strict_ mode) or warnings (_warning_ mode).
-Certain kinds of declarations are excluded from such checks for the sake of readability and common sense:
-
-* primary constructors
-* properties of data classes
-* property getters and setters
-* `override` methods
-
-Explicit API mode analyzes only the production sources of a module.
-
-To compile your module in the explicit API mode, add the following lines to your Gradle build script:
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-kotlin {    
-    // for strict mode
-    explicitApi() 
-    // or
-    explicitApi = 'strict'
-    
-    // for warning mode
-    explicitApiWarning()
-    // or
-    explicitApi = 'warning'
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
-
-```kotlin
-kotlin {    
-    // for strict mode
-    explicitApi() 
-    // or
-    explicitApi = ExplicitApiMode.Strict
-    
-    // for warning mode
-    explicitApiWarning()
-    // or
-    explicitApi = ExplicitApiMode.Warning
-}
-```
-
-</div>
-</div>
-
-When using the command-line compiler, switch to explicit API mode by adding  the `-Xexplicit-api` compiler option
-with the value `strict` or `warning`.
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
--Xexplicit-api={strict|warning}
-```
-
-</div>
-
-For more details about the explicit API mode, see the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/explicit-api-mode.md). 
+[**Back to top**](#)
 
 ## New tools in the IDE
 
@@ -393,13 +465,15 @@ and helpful in future versions of Kotlin.
 Learn more about debugging coroutines in [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/)
 and [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/debug-kotlin-coroutines.html).
 
+[**Back to top**](#)
+
 ## New compiler
 
 The new Kotlin compiler is going to be really fast; it will unify all the supported platforms and provide 
-an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4:
+an API for compiler extensions. It's a long-term project, and we've already completed several steps in Kotlin 1.4.0:
 
 * [New, more powerful type inference algorithm](#new-more-powerful-type-inference-algorithm) is enabled by default. 
-* [New JVM and JS IR back-ends](#unified-back-ends-and-extensibility) are now in [Alpha](evolution/components-stability.html). They will become the default once we stabilize them.
+* [New JVM and JS IR backends](#unified-backends-and-extensibility) are now in [Alpha](evolution/components-stability.html). They will become the default once we stabilize them.
 
 ### New more powerful type inference algorithm
 
@@ -585,45 +659,47 @@ fun test() {
 
 In Kotlin 1.3, you would have had to declare the function `foo` above in Java code to perform a SAM conversion.
 
-### Unified back-ends and extensibility
+### Unified backends and extensibility
 
-In Kotlin, we have three back-ends that generate executables: Kotlin/JVM, Kotlin/JS, and Kotlin/Native. Kotlin/JVM and Kotlin/JS 
+In Kotlin, we have three backends that generate executables: Kotlin/JVM, Kotlin/JS, and Kotlin/Native. Kotlin/JVM and Kotlin/JS 
 don't share much code since they were developed independently of each other. Kotlin/Native is based on a new 
 infrastructure built around an internal representation (IR) for Kotlin code. 
 
-We are now migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three back-ends
+We are now migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three backends
 share a lot of logic and have a unified pipeline. This allows us to implement most features, optimizations, and bug fixes 
 only once for all platforms. Both new IR-based back-ends are in [Alpha](evolution/components-stability.html).
 
-A common back-end infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
+A common backend infrastructure also opens the door for multiplatform compiler extensions. You will be able to plug into the 
 pipeline and add custom processing and transformations that will automatically work for all platforms.
 
-We encourage you to use our new [JVM IR](#new-jvm-ir-back-end) and [JS IR](#new-js-ir-back-end) back-ends, which are currently in Alpha, and 
+We encourage you to use our new [JVM IR](#new-jvm-ir-backend) and [JS IR](#new-js-ir-backend) backends, which are currently in Alpha, and 
 share your feedback with us.
+
+[**Back to top**](#)
 
 ## Kotlin/JVM
 
-Kotlin 1.4 includes a number of JVM-specific improvements, such as:
+Kotlin 1.4.0 includes a number of JVM-specific improvements, such as:
  
-* [New JVM IR back-end](#new-jvm-ir-back-end)
+* [New JVM IR backend](#new-jvm-ir-backend)
 * [New modes for generating default methods in interfaces](#new-modes-for-generating-default-methods)
 * [Unified exception type for null checks](#unified-exception-type-for-null-checks)
 * [Type annotations in the JVM bytecode](#type-annotations-in-the-jvm-bytecode)
 
-### New JVM IR back-end
+### New JVM IR backend
 
-Along with Kotlin/JS, we are migrating Kotlin/JVM to the [unified IR back-end](#unified-back-ends-and-extensibility), 
+Along with Kotlin/JS, we are migrating Kotlin/JVM to the [unified IR backend](#unified-backends-and-extensibility), 
 which allows us to implement most features and bug fixes once for all platforms. You will also be able to benefit from this 
 by creating multiplatform extensions that will work for all platforms.
 
-Kotlin 1.4 does not provide a public API for such extensions yet, but we are working closely with our partners, 
+Kotlin 1.4.0 does not provide a public API for such extensions yet, but we are working closely with our partners, 
 including [Jetpack Compose](https://developer.android.com/jetpack/compose), who are already building their compiler plugins 
-using our new back-end.
+using our new backend.
 
 We encourage you to try out the new Kotlin/JVM backend, which is currently in Alpha, and to file any issues and feature requests to our [issue tracker](https://youtrack.jetbrains.com/issues/KT). 
 This will help us to unify the compiler pipelines and bring compiler extensions like Jetpack Compose to the Kotlin community more quickly.
 
-To enable the new JVM IR back-end, specify an additional compiler option in your Gradle build script:
+To enable the new JVM IR backend, specify an additional compiler option in your Gradle build script:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -639,8 +715,8 @@ kotlinOptions.useIR = true
 
 When using the command-line compiler, add the compiler option `-Xuse-ir`.
 
-> You can use code compiled by the new JVM IR back-end only if you've enabled the new back-end. Otherwise, you will get an error.
-> Considering this, we don't recommend that library authors switch to the new back-end in production.
+> You can use code compiled by the new JVM IR backend only if you've enabled the new backend. Otherwise, you will get an error.
+> Considering this, we don't recommend that library authors switch to the new backend in production.
 {:.note}
 
 ### New modes for generating default methods
@@ -649,7 +725,7 @@ When compiling Kotlin code to targets JVM 1.8 and above, you could compile non-a
 Java's `default` methods. For this purpose, there was a mechanism that includes the `@JvmDefault` annotation for marking
 such methods and the `-Xjmv-default` compiler option that enables processing of this annotation.
 
-In 1.4, we've added a new mode for generating default methods: `-Xjvm-default=all` compiles *all* non-abstract methods of Kotlin
+In 1.4.0, we've added a new mode for generating default methods: `-Xjvm-default=all` compiles *all* non-abstract methods of Kotlin
 interfaces to `default` Java methods. For compatibility with the code that uses the interfaces compiled without `default`, 
 we also added `all-compatibility` mode. 
 
@@ -658,7 +734,7 @@ For more information about default methods in the Java interop, see the [documen
 
 ### Unified exception type for null checks
 
-Starting from Kotlin 1.4, all runtime null checks will throw a `java.lang.NullPointerException` instead of `KotlinNullPointerException`,
+Starting from Kotlin 1.4.0, all runtime null checks will throw a `java.lang.NullPointerException` instead of `KotlinNullPointerException`,
 `IllegalStateException`, `IllegalArgumentException`, and `TypeCastException`. This applies to: the `!!` operator, parameter
 null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-null type.
 This doesn’t apply to `lateinit` null checks and explicit library function calls like `checkNotNull` or `requireNotNull`.
@@ -704,9 +780,56 @@ class A {
 ```
 </div>
 
+[**Back to top**](#)
+
+## Kotlin/JS
+
+On the JS platform, Kotlin 1.4.0 provides the following improvements:
+
+- [New Gradle DSL](#new-gradle-dsl)
+- [New JS IR backend](#new-js-ir-backend)
+
+### New Gradle DSL
+
+The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides a number of new configuration options and is more closely aligned to the DSL used by the `kotlin-multiplatform` plugin. Some of the most impactful changes include:
+
+- Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the executing Kotlin/JS and its environment [here](js-project-setup.html#choosing-execution-environment).
+- Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about using them [here](js-project-setup.html#configuring-css).
+- Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. Read more about dependency management for npm packages directly from Gradle [here](js-project-setup.html#npm-dependencies).
+- Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. Read more about how to use the integration [here](js-external-declarations-with-dukat.html).
+
+### New JS IR backend
+
+The [IR backend for Kotlin/JS](js-ir-compiler.html), which currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which is focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
+
+To enable the Kotlin/JS IR backend, set the key `kotlin.js.compiler=ir` in your `gradle.properties`, or pass the `IR` compiler type to the `js` function of your Gradle build script:
+
+
+<!--suppress ALL -->
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin {
+    js(IR) { // or: LEGACY, BOTH
+        // . . .
+    }
+    binaries.executable()
+}
+```
+
+</div>
+
+For more detailed information about how to configure the Kotlin/JS IR compiler backend, check out the [documentation](js-ir-compiler.html).
+
+With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler backend improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
+
+Learn more about the available features in the Kotlin/JS IR compiler backend in the [documentation](js-ir-compiler.html).
+
+[**Back to top**](#)
+
 ## Kotlin/Native
 
-In 1.4, Kotlin/Native got a significant number of new features and improvements, including: 
+In 1.4.0, Kotlin/Native got a significant number of new features and improvements, including: 
 
 * [Support for suspending functions in Swift and Objective-C](#support-for-kotlins-suspending-functions-in-swift-and-objective-c)
 * [Objective-C generics support by default](#objective-c-generics-support-by-default)
@@ -717,7 +840,7 @@ In 1.4, Kotlin/Native got a significant number of new features and improvements,
 
 ### Support for Kotlin’s suspending functions in Swift and Objective-C
 
-In 1.4, we add the basic support for suspending functions in Swift and Objective-C. Now, when you compile a Kotlin module
+In 1.4.0, we add the basic support for suspending functions in Swift and Objective-C. Now, when you compile a Kotlin module
 into an Apple framework, suspending functions are available in it as functions with callbacks (`completionHandler` in 
 the Swift/Objective-C terminology). When you have such functions in the generated framework’s header, you can call them
 from your Swift or Objective-C code and even override them.
@@ -750,7 +873,7 @@ For more information about using suspending functions in Swift and Objective-C, 
 
 ### Objective-C generics support by default
 
-Previous versions of Kotlin provided experimental support for generics in Objective-C interop. Since 1.4, Kotlin/Native 
+Previous versions of Kotlin provided experimental support for generics in Objective-C interop. Since 1.4.0, Kotlin/Native 
 generates Apple frameworks with generics from Kotlin code by default. In some cases, this may break existing Objective-C
 or Swift code calling Kotlin frameworks. To have the framework header written without generics, add the `-Xno-objc-generics` compiler option.
 
@@ -771,7 +894,7 @@ Please note that all specifics and limitations listed in the [documentation](nat
 
 ### Exception handling in Objective-C/Swift interop
 
-In 1.4, we slightly change the Swift API generated from Kotlin with respect to the way exceptions are translated. There is
+In 1.4.0, we slightly change the Swift API generated from Kotlin with respect to the way exceptions are translated. There is
 a fundamental difference in error handling between Kotlin and Swift. All Kotlin exceptions are unchecked, while Swift has
 only checked errors. Thus, to make Swift code aware of expected exceptions, Kotlin functions should be marked with a `@Throws`
 annotation specifying a list of potential exception classes.
@@ -779,13 +902,13 @@ annotation specifying a list of potential exception classes.
 When compiling to Swift or the Objective-C framework, functions that have or are inheriting `@Throws` annotation are represented
 as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
 
-Previously, any exceptions other than `RuntimeException` and `Error` were propagated as `NSError`. In 1.4, this behavior changes: 
+Previously, any exceptions other than `RuntimeException` and `Error` were propagated as `NSError`. Now this behavior changes: 
 now `NSError` is thrown only for exceptions that are instances of classes specified as parameters of `@Throws` annotation 
 (or their subclasses). Other Kotlin exceptions that reach Swift/Objective-C are considered unhandled and cause program termination.
 
 ### Generate release `.dSYM`s on Apple targets by default
 
-Starting with 1.4, the Kotlin/Native compiler produces [debug symbol files](https://developer.apple.com/documentation/xcode/building_your_app_to_include_debugging_information)
+Starting with 1.4.0, the Kotlin/Native compiler produces [debug symbol files](https://developer.apple.com/documentation/xcode/building_your_app_to_include_debugging_information)
 (`.dSYM`s) for release binaries on Darwin platforms by default. This can be disabled with the `-Xadd-light-debug=disable`
 compiler option. On other platforms, this option is disabled by default. To toggle this option in Gradle, use:
 
@@ -848,6 +971,7 @@ The new dependency will be added automatically. No additional steps are required
 
 Learn [how to add dependencies](native/cocoapods.html).
 
+[**Back to top**](#)
 
 ## Kotlin Multiplatform
 
@@ -1022,7 +1146,7 @@ Don’t use kotlinx library artifact names with suffixes specifying the platform
 as they are NOT supported anymore. Instead, use the library base artifact name, which in the example above is `kotlinx-coroutines-core`. 
 
 However, the change doesn’t currently affect:
-* The `stdlib` library – starting from Kotlin 1.4, [the `stdlib` dependency is added automatically](#dependency-on-the-standard-library-added-by-default).
+* The `stdlib` library – starting from Kotlin 1.4.0, [the `stdlib` dependency is added automatically](#dependency-on-the-standard-library-added-by-default).
 * The `kotlin.test` library – you should still use `test-common` and `test-annotations-common`. These dependencies will be
 addressed later.
 
@@ -1030,6 +1154,8 @@ If you need a dependency only for a specific platform, you can still use platfor
 libraries with such suffixes as `-jvm` or` -js`, for example `kotlinx-coroutines-core-jvm`. 
 
 Learn more about [configuring dependencies](using-gradle.html#configuring-dependencies).
+
+[**Back to top**](#)
 
 ## Gradle project improvements
 
@@ -1061,25 +1187,28 @@ Multiplatform projects require Gradle 6.0 or later, while other Kotlin projects 
 
 ### Improved *.gradle.kts support in the IDE 
 
-In 1.4, we continued improving the IDE support for Gradle Kotlin DSL scripts (`*.gradle.kts` files). Here is what the new
+In 1.4.0, we continued improving the IDE support for Gradle Kotlin DSL scripts (`*.gradle.kts` files). Here is what the new
 version brings:
 
 - _Explicit loading of script configurations_ for better performance. Previously, the changes you make to the build script
-were loaded automatically in the background. In 1.4, we've disabled the automatic loading of build script configuration. 
+were loaded automatically in the background. In 1.4.0, we've disabled the automatic loading of build script configuration. 
 Now IDE loads the changes only when you explicitly apply them by clicking **Load Gradle Changes** or by reimporting the
 Gradle project.
  
   We’ve added one more action in IntelliJ IDEA 2020.1 – **Load Script Configurations**, which loads changes
 to the script configurations without updating the whole project. This takes much less time than reimporting the whole project.
 
+![*.gradle.kts – Load Script Changes and Load Gradle Changes]({{ url_for('asset', path='images/reference/whats-new/gradle-kts.png') }})
+
 - _Better error reporting_. Previously you could only see errors from the Gradle Daemon in separate log files. Now the
 Gradle Daemon returns all the information about errors directly and shows it in the Build tool window. This saves you both
 time and effort.
 
+[**Back to top**](#)
 
 ## Standard library
 
-Here is the list of the most significant changes to the Kotlin standard library in 1.4: 
+Here is the list of the most significant changes to the Kotlin standard library in 1.4.0: 
 
 - [Common exception processing API](#common-exception-processing-api)
 - [New functions for arrays and collections](#new-functions-for-arrays-and-collections)
@@ -1108,7 +1237,7 @@ the exception, and the `Throwable.suppressedExceptions` property, which returns 
 
 #### Collections
 
-In 1.4, the standard library includes a number of useful functions for working with **collections**:
+In 1.4.0, the standard library includes a number of useful functions for working with **collections**:
 
 * `setOfNotNull()`, which makes a set consisting of all the non-null items among the provided arguments.
 
@@ -1349,7 +1478,7 @@ and resizes this `Array` only when it becomes full.
 
 ### Functions for string manipulations
 
-The standard library in 1.4 includes a number of improvements in the API for string manipulation:
+The standard library in 1.4.0 includes a number of improvements in the API for string manipulation:
 
 * `StringBuilder` has useful new extension functions: `set()`, `setRange()`, `deleteAt()`, `deleteRange()`, `appendRange()`,
 and others.
@@ -1414,7 +1543,7 @@ fun main() {
 
 ### Delegated properties improvements
 
-In 1.4, we have added new features to improve your experience with delegated properties in Kotlin:
+In 1.4.0, we have added new features to improve your experience with delegated properties in Kotlin:
 - Now a property can be delegated to another property.
 - A new interface `PropertyDelegateProvider` helps create delegate providers in a single declaration.
 - `ReadWriteProperty` now extends `ReadOnlyProperty` so you can use both of them for read-only properties.
@@ -1457,7 +1586,7 @@ fun main() {
 
 ### Proguard configurations for Kotlin reflection
 
-Starting from 1.4, we have embedded Proguard/R8 configurations for Kotlin Reflection in `kotlin-reflect.jar`. With this
+Starting from 1.4.0, we have embedded Proguard/R8 configurations for Kotlin Reflection in `kotlin-reflect.jar`. With this
 in place, most Android projects using R8 or Proguard should work with kotlin-reflect without needing any additional configuration.
 You no longer need to copy-paste the Proguard rules for kotlin-reflect internals. But note that you still need to explicitly 
 list all the APIs you’re going to reflect on.
@@ -1478,7 +1607,7 @@ to represent an instance of the type in binary form.
 
 ### module-info descriptors for stdlib artifacts
 
-Kotlin 1.4 adds `module-info.java` module information to default standard library artifacts. This lets you use them with 
+Kotlin 1.4.0 adds `module-info.java` module information to default standard library artifacts. This lets you use them with 
 [**jlink** tool](https://docs.oracle.com/en/java/javase/11/tools/jlink.html), which generates custom Java runtime images
 containing only the platform modules that are required for your app.
 You could already use jlink with Kotlin standard library artifacts, but you had to use separate artifacts to do so – the
@@ -1509,30 +1638,34 @@ See [this issue](https://youtrack.jetbrains.com/issue/KT-38854) for details.
 
 ### Exclusion of the deprecated experimental coroutines
  
-The `kotlin.coroutines.experimental` API was deprecated in favor of kotlin.coroutines in 1.3.0. In 1.4, we’re completing
+The `kotlin.coroutines.experimental` API was deprecated in favor of kotlin.coroutines in 1.3.0. In 1.4.0, we’re completing
 the deprecation cycle for `kotlin.coroutines.experimental` by removing it from the standard library. For those who still
 use it on the JVM, we've provided a compatibility artifact `kotlin-coroutines-experimental-compat.jar` with all the experimental
 coroutines APIs. We've published it to Maven, and we include it in the Kotlin distribution alongside the standard library.
 
+[**Back to top**](#)
+
 ## Stable JSON serialization
 
-With Kotlin 1.4, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
-- 1.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
+With Kotlin 1.4.0, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+- 1.0.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
 stable. Libraries for other serialization formats remain experimental, along with some advanced parts of the core library.
 
 We have significantly reworked the API for JSON serialization to make it more consistent and easier to use. From now on,
 we'll continue developing the JSON serialization API in a backward-compatible manner.
-However, if you have used previous versions of it, you'll need to rewrite some of your code when migrating to 1.0-RC.
+However, if you have used previous versions of it, you'll need to rewrite some of your code when migrating to 1.0.0-RC.
 To help you with this, we also offer the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md) –
 the complete set of documentation for `kotlinx.serialization`. It will guide you through the process of using the most
 important features and it can help you address any issues that you might face.
 
->**Note**: `kotlinx-serialization` 1.0-RC only works with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
+>**Note**: `kotlinx-serialization` 1.0.0-RC only works with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
 {:.note}
+
+[**Back to top**](#)
 
 ## Scripting and REPL
 
-In 1.4, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.
+In 1.4.0, scripting in Kotlin benefits from a number of functional and performance improvements along with other updates.
 Here are some of the key changes:
 
 - [New dependencies resolution API](#new-dependencies-resolution-api)
@@ -1546,7 +1679,7 @@ script definitions. Please give it a try and share your feedback using our [issu
 
 ### New dependencies resolution API
 
-In 1.4, we’ve introduced a new API for resolving external dependencies (such as Maven artifacts), along with implementations
+In 1.4.0, we’ve introduced a new API for resolving external dependencies (such as Maven artifacts), along with implementations
 for it. This API is published in the new artifacts `kotlin-scripting-dependencies` and `kotlin-scripting-dependencies-maven`.
 The previous dependency resolution functionality in `kotlin-script-util` library is now deprecated.
 
@@ -1572,45 +1705,9 @@ If, for some reason, you need artifacts that depend on the unshaded `kotlin-comp
 `-unshaded` suffix, such as `kotlin-scripting-jsr223-unshaded`. Note that this renaming affects only the scripting artifacts
 that are supposed to be used directly; names of other artifacts remain unchanged.
 
+[**Back to top**](#)
 
-
-## Kotlin/JS
-
-### New Gradle DSL
-The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides a number of new configuration options and is more closely aligned to the DSL used by the `kotlin-multiplatform` plugin. Some of the most impactful changes include:
-
-- Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the executing Kotlin/JS and its environment [here](js-project-setup.html#choosing-execution-environment).
-- Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about using them [here](js-project-setup.html#configuring-css).
-- Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. Read more about dependency management for npm packages directly from Gradle [here](js-project-setup.html#npm-dependencies).
-- Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. Read more about how to use the integration [here](js-external-declarations-with-dukat.html).
-
-### New JS IR back-end
-The [IR back-end for Kotlin/JS](js-ir-compiler.html), which currently has [Alpha](evolution/components-stability.html) stability, provides some new functionality specific to the Kotlin/JS target which is focused around the generated code size through dead code elimination, and improved interoperation with JavaScript and TypeScript, among others.
-
-To enable the Kotlin/JS IR back-end, set the key `kotlin.js.compiler=ir` in your `gradle.properties`, or pass the `IR` compiler type to the `js` function of your Gradle build script:
-
-
-<!--suppress ALL -->
-<div class="sample" markdown="1" mode="groovy" theme="idea">
-
-```groovy
-kotlin {
-    js(IR) { // or: LEGACY, BOTH
-        // . . .
-    }
-    binaries.executable()
-}
-```
-
-</div>
-
-For more detailed information about how to configure the Kotlin/JS IR compiler back-end, check out the [documentation](js-ir-compiler.html).
-
-With the new [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.html#preview-generation-of-typescript-declaration-files-dts) from Kotlin code**, the Kotlin/JS IR compiler back-end improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
-
-Learn more about the available features in the Kotlin/JS IR compiler back-end in the [documentation](js-ir-compiler.html).
-
-## Migrating to Kotlin 1.4
+## Migrating to Kotlin 1.4.0
 
 The Kotlin plugin’s migration tools help you migrate your projects from earlier versions of Kotlin to 1.4.0.
 
@@ -1625,3 +1722,5 @@ Code inspections have different [severity levels](https://www.jetbrains.com/help
 to help you decide which suggestions to accept and which to ignore.
 
 ![Migration inspections]({{ url_for('asset', path='images/reference/whats-new/migration-inspection-wn.png') }})
+
+[**Back to top**](#)
