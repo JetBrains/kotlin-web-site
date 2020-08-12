@@ -17,7 +17,7 @@ title: "What's New in Kotlin 1.1"
 ## JavaScript
 
 Starting with Kotlin 1.1, the JavaScript target is no longer considered experimental. All language features are supported,
-and there are many new tools for integration with the front-end development environment. See [below](#javascript-backend) for
+and there are many new tools for integration with the frontend development environment. See [below](#javascript-backend) for
 a more detailed list of changes.
 
 ## Coroutines (experimental)
