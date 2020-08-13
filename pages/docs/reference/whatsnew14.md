@@ -1194,11 +1194,11 @@ version brings:
 were loaded automatically in the background. To improve the performance, we've disabled the automatic loading of build script
 configuration in 1.4.0. Now the IDE loads the changes only when you explicitly apply them.
 
-In Gradle versions earlier than 6.0, you need to manually load the script configuration by clicking **Load Configuration** in the editor.
+  In Gradle versions earlier than 6.0, you need to manually load the script configuration by clicking **Load Configuration** in the editor.
 
-    ![*.gradle.kts – Load Configuration]({{ url_for('asset', path='images/reference/whats-new/gradle-kts-load-config.png') }})
+  ![*.gradle.kts – Load Configuration]({{ url_for('asset', path='images/reference/whats-new/gradle-kts-load-config.png') }})
 
-In Gradle 6.0 and above, you can explicitly apply changes by clicking **Load Gradle Changes** or by reimporting the
+  In Gradle 6.0 and above, you can explicitly apply changes by clicking **Load Gradle Changes** or by reimporting the
 Gradle project.
  
   We’ve added one more action in IntelliJ IDEA 2020.1 with Gradle 6.0 and above – **Load Script Configurations**, which loads changes
