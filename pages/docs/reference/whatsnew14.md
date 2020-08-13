@@ -1198,8 +1198,15 @@ Gradle project.
   We’ve added one more action in IntelliJ IDEA 2020.1 – **Load Script Configurations**, which loads changes
 to the script configurations without updating the whole project. This takes much less time than reimporting the whole project.
 
-![*.gradle.kts – Load Script Changes and Load Gradle Changes]({{ url_for('asset', path='images/reference/whats-new/gradle-kts.png') }})
+  ![*.gradle.kts – Load Script Changes and Load Gradle Changes]({{ url_for('asset', path='images/reference/whats-new/gradle-kts.png') }})
 
+  Currently, explicit loading is supported only for `build.gradle.kts` and `settings.gradle.kts` files (please vote for the related [issue](https://github.com/gradle/gradle/issues/12640)).
+  For now, you can enable highlighting for `init.gradle.kts` or applied script plugins by adding them to standalone scripts.
+    
+  ![*.gradle.kts – Load Script Changes and Load Gradle Changes]({{ url_for('asset', path='images/reference/whats-new/gradle-kts-standalone.png') }})
+
+  Configuration for such scripts is loaded separately when you need it. You can also enable auto-reload for such scripts.
+  
 - _Better error reporting_. Previously you could only see errors from the Gradle Daemon in separate log files. Now the
 Gradle Daemon returns all the information about errors directly and shows it in the Build tool window. This saves you both
 time and effort.
