@@ -39,7 +39,7 @@ The following table lists details of latest Kotlin releases.
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
-        <th>kotlinx library versions</th>
+        <th>Recommended kotlinx library versions</th>
     </tr>
     <tr>
         <td><strong>1.4.0</strong>
@@ -100,3 +100,7 @@ The following table lists details of latest Kotlin releases.
         </td>
     </tr>    
 </table>
+
+> On the JVM, you usually can use library versions other than the recommended ones. However, we don't guarantee the compatibility
+>in such cases. 
+{:.note}
