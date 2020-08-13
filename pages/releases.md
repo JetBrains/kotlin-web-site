@@ -101,6 +101,5 @@ The following table lists details of latest Kotlin releases.
     </tr>    
 </table>
 
-> On the JVM, you usually can use library versions other than the recommended ones. However, we don't guarantee the compatibility
->in such cases. 
+> On the JVM, you usually can use library versions other than the recommended ones.
 {:.note}
