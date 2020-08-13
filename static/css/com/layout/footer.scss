@@ -4,44 +4,44 @@
 
 .global-footer {
   color: rgba(39, 40, 44, 0.75);
-
-  .header {
-    font-family: $font-family-serif;
-    font-size: 24px;
-    color: #7c7979;
-    margin-bottom: $unit*3;
-  }
-
-  a {
-    color: rgba(39, 40, 44, 0.75);
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  width: 100%;
 }
 
 .global-footer-terms {
   @include box-sizing;
   @include clearfix;
-  padding: 32px 0;
+  padding: 32px 22px;
   background-color: #F4F4F4;
+  min-width: 340px;
   color: rgba(39, 40, 44, 0.75);
-  font-family: Inter, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
+  -webkit-font-smoothing: antialiased;
   line-height: 20px;
   border-top: 1px solid rgba(39, 40, 44, 0.2);
 
-  .global-footer-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+  @media (max-width: 425px) {
+    padding: 32px 16px
   }
 
   .g-footer-layout {
-    width: 960px;
+    min-width: 960px;
+    max-width: 960px;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      min-width: 320px;
+    }
+  }
+
+  .footer-info-block {
+    display: flex;
+    flex-direction: column;
   }
 
   .global-footer-info {
@@ -54,18 +54,53 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin-bottom: 16px;
+
+    @media (max-width: 1024px) {
+      width: auto;
+      min-width: 320px;
+    }
   }
 
   .license-footer-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    min-width: 960px;
+    max-width: 650px;
+
+    @media (max-width: 768px) {
+      width: auto;
+      min-width: 320px;
+    }
+
+    @media (max-width: 450px) {
+      justify-content: space-between;
+      .jetbrains-link-mobile {
+        background-image: url('images/socials/jetbrains-logo.svg');
+        background-repeat: no-repeat;
+        display: block;
+        width: 75px;
+        height: 75px;
+        background-size: 75px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      justify-content: flex-start;
+    }
+  }
+
+  .sponsored-block {
+    flex-basis: 270px;
+
+    @media (max-width: 450px) {
+      display: none;
+    }
   }
 
   .terms-social {
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
     margin-bottom: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -80,21 +115,51 @@
 
   .terms-kit {
     color: rgba(39, 40, 44, 0.75);
-    font-size: 16px;
+    font-size: 15px;
     line-height: 24px;
+    font-weight: 400;
+    letter-spacing: normal;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-right: 7px;
 
     &:hover {
       border-bottom-color: #27282c;
       color: #27282c;
       text-decoration: none;
     }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
   }
 
   .terms-foundation {
     color: rgba(39, 40, 44, 0.5);
-    font-family: Inter, Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
     font-size: 13px;
     line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+
+    @media (max-width: 450px) {
+      max-width: 250px;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 220px;
+    }
+
+    .terms-sponsor-mobile {
+      display: none;
+
+      @media (max-width: 450px) {
+        display: flex;
+      }
+    }
   }
 
   .terms-foundation_link {
@@ -111,19 +176,6 @@
       border-bottom-color: #27282c;
       color: #27282c;
       text-decoration: none;
-    }
-  }
-
-  .terms-para {
-    margin-bottom: 16px;
-    padding: 0 12px;
-
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      border-right: none;
     }
   }
 
@@ -177,4 +229,5 @@
   max-width: 1px;
   height: 12px;
   background-color: rgba(39, 40, 44, 0.5);
+  margin-right: 7px;
 }
