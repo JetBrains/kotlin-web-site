@@ -20,7 +20,7 @@
         <lang>en</lang>
         <startDate>2020-08-19</startDate>
         <endDate>2020-08-19</endDate>
-        <location>Amsterdam, Netherlands</location>
+        <location>Amsterdam, The Netherlands</location>
         <speaker>Ionut Pruteanu</speaker>
         <title>IT Development Café</title>
         <subject>Live Tech Talk: The Future of Automated Testing in Kotlin</subject>
@@ -36,7 +36,7 @@
         <lang>en</lang>
         <startDate>2020-08-20</startDate>
         <endDate>2020-08-20</endDate>
-        <location>Washington, DC, USA</location>
+        <location>Washington, DC</location>
         <speaker>Matt</speaker>
         <title>Coding Bootcamps</title>
         <subject>Kotlin programming language: How it fixes many Java issues- free online workshop</subject>
@@ -68,7 +68,7 @@
         <lang>en</lang>
         <startDate>2020-09-12</startDate>
         <endDate>2020-09-12</endDate>
-        <location>Hyderabad, India</location>
+        <location>Hyderabad, Indian</location>
         <speaker>Reza Rahman</speaker>
         <title>Kotlin Hyderabad</title>
         <subject>Jakarta EE - Present and Future</subject>
