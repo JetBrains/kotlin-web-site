@@ -59,15 +59,15 @@ The following table lists details of latest Kotlin releases.
         <td>
             <ul>
                 <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong>
-                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/1.0.0-rc" target="_blank">1.0.0-rc</a></li>
+                </a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/CHANGELOG.md#100-rc--2020-08-17" target="_blank">1.0.0-rc</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a>
-                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.9" target="_blank">1.3.9
+                version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.9" target="_blank">1.3.9
                 </a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a>
-                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.4" target="_blank">0.14.4
+                version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.14.4" target="_blank">0.14.4
                 </a></li>          
-                 <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.4.0" target="_blank">1.4.0</a></li>
-                 <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.html/0.7.2" target="_blank">0.7.2</a></li>
+                 <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.4.0" target="_blank">1.4.0</a></li>
+                 <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.2" target="_blank">0.7.2</a></li>
                  <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.6" target="_blank">0.0.6</a></li>
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
@@ -85,15 +85,15 @@ The following table lists details of latest Kotlin releases.
         <td>
             <ul>
                 <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong>
-                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0" target="_blank">0.20.0</a></li>
+                </a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/CHANGELOG.md#0200--2020-03-04" target="_blank">0.20.0</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a>
-                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.8" target="_blank">1.3.8
+                version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.8" target="_blank">1.3.8
                 </a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a>
-                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.2" target="_blank">0.14.2
+                version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.14.2" target="_blank">0.14.2
                 </a></li>          
-                 <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.3.2" target="_blank">1.3.2</a></li>
-                 <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.html/0.7.1" target="_blank">0.7.1</a></li>
+                 <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.3.2" target="_blank">1.3.2</a></li>
+                 <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.1" target="_blank">0.7.1</a></li>
                  <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.3" target="_blank">0.0.3</a></li>
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
