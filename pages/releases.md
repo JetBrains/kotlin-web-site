@@ -27,7 +27,7 @@ it automatically updates the Kotlin plugin to the new version. You can check the
 \| **Configure Plugin Updates**.
 
 If you have projects created with earlier Kotlin versions, change the Kotlin version in your projects and update kotlinx
-libraries if necessary – check [compatible versions](#release-details).
+libraries if necessary – check the [recommended versions](#release-details).
 
 If you are migrating to the new feature release, Kotlin plugin's migration tools will help you with the migration.
 
