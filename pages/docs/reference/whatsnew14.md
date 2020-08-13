@@ -1191,21 +1191,33 @@ In 1.4.0, we continued improving the IDE support for Gradle Kotlin DSL scripts (
 version brings:
 
 - _Explicit loading of script configurations_ for better performance. Previously, the changes you make to the build script
-were loaded automatically in the background. In 1.4.0, we've disabled the automatic loading of build script configuration. 
-Now IDE loads the changes only when you explicitly apply them by clicking **Load Gradle Changes** or by reimporting the
+were loaded automatically in the background. To improve the performance, we've disabled the automatic loading of build script
+configuration in 1.4.0. Now the IDE loads the changes only when you explicitly apply them.
+
+  In Gradle versions earlier than 6.0, you need to manually load the script configuration by clicking **Load Configuration** in the editor.
+
+  ![*.gradle.kts – Load Configuration]({{ url_for('asset', path='images/reference/whats-new/gradle-kts-load-config.png') }})
+
+  In Gradle 6.0 and above, you can explicitly apply changes by clicking **Load Gradle Changes** or by reimporting the
 Gradle project.
  
-  We’ve added one more action in IntelliJ IDEA 2020.1 – **Load Script Configurations**, which loads changes
+  We’ve added one more action in IntelliJ IDEA 2020.1 with Gradle 6.0 and above – **Load Script Configurations**, which loads changes
 to the script configurations without updating the whole project. This takes much less time than reimporting the whole project.
 
   ![*.gradle.kts – Load Script Changes and Load Gradle Changes]({{ url_for('asset', path='images/reference/whats-new/gradle-kts.png') }})
 
-  Currently, explicit loading is supported only for `build.gradle.kts` and `settings.gradle.kts` files (please vote for the related [issue](https://github.com/gradle/gradle/issues/12640)).
-  For now, you can enable highlighting for `init.gradle.kts` or applied script plugins by adding them to standalone scripts.
+  You should also **Load Script Configurations** for newly created scripts or when you open a project with new Kotlin plugin for the first time.
+  
+  With Gradle 6.0 and above, you are now able to load all scripts at once as opposed to the previous implementation where
+  they were loaded individually. Since each request requires the Gradle configuration phase to be executes, this could be
+  resource-intensive for large Gradle projects. 
+  
+  Currently, such loading is limited to `build.gradle.kts` and `settings.gradle.kts` files (please vote for the related [issue](https://github.com/gradle/gradle/issues/12640)).
+  To enable highlighting for `init.gradle.kts` or applied [script plugins](https://docs.gradle.org/current/userguide/plugins.html#sec:script_plugins),
+  use the old mechanism – adding them to standalone scripts. Configuration for that scripts will be loaded separately when you need it.
+  You can also enable auto-reload for such scripts.
     
   ![*.gradle.kts – Add to standalone scripts]({{ url_for('asset', path='images/reference/whats-new/gradle-kts-standalone.png') }})
-
-  Configuration for such scripts is loaded separately when you need it. You can also enable auto-reload for such scripts.
   
 - _Better error reporting_. Previously you could only see errors from the Gradle Daemon in separate log files. Now the
 Gradle Daemon returns all the information about errors directly and shows it in the Build tool window. This saves you both
