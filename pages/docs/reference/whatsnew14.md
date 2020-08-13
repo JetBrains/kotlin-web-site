@@ -1203,7 +1203,7 @@ to the script configurations without updating the whole project. This takes much
   Currently, explicit loading is supported only for `build.gradle.kts` and `settings.gradle.kts` files (please vote for the related [issue](https://github.com/gradle/gradle/issues/12640)).
   For now, you can enable highlighting for `init.gradle.kts` or applied script plugins by adding them to standalone scripts.
     
-  ![*.gradle.kts – Load Script Changes and Load Gradle Changes]({{ url_for('asset', path='images/reference/whats-new/gradle-kts-standalone.png') }})
+  ![*.gradle.kts – Add to standalone scripts]({{ url_for('asset', path='images/reference/whats-new/gradle-kts-standalone.png') }})
 
   Configuration for such scripts is loaded separately when you need it. You can also enable auto-reload for such scripts.
   
