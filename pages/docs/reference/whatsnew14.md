@@ -1745,6 +1745,6 @@ to help you decide which suggestions to accept and which to ignore.
 ### Migrating multiplatform projects
 
 To help you start using the new features of [Kotlin multiplatform](#kotlin-multiplatform) in existing projects, we
-publish the [migration guide for multiplatform projects](migrating-multiplatform-project-to-14.md).
+publish the [migration guide for multiplatform projects](migrating-multiplatform-project-to-14.html).
 
 [**Back to top**](#)
