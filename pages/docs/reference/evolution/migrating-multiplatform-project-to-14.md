@@ -4,19 +4,19 @@ layout: reference
 title: "Migrating Multiplatform Project to Kotlin 1.4"
 ---
 
-# Migrating Multiplatform Project to Kotlin 1.4
+# Migrating Kotlin Multiplatform Projects to 1.4.0
 
-Kotlin 1.4.0 comes with lots of features and improvements for multiplatform programming. Some of them just work out of the box, and some require additional project configuration. This guide will help you to migrate to 1.4.0 and get the benefits of all its new features:
+Kotlin 1.4.0 comes with lots of features and improvements in the tooling for multiplatform programming. Some of them just work out of the box on existing projects, and some require additional configuration steps. This guide will help you migrate your multiplatform projects to 1.4.0 and get the benefits of all its new features.
 
 ## For multiplatform project authors
 
 ### Update Gradle 
 
-Starting with Kotlin 1.4, all multiplatform projects require Gradle 6.0 or later. Please make sure to upgrade Gradle for your projects that use the `kotlin-multiplatform` plugin. Follow the [official Gradle guide](https://docs.gradle.org/current/userguide/upgrading_version_5.html) for non-Kotlin-specific migration instructions.
+Starting with 1.4.0, Kotlin multiplatform projects require Gradle 6.0 or later. Make sure that your projects use the proper version of Gradle and upgrade it if needed. See the [Gradle documentation](https://docs.gradle.org/current/userguide/upgrading_version_5.html) for non-Kotlin-specific migration instructions.
 
 ### Simplify your build configuration
 
-Gradle module metadata provides rich publishing and dependency resolution features that are used in Kotlin Multiplatform Projects. In Gradle 6.0 and above, module metadata is used during dependency resolution and is included in publications by default. So once you update to Gradle 6.0, you can remove `enableFeaturePreview("GRADLE_METADATA")` from the project’s `settings.gradle` file.
+Gradle module metadata provides rich publishing and dependency resolution features that are used in Kotlin Multiplatform Projects. In Gradle 6.0 and above, module metadata is used in dependency resolution and included in publications by default. Thus, once you update to Gradle 6.0, you can remove `enableFeaturePreview("GRADLE_METADATA")` from the project’s `settings.gradle` file.
 
 If the library was published with metadata you only have to specify a dependency on it once in the shared source set, instead of having to specify dependencies on different variants of the same library in the shared and platform-specific source sets where it is used.
 
@@ -107,23 +107,23 @@ This will be the default behavior starting with Kotlin-1.4.20.
 
 ### Check uploading to Bintray
 
-The Bintray plugin doesn’t support publishing Gradle module metadata at all, but there are a couple of ways to get around this issue:
+The Bintray plugin doesn’t support publishing Gradle module metadata, but there are a couple of ways to get around this issue:
 
-* Migrate to maven-publish instead of bintray-publish [as we did for kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/commit/c5f1af6ad78a77fe5861588d9fb00b7d3a9bc3e5#diff-439aadfed1f3c340acdcc871c00258aeL5) 
+* Migrate to `maven-publish` instead of `bintray-publish` [as we did for kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/commit/c5f1af6ad78a77fe5861588d9fb00b7d3a9bc3e5#diff-439aadfed1f3c340acdcc871c00258aeL5) 
 * Use [a workaround for the Bintray plugin](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891)
 
-While uploading your library to Bintray, you will see multiple **versions** created for each **artifact** (like `my-library-jvm`, `my-library-metadata`, etc.). To fix this, add `systemProp.org.gradle.internal.publish.checksums.insecure=true`. See https://github.com/gradle/gradle/issues/11412 for details. This is a common Gradle 6.0 issue that is neither MPP nor Kotlin specific.
+While uploading your library to Bintray, you will see multiple versions for each artifact (such as `my-library-jvm`, `my-library-metadata`, etc.). To fix this, add `systemProp.org.gradle.internal.publish.checksums.insecure=true`. See [this issue](https://github.com/gradle/gradle/issues/11412) for details. This is a common Gradle 6.0 issue that is neither MPP nor Kotlin specific.
 
 ### Follow the default libraries’ layout 
 
 The layout of Kotlinx has changed and now corresponds to the default layout, which we recommend using:
-The '“root” or “umbrella” library module now has a name without a suffix (e.g. `kotlinx-coroutines-core` instead of `kotlinx-coroutines-core-native`). Publishing libraries with [maven-publish Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) follows this layout by default.
+The '“root” or “umbrella” library module now has a name without a suffix (for example,`kotlinx-coroutines-core` instead of `kotlinx-coroutines-core-native`). Publishing libraries with [maven-publish Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) follows this layout by default.
 
 ### Migrate to the hierarchical project structure
 
-A hierarchical project structure allows reusing code in similar targets, as well as publishing and consuming libraries with granular APIs targeting similar platforms. We recommend enabling the hierarchical project structure in your libraries when you migrating to Kotlin 1.4.0:
+A hierarchical project structure allows reusing code in similar targets, as well as publishing and consuming libraries with granular APIs targeting similar platforms. We recommend that you switch to the hierarchical project structure in your libraries when migrating to Kotlin 1.4.0:
 
-* Libraries published with the hierarchical project structure enabled are compatible with all kinds of projects, both with and without the hierarchical project structure enabled. However, libraries published without the hierarchical project structure can’t be used in a shared-native source set. So, for example, users with `ios()` shortcuts in their `gradle.build` files won’t be able to use your library in their iOS-shared code.
+* Libraries published with the hierarchical project structure are compatible with all kinds of projects, both with and without the hierarchical project structure. However, libraries published without the hierarchical project structure can’t be used in a shared native source set. So, for example, users with `ios()` shortcuts in their `gradle.build` files won’t be able to use your library in their iOS-shared code.
 * Starting from Kotlin-1.4.20, the hierarchical project structure with the usage of platform-dependent libraries in shared source sets will be enabled by default in multiplatform projects. So the sooner you support it, the sooner users will be able to migrate. We’ll also be very thankful if you report any bugs you find to our [issue tracker.](http://kotl.in/issue) 
 
 To enable hierarchical project structure support, add the following to your `gradle.properties`:
@@ -145,7 +145,7 @@ The introduction of the hierarchical project structure in multiplatform projects
 * The `metadataJar` task has been renamed to `allMetadataJar`
 * There are new `compile<SourceSet>KotlinMetadata` tasks for all published intermediate source-sets
 
-These changes are relevant only for projects with the hierarchical project structure enabled.
+These changes are relevant only for projects with the hierarchical project structure.
 
 ## For using the Kotlin/JS target
 
