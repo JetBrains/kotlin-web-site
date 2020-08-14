@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: reference
-title: "Migrating Multiplatform Projects to Kotlin 1.4"
+title: "Migrating Multiplatform Projects to Kotlin 1.4.0"
 ---
 
 # Migrating Kotlin Multiplatform Projects to 1.4.0
