@@ -177,7 +177,7 @@ For backwards compatibility, when using the legacy compiler for Kotlin/JS, inclu
 The Dukat integration for Gradle has received minor naming and functionality changes with Kotlin 1.4.0.
 
 * The `kotlin.js.experimental.generateKotlinExternals` flag has been renamed to `kotlin.js.generate.externals`. It controls the default behavior of Dukat for all specified npm dependencies.
-* The npm dependency function now takes a third parameter after the package name and version: `generateExternals`. This allows you to individually control whether Dukat should generate declarations for a specific dependency, and it overrides the `generateKotlinExternals` setting.
+* The `npm` dependency function now takes a third parameter after the package name and version: `generateExternals`. This allows you to individually control whether Dukat should generate declarations for a specific dependency, and it overrides the `generateKotlinExternals` setting.
 
 A way to manually trigger the generation of Kotlin externals is also available. Please consult the [documentation](../js-external-declarations-with-dukat.html) for more information.
 
