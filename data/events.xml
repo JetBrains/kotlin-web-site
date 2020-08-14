@@ -1,5 +1,86 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+   <event>
+        <lang>es</lang>
+        <startDate>2020-08-06</startDate>
+        <endDate>2020-08-06</endDate>
+        <location>Buenos Aires, Argentina</location>
+        <speaker>Armando Picón</speaker>
+        <title>Android Devs Buenos Aires</title>
+        <subject>Introducción a Kotlin Flow</subject>
+        <url>https://www.meetup.com/Android-Devs-Buenos-Aires/events/272188461/</url>
+        <description>
+            <![CDATA[
+<p>Y aparecieron los Kotlin Flow, pero ¿realmente entendemos como funcionan? En esta charla explicaremos algunos de los conceptos detrás de estos nuevos componentes y mostraremos algunos ejemplos para entender cómo funcionan</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-19</startDate>
+        <endDate>2020-08-19</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Ionut Pruteanu</speaker>
+        <title>IT Development Café</title>
+        <subject>Live Tech Talk: The Future of Automated Testing in Kotlin</subject>
+        <url>https://www.meetup.com/IT-Development-Cafe/events/272333122/</url>
+        <description>
+            <![CDATA[
+<p>Testerum is a free and open-source innovative test automation platform. The platform has a friendly UI where a product owner can write the acceptance criteria in the business language and testers can transform the acceptance criteria into automated tests without programming. This way you keep the tests and documentation together and always have an overview on the project's status</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-20</startDate>
+        <endDate>2020-08-20</endDate>
+        <location>Washington, DC</location>
+        <speaker>Matt</speaker>
+        <title>Coding Bootcamps</title>
+        <subject>Kotlin programming language: How it fixes many Java issues- free online workshop</subject>
+        <url>https://www.meetup.com/coding-bootcamps/events/267436342/</url>
+        <description>
+            <![CDATA[
+<p>Learn constructs for both Object Oriented and Functional programming styles, which can be mixed using Kotlin. This is power packed. Kotlin is is concise, expressive, and safe. It is a modern, statically typed language within the JVM developed by JetBrains under the Apache 2.0 license.</p>
+]]>
+        </description>
+    </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2020-08-27</startDate>
+        <endDate>2020-08-27</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Smile Egbai</speaker>
+        <title>Virtual Kotlin User Groups</title>
+        <subject>Kotlin Mulitplatform as a Kernel</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/272313017/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a powerful language with a lot of features yet to be unlocked, one of those great benefits of Kotlin is the ability to share logic structure and allow the platform-specific implementation of contracts. This talk will centre around how this feature helped me develop a feature flag library.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-12</startDate>
+        <endDate>2020-09-12</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Reza Rahman</speaker>
+        <title>Kotlin Hyderabad</title>
+        <subject>Jakarta EE - Present and Future</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/272319084/</url>
+        <description>
+            <![CDATA[
+<p>Java EE has been re-branded to Jakarta EE and moved to truly open source governance under the Eclipse Foundation. This session overviews what this means, offers a brief tour of the first release - Jakarta EE 8, explores current state and looks to what the future might bring including some key challenges. We will also discuss how these challenges can be overcome through active community engagement.</p>
+<p>The technical contents of Jakarta EE 8 is mostly the same as Java EE 8 - it solidly enables HTTP/2, Server-Sent Events (SSE), JSON and aligns the platform with Java SE 8. It includes a much awaited security API overhaul as well as a slew of critical updates to APIs like JSF, JPA, JAX-RS and CDI. The true difference is how Jakarta EE is evolved in the open.</p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>zn</lang>
         <startDate>2020-07-25</startDate>
@@ -15,7 +96,6 @@
 ]]>
         </description>
     </event>
-
 
     <event>
         <lang>zn</lang>
