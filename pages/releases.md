@@ -15,8 +15,8 @@ performance improvements, and bug fixes.
 For example, for the feature release 1.3 we had several incremental releases including 1.3.10, 1.3.20, and 1.3.70.
 For 1.3.70, we had 2 bug fix releases – 1.3.71 and 1.3.72.
 
-For each incremental and feature release, we also ship several [preview versions](eap/index.html) that allow you to try 
-new features before they are released (Early Access Preview).
+For each incremental and feature release, we also ship several preview (_EAP_) versions for you to try 
+new features before they are released. See [Early Access Preview](eap/index.html) for details.
 
 Learn more about [types of Kotlin releases and their compatiblity](docs/reference/evolution/kotlin-evolution.html#feature-releases-and-incremental-releases). 
 
