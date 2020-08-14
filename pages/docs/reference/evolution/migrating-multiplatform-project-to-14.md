@@ -158,7 +158,7 @@ While we don’t recommend it, you can use a wildcard `*` in place of a version 
 
 ### Changes related to the Kotlin/JS IR compiler
 
-Kotlin 1.4.0 introduces the Alpha IR compiler for Kotlin/JS. For more detailed information about the Kotlin/JS IR compiler’s backend and how to configure it, consult the [documentation](js-ir-compiler.html).
+Kotlin 1.4.0 introduces the Alpha IR compiler for Kotlin/JS. For more detailed information about the Kotlin/JS IR compiler’s backend and how to configure it, consult the [documentation](../js-ir-compiler.html).
 
 To choose between the different Kotlin/JS compiler options, set the key `kotlin.js.compiler` in your `gradle.properties` to `legacy`, `ir`, or `both`. Alternatively, pass `LEGACY`, `IR`, or `BOTH` to the `js` function in your `build.gradle(.kts)`.
 
@@ -179,7 +179,7 @@ The Dukat integration for Gradle has received minor naming and functionality cha
 * The `kotlin.js.experimental.generateKotlinExternals` flag has been renamed to `kotlin.js.generate.externals`. It controls the default behavior of Dukat for all specified npm dependencies.
 * The npm dependency function now takes a third parameter after the package name and version: `generateExternals`. This allows you to individually control whether Dukat should generate declarations for a specific dependency, and it overrides the `generateKotlinExternals` setting.
 
-A way to manually trigger the generation of Kotlin externals is also available. Please consult the [documentation](js-external-declarations-with-dukat.html) for more information.
+A way to manually trigger the generation of Kotlin externals is also available. Please consult the [documentation](../js-external-declarations-with-dukat.html) for more information.
 
 
 ### Using artifacts built with Kotlin 1.4.x in a Kotlin 1.3.x project
