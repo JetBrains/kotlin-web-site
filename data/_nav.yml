@@ -235,6 +235,8 @@ reference:
           title: Supported platforms
         - url: /docs/reference/mpp-dsl-reference.html
           title: Multiplatform Gradle DSL Reference
+        - url: /docs/reference/evolution/migrating-multiplatform-project-to-14.html
+          title: Migrating to Kotlin 1.4
 
     - title: More Language Constructs
       description: Various bits and bobs
@@ -354,8 +356,6 @@ reference:
           title: Compatibility Guide for Kotlin 1.3
         - url: /docs/reference/compatibility-guide-14.html
           title: Compatibility Guide for Kotlin 1.4
-        - url: /docs/reference/evolution/migrating-multiplatform-project-to-14.html
-          title: Migrating Multiplatform Project to Kotlin 1.4
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.

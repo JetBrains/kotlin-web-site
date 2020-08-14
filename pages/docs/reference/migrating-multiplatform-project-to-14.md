@@ -1,7 +1,7 @@
 ---
 type: doc
 layout: reference
-title: "Migrating Multiplatform Project to Kotlin 1.4"
+title: "Migrating Multiplatform Projects to Kotlin 1.4"
 ---
 
 # Migrating Kotlin Multiplatform Projects to 1.4.0
@@ -18,9 +18,9 @@ Starting with 1.4.0, Kotlin multiplatform projects require Gradle 6.0 or later. 
 
 Gradle module metadata provides rich publishing and dependency resolution features that are used in Kotlin Multiplatform Projects. In Gradle 6.0 and above, module metadata is used in dependency resolution and included in publications by default. Thus, once you update to Gradle 6.0, you can remove `enableFeaturePreview("GRADLE_METADATA")` from the project’s `settings.gradle` file.
 
-If the library was published with metadata you only have to specify a dependency on it once in the shared source set, instead of having to specify dependencies on different variants of the same library in the shared and platform-specific source sets where it is used.
+If you use libraries published with metadata, you only have to specify dependencies on them only once in the shared source set, as opposed to specifying dependencies on different variants of the same library in the shared and platform-specific source sets prior to 1.4.0. 
 
-Starting from 1.4, you also no longer need to declare a dependency on `stdlib` in each source set manually – it [will now be added by default](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-released/#stdlib-default). The version of the automatically added standard library will be the same as the version of the Kotlin Gradle plugin, since they have the same versioning.
+Starting from 1.4.0, you also no longer need to declare a dependency on `stdlib` in each source set manually – it [will now be added by default](mpp-add-dependencies.html#dependency-on-the-standard-library). The version of the automatically added standard library will be the same as the version of the Kotlin Gradle plugin, since they have the same versioning.
 
 With these features, you can make your Gradle build file much more concise and easy to read:
 
@@ -49,7 +49,7 @@ Don’t use kotlinx library artifact names with suffixes `-common`  or `-native`
 
 ### Try the hierarchical project structure
 
-With [the new hierarchical project structure support](https://blog.jetbrains.com/kotlin/2020/06/kotlin-1-4-m2-released/#hierarchical-project-structure), you can share code among several targets in a multiplatform project. You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `posix` in source sets shared among several native targets. This can help you share more native code without being limited by platform-specific dependencies.  
+With [the new hierarchical project structure support](mpp-share-on-platforms.html#share-code-on-similar-platforms), you can share code among several targets in a multiplatform project. You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `posix` in source sets shared among several native targets. This can help you share more native code without being limited by platform-specific dependencies.  
 By enabling the hierarchical structure along with its ability to use platform-dependent libraries in shared source sets, you can eliminate the need to use certain workarounds to get IDE support for sharing source sets among several native targets, for example `iosArm64` and `iosX64`:
 
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only> 
@@ -79,7 +79,7 @@ ln -s iosMain iosArm64Main && ln -s iosMain iosX64Main
 
 </div>
 
-Instead of doing this, you can create a hierarchical structure with [target shortcuts](https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html#target-shortcuts) available for typical multi-target scenarios, or you can manually declare and connect the source sets. For example, you can create two iOS targets and a shared source set with the `ios()` shortcut:
+Instead of doing this, you can create a hierarchical structure with [target shortcuts](mpp-share-on-platforms.html#use-target-shortcuts) available for typical multi-target scenarios, or you can manually declare and connect the source sets. For example, you can create two iOS targets and a shared source set with the `ios()` shortcut:
 
 <div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
 
@@ -101,7 +101,7 @@ kotlin.native.enableDependencyPropagation=false
 
 </div>
 
-This will be the default behavior starting with Kotlin-1.4.20. 
+In future versions, the hierarchical project structure will become default for Kotlin multiplatform project, so we strongly encourage you to start using it now. 
 
 ## For library authors
 
@@ -116,7 +116,7 @@ While uploading your library to Bintray, you will see multiple versions for each
 
 ### Follow the default libraries’ layout 
 
-The layout of Kotlinx has changed and now corresponds to the default layout, which we recommend using:
+The layout of kotlinx libraries has changed and now corresponds to the default layout, which we recommend using:
 The '“root” or “umbrella” library module now has a name without a suffix (for example,`kotlinx-coroutines-core` instead of `kotlinx-coroutines-core-native`). Publishing libraries with [maven-publish Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) follows this layout by default.
 
 ### Migrate to the hierarchical project structure
@@ -124,7 +124,7 @@ The '“root” or “umbrella” library module now has a name without a suffix
 A hierarchical project structure allows reusing code in similar targets, as well as publishing and consuming libraries with granular APIs targeting similar platforms. We recommend that you switch to the hierarchical project structure in your libraries when migrating to Kotlin 1.4.0:
 
 * Libraries published with the hierarchical project structure are compatible with all kinds of projects, both with and without the hierarchical project structure. However, libraries published without the hierarchical project structure can’t be used in a shared native source set. So, for example, users with `ios()` shortcuts in their `gradle.build` files won’t be able to use your library in their iOS-shared code.
-* Starting from Kotlin-1.4.20, the hierarchical project structure with the usage of platform-dependent libraries in shared source sets will be enabled by default in multiplatform projects. So the sooner you support it, the sooner users will be able to migrate. We’ll also be very thankful if you report any bugs you find to our [issue tracker.](http://kotl.in/issue) 
+* In future versions, the hierarchical project structure with the usage of platform-dependent libraries in shared source sets will be the default in multiplatform projects. So the sooner you support it, the sooner users will be able to migrate. We’ll also be very grateful if you report any bugs you find to our [issue tracker.](http://kotl.in/issue) 
 
 To enable hierarchical project structure support, add the following to your `gradle.properties`:
 
@@ -158,7 +158,7 @@ While we don’t recommend it, you can use a wildcard `*` in place of a version 
 
 ### Changes related to the Kotlin/JS IR compiler
 
-Kotlin 1.4.0 introduces the Alpha IR compiler for Kotlin/JS. For more detailed information about the Kotlin/JS IR compiler’s backend and how to configure it, consult the [documentation](../js-ir-compiler.html).
+Kotlin 1.4.0 introduces the Alpha IR compiler for Kotlin/JS. For more detailed information about the Kotlin/JS IR compiler’s backend and how to configure it, consult the [documentation](js-ir-compiler.html).
 
 To choose between the different Kotlin/JS compiler options, set the key `kotlin.js.compiler` in your `gradle.properties` to `legacy`, `ir`, or `both`. Alternatively, pass `LEGACY`, `IR`, or `BOTH` to the `js` function in your `build.gradle(.kts)`.
 
@@ -179,7 +179,7 @@ The Dukat integration for Gradle has received minor naming and functionality cha
 * The `kotlin.js.experimental.generateKotlinExternals` flag has been renamed to `kotlin.js.generate.externals`. It controls the default behavior of Dukat for all specified npm dependencies.
 * The `npm` dependency function now takes a third parameter after the package name and version: `generateExternals`. This allows you to individually control whether Dukat should generate declarations for a specific dependency, and it overrides the `generateKotlinExternals` setting.
 
-A way to manually trigger the generation of Kotlin externals is also available. Please consult the [documentation](../js-external-declarations-with-dukat.html) for more information.
+A way to manually trigger the generation of Kotlin externals is also available. Please consult the [documentation](js-external-declarations-with-dukat.html) for more information.
 
 
 ### Using artifacts built with Kotlin 1.4.x in a Kotlin 1.3.x project
