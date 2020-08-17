@@ -723,7 +723,7 @@ When using the command-line compiler, add the compiler option `-Xuse-ir`.
 
 When compiling Kotlin code to targets JVM 1.8 and above, you could compile non-abstract methods of Kotlin interfaces into
 Java's `default` methods. For this purpose, there was a mechanism that includes the `@JvmDefault` annotation for marking
-such methods and the `-Xjmv-default` compiler option that enables processing of this annotation.
+such methods and the `-Xjvm-default` compiler option that enables processing of this annotation.
 
 In 1.4.0, we've added a new mode for generating default methods: `-Xjvm-default=all` compiles *all* non-abstract methods of Kotlin
 interfaces to `default` Java methods. For compatibility with the code that uses the interfaces compiled without `default`, 
