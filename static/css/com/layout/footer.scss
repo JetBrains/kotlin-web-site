@@ -98,14 +98,13 @@
     }
 
     @media (max-width: 320px) {
-      //justify-content: flex-start;
       justify-content: space-between;
       align-items: flex-end;
     }
   }
 
   .sponsored-block {
-    flex-basis: 270px;
+    flex-basis: 250px;
 
     @media (max-width: 450px) {
       display: none;
