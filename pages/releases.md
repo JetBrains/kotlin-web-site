@@ -35,6 +35,8 @@ If you are migrating to the new feature release, Kotlin plugin's migration tools
 
 The following table lists details of latest Kotlin releases.
 
+You can also use [preview versions of Kotlin](eap/index.html#build-details).
+
 <table>
     <tr>
         <th>Build info</th>
