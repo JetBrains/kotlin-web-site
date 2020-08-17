@@ -154,4 +154,4 @@ val obj = Json.decodeFromString<Data>("""{"a":42}""")
  ```
  </div>
  
-For more information about serialization in Kotlin, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/docs/serialization-guide.md).
+For more information about serialization in Kotlin, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
