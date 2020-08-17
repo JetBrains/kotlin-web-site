@@ -36,7 +36,7 @@ When an issue has all the necessary details, it can be scheduled for review by t
 
 # Scope
 
-Only features and components published as [Fully Stable](/docs/reference/evolution/components-stability.html#fully-stable) are in the scope of Language Committee. Besides, the Language Committee's scope is limited to the following:
+Only features and components published as [Stable](/docs/reference/evolution/components-stability.html#stable) are in the scope of Language Committee. Besides, the Language Committee's scope is limited to the following:
 *   Language: syntax, static checks, execution semantics of language constructs
 *   The interop subsystem of the language: how foreign declarations are seen from Kotlin, and how Kotlin declarations are seen from other languages
 *   Compatibility of binary artifacts produced by kotlinc with one another and with other binaries (e.g. Java binaries)
@@ -45,7 +45,7 @@ Only features and components published as [Fully Stable](/docs/reference/evoluti
 *   KDoc syntax
 
 For example, the following matters are out of scope for the Language Committee:
-*   Experimental language features & APIs
+*   Pre-stable language features & APIs
 *   Build tools and plugins for them (e.g. Gradle support)
 *   IDE and static analysis tools (other than the compiler)
 *   Java2Kotlin converter and other source code manipulation tools

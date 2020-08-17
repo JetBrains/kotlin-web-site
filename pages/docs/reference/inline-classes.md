@@ -7,7 +7,7 @@ title: "Inline classes"
 
 # Inline classes
 
-> Inline classes are available only since Kotlin 1.3 and currently are *experimental*. See details [below](#experimental-status-of-inline-classes)
+> Inline classes are available only since Kotlin 1.3 and currently in [Alpha](evolution/components-stability.html). See details [below](#alpha-status-of-inline-classes)
 {:.note}
 
 Sometimes it is necessary for business logic to create a wrapper around some type. However, it introduces runtime overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is terrible, because primitive types are usually heavily optimized by the runtime, while their wrappers don't get any special treatment. 
@@ -188,11 +188,11 @@ fun main() {
 </div>
 
 
-## Experimental status of inline classes
+## Alpha status of inline classes
 
-The design of inline classes is experimental, meaning that this feature is *moving fast* and no compatibility guarantees are given. When using inline classes in Kotlin 1.3+, a warning will be reported, indicating that this feature is experimental.
+The design of inline classes is in [Alpha](evolution/components-stability.html), meaning that no compatibility guarantees are given for future versions. When using inline classes in Kotlin 1.3+, a warning will be reported, indicating that this feature has not been released as stable.
 
-To remove the warning you have to opt in to the usage of this experimental feature by passing the compiler argument `-Xinline-classes`.
+To remove the warning you have to opt in to the usage of this feature by passing the compiler argument `-Xinline-classes`.
 
 ### Enabling inline classes in Gradle
 <div class="multi-language-sample" data-lang="groovy">
@@ -219,7 +219,8 @@ tasks.withType<KotlinCompile> {
 </div>
 </div>
 
-See [Compiler options in Gradle](using-gradle.html#compiler-options) for details. For [Multiplatform Projects](whatsnew13.html#multiplatform-projects) settings, see [building Multiplatform Projects with Gradle](building-mpp-with-gradle.html#language-settings) section.
+See [Compiler options in Gradle](using-gradle.html#compiler-options) for details. For [multiplatform projects](mpp-intro.html), 
+see [language settings](mpp-dsl-reference.html#language-settings).
 
 ### Enabling inline classes in Maven
 

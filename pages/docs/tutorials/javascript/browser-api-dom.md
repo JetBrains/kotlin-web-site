@@ -9,7 +9,7 @@ showAuthorInfo: false
 
 ---
 
-The Kotlin/JS standard library allows us to access browser-specific functionality using the `kotlin.browser` package, which includes typical top-level objects such as `document` and `window`. The standard library provides typesafe wrappers for the functionality exposed by these objects wherever possible. As a fallback, the `dynamic` type is used to provide interaction with functions that do not map well into the Kotlin type system.
+The Kotlin/JS standard library allows us to access browser-specific functionality using the `kotlinx.browser` package, which includes typical top-level objects such as `document` and `window`. The standard library provides typesafe wrappers for the functionality exposed by these objects wherever possible. As a fallback, the `dynamic` type is used to provide interaction with functions that do not map well into the Kotlin type system.
 
 ## Interacting with the DOM
 For interaction with the Document Object Model (DOM), we can use the variable `document`. For example, we can set the background color of our website through this object:

@@ -1,106 +1,154 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Setting up a Kotlin/JS project"
-description: "How to set up a Gradle project targeting JavaScript using the JS or multiplatform plugins."
-authors: Sebastian Aigner
-date: 2020-02-23
+title:  "Get started with Kotlin/JS for React"
+description: "This tutorial demonstrates how to use IntelliJ IDEA for creating a frontend application with Kotlin/JS for React."
+authors: Sebastian Aigner, Kate Volodko
+date: 2020-07-07
 showAuthorInfo: false
 ---
 
-There are two major ways how we can set up a Kotlin/JS project: we can use the [Kotlin/JS Gradle plugin](#setting-up-for-javascript-gradle), or use the [Kotlin Multiplatform Gradle plugin](#setting-up-using-the-kotlin-multiplatform-plugin).
+To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
-## Setting up for JavaScript (Gradle)
+## Create an application 
 
-The most straightforward way to get started with Kotlin/JS is via the Kotlin/JS Gradle plugin. If you're using IntelliJ IDEA, the setup for such a project can be done via wizard.
+Once you've installed IntelliJ IDEA, it's time to create your first frontend application based on Kotlin/JS with React.
 
-Through the __New Project__ wizard, we can select the platform we want to target. For this example, we're selecting __Kotlin/JS for browser__,
- which allows us to use browser-specific APIs in our project. If we're targeting Node.js, we can select the __Kotlin/JS for Node.js__ option instead.
+1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
+2. In the panel on the left, select **Kotlin**.
+3. Enter a project name, select **Frontend Application** as the project template, and click **Next**.
+   
+    ![Create a frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-1.png') }})
+    
+    By default, your project will use Gradle with Kotlin DSL as the build system.
 
-Make sure that the __Kotlin DSL build script__ option is selected to use the Gradle Kotlin DSL as well:
+3. Accept the default configuration on the next screen and click **Finish**.
+  
+    ![Configure a frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-new-project-2.png') }}) 
+    
+Your project opens. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
+Wizard based on your configuration. It includes the [`kotlin("js")` plugin and dependencies](https://kotlinlang.org/docs/reference/js-project-setup.html) 
+required for your frontend application.
 
-![New JavaScript project wizard]({{ url_for('tutorial_img', filename='javascript/setting-up/new-project.png')}})
+## Run the application
 
-After selecting a project name, such as `jsTutorial`, IntelliJ IDEA will automatically start creating the folder structure for your Gradle project. To see and adjust the default build configuration, we can open the `build.gradle.kts` in the root of our application:
+Start the application by clicking **Run** next to the run configuration at the top of the screen.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
-plugins {
-    id("org.jetbrains.kotlin.js") version "1.3.70"
-}
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-run-app.png') }}" alt="Running a frontend app" width="500"/>
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+Your default web browser opens the URL [http://localhost:8080/](http://localhost:8080/) with your frontend application.
 
-repositories {
-    mavenCentral()
-}
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-1.png') }}" alt="Web browser with JS application"/>
 
-dependencies {
-    implementation(kotlin("stdlib-js"))
-}
+Enter your name in the text box and accept the greetings from your application!
 
-kotlin.target.browser { }
-```
-</div>
+## Update the application
 
-As we can see, the `kotlin.js` Gradle plugin is used to provide JavaScript support for our project. The plugin also takes care of managing a development environment for us – under the hood, it manages its own `yarn` and `webpack` installation, and exposes their functionality through the Gradle DSL.
+### Show your name backwards
 
-The `kotlin.target.browser` part at the bottom of the file can be used for target-specific configurations. This part becomes relevant when adjusting the behavior of the JS plugin, for example to configure the available test runners for the platform.
+1. Open the file `welcome.kt` in `src/main/kotlin`.  
+    The `src` directory contains Kotlin source files and resources. The file `welcome.kt` includes sample code that renders 
+    the web page you've just seen.
+    
+    ![Source code for frontend application]({{ url_for('tutorial_img', filename='javascript/setting-up/js-welcome-kt.png') }})
 
-To learn about how to run your program, both in the browser and on the Node.js target, check out [Running Kotlin/JS](running-kotlin-js.html).
+2. Change the code of `styledDiv` to show your name backwards.  
+   
+   * Use the standard library function `reversed()` to reverse your name.
+   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) for your reversed 
+   name by adding a dollar sign `$` and enclosing it in curly braces – `${state.name.reversed()}`.
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   styledDiv {
+       css {
+           +WelcomeStyles.textContainer
+       }
+       +"Hello ${state.name}!"
+       +" Your name backwards is ${state.name.reversed()}!"
+   }
+   ```
+   
+   </div>
 
-## Setting up using the Kotlin Multiplatform plugin
+3. Save your changes to the file.
 
-When targeting other platforms alongside JavaScript, the Multiplatform plugin can be used instead of the JS plugin. An empty template for such a project can be created through the wizard in IntelliJ IDEA:
+4. Go to the browser and enjoy the result.  
+    You will see the changes only if your previous application is still running. If you've stopped your application, [run it again](#run-the-application).
+   
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-2.png') }}" alt="Web browser with a reversed name" />
 
-![Multiplatform project wizard]({{ url_for('tutorial_img', filename='javascript/setting-up/multiplatform-project.png')}})
+### Add an image
 
-After creating a multiplatform plugin with the wizard, any kind of platform-specific configuration is omitted at first. To add the JavaScript target, we adjust our automatically generated `build.gradle.kts` file to look analogous to this:
+1. Open the file `welcome.kt` in `src/main/kotlin`.  
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-```kotlin
-plugins {
-    kotlin("multiplatform") version "1.3.70"
-}
+2. Add a `div` container with a child image element `img` after the `styledInput` block.  
+   
+   > Make sure that you import the `react.dom.*` and `styled.*` packages.
+   {:.note}       
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   div {
+       img(src = "https://placekitten.com/408/287") {}
+   }
+   ```
+   
+   </div>
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+3. Save your changes to the file.
 
-repositories {
-    mavenCentral()
-}
+4. Go to the browser and enjoy the result.  
+    You will only see the changes if your previous application is still running. If you've stopped your application, [run it again](#run-the-application).
+   
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-3.png') }}" alt="Web page with with an image" width="500"/>
 
-kotlin {
-    js {
-        browser { }
-    }
+### Add a button that changes text
 
-    sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-common"))
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
+1. Open the file `welcome.kt` in `src/main/kotlin`.  
 
-        val jsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
-            }
-        }
+2. Add a `button` element with an `onClickFunction` event handler.  
+   
+   > Make sure that you import the package `kotlinx.html.js.*`.
+   {:.note}       
+   
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   button {
+       attrs.onClickFunction = {
+           setState(
+               WelcomeState(name = "Some name")
+           )
+       }
+       +"Change name"
+   }   
+   ```
+   
+   </div>
+   
+3. Save your changes to the file.
 
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
-            }
-        }
-    }
-}
-```
-</div>
+4. Go to the browser and enjoy the result.  
+    You will only see the changes if your previous application is still running. If you've stopped your application, [run it again](#run-the-application).
+   
+<img class="img-responsive" src="{{ url_for('tutorial_img', filename='javascript/setting-up/js-output-4.png') }}" alt="Web page with a button" width="500"/>
+
+## What's next?
+
+Once you have created your first application, you can go to Kotlin hands-on labs and complete long-form tutorials on Kotlin/JS.
+They include sample projects, which can serve as nice jumping-off points for your own projects, and contain useful snippets and patterns.
+
+For Kotlin/JS, the following hands-on labs are currently available:
+
+* [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction) 
+guides you through the process of building a simple web application using the React framework, shows how a type-safe Kotlin 
+DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components, 
+and how to obtain information from APIs, while writing the whole application logic in pure Kotlin/JS.
+
+* [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) 
+teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
+application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
+introduction to working with Ktor both as a server- and client-side framework.

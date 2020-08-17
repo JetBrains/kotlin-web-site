@@ -75,7 +75,7 @@ The prepared project sources can be directly downloaded from
 
 Let's move the sources file into the `src/nativeMain/kotlin` folder under
 the project. That is the default path, where sources are located, when
-the [kotlin-multiplatform](/docs/reference/building-mpp-with-gradle.html)
+the [kotlin-multiplatform](../../reference/mpp-discover-project.html)
 plugin is used. We use the following block to instruct configure the project
 to generate a dynamic or shared library for us: 
 
