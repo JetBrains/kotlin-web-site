@@ -1,5 +1,125 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+     <event>
+        <lang>es</lang>
+        <startDate>2020-08-13</startDate>
+        <endDate>2020-08-13</endDate>
+        <location>Medellín, Colombia</location>
+        <speaker>Cristian Gomez</speaker>
+        <title>Kotlin User Group Medellin</title>
+        <subject>TDD, Testing, el Type System y como beneficiarse de ello por</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Medellin/events/272434031/</url>
+        <description>
+            <![CDATA[
+<p>Tipos no son tests", es una expresión usada por algunos entusiastas de TDD, en esta charla veremos cómo pueden coexistir tipos y tests para lograr un mejor diseño de nuestro software, más simples y más seguros. En la primera parte veremos cómo crear tests basados en tipos y un poco de TDD en la segunda parte, crearemos un ejemplo simple usando una suite de tests para agregar funcionalidad a una aplicación ya existente.</p>
+]]>
+        </description>
+    </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2020-08-17</startDate>
+        <endDate>2020-08-17</endDate>
+        <location>Cambridge, MA</location>
+        <speaker>Mark Murphy</speaker>
+        <title>Clean Mobile Code</title>
+        <subject>Learn Clean Kotlin Code with Klassbook</subject>
+        <url>https://www.meetup.com/Clean-Mobile-Code/events/zbjkwrybclbwb/</url>
+        <description>
+            <![CDATA[
+<p>There are many ways to learn it, some good, some even. better still. This meetup will help you learn Kotlin and adhere to Clean Code principles and techniques advocated in the Clean Mobile Code event series.</p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2020-08-17</startDate>
+        <endDate>2020-08-17</endDate>
+        <location>Nairobi, Kenya</location>
+        <speaker>Chet Haase, Murat Yener</speaker>
+        <title>Kotlin Kenya User Group</title>
+        <subject>Android11 MeetUp</subject>
+        <url>https://www.meetup.com/KotlinKenya/events/272501624/</url>
+        <description>
+            <![CDATA[
+<p>A global series of online community meetups to discuss what’s new in Android 11, how to make your app compatible, and the essentials and best practices of modern Android development.</p>
+<p>A focus on primarily aim Android developers who are interested in making sure their apps/games work well on the latest release of Android and want to avoid any breaking changes.</p>
+<p>This presentation will give a quick overview of the features in the latest release: Android 11. It will also cover information about other important releases and products for Android developers, and how to find out more.</p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2020-08-20</startDate>
+        <endDate>2020-08-20</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Jakub Jabłoński</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>Informal get-together of Kotlin developers in Berlin</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrybclbbc/</url>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2020-08-22</startDate>
+        <endDate>2020-08-22</endDate>
+        <location>Mumbai, India</location>
+        <speaker>Subhrajyoti Sen</speaker>
+        <title>Kotlin Mumbai</title>
+        <subject>Building a better codebase with Lint</subject>
+        <url>https://www.meetup.com/Kotlin-Mumbai/events/272546731/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, Subhrajyoti discusses some examples of custom lint checks we use on the Tickertape app to enforce out design guidelines. He will go through the source code of Android lint checking and then show how to write a custom lint rule.</p>
+<p>This talk also demonstrates how to write test cases for the rules. By the end of the talk, you will be able to understand how lint works and how you can add custom lint rules to your projects.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-22</startDate>
+        <endDate>2020-08-22</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Chandra Guntur</speaker>
+        <title>Kotlin Hyderabad</title>
+        <subject>Java 8 to Java 14 - Some Notable Enhancements</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/272397592/</url>
+        <description>
+            <![CDATA[
+<p>This session shares notable changes in the Java ecosystem starting from Java 8 all the way until Java 14. No vendor-specific changes or enhancements are covered.</p>
+<p>Given the breadth of the topic and a time limit, this session will only cover the most notable or impactful changes.</p>
+<p>For instance, Java 9 introduced 150 new features: Java 9 changes focus on programmatic/syntactic changes for most part but will cover the new Java Module system JPMS, since it makes a huge impact for library developers.</p>
+<p>Similar constraints apply for Java 10, 11, 12, 13 and 14. However, post-Java 9, the release cadence of 6 months has greatly reduced the number of features delivered making the content more viable to present a larger percentage of changes.</p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2020-08-25</startDate>
+        <endDate>2020-08-25</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Endre Deak, Adam Arold, Adrian Bukros</speaker>
+        <title>Kotlin Budapest User Group</title>
+        <subject>Kotlin Budapest meetup - August</subject>
+        <url>https://www.meetup.com/Kotlin-Budapest/events/272525463/</url>
+        <description>
+            <![CDATA[
+<p>Venue details and safety measures:
+The safety of our community is our #1 priority. We comply with all regulations and recommendations. Our safety measures include, but are not limited to, the following:<p>
+<p>• We're enforcing a strict attendance limit in coordination with our venue's regulations.
+• The seats and tables are from the prescribed distance from one another.
+• Surgeon masks will be made available for every attendee on demand.
+• We'll be equipped with hand sanitisers.
+• Our venue is an inner garden with good ventilation.
+• We kindly ask our attendees to attend only if they weren't abroad or near exposed people in the past two weeks, and aren't experiencing symptoms themselves.</p>
+]]>
+        </description>
+     </event>
+
    <event>
         <lang>es</lang>
         <startDate>2020-08-06</startDate>
