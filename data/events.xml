@@ -5176,7 +5176,7 @@ and much more.</p>
         <location>São Paulo, Brazil</location>
         <speaker>Tiago de Freitas</speaker>
         <title>BackEndBr #12</title>
-        <subject>Kotlin - do mobile ao backend</subject>
+        <subject>Kotlin - do mobile ao back-end</subject>
         <url>https://www.meetup.com/BackEndBr/events/262539429/</url>
     </event>
 
@@ -8207,7 +8207,7 @@ In this talk, we will go over the creation of two client apps: one Android and o
         <url>https://voxxeddays.com/minsk/2019/kotlin-coroutines-in-practice/</url>
         <description>
             <![CDATA[
-<p>Kotlin coroutines were recently released. We use them in our projects on backend. In this talk I will show you how to use it in real backend based applications, common patterns and problems you could face.</p>
+<p>Kotlin coroutines were recently released. We use them in our projects on backend. In this talk I will show you how to use it in real back-end based applications, common patterns and problems you could face.</p>
 ]]>
         </description>
     </event>
@@ -10050,7 +10050,7 @@ JVM.</p>
         <url>https://www.meetup.com/New-York-Kotlin-Meetup/events/258684498/</url>
         <description>
             <![CDATA[
-<p>With frontend web apps becoming larger and more complex, and Node.js allowing Javascript to be used on the server side, the language has had a rapid rise in popularity. But for many JVM/Android developers, the thought of getting into front end web development and the Javascript ecosystem can seem quite unpleasant. However with Kotlin's ability to target JS, we can leverage the language features we've come to love, to make the experience a bit more fun. In this talk, we'll explore how we can build a Kotlin frontend application and even use Kotlin to interact with Node.js on the server.</p>
+<p>With front-end web apps becoming larger and more complex, and Node.js allowing Javascript to be used on the server side, the language has had a rapid rise in popularity. But for many JVM/Android developers, the thought of getting into front end web development and the Javascript ecosystem can seem quite unpleasant. However with Kotlin's ability to target JS, we can leverage the language features we've come to love, to make the experience a bit more fun. In this talk, we'll explore how we can build a Kotlin front-end application and even use Kotlin to interact with Node.js on the server.</p>
 ]]>
         </description>
     </event>
@@ -10352,7 +10352,7 @@ dzisiaj.</p>
         <url>https://www.facebook.com/events/598956270515802/</url>
         <description>
             <![CDATA[
-<p>With frontend web apps becoming larger and more complex, and Node.js allowing Javascript to be used on the server side, the language has had a rapid rise in popularity. But for many JVM/Android developers, the thought of getting into front end web development and the Javascript ecosystem can seem quite unpleasant. However with Kotlin's ability to target JS, we can leverage the language features we've come to love, to make the experience a bit more fun. In this talk, we'll explore how we can build a Kotlin frontend application and even use Kotlin to interact with Node.js on the server.
+<p>With front-end web apps becoming larger and more complex, and Node.js allowing Javascript to be used on the server side, the language has had a rapid rise in popularity. But for many JVM/Android developers, the thought of getting into front end web development and the Javascript ecosystem can seem quite unpleasant. However with Kotlin's ability to target JS, we can leverage the language features we've come to love, to make the experience a bit more fun. In this talk, we'll explore how we can build a Kotlin front-end application and even use Kotlin to interact with Node.js on the server.
 Learn how to leverage Kevin’s Kotlin codegen so your data model can be immutable and quickly parsed reflection free. I’ll discuss why this is important to us as developers, integration details, and how Moshi implemented this feature!</p>
 ]]>
         </description>
@@ -10758,7 +10758,7 @@ synchonize.</p>
         <url>https://www.javaday.org.ua/speakers/Sergey-Zolotov</url>
         <description>
             <![CDATA[
-<p>Kotlin coroutines are a hot topic and were released this year. We use them in our projects on backend. In this talk I will show you how to use it in real backend based applications, common patterns and problems you could face</p>
+<p>Kotlin coroutines are a hot topic and were released this year. We use them in our projects on backend. In this talk I will show you how to use it in real back-end based applications, common patterns and problems you could face</p>
 ]]>
         </description>
     </event>
