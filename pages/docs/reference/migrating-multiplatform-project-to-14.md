@@ -162,8 +162,22 @@ Kotlin 1.4.0 introduces the Alpha IR compiler for Kotlin/JS. For more detailed i
 
 To choose between the different Kotlin/JS compiler options, set the key `kotlin.js.compiler` in your `gradle.properties` to `legacy`, `ir`, or `both`. Alternatively, pass `LEGACY`, `IR`, or `BOTH` to the `js` function in your `build.gradle(.kts)`.
 
+<!--suppress ALL -->
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin {
+    js(IR) { // or: LEGACY, BOTH
+        // . . .
+    }
+    binaries.executable()
+}
+```
+
+</div>
+
 #### Changes in `both` mode
-Choosing `both` as the compiler option (so that it will compile with both the legacy and the IR backend) means that some tasks are renamed to explicitly mark them as only affecting the legacy compilation. `compileKotlinJs` is renamed to `compileKotlinJsLegacy`, and `compileTestKotlinJs` is renamed to `compileTestKotlinJsLegacy`.
+Choosing `both` as the compiler option (so that it will compile with both the legacy and the IR backend) means that some Gradle tasks are renamed to explicitly mark them as only affecting the legacy compilation. `compileKotlinJs` is renamed to `compileKotlinJsLegacy`, and `compileTestKotlinJs` is renamed to `compileTestKotlinJsLegacy`.
 
 #### Explicitly toggling the creation of executable files
 
