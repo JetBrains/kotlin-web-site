@@ -8,11 +8,10 @@
 }
 
 .global-footer-terms {
-  @include box-sizing;
   @include clearfix;
   padding: 32px 22px;
   background-color: #F4F4F4;
-  min-width: 340px;
+  min-width: 320px;
   color: rgba(39, 40, 44, 0.7);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
@@ -64,6 +63,11 @@
       min-width: 320px;
     }
 
+    @media (max-width: 320px) {
+      max-width: 310px;
+      min-width: 310px;
+    }
+
     .divider {
       position: relative;
       min-width: 1px;
@@ -78,6 +82,7 @@
     display: flex;
     flex-direction: row;
     max-width: 650px;
+    align-items: flex-end;
 
     @media (max-width: 768px) {
       width: auto;
@@ -85,7 +90,6 @@
     }
 
     @media (max-width: 450px) {
-      justify-content: space-between;
       .jetbrains-link-mobile {
         background-image: url('images/socials/jetbrains-logo.svg');
         background-repeat: no-repeat;
@@ -93,7 +97,6 @@
         width: 75px;
         height: 75px;
         background-size: 75px;
-        margin: 0 12px;
       }
     }
 
@@ -113,7 +116,7 @@
 
   .terms-social {
     box-sizing: border-box;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -121,7 +124,7 @@
   .terms-social__item {
     display: flex;
     align-items: center;
-    padding: 0 4px;
+    padding: 6px;
     margin-right: 20px;
   }
 
@@ -159,7 +162,12 @@
     -webkit-font-smoothing: antialiased;
 
     @media (max-width: 450px) {
-      max-width: 250px;
+      max-width: 300px;
+      margin-right: 17px;
+    }
+
+    @media (max-width: 375px) {
+      max-width: 240px;
     }
 
     @media (max-width: 320px) {
