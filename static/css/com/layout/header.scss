@@ -16,7 +16,6 @@
   justify-content: center;
   box-sizing: border-box;
   height: 64px;
-  padding: 0 22px;
   border-bottom: 1px solid hsla(0,0%,100%,.2);
   color: #fff;
 
@@ -102,7 +101,9 @@
 .global-header-panel {
   box-sizing: border-box;
   display: flex;
-  min-width: 960px;
+  width: 100%;
+  padding: 0 32px;
+  //min-width: 960px;
   align-items: center;
   justify-content: space-between;
   height: 64px;
