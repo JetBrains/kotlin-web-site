@@ -5,6 +5,7 @@
 .global-footer {
   color: rgba(39, 40, 44, 0.7);
   width: 100%;
+  flex: 0 0 auto;
 }
 
 .global-footer-terms {
@@ -32,7 +33,6 @@
     justify-content: space-between;
 
     @media (max-width: 960px) {
-      width: 100%;
       max-width: 960px;
       margin: 0 auto;
       min-width: 320px;
