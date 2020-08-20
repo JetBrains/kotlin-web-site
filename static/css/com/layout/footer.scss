@@ -116,7 +116,7 @@
 
   .terms-social {
     box-sizing: border-box;
-    margin-bottom: 8px;
+    margin: 0 -4px 10px -4px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -125,7 +125,24 @@
     display: flex;
     align-items: center;
     padding: 6px;
-    margin-right: 20px;
+    margin-right: 15px;
+    height: 36px;
+    width: 36px;
+    box-sizing: border-box;
+
+    &:hover,
+    &:focus {
+      background: rgba(39, 40, 44, .05);
+      border-radius: 50%;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .terms-kit {
