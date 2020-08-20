@@ -12,13 +12,12 @@ body._no-scroll {
   padding: 5px;
 
   .icon {
-    background: url('../../../css/com/layout/images/main-sprite.png') no-repeat 0 -550px;
+    background: url('../../../css/com/layout/images/search.svg') no-repeat center;
     width: 23px;
     height: 23px;
 
     @include adapt_retina {
-      background-image: url('../../../css/com/layout/images/main-sprite@2x.png');
-      background-size: 150px auto;
+      background-image: url('../../../css/com/layout/images/search.svg');
     }
   }
 
