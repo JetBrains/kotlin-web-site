@@ -663,7 +663,7 @@ In Kotlin 1.3, you would have had to declare the function `foo` above in Java co
 
 In Kotlin, we have three backends that generate executables: Kotlin/JVM, Kotlin/JS, and Kotlin/Native. Kotlin/JVM and Kotlin/JS 
 don't share much code since they were developed independently of each other. Kotlin/Native is based on a new 
-infrastructure built around an internal representation (IR) for Kotlin code. 
+infrastructure built around an intermediate representation (IR) for Kotlin code. 
 
 We are now migrating Kotlin/JVM and Kotlin/JS to the same IR. As a result, all three backends
 share a lot of logic and have a unified pipeline. This allows us to implement most features, optimizations, and bug fixes 

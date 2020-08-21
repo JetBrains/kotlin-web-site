@@ -65,6 +65,11 @@ For Kotlin/JS, the following hands-on labs are currently available:
 
 * [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server application that makes use of common code, serialization, and other multiplatform paradigms. It also provides a brief introduction into working with Ktor both as a server- and client-side framework.
 
+## New Kotlin/JS IR compiler
+
+The [new Kotlin/JS IR compiler](/docs/reference/js-ir-compiler.html) (currently with [Alpha](/docs/reference/evolution/components-stability.html) stability) comes with a number of improvements over the current default compiler. For example, it improves the size of generated executables via dead code elimination and makes it smoother to interoperate with the JavaScript ecosystem and its tooling. By generating TypeScript declaration files (d.ts) from Kotlin code, the new compiler makes it easier to create “hybrid” applications that mix TypeScript and Kotlin code, and leverage code-sharing functionality using Kotlin Multiplatform.
+
+To learn more about the available features in the new Kotlin/JS IR compiler and how to try it for your project, visit the [documentation](/docs/reference/js-ir-compiler.html).
 
 ## Join the Kotlin/JS community
 You can also join [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channel in the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and chat with the community and the team.
