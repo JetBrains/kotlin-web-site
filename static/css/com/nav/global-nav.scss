@@ -27,10 +27,6 @@
       position: relative;
     }
 
-    .nav-item-is_active {
-      border-bottom: 2px solid #fff;
-    }
-
     .nav-item-link {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
       font-size: 16px;
@@ -48,18 +44,19 @@
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
 
+      &-is_active {
+        border-bottom: 2px solid #fff;
+        box-sizing: border-box;
+      }
+
       &-external {
         &::after {
           display: inline-block;
-          content: '';
-          background: url("../../../js/page/index/images/external-link-marker_fff_06.svg") bottom no-repeat;
+          content: '↗';
           background-size: 12px;
-          height: 12px;
+          height: 48px;
           width: 12px;
-        }
-
-        &:hover::after {
-          background-image: url("../../../js/page/index/images/external-link-marker_fff.svg");
+          padding-left: 6px;
         }
       }
 
@@ -263,21 +260,6 @@
           cursor: pointer;
           background: rgba(255, 255, 255, 0.1);
           transition: 0.3s ease-out;
-        }
-
-        &-external {
-          &::after {
-            display: inline-block;
-            content: '';
-            background: url("../../../js/page/index/images/external-link-marker_fff_06.svg") bottom no-repeat;
-            background-size: 12px;
-            height: 12px;
-            width: 12px;
-          }
-
-          &:hover::after {
-            background-image: url("../../../js/page/index/images/external-link-marker_fff.svg");
-          }
         }
       }
     }

@@ -77,3 +77,21 @@ $(function () {
     new GifPlayer(el)
   });
 });
+
+// Handle with platforms menu in header
+const hoverPlatformMenu = function () {
+  const $platformMenuItem = $('.nav-item-platforms');
+  const $platformMenu = $('.platforms-menu');
+
+  $platformMenuItem.on('mouseenter', function () {
+    $platformMenu.fadeIn(300);
+  });
+
+  $platformMenuItem.on('mouseleave', function () {
+    $platformMenu.fadeOut(300);
+  });
+};
+
+$(function () {
+  hoverPlatformMenu();
+});
