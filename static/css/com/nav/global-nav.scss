@@ -46,6 +46,7 @@
 
       &-is_active {
         border-bottom: 2px solid #fff;
+        color: #fff;
         box-sizing: border-box;
       }
 
@@ -58,10 +59,6 @@
           width: 12px;
           padding-left: 6px;
         }
-      }
-
-      &-is-active {
-        border-bottom: 2px solid #fff;
       }
 
       &:hover {
