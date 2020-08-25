@@ -432,7 +432,7 @@ tutorials:
         - url: /docs/tutorials/native/using-gradle.html
           title: Hello Kotlin/Native using Gradle
         - url: /docs/tutorials/native/using-intellij-idea.html
-          title: Hello Kotlin/Native using IntelliJ IDEA
+          title: Get started with Kotlin/Native using IntelliJ IDEA
         - url: /docs/tutorials/native/intro-to-kotlin-native.html
           title: Creating an HTTP Client in Kotlin/Native
         - url: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
