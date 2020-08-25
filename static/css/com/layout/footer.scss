@@ -3,51 +3,120 @@
 @import '../_icon/_icon';
 
 .global-footer {
-  height: $footer-height;
-  color: #b2b2b2;
-
-  .header {
-    font-family: $font-family-serif;
-    font-size: 24px;
-    color: #7c7979;
-    margin-bottom: $unit*3;
-  }
-
-  a {
-    color: #fff;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  color: rgba(39, 40, 44, 0.7);
+  width: 100%;
+  flex: 0 0 auto;
 }
 
 .global-footer-terms {
-  @include box-sizing;
   @include clearfix;
-  padding: $unit*3 0;
-  background-color: #27282C;
-  color: rgba(255, 255, 255, 0.5);
-  font-family: Inter, Arial, sans-serif;
+  padding: 32px 22px;
+  background-color: #F4F4F4;
+  min-width: 320px;
+  color: rgba(39, 40, 44, 0.7);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
+  -webkit-font-smoothing: antialiased;
   line-height: 20px;
+  border-top: 1px solid rgba(39, 40, 44, 0.2);
 
-  .global-footer-container {
+  @media (max-width: 425px) {
+    padding: 32px 16px
+  }
+
+  .g-footer-layout {
+    min-width: 960px;
+    max-width: 960px;
+    width: 100%;
+    margin: auto;
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    justify-content: space-between;
+
+    @media (max-width: 960px) {
+      max-width: 960px;
+      margin: 0 auto;
+      min-width: 320px;
+    }
+  }
+
+  .footer-info-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .global-footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .global-footer-row {
-    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin-bottom: 16px;
+
+    @media (max-width: 1024px) {
+      width: auto;
+      min-width: 320px;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 310px;
+      min-width: 310px;
+    }
+
+    .divider {
+      position: relative;
+      min-width: 1px;
+      max-width: 1px;
+      height: 12px;
+      background-color: rgba(39, 40, 44, 0.5);
+      margin-right: 7px;
+    }
+  }
+
+  .license-footer-row {
+    display: flex;
+    flex-direction: row;
+    max-width: 650px;
+    align-items: flex-end;
+
+    @media (max-width: 768px) {
+      width: auto;
+      min-width: 320px;
+    }
+
+    @media (max-width: 450px) {
+      .jetbrains-link-mobile {
+        background-image: url('images/socials/jetbrains-logo.svg');
+        background-repeat: no-repeat;
+        display: block;
+        width: 75px;
+        height: 75px;
+        background-size: 75px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  .sponsored-block {
+    flex-basis: 250px;
+
+    @media (max-width: 450px) {
+      display: none;
+    }
   }
 
   .terms-social {
     box-sizing: border-box;
-    padding-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
-    margin-bottom: 11px;
+    margin: 0 -4px 10px -4px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -55,51 +124,127 @@
   .terms-social__item {
     display: flex;
     align-items: center;
-    margin-right: 24px;
+    padding: 6px;
+    margin-right: 15px;
+    height: 36px;
+    width: 36px;
+    box-sizing: border-box;
+
+    &:hover,
+    &:focus {
+      background: rgba(39, 40, 44, .05);
+      border-radius: 50%;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
   }
 
-  .terms-social__item::before {
-    display: inline-block;
-    content: '';
-    background-position: center;
-    background-size: 22px;
-    margin-right: 9px;
-    height: 22px;
-    width: 22px;
+  .terms-kit {
+    color: rgba(39, 40, 44, 0.7);
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-right: 7px;
+
+    &:hover {
+      border-bottom-color: #27282c;
+      color: #27282c;
+      text-decoration: none;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
   }
 
-  .terms-social__item_blog::before {
-    background-image: url('images/socials/blog.svg');
+  .terms-foundation {
+    color: rgba(39, 40, 44, 0.4);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+
+    @media (max-width: 450px) {
+      max-width: 300px;
+      margin-right: 17px;
+    }
+
+    @media (max-width: 375px) {
+      max-width: 240px;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 200px;
+    }
+
+    .terms-sponsor-mobile {
+      display: none;
+
+      @media (max-width: 450px) {
+        display: inline;
+      }
+    }
   }
 
-  .terms-social__item_forum::before {
-    background-image: url('images/socials/forum.svg') ;
-  }
+  .terms-foundation_link {
+    color: rgba(39, 40, 44, 0.5);
+    border-bottom: 1px solid rgba(39, 40, 44, 0.2);
+    text-decoration: none;
 
-  .terms-social__item_bug-tracker::before {
-    background-image: url('images/socials/youtrack.svg');
-  }
+    &:active,
+    &:visited {
+      border-bottom: 1px solid rgba(39, 40, 44, 0.4);
+    }
 
-  .terms-social__item_github::before {
-    background-image: url('images/socials/github.svg');
-  }
-
-  .terms-social__item_twitter::before {
-    background-image: url('images/socials/twitter.svg');
-  }
-
-  .terms-para {
-    margin-bottom: 9px;
-  }
-
-  .terms-copyright {
+    &:hover {
+      border-bottom-color: #27282c;
+      color: #27282c;
+      text-decoration: none;
+    }
   }
 
   .terms-sponsor {
     height: 100%;
     display: flex;
-    align-items: center;
+    color: rgba(39, 40, 44, 0.5);
+    font-size: 13px;
+    line-height: 20px;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: flex-end;
+    position: relative;
+    text-align: right;
+
+    .jetbrains-link {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        top: -80px;
+        right: 0;
+        content: "";
+        background-image: url('images/socials/jetbrains-logo.svg');
+        background-repeat: no-repeat;
+        display: block;
+        width: 60px;
+        height: 60px;
+        background-size: 60px;
+      }
+    }
 
     .sponsor_jetbrains {
       display: inline-block;
