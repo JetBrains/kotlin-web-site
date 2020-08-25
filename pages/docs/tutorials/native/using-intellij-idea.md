@@ -50,7 +50,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
     * Use the [readLine](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value to the `name` variable.
     * Check the input value with the [safe call operator](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls) `?.`. 
-    * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name by adding a dollar sign `$` and enclosing it in curly braces – `${name?.length}`. 
+    * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name into the string by adding a dollar sign `$` and enclosing it in curly braces – `${name?.length}`. 
 
     <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
    
@@ -112,7 +112,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 2. Count the distinct letters in your name:
 
-   * Convert the name to lower case using the [toLowerCase](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function. 
+   * Convert the name to lower case using the [toLowerCase](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
    * Convert the input string to a collection of characters using the [toList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
    * Select only distinct characters in your name using the [distinct](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
    * Count distinct characters using the [count](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
