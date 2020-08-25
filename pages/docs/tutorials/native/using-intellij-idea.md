@@ -10,12 +10,12 @@ showAuthorInfo: false
 
 <!--- To become a How-To. Need to change type to new "HowTo" --->
 
-To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
+To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html). The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
 
 ## Create a new Kotlin/Native project in IntelliJ IDEA
 
 1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
-2. In the panel on the left, select Kotlin.
+2. In the panel on the left, select **Kotlin**.
 3. Enter a project name, select **Native Application** as the project template, and click **Next**.
 
     ![Create a native application]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-1.png') }})
@@ -27,9 +27,7 @@ To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrai
     ![Configure a native application]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-2.png') }})
 
 Your project opens. By default, the wizard creates the necessary `main.kt` file with the code that prints "Hello, Kotlin/Native!" to the standard output.
-
-TODO: do we need that? 
-Your `build.gradle.kts` file contains information about platforms (Windows, Linux, macOS).
+The `build.gradle.kts` file contains information about target platforms (Windows, Linux, macOS).
 
 ## Run the application
 
@@ -50,8 +48,8 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 2. Change the code of `main()`:
 
-    * Use the [readLine](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input.
-    * Check the input value with a [safe call operator](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls) `?.`. 
+    * Use the [readLine](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value to the `name` variable.
+    * Check the input value with the [safe call operator](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls) `?.`. 
     * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name by adding a dollar sign `$` and enclosing it in curly braces – `${name?.length}`. 
 
     <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
@@ -69,6 +67,10 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 3. Save the changes and run the application.
 
+    IntelliJ IDEA opens the **Run** tab and shows the output.
+
+4. Enter your name and enjoy the result:
+
     ![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-5.png') }})
 
 ### Escape the whitespaces
@@ -78,8 +80,8 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 2. Add a whitespaces check:
 
     * Use the [contains](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/contains.html) function to check is there whitespaces in the input name .
-    * Use the [replace](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to escape the whitespaces of the .
-    * Change read-only variable `var name` to `val name` since you assign new value.
+    * Use the [replace](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to eliminate the whitespaces in the name.
+    * Change read-only variable `var name` to `val name` since you assign a new name value without whitespaces.
 
     <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
     
@@ -98,17 +100,21 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    
 3. Save the changes and run the application.
     
+    IntelliJ IDEA opens the **Run** tab and shows the output.
+    
+4. Enter your name and enjoy the result:
+
     ![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-6.png') }})
 
 ### Count unique letters in your name
 
 1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
 
-2. Count the distinct letter in your name:
+2. Count the distinct letters in your name:
 
    * Convert the name to lower case using the [toLowerCase](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function. 
    * Convert the input string to a collection of characters using the [toList](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
-   * Select only distinct character in your name using the [distinct](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
+   * Select only distinct characters in your name using the [distinct](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
    * Count distinct characters using the [count](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
    
     <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
@@ -122,10 +128,18 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    
 3. Save the changes and run the application.
 
+    IntelliJ IDEA opens the **Run** tab and shows the output.
+
+4. Enter your name and enjoy the result:
+
     ![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-7.png') }})
 
-The sample project can serve as the basis for any new project for Kotlin/Native.
 
 ## What's next?
 
-For further information, check out:
+The sample project can serve as the basis for any new project for Kotlin/Native. For further information, check out:
+
+* [Kotlin/Native Gradle plugin](https://kotlinlang.org/docs/reference/native/gradle_plugin.html)
+* [Multiplatform Projects](https://kotlinlang.org/docs/reference/mpp-discover-project.html)
+
+
