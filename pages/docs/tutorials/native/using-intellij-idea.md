@@ -55,7 +55,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    * Perform the null check of the input value with the [safe call operator `?.`](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls).
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to eliminate the whitespaces in the name.
    * Use the scope function [`let`](https://kotlinlang.org/docs/reference/scope-functions.html#let) to execute function within the object context. 
-   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
+   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
      `it` is a default name of a [lambda parameter](https://kotlinlang.org/docs/reference/coding-conventions.html#lambda-parameters).
    * Report about the null value using the [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator). 
 
