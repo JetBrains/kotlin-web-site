@@ -55,7 +55,8 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    * Perform the null check of the input value with the [safe call operator `?.`](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls).
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to eliminate the whitespaces in the name.
    * Use the scope function [`let`](https://kotlinlang.org/docs/reference/scope-functions.html#let) to execute function within the object context. 
-   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it?.length}`.
+   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
+     `it` is a default name of a [lambda parameter](https://kotlinlang.org/docs/reference/coding-conventions.html#lambda-parameters).
    * Report about the null value using the [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator). 
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
@@ -87,26 +88,30 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 2. Count the distinct letters in your name:
 
-   * Convert the name to lower case using the [`toLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
-   * Convert the input string to a collection of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
-   * Select only distinct characters in your name using the [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
-   * Count distinct characters using the [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
+   * Declare the new [extension function](https://kotlinlang.org/docs/reference/extensions.html#extension-functions) `countDistinctCharacters()` for `String`:
+     * Convert the name to lower case using the [`toLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
+     * Convert the input string to a collection of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
+     * Select only distinct characters in your name using the [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
+     * Count distinct characters using the [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
+   * Use the `countDistinctCharacters()` function to count unique letters in your name.
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
    ```kotlin
+   fun String.countDistinctCharacters() = toLowerCase().toList().distinct().count()
+
    fun main() {
        println("Hello, enter your name:")
        val name = readLine()
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
-           println("Your name contains ${it.toLowerCase().toList().distinct().count()} unique letters")
+           println("Your name contains ${it.countDistinctCharacters()} unique letters")
        } ?: error("Error while reading input from the terminal: the value can't be null.")
    }
    ```
 
    </div>
-   
+
 3. Save the changes and run the application.
 
    IntelliJ IDEA opens the **Run** tab and shows the output.
