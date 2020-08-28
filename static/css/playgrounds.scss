@@ -17,3 +17,7 @@
   height: 20px;
   max-width: 600px;
 }
+
+.CodeMirror .CodeMirror-lines pre.CodeMirror-line, .CodeMirror .CodeMirror-lines pre.CodeMirror-line-like {
+  font-variant-ligatures: none;
+}

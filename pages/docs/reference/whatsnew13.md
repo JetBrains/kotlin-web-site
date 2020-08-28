@@ -24,12 +24,13 @@ The key differences to the old model are:
 
   * In the old model, common and platform-specific code needed to be placed in separate modules, linked by `expectedBy` dependencies.
     Now, common and platform-specific code is placed in different source roots of the same module, making projects easier to configure.
-  * There is now a large number of [preset platform configurations](/docs/reference/building-mpp-with-gradle.html#supported-platforms) for different supported platforms.
-  * The [dependencies configuration](/docs/reference/building-mpp-with-gradle.html#adding-dependencies) has been changed; dependencies are now specified separately for each source root.
-  * Source sets can now be shared between an arbitrary subset of platforms (for example, in a module that targets JS, Android and iOS, you can have a source set that is shared only between Android and iOS).
-  * [Publishing multiplatform libraries](/docs/reference/building-mpp-with-gradle.html#publishing-a-multiplatform-library) is now supported.
+  * There is now a large number of [preset platform configurations](mpp-supported-platforms.html) for different supported platforms.
+  * The dependencies configuration has been changed; dependencies are now specified separately for each source root.
+  * Source sets can now be shared between an arbitrary subset of platforms (for example, in a module that targets JS, Android and iOS, 
+  you can have a source set that is shared only between Android and iOS).
+  * [Publishing multiplatform libraries](mpp-publish-lib.html) is now supported.
 
-For more information, please refer to the [Multiplatform Programming documentation](/docs/reference/multiplatform.html).
+For more information, please refer to the [Multiplatform Programming documentation](multiplatform.html).
 
 ## Contracts
 
@@ -277,7 +278,7 @@ We expect that the progressive mode will be a nice choice for any actively maint
 
 ## Inline classes
 
-> Inline classes are available only since Kotlin 1.3 and currently are *experimental*. See details in the [reference](inline-classes.html#experimental-status-of-inline-classes).
+> Inline classes are available only since Kotlin 1.3 and currently are in [Alpha](evolution/components-stability.html). See details in the [reference](inline-classes.html#alpha-status-of-inline-classes).
 {:.note}
 
 
@@ -313,7 +314,7 @@ See [reference](inline-classes.html) for inline classes for details.
 
 ## Unsigned integers
 
-> Unsigned integers are available only since Kotlin 1.3 and currently are *experimental*. See details in the [reference](basic-types.html#experimental-status-of-unsigned-integers).
+> Unsigned integers are available only since Kotlin 1.3 and currently are in [Beta](evolution/components-stability.html). See details in the [reference](basic-types.html#beta-status-of-unsigned-integers).
 {:.note}
 
 Kotlin 1.3 introduces unsigned integer types:
@@ -508,7 +509,7 @@ Kotlin 1.3 introduces support for the [recommended code style](coding-convention
 
 See here for [details](https://github.com/Kotlin/kotlinx.serialization#current-project-status).
 
-> Please, note, that even though kotlinx.serialization now ships with the Kotlin Compiler distribution, it is still considered to be an experimental feature. 
+> Please, note, that even though kotlinx.serialization now ships with the Kotlin Compiler distribution, it is still considered to be an experimental feature in Kotlin 1.3. 
 {:.note}
 
 ## Scripting update

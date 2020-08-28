@@ -20,7 +20,7 @@ The corresponding part in the Gradle build file looks as follows:
 ```kotlin
 dependencies {
     // ...
-    implementation(npm("is-sorted"))
+    implementation(npm("is-sorted", "1.0.5"))
 }
 ```
 </div>

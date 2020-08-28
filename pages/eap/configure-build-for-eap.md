@@ -42,7 +42,7 @@ This section covers:
 
 #### Option 1. Configure in the build and settings files 
 
-1. In the `plugins` block within `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` to the actual EAP version, such as `1.4-M1`. Available EAP versions are listed [here](index.html#build-details).<br>
+1. In the `plugins` block within `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` to the actual EAP version, such as `{{ site.data.releases.eap.version }}`. Available EAP versions are listed [here](index.html#build-details).<br>
 Alternatively, you can specify the EAP version in the `pluginManagement` block in `settings.gradle` (`settings.gradle.kts`) – see [Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html#sec:plugin_version_management) for details.
 2. In the `repositories` block, specify the EAP repository – <https://dl.bintray.com/kotlin/kotlin-eap> – for dependencies.
 
@@ -122,7 +122,8 @@ pluginManagement {
 
 #### Option 2. Configure in the build file only 
 
-1. In `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` in the `buildscript` block to the actual EAP version, such as `1.4-M1`.  Available EAP versions are listed [here](index.html#build-details).
+1. In `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` in the `buildscript` block to the actual EAP version, such as `{{ site.data.releases.eap.version }}`.  
+Available EAP versions are listed [here](index.html#build-details).
 2. Add the EAP repository – <https://dl.bintray.com/kotlin/kotlin-eap> – to the `buildscript` block.
 3. In the `repositories` block, specify the EAP repository for dependencies. 
 
@@ -168,14 +169,14 @@ see [EAP build details](index.html#build-details).
 
 Here is an example.
 
-For the **kotlinx.coroutines** library, add the version number – `1.3.5-1.4-M1` – that is compatible with `1.4-M1`. 
+For the **kotlinx.coroutines** library, add the version number – `{{ site.data.releases.eap.coroutines }}` – that is compatible with `{{ site.data.releases.eap.version }}`. 
 
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
 dependencies {
-   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5-1.4-M1"
+   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}"
 }
 ```
 
@@ -187,7 +188,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5-1.4-M1")
+   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}")
 }
 ```
 
@@ -196,7 +197,8 @@ dependencies {
 
 ## Configure in Maven
 
-In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the actual version, such as `1.4-M1`. Available EAP versions are listed [here](index.html#build-details).
+In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the actual version, such as `{{ site.data.releases.eap.version }}`. 
+Available EAP versions are listed [here](index.html#build-details).
 
 <div class="sample" markdown="1" theme="idea" mode='xml'>
 

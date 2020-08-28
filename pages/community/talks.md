@@ -1,5 +1,6 @@
 ---
 title: Kotlin Events
+layout: default-v2
 ---
 
 # Kotlin talks and speakers support

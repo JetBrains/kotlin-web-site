@@ -9,7 +9,7 @@ title: FAQ
 
 ### What is Kotlin?
 
-Kotlin is an OSS statically typed programming language that targets the JVM, Android, JavaScript and Native. 
+Kotlin is an open-source statically typed programming language that targets the JVM, Android, JavaScript and Native. 
 It’s developed by [JetBrains](http://www.jetbrains.com). The project started in 2010 and was open source from very early on. The first official 1.0 release was in February 2016. 
 
 ### What is the current version of Kotlin?
@@ -68,13 +68,13 @@ In addition there are Kotlin specific frameworks such as [TornadoFX](https://git
 
 ### Can I use Kotlin for native development?
 
-Kotlin/Native is currently [in the works](https://blog.jetbrains.com/kotlin/tag/native/). It compiles Kotlin to native code 
-that can run without a VM. There is a Technology Preview released but it is not production-ready yet, and doesn’t yet
- target all the platforms that we plan to support for 1.0. For more information check out the [blog post announcing Kotlin/Native](https://blog.jetbrains.com/kotlin/2017/04/kotlinnative-tech-preview-kotlin-without-a-vm/).
+Yes. Kotlin/Native is available as a part of Kotlin project. It compiles Kotlin to native code that can run without a VM.
+It is still in beta, but you can already try it on popular desktop and mobile platforms and even some IoT devices.
+For more information, check out the [Kotlin/Native documentation](native-overview.html).
 
 ### What IDEs support Kotlin?
 
-Kotlin is supported by all major Java IDEs including [IntelliJ IDEA](/docs/tutorials/getting-started.html),
+Kotlin is supported by all major Java IDEs including [IntelliJ IDEA](/docs/tutorials/jvm-get-started.html),
 [Android Studio](https://developer.android.com/kotlin/get-started), [Eclipse](/docs/tutorials/getting-started-eclipse.html) and 
 [NetBeans](http://plugins.netbeans.org/plugin/68590/kotlin). In addition, a [command line compiler](/docs/tutorials/command-line.html) 
 is available and provides straightforward support for compiling and running applications.
@@ -108,7 +108,7 @@ There are too many companies using Kotlin to list, but some more visible compani
  
 ### Who develops Kotlin?
 
-Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 90+). The lead language designer is 
+Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 100+). The lead language designer is 
 [Andrey Breslav](https://twitter.com/abreslav). In addition to the core team, there are also over 250 external contributors on GitHub. 
 
 ### Where can I learn more about Kotlin?
@@ -138,15 +138,16 @@ Yes. Kotlin has a very vibrant community. Kotlin developers hang out on the [Kot
 ### Are there Kotlin events?
  
 Yes. There are many User Groups and Meetups now focused exclusively around Kotlin. You can find [a list on the web site](/user-groups/user-group-list.html).
-In addition there are community organised [Kotlin Nights](/community/kotlin-nights.html) events around the world.
+In addition there are community organised [Kotlin Nights](/community/events.html) events around the world.
 
 ### Is there a Kotlin conference?
 
 Yes. The official annual [KotlinConf](https://kotlinconf.com/) is hosted by JetBrains.
-It has taken place in San-Francisco in [2017](https://kotlinconf.com/2017/) and in Amsterdam in 2018.
+It took place in San-Francisco in [2017](https://kotlinconf.com/2017/), Amsterdam in [2018](https://kotlinconf.com/2018/),
+and Copenhagen in [2019](https://kotlinconf.com/2019/).
 Kotlin is also being covered in different conferences worldwide. You can find a list of [upcoming talks on the web site](/community/talks.html?time=upcoming).
 
-### Is Kotlin on Social Media?
+### Is Kotlin on social media?
 
 Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin).
 

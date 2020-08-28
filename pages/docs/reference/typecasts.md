@@ -86,7 +86,7 @@ when (x) {
 Note that smart casts do not work when the compiler cannot guarantee that the variable cannot change between the check and the usage.
 More specifically, smart casts are applicable according to the following rules:
 
-  * *val*{: .keyword } local variables - always except for [local delegated properties](delegated-properties.html#local-delegated-properties-since-11);
+  * *val*{: .keyword } local variables - always except for [local delegated properties](delegated-properties.html#local-delegated-properties);
   * *val*{: .keyword } properties - if the property is private or internal or the check is performed in the same [module](visibility-modifiers.html#modules) where the property is declared. Smart casts aren't applicable to open properties or properties that have custom getters;
   * *var*{: .keyword } local variables - if the variable is not modified between the check and the usage, is not captured in a lambda that modifies it, and is not a local delegated property;
   * *var*{: .keyword } properties - never (because the variable can be modified at any time by other code).
@@ -114,6 +114,8 @@ To make such code correct for null values, use the nullable type on the right ha
 val x: String? = y as String?
 ```
 </div>
+
+Please note that the "unsafe" cast operator **is not equivalent** to the [`unsafeCast<T>()`](/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html) method available in Kotlin/JS. `unsafeCast` will do no type-checking at all, whereas the _cast operator_ throws a `ClassCastException` when the cast fails. 
 
 ## "Safe" (nullable) cast operator
 
@@ -241,6 +243,8 @@ inline fun <reified T> List<*>.asListOfType(): List<T>? =
         null
 ```
 </div>
+
+IntelliJ IDEA can also automatically generate the `@Suppress` annotation. Open the intentions menu via the light bulb icon or Alt-Enter, and click the small arrow next to the "Change type arguments" quick-fix. Here, you can select the suppression scope, and your IDE will add the annotation to your file accordingly.
 
 On the JVM, the [array types](basic-types.html#arrays) (`Array<Foo>`) retain the information about the erased type of 
 their elements, and the type casts to an array type are partially checked: the 

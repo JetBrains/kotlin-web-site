@@ -1,0 +1,295 @@
+.edu-intro {
+  margin-top: 64px;
+  padding-right: 60%;
+  padding-bottom: 60px;
+
+  background: url("intro.svg") no-repeat top right;
+  background-size: 528px auto;
+  min-height: 400px;
+}
+
+.edu-why-teach__learn {
+  text-align: center;
+}
+
+.edu-feature-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  margin-top: 48px;
+}
+
+.edu-feature-list__item {
+  margin-bottom: 48px;
+  width: 31.67%;
+}
+
+.edu-feature-list__item::before {
+  display: block;
+}
+
+.edu-feature-list__item_type_android::before {
+  content: url("features/android.svg");
+}
+
+.edu-feature-list__item_type_recognize::before {
+  content: url("features/recognize.svg");
+}
+
+.edu-feature-list__item_type_popular::before {
+  content: url("features/popular.svg");
+}
+
+.edu-feature-list__item_type_easy::before {
+  content: url("features/easy.svg");
+}
+
+.edu-feature-list__item_type_paradigms::before {
+  content: url("features/paradigms.svg");
+}
+
+.edu-feature-list__item_type_interoperable::before {
+  content: url("features/interoperable.svg");
+}
+
+.edu-feature-list__item_type_modern::before {
+  content: url("features/modern.svg");
+}
+
+.edu-feature-list__item_type_supports::before {
+  content: url("features/supports.svg");
+}
+
+.edu-feature-list__item_type_tooling::before {
+  content: url("features/tooling.svg");
+}
+
+.edu-feature-list__title {
+  display: block;
+
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.edu-feature-list__para {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(39, 40, 44, 0.7);
+}
+
+.edu-universities {
+  margin-bottom: 80px;
+}
+
+.edu-universities-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 26px 0;
+  margin-top: 50px;
+  border-top: 1px solid rgba(39, 40, 44, 0.2);
+}
+
+.edu-universities__top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.edu-universities-top__item {
+  text-indent: -9999px;
+  height: 75px;
+}
+
+.edu-universities-top__item_type_stanford {
+  content: url("./universities/stanford.png");
+}
+
+.edu-universities-top__item_type_imperial {
+  content: url("./universities/imperial.png");
+}
+
+.edu-universities-top__item_type_hopkins {
+  content: url("./universities/hopkins.png");
+}
+
+.edu-universities-top__item_type_penn {
+  content: url("./universities/penn.png");
+}
+
+.edu-universities-top__item_type_ucla {
+  content: url("./universities/ucla.png");
+}
+
+.edu-universities-top__item_type_duke {
+  content: url("./universities/duke.png");
+}
+
+.edu-universities__note {
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: rgba(39, 40, 44, 0.7);
+  margin-top: 29px;
+}
+
+.edu-universities__full-list {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.edu-universities-map {
+  height: 480px;
+}
+
+.edu-start-teaching {
+  background: #F5F5F5;
+  padding: 96px;
+}
+
+.edu-grid-resources {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edu-grid-resources__column {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.edu-resources-item {
+  margin-bottom: 48px;
+}
+
+.edu-resources-item:last-of-type {
+  margin-bottom: 0;
+}
+.edu-resources-item__description {
+  margin: 16px 0;
+}
+
+.edu-resources-item__title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.edu-resources-item__description {
+  font-size: 14px;
+  line-height: 24px;
+   color: rgba(39, 40, 44, 0.7);
+}
+
+.edu-resources-item__links {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.edu-resources-item__link {
+  margin-bottom: 5px;
+}
+
+.edu-contact-us-section {
+  background: #585DEF;
+  padding: 48px 0;
+}
+
+.edu-contact-us {
+  display: flex;
+  justify-content: space-between;
+
+  &, &:hover, &:visited, &:active, &:any-link {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.edu-contact-us::after {
+  display: block;
+  content: url("contact-us.svg");
+  text-align: right;
+}
+
+.edu-contact-us__caption, .edu-contact-us__info, .edu-contact-us::after {
+  flex: 1 1 30%;
+}
+
+.edu-contact-us__caption {
+  font-weight: bold;
+  font-size: 31px;
+  line-height: 42px;
+
+  min-width: 30%;
+}
+
+.edu-contact-us__email {
+  font-weight: bold;
+  font-size: 31px;
+  line-height: 42px;
+
+  margin-bottom: 8px;
+}
+
+.edu-contact-us__text {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.6)
+}
+
+
+.edu-persons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.edu-persons__item {
+  box-sizing: border-box;
+  border: 1px solid rgba(39, 40, 44, 0.2);
+  padding: 24px 32px;
+  margin-bottom: 23px;
+  width: 49%;
+}
+
+.edu-persons-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  min-height: 248px;
+}
+
+.edu-persons-item__title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.edu-persons-item__name {
+  font-size: 15px;
+  line-height: 24px;
+  color: rgba(39, 40, 44, 0.7);
+}
+
+.edu-slack {
+  padding: 48px 32px;
+  background: #F5F5F5 url('slack.svg') no-repeat right center;
+  background-size: 365px 322px;
+  margin: 97px 0;
+}
+
+.edu-slack__title {
+  padding: 0;
+  margin: 0;
+}
+
+.edu-slack__text {
+  padding: 24px 0 52px;
+  width: 60%;
+}

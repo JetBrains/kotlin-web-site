@@ -29,13 +29,95 @@ In this channel, you can also get notifications about new EAP builds.
 If you have already installed the EAP version and want to work on projects that were created previously, 
 check [our instructions on how to configure your build to support this version](configure-build-for-eap.html). 
 
-# Build details
+## Build details
 
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
         <th>kotlinx library versions</th>
+    </tr>
+    <tr>
+        <td><strong>1.4.0-rc</strong>
+            <p> Released: <strong>July 27, 2020</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.0-rc" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <ul>
+                <li>New functionality to conveniently debug coroutines</li>
+                <li>Improved <code>*.gradle.kts</code> IDE support</li>
+                <li>All source sets now include the standard library dependency by default</li>
+                <li>Simplified management of CocoaPods dependencies</li>
+                <li>Improved Kotlin/JS integrations</li>
+            </ul>
+            <p> For more details, please refer to <a href="http://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-released/" target="_blank">the blog post</a>.</p>
+         </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong>
+                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/1.0-M1-1.4.0-rc" target="_blank">1.0-M1-1.4.0-rc</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.8-1.4.0-rc" target="_blank">1.3.8-1.4.0-rc
+                </a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4.0-rc" target="_blank">0.14.3-1.4.0-rc
+                </a></li>          
+                 <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4.0-rc" target="_blank">1.3.2-1.4.0-rc</a></li>
+            </ul>
+        </td>
+    </tr>       
+    <tr>
+        <td><strong>1.4-M3</strong>
+            <p> Released: <strong>July 6, 2020</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M3" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p><a href="https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/" target="_blank">New modes for generating default methods</a></p>
+            <p>Standard library improvements:</p>
+            <ul>
+                <li>Supported functional interfaces</li>
+                <li><code>module-info</code> descriptor for JVM classes</li>
+                <li>New collection operations</li>
+                <li><code>@Throws</code> annotation in the common library</li>
+            </ul>
+            <p> For more details, please refer to <a href="https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-is-out-standard-library-changes" target="_blank">the blog post</a>.</p>
+         </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong>
+                </a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0-1.4-M3" target="_blank">0.20.0-1.4-M3</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.7-1.4-M3" target="_blank">1.3.7-1.4-M3
+                </a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a>
+                version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4-M3" target="_blank">0.14.3-1.4-M3
+                </a></li>          
+                 <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4-M3" target="_blank">1.3.2-1.4-M3</a></li>
+            </ul>
+        </td>
+    </tr>    
+    <tr>
+        <td><strong>1.4-M2</strong>
+            <p> Released: <strong>June 4, 2020</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4-M2">Release on GitHub</a></p>
+        </td>
+        <td>
+            <ul>
+                <li>Hierarchical project structure</li>
+                <li>New flexible Project Wizard</li>
+                <li>Explicit API mode for library authors</li>
+                <li>And many other improvements</li>
+            </ul>
+            <p> For more details, please refer to <a href="http://blog.jetbrains.com/kotlin/2020/06/kotlin-1-4-m2-released/" target="_blank">the blog post</a>.</p>
+         </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization"><strong>kotlinx.serialization</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.serialization.runtime/0.20.0-1.4-M2">0.20.0-1.4-M2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines"><strong>kotlinx.coroutines</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.coroutines/1.3.7-1.4-M2">1.3.7-1.4-M2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.atomicfu/0.14.3-1.4-M2">0.14.3-1.4-M2</a></li>          
+                 <li><a href="https://ktor.io/"><strong>ktor</strong></a> version: <a href="https://bintray.com/kotlin/ktor/ktor/1.3.2-1.4-M2">1.3.2-1.4-M2</a></li>
+            </ul>
+        </td>
     </tr>
     <tr>
         <td><strong>1.4-M1</strong>
