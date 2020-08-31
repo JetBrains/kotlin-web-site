@@ -83,11 +83,11 @@ actual fun randomUUID(): String = NSUUID().UUIDString()
 
 ### Android — iOS
 
-Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases, and it is now 
-possible to build mobile applications with parts of the code, such as business logic, connectivity, 
-and more, shared between Android and iOS.
+Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform Mobile (KMM), 
+you can build multiplatform mobile applications sharing code, such as business logic, connectivity, 
+and more, between Android and iOS.
 
-See [Mobile Multiplatform features, case studies and examples](https://www.jetbrains.com/lp/mobilecrossplatform/)
+See [KMM features, case studies and examples](https://kotlinlang.org/lp/mobile/)
 
 ### Client — Server
 
@@ -99,28 +99,33 @@ The [Ktor framework](https://ktor.io/) is suitable for building asynchronous ser
 
 ## What's next?
 
-New to Kotlin? Visit [Getting Started](/docs/reference/basic-syntax.html).
+New to Kotlin? Visit [Getting started with Kotlin](/docs/tutorials/getting-started.html).
 
 ### Documentation
 
+* [Get started with Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/docs/mobile/getting-started.html)
 * [Create a multiplatform project](mpp-create-lib.html)
 * [Share code on multiple platforms](mpp-share-on-platforms.html)
 * [Connect to platform-specific APIs](mpp-connect-to-apis.html)
 
 ### Tutorials
 
+* [Creating a KMM application](https://kotlinlang.org/docs/mobile/create-first-app.html) shows how to create a mobile application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
+Create, run, and test your first multiplatform mobile application.
+
 * [Creating a multiplatform Kotlin library](/docs/tutorials/mpp/multiplatform-library.html) teaches how to create a multiplatform 
 library available for JVM, JS, and Native and which can be used from any other common code (for example, shared with 
 Android and iOS). It also shows how to write tests which will be executed on all platforms and use an efficient implementation
  provided by a specific platform.
  
-* [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) 
+* [Building a full stack web app with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) 
   teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
   application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
   introduction to working with Ktor both as a server- and client-side framework.
   
 ## Sample projects
 
+- [Kotlin Multiplatform Mobile samples](https://kotlinlang.org/docs/mobile/samples.html)
 - [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 
