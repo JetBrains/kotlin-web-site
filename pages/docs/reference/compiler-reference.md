@@ -12,15 +12,7 @@ JVM, JavaScript, and native binaries for [supported platforms](native-overview.h
 These compilers are used by the IDE when you click the __Compile__ or __Run__ button for your Kotlin project.  
 
 You can also run Kotlin compilers manually from the command line as described 
-in the [Working with command-line compiler](/docs/tutorials/command-line.html) tutorial. For example: 
-
-<div class="sample" markdown="1" mode="shell" theme="idea">
-
-```bash
-$ kotlinc hello.kt -include-runtime -d hello.jar
-```
-
-</div>
+in the [Working with command-line compiler](/docs/tutorials/command-line.html) tutorial.
  
 ## Compiler options
 
@@ -35,6 +27,23 @@ For details, see [Using Gradle](using-gradle.html#compiler-options).
 - If you're using Maven, specify the compiler arguments in the `<configuration>` element of the Maven plugin node. 
 For details, see [Using Maven](using-maven.html#specifying-compiler-options).
 - If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).
+ For example: 
+
+<div class="sample" markdown="1" mode="shell" theme="idea">
+
+```bash
+$ kotlinc hello.kt -include-runtime -d hello.jar
+```
+
+</div>
+
+>**Note**: On Windows, when you pass compiler arguments that contain delimiter characters (whitespace, `=`, `;`, `,`),
+>surround these arguments by double quotes (`"`).
+>```
+>$ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
+>```
+{:.note}
+
 
 ## Common options
 
