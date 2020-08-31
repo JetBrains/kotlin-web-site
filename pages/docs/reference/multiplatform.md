@@ -83,9 +83,9 @@ actual fun randomUUID(): String = NSUUID().UUIDString()
 
 ### Android — iOS
 
-Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases, and it is now 
-possible to build mobile applications with parts of the code, such as business logic, connectivity, 
-and more, shared between Android and iOS, with the help of Kotlin Multiplatform Mobile (KMM).
+Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform Mobile (KMM), 
+you can build multiplatform mobile applications sharing code, such as business logic, connectivity, 
+and more, between Android and iOS.
 
 See [KMM features, case studies and examples](https://kotlinlang.org/lp/mobile/)
 
@@ -99,7 +99,7 @@ The [Ktor framework](https://ktor.io/) is suitable for building asynchronous ser
 
 ## What's next?
 
-New to Kotlin? Visit [Getting Started](/docs/reference/basic-syntax.html).
+New to Kotlin? Visit [Getting started with Kotlin](/docs/tutorials/getting-started.html).
 
 ### Documentation
 
@@ -110,8 +110,8 @@ New to Kotlin? Visit [Getting Started](/docs/reference/basic-syntax.html).
 
 ### Tutorials
 
-* [Creating a mobile application that works on Android and iOS](https://kotlinlang.org/docs/mobile/create-first-app.html) shows how to create a multiplatform application with the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
-Create, run, and test your first KMM application.
+* [Creating a KMM application](https://kotlinlang.org/docs/mobile/create-first-app.html) shows how to create a mobile application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
+Create, run, and test your first multiplatform mobile application.
 
 * [Creating a multiplatform Kotlin library](/docs/tutorials/mpp/multiplatform-library.html) teaches how to create a multiplatform 
 library available for JVM, JS, and Native and which can be used from any other common code (for example, shared with 
