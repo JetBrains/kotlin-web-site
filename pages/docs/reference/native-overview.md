@@ -5,7 +5,7 @@ category: "Introduction"
 title: "Kotlin/Native"
 ---
 
-# **Kotlin/Native for Native**
+# Kotlin/Native for Native
 
 ![Compiler Diagram]({{ url_for('asset', path='images/landing/native/native_overview.png')}})
 
@@ -59,21 +59,20 @@ are pre-imported and included as Kotlin/Native libraries into the compiler packa
 
 ## Sharing Code between Platforms
 
-[Multiplatform projects](/docs/reference/multiplatform.html) are supported between different Kotlin and
-Kotlin/Native targets.
-This is the way to share common Kotlin code between many platforms, including Android, iOS, server-side, JVM, client-side, 
-JavaScript, CSS, and native.
+[Multiplatform projects](/docs/reference/multiplatform.html) allow sharing common Kotlin code between multiple platforms, including Android, iOS, JVM, 
+JavaScript, and native. Multiplatform libraries provide required APIs for the common Kotlin code and help develop
+shared parts of a project in Kotlin code in one place and share it with all or several target platforms. 
 
-[Multiplatform libraries](/docs/reference/multiplatform.html)
-provide the necessary APIs for the common Kotlin code and help to develop
-shared parts of a project in Kotlin code once and share it with all of the target platforms. 
+You can use [Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/lp/mobile/) to create multiplatform mobile applications with code shared between Android and iOS.
 
 ## What's next?
 
-New to Kotlin? Take a look at the [Getting Started](/docs/reference/basic-syntax.html) page.
+New to Kotlin? Take a look at the [Getting Started](/docs/tutorials/getting-started.html) page.
 
 ### Documentation
 
+- [Kotlin Multiplatform Mobile documentation](https://kotlinlang.org/docs/mobile/home.html)
+- [Multiplatform documentaion](mpp-intro.md)
 - [C interop](/docs/reference/native/c_interop.html)
 - [Swift/Objective-C interop](/docs/reference/native/objc_interop.html)
 
@@ -86,6 +85,7 @@ New to Kotlin? Take a look at the [Getting Started](/docs/reference/basic-syntax
 
 ## Sample projects
 
+- [Kotlin Multiplatform Mobile samples](https://kotlinlang.org/docs/mobile/samples.html)
 - [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin-native/tree/master/samples) 
 - [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
