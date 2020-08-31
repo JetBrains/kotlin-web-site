@@ -38,7 +38,7 @@ $ kotlinc hello.kt -include-runtime -d hello.jar
 </div>
 
 >**Note**: On Windows, when you pass compiler arguments that contain delimiter characters (whitespace, `=`, `;`, `,`),
->surround these arguments by double quotes (`"`).
+>surround these arguments with double quotes (`"`).
 >```
 >$ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
 >```
