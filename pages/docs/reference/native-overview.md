@@ -72,7 +72,7 @@ New to Kotlin? Take a look at the [Getting Started](/docs/tutorials/getting-star
 ### Documentation
 
 - [Kotlin Multiplatform Mobile documentation](https://kotlinlang.org/docs/mobile/home.html)
-- [Multiplatform documentaion](mpp-intro.md)
+- [Multiplatform documentation](mpp-intro.md)
 - [C interop](/docs/reference/native/c_interop.html)
 - [Swift/Objective-C interop](/docs/reference/native/objc_interop.html)
 
