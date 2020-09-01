@@ -1,7 +1,7 @@
-- title: "Kotlin/Native Memory Management Roadmap"
-  link: https://blog.jetbrains.com/kotlin/2020/07/kotlin-native-memory-management-roadmap/
+- title: "Kotlin Multiplatform Mobile goes Alpha"
+  link: https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/
 
-- title: Debugging coroutines
+- title: Debugging Сoroutines
   link: https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/
 
 - title: "Dokka Preview Based on Kotlin 1.4.0-RC"
