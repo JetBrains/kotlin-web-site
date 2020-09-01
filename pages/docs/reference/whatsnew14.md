@@ -1209,7 +1209,7 @@ to the script configurations without updating the whole project. This takes much
   You should also **Load Script Configurations** for newly created scripts or when you open a project with new Kotlin plugin for the first time.
   
   With Gradle 6.0 and above, you are now able to load all scripts at once as opposed to the previous implementation where
-  they were loaded individually. Since each request requires the Gradle configuration phase to be executes, this could be
+  they were loaded individually. Since each request requires the Gradle configuration phase to be executed, this could be
   resource-intensive for large Gradle projects. 
   
   Currently, such loading is limited to `build.gradle.kts` and `settings.gradle.kts` files (please vote for the related [issue](https://github.com/gradle/gradle/issues/12640)).

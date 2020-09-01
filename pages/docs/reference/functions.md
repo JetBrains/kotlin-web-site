@@ -431,7 +431,7 @@ Higher-Order functions and Lambdas are explained in [their own section](lambdas.
 
 Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call).
 This allows some algorithms that would normally be written using loops to instead be written using a recursive function, but without the risk of stack overflow.
-When a function is marked with the `tailrec` modifier and meets the required form, the compiler optimises out the recursion, leaving behind a fast and efficient loop based version instead:
+When a function is marked with the `tailrec` modifier and meets the required form, the compiler optimizes out the recursion, leaving behind a fast and efficient loop based version instead:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 

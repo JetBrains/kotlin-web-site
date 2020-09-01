@@ -99,7 +99,7 @@ This library is published to Bintray JCenter repository, so let us add it:
     ...
     <repository>
         <id>central</id>
-        <url>http://jcenter.bintray.com</url>
+        <url>https://jcenter.bintray.com</url>
     </repository>
 </repositories>
 ```
