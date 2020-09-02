@@ -547,9 +547,10 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > - < 1.4: runtime null checks throw different exceptions, such as `KotlinNullPointerException`, `IllegalStateException`, 
 > `IllegalArgumentException`, and `TypeCastException`
-> - \>= 1.4: all runtime null checks throw a `java.lang.NullPointerException`
+> - \>= 1.4: all runtime null checks throw a `java.lang.NullPointerException`.
+>   `-Xno-unified-null-checks` can be used to temporarily revert to pre-1.4 behavior
 
-### Comparing floating point values in array/list operations `contains`, `indexOf`, `lastIndexOf`: IEEE 754 or total order
+### Comparing floating-point values in array/list operations `contains`, `indexOf`, `lastIndexOf`: IEEE 754 or total order
 
 > **Issue**: [KT-28753](https://youtrack.jetbrains.com/issue/KT-28753)
 > 
