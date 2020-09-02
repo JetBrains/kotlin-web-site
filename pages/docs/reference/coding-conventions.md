@@ -21,9 +21,9 @@ This page contains the current coding style for the Kotlin language.
 
 To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
 1.2.20 or newer, go to __Settings | Editor | Code Style | Kotlin__, click __Set from...__ link in the upper
-right corner, and select __Predefined style | Kotlin style guide__ from the menu.
+right corner, and select __Kotlin style guide__ from the menu.
 
-To verify that your code is formatted according to the style guide, go to the inspection settings and enable
+To verify that your code is formatted according to the style guide, go to __Settings | Editor | Inspections__ and enable
 the __Kotlin | Style issues | File is not formatted according to project settings__ inspection. Additional
 inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.
 
@@ -222,7 +222,7 @@ capitalize only the first letter if it is longer (`XmlFormatter`, `HttpInputStre
 
 ## Formatting
 
-Use 4 spaces for indentation. Do not use tabs.
+Use four spaces for indentation. Do not use tabs.
 
 For curly braces, put the opening brace in the end of the line where the construct begins, and the closing brace
 on a separate line aligned horizontally with the opening construct.
@@ -239,8 +239,9 @@ if (elements != null) {
 
 </div>
 
-(Note: In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
-Java-style braces, and you may encounter surprising behavior if you try to use a different formatting style.)
+> In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
+> Java-style braces, and you may encounter surprising behavior if you try to use a different formatting style.
+{:.note}
 
 ### Horizontal whitespace
 
@@ -385,7 +386,7 @@ class MyFavouriteVeryLongClassHolder :
 
 </div>
 
-Use regular indent (4 spaces) for constructor parameters.
+Use regular indent (four spaces) for constructor parameters.
 
 > Rationale: This ensures that properties declared in the primary constructor have the same indentation as properties
 > declared in the body of a class.
@@ -488,7 +489,7 @@ If the function signature doesn't fit on a single line, use the following syntax
 ```kotlin
 fun longMethodName(
     argument: ArgumentType = defaultValue,
-    argument2: AnotherArgumentType
+    argument2: AnotherArgumentType,
 ): ReturnType {
     // body
 }
@@ -517,7 +518,7 @@ fun foo() = 1        // good
 ### Expression body formatting
 
 If the function has an expression body that doesn't fit in the same line as the declaration, put the `=` sign on the first line.
-Indent the expression body by 4 spaces.
+Indent the expression body by four spaces.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
@@ -566,7 +567,7 @@ private val defaultCharset: Charset? =
 ### Formatting control flow statements
 
 If the condition of an `if` or `when` statement is multiline, always use curly braces around the body of the statement.
-Indent each subsequent line of the condition by 4 spaces relative to statement begin. 
+Indent each subsequent line of the condition by four spaces relative to statement begin. 
 Put the closing parentheses of the condition together with the opening curly brace on a separate line:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
@@ -722,6 +723,213 @@ foo {
    ->
    context.configureEnv(environment)
 }
+```
+
+</div>
+
+### Trailing commas
+
+Use trailing commas at declaration site, including multi-line enumerations such as argument and parameter lists, `when` entries, and components of destructuring declarations.
+For call site trailing commas are optional.
+
+Using trailing commas has several benefits:
+
+* It makes version-control diffs cleaner: all focus is on changed value.
+* It's easy to add or reorder elements: no need to add or delete the comma sign if you manipulate elements.
+* It simplifies code generation (for example, for object initializers). The last element can also have the comma sign.
+
+Kotlin supports trailing commas in the following cases:
+* [Lists and enumerations](#lists-and-enumerations)
+* [Class parameters](#class-parameters)
+* [Function value parameters](#function-value-parameters)
+* [Parameters with optional type (including setters)](#parameters-with-optional-type-including-setters)
+* [Value arguments](#value-arguments)
+* [Indexing suffix](#indexing-suffix)
+* [Lambda parameters](#lambda-parameters)
+* [`when` entry](#when-entry)
+* [Collection literals (in annotations)](#collection-literals-in-annotations)
+
+> Kotlin doesn't support:
+> * Single trailing comma without elements (including declaration site).
+> * More than one trailing comma in a row.
+> * Trailing commas in the following cases:
+>    * Multiple variable declaration
+>    * Type parameters
+>    * Function type parameters
+>    * Type arguments
+>    * Delegation specifiers
+>    * Type constraints
+{:.note}
+
+#### Lists and enumerations
+
+Place elements on different lines:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+val colors = listOf(
+    "red",
+    "green",
+    "blue", // trailing comma
+)
+
+enum class Classes { 
+    Foo, 
+    Bar, // trailing comma
+}
+```
+
+</div>
+
+#### Class parameters
+
+Place the parameters on different lines:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+class A(
+    val x: String,
+    val y: String, // trailing comma
+)
+```
+
+</div>
+
+#### Function value parameters
+
+Place function value parameters on different lines:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun foo(
+    x: Int,
+    y: Number, // trailing comma
+) {}
+
+constructor(
+    x: Comparable<Comparable<Number>>,
+    y: Iterable<Iterable<Number>>, // trailing comma
+) {}
+
+fun bar(
+    vararg x: Int,
+    y: Number, // trailing comma
+) {}
+```
+
+</div>
+
+#### Parameters with optional type (including setters)
+
+Place parameters with optional type on different lines:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+val foo: (Int, Int) -> Int = fun(
+    x,    
+    y, // trailing comma
+): Int {
+    return x + y
+}
+```
+
+</div>
+
+#### Value arguments
+
+Place value parameters on different lines:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun foo(x: Any, y: Any) {}
+
+fun main() {
+    foo(
+        10,
+        20, // trailing comma
+    )
+}
+```
+
+</div>
+
+#### Indexing suffix
+
+Place index values on different lines:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+class A {
+    operator fun get(x: Int, y: Int) = 10
+}
+
+fun foo(x: A) {
+    val y = x[
+            1,
+            3, // trailing comma
+    ]
+}
+```
+
+</div>
+
+#### Lambda parameters
+
+Place lambda parameters on different lines:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun main() {
+    val x = {
+            x: Comparable<Comparable<Number>>,
+            y: Iterable<Iterable<Number>>, // trailing comma
+        ->
+            println("1")
+    }
+
+    println(x)
+}
+```
+
+</div>
+
+#### `when` entry
+
+Use trailing comma in `when` entry:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun foo(x: Any) = when (x) {
+    Comparable::class,
+    Iterable::class,
+    String::class, // trailing comma
+        -> println(1)
+    else -> println(3)
+}
+```
+
+</div>
+
+
+#### Collection literals (in annotations)
+
+Use trailing commas in collection literals:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+annotation class Anno(val x: IntArray)
+
+@Anno([1, 2, 3, 4,])
+fun foo() {}
 ```
 
 </div>
