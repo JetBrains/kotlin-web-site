@@ -30,16 +30,16 @@ To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrai
 
 Your project opens. By default, the wizard creates the necessary `main.kt` file with the code that prints "Hello, Kotlin/Native!" to the standard output.
 
-The `build.gradle.kts` file contains the project settings. You can change the settings using [Kotlin Multiplatform Gradle DSL reference](../../reference/mpp-dsl-reference.html).
+The `build.gradle.kts` file contains the project settings. Read more about the settings in the [Kotlin Multiplatform Gradle DSL reference](../../reference/mpp-dsl-reference.html).
 
 ## Run the application
 
 Start the application by clicking **Run** next to the run configuration at the top of the screen.
 
-![Run the application]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-3.png') }})
+![Run the application]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-run-app.png') }})
 
 IntelliJ IDEA opens the **Run** tab and shows the output:
-![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-4.png') }})
+![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-output-1.png') }})
 
 ## Update the application
 
@@ -49,22 +49,53 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    The `src` directory contains Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`prinln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) function.
 
-2. Change the code of `main()`:
-
-   * Use the [`readLine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value to the `name` variable.
-   * Perform the null check of the input value with the [safe call operator `?.`](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls).
-   * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to eliminate the whitespaces in the name.
-   * Use the scope function [`let`](https://kotlinlang.org/docs/reference/scope-functions.html#let) to execute function within the object context. 
-   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
-     `it` is a default name of a [lambda parameter](https://kotlinlang.org/docs/reference/coding-conventions.html#lambda-parameters).
-   * Report about the null value using the [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator). 
+2. Add the code to read the input. Use the [`readLine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value and write it to the `name` variable.
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
    ```kotlin
    fun main() {
+       // Read the input value.
        println("Hello, enter your name:")
        val name = readLine()
+   }
+   ```
+
+   </div>
+
+3. Eliminate the white spaces and count the letters:
+   * Perform the null check of the input value with the [safe call operator `?.`](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls).
+   * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to eliminate the white spaces in the name.
+   * Use the scope function [`let`](https://kotlinlang.org/docs/reference/scope-functions.html#let) to execute function within the object context. 
+   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
+     `it` is a default name of a [lambda parameter](https://kotlinlang.org/docs/reference/coding-conventions.html#lambda-parameters).
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+   ```kotlin
+   fun main() {
+       // Read the input value.
+       println("Hello, enter your name:")
+       val name = readLine()
+       // Count letters in the name.
+       name?.replace(" ", "")?.let {
+           println("Your name contains ${it.length} letters")
+       }
+   }
+   ```
+
+   </div>
+
+4. Report about the null value using the [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator).
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+   ```kotlin
+   fun main() {
+       // Read the input value.
+       println("Hello, enter your name:")
+       val name = readLine()
+       // Count letters in the name.
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
        } ?: error("Error while reading input from the terminal: the value can't be null.")
@@ -73,27 +104,36 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    </div>
 
-3. Save the changes and run the application.
+
+5. Save the changes and run the application.
 
    IntelliJ IDEA opens the **Run** tab and shows the output.
 
-4. Enter your name and enjoy the result:
+6. Enter your name and enjoy the result:
 
-   ![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-5.png') }})
+   ![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-output-2.png') }})
 
 
 ### Count unique letters in your name
 
 1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
 
-2. Count the distinct letters in your name:
+2. Declare the new [extension function](https://kotlinlang.org/docs/reference/extensions.html#extension-functions) `countDistinctCharacters()` for `String`:
 
-   * Declare the new [extension function](https://kotlinlang.org/docs/reference/extensions.html#extension-functions) `countDistinctCharacters()` for `String`:
-     * Convert the name to lower case using the [`toLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
-     * Convert the input string to a collection of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
-     * Select only distinct characters in your name using the [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
-     * Count distinct characters using the [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
-   * Use the `countDistinctCharacters()` function to count unique letters in your name.
+   * Convert the name to lower case using the [`toLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
+   * Convert the input string to a collection of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
+   * Select only distinct characters in your name using the [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
+   * Count distinct characters using the [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+   ```kotlin
+   fun String.countDistinctCharacters() = toLowerCase().toList().distinct().count()
+   ```
+
+   </div>
+
+3. Use the `countDistinctCharacters()` function to count unique letters in your name.
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -101,10 +141,13 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun String.countDistinctCharacters() = toLowerCase().toList().distinct().count()
 
    fun main() {
+       // Read the input value.
        println("Hello, enter your name:")
        val name = readLine()
+       // Count letters in the name.
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
+           // Print the number of unique letters.
            println("Your name contains ${it.countDistinctCharacters()} unique letters")
        } ?: error("Error while reading input from the terminal: the value can't be null.")
    }
@@ -118,14 +161,16 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 4. Enter your name and enjoy the result:
 
-   ![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-new-project-intellij-6.png') }})
+   ![Application output]({{ url_for('tutorial_img', filename='native/using-intellij-idea/native-output-3.png') }})
 
 
 ## What's next?
 
-The sample project can serve as the basis for any new project for Kotlin/Native. For further information, check out:
+Once you have created your first application, you can go to Kotlin hands-on labs and complete long-form tutorials on Kotlin/Native. 
 
-* [Kotlin/Native Gradle plugin](https://kotlinlang.org/docs/reference/native/gradle_plugin.html)
-* [Multiplatform Projects](https://kotlinlang.org/docs/reference/mpp-discover-project.html)
+For Kotlin/Native, the following hands-on labs are currently available:
+
+* [Learn about the concurrency model in Kotlin/Native](https://play.kotlinlang.org/hands-on/Kotlin%20Native%20Concurrency/00_Introduction) shows you how to build a command-line application and work with states in a multi-threaded environment.
+* [Creating an HTTP Client in Kotlin/Native](https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/01_Introduction) explains to you how to create a native HTTP client and interoperate with C libraries.
 
 
