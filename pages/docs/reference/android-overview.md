@@ -19,7 +19,7 @@ for developing Android applications.
 such as coroutines, extension functions, lambdas, and named parameters, to existing Android libraries.
 * **Interoperability with Java**. You can use Kotlin along with the Java programming language in your applications without needing to migrate all your code 
 to Kotlin.
-* **Support for multiplatform development**. You can use Kotlin for developing not only Android but also [iOS](https://www.jetbrains.com/lp/mobilecrossplatform/), backend, and web applications. 
+* **Support for multiplatform development**. You can use Kotlin for developing not only Android but also [iOS](https://kotlinlang.org/lp/mobile/), backend, and web applications. 
 Enjoy the benefits of sharing the common code among the platforms.
 * **Code safety**. Less code and better readability lead to fewer errors. The Kotlin compiler detects these remaining errors, making the code safe.
 * **Easy learning**. Kotlin is very easy to learn, especially for Java developers.

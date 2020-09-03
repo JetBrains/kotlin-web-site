@@ -56,7 +56,7 @@ See the [grammar for *if*{: .keyword }](grammar.html#ifExpression).
 
 ## When Expression
 
-*when*{: .keyword } replaces the switch operator of C-like languages. In the simplest form it looks like this
+The *when*{: .keyword } expression replaces the switch statement in C-like languages. In the simplest form it looks like this
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 

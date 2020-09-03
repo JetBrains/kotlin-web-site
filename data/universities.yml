@@ -810,3 +810,11 @@
   geo:
     lat: '41.735124'
     lng: '-111.834935'
+- title: Lakehead University
+  location: Thunder Bay (Canada)
+  courses:
+  - name: "COMP 4411 Programming Languages"
+    url: http://flash.lakeheadu.ca/~mohammed/MyRecentCourses.pdf
+  geo:
+    lat: '46.4186908'
+    lng: '-88.8472074'
