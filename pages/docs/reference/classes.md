@@ -105,7 +105,7 @@ class Customer(name: String) {
 </div>
 
 In fact, for declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax.
-Also, use a [trailing comma](coding-conventions.md#trailing-commas) when declaring class properties:
+Also, use a [trailing comma](coding-conventions.html#trailing-commas) when declaring class properties:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 

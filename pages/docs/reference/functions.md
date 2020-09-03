@@ -43,7 +43,7 @@ Stream().read() // create instance of class Stream and call read()
 
 ### Parameters
 
-Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Use a [trailing comma](coding-conventions.md#trailing-commas) when declaring function parameters.
+Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Use a [trailing comma](coding-conventions.html#trailing-commas) when declaring function parameters.
 Each parameter must be explicitly typed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
