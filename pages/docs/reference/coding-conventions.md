@@ -763,8 +763,6 @@ Kotlin supports trailing commas in the following cases:
 
 #### Lists and enumerations
 
-Place elements on different lines:
-
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
@@ -784,8 +782,6 @@ enum class Classes {
 
 #### Class parameters
 
-Place the parameters on different lines:
-
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
@@ -798,8 +794,6 @@ class A(
 </div>
 
 #### Function value parameters
-
-Place function value parameters on different lines:
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -824,8 +818,6 @@ fun bar(
 
 #### Parameters with optional type (including setters)
 
-Place parameters with optional type on different lines:
-
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
@@ -840,8 +832,6 @@ val foo: (Int, Int) -> Int = fun(
 </div>
 
 #### Value arguments
-
-Place value parameters on different lines:
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -859,8 +849,6 @@ fun main() {
 </div>
 
 #### Indexing suffix
-
-Place index values on different lines:
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -881,8 +869,6 @@ fun foo(x: A) {
 
 #### Lambda parameters
 
-Place lambda parameters on different lines:
-
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
@@ -902,8 +888,6 @@ fun main() {
 
 #### `when` entry
 
-Use trailing comma in `when` entry:
-
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
@@ -920,8 +904,6 @@ fun foo(x: Any) = when (x) {
 
 
 #### Collection literals (in annotations)
-
-Use trailing commas in collection literals:
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 

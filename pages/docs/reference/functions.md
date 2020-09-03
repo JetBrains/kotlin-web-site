@@ -43,13 +43,16 @@ Stream().read() // create instance of class Stream and call read()
 
 ### Parameters
 
-Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. 
+Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas. Use a [trailing comma](coding-conventions.md#trailing-commas) when declaring function parameters.
 Each parameter must be explicitly typed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun powerOf(number: Int, exponent: Int) { /*...*/ }
+fun powerOf(
+    number: Int, 
+    exponent: Int, // trailing comma
+) { /*...*/ }
 ```
 </div>
 
@@ -61,7 +64,11 @@ of overloads compared to other languages:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) { /*...*/ }
+fun read(
+    b: Array<Byte>, 
+    off: Int = 0, 
+    len: Int = b.size,
+) { /*...*/ }
 ```
 </div>
 
@@ -88,7 +95,10 @@ If a default parameter precedes a parameter with no default value, the default v
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun foo(bar: Int = 0, baz: Int) { /*...*/ }
+fun foo(
+    bar: Int = 0, 
+    baz: Int,
+) { /*...*/ }
 
 foo(baz = 1) // The default value bar = 0 is used
 ```
@@ -100,7 +110,11 @@ either as a named argument or [outside the parentheses](lambdas.html#passing-a-l
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { /*...*/ }
+fun foo(
+    bar: Int = 0,
+    baz: Int = 1,
+    qux: () -> Unit,
+) { /*...*/ }
 
 foo(1) { println("hello") }     // Uses the default value baz = 1
 foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1 
@@ -126,7 +140,8 @@ fun reformat(
     normalizeCase: Boolean = true,
     upperCaseFirstLetter: Boolean = true,
     divideByCamelHumps: Boolean = false,
-    wordSeparator: Char = ' ') {
+    wordSeparator: Char = ' ',
+) {
 /*...*/
 }
 ```
