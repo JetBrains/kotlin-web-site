@@ -64,7 +64,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    </div>
 
 3. Eliminate the white spaces and count the letters:
-   * Perform the null check of the input value with the [safe call operator `?.`](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls).
+   * Check that the provided name is not `null` with the [safe call operator `?.`](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls).
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to eliminate the white spaces in the name.
    * Use the scope function [`let`](https://kotlinlang.org/docs/reference/scope-functions.html#let) to execute function within the object context. 
    * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
@@ -172,5 +172,4 @@ For Kotlin/Native, the following hands-on labs are currently available:
 
 * [Learn about the concurrency model in Kotlin/Native](https://play.kotlinlang.org/hands-on/Kotlin%20Native%20Concurrency/00_Introduction) shows you how to build a command-line application and work with states in a multi-threaded environment.
 * [Creating an HTTP Client in Kotlin/Native](https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/01_Introduction) explains to you how to create a native HTTP client and interoperate with C libraries.
-
 
