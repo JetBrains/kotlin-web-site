@@ -121,7 +121,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 2. Declare the new [extension function](https://kotlinlang.org/docs/reference/extensions.html#extension-functions) `countDistinctCharacters()` for `String`:
 
    * Convert the name to lower case using the [`toLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
-   * Convert the input string to a collection of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
+   * Convert the input string to a list of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
    * Select only distinct characters in your name using the [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
    * Count distinct characters using the [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
 
@@ -172,4 +172,3 @@ For Kotlin/Native, the following hands-on labs are currently available:
 
 * [Learn about the concurrency model in Kotlin/Native](https://play.kotlinlang.org/hands-on/Kotlin%20Native%20Concurrency/00_Introduction) shows you how to build a command-line application and work with states in a multi-threaded environment.
 * [Creating an HTTP Client in Kotlin/Native](https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/01_Introduction) explains to you how to create a native HTTP client and interoperate with C libraries.
-
