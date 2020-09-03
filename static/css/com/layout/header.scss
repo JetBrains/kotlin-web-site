@@ -118,16 +118,12 @@
 .global-header-logo {
   @include transition(0.3s all);
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   min-width: 90px;
   height: 22px;
   background: url('images/kotlin-logo.svg') no-repeat;
   font-size: 0;
   text-decoration: none;
-
-  @include adapt_retina {
-    background: url('images/kotlin-logo.svg') no-repeat;
-  }
 }
 
 .global-header-logo__version,
