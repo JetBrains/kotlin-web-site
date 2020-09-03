@@ -47,7 +47,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
 
-   The `src` directory contains Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`prinln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) function.
+   The `src` directory contains Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) function.
 
 2. Add the code to read the input. Use the [`readLine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value and write it to the `name` variable.
 
