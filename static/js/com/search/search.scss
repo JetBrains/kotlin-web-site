@@ -9,7 +9,7 @@ body._no-scroll {
   vertical-align: middle;
   cursor: pointer;
   opacity: 0.8;
-  padding: 5px;
+  padding: 6px;
 
   .icon {
     background: url('../../../css/com/layout/images/search.svg') no-repeat center;
@@ -23,6 +23,8 @@ body._no-scroll {
 
   &:hover {
     opacity: 1;
+    border-radius: 50%;
+    background: hsla(0, 0%, 100%, 0.1);
   }
 }
 

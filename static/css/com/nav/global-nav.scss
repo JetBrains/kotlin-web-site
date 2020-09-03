@@ -51,6 +51,8 @@
       }
 
       &-external {
+        margin-right: 24px;
+
         &::after {
           display: inline-block;
           content: '↗';

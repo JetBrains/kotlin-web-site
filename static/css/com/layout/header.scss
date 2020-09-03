@@ -102,8 +102,7 @@
   box-sizing: border-box;
   display: flex;
   width: 100%;
-  padding: 0 32px;
-  //min-width: 960px;
+  padding: 0 22px;
   align-items: center;
   justify-content: space-between;
   height: 64px;
@@ -139,11 +138,11 @@
   font-size: 12px;
   line-height: 16px;
   letter-spacing: -0.01em;
-  color: #fff;
+  color: hsla(0, 0%, 100%, 0.75);
+  transition: .3s ease-out;
 }
 
 .global-header-logo__version:hover,
 .global-header-logo__version:active {
   color: #fff;
-  text-decoration: underline;
 }
