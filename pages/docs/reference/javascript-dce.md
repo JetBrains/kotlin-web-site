@@ -19,7 +19,8 @@ Unused declarations can appear in cases like:
   adapters for DOM, and so on. All of this functionality would require about 1.3 MB as a JavaScript file. A simple "Hello, world" application only requires
   console routines, which is only few kilobytes for the entire file.
 
-The Kotlin/JS Gradle plugin handles DCE automatically when you build a production bundle, for example by using the `browserProductionWebpack` task. Development bundling tasks don't include DCE.
+> The Kotlin/JS Gradle plugin handles DCE automatically when you build a production bundle, for example by using the `browserProductionWebpack` task. Development bundling tasks (like `browserDevelopmentWebpack`) don't include DCE.
+{:.note}
 
 ## Excluding declarations from DCE
 
@@ -30,33 +31,47 @@ To keep certain declarations from elimination, add the `dceTask` block to your G
 list the declarations as arguments of the `keep` function. An argument must be the declaration's fully qualified name
 with the module name as a prefix: `moduleName.dot.separated.package.name.declarationName`
 
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
+> Unless specified otherwise, the names of functions and modules can be [mangled](js-to-kotlin-interop.html#jsname-annotation) in the generated JavaScript code. To keep such functions from elimination, use the mangled names in the `keep` arguments as they appear in the generated JavaScript code.
+{:.note}
+
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
 
 ```groovy
-kotlin.target.browser {
-    dceTask {
-        keep 'myKotlinJSModule.org.example.getName', 'myKotlinJSModule.org.example.User'
+kotlin {
+    js {
+        browser {
+            dceTask {
+                keep("myKotlinJSModule.org.example.getName", "myKotlinJSModule.org.example.User" )
+            }
+            binaries.executable()
+        }
     }
 }
 ```
-
-</div>
 </div>
 
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+If you want to keep a whole package or module from elimination, you can use its fully qualified name as it appears in the generated JavaScript code.
 
-```kotlin
-kotlin.target.browser {
-    dceTask {
-        keep("myKotlinJSModule.org.example.getName", "myKotlinJSModule.org.example.User" )
+> Keeping whole packages or modules from elimination can prevent DCE from removing many declarations that otherwise would have been removed. Because of this, it is preferable to select individual declarations which should be excluded from DCE one by one.
+{:.note}
+
+## Disabling DCE
+
+To turn off DCE completely, use the `devMode` option in the `dceTask`:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+kotlin {
+    js {
+        browser {
+            dceTask {
+                dceOptions.devMode = true
+            }
+        }
+        binaries.executable()
     }
 }
 ```
-
 </div>
-</div>
-
-Note that unless specified otherwise the names of functions with parameters are [mangled](js-to-kotlin-interop.html#jsname-annotation)
-in the generated JavaScript code. To keep such functions from elimination, use the mangled names in the `keep` arguments.
