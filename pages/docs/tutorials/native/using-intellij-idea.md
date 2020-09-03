@@ -30,7 +30,7 @@ To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrai
 
 Your project opens. By default, the wizard creates the necessary `main.kt` file with the code that prints "Hello, Kotlin/Native!" to the standard output.
 
-The `build.gradle.kts` file contains the project settings. Read more about the settings in the [Kotlin Multiplatform Gradle DSL reference](../../reference/mpp-dsl-reference.html).
+The `build.gradle.kts` file contains the project settings. Read more about the settings in the [Kotlin Multiplatform Gradle DSL reference](/docs/reference/mpp-dsl-reference.html).
 
 ## Run the application
 
@@ -47,9 +47,9 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
 
-   The `src` directory contains Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) function.
+   The `src` directory contains Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
-2. Add the code to read the input. Use the [`readLine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value and write it to the `name` variable.
+2. Add the code to read the input. Use the [`readLine()`](/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value and write it to the `name` variable.
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -63,12 +63,12 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    </div>
 
-3. Eliminate the white spaces and count the letters:
-   * Check that the provided name is not `null` with the [safe call operator `?.`](https://kotlinlang.org/docs/reference/null-safety.html#safe-calls).
-   * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to eliminate the white spaces in the name.
-   * Use the scope function [`let`](https://kotlinlang.org/docs/reference/scope-functions.html#let) to execute function within the object context. 
-   * Use a [string template](https://kotlinlang.org/docs/reference/basic-types.html#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
-     `it` is a default name of a [lambda parameter](https://kotlinlang.org/docs/reference/coding-conventions.html#lambda-parameters).
+3. Eliminate the whitespaces and count the letters:
+   * Check that the provided name is not `null` with the [safe call operator `?.`](/docs/reference/null-safety.html#safe-calls).
+   * Use the [`replace()`](/api/latest/jvm/stdlib/kotlin.text/replace.html) function to eliminate the whitespaces in the name.
+   * Use the scope function [`let`](/docs/reference/scope-functions.html#let) to execute function within the object context. 
+   * Use a [string template](/docs/reference/basic-types.html#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
+     `it` is a default name of a [lambda parameter](/docs/reference/coding-conventions.html#lambda-parameters).
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -86,7 +86,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    </div>
 
-4. Report about the null value using the [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator).
+4. Report about the null value using the [`error()`](/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](/docs/reference/null-safety.html#elvis-operator).
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -118,12 +118,12 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
 
-2. Declare the new [extension function](https://kotlinlang.org/docs/reference/extensions.html#extension-functions) `countDistinctCharacters()` for `String`:
+2. Declare the new [extension function](/docs/reference/extensions.html#extension-functions) `countDistinctCharacters()` for `String`:
 
-   * Convert the name to lower case using the [`toLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
-   * Convert the input string to a list of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
-   * Select only distinct characters in your name using the [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
-   * Count distinct characters using the [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
+   * Convert the name to lower case using the [`toLowerCase()`](/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
+   * Convert the input string to a list of characters using the [`toList()`](/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
+   * Select only distinct characters in your name using the [`distinct()`](/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
+   * Count distinct characters using the [`count()`](/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
