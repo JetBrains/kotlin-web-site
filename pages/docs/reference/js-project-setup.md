@@ -390,7 +390,7 @@ For building executable JavaScript artifacts through webpack, the Kotlin/JS plug
 
 * `browserDevelopmentWebpack` creates development artifacts, which are larger in size, but take little time to create. As such, use the `browserDevelopmentWebpack` tasks during active development.
 
-`browserProductionWebpack` applies [dead code elimination](javascript-dce.html) to the generated artifacts and minifies the resulting JavaScript file, which takes more time, but generates executables that are smaller in size. As such, use the `browserProductionWebpack` task when preparing your project for production use.
+* `browserProductionWebpack` applies [dead code elimination](javascript-dce.html) to the generated artifacts and minifies the resulting JavaScript file, which takes more time, but generates executables that are smaller in size. As such, use the `browserProductionWebpack` task when preparing your project for production use.
  
  Execute either of these tasks to obtain the respective artifacts for development or production. The generated files will be available in `build/distributions` unless [specified otherwise](#distribution-target-directory).
 
