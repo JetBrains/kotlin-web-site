@@ -19,8 +19,7 @@ Unused declarations can appear in cases like:
   adapters for DOM, and so on. All of this functionality would require about 1.3 MB as a JavaScript file. A simple "Hello, world" application only requires
   console routines, which is only few kilobytes for the entire file.
 
-> The Kotlin/JS Gradle plugin handles DCE automatically when you build a production bundle, for example by using the `browserProductionWebpack` task. Development bundling tasks (like `browserDevelopmentWebpack`) don't include DCE.
-{:.note}
+The Kotlin/JS Gradle plugin handles DCE automatically when you build a **production bundle**, for example by using the `browserProductionWebpack` task. **Development bundling** tasks (like `browserDevelopmentWebpack`) don't include DCE.
 
 ## Excluding declarations from DCE
 
