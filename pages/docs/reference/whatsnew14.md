@@ -208,13 +208,13 @@ arguments. Moreover, you can mix positional and named arguments any way you like
 fun reformat(
     str: String,
     uppercaseFirstLetter: Boolean = true,
-    wordSeparator: Character = ' '
+    wordSeparator: Char = ' '
 ) {
     // ...
 }
 
 //Function call with a named argument in the middle
-reformat('This is a String!', uppercaseFirstLetter = false , '-')
+reformat("This is a String!", uppercaseFirstLetter = false , '-')
 ```
 
 </div>
