@@ -53,7 +53,7 @@ kotlin {
 
 If you want to keep a whole package or module from elimination, you can use its fully qualified name as it appears in the generated JavaScript code.
 
-> Keeping whole packages or modules from elimination can prevent DCE from removing many declarations that otherwise would have been removed. Because of this, it is preferable to select individual declarations which should be excluded from DCE one by one.
+> Keeping whole packages or modules from elimination can prevent DCE from removing many unused declarations. Because of this, it is preferable to select individual declarations which should be excluded from DCE one by one.
 {:.note}
 
 ## Disabling DCE
