@@ -695,7 +695,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 
 > **Issue**: [KT-30211](https://youtrack.jetbrains.com/issue/KT-30211)
 > 
-> **Component**: CLI utils
+> **Component**: CLI
 > 
 > **Incompatible change type**: behavioral
 > 
