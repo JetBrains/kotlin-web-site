@@ -49,7 +49,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    The `src` directory contains the Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
-2. Add code to read the input. Use the [`readLine()`](/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value and write it to the `name` variable.
+2. Add code to read the input. Use the [`readLine()`](/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value and assign it to the `name` variable.
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
