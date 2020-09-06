@@ -49,7 +49,7 @@ This allows you to use all Jinja power inside Markdown (for example, build urls 
 ### Page metadata
 
 Every page can have an unlimited number of metadata fields. More information [here](http://jekyllrb.com/docs/frontmatter/).
-The most important of them are the page template (e.g. `layout: reference`) and its type (e.g. `type: tutorial`). `category` and `title` fields are added for future development.
+The most important of them is the page template (e.g. `layout: reference`) and its type (e.g. `type: tutorial`). `category` and `title` fields are added for future development.
 
 ### Kotlin grammar reference
 
