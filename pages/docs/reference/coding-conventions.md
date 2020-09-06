@@ -729,14 +729,30 @@ foo {
 
 ### Trailing commas
 
-Use trailing commas at declaration site, including multi-line enumerations such as argument and parameter lists, `when` entries, and components of destructuring declarations.
-For call site trailing commas are optional.
+A trailing comma is a comma sign after the last item of the element series:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+class Person(
+    val name: String,
+    val surname: String,
+    val age: Int, // trailing comma
+)
+```
+
+</div>
 
 Using trailing commas has several benefits:
 
 * It makes version-control diffs cleaner: all focus is on changed value.
 * It's easy to add or reorder elements: no need to add or delete the comma sign if you manipulate elements.
 * It simplifies code generation (for example, for object initializers). The last element can also have the comma sign.
+
+Using trailing commas are optional: your code will work without them. But Kotlin style guide encourages the use of trailing commas at the declaration site and leaves it optional for the call site.
+
+To enable trailing commas for the IntelliJ formatter, go to __Settings | Editor | Code Style | Kotlin__, 
+open the __Other__ tab and enable the __Use trailing comma__ option.
 
 Kotlin supports trailing commas in the following cases:
 * [Lists and enumerations](#lists-and-enumerations)
@@ -749,18 +765,6 @@ Kotlin supports trailing commas in the following cases:
 * [`when` entry](#when-entry)
 * [Collection literals (in annotations)](#collection-literals-in-annotations)
 
-> Kotlin doesn't support:
-> * Single trailing comma without elements (including declaration site).
-> * More than one trailing comma in a row.
-> * Trailing commas in the following cases:
->    * Multiple variable declaration
->    * Type parameters
->    * Function type parameters
->    * Type arguments
->    * Delegation specifiers
->    * Type constraints
-{:.note}
-
 #### Lists and enumerations
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
@@ -772,9 +776,11 @@ val colors = listOf(
     "blue", // trailing comma
 )
 
-enum class Classes { 
-    Foo, 
-    Bar, // trailing comma
+enum class Direction {
+    NORTH,
+    SOUTH,
+    WEST,
+    EAST, // trailing comma
 }
 ```
 
@@ -785,9 +791,9 @@ enum class Classes {
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-class A(
-    val x: String,
-    val y: String, // trailing comma
+class Customer(
+    val name: String,
+    val surname: String, // trailing comma
 )
 ```
 
@@ -798,19 +804,19 @@ class A(
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-fun foo(
-    x: Int,
-    y: Number, // trailing comma
-) {}
+fun powerOf(
+    number: Int, 
+    exponent: Int, // trailing comma
+) { /*...*/ }
 
 constructor(
-    x: Comparable<Comparable<Number>>,
-    y: Iterable<Iterable<Number>>, // trailing comma
+    x: Comparable<Number>,
+    y: Iterable<Number>, // trailing comma
 ) {}
 
-fun bar(
-    vararg x: Int,
-    y: Number, // trailing comma
+fun print(
+    vararg quantity: Int,
+    description: String, // trailing comma
 ) {}
 ```
 
@@ -836,10 +842,10 @@ val foo: (Int, Int) -> Int = fun(
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-fun foo(x: Any, y: Any) {}
+fun sum(x: Any, y: Any) {}
 
 fun main() {
-    foo(
+    sum(
         10,
         20, // trailing comma
     )
