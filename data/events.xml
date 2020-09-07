@@ -1,5 +1,142 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+    <event>
+        <lang>uk</lang>
+        <startDate>2020-08-26</startDate>
+        <endDate>2020-08-26</endDate>
+        <location>Dnipro, Ukraine</location>
+        <speaker>Evgen Surkov</speaker>
+        <title>Kotlin Dnipro</title>
+        <subject>Legacy backend, error handling like a boss</subject>
+        <url>https://www.meetup.com/Kotlin-Dnipro/events/272397112/</url>
+        <description>
+            <![CDATA[
+<p>Будемо говорити з досвідченими Android розробниками про те, як обробляти помилки від backend, якщо йому більше 5 років</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>uk</lang>
+        <startDate>2020-08-26</startDate>
+        <endDate>2020-08-26</endDate>
+        <location>Dnipro, Ukraine</location>
+        <speaker>Andrey Khristian</speaker>
+        <title>Kotlin Dnipro</title>
+        <subject>Kotlin Multiplatform</subject>
+        <url>https://www.meetup.com/Kotlin-Dnipro/events/272397112/</url>
+        <description>
+            <![CDATA[
+<p>Наскільки складно використовувати Kotlin Multiplatform та про те, які бібліотеки та інструменти можна для цього застосовувати.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-27</startDate>
+        <endDate>2020-08-27</endDate>
+        <location>Utrecht, Netherlands</location>
+        <speaker>Mireille Lock</speaker>
+        <title>OpenValue</title>
+        <subject>Introduction to Kotlin coroutines</subject>
+        <url>https://www.meetup.com/OpenValue/events/272557807/</url>
+        <description>
+            <![CDATA[
+<p>With my current project, we have a hackday per sprint. During one of those hackdays, I discovered Kotlin's suspend functions. Functions that look exactly the same as normal functions, but by adding the keyword 'suspend' to them, you can start, pause and resume those functions without blocking. It seems like magic! Only if you don't know how it works under the hood of course. The pausing and resuming is done by coroutines, a concept I had not heard of before. That's why I spent some time reading and experimenting with Kotlin coroutines. I learned a lot about coroutines vs threads, blocking vs non-blocking, parallelism, concurrency and continuations. In this talk I would like to share what I have learned.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-27</startDate>
+        <endDate>2020-08-27</endDate>
+        <location>Utrecht, Netherlands</location>
+        <speaker>Berwout de Vries Robles</speaker>
+        <title>OpenValue</title>
+        <subject>Stairway out of dependency hell</subject>
+        <url>https://www.meetup.com/OpenValue/events/272557807/</url>
+        <description>
+            <![CDATA[
+<p>My team had around fifty different but interconnected products to manage, each in their own git repository.</p>
+<p>All of the work involved with just keeping up-to-date was really limiting our progress into more exciting features.</p>
+<p>Over a period of two years we’ve introduced multi-branch pipelines, built a GitOps flow, migrated to a monorepo, built an auto-scaling test environment and started using Kubernetes namespaces for our testing.</p>
+<p>In this talk we will look at both the technical solutions and the lessons learned. What worked? What didn’t work? What was worth it? What would we have done differently if we knew better?</p>
+<p>The talk is targeted towards software developers looking for ways to improve their workflow at the team level but the lessons learned should be relevant in a much broader sense.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-27</startDate>
+        <endDate>2020-08-27</endDate>
+        <location>Dubai, United Arab Emirates</location>
+        <speaker>Chandra Sekhar Nayak</speaker>
+        <title>Google Developer Groups Dubai</title>
+        <subject>Sneaking Inside Kotlin Features</subject>
+        <url>https://www.meetup.com/GDG-Dubai/events/272569640/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin has many language features even though none of them are supported by JVM or Android ART. This talk will go through all the language features and understand how they work internally for JVM or ART compatibility.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-27</startDate>
+        <endDate>2020-08-27</endDate>
+        <location>Dubai, United Arab Emirates</location>
+        <speaker>Andrei Shikov</speaker>
+        <title>Google Developer Groups Dubai</title>
+        <subject>The Magic of Compiler Extensions</subject>
+        <url>https://www.meetup.com/GDG-Dubai/events/272569640/</url>
+        <description>
+            <![CDATA[
+<p>Did you know that Kotlin compiler has a plugin system which allows extend its capabilities in breathtaking ways? Many highly important first party libraries, from serialization to Android specific extensions are done exactly this way. This talk explores results of my own experiments with this system and the possibilities it opens.</p>
+<p>Get ready for a dive into compiler structure focusing on practical extension without breaking the language rules. We will go through plugins released by the community and the current state of development for those who dare to create compiler plugins themselves. At last, you will see how the compiler plugins compare to annotation processing and understand pros and cons of each.​</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-08-31</startDate>
+        <endDate>2020-08-31</endDate>
+        <location>Johannesburg, South Africa</location>
+        <speaker>Pamela Hill</speaker>
+        <title>Jozi-JUG</title>
+        <subject>Katching up with Ktor</subject>
+        <url>https://www.meetup.com/Jozi-JUG/events/270783620/</url>
+        <description>
+            <![CDATA[
+<p>Have you heard about Ktor? It's a Kotlin framework for creating asynchronous clients and servers from JetBrains and is super-easy and fun to use. In this talk, I will be looking at the server-side of things, by:</p>
+<p>Introducing Ktor and explaining it's architecture
+Showing how to create a simple API using Ktor
+Pointing out how it leverages Kotlin's strengths
+Can it contend with favourites like Java EE or Spring (Boot), and in which scenarios? Is it mature enough to be used in production? After this talk, you'll be equipped to answer those questions for yourself!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ar</lang>
+        <startDate>2020-07-04</startDate>
+        <endDate>2020-07-04</endDate>
+        <location>Cairo, Egypt</location>
+        <speaker>Ahmed Nabil</speaker>
+        <title>Egyptian Kotlin Community</title>
+        <subject>Kotlin Multiplatform</subject>
+        <url>https://www.facebook.com/events/602798430330368/</url>
+        <description>
+            <![CDATA[
+<p>Introduction to Kotlin multiplatform and kotlin native, the fields it's used for, and quick look on the hands-on lab, it will be hosted by GDG MENA in #MENADD initiative  in collaboration with Kotlin Egypt https://www.youtube.com/watch?v=rwmvYxMbVno</p>
+]]>
+        </description>
+    </event>
+
      <event>
         <lang>es</lang>
         <startDate>2020-08-13</startDate>

@@ -1,3 +1,11 @@
+- name: Dubai, United Arab Emirates
+  geo:
+    lat: 25.195137
+    lng: 55.278478
+- name: Dubai, U.A.E.
+  geo:
+    lat: 24.977545
+    lng: 55.091062
 - name: Port Harcourt, Nigeria
   geo:
     lat: 4.788882
