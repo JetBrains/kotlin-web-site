@@ -432,6 +432,7 @@ You can try out the new Kotlin Project Wizard by working through these tutorials
 
 * [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
 * [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
+* [Create a Kotlin/Native application](../tutorials/native/using-intellij-idea.html)
 
 ### Coroutine Debugger
 
