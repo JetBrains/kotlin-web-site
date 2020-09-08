@@ -755,17 +755,18 @@ To enable trailing commas for the IntelliJ formatter, go to __Settings | Editor 
 open the __Other__ tab and enable the __Use trailing comma__ option.
 
 Kotlin supports trailing commas in the following cases:
-* [Lists and enumerations](#lists-and-enumerations)
+* [Lists, enumerations, value arguments](#lists-enumerations-value-arguments)
 * [Class parameters](#class-parameters)
 * [Function value parameters](#function-value-parameters)
 * [Parameters with optional type (including setters)](#parameters-with-optional-type-including-setters)
-* [Value arguments](#value-arguments)
 * [Indexing suffix](#indexing-suffix)
 * [Lambda parameters](#lambda-parameters)
 * [`when` entry](#when-entry)
 * [Collection literals (in annotations)](#collection-literals-in-annotations)
+* [Type arguments and type parameters](#type-arguments-and-type-parameters)
+* [Destructuring declarations](#destructuring-declarations)
 
-#### Lists and enumerations
+#### Lists, enumerations, value arguments
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -781,6 +782,15 @@ enum class Direction {
     SOUTH,
     WEST,
     EAST, // trailing comma
+}
+
+fun sum(x: Any, y: Any) {}
+
+fun main() {
+    sum(
+        10,
+        20, // trailing comma
+    )
 }
 ```
 
@@ -827,29 +837,14 @@ fun print(
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-val foo: (Int, Int) -> Int = fun(
-    x,    
-    y, // trailing comma
+val sum: (Int, Int, Int) -> Int = fun(
+    x,
+    y,
+    z// trailing comma
 ): Int {
-    return x + y
+    return x + y + x
 }
-```
-
-</div>
-
-#### Value arguments
-
-<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
-
-```kotlin
-fun sum(x: Any, y: Any) {}
-
-fun main() {
-    sum(
-        10,
-        20, // trailing comma
-    )
-}
+println(sum(8, 8, 8))
 ```
 
 </div>
@@ -859,16 +854,14 @@ fun main() {
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-class A {
-    operator fun get(x: Int, y: Int) = 10
+class Surface {
+    operator fun get(x: Int, y: Int) = 2*x + 4*y - 10
 }
-
-fun foo(x: A) {
-    val y = x[
-            1,
-            3, // trailing comma
+fun getZValue(mySurface: Surface, xValue: Int, yValue: Int) =
+    mySurface[
+        xValue,
+        yValue, // trailing comma
     ]
-}
 ```
 
 </div>
@@ -880,10 +873,10 @@ fun foo(x: A) {
 ```kotlin
 fun main() {
     val x = {
-            x: Comparable<Comparable<Number>>,
-            y: Iterable<Iterable<Number>>, // trailing comma
+            x: Comparable<Number>,
+            y: Iterable<Number>, // trailing comma
         ->
-            println("1")
+        println("1")
     }
 
     println(x)
@@ -897,27 +890,86 @@ fun main() {
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-fun foo(x: Any) = when (x) {
+fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
     Comparable::class,
     Iterable::class,
     String::class, // trailing comma
-        -> println(1)
-    else -> println(3)
+        -> true
+    else -> false
 }
 ```
 
 </div>
-
 
 #### Collection literals (in annotations)
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-annotation class Anno(val x: IntArray)
+annotation class ApplicableFor(val services: Array<String>)
+@ApplicableFor([
+    "serializer",
+    "balancer",
+    "database",
+    "inMemoryCache", // trailing comma
+])
+fun run() { }
+```
 
-@Anno([1, 2, 3, 4,])
-fun foo() {}
+</div>
+
+#### Type arguments and type parameters
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun <T1, T2> foo() {}
+
+fun main() {
+    foo<
+            Comparable<Number>,
+            Iterable<Number>, // trailing comma
+        >()
+}
+
+class TreeNode<String>(
+    val value: String?,
+    val next: TreeNode<String>? = null, // trailing comma
+)
+```
+
+</div>
+
+#### Destructuring declarations
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun main() { 
+    data class Car(val manufacturer: String, val model: String, val year: Int)
+    val myCar = Car("Tesla", "Y", 2019)
+    
+    val (
+        manufacturer,
+        model,
+        year, // trailing comma
+    ) = myCar
+}
+
+
+val cars = listOf<Car>()
+fun printMeanValue() {
+    var meanValue: Int = 0
+    for ((
+        _,
+        _,
+        year, // trailing comma
+    ) in cars) {
+        meanValue += year
+    }
+    println(meanValue/cars.size)
+}
+printMeanValue()
 ```
 
 </div>
