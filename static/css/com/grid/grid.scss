@@ -22,6 +22,10 @@ html {
 
 .g-grid {
     @include grid-row;
+
+    .full-width {
+        width: 100%;
+    }
 }
 
 @for $i from 1 through 12 {

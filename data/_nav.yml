@@ -22,14 +22,10 @@ subnav:
   content:
     - url: /docs/
       content:
-        - url: /docs/reference/
-          title: Language Guide
-
-        - url: /docs/tutorials/
-          title: Tutorials
-
-        - url: /docs/books.html
-          title: Books
+        - url: /api/latest/jvm/stdlib/index.html
+          title: Standard Library
+        - url: /api/latest/kotlin.test/index.html
+          title: kotlin.test
     - url: /community/
       content:
         - url: /community/
