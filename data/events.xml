@@ -1,6 +1,158 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>pt</lang>
+        <startDate>2020-08-27</startDate>
+        <endDate>2020-08-27</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Felipe Costa</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>Reuso de código com Kotlin Multiplatform</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/272701882/</url>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2020-08-27</startDate>
+        <endDate>2020-08-27</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Armando Picón</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>Introdução à Kotlin Flow</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/272701882/</url>
+    </event>>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-09-01</startDate>
+        <endDate>2020-09-01</endDate>
+        <location>México City, Mexico</location>
+        <speaker>Saúl Buentello</speaker>
+        <title>Kotlin CDMX User Group</title>
+        <subject>The Magic of Compiler Extensions</subject>
+        <url>https://www.meetup.com/Kotlin-CDMX/events/272833256/</url>
+        <description>
+            <![CDATA[
+<p>Este mes vamos a ver un tema interesante sobre genéricos y un poco sobre testing, al igual que mencionaremos acerca de la nueva versión 1.4 de Kotlin ya en su version release.</p>
+<p>Pronto actualizaremos la información de las platicas.</p>
+<p>Acompañanos en nuestro quinto meetup de forma virtual, en breve compartiremos los links del streaming.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-12</startDate>
+        <endDate>2020-09-12</endDate>
+        <location>Chennai, India</location>
+        <speaker>Shahin Taj, Sridhanya A</speaker>
+        <title>ThoughtWorks Chennai - Women Tech Meetup</title>
+        <subject>Fun with Kotlin 101 [Women only]</subject>
+        <url>https://www.meetup.com/thoughtworks-codher/events/272654166/</url>
+        <description>
+            <![CDATA[
+<p>This hands on session would give an overview of Kotlin and few of it's concept.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2020-09-06</startDate>
+        <endDate>2020-09-06</endDate>
+        <location>Omsk, Russia</location>
+        <speaker>Vladislav Unchuris</speaker>
+        <title>GDG Omsk</title>
+        <subject>Kotlin multiplatform</subject>
+        <url>https://www.meetup.com/GDG-Omsk/events/272932932/</url>
+        <description>
+            <![CDATA[
+<p>Обсудим Kotlin как язык, поговорим о том, где кто уже успел его применить, и затронем Kotlin multiplatform.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-09</startDate>
+        <endDate>2020-09-09</endDate>
+        <location>London, United Kingdom</location>
+        <speaker>Gopal S Akshintala</speaker>
+        <title>Kotlin London</title>
+        <subject>Fight Complexity with Functional Programming</subject>
+        <url>https://www.meetup.com/kotlin-london/events/272694064/</url>
+        <description>
+            <![CDATA[
+<p>A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed hands-on, by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration). Let's do a case study of a successful implementation done by our team in the world's largest SaaS org, Salesforce.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-09</startDate>
+        <endDate>2020-09-09</endDate>
+        <location>London, United Kingdom</location>
+        <speaker>Pablo Gonzales Alonso</speaker>
+        <title>Kotlin London</title>
+        <subject>What can autoModule do for you?</subject>
+        <url>https://www.meetup.com/kotlin-london/events/272694064/</url>
+        <description>
+            <![CDATA[
+<p>We'll learn what autoModule can do for our Gradle setup. We’ll see how can we reduce the complexity of our build scripts with a bit of history of how the plugin got started.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2020-09-09</startDate>
+        <endDate>2020-09-09</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Vitor Ramos</speaker>
+        <title>NerdZão</title>
+        <subject>Features úteis do Kotlin que demorei para conhecer</subject>
+        <url>https://www.meetup.com/Nerdzao/events/272483654/</url>
+        <description>
+            <![CDATA[
+<p>Apresentação e exemplos de funções do Kotlin menos conhecidas: inline, infix, reified, etc.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-17</startDate>
+        <endDate>2020-09-17</endDate>
+        <location>Irvine, CA, USA</location>
+        <speaker>Ryan Simon</speaker>
+        <title>OC Kotlin Krew</title>
+        <subject>The Journey of a Kotlin Backend - Scale to the Millions</subject>
+        <url>https://www.meetup.com/OCKotlinKrew/events/272558278/</url>
+        <description>
+            <![CDATA[
+<p>Backend development is usually a tough system to crack especially coming from an iOS background. Learn first hand from an early Bird engineer how Kotlin was used to power Bird's backend infrastructure from the bottom up. We'll cover some pitfalls that you might fall into, and the key advantages of choosing a Kotlin Ktor backend as your next tech stack.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-22</startDate>
+        <endDate>2020-09-22</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Rainer Kern</speaker>
+        <title>Kotlin Vienna</title>
+        <subject>Back to School with Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-Vienna/events/266973108/</url>
+        <description>
+            <![CDATA[
+<p>It’s back to School time and so we’d like to give all the Kotlin newcomers a chance for getting a taste of Kotlin. You will hear the basics of the Kotlin programming language in a introductory talk, no Kotlin experience required, Java highly recommended, at least some other general purpose object oriented language (C#, Java Script, Scala, Ruby, ...)</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>uk</lang>
         <startDate>2020-08-26</startDate>
         <endDate>2020-08-26</endDate>
