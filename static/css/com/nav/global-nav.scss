@@ -214,7 +214,7 @@
   }
 }
 
-.platforms-menu {
+.solutions-menu {
   width: 260px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: #27282C;
@@ -226,19 +226,19 @@
   animation: fade-in ease-out 0.3ms forwards;
   z-index: 10;
 
-  .platforms-menu__is-hovered,
-  .platforms-menu__is-open {
+  .solutions-menu__is-hovered,
+  .solutions-menu__is-open {
     display: block;
   }
 
-  .platforms-menu-list {
+  .solutions-menu-list {
     display: flex;
     flex-direction: column;
 
-    .platforms-menu-item {
+    .solutions-menu-item {
       background-color: #27282C;
 
-      .platforms-menu-item-link {
+      .solutions-menu-item-link {
         background-color: #27282C;
         display: block;
         color: rgba(255, 255, 255, 0.75);

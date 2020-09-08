@@ -79,19 +79,19 @@ $(function () {
 });
 
 // Handle with platforms menu in header
-const hoverPlatformMenu = function () {
-  const $platformMenuItem = $('.nav-item-platforms');
-  const $platformMenu = $('.platforms-menu');
+const hoverSolutionsMenu = function () {
+  const $solutionsMenuItem = $('.nav-item-solutions');
+  const $solutionsMenu = $('.solutions-menu');
 
-  $platformMenuItem.on('mouseenter', function () {
-    $platformMenu.fadeIn(300);
+  $solutionsMenuItem.on('mouseenter', function () {
+    $solutionsMenu.fadeIn(300);
   });
 
-  $platformMenuItem.on('mouseleave', function () {
-    $platformMenu.fadeOut(300);
+  $solutionsMenuItem.on('mouseleave', function () {
+    $solutionsMenu.fadeOut(300);
   });
 };
 
 $(function () {
-  hoverPlatformMenu();
+  hoverSolutionsMenu();
 });
