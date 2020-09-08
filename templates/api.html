@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='api.js')|autoversion }}"></script>
@@ -11,14 +10,15 @@
 
 {% block content %}
     <div class="g-grid">
-        <aside class="g-3">
-            <div class="js-side-tree-nav">
-                {{ side_tree_nav(nav.reference.content) }}
-            </div>
-        </aside>
 
-        <article role="main" class="page-content g-9">
+        <article role="main" class="page-content g-9 full-width">
             {{ page.content | safe }}
+
+            <div class="scroll-down-hint"
+                 data-aos-anchor=".all-speak-kotlin"
+                 data-aos-anchor-placement="top-center"
+                 data-aos="animate">
+            </div>
         </article>
     </div>
 {% endblock %}
