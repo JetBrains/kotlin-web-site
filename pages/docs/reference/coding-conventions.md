@@ -783,15 +783,6 @@ enum class Direction {
     WEST,
     EAST, // trailing comma
 }
-
-fun sum(x: Any, y: Any) {}
-
-fun main() {
-    sum(
-        10,
-        20, // trailing comma
-    )
-}
 ```
 
 </div>
@@ -803,7 +794,7 @@ fun main() {
 ```kotlin
 class Customer(
     val name: String,
-    val surname: String, // trailing comma
+    val lastName: String, // trailing comma
 )
 ```
 
@@ -855,7 +846,7 @@ println(sum(8, 8, 8))
 
 ```kotlin
 class Surface {
-    operator fun get(x: Int, y: Int) = 2*x + 4*y - 10
+    operator fun get(x: Int, y: Int) = 2 * x + 4 * y - 10
 }
 fun getZValue(mySurface: Surface, xValue: Int, yValue: Int) =
     mySurface[
@@ -907,13 +898,14 @@ fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
 
 ```kotlin
 annotation class ApplicableFor(val services: Array<String>)
+
 @ApplicableFor([
     "serializer",
     "balancer",
     "database",
     "inMemoryCache", // trailing comma
 ])
-fun run() { }
+fun run() {}
 ```
 
 </div>
@@ -945,17 +937,14 @@ class TreeNode<String>(
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-fun main() { 
-    data class Car(val manufacturer: String, val model: String, val year: Int)
-    val myCar = Car("Tesla", "Y", 2019)
-    
-    val (
-        manufacturer,
-        model,
-        year, // trailing comma
-    ) = myCar
-}
+data class Car(val manufacturer: String, val model: String, val year: Int)
+val myCar = Car("Tesla", "Y", 2019)
 
+val (
+    manufacturer,
+    model,
+    year, // trailing comma
+) = myCar
 
 val cars = listOf<Car>()
 fun printMeanValue() {
