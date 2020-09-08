@@ -19,6 +19,11 @@
   border-bottom: 1px solid hsla(0,0%,100%,.2);
   color: #fff;
 
+  @media (max-width: 960px) {
+    width: 100%;
+    min-width: 320px;
+  }
+
   .g-layout {
     position: relative;
     height: 100%;

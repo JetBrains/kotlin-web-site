@@ -31,9 +31,9 @@
         </div>
     {% endblock %}
     {% block page_after_content %}{% endblock %}
+    {% include 'inc/footer.html' %}
 </div>
 
-{% include 'inc/footer.html' %}
 {% include 'inc/search-popup.html' %}
 
 <script src="{{ url_for('static', filename='common.js')|autoversion }}"></script>

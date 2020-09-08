@@ -945,10 +945,10 @@ kotlin {
 kotlin {
     sourceSets.all {
         languageSettings.apply {
-            languageVersion = '1.4' // possible values: '1.0', '1.1', '1.2', '1.3', '1.4'
-            apiVersion = '1.4' // possible values: '1.0', '1.1', '1.2', '1.3', '1.4'
-            enableLanguageFeature('InlineClasses') // language feature name
-            useExperimentalAnnotation('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
+            languageVersion = "1.4" // possible values: "1.0", "1.1", "1.2", "1.3", "1.4"
+            apiVersion = "1.4" // possible values: "1.0", "1.1", "1.2", "1.3", "1.4"
+            enableLanguageFeature("InlineClasses") // language feature name
+            useExperimentalAnnotation("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
             progressiveMode = true // false by default
         }
     }
