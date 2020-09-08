@@ -104,16 +104,27 @@ class Customer(name: String) {
 
 </div>
 
-In fact, for declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax.
-Also, the Kotlin code style recommends using a [trailing comma](coding-conventions.html#trailing-commas) when you declare class properties:
+In fact, for declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+class Person(val firstName: String, val lastName: String, var age: Int) { /*...*/ }
+```
+
+</div>
+
+The Kotlin code style recommends using a [trailing comma](coding-conventions.html#trailing-commas) when you declare class properties.
+It simplifies reordering, deleting, and adding new properties. Using trailing commas are optional: without them your code will work as well.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 class Person(
-    val firstName: String,
+    val name: String,
     val lastName: String,
-    var age: Int, // trailing comma
+    val age: Int,
+    val gender: String, // trailing comma
 ) { /*...*/ }
 ```
 

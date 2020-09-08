@@ -44,15 +44,25 @@ Stream().read() // create instance of class Stream and call read()
 ### Parameters
 
 Function parameters are defined using Pascal notation, i.e. *name*: *type*. Parameters are separated using commas.
-The Kotlin code style recommends using a [trailing comma](coding-conventions.html#trailing-commas) when you declare function parameters.
 Each parameter must be explicitly typed:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun powerOf(
-    number: Int, 
-    exponent: Int, // trailing comma
+fun powerOf(number: Int, exponent: Int) { /*...*/ }
+```
+</div>
+
+The Kotlin code style recommends using a [trailing comma](coding-conventions.html#trailing-commas) when you declare function parameters.
+It simplifies reordering, deleting, and adding new parameters. Using trailing commas are optional: without them your code will work as well.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+fun read(
+    bytes: Array<Byte>,
+    offset: Int,
+    length: Int, // trailing comma
 ) { /*...*/ }
 ```
 </div>
