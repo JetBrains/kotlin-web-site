@@ -25,7 +25,7 @@ subnav:
         - url: /api/latest/jvm/stdlib/index.html
           title: Standard Library
         - url: /api/latest/kotlin.test/index.html
-          title: kotlin.test
+          title: Test Library
     - url: /community/
       content:
         - url: /community/
