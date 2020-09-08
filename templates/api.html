@@ -10,15 +10,15 @@
 
 {% block content %}
     <div class="g-grid">
-
-        <article role="main" class="page-content g-9 full-width">
-            {{ page.content | safe }}
-
-            <div class="scroll-down-hint"
-                 data-aos-anchor=".all-speak-kotlin"
-                 data-aos-anchor-placement="top-center"
-                 data-aos="animate">
+        <div class="api-layout">
+            <div>
+                <a class="scroll-button-back" href="https://kotlinlang.org/docs/mobile/home.html">To Docs</a>
+                <button class="scroll-button-top"></button>
             </div>
-        </article>
+
+            <article role="main" class="page-content g-9">
+                {{ page.content | safe }}
+            </article>
+        </div>
     </div>
 {% endblock %}
