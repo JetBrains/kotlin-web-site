@@ -176,7 +176,7 @@ function initializeSelects() {
       } else {
         state.platform.push(platform);
       }
-      
+
       updateState(state);
     }
   });
@@ -211,9 +211,21 @@ function initializeSections() {
   });
 }
 
+function scrollTop() {
+    const $scrollTopButton = $('.scroll-button-top');
+    $scrollTopButton.on('click', function () {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 $(document).ready(() => {
   fixPlatformsAvailability();
   initializeSelects();
   initializeSections();
+  scrollTop();
   new NavTree(document.querySelector('.js-side-tree-nav'));
 });
