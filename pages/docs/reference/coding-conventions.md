@@ -840,7 +840,7 @@ fun print(
 val sum: (Int, Int, Int) -> Int = fun(
     x,
     y,
-    z// trailing comma
+    z, // trailing comma
 ): Int {
     return x + y + x
 }
@@ -1263,7 +1263,7 @@ Although the semantics are similar, there are some stylistic conventions on when
 Prefer a property over a function when the underlying algorithm:
 
 * does not throw
-* is cheap to calculate (or caсhed on the first run)
+* is cheap to calculate (or cached on the first run)
 * returns the same result over invocations if the object state hasn't changed
 
 ### Using extension functions
