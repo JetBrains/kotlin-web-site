@@ -2,7 +2,8 @@
 @import '../../_utils';
 
 .docs-nav-new {
-    margin-bottom: $unit*6;
+    //margin-bottom: $unit*6;
+    margin-bottom: 24px;
 
     &::after {
         display: block;
@@ -21,6 +22,31 @@
 
     .page-old-styled & {
         margin-top: -40px;
+    }
+
+    .docs-nav-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .back-to-button {
+            //display: none;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 24px;
+            color: rgba(39, 40, 44, 0.7);
+
+            &:focus,
+            &:hover,
+            &:active {
+                color: #6E4BF4;
+                cursor: pointer;
+            }
+        }
+
+        .back-to-button_visible {
+            display: flex;
+        }
     }
 }
 
