@@ -29,8 +29,19 @@ html {
     flex-direction: row;
     justify-content: space-between;
 
+    .api-layout_button-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .api-stdlib-page {
+      padding-left: 30px;
+    }
+
     .scroll-button-top {
       background-image: url("../layout/images/arrow-top.svg");
+      background-size: 10px;
       background-position: center;
       background-repeat: no-repeat;
       background-color: #fff;

@@ -11,12 +11,12 @@
 {% block content %}
     <div class="g-grid">
         <div class="api-layout">
-            <div>
+            <div class="api-layout_button-box">
                 <a class="scroll-button-back" href="https://kotlinlang.org/docs/mobile/home.html">← To Docs</a>
                 <button class="scroll-button-top"></button>
             </div>
 
-            <article role="main" class="page-content g-9">
+            <article role="main" class="page-content g-9 api-stdlib-page">
                 {{ page.content | safe }}
             </article>
         </div>
