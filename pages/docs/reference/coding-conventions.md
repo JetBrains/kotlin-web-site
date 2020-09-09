@@ -752,7 +752,7 @@ Using trailing commas has several benefits:
 Trailing commas are optional: your code will work without them. Kotlin style guide encourages the use of trailing commas at the declaration site and leaves it optional for the call site.
 
 To enable trailing commas for the IntelliJ formatter, go to __Settings | Editor | Code Style | Kotlin__, 
-open the __Other__ tab and enable the __Use trailing comma__ option.
+open the __Other__ tab and select the __Use trailing comma__ option.
 
 Kotlin supports trailing commas in the following cases:
 * [Lists, enumerations, value arguments](#lists-enumerations-value-arguments)
