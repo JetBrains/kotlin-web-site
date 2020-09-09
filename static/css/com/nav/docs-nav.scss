@@ -27,10 +27,10 @@
     .docs-nav-controls {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
 
         .back-to-button {
-            //display: none;
+            display: none;
             font-weight: normal;
             font-size: 14px;
             line-height: 24px;

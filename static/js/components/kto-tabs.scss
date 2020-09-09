@@ -1,6 +1,7 @@
 .kto-tabs {
   display: flex;
   justify-content: flex-end;
+  flex-grow: 1;
 }
 
 .kto-tabs__item,
@@ -24,6 +25,8 @@
     margin-right: 0;
   }
 
+  &:hover,
+  &:focus,
   &_active {
     color: #585DEF;
   }
