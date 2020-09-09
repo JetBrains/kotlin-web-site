@@ -53,16 +53,14 @@ fun powerOf(number: Int, exponent: Int) { /*...*/ }
 ```
 </div>
 
-The Kotlin code style recommends using a [trailing comma](coding-conventions.html#trailing-commas) when you declare function parameters.
-It simplifies reordering, deleting, and adding new parameters. Using trailing commas are optional: without them your code will work as well.
+You can use a [trailing comma](coding-conventions.html#trailing-commas) when you declare class properties:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun read(
-    bytes: Array<Byte>,
-    offset: Int,
-    length: Int, // trailing comma
+fun powerOf(
+    number: Int,
+    exponent: Int, // trailing comma
 ) { /*...*/ }
 ```
 </div>

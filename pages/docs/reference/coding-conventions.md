@@ -755,8 +755,9 @@ To enable trailing commas for the IntelliJ formatter, go to __Settings | Editor 
 open the __Other__ tab and select the __Use trailing comma__ option.
 
 Kotlin supports trailing commas in the following cases:
-* [Lists, enumerations, value arguments](#lists-enumerations-value-arguments)
-* [Class parameters](#class-parameters)
+* [Enumerations](#enumerations)
+* [Value arguments](#value-arguments) 
+* [Class properties](#class-properties)
 * [Function value parameters](#function-value-parameters)
 * [Parameters with optional type (including setters)](#parameters-with-optional-type-including-setters)
 * [Indexing suffix](#indexing-suffix)
@@ -766,17 +767,11 @@ Kotlin supports trailing commas in the following cases:
 * [Type arguments and type parameters](#type-arguments-and-type-parameters)
 * [Destructuring declarations](#destructuring-declarations)
 
-#### Lists, enumerations, value arguments
+#### Enumerations
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
 ```kotlin
-val colors = listOf(
-    "red",
-    "green",
-    "blue", // trailing comma
-)
-
 enum class Direction {
     NORTH,
     SOUTH,
@@ -787,7 +782,28 @@ enum class Direction {
 
 </div>
 
-#### Class parameters
+#### Value arguments
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun shift(x: Int, y: Int) { /*...*/ }
+
+shift(
+    25,
+    20, // trailing comma
+)
+
+val colors = listOf(
+    "red",
+    "green",
+    "blue", // trailing comma
+)
+```
+
+</div>
+
+#### Class properties
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 

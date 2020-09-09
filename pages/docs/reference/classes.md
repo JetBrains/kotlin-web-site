@@ -114,17 +114,15 @@ class Person(val firstName: String, val lastName: String, var age: Int) { /*...*
 
 </div>
 
-The Kotlin code style recommends using a [trailing comma](coding-conventions.html#trailing-commas) when you declare class properties.
-It simplifies reordering, deleting, and adding new properties. Using trailing commas are optional: without them your code will work as well.
+You can use a [trailing comma](coding-conventions.html#trailing-commas) when you declare class properties:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 class Person(
-    val name: String,
+    val firstName: String,
     val lastName: String,
-    val age: Int,
-    val gender: String, // trailing comma
+    val age: Int, // trailing comma
 ) { /*...*/ }
 ```
 
