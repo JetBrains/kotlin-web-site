@@ -53,7 +53,7 @@ fun powerOf(number: Int, exponent: Int) { /*...*/ }
 ```
 </div>
 
-You can use a [trailing comma](coding-conventions.html#trailing-commas) when you declare class properties:
+You can use a [trailing comma](coding-conventions.html#trailing-commas) when you declare function parameters:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
