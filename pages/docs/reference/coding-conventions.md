@@ -735,8 +735,8 @@ A trailing comma is a comma sign after the last item of the element series:
 
 ```kotlin
 class Person(
-    val name: String,
-    val surname: String,
+    val firstName: String,
+    val lastName: String,
     val age: Int, // trailing comma
 )
 ```
