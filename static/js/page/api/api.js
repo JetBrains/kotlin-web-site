@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import { throttle } from '../../util/throttle';
 import Dropdown from '../../com/dropdown'
 import NavTree from '../../com/nav-tree'
 import './api.scss'
@@ -211,8 +212,17 @@ function initializeSections() {
   });
 }
 
-function scrollTop() {
+function handleApiPagwScroll() {
     const $scrollTopButton = $('.scroll-button-top');
+    const $backToDocsButton = $('.scroll-button-back');
+
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            $scrollTopButton.addClass('scroll-button-top_visible')
+            $backToDocsButton.addClass('scroll-button-back_visible')
+        } else {
+            $scrollTopButton.removeClass('scroll-button-top_visible')
+            $backToDocsButton.removeClass('scroll-button-back_visible')
+        }
     $scrollTopButton.on('click', function () {
         window.scroll({
             top: 0,
@@ -226,6 +236,8 @@ $(document).ready(() => {
   fixPlatformsAvailability();
   initializeSelects();
   initializeSections();
-  scrollTop();
+  handleApiPagwScroll();
   new NavTree(document.querySelector('.js-side-tree-nav'));
 });
+
+window.onscroll = throttle(function() {handleApiPagwScroll()}, 250);
