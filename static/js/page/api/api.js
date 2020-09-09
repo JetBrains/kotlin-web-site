@@ -212,7 +212,7 @@ function initializeSections() {
   });
 }
 
-function handleApiPagwScroll() {
+function handleApiPageScroll() {
     const $scrollTopButton = $('.scroll-button-top');
     const $backToDocsButton = $('.scroll-button-back');
 
@@ -232,12 +232,18 @@ function handleApiPagwScroll() {
     });
 }
 
+function initializeBackToDocsButton() {
+    const $backToDocsButton = $('.back-to-button');
+    $backToDocsButton.addClass('back-to-button_visible')
+}
+
 $(document).ready(() => {
   fixPlatformsAvailability();
   initializeSelects();
   initializeSections();
-  handleApiPagwScroll();
+  handleApiPageScroll();
+  initializeBackToDocsButton()
   new NavTree(document.querySelector('.js-side-tree-nav'));
 });
 
-window.onscroll = throttle(function() {handleApiPagwScroll()}, 250);
+window.onscroll = throttle(function() {handleApiPageScroll()}, 250);
