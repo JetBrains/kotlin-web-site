@@ -1,9 +1,17 @@
 <section class="kto-overview-section kto-overview-section_mode_dark kotlin-intro-section">
     <div class="g-layout kotlin-intro-section">
         <p class="kotlin-intro-section__intro">
-            A modern programming language<br>
-            that makes developers happier.<br>
-            Open source forever <a target="_blank" href="{{ config.GITHUB_URL }}" class="kotlin-intro-section__icon">Github</a>
+            A modern programming <br>
+            language that makes <br>
+            developers happier.<br>
+
+                <span class="kotlin-intro-section__contributors">
+                    <a target="_blank" href="{{ config.JETBRAINS }}" class="kotlin-intro-section__logo-link">
+                        <img class="kotlin-intro-section__logo" src="{{ url_for('asset', path='jetbrains-logo.svg') }}" alt="jetbrains logo"/>
+                    </a>
+                    Developed by <a target="_blank" href="{{ config.JETBRAINS }}" class="kotlin-intro-section__contributors-link">JetBrains</a>
+                     & Open-source <a target="_blank" href="{{ config.KOTLIN_CONTRIBUTORS }}" class="kotlin-intro-section__contributors-link">Contributors</a>
+                </span>
         </p>
         <p class="kotlin-intro-section__buttons">
             <a class="kto-button kto-button_theme_dark kto-button_size_m kto-button_mode_outline kotlin-banner-section__try-ide" href="/docs/tutorials/getting-started.html">Get started</a>
