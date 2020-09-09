@@ -29,24 +29,6 @@ html {
     flex-direction: row;
     justify-content: space-between;
 
-    .scroll-button-back,
-    .scroll-button-top {
-      color: rgba(39, 40, 44, 0.4);
-      display: flex;
-      border: 1px solid rgba(39, 40, 44, 0.4);
-      border-radius: 50%;
-      outline: none;
-
-      &:hover,
-      &:focus {
-        border-color: rgba(39, 40, 44, 0.7);
-        background-color: #F5F5F5;
-        color: #27282C;
-        //background-image: url("../layout/images/arrow-left.svg");
-        cursor: pointer;
-      }
-    }
-
     .scroll-button-top {
       background-image: url("../layout/images/arrow-top.svg");
       background-position: center;
@@ -54,12 +36,47 @@ html {
       background-color: #fff;
       width: 34px;
       height: 34px;
-      margin-top: 1200px;
 
       &:hover,
       &:focus {
         background-image: url("../layout/images/arrow-top.svg");
       }
+    }
+
+    .scroll-button-back,
+    .scroll-button-top {
+      display: none;
+      color: #27282C;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      border: 1px solid rgba(39, 40, 44, 0.4);
+      border-radius: 24px;
+      padding: 4px 12px;
+      outline: none;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        border-color: rgba(39, 40, 44, 0.7);
+        background-color: #F5F5F5;
+        color: #27282C;
+        cursor: pointer;
+      }
+    }
+
+    .scroll-button-top_visible {
+      display: flex;
+      position: sticky;
+      top: 90vh;
+      left: 0;
+    }
+
+    .scroll-button-back_visible {
+      display: flex;
+      position: sticky;
+      top: 30px;
+      left: 0;
     }
   }
 }
