@@ -757,14 +757,15 @@ open the __Other__ tab and select the __Use trailing comma__ option.
 Kotlin supports trailing commas in the following cases:
 * [Enumerations](#enumerations)
 * [Value arguments](#value-arguments) 
-* [Class properties](#class-properties)
+* [Class properties and parameters](#class-properties-and-parameters)
 * [Function value parameters](#function-value-parameters)
 * [Parameters with optional type (including setters)](#parameters-with-optional-type-including-setters)
 * [Indexing suffix](#indexing-suffix)
 * [Lambda parameters](#lambda-parameters)
 * [`when` entry](#when-entry)
 * [Collection literals (in annotations)](#collection-literals-in-annotations)
-* [Type arguments and type parameters](#type-arguments-and-type-parameters)
+* [Type arguments](#type-arguments)
+* [Type parameters](#type-parameters)
 * [Destructuring declarations](#destructuring-declarations)
 
 #### Enumerations
@@ -803,7 +804,7 @@ val colors = listOf(
 
 </div>
 
-#### Class properties
+#### Class properties and parameters
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -811,6 +812,11 @@ val colors = listOf(
 class Customer(
     val name: String,
     val lastName: String, // trailing comma
+)
+
+class Customer(
+    val name: String,
+    lastName: String, // trailing comma
 )
 ```
 
@@ -926,7 +932,7 @@ fun run() {}
 
 </div>
 
-#### Type arguments and type parameters
+#### Type arguments
 
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -937,13 +943,21 @@ fun main() {
     foo<
             Comparable<Number>,
             Iterable<Number>, // trailing comma
-        >()
+            >()
 }
+```
 
-class TreeNode<String>(
-    val value: String?,
-    val next: TreeNode<String>? = null, // trailing comma
-)
+</div>
+
+#### Type parameters
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+class MyMap<
+        MyKey,
+        MyValue, // trailing comma
+        > {}
 ```
 
 </div>
