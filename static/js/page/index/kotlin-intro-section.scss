@@ -20,18 +20,20 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 20px;
 
     display: flex;
     align-items: center;
-    color: rgba(255, 255, 255, 0.75);
-    margin-top: 24px;
-    letter-spacing: 0.02em;
+    color: #fff;
+    margin-top: 22px;
+    letter-spacing: 0.005em;
+    -webkit-font-smoothing: antialiased;
+
 
     .kotlin-intro-section__logo-link {
       display: flex;
-      margin-right: 18px;
-      width: 31px;
+      margin-right: 24px;
+      width: 32px;
       height: 32px;
       outline: none;
     }
@@ -39,6 +41,7 @@
 
   .kotlin-intro-section__contributors-link {
     color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .kotlin-intro-section__contributors-link:hover,
@@ -51,10 +54,10 @@
 
   .kotlin-intro-section__logo {
     display: inline-block;
-    width: 31px;
+    width: 32px;
     height: 32px;
     background-size: contain;
-    padding-right: 18px;
+    padding-right: 24px;
   }
 }
 
