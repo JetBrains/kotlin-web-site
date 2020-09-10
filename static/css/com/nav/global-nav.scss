@@ -7,9 +7,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  float: right;
   font-size: 0;
-  height: 100%;
 
   @media (max-width: 1205px) {
     top: auto;
@@ -219,7 +217,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: #27282C;
   position: absolute;
-  top: 70px;
+  bottom: -249px;
   left: 0;
   box-sizing: border-box;
   display: block;
