@@ -208,13 +208,13 @@ arguments. Moreover, you can mix positional and named arguments any way you like
 fun reformat(
     str: String,
     uppercaseFirstLetter: Boolean = true,
-    wordSeparator: Character = ' '
+    wordSeparator: Char = ' '
 ) {
     // ...
 }
 
 //Function call with a named argument in the middle
-reformat('This is a String!', uppercaseFirstLetter = false , '-')
+reformat("This is a String!", uppercaseFirstLetter = false , '-')
 ```
 
 </div>
@@ -432,6 +432,7 @@ You can try out the new Kotlin Project Wizard by working through these tutorials
 
 * [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
 * [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
+* [Create a Kotlin/Native application](../tutorials/native/using-intellij-idea.html)
 
 ### Coroutine Debugger
 

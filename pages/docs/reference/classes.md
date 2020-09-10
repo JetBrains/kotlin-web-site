@@ -114,6 +114,20 @@ class Person(val firstName: String, val lastName: String, var age: Int) { /*...*
 
 </div>
 
+You can use a [trailing comma](coding-conventions.html#trailing-commas) when you declare class properties:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+class Person(
+    val firstName: String,
+    val lastName: String,
+    val age: Int, // trailing comma
+) { /*...*/ }
+```
+
+</div>
+
 Much the same way as regular properties, the properties declared in the primary constructor can be
 mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 
@@ -129,7 +143,6 @@ class Customer public @Inject constructor(name: String) { /*...*/ }
 </div>
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
-
 
 #### Secondary constructors
 
@@ -402,7 +415,7 @@ open class Base(val name: String) {
 
 class Derived(
     name: String,
-    val lastName: String
+    val lastName: String,
 ) : Base(name.capitalize().also { println("Argument for Base: $it") }) {
 
     init { println("Initializing Derived") }

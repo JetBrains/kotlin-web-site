@@ -237,11 +237,14 @@ Once an npm dependency is installed, you can use its API in your code as describ
 
 ## Configuring run task
 
-The Kotlin/JS plugin provides a `run` task that lets you run projects without additional configuration.
-For running Kotlin/JS projects, it uses the [webpack-dev-server](https://webpack.js.org/configuration/dev-server/).
+The Kotlin/JS plugin provides a `run` task that lets you run pure Kotlin/JS projects without additional configuration.
+
+For running Kotlin/JS projects in the browser, this task is an alias for the `browserDevelopmentRun` task (which is also available in Kotlin multiplatform projects). It uses the [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) to serve your JavaScript artifacts.
 If you want to customize the configuration used by `webpack-dev-server`, for example adjust the port the server runs on, use the [webpack configuration file](#configuring-webpack-bundling).
 
-To run the project, execute the standard lifecycle `run` task:
+For running Kotlin/JS projects targeting Node.js, the `run` task is an alias for the `nodeRun` task (which is also available in Kotlin multiplatform projects). 
+
+To run a project, execute the standard lifecycle `run` task, or the alias to which it corresponds:
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
@@ -383,7 +386,13 @@ config.module.rules.push({
 All webpack configuration
 capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
 
-For building executable JavaScript artifacts though webpack, the Kotlin/JS plugin contains the `browserDevelopmentWebpack` and `browserProductionWebpack` Gradle tasks. Execute them to obtain artifacts for development or production. The final generated artifacts will be available in `build/distributions` unless [specified otherwise](#distribution-target-directory).
+For building executable JavaScript artifacts through webpack, the Kotlin/JS plugin contains the `browserDevelopmentWebpack` and `browserProductionWebpack` Gradle tasks.
+
+* `browserDevelopmentWebpack` creates development artifacts, which are larger in size, but take little time to create. As such, use the `browserDevelopmentWebpack` tasks during active development.
+
+* `browserProductionWebpack` applies [dead code elimination](javascript-dce.html) to the generated artifacts and minifies the resulting JavaScript file, which takes more time, but generates executables that are smaller in size. As such, use the `browserProductionWebpack` task when preparing your project for production use.
+ 
+ Execute either of these tasks to obtain the respective artifacts for development or production. The generated files will be available in `build/distributions` unless [specified otherwise](#distribution-target-directory).
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
