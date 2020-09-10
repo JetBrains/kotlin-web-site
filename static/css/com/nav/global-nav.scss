@@ -217,7 +217,8 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: #27282C;
   position: absolute;
-  bottom: -249px;
+  bottom: 0;
+  transform: translate(0, 103%);
   left: 0;
   box-sizing: border-box;
   display: block;
