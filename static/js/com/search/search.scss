@@ -15,16 +15,16 @@ body._no-scroll {
     background: url('../../../css/com/layout/images/search.svg') no-repeat center;
     width: 23px;
     height: 23px;
-
-    @include adapt_retina {
-      background-image: url('../../../css/com/layout/images/search.svg');
-    }
   }
 
   &:hover {
     opacity: 1;
     border-radius: 50%;
     background: hsla(0, 0%, 100%, 0.1);
+
+    .icon {
+      background: url('../../../css/com/layout/images/search-white.svg') no-repeat center;
+    }
   }
 }
 
