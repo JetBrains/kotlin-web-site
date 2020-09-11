@@ -3,7 +3,7 @@
 main:
   content:
     - url: /docs/reference/
-      title: Learn
+      title: Docs
 
     - url: /community/
       title: Community

@@ -9,6 +9,10 @@
   background-color: #27282c;
   background-size: cover;
   min-width: 960px;
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: 1px solid hsla(0,0%,100%,.2);
+  color: #fff;
 
   @media (max-width: 960px) {
     width: 100%;
@@ -17,6 +21,7 @@
 
   .g-layout {
     position: relative;
+    height: 100%;
   }
 
   .banner-main {
@@ -81,6 +86,24 @@
     }
   }
 
+  .global-header-panel {
+    box-sizing: border-box;
+    display: flex;
+    padding: 0 32px;
+    justify-content: space-between;
+    min-height: 64px;
+    .page_index & {
+      background-color: #393939;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 22px;
+    }
+
+    .global-header-logo-box {
+      align-self: center;
+    }
+  }
 }
 
 .page_index .global-header {
@@ -93,30 +116,15 @@
   }
 }
 
-.global-header-panel {
-  @include clearfix;
-  box-sizing: border-box;
-  padding: $unit 0;
-  height: 60px;
-  .page_index & {
-    background-color: #393939;
-  }
-}
-
 .global-header-logo {
   @include transition(0.3s all);
   display: inline-block;
-  margin-top: 12px;
-  min-width: 103px;
+  margin-bottom: 16px;
+  min-width: 90px;
   height: 22px;
-  background: url('images/logos-sprite.png') no-repeat;
+  background: url('images/kotlin-logo.svg') no-repeat;
   font-size: 0;
   text-decoration: none;
-
-  @include adapt_retina {
-    background-image: url('images/logos-sprite@2x.png');
-    background-size: 200px 100px;
-  }
 }
 
 .global-header-logo__version,
@@ -127,11 +135,11 @@
   font-size: 12px;
   line-height: 16px;
   letter-spacing: -0.01em;
-  color: #fff;
+  color: hsla(0, 0%, 100%, 0.75);
+  transition: .3s ease-out;
 }
 
 .global-header-logo__version:hover,
 .global-header-logo__version:active {
   color: #fff;
-  text-decoration: underline;
 }

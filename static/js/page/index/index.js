@@ -89,7 +89,7 @@ const initPopups = function () {
 };
 
 const initAnchors = function () {
-    $('.smooth-anchor').on('click', function(e) {
+    $('.smooth-anchor').on('click', function (e) {
         const id = (e.target.getAttribute('href') || '').substring(1);
         if (id) {
             const el = $('#' + id)[0];
