@@ -11,7 +11,7 @@ For decades, as developers we are confronted with a problem to solve - how to pr
 we're developing desktop, mobile, or even server-side applications, we want to avoid having the user wait or what's worse cause 
 bottlenecks that would prevent an application from scaling. 
 
-There have been many approaches to solving this problem, including:
+There have been many approaches to solve this problem, including:
 
 * Threading
 * Callbacks
@@ -136,7 +136,7 @@ In addition, Rx does introduce a somewhat nicer approach to error handling.
 
 ## Coroutines 
 
-Kotlin's approach to working with asynchronous code is using coroutines, which is the idea of suspendable computations, i.e. the idea that a function can suspend its execution at some point and resume later on. 
+Kotlin's approach to work with asynchronous code is using coroutines, which is the idea of suspendable computations, i.e. the idea that a function can suspend its execution at some point and resume later on. 
 
 One of the benefits however of coroutines is that when it comes to the developer, writing non-blocking code is essentially the same as writing blocking code. The programming model
 in itself doesn't really change. 
