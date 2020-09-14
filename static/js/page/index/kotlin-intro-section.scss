@@ -10,10 +10,7 @@
   line-height: 52px;
 
   letter-spacing: -0.02em;
-
-  /* white */
   color: #FFFFFF;
-
   padding-top: 30px;
 
   .kotlin-intro-section__contributors {
@@ -31,9 +28,7 @@
 
 
     .kotlin-intro-section__logo-link {
-      display: flex;
       margin-right: 24px;
-      width: 32px;
       height: 32px;
       outline: none;
     }
@@ -54,10 +49,7 @@
 
   .kotlin-intro-section__logo {
     display: inline-block;
-    width: 32px;
-    height: 32px;
     background-size: contain;
-    padding-right: 24px;
   }
 }
 
