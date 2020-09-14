@@ -1,18 +1,14 @@
-{% macro toDocsButton(class='kto-tabs__item back-to-button', visible=false) -%}
-    <a class="{{ class }}"
-       href="/docs/">
-        ← Kotlin Docs
-    </a>
-{%- endmacro %}
-
 {% for subnav in  nav.subnav.content %}
     {% if subnav.is_active %}
         {% if nav.subnav.type == 'tab' %}
             <nav class="docs-nav-new">
                 <div class="docs-nav-controls">
-                    {% for item in subnav.content if item.url == '/api/latest/jvm/stdlib/index.html' %}
-                        {{ toDocsButton('kto-tabs__item back-to-button') }}
-                    {% endfor %}
+                    {% if backToDocsButton %}
+                        <a class="kto-tabs__item back-to-button"
+                           href="/docs/">
+                            ← Kotlin Docs
+                        </a>
+                    {% endif %}
 
                     <div class="kto-tabs">
                         {% for item in subnav.content %}
