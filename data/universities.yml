@@ -818,3 +818,11 @@
   geo:
     lat: '46.4186908'
     lng: '-88.8472074'
+- title: Canakkale Onsekiz Mart University
+  location: Canakkale (Turkey)
+  courses:
+  - name: "BLM-3026 Mobile Programming"
+    url: https://ubys.comu.edu.tr/AIS/OutcomeBasedLearning/Home/CourseDetail?&isElectiveCourse=true&isIntegratedCourse=false&courseId=97032&curriculumId=7132&apid=6232&eqd=10602&progName=Faculty%20of%20Eng%C4%B1neer%C4%B1ng%20-%20Computer%20Engineering%20/%20%20DEPARTMENT%20OF%20COMPUTER%20ENGINEERING
+  geo:
+    lat: '40.1118946'
+    lng: '26.4138072'
