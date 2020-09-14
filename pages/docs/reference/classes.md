@@ -109,7 +109,7 @@ In fact, for declaring properties and initializing them from the primary constru
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-class Person(val firstName: String, val lastName: String, val age: Int) { /*...*/ }
+class Person(val firstName: String, val lastName: String, var age: Int) { /*...*/ }
 ```
 
 </div>
@@ -122,7 +122,7 @@ You can use a [trailing comma](coding-conventions.html#trailing-commas) when you
 class Person(
     val firstName: String,
     val lastName: String,
-    val age: Int, // trailing comma
+    var age: Int, // trailing comma
 ) { /*...*/ }
 ```
 
