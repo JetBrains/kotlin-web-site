@@ -2,7 +2,6 @@
 @import '../../_utils';
 
 .docs-nav-new {
-    //margin-bottom: $unit*6;
     margin-bottom: 24px;
 
     &::after {
@@ -30,7 +29,6 @@
         justify-content: flex-end;
 
         .back-to-button {
-            display: none;
             font-weight: normal;
             font-size: 14px;
             line-height: 24px;
@@ -42,10 +40,6 @@
                 color: #6E4BF4;
                 cursor: pointer;
             }
-        }
-
-        .back-to-button_visible {
-            display: flex;
         }
     }
 }

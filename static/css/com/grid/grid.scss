@@ -31,7 +31,7 @@ html {
     justify-content: center;
 
     .api-layout_button-box {
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: flex-end;
       position: absolute;
@@ -39,27 +39,12 @@ html {
       top: 0;
       height: 100%;
       width: 100px;
-    }
-
-    .scroll-button-top {
-      background-image: url("../layout/images/arrow-top.svg");
-      background-size: 10px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #fff;
-      width: 34px;
-      height: 34px;
-
-      &:hover,
-      &:focus {
-        background-image: url("../layout/images/arrow-top.svg");
-      }
+      z-index: 2;
     }
 
     .scroll-button-back,
     .scroll-button-top {
       font-family: Inter, Arial, sans-serif;
-      display: none;
       color: #27282C;
       font-size: 14px;
       line-height: 20px;
@@ -69,6 +54,9 @@ html {
       padding: 4px 12px;
       outline: none;
       text-decoration: none;
+      position: sticky;
+      top: 30px;
+      left: 0;
 
       &:hover,
       &:focus {
@@ -79,18 +67,24 @@ html {
       }
     }
 
-    .scroll-button-top_visible {
-      display: flex;
-      position: sticky;
+    .scroll-button-top {
+      background-image: url("../layout/images/arrow-top.svg");
+      background-size: 10px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #fff;
+      width: 34px;
+      height: 34px;
       top: 94vh;
-      left: 0;
+
+      &:hover,
+      &:focus {
+        background-image: url("../layout/images/arrow-top.svg");
+      }
     }
 
-    .scroll-button-back_visible {
+    .api-layout_button-box_visible {
       display: flex;
-      position: sticky;
-      top: 30px;
-      left: 0;
     }
   }
 }
