@@ -213,16 +213,17 @@ function initializeSections() {
 }
 
 function handleApiPageScroll() {
+    // Container with float buttons should render after 800px
+    const scrollOffset = 800;
     const $scrollTopButton = $('.scroll-button-top');
-    const $backToDocsButton = $('.scroll-button-back');
+    const $buttonsBox = $('.api-layout_button-box');
 
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            $scrollTopButton.addClass('scroll-button-top_visible')
-            $backToDocsButton.addClass('scroll-button-back_visible')
-        } else {
-            $scrollTopButton.removeClass('scroll-button-top_visible')
-            $backToDocsButton.removeClass('scroll-button-back_visible')
-        }
+    if (document.body.scrollTop > scrollOffset || document.documentElement.scrollTop > scrollOffset) {
+        $buttonsBox.addClass('api-layout_button-box_visible')
+    } else {
+        $buttonsBox.removeClass('api-layout_button-box_visible')
+    }
+
     $scrollTopButton.on('click', function () {
         window.scroll({
             top: 0,
@@ -232,17 +233,11 @@ function handleApiPageScroll() {
     });
 }
 
-function initializeBackToDocsButton() {
-    const $backToDocsButton = $('.back-to-button');
-    $backToDocsButton.addClass('back-to-button_visible')
-}
-
 $(document).ready(() => {
   fixPlatformsAvailability();
   initializeSelects();
   initializeSections();
   handleApiPageScroll();
-  initializeBackToDocsButton()
   new NavTree(document.querySelector('.js-side-tree-nav'));
 });
 
