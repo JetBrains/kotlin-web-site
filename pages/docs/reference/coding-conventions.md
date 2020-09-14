@@ -749,7 +749,7 @@ Using trailing commas has several benefits:
 * It makes it easy to add and reorder elements – there is no need to add or delete the comma if you manipulate elements.
 * It simplifies code generation, for example, for object initializers. The last element can also have a comma.
 
-Trailing commas are entirely optional – your code will still work without them. The Kotlin style guide encourages the use of trailing commas at the declaration site and leaves it optional for the call site.
+Trailing commas are entirely optional – your code will still work without them. The Kotlin style guide encourages the use of trailing commas at the declaration site and leaves it at your discretion for the call site.
 
 To enable trailing commas in the IntelliJ IDEA formatter, go to __Settings | Editor | Code Style | Kotlin__, 
 open the __Other__ tab and select the __Use trailing comma__ option.
