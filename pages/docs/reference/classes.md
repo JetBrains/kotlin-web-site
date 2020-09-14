@@ -122,7 +122,7 @@ You can use a [trailing comma](coding-conventions.html#trailing-commas) when you
 class Person(
     val firstName: String,
     val lastName: String,
-    val age: Int, // trailing comma
+    var age: Int, // trailing comma
 ) { /*...*/ }
 ```
 
