@@ -3,29 +3,54 @@
   justify-content: space-between;
   align-items: flex-start;
 
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
   font-weight: bold;
-  font-size: 31px;
-  line-height: 135%;
-  letter-spacing: -0.01em;
+  font-size: 45px;
+  line-height: 52px;
 
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
   padding-top: 30px;
-}
 
-.kotlin-intro-section__icon {
-  font-size: 0;
-  line-height: 0;
-  text-indent: -9999px;
-  display: inline-block;
-}
+  .kotlin-intro-section__contributors {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
 
-.kotlin-intro-section__icon::after {
-  display: flex;
-  content: '';
-  height: 25px;
-  width: 25px;
-  background: url("./images/github.svg") transparent center no-repeat;
-  background-size: 25px;
-  background-size: contain;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-top: 22px;
+    letter-spacing: 0.005em;
+    -webkit-font-smoothing: antialiased;
+
+
+    .kotlin-intro-section__logo-link {
+      margin-right: 24px;
+      height: 32px;
+      outline: none;
+    }
+  }
+
+  .kotlin-intro-section__contributors-link {
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .kotlin-intro-section__contributors-link:hover,
+  .kotlin-intro-section__contributors-link:focus, {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    text-decoration: none;
+    transition: 0.3s ease-out;
+  }
+
+  .kotlin-intro-section__logo {
+    display: inline-block;
+    background-size: contain;
+  }
 }
 
 .kotlin-banner-section__try-ide {
