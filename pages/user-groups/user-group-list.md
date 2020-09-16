@@ -5,13 +5,12 @@ title: "Kotlin User Groups List"
 ---
 
 # Find a KUG near you
-## 207 KUGs around the world
+## 206 KUGs around the world
 
 Kotlin User Group or KUG is a community of people and a place to share your programming experience with Kotlin and its ecosystem
 
 ## Europe
 
- * [Aachen Kotlin User Group](https://www.facebook.com/groups/KUGAachen/), Germany
  * [Amsterdam Kotlin User Group](https://www.meetup.com/kotlin-amsterdam/), Netherlands
  * [Amsterdam High-performance Kotlin User Group](https://www.meetup.com/High-performance-Kotlin/), Netherlands
  * [Athens Kotlin User Group](https://www.meetup.com/Kotlin-Athens/), Greece
