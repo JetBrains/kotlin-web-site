@@ -3,10 +3,10 @@
         {% if nav.subnav.type == 'tab' %}
             <nav class="docs-nav-new">
                 <div class="docs-nav-controls">
-                    {% if backToDocsButton %}
+                    {% if docsNavBack %}
                         <a class="kto-tabs__item back-to-button"
-                           href="/docs/">
-                            ← Kotlin Docs
+                           href="{{ docsNavBack.url }}">
+                            ← {{  docsNavBack.text }}
                         </a>
                     {% endif %}
 
