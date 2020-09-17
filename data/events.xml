@@ -1,5 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+     <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Sebastian Aigner</speaker>
+        <title>KKON 2020</title>
+        <subject>KeynoteKeep Kotlin Fun - Ein unterhaltsamer Streifzug durch die Features von Kotlin</subject>
+        <url>https://rheinwerk-kkon.de/programm/aigner-keynote-keep-kotlin-fun-ein-unterhaltsamer-streifzug-durch-die-features-von-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Von Emoji-Generatoren bis hin zu Multiplayer-Spielen, Treiber für Mini-Drucker, IoT-Integration oder Slack Message Parser: Prototypen für kuriose Ideen sind ein guter Antrieb, um Neues zu lernen – und sei es auch nur, um zu beweisen, dass Nichts unmöglich ist.</p>
+<p>Erleben Sie hautnah den Spaß und die Faszination beim Erschaffen von etwas wirklich Außergewöhnlichem! Die kleinen Ideen, die einen nachts wachhalten, bis der erste, kleinste Proof of Concept zusammengehackt ist. Gemeinsam mit Sebastian Aigner erforschen Sie, wie Sie die mächtigen Features von Kotlin bei diesen Projekten nutzen. Dabei kommt eine bunte Mischung zum Einsatz aus Sprachfeatures, Libraries und Praxisbeispielen, die Ihnen vielleicht nicht jeden Tag begegnen.</p>
+<p>Selbst wenn Sie gerade nicht an eigenen irrwitzigen Projekten arbeiten, werden Sie in dem Vortrag einige neue Herangehensweisen kennenlernen, um Ihre Aufgaben mit Kotlin zu lösen. Und zwar so, dass man sie nur noch schwer vergisst.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Danny Preussler</speaker>
+        <title>KKON 2020</title>
+        <subject>Keynote: Mut zur Veränderung: Verlernen Sie Ihr (Java-)Wissen!</subject>
+        <url>https://rheinwerk-kkon.de/programm/vortrag-danny-preussler-rheinwerk-konferenz-fuer-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Viele Kotlin-Entwickler haben vorher mit Java gearbeitet, oft jahrelang. Und am Ende ist genau diese Erfahrung der Grund, warum Kotlin so viel Zuspruch bekommt: Vieles ist deutlich einfacher und bequemer. Aber trotz der bekannten und geliebten Features von Kotlin halten zahlreiche Entwickler an den bekannten Konzepten aus der Java-Welt fest, oft unbewusst. Sie sind fast schon gefangen in Javas Denkmustern. Das hat Methode, denn was man einmal gelernt hat, verlernt man so schnell nicht wieder. Aber um sich vollständig auf Kotlin einzulassen, muss man sich auch trauen, Dinge zu verlernen …</p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>de</lang>
         <startDate>2020-10-12</startDate>
