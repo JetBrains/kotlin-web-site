@@ -17,15 +17,17 @@ a type of a property or function at runtime) is closely intertwined with simply 
 ## JVM dependency
 
 On the JVM platform, the runtime component required for using the reflection features is distributed as a separate
-artifact. This is done to reduce the required size of the runtime library for applications
-that do not use reflection features. If you do use reflection, add the dependency on `kotlin-reflect` to your project:
+artifact `kotlin-reflect.jar` in the Kotlin compiler distribution. This is done to reduce the required size of the runtime
+library for applications that do not use reflection features.
+
+If you use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
 * In Gradle:
   <div class="multi-language-sample" data-lang="groovy">
   <div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
   
   ```groovy
   dependencies {
-      compile "org.jetbrains.kotlin:kotlin-reflect:{{ site.data.releases.latest.version }}"
+      implementation "org.jetbrains.kotlin:kotlin-reflect:{{ site.data.releases.latest.version }}"
   }
   ```
   
@@ -58,8 +60,9 @@ that do not use reflection features. If you do use reflection, add the dependenc
   ```
   </div>
 
-If you don't use Gradle or Maven, you can add the `kotlin-reflect.jar` file from the Kotlin compiler distribution to
-the classpath of your project manually.
+If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project.
+In other supported cases (IntelliJ IDEA projects, using command-line compiler or Ant),
+it is added by default unless `-no-reflect` compiler option is specified.
 
 ## Class references
 
