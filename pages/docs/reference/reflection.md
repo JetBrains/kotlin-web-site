@@ -20,7 +20,7 @@ On the JVM platform, the runtime component required for using the reflection fea
 artifact `kotlin-reflect.jar` in the Kotlin compiler distribution. This is done to reduce the required size of the runtime
 library for applications that do not use reflection features.
 
-If you use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
+To use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
 * In Gradle:
   <div class="multi-language-sample" data-lang="groovy">
   <div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
@@ -62,7 +62,8 @@ If you use reflection in a Gradle or Maven project, add the dependency on `kotli
 
 If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project.
 In other supported cases (IntelliJ IDEA projects, using command-line compiler or Ant),
-it is added by default unless `-no-reflect` compiler option is specified.
+it is added by default. In command-line compiler and Ant, you can use `-no-reflect` compiler option to exclude
+`kotlin-reflect.jar` from the classpath. 
 
 ## Class references
 
