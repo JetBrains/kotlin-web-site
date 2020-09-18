@@ -1,5 +1,418 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+     <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Sebastian Aigner</speaker>
+        <title>KKON 2020</title>
+        <subject>Keynote: Keep Kotlin Fun - Ein unterhaltsamer Streifzug durch die Features von Kotlin</subject>
+        <url>https://rheinwerk-kkon.de/programm/aigner-keynote-keep-kotlin-fun-ein-unterhaltsamer-streifzug-durch-die-features-von-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Von Emoji-Generatoren bis hin zu Multiplayer-Spielen, Treiber für Mini-Drucker, IoT-Integration oder Slack Message Parser: Prototypen für kuriose Ideen sind ein guter Antrieb, um Neues zu lernen – und sei es auch nur, um zu beweisen, dass Nichts unmöglich ist.</p>
+<p>Erleben Sie hautnah den Spaß und die Faszination beim Erschaffen von etwas wirklich Außergewöhnlichem! Die kleinen Ideen, die einen nachts wachhalten, bis der erste, kleinste Proof of Concept zusammengehackt ist. Gemeinsam mit Sebastian Aigner erforschen Sie, wie Sie die mächtigen Features von Kotlin bei diesen Projekten nutzen. Dabei kommt eine bunte Mischung zum Einsatz aus Sprachfeatures, Libraries und Praxisbeispielen, die Ihnen vielleicht nicht jeden Tag begegnen.</p>
+<p>Selbst wenn Sie gerade nicht an eigenen irrwitzigen Projekten arbeiten, werden Sie in dem Vortrag einige neue Herangehensweisen kennenlernen, um Ihre Aufgaben mit Kotlin zu lösen. Und zwar so, dass man sie nur noch schwer vergisst.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Danny Preussler</speaker>
+        <title>KKON 2020</title>
+        <subject>Keynote: Mut zur Veränderung: Verlernen Sie Ihr (Java-)Wissen!</subject>
+        <url>https://rheinwerk-kkon.de/programm/vortrag-danny-preussler-rheinwerk-konferenz-fuer-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Viele Kotlin-Entwickler haben vorher mit Java gearbeitet, oft jahrelang. Und am Ende ist genau diese Erfahrung der Grund, warum Kotlin so viel Zuspruch bekommt: Vieles ist deutlich einfacher und bequemer. Aber trotz der bekannten und geliebten Features von Kotlin halten zahlreiche Entwickler an den bekannten Konzepten aus der Java-Welt fest, oft unbewusst. Sie sind fast schon gefangen in Javas Denkmustern. Das hat Methode, denn was man einmal gelernt hat, verlernt man so schnell nicht wieder. Aber um sich vollständig auf Kotlin einzulassen, muss man sich auch trauen, Dinge zu verlernen …</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-12</startDate>
+        <endDate>2020-10-12</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Stefan Scheidt</speaker>
+        <title>KKON 2020</title>
+        <subject>Von Java zu Kotlin – die Basics</subject>
+        <url>https://rheinwerk-kkon.de/programm/scheidt-von-java-zu-kotlin-die-basics/</url>
+        <description>
+            <![CDATA[
+<p>Als ausgewachsener Java-Entwickler gelingt der Umstieg auf Kotlin meist reibungslos, ist aber auch kein Kinderspiel. In diesem Vortrag schauen wir uns klassische Pain Points der Java-Entwicklung an und wie man sie mit Kotlin elegant lösen kann. Die wichtigsten Kotlin-Konstrukte werden anhand von Java-Äquivalenten erklärt. Und um noch näher dran zu sein, zeigt Volkmar ein paar Kotlin-Zeilen in einem Live Coding.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Wolfram Rittmeyer</speaker>
+        <title>KKON 2020</title>
+        <subject>Einführung in Kotlins Koroutinen</subject>
+        <url>https://rheinwerk-kkon.de/programm/rittmeyer-einfuerhung-in-kotlins-koroutinen/</url>
+        <description>
+            <![CDATA[
+<p>Mit Kotlins Koroutinen wurde das Entwickeln asynchroner Programme in Kotlin stark vereinfacht. In seinem Talk zeigt Wolfram Rittmeyer, wie Koroutinen funktionieren und veranschaulicht wichtige Konzepte wie CoroutineContext, CoroutineScope, Cancellation und Exception Handling. Auch das von Jetbrains hochgehaltene Konzept der Structured Concurrency wird behandelt.</p>
+<p>Am Ende des Vortrags kennen Sie die Vorzüge (und auch die Nachteile) von Koroutinen im Vergleich zu herkömmlichen Konzepten und können Koroutinen direkt in Ihren Kotlin-Projekten einsetzen.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Werner Eberling</speaker>
+        <title>KKON 2020</title>
+        <subject>Contract Based Testing mit Kotlin</subject>
+        <url>https://rheinwerk-kkon.de/programm/vortrag-werner-eberling-contract-based-testing-mit-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Contract Based Testing mal etwas anders – mit Consumer Driven Contracts (CDC) wird die Herangehensweise der API-Definition umgedreht und auf das Wesentliche reduziert. Nicht der Dienstanbieter sagt, was er alles kann. Jeder Client definiert, was er braucht! Eine Möglichkeit dafür ist die Beschreibung der gewünschten Interaktionen und das Testen derselben mittels PACT. Werner Eberling zeigt Ihnen anhand live vorgeführter Beispiele, welche Idee hinter CDC steckt. Sie erfahren, wie PACT-Erzeugung und -Verifikation mit Kotlin von statten gehen, welche Vorteile dieser Ansatz hat und was ihn von einer reinen Schnittstellendokumentation à la Swagger unterscheidet.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Philipp Hauer</speaker>
+        <title>KKON 2020</title>
+        <subject>Best Practices für Unit Testing mit Kotlin</subject>
+        <url>https://rheinwerk-kkon.de/programm/hauer-best-prectices-fuer-unit-testing-mit-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Unit Testing in Kotlin macht Spaß und ist gleichzeitig knifflig. Wir können stark von Kotlins mächtigen Sprachfeatures profitieren und damit lesbare und kompakte Unit Tests schreiben. Aber um überhaupt idiomatischen Kotlin-Testcode zu schreiben, benötigen wir ein bestimmtes Test-Setup.</p>
+<p>Dieser Vortrag behandelt das nötige Wissen um Test Lifecycles, die Handhabung von Test Fixtures, die Herausforderungen beim Mocken, gute Assertion Libraries und die Mächtigkeit von Hilfsfunktionen und Data Classes. Anhand von Anekdoten aus der Praxis präsentiert Philipp Best Practices, mit denen wir Testcode schreiben, der idiomatisch, lesbar und kompakt ist und dabei sinnvolle Fehlermeldungen ausgibt.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Márton Braun</speaker>
+        <title>KKON 2020</title>
+        <subject>Decompiling</subject>
+        <url>https://rheinwerk-kkon.de/programm/braun-decompiling/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin has many features that are leaps and bounds ahead of Java. However, its primary target platform being the JVM, all of these features still need to compile to the same bytecode as Java does. This is a look at how a variety of interesting Kotlin features are compiled to bytecode, and what their Java equivalents would be. Even though Kotlin abstracts away much of the virtual machine and the original feature set of Java with its own features, it’s still important to know what your Kotlin code compiles to. Not only can this knowledge give you the power to optimize your code, but it will also help you avoid subtle bugs that would otherwise be near impossible to track down.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Daniel Bälz</speaker>
+        <title>KKON 2020</title>
+        <subject>Bessere Build-Skripte mit der Gradle Kotlin DSL</subject>
+        <url>https://rheinwerk-kkon.de/programm/baelz-bessere-build-skripte-mit-der-gradle-kotlin-dsl/</url>
+        <description>
+            <![CDATA[
+<p>Sollte das Bearbeiten eines Gradle-Build-Skript nicht genauso viel Spaß machen wie die Entwicklung der App? Warum sollte ich mich mit Groovy beschäftigen, wenn ich mit Kotlin viel mehr Spaß habe? Mein Rat: Nutze einfach die Gradle Kotlin DSL!</p>
+<p>Dieser Vortrag gibt einen Überblick über Gradle-Build-Skripte mit Groovy und der Kotlin DSL. Darüber hinaus zeigt er Schritt für Schritt die Migration eines bestehenden Android-Projekts von Groovy nach Kotlin. In dieser Migration werden wir uns die Vor- und Nachteile der Kotlin DSL genauer ansehen und die Eignung für reale Projekte diskutieren.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Thomas Haug</speaker>
+        <title>KKON 2020</title>
+        <subject>Graphdatenbanken mit Kotlin</subject>
+        <url>https://rheinwerk-kkon.de/programm/haug-graphdatenbanken-mit-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Spielen die Beziehungen zwischen Entitäten eine große Rolle, eignen sich zur Speicherung nicht immer klassische (= relationale) Datenbanken. Hier kommen Graphdatenbanken ins Spiel. Typische Anwendungsbeispiele sind etwa die Darstellung von Beziehungen in sozialen Netzwerken oder die Analyse von IT-Netzwerken. In diesem Vortrag werden die Zugriffsmöglichkeiten von Kotlin auf unterschiedliche Graphdatenbanken (z. B. von JanusGraph, OrientDB, Cosmos DB und Neo4j) praktisch vorgestellt.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Alexander von Below, Michal Harakal</speaker>
+        <title>KKON 2020</title>
+        <subject>Kotlin Multiplatform: von allen Seiten betrachtet</subject>
+        <url>https://rheinwerk-kkon.de/programm/harakal-von-below-kotlin-multiplatform/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform erlaubt es, Kotlin auch für Systeme wie iOS zu nutzen. Auch wenn das Projekt zuletzt etwas unter dem Radar lief, hat es große Fortschritte gemacht. Dieser Talk gibt einen Überblick über den Stand der Cross-Plattform: Welche Vorteile und möglichen Einsatzgebiete gibt es? Welche Herausforderungen und Defizite stehen noch im Raum? Alexander und Michal beleuchten in diesem Vortrag neben der Android-Seite insbesondere die Frage, wie Kotlin im Ökosystem von Apple funktioniert.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>André Diermann</speaker>
+        <title>KKON 2020</title>
+        <subject>Kotlin erfolgreich in Projekten, Teams und Organisationen einführen</subject>
+        <url>https://rheinwerk-kkon.de/programm/vortrag-andre-diermann-kotlin-erfolgreich-in-projekten-teams-und-organisationen-einfuhren/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin ist eine moderne Programmiersprache, die unter Entwicklern immer beliebter wird – vor allem dank der zahlreichen smarten Sprach-Features, mit denen auch komplexe Sachverhalte sehr leichtgewichtig umgesetzt werden können. Warum also nicht gleich morgen mit der Entwicklung in Kotlin beginnen? Tatsächlich gibt es in der Praxis einige Fallstricke und Hürden zu meistern, damit eine erfolgreiche Einführung von Kotlin in Ihrem Projekt, Ihrem Team oder sogar Ihrer Organisation gelingt. In diesem diskursorientierten Vortrag stellt Ihnen André Diermann einige Transitions- bzw. Migrationsstrategien vor, damit auch Ihr Wechsel zu Kotlin von Anfang an einer voller Erfolg wird. Individuelle Fragen, persönliche Erfahrungsberichte und offene Diskussionen sind dabei sehr willkommen!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Amanda Hinchman-Dominguez</speaker>
+        <title>KKON 2020</title>
+        <subject>Exploring Neural Networking with Kotlin Metaprogramming: A Cheaper Alternative for Deep Learning?</subject>
+        <url>https://rheinwerk-kkon.de/programm/hinchman-dominguez-exploring-neural-networking-with-kotlin-metaprogramming/</url>
+        <description>
+            <![CDATA[
+<p>The talk highlights TornadoFX-Suite, which is a program that analyzes other TornadoFX projects and generates simple UI tests. In order to create smarter testing, we take a look at an new theory coming out of this project – how metaprogramming creates neural networking in comparison to neural networking in AI, and how neural networking in metaprogramming may provide a lot less processing power and more interesting results.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Simon Wirtz</speaker>
+        <title>KKON 2020</title>
+        <subject>(Server as a Function) -> as a Service</subject>
+        <url>https://rheinwerk-kkon.de/programm/wirtz-server-as-a-function-as-a-service/</url>
+        <description>
+            <![CDATA[
+<p>In diesem Vortrag lernen Sie mit „Server as a Function“ sowie „Function as a Service“ (FaaS) gleich zwei interessante Konzepte kennen und finden heraus, wie beides miteinander kombiniert werden kann. Wir wollen uns das http4k Toolkit ansehen Möglichkeiten kennenlernen, funktionale HTTP-Services mit Kotlin umzusetzen. In einem nächsten Schritt schauen wir uns an, wie http4k-Anwendungen in einer FaaS-Umgebung eingesetzt werden können. Wir nutzen dazu OpenFaaS, ein Open-Source Serverless-Framework welches auf Kubernetes betrieben wird. Das Ziel wird sein, http4k-Anwendungen als FaaS auf dieser Plattform einzusetzen. Abschließend wird gezeigt, wie die vorgestellten Technologien im Unternehmen des Referenten eingesetzt werden und wie sie genutzt werden, um eine Integrationsplattform für ein SaaS-Produkt zu schaffen.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Stefan Scheidt</speaker>
+        <title>KKON 2020</title>
+        <subject>Frühling schreibt man mit K – Spring Boot mit Kotlin</subject>
+        <url>https://rheinwerk-kkon.de/programm/scheidt-fruehling-schreibt-man-mit-k-spring-boot-mit-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Backend-Services für die JVM mit Spring Boot zu entwickeln fühlt sich an wie die erste warme Brise im Frühling nach einem kalten Winter. Dabei Java zu benutzen, erinnert einen aber trotz neuer Sprach-Features aus Java 11 an Schneeschippen mit Handschuhen und Mütze. Zum Glück geht es besser: mit Kotlin, einer prägnanten, sicheren, interoperablen Programmiersprache (nicht nur) für die JVM und mit hervorragendem Tool-Support. Der Talk stellt kurz die wesentlichen Stärken von Kotlin vor und zeigt dann im Live Coding, wie man mit Kotlin einen Spring Boot Microservice entwickelt. Zum Abschluss des Vortrags gibt es einen Erfahrungsbericht aus dem Einsatz in der Entwicklung einer Fulfillment-Plattform für REWE digital. Danach kann der Sommer kommen!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Jan Hauer</speaker>
+        <title>KKON 2020</title>
+        <subject>Functional-Centered Design</subject>
+        <url>https://rheinwerk-kkon.de/programm/hauer-functional-centered-design/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin und Arrow, eine Kombination zum Schweben auf der Cloud. Anstatt uns durch den objektorientierten Dschungel von Schichten und Klassen zu kämpfen, können wir die Ausdrucksstärke des funktionalen Programmierens nutzen. Über dem Wirrwarr sind wir endlich frei, uns auf die Business-Logik zu konzentrieren. Wir erhalten kurzen und eleganten Code, der besser zu testen und verständlicher ist. Als Bonus ist die Verwendung von reactive-Techniken und Parallelisierung praktisch geschenkt. In dem Vortrag werden wir auch noch einmal das funktionale Paradigma betrachten. Anschließend steigen Sie im Live Coding voll in den funktionalen Entwurf ein und entwickeln eine kleine Spring-Boot-App. Natürlich funktional!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Thomas Künneth</speaker>
+        <title>KKON 2020</title>
+        <subject>Wie man mit Kotlin native Apps für Android und iOS baut</subject>
+        <url>https://rheinwerk-kkon.de/programm/kuenneth-wie-man-mit-kotlin-native-apps-baut/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin hat Java unter Android als bevorzugte Sprache abgelöst. Auch im klassischen Backend gewinnt die moderne, funktionale Programmiersprache immer mehr Freunde. Besonders interessant ist aber, dass Kotlin auch für den Bau nativer iOS-Apps verwendet werden kann. Wie das funktioniert, wird in diesem Vortrag auf entwicklerfreundliche Weise dargestellt. Sie erfahren, was genau Kotlin/Native eigentlich ist, worauf man bei der Benutzung achten sollte, was schon gut klappt und was (noch) nicht. Anhand einer kleinen, aber vollständigen App werden wichtige Vorgehensweisen und Konzepte vorgestellt.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Michal Harakal</speaker>
+        <title>KKON 2020</title>
+        <subject>Kotlin Compiler Plugins: Keine Scheu vor Experimenten!</subject>
+        <url>https://rheinwerk-kkon.de/programm/michal-harakal-kotlin-compiler-plugins-keine-scheu-vor-experimenten/</url>
+        <description>
+            <![CDATA[
+<p>Mit Jetpack Compose, dem Toolkit zur Entwicklung deklarativer Android-Oberflächen, hat Google gezeigt: Das Kotlin Compiler Plugin ermöglicht mächtige Spracherweiterungen und Konzepte auch ohne Änderungen in Kotlin selbst. Michal Harakals Vortrag zeigt Ihnen die Struktur des Kotlin-Compilers und stellt Ihnen die verschiedenen Kompilierungsphasen sowie Googles Bibliothek „Kotlin Symbol Processing“ vor. Wichtige Vorgehensweisen und Konzepte werden im Vortrag direkt live am Code-Beispiel illustriert. Nach dem Vortrag wissen Sie, wie Sie ein eigenes Kotlin Compiler Plugin entwickeln.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Annyce Davis</speaker>
+        <title>KKON 2020</title>
+        <subject>Serverless Development in Kotlin</subject>
+        <url>https://rheinwerk-kkon.de/programm/davis-simply-serverless/</url>
+        <description>
+            <![CDATA[
+<p>Is your team using lambdas? Do you hear your backend developers talking about serverless applications? Curious to learn more? If so, this talk is for you. Effective serverless architectures require less backend code, less complexity, less risk, and less tech debt. But how is that possible? This talk aims to answer that question for you.</p>
+<p>Serverless application design is becoming more and more prevalent. Now is the time to understand this powerful shift in backend development, simply.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Frank Scheffler</speaker>
+        <title>KKON 2020</title>
+        <subject>Sprache als Werkzeug: DSLs mit Kotlin</subject>
+        <url>https://rheinwerk-kkon.de/programm/scheffler-sprache-als-werkzeug-dsls-mit-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Domain Specific Languages eignen sich seit jeher, komplexe Codestrukturen besser lesbar auszudrücken. Dabei unterstützen sie die Vermeidung redundanten Codes und reduzieren den Blick auf die wesentlichen Aspekte der Domäne. Der Vorteil interner DSLs gegenüber externen ist, dass sie sich direkt in einer Host-Programmiersprache entwickeln lassen. Kotlin bietet dafür mit seinen kompakten Sprachmitteln eine ideale Basis. Dieser Vortrag zeigt anhand konkreter Codebeispiele die Grundlagen zur Erstellung eigener DSLs mit Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Ralf Stuckert</speaker>
+        <title>KKON 2020</title>
+        <subject>Koroutinen-Testing</subject>
+        <url>https://rheinwerk-kkon.de/programm/stuckert-testen-von-kotlin-koroutinen/</url>
+        <description>
+            <![CDATA[
+<p>Mit Koroutinen lässt sich Nebenläufigkeit in Kotlin einfach und gut strukturiert abbilden. Nebenläufigen Code zu Testen ist jedoch nicht ganz einfach, und basiert oft auf Überwachung mit Timeouts. Das Coroutine Testing Package macht das Testen von Koroutinen leichter. Über Test-Dispatcher und -Scopes ermöglicht es Kontrolle über die Ausführung von Koroutinen, die dediziert angehalten und weiter ausgeführt werden können. Zeitliche Abläufe können ohne unnötiges Warten kontrolliert werden. Dieser Vortrag gibt einen Einblick in die Möglichkeiten des Coroutine Testing Package.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-09-24</startDate>
+        <endDate>2020-09-24</endDate>
+        <location>México City, Mexico</location>
+        <speaker>Bedu</speaker>
+        <title>Academia de tecnología y programación México (BEDU)</title>
+        <subject>Kotlin: El futuro del desarrollo móvil/Sesiones en vivo.</subject>
+        <url>https://www.meetup.com/DevelopersAcademy/events/272662905/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin es considerado por Google como uno de los lenguajes oficiales para desarrollar en Android, es muy fácil de aprender y tiene alta demanda en el mercado además según los últimos datos facilitados por Google en el mundo hay 2.500 millones de dispositivos activos de Android.</p>
+<p>Estas son algunas de las ventajas que tenemos al usar Kotlin para desarrollar aplicaciones móviles:</p>
+<p>-Reduce las líneas de código necesarias para crear una app.</p>
+<p>-Los valores por defecto no aceptan valores nulos.</p>
+<p>-Todas las librerías y frameworks de Java son compatibles.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-26</startDate>
+        <endDate>2020-09-26</endDate>
+        <location>Mumbai, India</location>
+        <speaker>Carlos Mota</speaker>
+        <title>Kotlin Mumbai</title>
+        <subject>Scoping Scoped Storage</subject>
+        <url>https://www.meetup.com/Kotlin-Mumbai/events/273000330/</url>
+        <description>
+            <![CDATA[
+<p>This is still a sensitive subject to most of us due to the impact it had on most apps, but the most needed one! Scoped storage is one of the most important security features that has been released that empowers the user to have the final word when an app is accessing external files.
+In this talk, he is also going to share the dos and don’ts about these developments and how everything will get better at the end</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-26</startDate>
+        <endDate>2020-09-26</endDate>
+        <location>Mumbai, India</location>
+        <speaker>Wajahat Karim</speaker>
+        <title>Kotlin Mumbai</title>
+        <subject>Compose ❤️ Dino: Building Chrome's T-Rex Game in Jetpack Compose</subject>
+        <url>https://www.meetup.com/Kotlin-Mumbai/events/273000330/</url>
+        <description>
+            <![CDATA[
+<p>Although Jetpack Compose is a toolkit to create Android UI in a declarative form with the power of Kotlin language. But it can be used as a canvas for generative art, animations, or even games.</p>
+<p>In this session, we'll take a look at the capabilities of Canvas API for Jetpack Compose and how can we implement Chrome's T-Rex Dino game. We'll discuss some challenges such as game loop, game state management, infinite parallax scrolling etc.
+By the end of this talk, you'll be more familiar with the concepts of Canvas in Jetpack Compose and how you can use it for games.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-26</startDate>
+        <endDate>2020-09-26</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Nikhil Nanivadekar</speaker>
+        <title>Kotlin Hyderabad</title>
+        <subject>Do It Yourself: Collections</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/272697889/</url>
+        <description>
+            <![CDATA[
+<p>Collections are among the basic building blocks for writing code. Frequently used collections such as List, Set, and Map are designed to serve a basic fundamental purpose, but sometimes these collections are not enough and developers will extend them to add new functionality. In this session, Nikhil will extend the Map data structure to create two new collections called as a bag (MultiSet) and a multimap (MultiValuedMap). But does just extending a collection mean that the job is considered complete? Often it is not enough. Nikhil will explain the audience the basics of creating a new collection, adding new APIs, the salient aspects of the new collection, and the various knobs and controls required in order to make it safe and usable. This talk is 100% hands-on demo with no slides and using TDD approach. All the implementations done using only the JDK data structures and no external libraries. After this talk the audience will understand the thought process which needs to be put in while extending and creating new data structures, the helpful API which needs to be added and the safe guards which need to be put in place to help the users.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-09-24</startDate>
+        <endDate>2020-09-24</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Dmitry Kandalov</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>[Virtual] Live coding server as a function with http4k</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrybcmbwb/</url>
+        <description>
+            <![CDATA[
+<p>Http4k is a lightweight HTTP library written in Kotlin that enables serving and consuming of HTTP services in a functional and testable way. Unlike many other libraries and frameworks which have complicated abstractions and workflows, http4k captures the essence of communication over HTTP with few simple concepts. In this session, I will explain and demo the core concepts in http4k by live coding from scratch HTTP server for noughts and crosses game.</p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>pt</lang>
         <startDate>2020-08-27</startDate>
@@ -76,7 +489,7 @@
         <lang>en</lang>
         <startDate>2020-09-09</startDate>
         <endDate>2020-09-09</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Gopal S Akshintala</speaker>
         <title>Kotlin London</title>
         <subject>Fight Complexity with Functional Programming</subject>
@@ -92,7 +505,7 @@
         <lang>en</lang>
         <startDate>2020-09-09</startDate>
         <endDate>2020-09-09</endDate>
-        <location>London, United Kingdom</location>
+        <location>London, UK</location>
         <speaker>Pablo Gonzales Alonso</speaker>
         <title>Kotlin London</title>
         <subject>What can autoModule do for you?</subject>
@@ -124,7 +537,7 @@
         <lang>en</lang>
         <startDate>2020-09-17</startDate>
         <endDate>2020-09-17</endDate>
-        <location>Irvine, CA, USA</location>
+        <location>Irvine, USA</location>
         <speaker>Ryan Simon</speaker>
         <title>OC Kotlin Krew</title>
         <subject>The Journey of a Kotlin Backend - Scale to the Millions</subject>
