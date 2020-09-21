@@ -49,7 +49,7 @@ their API can be changed without notice.
 
 There are also community-maintained libraries that support more serialization formats, such as [YAML](https://yaml.org/)
 or [Apache Avro](https://avro.apache.org/). For detailed information about available serialization formats, see the 
-[`kotlinx.serialization` documentation](https://github.com/Kotlin/kotlinx.serialization/formats.md).
+[`kotlinx.serialization` documentation](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md).
 
 ## Example: JSON serialization
    
