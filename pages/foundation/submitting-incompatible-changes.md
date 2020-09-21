@@ -7,7 +7,7 @@ title: "Guide to Submitting Incompatible Changes"
 
 # Guide to Submitting Incompatible Changes
 
-A proposal is usually written by a developer responsible for the change or the relevant subsystems. It has to be described in the [issue tracker](https://youtrack.jetbrains.net/issues/KT?q=%23for-language-committee%20%23Unresolved%20tag:%20-language-committee-approved) and marked with the "for-language-committee" tag. To provide all the necessary details, issue in the tracker should follow the template below.
+A proposal is usually written by a developer responsible for the change or the relevant subsystems. It has to be described in the [issue tracker](https://youtrack.jetbrains.com/issues/KT?q=%23for-language-committee%20%23Unresolved%20tag:%20-language-committee-approved) and marked with the "for-language-committee" tag. To provide all the necessary details, issue in the tracker should follow the template below.
 
 # Issue template
 
