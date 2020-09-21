@@ -11,13 +11,61 @@ Reflection is a set of language and library features that allows for introspecti
 Kotlin makes functions and properties first-class citizens in the language, and introspecting them (i.e. learning a name or 
 a type of a property or function at runtime) is closely intertwined with simply using a functional or reactive style.
 
-> On the Java platform, the runtime component required for using the reflection features is distributed as a separate
-JAR file (`kotlin-reflect.jar`). This is done to reduce the required size of the runtime library for applications
-that do not use reflection features. If you do use reflection, please make sure that the .jar file is added to the
-classpath of your project.
+> On the JavaScript platform, only class references are currently supported. [Learn more about reflection in Kotlin/JS](js-reflection.html).
 {:.note}
 
-## Class References
+## JVM dependency
+
+On the JVM platform, the runtime component required for using the reflection features is distributed as a separate
+artifact `kotlin-reflect.jar` in the Kotlin compiler distribution. This is done to reduce the required size of the runtime
+library for applications that do not use reflection features.
+
+To use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
+* In Gradle:
+  <div class="multi-language-sample" data-lang="groovy">
+  <div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
+  
+  ```groovy
+  dependencies {
+      implementation "org.jetbrains.kotlin:kotlin-reflect:{{ site.data.releases.latest.version }}"
+  }
+  ```
+  
+  </div>
+  </div>
+   
+  <div class="multi-language-sample" data-lang="kotlin">
+  <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+  
+  ```kotlin
+  dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-reflect:{{ site.data.releases.latest.version }}")
+  }
+  ```
+  
+  </div>
+  </div>
+  
+  * In Maven:
+
+  <div class="sample" markdown="1" mode="xml" auto-indent="false" theme="idea" data-highlight-only>
+    
+  ```xml
+  <dependencies>
+      <dependency>
+          <groupId>org.jetbrains.kotlin</groupId>
+          <artifactId>kotlin-reflect</artifactId>
+      </dependency>
+  </dependencies>
+  ```
+  </div>
+
+If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project.
+In other supported cases (IntelliJ IDEA projects, using command-line compiler or Ant),
+it is added by default. In command-line compiler and Ant, you can use `-no-reflect` compiler option to exclude
+`kotlin-reflect.jar` from the classpath. 
+
+## Class references
 
 The most basic reflection feature is getting the runtime reference to a Kotlin class. To obtain the reference to a
 statically known Kotlin class, you can use the _class literal_ syntax:
@@ -33,7 +81,7 @@ The reference is a value of type [KClass](/api/latest/jvm/stdlib/kotlin.reflect/
 Note that a Kotlin class reference is not the same as a Java class reference. To obtain a Java class reference,
 use the `.java` property on a `KClass` instance.
 
-## Bound Class References (since 1.1)
+## Bound class references (since 1.1)
 
 You can get the reference to a class of a specific object with the same `::class` syntax by using the object as a receiver:
 
@@ -54,11 +102,12 @@ also be called or used as instances of [function types](lambdas.html#function-ty
 The common supertype for all callable references is [`KCallable<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-callable/index.html), 
 where `R` is the return value type, which is the property type for properties, and the constructed type for constructors. 
 
-### Function References
+### Function references
 
 When we have a named function declared like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 fun isOdd(x: Int) = x % 2 != 0
 ```
@@ -68,6 +117,7 @@ We can easily call it directly (`isOdd(5)`), but we can also use it as a functio
 to another function. To do this, we use the `::` operator:
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 fun isOdd(x: Int) = x % 2 != 0
 
@@ -89,6 +139,7 @@ subtypes, depending on the parameter count, e.g. `KFunction3<T1, T2, T3, R>`.
 For example:
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 fun main() {
 //sampleStart
@@ -117,12 +168,13 @@ have no receiver (it will have an additional parameter accepting a receiver obje
 with receiver instead, specify the type explicitly:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val isEmptyStringList: List<String>.() -> Boolean = List<String>::isEmpty 
 ```
 </div>
 
-### Example: Function Composition
+### Example: function composition
 
 Consider the following function:
 
@@ -138,6 +190,7 @@ It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))
 Now, you can apply it to callable references:
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
     return { x -> f(g(x)) }
@@ -158,11 +211,12 @@ fun main() {
 ```
 </div>
 
-### Property References
+### Property references
 
 To access properties as first-class objects in Kotlin, we can also use the `::` operator:
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 val x = 1
 
@@ -181,6 +235,7 @@ For a mutable property, e.g. `var y = 1`, `::y` returns a value of type [`KMutab
 which has a `set()` method:
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 var y = 1
 
@@ -194,6 +249,7 @@ fun main() {
 A property reference can be used where a function with a single generic parameter is expected:
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 fun main() {
 //sampleStart
@@ -221,6 +277,7 @@ fun main() {
 For an extension property:
 
 <div class="sample" markdown="1" theme="idea" auto-indent="false">
+
 ```kotlin
 val String.lastChar: Char
     get() = this[length - 1]
@@ -231,13 +288,14 @@ fun main() {
 ```
 </div>
 
-### Interoperability With Java Reflection
+### Interoperability with Java reflection
 
-On the Java platform, standard library contains extensions for reflection classes that provide a mapping to and from Java
+On the JVM platform, standard library contains extensions for reflection classes that provide a mapping to and from Java
   reflection objects (see package `kotlin.reflect.jvm`).
 For example, to find a backing field or a Java method that serves as a getter for a Kotlin property, you can say something like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 import kotlin.reflect.jvm.*
  
@@ -258,7 +316,7 @@ fun getKClass(o: Any): KClass<Any> = o.javaClass.kotlin
 ```
 </div>
 
-### Constructor References
+### Constructor references
 
 Constructors can be referenced just like methods and properties. They can be used wherever an object of function type 
 is expected that takes the same parameters as the constructor and returns an object of the appropriate type. 
@@ -266,6 +324,7 @@ Constructors are referenced by using the `::` operator and adding the class name
 that expects a function parameter with no parameters and return type `Foo`:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 class Foo
 
@@ -278,6 +337,7 @@ fun function(factory: () -> Foo) {
 Using `::Foo`, the zero-argument constructor of the class Foo, we can simply call it like this:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 function(::Foo)
 ```
@@ -287,11 +347,12 @@ Callable references to constructors are typed as one of the
 [`KFunction<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-function/index.html) subtypes
 , depending on the parameter count.
 
-## Bound Function and Property References (since 1.1)
+## Bound function and property references (since 1.1)
 
 You can refer to an instance method of a particular object:
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 fun main() {
 //sampleStart
@@ -310,6 +371,7 @@ Such reference is bound to its receiver.
 It can be called directly (like in the example above) or used whenever an expression of function type is expected:
 
 <div class="sample" markdown="1" theme="idea">
+
 ```kotlin
 fun main() {
 //sampleStart
@@ -325,6 +387,7 @@ Compare the types of bound and the corresponding unbound references.
 Bound callable reference has its receiver "attached" to it, so the type of the receiver is no longer a parameter:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 val isNumber: (CharSequence) -> Boolean = numberRegex::matches
 
