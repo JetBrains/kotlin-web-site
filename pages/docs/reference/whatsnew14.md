@@ -1667,8 +1667,8 @@ coroutines APIs. We've published it to Maven, and we include it in the Kotlin di
 
 ## Stable JSON serialization
 
-With Kotlin 1.4.0, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
-- 1.0.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
+With Kotlin 1.4.0, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) -
+1.0.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
 stable. Libraries for other serialization formats remain experimental, along with some advanced parts of the core library.
 
 We have significantly reworked the API for JSON serialization to make it more consistent and easier to use. From now on,
