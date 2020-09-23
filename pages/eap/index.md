@@ -8,7 +8,7 @@ main_nav_id: eap
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
-We ship a few Milestone (M) builds before every incemental release (_1.x.y_). 
+We ship a few Milestone (M) builds before every feature (_1.x_) and incremental (_1.x.y_) release. 
 
 We’ll be very thankful if you find and report bugs to our issue tracker [YouTrack](https://kotl.in/issue). 
 It is very likely that we’ll be able to fix them before the final release, which means you won’t need to wait until the next Kotlin release for your issues to be addressed. 
@@ -39,7 +39,7 @@ check [our instructions on how to configure your build to support this version](
     </tr>
     <tr>
         <td><strong>1.4.20-M1</strong>
-            <p> Released: <strong>September 21, 2020</strong></p>
+            <p> Released: <strong>September 23, 2020</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.20-M1">Release on GitHub</a></p>
         </td>
         <td>
