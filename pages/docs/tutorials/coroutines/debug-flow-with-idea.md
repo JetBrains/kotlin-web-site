@@ -10,12 +10,12 @@ showAuthorInfo: false
 
 The tutorial assumes you have prior knowledge of the [coroutines](https://kotlinlang.org/docs/reference/coroutines/coroutines-guide.html) and [Kotlin Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html#flows) concepts.
 
-> Debugging works for versions 1.3.8 or later of `kotlinx-coroutines-core`.
+> Debugging works for `kotlinx-coroutines-core` version 1.3.8 or later.
 {:.note}
 
-## Create Kotlin Flow
+## Create a Kotlin flow
 
-Create Kotlin [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/flow.html) with both slow emitter and collector:
+Create a Kotlin [flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/flow.html) with a slow emitter and a slow collector:
 
 1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project, [create one](/docs/tutorials/jvm-get-started.html#create-an-application).
 
@@ -25,7 +25,7 @@ Create Kotlin [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corouti
 
 2. Create the `simple()` function that returns a flow of three numbers:
    
-   * Use the [`delay()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html) function to imitate the CPU-consuming blocking code. It suspends the coroutine for 100 ms without blocking a thread.
+   * Use the [`delay()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html) function to imitate CPU-consuming blocking code. It suspends the coroutine for 100 ms without blocking the thread.
    * Produce the values in the `for` loop using the [`emit()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/emit.html) function.
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
@@ -45,11 +45,11 @@ Create Kotlin [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corouti
 
    </div>
 
-3. Change code the `main()` function:
+3. Change the code in the `main()` function:
 
    * Use the [`runBlocking()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/run-blocking.html) block to wrap a coroutine.
    * Collect the emitted values using the [`collect()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/collect.html) function.
-   * Use the [`delay()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html) function to imitate the CPU-consuming code. It suspends the coroutine for 300 ms without blocking a thread.
+   * Use the [`delay()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html) function to imitate CPU-consuming code. It suspends the coroutine for 300 ms without blocking the thread.
    * Print the collected value from the flow using the [`println()`](/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
@@ -72,22 +72,22 @@ Create Kotlin [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corouti
 
 ## Debug the coroutine
 
-1. Set a breakpoint at the line with the `emit()` function call:
+1. Set a breakpoint at the at the line where the `emit()` function is called:
 
    ![Build a console application]({{ url_for('tutorial_img', filename='coroutines-basic-jvm/flow-breakpoint.png') }})
 
-2. Run code in debug mode by clicking **Debug** next to the run configuration at the top of the screen.
+2. Run the code in debug mode by clicking **Debug** next to the run configuration at the top of the screen.
 
    ![Build a console application]({{ url_for('tutorial_img', filename='coroutines-basic-jvm/flow-debug-project.png') }})
 
    The **Debug** tool window appears: 
-      * The **Frames** tab contains the call stacks.
-      * The **Variables** tab contains variables in the current context. It shows the information that the flow emits the first value.
-      * The **Coroutines** tab contains the information on running or suspended coroutines.
+      * The **Frames** tab contains the call stack.
+      * The **Variables** tab contains variables in the current context. It tells us that the flow is emitting the first value.
+      * The **Coroutines** tab contains information on running or suspended coroutines.
 
    ![Debug the coroutine]({{ url_for('tutorial_img', filename='coroutines-basic-jvm/flow-debug-1.png') }})
 
-3. Resume a debugger session by clicking **Resume program** of the **Debug** tool window. The program stops at the same breakpoint.
+3. Resume the debugger session by clicking **Resume program** in the **Debug** tool window. The program stops at the same breakpoint.
 
    ![Debug the coroutine]({{ url_for('tutorial_img', filename='coroutines-basic-jvm/flow-resume-debug.png') }})
 
@@ -99,9 +99,9 @@ Create Kotlin [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corouti
 
 1. Open the `main.kt` file in `src/main/kotlin`.
 
-2. Enhance the code to run emitter and collector concurrently:
+2. Enhance the code to run the emitter and collector concurrently:
 
-   * Add the [`buffer()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/buffer.html) function call to run emitter and collector concurrently. Buffer stores emitted values and runs the flow collector in a separate coroutine. 
+   * Add a call to the [`buffer()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/buffer.html) function to run the emitter and collector concurrently. `buffer()` stores emitted values and runs the flow collector in a separate coroutine. 
    
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -120,23 +120,23 @@ Create Kotlin [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corouti
 
 4. Build the code by clicking **Build Project**.
 
-### Debug Kotlin Flow with two coroutines
+### Debug a Kotlin flow with two coroutines
 
-1. Set a new breakpoint at the line where the code prints value `println(value)`.
+1. Set a new breakpoint at `println(value)`.
 
-2. Run code in debug mode by clicking **Debug** next to the run configuration at the top of the screen.
+2. Run the code in debug mode by clicking **Debug** next to the run configuration at the top of the screen.
 
    ![Build a console application]({{ url_for('tutorial_img', filename='coroutines-basic-jvm/flow-debug-3.png') }})
 
    The **Debug** tool window appears.
 
    In the **Coroutines** tab, you can see that there are two coroutines running concurrently. The flow collector and emitter run in separate coroutines because of the `buffer()` function.
-   It buffers emitted values from the flow.
+   The `buffer()` function buffers emitted values from the flow.
    The emitter coroutine has the **RUNNING** status, and the collector coroutine has the **SUSPENDED** status.
 
-2. Resume a debugger session by clicking **Resume program** of the **Debug** tool window.
+2. Resume the debugger session by clicking **Resume program** in the **Debug** tool window.
 
    ![Debugging coroutines]({{ url_for('tutorial_img', filename='coroutines-basic-jvm/flow-debug-4.png') }})
 
    Now the collector coroutine has the **RUNNING** status, while the emitter coroutine has the **SUSPENDED** status.
-   You can dig deep into each coroutine to debug your code.
+   You can dig deeper into each coroutine to debug your code.
