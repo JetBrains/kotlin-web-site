@@ -178,23 +178,6 @@ Kotlin metadata hiding inside your apps. We'll show how to optimize and obfuscat
         <startDate>2020-10-09</startDate>
         <endDate>2020-10-09</endDate>
         <location>Berlin, Germany</location>
-        <speaker>Ivan Kinash</speaker>
-        <title>.droidcon EMEA</title>
-        <subject>Kotlin Metadata and Beyond</subject>
-        <url>https://www.online.droidcon.com/emea-agenda</url>
-        <description>
-            <![CDATA[
-<p>Kotlin compiler uses a few different ways to store metadata for reflection - as well as other modern features of the language.</p>
-<p>In this session, we'll discuss the design of this mechanism from the inside out. And we'll explain why it's so important to keep the metadata secure.</p>
-]]>
-        </description>
-    </event>
-
-    <event>
-        <lang>en</lang>
-        <startDate>2020-10-09</startDate>
-        <endDate>2020-10-09</endDate>
-        <location>Berlin, Germany</location>
         <speaker>Lukas Lechner</speaker>
         <title>.droidcon EMEA</title>
         <subject>Why Exception Handling with Kotlin Coroutines is hard and how to master it</subject>
