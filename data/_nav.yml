@@ -462,6 +462,10 @@ tutorials:
           title: Intro to Kotlin Coroutines on the JVM
         - url: /docs/tutorials/coroutines/intro-to-coroutines-and-channels.html
           title: Intro to Coroutines and Channels
+        - url: /docs/tutorials/coroutines/debug-coroutines-with-idea.html
+          title: Debug coroutines using IntelliJ IDEA
+        - url: /docs/tutorials/coroutines/debug-flow-with-idea.html
+          title: Debug Kotlin Flow using IntelliJ IDEA
 
     - title: Web Development
       content:
