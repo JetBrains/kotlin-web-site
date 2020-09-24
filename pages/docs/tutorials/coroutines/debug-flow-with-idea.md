@@ -120,7 +120,7 @@ Create a Kotlin [flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corou
 
 4. Build the code by clicking **Build Project**.
 
-### Debug a Kotlin flow with two coroutines
+## Debug a Kotlin flow with two coroutines
 
 1. Set a new breakpoint at `println(value)`.
 
