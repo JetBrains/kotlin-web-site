@@ -1,5 +1,117 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+        <event>
+        <lang>en</lang>
+        <startDate>2020-09-29</startDate>
+        <endDate>2020-09-29</endDate>
+        <location>Thessaloniki, Greece</location>
+        <speaker>Antonis Lillis</speaker>
+        <title>Thessaloniki not-only Java Meetup Group</title>
+        <subject>Kotlin for Java developers</subject>
+        <url>https://www.meetup.com/Thessaloniki-Not-Only-Java/events/273318322/</url>
+        <description>
+            <![CDATA[
+<p>Do you like Java but wish you didn’t have to write so much boilerplate code? Kotlin aims to address many of the pitfalls that are common with Java development, while making your code more concise, safe, and expressive. It is also 100% interoperable with Java and can be mixed in the same project.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>no</lang>
+        <startDate>2020-09-30</startDate>
+        <endDate>2020-09-30</endDate>
+        <location>Hamar, Norway</location>
+        <speaker>Henrik Stene, Ole Hjalmar Herje</speaker>
+        <title>Hamar Digirama</title>
+        <subject>Kotlin - Umulig å ikke bli forelska?</subject>
+        <url>https://www.meetup.com/Hamar-Digirama/events/273345273/</url>
+        <description>
+            <![CDATA[
+<p>Hamar Digirama inviterer til Kotlin-kveld i avslappende omgivelser på Hamars koseligste ølbar, Gullkorn.</p>
+<p>Kotlin er en russisk øy nær St. Petersburg innerst i Finskebukta, men også et populært programmeringsspråk på JVM-en.</p>
+<p>Kotlin ble lansert i 2011 og er ifølge skaperne designet for å være en bedre versjon av Java.</p>
+<p>I fjor fortalte Google at Kotlin nå var blitt deres foretrukne programmeringsspråk på Android. Her lokalt på Hamar utvikler større selskaper som Eika og Norsk Tipping integrasjonstjenester i språket.</p>
+<p>Ønsker du å få en smakebit og er litt nysgjerrig på om Kotlin er noe for deg? Vi har 2 dyktige utviklere og foredragsholdere som gir en intro til Kotlin samt tips til gode biblioteker du burde ta i bruk.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-01</startDate>
+        <endDate>2020-10-01</endDate>
+        <location>Kano, Nigeria</location>
+        <speaker>Saadat Aliyu</speaker>
+        <title>Kotlin Kano User Group, Nigeria</title>
+        <subject>#30DaysOfKotlin</subject>
+        <url>https://www.meetup.com/Kotlin-Kano-User-Group-Nigeria/events/273211014/</url>
+        <description>
+            <![CDATA[
+<p>The #30DaysOfCode challenge is going to start on the 1st of October 2020. The goal of this challenge is to encourage developers to learn and be proficient in the Kotlin language and also help newbies start working on projects using Kotlin. Participants are expected to sacrifice at least one hour every day to learn the core Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-10-01</startDate>
+        <endDate>2020-10-01</endDate>
+        <location>México City, Mexico</location>
+        <speaker>Bedu</speaker>
+        <title>Academia de tecnología y programación México (BEDU)</title>
+        <subject>Kotlin: Crea una App en 90 minutos/Sesiones en vivo</subject>
+        <url>https://www.meetup.com/DevelopersAcademy/events/273146911/</url>
+        <description>
+            <![CDATA[
+<p>En BEDU nos interesa que sigas en casa sano y salvo, para que podamos vernos más adelante, por esta razón hacemos nuestros Workshops en la modalidad de "Sesiones en vivo" nuestro evento "Kotlin: Crea una app en 90 minutos " el próximo Jueves 1 de Octubre a las 7 pm. Se transmitirá en la plataforma de Zoom https://zoom.us/</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-07</startDate>
+        <endDate>2020-10-07</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Ian Brandt</speaker>
+        <title>San Diego Kotlin User Group</title>
+        <subject>Monthly Kotlin Online!</subject>
+        <url>https://www.meetup.com/sd-kotlin/events/hrrbwrybcnbkb/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-08</startDate>
+        <endDate>2020-10-08</endDate>
+        <location>Washington, DC</location>
+        <speaker>Russell Wolf</speaker>
+        <title>AndroidSummit 2020</title>
+        <subject>What’s new with Kotlin Multiplatform libraries?</subject>
+        <url>https://emamo.com/event/android-summit-2020/s/whats-new-with-kotlin-multiplatform-libraries-aBErON</url>
+        <description>
+            <![CDATA[
+<p>How do I create libraries for Kotlin Multiplatform projects? Kotlin lets you share common code between different target platforms, but by default only a limit set of platform-agnostic APIs are available to the code. As Multiplatform development really starts to take off, there must also be a robust ecosystem of third party libraries available to application developers.</p>
+<p>I’ll talk through what it looks like to create such a library, drawing from my experience building and maintaining one of my own starting in the early days of Kotlin/Native. We'll talk about how to find shared abstractions around different platform APIs, how to handle the fast-paced evolution of this environment, and what this all felt like as a first-time library developer. When we're done, you’ll be ready to leverage the growing ecosystem as well as make your own contributions.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-08</startDate>
+        <endDate>2020-10-08</endDate>
+        <location>Washington, DC</location>
+        <speaker>Kevin Galligan</speaker>
+        <title>AndroidSummit 2020</title>
+        <subject>Kotlin Multiplatform In Production</subject>
+        <url>https://emamo.com/event/android-summit-2020/s/kotlin-multiplatform-in-production-WvLkLN</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Mutliplatform for native mobile is maturing, but it's still in the early adopter phase. That means things have been moving fast, and the docs out in the ecosystem can be confusing to navigate. However, many orgs are exploring KMP and putting KMP into production. The tech is ready today. We at Touchlab are heavily involved in both library and tool development, as well as working with industry leaders on implementing KMP solutions at scale. In this talk, I'll go over the state-of-the-art, what tools and libraries we like to use, and how to get started both with application and library development.</p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>en</lang>
         <startDate>2020-10-08</startDate>
