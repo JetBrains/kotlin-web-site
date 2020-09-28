@@ -153,7 +153,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`).
 
-You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/descriptors.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
 ### Annotating type parameters
 
