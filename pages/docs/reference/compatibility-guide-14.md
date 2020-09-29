@@ -348,8 +348,8 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - \>= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
->
-### Prohibit `tailrec` modifier on`open` functions
+
+### Prohibit `tailrec` modifier on `open` functions
 
 > **Issue**: [KT-18541](https://youtrack.jetbrains.com/issue/KT-18541)
 > 
