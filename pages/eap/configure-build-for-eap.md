@@ -134,7 +134,7 @@ buildscript {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-       maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
     }
 
     dependencies {
@@ -176,7 +176,7 @@ For the **kotlinx.coroutines** library, add the version number – `{{ site.data
 
 ```groovy
 dependencies {
-   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}"
 }
 ```
 
@@ -188,7 +188,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}")
 }
 ```
 
