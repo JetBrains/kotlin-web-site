@@ -1,13 +1,25 @@
 ---
-layout: default
+layout: reference
 title: Kotlin Roadmap
+date: 2020-10-01
 ---
 
 # Kotlin Roadmap
 
-_**Last modified on**_: _October 2020_
-_**Time frame**_: _6 months until March 2021_
-_**Next update**_: _January 2021_
+<table>
+    <tr>
+        <td><strong>Last modified on</strong></td>
+        <td>October 2020</td>
+    </tr>
+    <tr>
+        <td><strong>Time frame</strong></td>
+        <td>6 months until March 2021</td>
+    </tr>
+    <tr>
+        <td><strong>Next update</strong></td>
+        <td>January 2021</td>
+    </tr>
+</table>
 
 Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotlin Team.
 
@@ -69,6 +81,7 @@ This table describes the biggest projects that we’re working on.
                   <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">KT-42286</a>)</p>
                 </li>
             </ul>
+        </td>
         <td>
             <ul>
                 <li>Stable Compiler Plugin API</li>
@@ -129,11 +142,7 @@ This table describes the biggest projects that we’re working on.
             </ul>
          </td>
         <td>
-            <ul>
-                <li>
-                  <p>Note: Wasm support in <a href="https://kotlinlang.org/docs/reference/native-overview.html" target="_blank">Kotlin/Native</a> (through LLVM) is deprecated and will be removed</p>
-                </li>
-            </ul>
+            <p>Note: Wasm support in <a href="https://kotlinlang.org/docs/reference/native-overview.html" target="_blank">Kotlin/Native</a> (through LLVM) is deprecated and will be removed</p>
         </td>
     </tr>
     <tr>
