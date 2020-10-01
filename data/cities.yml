@@ -1,3 +1,15 @@
+- name: Kano, Nigeria
+  geo:
+    lat: 11.991296
+    lng: 8.533807
+- name: Hamar, Norway
+  geo:
+    lat: 60.80184
+    lng: 11.076443
+- name: Omsk, Russia
+  geo:
+    lat: 54.989342
+    lng: 73.368212
 - name: Dubai, United Arab Emirates
   geo:
     lat: 25.195137
