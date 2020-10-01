@@ -1,6 +1,92 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
-        <event>
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-07</startDate>
+        <endDate>2020-10-07</endDate>
+        <location>London, UK</location>
+        <speaker>Sebastian Aigner, Raul Raja, Leland Richardson, Christina Lee</speaker>
+        <title>Kotlin London</title>
+        <subject>October 2020 Online Kotlin Meetup - Kotlin 1.4 Special</subject>
+        <url>https://www.meetup.com/kotlin-london/events/273408201/</url>
+        <description>
+            <![CDATA[
+<p>JetBrains' online event during 12-15 October will deep-dive into the Kotlin 1.4 release. As a Community Partner for the event, we're changing our regular virtual meetup format into a discussion panel, looking at Kotlin 1.4 and beyond.</p>
+<p>The panel will be moderated by Pablo Gonzales Alonso. The live-stream will be available on the Kotlin London Youtube channel (https://www.youtube.com/c/kotlinlondon/).</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-10-07</startDate>
+        <endDate>2020-10-07</endDate>
+        <location>Bern,Switzerland</location>
+        <speaker>Adrian Burri</speaker>
+        <title>Kotlin User Group Bern</title>
+        <subject>Functional Kotlin - Live Demo and Hands On</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Bern/events/273563043/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin bietet einige Sprachkonstrukte, welche einen funktionalen Programmierstil unterstützen. In dieser Hands-On Session werden wir einige der zentralen Konzepte der funktionalen Programmierung erläutern und deren Umsetzung in Kotlin anhand Live-Demos und Übungen kennenlernen. Level: Anfänger - Fortgeschrittene</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-12</startDate>
+        <endDate>2020-10-12</endDate>
+        <location>Minneapolis, MN</location>
+        <speaker>Colin Lee</speaker>
+        <title>Twin Cities Kotlin User Group</title>
+        <subject>Kotlin 1.4 Virtual Event</subject>
+        <url>https://www.meetup.com/Twin-Cities-Kotlin-User-Group/events/273272099/</url>
+        <description>
+            <![CDATA[
+<p>The event of the year is on! Join us on October 12–15 for 4 days of Kotlin as we host the Kotlin 1.4 Online Event. You can tune in at any point during the event to listen to the talks, chat with the team, and ask the speakers questions. In addition to this, there will be lots of activities and entertainment including: Q&A sessions QuizQuest, with prize raffles for participants Virtual Kotlin Booth Event chat.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Philadelphia, PA, USA</location>
+        <speaker>Matt Inger</speaker>
+        <title>PhillyJUG</title>
+        <subject>Exploring Kotlin Coroutines: What are they and why should I be using them?</subject>
+        <url>https://www.meetup.com/PhillyJUG/events/270763930/</url>
+        <description>
+            <![CDATA[
+<p>Asynchronous programming is hard. JVM users have traditionally had to rely on directly using thread pools, or integrating third party libraries like RxJava to accomplish asynchronous tasks.</p>
+<p>Let's explore how the coroutines implementation in the Kotlin language can make asynchronous programming much more programmer friendly. In particular, how it produces more readable and easier to
+maintain code. We'll compare it with RxJava and see how we can go back and forth between the two.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-22</startDate>
+        <endDate>2020-10-22</endDate>
+        <location>Irvine, USA</location>
+        <speaker>Ryan Simon</speaker>
+        <title>OC Kotlin Krew</title>
+        <subject>Kotlin and Jetpack Compose Alpha</subject>
+        <url>https://www.meetup.com/OCKotlinKrew/events/273335404/</url>
+        <description>
+            <![CDATA[
+<p>- Previous experience with programming in any language
+- Looking to learn new languages
+- Want to learn about new and existing Kotlin concepts
+- A desire to join a community of passionate Kotlin engineers</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2020-09-29</startDate>
         <endDate>2020-09-29</endDate>
