@@ -9,7 +9,7 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 - [Writing content](#writing-content)
 - [Filing bugs](#filing-bugs)
 
-## Installation
+## Installation guide
 
 1. You will need Docker to run site lifecycle tasks. Installation for [macOS](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac) and 
    [Windows](https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows).
