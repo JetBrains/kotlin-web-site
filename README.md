@@ -3,11 +3,11 @@
 
 This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
-- [Installation](#installation)
-- [How to run](#how-to-run)
-- [Project structure & overview](#project-structure)
-- [Writing content](#writing-content)
-- [Filing bugs](#filing-bugs)
+1. [Installation](#installation)
+2. [How to run](#how-to-run)
+3.[Project structure & overview](#project-structure)
+4. [Writing content](#writing-content)
+5. [Filing bugs](#filing-bugs)
 
 ## Installation
 
@@ -34,11 +34,11 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
 All data is stored in the \*.yml files in folder `data`:
 
-- [_nav.yml](data/_nav.yml) site navigation and PDF building.
-- [releases.yml](data/releases.yml) info about releases.
-- [videos.yml](data/videos.yml) data for the Videos page. The `content` property is used to create categories.
+1. [_nav.yml](data/_nav.yml) site navigation and PDF building.
+2. [releases.yml](data/releases.yml) info about releases.
+4. [videos.yml](data/videos.yml) data for the Videos page. The `content` property is used to create categories.
   It contains a list of videos or other categories. Maximum tree depth level is 3.
-- [events.xml](data/events.xml) event data.
+5. [events.xml](data/events.xml) event data.
 
 ### Templates
 
