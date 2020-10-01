@@ -3,7 +3,7 @@ version: '2.1'
 services:
   website:
     build:
-      dockerfile: ./Dockerfile
+      dockerfiles: ./Dockerfiles
       context: .
     env_file:
       - .env
