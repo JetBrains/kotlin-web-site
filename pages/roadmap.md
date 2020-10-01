@@ -31,11 +31,11 @@ Here are a few points to note about this roadmap:
 4. It lists some things that are postponed and will NOT get the team’s attention in the nearest future.
 5. Nothing is set in stone, we will adjust our priorities as we go and update the roadmap approximately every three months.
 
-If you have any questions or feedback about the roadmap or the items on it, feel free to post them to YouTrack tickets or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.60878444.1901676095.1599823213-394965905.1588600024)).
+If you have any questions or feedback about the roadmap or the items on it, feel free to post them to [YouTrack tickets](https://kotl.in/issue) or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.60878444.1901676095.1599823213-394965905.1588600024)).
  
 ## Key priorities
 
-The goal of this roadmap is to give you a big picture. Here’s a list of our key priorities, i.e. the areas we are investing the most effort into:
+The goal of this roadmap is to give you a big picture. Here’s a list of our key priorities – the areas we are investing the most effort into:
 
 - **Fast turnaround**: making the change-test-debug cycle really fast.
 - **New compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. Later we will also work on pluggability.
@@ -73,12 +73,10 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Bootstrap the new compiler (make the new Kotlin compiler compile itself)</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42285" target="_blank">KT-42285</a>)</p>
+                  <p>Bootstrap the new compiler (make the new Kotlin compiler compile itself)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42285" target="_blank">KT-42285</a>)</p>
                 </li>
                 <li>
-                  <p>Maintain the current compiler (bug-fixing only)</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">KT-42286</a>)</p>
+                  <p>Maintain the current compiler (bug-fixing only)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">KT-42286</a>)</p>
                 </li>
             </ul>
         </td>
@@ -95,12 +93,10 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Make the new JVM IR backend Stable</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42287" target="_blank">KT-42287</a>)</p>
+                  <p>Make the new JVM IR backend Stable<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42287" target="_blank">KT-42287</a>)</p>
                 </li>
                 <li>
-                  <p>Maintain the Classic JVM backend by fixing critical bugs</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42288" target="_blank">KT-42288</a>)</p>
+                  <p>Maintain the Classic JVM backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42288" target="_blank">KT-42288</a>)</p>
                 </li>
             </ul>
          </td>
@@ -113,16 +109,13 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Make the new JS IR backend Stable </p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42289" target="_blank">KT-42289</a>)</p>
+                  <p>Make the new JS IR backend Stable<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42289" target="_blank">KT-42289</a>)</p>
                 </li>
                 <li>
-                  <p>Improve Dukat support</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42290" target="_blank">KT-42290</a>)</p>
+                  <p>Improve Dukat support<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42290" target="_blank">KT-42290</a>)</p>
                 </li>
                 <li>
-                  <p>Maintain the Classic JS backend by fixing critical bugs</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42291" target="_blank">KT-42291</a>)</p>
+                  <p>Maintain the Classic JS backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42291" target="_blank">KT-42291</a>)</p>
                 </li>
             </ul>
          </td>
@@ -136,13 +129,12 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Prototype a compiler for Wasm GC proposal</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42292" target="_blank">KT-42292</a>)</p>
+                  <p>Prototype a compiler for Wasm GC proposal<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42292" target="_blank">KT-42292</a>)</p>
                 </li>
             </ul>
          </td>
         <td>
-            <p>Note: Wasm support in <a href="https://kotlinlang.org/docs/reference/native-overview.html" target="_blank">Kotlin/Native</a> (through LLVM) is deprecated and will be removed</p>
+            <p>Note: Wasm support in <a href="https://kotlinlang.org/docs/reference/native-overview.html" target="_blank">Kotlin/Native</a> (through LLVM) will be deprecated and removed</p>
         </td>
     </tr>
     <tr>
@@ -151,34 +143,26 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Provide binary compatibility between incremental releases</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42293" target="_blank">KT-42293</a>)</p>
+                  <p>Provide binary compatibility between incremental releases<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42293" target="_blank">KT-42293</a>)</p>
                 </li>
                 <li>
-                  <p>Improve compilation time</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">KT-42294</a>)</p>
+                  <p>Improve compilation time<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">KT-42294</a>)</p>
                 </li>
                 <li>
-                  <p>Runtime performance: improve object allocation times</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42295" target="_blank">KT-42295</a>)</p>
+                  <p>Runtime performance: improve object allocation times<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42295" target="_blank">KT-42295</a>)</p>
                 </li>
                 <li>
-                  <p>Prototype a new garbage collector</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42296" target="_blank">KT-42296</a>)</p>
+                  <p>Prototype a new garbage collector<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42296" target="_blank">KT-42296</a>)</p>
                 </li>
                 <li>
-                  <p>Improve exporting Kotlin code to Objective-C</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">KT-42297</a>)</p>
+                  <p>Improve exporting Kotlin code to Objective-C<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">KT-42297</a>)</p>
                 </li>
             </ul>
          </td>
         <td>
             <ul>
                 <li>
-                  <p>Support ARM Mac & Catalyst</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-39834" target="_blank">KT-39834</a>)</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-39833" target="_blank">KT-39833</a>)</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-40442" target="_blank">KT-40442</a>)</p>
+                  <p>Support ARM Mac & Catalyst<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-39834" target="_blank">KT-39834</a>)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-39833" target="_blank">KT-39833</a>)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-40442" target="_blank">KT-40442</a>)</p>
                 </li>
                 <li>
                   <p>Direct interoperability with Swift</p>
@@ -187,8 +171,7 @@ This table describes the biggest projects that we’re working on.
                   <p>Interoperability with C++</p>
                 </li>
                 <li>
-                  <p>Support Alpine Linux</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-38876" target="_blank">KT-38876</a>)</p>
+                  <p>Support Alpine Linux<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-38876" target="_blank">KT-38876</a>)</p>
                 </li>
             </ul>
         </td>
@@ -199,20 +182,16 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>KMM plugin: Fix major bugs</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42298" target="_blank">KT-42298</a>)</p>
+                  <p>KMM plugin: Fix major bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42298" target="_blank">KT-42298</a>)</p>
                 </li>
                 <li>
-                  <p>KMM plugin: Run common tests on Android devices</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42299" target="_blank">KT-42299</a>)</p>
+                  <p>KMM plugin: Run common tests on Android devices<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42299" target="_blank">KT-42299</a>)</p>
                 </li>
                 <li>
-                  <p>Improve dependency management for iOS</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42301" target="_blank">KT-42301</a>)</p>
+                  <p>Improve dependency management for iOS<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42301" target="_blank">KT-42301</a>)</p>
                 </li>
                 <li>
-                  <p>Improve Gradle & Compiler error messages</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42303" target="_blank">KT-42303</a>)</p>
+                  <p>Improve Gradle & Compiler error messages<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42303" target="_blank">KT-42303</a>)</p>
                 </li>
             </ul>
          </td>
@@ -233,20 +212,16 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Improve IDE performance</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42304" target="_blank">KT-42304</a>)</p>
+                  <p>Improve IDE performance<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42304" target="_blank">KT-42304</a>)</p>
                 </li>
                 <li>
-                  <p>Improve cross-language support in the Inline Method and Change Signature refactorings</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42306" target="_blank">KT-42306</a>)</p>
+                  <p>Improve cross-language support in the Inline Method and Change Signature refactorings<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42306" target="_blank">KT-42306</a>)</p>
                 </li>
                 <li>
-                  <p>Prototype IDE plugin with the new compiler frontend</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">KT-42307</a>)</p>
+                  <p>Prototype IDE plugin with the new compiler frontend<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">KT-42307</a>)</p>
                 </li>
                 <li>
-                  <p>Move the Kotlin plugin to the IntelliJ platform development infrastructure</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42308" target="_blank">KT-42308</a>)</p>
+                  <p>Move the Kotlin plugin to the IntelliJ platform development infrastructure<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42308" target="_blank">KT-42308</a>)</p>
                 </li>
             </ul>
          </td>
@@ -260,16 +235,13 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Improve incremental compilation performance in Gradle</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">KT-42309</a>)</p>
+                  <p>Improve incremental compilation performance in Gradle<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">KT-42309</a>)</p>
                 </li>
                 <li>
-                  <p>Support the Gradle configuration cache</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42310" target="_blank">KT-42310</a>)</p>
+                  <p>Support the Gradle configuration cache<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42310" target="_blank">KT-42310</a>)</p>
                 </li>
                 <li>
-                  <p>Decrease time for opening Gradle projects</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42311" target="_blank">KT-42311</a>)</p>
+                  <p>Decrease time for opening Gradle projects<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42311" target="_blank">KT-42311</a>)</p>
                 </li>
             </ul>
          </td>
@@ -285,24 +257,19 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Implement new features in the standard library</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42313" target="_blank">KT-42313</a>)</p>
+                  <p>Implement new features in the standard library<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42313" target="_blank">KT-42313</a>)</p>
                 </li>
                 <li>
-                  <p>Improve usability of multi-threaded coroutines library for Kotlin/Native</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42314" target="_blank">KT-42314</a>)</p>
+                  <p>Improve usability of multi-threaded coroutines library for Kotlin/Native<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42314" target="_blank">KT-42314</a>)</p>
                 </li>
                 <li>
-                  <p>Improve <code>kotlinx-datetime</code> library</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">KT-42315</a>)</p>
+                  <p>Improve <code>kotlinx-datetime</code> library<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">KT-42315</a>)</p>
                 </li>
                 <li>
-                  <p>Improve <code>kotlinx-serialization</code> (release v1.1)</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42316" target="_blank">KT-42316</a>)</p>
+                  <p>Improve <code>kotlinx-serialization</code> (release v1.1)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42316" target="_blank">KT-42316</a>)</p>
                 </li>
                 <li>
-                  <p>Improve <code>kotlinx-coroutines</code> (release v1.4)</p>
-                  <p>(<a href="https://youtrack.jetbrains.com/issue/KT-42317" target="_blank">KT-42317</a>)</p>
+                  <p>Improve <code>kotlinx-coroutines</code> (release v1.4)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42317" target="_blank">KT-42317</a>)</p>
                 </li>
             </ul>
          </td>
