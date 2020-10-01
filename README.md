@@ -20,9 +20,9 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
 ## How to run
 
-- **All in one option (suitable for content authors/writers)**:
+1. **All in one option (suitable for content authors/writers)**:
   - `docker-compose up`. It will build all stuff and create site on [localhost:5000](http://localhost:5000).
-- **Developer has 2-step option**:
+2. **Developer has 2-step option**:
   - `docker-compose up website` will run only site at [localhost:5000](http://localhost:5000).
   - `yarn start` will run webpack-dev-server on [localhost:9000](http://localhost:9000).
      This address should be used for development. All pages from origin server will be proxied.
@@ -67,8 +67,8 @@ See the complete syntax reference at the [kramdown site](http://kramdown.gettalo
 
 With kramdown you can assign HTML attributes to page elements via `{:%param%}`. E.g.:
 
-- `*important text*{:.important}` - produces `<em class="important">important text</em>`
-- `*important text*{:#id}` - produces `<em id="id">important text</em>`
+1. `*important text*{:.important}` - produces `<em class="important">important text</em>`
+2. `*important text*{:#id}` - produces `<em id="id">important text</em>`
 
 For block elements this instruction must be specified on the line following element definition:
 
@@ -85,14 +85,14 @@ More information about attributes can be found [here](http://kramdown.gettalong.
 
 #### Inline elements
 
-- `{:.keyword}` highlights a keyword.
-- `{:.error}` highlights an error.
-- `{:.warning}` highlights a warning.
+1. `{:.keyword}` highlights a keyword.
+2. `{:.error}` highlights an error.
+3. `{:.warning}` highlights a warning.
 
 #### Tables
 
-- `{:.wide}` stretches a table to occupy the entire width of a page.
-- `{:.zebra}` interleaves table rows.
+1. `{:.wide}` stretches a table to occupy the entire width of a page.
+2. `{:.zebra}` interleaves table rows.
 
 E.g.:
 
