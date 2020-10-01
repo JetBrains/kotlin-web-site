@@ -9,7 +9,7 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 - [Writing content](#writing-content)
 - [Filing bugs](#filing-bugs)
 
-## Installation
+## Installation and start
 
 1. You will need Docker to run site lifecycle tasks. Installation for [macOS](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac) and 
    [Windows](https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows).
@@ -18,7 +18,7 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 3. All specific app parameters stored in env-file. Copy sample file `.env.sample` and rename it to `.env`. 
    Change variables values if needed.
 
-## How to run
+## How to run and acess
 
 - **All in one option (suitable for content authors/writers)**:
   - `docker-compose up`. It will build all stuff and create site on [localhost:5000](http://localhost:5000).
@@ -28,9 +28,9 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
      This address should be used for development. All pages from origin server will be proxied.
      
 <a id="project-structure"></a>
-## Project structure & overview
+## Project structure & overview on website
 
-### Data
+### Data storage
 
 All data is stored in the \*.yml files in folder `data`:
 
