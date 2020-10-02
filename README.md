@@ -11,7 +11,7 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
 ## Installation
 
-1. You will need Docker to run site lifecycle tasks. Installation for [macOS](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac) and 
+1. You will need to Docker to run site lifecycle tasks. Installation for [macOS](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac) and 
    [Windows](https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows).
 2. If you want to develop frontend Yarn package manager is also needed ([installation instructions](https://yarnpkg.com/lang/en/docs/install/)).
    Don't forget to install frontend dependencies - `yarn install`.
