@@ -96,7 +96,7 @@ This table describes the biggest projects that we’re working on.
                   <p>Make the new JVM IR backend Stable<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42287" target="_blank">KT-42287</a>)</p>
                 </li>
                 <li>
-                  <p>Maintain the Classic JVM backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42288" target="_blank">KT-42288</a>)</p>
+                  <p>Maintain the Old JVM backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42288" target="_blank">KT-42288</a>)</p>
                 </li>
             </ul>
          </td>
@@ -115,7 +115,7 @@ This table describes the biggest projects that we’re working on.
                   <p>Improve Dukat support<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42290" target="_blank">KT-42290</a>)</p>
                 </li>
                 <li>
-                  <p>Maintain the Classic JS backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42291" target="_blank">KT-42291</a>)</p>
+                  <p>Maintain the Old JS backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42291" target="_blank">KT-42291</a>)</p>
                 </li>
             </ul>
          </td>
