@@ -211,7 +211,7 @@ compileKotlin {
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-tasks.withType<KotlinCompile> {
+tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.freeCompilerArgs += "-Xinline-classes"
 }
 ```
