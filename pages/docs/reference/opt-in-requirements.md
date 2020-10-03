@@ -143,7 +143,7 @@ If you build your module with Gradle, you can add arguments like this:
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-compileKotlin {
+tasks.withType(KotlinCompile).configureEach {
     kotlinOptions {
         freeCompilerArgs += "-Xopt-in=org.mylibrary.OptInAnnotation"
     }
