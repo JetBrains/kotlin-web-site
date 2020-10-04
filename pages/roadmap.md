@@ -58,10 +58,10 @@ This table describes the biggest projects that we’re working on.
         </td>
         <td>
             <ul>
-                <li>Support records on the JVM</li>
-                <li>Support sealed classes on the JVM</li>
-                <li>Release inline classes as stable, secure Valhalla compatibility</li>
-                <li>Prototype multiple receivers</li>
+                <li><p>Support JVM records<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42430" target="_blank">KT-42430</a>)</p></li>
+                <li><p>Support JVM sealed classes<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42433" target="_blank">KT-42433</a>)</p></li>
+                <li><p>Release inline classes as stable, secure Valhalla compatibility<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42434" target="_blank">KT-42434</a>)</p></li>
+                <li><p>Prototype multiple receivers<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42435" target="_blank">KT-42435</a>)</p></li>
             </ul>
         </td>
         <td>
@@ -93,10 +93,10 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Make the new JVM IR backend Stable<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42287" target="_blank">KT-42287</a>)</p>
+                  <p>Make the new JVM IR backend stable<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42287" target="_blank">KT-42287</a>)</p>
                 </li>
                 <li>
-                  <p>Maintain the Old JVM backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42288" target="_blank">KT-42288</a>)</p>
+                  <p>Maintain the old JVM backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42288" target="_blank">KT-42288</a>)</p>
                 </li>
             </ul>
          </td>
@@ -109,13 +109,13 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Make the new JS IR backend Stable<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42289" target="_blank">KT-42289</a>)</p>
+                  <p>Make the new JS IR backend stable<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42289" target="_blank">KT-42289</a>)</p>
                 </li>
                 <li>
                   <p>Improve Dukat support<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42290" target="_blank">KT-42290</a>)</p>
                 </li>
                 <li>
-                  <p>Maintain the Old JS backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42291" target="_blank">KT-42291</a>)</p>
+                  <p>Maintain the old JS backend by fixing critical bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42291" target="_blank">KT-42291</a>)</p>
                 </li>
             </ul>
          </td>
@@ -257,7 +257,10 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>Implement new features in the standard library<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42313" target="_blank">KT-42313</a>)</p>
+                  <p>Support <code>java.nio.Path</code> extension in the standard library<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">KT-42436</a>)</p>
+                </li>
+                <li>
+                  <p>Make multiplatform <code>kotlin.text</code> API locale-agnostic by default<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42437" target="_blank">KT-42437</a>)</p>
                 </li>
                 <li>
                   <p>Improve usability of multi-threaded coroutines library for Kotlin/Native<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42314" target="_blank">KT-42314</a>)</p>
