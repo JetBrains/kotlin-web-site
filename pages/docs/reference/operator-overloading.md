@@ -69,7 +69,7 @@ The compiler performs the following steps for resolution of an operator in the *
 The effect of computing the expression is:
 
 * Store the initial value of `a` to a temporary storage `a0`;
-* Assign the result of `a.inc()` to `a`;
+* Assign the result of `a0.inc()` to `a`;
 * Return `a0` as a result of the expression.
 
 For `a--` the steps are completely analogous.
