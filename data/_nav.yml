@@ -89,7 +89,7 @@ reference:
         - url: /docs/reference/whatsnew11.html
           title: What's New in 1.1
 
-    - title: Releases & Roadmap
+    - title: Releases and Roadmap
       description: Kotlin releases and roadmap
       content:
         - url: /releases.html
