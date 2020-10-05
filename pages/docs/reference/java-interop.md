@@ -490,8 +490,8 @@ They are not related to the `Array` class and are compiled down to Java's primit
 
 Suppose there is a Java method that accepts an int array of indices:
 
-
 <div class="sample" markdown="1" theme="idea" mode="java">
+
 ``` java
 public class JavaArrayExample {
 
