@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: reference
 title: Kotlin Releases
 ---
 

@@ -89,6 +89,14 @@ reference:
         - url: /docs/reference/whatsnew11.html
           title: What's New in 1.1
 
+    - title: Releases & Roadmap
+      description: Kotlin releases and roadmap
+      content:
+        - url: /releases.html
+          title: Kotlin Releases
+        - url: /roadmap.html
+          title: Kotlin Roadmap
+
     - title: Getting Started
       description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
       content:
