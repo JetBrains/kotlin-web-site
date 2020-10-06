@@ -82,8 +82,8 @@ This table describes the biggest projects that we’re working on.
         </td>
         <td>
             <ul>
-                <li><p>⏸ Stable Compiler Plugin API</p></li>
-                <li><p>⏸ Scripting improvements</p></li>
+                <li><p>⏸  Stable Compiler Plugin API</p></li>
+                <li><p>⏸  Scripting improvements</p></li>
             </ul>
         </td>
     </tr>
@@ -120,7 +120,7 @@ This table describes the biggest projects that we’re working on.
             </ul>
          </td>
         <td>
-            <ul><li>⏸ ES6 support</li></ul>
+            <ul><li>⏸  ES6 support</li></ul>
         </td>
     </tr>
     <tr>
@@ -162,13 +162,13 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>⏸ Support ARM Mac & Catalyst<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-39834" target="_blank">KT-39834</a>)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-39833" target="_blank">KT-39833</a>)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-40442" target="_blank">KT-40442</a>)</p>
+                  <p>⏸  Support ARM Mac & Catalyst<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-39834" target="_blank">KT-39834</a>)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-39833" target="_blank">KT-39833</a>)<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-40442" target="_blank">KT-40442</a>)</p>
                 </li>
                 <li>
-                  <p>⏸ Direct interoperability with Swift</p>
+                  <p>⏸  Direct interoperability with Swift</p>
                 </li>
                 <li>
-                  <p>⏸ Interoperability with C++</p>
+                  <p>⏸  Interoperability with C++</p>
                 </li>
                 <li>
                   <p>⏸ Support Alpine Linux<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-38876" target="_blank">KT-38876</a>)</p>
@@ -198,10 +198,10 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>⏸ Sharing code between JVM and Android</p>
+                  <p>⏸  Sharing code between JVM and Android</p>
                 </li>
                 <li>
-                  <p>⏸ KMM plugin: support for IntelliJ IDEA</p>
+                  <p>⏸  KMM plugin: support for IntelliJ IDEA</p>
                 </li>
             </ul>
         </td>
@@ -247,7 +247,7 @@ This table describes the biggest projects that we’re working on.
          </td>
         <td>
             <ul>
-                <li><p>⏸ Improvements in Kotlin Maven support</p></li>
+                <li><p>⏸  Improvements in Kotlin Maven support</p></li>
             </ul>
         </td>
     </tr>
@@ -278,10 +278,10 @@ This table describes the biggest projects that we’re working on.
          </td>
         <td>
             <ul>
-                <li><p>⏸ <code>kotlinx-cli</code></p></li>
-                <li><p>⏸ <code>binary-compatibility-validator</code></p></li>
-                <li><p>⏸ <code>kotlinx-io</code></p></li>
-                <li><p>⏸ Any new multiplatform libraries</p></li>
+                <li><p>⏸  <code>kotlinx-cli</code></p></li>
+                <li><p>⏸  <code>binary-compatibility-validator</code></p></li>
+                <li><p>⏸  <code>kotlinx-io</code></p></li>
+                <li><p>⏸  Any new multiplatform libraries</p></li>
             </ul>
         </td>
     </tr>
