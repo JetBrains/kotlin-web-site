@@ -182,10 +182,10 @@ This table describes the biggest projects that we’re working on.
         <td>
             <ul>
                 <li>
-                  <p>KMM plugin: Fix major bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42298" target="_blank">KT-42298</a>)</p>
+                  <p>KMM plugin: Fix major bugs<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42299" target="_blank">KT-42299</a>)</p>
                 </li>
                 <li>
-                  <p>KMM plugin: Run common tests on Android devices<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42299" target="_blank">KT-42299</a>)</p>
+                  <p>KMM plugin: Run common tests on Android devices<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42298" target="_blank">KT-42298</a>)</p>
                 </li>
                 <li>
                   <p>Improve dependency management for iOS<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42301" target="_blank">KT-42301</a>)</p>
