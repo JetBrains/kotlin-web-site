@@ -1,5 +1,127 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+        <event>
+        <lang>es</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Bogotá, Colombia</location>
+        <speaker>Santiago Carrillo</speaker>
+        <title>Ada Day Conf</title>
+        <subject>Creando Apps en Android con Kotlin</subject>
+        <url>https://www.meetup.com/ada-school/events/273743263/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Carlos Mota</speaker>
+        <title>DevFest UK and Ireland 2020 with Google Developer Groups</title>
+        <subject>A Multiplatform triathlon: Kotlin through Android, iOS and Web</subject>
+        <url>https://www.devfest-uki.com/speakers-more-details</url>
+        <description>
+            <![CDATA[
+<p>For several years now, that we’ve been trying to find new solutions on how we could develop a single project and run it on all platforms. We’ve been seeing all types of solutions: some are web-based, others require you to learn a new language, and others even may require that you pay a monthly fee to use. It also comes with the drawback that all your UI depends on the framework implementation. So, if there’s a native update you’ll need to wait until someone rewrites the widgets for you to update your app.</p>
+<p>Kotlin multiplatform gives us a new solution. It focuses on sharing your business logic across all platforms, leaving the UI to be implemented natively. Since it’s Kotlin, you can take full advantage of its language features - concise, safe, etc. Moreover, if you’re coming from android you might already be familiarised with Kotlin and even if you’re an iOS developer you’ll see that it’s quite similar to Swift.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-13</startDate>
+        <endDate>2020-10-13</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Cristian Postoaca</speaker>
+        <title>Amsterdam QE Community</title>
+        <subject>Kotlin for QEs Webinar</subject>
+        <url>https://www.meetup.com/Amsterdam-QE-Community/events/273609565/</url>
+        <description>
+            <![CDATA[
+<p>At this one-hour webinar, we plan to start from scratch. What to expect:
+* An introduction to the concepts that make Kotlin good
+* Compatibility between Java and Kotlin
+* How to write and run your first program In Kotlin</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Accra, Ghana</location>
+        <speaker>Saadat Aliyu</speaker>
+        <title>DevFest Ghana 2020 [Virtual Event]</title>
+        <subject>Introducing Kotlin Multiplatform</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-accra-presents-devfest-ghana-2020-virtual-event-2/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Enrique López</speaker>
+        <title>DevFest Romania 2020</title>
+        <subject>[Mobile] Coroutines for JVM</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-bucharest-presents-devfest-romania-2020-with-gdg/</url>
+        <description>
+            <![CDATA[
+<p>Have you ever wondered how the coroutines work under the hood? What were the design goals of the Kotlin coroutines and how are they implemented on JVM? This session will help you to understand some of the underlying principles behind the coroutines, and how they can be effectively be used on the JVM.</p>
+]]>
+        </description>
+     </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Josh Long</speaker>
+        <title>DevFest Romania 2020</title>
+        <subject>[Cloud] Kotlin and Spring: Pragmatism and Power</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-bucharest-presents-devfest-romania-2020-with-gdg/</url>
+        <description>
+            <![CDATA[
+<p>Spring Boot marries flexibility with common sense defaults to make application development on the JVM pleasant. Kotlin, the productivity-focused language from JetBrains makes the experience cleaner and even more pleasant! Join Spring Developer Advocate Josh Long to learn how they work together.</p>
+]]>
+        </description>
+     </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>John O'Reilly</speaker>
+        <title>DevFest Romania 2020</title>
+        <subject>[Mobile] Declarative UI ❤️ Kotlin Multiplatform!</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-bucharest-presents-devfest-romania-2020-with-gdg/</url>
+        <description>
+            <![CDATA[
+<p>In this session John will demonstrate the power of both Kotlin Multiplatform and Declarative UI frameworks like Jetpack Compose and SwiftUI by live-coding the development of an Android and an iOS app that utilises same shared Kotlin code.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Magda Miu</speaker>
+        <title>DevFest Romania 2020</title>
+        <subject>[Mobile] Clean Code with Kotlin</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-bucharest-presents-devfest-romania-2020-with-gdg/</url>
+        <description>
+            <![CDATA[
+<p>With Kotlin we are able to write concise, expressive and safe code. Sounds like clean code, doesn’t it? During this presentation we will recap what clean code is, we will highlight the importance of defining meaningful names and how to write clean functions and classes. Finally we will be able to learn more about the advantages of immutability and how to handle the errors in Kotlin. By the end of the session, you will have a better understanding of what clean code means and you will learn a series of tips and tricks ready to be applied in your code.</p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>en</lang>
         <startDate>2020-10-07</startDate>
