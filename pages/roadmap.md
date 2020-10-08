@@ -31,7 +31,7 @@ Here are a few points to note about this roadmap:
 4. It lists some things that are postponed and will NOT get the team’s attention in the nearest future.
 5. Nothing is set in stone, we will adjust our priorities as we go and update the roadmap approximately every three months.
 
-If you have any questions or feedback about the roadmap or the items on it, feel free to post them to [YouTrack tickets](https://kotl.in/issue) or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.60878444.1901676095.1599823213-394965905.1588600024)).
+If you have any questions or feedback about the roadmap or the items on it, feel free to post them to [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=%23%7BRoadmap%20Item%7D%20) or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.60878444.1901676095.1599823213-394965905.1588600024)).
  
 ## Key priorities
 
