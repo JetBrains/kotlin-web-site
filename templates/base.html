@@ -19,7 +19,7 @@
 <!-- End Google Tag Manager (noscript) -->
 
 <div class="global-layout">
-    {% include 'inc/header.html' %}
+    {% ktl_component "header" productWebUrl=data.releases.latest.url hasSearch=True %}
     {% block page_outer_content %}
         <div class="g-layout global-content">
             {% include 'inc/nav/docs-nav.html' %}

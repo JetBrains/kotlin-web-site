@@ -31,6 +31,7 @@
   margin-top: 32px;
 }
 
+
 .kotlin-intro-actions__contributors {
   display: flex;
   align-items: center;
@@ -39,6 +40,17 @@
 .kotlin-intro-actions__why-button {
   margin-left: 16px;
   margin-right: 32px;
+}
+
+@media (max-width: 450px) {
+  .kotlin-intro-actions__buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kotlin-intro-actions__why-button {
+    margin: var(--s-space) 0 0;
+  }
 }
 
 .kotlin-intro-actions__jb-logo {
