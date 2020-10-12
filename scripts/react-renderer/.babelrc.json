@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": 3
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "babel-plugin-transform-import-ignore",
+      {
+        "patterns": [ ".css" ]
+      }
+    ]
+  ]
+}
