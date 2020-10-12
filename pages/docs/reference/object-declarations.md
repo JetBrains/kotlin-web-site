@@ -73,7 +73,7 @@ class C {
     }
 
     // Public function, so the return type is Any
-    fun publicFoo() = object {
+    fun publicFoo() = {
         val x: String = "x"
     }
 
