@@ -1,6 +1,133 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
-        <event>
+    <event>
+        <lang>zh</lang>
+        <startDate>2020-10-18</startDate>
+        <endDate>2020-10-18</endDate>
+        <location>Hong Kong, China</location>
+        <speaker>Fan Shengyou</speaker>
+        <title>DevFest Hong Kong 2020</title>
+        <subject>(Mandarin) 實戰 Ktor 部署 - 以 Google Cloud 打造 CI/CD</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-hong-kong-presents-devfest-hong-kong-2020-with-gdg-dsc-wtm/</url>
+        <description>
+            <![CDATA[
+<p>Ktor 是由 JetBrains 以 100% Kotlin 打造的 Web 框架，其簡潔輕量、易懂好學的設計，讓其非常適合用於網路服務的開發。不過許多新手在學會 Ktor 後最常問的問題，就是該怎麼部署到雲端？在這場分享裡，將會分享如何將 Ktor 打包成 Container Image 後部署上雲。其中會用到幾個 Google Cloud 技術及服務包括 Jib、Cloud Build 及 Cloud Run，建置成一個自動化 CI/CD 的工作流程。聽完這場分享，您將會對 Ktor、Jib 及 Google Cloud 有更進一步的認識與實務操作能力。</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-10</startDate>
+        <endDate>2020-10-10</endDate>
+        <location>Cairo, Egypt</location>
+        <speaker>Ahmed Nabil</speaker>
+        <title>DevFest Damanhour 2020</title>
+        <subject>Kotlin Multiplatform</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-damanhour-presents-devfest-20-1/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-21</startDate>
+        <endDate>2020-10-21</endDate>
+        <location>Cairo, Egypt</location>
+        <speaker>Josh Long</speaker>
+        <title>DevFest Damanhour 2020</title>
+        <subject>Kotlin and Spring: Pragmatism and power</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-damanhour-presents-devfest-20-1/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-15</startDate>
+        <endDate>2020-10-15</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Carlos Mota</speaker>
+        <title>DevFest Norway 2020</title>
+        <subject>A Multiplatform triathlon: Kotlin through Android, iOS and web</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-cloud-oslo-norway-presents-devfest-norway-2020/#0</url>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2020-10-18</startDate>
+        <endDate>2020-10-18</endDate>
+        <location>Saudi Arabia</location>
+        <speaker>Shady Selim</speaker>
+        <title>DevFest Saudi Arabia 2020</title>
+        <subject>Kotlin Multiplatform Mobile | كوتلين للمنصات المتعددة</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-cloud-saudi-presents-devfest-2020-saudi-arabia/</url>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Fort Collins, CO, USA</location>
+        <speaker>Enrique López Mañas</speaker>
+        <title>DevFest  Northern Colorado 2020</title>
+        <subject>Coroutines and JVM</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-northern-colorado-androidchrome-presents-mountain-region-devfest-2020/</url>
+        <description>
+            <![CDATA[
+<p>Have you ever wondered how the coroutines work under the hood? What were the design goals of the Kotlin coroutines and how are they implemented on JVM? This session will help you to understand some of the underlying principles behind the coroutines, and how they can be effectively be used on the JVM.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Fort Collins, CO, USA</location>
+        <speaker>Josh Long</speaker>
+        <title>DevFest Northern Colorado 2020</title>
+        <subject>Kotlin and Spring: an Pragmatic Pair</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-northern-colorado-androidchrome-presents-mountain-region-devfest-2020/</url>
+        <description>
+            <![CDATA[
+<p>Spring Boot, the convention-over-configuration centric framework from the Spring team at Pivotal, marries Spring's flexibility with conventional, common sense defaults to make application development on the JVM not just fly, but pleasant! Spring Boot aims to address the common functional and non-functional requirements that gate quickly moving to production. The framework is as clean as it gets, wouldn't it be nice if the language matched its elegance?</p>
+<p>Kotlin, the productivity-focused language from our friends at JetBrains, takes up the slack to make the experience leaner, cleaner and even more pleasant!</p>
+<p>The Spring and Kotlin teams have worked hard to make sure that Kotlin and Spring Boot are a first-class experience for all developers trying to get to production, faster and safer. Come for the Spring and stay for the Bootiful Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Carlos Mota</speaker>
+        <title>DevFest Italia 2020</title>
+        <subject>The Hitchhikers Guide Through Kotlin Multiplatform</subject>
+        <url>https://www.devfest.it/schedule/2020-10-17?sessionId=172</url>
+        <description>
+            <![CDATA[
+<p>Since the early days of mobile that we keep seeing new frameworks being designed to overcome one of the biggest challenges: * How can I develop for both Android and iOS? Although it’s initial promises, when we talk about performance, maintainability or even customization we keep discarding these solutions and we always choose native. Fast forward to the present, and now we have two new languages: Android is Kotlin first and iOS, Swift. And if you put them side by side you can see a lot of similarities between both what will ease switching between one to the other if you have to develop for both platforms. But what I told that you could just develop in Kotlin and run it seamlessly on all devices? Here comes Kotlin Multiplatform!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>St.Petersburg, Russia</location>
+        <speaker>Alexander Nozik</speaker>
+        <title>[GDG] DevFest 2020 Online (Russia and Belarus)</title>
+        <subject>Mulitplatform science in Kotlin</subject>
+        <url>https://gdg-russia.com/#about#!/tab/235456433-3</url>
+        <description>
+            <![CDATA[
+<p>Kotlin традиционно считается языком, созданным для мобильной разработки. Но придуман он был совсем для других целей. Разработчики не могли все предсказать - инструмент получился куда более универсальным, чем ожидалось. На нем можно делать даже библиотеки и приложения для науки! Об этом и поговорим.</p>
+<p>Расскажу, как использовать мультиплатформу для науки и о науке создания мультиплатформных приложений за пределами сектора мобильной разработки. С примерами!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>es</lang>
         <startDate>2020-10-13</startDate>
         <endDate>2020-10-13</endDate>
