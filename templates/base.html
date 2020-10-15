@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="{% block body_class %}{% endblock %} {% if restyled %}page_restyled_{{ restyled }}{% else %}page-old-styled {% endif %}">
 <head>
-    {% include 'inc/head.html' %}
-    {% block styles %}{% endblock %}
-
     {% if page and page.title %}
         {% set title=page.title + ' - Kotlin Programming Language' %}
     {% else %}
@@ -11,7 +8,9 @@
     {% endif %}
 
     <title>{% block title %}{{ title }}{% endblock %}</title>
+    {% include 'inc/head.html' %}
 
+    {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css')|autoversion }}"/>
 </head>
 <body class="page_js_no">

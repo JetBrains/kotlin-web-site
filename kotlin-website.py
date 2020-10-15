@@ -28,7 +28,7 @@ from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
 from src.processors.processors import process_code_blocks
 from src.processors.processors import set_replace_simple_code
-from src.search import build_search_indices
+from src.search import build_search_indices, get_pages
 from src.sitemap import generate_sitemap
 
 app = Flask(__name__, static_folder='_assets')
@@ -420,9 +420,10 @@ app.register_error_handler(404, page_not_found)
 
 @app.route('/api/<path:page_path>')
 def api_page(page_path):
-    if page_path.endswith('.html'):
+    path_other, ext = path.splitext(page_path)
+    if ext == '.html':
         return process_api_page(page_path[:-5])
-    elif path.basename(page_path) == "package-list":
+    elif path.basename(page_path) == "package-list" or ext:
         return respond_with_package_list(page_path)
     elif not page_path.endswith('/'):
         page_path += '/'
@@ -439,7 +440,7 @@ def process_api_page(page_path):
 def respond_with_package_list(page_path):
     file_path = path.join(root_folder, 'api', page_path)
     if not path.exists(file_path):
-        return make_response("package-list not found", 404)
+        return make_response(path.basename(page_path) + " not found", 404)
     return send_file(file_path, mimetype="text/plain")
 
 
@@ -522,7 +523,7 @@ if __name__ == '__main__':
                     sys.stderr.write(error + '\n')
                 sys.exit(-1)
         elif argv_copy[1] == "index":
-            build_search_indices(freezer._generate_all_urls(), pages)
+            build_search_indices(get_pages(freezer))
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)
