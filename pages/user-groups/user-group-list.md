@@ -5,7 +5,7 @@ title: "Kotlin User Groups List"
 ---
 
 # Find a KUG near you
-## 197 KUGs around the world
+## 200 KUGs around the world
 
 Kotlin User Group or KUG is a community of people and a place to share your programming experience with Kotlin and its ecosystem
 
@@ -107,6 +107,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Jaffna Kotlin User Group](https://www.facebook.com/Kotlin-User-Group-Jaffna-102091321371464/), Sri Lanka
  * [Jalandhar Kotlin User Group](https://www.meetup.com/Kotlin-EveryWhere-Jalandhar-Group/), India
  * [Japan Kotlin User Group](https://kotlin.connpass.com/), Japan
+ * [Jodhpur Kotlin User Group](https://www.linkedin.com/company/kotlin-mumbai-ug), India
  * [Karachi Kotlin User Group](https://www.facebook.com/kotlinkarachi/), Pakistan
  * [Kathmandu Kotlin User Group](https://www.facebook.com/groups/100333660782830/), Nepal
  * [Khabarovsk Kotlin User Group](https://devdv.ru/projects/kug), Russia
@@ -186,6 +187,8 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 * [Santiago Kotlin User Group](https://www.facebook.com/kotlinsantiago/), Chile
 * [Sao Paulo Kotlin Meetup](https://www.meetup.com/kotlin-meetup-sp/), Brazil
 * [Rio de Janeiro](https://www.meetup.com/Kotlin-Rio/), Brazil
+* [Tabasco Kotlin User Group](https://www.meetup.com/es-ES/kotlin-tabasco/), Mexico
+
  {:.community-usergroup-list}
 
 ## Australia/Oceania
@@ -210,6 +213,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 * [Brazza Kotlin User Group](https://www.facebook.com/groups/KotlinBrazza/), Congo
 * [Cairo Kotlin User Group](https://www.facebook.com/Kotlin.Cairo/), Egypt
 * [Cotonou Kotlin User Group](https://www.facebook.com/kotlinCotonou/), Benin
+* [Damaturu Kotlin User Group](https://web.facebook.com/Damaturu-Kotlin-User-Group-114389643760406), Nigeria
 * [Egypt Kotlin](https://www.facebook.com/kotlinegypt/), Egypt
 * [Enugu Kotlin User Group](https://kotlin-enuguusergroup.slack.com/), Nigeria
 * [Kano Kotlin User Group](https://www.meetup.com/Kotlin-Kano-User-Group-Nigeria/), Nigeria
