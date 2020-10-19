@@ -39,7 +39,7 @@ check [our instructions on how to configure your build to support this version](
     </tr>
         <tr>
             <td><strong>1.4.20-M2</strong>
-                <p> Released: <strong>October 14, 2020</strong></p>
+                <p> Released: <strong>October 19, 2020</strong></p>
                 <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.20-M2">Release on GitHub</a></p>
             </td>
             <td>
