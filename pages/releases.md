@@ -18,7 +18,7 @@ For 1.3.70, we had 2 bug fix releases – 1.3.71 and 1.3.72.
 For each incremental and feature release, we also ship several preview (_EAP_) versions for you to try 
 new features before they are released. See [Early Access Preview](eap/index.html) for details.
 
-Learn more about [types of Kotlin releases and their compatiblity](docs/reference/evolution/kotlin-evolution.html#feature-releases-and-incremental-releases). 
+Learn more about [types of Kotlin releases and their compatiblity](https://kotlinlang.org/docs/kotlin-evolution.html#feature-releases-and-incremental-releases). 
 
 ## Updating to a new release
 
@@ -74,9 +74,9 @@ You can also use [preview versions of Kotlin](eap/index.html#build-details).
             <p>Learn more in:</p>
             <ul>
                 <li><a href="http://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/" target="_blank">Release blog post</a></li>
-                <li><a href="docs/reference/whatsnew14.html" target="_blank">What's new in Kotlin 1.4.0</a></li>
-                <li><a href="docs/reference/compatibility-guide-14.html" target="_blank">Compatibility Guide</a></li>
-                <li><a href="docs/reference/whatsnew14.html#migrating-to-kotlin-140" target="_blank">Migrating to Kotlin 1.4.0</a></li>
+                <li><a href="https://kotlinlang.org/docs/whatsnew14.html" target="_blank">What's new in Kotlin 1.4.0</a></li>
+                <li><a href="https://kotlinlang.org/docs/compatibility-guide-14.html" target="_blank">Compatibility Guide</a></li>
+                <li><a href="https://kotlinlang.org/docs/whatsnew14.html#migrating-to-kotlin-140" target="_blank">Migrating to Kotlin 1.4.0</a></li>
             </ul>
          </td>
         <td>
