@@ -37,6 +37,30 @@ check [our instructions on how to configure your build to support this version](
         <th>Build highlights</th>
         <th>kotlinx library versions</th>
     </tr>
+        <tr>
+            <td><strong>1.4.20-M2</strong>
+                <p> Released: <strong>October 19, 2020</strong></p>
+                <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.20-M2">Release on GitHub</a></p>
+            </td>
+            <td>
+                <ul>
+                    <li>Fixes in code inspections and formatting</li>
+                    <li>Performance improvements</li>
+                    <li>Other improvements and bugfixes</li>
+                </ul>
+                <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.20-M2">changelog</a>.</p>
+             </td>
+            <td>
+                <ul>
+                     <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/1.0.0" target="_blank">1.0.0</a></li>
+                     <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.9" target="_blank">1.3.9</a></li>
+                     <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.14.4" target="_blank">0.14.4</a></li>          
+                     <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.4.0" target="_blank">1.4.0</a></li>
+                     <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.2" target="_blank">0.7.2</a></li>
+                     <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.6" target="_blank">0.0.6</a></li>
+                  </ul>
+            </td>
+        </tr>
     <tr>
         <td><strong>1.4.20-M1</strong>
             <p> Released: <strong>September 28, 2020</strong></p>
