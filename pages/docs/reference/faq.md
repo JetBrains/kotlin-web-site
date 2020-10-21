@@ -10,7 +10,7 @@ title: FAQ
 ### What is Kotlin?
 
 Kotlin is an open-source statically typed programming language that targets the JVM, Android, JavaScript and Native. 
-It’s developed by [JetBrains](http://www.jetbrains.com). The project started in 2010 and was open source from very early on. The first official 1.0 release was in February 2016. 
+It’s developed by [JetBrains](https://www.jetbrains.com). The project started in 2010 and was open source from very early on. The first official 1.0 release was in February 2016. 
 
 ### What is the current version of Kotlin?
 
@@ -52,13 +52,13 @@ for Android, such as Basecamp, Pinterest and more. For more information check ou
 ### Can I use Kotlin for server-side development?
 
 Yes. Kotlin is 100% compatible with the JVM and as such you can use any existing frameworks such as Spring Boot, 
-vert.x or JSF. In addition there are specific frameworks written in Kotlin such as [Ktor](http://github.com/kotlin/ktor). 
+vert.x or JSF. In addition there are specific frameworks written in Kotlin such as [Ktor](https://github.com/kotlin/ktor). 
 For more information check out [the resource on server-side development](/docs/reference/server-overview.html).
 
 ### Can I use Kotlin for web development?
 
 Yes. In addition to using for backend web, you can also use Kotlin/JS for client-side web. Kotlin can use definitions from 
-[DefinitelyTyped](http://definitelytyped.org) to get static typing for common JavaScript libraries, and it is compatible with existing module systems such as AMD and CommonJS. 
+[DefinitelyTyped](https://definitelytyped.org) to get static typing for common JavaScript libraries, and it is compatible with existing module systems such as AMD and CommonJS. 
 For more information check out [the resource on client-side development](/docs/reference/js-overview.html).
 
 ### Can I use Kotlin for desktop development?
@@ -82,7 +82,7 @@ is available and provides straightforward support for compiling and running appl
 ### What build tools support Kotlin?
 
 On the JVM side, the main build tools include [Gradle](/docs/reference/using-gradle.html), [Maven](/docs/reference/using-maven.html), 
-[Ant](/docs/reference/using-ant.html), and [Kobalt](http://beust.com/kobalt/home/index.html). There are also some build tools available that target client-side JavaScript. 
+[Ant](/docs/reference/using-ant.html), and [Kobalt](https://beust.com/kobalt/home/index.html). There are also some build tools available that target client-side JavaScript. 
 
 ### What does Kotlin compile down to?
 
@@ -125,14 +125,14 @@ There are already [a number of books](/docs/books.html) available for Kotlin, in
 ### Are there any online courses available for Kotlin?
 
 There are a few courses available for Kotlin, including a [Pluralsight Kotlin Course](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones, 
-an [O’Reilly Course](http://shop.oreilly.com/product/0636920052982.do) by Hadi Hariri and an [Udemy Kotlin Course](http://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff.
+an [O’Reilly Course](https://shop.oreilly.com/product/0636920052982.do) by Hadi Hariri and an [Udemy Kotlin Course](http://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff.
 
-There are also many recordings of [Kotlin talks](http://kotlinlang.org/community/talks.html) available on YouTube and Vimeo. 
+There are also many recordings of [Kotlin talks](https://kotlinlang.org/community/talks.html) available on YouTube and Vimeo. 
 
 ### Does Kotlin have a community?
 
-Yes. Kotlin has a very vibrant community. Kotlin developers hang out on the [Kotlin forums](http://discuss.kotlinlang.org), 
-[StackOverflow](http://stackoverflow.com/questions/tagged/kotlin) and more actively on the [Kotlin Slack](http://slack.kotlinlang.org) 
+Yes. Kotlin has a very vibrant community. Kotlin developers hang out on the [Kotlin forums](https://discuss.kotlinlang.org), 
+[StackOverflow](https://stackoverflow.com/questions/tagged/kotlin) and more actively on the [Kotlin Slack](https://slack.kotlinlang.org) 
 (with close to 30000 members as of April 2020). 
 
 ### Are there Kotlin events?
