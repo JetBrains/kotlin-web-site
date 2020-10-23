@@ -5,5 +5,5 @@ title:  "Obsolete"
 description: "Obsolete - Only for redirect purposes"
 authors: 
 showAuthorInfo: false
-redirect_path: docs/reference/android-overview
+redirect_path: https://kotlinlang.org/docs/reference/android-overview.html
 ---
