@@ -207,15 +207,6 @@ reference:
         - url: /docs/reference/map-operations.html
           title: Map Specific Operations
 
-    - title: Coroutines
-      description: Kotlin Coroutines Library
-      external:
-        path: kotlinx.coroutines/docs
-        nav: _nav.yml
-        base: /docs/reference/coroutines
-        repo: https://github.com/kotlin/kotlinx.coroutines
-        branch: master
-
     - title: Multiplatform Programming
       description: Reusing code across different platforms
       content:
@@ -325,15 +316,6 @@ reference:
          title: IR Compiler
        - url: /docs/reference/js-external-declarations-with-dukat.html
          title: Generating External Declarations with Dukat
-
-    - title: Native
-      description: Using Kotlin/Native for iOS and Native
-      external:
-        path: kotlin-native
-        nav: _nav_reference.yml
-        base: /docs/reference/native
-        repo: https://github.com/JetBrains/kotlin-native
-        branch: v1.4.30-fixes
 
     - title: Tools
       description:
