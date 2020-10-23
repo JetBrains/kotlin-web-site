@@ -41,7 +41,5 @@ package-lock.json
 pages/api/
 external/
 assets/externals
-pages/docs/reference/native/
-pages/docs/reference/coroutines/
 pages/docs/tutorials/kotlin-for-py/
 _teamcity
