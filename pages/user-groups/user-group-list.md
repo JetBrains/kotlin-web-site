@@ -5,7 +5,7 @@ title: "Kotlin User Groups List"
 ---
 
 # Find a KUG near you
-## 200 KUGs around the world
+## 201 KUGs around the world
 
 Kotlin User Group or KUG is a community of people and a place to share your programming experience with Kotlin and its ecosystem
 
@@ -123,6 +123,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Palestine Kotlin User Group](https://www.facebook.com/groups/592717964582711/), State of Palestine
  * [Philippines Kotlin](https://www.facebook.com/groups/642901202586581/), Philippines
  * [Pune Kotlin User Group](https://www.facebook.com/groups/punekotlin), India
+ * [Rajkot Kotlin User Group](https://sites.google.com/view/kugrajkot/home), India
  * [Saudi Arabia Kotlin User Group](https://www.facebook.com/KotlinArabia), Saudi Arabia
  * [Shanghai, KotlinThree](http://kotlinthree.github.io/), China
  * [Singapore Kotlin User Group](https://www.meetup.com/Singapore-Kotlin-User-group/), Singapore
