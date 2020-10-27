@@ -189,7 +189,6 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 * [Sao Paulo Kotlin Meetup](https://www.meetup.com/kotlin-meetup-sp/), Brazil
 * [Rio de Janeiro](https://www.meetup.com/Kotlin-Rio/), Brazil
 * [Tabasco Kotlin User Group](https://www.meetup.com/es-ES/kotlin-tabasco/), Mexico
-
  {:.community-usergroup-list}
 
 ## Australia/Oceania
