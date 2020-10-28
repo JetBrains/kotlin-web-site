@@ -22,5 +22,5 @@ eap:
 
 tutorials:
   native:
-    gradle_version: 5.4.1
+    gradle_version: 6.7.1
 
