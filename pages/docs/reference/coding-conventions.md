@@ -164,7 +164,7 @@ val USER_NAME_FIELD = "UserName"
 
 </div>
 
-Names of top-level or object properties which hold objects with behavior or mutable data should use camel-case names:
+Names of top-level or object properties which hold objects with behavior or mutable data should use camel case names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -185,7 +185,7 @@ val PersonComparator: Comparator<Person> = /*...*/
 </div>
  
 For enum constants, it's OK to use either uppercase underscore-separated names
-(`enum class Color { RED, GREEN }`) or regular camel-case names starting with an uppercase first letter, depending on the usage.
+(`enum class Color { RED, GREEN }`) or regular camel case names starting with an uppercase first letter, depending on the usage.
    
 #### Names for backing properties
 
