@@ -12,9 +12,9 @@ latest:
     date: October 26, 2020
 
   serialization:
-    version: 1.0.0
+    version: 1.0.1
     url: https://github.com/Kotlin/kotlinx.serialization
-    date: October 8, 2020
+    date: October 28, 2020
 
 eap:
   version: 1.4.20-M2
