@@ -153,7 +153,7 @@ class MyTestCase {
 ### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
-that hold deeply immutable data) should use uppercase underscore-separated names:
+that hold deeply immutable data) should use [screaming snake case](https://en.wikipedia.org/wiki/Snake_case) names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -184,7 +184,7 @@ val PersonComparator: Comparator<Person> = /*...*/
 
 </div>
  
-For enum constants, it's OK to use either uppercase underscore-separated names
+For enum constants, it's OK to use either screaming snake case
 (`enum class Color { RED, GREEN }`) or upper camel case names, depending on the usage.
    
 #### Names for backing properties
