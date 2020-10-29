@@ -45,7 +45,7 @@ statement.
 If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
 as the name of the class, with the .kt extension appended. If a file contains multiple classes, or only top-level declarations,
 choose a name describing what the file contains, and name the file accordingly.
-Use [camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (for example, `ProcessDeclarations.kt`).
+Use [upper camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (for example, `ProcessDeclarations.kt`).
 
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as "Util" in file names.
@@ -185,7 +185,7 @@ val PersonComparator: Comparator<Person> = /*...*/
 </div>
  
 For enum constants, it's OK to use either uppercase underscore-separated names
-(`enum class Color { RED, GREEN }`) or regular camel case names starting with an uppercase first letter, depending on the usage.
+(`enum class Color { RED, GREEN }`) or upper camel case names, depending on the usage.
    
 #### Names for backing properties
 
