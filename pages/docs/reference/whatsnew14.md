@@ -1359,7 +1359,7 @@ They return `null` on empty collections.
             OrderItem("Coffee", price = 2.5, count = 3),
             OrderItem("Tea", price = 1.5, count = 2))
     
-        val total = order.sumOf { it.price * it.count} // Double
+        val total = order.sumOf { it.price * it.count } // Double
         val count = order.sumOf { it.count } // Int
     //sampleEnd
         println("You've ordered $count items that cost $total in total")
