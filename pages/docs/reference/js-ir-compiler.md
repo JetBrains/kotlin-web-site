@@ -22,8 +22,8 @@ The IR compiler backend is available starting with Kotlin 1.4.0 through the Kotl
 kotlin {
     js(IR) { // or: LEGACY, BOTH
         // . . .
+        binaries.executable()
     }
-    binaries.executable()
 }
 ```
 
