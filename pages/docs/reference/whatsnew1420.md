@@ -6,9 +6,8 @@ title: "What's New in Kotlin 1.4.20"
 
 # What's New in Kotlin 1.4.0
 
-In Kotlin 1.4.20, we continue polishing and improving the new features presented in 1.4.0, and also start
-some new experiments that will form the next feature release. 
-
+In Kotlin 1.4.20, we offer a number of new experimental features and provide fixes and improvements for
+existing features, including those added in 1.4.0.
 
 [**Kotlin/JVM**](#kotlinjvm)
 - [Java 15 target](#java-15-target)
