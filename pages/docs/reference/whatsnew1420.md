@@ -224,7 +224,7 @@ You can opt into wrapping `NSException`’s into Kotlin’s `ForeignException`�
 Such a `ForeignExeption` holds the reference to the original `NSException`, which lets you get the information about the root cause.
 
 To enable wrapping of Objective-C exceptions, specify the `-Xforeign-exception-mode objc-wrap` option in the `cinterop`
-call or add `foreignExceptionMode = objc-wrap` property to `.def` file. If you use [CocoaPods integration](cocoapods.html),
+call or add `foreignExceptionMode = objc-wrap` property to `.def` file. If you use [CocoaPods integration](native/cocoapods.html),
 specify the option in the `pod {}` build script block of a dependency like this:
 
 ```kotlin
