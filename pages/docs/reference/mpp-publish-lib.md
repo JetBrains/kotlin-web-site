@@ -39,7 +39,7 @@ or migrate to the [`maven-publish` plugin](https://docs.gradle.org/current/userg
 
 ## Structure of publications
 
-The `maven-publish` plugin automatically creates publications for each target that can be built on the current host, except for the Android target, 
+The Kotlin plugin when used with `maven-publish` automatically creates publications for each target that can be built on the current host, except for the Android target, 
 which needs an [additional step to configure publishing](#publish-an-android-library).
 
 Publications of a multiplatform library include an additional _root_ publication `kotlinMultiplatform` that stands for the 
