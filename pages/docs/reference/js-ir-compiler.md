@@ -59,7 +59,7 @@ Choose between two tolerance policies for ignoring compilation errors in your co
 As an experimental feature, ignoring compilation errors requires an opt-in.
 To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compiler option:
 
-<div class="sample" markdown="1" mode="kotlin" theme="idea">
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
 
 ```kotlin
 kotlin {
