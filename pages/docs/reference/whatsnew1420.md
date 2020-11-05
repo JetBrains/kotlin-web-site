@@ -16,7 +16,7 @@ existing features, including those added in 1.4.0.
 [**Kotlin/JS**](#kotlinjs)
 - [Gradle DSL changes](#gradle-dsl-changes)
 - [New Wizard templates](#new-wizard-templates)
-- [Compilation with errors](#compilation-with-errors)
+- [Ignoring compilation errors with IR compiler](#ignoring-compilation-errors-with-ir-compiler)
 
 [**Kotlin/Native**](#kotlinnative)
 - [Escape analysis](#escape-analysis)
@@ -92,6 +92,8 @@ browser {
 }
 ```
 
+Learn more about configuring webpack bundling [here](js-project-setup.html#configuring-webpack-bundling).
+
 #### package.json customization from Gradle
 
 Now the Gradle DSL for Kotlin/JS supports adding custom fields to the auto-generated project file `package.json`.
@@ -108,8 +110,7 @@ kotlin {
 }
 ```
 
-With the `customField` function, you can add a `scripts` field to the configuration, making it easy to run your project
-from the command line, include information for other post-processing tools, or add other useful parts.
+Learn more about package.json customization [here](js-project-setup.html#packagejson-customization).
 
 #### Selective yarn dependency resolutions
 
@@ -167,9 +168,9 @@ templates for Kotlin/JS applications:
     
 Learn more how to create Kotlin/JS applications from templates [here](../tutorials/javascript/setting-up.html).
 
-### Compilation with errors
+### Ignoring compilation errors with IR compiler
 
-> Compilation with errors is [experimental](evolution/components-stability.html) in 1.4.20. It may change incompatibly in future versions.
+> _Ignore compilation errors_ mode is [experimental](evolution/components-stability.html) in 1.4.20. It may change incompatibly in future versions.
 {:.note}
 
 The [IR compiler](js-ir-compiler.html) for Kotlin/JS comes with a new experimental mode - _compilation with errors_.
@@ -182,17 +183,9 @@ There are two tolerance policies for this mode:
 
 - `SYNTAX`: the compiler will accept any code, even if it contains syntax errors.
 
-To allow compilation with errors, add the `-Xerror-tolerance-policy=` compiler option with the value you need:
+To allow compilation with errors, add the `-Xerror-tolerance-policy=` compiler option with one of the values listed above.
 
-```kotlin
-kotlin {
-   js(IR) {
-       compilations.all {
-           compileKotlinTask.kotlinOptions.freeCompilerArgs += listOf("-Xerror-tolerance-policy=SYNTAX")
-       }
-   }
-}
-```
+Learn more about ignoring compilation errors with Kotlin/JS IR compiler [here](js-ir-compiler.html#ignoring-compilation-errors).
 
 [**Back to top**](#)
 
@@ -347,7 +340,7 @@ that will help you migrate your Android project from synthetics to view bindings
 
 ### New plugin for Parcelable implementation generator
 
-The Parcelable implementation generator is now available in the new `kotlin-parcelize` plugin. Apply this plugin instead
+The [Parcelable implementation generator](compiler-plugins.html#parcelable-implementations-generator) is now available in the new `kotlin-parcelize` plugin. Apply this plugin instead
 of `kotlin-android-extensions`, or in addition to it if you keep using synthetics.
 
 The `@Parcelize` annotation is moved to the `kotlinx.parcelize` package.
