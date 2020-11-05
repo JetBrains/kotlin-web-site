@@ -46,7 +46,7 @@ In this mode, you can try out your application even while its code contains erro
 For example, when you’re doing a complex refactoring or working on a part of the system that is completely unrelated to
 a compilation error in another part.
 
-With this new compiler mode, the compiler removes all broken code. Thus, you can run the application and try its parts
+With this new compiler mode, the compiler ignores all broken code. Thus, you can run the application and try its parts
 that don't use the broken code. If you try to run the code that was broken during compilation, you'll get a 
 runtime exception.
 
