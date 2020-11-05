@@ -656,7 +656,7 @@ The complete list of options for the Gradle tasks is the following:
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
 | `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |  |  |
-| `jvmTarget` | Target version of the generated JVM bytecode | "1.6", "1.8", "9", "10", "11", "12", "13", "14" | "1.6" |
+| `jvmTarget` | Target version of the generated JVM bytecode | "1.6", "1.8", "9", "10", "11", "12", "13", "14", "15" | "1.6" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 | `noReflect` | Don't automatically include Kotlin reflection into the classpath |  | true |
 | `noStdlib` | Don't automatically include the Kotlin/JVM stdlib and Kotlin reflection into the classpath |  | true |

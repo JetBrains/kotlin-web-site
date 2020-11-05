@@ -482,21 +482,21 @@ Just add the plugin JAR file to the compiler plugin classpath and specify the li
 
 ## `Parcelable` implementations generator
 
-Android Extensions plugin provides [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator.
+`kotlin-parcelize` compiler plugin provides a [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) implementation generator.
 
 Annotate the class with `@Parcelize`, and a `Parcelable` implementation will be generated automatically.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class User(val firstName: String, val lastName: String, val age: Int): Parcelable
 ```
 </div>
 
-`@Parcelize` requires all serialized properties to be declared in the primary constructor. Android Extensions will issue a warning on each property 
+`@Parcelize` requires all serialized properties to be declared in the primary constructor. The plugin will issue a warning on each property 
 with a backing field declared in the class body. Also, `@Parcelize` can't be applied if some of the primary constructor parameters are not properties.
 
 If your class requires more advanced serialization logic, write it inside a companion class:

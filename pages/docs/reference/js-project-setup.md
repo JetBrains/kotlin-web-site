@@ -13,10 +13,10 @@ typical for JavaScript development. For example, the plugin downloads the [Yarn]
 for managing [npm](https://www.npmjs.com/) dependencies in background and can build a JavaScript bundle from a Kotlin project
 using [webpack](https://webpack.js.org/). Dependency management and configuration adjustments can be done to a large part directly from the Gradle build file, with the option to override automatically generated configurations for full control.
 
-To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project** and select **Gradle | Kotlin/JS for browser**
- or **Kotlin/JS for Node.js**. Be sure to clear the **Java** checkbox. If you want to use the Kotlin DSL for Gradle, make sure to check the **Kotlin DSL build script** option.
+To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project**. Then select **Kotlin** and choose a 
+Kotlin/JS target that suits you best. Don't forget to choose the language for the build script: Groovy or Kotlin.
 
-![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/wizard.png') }})
+![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/js-project-wizard.png') }})
 
 
 Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file (`build.gradle` or `build.gradle.kts`).
@@ -66,6 +66,7 @@ Inside the `kotlin` section, you can manage the following aspects:
 * [Test configuration](#configuring-test-task)
 * [Bundling](#configuring-webpack-bundling) and [CSS support](#configuring-css) for browser projects
 * [Target directory](#distribution-target-directory) and [module name](#adjusting-the-module-name)
+* [Project's `package.json` file](#packagejson-customization)
 
 ## Choosing execution environment
 
@@ -366,6 +367,9 @@ at build time which you can find the at `build/js/packages/projectName/webpack.c
 The most common webpack adjustments can be made directly via the
 `kotlin.js.browser.webpackTask` configuration block in the Gradle build file.
 
+You can also configure common webpack settings to use in bundling, running, and testing tasks in the `commonWebpackConfig`
+block. 
+
 If you want to make further adjustments to the webpack configuration, place your additional configuration files inside a directory
 called `webpack.config.d` in the root of your project. When building your project, all `.js` configuration files will automatically
 be merged into the `build/js/packages/projectName/webpack.config.js` file.
@@ -407,7 +411,21 @@ Note that these tasks will only be available if your target is configured to gen
 ## Configuring CSS
 The Kotlin/JS Gradle plugin also provides support for webpack's [CSS](https://webpack.js.org/loaders/css-loader/) and [style](https://webpack.js.org/loaders/style-loader/) loaders. While all options can be changed by directly modifying the [webpack configuration files](#configuring-webpack-bundling) that are used to build your project, the most commonly used settings are available directly from the `build.gradle(.kts)` file.
 
-To turn on CSS support in your project, set the `cssSupport.enabled` flag in the Gradle build file for `webpackTask`, `runTask`, and `testTask` respectively. This configuration is also enabled by default when creating a new project using the wizard.
+To turn on CSS support in your project, set the `cssSupport.enabled` flag in the Gradle build file in the `commonWbpackConfig` block. This configuration is also enabled by default when creating a new project using the wizard.
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+browser {
+    commonWebpackConfig {
+        cssSupport.enabled = true
+    }
+    binaries.executable()
+}
+```
+</div>
+
+Alternatively, you can add CSS support for selected tasks, such as `webpackTask`, `runTask`, and `testTask`.
 
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
@@ -426,6 +444,7 @@ testTask {
 }
 ```
 </div>
+
 Activating CSS support in your project helps prevent common errors that occur when trying to use style sheets from an unconfigured project, such as `Module parse failed: Unexpected character '@' (14:0)`.
 
 You can use `cssSupport.mode` to specify how encountered CSS should be handled. The following values are available:
@@ -514,6 +533,44 @@ js {
 </div>
 
 Note that this does not affect the webpacked output in `build/distributions`.
+
+## package.json customization
+
+The `package.json` file holds the metadata of a JavaScript package. Popular package registries such as npm require all 
+published packages to have such a file. They use it to track and manage package publications.  
+
+Aside from basic package attributes such as its name and version, `package.json` can define how a JavaScript project should
+behave, identifying scripts that are available to run, dependencies, and more.
+The Kotlin/JS Gradle plugin automatically generates `package.json` for Kotlin/JS projects during build time. By default, 
+the file contains essential data: name, version, license, dependencies, and so on.
+
+You can also add custom entries to the `package.json`. To add custom fields to your `package.json`, use the `customField`
+function in the compilations `packageJson` block:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```kotlin
+kotlin {
+    js {
+        compilations["main"].packageJson {
+            customField("hello", mapOf("one" to 1, "two" to 2))
+        }
+    }
+}
+```
+
+</div>
+
+When you build the project, this code will add the following block to the `package.json` file:
+
+```
+"hello": {
+  "one": 1,
+  "two": 2
+}
+```
+
+Learn more about writing `package.json` files for npm registry in the [npm docs](https://docs.npmjs.com/cli/v6/configuring-npm/package-json).
 
 ## Troubleshooting
 When building a Kotlin/JS project using Kotlin 1.3.xx, you may encounter a Gradle error if one of your dependencies (or any transitive dependency) was built using Kotlin 1.4 or higher: `Could not determine the dependencies of task ':client:jsTestPackageJson'.` / `Cannot choose between the following variants`. This is a known problem, a workaround is provided [here](https://youtrack.jetbrains.com/issue/KT-40226).
