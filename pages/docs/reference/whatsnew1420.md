@@ -253,7 +253,7 @@ Starting from Kotlin 1.4.20, there is no longer a separate metadata publication.
 the _root_ publication which stands for the whole library and is automatically resolved to the appropriate platform-specific
 artifacts when added as a dependency to the common source set.
 
-Learn more about [publishing a multiplatform library](https://kotlinlang.org/docs/reference/mpp-publish-lib.html).
+Learn more about publishing a multiplatform library [here](https://kotlinlang.org/docs/reference/mpp-publish-lib.html).
 
 #### Compatibility with earlier versions
 
