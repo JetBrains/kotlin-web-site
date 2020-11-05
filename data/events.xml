@@ -1,6 +1,328 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
-        <event>
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-29</startDate>
+        <endDate>2020-10-29</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Renato Costa</speaker>
+        <title>Kotlin Uer Group Berlin</title>
+        <subject>[Virtual] Reactive World - Bootiful RSocket with Coroutines</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrybcnbtb/</url>
+        <description>
+            <![CDATA[
+<p>In the current landscape of microservices, handling communication between services efficiently is key. This talk will explore the RSocket protocol, and in how it can help you build faster and more resilient services, and how easily you can start using it, along with Spring and Kotlin Coroutines.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-10-29</startDate>
+        <endDate>2020-10-29</endDate>
+        <location>La Paz, Bolivia</location>
+        <speaker>Gustavo Lizárraga</speaker>
+        <title>Kotlin La Paz</title>
+        <subject>Kotlin Nights La Paz - Vol. 10</subject>
+        <url>https://www.meetup.com/KotlinLPZ/events/273915158/</url>
+        <description>
+            <![CDATA[
+<p>Nuestro 10mo Kotlin Night tendrá algo especial, que no será en la noche como acostumbramos, lo realizaremos en la tarde por eso será un Kotlin Afternoon, en el cuál aprenderemos a utilizar Software externo a Kotlin pero que podemos aplicarlo a nuestras aplicaciones Android, cómo todo acerca de Firebase, Webhooks y SpringBoot y el abc de Gradle.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-23</startDate>
+        <endDate>2020-10-23</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Adele Carpenter</speaker>
+        <title>Kotlin Dublin User Group</title>
+        <subject>Programming is hard: lessons through the eyes of a noob</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/events/273876166/</url>
+        <description>
+            <![CDATA[
+<p>When did you learn to program? Do you remember the child-like thrill of typing in some text in the command line and making the computer do something? The feeling of endless possibility?</p>
+<p>Programming might not be magic, but it can definitely feel magical. But the more magic you need to scrape away, the harder it gets. Let’s face it, programming is hard. Once we’ve been doing it for a while, perhaps with a dash of Stockholm Syndrome, we forget how much pain growth we have gone through to get where we are.</p>
+<p>So what might you know, but have forgotten that you ever learned it? In this talk, I will share my experiences of working on a software project as a freshly-minted software engineer. I will detail what I struggled with, where everyone around me just kind of “knew”. At the end of this talk, you will have a noob perspective on how fundamental some software fundamentals, or “knowns”, really are.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-23</startDate>
+        <endDate>2020-10-23</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Ian Arbuckle</speaker>
+        <title>Kotlin Dublin User Group</title>
+        <subject>Building a RESTful Ktor app with Mongodb Atlas</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/events/273876166/</url>
+        <description>
+            <![CDATA[
+<p>In this session, Ian will demonstrate how to use Mongodb Atlas, a cloud database service, within a Ktor app. Are you tired of configuring a database all by yourself and want to code what matters? This talk is for you!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-20</startDate>
+        <endDate>2020-10-20</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Marie Katrine Ekeberg</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>Domain Specific Languages</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/273642127/</url>
+        <description>
+            <![CDATA[
+<p>Domain Specific Languages (DSLs) can be used to solve a lot of different problems, and Kotlin have some nifty features that let us create fluent, expressive DSLs quite easy. In this session we will look at some of those features, as well as what DSLs are. Don’t be afraid of the fancy words! We will take it slow! (the first part is just talking about standard functions in Kotlin!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-20</startDate>
+        <endDate>2020-10-20</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Anders Mikkelsen</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>Script, scripting with Kotlin</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/273642127/</url>
+        <description>
+            <![CDATA[
+<p>Intro to scripting with kotlin. We will take a look at kotlin-main-kts, and kscript. The former is the first party solution from Jetbrains, and the latter is an older third party solution.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-20</startDate>
+        <endDate>2020-10-20</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Jarle Hansen</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>Functional programming with Arrow</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/273642127/</url>
+        <description>
+            <![CDATA[
+<p>A quick intro to the arrow library, a functional companion to Kotlin's standard library. We will look at a few simple examples using arrow-core, arrow-fx and arrow-optics.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-20</startDate>
+        <endDate>2020-10-20</endDate>
+        <location>Lubumbashi, Congo</location>
+        <speaker>Nicolas Frankel</speaker>
+        <title>GDG Lubumbashi DevFest 2020</title>
+        <subject>Pragmatic App Migration to the Cloud: Quarkus, Kotlin, Hazelcast and GraalVM in action.</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-lubumbashi-presents-gdg-lubumbashi-devfest-2020/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-04</startDate>
+        <endDate>2020-11-04</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Ian Brandt</speaker>
+        <title>San Diego Kotlin User Group</title>
+        <subject>Monthly Kotlin Online!</subject>
+        <url>https://www.meetup.com/sd-kotlin/events/hrrbwrybcpbgb/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-31</startDate>
+        <endDate>2020-10-31</endDate>
+        <location>Minna, Nigeria</location>
+        <speaker>Umar Saidu</speaker>
+        <title>Kotlin Minna User Group, Nigeria</title>
+        <subject>Kotlin Clustered Webinar 2020</subject>
+        <url>https://www.meetup.com/Kotlin-Minna-User-Group-Nigeria/events/273455660/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-18</startDate>
+        <endDate>2020-10-18</endDate>
+        <location>Hong Kong, China</location>
+        <speaker>George Leung</speaker>
+        <title>DevFest Hong Kong 2020</title>
+        <subject>Kotlin as a language for concurrency</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-hong-kong-presents-devfest-hong-kong-2020-with-gdg-dsc-wtm/</url>
+        <description>
+            <![CDATA[
+<p>You think of JavaScript and Go when you hear "concurrency". Let me show you how Kotlin does it better.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>London, UK</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>DevFest UK and Ireland 2020</title>
+        <subject>Unit Testing Kotlin Channels and Flows</subject>
+        <url>https://www.devfest-uki.com/</url>
+        <description>
+            <![CDATA[
+<p>Unit testing Channels and Flows can be a challenge as they are fairly new. In this talk, I will share with you how to implement and test practical examples from my experience. These examples are testing delays, retries, and errors. I'll also share testing more complex examples such as polling. For each use case, we'll look at how to use features in the coroutines library such as runBlockingTest and TestCoroutineDispatcher. From my journey of using and testing Flows in production, I'll share the challenges I experienced.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Medellín, Colombia</location>
+        <speaker>Yury Camacho</speaker>
+        <title>DevFest Colombia 2020</title>
+        <subject>Write once share everywhere with Kotlin Multiplatform</subject>
+        <url>https://devfestcolombia.co/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform is clearly one of the best options for cross-platform code sharing, pioneered by the idea of writing only once and sharing code across IOS, Android, Web, Backend, and embedded devices. In this talk we will learn the basic and advanced concepts, how we can use it, which again brings us the version 1.4 of Kotlin related to KMP.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>zh</lang>
+        <startDate>2020-10-18</startDate>
+        <endDate>2020-10-18</endDate>
+        <location>Hong Kong, China</location>
+        <speaker>Fan Shengyou</speaker>
+        <title>DevFest Hong Kong 2020</title>
+        <subject>(Mandarin) 實戰 Ktor 部署 - 以 Google Cloud 打造 CI/CD</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-hong-kong-presents-devfest-hong-kong-2020-with-gdg-dsc-wtm/</url>
+        <description>
+            <![CDATA[
+<p>Ktor 是由 JetBrains 以 100% Kotlin 打造的 Web 框架，其簡潔輕量、易懂好學的設計，讓其非常適合用於網路服務的開發。不過許多新手在學會 Ktor 後最常問的問題，就是該怎麼部署到雲端？在這場分享裡，將會分享如何將 Ktor 打包成 Container Image 後部署上雲。其中會用到幾個 Google Cloud 技術及服務包括 Jib、Cloud Build 及 Cloud Run，建置成一個自動化 CI/CD 的工作流程。聽完這場分享，您將會對 Ktor、Jib 及 Google Cloud 有更進一步的認識與實務操作能力。</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-10</startDate>
+        <endDate>2020-10-10</endDate>
+        <location>Cairo, Egypt</location>
+        <speaker>Ahmed Nabil</speaker>
+        <title>DevFest Damanhour 2020</title>
+        <subject>Kotlin Multiplatform</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-damanhour-presents-devfest-20-1/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-21</startDate>
+        <endDate>2020-10-21</endDate>
+        <location>Cairo, Egypt</location>
+        <speaker>Josh Long</speaker>
+        <title>DevFest Damanhour 2020</title>
+        <subject>Kotlin and Spring: Pragmatism and power</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-damanhour-presents-devfest-20-1/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-15</startDate>
+        <endDate>2020-10-15</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Carlos Mota</speaker>
+        <title>DevFest Norway 2020</title>
+        <subject>A Multiplatform triathlon: Kotlin through Android, iOS and web</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-cloud-oslo-norway-presents-devfest-norway-2020/#0</url>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2020-10-18</startDate>
+        <endDate>2020-10-18</endDate>
+        <location>Saudi Arabia</location>
+        <speaker>Shady Selim</speaker>
+        <title>DevFest Saudi Arabia 2020</title>
+        <subject>Kotlin Multiplatform Mobile | كوتلين للمنصات المتعددة</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-cloud-saudi-presents-devfest-2020-saudi-arabia/</url>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Fort Collins, CO, USA</location>
+        <speaker>Enrique López Mañas</speaker>
+        <title>DevFest  Northern Colorado 2020</title>
+        <subject>Coroutines and JVM</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-northern-colorado-androidchrome-presents-mountain-region-devfest-2020/</url>
+        <description>
+            <![CDATA[
+<p>Have you ever wondered how the coroutines work under the hood? What were the design goals of the Kotlin coroutines and how are they implemented on JVM? This session will help you to understand some of the underlying principles behind the coroutines, and how they can be effectively be used on the JVM.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Fort Collins, CO, USA</location>
+        <speaker>Josh Long</speaker>
+        <title>DevFest Northern Colorado 2020</title>
+        <subject>Kotlin and Spring: an Pragmatic Pair</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-northern-colorado-androidchrome-presents-mountain-region-devfest-2020/</url>
+        <description>
+            <![CDATA[
+<p>Spring Boot, the convention-over-configuration centric framework from the Spring team at Pivotal, marries Spring's flexibility with conventional, common sense defaults to make application development on the JVM not just fly, but pleasant! Spring Boot aims to address the common functional and non-functional requirements that gate quickly moving to production. The framework is as clean as it gets, wouldn't it be nice if the language matched its elegance?</p>
+<p>Kotlin, the productivity-focused language from our friends at JetBrains, takes up the slack to make the experience leaner, cleaner and even more pleasant!</p>
+<p>The Spring and Kotlin teams have worked hard to make sure that Kotlin and Spring Boot are a first-class experience for all developers trying to get to production, faster and safer. Come for the Spring and stay for the Bootiful Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Carlos Mota</speaker>
+        <title>DevFest Italia 2020</title>
+        <subject>The Hitchhikers Guide Through Kotlin Multiplatform</subject>
+        <url>https://www.devfest.it/schedule/2020-10-17?sessionId=172</url>
+        <description>
+            <![CDATA[
+<p>Since the early days of mobile that we keep seeing new frameworks being designed to overcome one of the biggest challenges: * How can I develop for both Android and iOS? Although it’s initial promises, when we talk about performance, maintainability or even customization we keep discarding these solutions and we always choose native. Fast forward to the present, and now we have two new languages: Android is Kotlin first and iOS, Swift. And if you put them side by side you can see a lot of similarities between both what will ease switching between one to the other if you have to develop for both platforms. But what I told that you could just develop in Kotlin and run it seamlessly on all devices? Here comes Kotlin Multiplatform!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2020-10-17</startDate>
+        <endDate>2020-10-17</endDate>
+        <location>St.Petersburg, Russia</location>
+        <speaker>Alexander Nozik</speaker>
+        <title>[GDG] DevFest 2020 Online (Russia and Belarus)</title>
+        <subject>Mulitplatform science in Kotlin</subject>
+        <url>https://gdg-russia.com/#about#!/tab/235456433-3</url>
+        <description>
+            <![CDATA[
+<p>Kotlin традиционно считается языком, созданным для мобильной разработки. Но придуман он был совсем для других целей. Разработчики не могли все предсказать - инструмент получился куда более универсальным, чем ожидалось. На нем можно делать даже библиотеки и приложения для науки! Об этом и поговорим.</p>
+<p>Расскажу, как использовать мультиплатформу для науки и о науке создания мультиплатформных приложений за пределами сектора мобильной разработки. С примерами!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>es</lang>
         <startDate>2020-10-13</startDate>
         <endDate>2020-10-13</endDate>
