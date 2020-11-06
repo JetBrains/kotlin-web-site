@@ -209,6 +209,7 @@ Kotlin/Native's priorities in 1.4.20 are performance and polishing existing feat
 - [Escape analysis](#escape-analysis)
 - [Performance improvements and bug fixes](#performance-improvements-and-bug-fixes)
 - [Opt-in wrapping of Objective-C exceptions](#opt-in-wrapping-of-objective-c-exceptions)
+- [CocoaPods plugin improvements](#cocoapods-plugin-improvements)
 - [Support for Xcode 12 libraries](#support-for-xcode-12-libraries)
 
 
@@ -254,6 +255,45 @@ pod("foo") {
 
 The default behavior remains unchanged: the program terminates when an exception is thrown from the Objective-C code.
 
+### CocoaPods plugin improvements
+
+Kotlin 1.4.20 continues the set of improvements in CocoaPods integration. Namely, you can try the following new features:
+
+- [Improved task execution](#improved-task-execution)
+- [Extended DSL](#extended-dsl)
+- [Updated integration with Xcode](#updated-integration-with-xcode)
+
+#### Improved task execution
+
+CocoaPods plugin gets an improved task execution flow. For example, if you add a new CocoaPods dependency,
+existing dependencies are not rebuilt. Adding an extra target also doesn't affect rebuilding dependencies for existing ones.
+
+#### Extended DSL
+
+The DSL of adding [CocoaPods](native/cocoapods.html) dependencies to your Kotlin project receives new capabilites.
+
+In addition to local Pods and Pods from the CocoaPods repository, you can add dependencies on the following types of libraries:
+* A library from a custom spec repository.
+* A remote library from a Git repository.
+* A library from an archive (also available by arbitrary HTTP address).
+* A static library.
+* A library with custom cinterop options.
+
+Learn more about [adding CocoaPods dependencies](native/cocoapods.html#add-dependencies-on-pod-libraries) in Kotlin projects.
+Find examples in the [Kotlin with CocoaPods sample](https://github.com/Kotlin/kotlin-with-cocoapods-sample).
+
+#### Updated integration with Xcode
+
+To work correctly with Xcode, Kotlin requires some Podfile changes:
+
+* If your Kotlin Pod has any Git, HTTP, or specRepo pod dependency, you should also specify it in the Podfile.
+* When you add a library from the custom spec, you also should specify the [location](https://guides.cocoapods.org/syntax/podfile.html#source)
+    of specs at the beginning of your Podfile.
+
+Now integration errors have a detailed description in IDEA. So if you have problems with your Podfile, you will immediately know how to fix them.
+
+Learn more about [creating Kotlin pods](native/cocoapods.html#use-a-kotlin-gradle-project-as-a-cocoapods-dependency).
+
 ### Support for Xcode 12 libraries
     
 We have added support for new libraries delivered with Xcode 12. Now you can use them from the Kotlin code.
@@ -278,47 +318,6 @@ them to Kotlin 1.4.20 or higher simultaneously. Libraries published with Kotlin 
 project published with earlier versions.
 
 Projects and libraries without the hierarchical project structure remain compatible.
-
-[**Back to top**](#)
-
-## CocoaPods support
-
-Kotlin 1.4.20 continues the set of improvements in CocoaPods integration. Namely, you can try the following new features:
-
-- [Improved task execution](#improved-task-execution)
-- [Extended DSL](#extended-dsl)
-- [Updated integration with Xcode](#updated-integration-with-xcode)
-
-### Improved task execution
-
-In this release, we significantly improved task execution flow. For example, if you add a new CocoaPods dependency,
-existing dependencies are not rebuilt. Adding an extra target also doesn't affect rebuilding dependencies for existing ones.
-
-### Extended DSL
-
-In 1.4.20, we extend the DSL of adding [CocoaPods](native/cocoapods.html) dependencies to your Kotlin project.
-
-In addition to local Pods and Pods from the CocoaPods repository, you can add dependencies on the following types of libraries:
-* A library from a custom spec repository.
-* A remote library from a Git repository.
-* A library from an archive (also available by arbitrary HTTP address).
-* A static library.
-* A library with custom cinterop options.
-
-Learn more about [adding CocoaPods dependencies](native/cocoapods.html#add-dependencies-on-pod-libraries) in Kotlin projects.
-Find examples in the [Kotlin with CocoaPods sample](https://github.com/Kotlin/kotlin-with-cocoapods-sample).
-
-### Updated integration with Xcode
-
-To work correctly with Xcode, Kotlin requires some Podfile changes:
-
-* If your Kotlin Pod has any Git, HTTP, or specRepo pod dependency, you should also specify it in the Podfile.
-* When you add a library from the custom spec, you also should specify the [location](https://guides.cocoapods.org/syntax/podfile.html#source)
-    of specs at the beginning of your Podfile.
-
-Now integration errors have a detailed description in IDEA. So if you have problems with your Podfile, you will immediately know how to fix them.
-
-Learn more about [creating Kotlin pods](native/cocoapods.html#use-a-kotlin-gradle-project-as-a-cocoapods-dependency).
 
 [**Back to top**](#)
 
