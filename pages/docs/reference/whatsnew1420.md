@@ -22,17 +22,13 @@ For a detailed explanations of the features listed below, see [this blog post](h
 
 [**Kotlin/Native**](#kotlinnative)
 - [Escape analysis](#escape-analysis)
-- [Opt-in wrapping of Objective-C exceptions](#opt-in-wrapping-of-objective-c-exceptions)
-- [Support for Xcode 12 libraries](#support-for-xcode-12-libraries)
 - [Performance improvements and bug fixes](#performance-improvements-and-bug-fixes)
+- [Opt-in wrapping of Objective-C exceptions](#opt-in-wrapping-of-objective-c-exceptions)
+- [CocoaPods plugin improvements](#cocoapods-plugin-improvements)
+- [Support for Xcode 12 libraries](#support-for-xcode-12-libraries)
 
 [**Kotlin Multiplatform**](#kotlin-multiplatform)
 - [Updated structure of multiplatform library publications](#updated-structure-of-multiplatform-library-publications)
-
-[**CocoaPods support**](#cocoapods-support)
-- [Improved task execution](#improved-task-execution)
-- [Extended DSL](#extended-dsl)
-- [Updated integration with Xcode](#updated-integration-with-xcode)
 
 [**Standard library**](#standard-library)
 - [Extensions for java.nio.file.Path](#extensions-for-javaniofilepath)
