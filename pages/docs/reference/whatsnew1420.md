@@ -9,6 +9,8 @@ title: "What's New in Kotlin 1.4.20"
 In Kotlin 1.4.20, we offer a number of new experimental features and provide fixes and improvements for
 existing features, including those added in 1.4.0.
 
+For a detailed explanations of the features listed below, see [this blog post](https://blog.jetbrains.com/kotlin/2020/11/kotlin-1-4-20-released/).
+
 [**Kotlin/JVM**](#kotlinjvm)
 - [Java 15 target](#java-15-target)
 - [invokedynamic string concatenation](#invokedynamic-string-concatenation)
@@ -42,6 +44,11 @@ existing features, including those added in 1.4.0.
 
 ## Kotlin/JVM
 
+Improvements of Kotlin/JVM are intended to keep it up with the features of modern Java versions:
+
+- [Java 15 target](#java-15-target)
+- [invokedynamic string concatenation](#invokedynamic-string-concatenation)
+
 ### Java 15 target
 
 Now Java 15 is available as a Kotlin/JVM target.
@@ -60,14 +67,19 @@ Currently, this feature is experimental and covers the following cases:
 - string templates except for ones with a single non-constant argument (see [KT-42457](https://youtrack.jetbrains.com/issue/KT-42457)).
 
 To enable `invokedynamic` string concatenation, add the `-Xstring-concat` compiler option with one of the following values:
-- `indy-with-constants` to perform `invokedynamic` concatenation on strings with [StringConcatFactory.makeConcatWithConstants()](https://docs.oracle.com/javase/9/docs/api/java/lang/invoke/StringConcatFactory.html#makeConcatWithConstants-java.lang.invoke.MethodHandles.Lookup-java.lang.String-java.lang.invoke.MethodType-java.lang.String-java.lang.Object...-)
-    (this is planned to be the default for JVM 9+ targets in 1.5).
+- `indy-with-constants` to perform `invokedynamic` concatenation on strings with [StringConcatFactory.makeConcatWithConstants()](https://docs.oracle.com/javase/9/docs/api/java/lang/invoke/StringConcatFactory.html#makeConcatWithConstants-java.lang.invoke.MethodHandles.Lookup-java.lang.String-java.lang.invoke.MethodType-java.lang.String-java.lang.Object...-).
 - `indy` to perform `invokedynamic` concatenation on strings with [StringConcatFactory.makeConcat()](https://docs.oracle.com/javase/9/docs/api/java/lang/invoke/StringConcatFactory.html#makeConcat-java.lang.invoke.MethodHandles.Lookup-java.lang.String-java.lang.invoke.MethodType-).
 - `inline` to switch back to the classic concatenation via `StringBuilder.append()`.
 
 [**Back to top**](#)
 
 ## Kotlin/JS
+
+Kotlin/JS keeps evolving fast, and in 1.4.20 you can find a number experimental features and improvements:
+
+- [Gradle DSL changes](#gradle-dsl-changes)
+- [New Wizard templates](#new-wizard-templates)
+- [Ignoring compilation errors with IR compiler](#ignoring-compilation-errors-with-ir-compiler)
 
 ### Gradle DSL changes
 
@@ -92,11 +104,12 @@ browser {
 }
 ```
 
-Learn more about configuring webpack bundling [here](js-project-setup.html#configuring-webpack-bundling).
+Learn more about [configuring webpack bundling](js-project-setup.html#configuring-webpack-bundling).
 
 #### package.json customization from Gradle
 
-Now the Gradle DSL for Kotlin/JS supports adding custom fields to the auto-generated project file `package.json`.
+For more fine-grained control over you Kotlin/JS package management and distribution, now you can add custom
+fields to the project file [`package.json`](https://nodejs.dev/learn/the-package-json-guide) via the Gradle DSL.
 
 To add custom fields to your `package.json`, use the `customField` function in the compilation's `packageJson` block:
 
@@ -110,7 +123,7 @@ kotlin {
 }
 ```
 
-Learn more about package.json customization [here](js-project-setup.html#packagejson-customization).
+Learn more about [`package.json` customization](js-project-setup.html#packagejson-customization).
 
 #### Selective yarn dependency resolutions
 
@@ -146,7 +159,7 @@ Gradle task. For example, the `webpack-dev-server` package is only installed whe
 and not when you execute the assemble task. Such behavior can potentially bring problems when you run multiple Gradle
 processes in parallel. When the dependency requirements clash, the two installations of npm packages can cause errors.
 
-To resolve this issue, Kotlin 1.4.20 includes a new (experimental) option to disable these so-called "granular workspaces".
+To resolve this issue, Kotlin 1.4.20 includes an option to disable these so-called _granular workspaces_.
 This feature is currently available through the `YarnRootExtension` inside the `YarnPlugin` in Gradle.
 To use it, add the following snippet to your `build.gradle.kts` file:
 
@@ -166,7 +179,7 @@ templates for Kotlin/JS applications:
 - **Node.js Application** a minimal project for running in a Node.js runtime. It comes with the option to directly
     include the experimental `kotlinx-nodejs` package.
     
-Learn more how to create Kotlin/JS applications from templates [here](../tutorials/javascript/setting-up.html).
+Learn how to [create Kotlin/JS applications from templates]](../tutorials/javascript/setting-up.html).
 
 ### Ignoring compilation errors with IR compiler
 
@@ -185,11 +198,19 @@ There are two tolerance policies for this mode:
 
 To allow compilation with errors, add the `-Xerror-tolerance-policy=` compiler option with one of the values listed above.
 
-Learn more about ignoring compilation errors with Kotlin/JS IR compiler [here](js-ir-compiler.html#ignoring-compilation-errors).
+Learn more about [ignoring compilation errors](js-ir-compiler.html#ignoring-compilation-errors) with Kotlin/JS IR compiler.
 
 [**Back to top**](#)
 
 ## Kotlin/Native
+
+Kotlin/Native's priorities in 1.4.20 are performance and polishing existing features. These are the notable improvements:
+  
+- [Escape analysis](#escape-analysis)
+- [Performance improvements and bug fixes](#performance-improvements-and-bug-fixes)
+- [Opt-in wrapping of Objective-C exceptions](#opt-in-wrapping-of-objective-c-exceptions)
+- [Support for Xcode 12 libraries](#support-for-xcode-12-libraries)
+
 
 ### Escape analysis
 
@@ -197,13 +218,18 @@ Learn more about ignoring compilation errors with Kotlin/JS IR compiler [here](j
 {:.note}
 
 Kotlin/Native receives a prototype of the new [escape analysis](https://en.wikipedia.org/wiki/Escape_analysis) mechanism.
-It improves the runtime performance by allocating certain objects on the stack instead of the heap. With this mecahnism, 
-we've got a 10% average performance increase on our benchmarks, and we continue improving it so that it speeds up the
+It improves the runtime performance by allocating certain objects on the stack instead of the heap. This mechanism 
+shows a 10% average performance increase on our benchmarks, and we continue improving it so that it speeds up the
 program even more.
 
-The escape analysis is performed in a separate compilation phase for the release builds (with the `-opt` compiler option). 
+The escape analysis runs in a separate compilation phase for the release builds (with the `-opt` compiler option). 
 
 If you want to disable the escape analysis phase, use the `-Xdisable-phases=EscapeAnalysis` compiler option.
+
+### Performance improvements and bug fixes
+
+Kotlin/Native receives performance improvements and bug fixes in various components, including the ones added
+in 1.4.0, for example, the [code sharing mechanism](mpp-share-on-platforms.html#share-code-on-similar-platforms). 
 
 ### Opt-in wrapping of Objective-C exceptions
 
@@ -212,8 +238,9 @@ If you want to disable the escape analysis phase, use the `-Xdisable-phases=Esca
 
 Kotlin/Native now can handle exceptions thrown from Objective-C code in runtime to avoid program crashes.
 
-You can opt into wrapping `NSException`’s into Kotlin’s `ForeignException`’s for further handling in the Kotlin code.
-Such a `ForeignExeption` holds the reference to the original `NSException`, which lets you get the information about the root cause.
+
+You can opt in to wrap `NSException`’s into Kotlin exceptions of type `ForeignException`. They hold the references to the
+original `NSException`'s. This lets you get the information about the root cause and handle it properly.
 
 To enable wrapping of Objective-C exceptions, specify the `-Xforeign-exception-mode objc-wrap` option in the `cinterop`
 call or add `foreignExceptionMode = objc-wrap` property to `.def` file. If you use [CocoaPods integration](native/cocoapods.html),
@@ -231,11 +258,6 @@ The default behavior remains unchanged: the program terminates when an exception
     
 We have added support for new libraries delivered with Xcode 12. Now you can use them from the Kotlin code.
 
-### Performance improvements and bug fixes
-
-As usual, Kotlin/Native receives performance improvements and bug fixes in various components, including the ones added
-in 1.4.0, for example, the [code sharing mechanism](mpp-share-on-platforms.html#share-code-on-similar-platforms). 
-
 [**Back to top**](#)
 
 ## Kotlin Multiplatform
@@ -246,7 +268,7 @@ Starting from Kotlin 1.4.20, there is no longer a separate metadata publication.
 the _root_ publication which stands for the whole library and is automatically resolved to the appropriate platform-specific
 artifacts when added as a dependency to the common source set.
 
-Learn more about publishing a multiplatform library [here](https://kotlinlang.org/docs/reference/mpp-publish-lib.html).
+Learn more about [publishing a multiplatform library](mpp-publish-lib.html).
 
 #### Compatibility with earlier versions
 
@@ -260,6 +282,12 @@ Projects and libraries without the hierarchical project structure remain compati
 [**Back to top**](#)
 
 ## CocoaPods support
+
+Kotlin 1.4.20 continues the set of improvements in CocoaPods integration. Namely, you can try the following new features:
+
+- [Improved task execution](#improved-task-execution)
+- [Extended DSL](#extended-dsl)
+- [Updated integration with Xcode](#updated-integration-with-xcode)
 
 ### Improved task execution
 
@@ -277,7 +305,7 @@ In addition to local Pods and Pods from the CocoaPods repository, you can add de
 * A static library.
 * A library with custom cinterop options.
 
-Learn more about adding CocoaPods dependencies in Kotlin projects [here](native/cocoapods.html#add-dependencies-on-pod-libraries).
+Learn more about [adding CocoaPods dependencies](native/cocoapods.html#add-dependencies-on-pod-libraries) in Kotlin projects.
 Find examples in the [Kotlin with CocoaPods sample](https://github.com/Kotlin/kotlin-with-cocoapods-sample).
 
 ### Updated integration with Xcode
@@ -290,11 +318,16 @@ To work correctly with Xcode, Kotlin requires some Podfile changes:
 
 Now integration errors have a detailed description in IDEA. So if you have problems with your Podfile, you will immediately know how to fix them.
 
-Learn more about creating Kotlin pods [here](native/cocoapods.html#use-a-kotlin-gradle-project-as-a-cocoapods-dependency).
+Learn more about [creating Kotlin pods](native/cocoapods.html#use-a-kotlin-gradle-project-as-a-cocoapods-dependency).
 
 [**Back to top**](#)
 
 ## Standard library
+
+The standard library of Kotlin 1.4.20 offers new extensions for working with files and a better performance.
+
+- [Extensions for java.nio.file.Path](#extensions-for-javaniofilepath)
+- [Improved String.replace function performance](#improved-stringreplace-function-performance)
 
 ### Extensions for java.nio.file.Path
 
@@ -305,9 +338,6 @@ Now the standard library provides experimental extensions for `java.nio.file.Pat
 Working with the modern JVM file API in an idiomatic Kotlin way is now similar to working with `java.io.File` extensions
 from the `kotlin.io` package.
 
-The extensions are available in the `kotlin.io.path` package in the `kotlin-stdlib-jdk7` module.
-In order to use them, you need to opt-in to the experimental annotation `@ExperimentalPathApi`.
-
 ```kotlin
 // construct path with the div (/) operator
 val baseDir = Path("/base")
@@ -316,6 +346,9 @@ val subDir = baseDir / "subdirectory"
 // list files in a directory
 val kotlinFiles: List<Path> = Path("/home/user").listDirectoryEntries("*.kt")
 ```
+
+The extensions are available in the `kotlin.io.path` package in the `kotlin-stdlib-jdk7` module.
+To use the extensions, [opt-in](opt-in-requirements.html) to the experimental annotation `@ExperimentalPathApi`.
 
 ### Improved String.replace function performance
 
@@ -326,6 +359,12 @@ expression matching.
 [**Back to top**](#)
 
 ## Kotlin Android Extensions
+
+In 1.4.20 the Kotlin Android Extensions plugin becomes deprecated and `Pacrelable` implementation generators moves to a 
+separate plugin.
+
+- [Deprecation of synthetic views](#deprecation-of-synthetic-views)
+- [New plugin for Parcelable implementation generator](#new-plugin-for-parcelable-implementation-generator)
 
 ### Deprecation of synthetic views
 
