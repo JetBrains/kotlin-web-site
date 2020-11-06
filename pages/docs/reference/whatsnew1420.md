@@ -108,8 +108,8 @@ Learn more about [configuring webpack bundling](js-project-setup.html#configurin
 
 #### package.json customization from Gradle
 
-For more fine-grained control over you Kotlin/JS package management and distribution, now you can add custom
-fields to the project file [`package.json`](https://nodejs.dev/learn/the-package-json-guide) via the Gradle DSL.
+For more control over you Kotlin/JS package management and distribution, you can now add properties to the project file
+[`package.json`](https://nodejs.dev/learn/the-package-json-guide) via the Gradle DSL.
 
 To add custom fields to your `package.json`, use the `customField` function in the compilation's `packageJson` block:
 
@@ -351,7 +351,7 @@ To use the extensions, [opt-in](opt-in-requirements.html) to the experimental an
 
 ### Improved String.replace function performance
 
-The new implementation of `String.replace()` function speeds up the execution in certain cases.
+The new implementation of `String.replace()` speeds up the function execution.
 The case-sensitive variant uses a manual replacement loop based on `indexOf`, while the case-insensitive one uses regular
 expression matching.
 
