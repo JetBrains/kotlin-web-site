@@ -496,7 +496,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > **Incompatible change type**: behavioral
 > 
-> **Short summary**: Since Kotlin 1.4, the compiler will not generate the `ConstantValue` attribute for `val`s annotated with `@JvmField` 
+> **Short summary**: Since Kotlin 1.4, the compiler will not generate the `ConstantValue` attribute for non-`const` `val`s
 > 
 > **Deprecation cycle**:
 > 
