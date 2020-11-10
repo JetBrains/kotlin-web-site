@@ -4,12 +4,12 @@ layout: reference
 title: "What's New in Kotlin 1.4.20"
 ---
 
-# What's New in Kotlin 1.4.0
+# What's New in Kotlin 1.4.20
 
-In Kotlin 1.4.20, we offer a number of new experimental features and provide fixes and improvements for
+Kotlin 1.4.20 offers a number of new experimental features and provide fixes and improvements for
 existing features, including those added in 1.4.0.
 
-For a detailed explanations of the features listed below, see [this blog post](https://blog.jetbrains.com/kotlin/2020/11/kotlin-1-4-20-released/).
+You can also learn about new features with more examples in [this blog post](https://blog.jetbrains.com/kotlin/2020/11/kotlin-1-4-20-released/).
 
 [**Kotlin/JVM**](#kotlinjvm)
 - [Java 15 target](#java-15-target)
@@ -355,7 +355,7 @@ expression matching.
 
 ## Kotlin Android Extensions
 
-In 1.4.20 the Kotlin Android Extensions plugin becomes deprecated and `Pacrelable` implementation generators moves to a 
+In 1.4.20 the Kotlin Android Extensions plugin becomes deprecated and `Pacrelable` implementation generator moves to a 
 separate plugin.
 
 - [Deprecation of synthetic views](#deprecation-of-synthetic-views)
