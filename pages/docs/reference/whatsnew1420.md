@@ -85,8 +85,7 @@ configuration adjustments, modifications to the auto-generated `package.json` fi
 #### Single point for webpack configuration
 
 A new configuration block `commonWebpackConfig` is available for the browser target. Inside it, you can adjust common
-settings from a single point, instead of having to duplicate configurations for the `webpackTask`, `runTask`, and `testTask`
-respectively.
+settings from a single point, instead of having to duplicate configurations for the `webpackTask`, `runTask`, and `testTask`.
 
 To enable CSS support by default for all three tasks, add the following snippet in the `build.gradle(.kts)` of your project:
 
@@ -122,7 +121,7 @@ Learn more about [`package.json` customization](js-project-setup.html#packagejso
 
 #### Selective yarn dependency resolutions
 
-> Selective yarn dependency resolutions are [experimental](evolution/components-stability.html) in 1.4.20. It may change incompatibly in future versions.
+> Selective yarn dependency resolutions are [experimental](evolution/components-stability.html) in 1.4.20. They may change incompatibly in future versions.
 {:.note}
 
 Kotlin 1.4.20 provides a way of configuring Yarn's [selective dependency resolutions](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) - the
@@ -171,10 +170,10 @@ templates for Kotlin/JS applications:
 - **Browser Application** - a minimal Kotlin/JS Gradle project that runs in the browser.
 - **React Application** - a React app that uses the appropriate `kotlin-wrappers`.
     It provides options to enable integrations for style-sheets, navigational components, or state containers.
-- **Node.js Application** a minimal project for running in a Node.js runtime. It comes with the option to directly
+- **Node.js Application** - a minimal project for running in a Node.js runtime. It comes with the option to directly
     include the experimental `kotlinx-nodejs` package.
     
-Learn how to [create Kotlin/JS applications from templates]](../tutorials/javascript/setting-up.html).
+Learn how to [create Kotlin/JS applications from templates](../tutorials/javascript/setting-up.html).
 
 ### Ignoring compilation errors with IR compiler
 
