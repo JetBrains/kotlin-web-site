@@ -6,7 +6,7 @@ title: "What's New in Kotlin 1.4.20"
 
 # What's New in Kotlin 1.4.20
 
-Kotlin 1.4.20 offers a number of new experimental features and provide fixes and improvements for
+Kotlin 1.4.20 offers a number of new experimental features and provides fixes and improvements for
 existing features, including those added in 1.4.0.
 
 You can also learn about new features with more examples in [this blog post](https://blog.jetbrains.com/kotlin/2020/11/kotlin-1-4-20-released/).
@@ -79,9 +79,8 @@ Kotlin/JS keeps evolving fast, and in 1.4.20 you can find a number experimental 
 
 ### Gradle DSL changes
 
-The Kotlin/JS Gradle DSL receives a number of updates which simplify project setup and customization. This includes webpack
-configuration adjustments, modifications to the auto-generated `package.json` file, and improved control over transitive dependencies,
-among others.
+The Gradle DSL for Kotlin/JS receives a number of updates which simplify project setup and customization. This includes webpack
+configuration adjustments, modifications to the auto-generated `package.json` file, and improved control over transitive dependencies.
 
 #### Single point for webpack configuration
 
