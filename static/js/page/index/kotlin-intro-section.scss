@@ -1,108 +1,101 @@
-.kotlin-intro-section {
+.kotlin-intro-section__supports {
+  text-align: right;
+}
+
+.kotlin-intro-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  color: #FFFFFF;
-  padding-top: 30px;
-
-  .kotlin-intro-section__contributors {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    margin-top: 22px;
-
-    .kotlin-intro-section__logo-link {
-      margin-right: 24px;
-      height: 32px;
-      outline: none;
-    }
-  }
-
-  .kotlin-intro-section__contributors-link {
-    color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .kotlin-intro-section__contributors-link:hover,
-  .kotlin-intro-section__contributors-link:focus, {
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    text-decoration: none;
-    transition: 0.3s ease-out;
-  }
-
-  .kotlin-intro-section__logo {
-    display: inline-block;
-    background-size: contain;
-  }
-}
-
-.kotlin-banner-section__try-ide {
-  font-size: 15px;
-  margin-left: 24px;
-  font-weight: normal;
-}
-
-.kotlin-portals-section {
-  padding-bottom: 24px;
-}
-
-.kotlin-portals-section__list {
-  display: flex;
+  align-items: center;
   flex-wrap: wrap;
 
-  margin-bottom: -27px;
+  margin-bottom: 96px;
+  margin-top: -32px;
 }
 
-.kotlin-portals-section__item {
-  flex: 1 1 33.3%;
-  margin-bottom: 27px;
+.kotlin-intro-actions__buttons,
+.kotlin-intro-actions__contributors {
+  margin-top: 32px;
+}
 
+.kotlin-intro-actions__contributors {
   display: flex;
   align-items: center;
 }
 
-a.kotlin-portals-section__link,
-a.kotlin-portals-section__link:any-link {
-  color: #fff;
+.kotlin-intro-actions__why-button {
+  margin-left: 16px;
+  margin-right: 32px;
 }
 
-.kotlin-portals-section__item::before {
+.kotlin-intro-actions__jb-logo {
   display: inline-block;
-  content: '';
-  background: transparent center no-repeat;
-  background-size: 30px;
+  outline: none;
   margin-right: 16px;
-  height: 30px;
-  width: 30px;
+  font-size: .01px;
+  line-height: .01px;
 }
 
-.kotlin-portals-section__link::after {
-  display: inline-block;
-  content: '→';
+.kotlin-intro-featured {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 32px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.kotlin-intro-featured__item {
+  &, &:hover {
+    color: #fff;
+  }
+
+  flex: 1 1;
+  display: block;
   text-decoration: none;
+
+  box-sizing: border-box;
+  padding: 120px 32px 32px;
+
+  background: transparent none no-repeat 32px 32px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+  &:last-of-type {
+    border-right-style: none;
+  }
+
+  @media (max-width: 800px) {
+    border-right-style: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    &:last-of-type {
+      border-bottom-style: none;
+    }
+  }
 }
 
-.kotlin-portals-section__item_type_android::before {
-  background-image: url("./images/techs/andriod.svg");
+.kotlin-intro-featured__item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-.kotlin-portals-section__item_type_data-science::before {
-  background-image: url("./images/techs/data-science.svg");
+.kotlin-intro-featured__item_type_mobile {
+  background-image: url("./images/good-for/mobile.svg");
 }
 
-.kotlin-portals-section__item_type_mobile::before {
-  background-image: url("./images/techs/mobile.svg");
+.kotlin-intro-featured__item_type_server-side {
+  background-image: url("./images/good-for/server-side.svg");
 }
 
-.kotlin-portals-section__item_type_native::before {
-  background-image: url("./images/techs/native.svg");
+.kotlin-intro-featured__item_type_web {
+  background-image: url("./images/good-for/web.svg");
 }
 
-.kotlin-portals-section__item_type_web::before {
-  background-image: url("./images/techs/web.svg");
+.kotlin-intro-featured .kto-heading__h3 {
+  margin-bottom: 16px;
 }
 
-.kotlin-portals-section__item_type_server-side::before {
-  background-image: url("./images/techs/server-side.svg");
+.kotlin-intro-featured .kto-text__size_m {
+  color: rgba(255, 255, 255, 0.65)
 }

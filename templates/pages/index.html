@@ -15,7 +15,7 @@
     {% include 'inc/pages/index/intro.html' %}
 
     <section class="kto-overview-section kto-overview-section_mode_dark kotlin-banner-section">
-        <h2 class="kto-overview-section__title_size_s kto-heading kto-heading__h4 g-layout">Latest from Kotlin</h2>
+        <h2 class="kto-heading kto-heading__h4 g-layout">Latest from Kotlin</h2>
         <div class="kotlin-banner-section__banner">
             <a target="_blank" class="kotlin-banner-section__link g-layout"
                href="https://kotlinlang.org/lp/kotlin-heroes/">
@@ -48,62 +48,7 @@
     </section>
 
     {% include 'inc/pages/index/code-examples.html' %}
-
-    <section class="kto-overview-section kotlin-why-section">
-        <div class="g-layout">
-            <h2 id="why-kotlin" class="kto-overview-section__title">
-                <a class="kto-overview-section__title_link" href="#why-kotlin">Why Kotlin?</a>
-            </h2>
-            <ul class="kto-features-list">
-                {% for feature in features %}
-                    <li class="kto-features-list__feature kto-features-list__feature_{{ feature.id }}">
-                        <div class="kto-features-list__short-info">
-                            <h3 class="kto-features-list__title">{{ feature.title | safe }}</h3>
-                            <p class="kto-features-list__description">{{ feature.description | safe }}</p>
-                        </div>
-                        <div class="kto-features-list__content">
-                            {{ feature.content | safe }}
-
-                            {% if feature.id == "tool-friendly" %}
-                                <ul class="kto-getting-list g-layout">
-                                    {% macro render_get_kotlin_item(id, title, description, instructions, download, className="") -%}
-                                        <li class="kto-getting-item kto-getting-item_{{ id }} {{ className }}">
-                                            <div class="kto-getting-item__content">
-                                                <h3 class="kto-getting-item__title">{{ title }}</h3>
-                                                <p class="kto-getting-item__description"> {{ caller() }}</p>
-                                            </div>
-                                            <div>
-                                                {% if download %}<a href="{{ download }}" target="_blank" class="kto-getting-item__download">Download</a>{% endif %}
-                                                <a href="{{ instructions }}" class="kto-getting-item__instruction">Instructions</a>
-                                            </div>
-                                        </li>
-                                    {%- endmacro %}
-
-                                    {% call render_get_kotlin_item(id="intellij-idea", title="IntelliJ IDEA", className="jetbrains-logo _logo-intellij-idea",
-                                                instructions="/docs/tutorials/jvm-get-started.html", download="https://www.jetbrains.com/idea/download/") %}
-                                        Bundled with both IntelliJ IDEA Community Edition and IntelliJ IDEA Ultimate
-                                    {% endcall %}
-
-                                    {% call render_get_kotlin_item(id="android-studio", title="Android Studio",
-                                                instructions="/docs/tutorials/kotlin-android.html",  download="https://developer.android.com/studio/") %}
-                                        Bundled with Android Studio
-                                    {% endcall %}
-
-                                    {% call render_get_kotlin_item(id="eclipse", title="Eclipse", instructions="/docs/tutorials/getting-started-eclipse.html") %}
-                                        Install the plugin from the Eclipse Marketplace
-                                    {% endcall %}
-
-                                    {% call render_get_kotlin_item(id="standalone-compiler", title="Standalone Compiler", instructions="/docs/tutorials/command-line.html") %}
-                                        Use any editor and build from the command line
-                                    {% endcall %}
-                                </ul>
-                            {% endif %}
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </section>
+    {% include 'inc/pages/index/why-section.html' %}
 
     <section id="usage-highlights" class="kto-overview-section kotlin-highlights-section">
         <div class="g-layout">
@@ -121,36 +66,7 @@
         </div>
     </section>
 
-    <section id="stay-in-touch" class="kto-overview-section kotlin-stay-in-touch-section">
-        <div class="g-layout">
-            <h2 class="kto-overview-section__title kotlin-highlights-section__title">
-                <a class="kto-overview-section__title_link" href="#stay-in-touch">Stay in Touch<br>
-                    and Help Us Improve</a>
-            </h2>
-            <div class="kto-socials-list">
-                <a class="kto-socials-list__item kto-socials-list__item_type_github" href="https://github.com/JetBrains/kotlin" target="_blank">
-                    <p class="kto-socials-list__title">GitHub&nbsp;→</p>
-                    <p class="kto-socials-list__description">Star the project and contribute to Kotlin</p>
-                </a>
-                <a class="kto-socials-list__item kto-socials-list__item_type_twitter" href="https://twitter.com/kotlin" target="_blank">
-                    <p class="kto-socials-list__title">Twitter&nbsp;→</p>
-                    <p class="kto-socials-list__description">Keep up with the latest Kotlin news</p>
-                </a>
-                <a class="kto-socials-list__item kto-socials-list__item_type_slack" href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up" target="_blank">
-                    <p class="kto-socials-list__title">Slack&nbsp;→</p>
-                    <p class="kto-socials-list__description">Join the discussion about Kotlin</p>
-                </a>
-                <a class="kto-socials-list__item kto-socials-list__item_type_reddit" href="https://www.reddit.com/r/Kotlin/" target="_blank">
-                    <p class="kto-socials-list__title">Reddit&nbsp;→</p>
-                    <p class="kto-socials-list__description">Chat with the community and the team</p>
-                </a>
-                <a class="kto-socials-list__item kto-socials-list__item_type_stack-overflow" href="https://stackoverflow.com/questions/tagged/kotlin" target="_blank">
-                    <p class="kto-socials-list__title">Stack Overflow&nbsp;→</p>
-                    <p class="kto-socials-list__description">Find the best solutions for you</p>
-                </a>
-            </div>
-        </div>
-    </section>
+    {% include 'inc/pages/index/stay-in-touch.html' %}
 
     <section id="get-started" class="kto-overview-section kto-overview-section_mode_grey kotlin-get-started-section">
         <div class="g-layout">

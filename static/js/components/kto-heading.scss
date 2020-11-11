@@ -9,10 +9,8 @@
   font-size: 64px;
   line-height: 72px;
   letter-spacing: -3px;
-}
 
-@media (max-width: 640px) {
-  .kto-heading__hero  {
+  @media (max-width: 640px) {
     font-size: 42px;
     line-height: 48px;
     letter-spacing: -1px;
@@ -23,10 +21,8 @@
   font-size: 43px;
   line-height: 48px;
   letter-spacing: -1px;
-}
 
-@media (max-width: 640px) {
-  .kto-heading__h1  {
+  @media (max-width: 640px) {
     font-size: 36px;
     line-height: 44px;
     letter-spacing: -1px;
@@ -38,10 +34,8 @@
   font-size: 31px;
   line-height: 40px;
   letter-spacing: -0.5px;
-}
 
-@media (max-width: 640px) {
-  .kto-heading__h2  {
+  @media (max-width: 640px) {
     font-weight: 500;
     font-size: 24px;
     line-height: 32px;

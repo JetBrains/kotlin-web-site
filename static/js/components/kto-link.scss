@@ -1,0 +1,15 @@
+.kto-link {
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+}
+
+.kto-link_theme_dark {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.kto-link_theme_dark:hover {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.4);
+}
