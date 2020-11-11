@@ -2,30 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
-  font-family: Inter, Arial, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 45px;
-  line-height: 52px;
-
-  letter-spacing: -0.02em;
   color: #FFFFFF;
   padding-top: 30px;
 
   .kotlin-intro-section__contributors {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-
     display: flex;
     align-items: center;
     color: #fff;
     margin-top: 22px;
-    letter-spacing: 0.005em;
-    -webkit-font-smoothing: antialiased;
-
 
     .kotlin-intro-section__logo-link {
       margin-right: 24px;
@@ -81,8 +65,6 @@
 a.kotlin-portals-section__link,
 a.kotlin-portals-section__link:any-link {
   color: #fff;
-  font-size: 18px;
-  line-height: 18px;
 }
 
 .kotlin-portals-section__item::before {

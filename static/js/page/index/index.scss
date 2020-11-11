@@ -11,6 +11,30 @@
   padding-top: 62px;
 }
 
+.kto-overview-section .g-layout {
+  max-width: 1448px;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: auto;
+
+  @media (max-width: 640px) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+.kto-overview-section .kto-heading__hero {
+  margin-bottom: 48px;
+}
+
+.kto-overview-section .kto-heading__h1 {
+  margin-bottom: 35px;
+}
+
+.kto-overview-section .kto-heading__h4 {
+  margin-bottom: 32px;
+}
+
 .kto-overview-section_mode_dark {
   background-color: #27282C;
   color: #F4F4F4;
@@ -68,9 +92,6 @@ a.kto-overview-section__title_link:any-link {
 }
 
 .kto-overview-section__title_size_s {
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 26px;
   margin-bottom: 30px;
 }
 

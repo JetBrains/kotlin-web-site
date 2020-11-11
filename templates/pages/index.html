@@ -15,7 +15,7 @@
     {% include 'inc/pages/index/intro.html' %}
 
     <section class="kto-overview-section kto-overview-section_mode_dark kotlin-banner-section">
-        <h2 class="kto-overview-section__title_size_s g-layout">Latest from Kotlin</h2>
+        <h2 class="kto-overview-section__title_size_s kto-heading kto-heading__h4 g-layout">Latest from Kotlin</h2>
         <div class="kotlin-banner-section__banner">
             <a target="_blank" class="kotlin-banner-section__link g-layout"
                href="https://kotlinlang.org/lp/kotlin-heroes/">
@@ -34,7 +34,7 @@
                     {% set domain_link = get_domain(news.link) %}
                     <a class="kotlin-news-section-news__item" href="{{ news.link }}"{% if domain_link %} target="_blank"{% endif %}>
                         <span class="kotlin-news-section-news__title">
-                            <span class="kotlin-news-section-news__title-text">{{ news.title }}</span>&nbsp;<span class="kotlin-news-section-news__title-arrow">→</span>
+                            <span class="kto-heading kto-heading__h4">{{ news.title }}</span>&nbsp;<span class="kotlin-news-section-news__title-arrow">→</span>
                         </span>
                         <span class="kotlin-news-section-news__tag">
                             {% if news.tag %}{{ news.tag }}
