@@ -204,7 +204,7 @@ fun main() {
 You can also add new entries to maps using the shorthand operator form. There are two ways:
 
 * [`plusAssign`](/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`) operator.
-* the `[]` operator alias for `put()`.  
+* the `[]` operator alias for `set()`.  
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -212,7 +212,7 @@ You can also add new entries to maps using the shorthand operator form. There ar
 fun main() {
 //sampleStart
     val numbersMap = mutableMapOf("one" to 1, "two" to 2)
-    numbersMap["three"] = 3     // calls numbersMap.put("three", 3)
+    numbersMap["three"] = 3     // calls numbersMap.set("three", 3)
     numbersMap += mapOf("four" to 4, "five" to 5)
     println(numbersMap)
 //sampleEnd

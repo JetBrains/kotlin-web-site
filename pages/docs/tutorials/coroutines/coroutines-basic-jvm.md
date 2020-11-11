@@ -249,12 +249,12 @@ All these have already started, all we need is collect the results:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum = deferred.map { it.await().toLong() }.sum()
+val sum = deferred.sumOf { it.await().toLong() }
 ```
 
 </div>
 
-We simply take every coroutine and await its result here, then all results are added together by the standard library function `sum()`. But the compiler rightfully complains:
+We simply take every coroutine and await its result here, then all results are added together by the standard library function `sumOf()`. But the compiler rightfully complains:
 
 > Suspend functions are only allowed to be called from a coroutine or another suspend function
 
@@ -264,7 +264,7 @@ We simply take every coroutine and await its result here, then all results are a
 
 ```kotlin
 runBlocking {
-    val sum = deferred.map { it.await().toLong() }.sum()
+    val sum = deferred.sumOf { it.await().toLong() }
     println("Sum: $sum")
 }
 ```
