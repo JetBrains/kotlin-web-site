@@ -72,8 +72,6 @@ kotlin {
 ```
 </div>
 
-We look forward to receiving your feedback, and any issues you find while trying this feature, in our [YouTrack](http://kotl.in/issue).
-
 ## Current limitations of the IR compiler
 
 A major change with the new IR compiler backend is the **absence of binary compatibility** with the default backend. A lack of such compatibility between the two backends for Kotlin/JS means that a library created with the new IR compiler backend can’t be used from the default backend, and vice versa.

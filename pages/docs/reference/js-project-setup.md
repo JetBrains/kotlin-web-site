@@ -539,13 +539,14 @@ Note that this does not affect the webpacked output in `build/distributions`.
 The `package.json` file holds the metadata of a JavaScript package. Popular package registries such as npm require all 
 published packages to have such a file. They use it to track and manage package publications.  
 
-Aside from basic package attributes such as its name and version, `package.json` can define how a JavaScript project should
-behave, identifying scripts that are available to run, dependencies, and more.
 The Kotlin/JS Gradle plugin automatically generates `package.json` for Kotlin/JS projects during build time. By default, 
-the file contains essential data: name, version, license, dependencies, and so on.
+the file contains essential data: name, version, license, and dependencies, and some other package attributes.
 
-You can also add custom entries to the `package.json`. To add custom fields to your `package.json`, use the `customField`
-function in the compilations `packageJson` block:
+Aside from basic package attributes, `package.json` can define how a JavaScript project should behave, for example,
+identifying scripts that are available to run.
+
+You can add custom entries to the project's `package.json` via the Gradle DSL. To add custom fields to your `package.json`,
+use the `customField` function in the compilations `packageJson` block:
 
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
