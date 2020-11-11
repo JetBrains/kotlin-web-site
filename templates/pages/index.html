@@ -15,34 +15,36 @@
     {% include 'inc/pages/index/intro.html' %}
     {% include 'inc/pages/index/code-examples.html' %}
 
-    <section class="kto-overview-section kto-overview-section_mode_dark kotlin-banner-section">
-        <h2 class="kto-heading kto-heading__h4 g-layout">Latest from Kotlin</h2>
-        <div class="kotlin-banner-section__banner">
-            <a target="_blank" class="kotlin-banner-section__link g-layout"
-               href="https://kotlinlang.org/lp/kotlin-heroes/">
-                <img
-                        alt="Kotlin 1.4 Online Event Ready" width="100%"
-                        src="/assets/images/index/banners/promo.png?1.4-heroes-nov-2020"
-                >
-            </a>
-        </div>
-    </section>
-
-    <section class="kto-overview-section kto-overview-section_mode_dark kotlin-news-section">
+    <section class="kotlin-banner-section kto-overview-section kto-overview-section_mode_dark">
         <div class="g-layout">
-            <div class="kotlin-news-section-news">
-                {% for news in site.data["last-news"] %}
-                    {% set domain_link = get_domain(news.link) %}
-                    <a class="kotlin-news-section-news__item" href="{{ news.link }}"{% if domain_link %} target="_blank"{% endif %}>
-                        <span class="kotlin-news-section-news__title">
-                            <span class="kto-heading kto-heading__h4">{{ news.title }}</span>&nbsp;<span class="kotlin-news-section-news__title-arrow">→</span>
-                        </span>
-                        <span class="kotlin-news-section-news__tag">
-                            {% if news.tag %}{{ news.tag }}
-                            {% elif domain_link %}{{ domain_link }}
-                            {% else %}Overview{% endif %}
-                        </span>
-                    </a>
+            <h2 class="kto-heading kto-heading__h4">Latest from Kotlin</h2>
+            <div class="kotlin-banner-section__banner">
+                <a target="_blank" class="kotlin-banner-section__link"
+                   href="https://kotlinlang.org/lp/kotlin-heroes/">
+                    <img
+                            alt="Kotlin 1.4 Online Event Ready" width="100%"
+                            src="/assets/images/index/banners/promo.png?1.4-heroes-nov-2020"
+                    >
+                </a>
+            </div>
+            <div class="kotlin-news-section">
+                {% set index_news_group = split_chunk(site.data["last-news"], 2) %}
+                {% for news_list in index_news_group %}
+                    <div class="kotlin-news-section__chunk">
+                        {% for news in news_list %}
+                            {% set domain_link = get_domain(news.link) %}
+                            <a class="kotlin-news-section__item" href="{{ news.link }}"{% if domain_link %} target="_blank"{% endif %}>
+                                <p class="kto-text kto-text__size_s">
+                                    {% if news.tag %}{{ news.tag }}
+                                        {% elif domain_link %}{{ domain_link }}
+                                    {% else %}Overview{% endif %}
+                                </p>
+                                <h3 class="kto-text kto-text__size_m">
+                                    <span class="kotlin-news-section__title">{{ news.title }}</span>&nbsp;<span class="kotlin-news-section__arrow">↗</span>
+                                </h3>
+                            </a>
+                        {% endfor %}
+                    </div>
                 {% endfor %}
             </div>
         </div>

@@ -1,8 +1,9 @@
-@import '../../../css/_config';
-@import '../../../css/_utils';
-@import '../../../css/com/_bits/_pre';
-@import '../../../css/com/_bits/_code';
-@import '../../../css/com/_syntax-highlight/_syntax-highlight_dark';
+@import 'static/css/_config';
+@import 'static/css/_utils';
+@import 'static/css/com/_bits/_pre';
+@import 'static/css/com/_bits/_code';
+@import 'static/css/com/_syntax-highlight/_syntax-highlight_dark';
+@import "static/js/components/-vars-spaces";
 
 .page__index-new {
   min-width: 650px;
@@ -16,27 +17,29 @@
 }
 
 .kto-overview-section .g-layout {
-  max-width: 1448px;
-  padding-left: 16px;
-  padding-right: 16px;
+  max-width: 1480px;
+  padding-left: var(--m-space);
+  padding-right: var(--m-space);
+  box-sizing: border-box;
   width: auto;
 
-  @media (max-width: 640px) {
-    padding-left: 8px;
-    padding-right: 8px;
+  @media (max-width: $breakpoint-xs) {
+    padding-left: var(--s-space);
+    padding-right: var(--s-space);
   }
 }
 
 .kto-overview-section .kto-heading__hero {
-  margin-bottom: 48px;
+  margin-bottom: var(--l-space);
 }
 
 .kto-overview-section .kto-heading__h1 {
-  margin-bottom: 35px;
+  margin-bottom: var(--m-space);
 }
 
 .kto-overview-section .kto-heading__h4 {
-  margin-bottom: 32px;
+  margin-bottom: var(--m-space);
+  @media(max-width: $breakpoint-xs) { margin-bottom: var(--xs-space); }
 }
 
 .kto-overview-section_mode_dark {
@@ -87,7 +90,7 @@ a.kto-overview-section__title_link:any-link {
 }
 
 .kto-overview-section__title_size_s {
-  margin-bottom: 30px;
+  margin-bottom: var(--m-space);
 }
 
 @import "kotlin-intro-section";
@@ -99,10 +102,9 @@ a.kto-overview-section__title_link:any-link {
 @import "kotlin-highlights-section";
 @import "kotlin-stay-in-touch-section";
 
-
 .kotlin-get-started-section {
   padding-top: 88px;
-  padding-bottom: 96px;
+  padding-bottom: var(--xxl-space);
 }
 
 .kotlin-get-started-section__title {
@@ -110,7 +112,7 @@ a.kto-overview-section__title_link:any-link {
 }
 
 .kotlin-get-started-section__text {
-  margin: 32px 0 48px;
+  margin: var(--m-space) 0 var(--l-space);
   font-size: 31px;
   line-height: 42px;
 }

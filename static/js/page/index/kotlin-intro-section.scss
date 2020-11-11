@@ -1,3 +1,12 @@
+@import "static/js/components/-vars-media";
+
+.kotlin-intro-section {
+  padding-top: var(--xl-space);
+  @media (max-width: $breakpoint-xs) {
+    padding-top: 28px; // ???
+  }
+}
+
 .kotlin-intro-section__supports {
   text-align: right;
 }
@@ -7,8 +16,8 @@
   align-items: center;
   flex-wrap: wrap;
 
-  margin-bottom: 96px;
-  margin-top: -32px;
+  margin-bottom: var(--xxl-space);
+  margin-top: calc(-1*var(--m-space));
 }
 
 .kotlin-intro-actions__buttons,
@@ -42,7 +51,7 @@
 
   border: 1px solid rgba(255, 255, 255, 0.2);
 
-  @media (max-width: 800px) {
+  @media (max-width: $breakpoint-s) {
     flex-direction: column;
   }
 }
@@ -66,7 +75,7 @@
     border-right-style: none;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: $breakpoint-s) {
     border-right-style: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
