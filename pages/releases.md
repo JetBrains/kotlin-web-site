@@ -51,9 +51,9 @@ You can also use [preview versions of Kotlin](eap/index.html#build-details).
         <td>
             <p>An incremental release with various improvements such as:</p>
             <ul>
-                <li>Java 15 target and invokedynamic string concatenation on the JVM</li>
-                <li>Improved Gradle DSL and a new IR compiler mode for Kotlin/JS</li>
-                <li>and more</li>
+                <li>Supporting new JVM features, like string concatenation via <code>invokedynamic</code></li>
+                <li>Improved performance and exception handling for KMM projects</li>
+                <li>Extensions for JDK Path: <code>Path(“dir”) / “file.txt”</code></li>
             </ul>
             <p>Learn more in:</p>
             <ul>
