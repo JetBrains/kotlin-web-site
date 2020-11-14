@@ -89,3 +89,5 @@ Kotlin supports the following platforms and provides target presets for each pla
 
 > A target that is not supported by the current host is ignored during building and therefore not published.
 {:.note}
+
+If you'd like to contribute to Kotlin and add support for a new platform, see [Add support for a new target platform](mpp-add-new-target-platform.html).
