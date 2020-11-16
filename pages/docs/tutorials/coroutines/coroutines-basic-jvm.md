@@ -27,7 +27,7 @@ Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlin
 ```groovy
 dependencies {
     ...
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}")
 }
 ```
 
