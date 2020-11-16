@@ -11,6 +11,11 @@
   text-align: right;
 }
 
+.kotlin-intro-section__supports .kto-link,
+.kotlin-intro-section__supports .kto-link:hover {
+    color: rgba(255,255,255,.65);
+}
+
 .kotlin-intro-actions {
   display: flex;
   align-items: center;

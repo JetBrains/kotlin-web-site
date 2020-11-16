@@ -44,6 +44,20 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
   pointer-events: none;
 }
 
+.kto-button_size_l {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 32px;
+  padding: 12px 32px;
+  border-width: 0;
+  border-radius: 56px;
+}
+
+.kto-button_size_l.kto-button_narrow {
+  padding: 12px 16px;
+  border-width: 0;
+}
+
 .kto-button_size_m {
   padding: 12px 32px;
   border-width: 0;
@@ -121,7 +135,7 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
 
 .kto-button_mode_primary.kto-button_theme_dark {
   color: #fff;
-  background: #7D45FA;
+  background: #7F52FF;
 }
 
 .kto-button_mode_primary.kto-button_theme_dark:hover {
@@ -129,11 +143,11 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
 }
 
 .kto-button_mode_primary.kto-button_theme_dark:active {
-  background: #7D45FA;
+  background: #7F52FF;
 }
 
 .kto-button_mode_primary.kto-button_theme_dark:active:focus:not(:hover)[data-focus-method='key'] {
-  background: #7D45FA;
+  background: #7F52FF;
 }
 
 .kto-button_mode_primary.kto-button_theme_dark.kto-button_disabled {
@@ -147,7 +161,7 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
 }
 
 .kto-button_mode_outline:focus {
-  border-color: #7D45FA;
+  border-color: #7F52FF;
 }
 
 .kto-button_mode_outline:hover {
@@ -180,7 +194,7 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
 }
 
 .kto-button_mode_outline.kto-button_theme_dark:focus {
-  border-color: #7D45FA;
+  border-color: #7F52FF;
 }
 
 .kto-button_mode_outline.kto-button_theme_dark.kto-button_disabled {

@@ -17,11 +17,9 @@
 }
 
 .kto-overview-section .g-layout {
-  max-width: 1480px;
-  padding-left: var(--m-space);
-  padding-right: var(--m-space);
+  padding-left: var(--s-space);
+  padding-right: var(--s-space);
   box-sizing: border-box;
-  width: auto;
 
   @media (max-width: $breakpoint-xs) {
     padding-left: var(--s-space);
