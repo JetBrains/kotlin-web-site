@@ -1,13 +1,13 @@
 <section class="kto-overview-section kotlin-why-section">
     <div class="g-layout">
-        <h2 id="why-kotlin" class="kto-overview-section__title">
+        <h2 id="why-kotlin" class="kto-heading kto-heading__h1">
             <a class="kto-overview-section__title_link" href="#why-kotlin">Why Kotlin?</a>
         </h2>
         <ul class="kto-features-list">
             {% for feature in features %}
                 <li class="kto-features-list__feature kto-features-list__feature_{{ feature.id }}">
                     <div class="kto-features-list__short-info">
-                        <h3 class="kto-features-list__title">{{ feature.title | safe }}</h3>
+                        <h3 class="kto-heading kto-heading__h3 kto-features-list__title">{{ feature.title | safe }}</h3>
                         <p class="kto-features-list__description">{{ feature.description | safe }}</p>
                     </div>
                     <div class="kto-features-list__content">

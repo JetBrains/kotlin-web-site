@@ -27,15 +27,15 @@
   }
 }
 
-.kto-overview-section .kto-heading__hero {
+.kto-heading__hero {
   margin-bottom: var(--l-space);
 }
 
-.kto-overview-section .kto-heading__h1 {
+.kto-heading__h1 {
   margin-bottom: var(--m-space);
 }
 
-.kto-overview-section .kto-heading__h4 {
+.kto-heading__h4 {
   margin-bottom: var(--m-space);
   @media(max-width: $breakpoint-xs) { margin-bottom: var(--xs-space); }
 }
@@ -57,8 +57,7 @@
   text-decoration: none;
 }
 
-.kto-overview-section__title,
-.kto-overview-section__title_link {
+.kto-overview-section__title {
   font-weight: bold;
   font-size: 45px;
   line-height: 52px;
