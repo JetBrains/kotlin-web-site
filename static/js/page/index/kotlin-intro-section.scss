@@ -11,9 +11,14 @@
   text-align: right;
 }
 
+.kotlin-intro-section__supports,
+.kotlin-intro-section__supports .kotlin-intro-section__link,
+.kotlin-intro-section__supports .kotlin-intro-section__link:hover {
+  color: rgba(255, 255, 255, .65);
+}
+
 .kotlin-intro-section__link,
 .kotlin-intro-section__link:hover {
-  color: rgba(255,255,255,.65);
   margin-left: 8px;
 }
 
