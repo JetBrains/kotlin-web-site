@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-const BANNER_KEY = 'kotlin-heroes-nov-2020';
+const BANNER_KEY = 'kotlin-kmm-survey-2020';
 
 $(document).ready(() => {
   const isClosed = window.localStorage.getItem(BANNER_KEY);
