@@ -51,7 +51,8 @@ Now Java 15 is available as a Kotlin/JVM target.
 
 ### invokedynamic string concatenation
 
-> `invokedynamic` string concatenation is [experimental](evolution/components-stability.html) in Kotlin 1.4.20. It may change incompatibly in future versions.
+> `invokedynamic` string concatenation is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
+> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 Kotlin 1.4.20 can compile string concatenations into [dynamic invocations](https://docs.oracle.com/javase/7/docs/technotes/guides/vm/multiple-language-support.html#invokedynamic)
@@ -121,7 +122,8 @@ Learn more about [`package.json` customization](js-project-setup.html#packagejso
 
 #### Selective yarn dependency resolutions
 
-> Selective yarn dependency resolutions are [experimental](evolution/components-stability.html) in 1.4.20. They may change incompatibly in future versions.
+> Support for selective yarn dependency resolutions is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
+> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 Kotlin 1.4.20 provides a way of configuring Yarn's [selective dependency resolutions](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) - the
@@ -145,7 +147,8 @@ dependency `decamelize` as version `3.0.0`.
 
 #### Disabling granular workspaces
 
-> Disabling granular workspaces is [experimental](evolution/components-stability.html) in 1.4.20. It may change incompatibly in future versions.
+> Disabling granular workspaces is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
+> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 To speed up build times, the Kotlin/JS Gradle plugin only installs the dependencies which are required for a particular
@@ -177,7 +180,8 @@ Learn how to [create Kotlin/JS applications from templates](../tutorials/javascr
 
 ### Ignoring compilation errors with IR compiler
 
-> _Ignore compilation errors_ mode is [experimental](evolution/components-stability.html) in 1.4.20. It may change incompatibly in future versions.
+> _Ignore compilation errors_ mode is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
+> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 The [IR compiler](js-ir-compiler.html) for Kotlin/JS comes with a new experimental mode - _compilation with errors_.
@@ -209,7 +213,8 @@ Kotlin/Native's priorities in 1.4.20 are performance and polishing existing feat
 
 ### Escape analysis
 
-> The escape analysis mechanism is [experimental](evolution/components-stability.html) in 1.4.20. It may change incompatibly in future versions.
+> The escape analysis mechanism is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
+> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 Kotlin/Native receives a prototype of the new [escape analysis](https://en.wikipedia.org/wiki/Escape_analysis) mechanism.
@@ -228,7 +233,8 @@ in 1.4.0, for example, the [code sharing mechanism](mpp-share-on-platforms.html#
 
 ### Opt-in wrapping of Objective-C exceptions
 
-> The Objective-C exception wrapping mechanism is [experimental](evolution/components-stability.html) in 1.4.20. It may change incompatibly in future versions.
+> The Objective-C exception wrapping mechanism is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
+> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 Kotlin/Native now can handle exceptions thrown from Objective-C code in runtime to avoid program crashes.
@@ -324,7 +330,8 @@ The standard library of Kotlin 1.4.20 offers new extensions for working with fil
 
 ### Extensions for java.nio.file.Path
 
-> Extensions for `java.nio.file.Path` are [experimental](evolution/components-stability.html) in 1.4.20. They may change incompatibly in future versions.
+> Extensions for `java.nio.file.Path` are is [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
+> Opt-in is required (see details below). Use them only for evaluation purposes. We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 Now the standard library provides experimental extensions for `java.nio.file.Path`.
