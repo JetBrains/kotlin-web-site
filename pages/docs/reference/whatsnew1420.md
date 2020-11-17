@@ -123,7 +123,7 @@ Learn more about [`package.json` customization](js-project-setup.html#packagejso
 #### Selective yarn dependency resolutions
 
 > Support for selective yarn dependency resolutions is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
-> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+> Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 Kotlin 1.4.20 provides a way of configuring Yarn's [selective dependency resolutions](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) - the
@@ -148,7 +148,7 @@ dependency `decamelize` as version `3.0.0`.
 #### Disabling granular workspaces
 
 > Disabling granular workspaces is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
-> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+> Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 To speed up build times, the Kotlin/JS Gradle plugin only installs the dependencies which are required for a particular
@@ -214,7 +214,7 @@ Kotlin/Native's priorities in 1.4.20 are performance and polishing existing feat
 ### Escape analysis
 
 > The escape analysis mechanism is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
-> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+> Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
 Kotlin/Native receives a prototype of the new [escape analysis](https://en.wikipedia.org/wiki/Escape_analysis) mechanism.
