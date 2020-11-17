@@ -44,6 +44,20 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
   pointer-events: none;
 }
 
+.kto-button_size_l {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 32px;
+  padding: 12px 32px;
+  border-width: 0;
+  border-radius: 56px;
+}
+
+.kto-button_size_l.kto-button_narrow {
+  padding: 12px 16px;
+  border-width: 0;
+}
+
 .kto-button_size_m {
   padding: 12px 32px;
   border-width: 0;
@@ -121,24 +135,24 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
 
 .kto-button_mode_primary.kto-button_theme_dark {
   color: #fff;
-  background: #6B70FC;
+  background: #7F52FF;
 }
 
 .kto-button_mode_primary.kto-button_theme_dark:hover {
-  background: #878BFC;
+  background: rgba(125, 69, 250, 0.8);
 }
 
 .kto-button_mode_primary.kto-button_theme_dark:active {
-  background: #6B70FC;
+  background: #7F52FF;
 }
 
 .kto-button_mode_primary.kto-button_theme_dark:active:focus:not(:hover)[data-focus-method='key'] {
-  background: #6B70FC;
+  background: #7F52FF;
 }
 
 .kto-button_mode_primary.kto-button_theme_dark.kto-button_disabled {
   color: rgba(255, 255, 255, 0.30);
-  background: #6B70FC;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .kto-button_mode_outline {
@@ -147,7 +161,7 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
 }
 
 .kto-button_mode_outline:focus {
-  border-color: #6B70FC;
+  border-color: #7F52FF;
 }
 
 .kto-button_mode_outline:hover {
@@ -171,8 +185,8 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
 }
 
 .kto-button_mode_outline.kto-button_theme_dark:hover {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.1)
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05)
 }
 
 .kto-button_mode_outline.kto-button_theme_dark:active {
@@ -180,7 +194,7 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
 }
 
 .kto-button_mode_outline.kto-button_theme_dark:focus {
-  border-color: #6B70FC;
+  border-color: #7F52FF;
 }
 
 .kto-button_mode_outline.kto-button_theme_dark.kto-button_disabled {
