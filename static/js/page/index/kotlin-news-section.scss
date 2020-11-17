@@ -13,7 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1 1;
-  margin-top: calc(-1*var(--s-space));
+  margin-top: calc(-1*var(--m-space));
 }
 
 .kotlin-news-section__item,
@@ -23,7 +23,7 @@
 
   flex: 1 1;
   min-width: 230px;
-  margin-top: var(--s-space);
+  margin-top: var(--m-space);
   margin-right: var(--s-space);
 
   box-sizing: border-box;
