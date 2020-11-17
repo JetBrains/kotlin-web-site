@@ -1,5 +1,152 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-19</startDate>
+        <endDate>2020-11-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Manuel Vivo</speaker>
+        <title>Kotlin User Group Munich </title>
+        <subject>Using Compose in your existing app</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/274387028/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-19</startDate>
+        <endDate>2020-11-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>Kotlin User Group Munich </title>
+        <subject>Writing Kotlin Compiler Plugins with Arrow Meta</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/274387028/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-19</startDate>
+        <endDate>2020-11-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Enrique López Mañas</speaker>
+        <title>Kotlin User Group Munich </title>
+        <subject>Library Development with Kotlin </subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/274387028/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-24</startDate>
+        <endDate>2020-11-24</endDate>
+        <location>Hamburg, Germany</location>
+        <speaker>Nicola Corti</speaker>
+        <title>Kotlin User Group Hamburg</title>
+        <subject>There is 1 broken API among us</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Hamburg/events/274548792/</url>
+        <description>
+            <![CDATA[
+<p>As a library user, you probably know that versions don't always tell the truth. Have you ever experienced a broken build after doing a minor bump of a library?
+As a library author, maintaining a clean API is a challenge. There is always the risk that a breaking change sneaks in by accident.</p>
+<p>Wouldn't it be nice to get notified if you're accidentally breaking your users' code? A tool to inspect the binary API of your Kotlin/Java code can help you exactly with that. In this talk, we will see some of those tools and how that simplifies the life of library & SDK developers.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-24</startDate>
+        <endDate>2020-11-24</endDate>
+        <location>Hamburg, Germany</location>
+        <speaker>Roque Buarque</speaker>
+        <title>Kotlin User Group Hamburg</title>
+        <subject>Kotlin DSL</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Hamburg/events/274548792/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a very powerful language which contains a lot of features that allow us to create DSL. In this talk I will show how to build a Kotlin DSL, some relevant kotlin features and commons examples of DSL.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-24</startDate>
+        <endDate>2020-11-24</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Tristan Hamilton</speaker>
+        <title>Dublin Kotlin User Group</title>
+        <subject>A Functional Approach to Exception Handling</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/events/274549550/</url>
+        <description>
+            <![CDATA[
+<p>Tristan will present an introduction into the world of functional programming by discussing an approach to exception handling sometimes referred to as "railway oriented programming".</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-24</startDate>
+        <endDate>2020-11-24</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Cesar Munoz</speaker>
+        <title>Dublin Kotlin User Group</title>
+        <subject>Writing Kotlin Compiler Plugins</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/events/274549550/</url>
+        <description>
+            <![CDATA[
+<p>In this session Cesar will explain what a Kotlin compiler plugin is, how to use one and how to write one of your own!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-09</startDate>
+        <endDate>2020-12-09</endDate>
+        <location>Perth, Australia</location>
+        <speaker>Richard Hickling</speaker>
+        <title>ProfitView</title>
+        <subject>Algorithmic Trading with Kotlin</subject>
+        <url>https://www.crowdcast.io/e/kotlin_algo_trading/register</url>
+        <description>
+            <![CDATA[
+<p>Kotlin, with its succinct syntax and JVM powered performance is a great candidate language for writing trading bots. Using the technology developed for the profitview.net backend, we can show how to get up and running with algo trading cryptocurrencies in just 7 lines of Kotlin code. People who see this talk will come away equipped to write their own fully functional algos.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2020-11-18</startDate>
+        <endDate>2020-11-18</endDate>
+        <location>Taganrog, Russia</location>
+        <speaker>Denis Aleksandrov</speaker>
+        <title>MobiFest PRO</title>
+        <subject>Coroutine updates in 1.4</subject>
+        <url>https://team.cft.ru/events/1</url>
+        <description>
+            <![CDATA[
+<p>Progress of coroutines in cross platform client development</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2020-11-28</startDate>
+        <endDate>2020-11-28</endDate>
+        <location>Mumbai, India</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>Kotlin Mumbai</title>
+        <subject>Dissecting Coroutines</subject>
+        <url>https://www.meetup.com/Kotlin-Mumbai/events/274576859/</url>
+        <description>
+            <![CDATA[
+<p>The coroutines library contains many features for starting coroutines, creating Flows and Channels, and handling a mutable shared state. But, how do we use them, how do they work and what are good use cases?  In this talk, we will explore basic to advanced features provided by the coroutines library. We'll look at when to use state flow, shared flow, and every type of Channel. We'll explore lesser-known features and their use cases such as selectors and actors. Did you know combining Flows uses selectors under the hood? What are they? Mohit will share his learnings from his extensive experience in using these constructs!</p>
+]]>
+        </description>
+    </event>
+
      <event>
         <lang>en</lang>
         <startDate>2020-11-11</startDate>

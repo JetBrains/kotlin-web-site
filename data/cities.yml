@@ -1,3 +1,7 @@
+- name: Perth, Australia
+  geo:
+    lat: -32.08841
+    lng: 115.895122
 - name: Fort Collins, CO, USA
   geo:
     lat: 40.5813
