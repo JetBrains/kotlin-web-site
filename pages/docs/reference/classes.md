@@ -465,7 +465,7 @@ Inside an inner class, accessing the superclass of the outer class is done with 
 
 ```kotlin
 class FilledRectangle: Rectangle() {
-    fun draw() { /* ... */ }
+    override fun draw() { /* ... */ }
     val borderColor: String get() = "black"
     
     inner class Filler {
