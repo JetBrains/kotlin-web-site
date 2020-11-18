@@ -343,7 +343,7 @@ The standard library of Kotlin 1.4.20 offers new extensions for working with fil
 
 ### Extensions for java.nio.file.Path
 
-> Extensions for `java.nio.file.Path` are is [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
+> Extensions for `java.nio.file.Path` are [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
 > Opt-in is required (see details below). Use them only for evaluation purposes. We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 {:.note}
 
