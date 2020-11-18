@@ -376,7 +376,7 @@ expression matching.
 
 ## Kotlin Android Extensions
 
-In 1.4.20 the Kotlin Android Extensions plugin becomes deprecated and `Pacrelable` implementation generator moves to a 
+In 1.4.20 the Kotlin Android Extensions plugin becomes deprecated and `Parcelable` implementation generator moves to a 
 separate plugin.
 
 - [Deprecation of synthetic views](#deprecation-of-synthetic-views)
