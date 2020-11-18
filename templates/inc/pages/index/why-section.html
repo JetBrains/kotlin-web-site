@@ -1,0 +1,55 @@
+<section class="kto-overview-section kotlin-why-section">
+    <div class="g-layout">
+        <h2 id="why-kotlin" class="kto-heading kto-heading__h1">
+            <a class="kto-overview-section__title_link" href="#why-kotlin">Why Kotlin?</a>
+        </h2>
+        <ul class="kto-features-list">
+            {% for feature in features %}
+                <li class="kto-features-list__feature kto-features-list__feature_{{ feature.id }}">
+                    <div class="kto-features-list__short-info">
+                        <h3 class="kto-heading kto-heading__h3 kto-features-list__title">{{ feature.title | safe }}</h3>
+                        <p class="kto-features-list__description">{{ feature.description | safe }}</p>
+                    </div>
+                    <div class="kto-features-list__content">
+                        {{ feature.content | safe }}
+
+                        {% if feature.id == "tool-friendly" %}
+                            <ul class="kto-getting-list g-layout">
+                                {% macro render_get_kotlin_item(id, title, description, instructions, download, className="") -%}
+                                    <li class="kto-getting-item kto-getting-item_{{ id }} {{ className }}">
+                                        <div class="kto-getting-item__content">
+                                            <h3 class="kto-getting-item__title">{{ title }}</h3>
+                                            <p class="kto-getting-item__description"> {{ caller() }}</p>
+                                        </div>
+                                        <div>
+                                            {% if download %}<a href="{{ download }}" target="_blank" class="kto-getting-item__download">Download</a>{% endif %}
+                                            <a href="{{ instructions }}" class="kto-getting-item__instruction">Instructions</a>
+                                        </div>
+                                    </li>
+                                {%- endmacro %}
+
+                                {% call render_get_kotlin_item(id="intellij-idea", title="IntelliJ IDEA", className="jetbrains-logo _logo-intellij-idea",
+                                                instructions="/docs/tutorials/jvm-get-started.html", download="https://www.jetbrains.com/idea/download/") %}
+                                    Bundled with both IntelliJ IDEA Community Edition and IntelliJ IDEA Ultimate
+                                {% endcall %}
+
+                                {% call render_get_kotlin_item(id="android-studio", title="Android Studio",
+                                                instructions="/docs/tutorials/kotlin-android.html",  download="https://developer.android.com/studio/") %}
+                                    Bundled with Android Studio
+                                {% endcall %}
+
+                                {% call render_get_kotlin_item(id="eclipse", title="Eclipse", instructions="/docs/tutorials/getting-started-eclipse.html") %}
+                                    Install the plugin from the Eclipse Marketplace
+                                {% endcall %}
+
+                                {% call render_get_kotlin_item(id="standalone-compiler", title="Standalone Compiler", instructions="/docs/tutorials/command-line.html") %}
+                                    Use any editor and build from the command line
+                                {% endcall %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
