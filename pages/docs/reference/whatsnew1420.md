@@ -90,6 +90,8 @@ settings from a single point, instead of having to duplicate configurations for 
 
 To enable CSS support by default for all three tasks, add the following snippet in the `build.gradle(.kts)` of your project:
 
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
 ```groovy
 browser {
     commonWebpackConfig {
@@ -98,6 +100,7 @@ browser {
     binaries.executable()
 }
 ```
+</div>
 
 Learn more about [configuring webpack bundling](js-project-setup.html#configuring-webpack-bundling).
 
@@ -108,6 +111,8 @@ For more control over you Kotlin/JS package management and distribution, you can
 
 To add custom fields to your `package.json`, use the `customField` function in the compilation's `packageJson` block:
 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
+
 ```kotlin
 kotlin {
     js(BOTH) {
@@ -117,6 +122,7 @@ kotlin {
     }
 }
 ```
+</div>
 
 Learn more about [`package.json` customization](js-project-setup.html#packagejson-customization).
 
@@ -133,6 +139,8 @@ You can use it through the `YarnRootExtension` inside the `YarnPlugin` in Gradle
 version of a package for your project, use the `resolution` function passing in the package name selector (as specified by Yarn)
 and the version to which it should resolve.
 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
+
 ```kotlin
 rootProject.plugins.withType(YarnPlugin::class.java) {
     rootProject.the<YarnRootExtension>().apply {
@@ -141,6 +149,7 @@ rootProject.plugins.withType(YarnPlugin::class.java) {
     }
 }
 ```
+</div>
 
 Here, _all_ of your npm dependencies which require `react` will receive version `16.0.0`, and `processor` will receive its
 dependency `decamelize` as version `3.0.0`.
@@ -160,11 +169,14 @@ To resolve this issue, Kotlin 1.4.20 includes an option to disable these so-call
 This feature is currently available through the `YarnRootExtension` inside the `YarnPlugin` in Gradle.
 To use it, add the following snippet to your `build.gradle.kts` file:
 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
+
 ```kotlin
 rootProject.plugins.withType(YarnPlugin::class.java) {
     rootProject.the<YarnRootExtension>().disableGranularWorkspaces()
 }
 ```
+</div>
 
 ### New Wizard templates
 
@@ -210,7 +222,6 @@ Kotlin/Native's priorities in 1.4.20 are performance and polishing existing feat
 - [CocoaPods plugin improvements](#cocoapods-plugin-improvements)
 - [Support for Xcode 12 libraries](#support-for-xcode-12-libraries)
 
-
 ### Escape analysis
 
 > The escape analysis mechanism is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
@@ -239,7 +250,6 @@ in 1.4.0, for example, the [code sharing mechanism](mpp-share-on-platforms.html#
 
 Kotlin/Native now can handle exceptions thrown from Objective-C code in runtime to avoid program crashes.
 
-
 You can opt in to wrap `NSException`’s into Kotlin exceptions of type `ForeignException`. They hold the references to the
 original `NSException`'s. This lets you get the information about the root cause and handle it properly.
 
@@ -247,11 +257,14 @@ To enable wrapping of Objective-C exceptions, specify the `-Xforeign-exception-m
 call or add `foreignExceptionMode = objc-wrap` property to `.def` file. If you use [CocoaPods integration](native/cocoapods.html),
 specify the option in the `pod {}` build script block of a dependency like this:
 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
+
 ```kotlin
 pod("foo") {
    extraOpts = listOf("-Xforeign-exception-mode”, “objc-wrap")
 }
 ```
+</div>
 
 The default behavior remains unchanged: the program terminates when an exception is thrown from the Objective-C code.
 
@@ -338,6 +351,8 @@ Now the standard library provides experimental extensions for `java.nio.file.Pat
 Working with the modern JVM file API in an idiomatic Kotlin way is now similar to working with `java.io.File` extensions
 from the `kotlin.io` package.
 
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
+
 ```kotlin
 // construct path with the div (/) operator
 val baseDir = Path("/base")
@@ -346,6 +361,7 @@ val subDir = baseDir / "subdirectory"
 // list files in a directory
 val kotlinFiles: List<Path> = Path("/home/user").listDirectoryEntries("*.kt")
 ```
+</div>
 
 The extensions are available in the `kotlin.io.path` package in the `kotlin-stdlib-jdk7` module.
 To use the extensions, [opt-in](opt-in-requirements.html) to the experimental annotation `@ExperimentalPathApi`.
@@ -380,7 +396,10 @@ that will help you migrate your Android project from synthetics to view bindings
 ### New plugin for Parcelable implementation generator
 
 The [Parcelable implementation generator](compiler-plugins.html#parcelable-implementations-generator) is now available in the new `kotlin-parcelize` plugin. Apply this plugin instead
-of `kotlin-android-extensions`, or in addition to it if you keep using synthetics.
+of `kotlin-android-extensions`.
+
+>`kotlin-parcelize` and `kotlin-android-extensions` can't be applied together in one module.
+{:.note}
 
 The `@Parcelize` annotation is moved to the `kotlinx.parcelize` package.
 
