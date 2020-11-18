@@ -142,7 +142,7 @@ and the version to which it should resolve.
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
 
 ```kotlin
-rootProject.plugins.withType(YarnPlugin::class.java) {
+rootProject.plugins.withType<YarnPlugin> {
     rootProject.the<YarnRootExtension>().apply {
         resolution("react", "16.0.0")
         resolution("processor/decamelize", "3.0.0")
@@ -172,7 +172,7 @@ To use it, add the following snippet to your `build.gradle.kts` file:
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
 
 ```kotlin
-rootProject.plugins.withType(YarnPlugin::class.java) {
+rootProject.plugins.withType<YarnPlugin> {
     rootProject.the<YarnRootExtension>().disableGranularWorkspaces()
 }
 ```
