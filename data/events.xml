@@ -2,11 +2,320 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2020-11-19</startDate>
+        <endDate>2020-11-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Manuel Vivo</speaker>
+        <title>Kotlin User Group Munich </title>
+        <subject>Using Compose in your existing app</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/274387028/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-19</startDate>
+        <endDate>2020-11-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>Kotlin User Group Munich </title>
+        <subject>Writing Kotlin Compiler Plugins with Arrow Meta</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/274387028/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-19</startDate>
+        <endDate>2020-11-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Enrique López Mañas</speaker>
+        <title>Kotlin User Group Munich </title>
+        <subject>Library Development with Kotlin </subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/274387028/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-24</startDate>
+        <endDate>2020-11-24</endDate>
+        <location>Hamburg, Germany</location>
+        <speaker>Nicola Corti</speaker>
+        <title>Kotlin User Group Hamburg</title>
+        <subject>There is 1 broken API among us</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Hamburg/events/274548792/</url>
+        <description>
+            <![CDATA[
+<p>As a library user, you probably know that versions don't always tell the truth. Have you ever experienced a broken build after doing a minor bump of a library?
+As a library author, maintaining a clean API is a challenge. There is always the risk that a breaking change sneaks in by accident.</p>
+<p>Wouldn't it be nice to get notified if you're accidentally breaking your users' code? A tool to inspect the binary API of your Kotlin/Java code can help you exactly with that. In this talk, we will see some of those tools and how that simplifies the life of library & SDK developers.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-24</startDate>
+        <endDate>2020-11-24</endDate>
+        <location>Hamburg, Germany</location>
+        <speaker>Roque Buarque</speaker>
+        <title>Kotlin User Group Hamburg</title>
+        <subject>Kotlin DSL</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Hamburg/events/274548792/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a very powerful language which contains a lot of features that allow us to create DSL. In this talk I will show how to build a Kotlin DSL, some relevant kotlin features and commons examples of DSL.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-24</startDate>
+        <endDate>2020-11-24</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Tristan Hamilton</speaker>
+        <title>Dublin Kotlin User Group</title>
+        <subject>A Functional Approach to Exception Handling</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/events/274549550/</url>
+        <description>
+            <![CDATA[
+<p>Tristan will present an introduction into the world of functional programming by discussing an approach to exception handling sometimes referred to as "railway oriented programming".</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-24</startDate>
+        <endDate>2020-11-24</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Cesar Munoz</speaker>
+        <title>Dublin Kotlin User Group</title>
+        <subject>Writing Kotlin Compiler Plugins</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/events/274549550/</url>
+        <description>
+            <![CDATA[
+<p>In this session Cesar will explain what a Kotlin compiler plugin is, how to use one and how to write one of your own!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-09</startDate>
+        <endDate>2020-12-09</endDate>
+        <location>Perth, Australia</location>
+        <speaker>Richard Hickling</speaker>
+        <title>ProfitView</title>
+        <subject>Algorithmic Trading with Kotlin</subject>
+        <url>https://www.crowdcast.io/e/kotlin_algo_trading/register</url>
+        <description>
+            <![CDATA[
+<p>Kotlin, with its succinct syntax and JVM powered performance is a great candidate language for writing trading bots. Using the technology developed for the profitview.net backend, we can show how to get up and running with algo trading cryptocurrencies in just 7 lines of Kotlin code. People who see this talk will come away equipped to write their own fully functional algos.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2020-11-18</startDate>
+        <endDate>2020-11-18</endDate>
+        <location>Taganrog, Russia</location>
+        <speaker>Denis Aleksandrov</speaker>
+        <title>MobiFest PRO</title>
+        <subject>Coroutine updates in 1.4</subject>
+        <url>https://team.cft.ru/events/1</url>
+        <description>
+            <![CDATA[
+<p>Progress of coroutines in cross platform client development</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2020-11-28</startDate>
+        <endDate>2020-11-28</endDate>
+        <location>Mumbai, India</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>Kotlin Mumbai</title>
+        <subject>Dissecting Coroutines</subject>
+        <url>https://www.meetup.com/Kotlin-Mumbai/events/274576859/</url>
+        <description>
+            <![CDATA[
+<p>The coroutines library contains many features for starting coroutines, creating Flows and Channels, and handling a mutable shared state. But, how do we use them, how do they work and what are good use cases?  In this talk, we will explore basic to advanced features provided by the coroutines library. We'll look at when to use state flow, shared flow, and every type of Channel. We'll explore lesser-known features and their use cases such as selectors and actors. Did you know combining Flows uses selectors under the hood? What are they? Mohit will share his learnings from his extensive experience in using these constructs!</p>
+]]>
+        </description>
+    </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2020-11-11</startDate>
+        <endDate>2020-11-11</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Frank Lyaruu</speaker>
+        <title>Kotlin.amsterdam</title>
+        <subject>🔌 Move over, JDBC: R2DBC is here!</subject>
+        <url>https://www.meetup.com/kotlin-amsterdam/events/274110237/</url>
+        <description>
+            <![CDATA[
+<p>We’ve been using JDBC to access our SQL databases for decades, but JDBC is a blocking API. Blocking API’s can be problematic at times, and after years of promises, a ‘non blocking JDBC’ is on the horizon. When your application queries a database using JDBC, the thread used to make that query blocks: It simply waits while your database processes this request. It’s simple. It’s easy to reason about, but ultimately it can be a big waste of threads, and with that memory and CPU. For NoSQL databases like MongoDB and Cassandra non-blocking drivers are well established, but for SQL databases we’re generally stuck with JDBC i.e. blocking threads. There has been talk about some kind of ‘non-blocking’ JDBC for years, and finally it is happening.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>zh</lang>
+        <startDate>2020-11-14</startDate>
+        <endDate>2020-11-14</endDate>
+        <location>Beijing, China</location>
+        <speaker>Long Bo</speaker>
+        <title>GDG Beijing</title>
+        <subject>《用 Kotlin 实现经典算法面试》 </subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-beijing-presents-2020gu-ge-kai-fa-zhe-jie-bei-jing-zhan-kotlin-tensorflow-dai-ma-shi-yan-shi-wtm-gong-zuo-fang/</url>
+    </event>
+
+    <event>
+        <lang>zh</lang>
+        <startDate>2020-11-14</startDate>
+        <endDate>2020-11-14</endDate>
+        <location>Beijing, China</location>
+        <speaker>Gao Bing</speaker>
+        <title>GDG Beijing</title>
+        <subject>《Kotlin 特性与应用》</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-beijing-presents-2020gu-ge-kai-fa-zhe-jie-bei-jing-zhan-kotlin-tensorflow-dai-ma-shi-yan-shi-wtm-gong-zuo-fang/</url>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-11-14</startDate>
+        <endDate>2020-11-14</endDate>
+        <location>La Paz, Bolivia</location>
+        <speaker>Gustavo Lizárraga</speaker>
+        <title>Kotlin La Paz</title>
+        <subject>KotlinConf'2020 Global La Paz</subject>
+        <url>https://www.meetup.com/KotlinLPZ/events/267718139/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin es el lenguaje de programación oficial para el desarrollo de aplicaciones Android, también tiene el poder para desarrollar aplicaciones Web y Multiplataforma.</p>
+<p>Kotlin Conf es la conferencia anual más importante de Jetbrains para dar a conocer todas las novedades del lenguaje, la última versión se llevó a cabo del 4 al 6 de Diciembre en Copenhagen.</p>
+<p>Kotlin Conf Global es una serie de eventos organizados por la comunidad para ver y debatir las conferencias magistrales llevadas a cabo en el Kotlin Conf 2019.</p>
+<p>Más información pronto.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-16</startDate>
+        <endDate>2020-11-16</endDate>
+        <location>New York, NY, USA</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>.droidcon Americas 2020</title>
+        <subject>Unit Testing Kotlin Channels and Flows</subject>
+        <url>https://www.online.droidcon.com/agenda-dcamericas</url>
+        <description>
+            <![CDATA[
+<p>Unit testing Channels and Flows can be a challenge as they are fairly new. In this talk, I will share with you how to implement and test practical examples from my experience. These examples are testing delays, retries, and errors. I'll also share testing more complex examples such as polling. For each use case, we'll look at how to use features in the coroutines library such as runBlockingTest and TestCoroutineDispatcher. From my journey of using and testing Flows in production, I'll share the challenges I experienced.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-16</startDate>
+        <endDate>2020-11-16</endDate>
+        <location>New York, NY, USA</location>
+        <speaker>Eric Lafortune</speaker>
+        <title>.droidcon Americas 2020</title>
+        <subject>The effects of Kotlin inside Android apps and libraries</subject>
+        <url>https://www.online.droidcon.com/agenda-dcamericas</url>
+        <description>
+            <![CDATA[
+<p>Many Android developers are working in Kotlin nowadays. On Android, your Kotlin source code gets compiled to Java byte code, and eventually to Dalvik bytecode. How is the result different compared to starting from Java source code then? Is it compatible? Can it be as compact? Is it as secure?</p>
+<p>We'll look at the differences. We've extended our open source code optimizer ProGuard and our protection software DexGuard to fully support Kotlin. We'll now share our experiences and point out what can be important in your apps and in your libraries. We'll demonstrate a new open source tool to view the
+Kotlin metadata hiding inside your apps. We'll show how to optimize and obfuscate Kotlin libraries in such a way that they remain compatible in other Kotlin projects.</p>
+<p>Armed with this knowledge, you'll better understand your own Kotlin projects and you can tune them to create more compact and more secure software.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-16</startDate>
+        <endDate>2020-11-16</endDate>
+        <location>New York, NY, USA</location>
+        <speaker>Lukas Lechner</speaker>
+        <title>.droidcon Americas 2020</title>
+        <subject>Why Exception Handling with Kotlin Coroutines is hard and how to master it</subject>
+        <url>https://www.online.droidcon.com/agenda-dcamericas</url>
+        <description>
+            <![CDATA[
+<p>Getting the “happy path” right with Kotlin Coroutines is pretty straightforward. On the other hand, handling exceptions appropriately when something goes wrong is not that trivial.</p>
+<p>In this talk, you will learn about the reasons for the complexity of exception handling with Kotlin Coroutines and about all things you need to consider to appropriately deal with occurring exceptions.
+You will learn when you should use a conventional try-catch clause, and when you should install a CoroutineExceptionHandler instead.
+You will also learn about the special properties of top-level Coroutines when it comes to exception handling and how they differ when they are starting with launch and async.
+Furthermore, you will learn all about the exception handling peculiarities of the scoping functions coroutineScope{} and supervisorScope{} and why you should re-throw CancellationExceptions to avoid subtle errors.</p>
+<p>This talk is for developers that are already familiar with the basics of Kotlin Coroutines but still struggle to understand how exception handling works in detail. By the end of this talk, you will have a better understanding of how exceptions are treated by the Coroutines machinery and how you can handle them appropriately.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-16</startDate>
+        <endDate>2020-11-16</endDate>
+        <location>New York, NY, USA</location>
+        <speaker>Russell Wolf, Kevin Galligan</speaker>
+        <title>.droidcon Americas 2020</title>
+        <subject>TouchlabShare: Ask the Kotlin Multiplatform Mobile Experts</subject>
+        <url>https://www.online.droidcon.com/agenda-dcamericas</url>
+        <description>
+            <![CDATA[
+<p>Touchlab will be presenting on Kotlin Multiplatform Mobile (KMM) at .droidconAmericas. On Monday, Russell will cover what's new in KMM while Kevin speaks on the status of bringing KMM to production.</p>
+<p>Our Meetup at .droidconAmericas is a chance for you to ask questions. We're putting KMM in production every day so we have a lot to share. Maybe you're wondering where to start with KMM or what teams are putting KMM in production? Or maybe you want to dish on the upcoming changes to the Kotlin/Native memory model? It's all fair game, so join us!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-16</startDate>
+        <endDate>2020-11-16</endDate>
+        <location>New York, NY, USA</location>
+        <speaker>Eric Klukovich</speaker>
+        <title>.droidcon Americas 2020</title>
+        <subject>Kotlin Coroutines and Flows</subject>
+        <url>https://www.online.droidcon.com/agenda-dcamericas</url>
+        <description>
+            <![CDATA[
+<p>Learn the fundamentals of Kotlin Coroutines from the ground up and why they are better than current Java/Android solutions. Will explore Kotlin Flows and how they can be used for reactive programming to simplify handling complex data streams.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-11-16</startDate>
+        <endDate>2020-11-16</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Anne Fischer-Appelt</speaker>
+        <title>ObjektForum Frankfurt</title>
+        <subject>Kotlin 1.4 in Action</subject>
+        <url>https://www.meetup.com/ObjektForum-Frankfurt/events/268531289/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin hilft uns, mit unseren bekannten Tools Software besser zu entwickeln, die im Code prägnant ist und weniger Fehler enthält. An vielen Stellen versucht es Designfehler von Java auszumerzen und bringt neue Programmiermodelle mit, die uns unterstützen Probleme mit neuem Handwerkszeug zu meistern. Dabei ist Kotlin dafür ausgelegt, sich nahtlos in bestehende Java-Projekte zu integrieren und selbst auf älteren 1.6 JVMs zu laufen. Ob Delegations, Reified Types… wir werden uns anschauen, welche Kotlin Features ein Java Entwickler kennen sollte und wie sie uns weiterhelfen. Dabei nehmen wir auch das aktuelle Kotlin Update mit Coroutinen und Inline Classes unter die Lupe. Der Vortrag richtet sich sowohl an Kotlin-Neueinsteiger, als auch an Fortgeschrittene, die sich für die Neuerungen der Updates interessieren.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2020-10-29</startDate>
         <endDate>2020-10-29</endDate>
         <location>Berlin, Germany</location>
         <speaker>Renato Costa</speaker>
-        <title>Kotlin Uer Group Berlin</title>
+        <title>Kotlin User Group Berlin</title>
         <subject>[Virtual] Reactive World - Bootiful RSocket with Coroutines</subject>
         <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrybcnbtb/</url>
         <description>
