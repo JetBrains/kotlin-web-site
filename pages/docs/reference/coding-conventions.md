@@ -45,7 +45,7 @@ statement.
 If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
 as the name of the class, with the .kt extension appended. If a file contains multiple classes, or only top-level declarations,
 choose a name describing what the file contains, and name the file accordingly.
-Use the [camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (for example, `ProcessDeclarations.kt`).
+Use [upper camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (for example, `ProcessDeclarations.kt`).
 
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as "Util" in file names.
@@ -92,9 +92,9 @@ Package and class naming rules in Kotlin are quite simple:
 
 * Names of packages are always lower case and do not use underscores (`org.example.project`). Using multi-word
 names is generally discouraged, but if you do need to use multiple words, you can either simply concatenate them together
-or use the camel case (`org.example.myProject`).
+or use camel case (`org.example.myProject`).
 
-* Names of classes and objects start with an upper case letter and use the camel case:
+* Names of classes and objects start with an upper case letter and use camel case:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -108,7 +108,7 @@ object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
 
 ### Function names
  
-Names of functions, properties and local variables start with a lower case letter and use the camel case and no underscores:
+Names of functions, properties and local variables start with a lower case letter and use camel case and no underscores:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -153,7 +153,7 @@ class MyTestCase {
 ### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
-that hold deeply immutable data) should use uppercase underscore-separated names:
+that hold deeply immutable data) should use [screaming snake case](https://en.wikipedia.org/wiki/Snake_case) names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -164,7 +164,7 @@ val USER_NAME_FIELD = "UserName"
 
 </div>
 
-Names of top-level or object properties which hold objects with behavior or mutable data should use camel-case names:
+Names of top-level or object properties which hold objects with behavior or mutable data should use camel case names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -184,8 +184,8 @@ val PersonComparator: Comparator<Person> = /*...*/
 
 </div>
  
-For enum constants, it's OK to use either uppercase underscore-separated names
-(`enum class Color { RED, GREEN }`) or regular camel-case names starting with an uppercase first letter, depending on the usage.
+For enum constants, it's OK to use either screaming snake case
+(`enum class Color { RED, GREEN }`) or upper camel case names, depending on the usage.
    
 #### Names for backing properties
 
