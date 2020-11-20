@@ -22,9 +22,23 @@ Make sure it's configured for Kotlin 1.3 or higher.
 
 Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), let's add its recent version to our dependencies:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy">
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
+dependencies {
+    ...
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}"
+}
+```
+
+</div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
 dependencies {
     ...
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}")
@@ -32,6 +46,8 @@ dependencies {
 ```
 
 </div>
+</div>
+
 
 This library is published to Bintray JCenter repository, so let us add it:
 
