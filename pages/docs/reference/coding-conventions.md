@@ -518,14 +518,14 @@ fun foo() = 1        // good
 
 ### Expression body formatting
 
-If the function has an expression body that doesn't fit in the same line as the declaration, put the `=` sign on the first line.
-Indent the expression body by four spaces.
+If the function has an expression body whose first line doesn't fit on the same line as the declaration, put the `=` sign on the first line,
+and indent the expression body by four spaces.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-fun f(x: String) =
-    x.length
+fun f(x: String, y: String, z: String) =
+    veryLongFunctionCallWithManyWords(andLongParametersToo(), x, y, z)
 ```
 
 </div>
