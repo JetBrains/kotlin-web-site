@@ -93,7 +93,7 @@ in the Kotlin Gradle DSL).
     
     ```groovy
     dependencies {
-        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}'
+        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:{{ site.data.releases.latest.serialization.version }}'
     } 
     ```
     
@@ -105,7 +105,7 @@ in the Kotlin Gradle DSL).
     
     ```kotlin
     dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:{{ site.data.releases.latest.serialization.version }}")
     } 
     ```
     

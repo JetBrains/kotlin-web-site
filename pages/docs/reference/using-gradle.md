@@ -526,17 +526,16 @@ Kotlin supports annonation processing via the Kotlin annotation processing tool 
 The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes of source files between 
 builds so only files affected by these changes would be compiled.
 
-Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects.  
+Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects and is enabled by default since Kotlin 1.1.1.
 
-There are several ways to override the default setting:
+There are several ways to disable the setting:
 
 * Add the following line to the `gradle.properties` or `local.properties` file: 
-    * `kotlin.incremental=<value>` for Kotlin/JVM 
-    * `kotlin.incremental.js=<value>` for Kotlin/JS projects .  
-    `<value>` is a boolean value reflecting the usage of incremental compilation. 
+    * `kotlin.incremental=false` for Kotlin/JVM 
+    * `kotlin.incremental.js=false` for Kotlin/JS projects
     
-* As the command line parameter, use `-Pkotlin.incremental` or `-Pkotlin.incremental.js` with the boolean value reflecting 
-the usage of incremental compilation.  
+* As the command line parameter, use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false`.
+
     Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental 
     compilation invalidates incremental caches.
 
