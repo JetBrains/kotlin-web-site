@@ -1143,7 +1143,7 @@ typealias PersonIndex = Map<String, Person>
 
 </div>
 
-If you use a private or internal type alias for avoiding name collision, prefer the `import … as …` mentionned in 
+If you use a private or internal type alias for avoiding name collision, prefer the `import … as …` mentioned in 
 [Packages and Imports](packages.html).
 
 ### Lambda parameters
