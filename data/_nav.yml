@@ -495,16 +495,6 @@ tutorials:
           title: Learning Kotlin with EduTools plugin
         - url: /docs/tutorials/edu-tools-educator.html
           title: Teaching Kotlin with EduTools plugin
-    - title: Migrating from Python
-      external:
-        path: kotlin-for-python-developers
-        nav: kotlinlang.org.yaml
-        base: /docs/tutorials/kotlin-for-py
-        branch: master
-        repo: https://github.com/Khan/kotlin-for-python-developers
-        type: tutorial
-        wrap_code_snippets: True
-        github_edit_page: README.md
 
 foundation:
   content:
