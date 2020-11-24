@@ -23,7 +23,7 @@ version = "1.0"
 
 publishing {
     repositories {
-        maven{
+        maven {
             //...
         }
     }
