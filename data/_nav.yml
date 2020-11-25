@@ -335,6 +335,12 @@ reference:
         repo: https://github.com/JetBrains/kotlin-native
         branch: v1.4.20-fixes
 
+    - title: Testing
+      description: Test Kotlin code
+      content:
+        - url: /docs/reference/testing-overview.html
+          title: Overview
+
     - title: Tools
       description:
       content:
@@ -403,6 +409,10 @@ tutorials:
       content:
         - url: /docs/tutorials/mixing-java-kotlin-intellij.html
           title: Mixing Java and Kotlin in one project
+    - title: JVM
+      content:
+        - url: /docs/tutorials/jvm-test-using-junit.md
+          title: Test Kotlin code using JUnit
     - title: JavaScript
       content:
         - url: /docs/tutorials/javascript/setting-up.html
