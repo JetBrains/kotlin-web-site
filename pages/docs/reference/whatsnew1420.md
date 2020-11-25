@@ -395,12 +395,14 @@ that will help you migrate your Android project from synthetics to view bindings
 
 ### New plugin for Parcelable implementation generator
 
-The [Parcelable implementation generator](compiler-plugins.html#parcelable-implementations-generator) is now available in the new `kotlin-parcelize` plugin. Apply this plugin instead
+The `Parcelable` implementation generator is now available in the new `kotlin-parcelize` plugin. Apply this plugin instead
 of `kotlin-android-extensions`.
 
 >`kotlin-parcelize` and `kotlin-android-extensions` can't be applied together in one module.
 {:.note}
 
 The `@Parcelize` annotation is moved to the `kotlinx.parcelize` package.
+
+Learn more about `Parcelable` implementation generator in the [Android documentation](https://developer.android.com/kotlin/parcelize).
 
 
