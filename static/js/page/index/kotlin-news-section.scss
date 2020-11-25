@@ -1,52 +1,45 @@
-.kotlin-news-section-news {
+@import "static/js/components/kto-link";
+
+.kotlin-news-section {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 -1px;
+
+  margin-top: var(--l-space);
+  margin-right: calc(-1*var(--s-space));
 }
 
-a.kotlin-news-section-news__item,
-a.kotlin-news-section-news__item:any-link {
-  color: rgba(255, 255, 255, .6);
-
+.kotlin-news-section__chunk {
   display: flex;
-  box-sizing: border-box;
+  flex-wrap: wrap;
+  flex: 1 1;
+  margin-top: calc(-1*var(--m-space));
+}
+
+.kotlin-news-section__item,
+.kotlin-news-section__item:any-link {
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
-  background: transparent;
-  outline: none;
+  flex: 1 1;
+  min-width: 230px;
+  margin-top: var(--m-space);
+  margin-right: var(--s-space);
 
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-
-  min-height: 138px;
-  padding: 16px 24px;
-  margin: 0;
-
-  width: 25%;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, .05);
-    text-decoration: none;
-  }
-
-  &:active {
-    outline: 2px solid #6B70FC;
-  }
-
-  &:last-of-type {
-    border-right: none;
-  }
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
-.kotlin-news-section-news__title {
+.kotlin-news-section__title {
+  @include kto-link;
+  @include kto-link_theme_dark;
+}
+
+.kotlin-news-section__item .kto-text__size_m {
   color: #fff;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 28px;
+  margin-top: var(--xs-space);
 }
 
-.kotlin-news-section-news__item:hover .kotlin-news-section-news__title-text {
-  border-bottom: 1px solid currentColor;
+.kotlin-news-section__item .kto-text__size_s {
+  color: rgba(255, 255, 255, 0.5);
 }

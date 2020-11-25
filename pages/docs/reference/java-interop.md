@@ -490,8 +490,8 @@ They are not related to the `Array` class and are compiled down to Java's primit
 
 Suppose there is a Java method that accepts an int array of indices:
 
-
 <div class="sample" markdown="1" theme="idea" mode="java">
+
 ``` java
 public class JavaArrayExample {
 
@@ -706,7 +706,13 @@ To access static members of a Java type that is [mapped](#mapped-types) to a Kot
 
 Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance::class.java`,
 `ClassName::class.java` or `instance.javaClass` to enter Java reflection through `java.lang.Class`.
-You may also use `ClassName::class.javaObjectType` for getting primitive types wrappers.
+Do not use `ClassName.javaClass` for this purpose because it refers to `ClassName`'s companion object class,
+which is the same as `ClassName.Companion::class.java` and not `ClassName::class.java`.
+
+For each primitive type, there are two different Java classes, and Kotlin provides ways to get both. For
+example, `Int::class.java` will return the class instance representing the primitive type itself,
+corresponding to `Integer.TYPE` in Java. To get the class of the corresponding wrapper type, use
+`Int::class.javaObjectType`, which is equivalent of Java's `Integer.class`.
 
 Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property, a `KProperty` for a Java field, a Java method or constructor for a `KFunction` and vice versa.
 
@@ -766,5 +772,19 @@ external fun foo(x: Int): Double
 ```
 
 </div>
+
+You can also mark property getters and setters as `external`:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+var myProperty: String
+	external get
+	external set
+```
+
+</div>
+
+Behind the scenes, this will create two functions `getMyProperty` and `setMyProperty`, both marked as `external`.
 
 The rest of the procedure works in exactly the same way as in Java.

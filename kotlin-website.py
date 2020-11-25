@@ -161,6 +161,14 @@ def get_domain(url):
 
 app.jinja_env.globals['get_domain'] = get_domain
 
+
+@app.template_filter('split_chunk')
+def split_chunk(list, size):
+    return [list[i:i+size] for i in range(len(list))[::size]]
+
+app.jinja_env.globals['split_chunk'] = split_chunk
+
+
 @app.template_filter('autoversion')
 def autoversion_filter(filename):
     asset_version = get_asset_version(filename)

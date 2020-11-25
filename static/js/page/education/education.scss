@@ -1,11 +1,16 @@
 .edu-intro {
   margin-top: 64px;
-  padding-right: 60%;
-  padding-bottom: 60px;
 
-  background: url("intro.svg") no-repeat top right;
-  background-size: 528px auto;
-  min-height: 400px;
+  display: flex;
+
+  > .kto-header {
+    min-width: 50%;
+  }
+}
+
+.edu-promo {
+  margin-top: 48px;
+  margin-bottom: 96px;
 }
 
 .edu-why-teach__learn {

@@ -24,6 +24,24 @@ val demo = Outer.Nested().foo() // == 2
 
 </div>
 
+You can also use interfaces with nesting. All combinations of classes and interfaces are possible: You can nest interfaces in classes, classes in interfaces, and interfaces in interfaces.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+interface OuterInterface {
+    class InnerClass
+    interface InnerInterface
+}
+
+class OuterClass {
+    class InnerClass
+    interface InnerInterface
+}
+```
+
+</div>
+
 ## Inner classes
 
 A nested class marked as *inner*{: .keyword } can access the members of its outer class. Inner classes carry a reference to an object of an outer class:

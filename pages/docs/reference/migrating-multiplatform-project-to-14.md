@@ -109,15 +109,17 @@ In future versions, the hierarchical project structure will become default for K
 
 The Bintray plugin doesn’t support publishing Gradle module metadata, but there are a couple of ways to get around this issue:
 
-* Migrate to `maven-publish` instead of `bintray-publish` [as we did for kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/commit/c5f1af6ad78a77fe5861588d9fb00b7d3a9bc3e5#diff-439aadfed1f3c340acdcc871c00258aeL5) 
+* Migrate to `maven-publish` instead of `gradle-bintray-plugin` [as we did for kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/commit/c5f1af6ad78a77fe5861588d9fb00b7d3a9bc3e5#diff-439aadfed1f3c340acdcc871c00258aeL5) 
 * Use [a workaround for the Bintray plugin](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891)
 
-While uploading your library to Bintray, you will see multiple versions for each artifact (such as `my-library-jvm`, `my-library-metadata`, etc.). To fix this, add `systemProp.org.gradle.internal.publish.checksums.insecure=true`. See [this issue](https://github.com/gradle/gradle/issues/11412) for details. This is a common Gradle 6.0 issue that is neither MPP nor Kotlin specific.
+While uploading your library to Bintray, you will see multiple versions for each artifact such as `my-library-jvm` and `my-library-js`. 
+To fix this, add `systemProp.org.gradle.internal.publish.checksums.insecure=true`. See [this issue](https://github.com/gradle/gradle/issues/11412) for details. 
+This is a common Gradle 6.0 issue that is neither MPP nor Kotlin specific.
 
 ### Follow the default libraries’ layout 
 
 The layout of kotlinx libraries has changed and now corresponds to the default layout, which we recommend using:
-The '“root” or “umbrella” library module now has a name without a suffix (for example,`kotlinx-coroutines-core` instead of `kotlinx-coroutines-core-native`). Publishing libraries with [maven-publish Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) follows this layout by default.
+The _root_ or _umbrella_ library module now has a name without a suffix (for example,`kotlinx-coroutines-core` instead of `kotlinx-coroutines-core-native`). Publishing libraries with [maven-publish Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) follows this layout by default.
 
 ### Migrate to the hierarchical project structure
 

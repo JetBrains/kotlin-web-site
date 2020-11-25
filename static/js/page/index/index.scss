@@ -1,14 +1,48 @@
-@import '../../../css/_config';
-@import '../../../css/_utils';
-@import '../../../css/com/_bits/_pre';
-@import '../../../css/com/_bits/_code';
-@import '../../../css/com/_syntax-highlight/_syntax-highlight_dark';
+@import 'static/css/_config';
+@import 'static/css/_utils';
+@import 'static/css/com/_bits/_pre';
+@import 'static/css/com/_bits/_code';
+@import 'static/css/com/_syntax-highlight/_syntax-highlight_dark';
+@import "static/js/components/-vars-spaces";
+
+a  {
+  color: #7F52FF;
+}
+
+.page__index-new {
+  min-width: 650px;
+}
 
 .kto-overview-section {
   font-family: Inter, Arial, sans-serif;
   color: #27282C;
 
   padding-top: 62px;
+}
+/*
+.kto-overview-section .g-layout {
+  padding-left: var(--s-space);
+  padding-right: var(--s-space);
+  box-sizing: border-box;
+
+  @media (max-width: $breakpoint-xs) {
+    padding-left: var(--s-space);
+    padding-right: var(--s-space);
+  }
+}
+*/
+
+.kto-heading__hero {
+  margin-bottom: var(--l-space);
+}
+
+.kto-heading__h1 {
+  margin-bottom: var(--m-space);
+}
+
+.kto-heading__h4 {
+  margin-bottom: var(--m-space);
+  @media(max-width: $breakpoint-xs) { margin-bottom: var(--xs-space); }
 }
 
 .kto-overview-section_mode_dark {
@@ -20,15 +54,6 @@
   background: #F5F5F5;
 }
 
-.kto-overview-section a {
-  color: #6B70FC;
-  text-decoration: none;
-}
-
-.kto-overview-section a:hover {
-  text-decoration: underline;
-}
-
 .kto-overview-section a.kto-button,
 .kto-overview-section a.kto-button:hover,
 .kto-overview-section a.kto-button:active,
@@ -37,8 +62,7 @@
   text-decoration: none;
 }
 
-.kto-overview-section__title,
-.kto-overview-section__title_link {
+.kto-overview-section__title {
   font-weight: bold;
   font-size: 45px;
   line-height: 52px;
@@ -68,10 +92,7 @@ a.kto-overview-section__title_link:any-link {
 }
 
 .kto-overview-section__title_size_s {
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 26px;
-  margin-bottom: 30px;
+  margin-bottom: var(--m-space);
 }
 
 @import "kotlin-intro-section";
@@ -83,10 +104,9 @@ a.kto-overview-section__title_link:any-link {
 @import "kotlin-highlights-section";
 @import "kotlin-stay-in-touch-section";
 
-
 .kotlin-get-started-section {
   padding-top: 88px;
-  padding-bottom: 96px;
+  padding-bottom: var(--xxl-space);
 }
 
 .kotlin-get-started-section__title {
@@ -94,7 +114,7 @@ a.kto-overview-section__title_link:any-link {
 }
 
 .kotlin-get-started-section__text {
-  margin: 32px 0 48px;
+  margin: var(--m-space) 0 var(--l-space);
   font-size: 31px;
   line-height: 42px;
 }

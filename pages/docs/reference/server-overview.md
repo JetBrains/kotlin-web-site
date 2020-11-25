@@ -36,7 +36,9 @@ for Kotlin, including [full documentation](http://vertx.io/docs/vertx-core/kotli
 It serves as an alternative to traditional templating systems such as JSP and FreeMarker.
 
  * [Micronaut](https://micronaut.io/) is a modern, JVM-based, full-stack framework for building modular, easily testable microservice and serverless applications. It comes with a lot of built-in, handy features.
- 
+
+ * [http4k](https://http4k.org/) is the functional toolkit with a tiny footprint for Kotlin HTTP applications, written in pure Kotlin. The library is based on the "Your Server as a Function" paper from Twitter and represents modeling both HTTP Servers and Clients as simple Kotlin functions that can be composed together.
+
  * [Javalin](https://javalin.io) is a very lightweight web framework for Kotlin and Java which supports WebSockets, HTTP2 and async requests.
 
  * The available options for persistence include direct JDBC access, JPA, as well as using NoSQL databases through their Java drivers.
@@ -73,3 +75,4 @@ show you how you can build and run very small Web applications in Kotlin.
 * For a more in-depth introduction to the language, check out the [reference documentation](/docs/reference/index.html) on this site and
 [Kotlin Koans](/docs/tutorials/koans.html).
 * Micronaut also has a lot of well-detailed [guides](https://guides.micronaut.io/tags/kotlin.html), showing how you can build microservices in Kotlin.
+* http4k provides the [CLI](https://toolbox.http4k.org) to generate fully formed projects, and a [starter](https://start.http4k.org) repo to generate an entire CD pipeline using GitHub, Travis, and Heroku with a single bash command.

@@ -152,7 +152,7 @@ The class can also declare **secondary constructors**, which are prefixed with *
 
 ```kotlin
 class Person {
-    var children: MutableList<Person> = mutableListOf<>()
+    var children: MutableList<Person> = mutableListOf()
     constructor(parent: Person) {
         parent.children.add(this)
     }
@@ -169,7 +169,7 @@ is done using the *this*{: .keyword } keyword:
 
 ```kotlin
 class Person(val name: String) {
-    var children: MutableList<Person> = mutableListOf<>()
+    var children: MutableList<Person> = mutableListOf()
     constructor(name: String, parent: Person) : this(name) {
         parent.children.add(this)
     }
@@ -461,21 +461,35 @@ class FilledRectangle : Rectangle() {
 
 Inside an inner class, accessing the superclass of the outer class is done with the *super*{: .keyword } keyword qualified with the outer class name: `super@Outer`:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea">
 
 ```kotlin
-class FilledRectangle: Rectangle() {
-    fun draw() { /* ... */ }
+open class Rectangle {
+    open fun draw() { println("Drawing a rectangle") }
     val borderColor: String get() = "black"
+}
+
+//sampleStart
+class FilledRectangle: Rectangle() {
+    override fun draw() { 
+    	val filler = Filler()
+        filler.drawAndFill()
+    }
     
     inner class Filler {
-        fun fill() { /* ... */ }
+        fun fill() { println("Filling") }
         fun drawAndFill() {
             super@FilledRectangle.draw() // Calls Rectangle's implementation of draw()
             fill()
             println("Drawn a filled rectangle with color ${super@FilledRectangle.borderColor}") // Uses Rectangle's implementation of borderColor's get()
         }
     }
+}
+//sampleEnd
+
+fun main() {
+    val fr = FilledRectangle()
+        fr.draw()
 }
 ```
 

@@ -67,7 +67,7 @@ $ sudo snap install --classic kotlin
    <div class="sample" markdown="1" theme="idea">
 
    ```kotlin
-   fun main(args: Array<String>) {
+   fun main() {
        println("Hello, World!")
    }
    ```
