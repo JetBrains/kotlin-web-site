@@ -696,7 +696,7 @@ kotlin {
             }
 
             // Create a test task to run the tests produced by this compilation:
-            tasks.create('jvmIntegrationTest', Test) {
+            tasks.register('jvmIntegrationTest', Test) {
                 /* ... */
             }
         }
@@ -722,7 +722,7 @@ kotlin {
                 }
 
                 // Create a test task to run the tests produced by this compilation:
-                tasks.create<Test>("integrationTest") {
+                tasks.register<Test>("integrationTest") {
                     /* ... */
                 }
             }

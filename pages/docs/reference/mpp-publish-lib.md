@@ -83,7 +83,7 @@ kotlin {
             matching { it.name in publicationsFromMainHost }.all { targetPublication ->
                 tasks.withType(AbstractPublishToMaven)
                         .matching { it.publication == targetPublication }
-                        .all { onlyIf { findProperty("isMainHost") == "true" } }
+                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
             }
         }
     }
@@ -110,7 +110,7 @@ kotlin {
                 val targetPublication = this@all
                 tasks.withType<AbstractPublishToMaven>()
                         .matching { it.publication == targetPublication }
-                        .all { onlyIf { findProperty("isMainHost") == "true" } }
+                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
             }
         }
     }

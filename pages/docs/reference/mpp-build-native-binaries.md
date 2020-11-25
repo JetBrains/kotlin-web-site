@@ -372,7 +372,7 @@ kotlin {
         }
     }
     // Create a task building a fat framework.
-    task debugFatFramework(type: FatFrameworkTask) {
+    tasks.register("debugFatFramework", FatFrameworkTask) {
         // The fat framework must have the same base name as the initial frameworks.
         baseName = "my_framework"
         // The default destination directory is '<build directory>/fat-framework'.
@@ -405,7 +405,7 @@ kotlin {
         }
     }
     // Create a task to build a fat framework.
-    tasks.create("debugFatFramework", FatFrameworkTask::class) {
+    tasks.register<FatFrameworkTask>("debugFatFramework") {
         // The fat framework must have the same base name as the initial frameworks.
         baseName = "my_framework"
         // The default destination directory is '<build directory>/fat-framework'.

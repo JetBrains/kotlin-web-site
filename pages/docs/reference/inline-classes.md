@@ -199,7 +199,7 @@ To remove the warning you have to opt in to the usage of this feature by passing
 <div class="sample" markdown="1" theme="idea" mode="groovy" data-lang="groovy">
 
 ```groovy
-compileKotlin {
+tasks.withType(KotlinCompile).configureEach {
     kotlinOptions.freeCompilerArgs += ["-Xinline-classes"]
 }
 ```
@@ -211,7 +211,7 @@ compileKotlin {
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-tasks.withType<KotlinCompile> {
+tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.freeCompilerArgs += "-Xinline-classes"
 }
 ```

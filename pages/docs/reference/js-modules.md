@@ -64,7 +64,7 @@ compileKotlinJs.kotlinOptions.moduleKind = "commonjs"
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-tasks.withType(KotlinJsCompile::class.java).named("compileKotlinJs") {
+tasks.named<KotlinJsCompile>("compileKotlinJs").configure {
     kotlinOptions.moduleKind = "commonjs"
 }
 ```
