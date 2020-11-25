@@ -1,55 +1,74 @@
-<section class="kto-overview-section kotlin-why-section">
-    <div class="g-layout">
-        <h2 id="why-kotlin" class="kto-heading kto-heading__h1">
-            <a class="kto-overview-section__title_link" href="#why-kotlin">Why Kotlin?</a>
-        </h2>
-        <ul class="kto-features-list">
-            {% for feature in features %}
-                <li class="kto-features-list__feature kto-features-list__feature_{{ feature.id }}">
-                    <div class="kto-features-list__short-info">
-                        <h3 class="kto-heading kto-heading__h3 kto-features-list__title">{{ feature.title | safe }}</h3>
-                        <p class="kto-features-list__description">{{ feature.description | safe }}</p>
-                    </div>
-                    <div class="kto-features-list__content">
+{% macro switch_tabs(data) -%}
+    <div class="kjq-tabs kjq-tabs_size_s">
+        <ul class="kjq-tabs__list">
+            {% for feature in data %}
+                <li class="kjq-tabs__tab kjq-tabs-tab" data-tab-id="{{ feature.id }}">
+                    <p class="kjq-tabs-tab__title">{{ feature.id.capitalize() }}</p>
+                    <div class="kjq-tabs-tab__content">
                         {{ feature.content | safe }}
-
-                        {% if feature.id == "tool-friendly" %}
-                            <ul class="kto-getting-list g-layout">
-                                {% macro render_get_kotlin_item(id, title, description, instructions, download, className="") -%}
-                                    <li class="kto-getting-item kto-getting-item_{{ id }} {{ className }}">
-                                        <div class="kto-getting-item__content">
-                                            <h3 class="kto-getting-item__title">{{ title }}</h3>
-                                            <p class="kto-getting-item__description"> {{ caller() }}</p>
-                                        </div>
-                                        <div>
-                                            {% if download %}<a href="{{ download }}" target="_blank" class="kto-getting-item__download">Download</a>{% endif %}
-                                            <a href="{{ instructions }}" class="kto-getting-item__instruction">Instructions</a>
-                                        </div>
-                                    </li>
-                                {%- endmacro %}
-
-                                {% call render_get_kotlin_item(id="intellij-idea", title="IntelliJ IDEA", className="jetbrains-logo _logo-intellij-idea",
-                                                instructions="/docs/tutorials/jvm-get-started.html", download="https://www.jetbrains.com/idea/download/") %}
-                                    Bundled with both IntelliJ IDEA Community Edition and IntelliJ IDEA Ultimate
-                                {% endcall %}
-
-                                {% call render_get_kotlin_item(id="android-studio", title="Android Studio",
-                                                instructions="/docs/tutorials/kotlin-android.html",  download="https://developer.android.com/studio/") %}
-                                    Bundled with Android Studio
-                                {% endcall %}
-
-                                {% call render_get_kotlin_item(id="eclipse", title="Eclipse", instructions="/docs/tutorials/getting-started-eclipse.html") %}
-                                    Install the plugin from the Eclipse Marketplace
-                                {% endcall %}
-
-                                {% call render_get_kotlin_item(id="standalone-compiler", title="Standalone Compiler", instructions="/docs/tutorials/command-line.html") %}
-                                    Use any editor and build from the command line
-                                {% endcall %}
-                            </ul>
-                        {% endif %}
                     </div>
                 </li>
             {% endfor %}
         </ul>
     </div>
-</section>
+{%- endmacro %}
+
+<article class="kotlin-why-section">
+    <div class="g-layout">
+        <h2 id="why-kotlin" class="kto-heading kto-heading_size_h1">
+            <a class="kto-overview-section__title_link" href="#why-kotlin">Why Kotlin</a>
+        </h2>
+
+        <section class="kotlin-why-section__section">
+            <h3 class="kto-heading kto-heading_size_hero kotlin-why-section__first-hero">Modern, concise and safe programming language</h3>
+            {{ switch_tabs(features) }}
+            <p class="kto-text kto-text_size_m">
+                Easy to pick up, so you can create powerful applications immediately.
+            </p>
+            <a class="kto-button kto-button_size_l kto-button_mode_outline" href="/docs/tutorials/getting-started.html">
+                Get started →
+            </a>
+        </section>
+
+        <section class="kotlin-why-section__section">
+            <h3 class="kto-heading kto-heading_size_hero">A productive way to write server—side applications</h3>
+            <div class="kto-overview-youtube kotlin-why-section__media">
+                <iframe width="560" height="315"  frameborder="0" allowfullscreen
+                        src="https://www.youtube-nocookie.com/embed/8xAH7RU0Y44"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+            <p class="kto-text kto-text_size_m">
+                Compatible with the Java ecosystem. Use your favorite JVM frameworks and libraries.
+            </p>
+            <a class="kto-button kto-button_size_l kto-button_mode_outline" href="/lp/server-side/" target="_blank">
+                Learn more →
+            </a>
+        </section>
+
+        <section class="kotlin-why-section__section">
+            <h3 class="kto-heading kto-heading_size_hero">Natural way to share code between mobile platforms</h3>
+            <img class="kotlin-why-section__media" alt="Mobile platforms Feature" src="/assets/images/index/mobile-platforms.svg" width="100%">
+            <p class="kto-text kto-text_size_m">
+                Write the business logic for iOS and Android apps just once.  Easily make existing applications cross platform.
+            </p>
+            <a class="kto-button kto-button_size_l kto-button_mode_outline" href="https://kotlinlang.org/lp/mobile/" target="_blank">
+                Browse KMM →
+            </a>
+        </section>
+
+        <section class="kotlin-why-section__section">
+            <h3 class="kto-heading kto-heading_size_hero">Big, friendly and helpful  community</h3>
+            <div class="kto-overview-youtube kotlin-why-section__media">
+                <iframe width="560" height="315" frameborder="0" allowfullscreen
+                        src="https://www.youtube-nocookie.com/embed/BGHx5ueEUGI"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+            <p class="kto-text kto-text_size_m">
+                Kotlin has great support and many contributors in its fast-growing global community. Enjoy the benefits of a rich ecosystem with  a wide range of community libraries. Help is never far away – consult extensive community resources or ask the Kotlin  team directly.
+            </p>
+            <a class="kto-button kto-button_size_l kto-button_mode_outline" href="/community/">
+                Join the community →
+            </a>
+        </section>
+    </div>
+</article>
