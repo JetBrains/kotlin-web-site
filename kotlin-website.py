@@ -523,7 +523,7 @@ if __name__ == '__main__':
                     sys.stderr.write(error + '\n')
                 sys.exit(-1)
         elif argv_copy[1] == "index":
-            build_search_indices(get_pages(freezer))
+            build_search_indices(get_pages(freezer), site_data['releases']['latest']['version'])
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)

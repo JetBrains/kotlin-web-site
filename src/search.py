@@ -209,7 +209,7 @@ def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title
 
                 for ind, page_part in enumerate(get_valuable_content(page_path, chapter_content)):
                     page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
-                                 'headings': chapter_title, 'pageTitle': article_title, 'type': page_type,
+                                 'headings': chapter_title, 'mainTitle': article_title, 'pageTitle': chapter_title, 'type': page_type,
                                  'pageViews': page_views}
                     index_objects.append(page_info)
 
@@ -240,13 +240,13 @@ def get_page_content(url):
     return content.data
 
 
-def to_wh_index(item):
+def to_wh_index(version, item):
     page_title = item["pageTitle"] if "pageTitle" in item else item["headings"]
 
     wh_index = {
         "objectID": item["objectID"],
         "headings": item["headings"],
-        "mainTitle": page_title,
+        "mainTitle": item["mainTitle"] if "mainTitle" in item else page_title,
         "pageTitle": page_title,
         "content": item["content"],
         "url": "https://kotlinlang.org" + item["url"],
@@ -255,15 +255,15 @@ def to_wh_index(item):
         "parent": item["url"],
         "pageViews": item["pageViews"],
         "product": "help/kotlin-reference",
-        "version": "1.4.10",
+        "version": version,
         "breadcrumbs": None,
     }
 
     return wh_index
 
 
-def build_search_indices(pages):
-    page_views_statistic = get_page_views_statistic()
+def build_search_indices(pages, version):
+    page_views_statistic = {} #get_page_views_statistic()
     index_objects = []
     wh_index_objects = []
 
@@ -363,7 +363,8 @@ def build_search_indices(pages):
             )
 
             index_objects += page_indices
-            wh_index_objects += list(map(to_wh_index, page_indices.copy()))
+            def wh(*args): return to_wh_index(version, *args)
+            wh_index_objects += list(map(wh, page_indices.copy()))
         else:
             print('skip: ' + url + ' unknown page content in with title: ' + title)
 
