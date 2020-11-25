@@ -708,6 +708,7 @@ Java reflection works on Kotlin classes and vice versa. As mentioned above, you 
 `ClassName::class.java` or `instance.javaClass` to enter Java reflection through `java.lang.Class`.
 Do not use `ClassName.javaClass` for this purpose because it refers to `ClassName`'s companion object class,
 which is the same as `ClassName.Companion::class.java` and not `ClassName::class.java`.
+
 For each primitive type, there are two different Java classes, and Kotlin provides ways to get both. For
 example, `Int::class.java` will return the class instance representing the primitive type itself,
 corresponding to `Integer.TYPE` in Java. To get the class of the corresponding wrapper type, use
