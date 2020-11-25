@@ -609,9 +609,7 @@ It is also possible to configure all Kotlin compilation tasks in the project:
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-tasks.withType(KotlinCompile).configureEach {
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
     kotlinOptions { /*...*/ }
 }
 ```
@@ -623,10 +621,8 @@ tasks.withType(KotlinCompile).configureEach {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.suppressWarnings = true
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions { /*...*/ }
 }
 ```
 
