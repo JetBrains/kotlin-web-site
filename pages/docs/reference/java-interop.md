@@ -706,7 +706,12 @@ To access static members of a Java type that is [mapped](#mapped-types) to a Kot
 
 Java reflection works on Kotlin classes and vice versa. As mentioned above, you can use `instance::class.java`,
 `ClassName::class.java` or `instance.javaClass` to enter Java reflection through `java.lang.Class`.
-You may also use `ClassName::class.javaObjectType` for getting primitive types wrappers.
+Do not use `ClassName.javaClass` for this purpose because it refers to `ClassName`'s companion object class,
+which is the same as `ClassName.Companion::class.java` and not `ClassName::class.java`.
+For each primitive type, there are two different Java classes, and Kotlin provides ways to get both. For
+example, `Int::class.java` will return the class instance representing the primitive type itself,
+corresponding to `Integer.TYPE` in Java. To get the class of the corresponding wrapper type, use
+`Int::class.javaObjectType`, which is equivalent of Java's `Integer.class`.
 
 Other supported cases include acquiring a Java getter/setter method or a backing field for a Kotlin property, a `KProperty` for a Java field, a Java method or constructor for a `KFunction` and vice versa.
 
