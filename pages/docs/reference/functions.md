@@ -49,7 +49,7 @@ Each parameter must be explicitly typed:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-fun powerOf(number: Int, exponent: Int) { /*...*/ }
+fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 </div>
 
