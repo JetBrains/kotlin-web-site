@@ -83,15 +83,15 @@ reference:
         - url: /docs/reference/whatsnew-plugin-20203.html
           title: Kotlin plugin 2020.3
         - url: /docs/reference/whatsnew1420.html
-          title: What's New in 1.4.20
+          title: Kotlin 1.4.20
         - url: /docs/reference/whatsnew14.html
-          title: What's New in 1.4
+          title: Kotlin 1.4
         - url: /docs/reference/whatsnew13.html
-          title: What's New in 1.3
+          title: Kotlin 1.3
         - url: /docs/reference/whatsnew12.html
-          title: What's New in 1.2
+          title: Kotlin 1.2
         - url: /docs/reference/whatsnew11.html
-          title: What's New in 1.1
+          title: Kotlin 1.1
 
     - title: Releases and Roadmap
       description: Kotlin releases and roadmap
