@@ -409,10 +409,6 @@ tutorials:
       content:
         - url: /docs/tutorials/mixing-java-kotlin-intellij.html
           title: Mixing Java and Kotlin in one project
-    - title: JVM
-      content:
-        - url: /docs/tutorials/jvm-test-using-junit.md
-          title: Test Kotlin code using JUnit
     - title: JavaScript
       content:
         - url: /docs/tutorials/javascript/setting-up.html
@@ -493,6 +489,11 @@ tutorials:
           title: Creating Web Applications with Http Servlets
         - url: /docs/tutorials/spring-boot-restful.html
           title: Creating a RESTful Web Service with Spring Boot
+
+    - title: Testing
+      content:
+        - url: /docs/tutorials/jvm-test-using-junit.html
+          title: Test Kotlin code using JUnit
 
     - title: Tools
       content:

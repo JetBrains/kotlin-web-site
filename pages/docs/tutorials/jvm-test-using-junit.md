@@ -47,7 +47,7 @@ The example has the [kotlin.test](/api/latest/kotlin.test/index.html) library un
    </div>
 
 
-## Write code to test
+## Add code to test
 
 1. Open the `main.kt` file in `src/main/kotlin`.
 
@@ -70,6 +70,10 @@ class Sample() {
 ## Create a test
 
 1. In IntelliJ IDEA, select **Code** \| **Generate** \| **Test...** of the `main.kt` file in `src/main/kotlin`.
+
+   ![Create a test]({{ url_for('tutorial_img', filename='testing/create-test.png') }})
+   
+   > You can also create a `*.kt` file for test in `src/main/kotlin` manually.
 
 2. Specify the name of the test class. For example, `SampleTest`.
 
@@ -102,6 +106,9 @@ class Sample() {
 
 ## Run a test
 
-1. Use the gutter icon to execute it. Also, you can run a test via the command-line interface using the `./gradlew` command.
+1. Run the test using the gutter icon. You can also run a test via the command-line interface using the `./gradlew` command.
+   
+   ![Run the test]({{ url_for('tutorial_img', filename='testing/run-test.png') }})
+   
 2. Check the result of the test run. 
 

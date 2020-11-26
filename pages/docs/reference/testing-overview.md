@@ -62,11 +62,9 @@ Using such frameworks, you can create mock objects at runtime and configure thei
 Frameworks:
 [MockK](https://mockk.io/), [Mockito](https://github.com/mockito/mockito)
 
-### Run the unit test code
+### Run the unit test
 
-Usually, the build tool runs unit tests. For example, Gradle.
-
-Running tests in a Gradle build is supported by default for JVM, Android, Linux, Windows, and macOS.
+Usually, the build tool runs unit tests. For example, Gradle. Running tests in a Gradle build is supported by default for JVM, Android, Linux, Windows, and macOS.
 You need to configure JS and other Kotlin/Native targets manually to run the tests with an appropriate environment, an emulator, or a test framework.
 
 ## Integration tests
