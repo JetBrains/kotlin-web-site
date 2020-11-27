@@ -48,7 +48,7 @@ Learn more about [adding dependencies](mpp-add-dependencies.html).
 
 This `kotlinMultiplatform` publication includes metadata artifacts and references the other publications as its variants.
 
-> Some repositories such as Maven Central require that the root module contains a JAR artifact without a classifier, for example, `kotlinMultiplatform-1.0.jar`.
+> Some repositories such as Maven Central require that the root module contains a JAR artifact without a classifier, for example, `kotlinMultiplatform-1.0.jar`.  
 > You must not customize your build to add such an artifact to the root module of your library to meet these requirements. 
 > The Kotlin plugin automatically produces the required artifact with the embedded metadata artifacts.
 {:.note}
