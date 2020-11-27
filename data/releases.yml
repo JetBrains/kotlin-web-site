@@ -7,9 +7,9 @@ latest:
   date: November 23, 2020
 
   coroutines:
-    version: 1.4.1
+    version: 1.4.2
     url: https://github.com/Kotlin/kotlinx.coroutines
-    date: November 3, 2020
+    date: November 26, 2020
 
   serialization:
     version: 1.0.1
