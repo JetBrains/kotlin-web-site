@@ -48,9 +48,14 @@ Learn more about [adding dependencies](mpp-add-dependencies.html).
 
 This `kotlinMultiplatform` publication includes metadata artifacts and references the other publications as its variants.
 
-> You must not add an empty artifact without a classifier to the root module of your library to meet the requirements of repositories 
-> such as Maven Central, as this will result in a conflict with metadata artifacts that are included in this module.
+> Some repositories such as Maven Central require that the root module contains a JAR artifact without a classifier, for example, `kotlinMultiplatform-1.0.jar`.
+> You must not customize your build to add such an artifact to the root module of your library to meet these requirements. 
+> The Kotlin plugin automatically produces the required artifact with the embedded metadata artifacts.
 {:.note}
+>
+>This statement is about requirements of some repositories like Maven Central where each module must contain a JAR artifact without classifier (not -sources or -javadoc, just foo-1.0.jar). 
+>Since Kotlin 1.4.20, the artifacts that were published as a part of a multiplatform library's foo-metadata module, have moved to the 'root' module foo. 
+>So if a customized build adds an empty JAR to the root module just to meet the repository's requirements, there will now be a conflict between that empty artifact and the artifact produced by the Kotlin plugin.
  
 The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
 add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
