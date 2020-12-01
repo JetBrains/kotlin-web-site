@@ -5,10 +5,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.kto-heading__hero {
+.kto-heading_size_hero {
   font-size: 64px;
   line-height: 72px;
-  letter-spacing: -3px;
+  letter-spacing: -2px;
 
   @media (max-width: 640px) {
     font-size: 42px;
@@ -17,7 +17,7 @@
   }
 }
 
-.kto-heading__h1 {
+.kto-heading_size_h1 {
   font-size: 43px;
   line-height: 48px;
   letter-spacing: -1px;
@@ -29,7 +29,7 @@
   }
 }
 
-.kto-heading__h2 {
+.kto-heading_size_h2 {
   font-weight: 500;
   font-size: 31px;
   line-height: 40px;
@@ -43,13 +43,13 @@
   }
 }
 
-.kto-heading__h3 {
+.kto-heading_size_h3 {
   font-weight: 600;
   font-size: 20px;
   line-height: 32px;
 }
 
-.kto-heading__h4 {
+.kto-heading_size_h4 {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;

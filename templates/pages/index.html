@@ -1,3 +1,4 @@
+{% set restyled="v2" %}
 {% extends 'base.html' %}
 
 {% block head_preload %}
@@ -17,7 +18,7 @@
 
     <section class="kotlin-banner-section kto-overview-section kto-overview-section_mode_dark">
         <div class="g-layout">
-            <h2 class="kto-heading kto-heading__h4">Latest from Kotlin</h2>
+            <h2 class="kto-heading kto-heading_size_h4">Latest from Kotlin</h2>
             <div class="kotlin-banner-section__banner">
                 <a target="_blank" class="kotlin-banner-section__link"
                    href="https://blog.jetbrains.com/kotlin/2020/11/kotlin-1-4-20-released/">
@@ -34,12 +35,12 @@
                         {% for news in news_list %}
                             {% set domain_link = get_domain(news.link) %}
                             <a class="kotlin-news-section__item" href="{{ news.link }}"{% if domain_link %} target="_blank"{% endif %}>
-                                <p class="kto-text kto-text__size_s">
+                                <p class="kto-text kto-text_size_s">
                                     {% if news.tag %}{{ news.tag }}
                                         {% elif domain_link %}{{ domain_link }}
                                     {% else %}Overview{% endif %}
                                 </p>
-                                <h3 class="kto-text kto-text__size_m">
+                                <h3 class="kto-text kto-text_size_m">
                                     <span class="kotlin-news-section__title">{{ news.title }}</span>&nbsp;<span class="kotlin-news-section__arrow">↗</span>
                                 </h3>
                             </a>
@@ -54,7 +55,7 @@
 
     <section id="usage-highlights" class="kto-overview-section kotlin-highlights-section">
         <div class="g-layout">
-            <h2 class="kotlin-highlights-section__title kto-heading kto-heading__h1">
+            <h2 class="kotlin-highlights-section__title kto-heading kto-heading_size_h1">
                 <a class="kto-overview-section__title_link" href="#usage-highlights">Kotlin Usage Highlights</a>
             </h2>
             <ul class="kto-highlights">
@@ -68,11 +69,11 @@
         </div>
     </section>
 
-    {% include 'inc/pages/index/stay-in-touch.html' %}
+    {# include 'inc/pages/index/stay-in-touch.html' #}
 
     <section id="get-started" class="kto-overview-section kto-overview-section_mode_grey kotlin-get-started-section">
         <div class="g-layout">
-            <h2 class="kto-heading kto-heading__hero kotlin-get-started-section__title">
+            <h2 class="kto-heading kto-heading_size_hero kotlin-get-started-section__title">
                 <a class="kto-overview-section__title_link" href="#get-started">
                     Start Using Kotlin Today!
                 </a>

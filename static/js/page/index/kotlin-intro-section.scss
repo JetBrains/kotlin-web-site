@@ -11,14 +11,7 @@
   text-align: right;
 }
 
-.kotlin-intro-section__supports,
-.kotlin-intro-section__supports .kotlin-intro-section__link,
-.kotlin-intro-section__supports .kotlin-intro-section__link:hover {
-  color: rgba(255, 255, 255, .65);
-}
-
-.kotlin-intro-section__link,
-.kotlin-intro-section__link:hover {
+.kotlin-intro-section__link {
   margin-left: 8px;
 }
 
@@ -70,11 +63,11 @@
 .kotlin-intro-featured__item {
   &, &:hover {
     color: #fff;
+    text-decoration: none;
   }
 
   flex: 1 1;
   display: block;
-  text-decoration: none;
 
   box-sizing: border-box;
   padding: 120px 32px 32px;
@@ -112,10 +105,10 @@
   background-image: url("./images/good-for/web.svg");
 }
 
-.kotlin-intro-featured .kto-heading__h3 {
+.kotlin-intro-featured .kto-heading_size_h3 {
   margin-bottom: 16px;
 }
 
-.kotlin-intro-featured .kto-text__size_m {
+.kotlin-intro-featured .kto-text_size_m {
   color: rgba(255, 255, 255, 0.65)
 }
