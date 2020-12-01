@@ -376,7 +376,7 @@ Kotlin/JS projects [here](js-modules.html). The default value is `umd`.
 ```groovy
 webpackTask {
     outputFileName = "mycustomfilename.js"
-    output.libraryTarget = "commonjs"
+    output.libraryTarget = "commonjs2"
 }
 ```
 </div>
