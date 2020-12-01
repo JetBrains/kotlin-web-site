@@ -109,7 +109,7 @@ There are too many companies using Kotlin to list, but some more visible compani
 ### Who develops Kotlin?
 
 Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 100+). The lead language designer is 
-[Andrey Breslav](https://twitter.com/abreslav). In addition to the core team, there are also over 250 external contributors on GitHub. 
+[Roman Elizarov](https://twitter.com/relizarov). In addition to the core team, there are also over 250 external contributors on GitHub. 
 
 ### Where can I learn more about Kotlin?
 
