@@ -12,12 +12,8 @@ title: Events
 
 ![Server-side webinars]({{ url_for('asset', path='images/community/server-side-webinars.png') }})
  
-Kotlin is becoming a language of choice for server-side application development. We’re launching a series of webinars
- to help you to learn more about backend development with Kotlin or even try it for the first time.
-
-In the next few weeks, speakers from JetBrains, Google, and Confluent will cover three essential topics of backend
- development: event stream management with Kafka, running applications in the cloud, and backends with Spring Boot
- . [Read more](https://blog.jetbrains.com/kotlin/2020/11/server-side-with-kotlin-webinar-series/)
+In the next few weeks, speakers from JetBrains, Google, and Confluent will cover essential topics of backend
+ development: event stream management with Kafka, running applications in the cloud, and backends with Spring Boot. [For more information, and to register for the webinars, check out this blog post](https://blog.jetbrains.com/kotlin/2020/11/server-side-with-kotlin-webinar-series/)
  
 [Host event](https://surveys.jetbrains.com/s3/1eca96c71ee7){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
