@@ -119,6 +119,28 @@ val olderJack = jack.copy(age = 2)
 
 </div>
 
+Note that the `copy()` call performs shallow copy, meaning that it doesn't propagate recursively through attributes:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+data class User(var name : String)
+
+data class Address(var user: User, var city: String)
+
+var userJack = User(name="jack")
+var address = Address(user = userJack, city = "London")
+var addressCopy = address.copy()
+
+address.city = "New York"
+address.user.name = "john"
+
+println(addressCopy.city)  // prints "London"
+println(addressCopy.user.name)  // prints "john", because `address.user === addressCopy.user`
+```
+
+</div>
+
 ## Data Classes and Destructuring Declarations
 
 _Component functions_ generated for data classes enable their use in [destructuring declarations](multi-declarations.html):
