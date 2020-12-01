@@ -6,7 +6,8 @@ title: Events
 
 # Everybody to the party 
 
-[Register here](https://blog.jetbrains.com/kotlin/2020/11/server-side-with-kotlin-webinar-series/}
+[Register Here](https://blog.jetbrains.com/kotlin/2020/11/server-side-with-kotlin-webinar-series/){:.typo-float-right.kto-button.kto-button_size_m.kto
+-button_mode_outline}
 
 ## Server-side with Kotlin Webinar Series
 
