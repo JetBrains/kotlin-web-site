@@ -254,8 +254,8 @@ As a library author, maintaining a clean API is a challenge. There is always the
 
     <event>
         <lang>en</lang>
-        <startDate>2020-12-09</startDate>
-        <endDate>2020-12-09</endDate>
+        <startDate>2020-12-16</startDate>
+        <endDate>2020-12-16</endDate>
         <location>Perth, Australia</location>
         <speaker>Richard Hickling</speaker>
         <title>ProfitView</title>
