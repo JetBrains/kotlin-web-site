@@ -6,6 +6,15 @@ title: Events
 
 # Everybody to the party 
 
+[Register Here](https://blog.jetbrains.com/kotlin/2020/11/server-side-with-kotlin-webinar-series/){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+
+## Server-side with Kotlin Webinar Series
+
+![Server-side webinars]({{ url_for('asset', path='images/community/server-side-webinars.png') }})
+ 
+In the next few weeks, speakers from JetBrains, Google, and Confluent will cover essential topics of backend
+ development: event stream management with Kafka, running applications in the cloud, and backends with Spring Boot. [For more information, and to register for the webinars, check out this blog post](https://blog.jetbrains.com/kotlin/2020/11/server-side-with-kotlin-webinar-series/)
+ 
 [Host event](https://surveys.jetbrains.com/s3/1eca96c71ee7){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
 ## Kotlin Nights
