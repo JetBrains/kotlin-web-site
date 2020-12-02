@@ -35,11 +35,11 @@ PDF_TOC_CONFIG = {
 }
 
 
-def generate_pdf(build_mode: bool, pages, toc):
+def generate_pdf(name, build_mode: bool, pages, toc):
     tmp_file_path = path.join(pdf_folder_path, "tmp.html")
     with open(tmp_file_path, 'w', encoding="UTF-8") as tmp_file:
         tmp_file.write(get_pdf_content(build_mode, pages, toc))
-        output_file_path = path.join(pdf_folder_path, 'kotlin-docs.pdf')
+        output_file_path = path.join(pdf_folder_path, name)
         arguments = ["wkhtmltopdf"]
         for name, value in PDF_CONFIG.items():
             arguments.append("--" + name)

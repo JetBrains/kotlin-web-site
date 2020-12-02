@@ -11,4 +11,4 @@ Here you can download a PDF version of Kotlin documentation that includes everyt
 > We recommend using the latest version of Kotlin documentation available [online](/docs/reference/index.html).
 {:.note}
 
-**[Download Kotlin documentation (PDF)](/docs/kotlin-docs.pdf)**
+**[Download Kotlin documentation (PDF)](/docs/kotlin-reference.pdf)**
