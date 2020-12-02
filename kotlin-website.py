@@ -216,12 +216,18 @@ def videos_page():
 def books_page():
     return render_template('pages/books.html')
 
-@app.route('/docs/kotlin-docs.pdf')
+
+@app.route('/docs/kotlin-reference.pdf')
 def pdf():
     if build_mode:
-        return send_file(generate_pdf(build_mode, pages, get_nav()['reference']))
+        return send_file(generate_pdf('kotlin-reference.pdf', build_mode, pages, get_nav()['reference']))
     else:
         return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
+
+
+@app.route('/docs/kotlin-docs.pdf')
+def kotlin_docs_pdf():
+    return render_template('redirect.html', url='/docs/kotlin-reference.pdf')
 
 
 @app.route('/community/')
