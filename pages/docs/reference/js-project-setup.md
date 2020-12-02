@@ -365,7 +365,21 @@ The Kotlin/JS Gradle plugin automatically generates a standard webpack configura
 at build time which you can find the at `build/js/packages/projectName/webpack.config.js`.
 
 The most common webpack adjustments can be made directly via the
-`kotlin.js.browser.webpackTask` configuration block in the Gradle build file.
+`kotlin.js.browser.webpackTask` configuration block in the Gradle build file:
+- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distibution/` after
+an execution of a webpack task. The default value is the project name.
+- `output.libraryTarget` - the module system for the webpacked output. Learn more about [available module systems for
+Kotlin/JS projects](js-modules.html). The default value is `umd`.
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+webpackTask {
+    outputFileName = "mycustomfilename.js"
+    output.libraryTarget = "commonjs2"
+}
+```
+</div>
 
 You can also configure common webpack settings to use in bundling, running, and testing tasks in the `commonWebpackConfig`
 block. 
@@ -425,7 +439,7 @@ browser {
 ```
 </div>
 
-Alternatively, you can add CSS support for selected tasks, such as `webpackTask`, `runTask`, and `testTask`.
+Alternatively, you can add CSS support independently for `webpackTask`, `runTask`, and `testTask`.
 
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
