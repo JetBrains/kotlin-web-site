@@ -140,7 +140,7 @@ You can also serialize object collections, such as lists, in a single call.
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
  
  ```kotlin
-val dataList = listOf(Data(42), Data(12, "test"))
+val dataList = listOf(Data(42, "abc"), Data(12, "test"))
 val jsonList = Json.encodeToString(dataList)
  ```
 </div>
