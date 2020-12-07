@@ -4,7 +4,7 @@ latest:
   version: 1.4.21
   url: https://github.com/JetBrains/kotlin/releases/tag/v1.4.21
   runtime_size: 1347 KB
-  date: December 3, 2020
+  date: December 7, 2020
 
   coroutines:
     version: 1.4.2

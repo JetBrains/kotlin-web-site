@@ -45,12 +45,15 @@ You can also use [preview versions of Kotlin](eap/index.html#build-details).
     </tr>
     <tr>
         <td><strong>1.4.21</strong>
-            <p>Released: <strong>December 3, 2020</strong></p>
+            <p>Released: <strong>December 7, 2020</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.21" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A bug fix release for Kotlin 1.4.20</p>
-            <p>Learn more about <a href="docs/reference/whatsnew1420.html" target="_blank">Kotlin 1.4.0</a>.</p>
+            <p>A bug fix release for <a href="docs/reference/whatsnew1420.html" target="_blank">Kotlin 1.4.20</a> with more improvements:</p>
+            <ul>
+                <li>Configuration cache support in the Gradle plugin</li>
+                <li>Compilation time improvements in Kotlin/Native</li>
+            </ul>
         </td>
         <td>
             <ul>
